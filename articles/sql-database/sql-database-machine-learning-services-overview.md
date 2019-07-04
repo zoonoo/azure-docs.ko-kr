@@ -3,6 +3,7 @@ title: R (미리 보기) 개요를 사용 하 여 azure SQL Database Machine Lea
 description: 이 문서에서는 Azure SQL Database Machine Learning 서비스 (R)을 사용 및 작동 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 186b986fe1931365ee34efab2e04e58908402cc0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951586"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427936"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>R (미리 보기)를 사용 하 여 azure SQL Database Machine Learning 서비스
 

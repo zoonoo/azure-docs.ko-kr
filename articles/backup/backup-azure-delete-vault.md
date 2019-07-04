@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e195d9a4b9d2bbe21848e083dbccf864188e0790
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310755"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508503"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -51,10 +51,10 @@ ms.locfileid: "67310755"
 
 1. 설치에서 chocolatey [여기](https://chocolatey.org/) 실행 ARMClient를 설치 하 여 아래 명령을:
 
-   ` choco install armclient --source=https://chocolatey.org/api/v2/ `
+   `choco install armclient --source=https://chocolatey.org/api/v2/`
 2. Azure 계정에 로그인 하 고이 명령을 실행 합니다.
 
-    ` ARMClient.exe login [environment name] `
+    `ARMClient.exe login [environment name]`
 
 3. Azure portal에서 삭제 하려는 자격 증명 모음에 대 한 구독 ID 및 리소스 그룹 이름을 수집 합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "67310755"
 
 ## <a name="remove-vault-items-and-delete-the-vault"></a>자격 증명 모음 항목을 제거 하 고 자격 증명 모음 삭제
 
-이러한 절차는 백업 데이터 및 인프라 서버 제거에 대 한 몇 가지 예제를 제공 합니다. 모든 자격 증명 모음에서 제거 된 후에이 삭제할 수 있습니다.
+Recovery Services 자격 증명 모음을 삭제 하기 전에 모든 종속성을 제거 합니다.
 
 ### <a name="remove-backup-items"></a>백업 항목 제거
 
@@ -108,8 +108,72 @@ ms.locfileid: "67310755"
 
       ![백업 데이터 삭제](./media/backup-azure-delete-vault/empty-items-list.png)
 
+## <a name="deleting-backup-items-from-management-console"></a>관리 콘솔에서 백업 항목 삭제
+
+백업 인프라에서 백업 항목을 삭제 하려면 관리 콘솔 (MARS, Azure Backup Server 또는 SC DPM 백 항목 보호 되는 위치에 따라) 온-프레미스 서버로 이동 합니다.
+
+### <a name="for-mars-agent"></a>MARS 에이전트에 대 한
+
+- MARS 관리 콘솔을 시작로 이동 합니다 **작업** 창 선택 **백업 일정**합니다.
+- **수정 또는 예약 된 Backup 중지** 마법사 옵션을 선택 **이 백업 일정을 사용 하 여를 중지 하 고 저장 된 모든 백업이 삭제** 누릅니다 **다음**합니다.
+
+    ![예약된 백업 수정 또는 중지](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+
+- **예약 된 백업 중지** 마법사를 클릭 **마침**합니다.
+
+    ![예약된 된 백업 중지](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+- 보안 Pin을 입력 하 라는 메시지가 표시 됩니다. PIN을 생성 하기 위해 수행 된 다음 단계:
+  - Azure 포털에 로그인합니다.
+  - **Recovery Services 자격 증명 모음** > **설정** > **속성**을 찾습니다.
+  - **보안 PIN** 아래에서 **생성**을 클릭합니다. 이 PIN을 복사 합니다. (이 핀의 유효 기간 5 분 동안만)
+- 관리 콘솔 (클라이언트 앱)에서 PIN을 붙여넣고 클릭 **확인**합니다.
+
+  ![보안 Pin](./media/backup-azure-delete-vault/security-pin.png)
+
+- 에 **백업 진행 중 수정** 나타납니다 마법사 *삭제 된 백업 데이터는 14 일간 유지 됩니다. 해당 시간 이후에 백업 데이터가 영구적으로 삭제 됩니다.*  
+
+    ![백업 인프라를 삭제 합니다.](./media/backup-azure-delete-vault/deleted-backup-data.png)
+
+완료 하는 온-프레미스에서 백업 항목을 삭제, 이제는 포털에서 다음 단계:
+- MARS의 단계에 대 한 [제거 Azure Backup 에이전트 복구 지점](#remove-azure-backup-agent-recovery-points)
+
+### <a name="for-mabs-agent"></a>MABS 에이전트에 대 한
+
+온라인 보호를 중지/삭제, 중 하나를 수행 하는 방법은 여러 가지가 있습니다를 메서드 아래:
+
+**방법 1**
+
+시작 합니다 **MABS 관리** 콘솔. 에 **데이터 보호 방법 선택** 섹션을 선택 취소 **온라인 보호**합니다.
+
+  ![데이터 보호 방법 선택](./media/backup-azure-delete-vault/data-protection-method.png)
+
+**방법 2**
+
+보호 그룹을 삭제 하려면 먼저 그룹의 보호를 중지 해야 합니다. 보호를 중지 하 고 보호 그룹의 삭제를 사용 하도록 설정 하려면 다음 절차를 따르십시오.
+
+1.  DPM 관리자 콘솔에서 클릭 **Protection** 탐색 모음에서.
+2.  디스플레이 창에서 제거할 보호 그룹 구성원을 선택 합니다. 마우스 오른쪽 단추로 클릭 하려는 **그룹 구성원 보호 중지** 옵션입니다.
+3.  **보호 중지** 대화 상자에서 **보호 된 데이터 삭제** > **온라인 저장소 삭제** 확인란을 클릭 하 고 **중지 보호**합니다.
+
+    ![온라인 저장소 삭제](./media/backup-azure-delete-vault/delete-storage-online.png)
+
+보호 된 멤버 상태를 이제 변경 되었습니다 **비활성 복제본 사용 가능**합니다.
+
+5. 선택한 비활성 보호 그룹을 마우스 오른쪽 단추로 클릭 **비활성 보호 제거**합니다.
+
+    ![비활성 보호 제거](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+
+6. **비활성 보호 삭제** 창에서 **온라인 저장소 삭제** 클릭 **확인**합니다.
+
+    ![디스크 및 온라인 복제본 제거](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+완료 하는 온-프레미스에서 백업 항목을 삭제, 이제는 포털에서 다음 단계:
+- 단계에 따라 DPM 및 MABS에 대 한 [제거 하는 Azure Backup 관리 서버가](#remove-azure-backup-management-servers)합니다.
+
 
 ### <a name="remove-azure-backup-management-servers"></a>Azure Backup 관리 서버를 제거 합니다.
+
+Azure backup 관리 서버를 제거 하기 전에 나열 된 단계를 수행할 수 있는지 확인 [관리 콘솔에서 백업 항목을 삭제](#deleting-backup-items-from-management-console)합니다.
 
 1. 자격 증명 모음 대시보드 메뉴에서 클릭 **Backup 인프라**합니다.
 2. 클릭 **Backup 관리 서버** 서버를 표시 합니다.
@@ -123,9 +187,11 @@ ms.locfileid: "67310755"
 5.  필요에 따라 데이터를 삭제 하는 이유는 이유를 제공 하 고 주석을 추가 합니다.
 
 > [!NOTE]
-> 파일을 보호 된 서버의 MARS 콘솔에서 또는 관리 서버 콘솔에서 항목을 제거 하려면 보호를 중지 하 고 백업을 삭제 합니다. 백업 항목을 유지 하는 경우 삭제 하 고 서버 등록을 취소 하려고 할 때 다음 오류가 표시 됩니다.
+> 아래 오류를 다음에 나열 된 단계를 수행 하는 첫 번째 표시 되는 경우 [관리 콘솔에서 백업 항목을 삭제](#deleting-backup-items-from-management-console)합니다.
 >
 >![삭제 하지 못했습니다.](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> 관리 콘솔에서 백업을 삭제 하는 단계를 수행할 수 없는 경우 예를 들어 관리 콘솔을 사용 하 여 서버에 사용할 수 없어서 Microsoft 지원에 문의 합니다.
 
 6. 삭제 작업이 완료 되었는지 확인 하려면 Azure 메시지 확인 ![백업 데이터 삭제](./media/backup-azure-delete-vault/messages.png).
 7. 서비스 작업이 완료 되 면 메시지를 보냅니다: **백업 프로세스가 중지 되 고 백업 데이터가 삭제**합니다.
@@ -133,6 +199,8 @@ ms.locfileid: "67310755"
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Azure Backup 에이전트 복구 지점을 제거합니다
+
+Azure 백업 복구 지점은 제거 하기 전에 나열 된 단계를 수행할 수 있는지 확인 [관리 콘솔에서 백업 항목을 삭제](#deleting-backup-items-from-management-console)합니다.
 
 1. 자격 증명 모음 대시보드 메뉴에서 클릭 **Backup 인프라**합니다.
 2. 클릭 **보호 된 서버** 인프라 서버를 표시 합니다.
@@ -158,13 +226,15 @@ ms.locfileid: "67310755"
 7. 필요에 따라 데이터를 삭제 하는 이유는 이유를 제공 하 고 주석을 추가 합니다.
 
 > [!NOTE]
-> 이러한 서버의 등록을 삭제 하기 전에 백업 관리 서버 또는 Azure Backup Agent 서버에 연결 된 백업 항목을 삭제 되어야 합니다. 백업 항목을 제거 하려면 해당 하는 경우 서버에서 MARS 관리 콘솔, SC DPM 및 MABS에 이동 하 고 보호를 중지 하 고 백업을 삭제 하는 관련 옵션을 선택 합니다. 백업 항목에 계속 연결 되어 있으면 다음 오류가 표시 됩니다.
->
+> 아래 오류를 다음에 나열 된 단계를 수행 하는 첫 번째 표시 되는 경우 [관리 콘솔에서 백업 항목을 삭제](#deleting-backup-items-from-management-console)합니다.
 >
 >![삭제 하지 못했습니다.](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> 관리 콘솔에서 백업을 삭제 하는 단계를 수행할 수 없는 경우 예를 들어 관리 콘솔을 사용 하 여 서버에 사용할 수 없어서 Microsoft 지원에 문의 합니다. 
 
 8. 삭제 작업이 완료 되었는지 확인 하려면 Azure 메시지 확인 ![백업 데이터 삭제](./media/backup-azure-delete-vault/messages.png).
 9. 목록의 항목을 삭제 한 후를 **Backup 인프라** 메뉴에서 클릭 **새로 고침** 자격 증명 모음에서 항목을 표시 합니다.
+
 
 ### <a name="delete-the-vault-after-removing-dependencies"></a>종속성을 제거한 후 자격 증명 모음 삭제
 

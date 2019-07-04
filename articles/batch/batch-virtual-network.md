@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550204"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436246"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -56,7 +56,7 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 강제 터널링을 사용하는 VNet에서 Azure Batch 풀 계산 노드가 작동하도록 해당 서브넷에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 추가해야 합니다.
 
-* Batch 서비스는 작업 예약을 위해 풀 계산 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오려면 Azure 지원에 문의하세요.
+* Batch 서비스는 작업 예약을 위해 풀 계산 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 알아보려면 참조 [서비스 온-프레미스에서 태그](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * 온-프레미스 네트워크 장비에서 Azure Storage에 대한 아웃바운드 트래픽(특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net`)이 차단되지 않는지 확인합니다.
 

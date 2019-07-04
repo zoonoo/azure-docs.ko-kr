@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329810"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449204"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics에서 쿼리 병렬 처리 사용
 이 문서에서는 Azure Stream Analytics에서 병렬 처리 기능을 활용하는 방법을 보여 줍니다. 입력 파티션을 구성하고, 분석 쿼리 정의를 조정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다.
 필수 구성 요소로, [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md)에 설명된 스트리밍 단위 개념을 잘 알고 있어야 합니다.
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Stream Analytics 작업은 무엇으로 구성되나요?
-Stream Analytics 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치입니다. 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.  
+Stream Analytics 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치입니다. 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
 
 작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 원본은 Azure 이벤트 허브 또는 Azure Blob Storage에 저장될 수 있습니다. 자세한 내용은 [Azure Stream Analytics 소개](stream-analytics-introduction.md) 및 [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)을 참조하세요.
 
@@ -200,7 +200,7 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 하나의 Stream Analytics 작업에 대해 분할되지 않은 모든 단계를 최대 6개의 SU(스트리밍 단위)로 확장할 수 있습니다. 이외에 분할 단계에서 각 파티션에 대해 6개의 SU를 추가할 수 있습니다.
 아래 표에서 일부 **예제**를 확인할 수 있습니다.
 
-| 쿼리                                               | 작업에 대한 최대 SU |
+| query                                               | 작업에 대한 최대 SU |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할되지 않습니다.</li></ul> | 6 |
 | <ul><li>입력 데이터 스트림은 16으로 분할됩니다.</li><li>쿼리는 한 단계를 포함합니다.</li><li>이 단계는 분할됩니다.</li></ul> | 96(6 * 16개 파티션) |
@@ -248,11 +248,65 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>규모의 더 높은 처리량 달성
 
+[병렬 처리가 적합 한](#embarrassingly-parallel-jobs) 작업은 필요 하지만 규모의 더 높은 처리량을 지원할 수 있도록 충분 하지 않습니다. 모든 저장소 시스템 및 해당 Stream Analytics 출력에 가장 가능한 쓰기 처리량을 달성 하는 방법은 여러 가지 변형이 있습니다. 모든 규모 시나리오를 사용 하 여 올바른 구성을 사용 하 여 해결할 수 있는 몇 가지 과제는 합니다. 이 섹션에서는 몇 가지 일반적인 출력에 대 한 구성에 설명 하 고 초당 1k, 5k 및 10k 이벤트 수집 속도 유지 하는 것에 대 한 샘플을 제공 합니다.
 
+상태 비저장 (통과) 쿼리를 기본 이벤트 허브, Azure SQL DB 또는 Cosmos DB에 기록 하는 JavaScript UDF를 사용 하 여 Stream Analytics 작업을 사용 하는 다음 관찰 합니다.
 
+#### <a name="event-hub"></a>이벤트 허브
+
+|수집 속도 (초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
+|--------|---------|---------|
+| 1K     |    1    |  2 TU   |
+| 5K     |    6    |  6 TU   |
+| 10,000    |    12   |  10 TU  |
+
+합니다 [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) 솔루션 스트리밍 단위 (SU) 및 처리량, 가장 효율적인 있도록 및 효율적으로 분석 하 고 Stream Analytics에서 데이터를 스트림 하는 측면에서 선형으로 확장 합니다. 작업은 최대 200 MB/s, 또는 19 조 이벤트를 매일 처리와 비슷하다고 192 개 SU까지 확장할 수 있습니다.
+
+#### <a name="azure-sql"></a>Azure SQL
+|수집 속도 (초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10,000  |   36 |  P6   |
+
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) 동시에서 쓰기를 지원 호출 분할 상속 하지만 기본으로 사용 되지 않습니다. 그러나 분할 상속을 완벽 하 게 병렬 쿼리의 경우와 함께 사용 하도록 설정 못할 더 높은 처리량을 달성 하기 위해. SQL 쓰기 처리량 SQL Azure 데이터베이스 구성 및 테이블 스키마에 따라 크게 달라 집니다. 합니다 [SQL 출력 성능](./stream-analytics-sql-output-perf.md) 기술 자료 문서에 자세히 쓰기 처리량을 최대화할 수 있는 매개 변수입니다. 설명한 것 처럼 합니다 [Azure SQL Database에 Azure Stream Analytics 출력](./stream-analytics-sql-output-perf.md#azure-stream-analytics) 문서에서는이 솔루션 8 개의 파티션이 초과 완전 한 병렬 파이프라인으로 선형으로 확장 되지 않습니다 하 고 SQL 출력 하기 전에 다시 분할 해야 할 수 있습니다 (참조 [ 에](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium Sku 모든 몇 발생 하는 로그 백업에서 오버 헤드와 높은 IO 비율을 유지 하는 데 필요한 분입니다.
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|수집 속도 (초당 이벤트) | 스트리밍 단위 | 출력 리소스  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60 K RU  |
+|  10,000  |  48   | 120,000 개의 RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) Stream Analytics의 출력에서 네이티브 통합을 사용 하도록 업데이트 되었습니다 [호환성 수준 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)합니다. 호환성 수준 1.2 상당히 높은 처리량을 사용 하도록 설정 및 새 작업에 대 한 기본 호환성 수준 1.1에 비해 RU 소비를 줄입니다. CosmosDB 컨테이너 /deviceId에서 분할을 사용 하 여 솔루션 및 솔루션의 나머지 부분은 동일 하 게 구성 됩니다.
+
+모든 [규모의 azure 샘플에서 스트리밍을](https://github.com/Azure-Samples/streaming-at-scale) 입력으로 테스트 클라이언트를 시뮬레이션 하는 부하에서 공급 하는 이벤트 허브를 사용 합니다. 각 입력된 이벤트에는 1KB JSON 문서를 쉽게 구성된 수집 속도에 처리량 속도 (초당 1MB, 5MB/s 및 10 MB/s)이 됩니다. 최대 1 K 장치에 대 한 (축약 형태로) 다음과 같은 JSON 데이터를 보내는 IoT 장치를 시뮬레이션 하는 이벤트:
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> 구성을은 솔루션에 사용 되는 다양 한 구성으로 인해 변경 적용 됩니다. 더 정확한 예상을 시나리오에 맞게 샘플을 사용자 지정 합니다.
+
+### <a name="identifying-bottlenecks"></a>병목 상태 식별
+
+창을 사용 하 여 메트릭을 Azure Stream Analytics 작업의 파이프라인에서 병목 상태를 식별 합니다. 검토 **입/출력 이벤트가** 처리량에 대 한 및 ["워터 마크 지연"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) 또는 **백로그 된 이벤트** 경우 작업을 따라간다 입력된 속도 확인 합니다. 검색할 Event Hub 메트릭에 대 한 **요청 제한** 임계값 단위를 적절 하 게 조정 합니다. Cosmos DB 메트릭에 대 한 검토 **파티션 키 범위 별로 사용 된 최대 RU/s** 파티션 키 범위를 확인 하는 처리량에서 균일 하 게 사용 합니다. Azure SQL DB에 대 한 모니터링 **로그 IO** 하 고 **CPU**합니다.
 
 ## <a name="get-help"></a>도움말 보기
+
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

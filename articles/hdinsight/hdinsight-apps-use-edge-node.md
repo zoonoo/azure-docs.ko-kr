@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165893"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433747"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -108,7 +108,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
    * **클러스터 로그인 암호**: Hadoop HTTP 사용자 암호를 입력합니다.
    * **SSH 사용자 이름**: SSH 사용자 이름을 입력합니다. 기본 이름은 **sshuser**입니다.
    * **SSH 암호**: SSH 사용자 암호를 입력합니다.
-   * **스크립트 동작 설치**: 이 자습서를 진행하기 위한 기본값을 그대로 유지합니다.
+   * **스크립트 동작 설치**: 이 문서를 진행 하기 위한 기본값을 유지 합니다.
      
      일부 속성(클러스터 유형, 클러스터 작업자 노드 수, 에지 노드 크기 및 에지 노드 이름)이 템플릿에 하드 코드되었습니다.
 4. **위에 명시된 사용 약관에 동의함**을 선택한 다음 **구매**를 클릭하여 에지 노드가 있는 클러스터를 만듭니다.

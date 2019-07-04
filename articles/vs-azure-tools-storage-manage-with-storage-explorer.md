@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7dd6d3d30f34ba2c69b40111bb28d484ce572e7
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924731"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508746"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -65,25 +65,15 @@ Azure Storage Explorer [릴리스 정보](https://go.microsoft.com/fwlink/?LinkI
 
 ## <a name="connect-to-a-storage-account-or-service"></a>저장소 계정 또는 서비스에 연결
 
-Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니다. 예를 들어 다음을 수행할 수 있습니다.
+Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니다. 일반적으로 다음과 같은 작업을 하거나 수행할 수 있습니다.
 
-* Azure 구독과 연결된 저장소 계정에 연결합니다.
-* 다른 Azure 구독에서 공유되는 저장소 계정 및 서비스에 연결합니다.
-* Azure Storage 에뮬레이터를 사용하여 로컬 스토리지에 연결하고 관리합니다.
+* [Azure에 로그인 하 여 구독 및 리소스 액세스](#sign-in-to-azure)
+* [특정 저장소 또는 CosmosDB 리소스 연결](#attach-a-specific-resource)
 
-또한 글로벌 및 국가별 Azure에서 저장소 계정으로 작업할 수 있습니다.
-
-* [Azure 구독에 연결](#connect-to-an-azure-subscription): Azure 구독에 속한 스토리지 리소스를 관리합니다.
-* [로컬 개발 스토리지로 작업](#work-with-local-development-storage): Azure Storage 에뮬레이터를 사용하여 로컬 스토리지를 관리합니다.
-* [외부 스토리지에 연결](#attach-or-detach-an-external-storage-account): 스토리지 계정의 계정 이름, 키 및 엔드포인트를 사용하여 다른 Azure 구독에 속하거나 국가별 Azure 클라우드 아래에 있는 스토리지 리소스를 관리합니다.
-* [SAS를 사용하여 스토리지 계정 연결](#attach-a-storage-account-by-using-a-shared-access-signature-sas): SAS(공유 액세스 서명)를 사용하여 다른 Azure 구독에 속한 스토리지 리소스를 관리합니다.
-* [SAS를 사용하여 서비스 연결](#attach-a-service-by-using-a-shared-access-signature-sas): SAS를 사용하여 다른 Azure 구독에 속한 특정 스토리지 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
-* [연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): 연결 문자열을 사용하여 Cosmos DB 계정을 관리합니다.
-
-## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
+### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 > [!NOTE]
-> Azure 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+> 리소스에 로그인 한 후에 완전히 액세스 하려면 저장소 탐색기 (ARM) 관리 및 데이터 계층 권한이 모두 필요 합니다. 이 저장소 계정, 계정에서 컨테이너 및 컨테이너의 데이터에 액세스할 수 있는 Azure AD 권한이 필요 하는 것을 의미 합니다. 데이터 계층에만 권한이 있는 경우 사용을 고려 [Azure AD 사용 하 여 연결](#add-a-resource-via-azure-ad)합니다. Storage 탐색기에 필요한 정확한 권한에 대 한 자세한 내용은 참조는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues)합니다.
 >
 >
 
@@ -105,180 +95,108 @@ Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니
 
     ![선택한 Azure 구독][4]
 
-## <a name="work-with-local-development-storage"></a>로컬 개발 저장소로 작업
+### <a name="attach-a-specific-resource"></a>특정 리소스를 연결 합니다.
+    
+Storage 탐색기에 리소스 연결에 대 한 옵션을 여러 가지가 있습니다. 다음을 수행할 수 있습니다.
 
-Storage Explorer로 에뮬레이터를 사용하여 로컬 스토리지에서 작업할 수 있습니다. 이 방식에서는 Azure에 스토리지 계정을 반드시 배포하지 않고도, Azure Storage 작업을 시뮬레이션할 수 있습니다.
+* [Azure AD 통해 리소스 추가](#add-a-resource-via-azure-ad): 데이터 계층에만 권한이 있는 경우 Blob 컨테이너 또는 ADLS Gen2 Blob 컨테이너를 추가 하려면이 옵션을 사용할 수 있습니다.
+* [연결 문자열을 사용 하 여](#use-a-connection-string): 저장소 계정에 연결 문자열에 있으면 합니다. Storage 탐색기는 모두 키를 지원 하 고 [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) 연결 문자열입니다.
+* [SAS URI를 사용 하 여](#use-a-sas-uri): 있는 경우는 [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) URI Blob 컨테이너, 파일 공유, 큐 또는 테이블입니다. 사용할 수 있습니다 하는 SAS URI를 가져오려면 [Storage 탐색기](#generate-a-sas-in-storage-explorer) 또는 [Azure portal](https://portal.azure.com)합니다.
+* [이름 및 키를 사용 하 여](#use-a-name-and-key): 저장소 계정의 계정 키 중 하나를 알고 있는 경우 신속 하 게 연결 하려면이 옵션을 사용할 수 있습니다. 저장소 계정에 대 한 키 저장소 계정에 위치한 **액세스 키** 에서 블레이드는 [Azure portal](https://portal.azure.com)합니다.
+* [로컬 에뮬레이터에 연결할](#attach-to-a-local-emulator): 사용 가능한 Azure Storage 에뮬레이터 중 하나를 사용 하는 경우이 옵션을 사용 하 여 에뮬레이터에 쉽게 연결 하 합니다.
+* [연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): CosmosDB 인스턴스를 연결 문자열에 있으면 합니다.
+* [URI로 Azure Data Lake Store에 연결할](#connect-to-azure-data-lake-store-by-uri): URI는 Azure Data Lake Store 해야 할 경우.
 
-버전 1.1.0 이상에서는 Storage 탐색기는 로컬 저장소 에뮬레이터를 사용 하 여 모든 플랫폼에서 지원 합니다. Storage Explorer는 해당 기본 로컬 스토리지 엔드포인트를 수신 대기하는 모든 에뮬레이트된 서비스에 연결할 수 있습니다.
+#### <a name="add-a-resource-via-azure-ad"></a>Azure AD 통해 리소스를 추가 합니다.
 
-합니다 [Azure storage 에뮬레이터](storage/common/storage-use-emulator.md) 현재 Windows 에서만 실행 됩니다. Linux용 저장소 에뮬레이터를 고려 중인 경우 커뮤니티에서 유지 관리하는 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/azure/azurite)가 하나의 옵션이 될 수 있습니다.
+1. 엽니다는 **연결 대화 상자** 를 클릭 하 여는 **연결 단추** 왼쪽 세로 도구 모음에서.
 
-> [!NOTE]
-> Storage 서비스 및 기능에 대한 지원은 에뮬레이터의 선택에 따라 광범위하게 달라질 수 있습니다. 에뮬레이터가 함께 작업하려는 서비스 및 기능을 지원하는지 확인합니다.
+    ![Azure Storage 옵션에 연결][9]
 
-1. 선택한 에뮬레이터의 서비스를 사용하지 않은 포트로 수신하도록 구성합니다.
+2. 아직 수행 하는 경우 사용 합니다 **Azure 계정 추가** 리소스에 대 한 액세스 권한이 있는 Azure 계정에 로그인 하는 옵션입니다. 반환 시 로그인 후 합니다 **연결 대화 상자**합니다.
 
-   에뮬레이트된 서비스 | 기본 엔드포인트
-   -----------------|-------------------------
-   Blob            | `http://127.0.0.1:10000`
-   큐           | `http://127.0.0.1:10001`
-   테이블           | `http://127.0.0.1:10002`
+3. 선택 된 **Azure Active Directory (Azure AD)를 통해 리소스 추가** 옵션을 클릭 **다음**합니다.
 
-2. 에뮬레이터를 시작합니다.
+4. 연결 하려는 저장소 리소스 및 리소스에 있는 구독에 대 한 액세스 권한이 있는 Azure 계정을 선택 하 고 클릭 **다음**합니다.
+
+5. 연결 하려는 리소스 유형을 선택 하 고 연결 하는 데 필요한 정보를 입력 합니다. 이 페이지에서 입력을 추가 하는 리소스의 유형에 따라 변경 됩니다. 올바른 유형의 리소스를 선택 해야 합니다. 필요한 정보를 입력 했으면 **다음**합니다.
+
+6. 연결 요약을 검토 하 고 모든 정보가 정확한 지 확인 합니다. 모든 정보가 올바르게 표시 되 면 클릭 **Connect**를 사용 하 여 이전 페이지로 돌아가서이 고, 그렇지는 **다시** 잘못 된 정보를 수정 하는 단추입니다.
+
+연결이 성공적으로 추가 되 면 리소스 트리의 해당 연결을 나타내는 노드에 자동으로 이동 됩니다. 어떤 이유로, 다르게 아래 **로컬 및 연결 됨** → **저장소 계정** → **(연결 된 컨테이너)** → **Blob 컨테이너** . Storage 탐색기에서 연결을 추가할 수 없는 경우 또는 연결을 성공적으로 추가한 후 데이터에 액세스 참조 수 없는 경우는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 도움말에 대 한 합니다.
+
+#### <a name="use-a-connection-string"></a>연결 문자열 사용
+
+1. 엽니다는 **연결 대화 상자** 를 클릭 하 여는 **연결 단추** 왼쪽 세로 도구 모음에서.
+
+    ![Azure Storage 옵션에 연결][9]
+
+2. 선택 된 **연결 문자열을 사용 하 여** 옵션을 클릭 **다음**합니다.
+
+3. 연결에 대 한 표시 이름을 선택 하 고 연결 문자열에 입력 합니다. 그런 후 **Next** 를 클릭합니다.
+
+4. 연결 요약을 검토 하 고 모든 정보가 정확한 지 확인 합니다. 모든 정보가 올바르게 표시 되 면 클릭 **Connect**를 사용 하 여 이전 페이지로 돌아가서이 고, 그렇지는 **다시** 잘못 된 정보를 수정 하는 단추입니다.
+
+연결이 성공적으로 추가 되 면 리소스 트리의 해당 연결을 나타내는 노드에 자동으로 이동 됩니다. 어떤 이유로, 다르게 아래 **로컬 및 연결 됨** → **저장소 계정**합니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 또는 연결을 성공적으로 추가한 후 데이터에 액세스 참조 수 없는 경우는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 도움말에 대 한 합니다.
+
+#### <a name="use-a-sas-uri"></a>SAS URI 사용
+
+1. 엽니다는 **연결 대화 상자** 를 클릭 하 여는 **연결 단추** 왼쪽 세로 도구 모음에서.
+
+    ![Azure Storage 옵션에 연결][9]
+
+2. 선택 된 **공유 액세스 서명 (SAS) URI 사용 하 여** 옵션을 클릭 **다음**합니다.
+
+3. 연결에 대 한 표시 이름을 선택 하 고 SAS URI를 입력 합니다. 서비스 끝점을 연결 하는 리소스의 형식에 대 한 자동 채우기를 해야 합니다. 사용자 지정 끝점을 사용 하는 경우 다음 있기 하지 않을 수 있습니다. **다음**을 클릭합니다.
+
+4. 연결 요약을 검토 하 고 모든 정보가 정확한 지 확인 합니다. 모든 정보가 올바르게 표시 되 면 클릭 **Connect**를 사용 하 여 이전 페이지로 돌아가서이 고, 그렇지는 **다시** 잘못 된 정보를 수정 하는 단추입니다.
+
+연결이 성공적으로 추가 되 면 리소스 트리의 해당 연결을 나타내는 노드에 자동으로 이동 됩니다. 어떤 이유로, 다르게 아래 **로컬 및 연결 됨** → **저장소 계정** → **(연결 된 컨테이너)** → **유형에 대 한 서비스 노드 컨테이너 연결**합니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 또는 연결을 성공적으로 추가한 후 데이터에 액세스 참조 수 없는 경우는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 도움말에 대 한 합니다.
+
+#### <a name="use-a-name-and-key"></a>이름 및 키 사용
+
+1. 엽니다는 **연결 대화 상자** 를 클릭 하 여는 **연결 단추** 왼쪽 세로 도구 모음에서.
+
+    ![Azure Storage 옵션에 연결][9]
+
+2. 선택 된 **저장소 계정 이름과 키를 사용 하 여** 옵션을 클릭 **다음**합니다.
+
+3. 연결의 표시 이름을 선택 합니다.
+
+4. 저장소 계정 이름 및 해당 액세스 키 중 하나를 입력 합니다.
+
+5. 선택 된 **저장소 도메인** 를 클릭 한 다음 **다음**합니다.
+
+4. 연결 요약을 검토 하 고 모든 정보가 정확한 지 확인 합니다. 모든 정보가 올바르게 표시 되 면 클릭 **Connect**를 사용 하 여 이전 페이지로 돌아가서이 고, 그렇지는 **다시** 잘못 된 정보를 수정 하는 단추입니다.
+
+연결이 성공적으로 추가 되 면 리소스 트리의 해당 연결을 나타내는 노드에 자동으로 이동 됩니다. 어떤 이유로, 다르게 아래 **로컬 및 연결 됨** → **저장소 계정**합니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 또는 연결을 성공적으로 추가한 후 데이터에 액세스 참조 수 없는 경우는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 도움말에 대 한 합니다.
+
+#### <a name="attach-to-a-local-emulator"></a>로컬 에뮬레이터에 연결
+
+Storage 탐색기는 모든 플랫폼에서 에뮬레이터를 지원합니다. 두 현재 사용 가능한 공식 에뮬레이터 다음과 같습니다.
+* [Azure storage 에뮬레이터](storage/common/storage-use-emulator.md) (Windows만 해당)
+* [Azurite](https://github.com/azure/azurite) (Windows, macOS 또는 Linux)
+
+에뮬레이터에는 기본 포트에서 실행 되는 경우 사용할 수 있습니다 합니다 **에뮬레이터-기본 포트** 노드 아래에서 항상 확인할 수 있습니다 **로컬 및 연결 됨** → **저장소 계정** 을 에뮬레이터에 빠르게 액세스할 수 있습니다. 연결에 다른 이름을 사용 하거나 기본 포트에 대해 에뮬레이터를 실행 하지 않는 경우 다음 하려는 경우는 아래 단계입니다.
+
+1. 에뮬레이터를 시작 합니다. 포트의 참고를 수행 하는 경우 에뮬레이터는 각 서비스 유형에 대해에서 수신 합니다. 나중에이 정보를 확인 해야 합니다.
+
    > [!IMPORTANT]
    > Storage Explorer는 자동으로 에뮬레이터를 시작하지 않습니다. 사용자가 직접 시작해야 합니다.
 
-3. Storage Explorer에서 **계정 추가** 단추를 클릭합니다. **로컬 에뮬레이터에 연결**을 선택하고 **다음**을 클릭합니다.
-
-4. 위에서 구성한 서비스에 대한 포트 번호를 입력합니다. (해당 서비스를 사용하지 않으려면 공백으로 두십시오.) **다음**을 클릭한 다음, **연결**을 클릭하여 연결을 만듭니다.
-
-5. **로컬 및 연결됨** > **저장소 계정** > 노드를 확장한 다음, 에뮬레이터 연결에 해당하는 노드 아래의 서비스 노드를 확장합니다.
-
-   이 노드를 사용하여 로컬 Blob, 큐 및 테이블을 만들고 작업할 수 있습니다. 각 저장소 계정 유형을 작업하는 방법을 알아보려면 다음 가이드를 참조하세요.
-
-   * [Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
-   * [Azure File 스토리지 리소스 관리](vs-azure-tools-storage-explorer-files.md)
-
-## <a name="attach-or-detach-an-external-storage-account"></a>외부 저장소 계정 연결 또는 분리
-
-Storage Explorer를 사용하면 외부 스토리지 계정에 연결하여 스토리지 계정을 쉽게 공유할 수 있습니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
-
-### <a name="get-the-storage-account-credentials"></a>저장소 계정 자격 증명 가져오기
-
-외부 저장소 계정을 공유하려면 해당 계정의 소유자는 먼저 계정에 대한 자격 증명(계정 이름 및 키)을 가져온 다음 해당 정보를 해당 계정에 연결하려는 사용자와 공유해야 합니다. 다음 단계를 수행하여 Azure Portal을 통해 저장소 계정 자격 증명을 얻을 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. **찾아보기**를 선택합니다.
-
-3. **Storage 계정**을 선택합니다.
-
-4. **저장소 계정** 목록에서 원하는 저장소 계정을 선택합니다.
-
-5. **설정** 아래에서 **액세스 키**를 선택합니다.
-
-    ![액세스 키 옵션][7]
-
-6. **저장소 계정 이름** 및 **key1**을 복사합니다.
-
-    ![액세스 키][8]
-
-### <a name="attach-to-an-external-storage-account"></a>외부 저장소 계정에 연결
-
-외부 저장소 계정에 연결하려면 계정의 이름 및 키가 필요합니다. "저장소 계정 자격 증명 가져오기" 섹션에서는 Azure Portal에서 이러한 값을 가져오는 방법을 설명합니다. 그러나 포털에서는 계정 키를 **key1**이라고 부릅니다. 따라서 Storage Explorer가 계정 키를 요구하는 위치에 **key1**을 입력합니다.
-
-1. Storage Explorer에서 **연결 대화 상자**를 엽니다.
+2. 엽니다는 **연결 대화 상자** 를 클릭 하 여는 **연결 단추** 왼쪽 세로 도구 모음에서.
 
     ![Azure Storage 옵션에 연결][9]
 
-2. **연결 대화 상자**에서 **저장소 계정 이름 및 키 사용**을 선택합니다.
+3. 선택 된 **로컬 에뮬레이터에 연결** 옵션을 클릭 **다음**합니다.
 
-    ![이름 및 키 옵션으로 추가][10]
+4. 연결에 대 한 표시 이름을 선택 하 고 에뮬레이터에는 각 서비스 형식에 대 한 수신 대기 포트를 입력 합니다. 기본적으로 입력란 대부분의 에뮬레이터에 대 한 기본 포트 값이 포함 됩니다. **포트 파일** 도 비어 기본적으로 모두 공식 에뮬레이터 현재 파일 서비스를 지원 합니다. 사용 중인 에뮬레이터는 지원 하지만, 경우에 사용 되는 포트에 입력할 수 있습니다. **다음**을 클릭합니다.
 
-3. 계정 이름을 **계정 이름** 텍스트 상자에 붙여 넣고 계정 키(Azure Portal의 **key1**)를 **계정 키** 입력란에 붙여 넣은 후 **다음**을 선택합니다.
+5. 연결 요약을 검토 하 고 모든 정보가 정확한 지 확인 합니다. 모든 정보가 올바르게 표시 되 면 클릭 **Connect**를 사용 하 여 이전 페이지로 돌아가서이 고, 그렇지는 **다시** 잘못 된 정보를 수정 하는 단추입니다.
 
-    ![이름 및 키 페이지][11]
+연결이 성공적으로 추가 되 면 리소스 트리의 해당 연결을 나타내는 노드에 자동으로 이동 됩니다. 어떤 이유로, 다르게 아래 **로컬 및 연결 됨** → **저장소 계정**합니다. Storage 탐색기에서 연결을 추가할 수 없는 경우 또는 연결을 성공적으로 추가한 후 데이터에 액세스 참조 수 없는 경우는 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 도움말에 대 한 합니다.
 
-    > [!NOTE]
-    > 국내 클라우드의 이름 및 키를 사용하려면 **저장소 엔드포인트 도메인:** 드롭다운을 사용하여 해당 엔드포인트 도메인을 선택합니다.
-    >
-    >
-
-4. **연결 요약** 대화 상자에서 정보를 확인합니다. 변경하려는 경우 **뒤로**를 선택하고 원하는 설정을 다시 입력합니다.
-
-5. **연결**을 선택합니다.
-
-6. 저장소 계정에 연결되면 저장소 계정 이름에 **(외부)** 가 표시됩니다.
-
-    ![외부 저장소 계정 연결 결과][12]
-
-### <a name="detach-from-an-external-storage-account"></a>외부 저장소 계정에서 분리
-
-1. 분리할 외부 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **분리**를 선택합니다.
-
-    ![저장소 옵션에서 분리][13]
-
-2. 확인 메시지에서 **예**를 선택하여 외부 저장소 계정에서 분리를 확인합니다.
-
-## <a name="attach-a-storage-account-by-using-a-shared-access-signature-sas"></a>SAS(공유 액세스 서명)를 사용하여 저장소 계정 연결
-
-공유 액세스 서명 또는 [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md)를 사용하면 Azure 구독 관리자는 Azure 구독 자격 증명을 제공하지 않고도 저장소 계정에 대한 임시 액세스 권한을 부여할 수 있습니다.
-
-이 시나리오를 설명하기 위해 다음과 같은 상황을 가정하겠습니다. Azure 구독의 관리자인 사용자 A는 사용자 B에게 특정 권한으로 제한된 시간 동안 저장소 계정에 액세스할 수 있는 권한을 부여하려 합니다.
-
-1. 사용자 A는 특정 기간 동안 원하는 사용 권한으로 SAS 연결 문자열을 생성합니다.
-
-2. 사용자 A는 저장소 계정에 액세스하려는 사람(이 예제에서는 사용자 B)과 SAS를 공유합니다.
-
-3. 사용자 B는 Storage Explorer를 통해 제공된 SAS를 사용하여 사용자 A에 속한 계정에 연결합니다.
-
-### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>공유하려는 계정에 대한 SAS 쿼리 문자열 생성
-
-1. Storage Explorer에서 공유하려는 스토리지 계정을 마우스 오른쪽 단추로 클릭한 다음, **공유 액세스 서명 가져오기...** 를 선택합니다.
-
-    ![SAS 상황에 맞는 메뉴 옵션 가져오기][14]
-
-2. **공유 액세스 서명 생성** 대화 상자에서 계정에 대해 원하는 시간 프레임 및 권한을 지정하고 **만들기** 단추를 클릭합니다.
-
-    ![SAS 가져오기 대화 상자][15]
-
-3. **쿼리 문자열** 텍스트 상자 옆에 있는 **복사**를 선택하여 클립보드에 복사한 다음, **닫기**를 클릭합니다.
-
-### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>SAS 연결 문자열을 사용하여 저장소 계정에 연결
-
-1. Storage Explorer에서 **연결 대화 상자**를 엽니다.
-
-    ![Azure Storage 옵션에 연결][9]
-
-2. **연결 대화 상자** 대화 상자에서 **연결 문자열 또는 공유 액세스 서명 URI 사용**을 선택하고 **다음**을 클릭합니다.
-
-    ![Azure Storage에 연결 대화 상자][16]
-
-3. **연결 문자열 사용**을 선택하고 연결 문자열을 **연결 문자열:** 필드로 붙여 넣습니다. **다음** 단추를 클릭합니다.
-
-    ![Azure Storage에 연결 대화 상자][17]
-
-4. **연결 요약** 대화 상자에서 정보를 확인합니다. 변경 작업을 수행하려면 **뒤로**를 선택한 다음 원하는 설정을 입력합니다.
-
-5. **연결**을 선택합니다.
-
-6. 저장소 계정에 연결되면 저장소 계정 이름에 **(SAS)** 가 표시됩니다.
-
-    ![SAS를 사용하여 계정에 연결한 결과][18]
-
-## <a name="attach-a-service-by-using-a-shared-access-signature-sas"></a>SAS(공유 액세스 서명)를 사용하여 서비스 연결
-
-"SAS를 사용하여 저장소 계정 연결" 섹션에서는 Azure 구독 관리자가 저장소 계정에 대한 SAS를 생성하고 공유하여 저장소 계정에 대한 임시 액세스 권한을 부여하는 방법을 보여 줍니다. 마찬가지로, SAS는 저장소 계정 내에서 특정 서비스(Blob 컨테이너, 큐, 테이블 또는 파일 공유)에 대해 생성될 수 있습니다.
-
-### <a name="generate-an-sas-for-the-service-that-you-want-to-share"></a>공유할 서비스에 대한 SAS 생성
-
-이 컨텍스트에서 서비스는 Blob 컨테이너, 큐, 테이블 또는 파일 공유일 수 있습니다. 나열된 서비스에 대한 SAS를 생성하려면 다음 항목을 참조하세요.
-
-* [Blob 컨테이너에 대한 SAS 가져오기](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-
-### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>SAS URI를 사용하여 공유 계정 서비스에 연결
-
-1. Storage Explorer에서 **연결 대화 상자**를 엽니다.
-
-    ![Azure Storage 옵션에 연결][9]
-
-2. **연결** 대화 상자에서 **연결 문자열 또는 공유 액세스 서명 URI 사용**을 선택하고 **다음**을 클릭합니다.
-
-    ![Azure Storage에 연결 대화 상자][16]
-
-3. **SAS URI 사용**을 선택하고 URI를 **URI:** 필드에 붙여 넣습니다. **다음** 단추를 클릭합니다.
-
-    ![Azure Storage에 연결 대화 상자][19]
-
-4. **연결 요약** 대화 상자에서 정보를 확인합니다. 변경 작업을 수행하려면 **뒤로**를 선택한 다음 원하는 설정을 입력합니다.
-
-5. **연결**을 선택합니다.
-
-6. 연결되면 새로 연결된 서비스가 **(SAS 연결 서비스)** 노드 아래에 표시됩니다.
-
-    ![SAS를 사용하여 공유 서비스에 연결한 결과][20]
-
-## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결
+#### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결
 
 Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용하는 것입니다. 연결 문자열을 사용하여 연결하려면 다음 단계를 따르세요.
 
@@ -290,7 +208,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
     ![connection-string][22]
 
-## <a name="connect-to-azure-data-lake-store-by-uri"></a>URI로 Azure Data Lake Store에 연결
+#### <a name="connect-to-azure-data-lake-store-by-uri"></a>URI로 Azure Data Lake Store에 연결
 
 구독에 없는 리소스에 액세스하려고 합니다. 하지만 리소스에 대한 URI를 가져올 수 있도록 다른 사용자가 권한을 부여합니다. 이 경우 로그인한 후 URI를 사용하여 Data Lake Store에 연결할 수 있습니다. 다음 단계를 참조하세요.
 
@@ -305,6 +223,25 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
     ![Data Lake Store에 연결 팝업 대화 상자](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
     ![Data Lake Store에 연결 결과](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
+
+## <a name="generate-a-sas-in-storage-explorer"></a>Storage 탐색기에서 SAS를 생성 합니다.
+
+### <a name="account-level-sas"></a>계정 수준 SAS
+
+1. 저장소 계정을 공유 하 고 선택한 마우스 오른쪽 단추로 클릭 **공유 액세스 서명 가져오기...** .
+
+    ![SAS 상황에 맞는 메뉴 옵션 가져오기][14]
+
+2. **공유 액세스 서명 생성** 대화 상자에서 계정에 대해 원하는 시간 프레임 및 권한을 지정하고 **만들기** 단추를 클릭합니다.
+
+    ![SAS 가져오기 대화 상자][15]
+
+3. 수행할 수 있습니다. 복사 하거나 합니다 **연결 문자열** 또는 원시 **쿼리 문자열** 클립보드에 합니다.
+
+### <a name="service-level-sas"></a>서비스 수준 SAS
+
+[Storage 탐색기에서 blob 컨테이너에 대 한 SAS를 가져오는 방법](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
 ## <a name="search-for-storage-accounts"></a>저장소 계정 검색
 

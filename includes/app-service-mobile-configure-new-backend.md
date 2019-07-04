@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455193"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440200"
 ---
 1. 다음 플랫폼에 대 한 SDK 퀵 스타트 클라이언트를 다운로드 합니다.
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455193"
 
         4. 선택 **App Service** 대상 게시를 클릭 **기존 항목 선택**를 클릭 합니다 **게시** 창의 맨 아래에 있는 단추입니다.
 
-        5. 먼저 Azure 구독을 사용 하 여 Visual Studio에 로그인 해야 합니다. 선택 합니다 `Subscription`, `Resource Group`를 선택한 다음 앱의 이름입니다. 준비 되 면 **확인**, App Service 백 엔드에 있는.NET 서버 프로젝트를 로컬로 배포는이 합니다. 배포가 완료 되 면 있습니다 리디렉션됩니다 `http://{zumoappname}.azurewebsites.net/` 브라우저에서 합니다.
-        
-           ![백 엔드는 등록](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. 먼저 Azure 구독을 사용 하 여 Visual Studio에 로그인 해야 합니다. 선택 합니다 `Subscription`, `Resource Group`를 선택한 다음 앱의 이름입니다. 준비 되 면 **확인**, App Service 백 엔드에 있는.NET 서버 프로젝트를 로컬로 배포는이 합니다. 배포가 완료 되 면 있습니다 리디렉션됩니다 `http://{zumoappname}.azurewebsites.net/` 브라우저에서 합니다.                   

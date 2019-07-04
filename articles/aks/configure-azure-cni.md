@@ -7,20 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441972"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
-기본적으로 AKS 클러스터는 [kubenet][kubenet]을 사용합니다. 그러면 가상 네트워크 및 서브넷이 만들어집니다. *Kubenet*을 사용하면 노드는 가상 네트워크 서브넷의 IP 주소를 얻습니다. 그런 다음, NAT(Network Address Translation)이 노드에서 구성되며 pod가 노드 IP 뒤에 “숨겨진” IP 주소를 받습니다. 이 방법을 사용하면 네트워크 공간에서 pod가 사용하도록 예약해야 하는 IP 주소의 수가 줄어듭니다.
+기본적으로 AKS 클러스터 사용 [kubenet][kubenet]에 및 가상 네트워크 및 서브넷을 자동으로 만들어집니다. *Kubenet*을 사용하면 노드는 가상 네트워크 서브넷의 IP 주소를 얻습니다. 그런 다음, NAT(Network Address Translation)이 노드에서 구성되며 pod가 노드 IP 뒤에 “숨겨진” IP 주소를 받습니다. 이 방법을 사용하면 네트워크 공간에서 pod가 사용하도록 예약해야 하는 IP 주소의 수가 줄어듭니다.
 
-[Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 다시 빌드해야 할 수 있습니다.
+사용 하 여 [Azure 네트워킹 인터페이스 CNI (컨테이너)][cni-networking], 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스할 수 있습니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 다시 빌드해야 할 수 있습니다.
 
-이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
+이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워크 옵션 및 고려 사항에 대 한 자세한 내용은 참조 하세요. [Kubernetes 및 AKS에 대 한 개념을 네트워크][aks-network-concepts]합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 �
 | 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. 서브넷 크기도 업그레이드 작업이나 향후의 크기 조정 요구를 반영해야 합니다.<p />업그레이드 작업을 위한 추가 노드를 포함한 *최소* 서브넷 크기를 계산하려면`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 노드 클러스터의 예: `(51) + (51  * 30 (default)) = 1,581`(/21 이상)<p/>추가 10개 노드를 확장하는 프로비전도 포함하는 50개 노드 클러스터의 예: `(61) + (61 * 30 (default)) = 1,891` (/21 이상)<p>클러스터를 만들 때 노드당 최대 Pod를 지정하지 않으면 노드당 최대 Pod 수는 *30*개로 설정됩니다. 필요한 최소 IP 주소 수는 이 값을 기준으로 합니다. 다른 최댓값을 기준으로 최소 IP 주소 요구 사항을 계산하는 경우 [노드당 최대 Pod 수를 구성하는 방법](#configure-maximum---new-clusters)을 참조하여 클러스터를 배포할 때 이 값을 설정하세요 |
 | Kubernetes 서비스 주소 범위 | 이 범위는 이 가상 네트워크 또는 이 가상 네트워크에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. |
 | Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다(kube-dns). .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다. |
-| Docker 브리지 주소 | 노드에서 Docker 브리지 IP 주소로 사용되는 IP 주소(CIDR 표기법)입니다. 172\.17.0.1/16의 기본값 |
+| Docker 브리지 주소 | 노드에서 Docker 브리지 IP 주소로 사용되는 IP 주소(CIDR 표기법)입니다. 172.17.0.1/16의 기본값 |
 
 ## <a name="maximum-pods-per-node"></a>노드당 최대 포드
 
@@ -79,7 +79,7 @@ AKS 클러스터에 노드당 pod의 최대 수는 250. 노드당 *기본* 최�
 > [!NOTE]
 > 위의 표에 최소값 AKS 서비스에서 엄격 하 게 적용 됩니다. 이렇게 하면 되므로 방지할 수 클러스터부터 표시 최소값 보다 낮은 maxPods 값을 하지 설정할 수 있습니다.
 
-* **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다. 최대값은 250입니다.
+* **Azure CLI**: 지정 된 `--max-pods` 인수를 사용 하 여 클러스터를 배포 하는 경우는 [az aks 만들기][az-aks-create] 명령. 최대값은 250입니다.
 * **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다. 최대값은 250입니다.
 * **Azure 포털**: Azure Portal을 사용하여 클러스터를 배포하는 경우 노드당 최대 Pod 수를 변경할 수 없습니다. Azure Portal을 사용하여 배포하는 경우 Azure CNI 네트워킹 클러스터는 노드당 30개 Pod로 제한됩니다.
 
@@ -95,14 +95,14 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 
 **서브넷**: 클러스터를 배포하려는 가상 네트워크 내의 서브넷입니다. 클러스터에 대해 가상 네트워크에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다. 하이브리드 연결의 경우 주소 범위가 환경의 다른 가상 네트워크와 겹쳐서는 안 됩니다.
 
-**Kubernetes 서비스 주소 범위**: 이는 Kubernetes가 클러스터의 내부 [서비스][services]에 할당하는 가상 IP의 세트입니다. 다음 요구 사항을 충족하는 모든 프라이빗 주소 범위를 사용할 수 있습니다.
+**Kubernetes 서비스 주소 범위**: 이 내부로 Kubernetes를 할당 하는 가상 Ip의 집합이 [services][services] 클러스터에서. 다음 요구 사항을 충족하는 모든 프라이빗 주소 범위를 사용할 수 있습니다.
 
 * 클러스터의 가상 네트워크 IP 주소 범위에 속하지 않아야 합니다.
 * 클러스터 가상 네트워크가 피어링된 다른 가상 네트워크와 겹치지 않아야 합니다.
 * 온-프레미스 IP와 겹치지 않아야 합니다.
 * 범위에 속하지 않아야 `169.254.0.0/16`하십시오 `172.30.0.0/16`, `172.31.0.0/16`, 또는 `192.0.2.0/24`
 
-기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
+기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 대 한 자세한 내용은 참조 하세요. [Services][services] Kubernetes 설명서에서.
 
 **Kubernetes DNS 서비스 IP 주소**:  클러스터의 DNS 서비스에 대한 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-`--network-plugin azure` 인수와 함께 [az aks create][az-aks-create] 명령을 사용하여 고급 네트워킹을 포함한 클러스터를 만듭니다. `--vnet-subnet-id` 값을 이전 단계에서 수집한 서브넷 ID로 업데이트합니다.
+사용 합니다 [az aks 만들기][az-aks-create] 명령과 `--network-plugin azure` 고급 네트워킹을 사용 하 여 클러스터를 만드는 인수입니다. `--vnet-subnet-id` 값을 이전 단계에서 수집한 서브넷 ID로 업데이트합니다.
 
 ```azurecli-interactive
 az aks create \
@@ -176,17 +176,17 @@ AKS의 네트워킹에 대한 자세한 내용은 다음 문서를 참조하세�
 - [AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소 사용](static-ip.md)
 - [AKS(Azure 컨테이너 서비스)를 통해 내부 부하 분산 장치 사용](internal-lb.md)
 
-- [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
-- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
-- [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
-- [동적 공용 IP를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-tls]
-- [동적 공용 IP를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-static-tls]
+- [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
+- [HTTP 응용 프로그램 라우팅 추가 기능을 사용 하도록 설정][aks-http-app-routing]
+- [개인 내부 네트워크 및 IP 주소를 사용 하는 수신 컨트롤러 만들기][aks-ingress-internal]
+- [동적 공용 IP를 사용 하 여 수신 컨트롤러를 만들고 let 's Encrypt TLS 인증서를 자동으로 생성 하도록 구성][aks-ingress-tls]
+- [고정 공용 IP를 사용 하 여 수신 컨트롤러를 만들고 let 's Encrypt TLS 인증서를 자동으로 생성 하도록 구성][aks-ingress-static-tls]
 
 ### <a name="aks-engine"></a>AKS 엔진
 
-[AKS 엔진(Azure Kubernetes Service 엔진)][aks-engine]은 Azure에 Kubernetes 클러스터를 배포하는 데 사용할 수 있는 Azure Resource Manager 템플릿을 생성하는 오픈 소스 프로젝트입니다.
+[Azure Kubernetes Service (AKS 엔진) 엔진][aks-engine] 는 Azure에서 Kubernetes 클러스터를 배포 하기 위한 사용할 수 있는 하는 Azure Resource Manager 템플릿을 생성 하는 오픈 소스 프로젝트입니다.
 
-AKS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 및 [Azure CNI][cni-networking] 플러그 인을 둘 다 지원합니다. 따라서 AKS 엔진은 두 네트워킹 시나리오를 모두 지원합니다.
+AKS 엔진을 사용 하 여 만든 Kubernetes 클러스터 모두 지원 합니다 [kubenet][kubenet] and [Azure CNI][cni-networking] 플러그 인입니다. 따라서 AKS 엔진은 두 네트워킹 시나리오를 모두 지원합니다.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -211,3 +211,4 @@ AKS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models
