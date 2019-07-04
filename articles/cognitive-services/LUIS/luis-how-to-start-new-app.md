@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148191"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341854"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -65,7 +65,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
 
 가능한 오류 다음과 같습니다. 
 
-* 앱 이름이 이미 있습니다. 앱을 다시 가져오기 및 설정 합니다 **선택적 이름** 새 이름입니다. 
+* 앱 이름이 이미 있습니다. 이 문제를 해결 하려면 앱을 다시 가져와야 하 고 설정 합니다 **선택적 이름** 새 이름입니다. 
 
 ## <a name="export-app-for-backup"></a>백업에 대 한 앱 내보내기
 

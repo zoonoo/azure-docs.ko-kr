@@ -1,5 +1,5 @@
 ---
-title: 이미지 쿼리 보내기 - Bing Image Search API
+title: 사용자 지정 하 고 이미지 검색 쿼리-Bing Image Search API를 제안 합니다.
 titleSuffix: Azure Cognitive Services
 description: Bing Image Search API에 보낸 검색 쿼리를 사용자 지정하는 것에 대해 알아봅니다.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384395"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542751"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Bing Image Search API로 쿼리 보내기
+# <a name="customize-and-suggest-image-search-queries"></a>사용자 지정 하 고 이미지 검색 쿼리를 제안 합니다.
 
-Bing Image Search API는 Bing.com/Images와 유사한 환경을 제공합니다. 이를 사용하여 Bing에 검색 쿼리를 보내고 관련 이미지 목록을 다시 가져올 수 있습니다.
+이 문서를 사용 하 여 쿼리를 사용자 지정 하 고 Bing Image Search API에 보낼 검색 용어를 제안 하는 방법을 알아봅니다.
 
-## <a name="use-and-suggest-search-terms"></a>검색어 사용 및 제안
-
-검색어를 입력한 후, [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 URL 인코딩합니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+## <a name="suggest-search-terms"></a>검색 용어를 제안 합니다.
 
 앱에 검색어를 입력한 검색 상자가 있는 경우 환경을 개선하기 위해 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용할 수 있습니다. API는 제안된 검색어를 실시간으로 표시할 수 있습니다. API는 부분 검색어 및 Cognitive Services를 기반으로 제안된 쿼리 문자열을 반환합니다.
 
