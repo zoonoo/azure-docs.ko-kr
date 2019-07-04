@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939201"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447738"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -45,16 +45,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * **SSH(보안 셸) 클라이언트**: 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-> [!IMPORTANT]
-> 이 문서의 단계를 수행하려면 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 Azure HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
 1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)로 이동합니다.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | Name | 값 |
+   | 이름 | 값 |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -240,7 +237,7 @@ Apache Hive 작업의 일부로 .csv 파일의 데이터를 **delays**라는 Apa
 
     ![Azure SQL 서버 세부 정보 가져오기](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Azure SQL 서버 세부 정보 가져오기")
 
-    여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
+    여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](https://www.freetds.org/)를 사용합니다.
 
 5. FreeTDS를 설치하려면 클러스터에 대한 SSH 연결에서 다음 명령을 사용합니다.
 

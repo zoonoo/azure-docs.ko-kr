@@ -4,16 +4,15 @@ description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076196"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>빠른 시작: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기
 
@@ -76,7 +75,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Storage 계정 개요](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **개인(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
+4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **프라이빗(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
 
    ![Blob 컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -134,7 +133,7 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
    |sink   |  Blob Storage |  적합한 싱크를 선택하세요.    |
    |리소스  |  데이터 원본 설정 수동 제공 |  기존 계정을 선택하거나 데이터를 수동으로 입력하도록 선택합니다.   |
    |구독  |  \<구독\>   | 만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다.   |
-   |Storage 계정  |  asaquickstartstorage   |  저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
+   |저장소 계정  |  asaquickstartstorage   |  저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
    |컨테이너  |  container1   |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
    |경로 패턴  |  output   |  컨테이너 내에서 만들 파일 경로 이름을 입력합니다.   |
    

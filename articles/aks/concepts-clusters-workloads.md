@@ -109,7 +109,7 @@ AKS에서 여러 노드 풀을 사용하는 자세한 방법은 [AKS 클러스�
 
 AKS 클러스터에서 여러 노드 풀을 포함하는 경우 지정된 리소스에 대해 사용할 노드 풀을 Kubernetes 스케줄러에게 알려주어야 할 수 있습니다. 예를 들어, 수신 컨트롤러는 Windows Server 노드에서 실행하지 않아야 합니다(현재 AKS에서 미리 보기). 노드 선택기를 사용하면 노드 OS와 같은 다양한 매개 변수를 정의하여 pod 예약 제어를 할 수 있습니다.
 
-다음 기본 예제에서는 노드 선택기를 사용 하 여 Linux 노드 상의 NGINX 인스턴스를 예약 *"beta.kubernetes.io/os": linux*:
+다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용하여 Linux 노드 상의 NGINX 인스턴스를 예약합니다.
 
 ```yaml
 kind: Pod
