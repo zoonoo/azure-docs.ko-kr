@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: diberry
 ms.openlocfilehash: a65b075e89180441eecfb420130bfd1e47b277a5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123563"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182510"
 ---
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다. 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182281"
 ---
 ## <a name="c-program-example"></a>C# 프로그램 예
 
@@ -37,7 +37,7 @@ ERD는 두 테이블 간의 관계를 표시합니다. **tabEmployee.DepartmentC
 
 C# 프로그램은 논리적으로 하나의 .cs 파일이며, 물리적으로 여러 코드 블록으로 분할되어 각 블록을 보다 쉽게 이해할 수 있습니다. 프로그램을 컴파일하고 실행하려면 다음 단계를 수행합니다.
 
-1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#** > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔*이어야 합니다.
+1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#**  > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔*이어야 합니다.
 
 1. 파일 *Program.cs*에서 다음 단계를 사용하여 코드의 시작 줄을 바꿉니다.
 
