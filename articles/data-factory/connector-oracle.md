@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04f623a889a87c325b1f53e3b39656ca4b703961
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405939"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509240"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -30,13 +30,16 @@ ms.locfileid: "60405939"
 
 Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Oracle에 복사할 수도 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히, 이 Oracle 커넥터는 Oracle 데이터베이스의 다음 버전을 지원합니다. 또한 기본 또는 OID 인증을 지원합니다.
+특히,이 Oracle 커넥터를 지원합니다.
 
-- Oracle 12c R1(12.1)
-- Oracle 11g R1, R2(11.1, 11.2)
-- Oracle 10g R1, R2(10.1, 10.2)
-- Oracle 9i R1, R2(9.0.1, 9.2)
-- Oracle 8i R3(8.1.7)
+- Oracle 데이터베이스의 다음 버전:
+  - Oracle 12c R1(12.1)
+  - Oracle 11g R1, R2(11.1, 11.2)
+  - Oracle 10g R1, R2(10.1, 10.2)
+  - Oracle 9i R1, R2(9.0.1, 9.2)
+  - Oracle 8i R3(8.1.7)
+- 사용 하 여 데이터 복사 **기본적인** 하거나 **OID** 인증 합니다.
+- Oracle 원본에서 병렬 복사본입니다. 참조 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 세부 정보가 포함 된 섹션입니다.
 
 > [!Note]
 > Oracle 프록시 서버는 지원되지 않습니다.
@@ -190,16 +193,24 @@ Oracle 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 
 
 ### <a name="oracle-as-a-source-type"></a>원본 유형인 Oracle
 
+> [!TIP]
+>
+> 자세히 알아보세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 효율적으로 데이터 분할을 사용 하 여 Oracle에서 데이터를 로드 하는 방법에 대 한 섹션입니다.
+
 Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **OracleSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **OracleSource**로 설정해야 합니다. | 예 |
-| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아닙니다. |
+| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 부하를 사용 하도록 설정 하면 쿼리에서 해당 기본 제공 파티션 매개 변수를 연결 해야 합니다. 예제를 참조 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다. | 아닙니다. |
+| partitionOptions | 데이터 분할 Oracle에서 데이터를 로드 하는 데 사용 하는 옵션을 지정 합니다. <br>값은 허용: **None** (기본값) 이면 **PhysicalPartitionsOfTable** 하 고 **DynamicRange**합니다.<br>파티션 옵션을 사용 하는 경우 (없습니다 ' None'), 또한 구성 하십시오 **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** 4 예를 들어 복사 활동에서 설정을 결정 하는 동시에 Oracle에서 데이터를 로드 하는 병렬 처리 수준이 데이터베이스입니다. | 아닙니다. |
+| partitionSettings | 데이터 분할에 대 한 설정 그룹을 지정 합니다. <br>파티션 옵션 없는 경우 적용 `None`합니다. | 아닙니다. |
+| partitionNames | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션을 적용 `PhysicalPartitionsOfTable`합니다. 원본 데이터를 검색할 쿼리를 사용 하는 경우 연결 `?AdfTabularPartitionName` WHERE 절에 있습니다. 예제를 참조 하세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다. | 아닙니다. |
+| partitionColumnName | 원본 열의 이름을 지정 **정수 형식의** 병렬 복사본에 대 한 범위를 분할 하 여 사용 되는 합니다. 지정 하지 않으면 테이블의 기본 키를 자동으로 검색 하 고 파티션 열으로 사용 됩니다. <br>파티션 옵션을 적용 `DynamicRange`합니다. 원본 데이터를 검색할 쿼리를 사용 하는 경우 연결 `?AdfRangePartitionColumnName` WHERE 절에 있습니다. 예제를 참조 하세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다. | 아닙니다. |
+| partitionUpperBound | 파티션 열 복사할 데이터의 최대값입니다. <br>파티션 옵션을 적용 `DynamicRange`합니다. 원본 데이터를 검색할 쿼리를 사용 하는 경우 연결 `?AdfRangePartitionUpbound` WHERE 절에 있습니다. 예제를 참조 하세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다. | 아닙니다. |
+| PartitionLowerBound | 파티션 열 복사할 데이터의 최소값입니다. <br>파티션 옵션을 적용 `DynamicRange`합니다. 원본 데이터를 검색할 쿼리를 사용 하는 경우 연결 `?AdfRangePartitionLowbound` WHERE 절에 있습니다. 예제를 참조 하세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다. | 아닙니다. |
 
-“oracleReaderQuery”를 지정하지 않으면 데이터 세트의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
-
-**예제:**
+**예제: 파티션 없이 기본 쿼리를 사용 하 여 데이터 복사**
 
 ```json
 "activities":[
@@ -230,6 +241,8 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Or
     }
 ]
 ```
+
+더 많은 예제를 참조 하세요 [병렬 복사 Oracle에서](#parallel-copy-from-oracle) 섹션입니다.
 
 ### <a name="oracle-as-a-sink-type"></a>싱크 형식인 Oracle
 
@@ -271,6 +284,54 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Oracl
         }
     }
 ]
+```
+
+## <a name="parallel-copy-from-oracle"></a>Oracle에서 병렬 복사
+
+데이터 팩터리 Oracle 커넥터는 Oracle에서 뛰어난 성능으로 병렬로 데이터를 복사 하는 분할과 기본 제공 데이터를 제공 합니다. 복사 작업에서 데이터 분할 옵션에는 Oracle 원본->를 찾을 수 있습니다.
+
+![파티션 옵션](./media/connector-oracle/connector-oracle-partition-options.png)
+
+분할 된 복사본을 사용 하면 data factory는 파티션에서 데이터를 로드 하 여 Oracle 원본에 대해 병렬 쿼리를 실행 합니다. 병렬 처리 수준이 구성 하 고 제어를 통해 **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** 복사 활동에 설정 합니다. 예를 들어 설정한 `parallelCopies` 4로 동시에 데이터 팩터리를 생성 하 고 Oracle 데이터베이스에서에서 데이터를 검색 하는 동안 각 부분 지정한 파티션 옵션 및 설정에 따라 4 개의 쿼리를 실행 합니다.
+
+Oracle 데이터베이스에서 많은 양의 데이터를 로드 하는 경우에 특히 분할 데이터를 사용 하 여 병렬 복사를 사용 하려면 제안 됩니다. 다음은 다양 한 시나리오에 대 한 권장된 구성입니다.
+
+| 시나리오                                                     | 제안 된 설정                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 실제 파티션 사용 하 여 큰 테이블에서 전체 로드          | **파티션 옵션**: 테이블의 물리적 파티션에 합니다. <br><br/>자동으로 실행 하는 동안 데이터 팩터리는 실제 파티션을 검색 하 고 파티션에서 데이터를 복사. |
+| 데이터 분할에 대 한 정수 열이 있는 동안 실제 파티션 하지 않고 큰 테이블에서 전체 로드 | **파티션 옵션**: 동적 범위 분할 합니다.<br>**파티션 열**: 데이터를 분할 하는 데 사용 하는 열을 지정 합니다. 그렇지 않으면 지정 된 기본 키 열이 사용 됩니다. |
+| 많은 양의 아래 실제 파티션을 사용 하 여 사용자 지정 쿼리를 사용 하 여 데이터 로드 | **파티션 옵션**: 테이블의 물리적 파티션에 합니다.<br>**쿼리**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`합니다.<br>**파티션 이름**: 데이터를 복사 하려면 파티션 이름을 지정 합니다. 지정 하지 않으면 ADF Oracle 데이터 집합에서 지정한 테이블에 있는 실제 파티션이 자동으로 검색 됩니다.<br><br>데이터 팩터리 교체를 실행 하는 동안 `?AdfTabularPartitionName` 실제 파티션 이름 및 Oracle에는 송신 합니다. |
+| 많은 양의 데이터 분할에 대 한 아래 정수 열이 있는 동안 실제 파티션을 하지 않고 사용자 지정 쿼리를 사용 하는 데이터를 로드 합니다. | **파티션 옵션**: 동적 범위 분할 합니다.<br>**쿼리**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`합니다.<br>**파티션 열**: 데이터를 분할 하는 데 사용 하는 열을 지정 합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 하 고 **파티션 하한값**: 파티션 열만 데이터를 검색 하려면 한 및 상한 범위 사이 대해 필터링 할 것인지를 지정 합니다.<br><br>데이터 팩터리 교체를 실행 하는 동안 `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, 및 `?AdfRangePartitionLowbound` 실제 열 이름 및 값을 사용 하 여 각 범위를 분할 및 Oracle에 보냅니다. <br>예를 들어, 1 및 4에서 병렬 복사 집합과 80으로 상한 하한값으로 설정 하 고 파티션 열 "ID" ADF [21, 40] [1, 20] 간에 ID 사용 하 여 4 개의 파티션 기준으로 데이터 검색 [41, 60] 및 [61, 80]. |
+
+**실제 파티션 쿼리 예제:**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> PARTITION(\"?AdfTabularPartitionName\") WHERE <your_additional_where_clause>",
+    "partitionOption": "PhysicalPartitionsOfTable",
+    "partitionSettings": {
+        "partitionNames": [
+            "<partitionA_name>",
+            "<partitionB_name>"
+        ]
+    }
+}
+```
+
+**동적 범위 분할을 사용 하 여 쿼리 예제:**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column>",
+        "partitionLowerBound": "<lower_value_of_partition_column>"
+    }
+}
 ```
 
 ## <a name="data-type-mapping-for-oracle"></a>Oracle에 대한 데이터 형식 매핑

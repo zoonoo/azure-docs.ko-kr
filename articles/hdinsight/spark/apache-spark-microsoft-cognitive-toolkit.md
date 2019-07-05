@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695084"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448696"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -25,13 +25,13 @@ ms.locfileid: "64695084"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 구독** - 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
+* **Azure 구독**. 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
 * **Azure HDInsight Spark 클러스터** - 이 문서에서는 Spark 2.0 클러스터를 만듭니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="how-does-this-solution-flow"></a>이 솔루션을 전달하는 방법
 
-이 솔루션은 이 문서와 이 자습서의 일부로 업로드하는 Jupyter 노트북으로 분할되어 있습니다. 이 문서에서는 다음 단계를 수행합니다.
+이 솔루션은이 문서와이 문서의 일부로 업로드 하는 Jupyter notebook을 간에 분할 됩니다. 이 문서에서는 다음 단계를 수행합니다.
 
 * HDInsight Spark 클러스터에서 스크립트 동작을 실행하여 Microsoft Cognitive 도구 키트 및 Python 패키지를 설치합니다.
 * 솔루션을 실행하는 Jupyter 노트북을 HDInsight Spark 클러스터에 업로드합니다.
@@ -83,7 +83,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 4. **업로드**를 다시 클릭합니다.
 
-5. 노트북을 업로드한 후 노트북의 이름을 클릭한 다음, 데이터 집합을 로드하고 자습서를 수행하는 방법에 대한 노트북 자체의 지침을 따릅니다.
+5. Notebook을 업로드 한 후 노트북의 이름을 클릭 한 다음 데이터 집합을 로드 하 고 문서를 수행 하는 방법에 대 한 노트북 자체의 지침을 따릅니다.
 
 ## <a name="see-also"></a>참고 항목
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)

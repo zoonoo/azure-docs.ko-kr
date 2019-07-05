@@ -3,20 +3,20 @@ title: QnA Maker 기술 자료에 잡담 추가
 titleSuffix: Azure Cognitive Services
 description: KB를 만들 때 봇에 사적인 잡담을 추가하면 실제로 대화하는 것 같은 느낌이 들고 몰입도가 높아집니다. QnA Maker를 사용하면 미리 채워진 최고의 잡담 집합을 KB로 손쉽게 추가할 수 있습니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 60a17859fd74b1972e0905a830ba984838a94ffd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540994"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447505"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "65540994"
 사용자 쿼리에 대 한 `When is your birthday?`, 각 성격에 스타일이 적용 된 응답:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|개인 정보|예제|
+|개인 정보|예|
 |--|--|
 |전문가|Age 나에 게 실제로 적용 되지 않습니다.|
 |친숙한|Age를 포함 하지 않습니다.|

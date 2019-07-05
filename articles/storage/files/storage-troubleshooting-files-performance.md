@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 성능 문제 해결 가이드
-description: 알려진 Azure premium 파일 공유 (미리 보기) 및 관련된 해결 방법을 사용 하 여 성능 문제입니다.
+description: 알려진 Azure 파일 공유 및 관련된 해결 방법을 사용 하 여 성능 문제입니다.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190046"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445665"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
-이 문서에서는 프리미엄 Azure 파일 공유 (미리 보기)와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인 및 해결 방법을 제공 합니다.
+이 문서에서는 Azure 파일 공유와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인 및 해결 방법을 제공 합니다.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>높은 대기 시간, 낮은 처리량 및 일반적인 성능 문제
 
 ### <a name="cause-1-share-experiencing-throttling"></a>원인 1: 공유 경험 제한
 
-공유에 기본 할당량 100gib 100 기준 IOPS (1 시간 동안 최대 300 버스트 가능성이) 제공 하는 경우 프로 비전 및 iops 간의 관계에 대 한 자세한 내용은 참조는 [공유를 프로 비전](storage-files-planning.md#provisioned-shares) 계획 가이드의 섹션입니다.
+Premium 공유에 기본 할당량 100gib 100 기준 IOPS (1 시간 동안 최대 300 버스트 가능성이) 제공 하는 경우 프로 비전 및 iops 간의 관계에 대 한 자세한 내용은 참조는 [공유를 프로 비전](storage-files-planning.md#provisioned-shares) 계획 가이드의 섹션입니다.
 
 공유 제한 하려는 경우를 확인 하려면 포털에서 Azure Metrics를 활용할 수 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "65190046"
 
 1. 선택 **트랜잭션을** 을 기준으로 합니다.
 
-1. 에 대 한 필터 추가 **ResponseType** 요청 응답 코드가 있는지 확인 합니다 **SuccessWithThrottling**합니다.
+1. 에 대 한 필터 추가 **ResponseType** 요청 응답 코드가 있는지 확인 합니다 **SuccessWithThrottling** (SMB)에 대 한 또는 **ClientThrottlingError** (REST)에 대 한 합니다.
 
 ![프리미엄 파일 공유에 대 한 메트릭 옵션](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ ms.locfileid: "65190046"
 
 ### <a name="cause"></a>원인
 
-클라이언트 VM은 premium 파일 공유와 다른 지역에서 찾을 수 없습니다.
+파일 공유와 다른 지역에서 클라이언트 VM을 찾을 수 없습니다.
 
 ### <a name="solution"></a>해결 방법
 
-- 프리미엄 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
+- 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>클라이언트는 네트워크에서 지 원하는 최대 처리량을 달성할 수 없습니다.
 
@@ -121,6 +121,10 @@ Linux SMB 클라이언트의 구현 사용 하 여 알려진된 문제입니다.
 
 - CentOS 8로 업그레이드 / RHEL 8입니다.
 - Ubuntu를 변경 합니다.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Linux에서 Azure Files와 서로 파일을 복사하는 속도 느림
+
+느린 파일 복사를 Azure Files에서 발생 하는 경우를 확인해 보세요 합니다 [느린 파일 복사를 Linux에서 Azure files에서](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) Linux 문제 해결 섹션에 나와 있습니다.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>IOPS에 대 한 흔들림/톱니 패턴
 

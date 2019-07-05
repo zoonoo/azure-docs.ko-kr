@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060867"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성이란?
 
@@ -29,7 +29,7 @@ ms.locfileid: "65511090"
 
 ![사용자 지정 음성 포털을 구성 하는 다양 한 구성 요소를 강조 표시 합니다.](./media/custom-speech/custom-speech-overview.png)
 
-1. [구독하고 프로젝트 만들기](#set-up-your-azure-account) - Azure 계정을 만들고 음성 서비스를 구독합니다. 이 통합된 구독을 통해 음성-텍스트 변환, 텍스트-음성 변환, 음성 번역 및 사용자 지정 음성 포털 액세스가 가능합니다. 그런 다음 음성 서비스 구독을 사용하여 첫 번째 사용자 지정 음성 프로젝트를 생성합니다.
+1. [구독하고 프로젝트 만들기](#set-up-your-azure-account) - Azure 계정을 만들고 음성 서비스를 구독합니다. 이 통합된 구독 음성-텍스트, 텍스트 음성 변환, 음성 번역 및 사용자 지정 음성 포털에 액세스할 수 있습니다. 그런 다음 음성 서비스 구독을 사용하여 첫 번째 사용자 지정 음성 프로젝트를 생성합니다.
 
 2. [테스트 데이터 업로드](how-to-custom-speech-test-data.md) - 사용자의 응용 프로그램, 도구 및 제품에 대한 Microsoft의 음성-텍스트를 평가하기 위해 테스트 데이터(오디어 파일)을 업로드합니다.
 
@@ -52,14 +52,14 @@ Azure 계정 및 음성 서비스 구독을 만든 후에는 사용자 지정 �
 
 1. Azure portal에서 음성 서비스 구독 키를 가져옵니다.
 2. [사용자 지정 음성 포털](https://aka.ms/custom-speech)에 로그인합니다.
-3. 음성 프로젝트를 만들고 작업해야 하는 구독을 선택합니다.
+3. 음성 프로젝트를 만들고 작업할 해야 구독을 선택 합니다.
 4. 구독을 수정하려는 경우는 위쪽 탐색에서 **코그** 아이콘을 사용합니다.
 
 ## <a name="how-to-create-a-project"></a>프로젝트를 만드는 방법
 
 데이터, 모델, 테스트 및 끝점같은 콘텐츠는 사용자 지정 음성 포털에서 **프로젝트**로 구성됩니다. 각 프로젝트는 도메인 및 국가/언어에 따라 다릅니다. 예를 들어 미국에서 영어를 사용하는 콜 센터에 대한 프로젝트를 만들 수 있습니다.
 
-첫 번째 프로젝트를 만들려면 선택 합니다 **음성-에-텍스트/사용자 지정 음성**, 클릭 **새 프로젝트**합니다. 프로젝트를 만드는 마법사에서 제공한 지침을 따릅니다. 프로젝트를 만든 후 4 개 탭이 표시 됩니다. **데이터**, **테스트**합니다 **학습**, 및 **배포**합니다. 에 나와 있는 링크를 사용 하 여 [다음 단계](#next-steps) 각 탭을 사용 하는 방법입니다.
+첫 번째 프로젝트를 만들려면 **음성-텍스트/사용자 지정 음성** 선택한 다음, **새 프로젝트**를 클릭합니다. 프로젝트를 만들려면 마법사에서 제공하는 지침을 따릅니다. 프로젝트를 만든 후 4개 탭이 표시됩니다: **데이터**, **테스트**, **학습** 및 **배포**. 각 탭을 사용하는 방법을 배우려면 [다음 단계](#next-steps)에서 제공되는 링크를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

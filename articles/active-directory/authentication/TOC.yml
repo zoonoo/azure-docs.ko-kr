@@ -144,6 +144,8 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: 보고
       items:
+        - name: 사용량 및 인사이트
+          href: howto-authentication-methods-usage-insights.md
         - name: SSPR 보고서
           href: howto-sspr-reporting.md
         - name: MFA 보고서

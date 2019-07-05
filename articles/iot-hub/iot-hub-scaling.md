@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697327"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514487"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -62,6 +62,9 @@ IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서
 
 기본 계층에서 표준 계층으로 마이그레이션할 때 파티션 구성은 변경되지 않습니다.
 
+> [!NOTE]
+> 무료 계층 기본 또는 표준으로 업그레이드 하는 것을 지원 하지 않습니다.
+
 ## <a name="iot-hub-rest-apis"></a>IoT Hub REST API
 
 IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 API 호출이 기본 계층 허브와 작동하지 않는 것을 의미합니다. 다음 표는 사용 가능한 API를 보여줍니다.
@@ -70,26 +73,25 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 | --- | ---------- | ------------- |
 | [디바이스 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 예 | 예 |
 | [디바이스 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 예 | 예 |
-| 모듈 삭제 | 예 | 예 |
-| 모듈 가져오기 | 예 | 예 |
+| [모듈 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | 예 | 예 |
+| [모듈 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | 예 | 예 |
 | [레지스트리 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | 예 | 예 |
 | [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | 예 | 예 |
-| [디바이스 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | 예 | 예 |
-| 모듈 넣기 | 예 | 예 |
+| [만들거나 장치를 업데이트 합니다.](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | 예 | 예 |
+| [만들거나 모듈을 업데이트 합니다.](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | 예 | 예 |
 | [IoT Hub 쿼리](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | 예 | 예 |
-| 모듈 쿼리 | 예 | 예 |
 | [파일 업로드 SAS URI 만들기](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | 예 | 예 |
 | [바인딩된 디바이스 알림 수신](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | 예 | 예 |
 | [디바이스 이벤트 보내기](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 예 | 예 |
-| 모듈 이벤트 보내기 | 예 | 예 |
+| 모듈 이벤트 보내기 | AMQP 및 MQTT만 | AMQP 및 MQTT만 |
 | [파일 업로드 상태 업데이트](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 예 | 예 |
-| [대량 디바이스 작업](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | 예, IoT Edge 기능을 제외하고 맞습니다. | 예 | 
+| [대량 디바이스 작업](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 예, IoT Edge 기능을 제외하고 맞습니다. | 예 |
 | [명령 큐 제거](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 예 |
 | [디바이스 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 예 |
-| 모듈 쌍 가져오기 |   | 예 |
+| [모듈 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | 예 |
 | [디바이스 메서드 호출](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | 예 |
-| [디바이스 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | 예 | 
-| 모듈 쌍 업데이트 |   | 예 | 
+| [디바이스 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | 예 |
+| [모듈 쌍 업데이트](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | 예 |
 | [바인딩된 디바이스 알림 중단](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | 예 |
 | [바인딩된 디바이스 알림 완료](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | 예 |
 | [작업 취소](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | 예 |

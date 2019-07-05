@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3e02222580da67a4eeb4159e4fc5dc3b9a98f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289623"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501682"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -41,25 +41,25 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
 1. 클릭 **내 역할** 에 적합 한 목록을 보려면 Azure AD 역할입니다.
 
-    ![Azure AD 역할-내 역할](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD 역할-적격 또는 활성 역할 목록 표시 내 역할](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. 활성화하려는 역할을 찾습니다.
 
-    ![Azure AD 역할-내 역할 목록](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD 역할-내 적격 역할 목록이 표시 활성화 링크](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. **활성화**를 클릭하여 역할 활성화 세부 정보 창을 엽니다.
 
 1. MFA(다단계 인증)가 필요한 역할인 경우 **진행하기 전에 ID 확인**을 클릭합니다. 세션당 한 번만 인증해야 합니다.
 
-    ![역할 활성화 전에 MFA를 통해 확인](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![내 역할 활성화 전에 MFA 사용 하 여 id 창 확인](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
 1. **ID 확인**을 클릭하고 지침에 따라 추가 보안 확인을 제공합니다.
 
-    ![추가 보안 확인](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![사용자에 게 연락 하는 방법을 요청 하는 추가 보안 인증 페이지](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. **활성화**를 클릭하여 [활성화] 창을 엽니다.
 
-    ![활성화 창](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![활성화 창 시작 시간, 기간, 티켓 및 이유 지정](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
 1. 필요한 경우 사용자 지정 활성화 시작 시간을 지정합니다.
 
@@ -67,19 +67,19 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
 1. **활성화 이유** 상자에 활성화 요청의 이유를 입력합니다. 일부 역할은 문제 티켓 번호를 제공해야 합니다.
 
-    ![완료된 활성화 창](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![사용자 지정을 사용 하 여 완료 된 정품 인증 창 시작 시간, 기간, 티켓 및 이유](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. **활성화**를 클릭합니다.
 
     역할에 승인이 필요 하지 않은 경우는 **활성화 상태** 활성화 상태를 보여 주는 창이 나타납니다.
 
-    ![정품 인증 상태](./media/pim-how-to-activate-role/activation-status.png)
+    ![정품 인증 세 가지 단계를 보여 주는 활성화 상태 페이지](./media/pim-how-to-activate-role/activation-status.png)
 
     모든 단계 완료 되 면 클릭 합니다 **로그 아웃** Azure portal에서 로그 아웃 링크 합니다. 포털에 다시 로그인 할 경우 역할을 이제 사용할 수 있습니다.
 
     [역할을 활성화하는 데 승인이 필요](./azure-ad-pim-approval-workflow.md)한 경우 브라우저의 오른쪽 위 모서리에 요청이 승인 보류 중임을 알려주는 알림이 표시됩니다.
 
-    ![보류 중인 요청 알림](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![활성화 요청을 보류 중 승인 알림](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
 ## <a name="view-the-status-of-your-requests"></a>요청 상태 보기
 
@@ -91,7 +91,7 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
 1. **내 요청**을 클릭하여 요청 목록을 봅니다.
 
-    ![Azure AD 역할-내 요청](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD 역할-내 요청 목록](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>역할 비활성화
 
@@ -123,15 +123,19 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
     취소 클릭 하면 요청이 취소 됩니다. 역할을 다시 활성화하려면 활성화 요청을 새로 제출해야 합니다.
 
-   ![보류 중인 요청 취소](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![취소 단추를 강조 표시를 사용 하 여 내 요청 목록](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>문제 해결
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화 한 후에 권한이 부여 되지 않습니다.
 
-PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 활성화 완료 되 면 Azure portal에서 로그 아웃 하 고 새로 활성화 된 역할을 사용 하려면 다시 로그인 합니다.
+PIM의 역할을 활성화 하면 권한 있는 역할을 필요로 하는 모든 포털 활성화 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파 되는 경우에 변경 내용이 즉시 적용 되지 될 수 있습니다 웹 포털에서 캐싱. 활성화가 지연 되 면 무엇을 해야 다음과 같습니다.
 
-추가 문제 해결 단계는 [관리자 권한 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx)을 참조하세요.
+1. Azure portal에서 로그 아웃 하 고 다시 로그인 합니다.
+
+    Azure AD 역할을 활성화 하면 활성화 하는 단계 표시 됩니다. 모든 단계 완료 되 면 표시 됩니다는 **로그 아웃** 링크 합니다. 로그 아웃 하려면이 링크를 사용할 수 있습니다. 이 활성화 지연 시간에 대 한 대부분의 경우 해결 하십시오.
+
+1. PIM에서 역할의 구성원으로 나열 되어 있는지를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

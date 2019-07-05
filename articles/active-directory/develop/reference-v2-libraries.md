@@ -18,18 +18,18 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce6e7a491250c285fb0304d8da213450af2bdb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c3edfd9ef346407529eea1d887efd795e647808
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440804"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft id 플랫폼 인증 라이브러리
 
 합니다 [Microsoft id 플랫폼 끝점](active-directory-v2-compare.md) 은 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원 합니다. Microsoft 인증 라이브러리 (MSAL)는 Microsoft id 플랫폼 끝점을 사용 하 여 작동 하도록 설계 되었습니다. 또한 OAuth 2.0 및 OpenID Connect 1.0을 지 원하는 오픈 소스 라이브러리를 사용할 수 있습니다.
 
-보안 개발 수명 주기 (SDL) 방법론을 팔 로우 하는 프로토콜 도메인 전문가 의해 작성 된 라이브러리를 사용 하는 것이 좋습니다. 이러한 라이브러리에 포함 됩니다 [Microsoft 뒤에 오는 것][Microsoft-SDL]합니다. 프로토콜에 대 한 코드를 전달 하는 경우 같은 Microsoft SDL 방법론을 따라야 합니다. 각 프로토콜에 대 한 표준 사양의 보안 고려 사항을 세심 한 주의 지불 합니다.
+보안 개발 수명 주기 (SDL) 방법론을 팔 로우 하는 프로토콜 도메인 전문가 의해 작성 된 라이브러리를 사용 하는 것이 좋습니다. 이러한 라이브러리에 포함 됩니다 [Microsoft 다음과][Microsoft-SDL]합니다. 프로토콜에 대 한 코드를 전달 하는 경우 같은 Microsoft SDL 방법론을 따라야 합니다. 각 프로토콜에 대 한 표준 사양의 보안 고려 사항을 세심 한 주의 지불 합니다.
 
 > [!NOTE]
 > 에 Azure 인증 라이브러리 ADAL (Active Directory)를 찾고 있으신가요? 체크 아웃 합니다 [ADAL 라이브러리 가이드](active-directory-authentication-libraries.md)합니다.
@@ -56,7 +56,7 @@ Microsoft id 플랫폼 끝점 두 가지 유형의 라이브러리를 사용 하
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조 | 개념 문서 | 로드맵 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [개념 문서](msal-overview.md)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [개념 문서](msal-overview.md)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | Angular MSAL (미리 보기) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [데스크톱 앱](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)

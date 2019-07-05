@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296553"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448987"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -251,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>로그에 액세스
-**DataPlaneRequests** 범주에 대한 Azure Cosmos DB 로그는 제공된 저장소 계정의 **insights-logs-data-plane-requests** 컨테이너에 저장됩니다. 
+Azure Cosmos DB에 대 한 로그를 **DataPlaneRequests** 범주에 저장 됩니다 합니다 **dataplanerequests 로그-insights-** 사용자가 제공한 저장소 계정의 컨테이너입니다. 
 
 먼저, 컨테이너 이름에 대한 변수를 만듭니다. 이 변수는 연습 과정 전체에서 사용됩니다.
 

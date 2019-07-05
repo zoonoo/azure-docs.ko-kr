@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f09f6ac1cb4442657694937e7dd5e5eb109bad05
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158706"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444150"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Java enterprise edition (EE) 앱을 Azure로 마이그레이션
 이 문서에서는 Azure에 기존 Java EE 워크 로드 마이그레이션 과정을 단계별로 설명 합니다.
@@ -73,7 +73,7 @@ Azure에 Java 웹 앱을 배포 하려면 Azure 구독이 필요 합니다. Azur
 
 - [Azure CLI](/cli/azure/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
-- [Maven 3](http://maven.apache.org/) 
+- [Maven 3](https://maven.apache.org/) 
 - [Git](https://github.com/)
 
 ## <a name="get-started"></a>시작하기
@@ -344,7 +344,7 @@ mvn clean compile exec:java -Dexec.cleanupDaemonThreads=false
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ helloworld-jms ---
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
 INFO: Attempting to acquire connection factory "SBCF"
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
@@ -801,7 +801,7 @@ App Service Linux에서 실행 하 여 데이터 원본 구성을 위한 Bash �
             \/      \/                  \/ 
     A P P   S E R V I C E   O N   L I N U X
     
-    Documentation: http://aka.ms/webapp-linux
+    Documentation: https://aka.ms/webapp-linux
     
     54cfe2dfa970:/home# ls -al
     total 12
@@ -836,7 +836,7 @@ App Service Linux에서 실행 하 여 데이터 원본 구성을 위한 Bash �
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/^M
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli^M
     ```
-    제거 ' ^ M' 끝 줄 문자 및 파일을 저장 합니다. 줄의 끝 문자를 제거 하는 방법은 대체 가지가 있습니다. 참조 ([이 문서에서는](http://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
+    제거 ' ^ M' 끝 줄 문자 및 파일을 저장 합니다. 줄의 끝 문자를 제거 하는 방법은 대체 가지가 있습니다. 참조 ([이 문서에서는](https://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
 
 ##### <a name="test-the-startupsh-script"></a>Startup.sh 스크립트를 테스트 합니다.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 9f0cf6c39876355862e2a4c9823d01b1cfd19c0f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce3cada557c4e32fe8b0ba3a85e574fe049889f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383355"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542731"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Bing News Search API에 쿼리 보내기
 
@@ -64,12 +64,12 @@ Host: api.cognitive.microsoft.com
 
 다음은 이전 요청에 대한 응답을 보여줍니다. 또한 이 예제에서는 응답 헤더를 보여줍니다.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
-BingAPIs-SessionId: 92C9798D29C846ABBDAE4AB6C47CC888
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US
-X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 2018-09-17T16:55:22Z
 
 {
    "_type": "News",

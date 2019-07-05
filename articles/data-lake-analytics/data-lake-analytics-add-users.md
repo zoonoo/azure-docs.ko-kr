@@ -19,7 +19,7 @@ ms.locfileid: "60629325"
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 
 ## <a name="start-the-add-user-wizard"></a>사용자 추가 마법사 시작
-1. https://portal.azure.com 을 통해 Azure Data Lake Analytics를 엽니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 을 통해 Azure Data Lake Analytics를 엽니다.
 2. **사용자 추가 마법사**를 클릭합니다.
 3. **사용자 선택** 단계에서 추가하려는 사용자를 찾습니다. **선택**을 클릭합니다.
 4. **역할 선택** 단계에서 **Data Lake Analytics 개발자**를 선택합니다. 이 역할에는 U-SQL 작업을 제출/모니터링/관리하는 데 필요한 최소한의 사용 권한 집합이 있습니다. Azure 서비스를 관리하기 위한 그룹이 없는 경우 이 역할에 할당합니다.

@@ -18,21 +18,21 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235289"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482738"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
 많은 조직에 SaaS(Software as a Service) 애플리케이션을 제공하는 경우, 모든 Azure AD(Azure Active Directory) 테넌트의 로그인을 허용하도록 애플리케이션을 구성할 수 있습니다. 이 구성을 *다중 테넌트 애플리케이션 만들기*라고 합니다. 모든 Azure AD 테넌트의 사용자는 애플리케이션에 계정을 사용하기로 동의한 후 애플리케이션에 로그인할 수 있습니다.
 
-자체 계정 시스템을 갖춘 기존 애플리케이션이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원하는 경우 테넌트의 Azure AD 로그인을 간단하게 추가할 수 있습니다. 애플리케이션을 등록하고, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고, 애플리케이션에 [“Microsoft에 로그인” 단추][AAD-App-Branding]를 배치하기만 하면 됩니다.
+자체 계정 시스템을 갖춘 기존 애플리케이션이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원하는 경우 테넌트의 Azure AD 로그인을 간단하게 추가할 수 있습니다. 바로 앱을 등록, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가 하 고는 ["Microsoft 로그인" 단추][AAD-App-Branding] 응용 프로그램에서 합니다.
 
 > [!NOTE]
-> 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 애플리케이션을 빌드하는 것에 이미 익숙하다고 가정합니다. 그렇지 않은 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]에 있는 빠른 시작 중 하나를 시작합니다.
+> 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 애플리케이션을 빌드하는 것에 이미 익숙하다고 가정합니다. 아닌 경우에 빠른 시작 중 하나를 사용 하 여 시작 합니다 [개발자 가이드 홈페이지][AAD-Dev-Guide]합니다.
 
 다음과 같은 간단한 4단계를 통해 애플리케이션을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "66235289"
 3. [여러 발급자 값을 처리하도록 코드 업데이트](#update-your-code-to-handle-multiple-issuer-values)
 4. [사용자 및 관리자 동의를 이해하고 적절하게 코드 변경](#understand-user-and-admin-consent)
 
-각 단계를 자세히 살펴보겠습니다. 또한 [이 다중 테넌트 샘플 목록][AAD-Samples-MT]으로 바로 건너뛸 수 있습니다.
+각 단계를 자세히 살펴보겠습니다. 로 바로 이동할 수도 있습니다 [이 다중 테 넌 트 샘플이 목록][AAD-Samples-MT]합니다.
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
 
-기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. 검색 하 여 다중 테 넌 트에 등록을 만들 수 있습니다 합니다 **지원 되는 계정 유형** 스위치에 **인증** 창에서 응용 프로그램 등록의는 [Azure portal] [ AZURE-portal] 로 설정 하 고 **조직 디렉터리의 계정**합니다.
+기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. 검색 하 여 다중 테 넌 트에 등록을 만들 수 있습니다 합니다 **지원 되는 계정 유형** 스위치에 **인증** 창에서 응용 프로그램 등록의는 [Azure portal][AZURE-portal] 로 설정 **모든 조직 디렉터리의 계정**합니다.
 
 응용 프로그램을 다중 테넌트에 지정하려면 먼저 Azure AD에 고유한 글로벌 응용 프로그램의 앱 ID URI가 있어야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다.
 
@@ -98,15 +98,15 @@ Microsoft id 플랫폼 /common에 요청을 수신 하는 경우 끝점에 사�
 
 예를 들어, 다중 테넌트 애플리케이션이 해당 서비스에 등록한 특정 테넌트로부터의 로그인 만을 허용한다면, 테넌트가 구독자 목록에 들어 있는지 확인하기 위해 발급자 값 또는 토큰의 `tid` 클레임 값을 확인해야 합니다. 다중 테넌트 애플리케이션이 개인만을 다루고 테넌트 기반으로 어떠한 액세스 결정도 하지 않는다면, 발급자 값 전체를 무시할 수 있습니다.
 
-[다중 테넌트 샘플][AAD-Samples-MT]에서는 Azure AD 테넌트에서 로그인할 수 있도록 설정하기 위해 발급자 유효성 검사가 사용되지 않습니다.
+에 [다중 테 넌 트 샘플][AAD-Samples-MT], 모든 Azure AD 테 넌 트에 로그인을 사용 하도록 설정 하기 위해 발급자 유효성 검사 비활성화 됩니다.
 
 ## <a name="understand-user-and-admin-consent"></a>사용자 및 관리자 동의 이해
 
-사용자가 Azure AD에서 애플리케이션에 로그인하려면 애플리케이션이 사용자의 테넌트에 나타나야 합니다. 이를 통해 조직은 사용자가 테넌트로부터 애플리케이션에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다. 단일 테넌트 애플리케이션의 경우 이 등록은 간단합니다. [Azure Portal][AZURE-portal]에서 애플리케이션을 등록할 때 이루어집니다.
+사용자가 Azure AD에서 애플리케이션에 로그인하려면 애플리케이션이 사용자의 테넌트에 나타나야 합니다. 이를 통해 조직은 사용자가 테넌트로부터 애플리케이션에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다. 단일 테 넌 트 응용 프로그램의 경우이 등록은 간단 합니다. 응용 프로그램을 등록할 때 발생 하는 것은 [Azure portal][AZURE-portal]합니다.
 
-다중 테넌트 애플리케이션의 경우, 애플리케이션에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다. 다른 테넌트에서 사용자가 처음으로 애플리케이션에 로그인할 때, Azure AD는 애플리케이션에서 요청하는 사용 권한에 동의하는지 묻습니다. 동의한다면 *서비스 주체*라는 애플리케이션의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 애플리케이션에 기록하는 디렉토리에 만들어집니다. 애플리케이션의 Application 및 ServicePrincipal 개체와 서로 간의 관계를 설정하는 방법에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
+다중 테넌트 애플리케이션의 경우, 애플리케이션에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다. 다른 테넌트에서 사용자가 처음으로 애플리케이션에 로그인할 때, Azure AD는 애플리케이션에서 요청하는 사용 권한에 동의하는지 묻습니다. 동의한다면 *서비스 주체*라는 애플리케이션의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 애플리케이션에 기록하는 디렉토리에 만들어집니다. 응용 프로그램의 응용 프로그램 및 ServicePrincipal 개체와 서로 관계에 대 한 내용은 참조 하세요 [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]합니다.
 
-![단일 계층 앱에 동의][Consent-Single-Tier]
+![단일 계층 앱에 대 한 동의 보여 줍니다.][Consent-Single-Tier]
 
 이 동의 환경이 애플리케이션에서 요청한 사용 권한에 따른 영향을 받습니다. Microsoft id 플랫폼에는 두 종류의 응용 프로그램 전용과 위임 된 권한이 지원합니다.
 
@@ -119,11 +119,11 @@ Microsoft id 플랫폼 /common에 요청을 수신 하는 경우 끝점에 사�
 
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 사용자가 동의할 수 없음을 알리는 오류 메시지가 나타납니다.
 
-위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 애플리케이션 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 애플리케이션에 로그인하려는 경우 애플리케이션에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [Azure AD Graph API][AAD-Graph-Perm-Scopes] 및 [Microsoft Graph API][MSFT-Graph-permission-scopes]에 대한 권한 설명서에는 관리자 동의가 필요한 권한이 나와 있습니다.
+위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 애플리케이션 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 애플리케이션에 로그인하려는 경우 애플리케이션에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. 에 대 한 사용 권한 설명서의 [Azure AD Graph API][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] 관리자 동의 필요로 하는 권한을 나타냅니다.
 
 애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우, 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 응용 프로그램에서 이 작업에 대해 보내는 요청은 `prompt=admin_consent` 쿼리 문자열 매개 변수도 포함된 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 일단 관리자가 동의했고 서비스 주체가 고객 테넌트에 만들어졌다면 차후의 로그인 요청은 `prompt=admin_consent` 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
-테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 애플리케이션을 사용하려면 항상 관리자 동의가 필요합니다. 구성 스위치를 찾을 수 있습니다 사용 하지 않도록 설정 하는 최종 사용자 동의 사용 하 여 응용 프로그램을 테스트 하려는 경우는 [Azure portal] [ AZURE-portal] 에 **[사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** 섹션 아래 **엔터프라이즈 응용 프로그램**합니다.
+테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 애플리케이션을 사용하려면 항상 관리자 동의가 필요합니다. 구성 스위치를 찾을 수 있습니다 사용 하지 않도록 설정 하는 최종 사용자 동의 사용 하 여 응용 프로그램을 테스트 하려는 경우는 [Azure portal][AZURE-portal] 에 **[사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** 섹션 **엔터프라이즈 응용 프로그램**합니다.
 
 관리 동의가 필요하지 않은 사용 권한을 요청하는 애플리케이션에서 `prompt=admin_consent` 매개 변수를 사용할 수도 있습니다. 예를 들어 애플리케이션에 테넌트 관리자가 한 번 “등록”한 환경이 필요하고, 해당 시점에서 다른 사용자에게 동의를 요구하지 않는 경우가 있습니다.
 
@@ -138,13 +138,13 @@ Microsoft id 플랫폼 /common에 요청을 수신 하는 경우 끝점에 사�
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테 넌 트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 응용 프로그램 등록에 클라이언트의 앱 ID가 해당 [응용 프로그램 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들면 다음과 같습니다.
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용 하려면 리소스의 응용 프로그램 등록으로 클라이언트의 앱 ID를 포함 해야 합니다는 `knownClientApplications` 에서 해당 [응용 프로그램 매니페스트][AAD-App-Manifest]합니다. 예를 들면 다음과 같습니다.
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
 이는 이 문서의 뒷부분에 나오는 [관련 콘텐츠](#related-content) 섹션에 있는 다중 계층 네이티브 클라이언트 호출 웹 API 샘플에서 설명됩니다. 다음 다이어그램에서는 단일 테넌트에 등록된 다중 계층 응용 프로그램에 대한 동의 개요를 제공합니다.
 
-![알려진 다중 계층 클라이언트 앱에 동의][Consent-Multi-Tier-Known-Client]
+![알려진된 다중 계층 클라이언트 앱에 대 한 동의 보여 줍니다.][Consent-Multi-Tier-Known-Client]
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>여러 테 넌 트의 여러 계층
 
@@ -159,13 +159,13 @@ Microsoft 이외의 조직에서 빌드한 API 인 경우 API의 개발자가 �
 
 다음 다이어그램에서는 다른 테넌트에 등록된 다중 계층 응용 프로그램에 대한 동의 개요를 제공합니다.
 
-![다중 계층 다자 앱에 동의][Consent-Multi-Tier-Multi-Party]
+![다중 계층 다 자 앱에 대 한 동의 보여 줍니다.][Consent-Multi-Tier-Multi-Party]
 
 ### <a name="revoking-consent"></a>동의 철회
 
 사용자와 관리자는 언제든지 애플리케이션에 대한 동의를 해지할 수 있습니다.
 
-* 사용자는 자신의 [액세스 패널 애플리케이션][AAD-Access-Panel] 목록에서 개별 애플리케이션을 제거하여 해당 애플리케이션에 대한 액세스 권한을 취소합니다.
+* 제거 하 여 개별 응용 프로그램에 대 한 액세스를 해지 하는 사용자가 자신의 [액세스 패널 응용 프로그램][AAD-Access-Panel] 목록입니다.
 * 관리자 제거 하 여 응용 프로그램에 대 한 액세스를 해지를 사용 하 여는 [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 섹션을 [Azure portal][AZURE-portal]합니다.
 
 관리자가 테넌트의 모든 사용자에 대해 애플리케이션에 동의하는 경우 사용자는 개별적으로 액세스를 해지할 수 없습니다. 관리자만이 액세스를 해지할 수 있으며 전체 애플리케이션에 대해서만 해지할 수 있습니다.
@@ -176,15 +176,15 @@ Microsoft 이외의 조직에서 빌드한 API 인 경우 API의 개발자가 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 응용 프로그램을 빌드하는 방법을 알아보았습니다. 애플리케이션 및 Azure AD 간에 SSO(Single Sign-On)를 사용하도록 설정되면 Office 365와 같은 Microsoft 리소스에서 노출되는 API에 액세스하도록 애플리케이션을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Office 365 서비스(예: Exchange, SharePoint, OneDrive, OneNote 등)에 대한 API 호출을 만드는 방법을 자세히 알아보려면 [Microsoft Graph API][MSFT-Graph-overview]를 방문하세요.
+이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 응용 프로그램을 빌드하는 방법을 알아보았습니다. 애플리케이션 및 Azure AD 간에 SSO(Single Sign-On)를 사용하도록 설정되면 Office 365와 같은 Microsoft 리소스에서 노출되는 API에 액세스하도록 애플리케이션을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD에 api에 대해 자세히 알아보려면를 호출 하 고 Exchange, SharePoint, OneDrive, OneNote 및 자세한 내용은 참조와 같은 Office 365 서비스 [Microsoft Graph API][MSFT-Graph-overview]합니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-* [다중 테넌트 애플리케이션 샘플][AAD-Samples-MT]
-* [응용 프로그램에 대한 브랜딩 지침][AAD-App-Branding]
+* [다중 테 넌 트 응용 프로그램 샘플][AAD-Samples-MT]
+* [응용 프로그램에 대 한 브랜딩 지침][AAD-App-Branding]
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
-* [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
-* [동의 프레임워크 개요][AAD-Consent-Overview]
+* [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
+* [동의 프레임 워크 개요][AAD-Consent-Overview]
 * [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
 * [Azure AD Graph API 권한 범위][AAD-Graph-Perm-Scopes]
 

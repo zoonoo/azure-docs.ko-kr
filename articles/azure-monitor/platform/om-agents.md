@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60255071"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445312"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -40,7 +40,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트에 기반한 서�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. 자세한 내용 및 Log Analytics 게이트웨이 Azure Monitor를 통해 통신 하도록 Operations Manager 관리 그룹을 구성 하는 방법에 대 한 단계를 참조 하세요 [Log Analytics 게이트웨이 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)합니다.  
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 조건
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -48,7 +48,19 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 * US Government 클라우드를 사용 하 여 System Center Operations Manager 2016 통합 업데이트 Advisor 관리 팩 업데이트 롤업 2 이상을 포함 해야 합니다. System Center Operations Manager 2012 R2 업데이트 롤업 3 이상을 포함할 수 있는 Advisor 관리 팩을 업데이트 해야 합니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
 * Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json)를 검토합니다.   
-* [Log Analytics 기여자 역할](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)의 멤버인 계정으로 Azure에 인증합니다.  
+* [Log Analytics 기여자 역할](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)의 멤버인 계정으로 Azure에 인증합니다.
+
+* System Center Operations Manager를 Log Analytics 작업 영역에 연결 하 여 지원 되는 지역 다음 Azure 지역만 지원 됩니다.
+    - 미국 중서부
+    - 오스트레일리아 동남부
+    - 서유럽
+    - East US
+    - 동남아시아
+    - 일본 동부
+    - 영국 남부
+    - 중앙 인도
+    - 캐나다 중부
+    - 미국 서부 2
 
 >[!NOTE]
 >Azure Api에 최근 변경 내용을 성공적으로 처음에 대 한 Azure Monitor와 관리 그룹 간의 통합을 구성 하려면 못하도록 고객 수 없게 됩니다. 관리 그룹과 서비스를 이미 통합한 고객의 경우, 기존 연결을 재구성해야 하는 경우가 아니면 영향을 받지 않습니다.  
@@ -90,7 +102,7 @@ Azure Monitor를 사용 하 여 통신 하도록 Operations Manager 에이전트
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 
-Azure Monitor로 전송 되에서는 데이터의 보안을 위해 가장 좋습니다 이상을 사용 하려면 에이전트와 관리 그룹을 구성 하려면 전송 계층 보안 (TLS) 1.2입니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+Azure Monitor로 전송 되에서는 데이터의 보안을 위해 가장 좋습니다 이상을 사용 하려면 에이전트와 관리 그룹을 구성 하려면 전송 계층 보안 (TLS) 1.2입니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요.
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -105,7 +117,7 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Azure Monitor와 통합 하려면 다음 단계를 완료 한 후 구성을 실행 하 여 제거할 수 있습니다 `netsh winhttp reset proxy` 한 다음 사용 합니다 **프록시 서버 구성** 프록시 또는 로그를 지정 하려면 운영 콘솔의 옵션 게이트웨이 서버를 분석 합니다. 
+Azure Monitor와 통합 하려면 다음 단계를 완료 한 후 구성을 실행 하 여 제거할 수 있습니다 `netsh winhttp reset proxy` 한 다음 사용 합니다 **프록시 서버 구성** 프록시 또는 로그를 지정 하려면 운영 콘솔의 옵션 게이트웨이 서버를 분석 합니다.
 
 1. Operations Manager 콘솔에서 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
@@ -113,14 +125,14 @@ Azure Monitor와 통합 하려면 다음 단계를 완료 한 후 구성을 실�
 1. **Operations Management Suite 온보딩 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
 
    >[!NOTE]
-   >Operations Management Suite 이름은 사용이 중지 되었습니다. 
-   
+   >Operations Management Suite 이름은 사용이 중지 되었습니다.
+
 1. 성공적으로 인증되면 **Operations Management Suite 온보딩 마법사: 작업 영역 선택** 페이지에 Azure 테넌트, 구독 및 Log Analytics 작업 영역을 선택하라는 메시지가 표시됩니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음**을 클릭합니다.
-   
+
    > [!NOTE]
    > Operations Manager는 한 번에 하나의 Log Analytics 작업 영역만 지원합니다. 연결 및 이전 작업 영역을 사용 하 여 Azure Monitor에 등록 된 컴퓨터는 Azure Monitor에서 제거 됩니다.
-   > 
-   > 
+   >
+   >
 1. **Operations Management Suite 온보딩 마법사: 요약** 페이지에서 설정을 확인하고, 올바른 경우 **만들기**를 클릭합니다.
 1. **Operations Management Suite 온보딩 마법사: 완료** 페이지에서 **닫기**를 클릭합니다.
 
@@ -180,11 +192,11 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. Log Analytics를 확장하고 **연결**을 선택합니다.
 1. 창 중간의 **Operations Management Suite 다시 구성** 링크를 선택합니다.
 1. **Log Analytics 등록 마법사**의 지시를 따라 새 Log Analytics 작업 영역과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력합니다.
-   
+
    > [!NOTE]
    > **Operations Management Suite 온보딩 마법사: 작업 영역 선택** 페이지에 사용 중인 기존 작업 영역이 표시됩니다.
-   > 
-   > 
+   >
+   >
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Azure Monitor 사용 하 여 Operations Manager 통합 유효성 검사
 
@@ -194,9 +206,9 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 
 1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다.
 1. Log Analytics 작업 영역 목록에서 적용 가능한 작업 영역을 선택합니다.  
-1. **고급 설정**, **연결된 원본**, **System Center**를 차례로 선택합니다. 
+1. **고급 설정**, **연결된 원본**, **System Center**를 차례로 선택합니다.
 1. System Center Operations Manager 섹션 아래의 테이블에 데이터를 마지막으로 받았을 때 에이전트 및 상태 수와 함께 나열된 관리 그룹의 이름이 표시됩니다.
-   
+
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>운영 콘솔에서 통합을 확인하려면
@@ -205,7 +217,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. **관리 팩**을 선택하고 **찾기:** 텍스트 상자에 **관리자** 또는 **인텔리전스**를 입력합니다.
 1. 활성화한 솔루션에 따라 검색 결과에 나열된 해당 관리 팩을 볼 수 있습니다.  예를 들어 경고 관리 솔루션을 활성화한 경우 관리 팩 Microsoft System Center Advisor 경고 관리가 목록에 나타납니다.
 1. **모니터링** 보기에서 **Operations Management Suite\Health State** 보기로 이동합니다.  **관리 서버 상태** 창 아래에서 관리 서버를 선택하고 **상세 보기** 창에서 **인증 서비스 URI** 속성의 값이 Log Analytics 작업 영역 ID와 일치하는지 확인합니다.
-   
+
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Azure Monitor와의 통합 제거
@@ -215,34 +227,34 @@ Operations Manager 관리 그룹과 Log Analytics 작업 영역 간의 통합이
 솔루션에 대 한 관리 팩 활성화 한 Operations Manager와 통합 되는 및 Azure Monitor와 통합을 지 원하는 데 필요한 관리 팩은 관리 그룹에서 쉽게 삭제할 수 없습니다. 다른 관련된 관리 팩에 대해 종속성이 있는 Azure Monitor 관리 팩의 일부 때문입니다. 다른 관리 팩에 대해 종속성이 있는 관리 팩을 삭제하려면 TechNet 스크립트 센터에서 [종속성이 있는 관리 팩 제거](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) 스크립트를 다운로드합니다.  
 
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 명령 셸을 엽니다.
-   
+
     > [!WARNING]
     > 계속 진행하기 전에 이름에 Advisor 또는 IntelligencePack이 포함된 사용자 지정 관리 팩이 없는지 확인합니다. 그렇지 않으면 다음 단계에 관리 그룹에서 이들을 삭제합니다.
-    > 
+    >
 
 1. 명령 셸 프롬프트에서 `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 그런 다음 `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 다른 System Center Advisor 관리 팩에 대해 종속성이 있는 나머지 모든 관리 팩을 제거하려면 이전에 TechNet 스크립트 센터에서 다운로드한 *RecursiveRemove.ps1*을 사용합니다.  
- 
+
     > [!NOTE]
     > PowerShell을 사용하여 Advisor 관리 팩을 제거하는 단계는 Microsoft System Center Advisor 또는 Microsoft System Center Advisor Internal 관리 팩을 자동으로 삭제하지 않습니다.  삭제하지 마십시오.  
     >  
 
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 작업 콘솔을 엽니다.
 1. **관리** 아래에서 **관리 팩** 노드를 선택하고 **찾기:** 상자에 **관리자**를 입력합니다. 이 경우에도 다음 관리 팩을 관리 그룹으로 가져올 수 있는지 확인합니다.
-   
+
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
 1. Azure Portal에서 **설정** 타일을 클릭합니다.
 1. **연결된 원본**을 선택합니다.
 1. System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다. **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
-   
+
     > [!NOTE]
     > 14일간 연결된 관리 그룹에서 감지된 활동이 없을 경우 그 후에는 **제거** 링크를 사용할 수 없습니다.  
-    > 
+    >
 
-1. 제거를 계속할지 확인하라는 창이 나타납니다.  **예** 를 클릭하여 계속 진행합니다. 
+1. 제거를 계속할지 확인하라는 창이 나타납니다.  **예** 를 클릭하여 계속 진행합니다.
 
 두 커넥터(Microsoft.SystemCenter.Advisor.DataConnector 및 Advisor 커넥터)를 삭제하려면 PowerShell 스크립트를 컴퓨터에 저장하고 다음 예제를 사용하여 실행합니다.
 
@@ -253,8 +265,8 @@ Operations Manager 관리 그룹과 Log Analytics 작업 영역 간의 통합이
 
 > [!NOTE]
 > 이 스크립트를 실행하는 컴퓨터(관리 서버가 아니라면)에 관리 그룹의 버전에 따라 Operations Manager 명령 셸을 설치해야 합니다.
-> 
-> 
+>
+>
 
 ```powershell
     param(

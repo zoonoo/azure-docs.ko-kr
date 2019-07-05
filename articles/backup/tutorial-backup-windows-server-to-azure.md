@@ -2,20 +2,20 @@
 title: Azure에 Windows Server 백업
 description: 이 자습서에서는 Recovery Services 자격 증명 모음에 온-프레미스 Windows Server를 백업하는 작업에 대해 자세히 설명합니다.
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: dcurwin
+manager: carmonm
 keywords: Windows Server 백업; 백업 및 재해 복구
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097426"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273949"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Azure에 Windows Server 백업
 
@@ -31,7 +31,7 @@ Azure 백업을 사용하여 손상, 공격 및 재해로부터 Windows Server�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 

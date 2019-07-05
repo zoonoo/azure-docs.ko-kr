@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978303"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448152"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -29,10 +29,10 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs 역할 및 사용 권한
 Azure는 Event Hubs 네임 스페이스에 대 한 액세스 권한을 부여 하는 것에 대 한 다음 기본 제공 RBAC 역할을 제공 합니다.
 
-합니다 [Event Hubs 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) 역할 수는 Event Hubs 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스
+합니다 [Azure Event Hubs 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) 역할 수는 Event Hubs 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스
 
 >[!IMPORTANT]
-> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **소유자** 또는 **참가자** 역할입니다. 그러나 데이터 액세스에 대 한 권한을 **소유자** 하 고 **참가자** 역할은 더 이상 적용 합니다. 사용 중인 경우는 **소유자** 또는 **참가자** 역할을 사용 하도록 전환 합니다 **Event Hubs 데이터 소유자** 역할입니다.
+> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **소유자** 또는 **참가자** 역할입니다. 그러나 데이터 액세스에 대 한 권한을 **소유자** 하 고 **참가자** 역할은 더 이상 적용 합니다. 사용 중인 경우는 **소유자** 또는 **참가자** 역할을 사용 하도록 전환 합니다 **Azure Event Hubs 데이터 소유자 (미리 보기)** 역할입니다.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Event Hubs 사용

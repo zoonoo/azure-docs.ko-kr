@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412749"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205315"
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
 
@@ -42,7 +42,7 @@ ms.locfileid: "50412749"
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 ## <a name="create-a-test-api"></a>테스트 API 만들기 
 

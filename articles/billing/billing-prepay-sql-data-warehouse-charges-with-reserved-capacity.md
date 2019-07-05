@@ -1,19 +1,19 @@
 ---
-title: Azure 예약 된 용량을 사용 하 여 SQL Data Warehouse 요금에 선불 | Microsoft Docs
+title: Azure 예약 된 용량을 사용 하 여 SQL Data Warehouse 요금에 선불 결제
 description: 어떻게 수 선불 요금 SQL Data Warehouse에 대 한 비용을 절약 하려면 예약 된 용량을 사용 하 여에 대해 알아봅니다.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371192"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565350"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 된 용량을 사용 하 여 SQL Data Warehouse 요금에 선불 결제
 
@@ -43,14 +43,15 @@ Azure SQL Data Warehouse 예약 용량을 구매할 수 있습니다 합니다 [
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>예약 된 SQL Data Warehouse 용량 구입
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
 3. 구독을 선택합니다. 구독 목록을 사용 하 여 예약된 된 용량에 대 한 요금을 지불 하는 데 사용 되는 구독을 선택 합니다. 구독의 결제 예약 된 용량에 대해 선불로 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
   - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
   - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 4. 범위를 선택 합니다. 범위 목록을 사용 하 여 구독 범위를 선택 합니다.
-  - 사용 하 여 합니다 **단일** 옵션, 예약 할인은 선택한 구독에 배포 하는 SQL Data Warehouse에 적용 합니다.
-  - 사용 하 여 합니다 **공유** 옵션, 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 인스턴스에 적용 됩니다.
+  - **리소스 그룹 범위를 단일** -선택한 리소스 그룹에만 일치 하는 리소스에 예약 할인을 적용 합니다.
+  - **구독 범위를 단일** -선택한 구독에서 일치 하는 리소스에 예약 할인을 적용 합니다.
+  - **공유 범위** -를 청구 컨텍스트에서 적합 한 구독에서 리소스를 일치 하는 예약 할인을 적용 합니다. 기업 계약 고객에 대 한 청구 컨텍스트는 등록 합니다. 종 량 제 요금으로 개별 구독에 대 한 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
     - 기업 고객을 위한 청구 컨텍스트는 EA 등록 합니다.
     - 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.
 5. 예약된 된 용량 보증 하는 Azure 지역을 선택 하는 영역을 선택 합니다.

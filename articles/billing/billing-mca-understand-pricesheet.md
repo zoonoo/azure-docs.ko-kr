@@ -1,34 +1,30 @@
 ---
-title: Microsoft 고객 계약-Azure에 가격표의 용어 이해 | Microsoft Docs
-description: Azure 구독에 대한 사용량 및 청구서를 읽고 이해하는 방법에 대해 알아봅니다.
-services: ''
-documentationcenter: ''
-author: jureid
+title: Microsoft 고객 계약-Azure에 가격표의 용어 이해
+description: 읽기 및 Microsoft 고객 계약에 대 한 사용량 및 청구서를 이해 하는 방법에 알아봅니다.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371362"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490656"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 가격표의 용어 이해
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Microsoft 고객 계약 가격 시트에서 용어
 
-이 문서는 Microsoft 고객 계약에 대 한 대금 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
+이 문서는 Microsoft 고객 계약에 대 한 Azure 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
 
 청구 프로필 소유자, 참가자, 판독기 또는 송장 관리자 라면 Azure portal에서 조직의 가격표를 다운로드할 수 있습니다. 참조 [뷰와 조직의 가격 책정 다운로드](billing-ea-pricing.md)합니다.
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>자세한 사용 약관에 Microsoft 고객 계약 가격표 설명
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>사용 약관에 가격표의 설명
 
 다음 섹션에서는 Microsoft 고객 계약 가격 시트에 표시 된 중요 한 용어를 설명 합니다.
 
@@ -61,7 +57,7 @@ ms.locfileid: "60371362"
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,6 +3,7 @@ title: Azure SQL Database Machine Learning 서비스 (미리 보기)에 대 한 
 description: 이 항목에서는 Azure SQL Database Machine Learning Services(R 포함)와 SQL Server Machine Learning 서비스의 주요 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725044"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486001"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database (미리 보기)에서 Machine Learning Services 및 SQL Server 간의 주요 차이점
 
@@ -43,12 +44,15 @@ R 패키지 관리와 설치 작업은 SQL Database와 SQL Server 간에 다릅�
 - 패키지는 아웃바운드 네트워크 호출을 수행할 수 없습니다. 이 제한은 비슷합니다는 [Machine Learning 서비스에 대 한 방화벽 규칙을 기본](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) SQL Server에 있지만 SQL Database에서 변경할 수 없습니다.
 - 설치나 사용을 위해 OS API에 대한 액세스가 필요하거나 외부 런타임(예: Java)에 의존하는 패키지는 지원되지 않습니다.
 
+## <a name="writing-to-a-temporary-table"></a>임시 테이블에 쓰기
+
+Azure SQL Database에서 RODBC를 사용 하는 경우 내부 또는 외부에 만들지을 임시 테이블에 쓸 수 없습니다는 `sp_execute_external_script` 세션입니다. 해결 방법을 사용 하는 것 [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) 하 고 [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (덮어쓰기 = FALSE 및 추가 = "행") 이전에 만든 전역 임시 테이블에 쓸 수는 `sp_execute_external_script` 쿼리 합니다.
+
 ## <a name="resource-governance"></a>리소스 관리
 
 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 및 외부 리소스 풀을 통해 R 리소스를 제한할 수 없습니다.
 
 공개 미리 보기 동안 R 리소스 최대 SQL Database 리소스의 20%로 설정 되 고 종속 서비스 계층에서 선택 합니다. 자세한 내용은 [Azure SQL Database 구매 모델](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)을 참조하세요.
-
 ### <a name="insufficient-memory-error"></a>메모리 부족 오류
 
 R에 대 한 사용 가능한 메모리가 부족 하 여 있으면 오류 메시지가 표시 됩니다. 일반적인 오류 메시지가 다음과 같습니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서 Azure Service Bus 메트릭(미리 보기) | Microsoft Docs
+title: Azure Monitor에서 azure Service Bus 메트릭 | Microsoft Docs
 description: Azure 모니터를 사용 하 여 Service Bus 엔터티 모니터링
 services: service-bus-messaging
 documentationcenter: .NET
@@ -10,14 +10,14 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80a4b1e60202b88f6ed3c1574bd4684575a9b153
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921241"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538073"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 azure Service Bus 메트릭
 
 Service Bus 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준에서뿐만 아니라 엔터티 수준에서 Service Bus 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Service Bus의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. 메트릭은 Azure 지원에 문의할 필요 없이 근본 원인 문제를 해결할 수도 있습니다.
 
@@ -38,7 +38,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다. 엔터티의 범위에 대해 필터링된 메트릭을 표시하려면 엔터티를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임 스페이스를 선택 하 고 클릭 **메트릭을**합니다. 엔터티 범위에 필터링 된 메트릭을 표시할 엔터티를 선택 하 고 클릭 **메트릭을**합니다.
 
 ![][2]
 
@@ -46,7 +46,9 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ## <a name="billing"></a>결제
 
-Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석용 Azure Monitor 로그로 메트릭 데이터를 스트리밍할 경우에 Azure Monitor 로그에 청구 됩니다.
+메트릭 및 경고 Azure Monitor에서 경고 별 단위로 요금이 청구 됩니다. 경고를 설정 하 고 저장 하기 전에 이러한 요금은 포털에서 제공 해야 합니다. 
+
+메트릭 데이터를 수집 하는 추가 솔루션은 이러한 솔루션에서 직접 청구 됩니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 Log Analytics에 메트릭 데이터를 스트리밍할 경우 Log Analytics에서 요금을 청구합니다.
 
 다음 메트릭은 서비스의 상태에 대한 개요를 제공합니다. 
 
@@ -61,11 +63,11 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+| 들어오는 요청| 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|성공한 요청|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|서버 오류|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|사용자 오류 (다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|스로틀 된 요청|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ### <a name="user-errors"></a>사용자 오류
 
@@ -79,18 +81,18 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
-| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
-| 배달 못한 메시지 (미리 보기) | 큐/항목의 배달 못한 메시지 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/>차원: EntityName |
-| 예약 된 메시지 (미리 보기) | 큐/토픽에 있는 예약 된 메시지의 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균  <br/> 차원: EntityName |
+|들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|보내는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+| 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+| ActiveMessages| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+| 배달 못 한 메시지| 큐/항목의 배달 못한 메시지 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/>차원: EntityName |
+| 예약된 메시지| 큐/토픽에 있는 예약 된 메시지의 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균  <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
+|ActiveConnections|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
 
@@ -99,8 +101,8 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-|네임스페이스당 CPU 사용량(미리 보기)|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
-|네임스페이스당 메모리 크기 사용량(미리 보기)|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
+|네임스페이스당 CPU 사용량|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
+|네임스페이스당 메모리 크기 사용|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: 백분율 <br/> 집계 유형: 최대 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -124,7 +126,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
     1. **신호 형식**으로 **메트릭**을 선택합니다. 
-    2. 신호를 선택합니다. 예를 들면 다음과 같습니다. **서비스 오류(미리 보기)** . 
+    2. 신호를 선택합니다. 예를 들면 다음과 같습니다. **서비스 오류**합니다. 
 
         ![서버 오류 선택](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. **조건**으로 **다음보다 큼**을 선택합니다.

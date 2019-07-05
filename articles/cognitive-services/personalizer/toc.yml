@@ -62,12 +62,20 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDK
       items:
-        - name: .Net SDK 참조
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: NuGet 패키지
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: .NET SDK 참조
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: NuGet 패키지
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Python
+          items:
+            - name: Pypi 패키지
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: 리소스
   items:
+    - name: 문제 해결
+      href: troubleshooting.md
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 규정 준수

@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 모듈을 관리 하는 
 services: automation
 ms.service: automation
 ms.subservice: shared-resources
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69817d1412aa13d0e7983aa3ad27c15e59185432
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063460"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478164"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈을 관리
 
@@ -71,7 +71,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 다음은 내부에서 cmdlet의 목록을 `Orchestrator.AssetManagement.Cmdlets` 모든 Automation 계정으로 가져온 모듈입니다. 이러한 cmdlet runbook 및 DSC 구성에 액세스할 수 있으며 Automation 계정 내 자산을 사용 하 여 상호 작용할 수 있도록 합니다. 내부 cmdlet은 암호를 검색할 수 있도록 또한에서 암호화 **변수** 값을 **자격 증명**, 및 암호화 **연결** 필드입니다. Azure PowerShell cmdlet에서 이러한 비밀을 검색 하지 못합니다. 이러한 cmdlet에 암시적으로 사용 하는 경우 Azure를 연결할 수 필요 하지 않습니다. 실행 계정을 사용 하 여 Azure에 인증 해야 하는 등의 연결을 해야 하는 시나리오에 유용 합니다.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

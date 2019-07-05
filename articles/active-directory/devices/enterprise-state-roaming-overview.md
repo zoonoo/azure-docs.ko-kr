@@ -1,28 +1,22 @@
 ---
 title: Azure Active Directory의 엔터프라이즈 상태 로밍이란? | Microsoft Docs
-description: Windows 디바이스의 Enterprise State Roaming 설정에 대한 정보를 제공합니다. Enterprise State Roaming은 사용자의 모든 Windows 디바이스에 통합된 환경을 제공하고 새 디바이스 구성에 드는 시간을 줄여 줍니다.
+description: Enterprise State Roaming은 사용자의 모든 Windows 디바이스에 통합된 환경을 제공하고 새 디바이스 구성에 드는 시간을 줄여 줍니다.
 services: active-directory
-keywords: 엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: overview
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3a2a81bd8aa3fc99d033564e8a8782c79261305
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353145"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481902"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍이란?
 

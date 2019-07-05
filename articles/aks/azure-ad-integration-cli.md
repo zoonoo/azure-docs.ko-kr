@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afb554307fd255d1863fc1508cef3703d4dc9f9e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835197"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561158"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes 서비스를 사용 하 여 Azure Active Directory 통합
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 할 수 있습니다. 클러스터 운영자는 사용자의 id 또는 directory 그룹 멤버 자격에 따라 Kubernetes 역할 기반 액세스 제어 (RBAC)를 구성할 수도 있습니다.
 
-이 문서에서는 필요한 만드는 방법을 보여 줍니다. 그런 다음 Azure AD 지원 클러스터 배포 및 AKS 클러스터에서 기본 RBAC 역할을 만드는 Azure AD 구성 요소입니다. 할 수도 있습니다 [Azure portal을 사용 하 여 이러한 단계를 완료할][azure-ad-portal]합니다.
+이 문서에서는 필요한 만드는 방법을 보여 줍니다. 그런 다음 Azure AD 지원 클러스터 배포 및 AKS 클러스터에서 기본 RBAC 역할을 만드는 Azure AD 구성 요소입니다. 할 수도 있습니다 [Azure portal을 사용 하 여 이러한 단계를 완료][azure-ad-portal]합니다.
 
 이 문서에 사용 되는 전체 샘플 스크립트를 참조 하세요 [Azure CLI 샘플-Azure AD 사용 하 여 AKS 통합][complete-script]합니다.
 
@@ -38,18 +38,18 @@ aksname="myakscluster"
 
 ## <a name="azure-ad-authentication-overview"></a>Azure AD 인증 개요
 
-OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
+OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대 한 자세한 내용은 참조는 [Open ID connect 설명서][open-id-connect]합니다.
 
-Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다. Webhook 토큰 인증에 대한 자세한 내용은 [webhook 인증 설명서][kubernetes-webhook]를 참조하세요.
+Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다. 웹 후크 토큰 인증에 대 한 자세한 내용은 참조는 [웹 후크 인증 설명서][kubernetes-webhook]합니다.
 
 > [!NOTE]
-> AKS 인증을 위해 Azure AD를 구성할 때 두 개의 Azure AD 애플리케이션이 구성됩니다. Azure 테넌트 관리자가 이 작업을 완료해야 합니다.
+> AKS 인증을 위해 Azure AD를 구성할 때 두 개의 Azure AD 애플리케이션을 구성합니다. Azure 테넌트 관리자가 이 작업을 완료해야 합니다.
 
 ## <a name="create-azure-ad-server-component"></a>Azure AD 서버 구성 요소 만들기
 
 AKS와 통합 하려면 만들기 및 id 요청에 대 한 끝점으로 사용 되는 Azure AD 응용 프로그램을 사용 합니다. 필요한 첫 번째 Azure AD 응용 프로그램 사용자에 대 한 Azure AD 그룹 구성원 자격을 가져옵니다.
 
-사용 하 여 서버 응용 프로그램 구성 요소 만들기를 [az ad app 만들기] [ az-ad-app-create] 명령을 선택한 다음 업데이트를 사용 하 여 그룹 멤버 자격 클레임을 [az ad app update] [ az-ad-app-update] 명령입니다. 다음 예제에서는 합니다 *aksname* 에 정의 된 변수를 [시작 하기 전에](#before-you-begin) 섹션 및 변수를 만듭니다
+사용 하 여 서버 응용 프로그램 구성 요소 만들기를 [az ad app 만들기][az-ad-app-create] command, then update the group membership claims using the [az ad app update][az-ad-app-update] 명령입니다. 다음 예제에서는 합니다 *aksname* 에 정의 된 변수를 [시작 하기 전에](#before-you-begin) 섹션 및 변수를 만듭니다
 
 ```azurecli-interactive
 # Create the Azure AD application
@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-이제 서비스 주체를 사용 하 여 서버 앱을 만들 합니다 [az ad sp 만들기] [ az-ad-sp-create] 명령입니다. 이 서비스 주체는 Azure 플랫폼 내에서 인증을 얻는 데 사용 됩니다. 그런 다음, 사용자 비밀 통해 서비스를 가져옵니다 합니다 [az ad sp 자격 증명 재설정] [ az-ad-sp-credential-reset] 명령 및 라는 변수에 할당 *serverApplicationSecret* 중 하나에서 사용 하기 위해는 다음 단계:
+이제 서비스 주체를 사용 하 여 서버 앱을 만들 합니다 [az ad sp 만들기][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] 명령 및 명명 된 변수에 할당할 *serverApplicationSecret* 다음 단계 중 하나에서 사용 하기 위해:
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
@@ -80,7 +80,7 @@ Azure AD에는 다음 작업을 수행할 수 있는 권한이 필요 합니다.
 * 디렉터리 데이터 읽기
 * 로그인 및 사용자 프로필 읽기
 
-사용 하 여 이러한 사용 권한을 할당 합니다 [az ad app 사용 권한 추가] [ az-ad-app-permission-add] 명령:
+사용 하 여 이러한 사용 권한을 할당 합니다 [az ad app 권한이 추가][az-ad-app-permission-add] 명령:
 
 ```azurecli-interactive
 az ad app permission add \
@@ -89,7 +89,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-마지막으로 사용 하 여 서버 응용 프로그램에 대 한 이전 단계에서 할당 된 사용 권한을 부여 합니다 [az ad app 권한 부여] [ az-ad-app-permission-grant] 명령입니다. 현재 계정이 테 넌 트 관리자 아닌 경우이 단계가 실패 그렇지 않은 경우 다음을 사용 하 여 관리자의 동의가 필요할 수 있는 정보를 요청 하려면 Azure AD 응용 프로그램에 대 한 사용 권한을 추가 해야 합니다 [az ad app 권한이 관리자 동의][az-ad-app-permission-admin-consent]:
+마지막으로 사용 하 여 서버 응용 프로그램에 대 한 이전 단계에서 할당 된 사용 권한을 부여 합니다 [az ad app 권한 부여][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent]:
 
 ```azurecli-interactive
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
@@ -98,7 +98,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Azure AD 클라이언트 구성 요소 만들기
 
-Kubernetes CLI를 사용 하 여 AKS 클러스터를 사용자가 로그인 하는 경우 두 번째 Azure AD 응용 프로그램 사용 됩니다 (`kubectl`). 이 클라이언트 응용 프로그램 사용자 로부터 인증 요청을 사용 하 고 해당 자격 증명 및 권한을 확인 합니다. 사용 하 여 클라이언트 구성 요소에 대 한 Azure AD 앱 만들기를 [az ad app 만들기] [ az-ad-app-create] 명령:
+Kubernetes CLI를 사용 하 여 AKS 클러스터를 사용자가 로그인 하는 경우 두 번째 Azure AD 응용 프로그램 사용 됩니다 (`kubectl`). 이 클라이언트 응용 프로그램 사용자 로부터 인증 요청을 사용 하 고 해당 자격 증명 및 권한을 확인 합니다. 사용 하 여 클라이언트 구성 요소에 대 한 Azure AD 앱 만들기를 [az ad app 만들기][az-ad-app-create] 명령:
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -108,19 +108,19 @@ clientApplicationId=$(az ad app create \
     --query appId -o tsv)
 ```
 
-사용 하 여 클라이언트 응용 프로그램에 대 한 서비스 주체를 만들려면 합니다 [az ad sp 만들기] [ az-ad-sp-create] 명령:
+사용 하 여 클라이언트 응용 프로그램에 대 한 서비스 주체를 만들려면 합니다 [az ad sp 만들기][az-ad-sp-create] 명령:
 
 ```azurecli-interactive
 az ad sp create --id $clientApplicationId
 ```
 
-OAuth2를 사용 하 여 두 개의 앱 구성 요소 간에 인증 흐름을 허용 하도록 서버 앱에 대 한 ID를 가져오려면 합니다 [az ad app show] [ az-ad-app-show] 명령입니다. 이 oAuth2 ID는 다음 단계에서 사용 됩니다.
+OAuth2를 사용 하 여 두 개의 앱 구성 요소 간에 인증 흐름을 허용 하도록 서버 앱에 대 한 ID를 가져오려면 합니다 [az ad app show][az-ad-app-show] 명령입니다. 이 oAuth2 ID는 다음 단계에서 사용 됩니다.
 
 ```azurecli-interactive
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-클라이언트 응용 프로그램에 대 한 사용 권한을 추가 하 고 oAuth2 통신을 사용 하 여 서버 응용 프로그램 구성 요소를 사용 하 여 흐름을 [az ad app 사용 권한 추가] [ az-ad-app-permission-add] 명령입니다. 그런 다음 클라이언트 응용 프로그램을 사용 하 여 서버 응용 프로그램 통신에 대 한 사용 권한을 부여 합니다 [az ad app 권한 부여] [ az-ad-app-permission-grant] 명령:
+클라이언트 응용 프로그램에 대 한 사용 권한을 추가 하 고 oAuth2 통신을 사용 하 여 서버 응용 프로그램 구성 요소를 사용 하 여 흐름을 [az ad app 사용 권한 추가][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] 명령:
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -129,7 +129,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 
 ## <a name="deploy-the-cluster"></a>클러스터 배포
 
-만든 두 개의 Azure AD 응용 프로그램을 사용 하 여 이제 AKS 클러스터 자체를 만듭니다. 먼저 사용 하 여 리소스 그룹을 만듭니다는 [az 그룹 만들기] [ az-group-create] 명령입니다. 다음 예제에서는 리소스 그룹을 *EastUS* 지역:
+만든 두 개의 Azure AD 응용 프로그램을 사용 하 여 이제 AKS 클러스터 자체를 만듭니다. 먼저 사용 하 여 리소스 그룹을 만듭니다는 [az 그룹 만들기][az-group-create] 명령입니다. 다음 예제에서는 리소스 그룹을 *EastUS* 지역:
 
 클러스터에 대 한 리소스 그룹을 만듭니다.
 
@@ -137,7 +137,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 az group create --name myResourceGroup --location EastUS
 ```
 
-사용 하 여 Azure 구독 테 넌 트 ID 가져오기 합니다 [az 계정 표시] [ az-account-show] 명령입니다. 그런 다음 사용 하 여 AKS 클러스터를 만듭니다는 [az aks 만듭니다] [ az-aks-create] 명령입니다. AKS 클러스터를 만드는 명령을 서버와 클라이언트 응용 프로그램 Id, 서버 응용 프로그램 서비스 주체 암호 및 테 넌 트 ID
+사용 하 여 Azure 구독 테 넌 트 ID 가져오기 합니다 [az 계정 표시][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create] 명령입니다. AKS 클러스터를 만드는 명령을 서버와 클라이언트 응용 프로그램 Id, 서버 응용 프로그램 서비스 주체 암호 및 테 넌 트 ID
 
 ```azurecli-interactive
 tenantId=$(az account show --query tenantId -o tsv)
@@ -153,7 +153,7 @@ az aks create \
     --aad-tenant-id $tenantId
 ```
 
-마지막으로, 클러스터를 사용 하 여 관리자 자격 증명 가져오기의 [az aks 자격 증명 가져오기] [ az-aks-get-credentials] 명령입니다. 일반적인 다음 단계 중 하나를 받게 *사용자* 클러스터를 Azure AD 인증 자격 증명 흐름입니다.
+마지막으로, 클러스터를 사용 하 여 관리자 자격 증명 가져오기의 [az aks 자격 증명 가져오기][az-aks-get-credentials] 명령입니다. 일반적인 다음 단계 중 하나를 받게 *사용자* 클러스터를 Azure AD 인증 자격 증명 흐름입니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
@@ -161,9 +161,9 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 ## <a name="create-rbac-binding"></a>RBAC 바인딩 만들기
 
-Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. *역할*은 부여할 사용 권한을 정의하고, *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
+Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. *역할*은 부여할 사용 권한을 정의하고, *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC를 사용 하 여 권한 부여][rbac-authorization]합니다.
 
-사용자 현재 사용 하 여 로그인에 대 한 사용자 계정 이름 (UPN)을 가져오기 합니다 [az ad 로그인에 사용자 표시] [ az-ad-signed-in-user-show] 명령입니다. 다음 단계에서 Azure AD 통합을 위해이 사용자 계정이 사용 됩니다.
+사용자 현재 사용 하 여 로그인에 대 한 사용자 계정 이름 (UPN)을 가져오기 합니다 [az ad 로그인에 사용자 표시][az-ad-signed-in-user-show] 명령입니다. 다음 단계에서 Azure AD 통합을 위해이 사용자 계정이 사용 됩니다.
 
 ```azurecli-interactive
 az ad signed-in-user show --query userPrincipalName -o tsv
@@ -189,7 +189,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-사용 하 여 ClusterRoleBinding 만듭니다를 [kubectl 적용] [ kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
+사용 하 여 ClusterRoleBinding 만듭니다를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
 
 ```console
 kubectl apply -f basic-azure-ad-binding.yaml
@@ -203,7 +203,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
 ```
 
-이제 사용 합니다 [kubectl get pod] [ kubectl-get] 모든 네임 스페이스에서 pod를 보려는 명령:
+이제 사용 합니다 [kubectl get pod][kubectl-get] 모든 네임 스페이스에서 pod를 보려는 명령:
 
 ```console
 kubectl get pods --all-namespaces
@@ -244,7 +244,7 @@ error: You must be logged in to the server (Unauthorized)
 
 이 문서에 표시 된 명령을 포함 하는 전체 스크립트에 대 한 참조를 [는 AKS에서 Azure AD 통합 스크립트 샘플 리포지토리][complete-script]합니다.
 
-Azure AD 사용자 및 그룹을 사용 하 여 클러스터 리소스에 대 한 액세스를 제어 하려면를 참조 하세요 [역할 기반 access control 및 Azure AD id를 사용 하 여 AKS에서 클러스터 리소스에 대 한 액세스 제어][azure-ad-rbac]합니다.
+Azure AD 사용자 및 그룹을 사용 하 여 클러스터 리소스에 대 한 액세스를 제어 하려면를 참조 하세요 [역할 기반 access control 및 Azure AD id를 사용 하 여 AKS에서 클러스터 리소스에 대 한 액세스를 제어][azure-ad-rbac]입니다.
 
 Kubernetes 클러스터를 보호 하는 방법에 대 한 자세한 내용은 참조 하십시오 [AKS에 대 한 액세스 및 id 옵션)][rbac-authorization]합니다.
 

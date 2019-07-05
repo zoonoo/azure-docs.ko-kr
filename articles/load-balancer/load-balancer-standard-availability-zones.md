@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734459"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491979"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -186,7 +186,7 @@ Load Balancer는 가용성 영역의 컨텍스트에서 의도적으로 유연�
 
 Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간단하게 만들 수 있습니다. 영역 중복 IP 주소는 모든 영역에서 영역 리소스를 안전하게 처리할 수 있으며, 지역 내에서 하나의 영역이 정상 상태로 유지되는 동안 하나 이상의 영역 오류에서 존속할 수 있습니다. 반대로, 영역 프런트 엔드는 서비스를 단일 영역으로 축소하고 각 영역과 수명을 공유합니다.
 
-영역 중복은 명시적으로 데이터 평면이며, 비충돌 데이터 경로 또는 제어 평면을 의미하지 않습니다. 영역 중복 흐름은 모든 영역을 사용할 수 있으며, 고객의 흐름에서는 한 지역의 모든 정상 영역을 사용합니다. 영역 오류가 발생하는 경우 해당 시점에서 정상 영역을 사용하는 트래픽 흐름은 영향을 받지 않습니다.  영역 오류 발생 시 영역을 사용하는 트래픽 흐름이 영향을 받을 수 있지만, Azure에서 영역 오류가 수렴된 후 재전송 또는 재설정 시 애플리케이션이 복구될 수 있으며 지역 내의 나머지 정상 영역에서 이러한 흐름이 계속될 수 있습니다.
+영역 중복은 명시적으로 데이터 평면이며, 비충돌 데이터 경로 또는 제어 평면을 의미하지 않습니다. 영역 중복 흐름은 모든 영역을 사용할 수 있으며, 고객의 흐름에서는 한 지역의 모든 정상 영역을 사용합니다. 영역 오류가 발생하는 경우 해당 시점에서 정상 영역을 사용하는 트래픽 흐름은 영향을 받지 않습니다.  영역 오류 발생 시 영역을 사용 하 여 트래픽 흐름은 영향을 받을 수 있지만 응용 프로그램을 복구할 수 있습니다. Azure에 영역 오류가 수렴 된 후 재전송 또는 재설정이 발생을 지역 내의 나머지 정상 영역에서 이러한 흐름이 계속 수 있습니다.
 
 ### <a name="xzonedesign"></a> 영역 간 경계
 

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113196"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471737"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>그룹에 직접 액세스를 검토 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 또는 �
 
 1. 액세스를 검토 하도록 요청 하는 Microsoft에서 전자 메일을 찾습니다. 예제 메일 그룹에 액세스를 검토 하는 다음과 같습니다.
 
-    ![액세스 검토 이메일](./media/review-your-access/access-review-email.png)
+    ![예제 메일 그룹에 액세스를 검토 하는 Microsoft에서](./media/review-your-access/access-review-email.png)
 
 1. 클릭 합니다 **액세스 검토** 링크 액세스 검토를 엽니다.
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 또는 �
 
 1. MyApps portal에 로그인 [ https://myapps.microsoft.com ](https://myapps.microsoft.com)합니다.
 
-    ![MyApps 포털](./media/review-your-access/myapps-access-panel.png)
+    ![MyApps 포털 앱을 수 있는 권한이 나열](./media/review-your-access/myapps-access-panel.png)
 
 1. 페이지의 오른쪽 위 모서리에 있는 사용자 기호를 클릭하면 이름과 기본 조직이 표시됩니다. 둘 이상의 조직이 나열되는 경우 액세스 검토를 요청한 조직을 선택합니다.
 
@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 또는 �
 
     타일이 표시되지 않은 경우 해당 조직에 대해 수행할 액세스 검토가 없으므로 이 시점에서는 어떤 작업도 필요하지 않습니다.
 
-    ![액세스 검토 목록](./media/review-your-access/access-reviews-list.png)
+    ![앱 및 그룹에 대 한 보류 중인 액세스 검토 목록](./media/review-your-access/access-reviews-list.png)
 
 1. 클릭 합니다 **검토 시작** 수행 하려는 액세스 검토에 대 한 링크입니다.
 
@@ -68,13 +68,13 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 또는 �
 
     다른 사용자에 대 한 액세스를 검토 하도록 요청 인 경우 페이지 다르게 보입니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
 
-    ![액세스 검토 수행](./media/review-your-access/perform-access-review.png)
+    ![그룹에 액세스 해야 하는지 여부를 묻는 개방형 액세스 검토](./media/review-your-access/perform-access-review.png)
 
 1. 클릭 **예** 액세스를 유지 하거나 클릭 **No** 액세스를 제거 하려면.
 
 1. 클릭 하면 **예**에서 맞춤을 지정 해야 합니다 **이유** 상자입니다.
 
-    ![액세스 검토 수행](./media/review-your-access/perform-access-review-submit.png)
+    ![그룹에 액세스 해야 하는지 여부를 요청 하는 액세스 검토를 완료 합니다.](./media/review-your-access/perform-access-review-submit.png)
 
 1. **제출**을 클릭합니다.
 

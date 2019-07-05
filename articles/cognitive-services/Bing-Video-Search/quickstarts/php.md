@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535203"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435305"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>빠른 시작: Bing Video Search REST API 및 PHP를 사용하여 비디오 검색
 
 Bing Video Search API를 처음 호출하고 JSON 응답에서 검색 결과를 확인하려면 이 빠른 시작을 사용합니다. 이 간단한 JavaScript 애플리케이션은 HTTP 비디오 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되고 Node.js를 사용하지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 예제 코드는 PHP 5.6에서 작동하도록 작성되었습니다.
 
-API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)를 참조하세요.
+API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,7 +32,7 @@ API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/
 
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
+[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)는 Bing 검색 엔진의 비디오 결과를 반환합니다.
 
 1. 코드 주석에 설명된 대로 `php.ini`에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.

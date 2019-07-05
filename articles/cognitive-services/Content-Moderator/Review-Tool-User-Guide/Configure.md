@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756511"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61285557"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -105,7 +105,7 @@ ms.locfileid: "58756511"
 
 ![Content Moderator 커넥터 설정](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>워크플로
+## <a name="workflows"></a>Workflows
 
 합니다 **워크플로** 탭 관리할 수 있습니다 하 [워크플로](../review-api.md#workflows)합니다. 워크플로 콘텐츠에 대 한 클라우드 기반 필터 및 다양 한 방법으로 콘텐츠를 정렬 하 고 적절 한 작업을 수행 하는 커넥터를 사용 하 여 작동 합니다. 이때, 같이 정의할 수 있습니다. 편집 하 고 워크플로 테스트 합니다. 참조 [정 및 사용 하 여 워크플로](Workflows.md) 이 작업을 수행 하는 방법에 대 한 지침에 대 한 합니다.
 

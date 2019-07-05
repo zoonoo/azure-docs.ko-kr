@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121791"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182810"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "66121791"
 ## <a name="add-authentication-components"></a>인증 구성 요소 추가
 
 1. Visual Studio에서: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 [OWIN 미들웨어 NuGet 패키지]를 추가합니다.
+2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 [OWIN 미들웨어 NuGet 패키지]를 추가합니다. 
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect

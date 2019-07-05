@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427104"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514466"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -38,11 +38,11 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 유럽 |북유럽(아일랜드) |서유럽(네덜란드) |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
-| 인도 |인도 중부 |인도 남부 |
+| 인도 |중앙 인도 |인도 남부 |
 | 인도 |인도 서부 |인도 남부 |
 | 일본 |일본 동부 |일본 서부 |
 | 한국 |한국 중부 |한국 남부 |
-| 북아메리카 |미국 동부 |미국 서부 |
+| 북아메리카 |East US |미국 서부 |
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 
@@ -77,7 +77,7 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(�
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute(IaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로비전해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](resiliency/resiliency-technical-guidance.md)을 참조하세요.
 
-![스토리지](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage** - GRS(지역 중복 스토리지)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
+![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -managed disks를 사용 하는 경우에 대해 알아봅니다 [지역간 백업이](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) Azure Backup을 사용 하 여 및 [Vm을 복제](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) 지역 간에 Azure Site Recovery를 사용 하 여 다른 합니다. 저장소 계정을 사용 하는 경우 다음 지역 중복 저장소 (GRS)는 기본적으로 구성를 Azure Storage 계정을 만들 때. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – With Azure SQL Database 지역에서 복제 기능을 사용하면 전 세계 모든 지역으로의 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에서 이러한 리소스를 쌍을 이루는 지역에 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 

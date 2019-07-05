@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752730"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445738"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -94,7 +94,7 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft에서는 Azure AD를 사용하여 모든 Marketplace를 인증하므로, 인증된 사용자가 Marketplace에서 평가판 항목을 클릭하고 평가판 환경으로 리디렉션되면, 추가 로그인 단계를 요구하지 않으면서 사용자를 평가판 단계로 직접 프로비전할 수 있습니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft Azure AD 사용 하 여 모든 Marketplace 사용자를 인증 합니다. 인증된 된 사용자가 Marketplace에서 평가판 목록을 통해 평가판 환경으로 리디렉션되는지를 프로 비전 할 수는 사용자 직접 평가판으로 요구 하지 않고 있으므로 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  
@@ -104,7 +104,7 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-애플리케이션이 단일 테넌트인지 아니면 다중 테넌트인지, Azure AD 페더레이션된 SSO(Single Sign-On)을 처음 사용하는지 아니면 이미 지원하는지에 따라 몇 가지 다른 방법으로 Azure AD 통합을 인증할 수 있습니다.  
+단일 테 넌 트 또는 다중 테 넌 트 응용 프로그램 인지에 따라 몇 가지에서에 Azure AD 통합을 인증 하 고 처음 접하는 지 여부를를 Azure AD 페더레이션된 single sign-on (SSO) 또는 이미 지원 합니다.  
 
 **다중 테넌트 애플리케이션의 경우:**  
 

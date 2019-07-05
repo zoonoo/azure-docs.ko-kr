@@ -2,28 +2,21 @@
 title: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책 필요 | Microsoft Docs
 description: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책을 요구 하는 방법에 알아봅니다.
 services: active-directory
-keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 4/4/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e2e43f13352c56f947f5e560049ab0acf871599
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112735"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509464"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>조건부 액세스 (미리 보기)를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책 필요
 
@@ -55,7 +48,6 @@ Azure Active Directory 조건부 액세스를 Intune 앱 보호 정책 받기로
 - 사용자는 Intune 앱 보호 정책을 받을 수 없습니다.
 - Intune 앱 보호 정책 앱 정책을 수신 하도록 구성 되지 않습니다.
 
-
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
@@ -64,7 +56,6 @@ Azure Active Directory 조건부 액세스를 Intune 앱 보호 정책 받기로
 - [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement) 기술 참조.
 - 기본 개념 [Azure Active Directory의 조건부 액세스](overview.md)합니다.
 - 하는 방법 [조건부 액세스 정책을 구성할](app-based-mfa.md)합니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -87,7 +78,7 @@ Azure Active Directory 조건부 액세스를 Intune 앱 보호 정책 받기로
 - Outlook 앱을 사용 하 여 액세스를 사용할 수 있는지 여부를 나타내는 전자 메일을 받습니다.
 - 링크를 사용 하 여 응용 프로그램을 다운로드합니다.
 - 가 Outlook 응용 프로그램 및 Azure AD 자격 증명으로 로그인 합니다.
-- IOS 용 Microsoft Authenticator 또는 계속 사용 하 여 Android 용 Intune 회사 포털을 설치 하 라는 메시지가 표시 됩니다.
+- 설치 하 라는 메시지가 표시 됩니다는 **Microsoft Authenticator 앱** 또는 **Intune 회사 포털** 를 계속 합니다.
 - 응용 프로그램을 설치 하 고 계속 하려면 Outlook 앱에 반환 합니다.
 - 장치를 등록 하 라는 메시지가 표시 됩니다.
 - Intune 앱 보호 정책을 받을 수 있습니다.
@@ -104,27 +95,23 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/01.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다.
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다.
+1. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** :
+   1. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
 
-4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** :
+   1. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
 
-    a. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
+      ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
+1. 아래 **액세스 제어**를 선택 **앱 보호 정책 (미리 보기)를 필요한**합니다.
 
-    b. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
-
-5. 아래 **액세스 제어**를 선택 **앱 보호 정책 (미리 보기)를 필요한**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/05.png)
- 
+   ![조건부 액세스](./media/app-protection-based-conditional-access/05.png)
 
 **2단계: Exchange online ActiveSync (EAS) 사용 하 여 Azure AD 조건부 액세스 정책 구성**
 
@@ -133,38 +120,30 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/06.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다.
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
+1. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다.
+   1. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
 
-4. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
+   1. 아래 **액세스 제어**를 선택 **앱 보호 정책 (미리 보기)를 필요한**합니다.
 
-    a. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
-
-    b. 아래 **액세스 제어**를 선택 **앱 보호 정책 (미리 보기)를 필요한**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/05.png)
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/05.png)
 
 **3단계: IOS 및 Android 클라이언트 응용 프로그램에 대 한 Intune 앱 보호 정책 구성**
-
 
 ![조건부 액세스](./media/app-protection-based-conditional-access/09.png)
 
 자세한 내용은 [Microsoft Intune로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)합니다.
 
-
-
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>Exchange Online에 대 한 앱 보호 기반 또는 준수 장치 정책
 
 이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 보호 기반 또는 준수 장치 조건부 액세스 정책으로 구성 됩니다.
-
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
@@ -177,7 +156,6 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 - 사용자 등록 없으면 Outlook 및 Intune 앱 보호 정책을 사용 하 여 전자 메일에 액세스할 수 있습니다.
 - 사용자는 장치를 등록 한 경우 outlook 전자 메일을 액세스할 수 있습니다.
 
-
 ### <a name="configuration"></a>구성
 
 **1단계: Exchange Online에 대 한 Azure AD 조건부 액세스 정책 구성**
@@ -187,34 +165,27 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/62.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
-
-     ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
-
-4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
+1. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
  
-    a. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
+   1. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
 
-    b. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
+   1. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
 
 5. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
-
    - **디바이스를 준수 상태로 표시해야 함**
-
    - **앱 보호 정책 (미리 보기) 필요 합니다.**
-
    - **선택된 컨트롤 중 하나가 필요**   
  
-     ![조건부 액세스](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/11.png)
 
 **2단계: ActiveSync를 사용 하 여 Exchange Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
@@ -223,62 +194,48 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/06.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
+1. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
+   **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
 
-4. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
+   ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
 
-    **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
-
-5. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
-
+1. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
    - **디바이스를 준수 상태로 표시해야 함**
-
    - **앱 보호 정책 (미리 보기) 필요 합니다.**
-
    - **선택된 컨트롤 중 하나가 필요**
 
-     ![조건부 액세스](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/11.png)
 
 **3단계: IOS 및 Android 클라이언트 응용 프로그램에 대 한 Intune 앱 보호 정책 구성**
-
 
 ![조건부 액세스](./media/app-protection-based-conditional-access/09.png)
 
 자세한 내용은 [Microsoft Intune로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)합니다.
 
-
-
-
-
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>Exchange Online에 대 한 앱 보호 기반 및 준수 장치 정책
 
 이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 보호-기반 및 준수 장치 조건부 액세스 정책으로 구성 됩니다.
-
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
 이 시나리오는 다음과 같이 사용자를 가정합니다.
  
--   IOS 또는 Android에서 네이티브 메일 응용 프로그램을 사용 하 여 Exchange에 연결 하 여 전자 메일을 구성 합니다.
--   액세스 하려면 해당 장치를 등록할 나타내는 전자 메일을 받습니다.
--   Intune 회사 포털을 다운로드 하 고 포털에 로그인 합니다.
--   메일을 확인 하 고 Outlook 앱을 사용 하 라는 메시지가 표시 됩니다.
--   Outlook 앱을 다운로드합니다.
--   Outlook 앱을 열고 등록에 사용 되는 자격 증명을 입력 합니다.
--   Intune 앱 보호 정책을 받을 수 있습니다.
--   Outlook 및 Intune 앱 보호 정책을 사용 하 여 전자 메일에 액세스할 수 있습니다.
+- IOS 또는 Android에서 네이티브 메일 응용 프로그램을 사용 하 여 Exchange에 연결 하 여 전자 메일을 구성 합니다.
+- 액세스 하려면 해당 장치를 등록할 나타내는 전자 메일을 받습니다.
+- Intune 회사 포털을 다운로드 하 고 포털에 로그인 합니다.
+- 메일을 확인 하 고 Outlook 앱을 사용 하 라는 메시지가 표시 됩니다.
+- Outlook 앱을 다운로드합니다.
+- Outlook 앱을 열고 등록에 사용 되는 자격 증명을 입력 합니다.
+- Intune 앱 보호 정책을 받을 수 있습니다.
+- Outlook 및 Intune 앱 보호 정책을 사용 하 여 전자 메일에 액세스할 수 있습니다.
 
 회사 데이터에 액세스 하기에 Intune 앱 보호 정책이 활성화 됩니다. 정책에는 사용자가 응용 프로그램을 다시 시작 하거나 추가 PIN을 사용 하 여 요청할 수 있습니다. 이 경우 응용 프로그램 및 플랫폼에 대 한 정책 구성 된 경우입니다.
-
 
 ### <a name="configuration"></a>구성
 
@@ -289,34 +246,26 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/01.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
+1. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
+   1. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
 
-     ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
 
-4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
- 
-    a. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
+   1. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
 
-    b. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
-
-5. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
-
+1. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
    - **디바이스를 준수 상태로 표시해야 함**
-
    - **앱 보호 정책 (미리 보기) 필요 합니다.**
-
    - **선택된 컨트롤이 모두 필요**   
  
-     ![조건부 액세스](./media/app-protection-based-conditional-access/13.png)
-
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/13.png)
 
 **2단계: ActiveSync를 사용 하 여 Exchange Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
@@ -325,44 +274,33 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 ![조건부 액세스](./media/app-protection-based-conditional-access/06.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
+1. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
+   **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
 
-4. **조건을**, 구성 **클라이언트 앱 (미리 보기)** 합니다. 
+   ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
 
-    **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **Exchange ActiveSync 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/92.png)
-
-5. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
-
+1. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
    - **디바이스를 준수 상태로 표시해야 함**
-
    - **앱 보호 정책 (미리 보기) 필요 합니다.**
-
    - **선택된 컨트롤이 모두 필요**   
  
-     ![조건부 액세스](./media/app-protection-based-conditional-access/13.png)
-
-
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/13.png)
 
 **3단계: IOS 및 Android 클라이언트 응용 프로그램에 대 한 Intune 앱 보호 정책 구성**
-
 
 ![조건부 액세스](./media/app-protection-based-conditional-access/09.png)
 
 자세한 내용은 [Microsoft Intune로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)합니다.
 
-
 ## <a name="app-protection-based-or-app-based-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대 한 앱 보호 또는 앱 기반 정책
 
 이 시나리오는 Exchange Online 및 SharePoint Online에 액세스 하기 위한 앱 보호 기반 또는 승인 된 앱 정책으로 구성 됩니다.
-
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
@@ -396,45 +334,34 @@ Intune 앱 보호 정책이 필요 하며 회사 데이터에 액세스 하기 �
 ![조건부 액세스](./media/app-protection-based-conditional-access/62.png)
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
+1. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+1. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
 
-2. 아래 **할당**의 **사용자 및 그룹**적어도 한 명의 사용자를 선택 하거나 각 조건부 액세스 정책에 대 한 그룹입니다.
+   ![조건부 액세스](./media/app-protection-based-conditional-access/02.png)
 
-3. **클라우드 앱**를 선택 **Office 365 Exchange Online**합니다. 
+1. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
+   1. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
 
-     ![조건부 액세스](./media/app-protection-based-conditional-access/02.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
 
-4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** 합니다. 
- 
-    a. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
+   1. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
 
-    ![조건부 액세스](./media/app-protection-based-conditional-access/03.png)
+      ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
 
-    b. **클라이언트 앱 (미리 보기)** 를 선택 **모바일 앱 및 데스크톱 클라이언트** 하 고 **최신 인증 클라이언트**합니다.
-
-    ![조건부 액세스](./media/app-protection-based-conditional-access/91.png)
-
-5. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
-
+1. 아래 **액세스 제어**, 다음 옵션을 선택 합니다.
    - **승인 된 클라이언트 앱 필요**
-
    - **앱 보호 정책 (미리 보기) 필요 합니다.**
-
    - **선택된 컨트롤 중 하나가 필요**
  
-     ![조건부 액세스](./media/app-protection-based-conditional-access/12.png)
-
+      ![조건부 액세스](./media/app-protection-based-conditional-access/12.png)
 
 **2단계: IOS 및 Android 클라이언트 응용 프로그램에 대 한 Intune 앱 보호 정책 구성**
-
 
 ![조건부 액세스](./media/app-protection-based-conditional-access/09.png)
 
 자세한 내용은 [Microsoft Intune로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)합니다.
 
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
-- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 
+- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다.

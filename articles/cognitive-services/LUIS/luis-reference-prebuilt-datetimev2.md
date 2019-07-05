@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148647"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
@@ -89,7 +89,7 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 **datetimeV2**는 다음 범위 사이의 날짜를 지원합니다.
 
-| Min | max |
+| 최소값 | 최대값 |
 |----------|-------------|
 | 1900년 1월 1일   | 2099년 12월 31일 |
 
@@ -179,7 +179,7 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
   ]
 ```
 ## <a name="ambiguous-time"></a>모호한 시간
-시간 또는 시간 범위가 모호한 경우 값 배열에는 두 개의 시간 요소가 포함됩니다. 시간이 모호한 경우 값에는 오전 및 오후 시간이 모두 포함됩니다.
+시간 또는 시간 범위가 모호한 경우 값 배열에는 두 개의 시간 요소가 포함됩니다. 시간이 모호한 경우 값에는 오전 및 오후 포함됩니다.
 
 ## <a name="time-range-resolution-example"></a>시간 범위 해결 방법 예제
 

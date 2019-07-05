@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b98aebfd7bef3edff8e046d7ef1c388ea57afa04
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755598"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501254"
 ---
 스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다.
 
@@ -35,11 +35,12 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원되지 않음
 
-| 크기          | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 최대 데이터 디스크 처리량 (IOPs/MBps) 캐시 되지 않은<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| Size          | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 최대 데이터 디스크 처리량 (IOPs/MBps) 캐시 되지 않은<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 M / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000 / 2000  | 8000/160   | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000 / 4000  | 16000/320  | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 M / 8000    | 32000/640  | 32 | 8 / 12800 |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M / 14000   | 48000/960  | 32 | 8 / 16000+ |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
 | Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 

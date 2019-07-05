@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166223"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484595"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>만들기 및 Azure HDInsight에서 엔터프라이즈 보안 패키지 클러스터 구성
 
 Azure HDInsight 용 엔터프라이즈 보안 패키지는 Azure에서 Apache Hadoop 클러스터에 대해 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 access control 액세스를 제공합니다. ESP HDInsight 클러스터에 중요 한 데이터를 안전 하 게 처리 하는 데 엄격한 회사 보안 정책을 준수 하는 조직은 있도록 합니다.
 
-이 가이드의 목적은 올바르게 구성 되어 필요한 리소스가 있도록 하는 온-프레미스 사용자가 로그인 할 수는 ESP HDInsight 클러스터를 사용 하도록 설정 합니다. 이 문서에서는 Azure HDInsight 클러스터를 사용 하도록 설정 하는 엔터프라이즈 보안 패키지를 만드는 데 필요한 단계를 안내 합니다. Active Directory 및 도메인 이름 서비스 (DNS)가 사용 하도록 설정 된 Windows IaaS VM을 만드는 단계를 설명 합니다. 이 서버는 역할을 대체 하 **실제** 온-프레미스 환경 및 고유한 환경에서 이후에 반복할 수 있도록 설치 및 구성 단계를 진행할 수 있습니다. 이 가이드는 데도 도움이 암호 해시 동기화를 사용 하 여 Azure Active Directory를 사용 하 여 하이브리드 identity 환경을 만듭니다.
+이 가이드의 목적은 ESP에 온-프레미스 사용자가 로그인 할 수 있도록 필요한 리소스를 올바르게 구성 하려면 HDInsight 클러스터를 사용 하도록 설정 합니다. 이 문서에서는 Azure HDInsight 클러스터를 사용 하도록 설정 하는 엔터프라이즈 보안 패키지를 만드는 데 필요한 단계를 안내 합니다. Active Directory 및 도메인 이름 서비스 (DNS)가 사용 하도록 설정 된 Windows IaaS VM을 만드는 단계를 설명 합니다. 이 서버는 역할을 대체 하 **실제** 온-프레미스 환경 및 고유한 환경에서 이후에 반복할 수 있도록 설치 및 구성 단계를 진행할 수 있습니다. 이 가이드는 데도 도움이 암호 해시 동기화를 사용 하 여 Azure Active Directory를 사용 하 여 하이브리드 identity 환경을 만듭니다.
 
 이 가이드를 보완 하려는 [HDInsight에서 사용 하 여 엔터프라이즈 보안 패키지](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 1. Azure 포털에 로그인합니다.
 1. 클릭 **리소스 만들기**를 입력 **Domain services** 선택한 **Azure AD Domain Services**합니다.
 1. 에 **기본 사항** 화면에는 다음 단계를 완료 합니다.
-    1. 아래 **디렉터리가** 이 자습서에서는 만든 Azure Active Directory 선택 **HDIFabrikam**.
+    1. 아래 **디렉터리가** 이 문서에서는 만든 Azure Active Directory를 선택 **HDIFabrikam**합니다.
     1. 입력 한 **DNS 도메인 이름** 의 **HDIFabrikam.com**합니다.
     1. 구독을 선택합니다.
     1. 리소스 그룹을 지정 **HDIFabrikam CentralUS** 하며 **위치** 의 **중미**합니다.
@@ -219,7 +219,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 구성 하는 데 사용
 
     ![네트워크 선택](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. 에 **관리자 그룹** 화면에서 그룹 이라는 알림이 표시 됩니다 **AAD DC Administrators** 이 그룹 관리를 이미 만들었습니다. 이 그룹의 멤버 자격이 필요에 따라 수정할 수는 있지만이 자습서의 단계에 필요 하지 않습니다. **확인**을 클릭합니다.
+1. 에 **관리자 그룹** 화면에서 그룹 이라는 알림이 표시 됩니다 **AAD DC Administrators** 이 그룹 관리를 이미 만들었습니다. 이 그룹의 멤버 자격이 필요에 따라 수정할 수는 있지만이 문서의 단계는 필요 하지 않습니다. **확인**을 클릭합니다.
 
     ![관리자 그룹 보기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 

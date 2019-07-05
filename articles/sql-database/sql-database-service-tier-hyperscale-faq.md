@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275594"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537839"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -38,7 +38,7 @@ ms.locfileid: "67275594"
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>하이퍼스케일 서비스 계층과 범용 및 중요 비즈니스용 서비스 계층의 차이점
 
-vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 기반으로 차별화됩니다.
+VCore 기반 서비스 계층은 주로 식별 되는 가용성, 저장소 유형 및 IOPs를 기반으로 수행 합니다.
 
 - 범용 서비스 계층은 대부분의 비즈니스 워크로드에 적합하며 IO 대기 시간 또는 장애 조치(failover) 시간이 최우선 순위가 아니고 균형 잡힌 계산 및 스토리지 옵션 세트를 제공합니다.
 - 하이퍼스케일 서비스 계층은 매우 큰 데이터베이스 워크로드에 최적화되어 있습니다.
@@ -53,7 +53,7 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 | **저장소 유형** | 모두 |프리미엄 원격 저장소(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 저장소(인스턴스별) | 초고속 로컬 SSD 저장소(인스턴스별) |
 | **저장소 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
-| **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | 아직 알 수 없음 | 5000 IOPS(최대 200,000 IOPS)|
+| **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | 대규모 여러 수준의 캐싱 사용 하 여 다중 계층 아키텍처를 사용 하는 경우 유효 IOPs 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
 | | Managed Instance | 파일의 크기에 따라 다름 | N/A | Managed Instance: 파일의 크기에 따라 다름|
 |**가용성**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
 |**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7-35 일 (기본적으로 7 일) 일정 한 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
@@ -92,7 +92,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
   하이퍼스케일을 사용하면 CPU, 메모리 등의 리소스 측면에서 기본 계산 규모를 강화한 다음, 일정 시간 내에 축소할 수 있습니다. 저장소가 공유되기 때문에 강화와 축소는 데이터 작업의 크기가 아닙니다.  
 - **규모 감축/확장**
 
-  하이퍼스케일을 사용하면 읽기 요청을 처리하는 데 사용할 수 있는 추가 계산 노드를 하나 이상 프로비전할 수 있습니다. 즉, 추가 계산 노드를 읽기 전용 노드로 사용하여 기본 계산의 읽기 워크로드를 오프로드할 수 있습니다. 읽기 전용 외에도 이 노드는 기본 노드에서 장애 조치(failover)가 발생할 경우 상시 대기 노드 역할을 합니다.
+  하이퍼스케일을 사용하면 읽기 요청을 처리하는 데 사용할 수 있는 추가 계산 노드를 하나 이상 프로비전할 수 있습니다. 즉, 추가 계산 노드를 읽기 전용 노드로 사용하여 기본 계산의 읽기 워크로드를 오프로드할 수 있습니다. 외에 주 데이터베이스에서 장애 조치 시의 읽기 전용 이며 이러한 노드 역할도으로 대기 합니다.
 
   이러한 추가 계산 노드 각각에 대한 프로비전을 일정 시간 내에 온라인으로 수행할 수 있습니다. 연결 문자열의 `ApplicationIntent` 인수를 `readonly`로 설정하면 이러한 추가 읽기 전용 계산 노드에 연결할 수 있습니다. `readonly`로 표시된 모든 연결은 추가 읽기 전용 계산 노드 중 하나에 자동으로 라우팅됩니다.
 
@@ -120,7 +120,7 @@ SQL Database 하이퍼스케일은 모든 SQL Server 워크로드를 지원하�
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Azure SQL Data Warehouse와 SQL Database 하이퍼스케일 중에 무엇을 선택해야 하나요?
 
-현재 SQL Server를 데이터 웨어하우스로 사용하여 대화형 분석 쿼리를 실행하는 경우 SQL Database 하이퍼스케일이 가장 적합한 옵션입니다. 낮은 비용으로 상대적으로 작은 데이터 웨어하우스(예: 몇 TB~최대 10TB)를 호스트할 수 있으며 T-SQL 코드를 변경하지 않고 데이터 웨어하우스 워크로드를 SQL Database 하이퍼스케일로 마이그레이션할 수 있기 때문입니다.
+SQL Server를 사용 하 여 데이터 웨어하우스로 대화형 분석 쿼리를 현재 실행 중인 경우 SQL Database 대규모 유용한 옵션입니다 (예: 10 TB까지 몇 TB) 비교적 작은 데이터 웨어하우스를 호스팅할 수 있으므로 저렴 한 비용 및 사용자 데이터 w를 마이그레이션할 수 있습니다. T-SQL 코드 변경 없이 SQL Database 대규모를 arehouse 워크 로드.
 
 PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Parallel Processor)를 사용하여 복잡한 쿼리로 대규모 데이터 분석을 실행하는 경우에는 SQL Data Warehouse가 최고의 옵션입니다.
   
@@ -349,7 +349,7 @@ IO 대기 시간 및 IOPS 워크 로드 패턴에 따라 달라 집니다.  필�
 
 예. 계산이 증가하면 Temp db가 자동으로 강화됩니다.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>기본 계산 헤드가 여러 개여서 높은 수준의 동시성이 가능한 다중 마스터 시스템과 같이 여러 개의 기본 계산을 프로비저닝할 수 있나요?
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>여러 기본 계산 헤드 더 높은 수준의 동시성이 유도할 수 있습니다 위치 하는 다중 마스터 시스템 등 여러 기본 계산 노드 프로 비전 할 수 있나요
 
 아니요. 기본 계산 노드만 읽기/쓰기 요청을 수락합니다. 보조 계산 노드는 읽기 전용 요청만 수락합니다.
 

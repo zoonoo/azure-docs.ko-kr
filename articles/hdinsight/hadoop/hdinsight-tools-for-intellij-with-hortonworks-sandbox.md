@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696138"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450118"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 
@@ -24,7 +24,7 @@ IntelliJ용 HDInsight 도구를 사용하여 컴퓨터에서 실행되는 [Horto
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
+이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 - 로컬 컴퓨터에서 실행되는 Hortonworks 샌드박스의 HDP(Hortonworks Data Platform) 2.4. HDP를 설정하려면 [가상 머신에서 Hadoop 샌드박스를 사용하여 Apache Hadoop 에코시스템 시작](apache-hadoop-emulator-get-started.md)을 참조하세요. 
     > [!NOTE]
@@ -142,7 +142,7 @@ IntelliJ IDEA를 에뮬레이터에 연결한 후에는 프로젝트를 제출�
 2. 다음 단계를 완료합니다.
 
     1. **Spark 클러스터(Linux만 해당)** 드롭다운 목록에서 로컬 Hortonworks 샌드박스를 선택합니다.
-    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 자습서의 경우 이름은 **GroupByTest**입니다.
+    2. **기본 클래스 이름** 상자에서 기본 클래스 이름을 선택하거나 입력합니다. 이 문서에서는 이름이 **GroupByTest**합니다.
 
 3. **제출**을 선택합니다. 작업 제출 로그가 Spark 제출 도구 창에 표시됩니다.
 

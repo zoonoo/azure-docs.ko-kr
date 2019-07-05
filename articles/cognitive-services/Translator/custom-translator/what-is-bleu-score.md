@@ -2,19 +2,19 @@
 title: BLEU 점수란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: BLEU는 자동 번역 및 동일한 소스 문장에 대해 사용자가 만든 하나 이상의 참조 번역 간의 차이를 측정한 것입니다. BLEU 알고리즘은 자동 번역의 연속 구문을 참조 번역에서 찾은 연속 구문과 비교하고, 가중치가 적용된 방식으로 일치 항목의 수를 계산합니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-pawal
-ms.openlocfilehash: 08be79dde62a1d624fa59816cf855e702245b622
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: a77fd1a84c1ffc18a1e0c74000c72db5cdbb00e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385158"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447371"
 ---
 # <a name="what-is-a-bleu-score"></a>BLEU 점수란?
 

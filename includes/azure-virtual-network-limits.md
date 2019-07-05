@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277367"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457444"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager는 다음 제한이 적용 네트워킹 리소스를 통해 관리 되는 동안만 **Azure Resource Manager** 지역당 구독 당 합니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "67277367"
 
 | Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 가상 네트워크 |50 |100 |
+| 가상 네트워크 |100 |100 |
 | 로컬 네트워크 사이트 수 |20 |지원에 문의 |
 | 가상 네트워크 당 DNS 서버 |20 |20 |
 | 가상 네트워크 당 개인 IP 주소 |4,096 |4,096 |
@@ -84,8 +84,8 @@ ms.locfileid: "67277367"
 | NSG당 NSG 규칙 |1,000 |1,000 |
 | 사용자 정의 경로 테이블 |200 |200 |
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
-| 공용 IP 주소(동적) |5 |지원 문의 |
-| 예약된 공용 IP 주소 |20 |지원 문의 |
+| 공용 IP 주소(동적) |500 |500 |
+| 예약된 공용 IP 주소 |500 |500 |
 | 배포당 공용 VIP |5 |지원 문의 |
 | 배포당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |

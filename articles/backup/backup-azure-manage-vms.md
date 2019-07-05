@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219303"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434226"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM 백업 관리
 
@@ -103,25 +103,36 @@ Azure portal에서 Recovery Services 자격 증명 모음 대시보드 정보를
 
 두 가지 방법으로 VM 보호를 중지 하려면:
 
-- 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제 이 경우 VM을 복원할 수 없습니다.
-- 모든 미래의 백업 작업을 중지 하 고 복구 지점을 유지 합니다. 자격 증명 모음의 복구 지점을 유지 하는 데 비용을 지불 해야 하지만 필요한 경우 VM을 복원할 수 있습니다. 자세한 내용은 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/)합니다.
+* **보호를 중지 하 고 백업 데이터 보존**합니다. 이 옵션은 모든 미래의 백업 작업을 VM; 보호 중지 그러나 Azure Backup 서비스는 백업 된 복구 지점 유지 합니다.  자격 증명 모음의 복구 지점을 유지 하는 데 비용을 지불 해야 (참조 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/) 세부 정보에 대 한). 필요한 경우 VM을 복원할 수 있습니다. VM 보호를 다시 시작 하려는 경우 사용할 수 있습니다 *백업 다시 시작* 옵션입니다.
+* **보호를 중지 하 고 백업 데이터 삭제**합니다. 이 옵션은 VM을 보호에서 모든 미래의 백업 작업을 중지 하 고 모든 복구 지점을 삭제 합니다. VM을 복원 하거나 사용할 수 없습니다 *백업 다시 시작* 옵션입니다.
 
 >[!NOTE]
 >백업 중지 하지 않고 데이터 소스를 삭제 하면 새 백업이 실패 합니다. 정책에 따라 이전 복구 지점이 만료는 있지만 마지막 복구 지점이 하나는 백업을 중지 하 고 데이터를 삭제할 때까지 항상 유지 됩니다.
 >
 
-VM에 대 한 보호를 중지 합니다.
+### <a name="stop-protection-and-retain-backup-data"></a>보호를 중지 하 고 백업 데이터 유지
+
+보호를 중지 한 VM의 데이터를 유지 합니다.
 
 1. 에 [자격 증명 모음 항목의 대시보드에서](#view-vms-on-the-dashboard)를 선택 **백업 중지**합니다.
-2. 또는 유지 하 고, 백업 데이터를 삭제 하 고, 필요에 따라 선택 사항을 확인 여부를 선택 합니다. 원하는 경우 주석을 추가 합니다. 항목의 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다.
+2. 선택할 **Backup 데이터 보관**, 필요에 따라 선택 항목을 확인 합니다. 원하는 경우 주석을 추가 합니다. 항목의 이름을 모르는 경우 이름을 보려면 느낌표 위로 마우스를 가져갑니다.
 
-    ![보호 중지](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![백업 데이터를 유지 합니다.](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     알림을 알려줍니다 백업 작업이 중지 되었습니다.
+알림을 알려줍니다 백업 작업이 중지 되었습니다.
+
+### <a name="stop-protection-and-delete-backup-data"></a>보호를 중지 하 고 백업 데이터 삭제
+
+보호를 중지 한 VM의 데이터를 삭제 합니다.
+
+1. 에 [자격 증명 모음 항목의 대시보드에서](#view-vms-on-the-dashboard)를 선택 **백업 중지**합니다.
+2. 선택할 **Backup 데이터 삭제**, 필요에 따라 선택 항목을 확인 합니다. 백업 항목의 이름을 입력 하 고 원하는 경우 설명을 추가 합니다.
+
+    ![백업 데이터 삭제](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>VM 보호 다시 시작
 
-VM을 중지 하는 경우 백업 데이터를 유지 하면 보호를 나중에 다시 시작할 수 있습니다. 백업 데이터를 삭제 하는 경우에 보호를 다시 시작할 수 없습니다.
+선택 했다면 [보호를 중지 하 고 백업 데이터 보존](#stop-protection-and-retain-backup-data) 사용 하 여 VM 보호를 중지 하 고, 옵션 **백업 다시 시작**합니다. 이 옵션을 선택 하면 사용할 수 없습니다 [보호를 중지 하 고 백업 데이터 삭제](#stop-protection-and-delete-backup-data) 옵션 또는 [백업 데이터 삭제](#delete-backup-data)합니다.
 
 VM에 대 한 보호를 다시 시작
 
@@ -134,23 +145,25 @@ VM에 대 한 보호를 다시 시작
 
 ## <a name="delete-backup-data"></a>백업 데이터 삭제
 
-VM의 백업 데이터를 삭제할 수 있습니다 합니다 **백업 중지** 작업 백업 작업이 완료 된 후 또는 합니다. 백업 데이터를 삭제 하기 전에 이러한 세부 사항에 유의 해야 합니다.
+두 가지 방법으로 VM의 백업 데이터 삭제 하려면:
 
-- 며칠이 나 몇 주가 복구 지점을 삭제 하기 전에 대기 하는 것이 좋습니다 수 있습니다.
-- 프로세스와 달리이 복구 지점을 복원에 대 한 백업 데이터를 삭제 하면 선택할 수는 없으며 특정 복구 지점을 삭제 하도록 합니다. 백업 데이터를 삭제 하면 모든 관련된 복구 지점 삭제 합니다.
+- 자격 증명 모음 항목 대시보드에서 백업 중지를 선택 하 고 지침을 따르세요 [보호를 중지 하 고 백업 데이터 삭제](#stop-protection-and-delete-backup-data) 옵션입니다.
 
-을 중지 하거나 VM의 백업 작업을 비활성화 한 후에 백업 데이터를 삭제할 수 있습니다.
+  ![백업 중지 선택](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- 자격 증명 모음 항목 대시보드에서 백업 데이터 삭제를 선택 합니다. 이 옵션은 하도록 선택한 경우 사용할 [보호를 중지 하 고 백업 데이터 보존](#stop-protection-and-retain-backup-data) VM 보호를 중지 하는 동안 옵션
 
-1. 에 [자격 증명 모음 항목 대시보드](#view-vms-on-the-dashboard)를 선택 **백업 데이터 삭제**합니다.
+  ![백업 삭제를 선택 합니다.](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![백업 삭제를 선택 합니다.](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - 에 [자격 증명 모음 항목 대시보드](#view-vms-on-the-dashboard)를 선택 **백업 데이터 삭제**합니다.
+  - 복구 지점을 삭제 되도록 확인 하려면 백업 항목의 이름을 입력 합니다.
 
-1. 복구 지점을 삭제 되도록 확인 하려면 백업 항목의 이름을 입력 합니다.
+    ![백업 데이터 삭제](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![복구 지점을 삭제 되도록 확인 합니다.](./media/backup-azure-manage-vms/item-verification-box.png)
+  - 선택 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**합니다. 알림 메시지를 통해 백업 데이터를 삭제 했을 알 수 있습니다.
 
-1. 선택 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**합니다. 알림 메시지를 통해 백업 데이터를 삭제 했을 알 수 있습니다.
+  > [!NOTE]
+  > 백업 데이터를 삭제 하면 모든 관련된 복구 지점 삭제 됩니다. 특정 복구 지점을 삭제 하도록 선택할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 설명 하는 방법 [VM의 설정에서 Azure Vm 백업](backup-azure-vms-first-look-arm.md)합니다.

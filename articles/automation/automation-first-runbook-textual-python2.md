@@ -4,17 +4,17 @@ description: 간단한 Python Runbook의 생성, 테스트, 게시 방법을 안
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f5408ce82b16d72dde364238d427a798441dfc8b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a030005d73df61c31c5aa1c2e1b56e52b03a56e3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340827"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478501"
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 

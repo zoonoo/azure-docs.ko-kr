@@ -3,20 +3,20 @@ title: 컨테이너 구성 - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678686"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275144"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -47,13 +47,13 @@ ms.locfileid: "59678686"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
+* Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
 
 다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다. 
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -95,7 +95,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
-| 자리 표시자 | 값 | 형식 또는 예 |
+| 자리표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 |{BILLING_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc80fcde8de3fb2d6dd6f59804f6019b76aa8727
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295589"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443937"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 PyTorch 모델 등록
 
-이 문서에서는 학습 Azure Machine Learning 서비스를 사용 하 여 PyTorch 모델을 등록 하는 방법을 보여 줍니다. 기반 [학습 자습서 PyTorch의 전송](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) ants 및 벌의 이미지에 대 한 심층 신경망 (DNN) 분류자를 작성 하는 합니다.
+이 문서에서는 학습 Azure Machine Learning 서비스를 사용 하 여 PyTorch 모델을 등록 하는 방법을 보여 줍니다. 기반 [학습 자습서 PyTorch의 전송](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) 닭 및 turkeys의 이미지에 대 한 심층 신경망 (DNN) 분류자를 작성 하는 합니다.
 
 [PyTorch](https://pytorch.org/) deep neural network DNN ()를 만드는 데 일반적으로 오픈 소스 계산 프레임 워크입니다. Azure Machine Learning 서비스를 사용 하 여 탄력적인 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업 규모를 신속 하 게 확장할 수 있습니다. 교육 실행, 버전 모델을 통해 추적할 수 있습니다 모델 등을 배포 합니다.
 
@@ -75,19 +75,19 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>실험 만들기
 
-실험 및 학습 스크립트를 보관할 폴더를 만듭니다. 이 예제에서는 "pytorch hymenoptera"를 호출 하는 실험을 만듭니다.
+실험 및 학습 스크립트를 보관할 폴더를 만듭니다. 이 예제에서는 "pytorch-새"를 호출 하는 실험을 만듭니다.
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### <a name="get-the-data"></a>데이터 가져오기
 
-데이터 집합에 대 한 120 학습 이미지의 각 ants 및 벌으로, 각 클래스에 대 한 유효성 검사 이미지 75를 사용 하 여 구성 됩니다. Hymenoptera는 ants 및 벌을 포함 하는 곤충의 순서로 정렬 됩니다. 다운로드 하 고 데이터 집합 학습 스크립트의 일부로 추출 `pytorch_train.py`합니다.
+데이터 집합에 대 한 120 학습 이미지의 각 turkeys 및 닭, 각 클래스에 대 한 유효성 검사 이미지 100 개를 사용 하 여 구성 됩니다. 다운로드 하 고 데이터 집합 학습 스크립트의 일부로 추출 `pytorch_train.py`합니다. 이미지의 하위 집합은는 [v5 데이터 집합 열기 이미지](https://storage.googleapis.com/openimages/web/index.html)합니다.
 
 ### <a name="prepare-training-scripts"></a>학습 스크립트를 준비 합니다.
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299287"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565380"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure Application Insights에서 종속성 추적 
 
@@ -104,7 +104,7 @@ ASP.NET 응용 프로그램에 대 한 전체 SQL 쿼리 엔진 계측 해야 �
 | --- | --- |
 | Azure 웹앱 |사용자 웹 앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .net SQL 명령을 사용 하도록 설정 하 고 |
 | IIS 서버 (Azure VM, 온-프레미스, 및 등입니다.) | [응용 프로그램이 실행 중인 서버에 상태 모니터 설치](../../azure-monitor/app/monitor-performance-live-website-now.md) IIS를 다시 시작 합니다.
-| Azure 클라우드 서비스 |[시작 작업 사용](../../azure-monitor/app/cloudservices.md) 에 [상태 모니터 설치](monitor-performance-live-website-now.md#download) |
+| Azure 클라우드 서비스 | 추가 [StatusMonitor를 설치 하 여 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> 앱에 대 한 NuGet 패키지를 설치 하 여 빌드 시 application Insights SDK에는 등록에 이어야 합니다 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 [ASP.NET Core 응용 프로그램](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | 지원되지 않음
 
 위의 경우에는 해당 계측 엔진 유효성을 검사 하는 올바른 방법은 올바르게 설치은 수집 된 SDK 버전의 유효성을 검사 하 여 `DependencyTelemetry` 'rddp' 됩니다. 'rdddsd' 또는 'rddf' 종속성 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되 고 따라서 전체 SQL 쿼리를 캡처할 수 없습니다 나타냅니다.
@@ -113,47 +113,25 @@ ASP.NET 응용 프로그램에 대 한 전체 SQL 쿼리 엔진 계측 해야 �
 
 * [애플리케이션 맵](app-map.md)은 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
 * [트랜잭션 진단](transaction-diagnostics.md) 통합, 서버 데이터를 상호 관련을 보여 줍니다.
-* [브라우저 블레이드](javascript.md#ajax-performance): 사용자 브라우저에서의 AJAX 호출을 표시합니다.
+* [브라우저 탭](javascript.md#ajax-performance) 사용자의 브라우저에서 AJAX 호출을 보여 줍니다.
 * 느리거나 실패한 요청 클릭: 해당 종속성 호출을 확인합니다.
-* [분석](#analytics): 종속성 데이터를 쿼리하는 데 사용됩니다.
+* [분석](#logs-analytics): 종속성 데이터를 쿼리하는 데 사용됩니다.
 
 ## <a name="diagnosis"></a> 느린 요청 진단
 
-각 요청 이벤트는 종속성 호출, 예외 및 기타 앱에서 요청을 처리하는 동안 추적된 이벤트와 연결됩니다. 따라서 일부 요청이 잘못 수행 하는 경우에 종속성의 느린 응답 때문 인지 확인할 수 있습니다.
-
-이에 대한 예제를 살펴보겠습니다.
+각 요청 이벤트는 종속성 호출, 예외 및 앱은 요청을 처리 하는 동안 추적 되는 다른 이벤트와 연결 합니다. 따라서 일부 요청이 잘못 수행 하는 경우에 종속성의 느린 응답 때문 인지 확인할 수 있습니다.
 
 ### <a name="tracing-from-requests-to-dependencies"></a>요청에서 종속성까지 추적
 
-성능 블레이드를 열고 요청 표를 확인합니다.
+엽니다는 **성능** 탭을 이동할 합니다 **종속성** 작업 옆에 있는 맨 위에 있는 탭.
 
-![평균 및 개수가 포함된 요청 목록](./media/asp-net-dependencies/02-reqs.png)
+클릭 된 **종속성 이름** 전체에서. 종속성을 선택 하면 해당 종속성의 기간 분포 그래프 오른쪽에 표시 됩니다.
 
-맨 위의 오래 걸립니다. 시간이 어디에 소비되는지 확인해 보겠습니다.
+![성능에서 탭 위쪽 차트에서 종속성 이름 다음에 종속성 탭에서 클릭](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-개별 요청 이벤트를 보려면 해당 행을 클릭합니다.
+파란색 **샘플** 단추 오른쪽 아래에 다음 종단 간 트랜잭션 세부 정보를 보려면 샘플입니다.
 
-![요청 항목 목록](./media/asp-net-dependencies/03-instances.png)
-
-장기 실행 인스턴스를 클릭하여 세부 사항을 조사합니다. 이 요청과 관련된 원격 종속성 호출까지 스크롤합니다.
-
-![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/asp-net-dependencies/04-dependencies.png)
-
-이 요청을 서비스하는 데 걸린 시간은 대부분 로컬 서비스 호출에 소요된 시간인 것 같습니다.
-
-해당 행을 선택하여 자세한 정보를 봅니다.
-
-![해당 원격 종속성을 클릭하여 원인 식별](./media/asp-net-dependencies/05-detail.png)
-
-이 종속성은 여기서 문제는 같습니다. 문제를 확인했으므로 이제 호출에 시간이 오래 걸리는 이유를 확인하면 됩니다.
-
-### <a name="request-timeline"></a>요청 시간 표시 막대
-
-다른 경우에는 특별히 긴 종속성 호출이 없습니다. 그러나 시간 표시 막대 뷰로 전환하면 내부 처리에 지연이 발생하는 것을 확인할 수 있습니다.
-
-![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/asp-net-dependencies/04-1.png)
-
-첫 번째 종속성 호출 후 큰 간격이 있어 보이므로 코드를 보고 그 이유를 확인해야 합니다.
+![종단 간 트랜잭션 세부 정보를 보려면 샘플 클릭](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>라이브 사이트 프로파일링
 
@@ -161,35 +139,35 @@ ASP.NET 응용 프로그램에 대 한 전체 SQL 쿼리 엔진 계측 해야 �
 
 ## <a name="failed-requests"></a>실패한 요청
 
-실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다. 문제를 클릭하여 추적할 수 있습니다.
+실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다.
 
-![실패한 요청 차트 클릭](./media/asp-net-dependencies/06-fail.png)
+살펴볼 수 있습니다 합니다 **오류** 왼쪽에 탭을 클릭 합니다 **종속성** 맨 위에 있는 탭입니다.
 
-실패한 요청 발생을 클릭하고 연관된 이벤트를 확인합니다.
+![실패한 요청 차트 클릭](./media/asp-net-dependencies/4-fail.png)
 
-![요청 유형을 클릭하고, 인스턴스를 클릭하여 동일한 인스턴스의 다른 보기로 이동하고, 클릭하여 예외 세부 정보를 표시합니다.](./media/asp-net-dependencies/07-faildetail.png)
+여기서 실패 한 종속성 수를 확인 수 있습니다. 아래 테이블의 종속성 이름을 클릭 하면 시도 실패 한 항목에 대 한 자세한 세부 정보를 가져올 수 파란색을 클릭할 수 있습니다 **종속성** 종단 간 트랜잭션 세부 정보를 가져오려면 오른쪽 아래에 있는 단추입니다.
 
-## <a name="analytics"></a>분석
+## <a name="logs-analytics"></a>로그 (분석)
 
 [Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
 
 * 실패한 종속성 호출을 찾습니다.
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * AJAX 호출을 찾습니다.
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * 요청과 연관된 종속성 호출을 찾습니다.
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ ASP.NET 응용 프로그램에 대 한 전체 SQL 쿼리 엔진 계측 해야 �
 
 * 페이지 보기와 관련된 AJAX 호출을 찾습니다.
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -220,7 +194,6 @@ ASP.NET 응용 프로그램에 대 한 전체 SQL 쿼리 엔진 계측 해야 �
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 모든 Application Insights SDK를 사용 하 여 같은 종속성 컬렉션 모듈은 오픈 소스 이기도 합니다. 읽기 및 코드 기여 또는 문제 보고 [공식 GitHub 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet-server)합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc58d1a9bc06345165d4c322ea347c59166b614
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546227"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483240"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -283,10 +283,10 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 
 이러한 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+| ![이 이미지 나는 Auth0 로고를 보여 줍니다.](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
+| ![이 이미지는 Ping Identity 로고를 보여 줍니다.](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -345,10 +345,10 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 이런 경우 웹 애플리케이션을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 볼 수 있습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+| ![이 이미지 나는 Auth0 로고를 보여 줍니다.](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
+| ![이 이미지는 Ping Identity 로고를 보여 줍니다.](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

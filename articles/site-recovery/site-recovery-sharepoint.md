@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472114"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491825"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -196,7 +196,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 
 AD 및 DNS에 대한 테스트 장애 조치(Failover) 수행에 관한 지침은 [AD 및 DNS에 대한 테스트 장애 조치(Failover) 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 문서를 참조하세요.
 
-SQL Always ON 가용성 그룹에 대한 테스트 장애 조치(Failover) 수행에 관해서는 [SQL Server Always On에 대한 테스트 장애 조치(Failover) 수행](site-recovery-sql.md#steps-to-do-a-test-failover) 문서를 참조하세요.
+에 SQL Always ON 가용성 그룹 테스트 장애 조치를 수행에 대 한 지침을 참조 하세요 [테스트 장애 조치를 수행 하 고 Azure Site Recovery를 사용 하 여 응용 프로그램 DR 수행](site-recovery-sql.md#disaster-recovery-of-application) 문서.
 
 ## <a name="doing-a-failover"></a>장애 조치 수행
 장애 조치(Failover)를 수행할 때 [이 지침](site-recovery-failover.md)을 따릅니다.

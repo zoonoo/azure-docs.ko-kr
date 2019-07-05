@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966103"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447290"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 설계 가이드: 확장성 있는 고성능 테이블 설계
 
@@ -255,7 +255,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 Table service에서 반환되는 쿼리 결과는 **PartitionKey**를 기준으로 오름차순으로 정렬된 다음, **RowKey**를 기준으로 정렬됩니다.
 
 > [!NOTE]
-> 파티션 키 또는 행 키로 Azure DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> 파티션 키 또는 행 키로 Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 Azure Storage 테이블의 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **RowKey**로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123**에서 **00000123**으로 변환해야 합니다. 
 
@@ -723,7 +723,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
 
 > [!NOTE]
-> Azure DB에서 Azure Table API에서 반환한 쿼리 결과 파티션 키 또는 행 키로 정렬 되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 파티션 키 또는 행 키로 정렬 되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  

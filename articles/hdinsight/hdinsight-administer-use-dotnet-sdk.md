@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724139"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508114"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -257,10 +257,6 @@ foreach (var key in results.Configuration.Keys)
 
 [.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 
-**Apache Pig 작업을 제출하려면**
-
-[.NET SDK를 사용하여 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)을 참조하세요.
-
 **Apache Sqoop 작업을 제출하려면**
 
 [HDInsight에서 Apache Sqoop 사용](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)을 참조하세요.
@@ -271,13 +267,13 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
 
-[HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+참조 [HDInsight에 데이터 업로드][hdinsight-upload-data]합니다.
 
 ## <a name="see-also"></a>관련 항목
 
 * [HDInsight .NET SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
-* [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
+* [명령줄 인터페이스를 사용 하 여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [Azure HDInsight 시작][hdinsight-get-started]

@@ -6,27 +6,23 @@ author: msmbaldwin
 manager: barbkess
 services: key-vault
 ms.author: mbaldwin
-ms.date: 03/05/2019
+ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722461"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566216"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
-Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공유 암호 또는 인증서가 필요합니다. 이러한 자격 증명은 관리가 어려울 수 있어 자격 증명을 원본 또는 구성 파일에 포함하여 앱에 번들로 묶습니다.
+Azure Key Vault에 인증 하는 공유 암호 또는 인증서를 Azure AD (Active Directory) 자격 증명을 해야 합니다. 
 
-.NET 라이브러리에 대한 `Microsoft.Azure.Services.AppAuthentication`은 이 문제를 단순화합니다. 개발자의 자격 증명을 사용하여 로컬 개발 동안 인증합니다. 나중에 Azure에 솔루션이 배포되면 라이브러리는 애플리케이션 자격 증명으로 자동으로 전환됩니다.  
+이러한 자격 증명은 관리가 어려울 수 있어 자격 증명을 원본 또는 구성 파일에 포함하여 앱에 번들로 묶습니다.  .NET 라이브러리에 대한 `Microsoft.Azure.Services.AppAuthentication`은 이 문제를 단순화합니다. 개발자의 자격 증명을 사용하여 로컬 개발 동안 인증합니다. 나중에 Azure에 솔루션이 배포되면 라이브러리는 애플리케이션 자격 증명으로 자동으로 전환됩니다.    로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다.
 
-로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다.
-
-`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 자동으로 인증을 관리하므로 순서대로 수행하면 자격 증명 대신 솔루션에 다시 초점을 맞출 수 있습니다.
-
-`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용한 로컬 개발을 지원합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../active-directory/msi-overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 관리 ID를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 직접 사용할 수도 있습니다.
+`Microsoft.Azure.Services.AppAuthentication` 라이브러리는 자동으로 인증을 관리하므로 순서대로 수행하면 자격 증명 대신 솔루션에 다시 초점을 맞출 수 있습니다.  Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용 하 여 로컬 개발을 지원합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../active-directory/msi-overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리를 사용하면 관리 ID를 사용할 수 없거나 로컬 개발 동안 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 직접 사용할 수도 있습니다.
 
 ## <a name="using-the-library"></a>라이브러리 사용
 
@@ -53,22 +49,9 @@ Azure Key Vault에 인증하려면 Azure AD(Active Directory) 자격 증명, 공
 
 `GetAccessTokenAsync` 메서드는 리소스 식별자가 필요합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID를 지원하는 Azure 서비스](../active-directory/msi-overview.md)를 참조하세요.
 
-## <a name="samples"></a>샘플
-
-다음 샘플에서는 작업 중인 `Microsoft.Azure.Services.AppAuthentication` 라이브러리를 보여 줍니다.
-
-1. [관리 ID를 사용하여 런타임 시 Azure Key Vault에서 암호 검색](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
-
-2. [관리 ID를 사용하여 Azure VM에서 프로그래밍 방식으로 Azure Resource Manager 템플릿 배포](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet)
-
-3. [.NET Core 샘플 및 관리 ID를 사용하여 Azure Linux VM에서 Azure 서비스 호출](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/)
-
 ## <a name="local-development-authentication"></a>로컬 개발 인증
 
-로컬 개발의 경우 다음 두 가지 기본 인증 시나리오가 있습니다.
-
-- [Azure 서비스에 인증](#authenticating-to-azure-services)
-- [사용자 지정 서비스에 인증](#authenticating-to-custom-services)
+로컬 개발에 대 한 두 가지 기본 인증 시나리오가 있습니다: [Azure 서비스에 인증](#authenticating-to-azure-services), 및 [사용자 지정 서비스에 인증](#authenticating-to-custom-services)합니다.
 
 ### <a name="authenticating-to-azure-services"></a>Azure 서비스에 인증
 
@@ -114,7 +97,7 @@ az account set --subscription <subscription-id>
 az account list
 ```
 
-### <a name="authenticating-with-azure-ad-integrate-authentication"></a>Azure AD 통합 인증을 사용하여 인증
+### <a name="authenticating-with-azure-ad-authentication"></a>Azure AD 인증을 사용 하 여 인증
 
 Azure AD 인증을 사용하려면 다음을 확인합니다.
 
@@ -135,9 +118,8 @@ Azure 서비스를 사용하면 사용자와 애플리케이션에 모두 액세
 
     2.  Azure CLI를 사용하여 로그인:
 
-        ```
-        az login --service-principal -u <principal-id> --password <password>
-           --tenant <tenant-id> --allow-no-subscriptions
+        ```azurecli
+        az login --service-principal -u <principal-id> --password <password> --tenant <tenant-id> --allow-no-subscriptions
         ```
 
         서비스 주체에 구독에 대한 액세스 권한이 없을 수 있으므로 `--allow-no-subscriptions` 인수를 사용합니다.
@@ -150,27 +132,36 @@ Azure에 로그인하고 나면 `AzureServiceTokenProvider`는 서비스 주체�
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>관리 되는 id 또는 사용자 할당 id를 사용 하 여 응용 프로그램 실행 
 
-Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 코드 변경은 필요하지 않습니다. 
+Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 코드를 실행하는 경우 라이브러리는 자동으로 관리 ID를 사용합니다. 
 
-사용자 할당 id를 사용 하 여 인증할 수 있습니다. 사용자 할당 id에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 Id에 대 한 관리 하는 방법](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)합니다. 연결 문자열에 지정 된 된 [연결 문자열을 지 원하는](#connection-string-support) 아래의 섹션입니다.
+사용자 할당 id를 사용 하 여 인증할 수 있습니다. 사용자 할당 id에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 Id에 대 한 관리 하는 방법](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)합니다. 사용자 할당 id를 인증 하려면 연결 문자열에 사용자 할당 id의 클라이언트 ID를 지정 해야 합니다. 연결 문자열에 지정 된 된 [연결 문자열을 지 원하는](#connection-string-support) 아래의 섹션입니다.
 
 ## <a name="running-the-application-using-a-service-principal"></a>서비스 주체를 사용하여 애플리케이션 실행 
 
 인증할 Azure AD 클라이언트 자격 증명을 만들어야 할 수 있습니다. 일반적인 예제는 다음을 포함합니다.
 
-1. 코드가 로컬 개발 환경에서 실행되지만 개발자의 ID 아래에서는 실행되지 않습니다.  예를 들어 Service Fabric은 로컬 개발에 [NetworkService 계정](../service-fabric/service-fabric-application-secret-management.md)을 사용합니다.
+- 코드가 로컬 개발 환경에서 실행되지만 개발자의 ID 아래에서는 실행되지 않습니다.  예를 들어 Service Fabric은 로컬 개발에 [NetworkService 계정](../service-fabric/service-fabric-application-secret-management.md)을 사용합니다.
  
-2. 로컬 개발 환경에서 코드가 실행되고 사용자 지정 서비스에 인증하므로 개발자 ID를 사용할 수 없습니다. 
+- 로컬 개발 환경에서 코드가 실행되고 사용자 지정 서비스에 인증하므로 개발자 ID를 사용할 수 없습니다. 
  
-3. 코드가 Azure 리소스에 대해 관리 ID를 아직 지원하지 않는 Azure 계산 리소스(예: Azure Batch)에서 실행 중입니다.
+- 코드가 Azure 리소스에 대해 관리 ID를 아직 지원하지 않는 Azure 계산 리소스(예: Azure Batch)에서 실행 중입니다.
 
-인증서를 사용하여 Azure AD에 로그인하려면:
+서비스 주체를 사용 하 여 응용 프로그램을 실행 하는 세 가지 주요 방법이 있습니다. 그 중 하나를 사용 하려면 먼저 [서비스 주체를 만들려면](/cli/azure/create-an-azure-service-principal-azure-cli)합니다.
 
-1. [서비스 주체 인증서](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 만듭니다. 
+### <a name="use-a-certificate-in-local-keystore-to-sign-into-azure-ad"></a>로컬 키 저장소에 인증서를 사용 하 여 Azure AD에 로그인
 
-2. *LocalMachine* 또는 *CurrentUser* 저장소에 인증서를 배포합니다. 
+1. Azure CLI를 사용 하 여 서비스 주체 인증서를 만듭니다 [az ad sp 만들기 rbac 용](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령입니다. 
 
-3. **AzureServicesAuthConnectionString**이라는 환경 변수를 설정하여 다음을 수행합니다.
+    ```azurecli
+    az ad sp create-for-rbac --create-cert
+    ```
+
+    이렇게 하면 홈 디렉터리에 저장 됩니다 하는.pem 파일 (개인 키) 만들어집니다. 이 인증서를 배포 합니다 *LocalMachine* 또는 *CurrentUser* 저장 합니다. 
+
+    > [!Important]
+    > CLI 명령은.pem 파일을 생성 하지만 Windows PFX 인증서에 대 한 기본 지원을 제공 합니다. 대신 PFX 인증서를 생성 하려면 여기에 표시 된 PowerShell 명령을 사용 합니다. [자체 서명 된 인증서를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)합니다. 이러한 명령은 인증서를 자동으로 배포합니다.
+
+1. **AzureServicesAuthConnectionString**이라는 환경 변수를 설정하여 다음을 수행합니다.
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
@@ -179,11 +170,11 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
  
     *{AppId}* , *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
 
-4. 애플리케이션을 실행합니다. 
+1. 애플리케이션을 실행합니다. 
 
-Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
+### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>공유 암호 자격 증명을 사용 하 여 Azure AD에 로그인
 
-1. [암호를 사용하는 서비스 주체](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 만들고 Key Vault에 대한 액세스 권한을 부여합니다. 
+1. 사용 하 여 암호를 사용 하 여 서비스 주체 인증서를 만듭니다 [az ad sp 만들기 rbac 용-암호](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)합니다. 
 
 2. **AzureServicesAuthConnectionString**이라는 환경 변수를 설정하여 다음을 수행합니다.
 
@@ -197,6 +188,33 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
 모두가 올바로 설정되면 더 이상 코드를 변경할 필요가 없습니다.  `AzureServiceTokenProvider`는 환경 변수 및 인증서를 사용하여 Azure AD에 인증합니다. 
 
+### <a name="use-a-certificate-in-key-vault-to-sign-into-azure-ad"></a>Key Vault에 인증서를 사용 하 여 Azure AD에 로그인
+
+이 옵션을 사용 하면 Key Vault에 서비스 주체 클라이언트 인증서를 저장 하 고 서비스 주체 인증에 사용할 수 있습니다. 다음과 같은 시나리오에서이 사용할 수 있습니다.
+
+* 로컬 인증 명시적 서비스 주체를 사용 하 여 인증 하 고 key vault에 서비스 주체 자격 증명을 안전 하 게 유지 하려고 합니다. 개발자 계정에 key vault에 대 한 액세스가 있어야 합니다. 
+* (예: 교차 테 넌 트 시나리오의 경우) 명시적 자격 증명을 사용 하 고 key vault에 서비스 주체 자격 증명을 안전 하 게 유지 하려면 Azure에서 인증 합니다. 관리 되는 id는 키 자격 증명 모음에 대 한 액세스를 있어야 합니다. 
+
+관리 되는 id 또는 개발자 id Key Vault에서 클라이언트 인증서를 검색할 수 있는 권한이 있어야 합니다. AppAuthentication 라이브러리는 서비스 주체의 클라이언트 자격 증명으로 검색 된 인증서를 사용합니다.
+
+서비스 주체 인증에 대 한 클라이언트 인증서를 사용 하려면
+
+1. 서비스 주체 인증서를 만들고 Azure CLI를 사용 하 여 키 자격 증명 모음에 자동으로 저장 [az ad sp 만들기에 대 한 rbac-keyvault <keyvaultname> -cert <certificatename> -만들기-인증서-skip 할당](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령:
+
+    ```azurecli
+    az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
+    ```
+    
+    인증서 식별자를 형식으로 URL 이어야 합니다. `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+
+1. 대체 `{KeyVaultCertificateSecretIdentifier}` 인증서 식별자를 사용 하 여이 연결 문자열에서:
+
+```
+RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+```
+
+예를 들어 키 자격 증명 모음 "myKeyVault" 호출한 'myCert' 라는 인증서를 생성 하 고 인증서 식별자를 표시 됩니다 `https://myKeyVault.vault.azure.net/secrets/myCert`, 연결 문자열 및 `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`합니다.
+
 ## <a name="connection-string-support"></a>연결 문자열 지원
 
 기본적으로 `AzureServiceTokenProvider`는 여러 메서드를 사용하여 토큰을 검색합니다. 
@@ -205,18 +223,27 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 
 다음과 같은 옵션이 지원됩니다.
 
-| 연결&nbsp;문자열&nbsp;옵션 | 시나리오 | 설명|
+| 연결 문자열 옵션 | 시나리오 | 설명|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | AzureServiceTokenProvider는 AzureCli를 사용하여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | AzureServiceTokenProvider는 Visual Studio를 사용하여 토큰을 가져옵니다. |
 | `RunAs=CurrentUser` | 로컬 개발 | AzureServiceTokenProvider는 Azure AD 통합 인증을 사용하여 토큰을 가져옵니다. |
 | `RunAs=App` | [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider는 관리 ID를 사용하여 토큰을 가져옵니다. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure 리소스에 대 한 사용자 할당 id](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider는 사용자 할당 id를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | 서비스 주체 | `AzureServiceTokenProvider`는 인증서를 사용하여 Azure AD에서 토큰을 가져옵니다. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | 사용자 지정 서비스 인증 | KeyVaultCertificateSecretIdentifier = 인증서의 비밀 식별자입니다. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| 서비스 주체 | `AzureServiceTokenProvider`는 인증서를 사용하여 Azure AD에서 토큰을 가져옵니다. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | 서비스 주체 | `AzureServiceTokenProvider`는 인증서를 사용하여 Azure AD에서 토큰을 가져옵니다.|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | 서비스 주체 |`AzureServiceTokenProvider`는 암호를 사용하여 Azure AD에서 토큰을 가져옵니다. |
 
+## <a name="samples"></a>샘플
 
+보려는 `Microsoft.Azure.Services.AppAuthentication` 라이브러리 동작에 다음 코드 샘플을 참조 하십시오.
+
+1. [관리 ID를 사용하여 런타임 시 Azure Key Vault에서 암호 검색](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+
+2. [관리 ID를 사용하여 Azure VM에서 프로그래밍 방식으로 Azure Resource Manager 템플릿 배포](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet)
+
+3. [.NET Core 샘플 및 관리 ID를 사용하여 Azure Linux VM에서 Azure 서비스 호출](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -124,7 +124,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
-- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  [https://msdn.microsoft.com/library/sk36c28t.aspx](https://msdn.microsoft.com/library/sk36c28t.aspx ) 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 누락된 추적 로그에 대한 자세한 정보를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.

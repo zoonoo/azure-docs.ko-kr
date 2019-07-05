@@ -223,6 +223,14 @@
             - name: REST 사용
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: 비디오 서브클립
+          items:
+            - name: .NET 사용
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: REST 사용
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Event Grid 사용
       items:
         - name: 이벤트 모니터링 - 포털

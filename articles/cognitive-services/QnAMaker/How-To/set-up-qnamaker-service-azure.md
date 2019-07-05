@@ -3,20 +3,20 @@ title: QnA Maker 서비스 설정 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 4bc40c0d4d44ea4dd809f59965ec5d1107be8541
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605670"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439782"
 ---
 # <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
 

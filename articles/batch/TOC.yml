@@ -27,6 +27,8 @@
       href: tutorial-rendering-batchexplorer-blender.md
     - name: 병렬 R 시뮬레이션
       href: tutorial-r-doazureparallel.md
+    - name: Batch 및 Azure Functions이 있는 OCR
+      href: tutorial-batch-functions.md
 - name: 샘플
   items:
     - name: 코드 샘플

@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d266b314f19979578b7e7b8de4e7a7090200c9d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849715"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445448"
 ---
-# <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
+# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Marketplace 상용 트랜잭션 기능 및 고려 사항
 
-Azure Marketplace 게시 옵션은 고객과 클라우드 소프트웨어 및 서비스 공급 기업을 연결하는 고유한 방법을 제공합니다. 이 문서에서는 Azure Marketplace에서 다음과 같은 상거래 관련 항목을 다룹니다.
+이 문서에서는 상업용 marketplace에 대 한 다음 전자 상거래 관련 항목에 다룹니다.
 
 * Marketplace 게시 옵션
 * 거래 일반 개요
@@ -26,21 +26,22 @@ Azure Marketplace 게시 옵션은 고객과 클라우드 소프트웨어 및 �
 
 ## <a name="marketplace-publishing-options"></a>Marketplace 게시 옵션
 
-다음 게시 옵션은 Azure Marketplace 게시자에게 제공됩니다.
+다음 게시 옵션은 상용 marketplace 게시자에 사용할 수 있습니다.
 
 ### <a name="list--trial-publishing-options"></a>목록 및 평가판 게시 옵션
 
-Azure Marketplace에서 게시자는 프로모션 및 사용자 확보 목적에 목록 및 평가판 게시 옵션을 활용할 수 있습니다. 목록 또는 평가판 게시 옵션을 사용할 때 Microsoft는 게시자의 소프트웨어 라이선스 트랜잭션에 직접 참여하지 않으며 연결된 거래 요금은 없습니다. 게시자는 주문, 이행, 계량, 청구, 송장, 지불 및 수금을 포함하되 이에 제한되지 않는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 목록 및 평가판 게시 옵션을 사용할 때 게시자는 고객으로부터 수금된 게시자 소프트웨어 라이선스 요금을 100% 보유합니다. 
+목록, 체험 및 BYOL 게시 옵션에 대 한 게시자 활용 프로 모션 및 사용자 취득 목적으로 합니다. 이러한 옵션을 사용 하 여 Microsoft publisher의 소프트웨어 라이선스 트랜잭션에 직접 참여 하지 않으며 연결된 거래 수수료 없음. 게시자는 주문, 이행, 계량, 청구, 송장, 지불 및 수금을 포함하되 이에 제한되지 않는 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원할 책임이 있습니다. 목록 및 평가판 게시 옵션을 사용할 때 게시자는 고객으로부터 수금된 게시자 소프트웨어 라이선스 요금을 100% 보유합니다. 
 
 ### <a name="transact-publishing-option"></a>거래 게시 옵션
 
-목록 및 평가판 게시 옵션 외에도 거래 게시 옵션이 Azure Marketplace 게시자에게 제공됩니다.   이는 Microsoft의 전역적으로 사용 가능한 상거래 기능을 활용합니다. 이 옵션을 통해 Microsoft는 게시자 대신 클라우드 Marketplace 트랜잭션을 호스트할 수 있습니다.
+목록 및 평가판 게시 옵션을 실행 하는 것 외에도 transact 게시 옵션은 게시자에 사용할 수 있습니다. 이 Microsoft의 전역적으로 사용 가능한 전자 상거래 기능을 활용 하 고 호스트 클라우드 마켓플레이스 트랜잭션을 게시자를 대신 하 여 Microsoft를 허용 합니다.
 
 ## <a name="transact-general-overview"></a>거래 일반 개요
 
-거래 게시 옵션을 사용 하는 경우 Microsoft는 타사 소프트웨어의 판매 및 고객의 Azure 구독에 일부 제품 유형의 배포입니다. 게시자는 Azure Marketplace에서 청구 모델 및 제품 유형을 선택하는 경우 Azure 인프라 요금 및 게시자 고유의 소프트웨어 라이선스 요금의 청구에 대해 고려해야 합니다.
+거래 게시 옵션을 사용 하는 경우 Microsoft는 타사 소프트웨어의 판매 및 고객의 Azure 구독에 일부 제품 유형의 배포입니다. 게시자의 인프라 요금 청구를 고려해 야 하 고 게시자의 소프트웨어 라이선스 요금, 대금 청구를 선택 하는 경우 모델 및 제안 형식입니다.
 
-Azure Marketplace의 거래 게시 옵션은 현재 Virtual Machines, Azure 애플리케이션 또는 SaaS 앱 제품 유형에 대해 지원됩니다.
+Transact 게시 옵션은 현재 다음 제품 유형에 대 한 지원 됩니다. Virtual Machines, Azure 응용 프로그램 및 SaaS 앱입니다.
+
 
 ![[Azure Marketplace에서 거래 중인 기업 거래]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,7 +65,7 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 * 종량제: 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
 
-* 구독 가격 책정(사이트 기준): 소프트웨어 라이선스 요금이 월별 되풀이 요금으로 표시됩니다.  이는 SaaS 앱 및 Azure 애플리케이션 - 관리형 앱에만 적용됩니다.
+* • 구독 가격: 소프트웨어 라이선스 요금과 월간 또는 연간 요금이 또는 단위 청구 요금을 되풀이으로 표시 됩니다. 이는 SaaS 앱 및 Azure 애플리케이션 - 관리형 앱에만 적용됩니다.
 
 * 평가판 소프트웨어: 30일 또는 90일 동안 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
@@ -74,11 +75,10 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>종량제 및 구독(사이트 기준) 가격 책정
 
-종량제 또는 구독 트랜잭션 제품을 게시하는 경우 Microsoft는소프트웨어 라이선스 구입, 반품 및 지불 거절을 처리하는 기술 및 서비스를 제공합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 판매자, 공급 기업, 배포자 및 라이선스 허가자로서의 역할을 유지하는 동시에 소프트웨어 라이선스 트랜잭션을 촉진하도록 허용합니다.
+WPay-으로-량 및 트랜잭션 종 량 제 구독 또는 구독 제품을 게시, Microsoft 기술을 제공 하 고 소프트웨어 라이선스를 처리 하는 서비스 구매 항목을 반환 하는 경우 구독 가격 및 지불 거절 합니다. 이 시나리오에서 게시자는 Microsoft가 이러한 목적을 위한 에이전트 역할을 하도록 권한을 부여합니다. 게시자는 Microsoft가 판매자, 공급 기업, 배포자 및 라이선스 허가자로서의 역할을 유지하는 동시에 소프트웨어 라이선스 트랜잭션을 촉진하도록 허용합니다.
 
-Microsoft를 통해 고객은 Azure Marketplace의 사용 약관 및 게시자의 최종 사용자 사용권 계약에 따라 게시자 소프트웨어를 주문, 라이선스 부여 및 사용할 수 있습니다(Cloud 파트너 포털 참조). 게시자는 Marketplace 제품에는 최종 사용자 사용권 계약을 제공해야 합니다.
+Microsoft는 고객이 주문, 라이선스 및 사용 하 여 게시자 소프트웨어를 Microsoft의 상용 Marketplace와 게시자의 최종 사용자 사용권 계약의 약관을 측정할 수 있습니다. 게시자가 최종 사용자 사용권 계약을 제공 하거나을 선택 해야 합니다 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract) 제품을 만들 때.
 
-Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과 동일한 청구 방법인 단일 청구서로 고객의 Azure 구독에 청구됩니다. 고객은 Azure 구독 청구에 사용되는 기본 송장 처리 방법과 지불 수단을 사용할 수 있습니다.
 
 ### <a name="free-software-trials"></a>소프트웨어 평가판
 
@@ -86,9 +86,10 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 
 ### <a name="private-offers"></a>프라이빗 제품
 
-게시자는 제품의 수익화를 위해 제품 유형 및 청구 모델을 사용하는 것 외에도, 솔루션 제품의 프라이빗 버전을 거래하고, 협상된 거래별 가격 책정을 완료하며, 사용자 지정한 이미지를 사용하여 구성을 사용자 지정할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
+사용 하는 것 외에도 형식 제공 및 청구 모델을 제품 수익을 거둘 게시자 개인 제품, 협상, 거래 별 가격, 또는 사용자 지정 구성을 사용 하 여 완료를 트랜잭션 할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
 
-이 가격 책정 옵션은 공개적으로 표시된 가격 책정보다 높거나 낮을 수 있습니다.  프라이빗 제품은 할인하거나 제품에 대한 프리미엄을 추가하는 데 사용될 수 있습니다. 프라이빗 제품은 제품 수준에서 Azure 구독을 허용 목록에 추가하면 둘 이상의 고객이 사용할 수 있습니다.
+이 옵션을 사용 하면 공개적으로 사용 가능한 제품 보다 높거나 낮게 가격입니다. 프라이빗 제품은 할인하거나 제품에 대한 프리미엄을 추가하는 데 사용될 수 있습니다. 프라이빗 제품은 제품 수준에서 Azure 구독을 허용 목록에 추가하면 둘 이상의 고객이 사용할 수 있습니다.
+
 
 ### <a name="examples"></a>예
 
@@ -125,11 +126,10 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 |Microsoft는 Azure 사용량 비용을 유지합니다.    |   시간당 $0.14     |
 |Microsoft은 라이선스 비용의 0%를 유지합니다.   |  시간당 $0.00       |
 
-**SaaS 앱 구독(Azure를 통한 판매)**
+**SaaS 앱 구독**
 
-이 옵션은 Microsoft를 통해 판매하도록 구성되어야 하며 제품 수준에서 정의된 둘 이상의 고정 월간 플랜을 사용하여 가격이 책정될 수 있습니다.
-
-* Azure 옵션을 통한 판매를 활성화하면 다음과 같은 비용 구조가 나타납니다.
+이 옵션은 Microsoft를 통해 판매 하도록 구성 되어야 합니다를 정액 또는 월간 또는 연간 사용자별로 가격이 책정 될 수 있습니다.
+• 다음 비용 구조 있는 SaaS 제품에 대 한 Microsoft 옵션을 통해 판매를 사용 하는 경우.
 
 |라이선스 비용       | 매월 $100.00  |
 |--------------|---------|
@@ -205,13 +205,13 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 * 고객은 일반적으로 기업 계약 또는 종량제 계약이 활성화된 신용 카드를 사용하여 구매합니다. 계약 유형에 따라 청구, 송장, 수금 및 지급 시점이 결정됩니다.
 
 >[!NOTE] 
->거래 게시 옵션에 대한 모든 보고 및 인사이트는 Cloud 파트너 포털의 인사이트 섹션을 통해 사용할 수 있습니다.
+>모든 보고 및 insights 거래 게시 옵션에 대 한 파트너 센터의 클라우드 파트너 포털 또는 분석 섹션의 Insights 섹션을 통해 사용할 수 있습니다.
 
 #### <a name="billing-questions-and-support"></a>청구 관련 질문 및 지원
 
 자세한 내용과 법률 규정은 [게시자 계약](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf)(Cloud 파트너 포털에서 확인 가능)을 참조하세요.
 
-청구 관련 질문에 대한 도움말을 보려면 [지원 인시던트를 만들고](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) 사용하는 제품 유형에 따라 Virtual Machines 또는 Web Apps(즉, SaaS 앱)를 선택합니다.
+청구 관련 질문에 도움말을 보려면 문의 [상용 marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport)합니다.
 
 ## <a name="transact-requirements"></a>거래 요구 사항
 
@@ -219,13 +219,11 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 
 ### <a name="requirements-for-all-offer-types"></a>모든 제품 유형에 대한 요구 사항
 
-**개발자 센터 및 Microsoft 계정** 
+- Microsoft 계정 및 재무 정보는 거래 게시 옵션에 관계 없이 제품의 가격 책정 모델에 대 한 필요 합니다.
+- 지급액 계정 및 세금 프로필을 포함 하는 필수 재무 정보입니다.
 
-* 제품의 가격 책정 모델과 관계 없이 개발자 센터 및 Microsoft 계정은 모두 거래 게시 옵션에 필요합니다.
-* 개발자 센터 계정에는 Microsoft가 게시자를 대신하여 고객으로부터 요금을 수금하고 게시자에게 지불하는 데 필요한 모든 관련 재정 정보가 들어 있습니다.
-* 두 계정 모두에서 동일한 조직 또는 Microsoft 로그인 세부 정보를 사용할 수 있습니다, 있지만 개발자 센터에 클라우드 파트너 포털 계정에서 별도 계정입니다. 거래 게시 옵션을 사용하려면 게시자는 Cloud 파트너 포털에 액세스하기 위해 가입하는 것 외에 개발자 센터 계정 등록 프로세스도 완료해야 합니다.
+이러한 계정 설정에 대 한 자세한 내용은 참조 하세요. [파트너 센터 계정 관리](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details)합니다.
 
-*이러한 계정 설정에 대한 자세한 내용은 [Cloud Marketplace 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 참조하세요.*
 
 ### <a name="requirements-for-specific-offer-types"></a>특정 제품 유형에 대한 요구 사항
 
@@ -237,10 +235,9 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 
 **Azure 애플리케이션: 솔루션 템플릿 또는 관리형 앱** 
 
-둘 이상의 가상 머신을 프로비전해야 하며, 가상 머신 가격 책정의 합계를 계산합니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 두 경우 모두 Azure 인프라 사용 요금은 동일한 청구서에 소프트웨어 라이선스 요금과는 별도로 표시되어 고객에게 전달됩니다.
+둘 이상의 가상 머신을 프로비전해야 하며, 가상 머신 가격 책정의 합계를 계산합니다. 단일 플랜의 관리형 앱은 가격 책정 모델로 가상 머신 가격 책정 대신 고정 월간 구독을 선택할 수 있습니다. 경우에 따라 Azure 인프라 사용 요금이 전달 됩니다 고객에 게 별도로 소프트웨어 라이선스 요금과에서 있지만 동일한 청구 명세서에. 그러나 관리 되는 앱을 구성 하는 경우 ISV 인프라 요금에 대 한 제공 Azure 리소스를 게시자로 요금이 청구 됩니다 받고 고객 인프라, 소프트웨어 라이선스 및 관리 서비스의 비용을 포함 하는 고정 요금.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 제품의 선택 및 구성을 완료하려면 제품 유형 섹션별 게시 옵션에서 자격 요구 사항을 검토합니다.
 * 솔루션이 제품 유형 및 구성에 매핑되는 방법에 대한 예제는 상점별 게시 패턴을 검토합니다.
-* 제품을 만들고 구성하려면 Marketplace 게시자가 되어 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인합니다.

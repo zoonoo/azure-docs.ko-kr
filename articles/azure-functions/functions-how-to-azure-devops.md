@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050681"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479878"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Azure DevOps를 사용한 연속 배달
 
@@ -158,6 +158,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### <a name="linux-function-app"></a>Linux 함수 앱
@@ -171,6 +175,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>템플릿 기반 파이프라인
@@ -206,9 +215,11 @@ JavaScript 앱 Windows 네이티브 모듈에 대 한 종속성을 업데이트 
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+배포 슬롯에 배포 릴리스 템플릿에서 지원 되지 않습니다.
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Azure CLI를 사용 하는 Azure 파이프라인 만들기
 
-사용 하는 `az functionapp devops-pipeline create` [명령](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), Azure 파이프라인을 빌드 및 릴리스 리포지토리의 모든 코드 변경 내용에 생성 됩니다. 명령은 빌드 및 릴리스 파이프라인을 정의 하는 새 YAML 파일을 생성 하 고 리포지토리에 커밋 됩니다.
+사용 하는 `az functionapp devops-pipeline create` [명령](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), Azure 파이프라인을 빌드 및 릴리스 리포지토리의 모든 코드 변경 내용에 생성 됩니다. 명령은 빌드 및 릴리스 파이프라인을 정의 하는 새 YAML 파일을 생성 하 고 리포지토리에 커밋 됩니다. 배포 슬롯에 배포 된 Azure CLI 명령에 의해 지원 되지 않습니다.
 이 명령에 대 한 필수 조건 코드의 위치에 따라 달라 집니다.
 
 - 코드를 GitHub의 경우:

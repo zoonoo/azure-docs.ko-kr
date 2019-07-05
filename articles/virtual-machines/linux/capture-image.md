@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542873"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551663"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -30,7 +30,9 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
-**Packer**를 사용하여 사용자 지정 구성을 만들 수도 있습니다. 자세한 내용은 [Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법](build-image-with-packer.md)을 참조하세요.
+사용할 수는 **Azure VM 이미지 작성기 (공개 미리 보기)** 모든 도구를 배울 필요가 없습니다 하 여 사용자 지정 이미지를 빌드하고 서비스 또는 설치 단지는 이미지 구성을 제공 하는 파이프라인을 빌드하고 이미지 작성기에서 이미지를 만들 합니다. 자세한 내용은 [Getting Started with Azure VM 이미지 작성기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)합니다.
+
+또한 사용 하 여 **Packer** 사용자 지정 구성을 만들려면. 자세한 내용은 [Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법](build-image-with-packer.md)을 참조하세요.
 
 이미지를 만들려면 다음 항목이 필요합니다.
 

@@ -10,16 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237947"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137249"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대한 데이터 준비
 
+
 Microsoft 음성 인식이 얼마나 정확한지 테스트거거나 고유한 모델을 학습시키는 경우, 오디오 및 텍스트의 형태로 데이터가 필요합니다. 이 페이지에서는 데이터 형식, 사용하는 방법 및 관리하는 방법을 설명합니다.
+
 
 ## <a name="data-types"></a>데이터 형식
 
@@ -44,7 +46,9 @@ Microsoft 음성 인식이 얼마나 정확한지 테스트거거나 고유한 �
 데이터 집합을 업로드한 후, 몇 가지 옵션이 있습니다.
 
 * **테스트** 탭으로 이동하여 오디오 전용 또는 오디오 + 사람 레이블 기록 데이터를 시각적으로 검사할 수 있습니다.
+
 * **학습** 탭으로 이동하여 사용자 지정 모델을 학습시키기 위해 오디오 + 사람 기록 데이터 또는 관련된 텍스트 데이터를 사용할 수 있습니다.
+
 
 ## <a name="audio-data-for-testing"></a>테스트를 위한 오디오 데이터
 
@@ -102,7 +106,9 @@ Microsoft 음성 인식이 얼마나 정확한지 테스트거거나 고유한 �
 
 ## <a name="related-text-data-for-training"></a>학습을 위한 관련된 텍스트 데이터
 
+
 고유한 제품 이름 또는 기능이 올바르게 인식되기를 원하는 경우, 학습에 관련된 텍스트 데이터를 포함하는 것이 중요합니다. 인식 기능을 향상하기 위해 두 가지 유형의 관련된 텍스트 데이터를 제공할 수 있습니다.
+
 
 | 데이터 형식 | 이 데이터 인식 기능을 개선 하는 방법 |
 |-----------|------------------------------------|
@@ -138,11 +144,13 @@ Microsoft 음성 인식이 얼마나 정확한지 테스트거거나 고유한 �
 
 각 음성 발언 및 사용자 정의 발음 예가 포함됩니다.
 
+
 | 음성 양식 | 인식/표시 양식 |
 |--------------|--------------------------|
 | three c p o | 3CPO |  
 | c n t k | CNTK |
 | i triple e | IEEE |
+
 
 음성 양식은 철자의 음성 시퀀스입니다. 문자, 단어, 음절, 또는 세 가지의 조합으로 구성될 수 있습니다.
 

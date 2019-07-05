@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: URL 다시 쓰기
       href: front-door-url-rewrite.md
+    - name: URL 리디렉션
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: 개요
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: 방법 가이드
   items:
+    - name: 트래픽 리디렉션
+      items:
+        - name: HTTP - HTTPS로 리디렉션을 사용하여 프론트 도어 구성
+          href: front-door-how-to-redirect-https.md
+    - name: 사용자 지정 도메인 온보딩
+      items:
+        - name: 루트 또는 정점 도메인 온보드
+          href: front-door-how-to-onboard-apex-domain.md
     - name: 문제 해결
       items:
         - name: 라우팅 문제 해결

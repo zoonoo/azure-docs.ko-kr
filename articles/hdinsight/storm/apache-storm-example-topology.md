@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: b2407200b995ad956f233248f6cdd58488b583d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688800"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483784"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Apache Storm 토폴로지 및 구성 요소 예제
 
@@ -23,14 +23,14 @@ HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기
 |:--- |:--- |:--- |
 | [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |Java |
 | [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |Java |
-| [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] |Maven |Java |
+| [HDInsight에서 Apache Storm 용 Java 기반 토폴로지 개발][5797064f] |Maven |Java |
 | [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |Visual Studio용 HDInsight 도구 |C#, Java |
 | [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)][844d1d81] |Event Hubs |C# 및 Java |
 | [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [HDInsight의 Apache Storm을 사용하여 Event Hubs의 차량 센서 데이터 처리][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob(WASB) |C#, Java |
-| [HDInsight의 Apache Storm을 사용하여 Azure Event Hub에서 Apache HBase로 ETL(추출, 변환 및 로드)][b4b68194] |Event Hubs, HBase |C# |
-| [HDInsight의 Apache Storm에서 Azure 서비스로 작업하는 데 사용되는 템플릿 C# Storm 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
-| [HDInsight의 Apache Storm을 사용하여 Azure Event Hub에서 읽기 위한 확장성 벤치마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
+| [추출, 변환 및 로드 (ETL) Azure Event Hubs에서 Apache HBase가 HDInsight의 Apache Storm을 사용 하려면][b4b68194] |Event Hubs, HBase |C# |
+| [템플릿 C# HDInsight의 Apache Storm에서 Azure 서비스를 사용 하 여 작업에 대 한 Storm 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
+| [HDInsight에서 Apache Storm을 사용 하 여 Azure Event Hubs에서 읽기에 대 한 확장성 벤치 마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
 | [HDInsight의 Apache Storm에서 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |Python |
 | [HDInsight의 Apache Storm에서 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | Java |
 
@@ -41,10 +41,10 @@ HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기
 
 ### <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 Apache Storm 시작][2b8c3488]
-* [HDInsight의 Apache Storm을 사용하여 Apache Storm 토폴로지를 배포 및 관리하는 방법에 대해 알아봅니다.][6eb0d3b8]
+* [만들기 및 Azure HDInsight에서 Apache Storm 토폴로지를 모니터링 합니다.](./apache-storm-quickstart.md)
+* [HDInsight의 Apache Storm을 사용 하 여 Apache Storm 토폴로지 배포 및 관리 하는 방법을 알아봅니다][6eb0d3b8]
 
-[2b8c3488]:apache-storm-tutorial-get-started-linux.md "HDInsight 클러스터에서 Apache Storm을 만들고 Storm Dashboard를 사용하여 예제 토폴로지를 배포하는 방법에 대해 알아봅니다."
+
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "배포 및 웹 기반 Apache Storm 대시보드 및 Storm UI 또는 HDInsight 도구를 사용하여 Visual Studio에 대한 토폴로지를 관리하는 방법에 대해 알아봅니다."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 [5797064f]:apache-storm-develop-java-topology.md "기본 단어 개수 토폴로지를 만들어 Maven을 사용하여 Java로 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."

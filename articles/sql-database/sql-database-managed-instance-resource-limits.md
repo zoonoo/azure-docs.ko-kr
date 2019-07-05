@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447812"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>개요 Azure SQL Database 관리 인스턴스 리소스 제한
 
@@ -42,6 +42,9 @@ Azure SQL Database 관리 되는 인스턴스는 두 세대의 하드웨어에 �
 | 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: vCore당 3GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 8 GB<br/> -16 코어: 데이터베이스당 20GB<br/> -24 코어: 데이터베이스당 36 GB | 인스턴스 제한: VCore 당 2.5GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 13 GB<br/> -16 코어: 데이터베이스당 32GB |
 | 최대 인스턴스 저장소 (범용) |  8 TB | 8 TB |
 | 최대 인스턴스 저장소 (비즈니스 위험) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 

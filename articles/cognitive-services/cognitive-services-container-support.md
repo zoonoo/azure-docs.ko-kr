@@ -3,19 +3,19 @@ title: 컨테이너 지원
 titleSuffix: Azure Cognitive Services
 description: Docker 컨테이너가 Cognitive Services를 데이터에 더 가깝게 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8ebc3d9f3339e2f703a1f374363b72b86f63d903
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304276"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204029"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -82,7 +82,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 제공되며, Microsoft Container Registry 또는 Docker 허브에서 Docker 컨테이너 이미지를 가져올 수 있습니다. [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 적절한 레지스트리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 입력 하 고, 회사 및 컨테이너를 구현 하려면 사용 사례에 대 한 질문을 사용 하 여 설문지를 제출 하는 다음 컨테이너에 액세스 하는 등록 프로세스를 완료 해야 합니다. 액세스 권한과 자격 증명을 받은 후에는 Azure Container Registry에서 호스트하는 프라이빗 컨테이너 레지스트리에서 Face 및 텍스트 인식 컨테이너에 대한 컨테이너 이미지를 가져올 수 있습니다.
+> 현재 입력 하 고, 회사 및 컨테이너를 구현 하려면 사용 사례에 대 한 질문을 사용 하 여 설문지를 제출 하는 다음 컨테이너에 액세스 하는 등록 프로세스를 완료 해야 합니다. 액세스 권한을 부여 하 고 자격 증명을 제공 하 고, Azure Container Registry에서 호스트 되는 개인 컨테이너 레지스트리에서 컨테이너 이미지를 다음 가져올 수 있습니다.
 > * [변칙 dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [폼 인식기](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
@@ -106,6 +106,8 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+에 대 한 자세한 [컨테이너 레시피](/containers/container-reuse-recipe.md) Cognitive Services를 사용 하 여 사용할 수 있습니다.
 
 Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하고 탐색합니다.
 

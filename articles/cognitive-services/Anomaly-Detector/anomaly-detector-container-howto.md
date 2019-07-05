@@ -3,18 +3,18 @@ title: 설치 하 고 컨테이너-이상 감지기를 실행
 titleSuffix: Azure Cognitive Services
 description: 시계열 데이터에서 변칙을 식별 하는 비정상 탐지기 API의 고급 알고리즘을 사용 합니다.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 704ea3ecbc309c2328e120d5b6776e659944d254
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306987"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275033"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>설치 하 고 이상 감지기 컨테이너 실행
 
@@ -91,7 +91,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](anomaly-detector-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint). 
+1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
@@ -115,7 +115,7 @@ ApiKey={BILLING_KEY}
 이 명령은 다음을 수행합니다.
 
 * 이상 감지기 컨테이너를 컨테이너 이미지에서 실행 됩니다.
-* 1개 CPU 코어 및 4GB 메모리를 할당합니다.
+* 1개 CPU 코어 및 4GB 메모리 할당
 * TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
@@ -151,11 +151,11 @@ ApiKey={BILLING_KEY}
 
 이후의 각 컨테이너는 다른 포트에 있어야 합니다. 
 
-## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
+## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
 
-컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
+컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000을 사용합니다.
+컨테이너 API에 대한 호스트, https://localhost:5000 을 사용합니다.
 
 <!--  ## Validate container is running -->
 
@@ -183,7 +183,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 개념 및 다운로드, 설치 및 실행 중인 컨테이너 이상 감지기에 대 한 워크플로 알아보았습니다. 요약하면 다음과 같습니다.
+이 문서에서는 개념 및 다운로드, 설치 및 실행 중인 컨테이너 이상 감지기에 대 한 워크플로 알아보았습니다. 요약하자면 다음과 같습니다.
 
 * 이상 감지기 제공 하나의 Linux 컨테이너 Docker 스트리밍 예상된 범위 유추 및 민감도 튜닝 하는 일괄 처리 vs를 사용 하 여 변칙 검색을 캡슐화 합니다.
 * 컨테이너 이미지를 개인 Azure Container Registry 미리 보기 컨테이너에 대 한 전용된에서 다운로드 됩니다.

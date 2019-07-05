@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60196706"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 하는 패턴을 추가 하는 방법
 LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-patterns.md) 단어 순서 및 단어 선택에서 패턴을 표시 하는 표현에 대 한 예측 정확도를 향상 합니다. 특정 사용 패턴 [구문](luis-concept-patterns.md#pattern-syntax) 의 위치를 나타내도록: [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md), 및 선택적 텍스트입니다.

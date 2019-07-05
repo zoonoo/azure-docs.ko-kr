@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f70ca550f1688551abb94bb30ba4f76eb3c36404
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303973"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448543"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -82,23 +82,24 @@ DeviceToCloudUploadProperties 및 deviceAutoDeleteProperties 설정 하려면 �
 
 이 설정의 이름은 `deviceToCloudUploadProperties`
 
-| 필드 | 가능한 값 | 설명 |
-| ----- | ----- | ---- |
-| uploadOn | true, false | 기본적으로 설정은 `false`설정 하려는 경우에 설정 `true`|
-| uploadOrder | NewestFirst를 OldestFirst | Azure에 데이터를 복사 하는 순서를 선택할 수 있습니다. 기본적으로 설정은 `OldestFirst`합니다. 순서는 Blob의 마지막 수정된 시간 기준 |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 원하는 데이터를 Azure Storage 계정을 지정할 수 있도록 연결 문자열을 업로드 합니다. 지정할 `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`합니다. 전역 Azure, Azure Government 및 Microsoft Azure Stack에 대 한 다릅니다 적절 한 EndpointSuffix Azure 데이터가 업로드 수를 추가 합니다. |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려면 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하면 소스와 대상에 해당 하는 컨테이너의 이름을 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면, 컨테이너 이름으로 자동으로 할당 됩니다 것 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`입니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들을 수 있는 값 열을 확인 합니다. <br>* %h IoT Hub 이름 (3-50 자)-> 합니다. <br>* %d IoT Edge 장치 ID (129 자 1)-> 합니다. <br>* %m 모듈 이름 (1 ~ 64 자)-> 합니다. <br>* %c 원본 컨테이너 이름 (63 자가 하 3)-> 합니다. <br><br>할당 하는 동안 자동으로 대상 컨테이너 이름은 컨테이너 크기에서 제거 하는 63 자를 초과 하는 경우 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) 15로 컨테이너 이름의 최대 크기는 63 자 문자입니다. |
-| deleteAfterUpload | true, false | 기본적으로 설정은 `false`합니다. 로 설정 된 경우 `true`, 클라우드 저장소에 업로드 완료 되 면 데이터를 자동으로 삭제 됩니다 것 |
+| 필드 | 가능한 값 | 설명 | 환경 변수 |
+| ----- | ----- | ---- | ---- |
+| uploadOn | true, false | 기본적으로 설정은 `false`설정 하려는 경우에 설정 `true`| `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst를 OldestFirst | Azure에 데이터를 복사 하는 순서를 선택할 수 있습니다. 기본적으로 설정은 `OldestFirst`합니다. 순서는 Blob의 마지막 수정된 시간 기준 | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 원하는 데이터를 Azure Storage 계정을 지정할 수 있도록 연결 문자열을 업로드 합니다. 지정할 `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`합니다. 전역 Azure, Azure Government 및 Microsoft Azure Stack에 대 한 다릅니다 적절 한 EndpointSuffix Azure 데이터가 업로드 수를 추가 합니다. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려면 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하면 소스와 대상에 해당 하는 컨테이너의 이름을 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면, 컨테이너 이름으로 자동으로 할당 됩니다 것 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`입니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들을 수 있는 값 열을 확인 합니다. <br>* %h IoT Hub 이름 (3-50 자)-> 합니다. <br>* %d IoT Edge 장치 ID (129 자 1)-> 합니다. <br>* %m 모듈 이름 (1 ~ 64 자)-> 합니다. <br>* %c 원본 컨테이너 이름 (63 자가 하 3)-> 합니다. <br><br>할당 하는 동안 자동으로 대상 컨테이너 이름은 컨테이너 크기에서 제거 하는 63 자를 초과 하는 경우 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) 15로 컨테이너 이름의 최대 크기는 63 자 문자입니다. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
+| deleteAfterUpload | true, false | 기본적으로 설정은 `false`합니다. 로 설정 된 경우 `true`, 클라우드 저장소에 업로드 완료 되 면 데이터를 자동으로 삭제 됩니다 것 | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
 이 설정의 이름은 `deviceAutoDeleteProperties`
 
-| 필드 | 가능한 값 | 설명 |
-| ----- | ----- | ---- |
-| deleteOn | true, false | 기본적으로 설정은 `false`설정 하려는 경우에 설정 `true`|
-| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈을 로컬 저장소에서 자동으로 blob 삭제 됩니다. |
-| retainWhileUploading | true, false | 기본적으로 설정은 `true`, deleteAfterMinutes 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 설정할 수 있습니다 `false` deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고: 이 속성이 uploadOn 작동 하려면 설정 해야 true로|
+| 필드 | 가능한 값 | 설명 | 환경 변수 |
+| ----- | ----- | ---- | ---- |
+| deleteOn | true, false | 기본적으로 설정은 `false`설정 하려는 경우에 설정 `true`| `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈을 로컬 저장소에서 자동으로 blob 삭제 됩니다. | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | true, false | 기본적으로 설정은 `true`, deleteAfterMinutes 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 설정할 수 있습니다 `false` deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고: 이 속성이 uploadOn 작동 하려면 설정 해야 true로| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## <a name="configure-log-files"></a>로그 파일 구성
 

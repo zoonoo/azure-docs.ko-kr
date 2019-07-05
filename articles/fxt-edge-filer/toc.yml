@@ -1,0 +1,36 @@
+- name: Azure FXT Edge Filer 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure FXT Edge Filer란?
+      href: fxt-overview.md
+- name: 자습서
+  items:
+    - name: 1 - 하드웨어 설치
+      href: fxt-install.md
+    - name: 2 - 케이블 네트워크 포트 및 전원 공급
+      href: fxt-network-power.md
+    - name: 3 - 하드웨어 암호 설정
+      href: fxt-node-password.md
+    - name: 4 - 클러스터 만들기
+      href: fxt-cluster-create.md
+    - name: 5 - 클러스터 노드 추가
+      href: fxt-add-nodes.md
+    - name: 6 - 백 엔드 스토리지 추가 및 가상 네임스페이스 구성
+      href: fxt-add-storage.md
+    - name: 7 - 클러스터의 네트워크 설정 구성
+      href: fxt-configure-network.md
+- name: 방법 가이드
+  items:
+    - name: 클라이언트 탑재
+      href: fxt-mount-clients.md
+    - name: Azure FXT Edge Filer 하드웨어 모니터링
+      href: fxt-monitor.md
+    - name: 하드웨어 노드 전원 안전하게 끄기
+      href: fxt-power-off.md
+- name: 리소스
+  items:
+    - name: 하드웨어 사양
+      href: fxt-specs.md
+    - name: 추가 설명서
+      href: fxt-additional-doc.md

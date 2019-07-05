@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444336"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 계산 컨텍스트 옵션
 
@@ -76,6 +76,5 @@ Azure HDInsight의 ML Services는 계산 컨텍스트를 설정하여 호출을 
 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봤습니다. HDInsight 클러스터에서 ML Services를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Apache Hadoop용 ML Services 개요](r-server-overview.md)
-* [Apache Hadoop용 ML Services 시작](r-server-get-started.md)
 * [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)
 

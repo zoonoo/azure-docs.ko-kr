@@ -1,5 +1,5 @@
 ---
-title: 새 다중 테넌트 애플리케이션을 구성하는 방법 | Microsoft Docs
+title: Single sign-on을 구성 하는 방법 | Microsoft Docs
 description: Azure AD로 개발 및 등록 중인 사용자 지정 애플리케이션에 대해 Single Sign-On을 구성하는 방법.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d151d4d7f32c479f2cfb4d71a8ed667f42e03b49
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545448"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465682"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 애플리케이션을 구성하는 방법
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에서 single sign-on을 구성 하는 방법
 
 앱에서 페더레이션된 SSO(Single Sign-On) 사용은 OpenID Connect, SAML 2.0 또는 WS-Fed에 대해 Azure AD를 통해 페더레이션할 때 자동으로 설정됩니다. Azure AD에 기존 세션이 이미 있음에도 불구하고 최종 사용자가 로그인해야 하는 경우 앱이 잘못 구성되었을 수 있습니다.
 

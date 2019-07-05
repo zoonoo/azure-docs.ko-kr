@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
 ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61271181"
 ---
 # <a name="define-and-use-moderation-workflows"></a>정의 및 조정 워크플로 사용 합니다.
 

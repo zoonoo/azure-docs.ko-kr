@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303907"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449864"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -183,6 +183,12 @@ Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사�
 - 중복 제거 최적화 작업의 진행 중인 경우 클라우드 계층화가 날짜 정책과 가져오기 지연 데이터 중복 제거에 의해 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 설정, 파일을 계층화 하지 않아도 됩니다. 
     - 예제: MinimumFileAgeDays 설정을 7 일 이며 클라우드 계층화 날짜 정책을 30 일을 하는 경우 날짜 정책 37 일이 지나면 파일을 계층화 됩니다.
     - 참고: Azure File Sync에서 파일을 계층화 할 경우 되 면 중복 제거 최적화 작업에서 파일을 건너뜁니다.
+- Windows Server 2016 또는 Windows Server 2019에 Azure File Sync 에이전트가 설치 된 Windows Server 2012 R2를 실행 하는 서버를 업그레이드 하는 경우 데이터 중복 제거 및 클라우드 계층화 같은 볼륨에 지원 하기 위해 다음 단계를 수행 해야 합니다.  
+    - Windows Server 2012 R2에 대 한 Azure File Sync 에이전트를 제거 하 고 서버를 다시 시작 합니다.
+    - 새 서버 OS 버전 (Windows Server 2016 또는 Windows Server 2019)에 대 한 Azure File Sync 에이전트를 다운로드 합니다.
+    - Azure File Sync 에이전트를 설치 하 고 서버를 다시 시작 합니다.  
+    
+    참고: 서버에서 Azure File Sync 구성 설정에 에이전트를 제거 하 고 다시 설치 하는 경우 유지 됩니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255005"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565694"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm 복원
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다. 
+추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
 
 > [!NOTE]
 > 관리 디스크를 복원할 때는 **TargetResourceGroupName** 매개 변수를 사용하는 것이 좋습니다. 그러면 성능이 크게 개선되기 때문입니다. 또한 Azure PowerShell Az 모듈 1.0부터는 관리 디스크를 복원하는 경우 이 매개 변수를 반드시 사용해야 합니다.
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 디스크를 복원한 후 다음 섹션으로 이동하여 VM을 만듭니다.
+
+## <a name="replace-disks-in-azure-vm"></a>Azure VM에서 디스크 교체
+
+디스크 및 구성 정보를 바꾸려면 수행 된 다음 단계:
+
+- 1단계: [디스크 복원](backup-azure-vms-automation.md#restore-the-disks)
+- 2단계: [PowerShell을 사용 하 여 데이터 디스크 분리](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- 3단계: [PowerShell 사용 하 여 Windows VM에 데이터 디스크 연결](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>복원된 디스크에서 VM 만들기
 
@@ -718,6 +727,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Azure VM 백업에서 파일 복원
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 0dec8179cc9b69eeea679f517693e4debb9fb56e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340695"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551687"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>다른 Azure 지역에 Azure Vm 복제
 
@@ -56,7 +56,7 @@ ms.locfileid: "67340695"
    - **대상 가상 네트워크**: 기본적으로 Site Recovery는 이름에는 "asr" 접미사를 사용 하 여 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
    - **대상 저장소 계정 (원본 VM managed disks를 사용 하지 않습니다)** : 기본적으로 Site Recovery는 원본 VM 스토리지 구성을 모방하는 새 대상 스토리지 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
    - **복제본 관리 디스크 (원본 VM managed disks를 사용 하는 데 사용)** : Site Recovery는 원본 VM의 디스크 관리 되는 동일한 저장소 유형 (표준 또는 프리미엄)을 사용 하 여 원본 VM의 관리 디스크를 미러링합니다 대상 지역에 새 복제본 관리 디스크를 만듭니다.
-   - **캐시 스토리지 계정**: Site Recovery는 원본 지역에 캐시 스토리지로 불리는 추가 스토리지 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 저장소 계정으로 전송됩니다.
+   - **캐시 스토리지 계정**: Site Recovery는 원본 지역에 캐시 스토리지로 불리는 추가 스토리지 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 저장소 계정으로 전송됩니다. 이 저장소 계정은 표준 이어야 합니다.
    - **대상 가용성 세트**: 기본적으로 Site Recovery는 원본 지역에서 가용성 집합을 포함 된 Vm에 대 한 이름에 "asr" 접미사를 사용 하 여 대상 지역에 설정 하는 새 가용성을 만듭니다. 이미 Site Recovery에서 만든 가용성 집합이 있는 경우 다시 사용 됩니다.
    - **대상 가용성 영역**: 기본적으로 Site Recovery는 대상 지역이 가용성 영역을 지원하는 경우 대상 지역의 원본 지역과 동일한 영역 번호를 할당합니다.
 

@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515435"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
@@ -41,7 +41,7 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-이름| 형식 | 설명
+Name| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
@@ -60,14 +60,14 @@ Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
 다음 표에서는 음성 합성 요청에 사용되는 HTTP 헤더를 보여 줍니다.
 
-헤더 |Value |설명
+헤더 |값 |설명
 ----|----|----
 Content-Type | application/ssml+xml | 입력 콘텐츠 형식입니다.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 출력 오디오 형식입니다.
 X-Search-AppId | GUID(16진수만, 대시 없음) | 클라이언트 애플리케이션을 고유하게 식별하는 ID입니다. 앱의 스토어 ID일 수 있습니다. 스토어 ID를 사용할 수 없는 경우 사용자가 생성한 애플리케이션 ID일 수 있습니다.
 X-Search-ClientID | GUID(16진수만, 대시 없음) | 각 설치에서 애플리케이션 인스턴스를 고유하게 식별하는 ID입니다.
-User-Agent | 애플리케이션 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
-Authorization | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
+사용자 에이전트 | 응용 프로그램 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
+권한 부여 | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
 
 ### <a name="InputParam"></a>입력 매개 변수
 

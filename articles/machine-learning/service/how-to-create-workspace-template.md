@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2c5491bab9b45df11c2fe81aa933a1a34c49a41b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205932"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477009"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
 
@@ -103,6 +103,19 @@ az group deployment create \
 ```
 
 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../../azure-resource-manager/resource-manager-cli-sas-token.md)를 참조하세요.
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 액세스 정책 및 Azure Resource Manager 템플릿
+
+연결 된 리소스 (Azure Key Vault를 포함)을 여러 번 확인 하 고 작업 영역을 만드는 Azure Resource Manager 템플릿을 사용할 수 있습니다. 예를 들어, 템플릿을 사용 하 여를 여러 번 연속 통합 및 배포 파이프라인의 일부로 동일한 매개 변수를 사용 하 여 합니다.
+
+템플릿을 통해 대부분의 리소스 생성 작업은 idempotent 상태, 되지만 키 자격 증명 모음 액세스 정책 템플릿이 사용 될 때마다를 지웁니다. 사용 하는 모든 기존 작업 영역에 대 한 Key Vault에 대 한 액세스 정책을 나누기 액세스의 선택을 취소 합니다. 예를 들어 Azure Notebooks vm 중지/만들기 기능 실패할 수 있습니다.  
+
+이 문제를 방지 하려면 좋습니다 다음 방법 중 하나:
+
+*  동일한 매개 변수에 대 한 템플릿을 두 번 이상는 배포 하지 않습니다. 또는 기존 리소스를 다시 만드는 데 템플릿을 사용 하기 전에 삭제 합니다.
+  
+* 키 자격 증명 모음 액세스 정책을 검토 하 고 템플릿의 accessPolicies 속성을 설정 하려면 이러한 정책은 사용 합니다.
+* Key Vault 리소스 이미 있는지 확인 합니다. 이 템플릿을 통해 다시 만들지 않습니다. 예를 들어, 이미 있는 경우 키 자격 증명 모음 리소스의 생성을 사용 하지 않도록 할 수 있도록 매개 변수를 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

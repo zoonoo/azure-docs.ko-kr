@@ -2,19 +2,19 @@
 title: 문서 형식과 명명 규칙 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator의 문서 형식과 명명 규칙에 대해 설명하는 가이드입니다. 이 개념은 문서를 효율적으로 관리하고 이름 충돌을 피하는 데 도움이 됩니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386923"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443420"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>문서 형식 및 명명 규칙 가이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "66386923"
 
 ## <a name="dictionary-formats"></a>사전 형식
 
-사전의 경우, Custom Translator는 훈련 세트에 대해 지원되는 모든 파일 형식을 지원합니다. Excel 사전을 사용하는 경우에는 스프레드시트의 첫 번째 줄/행이 언어 코드여야 합니다.
+사전에 대 한 사용자 지정 변환기는 학습 집합에 대 한 지원 되는 모든 파일 형식을 지원 합니다. Excel 사전에서 첫 번째 줄을 사용 하는 경우 스프레드시트의 행에는 언어 코드 여야 합니다.
 
 ## <a name="zip-file-formats"></a>Zip 파일 형식
 

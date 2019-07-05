@@ -1,19 +1,20 @@
 ---
-title: PostgreSQL-단일 서버에 대한 Azure Database의 제한 사항
-description: 이 문서에서는 PostgreSQL-단일 서버 연결 수 및 저장소 엔진 옵션과 같은 Azure Database의 제한 사항을 설명합니다.
+title: Azure Database for PostgreSQL-단일 서버에에서 대 한 제한
+description: 이 문서에는 PostgreSQL-연결 수 및 저장소 엔진 옵션과 같은 단일 서버에 대 한 Azure Database에서 제한을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448095"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database의 제한 사항
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에에서 대 한 제한
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 자세히 알아보려면 원하는 참조를 [가격 책정 계층](concepts-pricing-tiers.md) 문서.
 
 
@@ -34,7 +35,7 @@ ms.locfileid: "66732872"
 |메모리 최적화| 4| 500|
 |메모리 최적화| 8| 960|
 |메모리 최적화| 16| 1900|
-|메모리 최적화| 32| 1900|
+|메모리 최적화| 32| 1987|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.
@@ -48,6 +49,9 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)합니다.
+
+> PostgreSQL 버전 10 전에 유의 합니다 [PostgreSQL 버전 관리 정책](https://www.postgresql.org/support/versioning/) 것으로 간주를 _주 버전_ 업그레이드를 첫 번째 증가 _또는_ 번호 (두 번째 예를 9.6 9.5 것으로 간주 되는 _주요_ 버전 업그레이드).
+> 10 버전을 기준으로 첫 번째 숫자가 변경만 주 버전 업그레이드를 간주 됩니다 (10.0에 10.1는 예를 들어를 _사소한_ 버전 업그레이드 이며 10 ~ 11을 _주요_ 버전 업그레이드).
 
 ### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.

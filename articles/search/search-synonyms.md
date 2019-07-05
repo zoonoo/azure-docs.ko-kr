@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024308"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485209"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -25,7 +25,7 @@ Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들기 위한 포털 지원 되지 않습니다 하지만 REST API 또는.NET SDK를 사용할 수 있습니다. REST 사용을 시작 하려면이 좋습니다 [Postman을 사용 하 여](search-fiddler.md) 및이 API를 사용 하 여 요청을 공식화 합니다. [동의어 맵을 만들](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)합니다. 에 대 한 C# 개발자를 시작할 수 있습니다 사용 하 여 [사용 하 여 Azure 검색에서 동의어 추가 C# ](search-synonyms-tutorial-sdk.md)합니다.
+동의어를 만들기 위한 포털 지원 되지 않습니다 하지만 REST API 또는.NET SDK를 사용할 수 있습니다. REST 사용을 시작 하려면이 좋습니다 [Postman을 사용 하 여](search-get-started-postman.md) 및이 API를 사용 하 여 요청을 공식화 합니다. [동의어 맵을 만들](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)합니다. 에 대 한 C# 개발자를 시작할 수 있습니다 사용 하 여 [사용 하 여 Azure 검색에서 동의어 추가 C# ](search-synonyms-tutorial-sdk.md)합니다.
 
 필요에 따라 사용 중인 경우 [고객 관리 키](search-security-manage-encryption-keys.md) 서비스 쪽-미사용 데이터에 대 한 동의어 맵이의 내용에 해당 보호를 적용할 수 있습니다.
 

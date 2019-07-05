@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124715"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182484"
 ---
 일부 Bing 응답에는 Bing에서 제공하는 썸네일 이미지가 포함됩니다. 썸네일 이미지 크기를 조정하고 자를 수 있습니다. 
 

@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation Graphical Runbook SDK를 사�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4229079a1fa50295eef85b42f91bbc1b4a21fc3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303219"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478601"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Automation Graphical Runbook SDK 사용
 
@@ -95,7 +95,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 
 작업은 `Orchestrator.GraphRunbook.Model` 네임스페이스에서 다음 클래스에 의해 구현됩니다.
 
-|클래스  |작업  |
+|클래스  |활동  |
 |---------|---------|
 |CommandActivity     | PowerShell 명령(cmdlet, 함수 등)을 호출합니다.        |
 |InvokeRunbookActivity     | 다른 Runbook 인라인을 호출합니다.        |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979543"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428752"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -72,6 +72,10 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="mode"></a>Mode
 
+**모드** 되는 Azure 리소스 관리자 속성 또는 속성에 리소스 공급자 정책을 대상으로 하는 경우에 따라 구성 합니다.
+
+### <a name="resource-manager-modes"></a>Resource Manager 모드
+
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
 
 - `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
@@ -80,6 +84,13 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
 `indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
+
+### <a name="resource-provider-modes"></a>리소스 공급자 모드
+
+현재 지원 되는 리소스 공급자 모드 `Microsoft.ContainerService.Data` 입학 허가 컨트롤러 규칙에서 관리 하는 것에 대 한 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)합니다.
+
+> [!NOTE]
+> [Kubernetes에 대 한 azure Policy](rego-for-aks.md) 공개 미리 보기로 제공 되며만 기본 제공 정책 정의 지원 합니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -389,6 +400,7 @@ Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 - **AuditIfNotExists**: 리소스가 없으면 감사를 사용하도록 설정합니다.
 - **DeployIfNotExists**: 아직 존재하지 않는 리소스를 배포합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
+- **EnforceRegoPolicy**: Azure Kubernetes Service (미리 보기)에서 열린 정책 에이전트 입학 컨트롤러 구성
 
 **append**의 경우 아래와 같이 details(세부 정보)를 제공해야 합니다.
 
