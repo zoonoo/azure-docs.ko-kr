@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331300"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441756"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -423,3 +423,19 @@ Azure 개발 공간을 만들지 못했습니다 컨트롤러 AKS 클러스터�
 
 ### <a name="try"></a>시도해 보기
 [구성을 업데이트 하 여 검은](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) 하나 이상의 Linux를 확인 하 여 AKS 클러스터에 노드 tolerations 지정 하지 않고 포드를 예약 하는 데 있습니다. 또한 하나 이상의 예약을 허용 하는 Linux 노드에 tolerations 지정 하지 않고 포드 인지 확인 합니다 *준비* 상태입니다. 노드는 도달 하는 데 시간이 오래 걸리고 경우 합니다 *준비* 상태, 노드를 다시 시작을 시도할 수 있습니다.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>"Azure 개발 공간 CLI 올바르게 설치 되지 않았습니다" 오류를 실행 하는 경우 `az aks use-dev-spaces`
+
+### <a name="reason"></a>이유
+Azure 개발 공간 CLI에 대 한 업데이트 설치 경로 변경 합니다. 2\.0.63 이전의 Azure CLI의 버전을 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI의 버전을 표시 하려면 사용 하 여 `az --version`입니다.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+실행 하는 경우 오류 메시지가 표시 되어도 `az aks use-dev-spaces` 2.0.63 하기 전에 Azure CLI의 버전으로 설치는 성공지 않습니다. 계속 사용할 수 있습니다 `azds` 아무 문제 없이 합니다.
+
+### <a name="try"></a>시도해 보기
+설치를 업데이트 합니다 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.63 이상. 이 실행할 때 나타나는 오류 메시지 해결 됩니다 `az aks use-dev-spaces`합니다. 또는 Azure CLI 및 Azure 개발 공간 CLI의 현재 버전을 사용 하려면 계속 수 있습니다.
