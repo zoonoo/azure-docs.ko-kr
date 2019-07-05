@@ -4,16 +4,16 @@ description: Azure Container Registry 서비스와 관련 된 자주 묻는 질�
 services: container-registry
 author: sajayantony
 manager: jeconnoc
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303566"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551583"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -27,6 +27,7 @@ ms.locfileid: "67303566"
 - [컨테이너 레지스트리에 대 한 관리자 자격 증명 가져오기](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [Resource Manager 템플릿에서 관리자 자격 증명 가져오기](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Azure CLI 또는 Azure PowerShell을 사용 하 여 복제를 삭제 하지만 사용할 수 없음 상태로 복제 삭제 실패](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [방화벽 규칙을 성공적으로 업데이트 되지만 적용을 사용 하지 않습니다.](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용 하 여 Azure Container Registry를 만들 수 있나요?
 
@@ -34,11 +35,11 @@ ms.locfileid: "67303566"
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>보안 취약성 검사가 ACR의 이미지는 무엇입니까?
 
-예. 설명서를 참조 하세요 [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 하 고 [바다색](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)합니다.
+예. 설명서를 참조 하세요 [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) 하 고 [바다색](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)합니다.
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 Kubernetes를 어떻게 구성 하나요?
 
-에 대 한 설명서를 참조 하세요 [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 단계와 [Azure Kubernetes Service](container-registry-auth-aks.md)합니다.
+에 대 한 설명서를 참조 하세요 [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 단계와 [Azure Kubernetes Service](container-registry-auth-aks.md)합니다.
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>컨테이너 레지스트리에 대 한 관리자 자격 증명 가져오기
 
@@ -90,6 +91,11 @@ Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.Con
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>방화벽 규칙을 성공적으로 업데이트 되지만 적용을 사용 하지 않습니다.
+
+방화벽 규칙 변경 내용이 전파 되려면 다소 시간이 걸립니다. 방화벽 설정으로 변경한 후이 변경을 확인 하기 전에 몇 분 정도 기다리십시오.
+
 
 ## <a name="registry-operations"></a>레지스트리 작업
 
@@ -245,8 +251,9 @@ ACR 지원 [사용자 지정 역할](container-registry-roles.md) 다양 한 수
 
 이미지 격리는 현재 ACR의 미리 보기 기능입니다. 보안 검사에 성공 했는지는 이미지만 일반 사용자에 게 표시 되도록 레지스트리 격리 모드를 사용할 수 있습니다. 자세한 내용은 참조는 [ACR GitHub 리포지토리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)합니다.
 
-## <a name="diagnostics"></a>진단
+## <a name="diagnostics-and-health-checks"></a>진단 및 상태 확인
 
+- [사용 하 여 상태를 확인 합니다. `az acr check-health`](#check-health-with-az-acr-check-health)
 - [오류와 함께 docker 풀 실패: net/http: (Client.Timeout 헤더를 기다리는 동안 초과) 연결을 기다리는 동안 요청이 취소](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker 밀어넣기 성공 하지만 오류와 함께 docker 풀 실패: 무단: 인증 필요](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Docker 디먼의 디버그 로그를 가져오고 사용 하도록 설정](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -255,16 +262,30 @@ ACR 지원 [사용자 지정 역할](container-registry-roles.md) 다양 한 수
 - [왜 Azure 포털을 나열 하지 않습니다 모든 리포지토리 또는 태그?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Windows에서 http 추적을 어떻게 수집 하나요?](#how-do-i-collect-http-traces-on-windows)
 
+### <a name="check-health-with-az-acr-check-health"></a>사용 하 여 상태를 확인 합니다. `az acr check-health`
+
+일반적인 환경 및 레지스트리 문제를 해결 하려면 참조 [Azure container registry의 상태를 확인](container-registry-check-health.md)합니다.
+
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>오류와 함께 docker 풀 실패: net/http: (Client.Timeout 헤더를 기다리는 동안 초과) 연결을 기다리는 동안 요청이 취소
 
  - 이 오류는 일시적인 문제 이면 다시 시도 성공 합니다.
- - 경우 `docker pull` docker 데몬과 문제가 있을 수 있습니다 지속적으로 실패 합니다. 문제는 일반적으로 docker 디먼을 다시 시작 하 여 완화할 수 있습니다. 
- - Docker 디먼을 다시 시작 후이 문제를 확인 합니다. 계속 하면이 문제는 컴퓨터와 일부 네트워크 연결 문제를 수 있습니다. 일반 네트워크 컴퓨터에서 정상 상태 인지를 확인 하려면 명령을 같은 사용해 `ping www.bing.com`합니다.
- - 모든 docker 클라이언트 작업에 다시 시도 메커니즘을 항상 있어야 합니다.
+ - 경우 `docker pull` Docker 데몬과 문제가 있을 수 있습니다 지속적으로 실패 합니다. 문제는 일반적으로 Docker 디먼을 다시 시작 하 여 완화할 수 있습니다. 
+ - Docker 디먼을 다시 시작 후이 문제를 확인 합니다. 계속 하면이 문제는 컴퓨터와 일부 네트워크 연결 문제를 수 있습니다. 일반 네트워크 컴퓨터에서 정상 상태 인지를 확인 하려면 끝점 연결을 테스트 하려면 다음 명령을 실행 합니다. 최소 `az acr` 이 연결 확인 명령을 포함 하는 버전은 2.2.9 합니다. 이전 버전을 사용 하는 경우 Azure CLI를 업그레이드 합니다.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - 모든 Docker 클라이언트 작업에 다시 시도 메커니즘을 항상 있어야 합니다.
+
+### <a name="docker-pull-is-slow"></a>Docker 풀이 느립니다.
+사용 하 여 [이](http://www.azurespeed.com/Azure/Download) 컴퓨터 네트워크 다운로드 속도 테스트 하는 도구입니다. 컴퓨터 네트워크 속도가 느린 경우에 레지스트리의와 동일한 지역에 Azure VM을 사용 하는 것이 좋습니다. 일반적으로 이렇게 하면 네트워크 속도가 빠릅니다.
+
+### <a name="docker-push-is-slow"></a>Docker 밀어넣기가 느립니다.
+사용 하 여 [이](http://www.azurespeed.com/Azure/Upload) 컴퓨터 네트워크 업로드 속도 테스트 하는 도구입니다. 컴퓨터 네트워크 속도가 느린 경우에 레지스트리의와 동일한 지역에 Azure VM을 사용 하는 것이 좋습니다. 일반적으로 이렇게 하면 네트워크 속도가 빠릅니다.
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker 밀어넣기 성공 하지만 오류와 함께 docker 풀 실패: 무단: 인증 필요
 
-Docker 데몬, Red Hat 버전을 사용 하 여이 오류가 발생할 수 있는 `--signature-verification` 기본적으로 사용 됩니다. 다음 명령을 실행 하 여 Red Hat Enterprise Linux (RHEL) 또는 Fedora docker 디먼 옵션을 확인할 수 있습니다.
+Docker 데몬, Red Hat 버전을 사용 하 여이 오류가 발생할 수 있는 `--signature-verification` 기본적으로 사용 됩니다. 다음 명령을 실행 하 여 Red Hat Enterprise Linux (RHEL) 또는 Fedora Docker 디먼 옵션을 확인할 수 있습니다.
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -284,12 +305,12 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. 추가 옵션 `--signature-verification=false` docker 디먼 구성 파일에 `/etc/sysconfig/docker`입니다. 예를 들면 다음과 같습니다.
+1. 추가 옵션 `--signature-verification=false` Docker 디먼 구성 파일에 `/etc/sysconfig/docker`입니다. 예를 들면 다음과 같습니다.
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. 다음 명령을 실행 하 여 docker 디먼 서비스를 다시 시작 합니다.
+2. 다음 명령을 실행 하 여 Docker 디먼 서비스를 다시 시작 합니다.
 
   ```bash
   sudo systemctl restart docker.service
@@ -299,7 +320,7 @@ unauthorized: authentication required
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Docker 디먼의 디버그 로그를 가져오고 사용 하도록 설정  
 
-시작 `dockerd` 사용 하 여는 `debug` 옵션입니다. 먼저 docker 디먼 구성 파일을 만듭니다 (`/etc/docker/daemon.json`) 존재 하지 않습니다을 추가 하는 경우는 `debug` 옵션:
+시작 `dockerd` 사용 하 여는 `debug` 옵션입니다. 먼저 Docker 디먼 구성 파일을 만듭니다 (`/etc/docker/daemon.json`) 존재 하지 않습니다을 추가 하는 경우는 `debug` 옵션:
 
 ```json
 {   
@@ -387,7 +408,7 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>왜 Azure 포털을 나열 하지 않습니다 모든 리포지토리 또는 태그? 
 
-Microsoft Edge 브라우저를 사용 하는 경우에 최대 100 리포지토리 또는 나열 된 태그를 볼 수 있습니다. 레지스트리의 리포지토리 또는 태그를 100 개 있으면 모두 나열 하려면 Firefox 또는 Chrome 브라우저를 사용 하는 것이 좋습니다.
+Microsoft Edge/IE 브라우저를 사용 하는 경우에 최대 100 리포지토리 또는 태그를 볼 수 있습니다. 레지스트리의 리포지토리 또는 태그를 100 개 있으면 모두 나열 하려면 Firefox 또는 Chrome 브라우저를 사용 하는 것이 좋습니다.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 어떻게 수집 하나요?
 
@@ -439,86 +460,6 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub 작업](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## <a name="error-references-for-az-acr-check-health"></a>에 대 한 오류 참조 `az acr check-health`
-
-### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
-
-이 오류는 CLI 찾을 수 없습니다, docker 버전 찾기, docker 디먼 상태를 평가 하 고 docker pull 명령으로 실행할 수 있도록 속하는 대 한 docker 클라이언트를 의미 합니다.
-
-*잠재적 해결 방법을*: docker 클라이언트 설치 중; docker 경로 시스템 변수를 추가 합니다.
-
-### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
-
-이 오류는 docker 데몬 상태를 사용할 수 없는 것 없습니다 수에 도달 하지 않았음을 CLI를 사용 하 여 의미 합니다. 즉, docker 작업 (예: 로그인, 끌어오기) CLI를 통해 사용할 수 없게 됩니다.
-
-*잠재적 해결 방법을*: Docker 디먼을 다시 시작 하거나 제대로 설치 되어 있는지 확인 합니다.
-
-### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
-
-이 오류는 CLI 명령을 실행할 수 없음을 의미 `docker --version`합니다.
-
-*잠재적 해결 방법을*: 명령을 수동으로 실행을 시도 하세요. 최신 CLI 버전을 하 고 오류 메시지를 조사 해야 합니다.
-
-### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
-
-이 오류는 CLI 환경에 샘플 이미지를 끌어올 수 없음을 의미 합니다.
-
-*잠재적 해결 방법을*: 이미지를 풀 하는 데 필요한 모든 구성 요소가 제대로 실행 되 고 있는지 확인 합니다.
-
-### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
-
-이 오류는 helm 클라이언트 helm 작업도 속하는 CLI에서 찾을 수 없습니다 것을 의미 합니다.
-
-*잠재적 해결 방법을*: 해당 helm 확인 클라이언트를 설치 하 고 해당 경로 시스템 환경 변수에 추가 됩니다.
-
-### <a name="helmversionerror"></a>HELM_VERSION_ERROR
-
-이 오류는 CLI 설치 Helm 버전을 확인할 수 없음을 의미 합니다. 이 경우에 발생할 수 있습니다 Azure CLI 버전 (또는 경우 helm 버전) 되는 사용 되지 않습니다.
-
-*잠재적 해결 방법을*: 권장 되는 helm 버전 또는 최신 Azure CLI 버전 업데이트 명령을 수동으로 실행 하 고 오류 메시지를 조사 합니다.
-
-### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
-
-이 오류는 지정 된 레지스트리 로그인 서버에 대 한 DNS ping이 발송 된에 응답 하지 않아를 사용할 수 없는 즉 않았음을 의미 합니다. 이 일부 연결 문제를 나타낼 수 있습니다. 이 수는 레지스트리 존재 하지 않는 사용자 권한 (해당 로그인 서버를 올바르게 검색)을 레지스트리에 없거나 대상 레지스트리 아닌 다른 클라우드에서 중에서 사용 되는 Azure CLI를 의미 하기도 합니다.
-
-*잠재적 해결 방법을*: 연결 유효성을 검사 레지스트리의 철자를 확인 하 고 해당 레지스트리 exists, 사용자의 적절 한 권한이 있는지 및 레지스트리의 cloud가 Azure CLI에서 사용 되는 동일한 지 확인 합니다.
-
-### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
-
-이 특정된 레지스트리에 대 한 챌린지 끝점 403 사용할 수 없음 HTTP 상태로 응답는 것을 의미 합니다. 이 사용자를 VNET 구성으로 인해 가장 가능성이 높은 레지스트리에 액세스할 수 없는 것을 의미 합니다.
-
-*잠재적 해결 방법을*: VNET 규칙을 제거 하거나 현재 클라이언트 IP 허용된 목록에 추가 합니다.
-
-### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
-
-이 오류는 대상 레지스트리 챌린지 끝점 챌린지를 실행 하지 않았으므로 의미 합니다.
-
-*잠재적 해결 방법을*: 잠시 후 다시 시도 하세요. 오전 문제 여세요. 오류가 계속 되 면 https://aka.ms/acr/issues 합니다.
-
-### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
-
-이 오류 대상 레지스트리 챌린지 끝점 챌린지 발급 레지스트리 AAD 로그인을 지원 하지 않습니다 않았음을 의미 합니다.
-
-*잠재적 해결 방법을*: 로그인, 예를 들어, 관리자 자격 증명의 다른 방법을 시도해 봅니다. 사용자가 AAD 지원 하 여 로그인 하려는 경우 오전 문제를 여십시오 https://aka.ms/acr/issues 합니다.
-
-### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-즉, 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 하는 새로 고침 토큰을 사용 하 여 레지스트리 로그인 서버 응답 하지 않았습니다. 이 사용자는 레지스트리 권한이 없는 경우 또는 Azure CLI에 대 한 사용자 자격 증명이 사용 되지 않는 경우 발생할 수 있습니다.
-
-*잠재적 해결 방법을*: 레지스트리에서 사용자에 게 적절 한 권한이 있는지 확인; 실행 `az login` 권한, 토큰 및 자격 증명을 새로 고쳐야 합니다.
-
-### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-즉, 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 하는 액세스 토큰을 사용 하 여 레지스트리 로그인 서버 응답 하지 않았습니다. 이 사용자는 레지스트리 권한이 없는 경우 또는 Azure CLI에 대 한 사용자 자격 증명이 사용 되지 않는 경우 발생할 수 있습니다.
-
-*잠재적 해결 방법을*: 레지스트리에서 사용자에 게 적절 한 권한이 있는지 확인; 실행 `az login` 권한, 토큰 및 자격 증명을 새로 고쳐야 합니다.
-
-### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
-
-즉, CLI 지정 레지스트리의 로그인 서버를 찾을 수 없습니다. 현재 클라우드에 대 한 기본 접미사가 없습니다를 찾을 수 있습니다. 이 레지스트리에 없으면 사용자에 없는 경우 적절 한 권한이 레지스트리를에서 레지스트리의 클라우드와 현재 Azure CLI cloud 일치 하지 않는 경우 또는 Azure CLI 버전은 사용 되지 않는 경우 발생할 수 있습니다.
-
-*잠재적 해결 방법을*: 및 확인 한 맞춤법 올바른지는 레지스트리 존재 하며이 사용자에 게 레지스트리를에서 적절 한 권한이 있는지 확인 하는 레지스트리 및 CLI 환경 클라우드 일치는 Azure CLI 최신 버전으로 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

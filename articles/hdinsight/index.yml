@@ -56,7 +56,7 @@ sections:
           - image:
               src: media/index/ml-server_r.svg
             text: ML 서비스
-            href: /azure/hdinsight/r-server/ml-services-quickstart-job-rstudio
+            href: /azure/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio
   - title: 단계별 자습서
     items:
       - type: paragraph

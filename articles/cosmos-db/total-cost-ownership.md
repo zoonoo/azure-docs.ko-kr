@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB의 TCO(총 소유 비용)
+title: 총 소유 비용 (TCO Azure Cosmos DB 사용 하 여)
 description: 이 문서에서는 IaaS 및 온-프레미스 데이터베이스를 사용할 경우의 Azure Cosmos DB 총 소유 비용을 비교해서 설명합니다.
 author: rimman
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965581"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447212"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO(총 소유 비용)
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>총 소유 비용 (TCO Azure Cosmos DB 사용 하 여)
 
-Azure Cosmos DB은 미세 조정된 다중 테넌시 및 리소스 거버넌스를 사용하여 디자인되었습니다. 이 디자인을 사용하면 Azure Cosmos DB가 훨씬 더 낮은 비용으로 작동할 수 있으므로 비용 절감에 도움이 됩니다. 현재 Azure Cosmos DB는 밀도가 지속적으로 증가하고 단일 클러스터 내에 수천 개의 고객 워크로드가 존재하는 가운데, 단일 컴퓨터에서 280개가 넘는 고객 워크로드를 지원합니다. 이 기능은 데이터 센터 내에 있는 단일 클러스터 및 여러 클러스터 간의 여러 다른 컴퓨터에서 고객 워크로드 복제본의 부하를 분산시킵니다. 자세한 내용은 [Azure Cosmos DB: Pushing the frontier of globally distributed databases](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)(Azure Cosmos DB: 전역 분산형 데이터베이스의 한계 극복)를 참조하세요. 리소스 거버넌스, 다중 테넌시 및 나머지 Azure 인프라 영역과의 네이티브 통합으로 인해 Azure Cosmos DB는 MongoDB, Cassandra 또는 IaaS에서 실행 중인 다른 OSS NoSQL보다 평균적으로 4~6배 더 저렴하고, 온-프레미스에서 실행되는 데이터베이스 엔진보다 최대 10배 더 저렴합니다. [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)(NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용) 문서를 참조하세요.
+Azure Cosmos DB은 미세 조정된 다중 테넌시 및 리소스 거버넌스를 사용하여 디자인되었습니다. 이 디자인을 사용하면 Azure Cosmos DB가 훨씬 더 낮은 비용으로 작동할 수 있으므로 비용 절감에 도움이 됩니다. 현재 Azure Cosmos DB는 밀도가 지속적으로 증가하고 단일 클러스터 내에 수천 개의 고객 워크로드가 존재하는 가운데, 단일 컴퓨터에서 280개가 넘는 고객 워크로드를 지원합니다. 이 클러스터의 다른 컴퓨터 및 데이터 센터 내에서 여러 클러스터에서 부하 분산 고객 워크 로드의 복제본입니다. 자세한 내용은를 참조 하세요. [Azure Cosmos DB: Pushing the frontier of globally distributed databases](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)(Azure Cosmos DB: 전역 분산형 데이터베이스의 한계 극복)를 참조하세요. 리소스 거버넌스, 다중 테넌시 및 나머지 Azure 인프라 영역과의 네이티브 통합으로 인해 Azure Cosmos DB는 MongoDB, Cassandra 또는 IaaS에서 실행 중인 다른 OSS NoSQL보다 평균적으로 4~6배 더 저렴하고, 온-프레미스에서 실행되는 데이터베이스 엔진보다 최대 10배 더 저렴합니다. [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)(NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용) 문서를 참조하세요.
 
 Apache Cassandra, MongoDB, HBase와 같은 OSS NoSQL 데이터베이스 솔루션은 온-프레미스용으로 디자인되었습니다. 이러한 솔루션은 관리되는 서비스로 제공될 경우 프로비전된 클러스터를 관리하고 지원을 모니터링하기 위한 테넌트 데이터베이스가 있는 Resource Manager 템플릿과 동일합니다. OSS NoSQL 아키텍처에는 상당한 크기의 운영 오버헤드가 필요하며, 전문 지식을 찾기가 어렵고 비용도 많이 들 수 있습니다. 반면에 Azure Cosmos DB는 완전 관리형 클라우드 서비스로, 개발자가 데이터베이스 인프라를 유지 및 관리하기보다 비즈니스 혁신에 초점을 맞출 수 있도록 합니다. 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: roiyz
-ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c16e4c105a69d0d48d0b161db2caa390837bf26
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755147"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514545"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 azure 모니터링 가상 머신 확장
 
@@ -47,7 +47,7 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 | Red Hat Enterprise Linux Server | 6(x86/x64) 및 7(x64) |
 | Debian GNU/Linux | 8 및 9(x86/x64) |
 | Ubuntu | 14.04 LTS(x86/x64), 16.04 LTS(x86/x64) 및 18.04 LTS(x64) |
-| SUSE Linux Enterprise Server | 12(x64) |
+| SUSE Linux Enterprise Server | (x64) 12 및 15 (x64) |
 
 >[!NOTE]
 >버전 1.x보다 낮은 OpenSSL은 어떤 플랫폼에서도 지원되지 않으며 버전 1.10은 x86_64 플랫폼(64비트)에서만 지원됩니다.  
@@ -73,7 +73,8 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 
 | Azure Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
-|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
+| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

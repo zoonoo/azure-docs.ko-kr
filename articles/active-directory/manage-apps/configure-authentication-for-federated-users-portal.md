@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781038"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440367"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -209,7 +209,13 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2단계: 정책을 할당할 서비스 주체 찾기  
 정책을 할당할 서비스 주체의 **ObjectID**가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID**를 찾을 수 있습니다.    
 
-포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. PowerShell을 사용하기 때문에 get-AzureADServicePrincipal cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
+포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
+
+PowerShell을 사용 하 고 있으므로 서비스 주체 및 해당 Id를 나열 하려면 다음 cmdlet을 사용할 수 있습니다.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에 정책 할당  
 자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
@@ -226,7 +232,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 HRD 정책이 구성되어 있는 애플리케이션을 확인하려면 **Get-AzureADPolicyAppliedObject** cmdlet을 사용합니다. 확인하려는 정책의 **ObjectID**를 전달합니다.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>5단계: 완료되었습니다!
 애플리케이션을 통해 새 정책이 작동 중인지 확인합니다.
@@ -244,7 +250,7 @@ Get-AzureADPolicy
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2단계: 정책이 할당된 서비스 주체 나열  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>예제: 애플리케이션에 대한 HRD 정책 제거
@@ -254,13 +260,13 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2단계: 애플리케이션 서비스 주체에서 정책 할당 제거  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3단계: 정책이 할당된 서비스 주체를 나열하여 제거 확인 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.

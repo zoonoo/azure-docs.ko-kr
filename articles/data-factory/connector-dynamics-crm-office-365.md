@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356969"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514098"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -27,7 +27,13 @@ ms.locfileid: "66356969"
 
 Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Dynamics 365(Common Data Service) 또는 Dynamics CRM에 복사할 수도 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 테이블을 참조하세요.
 
-이 Dynamics 커넥터는 다음 Dynamics 버전 및 인증 형식을 지원합니다. IFD는 Internet-facing Deployment(인터넷 연결 배포)의 약어입니다.
+이 Dynamics 커넥터는 Dynamics 버전 지원 7.x 둘 다에 대해 9.x 온라인 또는 온-프레미스에 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
+
+- Dynamics CRM 2015 버전 7.x 맵
+- Dynamics CRM 2016 및 Dynamics 365 초기 버전을 버전 8.x 맵
+- 버전 9.x 매핑됩니다 이후 버전의 Dynamics 365
+
+지원 되는 인증 유형 및 해당 Dynamics 버전/제품에 대 한 구성에는 다음 표를 참조 하세요. IFD는 Internet-facing Deployment(인터넷 연결 배포)의 약어입니다.
 
 | Dynamics 버전 | 인증 형식 | 연결된 서비스 샘플 |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 
 - Dynamics 365 for Marketing
 
 다른 애플리케이션 유형(예: Finance and Operations, Talent 등)은 이 커넥터에서 지원되지 않습니다.
+
+이 Dynamics 커넥터의 맨 위에 빌드되 [Dynamics XRM 도구](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)합니다.
 
 >[!TIP]
 >**Dynamics 365 Finance and Operations**에서 데이터를 복사하려면 [Dynamics AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
@@ -156,7 +164,7 @@ Dynamics 간에 데이터를 복사하려면 데이터 세트의 type 속성을 
 > [!IMPORTANT]
 >- Dynamics에서 데이터를 복사할 때 "structure" 섹션에는 선택 사항 이지만 항상 recommanded 결정적 복사 결과 확인 하려면 Dynamics 데이터 집합. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
 >- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 명시적 구조 정의가 없는 경우 실행을 복사 하려면 동일한 동작이 적용 됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
->- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 어떤 열에 복사할 것인지는 원본 데이터 스키마에 따라 결정됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
+>- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 복사할 열은 원본 데이터 스키마에 의해 결정 됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
 
 **예제:**
 
@@ -341,9 +349,8 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Dynamics 데이터 형식 AttributeType.CalendarRules 및 AttributeType.PartyList는 지원되지 않습니다.
+> Dynamics 데이터 형식 AttributeType.CalendarRules, AttributeType.MultiSelectPicklist 및 AttributeType.PartyList는 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

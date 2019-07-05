@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services에 Windows Server VM 조인 | Micr
 description: Azure Resource Manager 템플릿을 사용하여 Windows Server 가상 머신을 관리되는 도메인에 조인합니다.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: e4ca613059e10755056616b964cc500625fef187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245956"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473029"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리되는 도메인에 Windows Server 가상 머신 조인
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure AD Domain Services 관리되는 도메인에 Windows Server 가상 머신을 조인하는 방법에 대해 설명합니다.

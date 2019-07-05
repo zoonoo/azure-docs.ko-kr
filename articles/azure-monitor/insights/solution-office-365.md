@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357571"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514204"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357571"
 
 
 > [!NOTE]
-> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그를 연결하려면 Office 365 관리 로그보다 풍부한 로그 데이터를 제공하는 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md)를 사용합니다. 
+> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그에 연결 하려면 사용할 수 있습니다 합니다 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md) 또는 [Azure AD 진단 설정을 구성할](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), Office 365 관리 로그 보다 더 다양 한 로그 데이터를 제공 하는 합니다. 
 >
 > 경우 있습니다 [온 보 딩 Azure Sentinel](../../sentinel/quickstart-onboard.md), Log Analytics 작업 영역에 설치 된 Office 365 솔루션을 지정 합니다. 커넥터를 사용 하도록 설정 하면 솔루션 작업 영역에서 사용할 수 있습니다 하 고 설치한 다른 모니터링 솔루션으로 사용 하는 동일 합니다.
 >

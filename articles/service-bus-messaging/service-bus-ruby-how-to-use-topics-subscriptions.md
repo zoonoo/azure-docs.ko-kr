@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991854"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543646"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>구독 만들기
 토픽 구독은 **Azure::ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
-구독은 영구 보존됩니다. 즉, 구독 자체나 구독이 연결된 토픽이 삭제될 때까지는 계속 유지됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, getSubscription 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
+기본적으로 구독은 영구적입니다. 즉, 구독 자체나 구독이 연결된 토픽이 삭제될 때까지는 계속 유지됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, getSubscription 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
+
+구독을 설정 하 여 자동으로 삭제 할 수 있습니다 합니다 [AutoDeleteOnIdle 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)합니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터(기본값)가 사용됩니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 "all-messages"라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
@@ -156,7 +158,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 애플리케이션이 메시지를 처리한 후 `delete_subscription_message()` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 논리는 배달 시도 간에 일정하게 유지되는 메시지의 `message_id` 속성을 사용하여 추가하는 경우가 많습니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제는 `test-topic` 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적는 하지 않는 한 합니다 [AutoDeleteOnIdle 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) 설정 됩니다. 수를 통해 삭제 합니다 [Azure portal][Azure portal] 또는 프로그래밍 방식으로 합니다. 다음 예제는 `test-topic` 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

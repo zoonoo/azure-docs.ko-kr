@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201513"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443670"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -138,6 +138,7 @@ ms.locfileid: "60201513"
 10. 몇 분 후에 **배포 성공**을 확인하는 알림이 표시됩니다.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Azure Stream Analytics TollApp 리소스 검토
+
 1. Azure Portal에 로그인
 
 2. 이전 섹션에서 명명된 리소스 그룹을 찾습니다.
@@ -171,7 +172,7 @@ ms.locfileid: "60201513"
    - **Registration** 입력은 필요에 따라 조회에 사용되는 고정 registration.json 파일을 가리키는 Azure Blob Storage 연결입니다. 이 참조 데이터 입력은 쿼리 구문의 이후 변형에 사용됩니다.
 
 4. TollApp 샘플 작업의 출력을 검사합니다.
-   - **Cosmos DB** 출력은 출력 싱크 이벤트를 받는 Cosmos 데이터베이스 컬렉션입니다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
+   - **Cosmos DB** 출력은 출력 싱크 이벤트를 받는 Cosmos 데이터베이스 컨테이너입니다. 이 출력은 스트리밍 쿼리의 INTO 절에 사용합니다.
 
 ## <a name="start-the-tollapp-streaming-job"></a>TollApp 스트리밍 작업 시작
 스트리밍 작업을 시작하려면 다음 단계를 수행합니다.

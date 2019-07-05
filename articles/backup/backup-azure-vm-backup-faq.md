@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296181"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551605"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>자주 묻는 질문-Azure Vm 백업
 
@@ -46,10 +46,6 @@ VM 참가자 인 경우 VM에서 백업을 사용할 수 있습니다. 사용자
 Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있는 경우에 Recovery Services 자격 증명 모음에 대 한 리소스 그룹에 대 한 쓰기 권한이 있는지 확인 합니다.  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Azure Backup을 사용하여 어떤 Azure VM을 백업할 수 있나요?
-
-검토 합니다 [지원 매트릭스](backup-support-matrix-iaas.md) 지원 세부 사항 및 제한 사항에 대 한 합니다.
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
 아니요. 주문형 백업 작업을 위한 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
@@ -73,17 +69,12 @@ Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 백업�
 
 사용자가 잠금을 제거 하 고 이후 백업이 성공 하려면 해당 리소스 그룹에서 복원 지점 컬렉션의 선택을 취소 해야 [이 단계를 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거 합니다.
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>백업 정책에서 DST(일광 절약 시간)를 고려하나요?
-아니요. 로컬 컴퓨터의 시간과 날짜는 현재 적용되는 일광 절약 시간에 로컬입니다. DST 때문에 예약된 백업에 설정이 현지 시간과 다를 수 있습니다.
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Azure Backup을 통해 백업된 VM에 데이터 디스크를 몇 개까지 연결할 수 있나요?
-Azure Backup은 최대 16개 디스크가 연결된 VM을 백업할 수 있습니다. 16개 디스크에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure Backup은 표준 SSD 관리 디스크를 지원하나요?
 Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD로 관리 되는 디스크는 Azure Vm에 대 한 새로운 유형의 영구 저장소를 제공합니다. SSD Managed Disks에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
-WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다. WA 지원 디스크를 사용하는 VM에 대한 디스크 제외 기능은 즉시 복원으로 업그레이드한 구독에만 지원됩니다.
+WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
@@ -93,6 +84,8 @@ Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제�
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>이란는 최대 지연 시간을 내 VM 백업 정책에 설정 된 예약 된 백업 시간에서 백업 시작 시간에서 예상할 수 있나요?
 예약된 된 백업은 예약된 된 백업 시간 2 시간 이내 트리거됩니다. 에 대 한 예입니다. 100 대의 Vm 백업 시작 시간 오전 2 시에 예약 된 경우 다음 최대 오전 4:00 하 여 모든 100VMs 해야 백업 작업이 진행에서 합니다. 예약 된 백업 일시 중지 되었습니다. 중단 및 다시 시작 하 고 재시도 인해 backup이 예약 된 2 시간 창 외부에서 시작할 수 있습니다.
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>일일 백업 지점에 대 한 허용 되는 최소 보존 범위는 무엇입니까?
+Azure 가상 머신 백업 정책에서는 9999 일 최대, 최소 보존 범위는 7 일을 지원 합니다. 7 일 이내를 사용 하 여 기존 VM 백업 정책 수정에는 7 일의 최소 보존 범위에 맞게 업데이트를 해야 합니다.
 
 ## <a name="restore"></a>복원
 

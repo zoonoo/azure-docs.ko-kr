@@ -4,19 +4,19 @@ description: Azure Functions에서 Azure Mobile Apps 바인딩을 사용하는 �
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438128"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480374"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -163,7 +163,7 @@ JavaScript 함수에서는 레코드가 `context.bindings.<name>` 개체로 전�
 
 C# 및 F# 함수에서 함수가 성공적으로 종료되면 입력 레코드에 변경한 내용(입력 매개 변수)을 자동으로 다시 테이블에 전송합니다. JavaScript 함수에서는 레코드를 수정할 수 없습니다.
 
-## <a name="output"></a>출력
+## <a name="output"></a>Output
 
 Mobile Apps 출력 바인딩을 사용하여 Mobile Apps 테이블에 새 레코드를 작성합니다.  
 

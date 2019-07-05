@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922976"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442303"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -623,6 +623,10 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 그러면 로그 스트리밍 서비스에 앱 연결 및 응용 프로그램 로그 창에 표시 됩니다. 전환할 수 있습니다 **응용 프로그램 로그** 하 고 **웹 서버 로그**합니다.  
 
 ![포털에서 스트리밍 로그 보기](./media/functions-monitoring/streaming-logs-window.png)
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

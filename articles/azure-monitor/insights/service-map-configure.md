@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f2b74c4c091aed0a1b5889b0a07d44d450d1922
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142743"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477073"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "65142743"
 ## <a name="supported-azure-regions"></a>지원되는 Azure 지역
 
 서비스 맵은 현재 다음과 같은 Azure 지역에서 사용할 수 있습니다.
-- 미국 동부
+- East US
 - 미국 중서부
 - 캐나다 중부
 - 영국 남부
@@ -100,18 +100,14 @@ ms.locfileid: "65142743"
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | OS 버전 | 커널 버전
 |:--|:--|
-| 11 SP4 | 3.0.* |
-
-### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| OS 버전 | 커널 버전
-|:--|:--|
-| 12 SP2 | 4.4.* |
-| 12 SP3 | 4.4.* |
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | 커널 azure 조정 |
 
 ## <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 

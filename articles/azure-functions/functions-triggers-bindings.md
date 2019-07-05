@@ -4,18 +4,18 @@ description: Azure Function 온라인 이벤트 및 클라우드 기반 서비�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0896a829a24335f3e62581fa3b63e013478781bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61020965"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481002"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -33,10 +33,10 @@ ms.locfileid: "61020965"
 
 | 예제 시나리오 | 트리거 | 입력 바인딩 | 출력 바인딩 |
 |-------------|---------|---------------|----------------|
-| 새 큐 메시지가 다른 큐로 작성 하는 함수를 실행 하는 도착 합니다. | 큐<sup>*</sup> | *없음* | 큐<sup>*</sup> |
+| 새 큐 메시지가 다른 큐로 작성 하는 함수를 실행 하는 도착 합니다. | 큐<sup>*</sup> | *None* | 큐<sup>*</sup> |
 |예약 된 작업을 Blob Storage 콘텐츠를 읽고 새 Cosmos DB 문서를 만듭니다. | 타이머 | Blob Storage | Cosmos DB |
 |Event Grid Blob 저장소 및 Cosmos DB에서 문서를 전자 메일을 보내는에서 이미지를 읽는 데 사용 됩니다. | Event Grid | Blob 저장소 및 Cosmos DB | SendGrid |
-| Microsoft Graph를 사용 하 여 Excel 시트를 업데이트 하는 웹 후크입니다. | HTTP | *없음* | Microsoft Graph |
+| Microsoft Graph를 사용 하 여 Excel 시트를 업데이트 하는 웹 후크입니다. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> 다른 큐를 나타냅니다.
 

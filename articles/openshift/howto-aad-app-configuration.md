@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458712"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 azure Active Directory 통합
 
@@ -43,7 +43,7 @@ Azure Red Hat OpenShift 클러스터에 로그인 할 새 Azure Active Directory
 클러스터 관리 액세스에 권한을 부여 하려면 Azure AD 보안 그룹의 멤버 자격 OpenShift 그룹 "osa-고객-관리자"로 동기화 됩니다. 지정 하지 않으면 클러스터 관리자 액세스 권한 없음 부여 됩니다.
 
 1. 엽니다는 [Azure Active Directory 그룹](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) 블레이드입니다.
-2. 클릭 **+ 새 그룹**
+2. 클릭 **+ 새 그룹**합니다.
 3. 그룹 이름 및 설명을 제공 합니다.
 4. 설정할 **그룹 종류** 하 **보안**합니다.
 5. 설정할 **멤버 자격 유형** 하 **할당**합니다.
@@ -54,7 +54,7 @@ Azure Red Hat OpenShift 클러스터에 로그인 할 새 Azure Active Directory
 7. 멤버 목록에서 위에서 만든 Azure AD 사용자를 선택 합니다.
 8. 포털의 맨 아래에서 클릭 **선택** 차례로 **만들기** 보안 그룹을 만듭니다.
 
-    그룹 ID 값을 기록해 둡니다
+    그룹 ID 값을 적어둡니다.
 
 9. 그룹이 만들어지면 모든 그룹 목록에 표시 됩니다. 새 그룹을 클릭 합니다.
 10. 표시 되는 페이지에서 복사 합니다 **개체 ID**합니다. 이 값으로 이라고 `GROUPID` 에 [Azure Red Hat OpenShift 클러스터를 만드는](tutorial-create-cluster.md) 자습서.
@@ -83,17 +83,34 @@ Azure Active Directory에 앱을 인증 하는 것에 대 한 클라이언트 �
 4. 설정할 **Expires** 예를 들어 원하는 기간 **In 2 Years**합니다.
 5. 클릭 **추가** 키 값이 표시 됩니다 및 합니다 **클라이언트 비밀** 페이지의 섹션입니다.
 6. 키 값을 적어둡니다. 이 값으로 이라고 `SECRET` 에 [Azure Red Hat OpenShift 클러스터를 만드는](tutorial-create-cluster.md) 자습서.
- 
+
 ![인증서 및 비밀 창의 스크린샷](./media/howto-create-tenant/create-key.png)
- 
+
 Azure 응용 프로그램 개체에 대 한 자세한 내용은 참조 하세요. [응용 프로그램 및 Azure Active Directory에서 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)합니다.
 
 새로 만들기에 대 한 Azure AD 응용 프로그램을 참조 하세요 [Azure Active Directory v1.0 끝점을 사용 하 여 앱을 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)합니다.
 
+## <a name="add-api-permissions"></a>API 사용 권한 추가
+
+1. 에 **관리** 섹션 클릭 **API 사용 권한**합니다.
+2. 클릭 **권한 추가** 선택한 **Azure Active Directory Graph** 다음 **위임 된 권한**
+3. 확장 **사용자** 했는지 확인 하 고 아래 목록에서 **User.Read** 사용 가능 합니다.
+4. 위로 스크롤하여 선택 **응용 프로그램 사용 권한**합니다.
+5. 확장 **디렉터리** 아래 목록에 사용 하도록 설정 **Directory.ReadAll**
+6. 클릭 **권한 추가** 변경 내용을 적용 합니다.
+7. API 권한 패널 이제 표시할지 둘 다 *User.Read* 하 고 *Directory.ReadAll*합니다. 경고를 확인 하세요 **관리자 동의 필요** 열 옆에 *Directory.ReadAll*합니다.
+8. 경우는 *Azure 구독 관리자*, 클릭 **에 대 한 관리자 동의 부여할 *구독 이름***  아래. 없는 경우는 *Azure 구독 관리자*, 관리자에 게 동의 요청 합니다.
+![API 권한 패널의 스크린샷입니다. User.Read Directory.ReadAll 사용 권한과 추가 Directory.ReadAll에 필요한 관리자 동의](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> 클러스터 관리자 그룹의 동기화 동의가 부여 된 후에 작동 합니다. 메시지와 확인 표시가 있는 녹색 원이 표시 됩니다 "에 대 한 부여 *구독 이름*"에 *관리자 동의가 필요한* 열입니다.
+
+관리자 및 기타 역할 관리에 대 한 자세한 내용은 참조 하세요. [Azure 구독 관리자를 추가 또는 변경](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator)합니다.
+
 ## <a name="resources"></a>리소스
 
-* [응용 프로그램 및 Azure Active Directory에서 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [빠른 시작: Azure Active Directory v1.0 끝점을 사용 하 여 앱을 등록 합니다.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [응용 프로그램 및 Azure Active Directory에서 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [빠른 시작: Azure Active Directory v1.0 끝점을 사용 하 여 앱을 등록 합니다.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>다음 단계
 

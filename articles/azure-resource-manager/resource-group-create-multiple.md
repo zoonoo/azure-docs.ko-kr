@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807374"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508179"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>리소스, 속성 또는 Azure Resource Manager 템플릿의 변수 반복
 
@@ -50,6 +50,8 @@ ms.locfileid: "66807374"
 반복 횟수를 지정 하려면 count 속성에 대 한 값을 제공 합니다. 개수는 800을 초과할 수 없습니다.
 
 수는 음수일 수 없습니다. REST API 버전을 사용 하 여 템플릿을 배포 하는 경우 **2019-05-10** 하거나 나중에 개수를 0으로 설정할 수 있습니다. REST API의 이전 버전에는 개수에 0을 지원 하지 않습니다. 현재, Azure CLI 또는 PowerShell 지원 하지 않습니다 개수에 0을 해당 지원은 향후 릴리스에 추가 될 예정입니다.
+
+신중 하 게 사용 하 여 수 [모드 배포 완료](deployment-modes.md) 복사 합니다. 리소스 그룹에 전체 모드를 사용 하 여 다시 배포할 경우에 복사 루프를 해결 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 
 개수에 대 한 제한 리소스, 변수 또는 속성을 사용 하 여 사용 여부를 나타내는 동일 합니다.
 

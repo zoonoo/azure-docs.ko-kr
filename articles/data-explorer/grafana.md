@@ -6,17 +6,23 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399921"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537803"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
 
 Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 대시보드를 만들고 공유할 수 있도록 해주는 분석 플랫폼입니다. Grafana는 Azure Data Explorer *플러그 인*을 제공하여 Azure Data Explorer에서 데이터에 연결하고 데이터를 시각화할 수 있습니다. 이 문서에서는 Grafana에 대한 데이터 원본으로 Azure Data Explorer를 설정한 다음, 샘플 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+
+다음 비디오를 사용 하 여 Grafana의 Azure 데이터 탐색기 플러그 인을 사용 하 여 Grafana에 대 한 Azure 데이터 탐색기 데이터 원본으로 설정 하 고 다음 데이터를 시각화를 배울 수 있습니다. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+또는 [데이터 원본을 구성할](#configure-the-data-source) 하 고 [데이터를 시각화](#visualize-data) 아래 문서에 설명 된 대로 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -121,7 +127,7 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer를 구성하려면 
 
 1. Azure Portal에서 Azure Data Explorer 클러스터로 이동한 다음, **쿼리**를 선택합니다.
 
-    ![쿼리](media/grafana/query.png)
+    ![query](media/grafana/query.png)
 
 1. 쿼리 창에서 다음 명령을 실행합니다. Azure Portal 또는 CLI에서 애플리케이션 ID 및 테넌트 ID를 사용합니다.
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758667"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537897"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>변화하는 요구를 수용하도록 클러스터 스케일 아웃 관리
 
@@ -76,10 +76,10 @@ Azure portal에서 데이터 탐색기 클러스터 리소스를 이동 합니�
 
 이제 Azure 데이터 탐색기 클러스터에 규모 확장 작업을 구성했습니다. 규모 감축 작업에 대한 다른 규칙을 추가합니다. 이 구성은 사용자가 지정한 기준에 따라 동적으로 크기를 조정 하 여 클러스터를 허용 합니다.
 
-할 수도 있습니다 [클러스터 규모 관리](manage-cluster-scale-up.md) 클러스터의 적절 한 크기 조정에 대 한 합니다.
-
 클러스터 크기 조정 문제를 사용 하 여 도움이 필요 하면 [지원 요청을 여세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portal에서 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 데이터 탐색기 성능, 상태 및 메트릭 사용 하 여 사용량 모니터링](using-metrics.md)
+* [Azure 데이터 탐색기 성능, 상태 및 메트릭 사용 하 여 사용량 모니터링](using-metrics.md)
+
+* [클러스터 규모 관리](manage-cluster-scale-up.md) 클러스터의 적절 한 크기 조정에 대 한 합니다.

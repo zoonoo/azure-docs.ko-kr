@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304340"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448005"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 
@@ -40,6 +40,7 @@ ms.locfileid: "66304340"
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 아닙니다.                            | 예            | 예            | 예            | 예            |
 | 직접 관리 API                                                                        | 아닙니다.                            | 예            | 예            | 예            | 예            |
 | Azure Monitor 로그 및 메트릭                                                               | 아닙니다.                | 예            | 예            | 예            | 예            |
+| 고정 IP                                                               | 아닙니다.                | 예            | 예            | 예            | 예            |
 
 <sup>1</sup> Azure AD 사용 하도록 설정 (및 Azure AD B2C) id로 사용자에 대 한 공급자에 로그인 하는 개발자 포털입니다.<br/>
 <sup>2</sup> 관련 기능(예: 사용자, 그룹, 문제, 애플리케이션, 이메일 템플릿 및 알림)을 포함합니다.<br/>

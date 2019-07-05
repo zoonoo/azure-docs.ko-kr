@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110984"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482426"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -38,7 +38,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 
 [OAuth 2.0 권한 부여 코드 부여 흐름](v1-protocols-oauth-code.md)을 사용하는 애플리케이션에 대해 사용자를 인증한 후 OBO 흐름이 시작됩니다. 이 시점에 애플리케이션은 액세스 토큰(토큰 A)을 사용자의 클레임 및 중간 계층 웹 API(API A)에 액세스하는 데 필요한 동의를 포함하는 API A에 전송합니다. 다음으로, API A는 다운스트림 웹 API(API B)에 인증된 요청을 수행합니다.
 
-On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![OAuth 2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![Oauth 2.0에서-대리 흐름의 단계를 보여 줍니다.](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. 클라이언트 애플리케이션은 토큰 A와 함께 API A에 요청합니다.
 1. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
