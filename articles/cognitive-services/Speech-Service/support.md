@@ -120,6 +120,6 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 ## <a name="uservoice-forum"></a>UserVoice 포럼
 
-Cognitive Services와 함께 제공되는 API가 개발하는 애플리케이션에서 더 잘 작동할 수 있도록 아이디어를 공유해 주세요. 더욱 풍부해지고 있는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾아보세요.
+Cognitive Services를 만드는 아이디어를 공유하세요. 함께 제공되는 API는 개발하는 애플리케이션에서 더 잘 작동합니다. 증가하는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾으세요.
 
 [UserVoice](https://cognitive.uservoice.com/)

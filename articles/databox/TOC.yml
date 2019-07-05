@@ -143,6 +143,14 @@
               items:
                 - name: SMB를 통해
                   href: data-box-heavy-deploy-copy-data.md
+                - name: NFS를 통해
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: REST를 통해
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: 데이터 복사 서비스를 통해
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: 관리형 디스크로
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 - 반환, 업로드, 확인'
               href: data-box-heavy-deploy-picked-up.md
         - name: 개념
