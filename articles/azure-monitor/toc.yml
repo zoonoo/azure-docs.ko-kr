@@ -122,8 +122,6 @@
       href: visualizations.md
     - name: 파트너 통합
       href: platform/partners.md
-    - name: OMS 포털 사용 중단
-      href: platform/oms-portal-transition.md
     - name: FAQ
       items:
         - name: Log Analytics
@@ -447,6 +445,18 @@
                   href: app/proactive-arm-config.md
                 - name: 이메일 알림
                   href: app/proactive-email-notification.md
+            - name: 가용성
+              items:
+                - name: URL 테스트
+                  href: app/monitor-web-app-availability.md
+                - name: 다단계 테스트
+                  href: app/availability-multistep.md
+                - name: 가용성 경고
+                  href: app/availability-alerts.md
+                - name: 문제 해결
+                  href: app/troubleshoot-availability.md
+            - name: 성능 테스트
+              href: app/performance-testing.md
             - name: 리소스 만들기
               href: app/create-new-resource.md
             - name: 애플리케이션 데이터를 Log Analytics로 라우팅
@@ -552,8 +562,12 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: 기존 클러스터에 대해 활성화
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: 지역 매핑
+                      href: insights/container-insights-region-mapping.md
                 - name: 분석
                   href: insights/container-insights-analyze.md
+                - name: 에이전트 컬렉션 설정 구성
+                  href: insights/container-insights-agent-config.md
                 - name: 모니터링 사용 안 함
                   href: insights/container-insights-optout.md
                 - name: 라이브 로그 보기
@@ -795,8 +809,6 @@
           items:
             - name: 애플리케이션 경고 규칙
               items:
-                - name: 가용성
-                  href: app/monitor-web-app-availability.md
                 - name: 메트릭 경고
                   href: app/alerts.md
             - name: 플랫폼 메트릭 경고 규칙
@@ -823,10 +835,12 @@
               items:
                 - name: 활동 로그 이벤트에 대한 경고
                   href: platform/alerts-activity-log.md
-                - name: 관리 이벤트를 활동 로그 경고로 마이그레이션
-                  href: platform/migrate-management-alerts.md
-                - name: 서비스 상태 알림에 대한 경고
-                  href: platform/alerts-activity-log-service-notifications.md
+            - name: 활동 로그의 서비스 상태 알림
+              items:
+                - name: 서비스 상태 알림 보기
+                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+                - name: 서비스 상태 경고 규칙 구성
+                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
             - name: 작업 그룹 사용
               items:
                 - name: 작업 그룹 만들기
@@ -871,12 +885,6 @@
                   href: platform/alerts-enable-template.md
                 - name: 웹후크를 호출하는 클래식 메트릭 경고
                   href: platform/alerts-webhooks.md
-        - name: 활동 로그의 서비스 상태 알림
-          items:
-            - name: 알림 확인
-              href: platform/service-notifications.md
-            - name: 알림 이벤트에 대한 경고 구성
-              href: platform/alerts-activity-log-service-notifications.md
         - name: 자동 크기 조정
           items:
             - name: 연습
@@ -1062,12 +1070,10 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: 클래식 경고 및 모니터링
           href: platform/monitoring-classic-retirement.md
-        - name: Log Analytics에서 Azure로 경고 확장
-          href: platform/alerts-extend.md
-        - name: OMS 포털에서 Azure Portal에 경고 복사
-          href: platform/alerts-extend-tool.md
         - name: 로그 경고 API 기본 설정 전환
           href: platform/alerts-log-api-switch.md
+        - name: OMS 포털 사용 중단
+          href: platform/oms-portal-transition.md
 - name: 리소스
   items:
     - name: Azure 로드맵

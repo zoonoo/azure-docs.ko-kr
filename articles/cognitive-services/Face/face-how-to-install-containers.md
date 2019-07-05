@@ -3,20 +3,20 @@ title: 컨테이너 설치 및 실행
 titlesuffix: Face - Azure Cognitive Services
 description: 다운로드, 설치 및 얼굴에 대 한이 연습 자습서에서 컨테이너를 실행 합니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306647"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272795"
 ---
 # <a name="install-and-run-face-containers"></a>얼굴 컨테이너 설치 및 실행
 
@@ -115,9 +115,9 @@ ApiKey={BILLING_KEY}
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
+## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
 
-컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
+컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
 
 컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
 

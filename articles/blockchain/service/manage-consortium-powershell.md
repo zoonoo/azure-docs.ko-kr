@@ -145,8 +145,8 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
-| 이름 | 에 대 한 세부 정보를 검색 하려는 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 되 면 모든 컨소시엄 멤버의 목록을 반환 합니다. | 아닙니다. |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Name | 에 대 한 세부 정보를 검색 하려는 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 되 면 모든 컨소시엄 멤버의 목록을 반환 합니다. | 아닙니다. |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
 #### <a name="example"></a>예
@@ -174,8 +174,8 @@ Role           : ADMIN
 
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
-| 이름 | 제거할 멤버 이름 | 예 |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Name | 제거할 멤버 이름 | 예 |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Account | 가져오기-Web3Account에서 가져온 Web3Account 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
@@ -196,10 +196,10 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
-| 이름 | 블록 체인 멤버의 이름 | 예 |
+| Name | 블록 체인 멤버의 이름 | 예 |
 | DisplayName | 새 표시 이름 | 아닙니다. |
 | AccountAddress | 계정 주소 | 아닙니다. |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Account | 가져오기-Web3Account에서 가져온 Web3Account 개체 | 예 |
 | Web3Client |  새로 만들기-Web3Connection에서 가져온 Web3Client 개체| 예 |
 
@@ -223,8 +223,8 @@ $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Dis
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 멤버 초대의 azure 구독 ID | 예 |
-| 역할 | 컨소시엄 역할입니다. 값에는 관리자 또는 사용자 수 있습니다. 관리자는 컨소시엄 관리자 역할입니다. 사용자는 컨소시엄 멤버 역할입니다. | 예 |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Role | 컨소시엄 역할입니다. 값에는 관리자 또는 사용자 수 있습니다. 관리자는 컨소시엄 관리자 역할입니다. 사용자는 컨소시엄 멤버 역할입니다. | 예 |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Account | 가져오기-Web3Account에서 가져온 Web3Account 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
@@ -243,7 +243,7 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 멤버 초대의 Azure 구독 ID입니다. Id 초대 세부 정보를 구독 ID는 구독을 반환 하는 제공 하는 경우. 구독 ID를 생략 하면 모든 멤버 초대의 목록을 반환 합니다. | 아닙니다. |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
 #### <a name="example"></a>예
@@ -270,7 +270,7 @@ SubscriptionId                       Role CorrelationId
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 멤버에 게 서 취소할의 azure 구독 ID | 예 |
-| 멤버 | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Members | 가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Account | 가져오기-Web3Account에서 가져온 Web3Account 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 
@@ -290,8 +290,8 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 | 매개 변수 | Description | 필수 |
 |-----------|-------------|:--------:|
 | SubscriptionId | 멤버 초대의 azure 구독 ID | 예 |
-| 역할 | 초대에 대 한 새 컨소시엄 역할입니다. 값은 **사용자** 하거나 **ADMIN**합니다. | 예 |
-| 멤버 |  가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
+| Role | 초대에 대 한 새 컨소시엄 역할입니다. 값은 **사용자** 하거나 **ADMIN**합니다. | 예 |
+| Members |  가져오기-ConsortiumManagementContracts에서 가져온 멤버 개체 | 예 |
 | Web3Account | 가져오기-Web3Account에서 가져온 Web3Account 개체 | 예 |
 | Web3Client | 새로 만들기-Web3Connection에서 가져온 Web3Client 개체 | 예 |
 

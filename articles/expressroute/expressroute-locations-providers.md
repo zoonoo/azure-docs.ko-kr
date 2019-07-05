@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2019
+ms.date: 07/03/2019
 ms.author: jaredr80
-ms.openlocfilehash: 3a29940c4ef904d813fa7400928448a5c48334a4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: bda5fb8a267fae3309c73678465693e1fef9b838
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205961"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565953"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -77,9 +77,9 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **위치**: | **피어링 위치 소유자** | **Azure 지역** | **서비스 공급자** |
 | --- | --- | --- | --- |
 | **암스테르담** | Equinix | 서유럽 | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **암스테르담2** | Interxion | 서유럽 | DE-CIX, Interxion, Vodafone |
+| **암스테르담2** | Interxion | 서유럽 | DE CIX Interxion, Vodafone 센추리 클라우드 연결 |
 | **애틀랜타** | Equinix | 해당 없음 | Equinix, Megaport |
-| **오클랜드** | Vocus | 해당 없음 | Devoli |
+| **오클랜드** | Vocus | 해당 없음 | Devoli, Megaport |
 | **부산** |LG CNS | 한국 남부 | LG CNS |
 | **캔버라** | CDC | 오스트레일리아 중부 | CDC |
 | **캔버라2** | CDC | 오스트레일리아 중부 2| CDC |
@@ -100,7 +100,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **런던** | Equinix | 영국 남부 | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **런던2** | Telehouse | 영국 남부 | IX 도달률, Equinix |
 | **로스앤젤레스** | CoreSite | 해당 없음 | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **마르세유** |Interxion | 프랑스 남부 | Interxion, 재규어 네트워크 |
+| **마르세유** |Interxion | 프랑스 남부 | Interxion, DE-CIX 재규어 네트워크 |
 | **멜버른** | NextDC | 오스트레일리아 남동부 | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **마이애미** | Equinix | 해당 없음 | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | 해당 없음 | Bell Canada, Cologix, Telus, Zayo |
@@ -109,7 +109,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **뉴욕** | Equinix | 해당 없음 | Coresite, Equinix, InterCloud, Megaport, 패킷, Zayo 센추리 클라우드 연결 |
 | **뉴포트(웨일스)** | Next Generation Data | 영국 서부 | British Telecom, Level 3 Communications Colt, 다음 세대 데이터 |
 | **오사카** | Equinix | 일본 서부 | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **파리** | Interxion | 프랑스 중부 | Colt, Equinix, Intercloud, Interxion, Orange, Zayo Telia 통신사 |
+| **파리** | Interxion | 프랑스 중부 | Colt, Equinix, Intercloud, Interxion, Orange, Telia 통신사 Zayo 센추리 클라우드 연결 |
 | **퍼스** | NextDC | 해당 없음 | Megaport, NextDC |
 | **퀘벡 시티** | 4Degrees | 캐나다 동부 | Bell Canada, Megaport |
 | **샌안토니오** | CyrusOne | 미국 중남부 | CenturyLink Cloud Connect, Megaport |

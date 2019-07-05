@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0cfb06e95cadbb549f669e5d59bdb0d795c896
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357c83cfd0ae3fed8b13419e72f50fcb90c04186
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545873"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550647"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는.NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사용 하 여 Xamarin Android를 사용할 때 특정 고려 사항을 설명 합니다.
@@ -97,7 +97,7 @@ var authResult = AcquireTokenInteractive(scopes)
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>오류: 이름 'AuthenticationContinuationHelper' 현재 컨텍스트에 없습니다.
 
-Visual Studio Android.csproj* 파일을 올바르게 업데이트 되지 않은 것입니다. 경우에 따라 합니다 **<HintPath>** 파일 경로 대신 netstandard13 올바르게 포함 **monoandroid90**합니다.
+Visual Studio Android.csproj* 파일을 올바르게 업데이트 되지 않은 것입니다. 경우에 따라 합니다  **\<HintPath >** 파일 경로 대신 netstandard13 올바르게 포함 **monoandroid90**합니다.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,

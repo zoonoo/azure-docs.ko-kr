@@ -104,7 +104,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect와 Azure AD 간의 통신 패턴
 위의 모든 단계를 수행했는데도 여전히 연결할 수 없다면 이제 네트워크 로그를 살펴봅니다. 이 섹션에는 일반적이고 성공적인 연결 패턴이 나와 있습니다. 네트워크 로그를 읽고 있는 중이라면 무시해도 되는 지엽적인 내용도 나옵니다.
 
-* https://dc.services.visualstudio.com 에 대한 호출이 있습니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
+* [https://dc.services.visualstudio.com](https://dc.services.visualstudio.com ) 에 대한 호출이 있습니다. 설치가 성공하는 데 프록시에 이 URL이 열려 있을 필요는 없으므로 이러한 호출은 무시해도 됩니다.
 * DNS 확인에서 microsoftonline.com이 아닌 DNS 이름 공간 nsatc.net 및 기타 네임스페이스에 있어야 하는 실제 호스트가 나열됩니다. 그러나 실제 서버 이름에 대한 웹 서비스를 요청하지 않으므로 이러한 URL을 프록시에 추가할 필요가 없습니다.
 * 엔드포인트 adminwebservice 및 provisioningapi는 검색 엔드포인트이며 사용할 실제 엔드포인트를 찾는 데 사용됩니다. 이러한 엔드포인트는 사용자의 하위 지역에 따라 다릅니다.
 

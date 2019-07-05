@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754994"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443738"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -68,7 +68,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 블록 blob 저장소 계정을 지원 하지 않습니다 현재 계층을 핫, 쿨 또는 보관 액세스 계층.
 
-### <a name="filestorage-preview-storage-accounts"></a>저장소 계정 FileStorage (미리 보기)
+### <a name="filestorage-storage-accounts"></a>FileStorage 저장소 계정
 
 FileStorage 저장소 계정에는 premium 파일 공유를 만들고 저장 하는 데 특수화 된 저장소 계정이입니다. FileStorage 저장소 계정은 IOPS 버스팅 하는 등의 전용 고유한 성능 특성을 제공합니다. 이러한 특성에 대 한 자세한 내용은 참조는 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 계획 가이드 파일의 섹션입니다.
 
@@ -88,7 +88,7 @@ FileStorage 저장소 계정에는 premium 파일 공유를 만들고 저장 하
 
 블록 blob storage 계정은 블록 blob을 저장 하는 것에 대 한 프리미엄 성능 계층을 제공 및 추가 blob입니다.
 
-FileStorage (미리 보기) 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공합니다.
+FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공합니다.
 
 ## <a name="access-tiers-for-block-blob-data"></a>블록 Blob 데이터를 위한 액세스 계층
 

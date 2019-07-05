@@ -3,19 +3,19 @@ title: 텍스트 변환 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API를 사용하여 텍스트를 변환합니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-pawal
-ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 5caefad7b681970e79e727367619ca494335c390
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435015"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText 메서드 사용 방법
 

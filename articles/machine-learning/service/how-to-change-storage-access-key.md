@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078561"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543836"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
@@ -72,7 +72,7 @@ for name, ds in datastores.items():
 > [!IMPORTANT]
 > 둘 다 CLI 및 Python을 사용 하 여 데이터 저장소를 사용 하 여 작업 영역을 업데이트 하는 모든 단계를 수행 합니다. 둘 다가 업데이트 될 때까지 하나만 또는 다른 업데이트 오류가 발생할 수 있습니다.
 
-1. 키 다시 생성 합니다. 액세스 키 다시 생성에 대 한 내용은 참조는 [저장소 계정 관리](/azure/storage/common/storage-account-manage.md#access-keys) 문서. 새 키를 저장 합니다.
+1. 키 다시 생성 합니다. 액세스 키 다시 생성에 대 한 내용은 참조는 [저장소 계정 관리](/azure/storage/common/storage-account-manage#access-keys) 문서. 새 키를 저장 합니다.
 
 1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 단계를 사용 합니다.
 

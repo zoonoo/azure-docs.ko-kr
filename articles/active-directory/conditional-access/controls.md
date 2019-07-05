@@ -2,28 +2,21 @@
 title: Azure Active Directory 조건부 액세스의 액세스 제어는 무엇입니까? | Microsoft Docs
 description: Azure Active Directory 조건부 액세스의 액세스 제어 하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 06/15/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206b5fef3e4e686bd237fe0f45cfb91dccd4626f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5fc672898a56d8b3e1486b1d8d84cf532fa2b6d
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136503"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509395"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어는 무엇입니까?
 
@@ -34,7 +27,6 @@ ms.locfileid: "67136503"
 조건부 액세스의 컨텍스트에서
 
 - “**When this happens**”는 **조건**이라고 합니다.
-
 - “**Then do this**”는 **액세스 제어**라고 합니다.
 
 컨트롤을 사용 하 여 조건문의 조합이 조건부 액세스 정책을 나타냅니다.
@@ -46,7 +38,6 @@ ms.locfileid: "67136503"
 두 가지 형식의 컨트롤이 있습니다.
 
 - **권한 부여 컨트롤** - 액세스를 제어하기 위해
-
 - **세션 컨트롤** - 세션 내에서 액세스를 제한하기 위해
 
 이 항목에서는 Azure AD 조건부 액세스에서 사용할 수 있는 다양 한 컨트롤을 설명 합니다. 
@@ -65,7 +56,6 @@ ms.locfileid: "67136503"
 이 컨트롤을 사용하여 지정된 클라우드 앱에 액세스하기 위해 다단계 인증을 요구할 수 있습니다. 이 컨트롤은 다음 다단계 공급자를 지원합니다.
 
 - Azure Multi-Factor Authentication
-
 - AD FS(Active Directory Federation Service)와 결합된 온-프레미스 다단계 인증 공급자.
 
 다단계 인증을 사용하면 유효한 사용자의 주 자격 증명에 액세스 할 수 있는 권한이 없는 사용자가 리소스에 액세스하지 못하도록 방지할 수 있습니다.
@@ -76,9 +66,11 @@ ms.locfileid: "67136503"
 
 먼저 디바이스를 Azure AD에 등록해야 규정 준수 상태로 표시할 수 있습니다. 디바이스를 등록하려면 다음 세 가지 옵션이 있습니다. 
 
-- [Azure AD 등록 디바이스](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD 조인 디바이스](../devices/overview.md#azure-ad-joined-devices)  
-- [하이브리드 Azure AD 조인 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Azure AD 등록 디바이스
+- Azure AD 조인 디바이스  
+- 하이브리드 Azure AD 가입 디바이스
+
+문서에서는 이러한 세 가지 옵션을 설명 [장치 id 란?](../devices/overview.md)
 
 자세한 내용은 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 관리 되는 장치를 요구 하는 방법](require-managed-devices.md)합니다.
 
@@ -106,16 +98,11 @@ ms.locfileid: "67136503"
 
 지원 되는 정책 목록을 보호 된 클라이언트 앱을 참조 하세요 [앱 보호 정책 요구 사항을](technical-reference.md#app-protection-policy-requirement)합니다.
 
-
 ### <a name="terms-of-use"></a>사용 약관
 
 테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 애플리케이션에 대한 액세스가 부여됩니다.
 
-### <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
-
-사용자가 추가 Azure Active Directory 외부의 요구 사항을 충족 시키기 위해를 호환 가능한 서비스로 리디렉션하는 조건부 액세스의 사용자 지정 컨트롤을 추가할 수 있습니다. 이 옵션을 사용 하면 특정 외부 다단계 인증 및 검증 공급자를 사용 하 여 조건부 액세스 요구 사항을 적용할 수 있습니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다. 
-
-## <a name="custom-controls"></a>사용자 지정 컨트롤
+## <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
 사용자 지정 컨트롤은 Azure Active Directory Premium P1 버전의 기능입니다. 사용자 지정 컨트롤을 사용하는 경우 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory가 응답을 확인 하 고 사용자가 성공적으로 인증 또는 유효성을 검사 하는 경우 사용자는 조건부 액세스 흐름에서 계속 합니다.
 
@@ -157,10 +144,8 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 사용자 지정 컨트롤을 삭제 하려면 먼저 조건부 액세스 정책에 사용 되 고 있지 않은지 확인 해야 합니다. 작업이 완료되면 다음을 수행합니다.
 
 1. 사용자 지정 컨트롤 목록으로 이동합니다.
-
-2. …를 클릭합니다.  
-
-3. **삭제**를 선택합니다.
+1. …를 클릭합니다.  
+1. **삭제**를 선택합니다.
 
 ### <a name="editing-custom-controls"></a>사용자 지정 컨트롤 편집
 
@@ -179,11 +164,9 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 자세한 내용은 다음을 참조하세요.
 
 - [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/spolimitedaccessdocs)
-
 - [Exchange Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
-
 - 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조를 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다.

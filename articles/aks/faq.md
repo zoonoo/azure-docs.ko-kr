@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514502"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560439"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -25,31 +25,33 @@ ms.locfileid: "66514502"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS는 노드 자동 크기 조정 기능을 지원하나요?
 
-예, 자동 크기 조정을 통해 제공 됩니다는 [Kubernetes autoscaler] [ auto-scaler] Kubernetes 1.10 기준으로 합니다. 수동으로 구성 하 고 클러스터 autoscaler를 사용 하는 방법에 대 한 정보를 참조 하세요 [AKS에 클러스터 자동 크기 조정][aks-cluster-autoscale]합니다.
-
-노드의 확장을 관리할 수 (현재 AKS에서 미리 보기)는에서 기본 제공 클러스터 autoscaler를 사용할 수 있습니다. 자세한 내용은 [AKS에서 응용 프로그램 요구 사항에 맞게 클러스터를 자동으로 크기 조정][aks-cluster-autoscaler]합니다.
-
-## <a name="does-aks-support-kubernetes-rbac"></a>AKS는 Kubernetes RBAC를 지원 하나요?
-
-예, Azure CLI를 사용 하 여 클러스터를 만들 때 Kubernetes 역할 기반 액세스 제어 (RBAC)는 기본적으로 사용 됩니다. Azure portal 또는 템플릿을 사용 하 여 생성 된 클러스터에 대 한 RBAC를 사용할 수 있습니다.
+예, 자동으로 AKS의 에이전트 노드를 수평으로 확장할 수 기능은 현재 미리 보기로 제공 됩니다. 참조 [AKS에서 응용 프로그램 요구 사항에 맞게 클러스터를 자동으로 크기 조정][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler]합니다.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS를 기존 가상 네트워크에 배포할 수 있습니까?
 
 예를 사용 하 여 기존 가상 네트워크에는 AKS 클러스터를 배포할 수 있습니다 합니다 [고급 네트워킹 기능][aks-advanced-networking]합니다.
 
+## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Kubernetes API 서버에 대 한 액세스 권한이 있는 사용자를 제한할 수 있습니까?
+
+예를 사용 하 여 Kubernetes API 서버에 대 한 액세스를 제한할 수 있습니다 [API Server 권한이 부여 된 IP 범위][api-server-authorized-ip-ranges]는 현재 미리 보기 상태입니다.
+
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>만들기 Kubernetes API 서버에 액세스할 수 있는 내 가상 네트워크 내 에서만
 
-지금은 없습니다. Kubernetes API 서버는 공용의 FQDN(정규화된 도메인 이름)으로 공개됩니다. 사용 하 여 클러스터에 대 한 액세스를 제어할 수 있습니다 [Kubernetes RBAC와 Azure Active Directory (Azure AD)][aks-rbac-aad]합니다.
+이 이때 아닐 되지만 제공 될 계획입니다. 진행률을 추적할 수는 [AKS GitHub 리포지토리][private-clusters-github-issue]합니다.
+
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>단일 클러스터의 다른 VM 크기를 보유할 수 있나요?
+
+만들어 AKS 클러스터의 다른 가상 머신 크기를 사용할 수는 예 [여러 노드 풀][multi-node-pools]는 현재 미리 보기 상태입니다.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>보안 업데이트가 AKS 에이전트 노드에 적용되나요?
 
 Azure는 자동으로 야간 일정에 따라 클러스터의 Linux 노드에 보안 패치를 적용합니다. 그러나 수는 해당 Linux로 노드가 다시 부팅 필요 함을 확인 하는 일을 담당 합니다. 노드 다시 부팅에 대 한 몇 가지 옵션이 있습니다.
 
 - Azure Portal 또는 Azure CLI를 통해 수동으로.
-- AKS 클러스터를 업그레이드하여. 클러스터 업그레이드 [cordon 및 드레이닝 노드] [ cordon-drain] 자동으로 최신 Ubuntu 이미지 및 새 패치 버전 또는 부 Kubernetes 버전을 사용 하 여 새 노드가 온라인 상태로 됩니다. 자세한 내용은 [AKS 클러스터 업그레이드][aks-upgrade]를 참조하세요.
-- 사용 하 여 [Kured](https://github.com/weaveworks/kured), kubernetes는 오픈 소스 재부팅 디먼입니다. 으로 kured 실행을 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 하 고 다시 부팅이 필요 하다 나타내는 파일의 존재에 대 한 각 노드를 모니터링 합니다. 클러스터에 OS 재부팅에서 관리 하는 동일한 [cordon 및 드레이닝 프로세스] [ cordon-drain] 클러스터 업그레이드 합니다.
+- AKS 클러스터를 업그레이드하여. 클러스터 업그레이드 [cordon 및 드레이닝 노드][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade]합니다.
+- 사용 하 여 [Kured](https://github.com/weaveworks/kured), kubernetes는 오픈 소스 재부팅 디먼입니다. 으로 kured 실행을 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 하 고 다시 부팅이 필요 하다 나타내는 파일의 존재에 대 한 각 노드를 모니터링 합니다. 클러스터에 OS 재부팅에서 관리 하는 동일한 [cordon 및 드레이닝 프로세스][cordon-drain] 클러스터 업그레이드 합니다.
 
-kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][node-updates-kured]을 참조하세요.
+Kured 사용에 대 한 자세한 내용은 참조 하세요. [AKS의 노드에 보안 및 커널 업데이트 적용][node-updates-kured]합니다.
 
 ### <a name="windows-server-nodes"></a>Windows 서버 노드
 
@@ -68,7 +70,7 @@ kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커�
 
 예. 기본적으로 AKS 리소스 공급자를 자동으로 보조 리소스 그룹을 만듭니다 (같은 *MC_myResourceGroup_myAKSCluster_eastus*) 배포 하는 동안. 회사 정책을 준수 하는 관리 되는이 클러스터에 대 한 고유한 이름을 제공할 수 있습니다 (*MC_* ) 리소스 그룹입니다.
 
-고유한 리소스 그룹 이름을 지정 하려면 다음을 설치 합니다 [aks 미리 보기] [ aks-preview-cli] Azure CLI 확장 버전 *평면이 0.3.2* 이상. 사용 하 여 AKS 클러스터를 만들 때 합니다 [az aks 만들기] [ az-aks-create] 명령에 사용 하 여는 *-노드 리소스 그룹* 매개 변수 리소스 그룹의 이름을 지정 합니다. 경우 있습니다 [Azure Resource Manager 템플릿을 사용 하 여] [ aks-rm-template] AKS 클러스터를 배포 하려면 리소스 그룹 이름을 사용 하 여 정의할 수 있습니다 합니다 *nodeResourceGroup* 속성입니다.
+고유한 리소스 그룹 이름을 지정 하려면 다음을 설치 합니다 [aks 미리 보기][aks-preview-cli] Azure CLI 확장 버전 *평면이 0.3.2* 이상. 사용 하 여 AKS 클러스터를 만들 때 합니다 [az aks 만들기][az-aks-create] 명령에 사용 하 여는 *-노드 리소스 그룹* 매개 변수 리소스 그룹의 이름을 지정 합니다. 경우 있습니다 [Azure Resource Manager 템플릿을 사용 하 여][aks-rm-template] AKS 클러스터를 배포 하려면 리소스 그룹 이름을 사용 하 여 정의할 수 있습니다 합니다 *nodeResourceGroup* 속성입니다.
 
 * 보조 리소스 그룹 사용자의 구독에서 Azure 리소스 공급자에 의해 자동으로 만들어집니다.
 * 클러스터를 만들려는 경우에 사용자 지정 리소스 그룹 이름을 지정할 수 있습니다.
@@ -87,7 +89,7 @@ kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커�
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS가 지원하는 Kubernetes 허용 컨트롤러는 무엇인가요? 허용 컨트롤러를 추가하거나 제거할 수 있나요?
 
-AKS는 다음과 같은 [허용 컨트롤러][admission-controllers]를 지원합니다.
+다음을 지원 합니다 AKS [입학 허가 컨트롤러][admission-controllers]:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -104,7 +106,7 @@ AKS는 다음과 같은 [허용 컨트롤러][admission-controllers]를 지원�
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault는 AKS와 통합되나요?
 
-AKS는 Azure Key Vault를 사용 하 여 현재 고유 하 게 통합 되지 않았습니다. 그러나 합니다 [Kubernetes 프로젝트에 대 한 Azure 키 자격 증명 모음 FlexVolume] [ keyvault-flexvolume] 하면 직접 Kubernetes pod에서 키 자격 증명 모음 비밀에 통합 합니다.
+AKS는 Azure Key Vault를 사용 하 여 현재 고유 하 게 통합 되지 않았습니다. 그러나 합니다 [Kubernetes 프로젝트에 대 한 Azure 키 자격 증명 모음 FlexVolume][keyvault-flexvolume] 하면 직접 Kubernetes pod에서 키 자격 증명 모음 비밀에 통합 합니다.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server 컨테이너를 AKS에서 실행할 수 있습니까?
 
@@ -131,7 +133,7 @@ AKS 관리 서비스 이기 때문에 배포 하 고 클러스터의 일부로 �
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>내 AKS 에이전트 노드에 Azure 예약 할인을 적용할 수 있나요?
 
-AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되며 따라서 구입한 [Azure 예약] [ reservation-discounts] AKS에서 사용 하는 VM 크기, 할인 자동으로 적용 됩니다.
+AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되며 따라서 구입한 [Azure 예약][reservation-discounts] AKS에서 사용 하는 VM 크기, 할인 자동으로 적용 됩니다.
 
 <!-- LINKS - internal -->
 
@@ -144,12 +146,14 @@ AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되며 따라
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
@@ -158,3 +162,4 @@ AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되며 따라
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948

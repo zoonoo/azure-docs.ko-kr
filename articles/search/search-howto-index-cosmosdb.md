@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753992"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485462"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search 인덱서를 사용 하 여 Cosmos DB를 인덱싱하는 방법
 
@@ -133,7 +133,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
-각 요청에 대 한 서비스 이름 및 저장소 계정 이름과 (POST 헤더)에서 Azure Search에 대 한 관리자 키 및 blob storage에 대 한 키를 제공 해야 합니다. 사용할 수 있습니다 [Postman](search-fiddler.md) Azure Search에 HTTP 요청을 보내도록 합니다.
+각 요청에 대 한 서비스 이름 및 저장소 계정 이름과 (POST 헤더)에서 Azure Search에 대 한 관리자 키 및 blob storage에 대 한 키를 제공 해야 합니다. 사용할 수 있습니다 [Postman](search-get-started-postman.md) Azure Search에 HTTP 요청을 보내도록 합니다.
 
 요청에 붙여 넣을 수 있도록 다음 네 가지 값을 메모장에 복사 합니다.
 
@@ -258,7 +258,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 | Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| String |Edm.String |
+| 문자열 |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체(예: { “type”: “Point”, “coordinates”: [long, lat] } |Edm.GeographyPoint |

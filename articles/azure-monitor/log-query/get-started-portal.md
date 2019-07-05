@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296510"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565599"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 이 쿼리를 검색 합니다 _이벤트_ 용어가 포함 된 레코드에 대 한 테이블 _오류_ 속성에서.
 
-쿼리는 테이블 이름 또는 [search](/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예에서는 테이블 이름으로 시작 _이벤트_, 이벤트 테이블에서 모든 레코드를 검색 하는 합니다. 파이프 (|) 문자 다음 명령의 입력으로 사용 되는 첫 번째 출력 하므로 명령을 구분 합니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
+쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예에서는 테이블 이름으로 시작 _이벤트_, 이벤트 테이블에서 모든 레코드를 검색 하는 합니다. 파이프 (|) 문자 다음 명령의 입력으로 사용 되는 첫 번째 출력 하므로 명령을 구분 합니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
 
 동일한 쿼리를 작성하는 또 다른 방법은 다음과 같습니다.
 

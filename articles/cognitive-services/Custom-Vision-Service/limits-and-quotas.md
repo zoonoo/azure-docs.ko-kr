@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
-ms.translationtype: HT
+ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472443"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269266"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -31,7 +31,7 @@ Custom Vision service에는 두 개의 키 계층이 있으며 Azure Portal을 �
 |태그/프로젝트|50|500|
 |반복 횟수 |10|10|
 |태그 당 최소 레이블이 지정된 이미지, 분류(50개 이상 권장) |5|5|
-|태그 당 최소 레이블이 지정된 이미지, 개체 감지(50개 이상 권장) |15|15|
+|태그 당 최소 레이블이 지정된 이미지, 개체 감지(50개 이상 권장)|15|15|
 |예측 이미지 저장 기간|30일|30일|
 |저장소가 있는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|10|
 |저장소가 없는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|20|
@@ -39,3 +39,5 @@ Custom Vision service에는 두 개의 키 계층이 있으며 Azure Portal을 �
 |[기타 API 호출](https://go.microsoft.com/fwlink/?linkid=865446)(초당 트랜잭션 수)|10|10|
 |최대 이미지 크기(학습 이미지 업로드) |6MB|6MB|
 |최대 이미지 크기(예측)|4MB|4MB|
+|개체 검색 학습 이미지 당 최대 영역|200|200|
+|이미지 분류 당 최대 태그 수|30|30|

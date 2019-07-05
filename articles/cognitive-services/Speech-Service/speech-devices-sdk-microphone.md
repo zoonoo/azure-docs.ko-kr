@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236996"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>음성 장치 SDK 마이크 배열 권장 사항
@@ -31,7 +31,7 @@ Microsoft 오디오 스택은 사용에 대 한 다음 배열 기 하 도형을 
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# 마이크  | 7                 | 4                 | 4              | 2              |
-| 기하 도형 | 6 외부 1 Center, Radius 42.5 mm, 간격 =| 외부, 3 1 Center, Radius 42.5 mm, 간격 = | 길이 = 120mm, 간격 = 40 m m | 간격 = 40 m m |
+| 기 하 도형 | 6 외부 1 Center, Radius 42.5 mm, 간격 =| 외부, 3 1 Center, Radius 42.5 mm, 간격 = | 길이 = 120mm, 간격 = 40 m m | 간격 = 40 m m |
 
 마이크 채널에 각 배열에 0부터 증가 위에 표시 된 번호 매기기에 따라 정렬 됩니다.  Microsoft 오디오 스택이 오디오 재생 echo 취소를 수행 하는 추가 참조 스트림을 해야 합니다.
 

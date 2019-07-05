@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446728"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box Heavy 배포
 
@@ -57,7 +57,7 @@ ms.locfileid: "66515942"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="order"></a>순서
 
@@ -95,8 +95,8 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
 
-1. 디바이스 암호를 확인하려면 [Azure Portal](http://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다. 디바이스의 두 노드에는 동일한 암호가 사용됩니다.
-2. 192\.168.100.5 고정 IP 주소 및 255.255.255.0 서브넷을 Data Box Heavy에 연결하는 데 사용하는 컴퓨터의 이더넷 어댑터에 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다.
+1. 디바이스 암호를 확인하려면 [Azure Portal](https://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다. 디바이스의 두 노드에는 동일한 암호가 사용됩니다.
+2. 192.168.100.5 고정 IP 주소 및 255.255.255.0 서브넷을 Data Box Heavy에 연결하는 데 사용하는 컴퓨터의 이더넷 어댑터에 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다.
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 인터페이스(MGMT 제외)에 대한 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이러한 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다.
 

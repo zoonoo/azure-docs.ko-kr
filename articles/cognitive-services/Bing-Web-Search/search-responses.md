@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390091"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542823"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
@@ -39,6 +39,8 @@ Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 [`SearchRe
 ```
 
 일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어, 쿼리 용어가 *돛단배*였다면 응답은 `webPages`, `images` 및 `rankingResponse`를 포함할 수 있습니다. [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## <a name="webpages-answer"></a>웹 페이지 응답
 
@@ -428,10 +430,6 @@ Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우
     }]
 }, ...
 ```
-
-다음은 Bing이 추천 단어를 사용하는 방법을 보여줍니다.
-
-![Bing 추천 단어 예제](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## <a name="response-headers"></a>응답 헤더
 

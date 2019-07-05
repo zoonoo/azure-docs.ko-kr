@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161705"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182210"
 ---
 ## <a name="install-wordpress"></a>WordPress 설치
 
@@ -37,7 +37,7 @@ MySQL 및 PHP를 사용하도록 WordPress를 구성합니다.
 sudo sensible-editor wordpress.sql
 ```
 
-다음 명령을 추가하여 *yourPassword*에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다.  파일을 저장합니다.
+다음 명령을 추가하여 *yourPassword*에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다. 파일을 저장합니다.
 
 ```sql
 CREATE DATABASE wordpress;

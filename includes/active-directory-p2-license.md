@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: daveba
 ms.openlocfilehash: 5e430b16bbdebf97c1499d997fe2c30771270987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160157"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204419"
 ---
-이 기능을 사용 하 여 Azure AD Premium P2 라이선스가 필요 합니다. 올바른 라이선스 요구 사항에 대 한 참조 하세요 [Free, Basic 및 Premium 버전의 일반 공급 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)합니다.
+이 기능을 사용하려면 Azure AD Premium P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면  [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.

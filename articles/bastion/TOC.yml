@@ -22,10 +22,6 @@
           href: bastion-vm-full-screen.md
     - name: NSG 사용
       href: bastion-nsg.md
-- name: 참고 자료
-  items:
-    - name: REST (영문)
-      href: 'https://docs.microsoft.com/rest/api/network-gateway'
 - name: 리소스
   items:
     - name: Bastion FAQ

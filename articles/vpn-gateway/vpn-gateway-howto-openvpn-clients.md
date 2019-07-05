@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147250"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477840"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성
 
@@ -67,9 +67,9 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.
 5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 프라이빗 키를 추출하는 방법에 대한 자세한 내용은 [프라이빗 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
 6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
-7. 프로필 파일을 두 번 클릭하여 tunnelblik에서 프로필을 만듭니다.
-8. 애플리케이션 폴더에서 Tunnelblik를 시작합니다.
-9. 시스템 트레이에서 Tunnelblik 아이콘을 클릭하고 연결을 선택합니다.
+7. Tunnelblick에서 프로필을 만든 프로필 파일을 두 번 클릭 합니다.
+8. 응용 프로그램 폴더에서 Tunnelblick를 시작 합니다.
+9. 시스템 트레이에 Tunnelblick 아이콘을 클릭 하 고 선택 연결 합니다.
 
 > [!IMPORTANT]
 >OpenVPN 프로토콜에서는 IOS 11.0 이상 및 MacOS 10.13 이상만 지원됩니다.

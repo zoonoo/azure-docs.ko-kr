@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154564"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
@@ -41,7 +41,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | [구문 목록][phrase-list]|10개의 구 목록, 목록당 5,000개의 항목|
 | [미리 빌드된 엔터티](./luis-prebuilt-entities.md) | 제한 없음|
 | [정규식 엔터티](./luis-concept-entity-types.md)|20개 엔터티<br>정규식 엔터티 패턴당 최대 500자|
-| [역할](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
+| [Roles](luis-concept-roles.md)|애플리케이션당 300개 역할. 엔터티당 10개 역할|
 | [발화][utterances] | 500자|
 | [발화][utterances] | 15,000 응용 프로그램별-는 의도 당 길이 발언 수에 제한이|
 | [버전](luis-concept-version.md)| 제한 없음 |

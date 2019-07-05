@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145400"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333383"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -26,8 +26,7 @@ ms.locfileid: "66145400"
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 몇 개의 섹션에서는 토큰을 가져오고, 토큰을 사용하고, 토큰을 새로 고치는 방법을 알아보겠습니다.
-
+`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 몇 섹션에서 토큰을 가져오고 토큰을 사용 하는 방법을 배웁니다.
 
 ### <a name="how-to-get-an-access-token"></a>액세스 토큰을 가져오는 방법
 

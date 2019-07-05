@@ -8,8 +8,6 @@
       href: azure-portal-supported-browsers-devices.md
 - name: 개념
   items:
-    - name: Azure 대시보드 만들기 및 공유
-      href: azure-portal-dashboards.md
     - name: 역할 기반 액세스 제어로 대시보드 공유
       href: azure-portal-dashboard-share-access.md
     - name: Azure 대시보드를 프로그래밍 방식으로 만들기
@@ -20,6 +18,8 @@
       href: azure-portal-change-theme-high-contrast.md
     - name: '즐겨찾기 추가, 제거 및 정렬'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Azure 대시보드 만들기 및 공유
+      href: azure-portal-dashboards.md
     - name: 사용자 지정 markdown 타일 사용
       href: azure-portal-markdown-tile.md
     - name: 사용자 설정 내보내기 또는 삭제
@@ -30,6 +30,8 @@
   items:
     - name: 바로 가기 키
       href: azure-portal-keyboard-shortcuts.md
+    - name: Azure Portal URL 수신 허용 목록
+      href: azure-portal-safelist-urls.md
     - name: Azure 대시보드의 구조
       href: azure-portal-dashboards-structure.md
 - name: 리소스

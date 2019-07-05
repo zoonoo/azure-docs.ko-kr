@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339444"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477874"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>(미리 보기)는 Azure 요새 호스트 만들기
 
@@ -33,15 +33,11 @@ ms.locfileid: "67339444"
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-이 미리 보기에 참여 하려면 등록 해야 합니다. 미리 보기에 등록 하려면 다음이 단계를 사용 합니다.
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>요새 호스트 만들기
 
 이 섹션에서는 Azure portal에서 새 Azure 배스 천 리소스를 만들 수 있습니다.
 
-1. 홈 페이지에서 [ Azure portal-미리 보기](https://aka.ms/BastionHost), 클릭 **+ 리소스 만들기**합니다. 이 미리 보기에 일반 Azure portal이 아닌 포털에 액세스 하려면 제공 된 링크를 사용 해야 합니다.
+1. 홈 페이지에서 [Azure portal-배스 천 미리 보기](https://aka.ms/BastionHost), 클릭 **+ 리소스 만들기**합니다. 이 미리 보기에 일반 Azure portal이 아닌 포털에 액세스 하려면 제공 된 링크를 사용 해야 합니다.
 
 1. 에 **새로 만들기** 페이지를 *마켓플레이스를 검색 합니다* 필드에 입력 **배스 천**, 클릭 **Enter** 검색 결과를 가져오려고 합니다.
 
@@ -72,7 +68,7 @@ ms.locfileid: "67339444"
 
 포털에서 기존 VM을 사용 하 여 요새 호스트를 만든 경우 다양 한 설정을 기본값은 자동으로 가상 컴퓨터 및/또는 가상 네트워크에 해당 합니다.
 
-1. 에 [미리 보기 포털](https://aka.ms/BastionHost)다음 가상 컴퓨터를 찾아 클릭 **Connect**합니다.
+1. 에 [Azure portal-배스 천 미리 보기](https://aka.ms/BastionHost)다음 가상 컴퓨터를 찾아 클릭 **Connect**합니다.
 
     ![VM 연결](./media/bastion-create-host-portal/vmsettings.png)
 

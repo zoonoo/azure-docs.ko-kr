@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471451"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514576"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
 이 문서는 [Azure Site Recovery](site-recovery-overview.md)에서 복구 계획을 설명합니다.
 
-복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다. 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
-
+복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다. 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.  컴퓨터에서 여러 복구 계획에는 후속 계획 건너뜁니다 컴퓨터의 배포/시작 이전에 배포한 경우 다른 복구 계획을 통해 참조할 수 있습니다.
 
 
 ## <a name="why-use-a-recovery-plan"></a>복구 계획을 사용하는 이유는 무엇인가요?

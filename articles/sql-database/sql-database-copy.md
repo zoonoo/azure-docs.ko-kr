@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688081"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442307"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
-Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure SQL 데이터베이스의 트랜잭션 측면에서 일관된 복사본을 만들기 위한 여러 가지 방법을 제공합니다. Azure Portal, PowerShell 또는 T-SQL을 사용하여 SQL Database를 복사할 수 있습니다. 
+기존 Azure SQL 데이터베이스의 트랜잭션 측면에서 일관 된 복사본을 만들기 위한 몇 가지 메서드를 제공 하는 azure SQL Database ([단일 데이터베이스](sql-database-single-database.md)) 동일한 서버나 다른 서버에 있습니다. Azure Portal, PowerShell 또는 T-SQL을 사용하여 SQL Database를 복사할 수 있습니다. 
 
 ## <a name="overview"></a>개요
 
@@ -94,7 +94,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>SQL 데이터베이스를 다른 구독으로 복사
 
-다른 구독에 있는 SQL Database 서버에 데이터베이스를 복사 하려면 이전 섹션에서 단계 descrbed를 사용할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 동일한 이름 및 암호를 가진 로그인을 사용 하 고, dbmanager 역할의 구성원 이거나 서버 수준 보안 주체 로그인 해야 합니다. 
+다른 구독에 있는 SQL Database 서버에 데이터베이스를 복사 하려면 이전 섹션에서 설명 된 단계를 사용할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 동일한 이름 및 암호를 가진 로그인을 사용 하 고, dbmanager 역할의 구성원 이거나 서버 수준 보안 주체 로그인 해야 합니다. 
 
 > [!NOTE]
 > 합니다 [Azure portal](https://portal.azure.com) 포털 ARM API를 호출 하 고 구독 인증서를 사용 하 여 지역에서 복제와 관련 된 두 서버에 액세스 하기 때문에 다른 구독으로 복사를 지원 하지 않습니다.  

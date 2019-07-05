@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190250"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476105"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>기본 새로 고침 토큰 이란?
 
@@ -62,7 +62,7 @@ PRT 두 가지 시나리오에서 Windows 10 장치에 사용자를 인증 하�
    * 통해 계정을 추가 합니다 **어디에서 나이 장치에서이 계정을 사용 하 여** 앱 (예: Outlook)에 로그인 한 후 프롬프트
    * 계정 추가 **설정을** > **계정** > **회사 또는 학교 액세스** > **연결**
 
-이러한 시나리오에서 Azure AD WAM 플러그 인 이므로 PRT에 대 한 기본 권한을 Windows 로그온이 Azure AD 계정으로 발생 하지입니다.
+Azure AD 등록 장치 시나리오에서 Azure AD WAM 플러그 인 이므로 PRT에 대 한 기본 권한을 Windows 로그온이 Azure AD 계정으로 발생 하지입니다.
 
 > [!NOTE]
 > 타사 타사 id 공급자는 Ws-trust 프로토콜을 사용 하는 Windows 10 장치에서 PRT 발급을 지원 해야 합니다. 하이브리드 Azure AD 가입 또는 Azure AD에서 사용자 장치에 조인 없이 Ws-trust, PRT를 실행할 수 없습니다.

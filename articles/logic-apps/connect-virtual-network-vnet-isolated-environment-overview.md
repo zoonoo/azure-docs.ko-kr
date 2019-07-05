@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546413"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441572"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -35,7 +35,7 @@ ISE를 만들면 Azure 개인 및 격리 된 인스턴스를 Logic Apps 서비�
 이 개요에서는 ISE를 논리 앱을 제공 하는 방법에 대 한 자세한 설명 및 통합 계정에 Azure 가상 네트워크에 직접 액세스 및 ISE를와 전역 Logic Apps 서비스 간의 차이점을 비교 합니다.
 
 > [!NOTE]
-> Logic apps, 기본 제공 트리거, 기본 제공 작업 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
+> Logic apps, 기본 제공 트리거, 기본 제공 작업 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요. 또한 프로그램 ISE 실행된 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간 초과, 메시지 크기 및 사용자 지정 커넥터 요청에 제한을 증가 했습니다. 자세한 내용은 [제한 및 Azure Logic Apps에 대 한 구성을](logic-apps-limits-and-config.md)합니다.
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되�
 
   ![ISE 커넥터 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+또한 ISE를 실행된 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간 초과, 메시지 크기 및 사용자 지정 커넥터 요청에 대 한 한 제한 증가 제공합니다. 자세한 내용은 [제한 및 Azure Logic Apps에 대 한 구성을](logic-apps-limits-and-config.md)합니다.
+
 ### <a name="access-to-on-premises-data-sources"></a>온-프레미스 데이터 원본에 대 한 액세스
 
 Azure virtual network에 연결 된 온-프레미스 시스템에 대 한 삽입 ISE를 해당 네트워크 logic apps 이러한 항목 중 하나를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 합니다.
 
 * 예를 들어, SQL Server는 시스템에 대 한 ISE 버전 커넥터
-  
 * HTTP 동작
-  
 * 사용자 지정 커넥터
 
   * 온-프레미스 데이터 게이트웨이 필요로 하는 사용자 지정 커넥터 있고 ISE 외부 해당 커넥터를 만든 경우는 ISE에서 logic apps는 해당 커넥터를 사용할 수도 있습니다.

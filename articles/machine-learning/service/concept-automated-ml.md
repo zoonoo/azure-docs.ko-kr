@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331744"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442430"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -120,7 +120,7 @@ Azure Machine Learning을 사용 하 여 자동화 된 기계 학습 Python 모�
 
 예제를 참조 하 고 자동화 된 machine learning을 사용 하 여 모델을 빌드하는 방법을 알아봅니다.
 
-+ 수행 된 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)
++ 수행 된 [자습서: 자동으로 Azure Machine Learning 자동화를 사용 하 여 회귀 모델을 학습](tutorial-auto-train-models.md)
 
 + 자동 학습 실험에 대 한 설정을 구성 합니다.
   + Azure 포털 인터페이스에서 [이 단계를 사용 하 여](how-to-create-portal-experiments.md)입니다.

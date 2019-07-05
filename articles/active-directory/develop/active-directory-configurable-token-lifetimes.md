@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111798"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564439"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 미리 보기 중 고객 으로부터 청력 후 사용 하는 구성 가능한 토큰 수명 기능 바꾼 것 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106) 에서 Azure AD 조건부 액세스. 이 기능 2019 년 11 월 1 일에 중단 될 예정입니다. 구성 가능한 토큰 수명 정책은 사용 하는 경우 새 조건부 액세스 기능으로 전환 합니다. 
+> 미리 보기 중 고객 으로부터 청력 후 구현 했습니다 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106) 에서 Azure AD 조건부 액세스. 빈도에서 로그인을 설정 하 여 새로 고침 토큰 수명을 구성 하려면이 새 기능을 사용할 수 있습니다. 2019 년 11 월 1 일 후 됩니다 새로 고침 토큰을 구성 하려면 구성 가능한 토큰 수명 정책을 사용할 수 있지만 액세스 토큰을 구성 하려면 여전히 사용할 수 있습니다.
 
 Azure AD에서 정책 개체는 개별 애플리케이션 또는 조직의 모든 애플리케이션에 적용되는 규칙 집합을 나타냅니다. 각 정책 유형에는 할당된 개체에 적용되는 속성 집합이 포함된 고유의 구조가 있습니다.
 

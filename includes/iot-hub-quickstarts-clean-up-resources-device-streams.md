@@ -2,22 +2,22 @@
 title: 포함 파일(디바이스 스트림)
 description: 포함 파일
 services: iot-hub
-author: rezas
+author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733261"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446015"
 ---
 그 다음 권장되는 문서를 계속 진행할 계획이라면 지금까지 만든 리소스를 그대로 두고 재사용할 수 있습니다.
 
-더 이상 진행할 생각이 없으면 요금이 발생하지 않도록 이 문서에서 만든 Azure 리소스를 삭제해도 됩니다. 
+더 이상 진행할 생각이 없으면 요금이 발생하지 않도록 이 문서에서 만든 Azure 리소스를 삭제해도 됩니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관하려는 리소스가 들어 있는 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹이 아닌 IoT Hub 리소스만 삭제해야 합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "66733261"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인한 다음, **리소스 그룹**을 선택합니다.
 
-1. **이름을 기준으로 필터링** 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
+1. **이름을 기준으로 필터링** 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다.
 
 1. 결과 목록에서 리소스 그룹의 오른쪽에 있는 줄임표( **...** )를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523082"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485431"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 이 문서에서는 Azure Search blob을 구성 하는 방법을 보여 줍니다 [인덱서](search-indexer-overview.md) Azure Blob storage에서 JSON 문서에서 구조적된 콘텐츠를 추출 하 여 Azure Search에서 가능 합니다. 이 워크플로 Azure Search 인덱스를 만들고 JSON blob에서 추출 하는 기존 텍스트를 사용 하 여 로드 합니다. 
@@ -118,7 +118,7 @@ REST API를 사용 하 여 Azure Search에 있는 모든 인덱서에 공통를 
 
 검토할 수 있습니다 [REST 예제 코드](#rest-example) 모든 세 개체를 만드는 방법을 보여 주는이 섹션의 끝입니다. 이 섹션에 대 한 세부 정보 포함 [JSON 구문 분석 모드](#parsing-modes), [blob single](#parsing-single-blobs)를 [JSON 배열](#parsing-arrays), 및 [중첩 배열](#nested-json-arrays)합니다.
 
-JSON 인덱싱 코드 기반에 대해 사용 하 여 [Postman](search-fiddler.md) 및 이러한 개체를 만드는 REST API:
+JSON 인덱싱 코드 기반에 대해 사용 하 여 [Postman](search-get-started-postman.md) 및 이러한 개체를 만드는 REST API:
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
-각 요청에 대 한 서비스 이름 및 저장소 계정 이름과 (POST 헤더)에서 Azure Search에 대 한 관리자 키 및 blob storage에 대 한 키를 제공 해야 합니다. 사용할 수 있습니다 [Postman](search-fiddler.md) Azure Search에 HTTP 요청을 보내도록 합니다.
+각 요청에 대 한 서비스 이름 및 저장소 계정 이름과 (POST 헤더)에서 Azure Search에 대 한 관리자 키 및 blob storage에 대 한 키를 제공 해야 합니다. 사용할 수 있습니다 [Postman](search-get-started-postman.md) Azure Search에 HTTP 요청을 보내도록 합니다.
 
 요청에 붙여 넣을 수 있도록 다음 네 가지 값을 메모장에 복사 합니다.
 

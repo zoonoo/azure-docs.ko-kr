@@ -252,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Azure VM에서 SAP HANA 백업
+          href: backup-azure-sap-hana-database-troubleshoot.md
         - name: 시스템 상태
           href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup 워크로드 모니터링

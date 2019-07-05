@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071067"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550368"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 엔드포인트 모니터링
 
@@ -102,7 +102,7 @@ Traffic Manager는 비정상 엔드포인트를 포함하는 모든 엔드포인
 - 모니터링 프로토콜이 HTTP 또는 HTTPS인 경우:
     - 200 이외의 응답 또는 **예상되는 상태 코드 범위** 설정에서 지정된 상태 범위를 포함하지 않는 응답이 수신됩니다(다양한 2xx 코드 또는 301/302 리디렉션 포함).
 - 모니터링 프로토콜이 TCP인 경우: 
-    - Traffic Manager가 연결을 다시 설정하기 위해 보낸 동기화 요청에 대한 응답으로 ACK 또는 SYN-ACK 이외의 응답을 받았습니다.
+    - ACK 또는 SYN-ACK 이외의 응답은 Traffic Manager에서 연결 설정 시도에 전송 된 SYN 요청에 대 한 응답에서 수신 됩니다.
 - 시간 초과. 
 - 엔드포인트에 도달하지 못하게 하는 다른 모든 연결 문제입니다.
 

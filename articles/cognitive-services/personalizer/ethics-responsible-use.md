@@ -2,19 +2,20 @@
 title: 윤리 및 사용 책임 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이러한 지침은 회사와 서비스에서 신뢰를 구축하는 데 도움이 되는 방식으로 맞춤 설정을 구현하기 위한 것입니다. 잠시 여유를 갖고 맞춤 설정이 사람들의 삶에 미치는 영향에 대해 연구하고, 알아보고, 깊이 생각해 보세요. 의심스러우면 지침을 확인해 보세요.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239881"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428443"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -196,7 +197,7 @@ Microsoft는 이러한 책임을 이행하는 데 도움을 주기 위해 도구
 * [Ethics and Data Science(데이터 과학 및 윤리)](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/)(DJ Patil, Hilary Mason, Mike Loukides, 공동 작성자)
 * [ACM Code of Ethics(ACM 윤리 강령)](https://www.acm.org/code-of-ethics)
 * [GINA(Genetic Information Nondiscrimination Act)](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>다음 단계

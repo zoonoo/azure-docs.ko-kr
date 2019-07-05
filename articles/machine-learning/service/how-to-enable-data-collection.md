@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024241"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443990"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
 이 문서에서는 AKS(Azure Kubernetes 클러스터)에 배포한 Azure Machine Learning Services에서 Azure Blob Storage로 입력 모델 데이터를 수집하는 방법을 확인할 수 있습니다. 
 
 데이터를 수집하도록 설정하면 이렇게 수집한 데이터는 다음과 같은 용도로 활용할 수 있습니다.
-* 프로덕션 데이터가 모델에 들어올 때 데이터 드리프트 모니터링
+* [모니터링 데이터 drifts](how-to-monitor-data-drift.md) 프로덕션 데이터 모델을 입력 한 대로
 
 * 모델을 다시 학습시키거나 최적화할 시기를 더 효율적으로 결정
 

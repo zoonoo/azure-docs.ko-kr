@@ -1,5 +1,5 @@
 ---
-title: Media Services의 자산 - Azure | Microsoft Docs
+title: Azure Media Services에서 자산 | Microsoft Docs
 description: 이 문서에서는 자산이 무엇이고 Azure Media Services가 어떤 자산을 사용하는지 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551770"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565821"
 ---
 # <a name="assets"></a>자산
 
@@ -55,7 +55,7 @@ Azure Media Services에는 [자산](https://docs.microsoft.com/rest/api/media/as
 > [!NOTE]
 > 날짜/시간 형식의 자산 속성은 언제나 UTC 형식입니다.
 
-#### <a name="rest"></a>REST (영문)
+#### <a name="rest"></a>REST(영문)
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
@@ -87,9 +87,22 @@ curl -X PUT \
 
 전체 예제는 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조하세요. Media Services v3의 작업 입력은 HTTPS URL에서도 만들 수 있습니다([HTTPS URL에서 작업 입력 만들기](job-input-from-http-how-to.md) 참조).
 
-## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
+## <a name="map-v3-asset-properties-to-v2"></a>V2에 v3 자산 속성 매핑
 
-[Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
+다음 표는 하는 방법을 [자산](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)의 v3에서 속성 v2의 자산의 속성에 매핑됩니다.
+
+|v3 속성|v2 속성|
+|---|---|
+|id (고유) 전체 Azure Resource Manager 경로 참조 예제의 [자산](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|이름-(고유) 참조 [명명 규칙](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id (고유) 값으로 시작 된 `nb:cid:UUID:` 접두사입니다.|
+|created|만든 날짜|
+|description|이름|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| 옵션-만들기 옵션|
+|형식||
 
 ## <a name="storage-side-encryption"></a>저장소 쪽 암호화
 
@@ -104,6 +117,10 @@ curl -X PUT \
 <sup>1</sup> Media Services가 깨끗한/어떠한 형태의 암호화도 없는 콘텐츠 처리를 지원하기는 하지만, 그렇게 하지 않는 것이 좋습니다.
 
 <sup>2</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
+
+## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
+
+[Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

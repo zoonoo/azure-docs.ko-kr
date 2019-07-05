@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 67bcb33727bc808f5e5bea701daffc77dde736ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813768"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>LUIS 앱에 대한 주기 작성
 LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
@@ -49,4 +49,4 @@ HTTPS 엔드포인트에서 LUIS 앱을 테스트할 수 있습니다. 엔드포
 
 ## <a name="next-steps"></a>다음 단계
 
-[공동 작업](luis-concept-collaborator.md) 개념을 알아봅니다.
+[협업](luis-concept-collaborator.md) 개념을 알아봅니다.

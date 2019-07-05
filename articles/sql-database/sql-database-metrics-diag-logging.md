@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791957"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447817"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
-이 항목에서는 Azure portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL Database에 대 한 진단 원격 분석의 로깅을 구성 하는 방법에 배웁니다. 이러한 진단 리소스 사용률 및 쿼리 실행 통계를 사용할 수 있습니다. 
+이 항목에서는 Azure portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL Database에 대 한 진단 원격 분석의 로깅을 구성 하는 방법에 배웁니다. 이러한 진단 리소스 사용률 및 쿼리 실행 통계를 사용할 수 있습니다.
 
 단일 데이터베이스, 탄력적 풀의 풀링된 데이터베이스 및 관리형 인스턴스의 인스턴스 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
 
@@ -119,7 +119,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 1. 또한 다음 섹션에 설명 된 단계에 따라 여 모니터링 하려는 탄력적 풀 내의 각 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
-> 탄력적 풀에 대 한 진단 원격 분석을 구성 하는 것 외에도 해야 탄력적 풀의 각 데이터베이스에 대 한 진단 원격 분석을 구성 하려면 아래 설명 된 대로 합니다. 
+> 탄력적 풀에 대 한 진단 원격 분석을 구성 하는 것 외에도 해야 탄력적 풀의 각 데이터베이스에 대 한 진단 원격 분석을 구성 하려면 아래 설명 된 대로 합니다.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>단일 데이터베이스 또는 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성합니다
 
@@ -181,7 +181,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 1. 또한 다음 섹션에 설명 된 단계에 따라 모니터링 하려는 관리 되는 인스턴스 내의 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
-> 관리 되는 인스턴스에 대 한 진단 원격 분석을 구성 하는 것 외에도 해야 각 인스턴스 데이터베이스에 대 한 진단 원격 분석을 구성 하려면 아래 설명 된 대로 합니다. 
+> 관리 되는 인스턴스에 대 한 진단 원격 분석을 구성 하는 것 외에도 해야 각 인스턴스 데이터베이스에 대 한 진단 원격 분석을 구성 하려면 아래 설명 된 대로 합니다.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>진단 원격 분석의 예를 들어 데이터베이스 스트리밍을 구성합니다
 
@@ -261,6 +261,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    \<subID\>를 구독 ID로, \<RG_NAME\>을 리소스 그룹 이름으로, \<WS_NAME\>을 작업 영역 이름으로 바꿉니다.
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -396,10 +397,6 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>Storage에서 메트릭 및 로그 다운로드
-
-[Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)를 참조하세요.
 
 ## <a name="data-retention-policy-and-pricing"></a>데이터 보존 정책 및 가격 책정
 
@@ -719,5 +716,3 @@ Event Hubs에 대해 알아보려면 다음을 확인합니다.
 
 - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Azure Storage에 대해 자세히 알아보려면 [Storage에서 메트릭 및 진단 로그 다운로드하는 방법](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)을 참조하세요.

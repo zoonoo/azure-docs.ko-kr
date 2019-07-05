@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411463"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449019"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -53,7 +53,7 @@ AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇�
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>지정된 모델을 사용하여 얼굴 식별
@@ -67,7 +67,7 @@ Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(�
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 이 코드에서, `mypersongroupid` ID를 가진 **PersonGroup** 을 생성하고, 얼굴 특징을 추출하기 위해  _recognition_02_ 모델을 사용하도록 설정합니다.
@@ -83,7 +83,7 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 이 코드에서, `My face collection`이라는 얼굴 목록을 생성하며, 특징 추출을 위해 _recognition_02_ 모델을 사용합니다. 새 감지된 얼굴에 유사한 얼굴을 찾기 위해 얼굴 목록을 검색할 때 해당 얼굴은_recognition_02_ 모델을 사용하여 감지([Face-Detect])됩니다. 이전 섹션과 같이 모델 일관성을 유지해야 합니다. 이전 섹션과 모델 일관성을 유지 해야 합니다.

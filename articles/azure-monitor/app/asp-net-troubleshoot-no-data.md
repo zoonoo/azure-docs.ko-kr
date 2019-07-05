@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272409"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561183"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -28,13 +28,13 @@ ms.locfileid: "67272409"
 
 *발생 했습니다. 데이터 손실을 임의로 합니다.*
 
-* 데이터 손실이 발생 하는 경우 확인 [원격 분석 채널](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* 데이터 손실이 발생 하는 경우 확인 [원격 분석 채널](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * 원격 분석 채널의 알려진된 문제에 대 한 확인 [Github 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *앱 중지 되려고 할 때 웹 앱 또는 콘솔 앱에서 데이터 손실이 발생 했습니다.*
 
-* SDK 채널 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램이 종료 되는 경우를 명시적으로 호출 [flush ()](api-custom-events-metrics.md#flushing-data)합니다. 동작은 `Flush()` 실제에 따라 달라 집니다 [채널](telemetry-channels.md#built-in-telemetrychannels) 사용 합니다.
+* SDK 채널 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램이 종료 되는 경우를 명시적으로 호출 [flush ()](api-custom-events-metrics.md#flushing-data)합니다. 동작은 `Flush()` 실제에 따라 달라 집니다 [채널](telemetry-channels.md#built-in-telemetry-channels) 사용 합니다.
 
 ## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
 *웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
@@ -215,7 +215,9 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ### <a name="net-core"></a>.NET Core
 
-1. 설치 합니다 [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) NuGet에서 패키지 있습니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsights` 버전과 같아야 합니다.
+1. NuGet에서 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsights` 버전과 같아야 합니다.
+
+Microsoft.ApplicationInsights.AspNetCore의 최신 버전 2.7.1을 이며 Microsoft.ApplicationInsights 버전 2.10 가리킵니다. 따라서 설치할 Microsoft.AspNet.ApplicationInsights.HostingStartup의 버전 2.10.0 이어야
 
 2. `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
 

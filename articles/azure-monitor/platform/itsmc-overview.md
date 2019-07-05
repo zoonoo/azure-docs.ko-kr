@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395808"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479807"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -62,7 +62,9 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 3. **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
-   >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
+   > * Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
+   > * ITSM 커넥터는 다음 지역에서 Log Analytics 작업 영역에만 설치할 수 있습니다. 미국 동부, 유럽 서 부, 동남 아시아, 오스트레일리아 남동부, 서 부 중앙 미국, 일본 동부, 영국 남부, 인도 중부, 캐나다 중부입니다.
+
 4. **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
    ![ITSMC 작업 영역](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -190,7 +192,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 만든 사람
 - 해결한 사람
 - 종결한 사람
-- source
+- 원본
 - 할당 대상
 - Category
 - 제목
@@ -211,7 +213,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 서비스 데스크 ID
 - 만든 사람
 - 종결한 사람
-- source
+- 원본
 - 할당 대상
 - 제목
 - Type

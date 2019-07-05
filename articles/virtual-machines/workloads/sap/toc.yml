@@ -168,6 +168,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: (A)SCS 인스턴스에 Red Hat Enterprise Linux의 HA
               href: high-availability-guide-rhel.md
+            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 Red Hat Enterprise Linux에 대한 HA
+              href: high-availability-guide-rhel-netapp-files.md
         - name: Azure 인프라 준비
           items:
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
@@ -194,6 +196,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: Red Hat Enterprise Linux에서 SAP NetWeaver에 대한 고가용성
               href: high-availability-guide-rhel.md
+            - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 NFS를 사용하는 Red Hat Enterprise Linux
+              href: high-availability-guide-rhel-netapp-files.md
         - name: SAP 다중 SID
           items:
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows

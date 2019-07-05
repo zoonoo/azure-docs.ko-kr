@@ -11,15 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1b3602b09c1a129923180c4b1d4a5f8293de2c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026727"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>사용자 지정 음성 정확도 평가
 
+
 이 문서에서는 Microsoft의 음성-텍스트 모델 또는 사용자 지정 모델의 품질을 정량적으로 측정하는 방법을 알아봅니다. 오디오 + 사람 레이블 기록 데이터가 정확도를 테스트하는 데 필요하고 30분에서 5시간의 대표 오디오를 제공해야 합니다.
+
 
 ## <a name="what-is-word-error-rate-wer"></a>WER(Word Error Rate, 단어 오류율)이란?
 
@@ -51,7 +53,9 @@ ms.locfileid: "65026727"
 
 모델을 나란히 평가하려면:
 
+
 1. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
+
 2. **테스트 추가**를 클릭합니다.
 3. **정확도 평가**를 선택합니다. 테스트 이름, 설명을 제공하고 사용자의 오디오 + 사람 레이블 기록 데이터 집합을 선택합니다.
 4. 테스트 하려고 하는 최대 두 개의 모델을 선택합니다.

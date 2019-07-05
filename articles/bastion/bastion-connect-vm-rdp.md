@@ -7,16 +7,16 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191890"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478412"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Azure 배스 천 (미리 보기)를 사용 하 여 Windows 가상 머신에 연결
 
-이 아티클에서 네트워크 하는 방법에 안전 하 고 원활 하 게 가상 Azure에서 Windows Vm에 RDP 배스 천 Azure를 사용 하 여 합니다. Azure portal에서 직접 VM에 연결할 수 있습니다. 배스 천 Azure를 사용 하는 경우 Vm은 클라이언트, 에이전트 또는 추가 소프트웨어 필요 하지 않습니다. 배스 천 Azure에 대 한 자세한 내용은 참조는 [개요](bastion-overview.md)합니다.
+이 아티클에서 네트워크 하는 방법에 안전 하 고 원활 하 게 가상 Azure에서 Windows Vm에 RDP 배스 천 Azure를 사용 하 여 합니다. Azure Portal에서 직접 VM에 연결할 수 있습니다. Azure Bastion을 사용하면 VM에 클라이언트, 에이전트 또는 추가 소프트웨어가 필요하지 않습니다. 배스 천 Azure에 대 한 자세한 내용은 참조는 [개요](bastion-overview.md)합니다.
 
 > [!IMPORTANT]
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -26,15 +26,15 @@ ms.locfileid: "67191890"
 
 VM이 상주 하는 가상 네트워크를 Azure 요새 호스트를 설정 해야 합니다. 자세한 내용은 [Azure 요새 호스트를 만드는](bastion-create-host-portal.md)합니다. 배스 천 서비스 프로 비전 되 면 가상 네트워크에 배포 되는 모든 VM이 가상 네트워크에 연결을 사용할 수 있습니다. 이 미리 보기에서는 배스 천 Linux Vm에 연결할 Windows VM 및 SSH로 연결 하려면 RDP를 사용 한다고 가정 합니다. Linux VM에 연결 하는 방법에 대 한 내용은 [Linux VM에 연결](bastion-connect-vm-ssh.md)합니다.
 
-연결 하기 위해 다음 역할이 필요 합니다.
+연결하려면 다음 역할이 필요합니다.
 
-* 가상 컴퓨터에 대 한 읽기 권한자 역할
-* 가상 머신의 개인 IP 사용 하 여 NIC에 대 한 읽기 권한자 역할
-* 배스 천 Azure 리소스에 대 한 읽기 권한자 역할
+* 가상 머신에 대한 읽기 권한자 역할
+* 가상 머신의 개인 IP를 사용하는 NIC에 대한 읽기 권한자 역할
+* Azure Bastion 리소스에 대한 읽기 권한자 역할
 
 ## <a name="rdp"></a>RDP를 사용 하 여 연결
 
-1. 에 [Azure portal](https://aka.ms/BastionHost) 배스 천 미리 보기의 경우 연결 하려는 가상 머신을 이동한 다음 클릭 **Connect**합니다. VM이 RDP 연결을 사용 하는 경우 Windows 가상 컴퓨터 여야 합니다.
+1. 사용 하 여 [이 링크](https://aka.ms/BastionHost) 를 배스 천 Azure에 대 한 미리 보기 포털 페이지를 엽니다. 연결 하려는 가상 머신을 이동한 다음 클릭 **Connect**합니다. VM이 RDP 연결을 사용 하는 경우 Windows 가상 컴퓨터 여야 합니다.
 
     ![VM 연결](./media/bastion-connect-vm-rdp/connect.png)
 

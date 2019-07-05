@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124764"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182531"
 ---
 Bing은 일부 응답의 표시 문자열에 쿼리 용어(또는 Bing이 찾은 다른 관련 용어)를 표시하는 적중 항목 강조 표시를 지원합니다. 예를 들어 웹 페이지의 `name`, `displayUrl` 및 `snippet` 필드에 쿼리 용어가 표시될 수 있습니다.
 
@@ -23,7 +23,7 @@ Bing은 유니코드 문자 또는 HTML 태그를 마커로 사용하는 옵션�
   
 `textDecorations`이 **true**이면 Bing이 답변의 표시 문자열에 다음 마커를 포함할 수 있습니다. HTML에 해당하는 요소가 없으면 HTML 테이블 셀이 비어 있습니다.
 
-|Unicode|HTML|설명
+|유니코드|HTML|설명
 |-|-|-
 |U+E000|\<b>|쿼리 용어의 시작을 표시(적중 항목 강조 표시)
 |U+E001|\</b>|쿼리 용어의 끝을 표시

@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65775676"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509276"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -152,7 +152,7 @@ ms.locfileid: "65775676"
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse 뷰</td>
+      <td>Azure SQL Data Warehouse 뷰</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +173,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 측정값</td>
@@ -181,7 +181,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 테이블</td>
@@ -189,7 +189,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services 보고서</td>
@@ -197,7 +197,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>브라우저</td>
-      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음.</td>
+      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음. SQL Server 2008 및 이후 버전의 경우에 해당</td>
     </tr>
     <tr>
       <td>SQL Server 테이블</td>
@@ -205,7 +205,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server 뷰</td>
@@ -213,7 +213,7 @@ ms.locfileid: "65775676"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>Teradata 테이블</td>

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190408"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311835"
 ---
 # <a name="why-use-batch-transcription"></a>일괄 처리 기록을 사용하는 이유
 
@@ -66,8 +66,8 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,12 +83,15 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 ### <a name="configuration-properties"></a>구성 속성
 
-| 매개 변수 | 설명 | 필수/선택 |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `none`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. | 옵션 |
-| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `none`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. | 옵션 |
- | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. | 옵션 |
- | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. | 옵션 |
+이러한 선택적 속성을 사용 하 여 기록을 구성 하려면:
+
+| 매개 변수 | 설명 |
+|-----------|-------------|
+| `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `none`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. |
+| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `none`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. |
+ | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
+ | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
+ | `AddDiarization` | Mono 채널이 두 음성 포함 될 예상 되는 입력에 해당 diarization alalysis 실행 되도록 지정 합니다. 허용 되는 값은 `true` diarization 그러면 및 `false` (기본값) 사용 하지 않도록 합니다. 또한 필요 `AddWordLevelTimestamps` 설정을 true로 합니다.|
 
 ### <a name="storage"></a>Storage
 
@@ -100,6 +103,35 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 자세한 내용은 참조 하세요. [웹 후크](webhooks.md)합니다.
 
+## <a name="speaker-separation-diarization"></a>발표자 분리 (Diarization)
+
+Diarization은 스피커의 오디오 부분을 분리 하는 프로세스입니다. 일괄 처리 파이프라인 Diarization 지원 하며 mono 채널 기록을 두 화자 인식의 수입니다.
+
+오디오 전사 요청 diarization에 대 한 처리 되지 않는 요청 하려면 아래와 같이 HTTP 요청에는 관련 매개 변수를 추가 하기만 하면 됩니다.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+위의 요청에 매개 변수를 나타내는 ' 설정 ' 단어 수준 타임 스탬프도 해야 합니다. 
+
+해당 하는 오디오 번호로 식별 스피커 포함 됩니다 (스피커 취급할 수 있도록 두 개의 음성 지원 현재 ' 발표자 1 ' 및 ' 발표자 2') 그 다음에 출력이 기록 합니다.
+
+또한 않음을 유의 Diarization 스테레오 녹음/녹화에 사용할 수 있습니다. 또한 모든 JSON 출력에는 발표자 태그 포함 됩니다. Diarization을 사용 하지 않는 경우에 표시 됩니다 ' 발표자: Null' JSON을 출력 합니다.
+
+> [!NOTE]
+> Diarization은 모든 로캘 및 모든 지역에서 사용할 수 있습니다!
+
 ## <a name="sentiment"></a>감정
 
 감정은 일괄 처리 기록 API의 새로운 기능이자 호출 센터 도메인의 중요한 기능입니다. 고객은 다음 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다. 
@@ -110,7 +142,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 4.  부정 호출이 긍정으로 바뀔 경우를 파악
 5.  제품이나 서비스에 대해 고객이 좋아하는 점과 싫어하는 점을 식별
 
-감정은 오디어 세그먼트가 발언의 시작(오프셋)과 바이트 스트림 끝의 침묵 감지 사이의 시간 경과로 정의되는 오디오 세그먼트당 점수가 매겨집니다. 해당 세그먼트 내의 전체 텍스트가 감정 계산에 사용됩니다. 전체 호출 또는 각 채널의 전체 음성에 대한 종합 감정의 값은 계산하지 않습니다. 이를 추가로 적용하는 것은 도메인 소유자의 몫입니다.
+감정은 오디어 세그먼트가 발언의 시작(오프셋)과 바이트 스트림 끝의 침묵 감지 사이의 시간 경과로 정의되는 오디오 세그먼트당 점수가 매겨집니다. 해당 세그먼트 내의 전체 텍스트가 감정 계산에 사용됩니다. 전체 호출 또는 각 채널의 전체 음성에 대한 종합 감정의 값은 계산하지 않습니다. 이러한 집계는 추가로 적용할 도메인 소유자에 게 남아 있습니다.
 
 감정은 어휘 폼에 적용됩니다.
 
@@ -149,11 +181,11 @@ JSON 출력 예제는 아래와 같습니다.
   ]
 }
 ```
-현재 베타 상태인 감정 모델을 사용 하는 기능입니다.
+기능은 현재 베타 상태인 데이터 모델을 사용 합니다.
 
 ## <a name="sample-code"></a>샘플 코드
 
-전체 샘플은 `samples/batch` 하위 디렉터리 내부의 [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples)에서 확인할 수 있습니다.
+전체 샘플에서 사용할 수는 [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples) 내에서 `samples/batch` 하위 디렉터리입니다.
 
 사용자 지정 어쿠스틱 또는 언어 모델을 사용하려는 경우 사용자 구독 정보, 서비스 지역, 기록할 오디오 파일을 가리키는 SAS URI 및 모델 ID를 사용하여 샘플 코드를 사용자 지정해야 합니다. 
 

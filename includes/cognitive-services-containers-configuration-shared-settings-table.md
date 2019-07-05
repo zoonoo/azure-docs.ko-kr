@@ -4,22 +4,22 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2019
-ms.openlocfilehash: c4abc5fa89b48b6fc55637e9ff3b259387d0d410
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4f9300ab1d688e1f5043f5b919e70c5a36c7c0e7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063997"
 ---
-이 컨테이너에는 다음 구성 설정을 사용합니다.
+컨테이너는 다음 구성 설정은 다음과 같습니다.
 
 |필수|설정|목적|
 |--|--|--|
-|예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적하는 데 사용됩니다.|
-|아니요|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
-|예|[Billing](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적 합니다.|
+|아닙니다.|[ApplicationInsights](#applicationinsights-setting)|추가 사용 하도록 설정 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 컨테이너에 원격 분석 지원.|
+|예|[결제](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
 |예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
-|아니요|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
-|아니요|Http Proxy|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
-|아니요|[Logging](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
-|예|[Mounts](#mount-settings)|호스트 컴퓨터에서 컨테이너로 데이터를 읽고 쓰고, 컨테이너에서 호스트 컴퓨터로 다시 데이터를 읽고 씁니다.|
+|아니요|[Fluentd](#fluentd-settings)|로그 쓰기 및 필요에 따라 Fluentd 서버로 메트릭 데이터입니다.|
+|아닙니다.|Http 프록시|아웃 바운드 요청에 대 한 HTTP 프록시를 구성 합니다.|
+|아닙니다.|[로깅](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
+|아니요|[탑재](#mount-settings)|읽기 및 쓰기 데이터 컨테이너 및 컨테이너에 호스트 컴퓨터에서 다시 호스트 컴퓨터에 있습니다.|

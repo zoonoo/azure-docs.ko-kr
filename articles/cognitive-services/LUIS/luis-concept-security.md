@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058526"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
-작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
+작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱에 대 한 끝점 액세스를 모든 사용자가 자신의 Azure에 사용할 수 [Cognitive Service](../cognitive-services-apis-create-account.md) 하거나 [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) 리소스에 있고 공용 앱의 id입니다. 
 
 ## <a name="access-to-authoring"></a>작성에 대한 액세스
 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 앱에 액세스하는 것은 앱 소유자가 제어합니다. 

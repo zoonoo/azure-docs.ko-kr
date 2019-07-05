@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433728"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -21,7 +21,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 클러스터 복제에서는 원본-푸시 방법을 사용합니다. HBase 클러스터는 원본 또는 대상이 될 수도 있고, 한 번에 두 가지 역할을 모두 수행할 수도 있습니다. 복제는 비동기적이며, 그 목표는 결과적으로 일관성에 맞춰져 있습니다. 복제를 사용하도록 설정된 경우 원본에서 열 패밀리에 대한 편집 내용을 받으면 해당 편집 내용이 모든 대상 클러스터로 전파됩니다. 한 클러스터에서 다른 클러스터로 데이터를 복제하는 경우 복제 루프를 방지하기 위해 데이터를 이미 사용한 원본 클러스터 및 모든 클러스터가 추적됩니다.
 
-이 자습서에서는 원본-대상 복제를 설정합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](https://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
+이 문서에서는 원본-대상 복제를 설정합니다. 다른 클러스터 토폴로지는 [Apache HBase 참조 가이드(영문)](https://hbase.apache.org/book.html#_cluster_replication)를 참조하세요.
 
 단일 가상 네트워크에 대한 HBase 복제 사용 사례는 다음과 같습니다.
 
@@ -39,7 +39,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
 
@@ -85,7 +85,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 | 자산 | 값 |
 |----------|-------|
-| Location | 미국 동부 |
+| Location | East US |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet2 |
 | 주소 공간 접두사 | 10.2.0.0/16 |
 | 서브넷 이름 | 서브넷 1 |
@@ -301,7 +301,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
@@ -396,7 +396,7 @@ sudo service bind9 status
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 한 가상 네트워크 내에 또는 두 가상 네트워크 간에 Apache HBase 복제를 설정하는 방법을 알아보았습니다. HDInsight 및 Apache HBase에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 가상 네트워크 내에서 또는 두 가상 네트워크 간에 HBase 복제를 설정 하는 방법을 알아보았습니다. HDInsight 및 Apache HBase에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache HBase 시작](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 개요](./apache-hbase-overview.md)

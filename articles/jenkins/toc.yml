@@ -31,6 +31,8 @@
               maintainContext: true
             - name: 파란색/녹색 패턴을 사용하여 AKS에 배포
               href: jenkins-aks-blue-green-deployment.md
+            - name: Azure Dev Spaces로 CI/CD 사용
+              href: tutorial-jenkins-dev-spaces.md
         - name: App Service
           items:
             - name: 파이프라인 작업에서 Azure 리소스 만들기

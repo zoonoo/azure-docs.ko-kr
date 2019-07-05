@@ -9,12 +9,12 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
-ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27651d19e276571cf49a0aa1a199ef35c87c3ba4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811623"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537700"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric Mesh에 대한 Maven 플러그 인
 
@@ -38,6 +38,9 @@ ms.locfileid: "60811623"
 
 ### `azure-sfmesh:addgateway`
 - `appresources` 폴더에서 제공된 게이트웨이 이름을 사용하여 `gateway` YAML을 생성합니다. 
+
+#### `azure-sfmesh:addvolume`
+- 생성 된 `volume` YAML에서 제공 된 볼륨 이름 사용 하 여는 `appresources` 폴더.
 
 ### `azure-sfmesh:addsecret`
 - `appresources` 폴더에서 제공된 비밀 이름을 사용하여 `secret` YAML을 생성합니다. 
@@ -96,7 +99,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 아래 명령을 실행하여 네트워크 리소스 YAML을 만듭니다. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - `network_helloworldservicenetwork`라고 명명된 `servicefabric->appresources`번 폴더에서 네트워크 YAML을 만듭니다.

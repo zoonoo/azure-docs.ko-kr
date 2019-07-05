@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866367"
 ---
 # <a name="supported-languages"></a>지원되는 언어
@@ -40,7 +40,7 @@ Microsoft 음성 인식 API의 `interactive` 및 `dictation` 모드에서 지원
 | en-US | 영어(미국) | ru-RU | 러시아어(러시아) |
 | es-ES | 스페인어(스페인) | sv-SE | 스웨덴어(스웨덴) |
 | es-MX | 스페인어(멕시코) |zh-CN | 중국어(북경어, 간체)  |
-| fi-FI | 핀란드어(핀란드) |zh-HK | 중국어(홍콩 특별 행정구) |
+| fi-FI | 핀란드어(핀란드) |zh-HK | 중국어 (홍콩 특별 행정구) |
 | fr-CA | 프랑스어(캐나다) | zh-TW | 중국어(북경어, 대만)|
 | fr-FR | 프랑스어(프랑스) | ||
 

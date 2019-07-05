@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059251"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442365"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>서비스 작업 영역을 Azure Machine Learning 이란?
 
@@ -69,7 +69,7 @@ ms.locfileid: "67059251"
 
 또한 다음 작업 영역 관리 작업을 수행할 수 있습니다.
 
-| 작업 영역 관리 작업   | 포털              | SDK)        | CLI        |
+| 작업 영역 관리 작업   | 포털              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | 작업 영역 만들기        | **&check;**     | **&check;** | **&check;** |
 | 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** |  **&check;**   |
@@ -83,7 +83,7 @@ ms.locfileid: "67059251"
 새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중 및 모델을 배포할 때 사용하는 docker 컨테이너를 등록합니다. ACR은 비용을 최소화 하려면 **지연 로드** 배포 이미지를 만들 때까지 합니다.
-+ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대한 기본 데이터 저장소로 사용됩니다.
++ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대한 기본 데이터 저장소로 사용됩니다.  Notebook Vm에 사용 되는 Jupyter notebook도 저장 됩니다.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): 모델에 대한 모니터링 정보를 저장합니다.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 컴퓨팅 대상에서 사용되는 비밀 및 작업 영역에 필요한 기타 중요한 정보를 저장합니다.
 

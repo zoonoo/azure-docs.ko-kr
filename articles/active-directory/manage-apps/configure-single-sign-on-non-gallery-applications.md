@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989189"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550345"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 비 갤러리 응용 프로그램에서 single sign-on 구성
 
@@ -186,7 +186,7 @@ SAML 기반 id 공급자로 Azure AD를 사용 하도록 응용 프로그램을 
 3. 선택 **사용자 및 그룹 (\<번호 > 선택한)** 합니다. 합니다 **사용자 및 그룹** 사용 가능한 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
 4. 형식 또는 스크롤 사용자 또는 목록에서 할당 하려는 그룹을 찾을 수 있습니다.
 5. 각 사용자 또는 그룹을 추가 하 고 다음을 선택 합니다 **선택** 단추입니다. 합니다 **사용자 및 그룹** 페이지 사라집니다.
-6. 에 **할당 추가** 페이지에서 **할당**합니다. 합니다  **<application name> -사용자 및 그룹** 페이지가 목록에 표시 된 추가 사용자에 게 표시 됩니다.
+6. 에 **할당 추가** 페이지에서 **할당**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 페이지가 목록에 표시 된 추가 사용자에 게 표시 됩니다.
 
    ![응용 프로그램 사용자 및 그룹](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

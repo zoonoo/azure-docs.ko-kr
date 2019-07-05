@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB의에서 제한 사항
+title: Azure Cosmos DB의 한도
 description: 이 문서에는 Azure Cosmos DB에 대 한 제한을 설명합니다.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969494"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561228"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB의에서 제한 사항
+# <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB의 한도
 
 이 문서에서는 Azure Cosmos DB 서비스에 대 한 개요를 제공합니다.
 
@@ -37,7 +37,6 @@ ms.locfileid: "65969494"
 
 Cosmos 컨테이너 (또는 공유 처리량 데이터베이스)에 최소 400 Ru 처리량이 있어야 합니다. 컨테이너 증가 함에 따라 지원 되는 최소 처리량도 같은 요인에 따라 다릅니다.
 
-* 컨테이너에서 소비 되는 최대 저장소는 사용 되는 저장소의 GB 당 40 Ru 단위로 측정 됩니다. 예를 들어 컨테이너 100GB 데이터를 포함 하는 경우 처리량에 있어야 합니다 이상 4000 Ru
 * 최대 처리량 적이 컨테이너에서 프로 비전 합니다. 서비스는 10%의 프로 비전 된 최대 컨테이너의 낮추기 처리량을 지원 합니다. 예를 들어 10000 Ru 처리량이 증가 했습니다 후 가능한 가장 낮은 프로 비전 된 처리량 것 1000 Ru
 * 컨테이너 당 100 Ru에서 측정 한 적이 공유 처리량 데이터베이스에서 만든 컨테이너의 총 수입니다. 예를 들어 공유 처리량 데이터베이스 내에 5 개의 컨테이너를 만든 경우 처리량에 있어야 합니다 500 대 이상의 Ru
 
@@ -48,7 +47,6 @@ Cosmos 컨테이너 (또는 공유 처리량 데이터베이스)에 최소 400 R
 | 컨테이너 당 최소 RUs ([전용된 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 데이터베이스당 최소 RUs ([공유 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 공유 처리량 데이터베이스 내에서 컨테이너 당 최소 Ru | 100 |
-| 최소 Ru 소비 된 저장소의 GB 당 | 40 |
 
 Cosmos DB는 컨테이너 또는 Sdk 또는 포털을 통해 데이터베이스 당 처리량 (Ru)의 탄력적인 확장을 지원 합니다. 각 컨테이너는 최소값과 최대값 사이 100 번 10 확장 범위 내에서 동기적으로, 즉시 확장할 수 있습니다. 요청 된 처리량 값 범위를 벗어난 경우 크기 조정 비동기적으로 수행 됩니다. 비동기 확장 분 요청 된 처리량 및 컨테이너의 데이터 저장소 크기에 따라 완료 하는 데 시간이 걸릴 수 있습니다.  
 

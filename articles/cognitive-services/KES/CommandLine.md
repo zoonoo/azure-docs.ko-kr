@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815147"
 ---
 # <a name="command-line-interface"></a>명령줄 인터페이스
 
@@ -82,7 +82,7 @@ KES(Knowledge Exploration Service) 명령줄 인터페이스는 구조화된 데
 | `<indexFile>`   | 입력 이진 인덱스 경로           |
 | `--port <port>` | 로컬 포트 번호.  Default: 8000 |
 
-이러한 파일은 로컬 파일 경로 또는 Azure blob에 대한 URL 경로로 지정할 수 있습니다.  웹 서비스는 http://localhost:&lt; port&gt;/에서 호스팅됩니다.  지원되는 목록은 [Web API](WebAPI.md)를 참조하세요.
+이러한 파일은 로컬 파일 경로 또는 Azure blob에 대한 URL 경로로 지정할 수 있습니다.  웹 서비스는 http://localhost:&lt ; port&gt; /에서 호스팅됩니다.  지원되는 목록은 [Web API](WebAPI.md)를 참조하세요.
 
 Azure 환경 외부에서 로컬로 호스팅된 서비스는 최대 1MB 크기, 초당 10개 요청 및 총 1000개의 호출의 인덱스 파일로 제한됩니다.  이러한 제한을 해결하려면 Azure VM 내에서 **host_service**를 실행하거나 **deploy_service**를 사용하여 Azure 클라우드 서비스에 배포합니다.
 
