@@ -57,7 +57,7 @@ Pod 요구 사항 변경에 응답하기 위해 Kubernetes에는 노드 풀의 �
 
 클러스터 자동 크기 조정기는 일반적으로 Horizontal Pod Autoscaler와 함께 사용됩니다. 이러한 기능을 함께 사용할 경우 Horizontal Pod Autoscaler는 애플리케이션 요구를 기준으로 Pod의 수를 늘리거나 줄이고, 클러스터 자동 크기 조정기는 해당 추가 Pod를 실행하는 데 필요한 만큼 노드 수를 조정합니다.
 
-Autoscaler 클러스터는 단일 노드 풀을 사용 하 여 AKS 클러스터에 미리 보기에만 테스트 해야 합니다.
+Autoscaler 클러스터는 단일 노드 풀을 사용하여 AKS 클러스터의 미리 보기에서만 테스트해야 합니다.
 
 AKS에서 클러스터 크기 조정기를 시작하려면 [AKS의 클러스터 자동 크기 조정기][aks-cluster-autoscaler]를 참조하세요.
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275192"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461820"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 
@@ -30,6 +30,7 @@ DNS 별칭의 일반적인 용도에는 다음과 같은 경우가 포함됩니�
 - Azure SQL Server에 대해 기억하기 쉬운 이름을 만듭니다.
 - 초기 개발 동안, 별칭은 테스트 SQL Database 서버를 참조할 수 있습니다. 애플리케이션이 라이브되면 프로덕션 서버를 참조하도록 별칭을 수정할 수 있습니다. 테스트에서 프로덕션 환경으로 전환하기 위해 데이터베이스 서버에 연결되는 여러 클라이언트의 구성을 수정할 필요는 없습니다.
 - 애플리케이션의 데이터베이스만 다른 SQL Database 서버로 이동된다고 가정합니다. 여기서 여러 클라이언트 구성을 수정하지 않고도 별칭을 수정할 수 있습니다.
+- 지역 가동 중단 중에 다른 서버 및 지역에서 데이터베이스를 복구 하려면 지역 복원을 사용 합니다. 기존 클라이언트 응용 프로그램에 다시 연결할 수 있도록 새 서버를 가리키도록 기존 별칭을 수정할 수 있습니다. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>인터넷의 DNS(Domain Name System)
 

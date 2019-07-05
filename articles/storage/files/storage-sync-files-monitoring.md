@@ -5,45 +5,80 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190525"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485987"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
-이 문서에서는 Azure portal 및 Windows Server를 사용 하 여 Azure File Sync 배포를 모니터링 하는 방법을 설명 합니다.
+이 문서에서는 Azure Monitor, 저장소 동기화 서비스 및 Windows Server를 사용 하 여 Azure File Sync 배포를 모니터링 하는 방법을 설명 합니다.
 
 다음 모니터링 옵션은 현재 사용할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Portal에서는 등록된 서버 상태, 서버 엔드포인트 상태(동기화 상태) 및 메트릭을 확인할 수 있습니다.
+사용 하 여 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 메트릭을 보려면 및 동기화에 대 한 경고를 구성 하려면 클라우드 계층화 및 서버 연결 합니다.  
 
-### <a name="storage-sync-service"></a>저장소 동기화 서비스
+### <a name="metrics"></a>메트릭
+
+Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되며 15분마다 Azure Monitor로 전송됩니다.
+
+Azure Monitor에서 Azure File Sync 메트릭을 보려면를 선택 합니다 **저장소 동기화 서비스** 리소스 종류입니다.
+
+Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
+
+| 메트릭 이름 | 설명 |
+|-|-|
+| 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드)입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
+| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>**참고**: 이 메트릭은 나중에 제거 됩니다. 회수 하는 데이터의 크기를 모니터링 하는 클라우드 계층화 회수 크기 메트릭을 사용 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름 |
+| 클라우드 계층화 회수 크기 | 회수되는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름, 동기화 그룹 이름 |
+| 응용 프로그램에서 클라우드 계층화 회수 크기 | 응용 프로그램에 의해 회수 하는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
+| 클라우드 계층화 회수 처리량 | 데이터 회수 처리량의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름, 동기화 그룹 이름 |
+| 동기화 상태가 아닌 파일 | 동기화할 수 없는 파일의 수입니다.<br><br>단위: 카운트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
+| 동기화된 파일 수 | 전송되는 파일 수(업로드 및 다운로드)<br><br>단위: 카운트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
+| 서버 온라인 상태 | 서버에서 수신된 하트비트의 수입니다.<br><br>단위: 카운트<br>집계 유형: 최대<br>해당하는 차원: 서버 이름 |
+| 동기화 세션 결과 | 동기화 세션 결과입니다(1=정상 완료된 동기화 세션, 0=실패한 동기화 세션).<br><br>단위: 카운트<br>집계 형식: 최대<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
+
+### <a name="alerts"></a>경고
+
+Azure Monitor에서 경고를 구성 하려면 저장소 동기화 서비스를 선택 하 고 다음을 선택 합니다 [Azure File Sync 메트릭](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) 경고에 사용할 합니다.  
+
+다음 표에서 몇 가지 예제 시나리오를 모니터링 및 경고에 사용할 적절 한 메트릭을 나열 합니다.
+
+| 시나리오 | 경고에 대 한 사용 메트릭 |
+|-|-|
+| 포털에서 서버 끝점 상태 = 오류 | 동기화 세션 결과 |
+| 파일 서버에 동기화 클라우드 끝점에 실패 하는 | 동기화 상태가 아닌 파일 |
+| 등록 된 서버 저장소 동기화 서비스와 통신 하지 못했습니다. | 서버 온라인 상태 |
+| 클라우드 계층화 회수 크기는 하루에 500GiB 초과  | 클라우드 계층화 회수 크기 |
+
+Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)합니다.
+
+## <a name="storage-sync-service"></a>저장소 동기화 서비스
 
 등록 된 서버 상태, 서버 끝점 상태 및 메트릭을 보려면 Azure portal에서 저장소 동기화 서비스로 이동 합니다. 등록 된 서버 상태를 볼 수 있습니다 합니다 **등록 된 서버** 블레이드 및 서버 끝점 상태에는 **동기화 그룹** 블레이드입니다.
 
-등록 된 서버 상태:
+### <a name="registered-server-health"></a>등록 된 서버 상태
 
 - 경우는 **등록 된 서버** 상태가 **Online**, 서버 서비스를 사용 하 여 성공적으로 통신 합니다.
 - 경우는 **등록 된 서버** 상태가 **오프 라인으로 표시 됩니다**, Storage Sync 모니터 (AzureStorageSyncMonitor.exe) 프로세스 서버에서 실행 되 고 있는지 확인 합니다. 서버 방화벽이 나 프록시 뒤에 있는 경우 참조 [이 문서에서는](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) 방화벽 및 프록시를 구성 하려면.
 
-서버 끝점 상태:
+### <a name="server-endpoint-health"></a>서버 끝점 상태
 
 - 포털의 서버 엔드포인트 상태는 서버의 원격 분석 이벤트 로그에 기록되는 동기화 이벤트(ID 9102 및 9302)를 기준으로 합니다. 오류 취소와 같은 일시적인 오류로 인해 실패 하면 동기화 세션 동기화 나타날 수 있습니다 여전히 포털에서 정상으로 현재 동기화 세션 진행 됩니다. 이벤트 ID 9302 파일은 적용 되 고 있는지 확인 됩니다. 자세한 내용은 참조 하세요. [동기화 상태](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 하 고 [진행 상황을 동기화](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)합니다.
 - 동기화 진행 하지는 때문에 동기화 오류를 표시 하는 포털을 참조 합니다 [문제 해결 설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) 지침에 대 한 합니다.
 
-메트릭:
+### <a name="metric-charts"></a>메트릭 차트
 
-- 다음 메트릭은 스토리지 동기화 서비스 포털에서 볼 수 있습니다.
+- 다음 메트릭 차트는 저장소 동기화 서비스 포털에서 볼 수 있습니다.
 
   | 메트릭 이름 | 설명 | 블레이드에서 이름 |
   |-|-|-|
@@ -57,26 +92,6 @@ Azure Portal에서는 등록된 서버 상태, 서버 엔드포인트 상태(동
 
   > [!Note]  
   > 스토리지 동기화 서비스 포털에서 제공하는 차트의 시간 범위는 24시간입니다. 다른 시간 범위 또는 차원을 보려면 Azure Monitor를 사용하세요.
-
-### <a name="azure-monitor"></a>Azure Monitor
-
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 사용하여 동기화, 클라우드 계층화 및 서버 연결을 모니터링합니다. Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되며 15분마다 Azure Monitor로 전송됩니다.
-
-Azure Monitor에서 Azure File Sync 메트릭을 보려면를 선택 합니다 **저장소 동기화 서비스** 리소스 종류입니다.
-
-Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
-
-| 메트릭 이름 | 설명 |
-|-|-|
-| 동기화되는 바이트 수 | 전송되는 데이터 크기(업로드 및 다운로드)입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
-| 클라우드 계층화 회수 | 회수되는 데이터의 크기입니다.<br><br>참고: 이 메트릭은 나중에 제거 됩니다. 회수 하는 데이터의 크기를 모니터링 하는 클라우드 계층화 회수 크기 메트릭을 사용 합니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름 |
-| 클라우드 계층화 회수 크기 | 회수되는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름, 동기화 그룹 이름 |
-| 응용 프로그램에서 클라우드 계층화 회수 크기 | 응용 프로그램에 의해 회수 하는 데이터의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 응용 프로그램 이름, 서버 이름, 동기화 그룹 이름 |
-| 클라우드 계층화 회수 처리량 | 데이터 회수 처리량의 크기입니다.<br><br>단위: 바이트<br>집계 유형: 합계<br>해당하는 차원: 서버 이름, 동기화 그룹 이름 |
-| 동기화 상태가 아닌 파일 | 동기화할 수 없는 파일의 수입니다.<br><br>단위: 카운트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
-| 동기화된 파일 수 | 전송되는 파일 수(업로드 및 다운로드)<br><br>단위: 카운트<br>집계 유형: 합계<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
-| 서버 온라인 상태 | 서버에서 수신된 하트비트의 수입니다.<br><br>단위: 카운트<br>집계 유형: 최대<br>해당하는 차원: 서버 이름 |
-| 동기화 세션 결과 | 동기화 세션 결과입니다(1=정상 완료된 동기화 세션, 0=실패한 동기화 세션).<br><br>단위: 카운트<br>집계 형식: 최대<br>적용 가능한 차원: 서버 엔드포인트 이름, 동기화 방향, 동기화 그룹 이름 |
 
 ## <a name="windows-server"></a>Windows Server
 

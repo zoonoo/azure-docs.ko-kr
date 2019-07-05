@@ -25,13 +25,13 @@ ms.locfileid: "67072368"
 > * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
 > * 릴리스 정보는 모든 릴리스에 대 한 정보를 포함 합니다.
 > * 커뮤니티에서 문제가 논의되었는지 또는 구현하려는 기능에 대한 기존 설명서가 이미 있는지 검색합니다.
-> * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 대한 질문을 합니다.
+> * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 질문을 합니다.
 > * GitHub의 샘플 중 하나에 문제가 있으면 *GitHub* 문제를 제기합니다.
 > * *UserVoice 포럼*에서 솔루션을 검색합니다.
 
 ## <a name="stay-informed"></a>최신 소식 수신
 
-Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대 한 최신 정보를 추적 합니다 [Speech Services 블로그](https://azure.microsoft.com/blog/tag/speech-service/)합니다.
+Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. 음성 서비스에 대한 최신 정보는 [Speech Services 블로그](https://azure.microsoft.com/blog/tag/speech-service/)에 있습니다.
 
 ## <a name="release-notes"></a>릴리스 정보
 
