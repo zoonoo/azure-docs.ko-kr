@@ -69,8 +69,8 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 name | if 조건 작업의 이름입니다. | String | 예
 type | **IfCondition**으로 설정해야 함 | String | 예
 expression | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
-ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
-ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | Array | 예
+ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
+ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
 
 ## <a name="example"></a>예
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 출력 폴더로 복사합니다. 출력 폴더는 파이프라인 매개 변수 routeSelection의 값에 의해 결정됩니다. routeSelection의 값이 true이면 데이터가 outputPath1로 복사됩니다. 또한 routeSelection의 값이 false이면 데이터가 outputPath2로 복사됩니다. 

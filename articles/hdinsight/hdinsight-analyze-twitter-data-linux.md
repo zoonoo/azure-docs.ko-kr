@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070603"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543711"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
@@ -36,7 +36,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
    | 필드 | 값 |
    |:--- |:--- |
-   | 이름 |MyHDInsightApp |
+   | Name |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
    | 웹 사이트 |https:\//www.myhdinsightapp.com |
 
@@ -322,7 +322,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 비정형 JSON 데이터 세트를 정형 [Apache Hive](https://hive.apache.org/) 테이블로 변환하는 방법에 대해 알아보았습니다. HDInsight에서 Hive에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight를 사용하여 비행 지연 데이터 분석](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

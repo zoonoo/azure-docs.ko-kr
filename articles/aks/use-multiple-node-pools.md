@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 679d91da774b3e4d2c53c70cdc0abfd4da9c6953
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059626"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491535"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-만들기 및 Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀을 관리
 
@@ -32,18 +32,22 @@ Azure Kubernetes Service (AKS)를 동일한 구성의 노드는으로 그룹화 
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-여러 노드 풀 만들기 및 관리 하기 위해 CLI 명령에서 사용할 수는 *aks 미리 보기* CLI 확장 합니다. 설치를 *aks 미리 보기* 사용 하 여 Azure CLI 확장을 [az 확장 추가] [ az-extension-add] 다음 예와에서 같이 명령:
+여러 nodepools를 사용 하려면 필요 합니다 *aks 미리 보기* CLI 확장 버전 0.4.1 이상. 설치를 *aks 미리 보기* 사용 하 여 Azure CLI 확장을 [az 확장 추가][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] 명령:
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> 이전에 설치한 경우 합니다 *aks 미리 보기* 사용 하 여 확장을 설치 가능한 업데이트를 `az extension update --name aks-preview` 명령입니다.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>여러 노드 풀 기능 공급자 등록
 
-여러 노드 풀을 사용할 수 있는 AKS 클러스터를 만들려면 먼저 구독에 두 기능 플래그를 설정 합니다. 다중 노드 풀 클러스터 배포 및 Kubernetes 노드 구성을 관리 하는 가상 머신 확장 집합 (VMSS)를 사용 합니다. 등록 된 *MultiAgentpoolPreview* 및 *VMSSPreview* 기능 플래그를 사용 하 여를 [az 기능 등록] [ az-feature-register] 명령에 표시 된 대로 다음 예제:
+여러 노드 풀을 사용할 수 있는 AKS 클러스터를 만들려면 먼저 구독에 두 기능 플래그를 설정 합니다. 다중 노드 풀 클러스터 배포 및 Kubernetes 노드 구성을 관리 하는 가상 머신 확장 집합 (VMSS)를 사용 합니다. 등록 합니다 *MultiAgentpoolPreview* 하 고 *VMSSPreview* 기능 플래그를 사용 하 여는 [az 기능 등록][az-feature-register] 다음 예와에서 같이 명령:
+
+> [!CAUTION]
+> 구독에서 기능을 등록 하면 수 없는 현재 등록을 취소 기능. 일부 미리 보기 기능을 사용 하도록 설정 하면 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하지 마십시오. 별도 구독을 사용 하 여 미리 보기 기능을 테스트 및 피드백을 수집 합니다.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -53,14 +57,14 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > 성공적으로 등록 한 후를 만든 AKS 클러스터를 *MultiAgentpoolPreview* 이 미리 보기 클러스터 환경을 사용 합니다. 일반, 완벽 하 게 지원 되는 클러스터를 만드는 작업을 계속 하려면 프로덕션 구독에서 미리 보기 기능을 사용 하지 마십시오. 미리 보기 기능을 테스트 하는 것에 대 한 별도 테스트 또는 개발 Azure 구독을 사용 합니다.
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. 사용 하 여 등록 상태를 확인할 수 있습니다 합니다 [az 기능 목록][az-feature-list] 명령:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되 면 새로 고침의 등록 합니다 *Microsoft.ContainerService* 사용 하 여 리소스 공급자를 [az provider register][az-provider-register] 명령:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -74,16 +78,16 @@ az provider register --namespace Microsoft.ContainerService
 * 첫 번째 노드 풀을 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * 대부분의 작업에서와 마찬가지로 기존 Resource Manager 템플릿을 사용 하 여 추가/업데이트/삭제 노드 풀 수 없습니다. 대신 [별도 Resource Manager 템플릿을 사용 하 여](#manage-node-pools-using-a-resource-manager-template) AKS 클러스터에서 노드 풀을 변경 해야 합니다.
-* (현재 AKS에서 미리 보기)는에서 클러스터 autoscaler는 사용할 수 없습니다.
 
 이 기능은 미리 보기 상태인 동안에 다음 추가 제한 사항이 적용 됩니다.
 
 * AKS 클러스터에는 최대 8 개의 노드 풀 있을 수 있습니다.
 * AKS 클러스터에는 이러한 8 노드 풀에서 노드를 400 개 까지가 있을 수 있습니다.
+* 모든 노드 풀은 동일한 서브넷에 있어야 합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-시작 하려면 단일 노드 풀을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예제에서는 합니다 [az 그룹 만들기] [ az-group-create] 이라는 리소스 그룹을 만들려면 명령 *myResourceGroup* 에 *eastus* 영역입니다. 명명 된 AKS 클러스터 *myAKSCluster* 가 사용 하 여 생성 됩니다 합니다 [az aks 만들기] [ az-aks-create] 명령입니다. A *-kubernetes 버전* 의 *1.12.6* 다음 단계에서는 노드 풀을 업데이트 하는 방법을 보여주는 데 사용 됩니다. 지정할 수 있습니다 [지원 되는 Kubernetes 버전][supported-versions]합니다.
+시작 하려면 단일 노드 풀을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예제에서는 합니다 [az 그룹 만들기][az-group-create] 이라는 리소스 그룹을 만들려면 명령 *myResourceGroup* 에 *eastus* 지역입니다. 명명 된 AKS 클러스터 *myAKSCluster* 가 사용 하 여 생성 됩니다 합니다 [az aks 만들기][az-aks-create] 명령입니다. A *-kubernetes 버전* 의 *1.12.6* 다음 단계에서는 노드 풀을 업데이트 하는 방법을 보여주는 데 사용 됩니다. 지정할 수 있습니다 [지원 되는 Kubernetes 버전][supported-versions]합니다.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +105,7 @@ az aks create \
 
 클러스터를 만드는 데 몇 분이 걸립니다.
 
-클러스터 준비 되 면 사용 된 [az aks 자격 증명 가져오기] [ az-aks-get-credentials] 사용에 대 한 클러스터 자격 증명을 가져오려면 명령 `kubectl`:
+클러스터 준비 되 면 사용 된 [az aks 자격 증명 가져오기][az-aks-get-credentials] 사용에 대 한 클러스터 자격 증명을 가져오려면 명령 `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -109,7 +113,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>노드 풀을 추가 합니다.
 
-이전 단계에서 만든 클러스터에는 단일 노드 풀이 있습니다. 사용 하 여 두 번째 노드 풀을 추가 해 보겠습니다 합니다 [az aks 노드 풀 추가] [ az-aks-nodepool-add] 명령입니다. 다음 예에서는 이라는 노드 풀을 만듭니다 *mynodepool* 실행 하는 *3* 노드:
+이전 단계에서 만든 클러스터에는 단일 노드 풀이 있습니다. 사용 하 여 두 번째 노드 풀을 추가 해 보겠습니다 합니다 [az aks 노드 풀 추가][az-aks-nodepool-add] 명령입니다. 다음 예에서는 이라는 노드 풀을 만듭니다 *mynodepool* 실행 하는 *3* 노드:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -119,7 +123,7 @@ az aks nodepool add \
     --node-count 3
 ```
 
-노드 풀의 상태를 보려면 사용 합니다 [az aks 노드 풀 목록] [ az-aks-nodepool-list] 명령 및 리소스 그룹과 클러스터 이름을 지정 합니다.
+노드 풀의 상태를 보려면 사용 합니다 [az aks 노드 풀 목록][az-aks-nodepool-list] 명령 및 리소스 그룹과 클러스터 이름을 지정 합니다.
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
@@ -141,7 +145,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="upgrade-a-node-pool"></a>노드 풀을 업그레이드 합니다.
 
-첫 번째 단계에서는 AKS 클러스터를 만든 경우는 `--kubernetes-version` 의 *1.12.6* 지정 되었습니다. 업그레이드 된 *mynodepool* Kubernetes로 *1.12.7*합니다. 사용 된 [az aks 노드 풀 업그레이드가] [ az-aks-nodepool-upgrade] 다음 예와에서 같이 노드 풀을 업그레이드 하는 명령:
+첫 번째 단계에서는 AKS 클러스터를 만든 경우는 `--kubernetes-version` 의 *1.12.6* 지정 되었습니다. 업그레이드 된 *mynodepool* Kubernetes로 *1.12.7*합니다. 사용 된 [az aks 노드 풀 업그레이드가][az-aks-nodepool-upgrade] 다음 예와에서 같이 노드 풀을 업그레이드 하는 명령:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -152,7 +156,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-다시 사용 하 여 노드 풀의 상태를 나열 합니다 [az aks 노드 풀 목록] [ az-aks-nodepool-list] 명령입니다. 다음 예에서는 *mynodepool* 에 *업그레이드* 상태 *1.12.7*:
+다시 사용 하 여 노드 풀의 상태를 나열 합니다 [az aks 노드 풀 목록][az-aks-nodepool-list] 명령입니다. 다음 예에서는 *mynodepool* 에 *업그레이드* 상태 *1.12.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -173,7 +177,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-노드 풀의 노드 수를 조정 하려면 사용 합니다 [az aks 노드 풀 규모] [ az-aks-nodepool-scale] 명령입니다. 다음 예제에서는 확장의 노드 수가 *mynodepool* 하 *5*:
+노드 풀의 노드 수를 조정 하려면 사용 합니다 [az aks 노드 풀 규모][az-aks-nodepool-scale] 명령입니다. 다음 예제에서는 확장의 노드 수가 *mynodepool* 하 *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -184,7 +188,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-다시 사용 하 여 노드 풀의 상태를 나열 합니다 [az aks 노드 풀 목록] [ az-aks-nodepool-list] 명령입니다. 다음 예에서는 *mynodepool* 에 *크기 조정* 상태에 대해 새 횟수 이며 *5* 노드:
+다시 사용 하 여 노드 풀의 상태를 나열 합니다 [az aks 노드 풀 목록][az-aks-nodepool-list] 명령입니다. 다음 예에서는 *mynodepool* 에 *크기 조정* 상태에 대해 새 횟수 이며 *5* 노드:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
@@ -199,7 +203,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="delete-a-node-pool"></a>노드 풀을 삭제 합니다.
 
-풀에 더 이상 필요한 경우에 삭제할 수 있으며 기본 VM 노드는 제거할 수 없습니다. 노드 풀을 삭제 하려면 사용 합니다 [az aks 노드 풀 삭제] [ az-aks-nodepool-delete] 명령 및 노드 풀 이름을 지정 합니다. 다음 예에서는 삭제 합니다 *mynoodepool* 이전 단계에서 만든:
+풀에 더 이상 필요한 경우에 삭제할 수 있으며 기본 VM 노드는 제거할 수 없습니다. 노드 풀을 삭제 하려면 사용 합니다 [az aks 노드 풀 삭제][az-aks-nodepool-delete] 명령 및 노드 풀 이름을 지정 합니다. 다음 예에서는 삭제 합니다 *mynoodepool* 이전 단계에서 만든:
 
 > [!CAUTION]
 > 노드 풀을 삭제 하는 경우 발생할 수 있는 데이터 손실에 대 한 복구 옵션 없이 있습니다. 다른 노드 풀에서 pod를 예약할 수 없습니다, 경우에 해당 응용 프로그램 제공 되지 않습니다. 사용 중인 응용 프로그램 데이터 백업 또는 클러스터의 다른 노드 풀에서 실행할 수 없을 때 노드 풀을 삭제 하지 않으면 있는지 확인 합니다.
@@ -208,7 +212,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-다음 예제 출력에서는 [az aks 노드 풀 목록] [ az-aks-nodepool-list] 명령에 따르면 *mynodepool* 에 *삭제* 상태:
+다음 예제 출력에서는 [az aks 노드 풀 목록][az-aks-nodepool-list] 명령에 따르면 *mynodepool* 에 *삭제* 상태:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -227,7 +231,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 다음 예제에서 사용 하는 GPU 기반 노드 풀을 만들 합니다 *Standard_NC6* VM 크기입니다. 이러한 Vm은 NVIDIA Tesla K80 카드에서 전원이 공급 됩니다. 사용 가능한 VM 크기에 대 한 내용은 참조 하세요 [Azure에서 Linux 가상 머신 크기][vm-sizes]합니다.
 
-사용 하 여 노드 풀을 만들 합니다 [az aks 노드 풀 추가] [ az-aks-nodepool-add] 명령을 다시 합니다. 이 이번에는 이름을 지정 *gpunodepool*를 사용 하 여 합니다 `--node-vm-size` 매개 변수를 지정 합니다 *Standard_NC6* 크기:
+사용 하 여 노드 풀을 만들 합니다 [az aks 노드 풀 추가][az-aks-nodepool-add] 명령을 다시 합니다. 이 이번에는 이름을 지정 *gpunodepool*를 사용 하 여 합니다 `--node-vm-size` 매개 변수를 지정 합니다 *Standard_NC6* 크기:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -239,7 +243,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-다음 예제 출력에서는 [az aks 노드 풀 목록] [ az-aks-nodepool-list] 명령에 따르면 *gpunodepool* 는 *만들기* 사용 하 여 노드를 지정 된 *VmSize*:
+다음 예제 출력을 [az aks 노드 풀 목록][az-aks-nodepool-list] 명령에 따르면 *gpunodepool* 은 *만들기* 지정 된 노드 *VmSize*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -254,7 +258,7 @@ VirtualMachineScaleSets  1        110        nodepool1    1.12.6                
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Taints 및 tolerations를 사용 하 여 pod를 예약 합니다.
 
-이제 두 개의 노드 풀 클러스터에서 처음으로 생성 하는 기본 노드 풀 및 GPU 기반 노드 풀 합니다. 사용 하 여는 [kubectl get 노드] [ kubectl-get] 명령을 클러스터의 노드를 확인 합니다. 다음 예제 출력 각 노드 풀에서 노드 하나를 보여 줍니다.
+이제 두 개의 노드 풀 클러스터에서 처음으로 생성 하는 기본 노드 풀 및 GPU 기반 노드 풀 합니다. 사용 하 여는 [kubectl get 노드][kubectl-get] 명령을 클러스터의 노드를 확인 합니다. 다음 예제 출력 각 노드 풀에서 노드 하나를 보여 줍니다.
 
 ```console
 $ kubectl get nodes
@@ -271,7 +275,7 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 
 사용 하는 방법에 대 한 자세한 내용은 고급 Kubernetes 예약 기능을 참조 [AKS에서 고급 스케줄러 기능에 대 한 유용한 정보][taints-tolerations]
 
-이 예에서 사용 하 여 GPU 기반 노드를 검은 적용 합니다 [kubectl 검은 노드] [ kubectl-taint] 명령입니다. 이전 출력에서 GPU 기반 노드의 이름을 지정 `kubectl get nodes` 명령입니다. 검은으로 적용 되는 *키: 값* 및 다음 예약 옵션입니다. 다음 예제에서는 *sku gpu =* 쌍 및 pod를 정의 해야 합니다 *NoSchedule* 기능:
+이 예에서 사용 하 여 GPU 기반 노드를 검은 적용 합니다 [kubectl 검은 노드][kubectl-taint] 명령입니다. 이전 출력에서 GPU 기반 노드의 이름을 지정 `kubectl get nodes` 명령입니다. 검은으로 적용 되는 *키: 값* 및 다음 예약 옵션입니다. 다음 예제에서는 *sku gpu =* 쌍 및 pod를 정의 해야 합니다 *NoSchedule* 기능:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -310,7 +314,7 @@ spec:
 kubectl apply -f gpu-toleration.yaml
 ```
 
-Pod를 예약 하 고 NGINX 이미지 풀을 몇 초 정도가 걸립니다. 사용 하 여는 [kubectl 설명 pod] [ kubectl-describe] pod 상태를 보려면 명령입니다. 압축 된 다음 예제 출력 표시는 *sku gpu:NoSchedule =* 허용 적용 됩니다. 이벤트 섹션에서 스케줄러를 pod에 할당 합니다 *aks gpunodepool-28993262 vmss000000* GPU 기반 노드:
+Pod를 예약 하 고 NGINX 이미지 풀을 몇 초 정도가 걸립니다. 사용 된 [kubectl pod에 설명][kubectl-describe] pod 상태를 보려면 명령입니다. 압축 된 다음 예제 출력 표시는 *sku gpu:NoSchedule =* 허용 적용 됩니다. 이벤트 섹션에서 스케줄러를 pod에 할당 합니다 *aks gpunodepool-28993262 vmss000000* GPU 기반 노드:
 
 ```console
 $ kubectl describe pod mypod
@@ -410,7 +414,7 @@ Azure Resource Manager 템플릿 만들기를 사용 하는 경우 관리 되는
 }
 ```
 
-사용 하 여이 템플릿을 배포 합니다 [az 그룹 배포 만들기] [ az-group-deployment-create] 명령을 다음 예와에서 같이 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 나타납니다.
+사용 하 여이 템플릿을 배포 합니다 [az 그룹 배포 만들기][az-group-deployment-create] 명령을 다음 예와에서 같이 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 나타납니다.
 
 ```azurecli-interactive
 az group deployment create \
@@ -424,13 +428,13 @@ az group deployment create \
 
 이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 삭제 하려는 합니다 *gpunodepool*, 또는 전체 AKS 클러스터.
 
-GPU 기반 노드 풀을 삭제 하려면 사용 합니다 [az aks nodepool 삭제할] [ az-aks-nodepool-delete] 다음 예와에서 같이 명령:
+GPU 기반 노드 풀을 삭제 하려면 사용 합니다 [az aks nodepool 삭제][az-aks-nodepool-delete] 다음 예와에서 같이 명령:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-클러스터 자체를 삭제 하려면 사용 합니다 [az 그룹 삭제] [ az-group-delete] AKS 리소스 그룹을 삭제 하는 명령:
+클러스터 자체를 삭제 하려면 사용 합니다 [az 그룹 삭제][az-group-delete] AKS 리소스 그룹을 삭제 하는 명령:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -473,3 +477,5 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393747"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537770"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 C# Service Fabric 애플리케이션 개발
 
@@ -76,7 +76,18 @@ sudo code . --user-data-dir='.'
 
 4. 응용 프로그램이 실행 중인지를 확인 한 후 브라우저를 시작 하 고이 페이지를 열려면: http:\//localhost:31002 합니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
 
-   ![브라우저의 Counter Service 응용 프로그램](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+   ![브라우저의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에 응용 프로그램 게시
+로컬 클러스터에 응용 프로그램 배포와 함께 원격 Azure Service Fabric 클러스터에 응용 프로그램을 게시할 수도 있습니다. 
+
+1. 위의 지침을 사용 하 여 응용 프로그램을 빌드 했는지 확인 합니다. 생성된 된 구성 파일 업데이트 `Cloud.json` 게시 하려면 원격 클러스터의 세부 정보를 사용 하 여 합니다.
+
+2. **명령 팔레트**에서 **Service Fabric: 응용 프로그램 명령 게시**합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+
+   ![VS Code에서 응용 프로그램 명령 게시](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. 배포가 완료되면 브라우저를 시작하고 `https:<clusterurl>:19080/Explorer`의 Service Fabric Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
 ## <a name="debug-the-application"></a>애플리케이션 디버그
 VS Code에서 응용 프로그램을 디버그할 때 응용 프로그램은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.

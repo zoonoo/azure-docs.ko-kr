@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399965"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491789"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>VM 및 물리적 서버 장애 조치 
 
@@ -70,9 +70,9 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 
 > [!NOTE]
 > 하나의 온-프레미스 사이트에서 다른 온-프레미스 사이트로 Hyper-V 가상 머신을 장애 조치하는 도중에 기본 온-프레미스 사이트로 다시 돌아가려면 먼저 가상 머신을 기본 사이트로 **역방향 복제**한 다음, 장애 조치를 트리거해야 합니다. 기본 가상 머신을 사용할 수 없는 경우 **역방향 복제**를 시작하기 전에 백업에서 가상 머신을 복원해야 합니다.   
-> 
-> 
-> ## <a name="failover-job"></a>장애 조치 작업
+ 
+ 
+## <a name="failover-job"></a>장애 조치 작업
 
 ![장애 조치(failover)](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 ## <a name="post-failover-considerations"></a>장애 조치 후 고려 사항
 장애 조치 후 다음 권장 사항을 고려하는 것이 좋습니다.
 ### <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지
-장애 조치 후 가상 머신에서 드라이브 문자를 유지하려면 가상 머신에 대한 **SAN 정책**을 **OnlineAll**로 설정하면 됩니다. [자세히 알아보기](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery는 보존 드라이브 문자를 처리합니다. [자세한](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) 일부 디스크를 제외 하도록 선택 하면 수행 되는 방법입니다.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 

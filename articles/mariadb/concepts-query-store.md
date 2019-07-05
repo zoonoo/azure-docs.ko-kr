@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 9016fa159e868f649901928cdf2dca2f08725e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079393"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462082"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 MariaDB 성능에 대 한 Azure Database를 모니터링 합니다.
 
 **적용 대상:**  Azure Database for MariaDB 10.2
 
 > [!NOTE]
-> 쿼리 저장소 미리 보기입니다. Azure portal에서 쿼리 저장소에 대 한 지원을 롤아웃하는 아직 못할 지역의 하며
+> 쿼리 저장소 미리 보기입니다.
 
 Azure Database for Mariadb에서에서 쿼리 저장소 기능에는 시간에 따른 쿼리 성능을 추적 하는 방법을 제공 합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리 데이터에 저장 되는 **mysql** MariaDB 인스턴스에 대 한 Azure Database에서 데이터베이스 스키마입니다.
 
@@ -29,10 +29,6 @@ Azure Database for Mariadb에서에서 쿼리 저장소 기능에는 시간에 �
 - 회귀 된 쿼리를 검색합니다.
 - 지정된 기간에 쿼리가 실행된 횟수를 확인하는 경우
 - 전체 기간에 대한 쿼리의 평균 실행 시간을 비교하여 큰 델타를 확인하는 경우
-- 지난 X시간 동안 가장 오래 실행되는 쿼리를 식별하는 경우
-- 리소스에서 대기 중인 최상위 N개 쿼리를 식별하는 경우
-- 쿼리에 대 한 대기 특성 이해
-- 리소스 대기 및 리소스 경합 존재 하는 위치에 대 한 추세 이해
 
 ## <a name="enabling-query-store"></a>쿼리 저장소 사용
 

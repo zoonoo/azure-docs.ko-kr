@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312154"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514119"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -70,7 +70,7 @@ Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 �
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-범용 V2 저장소 계정(핫 및 쿨 계층) | 지원되지 않습니다. | V2의 트랜잭션 비용이 V1 저장소 계정 비용보다 훨씬 더 높기 때문에 캐시 저장소에 대한 제한이 있습니다.
+범용 V2 저장소 계정(핫 및 쿨 계층) | 지원됨 | GPv2 사용 V2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 높기 때문에 권장 되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
 
 
@@ -82,7 +82,7 @@ Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM�
 
 **운영 체제** | **세부 정보**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, 데스크톱 경험이 있는 Server
 Windows Server 2016  | Server Core, 데스크톱 경험이 있는 Server
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default�
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
+Size | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
 가용성 집합 | 지원됨 | 기본 옵션을 사용 하 여 Azure VM에 대 한 복제를 사용 하는 경우 가용성 집합을 원본 지역 설정에 따라 자동으로 생성 됩니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
@@ -208,7 +208,7 @@ RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 하는 경우 저장소 계정에 대 한 가상 네트워크 액세스 제한, 사용 하도록 설정 [Allow Microsoft services 신뢰할 수 있는](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)합니다.
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아닙니다. | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 예 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > 성능 문제를 방지 하려면에 대 한 VM 디스크 확장성 및 성능 목표를 따르는 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 하거나 [Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm. 기본 설정을 사용 하는 경우 Site Recovery에 필요한 디스크 및 원본 구성에 따라 저장소 계정을 만듭니다. 사용자 지정 하 고 고유한 설정을 선택 하는 경우 원본 Vm에 대 한 디스크 확장성 및 성능 목표를 수행 합니다.
@@ -246,7 +246,7 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [자세한 정보]. (site-recovery-azure-to-azure-networking-guidance.md)   
+인증되지 않은 프록시 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
 인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
 온-프레미스 VPN 사이트 간 연결<br/><br/>(사용 하 여 또는 ExpressRoute 없음)| 지원됨 | Udr 및 Nsg를 Site Recovery 트래픽이 온-프레미스로 라우팅되지는 방식으로 구성 되어 있는지 확인 합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
 VNet 간 연결 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)  

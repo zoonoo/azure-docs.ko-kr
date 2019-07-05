@@ -3,7 +3,7 @@ title: Mobile Apps를 사용하여 Apache Cordova에 인증 추가 | Microsoft D
 description: Azure App Service에서 Mobile Apps를 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Apache Cordova 앱의 사용자를 인증하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 23b5967782cf237ed5af2b802aabbbf9c2f781e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b0634038dbf5771ac1aa0bc00d007e758171b238
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114213"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443503"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Apache Cordova 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-users) 지금 합니다.
+>
 
 ## <a name="summary"></a>요약
 이 자습서에서는 지원되는 ID 공급자를 사용하여 Apache Cordova의 할 일 모음 빠른 시작 프로젝트에 인증을 추가합니다. 이 자습서는 [Mobile Apps 시작] 자습서를 기반으로 하며 이를 먼저 완료해야 합니다.

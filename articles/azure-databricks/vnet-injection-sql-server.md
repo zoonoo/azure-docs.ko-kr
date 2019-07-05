@@ -1,5 +1,5 @@
 ---
-title: 쿼리는 Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너
+title: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
 description: 이 문서에서는 가상 네트워크에 VNet 주입 라고도 Azure Databricks를 배포 하는 방법을 설명 합니다.
 services: azure-databricks
 author: mamccrea
@@ -15,34 +15,34 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770792"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: 쿼리는 Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
 
-이 자습서에서는 가상 네트워크의 SQL Server Linux Docker 컨테이너를 사용 하 여 Azure Databricks를 통합 하는 방법을 설명 합니다. 
+이 자습서에서는 Azure Databricks를 가상 네트워크의 SQL Server Linux Docker 컨테이너와 통합하는 방법을 설명합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 가상 네트워크에 Azure Databricks 작업 영역을 배포 합니다.
-> * 공용 네트워크에 Linux 가상 머신에 설치
+> * 공용 네트워크에 Linux 가상 머신 설치
 > * Docker 설치
 > * Linux docker 컨테이너에 Microsoft SQL Server 설치
-> * JDBC를 사용 하 여 Databricks notebook에서 SQL Server 쿼리
+> * JDBC를 사용하여 Databricks notebook에서 SQL Server 쿼리
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 만들기는 [가상 네트워크에서 Databricks 작업 영역](quickstart-create-databricks-workspace-vnet-injection.md)합니다.
+* [가상 네트워크에서 Databricks 작업 영역](quickstart-create-databricks-workspace-vnet-injection.md)을 생성합니다.
 
-* 설치할 [Windows에 대 한 Ubuntu](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)합니다.
+* [Windows용 Ubuntu](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)를 설치합니다.
 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)를 다운로드합니다.
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 가상 머신 만들기
 
-1. Azure portal에서 아이콘을 선택 **가상 머신**합니다. 그런 다음 선택 **+ 추가**합니다.
+1. Azure portal에서 **가상 머신** 아이콘을 선택합니다. 그런 다음 **+ 추가**를 선택합니다.
 
     ![새 Azure 가상 컴퓨터를 추가 합니다.](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. 에 **기본 사항** 탭, Ubuntu Server 16.04 LTS를 선택 합니다. 에 하나의 VCPU와 2GB RAM B1ms VM 크기를 변경 합니다. SQL Server Linux Docker 컨테이너에 대 한 최소 요구 사항은 2GB입니다. 사용자 이름 및 암호 관리자를 선택 합니다.
+2. **기본 사항** 탭에서, Ubuntu Server 16.04 LTS를 선택합니다. VM 크기를 하나의 VCPU와 2GB RAM을 가진 B1ms으로 변경합니다. SQL Server Linux Docker 컨테이너에 대한 최소 요구 사항은 2GB입니다. 관리자의 사용자 이름 및 암호를 선택합니다.
 
     ![새 가상 컴퓨터 구성의 기본 사항 탭](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 

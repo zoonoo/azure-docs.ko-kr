@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203717"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484050"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -133,9 +133,9 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 ![HDInsight Hadoop 사용자 지정 클러스터 부트스트랩 Azure Resource Manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight의 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
+* [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster] 다른 사용자 지정 옵션을 사용 하 여 HDInsight 클러스터를 만드는 방법에 대 한 지침을 제공 합니다.
 * [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
-* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]
+* [설치 하 고 HDInsight 클러스터에서 Apache Spark 사용][hdinsight-install-spark]
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -149,9 +149,6 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 ## <a name="appendix-powershell-sample"></a>부록: PowerShell 샘플
 
 이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. 에 대 한 값을 입력 해야 `$nameToken`, `$httpPassword`, 및 `$sshPassword`합니다.
-
-> [!IMPORTANT]  
-> 에 대 한 값 `DefaultStorageAccount`, 및 `DefaultStorageContainer` 에서 반환 되지 않습니다 [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 때 [보안 전송](../storage/common/storage-require-secure-transfer.md) 저장소 계정에서 사용 하도록 설정 됩니다.
 
 > [!WARNING]  
 > 저장소 계정 종류 `BlobStorage` HDInsight 클러스터에 사용할 수 없습니다.

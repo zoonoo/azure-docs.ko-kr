@@ -2,48 +2,42 @@
 title: 포함 파일
 description: 포함 파일
 services: functions
-author: craigshoemaker
+author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181969"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448385"
 ---
-확장 번들의 설정을 통해 사용할 수 있는 Azure Functions 팀에서 게시 하는 모든 바인딩을 확인 합니다 *host.json* 파일입니다. 로컬 개발에 대 한 최신 버전의 했는지를 확인 [Azure Functions 핵심 도구](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)합니다.
+## <a name="register-extensions"></a>확장 등록
 
-확장 번들을 사용 하려면 업데이트 된 *host.json* 파일에 대 한 다음 항목을 포함 하도록 `extensionBundle`:
+HTTP 및 타이머 트리거를 제외 하 고 바인딩을 함수 런타임 버전 2.x 확장 패키지로 구현 됩니다. 버전에서의 Azure Functions 런타임 2.x를 명시적으로 함수에 사용 되는 바인딩 형식에 대 한 확장을 등록 해야 합니다. 이 예외는 HTTP 바인딩 및 타이머 트리거를 확장 하지 않아도 됩니다.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+바인딩 확장을 개별적으로 설치 하도록 선택할 수 있습니다 또는 host.json 프로젝트 파일에 대 한 확장 번들 참조를 추가할 수 있습니다. 확장 번들에는 여러 바인딩 형식을 사용 하는 경우 패키지 호환성 문제가 있을 가능성이 제거 합니다. 권장 되는 바인딩 확장 등록 방법 이며 확장 번들에는 또한.NET Core를 설치 하는 요구 사항이 제거 2.x SDK. 
+
+### <a name="extension-bundles"></a>확장 번들
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+자세한 내용은 참조 하세요 [등록 하는 Azure Functions 바인딩 확장](../articles/azure-functions/functions-bindings-register.md#extension-bundles)합니다. 바인딩 functions.json 파일에 추가 하기 전에 확장 번들을 host.json에 추가 해야 합니다.
+
+### <a name="register-individual-extensions"></a>개별 확장 등록
+
+번들에 없는 확장을 설치 해야 할 경우 특정 바인딩에 대 한 개별 확장 패키지를 수동으로 등록할 수 있습니다. 
+
+> [!NOTE]
+> 사용 하 여 확장을 수동으로 등록 `func extensions install`,.NET Core 있어야 합니다. 2.x SDK가 설치 되어 있습니다.
+
+함수에 필요한 모든 바인딩을 포함하도록 *function.json* 파일을 업데이트한 후에 프로젝트 폴더에서 다음 명령을 실행합니다.
+
+```bash
+func extensions install
 ```
 
-- `id` Microsoft Azure Functions 확장 번들에 대 한 네임 스페이스를 참조 하는 속성입니다.
-- `version` 번들의 버전을 참조 합니다.
-
-번들 변경에서 패키지로 번들 버전 증가 합니다. 주 버전 변경이 패키지 번들의 주 버전을 이동 하는 경우에 발생 합니다. 합니다 `version` 속성에서 사용 하는 [버전 범위를 지정 하기 위한 간격 표기법](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards)합니다. 함수 런타임에서 항상 버전 범위 또는 간격에 의해 정의 된 최대 허용 버전을 선택 합니다.
-
-프로젝트에서 확장 번들을 참조 하 되 면 모든 기본 바인딩 함수가 제공 됩니다. 사용할 수 있는 바인딩 합니다 [확장 번들](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) 됩니다.
-
-|패키지  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+이 명령은 *function.json* 파일을 읽어 필요한 패키지를 확인하고 설치한 후 확장 프로젝트를 다시 빌드합니다. 현재 버전에서 새 바인딩을 추가하되, 기존 바인딩을 업데이트하지는 않습니다. 새 바인딩을 설치할 때 기존 바인딩을 최신 버전으로 업데이트하려면 `--force` 옵션을 사용합니다.

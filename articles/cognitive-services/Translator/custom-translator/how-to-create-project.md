@@ -2,19 +2,19 @@
 title: 프로젝트를 만드는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator에서 프로젝트를 만드는 방법
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383003"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448324"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "66383003"
 
     b.  설명: 프로젝트의 간단한 요약입니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않지만, 여러 프로젝트를 구분하는 데 도움이 될 수 있습니다.
 
-    다.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
+    c.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
 
     d.  범주(필수): 프로젝트에 가장 적합한 범주를 선택합니다. 범주는 번역하려는 문서의 스타일과 용어를 설명합니다.
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070381"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447783"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database 고급 데이터 보안 사용
 
@@ -81,6 +81,9 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 - **Gen5** 논리 Cpu는 Intel E5-2673 v4 기반 (Broadwell) 2.3 GHz 프로세서, NVMe SSD, 논리 코어 하이퍼 스레드된 빠르고 4 개 및 80 코어 간에 크기를 계산 합니다.
 
 하드웨어 세대 간의 차이점에 대한 자세한 내용은 [Managed Instance 리소스 제한](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)을 참조하세요.
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 
 ## <a name="managed-instance-service-tiers"></a>Managed Instance 서비스 계층
 

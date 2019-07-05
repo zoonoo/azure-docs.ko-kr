@@ -3,7 +3,7 @@ title: Xamarin iOS에서 Mobile Apps에 대한 인증 시작
 description: Mobile Apps를 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: crdun
-ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: fa1f4bae314025a71568e1e04cbf950ebbe26dbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446236"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-users) 지금 합니다.
+>
+
+## <a name="overview"></a>개요
 
 이 항목에서는 클라이언트 애플리케이션에서 App Service 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 App Service가 지원하는 ID 공급자를 사용하여 Xamarin.iOS 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증이 완료되고 권한이 부여되고 나면 사용자 ID 값이 표시되고 제한된 테이블 데이터에 액세스할 수 있게 됩니다.
 

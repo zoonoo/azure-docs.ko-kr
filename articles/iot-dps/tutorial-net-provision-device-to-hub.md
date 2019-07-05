@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 4a6a074c3f677023928fefa5c09eb305b5441dfe
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303986"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 디바이스를 등록(.NET)
 
@@ -121,13 +121,13 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
         SetRegistrationDataAsync().GetAwaiter().GetResult();
             
         Console.WriteLine("Done, hit enter to exit.");
-        Console.ReadLine();
     }
     catch (Exception ex)
     {
         Console.WriteLine();
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
+    Console.ReadLine();
     ```
         
 1. Visual Studio 솔루션 Explorer에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정...** 을 클릭합니다. **단일 시작 프로젝트**를 선택한 다음 드롭다운 메뉴에서 **DeviceProvisioning** 프로젝트를 선택합니다.  

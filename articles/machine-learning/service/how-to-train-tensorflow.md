@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165552"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543786"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 등록 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "67165552"
 
 TensorFlow는 deep neural network DNN ()를 만드는 데 일반적으로 오픈 소스 계산 프레임 워크입니다. Azure Machine Learning 서비스를 사용 하 여 탄력적인 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업 규모를 신속 하 게 확장할 수 있습니다. 교육 실행, 버전 모델을 통해 추적할 수 있습니다 모델 등을 배포 합니다.
 
-부터 TensorFlow 모델을 개발 하는 기존 모델을 클라우드로 가져오는, Azure Machine Learning 서비스를 위해 프로덕션이 준비 된 모델을 빌드할 수 합니다.
+부터 TensorFlow 모델을 개발 하는 여부 가져오는 [기존 모델](how-to-deploy-existing-model.md) 를 클라우드로 Azure Machine Learning 서비스 도움이 될 수 있습니다 프로덕션이 준비 된 모델을 작성 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 학습 하 고 Azure Machine Learning 서비스에서 TensorFlow 모델을 등록 합니다. 모델을 배포 하는 방법에 알아보려면 모델 배포 문서를 진행 합니다.
+이 문서에서는 학습 및 TensorFlow 모델을 등록 합니다. GPU 사용 하도록 설정 하는 클러스터로 모델을 배포 하는 방법에 알아보려면 GPU 모델 배포 문서를 진행 합니다.
 
-> [!div class="nextstepaction"]
-> [방법 및 모델을 배포할 수 있는 위치](how-to-deploy-and-where.md)
+[Gpu 통한 추론을 위해 배포 하는 방법](how-to-deploy-inferencing-gpus.md)
+[Tensorboard를 사용 하 여 모니터링 하는 방법](how-to-monitor-tensorboard.md)

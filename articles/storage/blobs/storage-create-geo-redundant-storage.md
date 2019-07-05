@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071408"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -82,8 +82,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    | **배포 모델** | 리소스 관리자  | 리소스 관리자에는 최신 기능이 포함되어 있습니다.|
    | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [저장소 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **성능** | Standard | Standard는 샘플 시나리오에 충분합니다. |
-   | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 이 설정은 샘플 작동에 필요합니다. |
-   |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 샘플 작동에 필요합니다. |
    |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |
    |**ResourceGroup** | myResourceGroup |유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |

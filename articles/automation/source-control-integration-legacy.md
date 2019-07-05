@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2567536cd81eb2339622868a731948b1380614ad
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881219"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478439"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 
@@ -65,7 +65,7 @@ ms.locfileid: "60881219"
      | **매개 변수** | **값** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |String |
+     | `Type`  |문자열 |
      | `Value` |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
    * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  

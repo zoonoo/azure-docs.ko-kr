@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/26/2019
+ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357637"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443851"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>MySQL 용 Azure Database에서 감사 로그
 
@@ -55,7 +55,7 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -65,13 +65,14 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`하십시오 `DISCONNECT`, `CHANGE USER` (MySQL 5.7에 대 한 사용 가능) |
-| `connection_id` | MySQL에서 생성 된 고유 연결 ID |
-| `host` | 비어 있음 |
-| `ip` | MySQL에 연결 하는 클라이언트의 IP 주소 |
-| `user` | 쿼리를 실행 하는 사용자의 이름 |
-| `db` | 연결할 데이터베이스의 이름 |
+| `LogicalServerName_s` | 서버의 이름 |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`하십시오 `DISCONNECT`, `CHANGE USER` (MySQL 5.7에 대 한 사용 가능) |
+| `connection_id_d` | MySQL에서 생성 된 고유 연결 ID |
+| `host_s` | 비어 있음 |
+| `ip_s` | MySQL에 연결 하는 클라이언트의 IP 주소 |
+| `user_s` | 쿼리를 실행 하는 사용자의 이름 |
+| `db_s` | 연결할 데이터베이스의 이름 |
 | `\_ResourceId` | 리소스 URI |
 
 ### <a name="general"></a>일반
@@ -82,7 +83,7 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -92,15 +93,16 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`하십시오 `ERROR`, `RESULT` (MySQL 5.6에 대해 사용 가능) |
+| `LogicalServerName_s` | 서버의 이름 |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`하십시오 `ERROR`, `RESULT` (MySQL 5.6에 대해 사용 가능) |
 | `event_time` | 쿼리는 UNIX 타임 스탬프에 시간 (초) 시작 |
-| `error_code` | 쿼리 실패 한 경우 오류 코드입니다. `0` 의미 없는 오류 |
-| `thread_id` | 쿼리를 실행 하는 스레드의 ID |
-| `host` | 비어 있음 |
-| `ip` | MySQL에 연결 하는 클라이언트의 IP 주소 |
-| `user` | 쿼리를 실행 하는 사용자의 이름 |
-| `sql_text` | 전체 쿼리 텍스트 |
+| `error_code_d` | 쿼리 실패 한 경우 오류 코드입니다. `0` 의미 없는 오류 |
+| `thread_id_d` | 쿼리를 실행 하는 스레드의 ID |
+| `host_s` | 비어 있음 |
+| `ip_s` | MySQL에 연결 하는 클라이언트의 IP 주소 |
+| `user_s` | 쿼리를 실행 하는 사용자의 이름 |
+| `sql_text_s` | 전체 쿼리 텍스트 |
 | `\_ResourceId` | 리소스 URI |
 
 ### <a name="table-access"></a>테이블 액세스
@@ -109,7 +111,7 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -119,12 +121,13 @@ Azure Database for MySQL에서는 감사 로그의 사용자에 게 제공 합�
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`하십시오 `INSERT`, `UPDATE`, 또는 `DELETE` |
-| `connection_id` | MySQL에서 생성 된 고유 연결 ID |
-| `db` | 액세스 데이터베이스의 이름 |
-| `table` | 액세스 하는 테이블 이름 |
-| `sql_text` | 전체 쿼리 텍스트 |
+| `LogicalServerName_s` | 서버의 이름 |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`하십시오 `INSERT`, `UPDATE`, 또는 `DELETE` |
+| `connection_id_d` | MySQL에서 생성 된 고유 연결 ID |
+| `db_s` | 액세스 데이터베이스의 이름 |
+| `table_s` | 액세스 하는 테이블 이름 |
+| `sql_text_s` | 전체 쿼리 텍스트 |
 | `\_ResourceId` | 리소스 URI |
 
 ## <a name="next-steps"></a>다음 단계

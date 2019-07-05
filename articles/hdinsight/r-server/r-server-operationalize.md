@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719758"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448979"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -21,9 +21,9 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight의 ML 서비스 클러스터**: 자세한 내용은 [HDInsight에서 ML 서비스 시작](r-server-get-started.md)을 참조하세요.
+* HDInsight에서 기계 학습 서비스 클러스터를 합니다. 참조 [Apache Hadoop 클러스터 만들기 Azure portal을 사용 하 여](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **ML Services** 에 대 한 **클러스터 유형**합니다.
 
-* **SSH(Secure Shell) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH (보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>원 박스 구성을 사용하여 ML 서비스 클러스터 운영
 

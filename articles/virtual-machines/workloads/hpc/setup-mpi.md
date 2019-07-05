@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 1717c0d95c00e13ae0d87ab920bc88cd4f0df978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809844"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441643"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC 용 메시지 전달 인터페이스를 설정 합니다.
 
@@ -70,7 +70,7 @@ OpenMPI를 실행 합니다.
 MPICH를 빌드하십시오.
 
 ```bash
-wget http://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
+wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
 tar -xvf mpich-3.3.tar.gz
 cd mpich-3.3
 ./configure --with-ucx=<ucx-install-path> --prefix=<mpich-install-path> --with-device=ch4:ucx

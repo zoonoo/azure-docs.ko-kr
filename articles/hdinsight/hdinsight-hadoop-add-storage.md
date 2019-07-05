@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724472"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433525"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
@@ -196,6 +196,9 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 스크립트 동작을 다시 실행하면 스크립트에서 저장소 계정에 대한 항목이 이미 있는지 확인하기 때문에 키를 업데이트하지 __않습니다__. 항목이 존재하는 경우 변경하지 않습니다.
 
 이 문제를 해결하려면 저장소 계정에 대한 기존 항목을 제거해야 합니다. 기존 항목을 제거하려면 다음 단계를 수행합니다.
+
+> [!IMPORTANT]  
+> 클러스터에 연결 된 기본 저장소 계정에 대 한 저장소 키를 회전 하는 것은 지원 되지 않습니다.
 
 1. 웹 브라우저에서 HDInsight 클러스터에 대한 Ambari 웹 UI를 엽니다. URI는 `https://CLUSTERNAME.azurehdinsight.net`입니다. `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다.
 

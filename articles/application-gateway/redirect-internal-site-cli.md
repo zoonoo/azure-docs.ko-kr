@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133772"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513355"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -213,11 +213,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http:\//www.contoso.com 합니다.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\. contoso.com입니다.
+다른 도메인에 예를 들어 http 주소를 변경 합니다.\/www.contoso.org 하는 트래픽이 www의 수신기로 다시 리디렉션 되었다고를 참조 해야\.contoso.com입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

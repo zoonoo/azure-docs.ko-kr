@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059249"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466927"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -58,7 +58,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 ### <a name="set-up-a-datastore"></a>데이터 저장소 설정
 데이터 저장소는 파이프라인에서 액세스할 데이터를 저장합니다. 각 작업 영역마다 기본 데이터 저장소가 있습니다. 추가 데이터 저장소를 등록할 수 있습니다. 
 
-작업 영역을 만들 때 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 및 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)는 기본적으로 작업 영역에 연결됩니다. Azure Files가 작업 영역의 기본 데이터 저장소이지만, Blob Storage를 데이터 저장소로 사용할 수도 있습니다. 자세한 내용은 [Azure Files, Azure Blob 또는 Azure Disk를 사용할지 여부 결정](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)을 참조하세요. 
+작업 영역을 만들 때 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 및 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)는 기본적으로 작업 영역에 연결됩니다. Azure Blob 저장소를 작업 영역에 대 한 기본 데이터 저장소 이지만 데이터 저장소로 Blob 저장소를 사용할 수도 있습니다. 자세한 내용은 [Azure Files, Azure Blob 또는 Azure Disk를 사용할지 여부 결정](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)을 참조하세요. 
 
 ```python
 # Default datastore (Azure file storage)

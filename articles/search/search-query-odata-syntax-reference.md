@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079666"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428652"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Azure Search에 대 한 OData 식 구문 참조
 
-다음을 사용 하 여 azure Search [OData 식](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) API 전반에 걸쳐 매개 변수로 합니다. OData 식 가장 일반적으로 사용 되는 `$orderby` 고 `$filter` 매개 변수입니다. 이러한 식은 여러 절, 함수 및 연산자를 포함 하 복잡할 수 있습니다. 그러나 단순한 OData 식 같은 속성 경로 Azure Search REST API의 많은 부분에서 사용 됩니다. 예를 들어 경로 식 하는 데 하위 필드 목록에서 하위 필드 때와 같은 API의 어디에서 나 복잡 한 필드의 참조를 [suggester](index-add-suggesters.md), [점수 매기기 함수](index-add-scoring-profiles.md)의 `$select` 매개 변수 심지어 [Lucene 쿼리 검색 필드 지정된](query-lucene-syntax.md)합니다.
+다음을 사용 하 여 azure Search [OData 식](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) API 전반에 걸쳐 매개 변수로 합니다. OData 식 가장 일반적으로 사용 되는 `$orderby` 고 `$filter` 매개 변수입니다. 이러한 식은 여러 절, 함수 및 연산자를 포함 하 복잡할 수 있습니다. 그러나 단순한 OData 식 같은 속성 경로 Azure Search REST API의 많은 부분에서 사용 됩니다. 예를 들어 경로 식 하는 데 하위 필드 목록에서 하위 필드 때와 같은 API의 어디에서 나 복잡 한 필드의 참조를 [suggester](index-add-suggesters.md), [점수 매기기 함수](index-add-scoring-profiles.md)의 `$select` 매개 변수 심지어 [Lucene 쿼리 검색 필드 지정된](query-lucene-syntax.md)합니다.
 
 이 문서에서는 이러한 모든 형태의 OData 식에서는 정식 문법을 사용 하 여 설명 합니다. 또한는 [대화형 다이어그램](#syntax-diagram) 문법을 시각적으로 탐색할 수 있도록 합니다.
 

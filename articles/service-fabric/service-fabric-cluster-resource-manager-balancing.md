@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809381"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446747"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>서비스 패브릭 클러스터 분산
 Service Fabric 클러스터 리소스 관리자는 노드나 서비스의 추가 또는 제거에 대응하는 동적 로드 변경을 지원합니다. 또한 제약 조건 위반을 자동으로 수정하고 사전에 로드를 분산하도록 클러스터를 조정합니다. 그러나 이러한 작업은 얼마나 자주 수행될까요? 그리고 이러한 작업을 트리거하는 것은 무엇일까요?
@@ -36,9 +36,9 @@ Service Fabric 클러스터 리소스 관리자는 노드나 서비스의 추가
 Cluster Resource Manager에서 수행할 수 있는 이러한 각 형식의 수정 작업은 해당 빈도를 제어하는 다른 타이머에 의해 제어됩니다. 각 타이머가 실행되면 작업이 예약됩니다. 기본적으로 Resource Manager는
 
 * 1/10초마다 상태를 검색하고 업데이트를 적용합니다(예: 노드가 다운된 기록).
-* 배치 검사 플래그를 설정합니다. 
+* 1 초 마다 배치 검사 플래그를 설정합니다.
 * 제약 조건 검사 플래그를 매 초마다 설정합니다.
-* 분산 플래그를 5초마다 설정합니다.
+* 5 초 마다 분산 플래그를 설정합니다.
 
 이러한 타이머를 관리하는 구성의 예제는 다음과 같습니다.
 

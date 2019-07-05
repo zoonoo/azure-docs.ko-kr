@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 06/06/2019
 ms.author: yluiu
-ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a7667f94d3f4dea2901c4b4b0e2b2c893b9f535e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074087"
 ---
 # <a name="face-api-release-notes"></a>Face API 릴리스 정보
 
 이 문서는 Face API 서비스 버전 1.0에 적용됩니다.
+
+### <a name="release-changes-in-june-2019"></a>변경 내용을 2019 년 6 월 릴리스
+
+* 쪽 보기, 폐색 작고 흐리게 얼굴에 대 한 향상 된 정확도 사용 하 여 새 얼굴 감지 모델을 추가 합니다. 통해 사용 [직면-검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)를 [LargeFaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)를 [PersonGroup 사람-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 및 [LargePersonGroup 사람-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) 새 얼굴 감지 모델 이름을 지정 하 여 `detection_02` 에서 `detectionModel` 매개 변수입니다. 자세한 내용은 [감지 모델을 지정 하는 방법을](Face-API-How-to-Topics/specify-detection-model.md)합니다.
 
 ### <a name="release-changes-in-april-2019"></a>변경 내용을 2019 년 4 월 릴리스
 

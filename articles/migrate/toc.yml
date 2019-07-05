@@ -42,6 +42,8 @@
   items:
     - name: FAQ
       href: resources-faq.md
+    - name: CAF(클라우드 채택 프레임워크)에 마이그레이션
+      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Resource Manager 템플릿

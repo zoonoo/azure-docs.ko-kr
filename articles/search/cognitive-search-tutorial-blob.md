@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299044"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485773"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -61,7 +61,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -89,7 +89,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="set-up-postman"></a>Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
 
 이 자습서에 사용되는 요청 메서드는 **POST**, **PUT** 및 **GET**입니다. 헤더 키는 "application/json"으로 설정된 "Content-type" 및 Azure Search 서비스의 관리자 키로 설정된 "api-key"입니다. 본문은 호출의 실제 콘텐츠가 배치되는 위치입니다. 
 

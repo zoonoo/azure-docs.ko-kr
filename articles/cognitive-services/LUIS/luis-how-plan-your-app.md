@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794995"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60196238"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>주체 도메인, 의도 및 엔터티를 사용하여 LUIS 앱 계획
 

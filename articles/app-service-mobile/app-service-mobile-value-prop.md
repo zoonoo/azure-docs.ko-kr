@@ -3,7 +3,7 @@ title: Azure App Service의 Mobile Apps 정보
 description: App Service가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 55f33821a748789fb11b44dc08c367961b4258f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861394"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440286"
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-value-prop) 지금 합니다.
+>
+
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
 
 Azure App Service의 Mobile Apps 기능은 엔터프라이즈 개발자 및 시스템 통합자에게 확장성이 뛰어나고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다.

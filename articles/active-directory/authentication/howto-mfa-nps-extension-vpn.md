@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570648"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561135"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -42,7 +42,7 @@ Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 조직에서 
 
 * 디바이스가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
 
-* 802\.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.
+* 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.
   자세한 내용은 [네트워크 정책 서버](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)를 참조하세요.
 
 보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 장치의 애플리케이션이 여기에 포함될 수 있습니다.
@@ -246,7 +246,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
-    다. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
+    c. 에 **제한 시간 (초)** 상자에 값을 입력 합니다 **30**합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
 
     ![시간 제한을 구성 하는 RADIUS 서버 창 추가](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-factor Authentication에 대 한 사용자를 구성 하는 지원 문서를 참조 하세요 [클라우드 기반 Azure Multi-factor Authentication 배포 계획 수립](howto-mfa-getstarted.md#create-conditional-access-policy) 고 [2 단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 

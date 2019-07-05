@@ -4,17 +4,17 @@ description: 클라이언트가 Azure Automation에서 HTTP 호출을 통해 run
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61305023"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477937"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "61305023"
 
 | 자산 | Description |
 |:--- |:--- |
-| 이름 |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| Name |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다. 보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
 | 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
 | 사용 |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |

@@ -1,6 +1,6 @@
 ---
-title: 비갤러리 애플리케이션에 대해 암호 Single Sign-On 구성 문제 | Microsoft Docs
-description: Azure AD 애플리케이션 갤러리에 나열되지 않은 사용자 지정 비갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
+title: 비 갤러리 응용 프로그램 암호 SSO를 구성 하는 문제 | Microsoft Docs
+description: Azure AD 응용 프로그램 갤러리에 없는 사용자 지정 앱에 대해 암호 single sign-on (SSO) 구성 하는 경우 발생 하는 일반적인 문제입니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -15,249 +15,241 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24330dc874173ba1c6f15abb7b4caf9f23e2e00c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442067"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440345"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On 구성 문제
+# <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>암호 single sign-on 비 갤러리 응용 프로그램을 구성 하는 문제
 
-이 문서는 비갤러리 애플리케이션에 대해 **암호 Single Sign-On**을 구성할 때 발생하는 일반적인 문제를 이해하는 데 도움이 됩니다.
+이 문서에서는 구성한 경우 발생할 수 있는 일반적인 문제를 설명 *암호 single sign-on* (SSO)는 비 갤러리 응용 프로그램에 대 한 합니다.
 
-## <a name="how-to-capture-sign-in-fields-for-an-application"></a>애플리케이션에 대한 로그인 필드를 캡처하는 방법
+## <a name="capture-sign-in-fields-for-an-app"></a>앱에 대 한 로그인 필드 캡처
 
-로그인 필드 캡처는 HTML 기반 로그인 페이지에 대해서만 지원되고 Flash나 기타 비HTML 기반 기술을 사용하는 로그인 페이지처럼 **비표준 로그인 페이지에 대해서는 지원되지 않습니다.**
+로그인 필드 캡처는 HTML 기반 로그인 페이지에 대해서만 지원 됩니다. 사용 하는 Adobe Flash 또는 기타 비 HTML 기반 기술을 비표준 로그인 페이지의 경우 등에 지원 되지 않습니다 했습니다.
 
-두 가지 방법으로 사용자 지정 애플리케이션에 대한 로그인 필드를 캡처할 수 있습니다.
+두 가지 방법으로 사용자 지정 앱에 대 한 로그인 필드 캡처를 수 있습니다.
 
--   자동 로그인 필드 캡처
+- **자동 로그인 필드 캡처** 대부분의 HTML 기반 로그인 페이지에서 잘 작동 *잘 알려진 DIV Id를 사용 하는 경우* 사용자 이름 및 암호 필드에 대 한 합니다. 페이지의 HTML 특정 조건과 일치 하는 DIV Id를 찾은 가져오고 됩니다. 메타 데이터는 나중에 앱에 재생 될 수 있도록 저장 됩니다.
 
--   수동 로그인 필드 캡처
+- **수동 로그인 필드 캡처** 경우에 앱 공급 업체 *로그인 입력된 필드 레이블을 지정 하지 않습니다*합니다. 경우에 수동 캡처는 공급 업체 *자동으로 검색 될 수 없는 여러 필드를 렌더링*합니다. Azure Active Directory (Azure AD)에 로그인 페이지에서 이러한 필드는 페이지에 있는 지시 하면 경우 만큼 필드에 대 한 데이터를 저장할 수 있습니다.
 
-**자동 로그인 필드 캡처**는 **사용자 이름 및 암호 입력에 대해 잘 알려진 DIV ID** 필드를 사용하는 경우 대부분의 HTML 기반 로그인 페이지에서 잘 작동합니다. 자동 로그인 필드 캡처는 페이지의 HTML을 스크랩하여 특정 기준과 일치하는 DIV ID를 찾은 다음, 나중에 암호를 재생할 수 있도록 이 애플리케이션에 대한 메타데이터를 저장합니다.
+자동 로그인 필드 캡처 경우 일반적으로 작동 하지 않습니다, 그리고 수동 옵션을 시도 합니다.
 
-**수동 로그인 필드 캡처**는 애플리케이션 **공급업체에서 로그인에 대해 사용되는 입력 필드에 레이블을 지정하지 않은** 경우에 사용할 수 있습니다. 또한 수동 로그인 필드 캡처는 **공급업체에서 자동으로 검색할 수 없는 여러 필드를 렌더링하는 경우**에 사용할 수 있습니다. 해당 필드가 있는 페이지 위치를 알려주면 Azure AD에서는 로그인 페이지에 있는 많은 필드에 대해 데이터를 저장할 수 있습니다.
+### <a name="automatically-capture-sign-in-fields-for-an-app"></a>자동으로 앱에 대 한 로그인 필드 캡처
 
-일반적으로 **자동 로그인 필드 캡처가 작동하지 않는 경우 수동 옵션을 사용해 보세요.**
+자동 로그인 필드 캡처를 사용 하 여 암호 기반 SSO를 구성 하려면 다음이 단계를 수행 합니다.
 
-### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>애플리케이션에 대한 로그인 필드를 자동으로 캡처하는 방법
+1. [Azure Portal](https://portal.azure.com/)을 엽니다. 전역 관리자 또는 공동 관리자 로그인
 
-**자동 로그인 필드 캡처**를 사용하여 애플리케이션 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
+2. 왼쪽 탐색 창에서 선택 **모든 서비스** 를 Azure AD 확장을 엽니다.
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+3. 형식 **Azure Active Directory** 에서 필터 검색 상자를 선택 합니다 **Azure Active Directory**합니다.
 
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+4. 선택 **엔터프라이즈 응용 프로그램** Azure AD 탐색 창에서.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+5. 선택 **모든 응용 프로그램** 앱 목록을 볼 수 있습니다.
 
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+   > [!NOTE]
+   > 사용 하 여 원하는 앱이 보이지 않으면 합니다 **필터** 맨 위에 있는 컨트롤을 **모든 응용 프로그램** 목록. 설정 된 **표시** "모든 응용 프로그램입니다." 옵션
 
-5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+6. Sso를 구성 하려는 앱을 선택 합니다.
 
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+7. 앱 로드 되 면 선택 **Single sign on** 왼쪽의 탐색 창에서.
 
-6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
+8. 선택 **암호 기반 로그온** 모드입니다.
 
-7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+9. 입력 된 **로그온 URL**, 사용자가 자신의 사용자 이름 및 로그인 하는 데 암호를 입력 하는 여기서 페이지의 URL 인 합니다. *로그인 필드를 제공 하는 URL에 대 한 페이지에 표시 되는지 확인*합니다.
 
-8. **암호 기반 로그온** 모드를 선택합니다.
+10. **저장**을 선택합니다.
 
-9. 사용자가 로그인하려면 사용자 이름과 암호를 입력해야 하는 **로그인 URL**을 입력합니다. **입력하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
+    페이지는 사용자 이름 및 암호 입력된 상자에 대 한 자동으로 가져오고 됩니다. 액세스 패널 브라우저 확장을 사용 하 여 해당 앱에 암호를 안전 하 게 전송할 이제 Azure AD를 사용할 수 있습니다.
 
-10. **저장** 단추를 클릭합니다.
+### <a name="manually-capture-sign-in-fields-for-an-app"></a>수동으로 앱에 대 한 로그인 필드 캡처
 
-11. 이렇게 하면 사용자 이름과 암호 입력 상자에 해당 URL을 자동으로 가져오고, Azure AD를 통해 액세스 패널 브라우저 확장을 사용하여 해당 애플리케이션에 암호를 안전하게 전송할 수 있습니다.
+로그인 필드를 수동으로 캡처하려면 액세스 패널 브라우저 확장이 설치 되어 있어야 합니다. 또한 브라우저를 실행할 수 없습니다 *inPrivate*하십시오 *incognito*, 또는 *개인* 모드.
 
-## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>애플리케이션에 대한 로그인 필드를 수동으로 캡처하는 방법
+확장을 설치 하려면 참조는 [액세스 패널 브라우저 확장 설치](#install-the-access-panel-browser-extension) 이 문서의 섹션입니다.
 
-로그인 필드를 수동으로 캡처하려면 먼저 액세스 패널 브라우저 확장이 설치되어 있고 **inPrivate, incognito 또는 개인 모드에서 실행 중이 아니어야 합니다.** 브라우저 확장을 설치하려면 [액세스 패널 브라우저 확장을 설치하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 섹션의 단계를 수행합니다.
+수동 로그인 필드 캡처를 사용 하 여 앱에 대 한 암호 기반 SSO를 구성 하려면 다음이 단계를 수행 합니다.
 
-**수동 로그인 필드 캡처**를 사용하여 애플리케이션에 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com/)을 엽니다. 전역 관리자 또는 공동 관리자 로그인
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+2. 왼쪽 탐색 창에서 선택 **모든 서비스** 를 Azure AD 확장을 엽니다.
 
-2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+3. 형식 **Azure Active Directory** 에서 필터 검색 상자를 선택 합니다 **Azure Active Directory**합니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+4. 선택 **엔터프라이즈 응용 프로그램** Azure AD 탐색 창에서.
 
-4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+5. 선택 **모든 응용 프로그램** 앱 목록을 볼 수 있습니다.
 
-5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+   > [!NOTE] 
+   > 사용 하 여 원하는 앱이 보이지 않으면 합니다 **필터** 맨 위에 있는 컨트롤을 **모든 응용 프로그램** 목록. 설정 된 **표시** "모든 응용 프로그램입니다." 옵션
 
-   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
+6. Sso를 구성 하려는 앱을 선택 합니다.
 
-6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
+7. 앱 로드 되 면 선택 **Single sign on** 왼쪽의 탐색 창에서.
 
-7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+8. 선택 **암호 기반 로그온** 모드입니다.
 
-8. **암호 기반 로그온** 모드를 선택합니다.
+9. 입력 된 **로그온 URL**는 사용자가 자신의 사용자 이름 및 암호 로그인을 입력할 페이지입니다. *로그인 필드를 제공 하는 URL에 대 한 페이지에 표시 되는지 확인*합니다.
 
-9. 사용자가 로그인하려면 사용자 이름과 암호를 입력해야 하는 **로그인 URL**을 입력합니다. **입력하는 URL에서 로그인 필드가 표시되는지 확인합니다**.
+10. 선택 **구성 *&lt;appname&gt;* 암호 Single sign-on 설정**합니다.
 
-10. **저장** 단추를 클릭합니다.
+11. 선택 **로그인 필드 수동 검색**합니다.
 
-11. 이렇게 하면 사용자 이름과 암호 입력 상자에 해당 URL을 자동으로 가져오고, Azure AD를 통해 액세스 패널 브라우저 확장을 사용하여 해당 애플리케이션에 암호를 안전하게 전송할 수 있습니다. 이 작업에 실패하는 경우 12단계를 계속하여 **수동 로그인 필드 캡처를 사용하도록 로그인 모드를 변경**할 수 있습니다.
+14. **확인**을 선택합니다.
 
-12. **&lt;앱 이름&gt; 암호 Single Sign-On 설정 구성**을 클릭합니다.
+15. **저장**을 선택합니다.
 
-13. **로그인 필드 수동 검색** 구성 옵션을 선택합니다.
+16. 액세스 패널을 사용 하는 지침을 따릅니다.
 
-14. **Ok**를 클릭합니다.
+## <a name="troubleshoot-problems"></a>문제 해결
 
-15. **저장**을 클릭합니다.
+### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>오류가 발생 합니다 "해당 URL에서 로그인 필드를 찾을 수 없습니다."
 
-16. 화면의 지시에 따라 액세스 패널을 사용합니다.
+로그인 필드 자동 검색이 실패할 때이 오류 메시지를 가져옵니다. 이 문제를 해결 하려면 수동 로그인 필드 검색을 시도 합니다. 참조 된 [수동으로 응용 프로그램에 대 한 로그인 필드 캡처](#manually-capture-sign-in-fields-for-an-app) 이 문서의 섹션입니다.
 
-## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>“해당 URL에서 로그인 필드를 찾을 수 없습니다” 오류가 표시됨
+### <a name="i-get-an-unable-to-save-single-sign-on-configuration-error"></a>"Single sign-on 구성을 저장할 수 없습니다"는 가져오는 오류
 
-로그인 필드 자동 검색에 실패하면 이 오류가 표시됩니다. 이 문제를 해결하려면 [애플리케이션에 대한 로그인 필드를 수동으로 캡처하는 방법](#how-to-manually-capture-sign-in-fields-for-an-application) 섹션의 단계에 따라 수동 로그인 필드 검색을 수행하세요.
+드물게가 실패 SSO 구성을 업데이트 합니다. 이 문제를 해결 하려면 구성을 다시 저장해 보세요.
 
-## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>“Single Sign-On 구성을 저장할 수 없음” 오류가 표시됨
+오류가 발생 하 유지 지원 사례를 엽니다. 에 설명 된 정보를 포함 합니다 [포털 알림 세부 정보를 보려면](#view-portal-notification-details) 및 [도움말을 보려면 지원 엔지니어에 게 알림 세부 정보를 보낼](#send-notification-details-to-a-support-engineer-to-get-help) 이 문서의 섹션입니다.
 
-드물지만 Single Sign-On 구성 업데이트에 실패할 수 있습니다. 문제를 해결하려면 Single Sign-On 구성을 다시 저장해 보세요.
+### <a name="i-cant-manually-detect-sign-in-fields-for-my-app"></a>내 앱에 대 한 로그인 필드 수동으로 검색할 수 없음
 
-계속 실패하는 경우 지원 케이스를 열고 [포털 알림의 세부 정보를 확인하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 및 [지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) 섹션에서 수집한 정보를 제공하세요.
+수동 검색이 작동 하지 않는 경우에 다음 동작을 알 수 있습니다.
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>애플리케이션에 대한 로그인 필드를 수동으로 검색할 수 없음
+- 수동 캡처 프로세스가 작동 하는 것 이지만 올바르지 않은 캡처된 필드입니다.
 
-수동 검색이 작동하지 않을 때 표시되는 동작은 다음과 같습니다.
+- 캡처 프로세스를 실행할 때 올바른 필드를 강조 표시 되지 않음.
 
--   수동 캡처 프로세스가 작동하는 것 같지만 캡처된 필드가 잘못됨
+- 캡처 프로세스가 하면 앱의 로그인 페이지가 예상 대로 하지만 아무 일도 발생 합니다.
 
--   캡처 프로세스를 수행할 때 올바른 필드가 강조 표시되지 않음
+- 수동 캡처 작동 처럼 보이지만는 SSO 사용자가 액세스 패널에서 앱으로 이동 하는 경우에 발생 하지 않습니다.
 
--   캡처 프로세스를 통해 예상대로 애플리케이션의 로그인 페이지로 이동하지만 아무 일도 발생하지 않음
+이러한 문제가 발생 하면 다음 작업을 수행 합니다.
 
--   수동 캡처가 작동하는 것처럼 보이지만 사용자가 액세스 패널에서 애플리케이션으로 이동할 때 SSO가 발생하지 않음
+- 액세스 패널 브라우저 확장의 최신 버전이 있는지 *설치 및 활성화*합니다. 참조 된 [액세스 패널 브라우저 확장을 설치](#install-the-access-panel-browser-extension) 이 문서의 섹션입니다.
 
-이러한 문제가 발생하는 경우 다음 사항을 확인하세요.
+- 브라우저에 없는 했는지 *incognito*, *inPrivate*, 또는 *개인* 캡처 프로세스 중 모드입니다. 액세스 패널 확장은이 모드에서 지원 되지 않습니다.
 
--   [액세스 패널 브라우저 확장을 설치하는 방법](#how-to-install-the-access-panel-browser-extension) 섹션의 단계에 따라 최신 버전의 액세스 패널 브라우저 확장을 **설치**하고 **활성화**했는지 확인합니다.
+- 사용자가 액세스 패널에서 앱에 로그인 하려고 하지 했는지 *incognito*를 *inPrivate*, 또는 *개인 모드*합니다.
 
--   브라우저가 **incognito, inPrivate 또는 개인 모드**일 때 캡처 프로세스를 시도하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
+- 수동 캡처 프로세스를 다시 시도 합니다. 빨간색 마커가 올바른 필드 위에 있는지 확인 합니다.
 
--   **incognito, inPrivate 또는 개인 모드**일 때 사용자가 액세스 패널의 애플리케이션에 로그인하려고 하지 않았는지 확인합니다. 이러한 모드에서는 액세스 패널 확장이 지원되지 않습니다.
+- 수동 캡처 프로세스가 응답 하지 않는 것 같습니다 또는 로그인 페이지를 응답 하지 않는 경우 수동 캡처 프로세스를 다시 시도 합니다. 하지만이 이번에는 프로세스를 완료 한 후 F12 키를 눌러 브라우저의 개발자 콘솔을 엽니다. 선택 된 **콘솔** 탭 합니다. 형식 **window.location = " *&lt;앱을 구성할 때 지정한 로그인 URL&gt;* "** , 한 다음 Enter를 누릅니다. 이렇게 하면 캡처 프로세스를 종료 하 고 캡처한 필드가 저장 하는 페이지 리디렉션이 됩니다.
 
--   빨간색 마커가 올바른 필드 위에 있는지 확인하고 수동 캡처 프로세스를 다시 시도합니다.
+### <a name="contact-support"></a>지원 문의
 
--   수동 캡처 프로세스가 응답을 중지 되거나 로그인 페이지를 수행 하지 않습니다 (사례 3 위)에서 아무것도 수동 캡처 프로세스를 다시 시도 합니다. 그러나 이번에는 프로세스를 완료한 후 **F12** 단추를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔**을 열고 **window.location=“&lt;앱을 구성할 때 지정한 로그인 URL 입력&gt;”** 을 입력한 다음, **Enter** 키를 누릅니다. 그러면 캡처 프로세스를 종료하는 페이지 리디렉션이 실행되고 캡처한 필드가 저장됩니다.
+문제가 계속 되 면 Microsoft 지원 사례를 엽니다. 시도한 내용의 설명 합니다. 에 설명 된 세부 정보를 포함 합니다 [포털 알림 세부 정보를 보려면](#view-portal-notification-details) 및 [도움말을 보려면 지원 엔지니어에 게 알림 세부 정보를 보낼](#send-notification-details-to-a-support-engineer-to-get-help) 해당 하는 경우이 문서의 섹션.
 
-위 방법으로 해결되지 않는 경우 Microsoft에서 도와드릴 수 있습니다. [포털 알림의 세부 정보를 확인하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 및 [지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) 섹션(해당하는 경우)에서 수집한 정보뿐만 아니라 시도한 내용의 세부 정보와 함께 지원 케이스를 여세요.
+## <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
+다음 단계를 수행하세요.
 
-액세스 패널 브라우저 확장을 설치하려면 아래 단계를 수행합니다.
+1. 오픈 [액세스 패널](https://myapps.microsoft.com) 지원 되는 브라우저에서. Azure AD에 로그인을 *사용자*합니다.
 
-1.  지원되는 브라우저 중 하나에서 [액세스 패널](https://myapps.microsoft.com)을 열고 Azure AD에서 **사용자**로 로그인합니다.
+2. 선택 **암호-SSO 응용 프로그램** 액세스 패널에서 합니다.
 
-2.  액세스 패널에서 **암호-SSO 애플리케이션**을 클릭합니다.
+3. 소프트웨어를 설치 하 라는 메시지가 나타나면 선택 **지금 설치**합니다.
 
-3.  소프트웨어를 설치하라는 프롬프트에서 **지금 설치**를 선택합니다.
+4. 브라우저에 대 한 다운로드 페이지로 이동 합니다. 하기로 **추가** 확장 합니다.
 
-4.  브라우저에 따라 다운로드 링크로 이동됩니다. 브라우저에 확장을 **추가**합니다.
+5. 메시지가 표시 되는 경우 선택 **을 사용 하도록 설정** 또는 **허용**합니다.
 
-5.  브라우저에서 요청하면 확장을 **사용** 또는 **허용**하도록 선택합니다.
+6. 설치 후 브라우저를 다시 시작 합니다.
 
-6.  설치되면 브라우저 세션을 **다시 시작**합니다.
+7. 액세스 패널에 로그인 합니다. 참조 하는 경우에 암호-SSO가 설정 된 앱을 열 수 있습니다.
 
-7.  액세스 패널에 로그인하고 암호 SSO 애플리케이션을 **시작**할 수 있는지 확인합니다.
-
-아래와 같은 직접 링크에서 Chrome 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
+이러한 링크를 통해 Chrome 및 Firefox 브라우저 확장을 직접 다운로드할 수 있습니다.
 
 -   [Chrome 액세스 패널 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Firefox 액세스 패널 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>포털 알림의 세부 정보를 확인하는 방법
+## <a name="view-portal-notification-details"></a>포털 알림 세부 정보 보기
 
-다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
+포털 알림의 세부 정보를 보려면 다음을 수행 합니다.
 
-1. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭합니다.
+1. 선택 된 **알림을** Azure portal의 오른쪽 위 모퉁이에서 아이콘 (벨).
 
-2. **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
+2. 알림을 보여 주는 선택는 *오류* 상태입니다. (빨간색 있는 "!".)
 
-   >[!NOTE] **성공** 또는 **진행 중** 상태에서 알림을 클릭할 수 없습니다.
-   >
-   >
+   > [!NOTE]
+   > 에 있는 알림을 선택할 수 없습니다는 *성공한* 또는 *진행* 상태입니다.
 
-3. **알림 세부 정보** 창이 열립니다.
+3. **알림 세부 정보** 창이 열립니다. 문제에 대 한 자세한 정보를 읽습니다.
 
-4. 이 정보를 사용하여 문제에 대한 자세한 내용을 이해합니다.
+5. 여전히 도움이 필요한 경우 지원 엔지니어 또는 제품 그룹을 사용 하 여 정보를 공유 합니다. 선택는 **복사** 아이콘의 오른쪽에는 **오류 복사** 공유 하도록 알림 세부 정보를 복사 하는 상자입니다.
 
-5. 여전히 도움이 필요한 경우 문제에 대한 도움을 얻도록 이 정보를 지원 엔지니어 또는 제품 그룹과 공유할 수도 있습니다.
+## <a name="send-notification-details-to-a-support-engineer-to-get-help"></a>도움말을 보려면 지원 엔지니어에 게 알림 세부 정보 보내기
 
-6. **오류 복사** 텍스트 상자 오른쪽의 **복사** **아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보를 복사합니다.
+공유 하는 것 *모든* 신속 하 게 지원할 수 있도록 지 원하는이 섹션에 나와 있는 세부 정보입니다. 을 기록 하려면 스크린샷을 찍 었으 하거나 선택할 수 있습니다 **오류 복사**합니다.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법
-
-도움이 필요한 경우 지원 엔지니어가 신속하게 도움을 줄 수 있도록 **아래에 나열된 모든 세부 정보**를 공유하는 것은 매우 중요합니다. **스크린샷을 찍거나** **오류 복사** 텍스트 상자 오른쪽에 있는 **오류 복사 아이콘**을 클릭할 수 있습니다.
-
-## <a name="notification-details-explained"></a>알림 세부 정보 설명
-
-다음은 각 알림 항목이 의미하는 내용을 자세히 설명하고 각 항목의 예를 제공합니다.
+다음 설명 각 알림 항목이 의미 및 예제를 제공 합니다.
 
 ### <a name="essential-notification-items"></a>중요 알림 항목
 
--   **제목** - 알림의 설명이 포함된 제목
+- **제목**: 알림의 설명이 포함 된 제목입니다.
 
-    -   예제 - **애플리케이션 프록시 설정**
+   예제: *응용 프로그램 프록시 설정*
 
--   **설명** – 작업의 결과로 발생한 문제에 대한 설명
+- **설명**: 작업의 결과로 발생 한 문제입니다.
 
-    -   예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
+   예제: *입력 한 내부 URL은 다른 응용 프로그램에서 이미 사용 중입니다.*
 
--   **알림 ID** - 알림의 고유 ID
+- **알림 ID**: 알림의 고유 ID입니다.
 
-    -   예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+    예: *clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068*
 
--   **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
+- **클라이언트 요청 ID**: 브라우저에서 만든 특정 요청 ID입니다.
 
-    -   예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
+    예제: *302fd775-3329-4670-a9f3-bea37004f0bc*
 
--   **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
+- **타임 스탬프 UTC**: 타임 스탬프 UTC에서 알림이 발생 합니다.
 
-    -   예제 – **2017-03-23T19:50:43.7583681Z**
+    예제: *2017-03-23T19:50:43.7583681Z*
 
--   **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
+- **내부 트랜잭션 ID**: 시스템에서 오류를 찾는 데 사용 되는 내부 ID입니다.
 
-    -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+    예제: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – 작업을 수행한 사용자
+- **UPN**: 작업을 실행 한 사용자입니다.
 
-    -   예 – **tperkins\@f128.info**
+    예: *tperkins\@f128.info*
 
--   **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
+- **테 넌 트 ID**: 작업을 실행 한 사용자의 구성원 인 테 넌 트의 고유 ID입니다.
 
-    -   예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+    예제: *7918d4b5-0442-4a97-be2d-36f9f9962ece*
 
--   **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
+- **사용자 개체 ID**: 작업을 실행 한 사용자의 고유 ID입니다.
 
-    -   예제 – **17f84be4-51f8-483a-b533-383791227a99**
+    예제: *17f84be4-51f8-483a-b533-383791227a99*
 
 ### <a name="detailed-notification-items"></a>자세한 알림 항목
 
--   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
+- **표시 이름**: (비어 있을 수 있습니다) 오류에 대 한 더 자세한 표시 이름입니다.
 
-    -   예제 - **애플리케이션 프록시 설정**
+    예제: *응용 프로그램 프록시 설정*
 
--   **상태** - 알림의 특정 상태
+- **상태**: 알림의 특정 상태입니다.
 
-    -   예제 – **실패**
+    예제: *실패*
 
--   **개체 ID** – **(비어 있을 수 있음)** 작업이 수행된 개체 ID
+- **개체 ID**: (비어 있을 수 있습니다)는 작업이 실행 된 개체 ID입니다.
 
-    -   예제 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+   예제: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
--   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
+- **세부 정보**: 작업의 결과로 발생 한 문제에 대 한 자세한 설명은 합니다.
 
-    -   예제 – **내부 url '<https://bing.com/>'은 이미 사용 중이므로 유효하지 않습니다.**
+    예제: *내부 url '<https://bing.com/>' 이미 사용 중 이므로 잘못 되었습니다.*
 
--   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보 복사
+- **오류 복사**: 선택할 수 있습니다 합니다 **복사 아이콘** 의 오른쪽에는 **오류 복사** 지원에 도움이 되도록 알림 세부 정보를 복사 하려면 텍스트 상자에 붙여넣습니다.
 
-    -   예 – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    예:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>다음 단계
 [애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
-

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 55b18246861e452a4ac170094ee902bd6954fe89
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190415"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540928"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
-만들기는 **IoT Edge 자동 배포** Azure 명령줄 인터페이스를 사용 하 여 한 번에 여러 장치에 대 한 지속적인 배포를 관리할 수 있습니다. IoT Edge에 대 한 자동 배포의 일부인 합니다 [자동 장치 관리](/iot-hub/iot-hub-automatic-device-management.md) IoT Hub의 기능입니다. 배포는 여러 장치에 여러 모듈을 배포 모듈의 상태를 추적 하 고 필요한 경우 변경할 수 있도록 하는 동적 프로세스입니다. 
+만들기는 **IoT Edge 자동 배포** Azure 명령줄 인터페이스를 사용 하 여 한 번에 여러 장치에 대 한 지속적인 배포를 관리할 수 있습니다. IoT Edge에 대 한 자동 배포의 일부인 합니다 [자동 장치 관리](/azure/iot-hub/iot-hub-automatic-device-management) IoT Hub의 기능입니다. 배포는 여러 장치에 여러 모듈을 배포 모듈의 상태를 추적 하 고 필요한 경우 변경할 수 있도록 하는 동적 프로세스입니다. 
 
 자세한 내용은 [단일 장치 또는 대규모 IoT Edge 이해 자동 배포](module-deployment-monitoring.md)합니다.
 
@@ -145,7 +145,7 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 * **--hub-name** - 배포를 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. 사용 하 여 현재 구독을 변경 합니다 `az account set -s [subscription name]` 명령입니다.
 * **--content** - 배포 매니페스트 JSON에 대한 파일 경로입니다. 
 * **--labels** - 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 레이블은 이름 및 값에 대해 JSON 서식을 적용합니다. 예를 들어 `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예: `tags.environment='test' and properties.reported.devicemodel='4000x'` 
+* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예: `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** - 양의 정수입니다. 둘 이상의 배포가 동일한 디바이스를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
 
 ## <a name="monitor-a-deployment"></a>배포 모니터링

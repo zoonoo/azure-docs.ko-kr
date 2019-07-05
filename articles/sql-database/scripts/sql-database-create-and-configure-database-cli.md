@@ -11,13 +11,13 @@ author: stevestein
 manager: craigg
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/08/2019
-ms.openlocfilehash: 4c02ab45cd6e10b86681aae41cbb4bd99e6e0d6d
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/25/2019
+ms.openlocfilehash: 2a5fb6fcd9b1f0c327df23741284ec0d5fc26c71
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832565"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447868"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성
 
@@ -31,14 +31,14 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명

@@ -2,19 +2,19 @@
 title: 병렬 문서란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 하나의 문서에는 소스 언어의 문장이 포함되고, 다른 문서에는 이러한 문장을 대상 언어로 번역한 문장이 포함됩니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e644a4df99669e7ad69e08090418c2a3cffc7e9d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389829"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447403"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
 

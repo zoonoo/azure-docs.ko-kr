@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754679"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550934"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>표준 Load Balancer에 대한 메트릭 및 상태 진단
 
@@ -85,7 +85,7 @@ VIP 가용성 메트릭은 지역 내에서 VM이 있는 Compute 호스트로의
 이 메트릭은 활성, 대역 내 측정을 통해 생성됩니다. 지역 내의 검색 서비스는 측정에 대한 트래픽을 발생합니다. 서비스는 공용 프런트 엔드로 배포를 만드는 즉시 활성화되고, 프런트 엔드를 제거할 때까지 계속됩니다. 
 
 >[!NOTE]
->내부 프런트 엔드는 현재 지원되지 않습니다. 
+>데이터 경로 가용성 (VIP 가용성) 내부 Load Balancer 프런트 엔드에 대 한 제공 되지 않습니다. 
 
 배포의 프런트 엔드 및 규칙과 일치하는 패킷이 주기적으로 생성됩니다. 원본에서 백 엔드 풀의 VM이 있는 호스트까지 해당 지역을 트래버스합니다. 부하 분산 장치 인프라는 다른 모든 트래픽의 경우와 동일하게 부하 분산 및 변환 작업을 수행합니다. 이 프로브는 대역 내의 부하 분산된 엔드포인트에 있습니다. 프로브가 백 엔드 풀의 정상 VM이 있는 Compute 호스트에 도착하면, 계산 호스트는 검색 서비스에 대한 응답을 생성합니다. VM에는 이 트래픽이 표시되지 않습니다.
 
@@ -208,6 +208,10 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 | 사용 가능 | 공용 표준 부하 분산 장치 리소스는 정상 상태이며 사용 가능합니다. |
 | 사용할 수 없음 | 공용 표준 부하 분산 장치 리소스는 정상 상태가 아닙니다. **Azure Monitor** > **메트릭**을 선택하여 상태를 진단합니다.<br>(*사용할 수 없는* 상태는 리소스가 공용 표준 부하 분산 장치와 연결되지 않은 상태를 의미할 수도 있습니다.) |
 | 알 수 없음 | 공용 표준 부하 분산 장치의 리소스 상태가 아직 업데이트되지 않은 것입니다.<br>(*알 수 없는* 상태는 리소스가 공용 표준 부하 분산 장치와 연결되지 않은 상태를 의미할 수도 있습니다.)  |
+
+## <a name="limitations"></a>제한 사항 
+
+- 데이터 경로 가용성 (VIP 가용성) 내부 Load Balancer 프런트 엔드에 대 한 제공 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

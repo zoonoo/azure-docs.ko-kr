@@ -3,20 +3,20 @@ title: 순위를 사용하여 검색 결과 표시
 titleSuffix: Azure Cognitive Services
 description: 검색 결과를 순위대로 표시하려면 Bing RankingResponse 답변을 사용하는 방법을 설명합니다.
 services: cognitive-services
-author: bradumbaugh
+author: aahill
 manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
-ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384848"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203248"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417661"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482998"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 
@@ -36,7 +36,7 @@ Identity-as a service 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0�
 
 거의 모든 OAuth 2.0 및 OpenID Connect 흐름에서 교환에 참여하는 다음 네 가지 요소가 있습니다.
 
-![OAuth 2.0 역할](./media/active-directory-v2-flows/protocols-roles.svg)
+![OAuth 2.0 역할을 보여 주는 다이어그램](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * 합니다 **권한 부여 서버** Microsoft id 플랫폼 끝점 이며 사용자의 id를 확인 하는 것에 대 한 책임을 부여 하 고 리소스에 대 한 액세스 권한을 취소할 발급 토큰입니다. 권한 부여 서버는 ID 공급자라고도 하며 사용자 정보, 해당 액세스 및 흐름의 요소 간 트러스트 관계와 관련된 모든 사항을 안전하게 처리합니다.
 * **리소스 소유자**는 일반적으로 최종 사용자입니다. 데이터를 소유하는 당사자이며 제3자가 해당 데이터 또는 리소스에 액세스하도록 허용할 권한이 있습니다.

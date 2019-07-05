@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113391"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536956"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -188,5 +188,6 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
+* [SSPR 및 MFA 사용량 및 통찰력 보고](howto-authentication-methods-usage-insights.md)
 * [사용자](../user-help/multi-factor-authentication-end-user.md)
 * [배포할 위치](concept-mfa-whichversion.md)

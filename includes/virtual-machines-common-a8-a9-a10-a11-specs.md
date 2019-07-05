@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755195"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538049"
 ---
 ## <a name="deployment-considerations"></a>배포 고려 사항
 * **Azure 구독** - 몇몇 계산 집약적 인스턴스를 배포하려면 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
@@ -34,6 +34,6 @@ ms.locfileid: "66755195"
 이 인터페이스는 RDMA 지원 인스턴스가 H16r, H16mr 및 RDMA 지원 N 시리즈 가상 머신에 대 한 요금과 A8 및 A9 가상 머신에서 QDR 속도로 HB HC, FDR EDR 요금 운영 IB (InfiniBand) 네트워크를 통해 통신할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대 한 자세한 내용은이 페이지에서 테이블의 세부 정보를 참조 하세요.
 
 > [!NOTE]
-> Azure에서 IP over IB 에서만 SR-IOV Vm (현재 HB 및 HC)를 사용 하도록 설정 합니다. RDMA over IB 모든 RDMA 지원 인스턴스가 지원 됩니다.
+> Azure에서 IP over IB 에서만 SR-IOV 사용 (SR-IOV InfiniBand, 현재 HB 및 HC) Vm. RDMA over IB 모든 RDMA 지원 인스턴스가 지원 됩니다.
 >
 

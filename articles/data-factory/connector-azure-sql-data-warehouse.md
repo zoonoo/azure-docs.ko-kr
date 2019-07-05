@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206065"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449585"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -472,7 +472,10 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Az
 
 원본 데이터가 이전 섹션의 조건을 충족하지 않는 경우, 중간 준비 Azure Blob Storage 인스턴스를 통해 데이터 복사를 사용하도록 설정합니다. Azure Premium Storage일 수 없습니다. 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터에 대해 자동으로 변환을 실행합니다. 그런 다음 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요.
 
-이 기능을 사용하려면 중간 Blob Storage가 있는 Azure Storage 계정을 참조하는 [Azure Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 아래 코드에 표시된 대로 지정합니다.
+이 기능을 사용 하려면 만듭니다는 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 참조 하는 중간 blob storage 사용 하 여 Azure storage 계정. 지정 된 `enableStaging` 및 `stagingSettings` 다음 코드에 나와 있는 것 처럼 복사 작업에 대 한 속성입니다.
+
+>[!IMPORTANT]
+>스테이징 Azure Storage를 VNet 서비스 엔드포인트로 구성 된 경우에 관리 되는 id 인증-을 사용 해야 가리킵니다 [VNet 서비스 엔드포인트를 사용 하 여 Azure storage를 사용 하 여 미치는](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. Data Factory에서 필요한 구성을 알아봅니다 [Azure Blob-관리 되는 id 인증](connector-azure-blob-storage.md#managed-identity)합니다.
 
 ```json
 "activities":[

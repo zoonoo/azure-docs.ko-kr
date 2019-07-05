@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077317"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471650"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업을 실행 합니다.
 트리거된 파이프라인 실행 및 파이프라인 디버그 (샌드박스) 실행 ADF 데이터 흐름을 실행 하려면 실행 데이터 흐름 작업을 사용 합니다.
@@ -80,11 +80,17 @@ Azure Data Warehouse로 데이터를 싱크는, Polybase 일괄 처리 부하에
 
 ![실행 데이터 흐름 매개](media/data-flow/params.png "매개 변수")
 
-### <a name="debugging-parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름 디버깅
+## <a name="parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름
 
-실행 데이터 흐름 작업을 사용 하 여 실행할 파이프라인 디버그에서 매개 변수가 있는 데이터 집합을 사용 하 여 데이터 흐름만 디버깅할 수 있습니다. 현재 매개 변수가 있는 데이터 집합을 사용 하 여 ADF 데이터 흐름의 대화형 디버그 세션 작동 하지 않습니다. 파이프라인 실행 및 디버그 실행 매개 변수를 사용 하 여 작동 합니다.
+데이터 흐름 내에서 매개 변수가 있는 경우에 데이터 흐름 실행 활동의 Parameters 섹션에서 여기에 데이터 흐름 매개 변수의 동적 값을 설정 합니다. 동적 식 사용 하 여 매개 변수 값 또는 리터럴 정적 값을 설정 하려면 (문자열 매개 변수 형식)에 해당 ADF 파이프라인 식 언어 또는 데이터 흐름 식 언어를 사용할 수 있습니다.
 
-디자인 타임에 사용할 수 있는 전체 메타 데이터 열 전파 갖도록 정적 데이터 집합을 사용 하 여 데이터 흐름을 작성 하는 것이 좋습니다. 데이터 흐름 파이프라인을 실제로 운영할 때는 정적 데이터 집합 동적 매개 변수가 있는 데이터 집합을 사용 하 여 다음 대체 합니다.
+![실행 데이터 흐름 매개 변수 예제](media/data-flow/parameter-example.png "매개 변수 예")
+
+### <a name="debugging-data-flows-with-parameters"></a>매개 변수를 사용 하 여 데이터 흐름 디버깅
+
+이 현재 시간에만 디버그 파이프라인 실행 데이터 흐름 작업을 사용 하 여 실행 매개 변수를 사용 하 여 데이터 흐름을 디버그할 수 있습니다. ADF 데이터 흐름의 대화형 디버그 세션은 곧 제공 됩니다. 하지만 파이프라인 실행 및 디버그 실행 작동 매개 변수를 사용 합니다.
+
+문제 해결에 대 한 디자인 타임에 사용할 수 있는 전체 메타 데이터 열 전파 갖도록 정적 콘텐츠를 사용 하 여 데이터 흐름을 작성 하는 것이 좋습니다. 데이터 흐름 파이프라인을 실제로 운영할 때는 정적 데이터 집합 동적 매개 변수가 있는 데이터 집합을 사용 하 여 다음 대체 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 

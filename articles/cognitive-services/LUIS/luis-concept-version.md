@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
 ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60509694"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>LUIS 버전을 사용하는 방법 및 시기 이해
 

@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347116"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509881"
 ---
 조직이 클라우드로 마이그레이션하고 배포 일관성을 확인 수 있게 하는 표준화 된 가상 머신 (VM) 이미지입니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 됩니다. 시간, 인프라 및 설치 프로그램을 고유한 이미징 파이프라인을 설정 하려면 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 간단한 구성을 제공, 서비스에 제출 및 이미지를 작성 및 배포 합니다.
  
-Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지 또는 Red Hat Enterprise Linux (RHEL) ISO 사용 하 여 시작 하 고 고유한 사용자 지정 추가 시작할 수 있습니다. Image Builder 빌드되므로 [HashiCorp Packer](https://packer.io/), 기존 Packer 셸 프로 비 저 너 스크립트를 가져올 수도 있습니다. 관리 되는 이미지로 (virtual-machines-common-shared-image-galleries.md) Azure 공유 이미지 갤러리 또는 VHD에 호스트 된 이미지를 하려는 지정할 수 있습니다.
+Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지 또는 Red Hat Enterprise Linux (RHEL) ISO 사용 하 여 시작 하 고 고유한 사용자 지정 추가 시작할 수 있습니다. Image Builder 빌드되므로 [HashiCorp Packer](https://packer.io/), 기존 Packer 셸 프로 비 저 너 스크립트를 가져올 수도 있습니다. 호스트에서 이미지를 하려는 지정할 수도 있습니다는 [Azure 공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), 관리 되는 이미지 또는 VHD.
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -35,7 +35,7 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Window
 
 ## <a name="regions"></a>Regions
 Azure 이미지 작성기 서비스는 이러한 지역에서 미리 보기로 제공 됩니다. 이러한 지역 외부에서 이미지를 배포할 수 있습니다.
-- 미국 동부
+- East US
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -50,6 +50,12 @@ AIB은 Azure Marketplace 기본 OS 이미지를 지원 해야 합니다.
 - Windows 2016
 - Windows 2019
 
+AIB RHEL ISO의 지원에 대 한 원본으로:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+테스트할 되지만, RHEL 7.6 지원 되지 않습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

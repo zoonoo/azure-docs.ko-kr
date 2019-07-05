@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 905901c2a21c59bab9f48bf4229333663bc39131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de536f687272283b816e6724e41eb61e3a22cd0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938616"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442329"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource와 Azure Marketplace 비교
 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)의 상점은 고유한 고객 요구에 맞춰 서비스합니다. 상점을 사용하여 역할별로 대상 고객을 지정할 수 있습니다. 사용자는 고객에 따라 적합한 솔루션 또는 서비스를 제공할 수 있습니다.
@@ -29,8 +29,8 @@ ms.locfileid: "64938616"
 
 | 이점 | AppSource | Azure Marketplace |
 |:--- |:--- | :--- |
-| **청구 유연성** | 평가판 체험을 프로비전합니다. 현재 상업용 게시 옵션을 제공하지 않습니다. 현재 주문 및 청구 인프라는 추가 투자 또는 변경 없이 사용할 수 있습니다. | VM에 대한 종량제 청구 옵션에서는 Microsoft EA(기업 계약) 또는 웹 직접 판매 모델을 사용합니다. 가격 책정 옵션은 제품이 영구적으로 무료인 무료 계층 구독을 포함합니다. 또한 가격 책정 옵션은 지금 사용해 보기 구독을 포함합니다. 지금 사용해 보기 구독은 제한된 기간 동안 홍보를 위해 무료로 제공됩니다. 이 기간이 종료되면 VM이 유료 구독으로 변환됩니다. BYOL(사용자 라이선스 필요) 활성화 또한 고객을 위해 사용할 수 있는 옵션입니다.<br /><br/>청구 옵션 및 다음 VM 제품의 경우 프로비전된 Azure 리소스는 모두 고객에게 직접 요금이 청구됩니다.<ul> <li>Azure 앱: 관리되는 앱</li> <li>Azure 앱: 솔루션 템플릿</li> </ul> |
-| **다른 파트너와의 연결** | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. | 
+| **청구 유연성** | AppSource 평가판, 무료, BYOL, 및 지원 transactable 제품 유형입니다. Transactable 제품은 월간 또는 연간 청구 될 수는 구독 기반 SaaS 제품을 사용자 또는 요금이 있습니다.| Azure Marketplace에서 지 원하는 무료, 평가판, BYOL, 및 transactable 제품 유형 Transactable 제품은 소비 기반 또는 구독 기반 합니다. 소비 기반 제공 사항을 시간당 사용량에 따른 청구 되며, 초기 무료 기간을 제공할 수 있습니다. 구독 기반 서비스는 월별 또는 연간 단위 또는 요금이 청구 됩니다.|
+|**다른 파트너와의 연결** | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. | 
 | **Automation** | 특정 구현 시나리오에서 독립 소프트웨어 공급업체, 시스템 통합업체 및 관리되는 서비스 공급업체로 연결됩니다. 공동으로 새 고객에게 판매할 수 있습니다. | 현재는 서비스 공급자 또는 배달 파트너를 자신의 제품에 연결할 수 없습니다. 추가 기능 프로비전과 함께 자동화된 SaaS(Software as a Service)를 활용합니다. Azure 앱: 솔루션 템플릿 게시 옵션을 사용하여 SaaS 기반 데이터 수집 및 배포 시나리오를 자동화합니다. |
 | **다중 클라우드 유형** | 현재 Azure Stack, Azure Government 또는 지역별 클라우드를 지원하지 않습니다. | 다음과 같은 형식을 사용하여 공용 클라우드 및 온-프레미스 둘 다를 위한 솔루션을 게시합니다.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>중국 및 독일을 포함하는 지역별 클라우드</li></ul> |
 | **고객의 상황에 맞는 제품 제공** | Microsoft 제품(예: Dynamics 365, Power BI 및 Office 365)에 대한 인앱 환경을 통해 더 많은 고객에게 연결합니다. | 상황별 검색을 위해 Azure Portal 내 환경에서 사용자 솔루션을 사용하도록 할 수 있습니다. 가상 머신 및 Azure 앱: 솔루션 템플릿 게시 옵션을 사용합니다. |

@@ -3,17 +3,17 @@ title: Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 �
 description: 장치 개발자가 제네릭 Node.js 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888944"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444235"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -62,12 +62,24 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 다음 이벤트에 추가 합니다 **측정** 페이지:
 
-| 표시 이름 | 필드 이름  | Severity |
+| 표시 이름 | 필드 이름  | 심각도 |
 | ------------ | ----------- | -------- |
 | 과열  | overheat    | 오류    |
 
 > [!NOTE]
 > 이벤트 측정값의 데이터 형식은 문자열입니다.
+
+### <a name="location-measurements"></a>위치 측정
+
+다음 위치 측정에 추가 합니다 **측정** 페이지:
+
+| 표시 이름 | 필드 이름  |
+| ------------ | ----------- |
+| Location     | location    |
+
+두 데이터 형식 이루어집니다 위치 측정 부동 소수점 숫자가 경도 및 위도 및 높이 대 한 선택적 부동 소수점 숫자를 합니다.
+
+테이블에 표시된 필드 이름을 디바이스 템플릿에 똑같이 입력합니다. 필드 이름은 해당 장치 코드의 속성 이름과 일치 하지 않으면 응용 프로그램에서 위치를 표시할 수 없습니다.
 
 ### <a name="device-properties"></a>디바이스 속성
 
@@ -144,12 +156,14 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     자리 표시자를 업데이트 `{your device connection string}` 사용 하 여 합니다 [장치 연결 문자열](tutorial-add-device.md#generate-connection-string)합니다. 이 샘플에서는 초기화 `targetTemperature` 를 0으로 장치에서 현재 읽기 또는 장치 쌍에서 값을 사용할 수 있습니다.
 
-1. 원격 분석, 상태 및 이벤트 측정을 Azure IoT Central 응용 프로그램에 보내기, 파일에 다음 함수를 추가 합니다.
+1. 원격 분석, 상태, 이벤트 및 위치 측정을 Azure IoT Central 응용 프로그램에 보내기, 파일에 다음 함수를 추가 합니다.
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ node connectedAirConditionerAdv.js
 * **측정값** 페이지에서 원격 분석 데이터 보기:
 
     ![원격 분석 보기](media/howto-connect-nodejs/viewtelemetry.png)
+
+* 위치를 확인 합니다 **측정** 페이지:
+
+    ![뷰 위치 측정](media/howto-connect-nodejs/viewlocation.png)
 
 * **속성** 페이지에서, 디바이스에서 보낸 디바이스 속성 값을 봅니다. 장치 속성 타일 업데이트 된 장치를 연결할 때:
 

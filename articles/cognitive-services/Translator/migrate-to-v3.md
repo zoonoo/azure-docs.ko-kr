@@ -3,19 +3,19 @@ title: V3으로 마이그레이션 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API의 V2에서 V3으로 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 81b2e5c9c659a3811d7417d87b811a86f4350a52
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 8a2530a4eb4365a022ab11279b344a5d2852430b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382927"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448289"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -65,7 +65,7 @@ Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하�
 
 언어 메서드에는 인증이 필요하지 않습니다. 다음 링크를 클릭하여 JSON에서 V3에 대한 모든 언어 정보를 확인할 수 있습니다.
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation사전, 음역](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation 사전, 음역](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>인증 키
 

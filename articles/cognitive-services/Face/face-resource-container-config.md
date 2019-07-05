@@ -3,20 +3,20 @@ title: 컨테이너 구성
 titlesuffix: Face - Azure Cognitive Services
 description: 컨테이너에 대한 구성 설정입니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071487"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
 
@@ -43,7 +43,7 @@ ms.locfileid: "59677785"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure의  _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "59677785"
 
 예제에 표시된 대로 끝점 URI로 _얼굴_ 라우팅을 추가해야 합니다. 
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -122,12 +122,12 @@ Face 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 �
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](face-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| Name | 데이터 형식 | 설명 |
+|옵션| 이름 | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Face 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
+## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](face-how-to-install-containers.md#stop-the-container)할 때까지 계속 실행됩니다.
 
@@ -136,7 +136,7 @@ Face 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 �
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
-| Placeholder | 값 | 형식 또는 예 |
+| 자리표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 |{BILLING_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 지역 및 얼굴 라우팅를 포함하는 청구 끝점 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|

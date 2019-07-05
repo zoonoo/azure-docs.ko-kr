@@ -9,12 +9,12 @@ ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2548ea3cf892ebe1a56cbb0909bfa5d5e805acf
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506440"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503305"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
 Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric Mesh 비밀은 스토리지 연결 문자열, 암호, 안전하게 저장하고 전송되어야 하는 기타 값 등 중요한 텍스트 정보일 수 있습니다. 이 문서에서는 Service Fabric 보안 스토리지 서비스를 사용하여 비밀을 배포하고 유지 관리하는 방법을 보여줍니다.
@@ -208,7 +208,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 
 예를 들면 다음과 같습니다.
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>비밀 표시
 비밀(값은 안 됨)의 설명을 반환합니다.

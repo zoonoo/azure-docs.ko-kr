@@ -3,19 +3,19 @@ title: Translator Text API V3.0 참조
 titlesuffix: Azure Cognitive Services
 description: Translator Text API V3.0에 대한 참조 문서입니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387508"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357679"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -31,20 +31,20 @@ Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. �
 
 ## <a name="base-urls"></a>기준 URL
 
-Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 현재 6개 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions)에 있습니다.
+Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 6에 있는 현재 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **아메리카:** 미국 서부 2 및 미국 중서부 
 * **아시아 태평양:** 동남 아시아 및 한국 남부
 * **유럽:** 유럽 북부 및 유럽 서부
 
-Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생한 경우 요청은 지역 외부로 라우팅될 수 있습니다.
+Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생 한 경우 요청이 Azure 지리적 위치 외부 라우팅될 수 있습니다.
 
-요청을 특정 데이터 센터에서 처리되도록 하려면 API 요청의 글로벌 엔드포인트를 원하는 지역 엔드포인트로 변경합니다.
+특정 Azure 지리적 위치에서 처리 요청을 적용할 API 요청에서 전역 엔드포인트는 원하는 지역별 끝점을 변경:
 
-|설명|지역|기준 URL|
+|설명|Azure 지리|기준 URL|
 |:--|:--|:--|
-|Azure|전역|  api.cognitive.microsofttranslator.com|
-|Azure|북아메리카|   api-nam.cognitive.microsofttranslator.com|
+|Azure|글로벌 (비지역)|   api.cognitive.microsofttranslator.com|
+|Azure|미국|   api-nam.cognitive.microsofttranslator.com|
 |Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
@@ -154,6 +154,7 @@ Cognitive 서비스의 다중 서비스 구독을 사용 하도록 마지막 인
 | 400075| 언어 쌍 및 범주 조합이 올바르지 않습니다.|
 | 400077| 최대 요청 크기를 초과했습니다. 뷰 [요청 제한](../request-limits.md)합니다.|
 | 400079| from과 to 언어 간의 변환에 대해 요청된 사용자 지정 시스템이 존재하지 않습니다.|
+| 400080| 음역 된 언어 또는 스크립트에 대 한 지원 되지 않습니다.|
 | 401000| 자격 증명이 누락되었거나 올바르지 않으므로 요청에 권한이 없습니다.|
 | 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. Translator Text API에 대한 구독을 사용하세요."|
 | 403000| 작업이 허용되지 않습니다.|

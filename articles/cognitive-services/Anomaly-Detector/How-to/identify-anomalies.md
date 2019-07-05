@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61432347"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 비정상 탐지기 API를 사용 하 여 시계열 데이터에서  
 

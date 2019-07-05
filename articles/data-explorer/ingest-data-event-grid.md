@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494738"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490127"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
@@ -38,7 +38,7 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 이름 | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
+    | Name | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
     | 항목 종류 | *저장소 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
@@ -112,10 +112,10 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. |
+    | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 압축 옵션을 지원 합니다. Zip 또는 GZip |
     | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>샘플 데이터 생성
 
 Azure Data Explorer와 스토리지 계정이 연결되었으면 샘플 데이터를 만들어서 Blob Storage에 업로드할 수 있습니다.

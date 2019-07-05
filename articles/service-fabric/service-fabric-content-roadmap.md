@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540714"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537814"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -27,16 +27,18 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 ## <a name="core-concepts"></a>핵심 개념
 [Service Fabric 용어](service-fabric-technical-overview.md), [애플리케이션 모델](service-fabric-application-model.md) 및 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)은 기초 수준에서 자세한 개념과 설명을 제공합니다.
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>디자인 타임: 애플리케이션 형식, 서비스 형식, 애플리케이션 패키지 및 매니페스트, 서비스 패키지 및 매니페스트
-애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. 애플리케이션 패키지 디렉터리에 포함된 *ApplicationManifest.xml* 파일에서 정의됩니다. 그런 다음 애플리케이션 패키지는 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>디자인 타임: 서비스 유형, 서비스 패키지 및 매니페스트, 응용 프로그램 유형, 응용 프로그램 패키지 및 매니페스트
+서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. ServiceManifest.xml 파일에서 정의 됩니다. 실행 코드 및 서비스 구성 설정과 서비스가 런타임에 로드 되는 서비스에서 사용 되는 정적 데이터의 서비스 유형으로 구성 됩니다.
 
-서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 서비스 패키지 디렉터리에 포함된 ServiceManifest.xml 파일에서 정의됩니다. 그런 다음 서비스 패키지 디렉터리는 애플리케이션 패키지의 *ApplicationManifest.xml* 파일에서 참조됩니다. 클러스터 내에서 명명된 애플리케이션을 만든 후에 애플리케이션 형식의 서비스 형식 중 하나에서 명명된 서비스를 만들 수 있습니다. 서비스 형식은 *ServiceManifest.xml* 파일로 설명되며, 실행 코드 및 서비스 구성 설정과 서비스가 런타임에 로드 되는 서비스에서 사용 되는 정적 데이터의 서비스 유형으로 구성 됩니다.
+서비스 패키지는 서비스 형식의 ServiceManifest.xml 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
+
+애플리케이션 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. ApplicationManifest.xml 파일에 정의 됩니다.
 
 ![Service Fabric 애플리케이션 유형 및 서비스 유형][cluster-imagestore-apptypes]
 
-애플리케이션 패키지는 애플리케이션 형식의 *ApplicationManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 애플리케이션 형식을 구성하는 각 서비스 형식에 대해 서비스 패키지를 참조합니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다. 애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 
+응용 프로그램 패키지에는 응용 프로그램 유형을 구성 하는 각 서비스 형식에 대해 서비스 패키지를 참조 하는 응용 프로그램 형식의 ApplicationManifest.xml 파일을 포함 하는 디스크 디렉터리입니다. 예를 들어 전자 메일 애플리케이션 형식에 대한 애플리케이션 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.  
 
-서비스 패키지는 서비스 형식의 *ServiceManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 서비스 패키지 디렉터리의 파일은 애플리케이션 형식의 *ApplicationManifest.xml* 파일에서 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
+애플리케이션 패키지 디렉터리에 있는 파일은 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 애플리케이션 형식으로부터 명명된 애플리케이션을 만들 수 있습니다. 명명된 된 응용 프로그램을 만든 후 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 된 서비스를 만들 수 있습니다. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>런타임: 클러스터 및 노드, 명명된 애플리케이션, 명명된 서비스, 파티션 및 복제본
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061339"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443228"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -57,7 +57,6 @@ Blob Storage Api를 사용 안 함된에 따라 달라 집니다, 그리고이 �
 | **AZCopy** | 버전 별로 지원 <br><br>최신 버전의 AzCopy 사용 하 여 ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). 이전 버전의 AzCopy AzCopy v8.1 등 지원 되지 않습니다.|
 | **Azure Blob 저장소 수명 주기 관리 정책** | 아직 지원 되지 않음 |
 | **Azure Content Delivery Network (CDN)** | 아직 지원 되지 않음|
-| **Azure Event Grid** | 아직 지원 되지 않음 |
 | **Azure search** |아직 지원 되지 않음|
 | **Azure Storage 탐색기** | 버전 별로 지원 <br><br>사용 하 여 버전만 `1.6.0` 이상. <br>버전 `1.6.0` 로 제공 되는 [무료 다운로드](https://azure.microsoft.com/features/storage-explorer/)합니다.|
 | **Blob 컨테이너 Acl** |아직 지원 되지 않음|

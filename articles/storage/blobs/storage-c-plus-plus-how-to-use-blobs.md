@@ -9,12 +9,12 @@ ms.date: 03/21/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 519190b6aeb313f25eddd717bce1a72148c8c518
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32601fc15e6b6a25a1005b6d95499d4aae4fb0d2
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148461"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461174"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob Storage를 사용하는 방법
 
@@ -68,7 +68,7 @@ Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하�
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 
-## <a name="retrieve-your-connection-string"></a>연결 문자열 검색
+## <a name="retrieve-your-storage-account"></a>저장소 계정 검색
 **cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.  
 
 ```cpp

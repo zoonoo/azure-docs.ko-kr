@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814179"
 ---
 # <a name="calchistogram-method"></a>calchistogram 메서드
 *calchistogram* 메서드는 구조화된 쿼리 식과 일치하는 개체를 계산하고 해당 특성 값의 분포를 계산합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "55860459"
 ## <a name="request"></a>요청
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|값|설명
+이름|값|설명
 ----|-----|-----------
 expr | 텍스트 문자열 | 히스토그램을 계산할 인덱스 엔터티를 지정하는 구조화된 쿼리 식입니다.
 특성 | 텍스트 문자열(기본값="") | 응답에 포함되는 쉼표로 구분된 특성 목록입니다.

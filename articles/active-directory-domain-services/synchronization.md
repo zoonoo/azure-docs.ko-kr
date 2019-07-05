@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인에서의 
 description: Azure Active Directory Domain Services 관리되는 도메인에서의 동기화를 이해합니다.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 475817985885cdd6023e72f20ecf35a3ca582924
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246691"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472434"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에서 동기화
 다음 다이어그램에서는 Azure AD 도메인 서비스 관리되는 도메인에서 동기화가 작동하는 방식을 보여 줍니다.
@@ -60,7 +60,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>관리되는 도메인에 특정 특성이 동기화되는 방식
 다음 표에는 몇 가지 공통 특성이 나열되어 있으며 이러한 특성이 관리되는 도메인에 동기화되는 방식이 설명되어 있습니다.
 
-| 관리되는 도메인의 특성 | source | 메모 |
+| 관리되는 도메인의 특성 | 원본 | 메모 |
 |:--- |:--- |:--- |
 | UPN |Azure AD 테넌트의 사용자 UPN 특성 |Azure AD 테넌트의 UPN 특성은 있는 그대로 관리되는 도메인에 동기화됩니다. 따라서 관리되는 도메인에 로그인하는 가장 안정적인 방법은 UPN을 사용하는 것입니다. |
 | SAMAccountName |Azure AD 테넌트에서 사용되거나 자동 생성된 사용자의 mailNickname |SAMAccountName 특성은 Azure AD 테넌트의 mailNickname 특성에서 제공됩니다. 여러 사용자 계정에 동일한 mailNickname 특성이 있으면 SAMAccountName이 자동으로 생성됩니다. 사용자의 mailNickname 또는 UPN 접두사가 20자 보다 긴 경우에는 SAMAccountName 특성에 대한 20자 제한을 충족하기 위해 SAMAccountName이 자동으로 생성됩니다. |

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743171"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508191"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -164,7 +164,7 @@ Azure VM 데이터 디스크 수 | 16개 이하의 데이터 디스크가 있는
 저장소 유형 | 표준 HDD, SSD 표준, 프리미엄 SSD <br/><br/> 표준 SSD 자격 증명 모음 Azure VM 백업 (이라고 즉시 복원을)의 최신 버전으로 업그레이드 하는 경우 지원 됩니다. [자세히 알아보기](backup-instant-restore-capability.md).
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> (Azure AD 앱 없이 또는) Azure Disk Encryption을 사용 하도록 설정 하는 azure Vm은 백업할 수 있습니다.<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구 해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
-Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 최신 버전의 Azure VM 백업([즉시 복원](backup-instant-restore-capability.md)이라고도 함)을 실행하는 경우 백업에서 Write Accelerator가 설정된 디스크를 제외할 수 있습니다.
+Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> Azure backup에 백업 하는 동안 사용 하도록 설정 하는 Write Accelerator를 사용 하 여 디스크를 자동으로 제외 됩니다. 백업 하지 않습니다, 이므로 이러한 디스크 VM의 복구 지점에서 복원할 수 없습니다.
 중복 제거된 디스크 백업 | 지원되지 않습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.

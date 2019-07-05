@@ -515,14 +515,14 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 | 요청 ID | 작업 텍스트 |
 | --- | --- |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontaine](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot; |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer 에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontaine](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 202, 요청 ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |

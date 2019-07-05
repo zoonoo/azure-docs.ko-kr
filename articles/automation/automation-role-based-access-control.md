@@ -5,17 +5,17 @@ keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738846"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477728"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -232,6 +232,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |온보딩 상태 확인 - VM 읽기      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |온보딩 상태 확인 - 계정 읽기      | Microsoft.Automation/automationAccounts/read  |  Automation 계정   |
 | VM에 대 한 온 보 딩 작업 영역 확인<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | 구독         |
+| Log Analytics 공급자 등록 |Microsoft.Insights/register/action | 구독|
 
 <sup>1</sup> VM 포털 환경을 통해 등록 하려면이 권한이 필요 합니다.
 
@@ -251,6 +252,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |저장된 검색 만들기/편집     | Microsoft.OperationalInsights/workspaces/write        | 작업 영역        |
 |범위 구성 만들기/편집     | Microsoft.OperationalInsights/workspaces/write        | 작업 영역        |
 |범위 구성에 솔루션 연결      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 해결 방법         |
+| Log Analytics 공급자 등록 |Microsoft.Insights/register/action | 구독|
 |**2단계 - 여러 VM 온보딩**     |         |         |
 |VMOnboarding 블레이드 - MMA 확장 만들기     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
 |저장된 검색 만들기/편집     | Microsoft.OperationalInsights/workspaces/write           | 작업 영역        |

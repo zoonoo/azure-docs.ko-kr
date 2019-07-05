@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112581"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440791"
 ---
 # <a name="what-are-baseline-policies"></a>기본 정책 이란?
 
@@ -30,18 +30,18 @@ ms.locfileid: "67112581"
 
 조직에서 사용할 수 있는 네 가지 기준 정책을 가지가 있습니다.
 
-* [관리자에 대해 MFA 요구](howto-baseline-protect-administrators.md)
+* [관리자 (미리 보기)에 대해 MFA 요구](howto-baseline-protect-administrators.md)
 * [최종 사용자 보호 (미리 보기)](howto-baseline-protect-end-users.md)
 * [블록 레거시 인증 (미리 보기)](howto-baseline-protect-legacy-auth.md)
 * [서비스 관리 (미리 보기)에 대해 MFA 요구](howto-baseline-protect-azure.md)
 
 이러한 정책의 모든 4 이전 Office 데스크톱 클라이언트, POP 및 IMAP 등 기존 인증 흐름에 영향을 줍니다.
 
-### <a name="require-mfa-for-admins"></a>관리자에 대해 MFA 요구
+### <a name="require-mfa-for-admins-preview"></a>관리자 (미리 보기)에 대해 MFA 요구
 
 전원 및 액세스 하는 관리자 계정으로 인해 특수 신중 하 게 처리 해야 있습니다. 권한 있는 계정의 보호를 향상 시키는 한 가지 일반적인 방법은 로그인을 사용할 때 보다 강력한 형식의 계정 확인을 요구 하는 합니다. Azure Active Directory에서 관리자에 대 한 등록 및 Azure Multi-factor Authentication을 사용 하 여 강력한 계정 확인을 가져올 수 있습니다.
 
-[관리자에 대 한 MFA를 요구할](howto-baseline-protect-administrators.md) multi-factor authentication (MFA)을 요구 하는 기준 정책을 다음 디렉터리 역할의 경우 Azure AD 역할은 가장 권한이 있는 것으로 간주 됩니다.
+[관리자 (미리 보기)에 대 한 MFA를 요구할](howto-baseline-protect-administrators.md) multi-factor authentication (MFA)을 요구 하는 기준 정책을 다음 디렉터리 역할의 경우 Azure AD 역할은 가장 권한이 있는 것으로 간주 됩니다.
 
 * 전역 관리자
 * SharePoint 관리자
@@ -52,7 +52,7 @@ ms.locfileid: "67112581"
 * 대금 청구 관리자
 * 사용자 관리자
 
-조직에 이러한 계정은 스크립트 또는 코드에서 사용 중인 경우 대체 하 여 고려해 야 [identities 관리](../managed-identities-azure-resources/overview.md)합니다. 임시 해결 방법으로 기준 정책에서 특정 사용자 계정을 제외할 수 있습니다.
+조직에 이러한 계정은 스크립트 또는 코드에서 사용 중인 경우 대체 하 여 고려해 야 [identities 관리](../managed-identities-azure-resources/overview.md)합니다.
 
 ### <a name="end-user-protection-preview"></a>최종 사용자 보호 (미리 보기)
 
@@ -96,7 +96,7 @@ ms.locfileid: "67112581"
 
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
 * [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)
-* [관리자에 대해 MFA 요구](howto-baseline-protect-administrators.md)
+* [관리자 (미리 보기)에 대해 MFA 요구](howto-baseline-protect-administrators.md)
 * [최종 사용자 보호 (미리 보기)](howto-baseline-protect-end-users.md)
 * [블록 레거시 인증 (미리 보기)](howto-baseline-protect-legacy-auth.md)
 * [서비스 관리 (미리 보기)에 대해 MFA 요구](howto-baseline-protect-azure.md)

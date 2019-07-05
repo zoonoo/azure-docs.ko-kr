@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444700"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
 
@@ -43,7 +43,7 @@ Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 
 | 중국 북부 |\* |\* |
 | 중국 북부 2 |사용 가능 |Gen2만 |
 | 동아시아 |사용 가능 |2019 년 6 월 1 일 |
-| 미국 동부 |사용 가능 |2019 년 6 월 1 일 |
+| East US |사용 가능 |2019 년 6 월 1 일 |
 | 미국 동부 2 |사용 가능 |2019 년 6 월 1 일 |
 | 프랑스 중부 |\* |2019 년 6 월 1 일 |
 | 독일 중부 |\* |\* |
@@ -67,7 +67,7 @@ Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 
 
 ## <a name="automatic-upgrade-process"></a>자동 업그레이드 프로세스
 
-위의 가용성 차트에 따라에서는 됩니다 수 예약 Gen1 인스턴스에 대 한 자동된 업그레이드 합니다. 데이터 웨어하우스의 가용성이 예기치 않게 중단되는 것을 방지하기 위해 자동 업그레이드가 유지 관리 일정 중에 예약됩니다. Gen2로 자동 업그레이드 중 지역에서 새 Gen1 인스턴스를 만들 수 없게 됩니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](viewing-maintenance-schedule.md)를 참조하세요.
+위의 가용성 차트에 따라에서는 됩니다 수 예약 Gen1 인스턴스에 대 한 자동된 업그레이드 합니다. 데이터 웨어하우스의 가용성이 예기치 않게 중단되는 것을 방지하기 위해 자동 업그레이드가 유지 관리 일정 중에 예약됩니다. Gen2로 자동 업그레이드 중 지역에서 새 Gen1 인스턴스를 만들 수 없게 됩니다. 자동 업그레이드를 완료 했으면 Gen1 사용 되지 것입니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](viewing-maintenance-schedule.md)를 참조하세요.
 
 업그레이드 프로세스에서는 데이터 웨어하우스를 다시 시작 하는 대로 연결 (약 5 분)에 대 한 간략 한 drop을 포함 됩니다.  데이터 웨어하우스를 다시 시작하면 완전히 사용할 수 있게 됩니다. 그러나 백그라운드에서 데이터 파일을 업그레이드 하려면 업그레이드 프로세스 계속 되는 동안 성능 저하를 발생할 수 있습니다. 총 성능 저하 시간은 데이터 파일의 크기에 따라 달라집니다.
 

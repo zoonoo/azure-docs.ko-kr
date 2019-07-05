@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286929"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476232"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>PIM의 Azure AD 역할 보안 마법사
 
@@ -43,27 +43,27 @@ Azure Active Directory (Azure AD) 관리 PIM (Privileged Identity) 조직에 대
 
 1. **Azure AD 역할**을 클릭한 다음, **마법사**를 클릭합니다.
 
-    ![Azure AD 역할 - 마법사](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD 역할-마법사를 실행 하려면 3 단계를 보여 주는 마법사 페이지](./media/pim-security-wizard/wizard-start.png)
 
 1. **1 권한 있는 역할 검색**을 클릭합니다.
 
 1. 권한 있는 역할 목록을 검토하여 어떤 사용자가 영구 또는 적격인지 확인합니다.
 
-    ![권한 있는 역할 사용자 검색](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![영구 및 적격 멤버를 보여 주는 역할 창-권한 있는 역할 검색](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. **다음**을 클릭하여 적격으로 설정할 멤버를 선택합니다.
 
-    ![멤버를 적격으로 변환](./media/pim-security-wizard/convert-members-eligible.png)
+    ![역할에 대 한 적격 상태로 설정 하려는 멤버를 선택 하는 옵션을 사용 하 여 적합 한 페이지로 멤버 변환](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. 멤버를 선택했으면 **확인**을 클릭합니다.
 
-    ![변경 내용 검토](./media/pim-security-wizard/review-changes.png)
+    ![변환 되는 영구 역할 할당을 사용 하 여 멤버를 보여 주는 변경 내용 페이지를 검토 합니다.](./media/pim-security-wizard/review-changes.png)
 
 1. **확인**을 클릭하여 영구 할당을 적격으로 변환합니다.
 
     변환이 완료되면 알림이 표시됩니다.
 
-    ![알림](./media/pim-security-wizard/notification-completion.png)
+    ![변환의 상태를 보여 주는 알림](./media/pim-security-wizard/notification-completion.png)
 
 다른 권한 있는 역할 할당을 적격으로 변환하려면 마법사를 다시 실행하면 됩니다. PIM 인터페이스 마법사를 대신 사용 하려는 경우 참조 [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)합니다.
 

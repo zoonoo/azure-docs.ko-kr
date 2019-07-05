@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308759"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485711"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>쿼리 및 인덱싱 작업에서 Azure Search에 대해 파티션과 복제본 확장
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
@@ -47,6 +47,7 @@ Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성
 일반적으로 검색 애플리케이션에는 파티션보다 더 많은 복제본이 필요하며 특히 서비스 작업이 쿼리 워크로드를 중심으로 하는 경우 더욱 그렇습니다. [고가용성](#HA) 섹션에 그 이유가 설명되어 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인하고 검색 서비스를 선택합니다.
+
 2. **설정을**오픈를 **확장** 복제본 및 파티션의 수정 하는 페이지입니다. 
 
    다음 스크린샷은 표준 서비스 복제본 및 파티션 하나를 사용 하 여 프로 비전 합니다. 맨 아래에서 수식을 검색 단위의 사용된 (1)를 나타냅니다. 단가 $100 (실제 가격 없습니다) 인 경우이 서비스를 실행 하는 월간 비용 것 100 달러 평균입니다.
@@ -108,6 +109,7 @@ SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명�
 고가용성을 위한 일반적인 권장 사항은 다음과 같습니다.
 
 * 읽기 전용 작업(쿼리)의 고가용성을 위한 복제본 두 개
+
 * 읽기/쓰기 워크로드의 고가용성을 위한 복제본 세 개 이상(개별 문서가 추가, 업데이트 또는 삭제됨에 따라 쿼리 및 인덱싱)
 
 Azure Search에 대한 Service Level Agreement(서비스 수준 약정)는 문서 추가, 업데이트 또는 삭제로 구성된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.

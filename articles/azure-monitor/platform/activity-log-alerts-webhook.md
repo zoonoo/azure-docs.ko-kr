@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66477923"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491508"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -33,6 +33,7 @@ ms.locfileid: "66477923"
 POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activityLog.eventSource 필드에 따라 다릅니다.
 
 ### <a name="common"></a>일반
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -59,7 +60,9 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
     }
 }
 ```
+
 ### <a name="administrative"></a>관리
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -84,9 +87,96 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
         "properties": {}
     }
 }
-
 ```
+
+### <a name="security"></a>보안
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{"status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "correlationId":"2518408115673929999",
+                "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+                "eventSource":"Security",
+                "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+                "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "level":"Informational",
+                "operationName":"Microsoft.Security/locations/alerts/activate/action",
+                "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "properties":{
+                    "attackers":"[\"IP Address: 01.02.03.04\"]",
+                    "numberOfFailedAuthenticationAttemptsToHost":"456",
+                    "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+                    "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+                    "actionTaken":"Detected",
+                    "resourceType":"Virtual Machine",
+                    "severity":"Medium",
+                    "compromisedEntity":"LinuxVM1",
+                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+                    "attackedResourceType":"Virtual Machine"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "resourceGroupName":"contoso",
+                "resourceProviderName":"Microsoft.Security",
+                "status":"Active",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+                "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
+### <a name="recommendation"></a>권장 사항
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{
+        "status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+                "caller":"Microsoft.Advisor",
+                "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+                "description":"A new recommendation is available.",
+                "eventSource":"Recommendation",
+                "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+                "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+                "level":"Informational",
+                "operationName":"Microsoft.Advisor/recommendations/available/action",
+                "properties":{
+                    "recommendationSchemaVersion":"1.0",
+                    "recommendationCategory":"HighAvailability",
+                    "recommendationImpact":"Medium",
+                    "recommendationName":"Enable Soft Delete to protect your blob data",
+                    "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+                    "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+                "resourceGroupName":"CONTOSO",
+                "resourceProviderName":"MICROSOFT.STORAGE",
+                "status":"Active",
+                "subStatus":"",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
 ### <a name="servicehealth"></a>ServiceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -128,7 +218,10 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
+서비스 상태 알림 활동 로그 경고에 대한 특정 스키마 세부 정보는 [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)을 참조하세요. 또한 [기존 문제 관리 솔루션으로 서비스 상태 웹후크 알림 구성](../../service-health/service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
+
 ### <a name="resourcehealth"></a>ResourceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -165,10 +258,6 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-서비스 상태 알림 활동 로그 경고에 대한 특정 스키마 세부 정보는 [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)을 참조하세요. 또한 [기존 문제 관리 솔루션으로 서비스 상태 웹후크 알림 구성](../../service-health/service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
-
-다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
-
 | 요소 이름 | 설명 |
 | --- | --- |
 | status |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
@@ -180,11 +269,11 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | description |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
-| ResourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
 | event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
-| authorization |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
+| 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | correlationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
@@ -197,7 +286,9 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | operationName |작업의 이름입니다. |
 | properties |이벤트의 속성입니다. |
 | status |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
-| subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값에는 OK(HTTP 상태 코드:  200), 만들어짐(HTTP 상태 코드: 201), 수락됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스를 사용할 수 없음(HTTP 상태 코드: 503), 게이트웨이 시간 초과(HTTP 상태 코드: 504) 등이 있습니다. |
+| subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값에는 OK(HTTP 상태 코드:  200), 만들어짐(HTTP 상태 코드: 201), 수락됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스를 사용할 수 없음(HTTP 상태 코드: 503), 게이트웨이 시간 초과(HTTP 상태 코드: 504). |
+
+다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그에 대해 자세히 알아보세요](../../azure-monitor/platform/activity-logs-overview.md).

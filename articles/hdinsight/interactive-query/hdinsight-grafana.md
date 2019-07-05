@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719730"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458818"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |---------|---------|
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
-    |**Location**:     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
+    |**위치**:     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
     |**클러스터 유형**     | **hadoop**을 선택합니다. |
     |**클러스터 이름**     | Apache Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
     |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
 
 > [!NOTE]  
-> 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 
+> 다른 클러스터 생성 방법 및이 문서에 사용 된 속성을 이해를 참조 하세요 [만들 HDInsight 클러스터](../hdinsight-hadoop-provision-linux-clusters.md)합니다. 
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana 대시보드에 액세스
 
@@ -108,7 +108,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서에서는 Resource Manager 템플릿을 사용하여 Linux 기반 HDInsight 클러스터를 만들고, 기본 Apache Hive 쿼리를 수행하는 방법을 알아보았습니다. 다음 문서에서는 HDInsight의 Hadoop을 사용하여 ETL(추출, 변환 및 로드) 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
->[HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](../hdinsight-analyze-flight-delay-data-linux.md)
+>[추출, 변환 및 HDInsight에서 대화형 쿼리를 사용 하 여 데이터를 로드 합니다.](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 자신의 데이터로 작업을 시작할 준비가 된 상태에서 HDInsight에서 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음 문서를 참조하세요.
 

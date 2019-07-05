@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92e4d0e296e83b413cfd2a67041a5749c16699e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052236"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482223"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 장치 코드 흐름
 
@@ -52,7 +52,7 @@ Microsoft identity 플랫폼 지원 합니다 [장치 코드 부여](https://too
 
 > [!TIP]
 > Postman에서 이 요청을 실행해 보세요.
-> [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Postman에서이 요청을 실행 해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -77,7 +77,7 @@ scope=user.read%20openid%20profile
 
 | 매개 변수 | 형식 | 설명 |
 | ---              | --- | --- |
-|`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 권한 부여 서버의 액세스 토큰을 요청 하려면이 매개 변수를 사용 합니다. |
+|`device_code`     | 문자열 | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 권한 부여 서버의 액세스 토큰을 요청 하려면이 매개 변수를 사용 합니다. |
 |`user_code`       | String | 보조 장치에서 세션을 식별 하는 데 사용 되는 사용자에 게 표시 하는 간단한 문자열입니다.|
 |`verification_uri`| URI | 로그인하기 위해 사용자가 `user_code`을(를) 사용하여 이동하는 URI입니다. |
 |`expires_in`      | int | `device_code` 및 `user_code`의 만료 전 시간(초)입니다. |

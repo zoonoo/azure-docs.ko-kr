@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071443"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435947"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -44,13 +44,7 @@ Azure Storage GPv2 계정에서 컨테이너에서 직접 정적 콘텐츠 (HTML
 
 1. 먼저 엽니다는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), 했다면 또는 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI를 로컬로 같은 Windows PowerShell 명령 콘솔 응용 프로그램을 엽니다.
 
-2. 열려 있는 명령 창에서 저장소 미리 보기 확장을 설치 합니다.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. 본인에 둘 이상의 구독과 연결 되어 설정 활성 정적 웹 사이트를 호스트 하는 저장소 계정의 구독을 구독 합니다.
+2. 본인에 둘 이상의 구독과 연결 되어 설정 활성 정적 웹 사이트를 호스트 하는 저장소 계정의 구독을 구독 합니다.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ Azure Storage GPv2 계정에서 컨테이너에서 직접 정적 콘텐츠 (HTML
 
    대체는 `<subscription-id>` 구독의 ID 사용 하 여 자리 표시자 값입니다.
 
-4. 정적 웹 사이트를 호스팅할 수 있도록 합니다.
+3. 정적 웹 사이트를 호스팅할 수 있도록 합니다.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ Azure Storage GPv2 계정에서 컨테이너에서 직접 정적 콘텐츠 (HTML
 
    * 대체는 `<index-document-name>` 자리 표시자 인덱스 문서 이름입니다. 이 문서는 일반적으로 "index.html".
 
-5. 소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
+4. 소스 디렉터리의 *$web* 컨테이너에 개체를 업로드합니다.
 
    > [!NOTE]
    > Azure Cloud Shell을 사용 하는 경우 추가 해야는 `\` 이스케이프 문자를 나타낼 때 합니다 `$web` 컨테이너 (예: `\$web`). Azure CLI의 로컬 설치를 사용 하는 경우 이스케이프 문자를 사용할 필요가 없습니다.

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: aa90eef5a0888da5a702e5efed489fa37a39a7c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 351bc71046df1bdd677d8c64411b6ae09dfc1ef1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861973"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206130"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>빠른 시작: Java 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

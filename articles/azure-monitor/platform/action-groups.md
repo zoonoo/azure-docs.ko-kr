@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 796ae0e3be3a2e43d7f27d5932cdba0cf660f36b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416978"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441901"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -56,6 +56,8 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     b. **작업 유형**: 메일/SMS/푸시/음성, 논리 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
 
     c. **세부 정보**: 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    
+    d. **일반 경고 스키마**: 사용 하도록 선택할 수는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs), 확장 가능한 단일 장점이 제공 및 Azure Monitor에서 모든 경고에서 경고 페이로드 통합된 서비스입니다.
 
 1. **확인**을 선택하여 작업 그룹을 만듭니다.
 

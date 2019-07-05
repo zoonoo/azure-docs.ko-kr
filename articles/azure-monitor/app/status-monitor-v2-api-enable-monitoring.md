@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734179"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479636"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>상태 모니터 v2 API: 사용-ApplicationInsightsMonitoring (v0.2.1 알파)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>상태 모니터 v2 API: 사용-ApplicationInsightsMonitoring (v0.3.1 알파)
 
 이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
@@ -68,9 +68,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
     @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -88,7 +88,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 > 앱 규칙에서 제공 되는 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 해야 하 고 가장 일반적인 규칙입니다.
 
 #### <a name="schema"></a>스키마
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** 는 반드시 C# VM 이름 또는 컴퓨터 regex.
     - '. *'는 모두 일치
@@ -108,13 +108,19 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **선택** 헤드리스 설치에서 라이선스 및 개인정보취급방침 적용할이 스위치를 사용 합니다.
 
+### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
+웹 서버 클러스터에 있는 경우 사용할 수 있습니다는 [공유 구성](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)합니다.
+HttpModule이 공유 구성에 삽입할 수 없습니다.
+이 스크립트는 추가 설치 단계가 필요 메시지와 함께 실패 합니다.
+이 검사를 무시 하 고 필수 구성 요소 설치를 계속 하려면이 스위치를 사용 합니다. 자세한 내용은 참조 하세요. [알려진 충돌 및 사용 하 여 간 iis-공유-구성](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+
 ### <a name="-verbose"></a>-Verbose
 **일반적인 매개 변수입니다.** 자세한 로그를 표시 하려면이 스위치를 사용 합니다.
 
 ### <a name="-whatif"></a>-WhatIf 
 **일반적인 매개 변수입니다.** 이 스위치를 사용 하 여 테스트를 실제로 모니터링을 사용 하지 않고 입력된 매개 변수 유효성 검사 합니다.
 
-## <a name="output"></a>출력
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-a-successful-enablement"></a>성공적인 사용의 예제 출력

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: b5b768e52a40652840e9e3d3069df8a9c895f77b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: a954d1d9466a35925726c36361dc00edfddfbf63
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001610"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484965"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 합성
 
@@ -31,9 +31,9 @@ ms.locfileid: "66001610"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.1`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
 
-Linux용 Speech SDK는 64비트 및 32비트 애플리케이션을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tar 파일로 다운로드할 수 있습니다.
+Linux용 Speech SDK는 64비트 및 32비트 애플리케이션을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary 에서 tar 파일로 다운로드할 수 있습니다.
 
 SDK를 다음과 같이 다운로드하고 설치합니다.
 

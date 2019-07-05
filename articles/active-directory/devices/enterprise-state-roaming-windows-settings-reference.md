@@ -2,27 +2,21 @@
 title: Windows 10 로밍 설정 참조 | Microsoft Docs
 description: Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다.
 services: active-directory
-keywords: 엔터프라이즈 상태 로밍, windows 클라우드
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9489228b6ba81ae8d09e0f6880634532d0c836c6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353264"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481803"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 다음은 Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다. 
@@ -184,4 +178,3 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 ## <a name="next-steps"></a>다음 단계
 
 개요는 [Enterprise State Roaming 개요](enterprise-state-roaming-overview.md)를 참조하세요.
-

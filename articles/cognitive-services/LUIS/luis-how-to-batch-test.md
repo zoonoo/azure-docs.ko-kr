@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521219"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60197703"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -34,7 +34,7 @@ ms.locfileid: "59521219"
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
-3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
+3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다.   구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
 
 4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
 

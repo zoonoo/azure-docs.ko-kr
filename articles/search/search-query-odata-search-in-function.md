@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f72a59aac448796cf15220e15a3c8a4f12803bb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079731"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449980"
 ---
 # <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` Azure Search에서 함수
 
@@ -40,7 +40,7 @@ ms.locfileid: "67079731"
 > 더 간결 하 고 쉽게 사용 하 여 읽을 수 있을 뿐만 `search.in` 도 제공 [성능상의 이점을](#bkmk_performance) 특정 방지 [크기 필터 제한](search-query-odata-filter.md#bkmk_limits) 수백 또는 수천 개의 값이 있을 때 필터에 포함 합니다. 이러한 이유로 좋습니다를 사용 하 여 `search.in` 같음 표현의 복잡 한 분리를 대신 합니다.
 
 > [!NOTE]
-> 4\.01 OData 표준의 버전에 도입 합니다 [ `in` 연산자](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230),으로 유사한 동작을 포함 하는 `search.in` Azure Search에서 함수. 그러나 Azure Search 지원 하지 않으므로이 연산자를 사용 해야 합니다는 `search.in` 함수를 대신 합니다.
+> 4\.01 OData 표준의 버전에 도입 합니다 [ `in` 연산자](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230),으로 유사한 동작을 포함 하는 `search.in` Azure Search에서 함수. 그러나 Azure Search 지원 하지 않으므로이 연산자를 사용 해야 합니다는 `search.in` 함수를 대신 합니다.
 
 ## <a name="syntax"></a>구문
 

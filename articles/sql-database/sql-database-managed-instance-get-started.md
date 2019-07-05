@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070484"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 11. **배포 진행 중**을 선택하여 관리되는 인스턴스 창을 열어 배포 진행 상황을 자세히 모니터링합니다. 
 
 > [!IMPORTANT]
-> 서브넷의 첫 번째 인스턴스에서는 배포 시간이 일반적으로 후속 인스턴스의 경우보다 훨씬 더 깁니다. 배포 작업이 예상보다 오래 지속되므로 취소하지 마세요. 서브넷에 두 번째 관리형 인스턴스를 만드는 작업은 몇 분밖에 안 걸립니다.
+> 서브넷의 첫 번째 인스턴스에서는 배포 시간이 일반적으로 후속 인스턴스의 경우보다 훨씬 더 깁니다. 배포 작업이 예상보다 오래 지속되므로 취소하지 마세요.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>리소스를 검토하고 정규화된 서버 이름 검색
 

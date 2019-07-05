@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Oracle 재해 복구 옵션
       href: oracle-disaster-recovery.md
+- name: 방법 가이드
+  items:
+    - name: Azure 및 OCI 상호 연결 - 미리 보기
+      href: configure-azure-oci-networking.md
 - name: 리소스
   items:
     - name: Azure 로드맵

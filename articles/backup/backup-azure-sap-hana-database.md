@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237809"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481135"
 ---
 # <a name="back-up-an-sap-hana-database"></a>SAP HANA 데이터베이스 백업
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237809"
 > [!NOTE]
 > 이 기능은 현재 공개 미리 보기로 제공됩니다. 현재 프로덕션을 준비, 아니며 보장 된 SLA가 제공 하지 않습니다. 
 
-
 ## <a name="scenario-support"></a>시나리오 지원
 
 **지원** | **세부 정보**
 --- | ---
 **지원되는 지역** | 오스트레일리아 동남부, 오스트레일리아 동부 <br> 브라질 남부 <br> 캐나다 중부, 캐나다 동부 <br> 동남 아시아에서 동아시아 <br> 미국 동부, 미국 동부 2, 미국 중서부, 미국 서 부, 미국 서 부 2, 미국 중 북부, 미국 중부, 미국 중남부<br> 인도 중부, 인도 남부 <br> 일본 동부, 일본 서부<br> 한국 중부, 한국 남부 <br> 북유럽, 서유럽 <br> 영국 남부, 영국 서 부
 **지원 되는 VM 운영 체제** | SLES 12 SP2 또는 SP3를 사용 하 여 합니다.
-**지원 되는 HANA 버전** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
-
+**지원 되는 HANA 버전** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
 ### <a name="current-limitations"></a>현재 제한 사항
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237809"
 - 만 확장 모드에서 데이터베이스를 백업할 수 있습니다.
 - 15 분 마다 데이터베이스 로그를 백업할 수 있습니다. 로그 백업을 데이터베이스에 대 한 전체 백업을 성공적으로 완료 된 후 흐름에 시작 합니다.
 - 전체 및 차등 백업을 수행할 수 있습니다. 증분 백업은 현재 지원 되지 않습니다.
-- SAP HANA 백업에 적용 한 후 백업 정책을 수정할 수 없습니다. 다른 설정을 사용 하 여 백업 하려는 경우 새 정책을 만들거나 다른 정책을 할당 합니다. 
-    - 새 정책을 만들려면 클릭에 자격 증명 모음에서 **정책을** > **Backup 정책** >  **+ 추가** > **에서 SAP HANA Azure VM**, 정책 설정을 지정 합니다.
-    - 데이터베이스를 실행 하는 VM의 속성에 다른 정책을 할당 하려면 현재 정책 이름을 클릭 합니다. 그런 다음 합니다 **백업 정책** 페이지는 백업에 사용할 다른 정책을 선택할 수 있습니다.
-
-
-
+- SAP HANA 백업에 적용 한 후 백업 정책을 수정할 수 없습니다. 다른 설정을 사용 하 여 백업 하려는 경우 새 정책을 만들거나 다른 정책을 할당 합니다.
+  - 새 정책을 만들려면 클릭에 자격 증명 모음에서 **정책을** > **Backup 정책** >  **+ 추가** > **에서 SAP HANA Azure VM**, 정책 설정을 지정 합니다.
+  - 데이터베이스를 실행 하는 VM의 속성에 다른 정책을 할당 하려면 현재 정책 이름을 클릭 합니다. 그런 다음 합니다 **백업 정책** 페이지는 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,14 +52,16 @@ ms.locfileid: "65237809"
 
         ![패키지 설치 옵션](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  VM에서 설치 하 고 공식 SLES 패키지/미디어에서 같이 zypper를 사용 하 여 ODBC 드라이버 패키지를 사용 하도록 설정 합니다.
+2. VM에서 설치 하 고 공식 SLES 패키지/미디어에서 같이 zypper를 사용 하 여 ODBC 드라이버 패키지를 사용 하도록 설정 합니다.
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  아래 절차에 설명 된 대로 Azure에서 도달할 수 있도록 인터넷에 VM에서 연결을 허용 합니다.
 
+3. 절차에서 설명한 대로 Azure에서 도달할 수 있도록 인터넷에 연결 된 VM에서 허용 [아래](#set-up-network-connectivity)합니다.
+
+4. 루트 사용자로 HANA를 설치한 가상 컴퓨터에서 사전 등록 스크립트를 실행 합니다. 스크립트가 제공 됩니다 [포털에서](#discover-the-databases) 흐름에서 설정 하는 데 필요한 및 합니다 [권한을 마우스 오른쪽 단추로](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)합니다.
 
 ### <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 
@@ -80,7 +77,7 @@ ms.locfileid: "65237809"
 - 포털에서 등록 하 여 Recovery Services 서비스 공급자에 구독 ID [이 문서에서는 다음](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)합니다. 
 - Powershell의 경우이 cmdlet을 실행 합니다. "등록 됨"으로 완료 되어야 합니다.
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ ms.locfileid: "65237809"
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>데이터베이스를 검색 합니다.
-
 
 1. 자격 증명 모음에서에서 **Getting Started**, 클릭 **백업**합니다. **작업이 실행 되는 위치?** 를 선택 **Azure VM에서 SAP HANA**합니다.
 2. 클릭 **검색 시작**합니다. 이 자격 증명 모음 지역에서 Linux Vm을 보호 되지 않는의 검색을 시작합니다.
@@ -104,7 +100,7 @@ ms.locfileid: "65237809"
 6. Azure Backup은 VM에서 모든 SAP HANA 데이터베이스를 검색합니다. 검색 중에 Azure Backup 자격 증명을 사용 하 여 VM을 등록 하 고 VM에 확장을 설치 합니다. 데이터베이스에서 에이전트가 설치 됩니다.
 
     ![SAP HANA 데이터베이스 검색](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>백업 구성  
 
 이제 백업을 사용 하도록 설정 합니다.
@@ -116,6 +112,7 @@ ms.locfileid: "65237809"
 5. 백업 구성 진행률을 추적 합니다 **알림을** 포털의 영역입니다.
 
 ### <a name="create-a-backup-policy"></a>백업 정책 만들기
+
 백업 정책에는 백업이 수행 되는 경우 및 얼마나 오래 보존 하는 정의 합니다.
 
 - 정책은 자격 증명 모음 수준에서 만들어집니다.
@@ -189,6 +186,5 @@ ms.locfileid: "65237809"
 
 ## <a name="next-steps"></a>다음 단계
 
+[에 대 한 자세한](backup-azure-sap-hana-database-troubleshoot.md) Azure Vm에서 SAP HANA backup을 사용 하는 동안 일반적인 오류를 해결 하는 방법입니다.
 [에 대 한 자세한](backup-azure-arm-vms-prepare.md) Azure Vm을 백업 합니다.
-
-

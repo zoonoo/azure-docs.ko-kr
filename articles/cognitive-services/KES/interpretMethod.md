@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814140"
 ---
 # <a name="interpret-method"></a>interpret 메서드
 
@@ -25,9 +25,9 @@ ms.locfileid: "55870931"
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|값| 설명
+이름|값| 설명
 ----|----|----
-쿼리    | 텍스트 문자열 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
+query    | 텍스트 문자열 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
 complete | 0(기본값) 또는 1 | 1은 문법 및 인덱스 데이터를 기반으로 추천 자동 완성이 생성된다는 의미입니다.         
 count    | 숫자(기본값=10) | 반환할 최대 해석 수.         
 offset   | 숫자(기본값=0) | 반환할 첫 번째 해석의 인덱스입니다.  예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
