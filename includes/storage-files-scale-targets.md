@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9f259c3e403e933c847ac56000b1db2cd594caf5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449923"
 ---
-| Resource | 표준 파일 공유 | 프리미엄 파일 공유(미리 보기) |
+| Resource | 표준 파일 공유 | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
 | 파일 공유의 최소 크기 | 최소값이 없음을; 용량 제 통화 요금 | 100gib; 프로 비전 |
 | 파일 공유의 최대 크기 | 5tib (GA), 100 TiB (미리 보기) | 100tib |

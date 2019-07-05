@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472811"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481481"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -76,10 +76,10 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 사용자 고유의 온-프레미스 응용 프로그램 게시:
 
 1. 마지막 섹션에서 그렇지 않은 경우에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 응용 프로그램 관리자입니다.
-2. 선택 **엔터프라이즈 응용 프로그램** > **새 응용 프로그램** > **온-프레미스 응용 프로그램**합니다. 합니다 **고유한 온-프레미스 응용 프로그램을 추가** 페이지가 나타납니다.
+1. 선택 **엔터프라이즈 응용 프로그램** > **새 응용 프로그램** > **온-프레미스 응용 프로그램**합니다. 합니다 **고유한 온-프레미스 응용 프로그램을 추가** 페이지가 나타납니다.
 
    ![사용자 고유의 온-프레미스 응용 프로그램 추가](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
-3. 새 응용 프로그램에 대 한 정보를 사용 하 여 필수 필드를 채웁니다. 설정에 대해 아래 지침을 사용 합니다.
+1. 새 응용 프로그램에 대 한 정보를 사용 하 여 필수 필드를 채웁니다. 설정에 대해 아래 지침을 사용 합니다.
 
    > [!NOTE]
    > 이 단계의 자세한 연습을 참조 하세요 [Azure AD에 온-프레미스 앱을 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)합니다.
@@ -89,46 +89,48 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
       > [!WARNING]
       > Single sign-on의이 형식에 대해 내부 URL을 사용 해야 합니다 `https` 사용할 수 없습니다 및 `http`합니다.
 
-   2. **사전 인증 방법**: 선택할 **Azure Active Directory**합니다.
-   3. **헤더에서 URL 변환**: 선택할 **No**합니다.
+   1. **사전 인증 방법**: 선택할 **Azure Active Directory**합니다.
+   1. **헤더에서 URL 변환**: 선택할 **No**합니다.
 
    > [!NOTE]
    > 첫 번째 애플리케이션인 경우 3000 포트를 사용하여 시작하고 PingAccess 구성을 변경하면 다시 돌아와서 이 설정을 업데이트합니다. 후속 응용 프로그램의 경우 포트 PingAccess에서 구성한 수신기와 일치 해야 합니다. [PingAccess의 수신기](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)에 대해 자세히 알아봅니다.
-4. **추가**를 선택합니다. 새 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
+
+1. **추가**를 선택합니다. 새 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
 
 이제 응용 프로그램 테스트에 대 한 사용자를 할당 하 고 헤더 기반 single sign on 선택 합니다.
 
 1. 응용 프로그램 사이드바에서 선택 **사용자 및 그룹** > **사용자 추가** > **사용자 및 그룹 (\<번호 > 선택한)** . 선택 하기 위한 사용자 및 그룹의 목록이 표시 됩니다.
 
-   ![개요](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
-2. 선택한 응용 프로그램 테스트에 대 한 사용자 선택 **선택**합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다.
-3. **할당**을 선택합니다.
-4. 응용 프로그램 사이드바에서 선택 **Single sign on** > **헤더 기반**입니다.
+   ![사용자 및 그룹의 목록을 표시합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
+
+1. 선택한 응용 프로그램 테스트에 대 한 사용자 선택 **선택**합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다.
+1. **할당**을 선택합니다.
+1. 응용 프로그램 사이드바에서 선택 **Single sign on** > **헤더 기반**입니다.
 
    > [!TIP]
    > 헤더 기반 Single Sign-On을 처음 사용하는 경우 PingAccess를 설치해야 합니다. Azure 구독이 PingAccess 설치와 자동으로 연결되도록 하려면 이 Single Sign-On 페이지의 링크를 사용하여 PingAccess를 다운로드합니다. 지금 다운로드 사이트를 열거나 나중에 이 페이지로 다시 돌아올 수 있습니다.
 
-   ![헤더 기반 로그온](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
-5. **저장**을 선택합니다.
+   ![헤더 기반 로그온 화면 및 PingAccess를 보여 줍니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
+
+1. **저장**을 선택합니다.
 
 해야 리디렉션 URL이 외부 URL로 설정 합니다.
 
 1. **Azure Active Directory 관리 센터** 보충 선택 **Azure Active Directory** > **앱 등록**합니다. 응용 프로그램의 목록이 표시 됩니다.
-
-   ![앱 등록](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
-2. 애플리케이션을 선택합니다.
-3. 다음 링크를 선택 **리디렉션 Uri**, 리디렉션 Uri가 웹 클라이언트와 공용 클라이언트에 대 한 설정의 수를 표시 합니다. 합니다  **\<응용 프로그램 이름 >-인증** 페이지가 나타납니다.
-4. 응용 프로그램을 이전에 할당 된 외부 URL이 있는지 여부를 확인 합니다 **리디렉션 Uri** 목록입니다. 그렇지 않다면 추가 외부 URL 이제의 리디렉션 URI 형식을 사용 하 여 **웹**, 선택한 **저장**합니다.
+1. 애플리케이션을 선택합니다.
+1. 다음 링크를 선택 **리디렉션 Uri**, 리디렉션 Uri가 웹 클라이언트와 공용 클라이언트에 대 한 설정의 수를 표시 합니다. 합니다  **\<응용 프로그램 이름 >-인증** 페이지가 나타납니다.
+1. 응용 프로그램을 이전에 할당 된 외부 URL이 있는지 여부를 확인 합니다 **리디렉션 Uri** 목록입니다. 그렇지 않다면 추가 외부 URL 이제의 리디렉션 URI 형식을 사용 하 여 **웹**, 선택한 **저장**합니다.
 
 마지막으로, 사용자가 읽기 액세스할 수 있으며 다른 응용 프로그램 읽기/쓰기 액세스할 수 있도록 온-프레미스 응용 프로그램을 설정 합니다.
 
 1. **앱 등록** 응용 프로그램에 대 한 보충 기사 선택 **API 사용 권한** > **권한 추가**  >   **Microsoft Api** > **Microsoft Graph**합니다. 합니다 **요청 API 사용 권한** 에 대 한 페이지 **Microsoft Graph** 나타나면 Api에 대 한 Windows Azure Active Directory를 포함 하는 합니다.
 
-   ![API 사용 권한 요청](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
-2. 선택 **위임 된 권한** > **사용자** > **User.Read**합니다.
-3. 선택 **응용 프로그램 사용 권한** > **응용 프로그램** > **Application.ReadWrite.All**합니다.
-4. 선택 **권한 추가**합니다.
-5. 에 **API 사용 권한** 페이지에서 **에 대 한 관리자 동의 부여 \<에 디렉터리 이름 >** 합니다.
+   ![요청 API 사용 권한 페이지를 보여 줍니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+
+1. 선택 **위임 된 권한** > **사용자** > **User.Read**합니다.
+1. 선택 **응용 프로그램 사용 권한** > **응용 프로그램** > **Application.ReadWrite.All**합니다.
+1. 선택 **권한 추가**합니다.
+1. 에 **API 사용 권한** 페이지에서 **에 대 한 관리자 동의 부여 \<에 디렉터리 이름 >** 합니다.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
 
@@ -143,18 +145,20 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 이 정보를 수집 합니다 하:
 
 1. **Azure Active Directory 관리 센터** 보충 선택 **Azure Active Directory** > **앱 등록**합니다. 응용 프로그램의 목록이 표시 됩니다.
-2. 애플리케이션을 선택합니다. 합니다 **앱 등록** 페이지 응용 프로그램에 표시 됩니다.
+1. 애플리케이션을 선택합니다. 합니다 **앱 등록** 페이지 응용 프로그램에 표시 됩니다.
 
    ![응용 프로그램에 대 한 등록 개요](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
-3. 옆에 **(클라이언트) 응용 프로그램 ID** 값을 선택 합니다 **클립보드로 복사** 아이콘을 복사 하 고 저장 합니다. PingAccess의 클라이언트 ID로 나중에이 값을 지정 하면
-4. 다음은 **디렉터리 (테 넌 트) ID** 값을 선택할 수도 **클립보드로 복사**, 복사 및 저장 합니다. PingAccess의 발급자로이 값을 나중에 지정합니다.
-5. 세로 막대에서 합니다 **앱 등록** 응용 프로그램에 대 한 선택 **인증서 및 비밀** > **새 클라이언트 암호**합니다. 합니다 **클라이언트 암호 추가** 페이지가 나타납니다.
 
-   ![클라이언트 암호 추가](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
-6. **설명을**, 형식 `PingAccess key`합니다.
-7. 아래 **Expires**, PingAccess 키를 설정 하는 방법을 선택 합니다. **1 년 안에**, **In 2 years**, 또는 **Never**합니다.
-8. **추가**를 선택합니다. PingAccess 키 클라이언트 비밀의 테이블에 나타나는 임의 문자열에서 해당 autofills 합니다 **값** 필드입니다.
-9. PingAccess 키 옆의 **값** 필드를 선택 합니다 **클립보드로 복사** 아이콘을 복사 하 고 저장 합니다. PingAccess의 클라이언트 비밀로이 값이를 나중에 지정합니다.
+1. 옆에 **(클라이언트) 응용 프로그램 ID** 값을 선택 합니다 **클립보드로 복사** 아이콘을 복사 하 고 저장 합니다. PingAccess의 클라이언트 ID로 나중에이 값을 지정 하면
+1. 다음은 **디렉터리 (테 넌 트) ID** 값을 선택할 수도 **클립보드로 복사**, 복사 및 저장 합니다. PingAccess의 발급자로이 값을 나중에 지정합니다.
+1. 세로 막대에서 합니다 **앱 등록** 응용 프로그램에 대 한 선택 **인증서 및 비밀** > **새 클라이언트 암호**합니다. 합니다 **클라이언트 암호 추가** 페이지가 나타납니다.
+
+   ![추가 클라이언트 비밀 페이지를 보여 줍니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+
+1. **설명을**, 형식 `PingAccess key`합니다.
+1. 아래 **Expires**, PingAccess 키를 설정 하는 방법을 선택 합니다. **1 년 안에**, **In 2 years**, 또는 **Never**합니다.
+1. **추가**를 선택합니다. PingAccess 키 클라이언트 비밀의 테이블에 나타나는 임의 문자열에서 해당 autofills 합니다 **값** 필드입니다.
+1. PingAccess 키 옆의 **값** 필드를 선택 합니다 **클립보드로 복사** 아이콘을 복사 하 고 저장 합니다. PingAccess의 클라이언트 비밀로이 값이를 나중에 지정합니다.
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>사용자 지정 필드 (선택 사항) 보내도록 GraphAPI 업데이트
 
@@ -173,14 +177,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 **이 예제에서는 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 업데이트는 `acceptMappedClaims` 필드:**
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 응용 프로그램 관리자입니다.
-2. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램의 목록이 표시 됩니다.
-3. 애플리케이션을 선택합니다.
-4. 세로 막대에서 합니다 **앱 등록** 응용 프로그램 페이지를 선택 **매니페스트**합니다. 응용 프로그램의 등록을 위한 매니페스트 JSON 코드가 표시 됩니다.
-5. 검색 된 `acceptMappedClaims` 필드 및 값으로 변경 `True`합니다.
-6. **저장**을 선택합니다.
-
+1. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램의 목록이 표시 됩니다.
+1. 애플리케이션을 선택합니다.
+1. 세로 막대에서 합니다 **앱 등록** 응용 프로그램 페이지를 선택 **매니페스트**합니다. 응용 프로그램의 등록을 위한 매니페스트 JSON 코드가 표시 됩니다.
+1. 검색 된 `acceptMappedClaims` 필드 및 값으로 변경 `True`합니다.
+1. **저장**을 선택합니다.
 
 ### <a name="use-of-optional-claims-optional"></a>(선택 사항) 선택적 클레임의 사용
+
 선택적 클레임을 사용 하면 모든 사용자 및 테 넌 트에는 standard-but-not-included-by-default 클레임을 추가할 수 있습니다. 응용 프로그램 매니페스트를 수정 하 여 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 참조는 [Azure AD 응용 프로그램 매니페스트 문서를 이해 합니다.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
 
 PingAccess를 사용 하는 access_token에 전자 메일 주소를 포함 하는 예제:
@@ -200,6 +204,7 @@ PingAccess를 사용 하는 access_token에 전자 메일 주소를 포함 하�
 ```
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>클레임 매핑 정책의 (선택 사항) 사용
+
 [클레임 매핑 정책 (미리 보기)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) AzureAD에 존재 하지 않는 특성에 대 한 합니다. 클레임 매핑을 사용 하면 ADFS 또는 사용자 개체에 의해 백업 되는 추가 사용자 지정 클레임을 추가 하 여 클라우드로 기존 온-프레미스 앱을 마이그레이션할 수 있습니다.
 
 응용 프로그램 사용자 지정 클레임을 사용 하 여 추가 필드가 포함 되도록 해야 하면 수도 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)합니다.
@@ -213,10 +218,13 @@ PingAccess를 사용 하는 access_token에 전자 메일 주소를 포함 하�
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 
-Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id
 ```
 
-### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>(선택 사항 이지만 추가 클레임을 사용 하도록 응용 프로그램 기대 하는 경우 필수)는 사용자 지정 클레임을 사용 하는 PingAccess를 사용 하도록 설정
+### <a name="enable-pingaccess-to-use-custom-claims"></a>사용자 지정 클레임을 사용 하는 PingAccess를 사용 하도록 설정
+
+사용자 지정 클레임을 사용 하는 PingAccess를 사용 하도록 설정은 선택 사항 이지만 추가 클레임을 사용 하도록 응용 프로그램을 원하는 경우 필요 합니다.
+
 PingAccess에서 다음 단계를 구성 하는 경우 웹 세션을 만들려는 (설정-> 액세스 웹 세션->)가 있어야 합니다 **프로필 요청** 선택 취소 하 고 **사용자 특성 새로 고침** 로 **없음**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>PingAccess 다운로드 및 응용 프로그램 구성

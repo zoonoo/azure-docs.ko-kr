@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693338"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449744"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>VCore 서비스 계층 간에 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
@@ -28,6 +28,8 @@ ms.locfileid: "66693338"
 
 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다.
 
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 > [!NOTE]
 > DTU 기반 서비스 계층에 대 한 자세한 내용은 [서비스 계층 DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)합니다. DTU 기반 서비스 계층 및 vCore 기반 구매 모델의 차이점에 대 한 자세한 내용은 [모델을 구매 하는 Azure SQL Database](sql-database-purchase-models.md)합니다.
 

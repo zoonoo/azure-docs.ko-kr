@@ -8,17 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606359"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490189"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019 년 6 월 릴리스
+
+**샘플**
+*   UWP 및 Unity에서 텍스트를 음성에 대 한 빠른 시작 샘플
+*   Swift에서 iOS 빠른 시작 샘플
+*   음성 의도 인식 및 변환에 대 한 unity 샘플
+*   DialogServiceConnector에 대 한 업데이트 된 빠른 시작 샘플
+
+**향상된 기능/변경 사항**
+* 대화 네임 스페이스:
+    * SpeechBotConnector는 DialogServiceConnector로 바뀌었습니다.
+    * BotConfig은 DialogServiceConfig로 바뀌었습니다.
+    * BotConfig::FromChannelSecret()는 DialogServiceConfig::FromBotSecret()에 다시 매핑 되었음을
+    * 모든 기존 직접 줄 음성 클라이언트 이름을 바꾼 후 지원 되는 데 계속
+* 프록시, 영구 연결을 지원 하기 위해 TTS REST 어댑터 업데이트
+* 잘못 된 영역이 전달 될 때 오류 메시지 개선
+* Swift/Objective-C:
+    * 향상 된 오류 보고: 오류가 발생할 수 있는 메서드 두 버전에는: 노출 하는 하나는 `NSError` 오류 처리 및 예외가 발생 하는 것에 대 한 개체입니다. 전자는 Swift에 노출 됩니다. 이 변경할 기존 Swift 코드에 대 한 적용 해야합니다.
+    * 향상 된 이벤트 처리
+
+**버그 수정**
+*   TTS에 대 한 수정: SpeakTextAsync 향후 오디오 렌더링을 완료 될 때까지 기다리지 않고 반환 되는 위치
+*   문자열 마샬링에 대 한 수정 C# 전체 언어 지원을 사용 하도록 설정
+*   샘플에서 net461 대상 프레임 워크를 사용 하 여 핵심 라이브러리를 로드 하려면.NET core 앱 문제 해결
+*   샘플의 출력 폴더에 네이티브 라이브러리를 배포 하려면 필요에 따른 문제에 대 한 수정
+*   안정적으로 닫는 웹 소켓에 대 한 수정
+*   부하가 매우 Linux에 대 한 연결을 여는 동안 가능한 충돌에 대 한 수정
+*   MacOS 용 프레임 워크 번들에 누락 된 메타 데이터에 대 한 수정
+*   에 대 한 문제 해결 `pip install --user` Windows에서
+
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 

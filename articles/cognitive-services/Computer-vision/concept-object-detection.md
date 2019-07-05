@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368047"
 ---
 # <a name="detect-common-objects-in-images"></a>이미지에서 공통 개체 감지
 
@@ -97,7 +97,7 @@ ms.locfileid: "60001850"
 
 ## <a name="use-the-api"></a>API 사용
 
-개체 감지 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에서 `Objects` 를 포함합니다. 그런 다음, 전체 JSON 응답을 얻을 때 간단하게 `"objects"` 섹션의 콘텐츠에 대한 문자열을 구문 분석합니다.
+개체 감지 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에서 `Objects`를 포함합니다. 그런 다음, 전체 JSON 응답을 얻을 때 간단하게 `"objects"` 섹션의 콘텐츠에 대한 문자열을 구문 분석합니다.
 
 * [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)

@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824838"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476550"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>최종 사용자가 Azure Active Directory에서 애플리케이션에 동의하는 방법을 구성합니다.
 사용자가 애플리케이션 권한에 동의하는 방법을 구성하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이 문서에서는 사용자 동의를 구성하는 다양한 방법을 제공합니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다. 
@@ -38,9 +38,10 @@ ms.locfileid: "65824838"
 2. 왼쪽 탐색 메뉴의 맨 위에 있는 **모든 서비스**를 클릭합니다. **Azure Active Directory 확장**이 열립니다.
 3. 필터 검색 상자에 **“Azure Active Directory”** 를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
-5. **관리자 동의 허용**을 클릭합니다. 애플리케이션을 관리하려면 로그인하라는 메시지가 표시됩니다.
-6. 애플리케이션에 대한 관리자 동의를 허용할 수 있는 권한이 있는 계정으로 로그인합니다. 
-7. 애플리케이션 사용 권한에 동의합니다.
+5. 동의 대 한 앱을 선택 합니다.
+6. 선택 **사용 권한** 을 클릭 한 다음 **관리자 동의 부여**합니다. 애플리케이션을 관리하려면 로그인하라는 메시지가 표시됩니다.
+7. 애플리케이션에 대한 관리자 동의를 허용할 수 있는 권한이 있는 계정으로 로그인합니다. 
+8. 애플리케이션 사용 권한에 동의합니다.
 
 이 옵션은 애플리케이션이 다음과 같은 경우에만 적용됩니다. 
 
@@ -54,8 +55,8 @@ ms.locfileid: "65824838"
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **앱 등록** 블레이드로 이동합니다.
 3. 동의할 애플리케이션을 선택합니다.
-4. **필수 권한**을 선택합니다.
-5. 블레이드 맨 위에 있는 **권한 부여**를 클릭합니다.
+4. **API 사용 권한**을 선택합니다.
+5. 클릭 **관리자 동의 부여**합니다.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>URL 요청을 통해 관리자 동의 허용

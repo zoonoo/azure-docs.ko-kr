@@ -62,7 +62,7 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 또는 Microsoft Graph API를 통해 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#)를 사용하여 특성을 쿼리할 수 있습니다.
 
 >[!NOTE]
-> 반환할 특성을 요청해야 합니다. https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division처럼 특성을 명시적으로 선택합니다. 
+> 반환할 특성을 요청해야 합니다. https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division 처럼 특성을 명시적으로 선택합니다. 
 >
 > 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)을 참조하세요.
 

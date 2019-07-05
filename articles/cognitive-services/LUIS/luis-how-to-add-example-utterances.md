@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072845"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442571"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
 예제 발언은 사용자 질문 또는 명령의 텍스트 예제입니다. LUIS(Language Understanding)를 학습시키려면 [의도](luis-concept-intent.md)에 [예제 발언](luis-concept-utterance.md)을 추가해야 합니다.
 
-일반적으로 먼저 의도에 예제 발언을 추가한 후, 의도 페이지에서 엔터티를 만들고 발언에 레이블을 지정합니다. 엔터티를 먼저 만들려면 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
+일반적으로 예제 utterance 의도 먼저 추가한를 만들고 다음 엔터티 표현에 레이블 합니다 **의도** 페이지입니다. 엔터티를 먼저 만들려면 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
 
 ## <a name="marking-entities-in-example-utterances"></a>예제 발언에서 엔터티 표시
 
@@ -32,7 +32,7 @@ ms.locfileid: "65072845"
 
 ## <a name="add-a-simple-entity"></a>단순 엔터티 추가
 
-다음 절차에서는 의도 페이지의 다음 발언 내에 사용자 지정 엔터티를 만들고 태그를 지정합니다.
+다음 절차를 만들고 다음 utterance 내에서 사용자 지정 엔터티 태그를 **의도** 페이지:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Are there any SQL server jobs?
 
     다른 발언에 레이블을 지정하거나 왼쪽 탐색 창의 **엔터티**에서 엔터티를 편집하여 더 많은 목록 항목 또는 항목 동의어를 추가할 수 있습니다. 엔터티를 [편집](luis-how-to-add-entities.md#add-list-entities)하면 해당 동의어가 있는 추가 항목을 입력하거나 목록을 가져오는 목록이 제공됩니다. 
 
-## <a name="add-composite-entity"></a>복합 엔터티 추가
+## <a name="add-a-composite-entity"></a>복합 엔터티를 추가 합니다.
 
-복합 엔터티는 기존 **엔터티**에서 부모 엔터티로 만들어집니다. 
+기존 복합 엔터티가 만들어집니다 **엔터티** 부모 엔터티를 형성 합니다. 
 
 Utterance, 가정 `Does John Smith work in Seattle?`, 복합 utterance 직원 이름의 엔터티 정보를 반환할 수 있습니다 `John Smith`, 및 위치 `Seattle` 복합 엔터티에서. 자식 엔터티는 앱에 이미 있어야 하 고 복합 엔터티를 만들기 전에 예제 utterance에 표시 됩니다.
 
@@ -131,15 +131,15 @@ LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오�
 
 ### <a name="remove-entity-labels-from-utterances"></a>발언에서 엔터티 레이블 제거
 
-의도 페이지의 발언에서 기계 학습된 엔터티 레이블을 제거할 수 있습니다. 엔터티가 기계 학습되지 않은 경우 발언에서 제거할 수 없습니다. 발언에서 기계 학습되지 않은 엔터티를 제거해야 할 경우에는 전체 앱에서 해당 엔터티를 삭제해야 합니다. 
+페이지의 의도 utterance에서 엔터티 기계 학습 레이블을 제거할 수 있습니다. 엔터티가 기계 학습되지 않은 경우 발언에서 제거할 수 없습니다. 발언에서 기계 학습되지 않은 엔터티를 제거해야 할 경우에는 전체 앱에서 해당 엔터티를 삭제해야 합니다. 
 
 발언에서 기계 학습된 엔터티 레이블을 제거하려면 발언에서 해당 엔터티를 선택합니다. 그런 후 나타나는 엔터티 드롭다운 상자에서 **레이블 제거**를 선택합니다.
 
-### <a name="add-prebuilt-entity-label"></a>미리 빌드된 엔터티 레이블 추가
+### <a name="add-a-prebuilt-entity-label"></a>미리 작성 된 엔터티 레이블 추가
 
 LUIS 앱에 미리 빌드된 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 미리 빌드된 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)를 참조하세요.
 
-### <a name="add-regular-expression-entity-label"></a>정규식 엔터티 레이블 추가
+### <a name="add-a-regular-expression-entity-label"></a>정규식 엔터티 레이블 추가
 
 LUIS 앱에 정규식 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 정규식 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts)를 참조하세요.
 
@@ -149,7 +149,7 @@ LUIS 앱에 정규식 엔터티를 추가하는 경우 이러한 엔터티를 �
 [의도 또는 엔터티 페이지의 기존 발언에서 패턴 추가](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page)를 참조하세요.
 
 
-### <a name="add-patternany-entity"></a>pattern.any 엔터티 추가
+### <a name="add-a-patternany-entity"></a>Pattern.any 엔터티 추가
 
 LUIS 앱에 pattern.any 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 레이블을 지정할 수 없습니다. 이 레이블은 패턴에서만 유효합니다. pattern.any 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities)를 참조하세요.
 
@@ -159,4 +159,4 @@ LUIS 앱에 pattern.any 엔터티를 추가하는 경우 이러한 엔터티를 
 
 ## <a name="next-steps"></a>다음 단계
 
-의도에서 발언에 레이블을 지정한 후에는 [복합 엔터티](luis-how-to-add-entities.md)를 만들 수 있습니다.
+길이 발언에 레이블 지정 후에 **의도**를 만들 수 있습니다를 [복합 엔터티](luis-how-to-add-entities.md)합니다.

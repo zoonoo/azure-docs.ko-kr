@@ -3,19 +3,19 @@ title: 요청 제한 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: 이 문서는 Translator Text API에 대한 요청 제한을 나열합니다. 비용은 요청당 5,000자의 제한으로 요청 빈도가 아닌 문자 수에 따라 청구됩니다. 문자 제한은 시간당 2백만 자의 F0 제한으로 구독 기반입니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514649"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435024"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text에 대한 요청 제한
 
@@ -38,7 +38,11 @@ ms.locfileid: "66514649"
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
-시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 시간별 할당량 시간 전체에서 균등 하 게 사용 해야 합니다. 도달 이러한 제한을 초과할 하거나 짧은 기간에 너무 큰 할당량의 일부를 보낼 경우 할당량 응답의 부족 가능성이 받게 됩니다.
+시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 
+
+시간별 할당량 시간 전체에서 균등 하 게 사용 해야 합니다. 예를 들어 시간당 2 백만 자 F0 계층 제한을에서 문자 사용 해야 분 슬라이딩 윈도우 (60 분으로 나눈 2 백만 자) 당 약 33,300 자 보다 더 빠르게입니다.
+
+도달 이러한 제한을 초과할 하거나 짧은 기간에 너무 큰 할당량의 일부를 보낼 경우 할당량 응답의 부족 가능성이 받게 됩니다. 동시 요청에는 제한이 없습니다.
 
 | 계층 | 문자 제한 |
 |------|-----------------|

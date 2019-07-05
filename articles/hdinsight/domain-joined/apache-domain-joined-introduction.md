@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126197"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441419"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Azure HDInsight의 Enterprise Security Package란
 
@@ -49,7 +49,7 @@ HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스
 
 관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 엔드포인트에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
 
-ESP가 포함된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](http://lucene.apache.org/solr/)을 사용합니다.
+ESP가 포함된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](https://lucene.apache.org/solr/)을 사용합니다.
 
 ## <a name="encryption"></a>암호화
 조직 보안 및 준수 요구 사항을 충족하는 데는 데이터 보호가 중요합니다. 권한 없는 직원의 데이터 액세스를 제한하고 데이터를 암호화해야 합니다. 

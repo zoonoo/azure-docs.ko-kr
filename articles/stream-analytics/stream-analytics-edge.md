@@ -1,20 +1,19 @@
 ---
 title: IoT Edge의 Azure Stream Analytics
 description: Azure Stream Analytics에서 Edge 작업을 만들고 Azure IoT Edge가 실행되는 디바이스에 배포합니다.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804043"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508352"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -111,7 +110,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있�
 
 > [!Note]
 > 이 단계 동안 ASA는 저장소 컨테이너에서 “EdgeJobs”라는 폴더를 만듭니다(아직 존재하지 않은 경우). 각 배포에 대해 "EdgeJobs" 폴더에 새 하위 폴더가 만들어집니다.
-> 작업에 Edge 디바이스에 배포하기 위해 ASA는 작업 정의 파일에 대한 SAS(공유 액세스 서명)를 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다.
+> IoT Edge 장치에 작업을 배포할 때 ASA 작업 정의 파일에 대 한 공유 액세스 서명 (SAS)을 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다. IoT Edge 작업을 업데이트 하면 SAS 변경 되지만 이미지 버전 변경 되지 않습니다. 나면 **업데이트**배포 워크플로 따르고 업데이트 알림이 장치에 기록 됩니다.
 
 
 IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)를 참조하세요.
@@ -203,9 +202,31 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 * [IoT Edge의 Azure Stream Analytics 라이선스](https://go.microsoft.com/fwlink/?linkid=862827) 
 * [IoT Edge의 Azure Stream Analytics에 대한 타사 알림](https://go.microsoft.com/fwlink/?linkid=862828)
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics 모듈 이미지 정보 
+
+이 버전 정보가 마지막으로 업데이트 된 날짜 2019-06-27:
+
+- 이미지: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - 플랫폼:
+      - 아키텍처: amd64
+      - 운영 체제: linux
+  
+- 이미지: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - 플랫폼:
+      - 아키텍처: arm
+      - 운영 체제: linux
+  
+- 이미지: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - 기본 이미지: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - 플랫폼:
+      - 아키텍처: amd64
+      - os: windows
+      
+      
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

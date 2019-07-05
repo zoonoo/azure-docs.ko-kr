@@ -4,17 +4,17 @@ description: Azure Automation의 runbook에서 출력 및 오류 메시지를 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61226966"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476933"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook은 일종의 출력 양식을 갖습니다. 이 출력은 사용자에 대한 오류 메시지 또는 다른 Runbook과 함께 사용하려는 복합 개체일 수 있습니다. Windows PowerShell은 [여러 스트림](/powershell/module/microsoft.powershell.core/about/about_redirection) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동합니다. 각 Runbook을 만들 때 사용하는 방법에 대한 모범 사례를 따라야 합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "61226966"
 
 | Stream | 설명 | 게시됨 | 테스트 |
 |:--- |:--- |:--- |:--- |
-| 출력 |다른 runbook에서 사용할 수 있도록 의도된 개체입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
+| Output |다른 runbook에서 사용할 수 있도록 의도된 개체입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
 | Warning |사용자를 위한 경고 메시지입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
 | 오류 |사용자를 위한 오류 메시지입니다. 예외와 달리 runbook는 기본적으로 오류 메시지 이후에 계속합니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
 | 자세한 정보 표시 |일반 또는 디버깅 정보를 제공하는 메시지입니다. |자세한 정보 표시 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |$VerbosePreference runbook가 계속으로 설정된 경우 테스트 출력 창에 표시합니다. |

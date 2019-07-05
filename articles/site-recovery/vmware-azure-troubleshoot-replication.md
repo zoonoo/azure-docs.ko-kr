@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924818"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491681"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -77,6 +77,13 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
         - VSS 서비스
         - Azure Site Recovery VSS 공급자
         - VDS 서비스
+
+- Exchange 또는 SQL 워크 로드를 실행 하는 경우 오류에 대 한 이러한 응용 프로그램 작성자의 로그를 확인 합니다. 다음 문서에 자주 오류 및 해결이 캡처됩니다.
+    -  [SQL Server 데이터베이스의 자동 닫기 옵션이 TRUE로 설정 된](https://support.microsoft.com/help/4504104)
+    - [다시 시도할 수 없는 오류를 throw 하는 SQL Server 2008 R2](https://support.microsoft.com/help/4504103)
+    - [SQL Server 2016 및 2017 알려진된 문제](https://support.microsoft.com/help/4493364)
+    - [Exchange 서버 2013 및 2016을 사용 하 여 일반적인 문제](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>높은 변동 [error 78188]를 사용 하 여 원본 컴퓨터
 

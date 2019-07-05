@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859805"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445496"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -107,7 +107,7 @@ HDInsight 애플리케이션을 삭제하는 방법에는 여러 가지가 있�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.  표시되지 않으면 **찾아보기**를 클릭한 다음 **HDInsight 클러스터**를 클릭합니다.
 3. 애플리케이션을 설치한 클러스터를 클릭합니다.
-4. **설정** 블레이드에서 **일반** 범주에 있는 **애플리케이션**을 클릭합니다. 설치된 애플리케이션 목록이 표시됩니다. 이 자습서에서는 **설치된 앱** 블레이드에 나열된 **Hue**가 표시됩니다.
+4. **설정** 블레이드에서 **일반** 범주에 있는 **애플리케이션**을 클릭합니다. 설치된 애플리케이션 목록이 표시됩니다. 이 아티클의 **hue** 에 나열 된는 **설치 된 앱** 블레이드입니다.
 5. 제거할 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, **삭제**를 클릭합니다.
 6. **예** 를 클릭하여 확인합니다.
 

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ffe2cfc19a7ce94e47046839f6973793b73c118
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707365"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441407"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -37,7 +37,7 @@ Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알�
     Ranger는 현재 Yarn 및 Hive에서만 작동합니다.
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
-hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 참조하세요. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
+hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 참조하세요. 이 문서에서 두 개의 사용자 계정을 사용합니다.
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
 이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [ESP로 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 사용하여 생성됩니다. 다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.

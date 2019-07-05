@@ -1,21 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP - C 빠른 시작(미리 보기) | Microsoft Docs
 description: 이 빠른 시작에서는 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 시나리오를 활성화하는 프록시 역할을 하는 C 샘플 애플리케이션을 실행합니다.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: e21d7381831553f8d82b00d9ed3be0b03f13bca9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735133"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446073"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -53,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+* 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
 
   * 미국 중부
   * 미국 중부 EUAP
@@ -61,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * [C++를 사용한 데스크톱 개발](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정된 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
 * 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다.
 
-* 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 특정의 명령을 Azure CLI에 추가합니다.
+* 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 관련 명령을 Azure CLI에 추가합니다.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -69,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
-이 빠른 시작에서는 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. GitHub에서 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 복제하고 빌드하는 데 사용되는 개발 환경을 준비합니다. GitHub의 SDK에는 이 빠른 시작에서 사용되는 샘플 코드가 포함되어 있습니다.
+이 빠른 시작에서는 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. GitHub에서 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 복제하고 빌드하는 데 사용되는 개발 환경을 준비합니다. GitHub의 SDK에는 이 빠른 시작에 사용되는 샘플 코드가 포함되어 있습니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
@@ -100,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
       make -j
       ```
 
-   * Windows에서 Visual Studio 2015 또는 2017에 대해 개발자 명령 프롬프트에서 다음 명령을 실행합니다. 시뮬레이션된 디바이스용 Visual Studio 솔루션이 *cmake* 디렉터리에서 생성됩니다.
+   * Windows에서 Visual Studio 2015 또는 2017에 대해 개발자 명령 프롬프트에서 다음 명령을 실행합니다. 시뮬레이션된 디바이스용 Visual Studio 솔루션이 *cmake* 디렉터리에 생성됩니다.
 
       ```cmd
       rem For VS2015
@@ -124,23 +123,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > * *YourIoTHubName* 자리 표시자를 IoT Hub로 선택한 이름으로 바꿉니다.
-   > * 아래에 표시된 대로 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
+   > * *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > * 다음과 같이 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-1. 방금 등록한 디바이스에 대한 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
+1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub로 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 

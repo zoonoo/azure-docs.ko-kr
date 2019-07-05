@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388573"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
@@ -44,7 +44,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |독일|DE|
 |홍콩 특별 행정구|HK|
 |인도|IN|
-|인도네시아|ID|
+|인도네시아|id|
 |이탈리아|IT|
 |일본|JP|
 |한국|KR|

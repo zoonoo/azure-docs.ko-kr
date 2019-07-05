@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684818"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433501"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -536,9 +536,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
 
-- ML Server에 대한 일반 정보는 [R 시작](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)(영문)을 참조하세요.
-
-- HDInsight의 ML 서비스에 대한 자세한 내용은 [HDInsight의 ML 서비스 개요](r-server/r-server-overview.md) 및 [Azure HDInsight에서 ML 서비스 시작](r-server/r-server-get-started.md)을 참조하세요.
+- HDInsight에서 기계 학습 서비스에 대 한 내용은 참조 하세요 [HDInsight에서 개요의 ML Services](r-server/r-server-overview.md)합니다.
 
 SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 

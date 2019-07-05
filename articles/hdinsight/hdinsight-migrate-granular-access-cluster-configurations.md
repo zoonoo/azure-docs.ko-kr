@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 357be801914017aceb7e827a3b49960cf7c3e386
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304294"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565414"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "67304294"
 
 새 도입 [HDInsight 클러스터 연산자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 참가자 또는 소유자의 관리 권한을 부여 하지 않고 암호를 검색할 수 있는 역할입니다. 요약하면
 
-| 역할                                  | 이전에                                                                                       | 앞으로       |
+| Role                                  | 이전에                                                                                       | 앞으로       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 판독기                                | 읽기 액세스 암호를 포함 하 여                                                                   | 읽기 액세스 **제외** 비밀 |           |   |   |
 | HDInsight 클러스터 연산자<br>(새 역할) | N/A                                                                                              | -암호를 포함 하 여 읽기/쓰기 액세스         |   |   |
@@ -121,10 +121,10 @@ ms.locfileid: "67304294"
 
 업데이트 [버전 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 이상의 Python 용 HDInsight SDK. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우에 최소한의 코드를 수정 필요할 수 있습니다.
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 됩니다 **중요 한 매개 변수를 더 이상 반환** 예: 저장소 키 (코어 사이트) 또는 HTTP 자격 증명 (게이트웨이).
-    - 모든 구성에 중요 한 매개 변수를 포함 하 여 검색을 사용 하 여 [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 앞으로 이동 합니다.  참고 '읽기' 역할을 사용 하 여 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 세부적인 제어는 사용자가 클러스터에 대 한 중요 한 정보에 액세스할 수 있습니다. 
-    - 방금 HTTP 게이트웨이 자격 증명을 검색 하려면 [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)합니다.
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) 이제 사용 되지 않으며 바뀌었습니다 [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)합니다.
+- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 됩니다 **중요 한 매개 변수를 더 이상 반환** 예: 저장소 키 (코어 사이트) 또는 HTTP 자격 증명 (게이트웨이).
+    - 모든 구성에 중요 한 매개 변수를 포함 하 여 검색을 사용 하 여 [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 앞으로 이동 합니다.  참고 '읽기' 역할을 사용 하 여 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 세부적인 제어는 사용자가 클러스터에 대 한 중요 한 정보에 액세스할 수 있습니다. 
+    - 방금 HTTP 게이트웨이 자격 증명을 검색 하려면 [ `ClusterOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)합니다.
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 이제 사용 되지 않으며 바뀌었습니다 [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)합니다.
 
 ### <a name="sdk-for-java"></a>Java 용 SDK
 

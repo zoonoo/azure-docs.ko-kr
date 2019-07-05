@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967890"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551714"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -32,7 +32,7 @@ PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [�
 > Security Center와 Azure Policy의 통합이 시작되었습니다. 기존 고객의 경우 Security Center의 이전 보안 정책이 더 이상 사용되지 않으며 새로운 기본 제공 이니셔티브로 자동 마이그레이션됩니다. 새로운 이니셔티브가 Azure Policy에 포함되어 있다는 점을 제외하면 이러한 변경은 리소스나 환경에 영향을 주지 않습니다.
 
 ## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 애플리케이션은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../governance/policy/overview.md)에서 정책을 설정합니다.
+보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어, 개인 데이터 또는 고객 데이터와 같은 규제 된 데이터를 사용 하는 응용 프로그램에는 다른 작업 보다 더 높은 수준의 보안 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../governance/policy/overview.md)에서 정책을 설정합니다.
 
 보안 정책에 따라 Azure Security Center에서 얻는 보안 권장 사항이 결정됩니다. 잠재적인 취약성을 식별하고 위협을 완화하는 데 도움이 되려면 보안 권장 사항 규정 준수를 모니터링할 수 있습니다. 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조하세요.
 
@@ -73,13 +73,6 @@ Security Center에서 보안 정책을 보려면
    > [!NOTE]
    > - Security Center 대시보드는 **정책 관리** 아래에 표시된 구독 수보다 **구독 적용 범위** 아래에 더 많은 구독 수를 표시할 수 있습니다. 구독 적용 범위는 표준, 무료 및 "포함 안 된" 구독 수를 표시합니다. "포함 안 된" 구독은 Security Center를 사용하도록 설정하지 않고 **정책 관리** 아래에 표시되지도 않습니다.
    >
-
-   테이블의 열은 다음과 같이 표시됩니다.
-
-   - **정책 이니셔티브 할당** – 구독 또는 관리 그룹에 할당되는 Security Center [기본 제공 정책](security-center-policy-definitions.md) 및 이니셔티브입니다.
-   - **적용 범위** – 관리 그룹, 구독 또는 작업 영역이 실행되고 있는 무료 또는 평균의 가격 책정 계층을 식별합니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
-   - **설정** - 구독에는 **설정 편집** 링크가 있습니다. **설정 편집**을 선택하면 각 구독 또는 관리 그룹에 대한 [Security Center 설정](security-center-policies-overview.md)을 업데이트할 수 있습니다.
-   - **보안 점수** - 워크로드 보안 태세의 안정성 척도를 제공하는 [보안 점수](security-center-secure-score.md)를 활용하면 보안 개선을 위한 권장 사항의 우선 순위를 지정할 수 있습니다.
 
 2. 확인하려는 구독 또는 관리 그룹의 정책을 선택합니다.
 
@@ -132,11 +125,11 @@ Azure Policy와 네이티브 통합의 일환으로, Azure Security Center를 �
 
 Azure Policy의 중요 개념: 
 
--  **정책 정의** 는 규칙입니다. 
+- A **정책 정의** 규칙이 
 
--  **이니셔티브** 는 정책 정의 컬렉션입니다(규칙). 
+- **이니셔티브** 컬렉션인 정책 정의 (규칙) 
 
--  **할당** 은 특정 범위(관리 그룹, 구독 등)에 이니셔티브 또는 정책을 적용하는 것입니다. 
+- **할당** 이니셔티브 또는 정책의 특정 범위 (관리 그룹, 구독 등)에 응용 프로그램은 
 
 Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 대한 할당을 만들어야 합니다.  
 

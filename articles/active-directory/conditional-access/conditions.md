@@ -2,28 +2,21 @@
 title: Azure Active Directory 조건부 액세스의 조건 이란? | Microsoft Docs
 description: Azure Active Directory 조건부 액세스에서 정책을 트리거할 수 조건을 사용 하는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 05/17/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e6c18b7ffca83c8e0fe9576ec275f89b6db7b4f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112604"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509005"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 이란?
 
@@ -31,11 +24,9 @@ ms.locfileid: "67112604"
 
 ![이유 및 응답](./media/conditions/10.png)
 
-
 조건부 액세스의 컨텍스트에서 **이 경우** 호출 되는 **조건**합니다. **When this happens(이 경우)** 를 **액세스 제어**라 합니다. 조건 및 액세스 제어의 조합이 조건부 액세스 정책을 나타냅니다.
 
 ![조건부 액세스 정책](./media/conditions/61.png)
-
 
 조건부 액세스 정책에서 구성 하지 않은 조건이 적용 되지 않습니다. 일부 조건은 [필수](best-practices.md) 환경에 조건부 액세스 정책을 적용 합니다.
 
@@ -52,9 +43,7 @@ ms.locfileid: "67112604"
 **사용자 및 그룹**을 선택하면 다음 옵션을 설정할 수 있습니다.
 
 * **모든 게스트 사용자**는 정책의 대상을 B2B 게스트 사용자로 합니다. 이 조건은 **userType** 특성이 **guest**로 설정된 모든 사용자 계정과 일치합니다. Azure AD의 초대 흐름에 계정이 생성되는 즉시 정책을 적용해야 하는 경우 이 설정을 사용합니다.
-
 * **디렉터리 역할**은 사용자의 역할 할당을 기반으로 정책을 대상으로 합니다. 이 조건은 **전역 관리자** 또는 **암호 관리자**와 같은 디렉터리 역할을 지원합니다.
-
 * **사용자 및 그룹**은 특정 사용자 집합을 대상으로 합니다. 예를 들어 클라우드 앱으로 선택된 HR 앱의 경우 HR 부서의 모든 구성원을 포함하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
 
 정책에서 특정 사용자 또는 그룹을 제외할 수도 있습니다. 정책에서 다단계 인증(MFA)을 적용하는 경우의 일반적인 사용 사례 중 하나는 서비스 계정입니다.
@@ -94,20 +83,15 @@ ms.locfileid: "67112604"
 
 디바이스 플랫폼은 다음 디바이스에서 실행되는 운영 체제를 특징으로 합니다. Azure AD는 디바이스에서 제공하는 정보(예: 사용자 에이전트)를 사용하여 플랫폼을 식별합니다. 이 정보는 확인되지 않습니다. 모든 플랫폼에 정책을 적용하는 것이 좋습니다. 정책은 액세스를 차단하거나, Microsoft Intune 정책 준수를 요구하거나, 디바이스 도메인 가입을 요구해야 합니다. 기본값은 모든 디바이스 플랫폼에 정책을 적용하는 것입니다. 
 
-
 ![디바이스 옵션 구성](./media/conditions/24.png)
 
 지원되는 디바이스 플랫폼 목록은 [디바이스 플랫폼 조건](technical-reference.md#device-platform-condition)을 참조하세요.
 
-
 이 조건의 일반적인 사용 사례는 클라우드 앱에 대한 액세스를 [관리 디바이스](require-managed-devices.md)로 제한하는 정책입니다. 장치 플랫폼 조건을 포함 하 여 더 많은 시나리오를 참조 하세요 [Azure Active Directory 앱 기반 조건부 액세스](app-based-conditional-access.md)합니다.
-
-
 
 ## <a name="device-state"></a>디바이스 상태
 
 장치 상태 조건을 하이브리드 Azure AD 조인 장치 및 조건부 액세스 정책에서 규정 준수로 표시 된 장치를 제외 합니다. 
-
 
 ![디바이스 상태 구성](./media/conditions/112.png)
 
@@ -121,26 +105,22 @@ ms.locfileid: "67112604"
 
 이 조건의 일반적인 사용 사례는 다음 보호가 적용된 정책입니다.
 
-- 사용자가 회사 네트워크 외부에서 서비스에 액세스할 때 다단계 인증을 요구합니다.  
-
+- 회사 네트워크 외부에 있을 때 서비스에 액세스 하는 사용자에 대 한 multi-factor authentication을 요구 합니다.  
 - 특정 국가 또는 지역에서 서비스에 액세스하는 사용자를 차단합니다. 
 
 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)합니다.
-
 
 ## <a name="client-apps"></a>클라이언트 앱
 
 기본적으로 조건부 액세스 정책은 다음 앱에 적용 됩니다.
 
 - **[브라우저 앱](technical-reference.md#supported-browsers)** - 브라우저 앱에는 SAML, WS-Federation 또는 OpenID Connect 웹 SSO 프로토콜을 사용하는 웹 사이트가 포함됩니다. 이는 OAuth 기밀 클라이언트로 등록된 모든 웹 사이트 또는 웹 서비스에도 적용됩니다. 예를 들어 Office 365 SharePoint 웹 사이트가 있습니다. 
-
 - **[최신 인증을 사용하는 모바일 및 데스크톱 앱](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - 이러한 앱에는 Office 데스크톱 앱과 휴대폰 앱이 포함됩니다. 
 
 
 또한 예를 들어 최신 인증을 사용하지 않는 특정 클라이언트 앱에 대해 정책을 대상으로 지정할 수 있습니다.
 
 - **[Exchange ActiveSync 클라이언트](conditions.md#exchange-activesync-clients)** - 정책에 따라 Exchange ActiveSync 사용이 차단되면 영향을 받는 사용자는 차단된 이유에 대한 정보가 포함된 격리 이메일을 하나 받습니다. 필요한 경우 이메일에는 디바이스를 Intune에 등록하는 방법에 대한 지침이 포함됩니다.
-
 - **[다른 클라이언트](block-legacy-authentication.md)** - 이러한 앱에는 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 클라이언트가 포함됩니다. 자세한 내용은 [Office 2013 및 Office 2016 클라이언트 앱에 대한 최신 인증 작동 방식](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)을 참조하세요.
 
 ![클라이언트 앱](./media/conditions/41.png)
@@ -148,19 +128,13 @@ ms.locfileid: "67112604"
 이 조건의 일반적인 사용 사례는 다음 요구 사항이 적용된 정책입니다.
 
 - 디바이스에 데이터를 다운로드하는 모바일 및 데스크톱 애플리케이션에 대해 **[관리 디바이스를 요구](require-managed-devices.md)** 합니다. 동시에 모든 디바이스에서 브라우저 액세스를 허용합니다. 이 시나리오는 관리되지 않는 디바이스에 문서를 저장하고 동기화하지 못하도록 합니다. 이 방법으로 디바이스를 분실하거나 도난당한 경우 데이터 손실 가능성을 줄일 수 있습니다.
-
 - ActiveSync를 사용하여 Exchange Online에 액세스하는 앱에 대해 **[관리 디바이스를 요구](require-managed-devices.md)** 합니다.
-
 - Azure AD(기타 클라이언트)에 대해 **[레거시 인증을 차단](block-legacy-authentication.md)** 합니다.
-
 - 웹 애플리케이션 액세스를 차단하지만, 모바일 및 데스크톱 애플리케이션 액세스는 허용합니다.
-
-
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 클라이언트
 
 다음과 같은 경우 **Exchange ActiveSync 클라이언트만** 선택할 수 있습니다.
-
 
 - Microsoft Office 365 Exchange Online은 선택한 유일한 클라우드 앱입니다.
 
@@ -170,7 +144,6 @@ ms.locfileid: "67112604"
  
     ![지원되는 플랫폼에만 정책 적용](./media/conditions/33.png)
 
-
 [관리 디바이스](require-managed-devices.md)가 필요해서 액세스가 차단된 경우 영향을 받는 사용자는 Intune을 사용하라고 안내해 주는 메일을 하나 받습니다. 
 
 승인된 앱이 필요한 경우 영향을 받는 Outlook 모바일 클라이언트를 설치해서 사용하라는 지침을 받습니다.
@@ -179,18 +152,12 @@ ms.locfileid: "67112604"
 
 사용자 및 그룹에 대해서만 이 설정을 대상으로 지정할 수 있습니다. 게스트나 역할을 지원하지 않습니다. 게스트 또는 역할 상태를 구성 하는 경우 조건부 액세스 정책이 사용자에 게 적용 될 경우를 확인할 수 없으므로 모든 사용자가 차단 됩니다.
 
-
- 자세한 내용은 다음을 참조하세요.
+자세한 내용은 다음을 참조하세요.
 
 - [Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)합니다.
- 
 - [Azure Active Directory 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)합니다. 
-
-
 
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책을 구성 하는 방법을 알아보려면 참조 [빠른 시작: Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 mfa](app-based-mfa.md)합니다.
-
 - 사용자 환경에 대 한 조건부 액세스 정책을 구성 하려면 참조는 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 
-

@@ -2,7 +2,7 @@
 title: iOS 모바일 앱으로 오프라인 동기화 사용 | Microsoft Docs
 description: Azure App Service Mobile Apps를 사용하여 iOS 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112653"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446365"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) 지금 합니다.
+>
 
 ## <a name="overview"></a>개요
 이 자습서는 iOS용 Azure App Service의 Mobile Apps 기능을 사용한 오프라인 동기화를 설명합니다. 오프라인 동기화를 사용하면 네트워크에 연결되지 않은 경우에도 최종 사용자가 모바일 앱을 사용하여 데이터를 보거나, 추가하거나 수정할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 변경 내용이 원격 백 엔드와 동기화됩니다.
@@ -162,7 +166,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 | 특성 | Type |
 | --- | --- |
 | id | 정수 64 |
-| itemId | String |
+| itemId | 문자열 |
 | properties | 이진 데이터 |
 | 테이블 | String |
 | tableKind | 정수 16 |
@@ -185,11 +189,11 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 | 특성 | Type |
 | --- | --- |
-| id |String |
-| key |String |
+| id |문자열 |
+| key |문자열 |
 | keyType |정수 64 |
 | 테이블 |String |
-| 값 |String |
+| 값 |문자열 |
 
 ### <a name="data-table"></a>데이터 테이블
 
@@ -199,10 +203,10 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
 | complete | Boolean | 할 일 항목 필드 |
-| text |String |할 일 항목 필드 |
+| text |문자열 |할 일 항목 필드 |
 | createdAt | Date | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
 | updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
-| version | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| 버전 | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.

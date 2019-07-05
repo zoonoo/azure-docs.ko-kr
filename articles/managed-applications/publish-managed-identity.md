@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312227"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434854"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>관리 되는 Id 사용 하 여 azure 관리 되는 응용 프로그램
 
@@ -323,7 +323,22 @@ CreateUIDefinition 제공한 기존 네트워크 인터페이스에 네트워크
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+요청 본문 매개 변수:
+
+매개 변수 | 필수 | 설명
+---|---|---
+authorizationAudience | *no* | 대상 리소스의 앱 ID URI입니다. 수도 `aud` 발급된 된 토큰의 클레임 (대상). 기본값은 "https://management.azure.com/"
+userAssignedIdentities | *no* | 목록에 대 한 토큰을 검색 하려면 사용자 할당 관리 되는 id입니다. 지정 하지 않으면 `listTokens` 시스템이 할당 하는 관리 되는 id에 대 한 토큰을 반환 합니다.
+
 
 샘플 응답은 같습니다.
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+응답에서 토큰의 배열에 포함 됩니다는 `value` 속성:
+
+매개 변수 | 설명
+---|---
+access_token | 요청된 액세스 토큰입니다.
+expires_in | 액세스 토큰이 유효 하는 시간 (초) 수입니다.
+expires_on | 액세스 토큰이 만료되는 시간 범위입니다. 이 epoch의 초 수로 표시 됩니다.
+not_before | 액세스 토큰을 적용 하는 경우 timespan입니다. 이 epoch의 초 수로 표시 됩니다.
+authorizationAudience | `aud` (대상) 액세스 토큰 요청 되었습니다. 에 제공 된 것으로 동일 합니다 `listTokens` 요청 합니다.
+resourceId | 발급된 된 토큰에 대 한 Azure 리소스 ID입니다. 이 이름은 관리 되는 응용 프로그램 ID 또는 id 사용자 할당 id입니다.
+token_type | 토큰의 형식입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

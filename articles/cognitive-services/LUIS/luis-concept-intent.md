@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813465"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>LUIS 앱에서 의도에 대한 개념
 
@@ -42,7 +42,7 @@ ms.locfileid: "58371114"
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
 의도는 챗봇이 사용자에게 수행해야 하는 작업을 나타내며 전체 발화를 기반으로 합니다. 엔터티는 발화 내부에 포함된 단어 또는 구문을 나타냅니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
 
-<a name="how-do-intents-relate-to-entities"></a> 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다. 그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
+<a name="how-do-intents-relate-to-entities"></a> 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다.  그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
 
 |예제 의도   | 엔터티 | 예제 발화의 엔터티   | 
 |------------------|------------------------------|------------------------------|

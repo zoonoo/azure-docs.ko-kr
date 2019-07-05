@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233885"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 앱에 대한 미리 작성된 도메인 참조
@@ -52,9 +52,9 @@ The table below summarizes the currently supported domains. Support for English 
 
 <br><br>
 
-|엔터티 유형|description|
+|엔터티 형식|description|
 |--|--|
-|일정|달력 개인 회 및 약속 하는 방법에 대 한 부분이 _되지_ public 이벤트 (world cup 일정, 시애틀 이벤트 달력 등 일반 달력 (어떤 day는 현재와 같은 새로운 않습니다 fall 시작 노동 일 경우).|
+|달력|달력 개인 회 및 약속 하는 방법에 대 한 부분이 _되지_ public 이벤트 (world cup 일정, 시애틀 이벤트 달력 등 일반 달력 (어떤 day는 현재와 같은 새로운 않습니다 fall 시작 노동 일 경우).|
 |통신|를 호출할 수 있도록 요청 찾기 및 연락처 및 다양 한 다른 통신 관련 요청 (일반적으로 보내는) 추가 텍스트 또는 인스턴트 메시지를 보냅니다. 연락처 이름 쿼리만 통신 도메인에 속하지 않습니다.|
 |Email|전자 메일에는 통신 도메인의 하위 도메인입니다. 주로 전자 메일 메시지 보내기 및 받기에 대 한 요청을 포함 합니다.|
 |HomeAutomation|HomeAutomation 도메인 의도 및 홈 스마트 장치를 제어 하기 위한 관련 엔터티를 제공 합니다. 주로 광원 및 공조와 관련 된 제어 명령을 지원 하지만 다른 electric 어플라이언스에 대 한 일부 일반화 기능입니다.|

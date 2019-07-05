@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475816"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568285"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -426,7 +426,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 새 작업을 추가합니다. 
   
@@ -492,7 +492,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 기존 작업을 업데이트합니다.
 
@@ -555,7 +555,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 기존 작업을 삭제합니다.
 
@@ -587,7 +587,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 작업에 단계를 추가합니다.
 
@@ -713,7 +713,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 작업 단계를 업데이트합니다.
 
@@ -838,7 +838,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 작업에서 작업 단계를 제거합니다.
 
@@ -884,7 +884,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 작업 실행을 시작합니다.
 
@@ -915,7 +915,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 작업 실행을 중지합니다.
 
@@ -944,7 +944,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 대상 그룹을 추가합니다.
 
@@ -975,7 +975,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 대상 그룹을 삭제합니다.
 
@@ -1003,7 +1003,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 대상 그룹에 데이터베이스 또는 데이터베이스 그룹을 추가합니다.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 대상 그룹에서 대상 그룹 멤버를 제거합니다.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 작업에 대한 기록 레코드를 제거합니다.
 
@@ -1204,7 +1204,7 @@ GO
 |[target_group_members](#target_groups_members-view)     |   모든 대상 그룹의 모든 멤버를 표시합니다.      |
 
 
-### <a name="jobsexecutions-view"></a>jobs_executions 보기
+### <a name="jobs_executions-view"></a>jobs_executions 보기
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ GO
 |**schedule_end_time**| datetime2(7)|   작업 실행을 마지막으로 완료한 날짜 및 시간입니다.|
 
 
-### <a name="jobversions-view"></a>job_versions 보기
+### <a name="job_versions-view"></a>job_versions 보기
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ GO
 |**max_parallelism**|   int|    작업 단계가 한 번에 실행될 탄력적 풀당 최대 데이터베이스 수입니다. 기본값은 NULL이며, 제한이 없음을 의미합니다. |
 
 
-### <a name="jobstepversions-view"></a>jobstep_versions 보기
+### <a name="jobstep_versions-view"></a>jobstep_versions 보기
 
 [jobs].[jobstep_versions]
 
 각 작업의 모든 버전에 있는 모든 단계를 표시합니다. 스키마는 [jobsteps](#jobsteps-view)와 동일합니다.
 
-### <a name="targetgroups-view"></a>target_groups 보기
+### <a name="target_groups-view"></a>target_groups 보기
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ GO
 |**target_group_name**| nvarchar(128)   |데이터베이스 컬렉션인 대상 그룹의 이름입니다. 
 |**target_group_id**    |uniqueidentifier   |대상 그룹의 고유 ID입니다.
 
-### <a name="targetgroupsmembers-view"></a>target_groups_members 보기
+### <a name="target_groups_members-view"></a>target_groups_members 보기
 
 [jobs].[target_groups_members]
 

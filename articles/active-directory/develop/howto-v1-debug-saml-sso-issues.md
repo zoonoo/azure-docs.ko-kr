@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111476"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482721"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
@@ -37,7 +37,6 @@ ms.locfileid: "67111476"
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 테스트
 
 SAML 기반 single sign-on 테스트 Azure AD 사이 대상 응용 프로그램:
@@ -48,26 +47,24 @@ SAML 기반 single sign-on 테스트 Azure AD 사이 대상 응용 프로그램:
 1. SAML 기반 single sign-on 테스트 환경을 열려면로 이동 **single sign-on 테스트** (5 단계). 경우는 **테스트** 단추는 회색, 확장 및 필수 특성이 저장 먼저 입력 해야 합니다 **기본 SAML 구성을** 섹션입니다.
 1. **Single Sign-On 테스트** 블레이드에서 대상 애플리케이션에 로그인하려면 회사 자격 증명을 사용합니다. 현재 사용자 또는 다른 사용자로 로그인할 수 있습니다. 다른 사용자로 로그인하는 경우 인증을 요구하는 메시지가 나타납니다.
 
-    ![SAML 테스트 페이지](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![SAML SSO 페이지 테스트 보여 주는 스크린샷](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 성공적으로 로그인하면 테스트가 통과된 것입니다. 이 경우 Azure AD는 애플리케이션에 SAML 응답 토큰을 발급합니다. 애플리케이션은 SAML 토큰을 사용해 성공적으로 로그인했습니다.
 
 회사 로그인 페이지 또는 애플리케이션 페이지에 오류가 있는 경우 해당 오류를 해결하려면 다음 섹션 중 하나를 사용합니다.
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>회사 로그인 페이지에서 로그인 오류 해결
 
 에 로그인 하려고 할 때 나타날 수 있습니다 오류가 회사 로그인 페이지에 다음 예제와 유사 합니다.
 
-![로그인 오류](./media/howto-v1-debug-saml-sso-issues/error.png)
+![회사 로그인 페이지에서 오류를 보여 주는 예제](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-이 오류를 디버그하려면 오류 메시지 및 SAML 요청이 필요합니다. 내 앱 보안 로그인 확장은 자동으로 이 정보를 수집하고 Azure AD에 해결 지침을 표시합니다. 
+이 오류를 디버그하려면 오류 메시지 및 SAML 요청이 필요합니다. 내 앱 보안 로그인 확장은 자동으로 이 정보를 수집하고 Azure AD에 해결 지침을 표시합니다.
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>내 앱 보안 로그인 확장을 사용 하 여 로그인 오류를 해결 하려면 설치
 
-1. 오류가 발생 하는 경우 확장 리디렉션됩니다 다시 Azure AD로 **single sign-on 테스트** 블레이드입니다. 
-1. 에 **single sign-on 테스트** 블레이드에서 **SAML 요청을 다운로드**합니다. 
+1. 오류가 발생 하는 경우 확장 리디렉션됩니다 다시 Azure AD로 **single sign-on 테스트** 블레이드입니다.
+1. 에 **single sign-on 테스트** 블레이드에서 **SAML 요청을 다운로드**합니다.
 1. SAML 요청의 오류 및 값에 따른 특정 해결 지침이 표시되어야 합니다.
 1. 표시 됩니다는 **해결** 구성 문제를 해결 하려면 Azure AD에 자동으로 업데이트 하는 단추입니다. 이 단추에 표시 되지 않으면 다음 로그인 문제가 되지 않으면 Azure AD에 잘못 된 구성으로 인해 합니다.
 
@@ -88,24 +85,23 @@ SAML 기반 single sign-on 테스트 Azure AD 사이 대상 응용 프로그램:
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>애플리케이션 페이지에서 로그인 오류 해결
 
-성공적으로 로그인한 다음, 애플리케이션 페이지에 오류가 표시될 수 있습니다. Azure AD가 애플리케이션에 토큰을 발급했지만 애플리케이션이 응답을 적용하지 않는 경우에 발생합니다.   
+성공적으로 로그인한 다음, 애플리케이션 페이지에 오류가 표시될 수 있습니다. Azure AD가 애플리케이션에 토큰을 발급했지만 애플리케이션이 응답을 적용하지 않는 경우에 발생합니다.
 
 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
 
 1. Azure AD 갤러리에서 응용 프로그램을 Azure AD를 사용 하 여 응용 프로그램을 통합 하기 위한 모든 단계를 수행한를 확인 합니다. 애플리케이션에 대한 통합 지침을 찾으려면 [SaaS 애플리케이션 통합 자습서 목록](../saas-apps/tutorial-list.md)을 참조합니다.
 1. SAML 응답을 검색합니다.
     - 내 앱 보안 로그인 확장이 설치된 경우 **Single Sign-On 테스트** 블레이드에서 **SAML 응답 다운로드**를 클릭합니다.
-    - 확장이 설치되지 않은 경우 [Fiddler](https://www.telerik.com/fiddler) 같은 도구를 사용하여 SAML 응답을 검색합니다. 
+    - 확장이 설치되지 않은 경우 [Fiddler](https://www.telerik.com/fiddler) 같은 도구를 사용하여 SAML 응답을 검색합니다.
 1. SAML 응답 토큰에서 이러한 요소를 확인합니다.
    - NameID 값과 형식의 사용자 고유 식별자
    - 토큰에서 발급된 클레임
-   - 토큰에 서명하는 데 사용된 인증서입니다. 
+   - 토큰에 서명하는 데 사용된 인증서입니다.
 
      SAML 응답에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조합니다.
 
 1. SAML 응답을 검토 한 했으므로 참조 [에 로그인 한 후 응용 프로그램 페이지에 대 한 오류](../manage-apps/application-sign-in-problem-application-error.md) 문제를 해결 하는 방법에 대 한 지침에 대 한 합니다. 
 1. 여전히 성공적으로 로그인 할 수 없는 경우 SAML 응답에서 빠진 부분은 무엇 응용 프로그램 공급 업체 요청할 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240350"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447178"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>vCore 기반 구매 모델 한도를 사용한 탄력적 풀에 대한 리소스 제한
 
@@ -36,6 +36,9 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 컴퓨팅 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
@@ -149,6 +152,9 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 \* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>중요 비즈니스 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 

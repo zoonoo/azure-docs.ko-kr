@@ -14,26 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620483"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544138"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Explorer 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 1.8.1 릴리스에 대 한 릴리스 정보 및 이전 버전에 대 한 릴리스 정보를 포함합니다.
+이 문서에서는 Azure Storage 탐색기 1.9.0 릴리스에 대 한 릴리스 정보 및 이전 버전에 대 한 릴리스 정보를 포함합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
+## <a name="version-190"></a>1\.9.0 버전
+7/1/2019
+
+### <a name="download-azure-storage-explorer-190"></a>Azure Storage 탐색기 1.9.0 다운로드
+- [Windows 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+
+* 이제 Azure AD (RBAC 또는 ACL 권한)를 통해 Blob 컨테이너를 연결할 수 있습니다. 이 기능은 컨테이너 있지만 저장소 계정 컨테이너에 있는 하지에 대 한 액세스 권한이 있는 사용자는 데 도움이 됩니다. 이 기능에는 시작 가이드에 대 한 자세한 내용은 참조 하십시오.
+* 획득 하 고 RBAC 사용 하 여 임대 지금은 작업을 중단 합니다. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* 액세스 정책을 관리 하 고 이제 공용 액세스 수준을 설정할 RBAC를 사용 하 여 작동 합니다. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* 이제 blob 폴더를 삭제 하는 RBAC를 사용 하 여 작동합니다. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* RBAC를 사용 하 여 이제 회사 blob 액세스 계층을 변경 합니다. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* 이제 신속 하 게 다시 설정할 수 있습니다 "Help"를 통해 빠른 → "재설정"입니다. [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>미리 보기 기능
+
+* 장치 코드 흐름 로그인 미리 보기를 출시 되었습니다. 기능을 사용 하려면 "사용 하 여 장치 코드 흐름 로그인" → "Preview"로 이동 합니다. 모든 사용자를 로그인의 보다 신뢰할 수 있는 형태를 증명할 수 있습니다 하는 대로이 기능을 사용해 볼 빈 로그인 windows 문제 했던가 사용 하는 것이 좋습니다.
+* AzCopy를 사용 하 여 통합 하는 storage 탐색기는 현재 미리 보기를 사용할 수 있습니다. 기능을 사용 하려면 "Preview" → "사용 하 여 AzCopy에 대 한 향상 된 Blob 업로드 및 다운로드"로 이동 합니다. AzCopy를 사용 하 여 완료 하는 blob 전송 속도 더 빨라집니다 및 성능이 향상 됩니다.
+
+### <a name="fixes"></a>수정 프로그램
+
+* 하나의 계정에 대 한 50 개가 넘는 구독을 로드 하는 것을 고정 합니다. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* 직접 연결에 실패할 때 표시 되는 정보 표시줄에서 작동 하지 않음 "로그인" 단추를 고정 합니다. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* MacOS에서.app 파일을 업로드 하지 수정 되었습니다. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* "모두 다시 시도" 실패 한 blob 이름 바꾸기 작동 하지 않습니다. 고정 합니다. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* Blob을 여는 동안 작동 하지 않음 "취소"를 고정 합니다. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* 제품을 통한 여러 맞춤법 및 도구 설명 문제를 해결 합니다. 이러한 문제를 보고 한 모든 덕분에 많은! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>알려진 문제
+
+* 비 AzCopy Blob 다운로드를 수행 하는 경우 큰 파일에 대 한 MD5 하지 확인 되 고 됩니다. Storage SDK의 버그 때문입니다. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+   * ADLS Gen2
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 1.8.1](#version-181)
+* [1.8.0 버전 이상](#version-180)
+* [1.7.0 버전](#version-170)
+* [1.6.2 버전](#version-162)
+* [버전 1.6.1](#version-161)
+* [버전 1.6.0](#version-160)
+* [버전 1.5.0](#version-150)
+* [버전 1.4.4](#version-144)
+* [버전 1.4.3](#version-143)
+* [버전 1.4.2](#version-142)
+* [버전 1.4.1](#version-141)
+* [버전 1.3.0](#version-130)
+* [버전 1.2.0](#version-120)
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-181"></a>버전 1.8.1
 5/13/2019
-
-### <a name="download-azure-storage-explorer-181"></a>Azure Storage 탐색기 1.8.1 다운로드
-- [Windows 용 azure Storage 탐색기 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 용 azure Storage 탐색기 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.8.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>핫픽스
 * 일부 경우에 "로드" 자세한 리소스 수준에서를 클릭 하는 리소스의 다음 페이지를 반환 하지 것입니다. 이 문제가 해결되었습니다. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
@@ -89,54 +182,10 @@ ms.locfileid: "65620483"
 
 * Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
 
-## <a name="previous-releases"></a>이전 릴리스
-
-* [1.8.0 버전 이상](#version-180)
-* [1.7.0 버전](#version-170)
-* [1.6.2 버전](#version-162)
-* [버전 1.6.1](#version-161)
-* [버전 1.6.0](#version-160)
-* [버전 1.5.0](#version-150)
-* [버전 1.4.4](#version-144)
-* [버전 1.4.3](#version-143)
-* [버전 1.4.2](#version-142)
-* [버전 1.4.1](#version-141)
-* [버전 1.3.0](#version-130)
-* [버전 1.2.0](#version-120)
-* [버전 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-180"></a>1\.8.0 버전 이상
 5/1/2019
 
-### <a name="download-azure-storage-explorer-180"></a>Azure Storage 탐색기 1.8.0 다운로드
-- [Windows 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
-
-### <a name="new"></a>새 문자
+### <a name="new"></a>새로 만들기
 
 * 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
 * Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -1276,8 +1325,8 @@ ms.locfileid: "65620483"
 
 * 여러 중요 보안 업데이트를 활용하기 위해 Electron 버전이 1.7.2로 업데이트되었습니다.
 * 이제 도움말 메뉴에서 온라인 문제 해결 가이드에 빠르게 액세스할 수 있습니다.
-* Storage Explorer 문제 해결 [가이드][2]
-* Azure Stack 구독 연결 관련 [지침][3]
+* Storage 탐색기 문제 해결 [가이드][2]
+* [지침][3] Azure Stack 구독에 연결
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -1299,10 +1348,10 @@ ms.locfileid: "65620483"
 ### <a name="version-0813"></a>버전 0.8.13
 05/12/2017
 
-#### <a name="new"></a>새 문자
+#### <a name="new"></a>새로 만들기
 
-* Storage Explorer 문제 해결 [가이드][2]
-* Azure Stack 구독 연결 관련 [지침][3]
+* Storage 탐색기 문제 해결 [가이드][2]
+* [지침][3] Azure Stack 구독에 연결
 
 #### <a name="fixes"></a>수정 프로그램
 
@@ -1439,7 +1488,7 @@ ms.locfileid: "65620483"
 11/18/2016
 ### <a name="version-086"></a>버전 0.8.6
 
-#### <a name="new"></a>새 문자
+#### <a name="new"></a>새로 만들기
 
 * 쉬운 탐색을 위해 가장 자주 사용되는 서비스를 빠른 액세스 기능에 고정할 수 있습니다.
 * 이제 다른 탭에 있는 여러 편집기를 열 수 있습니다. 한 번 클릭하면 임시 탭이 열리고, 두 번 클릭하면 영구 탭이 열립니다. 임시 탭을 클릭하여 영구 탭으로 만들 수도 있습니다.

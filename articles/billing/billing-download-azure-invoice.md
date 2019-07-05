@@ -1,26 +1,23 @@
 ---
-title: 보기 및 Microsoft Azure 청구서 다운로드 | Microsoft Docs
+title: Microsoft Azure 청구서 보기 및 다운로드
 description: 보기 및 Microsoft Azure 청구서를 다운로드 하는 방법을 설명 합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현황
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617947"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491379"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
@@ -32,7 +29,7 @@ ms.locfileid: "60617947"
 
 ## <a name="download-your-azure-invoices-pdf"></a>Azure 청구서 (.pdf) 다운로드
 
-대부분의 구독에 대 한 Azure portal에서 청구서를 다운로드할 수 있습니다. Microsoft 고객 계약에 있는 경우 다운로드를 참조 송장 청구 프로필에 대 한 합니다.
+대부분의 구독에 대 한 Azure portal에서 청구서를 다운로드할 수 있습니다. Microsoft 고객 계약에 있는 경우 참조 [Microsoft 고객 계약에 대 한 송장을 다운로드](#download-invoices-for-a-microsoft-customer-agreement)합니다.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>개별 구독에 대 한 송장을 다운로드합니다
 
@@ -52,14 +49,14 @@ ms.locfileid: "60617947"
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 송장을 다운로드합니다
 
-각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#understand-billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다.
+각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 *비용 관리 + 청구*합니다.
 1. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
 1. **청구서**를 선택합니다.
 1. 송장 표의 다운로드할 청구서의 행을 찾습니다.
-1. 줄임표를 클릭 (`...`) 행의 끝입니다.
+1. 줄임표 (`...`) 행의 끝입니다.
     ![행의 끝에 줄임표 (...)를 보여 주는 스크린샷](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 1. 다운로드 상황에 맞는 메뉴에서 선택 **청구서**합니다.
 
@@ -69,36 +66,36 @@ ms.locfileid: "60617947"
 
 ## <a name="get-your-invoice-in-email-pdf"></a>전자 메일로 청구서 받기(.pdf)
 
-Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 제안, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다. Microsoft 고객 계약에 있는 경우 전자 메일에 송장 요금 청구 프로필 가져오기를 참조 하세요.
+Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 제안, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다. Microsoft 고객 계약에 있는 경우 다음 섹션을 참조 하세요 [청구 프로필 청구서 전자 메일로 받기](#get-your-subscriptions-invoices-in-email)합니다.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>구독의 송장을 전자 메일로 받기
 
-1. [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다. 소유하고 있는 각 구독에 대해 옵트인합니다. **청구서**를 클릭한 다음 **전자 메일로 청구서 받기**를 클릭합니다.
+1. 구독을 선택 합니다 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)합니다. 소유하고 있는 각 구독에 대해 옵트인합니다. **청구서**를 클릭한 다음 **전자 메일로 청구서 받기**를 클릭합니다.
 
-    ![옵트인 흐름을 보여주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![옵트인 흐름에서 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. **옵트인**을 클릭하고 조건에 동의합니다.
 
-    ![옵트인 흐름 2단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
-3. 규약에 동의하면 추가 수취인을 구성할 수 있습니다. 받는 사람이 제거된 경우 전자 메일 주소는 더 이상 저장되지 않습니다. 생각이 바뀌었다면 제거한 받는 사람을 다시 추가해야 합니다.
+    ![옵트인 흐름 단계 2에서에서 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
 
-    ![옵트인 흐름 3단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+3. 경우 규약에 동의 하면 추가 수취인을 구성할 수 있습니다. 받는 사람이 제거된 경우 전자 메일 주소는 더 이상 저장되지 않습니다. 생각이 바뀌었다면 제거한 받는 사람을 다시 추가해야 합니다.
+
+    ![옵트인 흐름 단계 3에서에서 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 이 단계를 따른 후 전자 메일을 받지 못하면 [프로필의 통신 기본 설정](https://account.windowsazure.com/profile)에서 전자 메일 주소가 올바른지 확인합니다.
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>전자 메일 구독 청구서 가져오기 옵트아웃
 
-클릭 하 고 위의 단계를 수행 하 여 전자 메일을 통해 청구서를 가져오는 옵트아웃할 수 있습니다 **전자 메일로 보낸된 송장 옵트아웃**합니다. 그러면 청구서를 메일로 받기 위해 설정된 메일 주소가 모두 제거됩니다. 에 다시 가입 하면 받는 사람을 재구성할 수 있습니다.
+전자 메일을 통해 청구서를 가져오는 옵트아웃 하려면 위의 단계를 수행 하 고 클릭 **전자 메일로 보낸된 송장 옵트아웃**합니다. 그러면 청구서를 메일로 받기 위해 설정된 메일 주소가 모두 제거됩니다. 에 다시 가입 하면 받는 사람을 재구성할 수 있습니다.
 
- ![옵트아웃 흐름을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![흐름 옵트아웃을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Microsoft 고객 계약 청구서 전자 메일로 받기
 
 Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에 선택할 수 있습니다. 모든 청구 프로필 소유자, 참가자, 판독기 및 송장 관리자 전자 메일을 통해 청구서를 받습니다. 판독기는 전자 메일 청구서 기본 설정을 업데이트할 수 없습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 1. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
 1. **설정** 아래에서 **속성**을 선택합니다.
 1. 아래 **전자 메일 청구서**를 선택 **업데이트 전자 메일 청구서 기본**입니다.
@@ -110,7 +107,7 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>전자 메일에서 Microsoft 고객 계약 청구서 가져오기 옵트아웃
 
-클릭 하 고 위의 단계를 수행 하 여 전자 메일을 통해 청구서를 가져오는 옵트아웃할 수 있습니다 **옵트아웃**합니다. 모든 소유자, 참가자, 판독기 및 송장 관리자 전자 메일, 너무 청구서를 가져오는에서 제외 됩니다. 판독기의 경우 전자 메일 청구서 기본 설정을 변경할 수 없습니다.
+전자 메일을 통해 청구서를 가져오는 옵트아웃 하려면 위의 단계를 수행 하 고 클릭 **옵트아웃**합니다. 모든 소유자, 참가자, 판독기 및 송장 관리자 전자 메일, 너무 청구서를 가져오는에서 제외 됩니다. 판독기 인 경우 전자 메일 청구서 기본 설정을 변경할 수 없습니다.
 
 ### <a name="noinvoice"></a> 왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?
 
@@ -127,9 +124,9 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
-ms.translationtype: HT
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57895315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072525"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -164,7 +164,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
-`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `NBest`와 함께 `simple` 형식과 동일한 데이터를 포함합니다. 이러한 결과는 가장 가능성이 높은 항목부터 가장 낮은 항목 순으로 순위가 지정되어 있으며, 첫 번째 항목은 기본 인식 결과와 동일합니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
+`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `NBest`와 함께 `simple` 형식과 동일한 데이터를 포함합니다. 이러한 결과 가장 자주 하에서 가능성이 가장 높은 순위가 지정 됩니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
 
 `NBest` 목록의 각 개체에는 다음이 포함됩니다.
 

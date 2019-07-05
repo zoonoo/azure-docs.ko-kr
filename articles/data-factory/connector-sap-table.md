@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074059"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443296"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -206,16 +206,16 @@ SAP 테이블에서 데이터를 복사할에 다음 속성이 지원 됩니다.
 
 | 자산                         | 설명                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| 형식                             | 형식 속성으로 설정 되어 있어야 **SapTableSource**합니다.       | 예      |
+| 형식                             | 형식 속성으로 설정 되어 있어야 **SapTableSource**합니다.         | 예      |
 | rowCount                         | 검색할 행 수입니다.                              | 아닙니다.       |
 | rfcTableFields                   | SAP 테이블에서 복사할 필드입니다. 예: `column0, column1`. | 아닙니다.       |
 | rfcTableOptions                  | SAP 테이블에 행을 필터링 할 옵션입니다. 예: `COLUMN0 EQ 'SOMEVALUE'`. 이 표 아래의 자세한 설명을 참조 하세요. | 아닙니다.       |
-| customRfcReadTableFunctionModule | SAP 테이블에서 데이터를 읽을 수 있는 사용자 지정 RFC 함수 모듈 | 아닙니다.       |
+| customRfcReadTableFunctionModule | SAP 테이블에서 데이터를 읽을 수 있는 사용자 지정 RFC 함수 모듈<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터가 검색 되는 방법을 정의할 수 있습니다 하 고 ADF에 반환 합니다. 반면, 사용자 지정 함수 모듈을 유사한 인터페이스 구현 (가져오기, 내보내기, 테이블) / SAPDS/RFC_READ_TABLE2 ADF에서 사용 하는 기본적으로는 유사 해야 합니다. | 아닙니다.       |
 | partitionOption                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원 되는 옵션은 다음과 같습니다. <br/>- **없음**<br/>- **PartitionOnInt** (정수 또는 정수 값 0 패딩 0000012345 같은 왼쪽)<br/>- **PartitionOnCalendarYear** ("YYYY" 형식으로 4 자리 숫자)<br/>- **PartitionOnCalendarMonth** ("YYYYMM" 형식으로 6 자리 숫자)<br/>- **PartitionOnCalendarDate** ("YYYYMMDD" 형식의 8 자리 숫자) | 아닙니다.       |
-| partitionColumnName              | 데이터를 분할 하는 열의 이름입니다. | 아닙니다.       |
+| partitionColumnName              | 데이터를 분할 하는 열의 이름입니다.                | 아닙니다.       |
 | partitionUpperBound              | 에 지정 된 열의 최대값 `partitionColumnName` 는 계속 분할에 사용 됩니다. | 아닙니다.       |
 | partitionLowerBound              | 에 지정 된 열의 최소값 `partitionColumnName` 는 계속 분할에 사용 됩니다. | 아닙니다.       |
-| maxPartitionsNumber              | 데이터를 분할 하는 파티션 최대 수입니다. | 아닙니다.       |
+| maxPartitionsNumber              | 데이터를 분할 하는 파티션 최대 수입니다.     | 아닙니다.       |
 
 >[!TIP]
 >- SAP 테이블에 많은 양의 여러 수십억 개의 행과 같은 데이터를 사용 하 여 `partitionOption` 고 `partitionSetting` 작은 파티션으로 데이터를 분할 하려면 하나의 하 여 SAP 서버에서 검색 되는 쿼리에서 데이터를 읽은 파티션과 각 데이터 파티션에 RFC 호출입니다.<br/>

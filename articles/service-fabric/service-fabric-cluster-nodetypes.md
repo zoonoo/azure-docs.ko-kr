@@ -77,7 +77,7 @@ Service Fabric 가상 머신 확장을 사용 하 여 Service Fabric Azure Virtu
 | **Name** | **허용되는 값** | ** --- ** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 | name | 문자열 | --- | 확장에 대 한 고유 이름 |
-| 형식 | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode | --- | 식별을 Service Fabric OS가 부트스트랩 |
+| type | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode | --- | 식별을 Service Fabric OS가 부트스트랩 |
 | autoUpgradeMinorVersion | true 또는 false | --- | SF 런타임 부 버전의 자동 업그레이드를 사용 하도록 설정 |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 확장 게시자의 이름 |
 | clusterEndpont | 문자열 | --- | 관리 끝점에 URI:PORT |

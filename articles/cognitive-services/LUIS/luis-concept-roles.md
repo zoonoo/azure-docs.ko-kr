@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073020"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>상황에 맞는 하위 형식에 대 한 엔터티 역할
@@ -35,10 +35,10 @@ buy a ticket from New York to London
 
 역할은 이러한 차이점에 대한 이름을 지정합니다.
 
-|엔터티 유형|엔터티 이름|역할|목적|
+|엔터티 형식|엔터티 이름|Role|목적|
 |--|--|--|--|
-|단순|Location|원본|비행기가 출발하는 위치|
-|단순|Location|대상|비행기가 도착하는 위치|
+|간단한|Location|원본|비행기가 출발하는 위치|
+|간단한|Location|destination|비행기가 도착하는 위치|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>역할의 컴퓨터 학습 엔터티 예
 
@@ -48,7 +48,7 @@ utterance에서 "9 8에서 회의 예약" 모두 숫자 번 나타내지만 때�
 Schedule the meeting from 8 to 9
 ```
 
-|엔터티 유형|역할 이름|Value|
+|엔터티 형식|역할 이름|값|
 |--|--|--|
 |미리 빌드된 datetimeV2|starttime|8|
 |미리 빌드된 datetimeV2|endtime|9|

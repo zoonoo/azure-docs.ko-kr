@@ -9,20 +9,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431132"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485085"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목 정보, 비디오, 블로그 게시물 및 다른 종류의 정보를 해제할 수 있습니다. 서비스를 사용 하 여 최신 상태로 유지 하려면이 페이지에 책갈피 지정 합니다.  
 
 ## <a name="release-notes"></a>릴리스 정보 
+
+### <a name="june-24-2019"></a>2019 년 6 월 24 일
+
+* [OrdinalV2 미리 작성 된 엔터티](luis-reference-prebuilt-ordinal-v2.md) 다음 같은 순서를 지원 및 이전 및 마지막입니다. 영어 culture에만 해당 합니다.
 
 ### <a name="may-6-2019---build-conference"></a>2019 년 5 월 6,-//Build 컨퍼런스에서 가져온
 

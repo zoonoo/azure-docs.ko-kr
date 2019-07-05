@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430934"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480759"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -50,10 +50,10 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 영구 저장소 사용 하지 않으면 다음에 쓸 때 여 `/home` 디렉터리 앱 다시 시작 또는 여러 인스턴스에서 유지 되지 않습니다. 유일한 예외는는 `/home/LogFiles` Docker 및 컨테이너 로그를 저장 하는 데 사용 되는 디렉터리입니다. 영구 저장을 사용 하는 경우,에 대 한 모든 쓰기는 `/home` 디렉터리 유지 되 고 스케일 아웃 응용 프로그램의 모든 인스턴스에서 액세스할 수 있습니다.
 
-영구 저장소는 기본적으로 *비활성화*합니다. 를 사용 하도록 설정 하거나 사용 하지 않도록 설정 합니다 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 실행 하 여 앱 설정 [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud Shell에서 명령을 합니다. 예를 들면 다음과 같습니다.
+영구 저장소는 기본적으로 *활성화* 및 설정을 응용 프로그램 설정에 표시 되지 않습니다. 를 비활성화 하려면 설정 합니다 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 실행 하 여 앱 설정 [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud Shell에서 명령을 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]

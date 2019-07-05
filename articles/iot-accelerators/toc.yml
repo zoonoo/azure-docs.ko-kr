@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: OPC 자격 증명 모음이란?
           href: overview-opc-vault.md
+        - name: OPC 게시자란?
+          href: overview-opc-publisher.md
         - name: 연결된 팩터리란?
           href: iot-accelerators-connected-factory-features.md
     - name: 빠른 시작
@@ -153,8 +155,6 @@
           items:
             - name: 대시보드 사용
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: OPC 게시자 사용
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: 솔루션 가속기 구성
               href: iot-accelerators-connected-factory-configure.md
             - name: 솔루션 가속기 사용자 지정
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: 처음부터 OPC 자격 증명 모음 배포
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC 게시자
+          items:
+            - name: OPC 게시자 구성
+              href: howto-opc-publisher-configure.md
+            - name: OPC 게시자 실행
+              href: howto-opc-publisher-run.md
     - name: 리소스
       items:
         - name: GitHub 리포지토리

@@ -64,7 +64,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
     |어셈블리 원본  |  로컬 프로젝트 참조 또는 CodeBehind   |
     |리소스  |  현재 계정의 데이터 선택   |
     |구독  |  구독을 선택합니다.   |
-    |Storage 계정  |  저장소 계정 선택   |
+    |저장소 계정  |  저장소 계정 선택   |
     |컨테이너  |  저장소 계정에서 만든 컨테이너 선택   |
 
     ![Visual Studio의 Azure Stream Analytics Edge 작업 구성](./media/stream-analytics-edge-csharp-udf/stream-analytics-edge-job-config.png)

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111626"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483081"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -79,8 +79,10 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 * Azure AD Graph API 또는 PowerShell을 통해 프로그래밍 방식으로
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>애플리케이션 개체와 서비스 주체는 서로 어떻게 관련되어 있나요?
+
 애플리케이션에는 각 애플리케이션 개체가 동작하는 각각의 디렉터리(애플리케이션의 홈 디렉터리를 포함) 내에 하나 이상의 서비스 주체에 의해 참조되는 홈 디렉터리에 하나의 애플리케이션 개체를 갖습니다.
-![애플리케이션 개체와 서비스 주체가 서로, 또 Azure AD 인스턴스와 어떻게 관련되어 있는지 설명하는 다이어그램][apps_service_principals_directory]
+
+![응용 프로그램 개체 및 서비스 주체 간의 관계를 보여 줍니다.][apps_service_principals_directory]
 
 위 다이어그램에서 Microsoft는 두 개의 디렉터리를 내부적으로 유지하며(왼쪽에 표시됨) 애플리케이션을 게시하는 데 사용합니다.
 
@@ -96,6 +98,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * Azure AD 애플리케이션 프록시를 사용하여 게시된 앱
 
 ### <a name="notes-and-exceptions"></a>참고 사항 및 예외
+
 * 일부 서비스 주체만 애플리케이션 개체를 다시 가리킵니다. Azure AD가 처음 빌드되었을 때 애플리케이션에 제공된 서비스는 더 제한적이었으며 서비스 주체로 충분히 애플리케이션 ID를 설정할 수 있었습니다. 원래 서비스 주체는 Windows Server Active Directory 서비스 계정의 형태에 더 가까웠습니다. 이러한 이유로 먼저 애플리케이션 개체를 만들지 않고도 Azure AD PowerShell을 사용하는 것처럼 다른 경로를 통해 서비스 주체를 만들 수 있는 것입니다. Azure AD Graph API는 애플리케이션 개체가 있어야 서비스 주체를 만들 수 있습니다.
 * 위에서 설명한 정보 중 일부만 프로그래밍 방식으로 나타납니다. 다음은 UI에서만 사용할 수 있습니다.
   * 클레임 변환 규칙
@@ -105,6 +108,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * [서비스 주체](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
+
 다음과 같이 Azure AD에서 제공하는 하나 이상의 서비스를 활용하기 위해 애플리케이션이 Azure AD에 추가됩니다.
 
 * 애플리케이션 인증 및 권한 부여
@@ -116,6 +120,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * 애플리케이션 게시 및 프록시 - 프라이빗 네트워크의 애플리케이션을 인터넷에 게시
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>애플리케이션을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?
+
 전역 관리자만 수행할 수 있는 몇 가지 작업이 있는 반면(예: 앱 갤러리에서 애플리케이션 추가하기 및 애플리케이션 프록시를 사용하도록 애플리케이션 구성하기), 기본적으로 디렉터리의 모든 사용자는 개발 중인 애플리케이션 개체를 등록할 수 있는 권한과 함께 동의를 통해 조직적 데이터에 대한 액세스를 공유/부여할 애플리케이션에 대한 재량권을 가집니다. 한 사람이 애플리케이션에 로그인하고 허용한 사용자 디렉터리의 첫 번째 사용자인 경우, 사용자 테넌트에서 서비스 주체를 만들게 됩니다. 그렇지 않으면 동의 부여 정보는 기존 서비스 주체에 저장됩니다.
 
 사용자가 애플리케이션에 등록 및 동의하도록 허용하는 것이 초기에는 우려를 유발할 수도 있지만, 다음 사항을 염두에 두면 됩니다.
@@ -132,10 +137,11 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 
 * 사용자가 자신을 대신하여 애플리케이션을 승인하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 엔터프라이즈 애플리케이션에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션으로 이동합니다.
-  2. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음**을 **아니요**로 변경합니다. 
+  2. **사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음**을 **아니요**로 변경합니다.
      
      > [!NOTE]
-     > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.    
+     > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.
+
 * 사용자가 자신의 애플리케이션을 등록하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 Azure Active Directory에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) 섹션으로 이동합니다.
   2. **사용자가 애플리케이션을 등록할 수 있음**을 **아니요**로 변경합니다.
@@ -145,4 +151,3 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

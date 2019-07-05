@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237597"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446826"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -45,7 +45,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 
 1. **SKU** 메뉴 아래의 **PAYG** 단추를 선택합니다. 환경 이름을 제공하고 사용할 구독 그룹 및 리소스 그룹을 선택합니다. 그런 다음, 환경을 호스트할 지원되는 위치를 선택합니다.
 
-   [![Azure Time Series Insights 인스턴스를 만듭니다.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Azure Time Series Insights 인스턴스를 만듭니다.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. 시계열 ID를 입력합니다.
 
@@ -56,7 +56,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 
 1. Azure Storage 계정 이름을 선택하고 복제 선택을 지정하여 스토리지 계정을 만듭니다. 이렇게 하면 Azure Storage 범용 v1 계정이 자동으로 만들어집니다. 이전에 선택한 Azure Time Series Insights 미리 보기 환경과 동일한 Azure 지역에서 만들어집니다.
 
-    [![인스턴스에 대 한 Azure storage 계정 만들기](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![인스턴스에 대 한 Azure storage 계정 만들기](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. 선택적으로 이벤트 원본을 추가할 수 있습니다.
 
@@ -67,11 +67,11 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
      > [!TIP]
      > 메시지를 큐에 넣은 시간은 일괄 처리 이벤트 또는 기록 데이터 업로드 시나리오에서 사용하기에 가장 적합한 구성 설정이 아닐 수 있습니다. 이러한 경우 타임스탬프 속성을 사용하거나 사용하지 않는 결정을 확인합니다.
 
-     [![이벤트 원본 탭](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![이벤트 원본 탭](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. 사용자 환경이 원하는 설정으로 프로비전되었는지 확인합니다.
 
-    [![검토 + 만들기 탭](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![검토 + 만들기 탭](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>환경 관리
 
@@ -88,7 +88,7 @@ Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 
 
 * 참조 데이터가 PAYG 환경의 구성 요소가 아니므로 Azure Portal **참조 데이터** 블레이드는 Azure Time Series Insights 미리 보기에서 제거되었습니다.
 
-[![Azure portal에서 time Series Insights 미리 보기 환경](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Azure portal에서 time Series Insights 미리 보기 환경](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

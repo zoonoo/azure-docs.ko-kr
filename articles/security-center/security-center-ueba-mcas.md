@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332400"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551793"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>Azure 리소스와 사용자에 대한 UEBA 
 
@@ -55,8 +55,8 @@ Security Center는 다음과 같은 Microsoft Cloud App Security 이상 문제 �
 
 이러한 경고는 기본적으로 사용하도록 설정되지만 사용하지 않도록 설정할 수 있습니다.
 
-1. Security Center 블레이드에서 **보안 정책**을 선택합니다. 변경하려는 구독의 경우 **설정 편집**을 클릭합니다.
-2.  **위협 검색**을 클릭합니다.
+1. Security Center 블레이드에서 선택 **가격 책정 및 설정** 해당 구독을 선택 합니다.
+2. **위협 검색**을 클릭합니다.
 3. **통합 사용**에서 **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용**의 선택을 취소하고 **저장**을 클릭합니다.
 
    ![위협 검색 경고](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

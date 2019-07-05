@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417782"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491689"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에 대 한 일반적인 질문에서 Azure로 복제
 
@@ -85,6 +85,10 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA에 인증 됩니다. 이 SOC2
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>모든 비용 차이 storage 또는 managed disks로 직접 복제?
 
 저장소 계정에서 관리 되는 디스크와 약간 다르게 요금이 청구 됩니다. [자세한](https://azure.microsoft.com/pricing/details/managed-disks/) 관리 디스크 가격 책정에 대 한 합니다.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>비용 간 차이 범용 v2 저장소 계정에 복제 하는 경우 있나요?
+
+Azure Site Recovery는 과도 한 트랜잭션 GPv2 저장소 계정에서 발생 한 트랜잭션 비용 증가 하는 일반적으로 표시 됩니다. [자세한](../storage/common/storage-account-upgrade.md#pricing-and-billing) 변경을 예측 합니다.
 
 ## <a name="mobility-service"></a>모바일 서비스
 
@@ -293,7 +297,7 @@ Recovery Services 자격 증명 모음에서 선택 **구성 서버** 에 **Site
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>버전 9.24 또는 정확 하 게 상태 정보에 대 한 나중에 프로세스 서버를 업데이트 하는 방법
 
-부터는 [9.24 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups), 프로세스 서버의 상태를 나타내기 위해 더 많은 경고가 추가 되었습니다. [9.24 이상 버전에 Site Recovery 구성 요소를 업데이트] (service-updates-how-to.md#links-to-currently-supported-update-rollups) 모든 경고가 생성 되도록 합니다.
+부터는 [9.24 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups), 프로세스 서버의 상태를 나타내기 위해 더 많은 경고가 추가 되었습니다. [Site Recovery 구성 요소를 9.24 이상 버전으로 업데이트](service-updates-how-to.md#links-to-currently-supported-update-rollups) 모든 경고가 생성 되도록 합니다.
 
 ## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
 

@@ -4,17 +4,17 @@ description: 이 문서에는 DSC(Desired State Configuration) 문제 해결에 
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514455"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477519"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -164,6 +164,24 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 * 서비스의 이름과 정확히 일치 하는 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
 * 그러면 온 보 딩 노드 구성을 노드에 할당 하지 않는 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다.
+
+### <a name="failure-linux-temp-noexec"></a>시나리오: 일반적인 오류와 함께 오류가 발생 linux에서 구성에 적용
+
+#### <a name="issue"></a>문제
+
+Linux에서 구성에 적용 하면 오류가 포함 된 오류가 발생 합니다.
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>원인
+
+고객은 /tmp 위치 noexec로 하는 경우 현재 버전의 DSC 구성을 적용 하 실패를 식별 했습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+* /Tmp 위치에서 noexec 옵션을 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

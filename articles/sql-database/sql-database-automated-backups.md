@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460671"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
-SQL Database 자동으로 만들고 7-35 일 사이 유지 되는 데이터베이스 백업을 사용 하 여 Azure [읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 데이터 센터를 사용할 수 없는 경우에 유지 됩니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 사용자는 아무 작업도 할 필요가 없습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 백업을 오랜 시간 (최대 10 년)에 대해 사용할 수 있어야 하는 보안 규칙을 구성할 수 있습니다는 [장기 보존](sql-database-long-term-retention.md) 단일 데이터베이스 및 탄력적 풀 합니다.
+SQL Database 자동으로 만들고 7-35 일 사이 유지 되는 데이터베이스 백업을 사용 하 여 Azure [읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 데이터 센터를 사용할 수 없는 경우에 유지 됩니다. 이러한 백업은 자동으로 생성 됩니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 백업을 오랜 시간 (최대 10 년)에 대해 사용할 수 있어야 하는 보안 규칙을 구성할 수 있습니다는 [장기 보존](sql-database-long-term-retention.md) 단일 데이터베이스 및 탄력적 풀 합니다.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

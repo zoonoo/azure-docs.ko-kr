@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9433714c06dfad09270a6033f38a99471bcd517a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107671"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513609"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고에 대 한 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -57,7 +57,7 @@ ms.locfileid: "67107671"
 
 2. 왼쪽된 탐색 창에서 선택 **Azure Active Directory**합니다.
 
-3. 에 **모니터링** 섹션에서 **Insights**합니다. 
+3. 에 **모니터링** 섹션에서 **통합 문서**합니다. 
 
     ![Insights 선택](./media/howto-use-azure-monitor-workbooks/41.png)
 

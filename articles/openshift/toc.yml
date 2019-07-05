@@ -25,6 +25,8 @@
           href: howto-create-tenant.md
         - name: Azure AD 앱 개체 및 사용자 만들기
           href: howto-aad-app-configuration.md
+    - name: Azure Red Hat OpenShift 클러스터에 독립형 prometheus 배포
+      href: howto-deploy-prometheus.md
 - name: 참고 자료
   items:
     - name: Azure Red Hat OpenShift CLI

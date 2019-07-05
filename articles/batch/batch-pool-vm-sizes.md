@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080882"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502656"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
@@ -51,8 +51,8 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | [메모리 액세스에 최적화 크기](../virtual-machines/linux/sizes-memory.md) | 없음 | 사용할 수 없음 |
 | Fsv2 시리즈 | 모든 크기 | 모두 |
 | H 시리즈 | 모든 크기 | 모두 |
-| HB 시리즈 | 모든 크기 | 사용자 구독 모드 |
-| HC 시리즈 | 모든 크기 | 사용자 구독 모드 |
+| Hb-series<sup>2</sup> | 모든 크기 | 모두 |
+| Hc 시리즈<sup>2</sup> | 모든 크기 | 모두 |
 | Ls 시리즈 | 모든 크기 | 모두 |
 | Lsv2 시리즈 | 없음 | 사용할 수 없음 |
 | M 시리즈 | Standard_M64ms (낮은 우선 순위만), Standard_M128s (낮은 우선 순위만) | 모두 |  

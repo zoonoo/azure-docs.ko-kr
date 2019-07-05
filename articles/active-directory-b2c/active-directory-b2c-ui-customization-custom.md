@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507683"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438827"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -79,18 +79,19 @@ Blob Storage에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합�
 
 Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
-1. **개요** 탭을 클릭합니다.
-2. **컨테이너**를 클릭합니다.
-3. **이름**으로 **$root**를 입력합니다.
-4. **액세스 형식**을 **Blob**로 설정합니다.
-5. **$root**를 클릭하여 새 컨테이너를 엽니다.
+1. 아래 **Blob service** 왼쪽 메뉴에서 선택 **Blob**합니다.
+2. 클릭 **+ 컨테이너**합니다.
+3. 에 대 한 **이름을**를 입력 *루트*입니다. 사용자 선택의 예를 들어 이름일 수 있습니다 *wingtiptoys*를 사용 하지만 *루트* 편의상이 예제에서입니다.
+4. 에 대 한 **공용 액세스 수준을**를 선택 **Blob**, 한 다음 **확인**합니다.
+5. 클릭 **루트** 새 컨테이너를 엽니다.
 6. **업로드**를 클릭합니다.
 7. **파일 선택** 옆에 있는 폴더 아이콘을 클릭합니다.
-8. 이전에 페이지 UI 사용자 지정 섹션에서 만든 **customize-ui.html**로 이동합니다.
-9. **업로드**를 클릭합니다.
-10. 업로드한 customize-ui.html Blob을 선택합니다.
-11. **URL** 옆에 있는 **복사**를 클릭합니다.
-12. 브라우저에서 복사한 URL을 붙여넣고 해당 사이트로 이동합니다. 사이트에 액세스할 수 없는 경우 컨테이너 액세스 형식이 **Blob**으로 설정되어 있는지 확인합니다.
+8. 탐색 하 고 선택 **customize-ui.html** 페이지 UI 사용자 지정 섹션에서 이전에 만든입니다.
+9. 하위 폴더에 업로드 하려는 경우 확장 **Advanced** 에 폴더 이름을 입력 하 고 **폴더로 업로드**합니다.
+10. **업로드**를 선택합니다.
+11. 선택 된 **customize-ui.html** 업로드 한 blob입니다.
+12. 오른쪽에는 **URL** 텍스트 상자를 선택 합니다 **클립보드에 복사** URL을 클립보드에 복사 아이콘.
+13. 웹 브라우저에서 업로드 한 blob에 액세스할 수 있는지 확인에 복사한 URL로 이동 합니다. 예를 들어 발생 하는 경우 액세스할 수 없는 경우는 `ResourceNotFound` 오류 컨테이너 액세스 형식이 설정 되어 있는지 확인 **blob**합니다.
 
 ## <a name="configure-cors"></a>CORS 구성
 
@@ -159,6 +160,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 
 ## <a name="reference"></a>참조
 
+### <a name="sample-templates"></a>샘플 템플릿
 UI 사용자 지정을 위한 샘플 템플릿은 다음에서 찾을 수 있습니다.
 
 ```
@@ -174,6 +176,16 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 | *selfasserted.html* | 소셜 계정 등록 페이지, 로컬 계정 등록 페이지 또는 로컬 계정 로그인 페이지의 템플릿으로 사용합니다. |
 | *unified.html* | 통합 등록 또는 로그인 페이지의 템플릿으로 사용합니다. |
 | *updateprofile.html* | 프로필 업데이트 페이지의 템플릿으로 사용합니다. |
+
+샘플을 사용 하는 방법은 단계는 다음과 같습니다. 
+1. 로컬 컴퓨터에 리포지토리를 복제 합니다. Sample_templates 아래의 템플릿 폴더를 선택 합니다. 사용할 수 있습니다 `wingtip` 또는 `contoso`합니다.
+2. 아래에 있는 모든 파일을 업로드 합니다 `css`, `fonts`, 및 `images` 이전 섹션에 설명 된 대로 Blob storage에는 폴더입니다. 
+3. 다음으로, 각를 엽니다 \*.html 파일의 루트에서 `wingtip` 또는 `contoso` (중에서 선택한 첫 번째 단계)의 모든 인스턴스를 바꾸고 "http://localhost" 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 Url을 사용 하 여 합니다.
+4. 저장 된 \*.html 파일을 Blob storage에 업로드 합니다.
+5. 이제 앞에서 설명한 대로 확장 파일을 수정할 [확장 파일을 수정](#modify-the-extensions-file)합니다.
+6. 글꼴, 이미지 또는 css 누락을 표시 하는 경우 확장 정책에서 참조를 확인 하십시오 및 \*.html 파일.
+
+### <a name="content-defintion-ids"></a>콘텐츠 정의 Id
 
 등록 또는 로그인 사용자 지정 정책 수정 섹션에서 `api.idpselections`에 대한 콘텐츠 정의를 구성했습니다. 다음 표에서는 Azure AD B2C ID 환경 프레임워크에서 인식되는 콘텐츠 정의 ID 및 해당 설명에 대한 전체 집합을 보여 줍니다.
 

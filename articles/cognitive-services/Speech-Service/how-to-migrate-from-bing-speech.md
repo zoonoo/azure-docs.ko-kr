@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848969"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561331"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
 
@@ -37,7 +37,7 @@ ms.locfileid: "57848969"
 
 음성 서비스는 다음과 같은 차이점이 사용 하 여 Bing Speech과 거의 비슷합니다.
 
-기능 | Bing Speech | 음성 서비스 | 세부 정보
+기능 | Bing Speech | Speech Services | 세부 정보
 -|-|-|-
 C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | 음성 서비스는 Windows 및 Linux를 지원 합니다.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Services는 Android 및 음성 장치를 지원 합니다.
@@ -69,7 +69,7 @@ Speech Services [REST Api](rest-apis.md) Bing Speech Api와 호환 됩니다. Bi
 
 특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
 
-현재, Speech SDK는 C#(Windows 10, UWP, .NET 표준), Java(Android 및 사용자 지정 디바이스), Objective C(iOS), C++(Windows 및 Linux), JavaScript를 지원합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
+Speech SDK 지원 되는 현재 C# ([여기에 세부 정보](https://aka.ms/csspeech)), Java (Android 및 사용자 지정 장치), Objective C (iOS), C++ (Windows 및 Linux) 및 JavaScript입니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 
 음성 서비스 전역 엔드포인트를 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역에 별도 음성 서비스 구독이 필요 합니다.
 

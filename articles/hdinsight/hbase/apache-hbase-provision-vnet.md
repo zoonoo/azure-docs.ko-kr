@@ -8,15 +8,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730371"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433784"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기
-[Azure Virtual Network][1]에서 Azure HDInsight Apache HBase 클러스터를 만드는 방법을 알아봅니다.
+Azure HDInsight의 Apache HBase 클러스터를 만드는 방법 알아보기는 [Azure Virtual Network][1]합니다.
 
 가상 네트워크 통합을 사용하면 애플리케이션이 HBase와 직접 통신할 수 있도록 애플리케이션과 동일한 가상 네트워크에 Apache HBase 클러스터를 배포할 수 있습니다. 이점은 다음과 같습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "64730371"
 * 공용 엔드포인트를 노출하지 않고 중요한 정보를 보다 안전한 방식으로 처리할 수 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
+이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
@@ -63,7 +63,7 @@ ms.locfileid: "64730371"
    * **위에 명시된 사용 약관에 동의함**: (선택)
 3. **구매**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
 
-이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#delete-clusters)를 참조하세요.
+문서를 완료 한 후에 클러스터를 삭제 하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#delete-clusters)를 참조하세요.
 
 새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Apache Hadoop을 통해 Apache HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)의 절차를 따르면 됩니다.
 
@@ -233,7 +233,7 @@ Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven
 > 자체 DNS 서버를 사용하는 방법을 포함한 Azure Virtual Network의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Apache HBase 클러스터를 만드는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Apache HBase 클러스터를 만드는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 빈 에지 노드 사용](../hdinsight-apps-use-edge-node.md)

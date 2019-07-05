@@ -2,19 +2,19 @@
 title: 문서 세부 사항 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 문서 목록 페이지는 작업 영역에 포함된 처음 10개의 문서를 보여 줍니다. 각 문서의 이름, 페어링, 유형, 언어, 업로드 타임스탬프, 문서를 업로드한 사용자의 메일 주소가 표시됩니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0995d65dc9723922a691ff31a422dfa55b35c82c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 267d60c2e9941c66ab128f68bd7aaf1cc54fedd9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384072"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442502"
 ---
 # <a name="view-document-details"></a>문서 세부 정보 보기
 

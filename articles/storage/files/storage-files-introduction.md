@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706957"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508324"
 ---
 # <a name="what-is-azure-files"></a>Azure Files란?
 Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 근처에서 빠르게 액세스하기 위해 Azure 파일 동기화를 사용하여 Azure 파일 공유를 Windows Server에서 캐시할 수 있습니다.
@@ -21,7 +21,7 @@ Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https:/
 ## <a name="videos"></a>동영상
 | Azure 파일 동기화 소개(2분) | Sync를 사용하는 Azure Files(Ignite 2017)(85분)  |
 |-|-|
-| [![Azure 파일 동기화 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Sync를 사용하는 Azure Files 프레젠테이션의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Azure 파일 동기화 소개 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Sync를 사용하는 Azure Files 프레젠테이션의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>Azure Files가 유용한 이유
 Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
@@ -29,11 +29,11 @@ Azure 파일 공유를 사용하여 다음을 수행할 수 있습니다.
 * **온-프레미스 파일 서버 바꾸기 또는 보완**:  
     Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Windows, macOS 및 Linux와 같이 자주 사용되는 운영 체제는 전세계 어디서나 Azure File 공유를 직접 탑재할 수 있습니다. Azure 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 Azure 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows Server에 복제될 수도 있습니다.
 
-* **애플리케이션 "리프트 앤 시프트"**:  
+* **애플리케이션 "리프트 앤 시프트"** :  
     Azure Files를 사용하면 파일 애플리케이션 또는 사용자 데이터를 저장하기 위해 파일 공유를 사용하는 클라우드로 애플리케이션을 쉽게 "전환"할 수 있습니다. Azure Files를 사용하면 응용 프로그램 및 데이터를 모두 Azure로 이동시키는 “클래식” 전환 시나리오 및 응용 프로그램 데이터를 Azure Files로 이동시키는 “하이브리드” 전환 시나리오를 모두 사용하고 응용 프로그램이 계속 온-프레미스에서 실행됩니다. 
 
 * **클라우드 개발 간소화**:  
-    새로운 클라우드 개발 프로젝트를 간소화하기 위해 다양한 방법으로 Azure Files를 사용할 수도 있습니다. 예: 
+    새로운 클라우드 개발 프로젝트를 간소화하기 위해 다양한 방법으로 Azure Files를 사용할 수도 있습니다. 예:
     * **공유 애플리케이션 설정**:  
         분산 애플리케이션의 일반적인 패턴은 여러 애플리케이션 인스턴스에서 액세스할 수 있는 중앙 집중식 위치에 구성 파일을 저장하는 것입니다. 애플리케이션 인스턴스는 File REST API를 통해 해당 구성을 로드하고 사용자는 필요에 따라 SMB 공유를 로컬로 탑재하여 해당 인스턴스에 액세스할 수 있습니다.
 

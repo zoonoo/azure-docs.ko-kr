@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: 085cb20e4dad92ed55b5ba0914c677aa50f3ac97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345756"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Project Answer Search 사용 및 표시 요구 사항
 
@@ -61,9 +61,9 @@ ms.locfileid: "55875334"
 
 **C. 고지 사항 및 브랜딩.** 
 
-- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 지점 근처에 https://go.microsoft.com/fwlink/?LinkId=521839에서 사용 가능한 Microsoft 개인정보처리방침에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 “Microsoft 개인정보처리방침”으로 지정합니다.
-- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX의 각 지점 근처에, https://go.microsoft.com/fwlink/?linkid=833278에서 사용 가능한 지침과 일관된 Bing 브랜딩을 잘 보이게 표시합니다.  이러한 브랜드는 Microsoft가 인터넷 검색 환경을 지원한다는 사실을 사용자에게 명확하게 알릴 수 있어야 합니다.
-- Microsoft가 서면으로 다르게 지정하지 않는 한, https://go.microsoft.com/fwlink/?linkid=833278에 설명된 대로 Bing Web, Image, News 및 Video API에서 표시된 각 응답(또는 응답의 일부)은 Microsoft에 귀속될 수 있습니다. 
+- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX(사용자 환경)의 각 지점 근처에 https://go.microsoft.com/fwlink/?LinkId=521839 에서 사용 가능한 Microsoft 개인정보처리방침에 대한 기능형 하이퍼링크를 잘 보이게 포함합니다. 하이퍼링크 레이블을 “Microsoft 개인정보처리방침”으로 지정합니다.
+- 사용자에게 검색 쿼리 입력 기능을 제공하는 UX의 각 지점 근처에, https://go.microsoft.com/fwlink/?linkid=833278 에서 사용 가능한 지침과 일관된 Bing 브랜딩을 잘 보이게 표시합니다.  이러한 브랜드는 Microsoft가 인터넷 검색 환경을 지원한다는 사실을 사용자에게 명확하게 알릴 수 있어야 합니다.
+- Microsoft가 서면으로 다르게 지정하지 않는 한, https://go.microsoft.com/fwlink/?linkid=833278 에 설명된 대로 Bing Web, Image, News 및 Video API에서 표시된 각 응답(또는 응답의 일부)은 Microsoft에 귀속될 수 있습니다. 
 - Microsoft가 특정 사용에 대해 서면으로 다르게 지정하지 않는 한, Bing Custom Search API에서 표시된 응답(또는 응답 부분)은 Microsoft에 귀속되지 않습니다.
 
 
@@ -92,7 +92,7 @@ ms.locfileid: "55875334"
 
 보관할 때마다 특정 사용자에 대한 결과를 다른 사용자에 대한 결과와 혼합할 수 없습니다. 즉, 각 사용자의 결과를 개별적으로 유지하고 전달해야 합니다.
 
-**일반** - 보관된 결과의 모든 표시는 다음 조건을 충족해야 합니다.
+**일반.** - 보관된 결과의 모든 표시는 다음 조건을 충족해야 합니다.
 
 - 쿼리가 전송된 시간에 대한 명확하고 눈에 잘 띄는 통지를 포함합니다.
 - 업데이트된 결과를 다시 쿼리하고 얻기 위해 사용자에게 단추 또는 이와 유사한 수단을 제시합니다. 

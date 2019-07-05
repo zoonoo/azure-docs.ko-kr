@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 636086ce0d055ab8de1d1b95dbbf7e5d96c7d7ef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951005"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483060"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -35,7 +35,7 @@ ms.locfileid: "65951005"
 
 SAML 토큰이 애플리케이션에 발급한 클레임을 보거나 편집하려면 Azure Portal에서 애플리케이션을 엽니다. 엽니다는 **사용자 특성 및 클레임** 섹션입니다.
 
-![사용자 특성 및 클레임 섹션](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Azure portal에서 사용자 특성 및 클레임 섹션을 엽니다.](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유는 다음과 같습니다.
 
@@ -73,7 +73,7 @@ NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 사용자 계정 이름 (UPN) |

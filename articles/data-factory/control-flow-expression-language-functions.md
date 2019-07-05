@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d48d9e89085e08ac4da9db15458e3a3aa8152bb5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573556"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541211"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -139,6 +139,9 @@ ms.locfileid: "64573556"
     }
 }
 ```
+#### <a name="tutorial"></a>자습서
+이렇게 [자습서](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) 파이프라인 및 활동 또는 활동 간에 매개 변수를 전달 하는 방법을 단계별로 안내 합니다.
+
   
 ## <a name="functions"></a>Functions  
  식 내에서 함수를 호출할 수 있습니다. 다음 섹션에서는 식에서 사용할 수 있는 함수에 대한 정보를 제공합니다.  
@@ -155,10 +158,10 @@ ms.locfileid: "64573556"
 |toLower|문자열을 소문자로 변환합니다. 예를 들어 다음은 `two by two is four`: `toLower('Two by Two is Four')`을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 소문자로 변환할 문자열입니다. 문자열에 있는 문자에 소문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |indexof|문자열 내에서 대소문자를 구분하지 않고 값의 인덱스를 찾습니다. 예를 들어 다음 식은 `7`: `indexof('hello, world.', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 인덱스를 검색할 값입니다.|  
-|lastindexof|문자열 내에서 대소문자를 구분하지 않고 값의 마지막 인덱스를 찾습니다. 예를 들어 다음 식은 `3`: `lastindexof('foofoo', 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 인덱스를 검색할 값입니다.|  
-|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `startswith('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값으로 시작할 수 있습니다.|  
-|endswith|문자열이 대소문자를 구분하지 않고 값으로 끝나는지 확인합니다. 예를 들어 다음 식은 `true`: `endswith('hello, world', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값으로 끝날 수 있습니다.|  
-|분할|구분 기호를 사용하여 문자열을 분할합니다. 예를 들어 다음 식은 `["a", "b", "c"]`: `split('a;b;c',';')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 분할된 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 구분 기호입니다.|  
+|lastindexof|문자열 내에서 대소문자를 구분하지 않고 값의 마지막 인덱스를 찾습니다. 예를 들어 다음 식은 `3`: `lastindexof('foofoo', 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 사항입니다. 인덱스를 검색할 값입니다.|  
+|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `startswith('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값으로 시작할 수 있습니다.|  
+|endswith|문자열이 대소문자를 구분하지 않고 값으로 끝나는지 확인합니다. 예를 들어 다음 식은 `true`: `endswith('hello, world', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 문자열은 이 값으로 끝날 수 있습니다.|  
+|분할|구분 기호를 사용하여 문자열을 분할합니다. 예를 들어 다음 식은 `["a", "b", "c"]`: `split('a;b;c',';')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 사항입니다. 분할된 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 구분 기호입니다.|  
   
   
 ## <a name="collection-functions"></a>컬렉션 함수  
@@ -167,14 +170,14 @@ ms.locfileid: "64573556"
 |함수 이름|설명|  
 |-------------------|-----------------|  
 |contains|사전에 키가 포함되거나, 목록에 값이 포함되거나, 문자열에 하위 문자열이 포함된 경우 true를 반환합니다. 예를 들어 다음 식은 `true:``contains('abacaba','aca')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Within collection<br /><br /> **설명**: 필수 사항입니다. 내부를 검색할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: Find object<br /><br /> **설명**: 필수 사항입니다. **Within collection** 내부에서 찾을 개체입니다.|  
-|length|배열 또는 문자열 내의 요소 수를 반환합니다. 예를 들어 다음 식은 `3`:  `length('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 길이를 가져올 컬렉션입니다.|  
-|empty|개체, 배열 또는 문자열이 비어 있으면 true를 반환합니다. 예를 들어 다음 식은 `true`를 반환합니다.<br /><br /> `empty('')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 비어 있는지 확인할 컬렉션입니다.|  
+|length|배열 또는 문자열 내의 요소 수를 반환합니다. 예를 들어 다음 식은 `3`:  `length('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 길이를 가져올 컬렉션입니다.|  
+|empty|개체, 배열 또는 문자열이 비어 있으면 true를 반환합니다. 예를 들어 다음 식은 `true`를 반환합니다.<br /><br /> `empty('')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 비어 있는지 확인할 컬렉션입니다.|  
 |교집합|전달된 배열 또는 개체 간에 공통의 요소가 있는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2]`을 반환합니다.<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수 사항입니다. 평가할 컬렉션입니다. 개체는 결과에 표시하기 위해 전달된 모든 컬렉션에 있어야 합니다.|  
 |union|여기에 전달된 배열 또는 개체에 있는 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 예를 들어 이 함수는 `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`를 반환합니다.<br /><br /> 이 함수의 매개 변수는 개체 또는 배열 집합일 수 있습니다(이들의 혼합은 아님). 최종 출력에 같은 이름의 개체가 두 개 있는 경우 해당 이름을 가진 마지막 개체가 최종 개체에 나타납니다.<br /><br /> **매개 변수 번호**: 1 ... *n*<br /><br /> **이름**: Collection *n*<br /><br /> **설명**: 필수 사항입니다. 평가할 컬렉션입니다. 컬렉션에 나타나는 개체가 결과에 나타납니다.|  
-|first|전달된 배열 또는 문자열의 첫 번째 요소를 반환합니다. 예를 들어 이 함수는 `0`을 반환합니다.<br /><br /> `first([0,2,3])`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 첫 번째 개체를 가져올 컬렉션입니다.|  
-|last|전달된 배열 또는 문자열의 마지막 요소를 반환합니다. 예를 들어 이 함수는 `3`을 반환합니다.<br /><br /> `last('0123')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 마지막 개체를 가져올 컬렉션입니다.|  
-|take|전달된 배열 또는 문자열의 첫 번째 **Count** 요소를 반환합니다. 예를 들어 이 함수는 `[1, 2]`:  `take([1, 2, 3, 4], 2)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 첫 번째 **Count** 개체를 취할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 카운트<br /><br /> **설명**: 필수 사항입니다. **Collection**에서 가져올 개체 수입니다. 양의 정수여야 합니다.|  
-|skip|인덱스 **Count**에서 시작하는 배열의 요소를 반환합니다. 예를 들어 이 함수는 `[3, 4]`를 반환합니다.<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 컬렉션<br /><br /> **설명**: 필수 사항입니다. 첫 번째 **Count** 개체를 건너뛸 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 카운트<br /><br /> **설명**: 필수 사항입니다. **Collection**의 앞에서 제거할 개체 수입니다. 양의 정수여야 합니다.|  
+|first|전달된 배열 또는 문자열의 첫 번째 요소를 반환합니다. 예를 들어 이 함수는 `0`을 반환합니다.<br /><br /> `first([0,2,3])`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 첫 번째 개체를 가져올 컬렉션입니다.|  
+|last|전달된 배열 또는 문자열의 마지막 요소를 반환합니다. 예를 들어 이 함수는 `3`을 반환합니다.<br /><br /> `last('0123')`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 마지막 개체를 가져올 컬렉션입니다.|  
+|take|전달된 배열 또는 문자열의 첫 번째 **Count** 요소를 반환합니다. 예를 들어 이 함수는 `[1, 2]`:  `take([1, 2, 3, 4], 2)`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 첫 번째 **Count** 개체를 취할 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 카운트<br /><br /> **설명**: 필수 사항입니다. **Collection**에서 가져올 개체 수입니다. 양의 정수여야 합니다.|  
+|skip|인덱스 **Count**에서 시작하는 배열의 요소를 반환합니다. 예를 들어 이 함수는 `[3, 4]`를 반환합니다.<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Collection<br /><br /> **설명**: 필수 사항입니다. 첫 번째 **Count** 개체를 건너뛸 컬렉션입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: 카운트<br /><br /> **설명**: 필수 사항입니다. **Collection**의 앞에서 제거할 개체 수입니다. 양의 정수여야 합니다.|  
   
 ## <a name="logical-functions"></a>논리 함수  
  이 함수는 조건 내에서 유용하며 논리의 형식을 평가하는 데 사용할 수 있습니다.  
@@ -196,11 +199,11 @@ ms.locfileid: "64573556"
   
 -   문자열  
   
--   정수  
+-   integer  
   
 -   float  
   
--   부울  
+-   boolean  
   
 -   arrays  
   
@@ -219,12 +222,12 @@ ms.locfileid: "64573556"
 |base64ToString|based64 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `base64ToString('c29tZSBzdHJpbmc=')` 를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. Base64 인코딩된 문자열입니다.|  
 |이진|값의 이진 표현을 반환합니다.  예를 들어 다음 식은 일부 문자열의 이진 표현 `binary(‘some string’).`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 값<br /><br /> **설명**: 필수 사항입니다. 이진으로 변환할 값입니다.|  
 |dataUriToBinary|데이터 URI의 이진 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열의 이진 표현 `dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 이진 표현으로 변환할 데이터 URI입니다.|  
-|dataUriToString|데이터 URI의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수 사항입니다. 문자열 표현으로 변환할 데이터 URI입니다.|  
+|dataUriToString|데이터 URI의 문자열 표현을 반환합니다. 예를 들어 다음 식은 일부 문자열 `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br />**설명**: 필수 사항입니다. 문자열 표현으로 변환할 데이터 URI입니다.|  
 |dataUri|값의 데이터 URI를 반환합니다. 예를 들어 다음 `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')` 식은 데이터를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: 값<br /><br />**설명**: 필수 사항입니다. 데이터 URI로 변환할 값입니다.|  
 |decodeBase64|입력 based64 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeBase64('c29tZSBzdHJpbmc=')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 입력 based64 문자열의 문자열 표현을 반환합니다.|  
 |encodeUriComponent|전달된 문자열을 URL-이스케이프합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome`:  `encodeUriComponent('You Are:Cool/Awesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. URL 안전하지 않은 문자 양식을 이스케이프할 문자열입니다.|  
 |decodeUriComponent|전달된 문자열을 URL-이스케이프하지 않습니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`:  `encodeUriComponent('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. URL 안전하지 않은 문자를 디코딩할 문자열입니다.|  
-|decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수 사항입니다. 이진 표현으로 디코딩할 데이터 URI입니다.|  
+|decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: 문자열<br /><br /> **설명**: 필수 사항입니다. 이진 표현으로 디코딩할 데이터 URI입니다.|  
 |uriComponent|값의 URI 인코딩 표현을 반환합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`를 반환합니다.<br /><br /> 매개 변수 세부 정보: 번호: 1, 이름: String, 설명: 필수 사항입니다. URI 인코딩할 문자열입니다.|  
 |uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수 사항입니다. URI 인코딩된 문자열입니다.|  
 |uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: String<br /><br />**설명**: 필수 사항입니다. URI 인코딩된 문자열입니다.|  

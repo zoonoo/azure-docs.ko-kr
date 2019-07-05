@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure SQL Data Warehouse에 데이터 로드 | Microsoft Docs'
-description: 이 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 공용 Azure Blob에서 Azure SQL Data Warehouse로 로드합니다.
+description: 자습서에서는 Azure portal 및 SQL Server Management Studio에서 글로벌 Azure WideWorldImportersDW 데이터 웨어하우스를 로드를 Azure SQL Data Warehouse로 blob입니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242918"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461856"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -158,7 +158,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
-5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
+5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  확장 **SampleDW** 새 데이터베이스에서 개체를 볼 수 있습니다.
 
     ![데이터베이스 개체](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 나중에 참조하기 위해 데이터를 Azure Blob Storage로 가져오거나 원본에서 SQL Data Warehouse로 직접 로드하는 방법을 알아보려면 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요.
 
-다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 데이터는 공용 Azure Blob에 있습니다.
+다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 데이터는 전역 Azure Blob에 있습니다.
 
 1. 이전 섹션에서는 LoaderRC60 권한으로 데이터 웨어하우스에 로그인했습니다. SSMS의 LoaderRC60 연결 아래에서 **SampleDW**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.  새 쿼리 창이 표시됩니다. 
 
@@ -231,7 +231,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 전 세계 importers 외부 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     );
     ```
 
-8. 개체 탐색기에서 SampleDW를 펼쳐 방금 만든 외부 테이블의 목록을 표시합니다.
+8. 개체 탐색기에서 SampleDW 만든 외부 테이블의 목록을 보려면 확장 합니다.
 
     ![외부 테이블 보기](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>데이터 웨어하우스로 데이터 로드
 
-이 섹션에서는 방금 정의한 외부 테이블을 사용하여 샘플 데이터를 Azure Blob에서 SQL Data Warehouse로 로드합니다.  
+이 섹션에서는 Azure Blob에서 SQL Data Warehouse로 샘플 데이터를 로드 하려면 정의한 외부 테이블을 사용 합니다.  
 
 > [!NOTE]
 > 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 스테이징 테이블에 로드합니다. 데이터가 스테이징 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 스테이징 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
@@ -554,7 +554,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
 
-이 스크립트는 wwi.dimension_Date 및 wwi.fact_Sales 테이블로 데이터를 로드하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
+이 스크립트는 wwi.dimension_Date 및 wwi.fact_Sale 테이블로 데이터를 로드 하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
 
 1. 다음 스크립트를 실행하여 데이터를 데이터 웨어하우스의 새 테이블로 로드합니다.
 
@@ -750,7 +750,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>테이블 및 프로시저를 만들어 Date 및 Sales 테이블 생성
 
-이 섹션에서는 wwi.dimension_Date 및 wwi.fact_Sales 테이블을 만듭니다. 또한 wwi.dimension_Date 및 wwi.fact_Sales 테이블에서 수백만 개의 행을 생성할 수 있는 저장 프로시저를 만듭니다.
+이 섹션에서는 wwi.dimension_Date 및 wwi.fact_Sale 테이블을 만듭니다. 또한 wwi.dimension_Date 및 wwi.fact_Sale 테이블에서 수백만 개의 행을 생성할 수 있는 저장된 프로시저를 만듭니다.
 
 1. dimension_Date 및 fact_Sale 테이블을 만듭니다.  
 
@@ -893,7 +893,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     DROP table #days;
     END;
     ```
-4. wwi.dimension_Date 및 wwi.fact_Sales 테이블을 채우는 다음 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
+4. Wwi.dimension_Date 및 wwi.fact_Sale 테이블을 채우는 다음이 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ```
 
 ## <a name="generate-millions-of-rows"></a>수백만 개의 행 생성
-생성한 저장 프로시저를 사용하여 wwi.fact_Sales 테이블에 수백만 개의 행을 생성하고, wwi.dimension_Date 테이블에 해당 데이터를 생성합니다. 
+Wwi.fact_Sale 테이블과 wwi.dimension_Date 테이블에 해당 데이터에 수백만 개의 행을 생성 하기 위해 만든 저장된 프로시저를 사용 합니다. 
 
 
 1. 이 절차를 실행하여 더 많은 행으로 [wwi].[seed_Sale]을 시드합니다.
@@ -958,7 +958,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 다음 프로시저를 실행하여 2000년의 각 날짜에 대해 매일 100,000개 행으로 wwi.fact_Sales를 채웁니다.
+2. 2000 년의 각 날짜에 대해 매일 100,000 개 행을 사용 하 여 wwi.fact_Sale를 채우는 데이 절차를 실행 합니다.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ SQL Data Warehouse는 각 Compute 노드에 데이터를 캐시하여 테이블�
 
     ![리소스 정리](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 계산을 일시 중지할 수 있습니다. 계산을 일시 중지하면 데이터 스토리지에 대해서만 요금이 부과되며, 데이터를 사용할 준비가 될 때마다 계산을 재개할 수 있습니다. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  계산을 재개하려면 **시작**을 클릭합니다.
+2. 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 계산을 일시 중지할 수 있습니다. 계산 일시 중지 있습니다만 데이터 저장소에 대해 요금이 부과 되며이 데이터로 작업할 준비가 될 때마다 계산을 다시 시작할 수 있습니다. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다.  계산을 재개하려면 **시작**을 클릭합니다.
 
 3. 앞으로 요금이 부과되지 않도록 하려면 데이터 웨어하우스를 삭제할 수 있습니다. 계산 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 

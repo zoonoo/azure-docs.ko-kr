@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702235"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484191"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -99,7 +99,7 @@ while True:
 1. STDIN에서 데이터 줄을 읽습니다.
 2. `string.strip(line, "\n ")`를 사용하여 후행 줄 바꿈 문자를 제거합니다.
 3. 스트림 처리를 할 때 모든 값과 각 값 사이의 탭 문자가 한 줄에 포함됩니다. 따라서 `string.split(line, "\t")` 를 사용하여 각 탭의 입력을 분할하여 필드만 반환할 수 있습니다.
-4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`
+4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. `while` 루프는 `line`이 읽히지 않을 때까지 반복됩니다.
 
 스크립트 출력은 `devicemake` 및 `devicemodel`의 입력 값과 연결된 값의 해시를 연결합니다.
@@ -161,9 +161,6 @@ while True:
     ```
 
 ### <a name="upload-file-powershell"></a>업로드 (PowerShell)
-
-> [!IMPORTANT]  
-> 경우에 이러한 PowerShell 스크립트 작동 하지 것입니다 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 사용 가능 합니다.  셸 명령을 사용 하거나 보안 전송이 사용 하지 않도록 설정 합니다.
 
 PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리에는 확인 `hiveudf.py` 위치한 합니다.  다음 PowerShell 스크립트를 사용 하 여 사용 하는 Hive 쿼리를 실행 합니다 `hiveudf.py` 스크립트:
 
@@ -433,9 +430,6 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
 
 ### <a name="upload-file-powershell"></a>업로드 (PowerShell)
-
-> [!IMPORTANT]  
-> 경우에 이러한 PowerShell 스크립트 작동 하지 것입니다 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 사용 가능 합니다.  셸 명령을 사용 하거나 보안 전송이 사용 하지 않도록 설정 합니다.
 
 PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리에는 확인 `pigudf.py` 위치한 합니다.  다음 PowerShell 스크립트를 사용 하 여 사용 하는 Hive 쿼리를 실행 합니다 `pigudf.py` 스크립트:
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329972"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443640"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -229,7 +229,7 @@ Service Bus 큐는 수신자에 게 보낸에서 일대일 통신 방법을 제�
 파티션 수는 [Service Bus SKU 및 크기에 따라](../service-bus-messaging/service-bus-partitioning.md) 달라집니다. 파티션 키는 각 파티션에 대 한 고유 정수 값입니다.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 는 전 세계, 풍부한 쿼리 및 스키마 제약 없는 데이터 모델을 통해 자동 인덱싱 제한 없는 탄력적인 확장을 제공 하는 전역으로 분산된 데이터베이스 서비스입니다. Stream Analytics에 대 한 Azure Cosmos DB 컬렉션 옵션에 대 한 자세한 내용은 참조는 [Stream Analytics 출력으로 Azure Cosmos DB를 사용 하 여](stream-analytics-documentdb-output.md) 문서.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 는 전 세계, 풍부한 쿼리 및 스키마 제약 없는 데이터 모델을 통해 자동 인덱싱 제한 없는 탄력적인 확장을 제공 하는 전역으로 분산된 데이터베이스 서비스입니다. Stream Analytics에 대 한 Azure Cosmos DB 컨테이너 옵션에 대 한 자세한 내용은 참조는 [Stream Analytics 출력으로 Azure Cosmos DB를 사용 하 여](stream-analytics-documentdb-output.md) 문서.
 
 Stream Analytics에서 azure Cosmos DB 출력은 현재 Azure 중국 21Vianet 및 Azure Germany (T-systems International) 지역에서 지원 되지.
 
@@ -247,7 +247,7 @@ Stream Analytics에서 azure Cosmos DB 출력은 현재 Azure 중국 21Vianet �
 | 계정 ID | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. |
 | 계정 키 | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다. |
 | 데이터베이스 | Azure Cosmos DB 데이터베이스 이름입니다. |
-| 컬렉션 이름 | Azure Cosmos DB 컬렉션의 이름입니다. Azure Cosmos DB 워크 로드에 따라 파티션 확장 자동으로 Azure Cosmos DB로 데이터를 분할에 대 한 무제한 컨테이너는 권장 되는 접근 방법입니다. |
+| 컨테이너 이름 | Cosmos DB에 있어야 사용할 컨테이너 이름입니다. 예제:  <br /><ul><li> _MyContainer_: : "MyContainer" 라는 컨테이너가 있어야 합니다.</li>|
 | 문서 ID |선택 사항입니다. 작업 하는 삽입 또는 업데이트에 기반한 기본 키를 지정 하는 데 사용 되는 출력 이벤트의 필드의 이름입니다.
 
 ## <a name="azure-functions"></a>Azure 기능
@@ -302,10 +302,10 @@ Azure Stream Analytics는 413 ("http 요청 엔터티 너무 큼")를 수신 하
 | Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대 한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
 | Azure Service Bus 큐 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대 한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
-| Azure Cosmos DB | 예 | 컬렉션 이름 패턴에서 {partition} 토큰을 사용 합니다. {Partition} 값은 쿼리의 PARTITION BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure Cosmos DB | 예 | PARTITION BY 절을 쿼리의 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure 기능 | 아닙니다. | 없음 | 사용할 수 없습니다. |
 
-출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다. 이러한 경우 출력은 파이프라인에서 병목 현상이 발생할 수 있는 단일 작성기에 병합 됩니다. 지연 도착 정책에 대 한 자세한 내용은 참조 하세요 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)합니다.
+사용 하 여 출력 작성기 수를 제어할 수도 있습니다 `INTO <partition count>` (참조 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있는 쿼리의 절. 출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다. 이러한 경우 출력은 파이프라인에서 병목 현상이 발생할 수 있는 단일 작성기에 병합 됩니다. 지연 도착 정책에 대 한 자세한 내용은 참조 하세요 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)합니다.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 Azure Stream Analytics는 이벤트를 처리 하 고 출력을 쓰는 변수 크기 일괄 처리를 사용 합니다. 일반적으로 Stream Analytics 엔진은 한 번에 하나의 메시지를 기록 하지 않습니다 하 고 효율성을 위해 일괄 처리를 사용 합니다. 들어오고 나가는 이벤트 비율이 높은 경우 Stream Analytics는 더 큰 일괄 처리를 사용 합니다. 송신 속도가 낮은 경우 대기 시간을 낮게 유지하기 위해 더 작은 일괄 처리를 사용합니다.

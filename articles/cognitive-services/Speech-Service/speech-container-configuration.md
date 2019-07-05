@@ -3,19 +3,19 @@ title: 음성 컨테이너 구성
 titleSuffix: Azure Cognitive Services
 description: 음성 컨테이너
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072431"
 ---
 # <a name="configure-speech-service-containers"></a>Speech Service 컨테이너 구성
 
@@ -48,7 +48,7 @@ ms.locfileid: "65797918"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **음성의** 개요, 레이블이 지정 `Endpoint`
+* Azure Portal: **음성** 개요, `Endpoint` 레이블
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|

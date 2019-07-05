@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123880"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442512"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>미리 보기: API 버전으로 마이그레이션하기 LUIS 앱에 대 한 3.x
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>미리 보기: API 버전으로 마이그레이션하기 LUIS 앱에 대 한 3.x
 
 쿼리 예측 끝점 Api 변경 되었습니다. 이 가이드를 사용 하 여 버전 3 끝점 Api로 마이그레이션하는 방법을 알아야 합니다. 
 
@@ -44,6 +44,27 @@ ms.locfileid: "66123880"
 
 [참조 설명서](https://aka.ms/luis-api-v3) V3에서 사용할 수 있습니다.
 
+## <a name="endpoint-url-changes-by-slot-name"></a>슬롯 이름으로 끝점 URL 변경
+
+V3 끝점 HTTP 호출의 형식이 변경 되었습니다.
+
+|메서드|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>버전 ID가 끝점 URL 변경
+
+버전에서 쿼리 하려는 경우 먼저 [API를 통해 게시](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) 사용 하 여는 `"directVersionPublish":true`합니다. 슬롯 이름 대신 버전 ID를 참조 하는 끝점을 쿼리 합니다.
+
+
+|메서드|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
+
 ## <a name="prebuilt-entities-with-new-json"></a>새 JSON 사용 하 여 미리 작성 된 엔터티
 
 V3 응답 개체 변경 내용을 포함 [미리 빌드된 엔터티로](luis-reference-prebuilt-entities.md)합니다. 
@@ -54,11 +75,14 @@ V3 응답 개체 변경 내용을 포함 [미리 빌드된 엔터티로](luis-re
 
 V3 API에 다양 한 쿼리 문자열 매개 변수가 있습니다.
 
-|매개 변수 이름|Type|Version|목적|
-|--|--|--|--|
-|`query`|문자열|V3만|**V2에서**, 예측할 utterance 중인는 `q` 매개 변수입니다. <br><br>**V3에서**, 기능에 전달 되는 `query` 매개 변수입니다.|
-|`show-all-intents`|부울|V3만|해당 점수를 사용 하 여 모든 의도 반환 합니다 **prediction.intents** 개체입니다. 인 텐트에서 부모 개체로 반환 되므로 `intents` 개체입니다. 배열에서 의도 찾는 하지 않고도 프로그래밍 방식으로 액세스할 수 있게: `prediction.intents.give`합니다. V2에서는 이러한 배열에서 반환 되었습니다. |
-|`verbose`|부울|V2 & V3|**V2의**로 설정할 경우 true이 고, 모든 예측 의도 된 반환 합니다. 모든 예측된 의도 해야 하는 경우의 V3 매개 변수를 사용 하 여 `show-all-intents`입니다.<br><br>**V3에서**,이 매개 변수 제공 엔터티 엔터티 예측의 메타 데이터 정보입니다.  |
+|매개 변수 이름|Type|Version|기본값|목적|
+|--|--|--|--|--|
+|`log`|boolean|V2 & V3|false|쿼리 로그 파일에 저장 합니다.| 
+|`query`|문자열|V3만|필요한 것이 기본값이-GET 요청에|**V2에서**, 예측할 utterance 중인는 `q` 매개 변수입니다. <br><br>**V3에서**, 기능에 전달 되는 `query` 매개 변수입니다.|
+|`show-all-intents`|boolean|V3만|false|해당 점수를 사용 하 여 모든 의도 반환 합니다 **prediction.intents** 개체입니다. 인 텐트에서 부모 개체로 반환 되므로 `intents` 개체입니다. 배열에서 의도 찾는 하지 않고도 프로그래밍 방식으로 액세스할 수 있게: `prediction.intents.give`합니다. V2에서는 이러한 배열에서 반환 되었습니다. |
+|`verbose`|boolean|V2 & V3|false|**V2의**로 설정할 경우 true이 고, 모든 예측 의도 된 반환 합니다. 모든 예측된 의도 해야 하는 경우의 V3 매개 변수를 사용 하 여 `show-all-intents`입니다.<br><br>**V3에서**,이 매개 변수 제공 엔터티 엔터티 예측의 메타 데이터 정보입니다.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -71,12 +95,23 @@ V3 API에 다양 한 쿼리 문자열 매개 변수가 있습니다.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|자산|Type|Version|기본값|목적|
+|--|--|--|--|--|
+|`dynamicLists`|array|V3만|필요하지 않습니다.|[동적 목록은](#dynamic-lists-passed-in-at-prediction-time) LUIS 앱에서 이미 기존 학습된 및 게시 된 엔터티를 확장할 수 있습니다.|
+|`externalEntities`|array|V3만|필요하지 않습니다.|[외부 엔터티](#external-entities-passed-in-at-prediction-time) LUIS 앱 식별 및 기존 엔터티의 기능으로 사용할 수 있는 런타임 동안 엔터티를 레이블 하는 기능을 제공 합니다. |
+|`options.datetimeReference`|문자열|V3만|기본값은 없습니다|확인 하는 데 [datetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)합니다.|
+|`options.overridePredictions`|boolean|V3만|false|지정 하는 경우 사용자의 [외부 엔터티 (동일한 이름의 기존 엔터티로)](#override-existing-model-predictions) 는 예측 모델의 기존 엔터티에 사용 되는 합니다. |
+|`query`|문자열|V3만|필수 사항입니다.|**V2에서**, 예측할 utterance 중인는 `q` 매개 변수입니다. <br><br>**V3에서**, 기능에 전달 되는 `query` 매개 변수입니다.|
+
+
 
 ## <a name="response-changes"></a>응답 변경
 
@@ -275,6 +310,67 @@ utterance 사용 된 이전 utterance `him` 에 대 한 참조로 `Hazem`합니�
 
 예측 응답은 요청에 정의 되어 있으므로 모든는 다른 엔터티와의 예측 하는 외부 엔터티를 포함 합니다.  
 
+### <a name="override-existing-model-predictions"></a>기존 모델 예측과 잠재 고객이 재정의
+
+`overridePredictions` options 속성은 사용자 이름이 같은 예측 엔터티와 겹치는 외부 엔터티를 보내는 경우 LUIS가 전달 된 엔터티 또는 모델에서 기존 엔터티를 지정 합니다. 
+
+예를 들어 쿼리 `today I'm free`합니다. LUIS 검색 `today` 다음 응답과 함께 datetimeV2로:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+사용자는 외부 엔터티를 보내면:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+경우는 `overridePredictions` 로 설정 된 `false`, LUIS, 외부 엔터티 전송 되지 않은 것 처럼 응답을 반환 합니다. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+경우는 `overridePredictions` 로 설정 되어 `true`, LUIS 포함 하는 응답을 반환 합니다.
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### <a name="resolution"></a>해결 방법
 
 합니다 _선택적_ `resolution` 외부 엔터티와 연결 된 메타 데이터를 전달 하 고 받을 수 있도록 예측 응답에서 속성 반환 응답에서 다시 합니다. 
@@ -287,6 +383,7 @@ utterance 사용 된 이전 utterance `him` 에 대 한 참조로 `Hazem`합니�
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>동적 목록은 예측 시에 전달합니다.

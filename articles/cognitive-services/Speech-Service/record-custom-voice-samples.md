@@ -12,10 +12,10 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954644"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
@@ -33,7 +33,7 @@ ms.locfileid: "65954644"
 
 사용자 지정 음성 녹음 프로젝트에는 다음 네 가지 기본 역할이 있습니다.
 
-역할|목적
+Role|목적
 -|-
 성우        |이 성우의 음성이 사용자 지정 음성의 기초가 됩니다.
 녹음 엔지니어  |녹음의 기술적 측면을 감독하고 녹음 장비를 작동합니다.
@@ -167,7 +167,7 @@ Studio의 기록 엔지니어를 사용 하 여 프로젝트에 설명 하 고 �
 
 성우에게 단어를 구분해서 발음하도록 지시합니다. 스크립트의 모든 단어는 쓰여진 그대로 발음해야 합니다. *스크립트에서 생략하거나 분명하게 발음하지 않도록 쓰여 있지 않는 한* 소리는 일상적인 말투에서 흔히 있는 것처럼 이런 방식으로 처리되지 않아야 합니다.
 
-|기록된 텍스트|원치 않는 평상시 발음|
+|작성된 텍스트|원치 않는 평상시 발음|
 |-|-|
 |never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|

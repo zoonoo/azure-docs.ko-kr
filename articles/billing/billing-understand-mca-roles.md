@@ -1,24 +1,21 @@
 ---
 title: Microsoft 고객 계약-Azure에 대 한 대금 청구 관리자 역할 이해
 description: Azure에서 계정을 Microsoft 고객 계약에 대 한 청구에 대 한 청구 역할에 알아봅니다.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370970"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490434"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 
@@ -30,7 +27,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 다음 표에서 사용 하 여 관리 대금 청구 계정, 프로필, 청구 및 섹션 송장 청구 역할을 설명 합니다.
 
-|역할|설명|
+|Role|설명|
 |---|---|
 |대금 청구 계정 소유자|대금 청구 계정에 대 한 모든 것을 관리합니다|
 |대금 청구 계정 기여자|대금 청구 계정에 대 한 권한을 제외한 모든 사항을 관리합니다|
@@ -46,7 +43,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 ## <a name="billing-account-roles-and-tasks"></a>대금 청구 계정 역할 및 태스크
 
-대금 청구 계정을 조직에 대 한 청구를 관리할 수 있습니다. 계정을 사용 하 여 청구 비용, 모니터링 비용 및 청구서를 구성 하 고 조직에 대 한 청구 액세스를 제어 합니다. 자세한 내용은 [대금 청구 계정 이해](billing-mca-overview.md#understand-billing-account)합니다.
+대금 청구 계정을 조직에 대 한 청구를 관리할 수 있습니다. 계정을 사용 하 여 청구 비용, 모니터링 비용 및 청구서를 구성 하 고 조직에 대 한 청구 액세스를 제어 합니다. 자세한 내용은 [대금 청구 계정 이해](billing-mca-overview.md#your-billing-account)합니다.
 
 다음 표에 청구 계정의 컨텍스트에서 작업을 완료 해야 하는 어떤 역할을 보여 줍니다.
 
@@ -92,7 +89,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 ## <a name="billing-profile-roles-and-tasks"></a>청구 프로필 역할 및 태스크
 
-청구 프로필 송장 및 지불 방법을 관리할 수 있습니다. 월별 청구서는 Azure 구독 및 청구 프로필을 사용 하 여 구매 하는 다른 제품에 대해 생성 됩니다. 결제 방법을 사용 하 여 청구서 금액을 지불 합니다. 자세한 내용은 [청구 프로필을 이해](billing-mca-overview.md#understand-billing-profiles)합니다.
+청구 프로필 송장 및 지불 방법을 관리할 수 있습니다. 월별 청구서는 Azure 구독 및 청구 프로필을 사용 하 여 구매 하는 다른 제품에 대해 생성 됩니다. 결제 방법을 사용 하 여 청구서 금액을 지불 합니다. 자세한 내용은 [청구 프로필을 이해](billing-mca-overview.md#billing-profiles)합니다.
 
 다음 표에 청구 프로필의 컨텍스트에서 작업을 완료 해야 하는 어떤 역할을 보여 줍니다.
 
@@ -142,7 +139,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 ## <a name="invoice-section-roles-and-tasks"></a>송장 섹션 역할 및 태스크
 
-청구서 섹션을 사용 하면 청구서에 비용이 구성할 수 있습니다. 조직의 요구에 따라 하거나 개발 환경, 부서별로 비용을 구성 하는 섹션을 만들 수 있습니다. 다른 섹션에 대 한 Azure 구독을 만들 수 있는 권한을 제공 합니다. 모든 사용 요금 및 구매는 구독에 청구서의 섹션에 표시 합니다. 자세한 내용은 [이해 송장 섹션](billing-mca-overview.md#understand-invoice-sections)합니다.
+청구서 섹션을 사용 하면 청구서에 비용이 구성할 수 있습니다. 조직의 요구에 따라 하거나 개발 환경, 부서별로 비용을 구성 하는 섹션을 만들 수 있습니다. 다른 섹션에 대 한 Azure 구독을 만들 수 있는 권한을 제공 합니다. 모든 사용 요금 및 구매는 구독에 청구서의 섹션에 표시 합니다. 자세한 내용은 [이해 송장 섹션](billing-mca-overview.md#invoice-sections)합니다.
 
 다음 표에서 청구서 섹션의 컨텍스트에서 작업을 완료 해야 하는 어떤 역할을 보여 줍니다.
 
@@ -185,7 +182,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 **비용 관리 + 청구**합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

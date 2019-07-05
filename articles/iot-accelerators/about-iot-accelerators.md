@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080523"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -42,7 +42,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 ### <a name="connected-factory"></a>연결된 팩터리
 
-[연결된 팩터리 솔루션 가속기](iot-accelerators-connected-factory-sample-walkthrough.md)를 사용하여 [OPC 통합 아키텍처](https://opcfoundation.org/about/opc-technologies/opc-ua/) 인터페이스를 사용하여 산업 자산의 원격 분석을 수집하고 제어합니다. 산업 자산에는 공장 생산 라인에서 어셈블리 및 테스트 스테이션이 포함될 수 있습니다.
+[연결된 팩터리 솔루션 가속기](iot-accelerators-connected-factory-features.md)를 사용하여 [OPC 통합 아키텍처](https://opcfoundation.org/about/opc-technologies/opc-ua/) 인터페이스를 사용하여 산업 자산의 원격 분석을 수집하고 제어합니다. 산업 자산에는 공장 생산 라인에서 어셈블리 및 테스트 스테이션이 포함될 수 있습니다.
 
 연결된 팩터리 대시보드를 사용하여 산업용 디바이스를 모니터링하고 관리할 수 있습니다.
 

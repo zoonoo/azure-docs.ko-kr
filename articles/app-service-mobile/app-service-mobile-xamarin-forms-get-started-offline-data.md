@@ -2,7 +2,7 @@
 title: Azure Mobile App(Xamarin.Forms)에 대해 오프라인 동기화 사용 | Microsoft Docs
 description: App Service 모바일 앱을 사용하여 Xamarin.Forms 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,24 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127882"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446295"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) 지금 합니다.
+>
 
 ## <a name="overview"></a>개요
 이 자습서에서는 Xamarin.Forms용 Azure Mobile Apps의 오프라인 동기화 기능을 소개합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 서비스와 동기화됩니다.
 
 이 자습서는 [Xamarin iOS 앱 만들기] 자습서를 완료할 때 만든 Mobile Apps에 대한 Xamarin.Forms 빠른 시작 솔루션을 기반으로 합니다. Xamarin.Forms에 대한 빠른 시작 솔루션에는 사용하도록 설정해야 하는 오프라인 동기화를 지원하는 코드가 포함되어 있습니다. 이 자습서에서는 빠른 시작 솔루션을 업데이트하여 Azure Mobile Apps의 오프라인 기능을 사용하도록 설정합니다. 또한 앱에서 오프라인 관련 코드를 중점적으로 다루겠습니다. 다운로드한 빠른 시작 솔루션을 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][1]을 참조하세요.
 
-오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화][2] 항목을 참조하세요.
+오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화][2]항목을 참조하세요.
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>빠른 시작 솔루션에서 오프라인 동기화 기능 사용
 오프라인 동기화 코드는 C# 전처리기 지시문을 사용하여 프로젝트에 포함됩니다. **OFFLINE\_SYNC\_ENABLED** 기호가 정의된 경우 이러한 코드 경로는 빌드에 포함됩니다. Windows 앱의 경우 SQLite 플랫폼도 설치해야 합니다.
@@ -40,9 +44,9 @@ ms.locfileid: "62127882"
         #define OFFLINE_SYNC_ENABLED
 3. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
-   * **Windows 8.1 런타임:** [Windows 8.1용 SQLite][3]를 설치합니다.
-   * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite][4]를 설치합니다.
-   * **유니버설 Windows 플랫폼:** [유니버설 Windows 플랫폼용 SQLite][5]를 설치합니다.
+   * **Windows 8.1 런타임:** 설치할 [Windows 8.1 용 SQLite][3]합니다.
+   * **Windows Phone 8.1:** 설치할 [Windows Phone 8.1 용 SQLite][4]합니다.
+   * **범용 Windows 플랫폼**[SQLite for the Universal Windows Universal][5]를 설치합니다.
 
      빠른 시작이 유니버설 Windows 프로젝트를 포함하지 않으면 유니버설 Windows 플랫폼은 Xamarin Forms으로 지원됩니다.
 4. (선택 사항) 각 Windows 앱 프로젝트에서 마우스 오른쪽 단추로 **참조** > **참조 추가...** 를 클릭하고 **Windows** 폴더 > **확장**을 확장합니다.
@@ -118,7 +122,7 @@ ms.locfileid: "62127882"
 
 끌어오기가 컨텍스트에 의해 추적되는 로컬 업데이트를 보류 중인 테이블에 대해 실행되는 경우 끌어오기 작업은 먼저 자동으로 컨텍스트 푸시를 트리거합니다. 이 샘플에서 항목을 새로 고침, 추가 및 완료하는 경우 명시적인 **PushAsync** 호출을 생략할 수 있습니다.
 
-제공된 코드에서 원격 TodoItem 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 **PushAsync**로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화][2]에서 *증분 동기화* 섹션을 참조하세요.
+제공된 코드에서 원격 TodoItem 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 **PushAsync**로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [증분 동기화][2]섹션을 참조하세요.
 
 ## <a name="run-the-client-app"></a>클라이언트 앱을 실행합니다.
 이제 오프라인 동기화를 사용하도록 설정하면 각 플랫폼에서 클라이언트 애플리케이션을 한 번 이상 실행하여 로컬 저장소 데이터베이스를 채웁니다. 나중에 앱이 오프라인인 동안 오프라인 시나리오를 시뮬레이션하고 로컬 저장소에 있는 데이터를 수정합니다.
@@ -146,13 +150,13 @@ ms.locfileid: "62127882"
 
 1. Constants.cs를 다시 엽니다. 올바른 URL을 가리키도록 `applicationURL` 를 수정합니다.
 2. 클라이언트 앱을 다시 빌드하고 실행합니다. 앱을 시작한 후에 모바일 앱 백 엔드와 동기화하려고 합니다. 디버그 콘솔에 기록된 예외가 없는지 확인합니다.
-3. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler나 [Postman][6] 같은 REST 도구를 사용하여 업데이트된 데이터를 봅니다. 백 엔드 데이터베이스와 로컬 저장소의 데이터가 동기화된 것을 확인합니다.
+3. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler와 같은 REST 도구를 사용 하 여 업데이트 된 데이터를 보고 하거나 [Postman][6]합니다. 백 엔드 데이터베이스와 로컬 저장소의 데이터가 동기화된 것을 확인합니다.
 
     데이터베이스와 로컬 저장소 간에 데이터가 동기화되었으며 앱의 연결이 끊어진 동안 추가한 항목을 포함합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Mobile Apps에서 오프라인 데이터 동기화][2]
-* [Azure Mobile Apps .NET SDK 사용 방법][8]
+* [Azure Mobile Apps.NET SDK 사용 방법][8]
 
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

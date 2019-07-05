@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057921"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509574"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure 데이터 레이크 저장소 Gen1에서 데이터를 복사할 Azure Data Factory를 사용 하 여
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -81,7 +81,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 >폴더를 루트부터 나열하려면 **“실행” 권한을 가진 루트 수준에서** 부여할 서비스 주체의 권한을 설정해야 합니다. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** 복사 파이프라인을 작성 하려면.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다.
->를 루트 수준에서 권한을 부여 하는 방법에 대 한 문제가 있는 경우 연결 테스트를 건너뛰고 작성 하는 동안 경로 수동으로 입력 합니다. 복사 작업으로 복사 될 파일에 적절 한 권한이 있는 서비스 주체는 부여 작동 합니다.
+>를 작성 하는 동안 루트 수준 권한 부여에 대 한 질문이 있는 경우 테스트 연결 및 경로 지정 하는 권한 부여를 사용 하 여 paraent 경로에서 찾아볼 수를 선택 하는 입력을 건너뜁니다. 복사할 파일에서 적절 한 권한이 있는 서비스 주체는 부여으로 작업 작동을 복사 합니다.
 
 다음과 같은 속성이 지원됩니다.
 
@@ -135,7 +135,7 @@ Azure 리소스 인증에 관리 ID를 사용하려면
 >목록에 폴더를 루트에서 시작, 관리 되는 id에 부여 된 사용 권한을 설정 해야 합니다 **"실행" 권한 사용 하 여 루트 수준**합니다. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** 복사 파이프라인을 작성 하려면.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다.
->를 루트 수준에서 권한을 부여 하는 방법에 대 한 문제가 있는 경우 연결 테스트를 건너뛰고 작성 하는 동안 경로 수동으로 입력 합니다. 복사 작업으로 관리 되는 id 복사 될 파일에 적절 한 권한이 부여 되는 작동 합니다.
+>를 작성 하는 동안 루트 수준 권한 부여에 대 한 질문이 있는 경우 테스트 연결 및 경로 지정 하는 권한 부여를 사용 하 여 부모 경로에서 찾아볼 수를 선택 하는 입력을 건너뜁니다. 복사할 파일에서 적절 한 권한이 있는 서비스 주체는 부여으로 작업 작동을 복사 합니다.
 
 Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 이외의 속성을 지정할 필요가 없습니다.
 

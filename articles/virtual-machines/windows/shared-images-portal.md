@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245013"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465709"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portal을 사용 하 여 공유 이미지 갤러리 만들기
 
@@ -53,6 +53,9 @@ ms.locfileid: "66245013"
 ## <a name="create-vms-from-an-image"></a>이미지에서 VM 만들기
 
 이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. 
+
+> [!IMPORTANT]
+> 다른 azure 테 넌 트의 이미지에서 VM을 배포 하려면 포털을 사용할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 사용 해야 합니다 [Azure CLI](../linux/shared-images.md#create-a-vm) 하거나 [Powershell](shared-images.md#create-vms-from-an-image)합니다.
 
 이 예제에서는 *미국 동부* 데이터 센터에서 *myResourceGroup*에 *myVMfromImage*라는 VM을 만듭니다.
 

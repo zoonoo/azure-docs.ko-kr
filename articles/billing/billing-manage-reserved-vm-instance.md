@@ -1,23 +1,21 @@
 ---
-title: Azure 예약 관리 | Microsoft Docs
+title: Azure 예약 관리
 description: 구독 범위를 변경하고 Azure 예약에 대한 액세스 권한을 관리하는 방법에 대해 알아봅니다.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127132"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491188"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -54,7 +52,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 범위를 공유에서 단일 범위로 변경하는 경우 소유자인 구독만을 선택할 수 있습니다. 동일한 청구 컨텍스트 내에서 예약된 구독만을 선택할 수 있습니다.
 
-범위는 종량제 제안 MS-AZR-0003P 또는 MS-AZR-0023P, Enterprise 제안 MS-AZR-0017P 또는 MS-AZR-0148P, 또는 CSP 구독 유형에만 적용됩니다.
+다른 설명이 없는 엔터프라이즈 제품-0017 Ms-azr-0148 Ms-azr, 또는 CSP 구독 유형 범위는 종 량 제 요금 (제품-0003 Ms-azr 또는-0023 Ms-azr)를 사용 하 여 개별 구독에만 적용 됩니다.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>예약을 관리할 수 있는 사용자 추가 또는 변경
 

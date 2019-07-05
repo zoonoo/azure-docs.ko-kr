@@ -1,25 +1,22 @@
 ---
-title: Azure 엔터프라이즈 청구서 이해 | Microsoft Docs
-description: 읽을 Azure 기업 계약에 대 한 사용량 및 청구서를 이해 하는 방법을 알아봅니다
-services: ''
-documentationcenter: ''
+title: Azure 엔터프라이즈 청구서 이해
+description: 읽기 및 Azure 기업 계약에 대 한 사용량 및 청구서를 이해 하는 방법에 알아봅니다.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571198"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490277"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure Enterprise Agreement 청구서 이해
 
@@ -57,9 +54,9 @@ ms.locfileid: "64571198"
 
 에 Enterprise portal에 표시 된 결합 된 총 금액에 비교 **보고서** > **사용 현황 요약** Azure 청구서를 사용 하 여 합니다. 크기를 **사용 현황 요약** 세금을 포함 하지 않습니다.
 
-1. [Enterprise Portal](https://ea.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Enterprise portal](https://ea.azure.com)합니다.
 1. **보고서**를 선택합니다.
-1. 탭의 오른쪽 맨 위에서 보기를 **M**에서 **C**로 전환하고 청구서의 기간과 똑같이 설정합니다.  
+1. 탭의 오른쪽 위 모서리에서에서 보기를 전환 **M** 하 **C** 청구서에 마침표 및 합니다.  
     ![M을 보여 주는 스크린샷 + Usage summary에서 C 옵션입니다.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. 양을 합한 **총 사용량** 및 **Azure Marketplace** 일치 해야 합니다 **확장 총액** 청구서에 합니다.
 1. 사용자 요금에 대 한 자세한 내용은로 이동 **사용량 다운로드**합니다.  
@@ -98,9 +95,9 @@ ms.locfileid: "64571198"
 
 엔터프라이즈 포털에서 총 사용량에 비교 **보고서** > **사용 현황 요약** 서비스 초과분 청구서를 사용 하 여 합니다. 서비스 초과분 청구서에는 조직의 크레딧을 초과한 사용 및/또는 크레딧이 적용되지 않는 서비스가 포함됩니다. **사용 요약**의 금액에는 세금이 포함되어 있지 않습니다.
 
-1. [Enterprise Portal](https://ea.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Enterprise portal](https://ea.azure.com)합니다.
 1. **보고서**를 선택합니다.
-1. 탭의 오른쪽 맨 위에서 보기를 **M**에서 **C**로 전환하고 청구서의 기간과 똑같이 설정합니다.  
+1. 탭의 오른쪽 위 모서리에서에서 보기를 전환 **M** 하 **C** 청구서에 마침표 및 합니다.  
     ![M을 보여 주는 스크린샷 + Usage summary에서 C 옵션입니다.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. **총 사용량** 금액이 서비스 초과분 청구서의 **총 확장 금액**과 일치해야 합니다.  
 1. 요금에 대한 자세한 내용을 보려면 **사용량 다운로드** > **고급 보고서 다운로드**로 이동합니다. 보고서는 세금 또는 예약에 대 한 요금이 marketplace 요금에 포함 되지 않습니다.  
@@ -122,9 +119,9 @@ ms.locfileid: "64571198"
 
 Enterprise Portal의 **보고서** > **사용 요약**에 있는 Azure Marketplace 합계와 마켓플레이스 청구서를 비교합니다. 마켓플레이스 청구서는 Azure Marketplace 구매 및 사용에만 해당됩니다. **사용 요약**의 금액에는 세금이 포함되어 있지 않습니다.
 
-1. [Enterprise Portal](https://ea.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Enterprise portal](https://ea.azure.com)합니다.
 1. **보고서**를 선택합니다.
-1. 탭의 오른쪽 맨 위에서 보기를 **M**에서 **C**로 전환하고 청구서의 기간과 똑같이 설정합니다.  
+1. 탭의 오른쪽 위 모서리에서에서 보기를 전환 **M** 하 **C** 청구서에 마침표 및 합니다.  
      ![M을 보여 주는 스크린샷 + C 사용 현황 요약 옵션입니다.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. **Azure Marketplace** 합계가 마켓플레이스 청구서의 **총 판매**와 일치해야 합니다.
 1. 사용량 기반 요금에 대한 자세한 내용을 보려면 **사용량 다운로드**로 이동합니다. **마켓플레이스 요금** 아래에서 **다운로드**를 선택합니다. 이 보고서는 세금을 포함하지 않거나 일회성 구매를 보여 줍니다.  

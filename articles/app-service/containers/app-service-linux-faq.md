@@ -4,7 +4,7 @@ description: Linux의 Azure App Service에 대한 FAQ.
 keywords: Azure App Service, 웹앱, FAQ, Linux, OS, 컨테이너에 대한 웹앱, 다중 컨테이너, 다중 컨테이너
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594269"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448432"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -119,10 +119,7 @@ const io = require('socket.io')(server,{
 
 **나만의 사용자 지정 컨테이너를 사용하고 있습니다. `/home/` 디렉터리에 대한 SMB 공유를 플랫폼에 탑재하려 합니다.**
 
-`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 앱 설정을 *true*로 설정하여 수행할 수 있습니다. 이렇게 하면 플랫폼 저장소가 변경될 때 컨테이너가 다시 시작됩니다.
-
->[!NOTE]
->`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정이 지정되지 않았거나 *false*인 경우 `/home/` 디렉터리는 스케일 인스턴스 간에 공유되지 않으며 여기서 작성된 파일은 다시 시작 후에 지속되지 않습니다.
+하는 경우 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정은 **지정 되지 않은** 로 설정 하거나 *true*의 `/home/` 디렉터리 **공유 되는** 기록파일과스케일인스턴스간에**지속 됩니다** 다시 시작 합니다. 명시적으로 설정 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 하 *false* 탑재를 사용 하지 않도록 설정 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 

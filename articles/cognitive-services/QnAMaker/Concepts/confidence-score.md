@@ -3,20 +3,20 @@ title: 신뢰도 점수 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 신뢰도 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792739"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165132"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -46,7 +46,7 @@ ms.locfileid: "65792739"
 |0|일치하는 부분이 없으므로 응답은 반환되지 않습니다.|“서비스 비용은 얼마나 되나요?”|
 
 ## <a name="choose-a-score-threshold"></a>점수 임계값 선택
-위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 기술 자료가 다르며 단어 유형, 의도 및 목적도 다르므로, 테스트를 통해 본인에게 가장 적합한 임계값을 선택하는 것이 좋습니다. 기본적으로 모든 가능한 답변이 반환 되도록 임계값은 0으로 설정 됩니다. 대부분의 기술 자료에 대 한 작동 해야 하는 권장 되는 임계값 **50**합니다.
+위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 기술 자료는 다릅니다. 있고 다양 한 유형의 단어, 의도 및 목적-테스트 및 임계값을 선택 하는 것이 좋습니다 있으므로 가장을 작동 합니다. 기본적으로 모든 가능한 답변이 반환 되도록 임계값은 0으로 설정 됩니다. 대부분의 기술 자료에 대 한 작동 해야 하는 권장 되는 임계값 **50**합니다.
 
 임계값을 선택할 때 정확도와 적용 범위 간에 균형을 맞추고 요구 사항에 맞게 임계값을 조정해야 합니다.
 
@@ -56,6 +56,12 @@ ms.locfileid: "65792739"
 
 > [!NOTE]
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/troubleshooting-runtime.md)를 참조하세요.
+
+## <a name="set-threshold"></a>설정한 임계값 
+
+속성으로 임계값 점수를 설정 합니다 [GenerateAnswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)합니다. 이 GenerateAnswer 각 호출에 대해 설정한 것을 의미 합니다. 
+
+Bot framework에서 사용 하 여 옵션 개체의 일부로 점수를 설정 [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 하거나 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)합니다.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.

@@ -3,20 +3,20 @@ title: '자습서: Translator Speech API C#'
 titleSuffix: Azure Cognitive Services
 description: Translator Speech API를 사용하여 실시간으로 텍스트를 번역합니다.
 services: cognitive-services
-author: v-jerkin
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: v-jerkin
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a3853dd810182948e12b578c33b8cb91bef4b1cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860329"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445578"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 

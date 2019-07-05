@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440636"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476435"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -99,7 +99,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대한 PIM
 
-| 이름 | 역할 | 액션(Action) |
+| Name | Role | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 자신의 팀에 대해 의사 결정을 하고 PIM을 실행하도록 도와 주는 핵심 역할을 합니다. | SO/R/I |
@@ -109,7 +109,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대한 PIM
 
-| 이름 | 역할 | 액션(Action) |
+| Name | Role | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>다음에 대한 PIM을 배포하려는 각 구독 또는 리소스의 IT 소유자 출신 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -143,7 +143,7 @@ Azure AD 역할에 대해 최소 권한 원칙을 적용하려면 아래 단계�
 
 1. 조직에서 권한 있는 역할을 가진 담당자를 나열합니다. [PIM 마법사](pim-security-wizard.md#run-the-wizard)를 사용하여 다음과 같은 페이지에 도달할 수 있습니다.
 
-    ![권한 있는 역할 검색](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![권한 있는 역할을에 게 표시 하는 권한 있는 역할 창 검색](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. 조직의 모든 글로벌 관리자에 대해 역할이 필요한 이유를 확인합니다. 이전 문서 읽기를 바탕으로 하나 이상의 세분된 관리자 역할에 의해 개인의 작업을 수행할 수 있는 경우 글로벌 관리자 역할에서 해당 역할을 제거하고 Azure Active Directory 내에서 그에 따라 할당하는 것이 좋습니다(참고: Microsoft에는 현재 글로벌 관리자 역할을 가진 관리자가 약 10명만 있습니다. [Microsoft가 PIM을 사용하는 방법](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)에서 더 자세히 알아보세요).
 
@@ -151,7 +151,7 @@ Azure AD 역할에 대해 최소 권한 원칙을 적용하려면 아래 단계�
 
 3단계 및 4단계를 자동화하려면 PIM 내의 액세스 검토 기능을 이용할 수 있습니다. [PIM에서 Azure AD 역할에 대한 액세스 검토 시작](pim-how-to-start-security-review.md)의 단계에 따라 하나 이상의 멤버를 포함하는 모든 Azure AD 역할에 대한 액세스 검토를 설정할 수 있습니다.
 
-![액세스 검토 만들기](./media/pim-deployment-plan/create-access-review.png)
+![Azure AD 역할에 대 한 액세스 검토 창을 만들합니다](./media/pim-deployment-plan/create-access-review.png)
 
 검토자를 **멤버(자신)** 로 설정하는 것이 좋습니다. 이렇게 하면 역할의 모든 멤버에게 이메일을 보내서 해당 멤버가 액세스 권한이 필요한지 여부를 확인하도록 합니다. 또한 사용자가 역할이 필요한 이유를 설명할 수 있도록 고급 설정에서 **승인 시 이유 요구**를 설정하는 것이 좋습니다. 이 정보에 따라 불필요한 역할에서 사용자를 제거하고 글로벌 관리자의 경우 더 세분된 관리자 역할을 위임할 수 있습니다.
 
@@ -240,7 +240,7 @@ PIM 솔루션을 구현하기 전에 조직에서 사용하는 모든 권한 있
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Azure AD 역할에 대한 PIM 설정
 
-| 역할 | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
+| Role | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 전역 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 기타 글로벌 관리자 | 1시간 | 응급 액세스 계정 |
 | Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | 없음 | 2시간 | 없음 |
@@ -248,7 +248,7 @@ PIM 솔루션을 구현하기 전에 조직에서 사용하는 모든 권한 있
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Azure 리소스 역할에 대한 PIM 설정
 
-| 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
+| Role | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
 | 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
@@ -258,7 +258,7 @@ PIM 솔루션을 구현하기 전에 조직에서 사용하는 모든 권한 있
 
 | 설정 | 설명 |
 | --- | --- |
-| 역할 | 설정을 정의하는 역할의 이름입니다. |
+| Role | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> :heavy_check_mark: **Microsoft 권장 사항**은 특히 역할이 게스트 사용자를 포함하는 경우 모든 관리자 역할에 대해 MFA를 적용하는 것입니다. |
 | 알림 | True로 설정하는 경우 자격이 있는 사용자가 해당 역할을 활성화하면 글로벌 관리자, 권한 있는 역할 관리자 및 조직의 보안 관리자가 이메일 알림을 받습니다.<br/><br/>**참고:** 일부 조직에서는 조직의 관리자 계정에 연결된 이메일 주소를 갖고 있지 않으므로, 이메일 알림을 받으려면 관리자가 해당 이메일을 받도록 대체 이메일 주소를 설정하는 것이 좋습니다. |
 | 인시던트 티켓 | 자격이 있는 사용자가 자신의 역할을 활성화할 때 인시던트 티켓 번호를 기록해야 하는지 여부입니다. 이 설정은 조직이 원치 않는 활성화를 완화하기 위해 내부 문제 번호를 통해 각 활성화를 식별하는 데 도움이 됩니다.<br/><br/> :heavy_check_mark: **Microsoft 권장 사항**은 인시던트 티켓 번호를 이용하여 PIM을 내부 시스템과 연결하는 것입니다. 이 방법은 활성화에 대한 컨텍스트가 필요한 승인자에게 특히 유용합니다. |
@@ -318,7 +318,7 @@ PIM 솔루션을 구현하기 전에 조직에서 사용하는 모든 권한 있
 
 이 단계를 사용하여 역할에 대해 설정한 모든 구성이 올바르게 작동하는지 여부를 확인하는 것이 좋습니다. 다음 테이블을 사용하여 테스트를 문서화하세요. 또한 이 단계를 사용하여 영향을 받는 사용자와의 통신을 최적화하는 것이 좋습니다.
 
-| 역할 | 활성화하는 동안 예상되는 동작 | 실제 결과 |
+| Role | 활성화하는 동안 예상되는 동작 | 실제 결과 |
 | --- | --- | --- |
 | 전역 관리자 | (1) MFA 요구<br/>(2) 승인 요구<br/>(3) 승인자가 알림을 수신하고 승인할 수 있음<br/>(4) 미리 설정된 시간이 경과한 후 역할 만료 |  |
 | 구독 *X*의 소유자 | (1) MFA 요구<br/>(2) 구성된 기간이 경과한 후 자격이 있는 할당 만료 |  |

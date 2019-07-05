@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783979"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444540"
 ---
 # <a id="troubleshooting"></a> Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 스냅숏 보기 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 해도 예외에 대 한 스냅숏이 표시 되지 않는 경우에 문제를 해결 하려면 다음이 지침을 사용할 수 있습니다. 스냅숏이 생성 되지 않습니다 하는 여러 가지 이유가 있을 수 있습니다. 몇 가지 일반적인 원인은 스냅숏 상태 검사를 실행할 수 있습니다.
@@ -38,6 +38,10 @@ ms.locfileid: "60783979"
 ## <a name="verify-the-instrumentation-key"></a>계측 키 확인
 
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
+
+## <a name="preview-versions-of-net-core"></a>미리 보기 버전의.NET Core
+.NET Core의 미리 보기 버전을 사용 하 여 응용 프로그램 및 스냅숏 디버거를 통해 사용 하도록 설정 된 경우는 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 포털의 다음 스냅숏 디버거 시작할 수 없습니다. 지침을 따르세요 [다른 환경에 대해 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 포함 하려면 먼저 합니다 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 응용프로그램을사용하여NuGet패키지***또한*** 를 통해 사용 하도록 설정 하는 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)합니다.
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
