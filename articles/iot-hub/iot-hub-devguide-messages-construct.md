@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252808"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450075"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -55,7 +55,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | sequence-number |숫자(디바이스 큐 별로 고유함)는 IoT Hub에서 각 클라우드-디바이스 메시지에 할당됩니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | to |[클라우드-장치](iot-hub-devguide-c2d-guidance.md) 메시지에 지정된 대상입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | absolute-expiry-time |메시지 만료 날짜 및 시간입니다. | 예 |
-| iothub-enqueuedtime |IoT Hub에서 [클라우드-장치](iot-hub-devguide-c2d-guidance.md) 메시지를 수신한 날짜 및 시간입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| iothub-enqueuedtime |날짜 및 시간을 [장치-클라우드](iot-hub-devguide-d2c-guidance.md) IoT Hub에서 메시지를 받았습니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | correlation-id |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. | 예 |
 | user-id |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. | 아닙니다. |
 | iothub-ack |피드백 메시지 생성기입니다. 이 속성은 디바이스에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-디바이스 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 디바이스에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | 예 |

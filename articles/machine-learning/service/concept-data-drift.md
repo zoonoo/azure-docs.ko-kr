@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442374"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>모니터링 (미리 보기)를 드리프트 데이터 란?
 
@@ -37,7 +37,7 @@ ms.locfileid: "67332661"
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 데이터 드리프트가 모니터링 하는 방법
 
-사용 하 여 **Azure Machine Learning 서비스**, 데이터 드리프트 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하려면 기준 데이터 집합-일반적으로 학습 데이터 집합을 모델에 대 한 지정 됩니다. 기준 데이터 집합에 대해 두 번째 데이터 집합-배포-에서 모델 입력된 데이터가 수집 되는 일반적으로 테스트 합니다. 두 데이터 집합은 [프로 파일링](how-to-create-dataset-snapshots.md) 및 데이터에 대 한 입력 드리프트 모니터링 서비스입니다. 두 데이터 집합 간의 차이점을 검색 하는 기계 학습 모델을 학습 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트의 크기를 측정 하는 드리프트 계수로 변환 됩니다. 사용 하 여 [interpretability 모델](machine-learning-interpretability-explainability.md) 드리프트 계수에 영향을 주는 기능 계산 됩니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
+사용 하 여 **Azure Machine Learning 서비스**, 데이터 드리프트 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하려면 기준 데이터 집합-일반적으로 학습 데이터 집합을 모델에 대 한 지정 됩니다. 기준 데이터 집합에 대해 두 번째 데이터 집합-배포-에서 모델 입력된 데이터가 수집 되는 일반적으로 테스트 합니다. 두 데이터 집합은 [프로 파일링](how-to-explore-prepare-data.md#explore-with-summary-statistics) 및 데이터에 대 한 입력 드리프트 모니터링 서비스입니다. 두 데이터 집합 간의 차이점을 검색 하는 기계 학습 모델을 학습 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트의 크기를 측정 하는 드리프트 계수로 변환 됩니다. 사용 하 여 [interpretability 모델](machine-learning-interpretability-explainability.md) 드리프트 계수에 영향을 주는 기능 계산 됩니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
 ## <a name="data-drift-metric-output"></a>데이터 드리프트 메트릭 출력
 

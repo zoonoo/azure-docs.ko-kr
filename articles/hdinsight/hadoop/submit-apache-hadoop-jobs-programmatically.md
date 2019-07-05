@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720809"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508087"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업 제출
 
@@ -25,21 +25,18 @@ HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하
 
   - [비대화형 인증 .NET 애플리케이션 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Pig 작업 실행](apache-hadoop-use-pig-dotnet-sdk.md)
   - [HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [HDInsight .NET SDK를 사용하여 MapReduce 작업 실행](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **curl**:
 
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](apache-hadoop-use-hive-curl.md)
-  - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Pig 작업 실행](apache-hadoop-use-pig-curl.md)
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-curl.md)
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 MapReduce 작업 실행](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
   - [PowerShell을 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-powershell.md)
-  - [PowerShell을 사용하여 Apache Pig 작업 실행](apache-hadoop-use-pig-powershell.md)
   - [HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 사용](apache-hadoop-use-sqoop-powershell.md)
   - [PowerShell을 사용하여 HDInsight에서 Apache Hadoop과 함께 MapReduce 작업 실행](apache-hadoop-use-mapreduce-powershell.md)
 

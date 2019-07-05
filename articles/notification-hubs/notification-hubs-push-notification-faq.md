@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730459"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488656"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -69,7 +69,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="which-client-platforms-do-you-support"></a>어떤 클라이언트 플랫폼이 지원되나요?
 
-푸시 알림을 지 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)를 [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)를 [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 고 Android, 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)합니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
+푸시 알림을 지 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)합니다 [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 고 Android, 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)합니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
@@ -85,7 +85,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 
 지원되는 디바이스 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
-천만 개 이상의 등록된 디바이스에 대한 지원이 필요한 경우 직접 [문의](https://azure.microsoft.com/overview/contact-us/)하여 솔루션을 확장하도록 합니다.
+10 백만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우에 여러 허브에서 장치를 분할 해야 합니다.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>보낼 수 있는 푸시 알림 수는 몇 개인가요?
 

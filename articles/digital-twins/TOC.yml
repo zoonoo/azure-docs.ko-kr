@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: 일반적인 쿼리 패턴
           href: how-to-query-common-apis.md
+    - name: 레거시 AAD에 앱 등록
+      href: how-to-use-legacy-aad.md
 - name: 참고 자료
   items:
     - name: 사용자 정의 함수 클라이언트 라이브러리

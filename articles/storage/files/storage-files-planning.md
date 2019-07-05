@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150334"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564412"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -83,29 +83,24 @@ Azure Files는 두 가지 성능 계층이 제공: 표준 및 프리미엄입니
 최대 크기에서는 5tib 표준 파일 공유는 GA 제품으로 사용할 수 있습니다. 더 큰 파일을 공유 하는 동안 100tib 최대 5tib 보다 큰 모든 공유는 현재 미리 보기 제품으로 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> - (확장할 수 없습니다 기존 저장소 계정을) 새 범용 저장소 계정을 만드는 데 필요 합니다.
-> - 만 LRS를 사용 하 여 제공 됩니다.
-> - 3 개 지역에서 사용할 수 있습니다. 미국 서 부 2, 유럽 서 부 및 동남 아시아 지역 중에서 선택 합니다.
-> - 더 큰 파일 공유 미리 보기 구독 수락 된 후 만든 새로운 storage 계정에 가능한 LRS에서 GRS 계정 변환 되지 않습니다.
+> 참조 된 [큰 파일 공유 (표준 계층)에 등록](#onboard-to-larger-file-shares-standard-tier) 범위 및 미리 보기의 제한 사항 뿐만 아니라 온 보 딩 하는 단계에 대 한 섹션입니다.
 
-이러한 큰 파일 공유 크기의 미리 보기에 등록 하려면 원하는 경우이 제출 [폼](https://aka.ms/azurefilesatscalesurvey)합니다. 
+### <a name="premium-file-shares"></a>프리미엄 파일 공유
 
-### <a name="premium-file-shares-preview"></a>프리미엄 파일 공유(미리 보기)
-
-프리미엄 파일 공유 (미리 보기)는 반도체 디스크 (Ssd)에 의해 지원 됩니다. 프리미엄 파일 공유는 일관 된 고성능 및 짧은 대기 시간, IO 집약적 워크 로드에 대 한 대부분의 IO 작업에 대 한 자리 밀리초 내에 제공합니다. 따라서 데이터베이스, 웹 사이트 호스팅, 개발 환경 등의 다양한 워크로드에 적합합니다. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유는 표준 파일 공유에서 별도 배포 모델을 사용합니다.
+프리미엄 파일 공유는 Ssd (반도체 드라이브)에 의해 지원 됩니다. 프리미엄 파일 공유는 일관 된 고성능 및 짧은 대기 시간, IO 집약적 워크 로드에 대 한 대부분의 IO 작업에 대 한 자리 밀리초 내에 제공합니다. 따라서 이러한 다양 한 데이터베이스, 웹 사이트 호스팅 및 개발 환경 같은 워크 로드에 적합 합니다. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유는 표준 파일 공유에서 별도 배포 모델을 사용합니다.
 
 Azure Backup은 premium 파일 공유에 사용할 수 있는 및 Azure Kubernetes Service 버전 1.13 이상 premium 파일 공유를 지원 합니다.
 
 프리미엄 파일 공유를 만드는 방법 알아보기 하려는 경우 주제에 문서를 참조 하세요. [Azure premium 파일 저장소 계정을 만드는 방법](storage-how-to-create-premium-fileshare.md)합니다.
 
-현재 premium 파일 공유를 표준 파일 공유 사이의 직접 변환할 수 없습니다. 두 계층으로 전환 하려는 경우 해당 계층에 새 파일 공유 만들기 및 원래 공유에서 만든 새 공유에 데이터를 수동으로 복사 해야 합니다. AzCopy와 같은 지원 되는 Azure 파일 복사 도구를 사용 하 여 수행할 수 있습니다.
+현재 premium 파일 공유를 표준 파일 공유 사이의 직접 변환할 수 없습니다. 두 계층으로 전환 하려는 경우 해당 계층에 새 파일 공유 만들기 및 원래 공유에서 만든 새 공유에 데이터를 수동으로 복사 해야 합니다. Robocopy 나 AzCopy와 같은 지원 되는 Azure 파일 복사 도구를 사용 하 여 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 프리미엄 파일 공유는 아직 미리 보기, LRS를 사용 하 여 사용할 개만 및 저장소 계정을 제공 하는 대부분의 지역에서 사용할 수 있습니다. 지역에서 프리미엄 파일 공유는 현재 사용할 수 있는 경우, 참조를 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) Azure에 대 한 페이지입니다.
+> 프리미엄 파일 공유만 LRS를 사용 하 여 사용할 수 있으며 저장소 계정을 제공 하는 대부분의 지역에서 사용할 수 있습니다. 지역에서 프리미엄 파일 공유는 현재 사용할 수 있는 경우, 참조를 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) Azure에 대 한 페이지입니다.
 
 ### <a name="provisioned-shares"></a>프로비전된 공유
 
-프리미엄 파일 공유 (미리 보기)는 고정된 GiB/P s/처리량 비율에 따라 프로 비전 됩니다. 공유에 프로비전되는 각 GiB당 IOPS 1개, 초당 0.1MiB의 처리량이 공유당 최대 한도까지 지급됩니다. 허용되는 최소 프로비저닝 용량은 100GiB(최소 IOPS/처리량)입니다.
+프리미엄 파일 공유는 고정 GiB/IOPS/처리량 비율을 기준으로 프로비전됩니다. 공유에 프로비전되는 각 GiB당 IOPS 1개, 초당 0.1MiB의 처리량이 공유당 최대 한도까지 지급됩니다. 허용되는 최소 프로비저닝 용량은 100GiB(최소 IOPS/처리량)입니다.
 
 최상의 노력 원칙에 따라 모든 공유는 60분 이상의 기간 동안(공유 크기별로 다름) 프로비전된 저장소 용량(GiB)당 IOPS를 3개까지 버스트할 수 있습니다. 새 공유에는 프로비전된 용량을 기준으로 전체 버스트 크레딧이 초기 제공됩니다.
 
@@ -137,6 +132,9 @@ Azure Backup은 premium 파일 공유에 사용할 수 있는 및 Azure Kubernet
 |51,200      | 51,200  | 최대 100,000 개의 | 3,132 | 2,088   |
 |102,400     | 100,000 | 최대 100,000 개의 | 6,204 | 4,136   |
 
+> [!NOTE]
+> 파일 공유 성능은 다른 많은 요소 중 병렬 처리, IO 크기, 사용 가능한 네트워크 대역폭, 컴퓨터 네트워크 제한 될 수 있습니다. 최대 성능 규모를 달성 하려면 여러 Vm 간에 부하를 분산 합니다. 참조 하세요 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 몇 가지 일반적인 성능 문제 및 해결 방법에 대 한 합니다.
+
 ### <a name="bursting"></a>버스팅
 
 프리미엄 파일 공유에는 해당 IOPS의 3 배까지 버스트할 수 있습니다. 버스팅 자동화 되 고 신용 체제에 따라 작동 합니다. 최선의 결과가 얻어지 및 버스트 용량 한도 작동을 버스팅은 보장 되지 않습니다, 파일 공유 버스트할 수 있습니다 *최대* 제한 합니다.
@@ -160,7 +158,7 @@ Azure Backup은 premium 파일 공유에 사용할 수 있는 및 Azure Kubernet
 
 Azure Files 표준 공유 세 가지 데이터 중복성 옵션을 지원 합니다: 로컬 중복 저장소 (LRS), ZRS (영역 중복 저장소), 및 지역 중복 저장소 (GRS).
 
-Azure 파일 프리미엄만 지 원하는 로컬 중복 저장소 (LRS)을 공유합니다.
+Azure Files premium 공유는 로컬 중복 저장소 (LRS)만 지원합니다.
 
 다음 섹션에서는 서로 다른 중복 옵션의 차이점에 대해 설명합니다.
 
@@ -192,6 +190,48 @@ GRS가 활성화 된 저장소 계정에 대 한 모든 데이터는 먼저 로�
 * 영역 중복 저장소 (ZRS) 동기 복제를 사용 하 여 높은 가용성을 제공 하 고 GRS 보다 몇 가지 시나리오에 보다 적합할 수 있습니다. ZRS에 대한 자세한 내용은 [ZRS](../common/storage-redundancy-zrs.md)를 참조하세요.
 * 비동기 복제에는 데이터가 주 지역에 기록되는 시간에서 보조 지역으로 복제되는 시간까지의 지연이 발생합니다. 지역 재해의 경우 주 지역에서 해당 데이터를 복구할 수 없으면 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 * GRS를 사용하면 Microsoft에서 보조 지역으로 장애 조치(failover)를 시작하지 않는 한 읽기 또는 쓰기를 위해 복제본에 액세스할 수 없습니다. 장애 조치(failover)의 경우 장애 조치가 완료된 후 해당 데이터에 대한 읽기 및 쓰기 액세스 권한이 생성됩니다. 자세한 내용은 [재해 복구 지침](../common/storage-disaster-recovery-guidance.md)을 참조하세요.
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>더 온 보 딩 파일 공유 (표준 계층)
+
+이 섹션에서는 표준 파일 공유에만 적용 됩니다. 모든 프리미엄 파일 공유는 GA 제품으로 100tib 사용할 수 있습니다.
+
+### <a name="restrictions"></a>제한
+
+- (확장할 수 없습니다 기존 저장소 계정을) 새 범용 저장소 계정을 만드는 데 필요 합니다.
+- 더 큰 파일 공유 미리 보기 구독 수락 된 후 만든 새로운 storage 계정에 가능한 LRS에서 GRS 계정 변환 되지 않습니다.
+
+### <a name="regional-availability"></a>국가별 가용성
+
+표준 파일 공유는 5tib까지 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 제한 옵션을 사용할 수, 해당 지역 다음 표에 나열 됩니다.
+
+|지역  |지원 되는 중복성  |기존 저장소 계정을 지원  |
+|---------|---------|---------|
+|동남 아시아     |LRS|아닙니다.         |
+|서유럽     |LRS|아닙니다.         |
+|미국 서부 2     |LRS, ZRS|아닙니다.         |
+
+
+### <a name="steps-to-onboard"></a>온 보 딩 단계
+
+더 큰 파일 공유 미리 보기 구독에 등록 하려면 다음 PowerShell 명령을 실행 합니다.
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+구독에는 두 명령이 실행 되 면 자동으로 승인 됩니다.
+
+등록 상태를 확인 하려면 다음 명령을 실행할 수 있습니다.
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+업데이트 상태에 대 한 최대 15 분이 걸릴 수 있습니다 **등록**합니다. 상태는 일단 **등록**, 기능을 사용할 수 있습니다.
+
+### <a name="use-larger-file-shares"></a>더 큰 파일 공유를 사용 합니다.
+
+더 큰 파일 공유 사용을 시작 하려면 새 범용 v2 저장소 계정 및 새 파일 공유를 만듭니다.
 
 ## <a name="data-growth-pattern"></a>데이터 증가 패턴
 

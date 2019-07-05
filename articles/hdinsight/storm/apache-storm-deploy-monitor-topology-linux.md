@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078238"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483843"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리 
 
@@ -21,11 +21,12 @@ ms.locfileid: "67078238"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터의 Linux 기반 Storm**: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md) 을 참조하세요.
+* HDInsight에서 Apache Storm 클러스터입니다. 참조 [Azure portal을 사용 하 여 Apache Hadoop 만들기 클러스터](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **Storm** 에 대 한 **클러스터 유형**합니다.
 
-* (선택 사항) **SSH 및 SCP 사용 경험**: 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* (선택 사항) **Visual Studio**: Azure SDK 2.5.1 이상 및 Data Lake Tools for Visual Studio. 자세한 내용은 [Data Lake Tools for Visual Studio 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+* (선택 사항) SSH 및 SCP 사용 경험: 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
+* (선택 사항) Visual Studio: Azure SDK 2.5.1 이상 및 Data Lake Tools for Visual Studio. 자세한 내용은 [Data Lake Tools for Visual Studio 시작](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
     다음과 같은 Visual Studio 버전 중 하나:
 

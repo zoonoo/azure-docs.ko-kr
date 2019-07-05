@@ -3,18 +3,18 @@ title: Microsoft Azure IoT 옵션 | Microsoft Docs
 description: Azure IoT Central, IoT 솔루션 가속기 또는 IoT Hub를 사용하여 Azure IoT 솔루션을 구현하는 방법을 선택합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 571c703609bac2e4414baf19edc39cf5e9f8820a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 19ec7afeb71f0e9d5602f1c4ba1a2456162cdfae
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077397"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Azure IoT Central과 Azure IoT 옵션 비교
 

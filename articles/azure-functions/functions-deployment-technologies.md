@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293056"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508226"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -50,16 +50,18 @@ ms.locfileid: "67293056"
 사용자 트리거를 변경 하면 함수 인프라에서는 이러한 변경 사항을 인식 하도록 해야 합니다. 이 동기화는 여러 배포 기술에 대 한 자동으로 발생합니다. 그러나 일부 경우에서에 트리거 수동으로 동기화 해야 합니다. 외부 패키지 URL 내용, 로컬 Git, 클라우드 동기화 또는 FTP를 사용 하 여 업데이트를 배포 하면 사용자 트리거를 수동으로 동기화 하도록 해야 합니다. 세 가지 방법 중 하나에서 트리거를 동기화 할 수 있습니다.
 
 * Azure portal에서 함수 앱을 다시 시작
-* HTTP POST 요청을 보내지 `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` 를 사용 하 여 합니다 [마스터 키](functions-bindings-http-webhook.md#authorization-keys)합니다.
+* HTTP POST 요청을 보내지 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` 를 사용 하 여 합니다 [마스터 키](functions-bindings-http-webhook.md#authorization-keys)합니다.
 * HTTP POST 요청을 보낼 `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`합니다. 자리 표시자를 함수 앱의 이름과 구독 ID, 리소스 그룹 이름으로 바꿉니다.
 
 ## <a name="deployment-technology-details"></a>배포 기술 세부 정보  
+
+다음과 같은 배포 방법은 이러한 Azure Functions에서 지원 됩니다.
 
 ### <a name="external-package-url"></a>외부 패키지 URL
 
 함수 앱을 포함 하는 원격 패키지 (.zip) 파일을 참조할 수 있습니다. 제공 된 URL에서 파일 다운로드 되 고 앱에서 실행 [패키지에서 실행](run-functions-from-deployment-package.md) 모드입니다.
 
->__사용 방법:__ 추가 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정에 있습니다. 이 설정의 값을 URL-실행 하려면 특정 패키지 파일의 위치 해야 합니다. 설정을 추가할 수 있습니다 하거나 [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 하거나 [Azure CLI를 사용 하 여](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)입니다. Azure blob 저장소를 사용 하는 경우 사용 하 여 개인 컨테이너를 사용 해야는 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) 패키지 함수 액세스 권한을 부여 합니다. 언제 든 지 응용 프로그램이 다시 시작 되어야 함을 의미 참조용 유효한 응용 프로그램의 수명 동안 콘텐츠의 복사본을 인출 됩니다 것입니다.
+>__사용 방법:__ 추가 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정에 있습니다. 이 설정의 값을 URL-실행 하려면 특정 패키지 파일의 위치 해야 합니다. 설정을 추가할 수 있습니다 하거나 [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 하거나 [Azure CLI를 사용 하 여](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)입니다. Azure blob 저장소를 사용 하는 경우 사용 하 여 개인 컨테이너를 사용 해야는 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 패키지 함수 액세스 권한을 부여 합니다. 언제 든 지 응용 프로그램이 다시 시작 되어야 함을 의미 참조용 유효한 응용 프로그램의 수명 동안 콘텐츠의 복사본을 인출 됩니다 것입니다.
 
 >__사용 하는 경우:__ 이것이 Linux (미리 보기) 소비 계획에서 실행 되는 Azure Functions에 대 한 지원 되는 전용 배포 방법입니다. 함수 앱을 참조 하는 패키지 파일을 업데이트할 때 해야 [트리거를 수동으로 동기화](#trigger-syncing) 하기가 Azure 응용 프로그램 변경 되었습니다.
 
@@ -88,11 +90,11 @@ Azure 함수 앱을 포함 한 zip 파일을 푸시할 수 있습니다. 선택�
 
 ### <a name="web-deploy-msdeploy"></a>웹 배포 (MSDeploy)
 
-패키지 및 Windows를 실행 하 여 Azure 함수 앱을 포함 하 여 IIS 서버에 Windows 응용 프로그램을 배포 합니다.
+패키지 하 고 Azure에서 Windows를 실행 하 여 함수 앱을 포함 하 여 IIS 서버에 Windows 응용 프로그램을 배포 합니다.
 
->__사용 방법:__ 사용 합니다 [Azure Functions 용 Visual Studio tools](functions-create-your-first-function-visual-studio.md), 눈금 없고는 `Run from package file (recommended)` 확인란 합니다.
+>__사용 방법:__ 사용 하 여는 [Azure Functions 용 Visual Studio tools](functions-create-your-first-function-visual-studio.md), 선택 취소 하 고는 `Run from package file (recommended)` 상자.
 >
->또는 호출 `MSDeploy.exe` 다운로드 한 후 직접 [웹 배포 3.6](https://www.iis.net/downloads/microsoft/web-deploy)합니다.
+> 또한 다운로드할 수 있습니다 [웹 배포 3.6](https://www.iis.net/downloads/microsoft/web-deploy) 호출 `MSDeploy.exe` 직접.
 
 >__사용 하는 경우:__ 이 배포 기술을 사용할 수 있으며 아무 문제가 이지만 기본 메커니즘은 이제 [Zip 패키지와 함께 배포 실행에서 사용 하도록 설정](#zip-deploy)합니다. 자세한 내용은 참조는 [Visual Studio 개발 가이드](functions-develop-vs.md#publish-to-azure)합니다.
 

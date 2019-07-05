@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 345f492c5b2c754cbbcfa150561ee06b5a4154a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ede0538e90e9f35797546f34bfed757c2727b194
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718694"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508884"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Curl 사용 하 여 HDInsight에서 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -115,4 +115,4 @@ curl 관련 기타 HDInsight 문서:
 * [Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 * [REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](apache-hadoop-use-hive-curl.md)
 * [REST를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업 실행](apache-hadoop-use-mapreduce-curl.md)
-* [cURL을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Pig 작업 실행](apache-hadoop-use-pig-curl.md)
+

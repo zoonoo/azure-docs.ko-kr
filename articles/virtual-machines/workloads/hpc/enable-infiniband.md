@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 81acb804ed2ebb9e88bc7d8281a7fa52359d4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810084"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537663"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>SR-IOV를 사용 하 여 InfiniBand를 사용 하도록 설정
 
@@ -30,7 +30,7 @@ SR-IOV에 InfiniBand를 수동으로 구성 하려면 (현재: HB 및 HC 시리�
 
 ## <a name="manually-install-ofed"></a>OFED를 수동으로 설치
 
-ConnectX 5에 대 한 최신 MLNX_OFED 드라이버를 설치 [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=26)합니다.
+ConnectX 5에 대 한 최신 MLNX_OFED 드라이버를 설치 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)합니다.
 
 RHEL/centos (7.6에 대 한 아래 예제):
 ```bash
@@ -42,7 +42,19 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-Windows를 다운로드 하 여 ConnectX-5에서 WinOF 2 드라이버 설치 [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+Windows를 다운로드 하 여 ConnectX-5에서 WinOF 2 드라이버 설치 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+
+## <a name="enable-ipoib"></a>IPoIB를 사용 하도록 설정
+
+```bash
+sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
+sudo /etc/init.d/openibd restart
+if [ $? -eq 1 ]
+then
+  sudo modprobe -rv  ib_isert rpcrdma ib_srpt
+  sudo /etc/init.d/openibd restart
+fi
+```
 
 ## <a name="assign-an-ip-address"></a>IP 주소를 할당 합니다.
 

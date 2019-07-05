@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295063"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449850"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -103,7 +103,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
     - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용합니다.
     - Cp를 사용 하 여 병렬을 사용 하 여 복사 속도 개선할 수 있습니다, 그리고 스레드 수가 사용 사례 및 워크 로드에 따라 달라 집니다. 이 예제에서는 6: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`합니다.
     - 와 같은 오픈 소스 타사 도구:
-        - [GNU 병렬](http://www.gnu.org/software/parallel/)합니다.
+        - [GNU 병렬](https://www.gnu.org/software/parallel/)합니다.
         - [Fpart](https://github.com/martymac/fpart) -파일을 정렬 하 고 파티션으로 압축 합니다.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Fpart 사용 및 복사 도구를 src_dir 데이터 dst_url로 여러 인스턴스를 생성 합니다.
         - [다중](https://github.com/pkolano/mutil) -GNU coreutils를 기반으로 다중 스레드 cp 및 md5sum입니다.

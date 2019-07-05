@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571060"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432642"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -50,13 +50,15 @@ IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
 ![공유 액세스 정책 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* **레지스트리 읽기** 및 **레지스트리 쓰기** 정책은 ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 쓰기 옵션을 선택하면 읽기 옵션도 자동으로 선택됩니다.
+* **레지스트리 읽기** 및 **레지스트리 쓰기** 정책은 ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 이러한 권한은 장치 id 관리를 백 엔드 클라우드 서비스에서 사용 됩니다. 쓰기 옵션을 선택하면 읽기 옵션도 자동으로 선택됩니다.
 
-* **서비스 연결** 정책은 **디바이스-클라우드 수신**과 같은 서비스 엔드포인트에 액세스할 수 있는 권한을 부여합니다. 
+* 합니다 **서비스 연결** 정책에는 서비스 끝점에 액세스할 수 있는 권한을 부여 합니다. 이 사용 권한은 백 엔드 클라우드 서비스에서 장치 쌍 및 모듈 쌍 데이터를 읽고 업데이트에 대 한 장치에서 메시지를 받고 보내는 데 사용 됩니다.
 
-* **디바이스 연결** 정책은 IoT Hub 디바이스 쪽 엔드포인트를 사용하여 메시지를 주고받기 위한 권한을 부여합니다.
+* **디바이스 연결** 정책은 IoT Hub 디바이스 쪽 엔드포인트를 사용하여 메시지를 주고받기 위한 권한을 부여합니다. 이 권한은 IoT hub에서 메시지를 수신, 업데이트 하 고 장치 쌍 및 모듈 쌍 데이터를 보내고 파일 업로드를 수행 하려면 장치에서 사용 됩니다.
 
 **만들기** 를 클릭하여 새로 만들어진 이 정책을 기존 목록에 추가합니다.
+
+자세한 내용을 보려면 특정 사용 권한을 부여한 액세스에 대 한 정보를 참조 하세요 [IoT Hub 권한](./iot-hub-devguide-security.md#iot-hub-permissions)합니다.
 
 ## <a name="message-routing-for-an-iot-hub"></a>IoT 허브에 대한 메시지 라우팅
 

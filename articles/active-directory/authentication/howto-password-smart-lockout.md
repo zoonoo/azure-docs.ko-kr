@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358143"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483313"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -41,7 +41,9 @@ ms.locfileid: "60358143"
 [통과 인증](../hybrid/how-to-connect-pta.md)을 사용하는 경우 다음을 확인해야 합니다.
 
 * Azure AD 잠금 임계값이 Active Directory 계정 잠금 임계값**보다 작습니다**. Active Directory의 계정 잠금 임계값을 Azure AD의 잠금 임계값보다 최소 2~3배 이상 크게 설정합니다. 
-* Azure AD 잠금 기간(**단위: 초**)이 Active Directory의 다음 시간(**단위: 분**) 후 계정 잠금 수를 원래대로 설정 값**보다 길어야** 합니다.
+* Azure AD 잠금 기간 Active Directory 기간 후 계정 잠금 카운터 재설정 이상으로 설정 되어야 합니다. Azure AD 기간 (초)에서 설정할지를 광고 하는 동안 지속 시간은 분 단위로 설정 됩니다 알아야 합니다. 
+
+예를 들어 AD 보다 높을 수 하 여 Azure AD 카운터를 하려는 경우 다음 Azure AD는 것에 온 프레미스 AD는 1 분 (60 초)으로 설정 하는 동안 120 초 (2 분)입니다.
 
 > [!IMPORTANT]
 > 현재로서는 사용자의 클라우드 계정이 스마트 잠금 기능에 의해 잠긴 경우 관리자가 잠금을 해제할 수 없습니다. 잠금 기간이 만료될 때까지 기다려야 합니다.

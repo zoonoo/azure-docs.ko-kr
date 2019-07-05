@@ -9,20 +9,20 @@
   items:
     - name: HDInsight에서 Apache Storm 토폴로지 만들기
       href: ./apache-storm-quickstart.md
-- name: 시작하기
+- name: 자습서
   items:
-    - name: Apache Storm 클러스터 만들기
-      href: apache-storm-tutorial-get-started-linux.md
-    - name: HDInsight 앱 설치
-      href: ../hdinsight-apps-install-applications.md
-    - name: 용량 계획
-      href: ../hdinsight-capacity-planning.md
+    - name: Apache Storm을 사용하여 스토리지에 쓰기
+      href: apache-storm-write-data-lake-store.md
 - name: 개념
   items:
     - name: HDInsight의 Apache Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: HDInsight 앱 설치
+      href: ../hdinsight-apps-install-applications.md
+    - name: 용량 계획
+      href: ../hdinsight-capacity-planning.md
 - name: 방법
   items:
     - name: Apache Storm 토폴로지 개발
@@ -47,10 +47,6 @@
           href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
         - name: 'Event Hub 및 Apache Storm(C# 및 Java)'
           href: apache-storm-develop-csharp-event-hub-topology.md
-        - name: Azure Storage/Data Lake Storage(Java)
-          href: apache-storm-write-data-lake-store.md
-        - name: 'Event Hub, Apache HBase(Java)'
-          href: apache-storm-sensor-data-analysis.md
     - name: 클러스터 확장
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정

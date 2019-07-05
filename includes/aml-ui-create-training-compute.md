@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
 ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66397460"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182820"
 ---
 작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 실험이 실행됩니다.  컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
 

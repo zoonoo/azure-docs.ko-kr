@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023761"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448443"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "65023761"
 
 문서 해독의 일환으로 이미지 파일이나 파일에 포함된 이미지를 처리하기 위한 새로운 인덱서 구성 매개 변수 집합이 있습니다. 이러한 매개 변수는 추가 다운스트림 처리를 위해 이미지를 정규화하는 데 사용됩니다. 이미지를 정규화하면 보다 일관되게 만들 수 있습니다. 큰 이미지는 사용 가능하도록 최대 높이 및 너비로 크기가 조정됩니다. 방향에 메타데이터를 제공하는 이미지의 경우 세로 로드를 위해 이미지 회전이 조정됩니다. 메타데이터 조정은 각 이미지에 대해 만든 복합 형식으로 캡처됩니다. 
 
-이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다.
+이미지 정규화를 해제할 수 없습니다. 이미지에서 기술을 반복하려면 정규화된 이미지를 사용하는 것이 좋습니다. 인덱서에 이미지 정규화를 사용 하도록 설정 하면 기술 집합에는 인덱서 연결할 수 있는지에 필요 합니다.
 
 | 구성 매개 변수 | 설명 |
 |--------------------|-------------|
@@ -66,7 +66,7 @@ ms.locfileid: "65023761"
 
 | 이미지 멤버       | 설명                             |
 |--------------------|-----------------------------------------|
-| 데이터               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
+| data               | JPEG 형식의 BASE64 인코딩된 정규화된 이미지 문자열입니다.   |
 | width              | 픽셀 단위로 정규화된 이미지의 너비입니다. |
 | height             | 픽셀 단위로 정규화된 이미지의 높이입니다. |
 | originalWidth      | 정규화 이전에 이미지의 원래 너비입니다. |

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231431"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304188"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "65231431"
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 NER(명명된 엔터티 인식)은 텍스트의 다른 엔터티를 식별하고 미리 정의된 클래스로 분류하는 기능입니다. 지원되는 엔터티 클래스는 다음과 같습니다.
 
-Text Analytics [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)에서는, 엔터티 연결 및 명명된 엔터티 인식(NER)을 모두 사용할 수 있습니다.
+Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), 엔터티 연결 및 명명 된 엔터티 인식 (NER)를 모두 여러 언어에 대해 사용할 수 있습니다. 참조 된 [언어 지원](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) 자세한 문서. 
 
 ### <a name="language-support"></a>언어 지원
 
@@ -105,7 +105,7 @@ Text Analytics [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/do
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
-요청을 받으면 분석이 수행됩니다. 서비스는 분당 두 번째 및 1000 요청당 최대 100 개의 요청을 수락 합니다. 각 요청은 최대 1MB가 될 수 있습니다.
+요청을 받으면 분석이 수행됩니다. 참조 된 [데이터 제한](../overview.md#data-limits) 분당 보내고 두 번째 요청의 수와 크기에 대 한 정보에 대 한 개요는 섹션입니다.
 
 상태 비저장 서비스임에 유의하세요. 계정에는 아무 데이터도 저장되지 않습니다. 결과는 응답으로 즉시 반환됩니다.
 

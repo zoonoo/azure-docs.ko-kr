@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6f44005080bbd8583ae2e2fdad31ef2c823c7ca
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154516"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544120"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Azure portal에서 CloudSimple 포털에서 VMware 솔루션에 액세스
 
@@ -21,7 +21,16 @@ Single sign on CloudSimple 포털에 대 한 액세스에 지원 됩니다. Azur
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-기본 제공 된 사용자만 **소유자** 하 고 **참가자** 역할 CloudSimple 포털에 액세스할 수 있습니다.  역할은 구독에서 구성 되어야 합니다.  사용자의 역할을 검사 하는 방법은 참조 하세요 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서.
+기본 제공을 사용 하 여 사용자 **소유자** 하 고 **참가자** 역할 CloudSimple 포털에 액세스할 수 있습니다.  역할은 CloudSimple 서비스를 배포할 리소스 그룹에 구성 되어야 합니다.  또한 CloudSimple 서비스 개체에 역할을 구성할 수 있습니다.  사용자의 역할을 검사 하는 방법은 참조 하세요 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서.
+
+역할에서 다음 작업 중 하나가 있어야 사용자 지정 역할을 사용 하는 경우 ```Actions```합니다.  사용자 지정 역할에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)입니다.  작업의 일부인 경우 ```NotActions```, 사용자 CloudSimple 포털에 액세스할 수 없습니다. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

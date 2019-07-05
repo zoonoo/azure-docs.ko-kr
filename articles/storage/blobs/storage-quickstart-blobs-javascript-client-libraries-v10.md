@@ -11,12 +11,12 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: b16bbeee299f4879c14856a8041e6517968efebf
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a971f2b4b63b3fd35777d1d890da8451b84bb086
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481114"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544036"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -222,7 +222,7 @@ const sasString = "<Add the SAS you generated earlier>";
 const containerName = "testcontainer";
 const containerURL = new azblob.ContainerURL(
     `https://${accountName}.blob.core.windows.net/${containerName}?${sasString}`,
-    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential)));
+    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
 이 코드는 계정 정보와 SAS를 사용하여 스토리지 컨테이너를 만들고 조작하는 데 유용한 [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) 인스턴스를 만듭니다.
@@ -317,7 +317,7 @@ const uploadFiles = async () => {
 }
 
 selectButton.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("input", uploadFiles);
+fileInput.addEventListener("change", uploadFiles);
 ```
 
 이 코드는 **선택 및 업로드 파일** 단추를 숨겨진 `file-input` 요소에 연결합니다. 이 방식으로 단추 `click` 이벤트에서 파일 입력 `click` 이벤트를 트리거하고 파일 선택기를 표시합니다. 파일을 선택하고 대화 상자를 닫으면 `input` 이벤트가 발생하고 `uploadFiles` 함수가 호출됩니다. 이 함수는 선택한 각 파일에 대해 브라우저 전용 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) 함수를 호출합니다. 각 호출에서 Promise(약속)를 반환합니다. 이 약속은 한 번에 모든 파일을 기다릴 수 있도록 목록에 추가되며, 이에 따라 모든 파일을 동시에 업로드합니다.

@@ -5,22 +5,34 @@ author: ajlam
 ms.author: andrela
 ms.service: MySQL
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 1243ae8ae20d08ea643661606639abedbc56ab9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078782"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461751"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL에서에서 query Performance Insight
 
 **적용 대상:**  Azure Database for MySQL 5.7
 
 > [!NOTE]
-> Query Performance Insight는 미리 보기 상태입니다. Azure portal에서 Query Performance Insight에 대 한 지원을 롤아웃하는 아직 못할 지역의 하며
+> Query Performance Insight는 미리 보기 상태입니다.
 
 Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼리, 쿼리가 시간의 경과에 따라 변경되는 방식 및 쿼리에 영향을 주는 대기 등을 빠르게 파악할 수 있습니다.
+
+## <a name="common-scenarios"></a>일반적인 시나리오
+
+### <a name="long-running-queries"></a>장기 실행 쿼리
+
+- 지난 X시간 동안 가장 오래 실행되는 쿼리를 식별하는 경우
+- 리소스에서 대기 중인 최상위 N개 쿼리를 식별하는 경우
+ 
+### <a name="wait-statistics"></a>대기 작업 통계
+
+- 쿼리에 대 한 대기 특성 이해
+- 리소스 대기 및 리소스 경합 존재 하는 위치에 대 한 추세 이해
 
 ## <a name="permissions"></a>권한
 
@@ -36,11 +48,20 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
 
 MySQL 서버용 Azure Database의 포털 페이지에서 선택 **Query Performance Insight** 아래의 합니다 **지능형 성능** 메뉴의 섹션입니다.
 
-![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+### <a name="long-running-queries"></a>장기 실행 쿼리
 
 합니다 **장기 실행 쿼리의** 15 분 간격으로 집계 탭 실행 당 평균 기간별 상위 5 개 쿼리를 보여 줍니다. 선택 하 여 더 많은 쿼리를 볼 수 있습니다 합니다 **수의 쿼리** 드롭다운 합니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
 차트를 클릭하고 끌어 특정 기간으로 범위를 좁힐 수 있습니다. 또는 각각 늘리거나 기간을 보려면 아이콘 입출력 확대/축소를 사용 합니다.
+
+![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+
+### <a name="wait-statistics"></a>대기 작업 통계
+
+> [!NOTE]
+> 대기 통계는 쿼리 성능 문제 해결을 위한 것입니다. 문제 해결을 위해 동안만 켜져 있어야 하는 것이 좋습니다.
+
+대기 통계에는 특정 쿼리를 실행 하는 동안 발생 하는 대기 이벤트의 보기를 제공 합니다. 대기 이벤트 형식에 대 한 자세한 정보는 [MySQL 엔진 설명서](https://go.microsoft.com/fwlink/?linkid=2098206)합니다.
 
 선택 된 **Wait Statistics** 대기 서버에서에서 해당 시각화를 보려면 탭 합니다.
 

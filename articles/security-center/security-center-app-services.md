@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966829"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551855"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Azure Security Center를 통해 App Service 보호
 이 문서에서는 Azure Security Center를 사용하여 App Service 기반으로 실행 중인 애플리케이션을 모니터링 및 보호하는 데 도움이 됩니다.
@@ -47,9 +47,8 @@ Security Center는 기본적으로 App Service와 통합되므로 배포 및 탑
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용
 
 1. Azure에서 Security Center를 선택합니다.
-2. **보안 정책**으로 이동하고 구독을 선택합니다.
-3. 구독 행 마지막에서 **설정 편집**을 클릭합니다.
-4. **가격 책정 계층** 아래에서 **App service** 행을 선택하고 플랜을 **사용**으로 토글합니다.
+2. 로 이동 **가격 책정 및 설정** 구독을 선택 합니다.
+3. **가격 책정 계층** 아래에서 **App service** 행을 선택하고 플랜을 **사용**으로 토글합니다.
 
 ![앱 서비스 토글](./media/security-center-app-services/app-services-toggle.png)
 

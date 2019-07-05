@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 569ef6e9f91fdd728c5d230e2a6c46a7b01e5a62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: af3c4482b1ce9e521d14a0e0c63de40625c25c73
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078821"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461791"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>MySQL 용 Azure Database에서 성능 권장 사항
 
 **적용 대상:** Azure Database for MySQL 5.7
 
 > [!NOTE]
-> 미리 보기 성능 권장 사항입니다. Azure portal에서 성능 권장 사항에 대 한 지원을 롤아웃하는 아직 못할 지역의 하며
+> 미리 보기 성능 권장 사항입니다.
 
 성능 권장 사항 기능에는 데이터베이스 성능 향상된을 위해 사용자 지정 된 제안 만들기를 분석 합니다. 권장 사항을 생성하기 위해, 해당 분석은 스키마를 포함하여 다양한 데이터베이스 특성을 살펴봅니다. 성능 권장 사항 기능을 완벽하게 활용하려면 서버의 [쿼리 저장소](concepts-query-store.md)를 사용 설정합니다. 성능 스키마가 OFF 이면 performance_schema 및 기능에 필요한 성능 스키마 계측의 하위 집합을 사용 하면 쿼리 저장소 설정. 성능 권장 사항을 구현한 후, 이러한 변경의 영향을 평가하는 성능을 테스트 해야 합니다.
 

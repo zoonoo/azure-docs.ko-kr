@@ -19,6 +19,8 @@
 - name: 개념
   expanded: false
   items:
+    - name: 조건부 액세스 채택
+      href: howto-conditional-access-adoption-kit.md
     - name: 기준 보호 정책
       href: concept-baseline-protection.md
     - name: 조건

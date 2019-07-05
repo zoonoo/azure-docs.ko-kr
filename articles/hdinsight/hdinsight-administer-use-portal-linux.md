@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068913"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460640"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -81,7 +81,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
     | 항목| 설명 |
     |---|---|
     |경고|경고와 작업을 관리합니다.|
-    |metrics|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
+    |메트릭|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
     |진단 설정|진단 메트릭을 저장하는 위치에 대한 설정입니다.|
     |Operations Management Suite|Azure Operations Management Suite (OMS) 및 Azure Monitor 로그에서 클러스터를 모니터링 합니다.|
 
@@ -152,7 +152,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
 * 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
-* Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
+* Azure PowerShell 사용  [비행 지연 데이터 분석](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)을 참조하세요.
 * Azure CLI 사용 참조 [Azure CLI를 사용 하 여 Azure HDInsight 관리 클러스터](hdinsight-administer-use-command-line.md)합니다.
 * HDInsight .NET SDK 사용 [Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
@@ -214,7 +214,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | 이름 |“SSH 암호 변경” |
+   | Name |“SSH 암호 변경” |
    | Bash 스크립트 URI |Changepassword.sh 파일에 대한 URI |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자, Zookeeper 등) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |

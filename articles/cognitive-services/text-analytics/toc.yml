@@ -70,8 +70,16 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: 컨테이너 구성
           href: text-analytics-resource-container-config.md
-        - name: Azure Kubernetes Service에서 실행하는 방법
-          href: How-tos/text-analytics-how-to-use-container-instance.md
+        - name: 컨테이너 인스턴스(ACI) 사용
+          items:
+            - name: 정서 분석
+              href: how-tos/use-sentiment-analysis-on-aci.md
+        - name: Kubernetes 서비스(AKS) 사용
+          items:
+            - name: 언어 검색
+              href: how-tos/use-language-detection-on-aks.md
+            - name: 정서 분석
+              href: how-tos/use-sentiment-analysis-on-aks.md
     - name: 텍스트 분석 연결된 서비스 사용
       href: vs-text-connected-service.md
 - name: 참고 자료

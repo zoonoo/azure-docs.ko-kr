@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063571"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508564"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -54,7 +54,7 @@ Cosmos 계정의 분산 되는 경우 *N* Azure 지역에 있을 것 이상 *N* 
 
 - 단일 지역 계정은 지역 중단으로 인해 가용성이 손실될 수도 있습니다. 것이 좋습니다 설정 하기 위해 **두 개 이상의 지역** (가급적 둘 이상의 쓰기 지역) 모든 시간에 고가용성을 보장 하기 위해 Cosmos 계정과 합니다.
 
-- 기에 드물게 발생 하며 부적절 한 이벤트는 Azure 지역을 영구적으로 복구할 수 없는 경우 데이터 손실 없이 다중 지역 Cosmos 계정의 기본 일관성 수준을 사용 하 여 구성 된 경우 *강력한*합니다. 잠재적인 데이터 손실 기간 제한 된 부실 일관성으로 구성 된 다중 지역 Cosmos 계정에 대 한 영구적으로 복구할 수 없는 쓰기 지역, 시 항상 부실 창으로 제한 됩니다 (*K* 또는*T*); 세션, 일관적인 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간을 최대 5 초 제한 됩니다. 
+- 기에 드물게 발생 하며 부적절 한 이벤트를 Azure 지역에 영구적으로 복구할 수 없는 경우 데이터 손실 없이 다중 지역 Cosmos 계정의 기본 일관성 수준을 사용 하 여 구성 된 경우 *강력한*합니다. 잠재적인 데이터 손실 기간 제한 된 부실 일관성으로 구성 된 다중 지역 Cosmos 계정에 대 한 영구적으로 복구할 수 없는 쓰기 지역, 시 항상 부실 창으로 제한 됩니다 (*K* 또는*T*); 세션, 일관적인 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간을 최대 5 초 제한 됩니다. 
 
 ## <a name="availability-zone-support"></a>가용성 영역 지원
 
@@ -70,6 +70,9 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성할 때 없이 영�
 
 * 영국 남부
 * 동남아시아 
+* East US
+* 미국 동부 2 
+* 미국 중부
 
 > [!NOTE] 
 > 단일 하위 지역 Azure Cosmos 계정에 대 한 가용성 영역을 사용 하도록 설정 하면 해당 계정에 추가 영역을 추가 하는 요금이 발생 합니다. 가격 책정 세부 정보를 참조 하세요.는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 하며 [Azure Cosmos DB의 다중 지역 비용](optimize-cost-regions.md) 문서입니다. 
@@ -89,7 +92,10 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성할 때 없이 영�
 |지역 가동 중단-가용성  |  가용성이 손실       |  가용성이 손실       |  가용성 손실 없음  |
 |처리량    |  처리량을 프로 비전 된 RU/s X      |  처리량을 프로 비전 된 RU/s X       |  RU/s 프로 비전 된 처리량 2x <br/><br/> 이 구성 모드에서는 두 지역에 있기 때문에 가용성 영역을 사용 하 여 단일 지역을 비교할 때 처리량의 두 배입니다.   |
 
-새 또는 기존 Azure Cosmos 계정에 지역을 추가 하는 경우 영역 중복을 설정할 수 있습니다. 현재 PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 영역 중복을 사용할 수 있습니다. Azure Cosmos 계정의 영역 중복을 사용 하도록 설정 하려면 설정 해야 합니다 `isZoneRedundant` 플래그를 `true` 특정 위치에 대 한 합니다. 위치 속성 내에서이 플래그를 설정할 수 있습니다. 예를 들어, 다음 powershell 코드 조각은 "동남 아시아" 지역에 대 한 영역 중복을 수 있습니다.
+> [!NOTE] 
+> 가용성 영역 지원을 사용 하려면 Azure Cosmos DB 계정에 다중-마스터/다중 지역 쓰기 사용할 수 있어야 합니다. 
+
+새 또는 기존 Azure Cosmos 계정에 지역을 추가 하는 경우 영역 중복을 설정할 수 있습니다. Azure를 사용 하 여 영역 중복만 설정할 수 있습니다. 현재는 포털, PowerShell 및 Azure Resource Manager 템플릿. Azure Cosmos 계정의 영역 중복을 사용 하도록 설정 하려면 설정 해야 합니다 `isZoneRedundant` 플래그를 `true` 특정 위치에 대 한 합니다. 위치 속성 내에서이 플래그를 설정할 수 있습니다. 예를 들어, 다음 powershell 코드 조각은 "동남 아시아" 지역에 대 한 영역 중복을 수 있습니다.
 
 ```powershell
 $locations = @( 
@@ -97,6 +103,10 @@ $locations = @(
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
 ```
+
+Azure Cosmos 계정을 만들 때 Azure portal을 사용 하 여 가용성 영역을 사용할 수 있습니다. 계정을 만들 때 사용 하도록 설정 되어 있는지 확인 합니다 **지리적 중복**를 **다중 지역 쓰기**, 가용성 영역 지원 되는 지역을 선택 하 고: 
+
+![Azure portal을 사용 하 여 가용성 영역을 사용 하도록 설정](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>고가용성 애플리케이션 빌드
 

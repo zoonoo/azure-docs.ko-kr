@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417841"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491754"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -35,7 +35,7 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 * 지원되는 컴퓨터에서 실행 중인 모든 워크로드에 복제를 제공하는 앱 중립성.
 * 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제.
 * 단일 또는 다중 계층 애플리케이션에 대한 앱 일관성 스냅샷.
-* AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 애플리케이션 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
+* SQL Server AlwaysOn 및 AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹 (Dag)를 포함 하 여 다른 응용 프로그램 수준 복제 기술 사용 하 여 파트너와의 통합.
 * 클릭 한 번으로 전체 애플리케이션 스택을 복구하고 외부 스크립트 또는 수동 작업을 계획에 포함할 수 있는 유연한 복구.
 * Site Recovery 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure Traffic Manager와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
 * 다운로드하고 복구 계획과 통합할 수 있는 프로덕션 준비된 애플리케이션 특정 스크립트를 제공하는 다양한 자동화 라이브러리입니다.

@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969064"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490141"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
-이 문서는 Azure Cost Management에 포함된 데이터를 파악하는 데 도움이 됩니다. 또한 데이터의 처리, 수집, 표시 및 마감 빈도를 설명합니다. Azure 사용 요금은 매월 청구됩니다. 그러나 Azure 구독 유형에 따라 청구 월이 종료되는 시점이 결정됩니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
+이 문서에서는 Azure Cost Management에 포함 된 Azure 비용 및 사용량 데이터를 더 잘 이해 합니다. 데이터를 처리, 수집, 표시 및 닫힌 얼마나 자주 설명 합니다. Azure 사용 요금은 매월 청구됩니다. 되지만 청구 주기는 월별 기간, 주기 시작 및 종료 날짜는 구독 유형에 따라 달라 집니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
 
-Cost Management는 모든 사용량 및 예약 등 EA (기업 계약) 계정에 대 한 타사 제품 구매를 포함 합니다. Microsoft 고객 계약 (MCA) 계정 및 종 량 제 구독에서 Azure 및 Marketplace 서비스 사용을 포함 됩니다. 지원 및 기타 비용 포함 되지 않습니다. 송장을 생성 될 때까지 비용 예측 및 크레딧 팩터링 하지.
+Cost Management는 모든 사용량 및 예약 등 EA (기업 계약) 계정에 대 한 타사 제품 구매를 포함 합니다. Microsoft 고객 계약 (MCA) 계정 및 개별 구독 종 량 제 요금으로 Azure 및 Marketplace 서비스 사용을 포함 됩니다. 지원 및 기타 비용 포함 되지 않습니다. 송장을 생성 될 때까지 비용 예측 및 크레딧 팩터링 하지.
 
-## <a name="supported-microsoft-offers"></a>지원되는 Microsoft 제품
+## <a name="supported-microsoft-azure-offers"></a>지원 되는 Microsoft Azure 제품
 
-Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)음 다음과 같습니다.  Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다.
+현재 지원 되는 다음 정보를 보여 줍니다 [Microsoft Azure 행사](https://azure.microsoft.com/support/legal/offer-details/) Azure Cost Management를 통해. Azure 제품에 대 한 서명 된 계약에 있는 Azure 구독 유형을 결정 합니다.
 
 | Category  | **제품 이름** | **ID 할당** | **제품 번호** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-다음 표에는 지원되지 않는 제품이 나와 있습니다.
+다음 표에서 Cost Management에서 지원 되지 않는 Azure 제품을 보여 줍니다.
 
 | Category  | **제품 이름** | **ID 할당** | **제품 번호** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **지원 플랜** | Azure Government Pro-Direct 지원 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **지원 플랜** | Azure Government 개발자 지원  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-종량제, MSDN 및 Visual Studio 제품 분류가 있는 고객의 경우 2018년 10월 2일부터 Cost Management에서 데이터를 사용할 수 있습니다. 2018 년 10 월 02 하기 전에 구독에 대 한 데이터에 액세스 하려면 사용할 수 있습니다 합니다 [Azure 계정 센터](https://account.azure.com/subscriptions) CSV 파일의 세부 정보 사용 현황을 다운로드 하거나 사용할 수 있습니다 합니다 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)합니다.
+종 량 제를 사용 하 여 고객의 경우 MSDN 및 Visual Studio 제품 범주, 데이터는 2018 년 10 월 02를에서 시작 하는 Cost Management에서 사용할 수 있습니다. 2018 년 10 월 02 하기 전에 구독에 대 한 데이터에 액세스 하려면 사용할 수 있습니다 합니다 [Azure 계정 센터](https://account.azure.com/subscriptions) CSV 파일의 세부 정보 사용 현황을 다운로드 하거나 사용할 수 있습니다 합니다 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)합니다.
 
 ## <a name="determine-your-offer-type"></a>제안 유형을 결정 합니다.
 구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 클릭합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
@@ -116,7 +116,7 @@ EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상
 
 ### <a name="rerated-data"></a>데이터 재평가
 
-사용 여부를 [비용 관리 Api](https://aka.ms/costmgmt/docs), Power BI 또는 Azure portal에서 데이터를 검색 하려면 등급 다시 가져오기 청구서 닫힐 때까지 결과적으로 변경 하는 현재 청구 기간 요금을 예상 합니다.
+사용 여부를 [비용 관리 Api](index.yml), Power BI 또는 Azure portal에서 데이터를 검색 하려면 등급 다시 가져오기 청구서 닫힐 때까지 결과적으로 변경 하는 현재 청구 기간 요금을 예상 합니다.
 
 ## <a name="usage-data-update-frequency-varies"></a>사용량 데이터 업데이트 빈도 변동
 
@@ -129,7 +129,7 @@ Cost Management에서 발생한 사용량 데이터의 사용 가능 여부는 �
 
 ## <a name="historical-data-might-not-match-invoice"></a>기록 데이터가 청구서와 일치 하지 않을 수 있습니다.
 
-사전 지불 및 크레딧 기반 제품에 대 한 기록 데이터는 청구서를 일치 하지 않을 수 있습니다. 일부 Azure 종 량 제, MSDN 및 Visual Studio 제품은 Azure 크레딧 및 청구서에 적용 하는 고급 지불 있을 수 있습니다. 그러나 Cost Management에서 표시 되는 기록 데이터에 예상된 된 사용량 요금은 기반으로 합니다. 비용된 관리 기록 데이터는 지불 및 크레딧 포함 되지 않습니다. 결과적으로, 다음 제품에 대 한 표시 되는 기록 데이터 청구서를 사용 하 여 정확히 일치 하지 않을 수 있습니다.
+사전 지불 및 크레딧 기반 제품에 대 한 기록 데이터는 청구서를 일치 하지 않을 수 있습니다. 일부 Azure 종 량 제, MSDN 및 Visual Studio가 Azure 크레딧 및 고급 지불 적용할 있습니다 청구서를 제공 합니다. 그러나 Cost Management에서 표시 되는 기록 데이터에 예상된 된 사용량 요금은 기반으로 합니다. 비용된 관리 기록 데이터는 지불 및 크레딧 포함 되지 않습니다. 결과적으로, 다음 제품에 대 한 표시 되는 기록 데이터 청구서를 사용 하 여 정확히 일치 하지 않을 수 있습니다.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

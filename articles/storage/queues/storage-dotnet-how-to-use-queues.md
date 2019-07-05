@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077027"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446849"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 
@@ -82,7 +82,7 @@ Azure 클라우드 서비스 또는 웹 앱을 포함 한.NET 응용 프로그�
 > [!NOTE]
 > 저장소 클라이언트 라이브러리 패키지에도 포함 되어는 [Azure SDK for.net](https://azure.microsoft.com/downloads/)합니다. 그러나 최신 버전 항상 있는지 확인 하는 NuGet에서 Storage 클라이언트 라이브러리도 설치 하는 것이 좋습니다.
 >
-> .NET 용 Storage 클라이언트 라이브러리의 ODataLib 종속성은 WCF Data Services 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인 됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 저장소 클라이언트 라이브러리에서 사용 하는 특정 ODataLib 패키지는 [OData](http://nuget.org/packages/Microsoft.Data.OData/)를 [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), 및 [공간](http://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table storage 클래스에서 사용 되지만, 이들은 저장소 클라이언트 라이브러리를 사용한 프로그래밍에 대 한 필수 종속성입니다.
+> .NET 용 Storage 클라이언트 라이브러리의 ODataLib 종속성은 WCF Data Services 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인 됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. 저장소 클라이언트 라이브러리에서 사용 하는 특정 ODataLib 패키지는 [OData](https://nuget.org/packages/Microsoft.Data.OData/)를 [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), 및 [공간](https://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table storage 클래스에서 사용 되지만, 이들은 저장소 클라이언트 라이브러리를 사용한 프로그래밍에 대 한 필수 종속성입니다.
 
 ### <a name="determine-your-target-environment"></a>대상 환경 확인
 

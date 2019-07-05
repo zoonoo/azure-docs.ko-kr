@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b9ca4862f129b2da23a1d1ad8bb0b1bd0a5078f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288153"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476286"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>PIM에서 관리할 Azure 리소스 검색
 
@@ -37,15 +37,15 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 사용
 
     처음으로 Azure 리소스에 대해 PIM을 사용하는 경우 리소스 검색 창이 표시됩니다.
 
-    ![리소스 검색 - 최초](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![첫 번째 타임 환경에 대해 나열 된 리소스가 없는 리소스 창 검색](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     조직의 다른 리소스나 디렉터리 관리자가 이미 PIM에서 Azure 리소스를 관리하고 있는 경우 현재 관리되는 리소스 목록이 표시됩니다.
 
-    ![리소스 검색 창](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![현재 관리 되는 리소스 창 목록은 리소스 검색](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. **리소스 검색**을 클릭하여 검색 환경을 시작합니다.
 
-    ![검색 창](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![구독 및 관리 그룹과 같은 관리할 수 있는 리소스를 나열 하는 검색 창](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. 검색 창에서 **리소스 상태 필터** 및 **리소스 종류 선택**을 사용하여 쓰기 권한이 있는 관리 그룹 또는 구독을 필터링합니다. 처음에는 **모두**로 시작하는 것이 가장 쉬울 수 있습니다.
 
@@ -58,11 +58,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)을 사용
     > [!NOTE]
     > 관리 그룹 또는 구독이 관리됨으로 설정되면 관리되지 않음이 될 수 없습니다. 따라서 다른 리소스 관리자가 PIM 설정을 제거하지 못합니다.
 
-    ![검색 - 리소스 관리](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![선택한 리소스와 관리 리소스 옵션이 강조 표시 창 검색](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. 관리하기로 선택한 리소스의 온보딩을 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
 
-    ![검색 - 리소스 메시지 관리](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![등록 관리를 위해 선택한 리소스를 확인 하는 메시지](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>다음 단계
 

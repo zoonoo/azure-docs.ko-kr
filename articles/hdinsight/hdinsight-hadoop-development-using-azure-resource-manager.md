@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 320611f05190d755c85a94a8e8eb9a1c04b3310e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523343"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508831"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
@@ -52,7 +52,7 @@ Azure Resource Manager로 사용할 수 있는 새 명령은 다음과 같습니
 
 * [cURL을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [cURL을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-curl.md)
-* [cURL을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-curl.md)
+
 
 Apache Hadoop MapReduce, Apache Hive 및 Apache Pig를 대화형으로 실행하는 다른 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md), [HDInsight에서 Hadoop과 Apache Hive 사용](hadoop/hdinsight-use-hive.md) 및 [HDInsight에서 Apache Hadoop과 Apache Pig 사용](hadoop/hdinsight-use-pig.md)을 참조하세요.
 
@@ -213,7 +213,6 @@ Resource Manager 모드에서만 사용할 수 있는 새 cmdlet은 다음과 �
 #### <a name="other-samples"></a>다른 샘플
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Apache Pig 작업 제출](hadoop/apache-hadoop-use-pig-powershell.md)
 * [Apache Sqoop 작업 제출](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>새 HDInsight .NET SDK로 마이그레이션
@@ -231,7 +230,6 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 | .NET SDK와 Azure Active Directory를 사용하여 대화형으로 애플리케이션 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
 | .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 애플리케이션 인증 |[HDInsight에 대한 비대화형 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK를 사용하여 Apache Hive 작업 제출 |[Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) 참조 |
-| .NET SDK를 사용하여 Apache Pig 작업 제출 |[Apache Pig 작업 제출](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 Apache Sqoop 작업 제출 |[Apache Sqoop 작업 제출](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 HDInsight 클러스터 나열 |[HDInsight 클러스터 나열](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 |[HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |

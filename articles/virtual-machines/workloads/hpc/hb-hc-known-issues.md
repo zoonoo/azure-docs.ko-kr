@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810039"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560408"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>HB 시리즈 및 HC 시리즈 VM의 알려진 문제
 
@@ -31,13 +31,13 @@ ms.locfileid: "66810039"
 
 Azure 가속 네트워킹 사용 가능 하지 이때 되지만 미리 보기 기간 동안 진행 하는 과정입니다. 우리는이 기능이 지원 되는 경우 고객에 게를 알립니다.
 
+## <a name="qp0-access-restriction"></a>qp0 액세스 제한
+
+보안 취약성을 큐 쌍에서 발생할 수 있는 하위 수준 하드웨어 액세스를 방지 하기 위해 0은 게스트 Vm에 액세스할 수 있습니다. 일반적으로 5 ConnectX NIC의 관리를 사용 하 여 연결 및 ibdiagnet, 하지만 최종 사용자 응용 프로그램이 아닌 자체와 같은 일부 InfiniBand 진단 실행 작업에만 영향을 줄 해야 합니다.
+
 ## <a name="ud-transport"></a>UD 전송
 
-시작 시 HB 시리즈는 동적으로 연결 된 전송 (DCT)을 지원 하지 않습니다. 시간이 지남에 따라 DCT에 대 한 지원이 구현 됩니다. 신뢰할 수 있는 연결 (RC) 및 신뢰할 수 없는 데이터 그램 (UD) 전송은 사용할 수 있습니다.
-
-## <a name="azure-batch"></a>Azure Batch
-
-HB 시리즈 Vm은 미리 보기에서, 서비스 모드에 있지 사용자 구독 모드에서 Batch 계정을 사용 합니다.
+시작 시 HB 및 HC 시리즈는 동적으로 연결 된 전송 (DCT)을 지원 하지 않습니다. 시간이 지남에 따라 DCT에 대 한 지원이 구현 됩니다. 신뢰할 수 있는 연결 (RC) 및 신뢰할 수 없는 데이터 그램 (UD) 전송은 사용할 수 있습니다.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 

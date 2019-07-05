@@ -3,20 +3,20 @@ title: Docker 컨테이너
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 컨테이너는 학습 또는 게시된 앱을 Docker 컨테이너로 로드하고 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 07/02/2019
+ms.author: dapine
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306620"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537106"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -55,12 +55,12 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 |컨테이너| 최소 | 권장 | TPS<br>(최소, 최대)|
 |-----------|---------|-------------|--|
-|LUIS|1개 코어, 2GB 메모리|1개 코어, 4GB 메모리|20,40|
+|LUIS|1 코어, 2GB 메모리|1 코어, 4GB 메모리|20,40|
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
 
-`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
+코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -168,23 +168,14 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 자리표시자 | 값 |
 |-------------|-------|
 |{APPLICATION_ID} | 게시된 LUIS 앱의 애플리케이션 ID입니다. |
 |{APPLICATION_ENVIRONMENT} | 게시된 LUIS 앱의 환경입니다. 다음 값 중 하나를 사용합니다.<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | 게시된 LUIS 앱에 대한 LUIS 계정의 작성 키입니다.<br/>LUIS 포털의 **사용자 설정** 페이지에서 작성 키를 가져올 수 있습니다. |
 |{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` - 미국 서부<br/>```westeurope``` - 유럽 서부<br/>```australiaeast``` - 오스트레일리아 동부 |
 
-다음 CURL 명령을 사용하여 게시된 패키지를 다운로드하여 사용자 고유 갑을 대체합니다.
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-성공한 경우 응답은 LUIS 패키지 파일입니다. 컨테이너의 입력 탑재에 대한 지정된 스토리지 위치에 파일을 저장합니다. 
+게시 된 패키지를 다운로드 하려면을 참조 하십시오 합니다 [여기에서 API 설명서][download-published-package]합니다. 성공적으로 다운로드 하는 경우 응답 LUIS 패키지 파일입니다. 컨테이너의 입력 탑재에 대한 지정된 스토리지 위치에 파일을 저장합니다. 
 
 ### <a name="export-trained-apps-package-from-api"></a>API에서 학습된 앱의 패키지 내보내기
 
@@ -196,29 +187,20 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 자리표시자 | 값 |
 |-------------|-------|
 |{APPLICATION_ID} | 학습된 LUIS 애플리케이션의 애플리케이션 ID입니다. |
 |{APPLICATION_VERSION} | 학습된 LUIS 애플리케이션의 애플리케이션 버전입니다. |
 |{AUTHORING_KEY} | 게시된 LUIS 앱에 대한 LUIS 계정의 작성 키입니다.<br/>LUIS 포털의 **사용자 설정** 페이지에서 작성 키를 가져올 수 있습니다.  |
 |{AZURE_REGION} | 해당 Azure 지역:<br/><br/>```westus``` - 미국 서부<br/>```westeurope``` - 유럽 서부<br/>```australiaeast``` - 오스트레일리아 동부 |
 
-다음 CURL 명령을 사용하여 학습된 패키지를 다운로드합니다.
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-성공한 경우 응답은 LUIS 패키지 파일입니다. 컨테이너의 입력 탑재에 대한 지정된 스토리지 위치에 파일을 저장합니다. 
+학습 된 패키지를 다운로드 하려면을 참조 하십시오 합니다 [여기에서 API 설명서][download-trained-package]합니다. 성공적으로 다운로드 하는 경우 응답 LUIS 패키지 파일입니다. 컨테이너의 입력 탑재에 대한 지정된 스토리지 위치에 파일을 저장합니다. 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
+[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-| Placeholder | Value |
+| Placeholder | 값 |
 |-------------|-------|
 |{ENDPOINT_KEY} | 이 키는 컨테이너를 시작하는 데 사용됩니다. 시작 키를 사용하지 마세요. |
 |{BILLING_ENDPOINT} | 청구 끝점 값은 Azure portal에서 사용할 수 있는 `Cognitive Services` 개요 페이지. 추가 해야 합니다 `luis/v2.0` 다음 예제에서와 같이 끝점 URI로 라우팅할: `https://westus.api.cognitive.microsoft.com/luis/v2.0`합니다.|
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* 이 예제에서는 디렉터리를 사용 하 여 해제 된 `c:` 드라이브에 Windows 권한이 충돌을 방지 하기. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
+* 이 예제에서는 디렉터리를 사용 하 여 해제 된 `C:` 드라이브에 Windows 권한이 충돌을 방지 하기. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
 * Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 * 다른 운영 체제를 사용 하는 경우 바 운 트 및 시스템에 대 한 줄 연속 문자에 대 한 올바른 콘솔/터미널을 폴더 구문을 사용 합니다. 이 예제에서는 줄 연속 문자를 사용 하는 Windows 콘솔 가정 `^`합니다. 컨테이너는 Linux 운영 체제 이기 때문에 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
-
-
 
 이 명령은 다음을 수행합니다.
 
@@ -264,7 +244,7 @@ ApiKey={ENDPOINT_KEY}
 
 두 V2 및 [V3 (미리 보기)](luis-migration-api-v3.md) 버전의 API 컨테이너를 사용 하 여 사용할 수 있습니다. 
 
-## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
+## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 게시된(스테이징 또는 프로덕션) 앱에 대한 엔드포인트는 학습된 앱에 대한 엔드포인트와 경로가 _다릅니다_. 
 
@@ -272,7 +252,7 @@ ApiKey={ENDPOINT_KEY}
 
 |패키지 유형|방법|경로|쿼리 매개 변수|
 |--|--|--|--|
-|게시됨|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
+|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
 |학습됨|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
@@ -280,10 +260,10 @@ ApiKey={ENDPOINT_KEY}
 |쿼리 매개 변수|Type|목적|
 |--|--|--|
 |`q`|문자열|사용자의 발화입니다.|
-|`timezoneOffset`|번호|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
-|`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
-|`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
-|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
+|`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
+|`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
+|`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
+|`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
 
 ### <a name="query-published-app"></a>게시된 앱 쿼리
 
@@ -324,7 +304,6 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 로그를 업로드한 후 LUIS 포털에서 [엔드포인트 발화](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances)를 검토합니다.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,19 +341,18 @@ LUIS 앱 종속성 지원 되지 않는 경우 할 수 없습니다 [컨테이�
 
 지원되지 않는 앱 구성|세부 정보|
 |--|--|
-|지원되지 않는 컨테이너 문화권| 네덜란드어(nl-NL)<br>일본어(ja-JP)<br>독일어는 에서만 지원 합니다 [1.0.1 토크 나이저 이상](luis-language-support.md#custom-tokenizer-versions)합니다.|
+|지원되지 않는 컨테이너 문화권| 네덜란드어(nl-NL)<br>일본어(ja-JP)<br>독일어는 에서만 지원 합니다 [1.0.2 토크 나이저](luis-language-support.md#custom-tokenizer-versions)합니다.|
 |모든 문화권에 지원되지 않는 엔터티|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 모든 문화권에 미리 빌드된 엔터티|
 |영어(en-US) 문화권에 지원되지 않는 엔터티|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 미리 빌드된 엔터티|
 |음성 초기화|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 |정서 분석|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 LUIS(Language Understanding) 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
+이 문서에서는 LUIS(Language Understanding) 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하자면 다음과 같습니다.
 
 * LUIS(language Understanding)는 발화의 엔드포인트 쿼리를 예측하는 Docker용 Linux 컨테이너 하나를 제공합니다.
 * 컨테이너 이미지는 Microsoft 컨테이너 레지스트리(MCR)에서 다운로드됩니다.
@@ -389,4 +367,8 @@ LUIS 앱 종속성 지원 되지 않는 경우 할 수 없습니다 [컨테이�
 
 * [컨테이너 구성](luis-container-configuration.md)에서 구성 설정을 검토합니다.
 * LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
-* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용
+* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

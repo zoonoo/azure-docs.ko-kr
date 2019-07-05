@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Python 및 Azure Search REST Api'
-description: 만들기, 로드 및 Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
+title: 'Python 빠른 시작: 만들기, 로드 및 Azure Search REST Api-Azure Search를 사용 하 여 인덱스를 쿼리 합니다.'
+description: 인덱스 만들기, 데이터를 로드, Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 쿼리를 실행 하는 방법을 설명 합니다.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,23 +10,23 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302286"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485468"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>빠른 시작: Jupyter Python 노트북을 사용 하 여 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter notebook을 사용 하 여 Python에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [포털](search-create-index-portal.md)
 > 
 
-만듭니다, 로드 및 Python을 사용 하 여 Azure Search 인덱스를 쿼리 하는 Jupyter 노트북을 빌드 및 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 빌드 노트북을 단계별로부터 시작 하는 방법에 설명 합니다. 또는 완성 된 notebook을 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 합니다[azure aearch-python 샘플 리포지토리](https://github.com/Azure-Samples/azure-search-python-samples)합니다.
+만듭니다, 로드 및 Python을 사용 하 여 Azure Search 인덱스를 쿼리 하는 Jupyter 노트북을 빌드 및 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 빌드 노트북을 단계별로부터 시작 하는 방법에 설명 합니다. 또는 완성 된 notebook을 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 합니다[azure search-python 샘플 리포지토리](https://github.com/Azure-Samples/azure-search-python-samples)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -46,7 +46,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -275,7 +275,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
     ![인덱스 검색](media/search-get-started-python/search-index.png "인덱스 검색")
 
-1. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 다음 예제에서는 searchstring 바꿉니다 수 있으며 다음 검색 요청을 다시 실행 하십시오. 
+1. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 바꿀 수는 `searchstring` 다음 예제와 검색 요청 다시 실행 합니다. 
 
    필터를 적용 합니다. 
 

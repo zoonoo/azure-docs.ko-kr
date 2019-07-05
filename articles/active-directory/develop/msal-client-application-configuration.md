@@ -38,10 +38,10 @@ ms.locfileid: "66430814"
 ## <a name="authority"></a>인증 기관
 인증 기관은 MSAL에서 토큰을 요청할 수 있는 디렉터리를 나타내는 URL입니다. 일반적인 기관 다음과 같습니다.
 
-- https://login.microsoftonline.com/&lt 테 넌 트&gt; /, 여기서 &lt; 테 넌 트&gt; 이 Azure AD 테 넌 트와 연결 된 도메인 또는 Azure Active Directory (Azure AD) 테 넌 트의 테 넌 트 ID입니다. 특정 조직의 사용자를 로그인에 사용 합니다.
-- https://login.microsoftonline.com/common/. 회사 및 학교 계정 또는 개인 Microsoft 계정을 사용 하 여 사용자를 로그인 하는 데 사용 합니다.
-- https://login.microsoftonline.com/organizations/. 사용자가 회사 및 학교 계정으로 로그인 하는 데 사용 합니다.
-- https://login.microsoftonline.com/consumers/. 만 개인 Microsoft 계정 (이전의 Windows Live ID 계정)를 사용 하 여 사용자를 로그인 하는 데 사용 합니다.
+- [https://login.microsoftonline.com/&amp;lt](https://login.microsoftonline.com/&lt )테 넌 트&gt; /, 여기서 &lt; 테 넌 트&gt; 이 Azure AD 테 넌 트와 연결 된 도메인 또는 Azure Active Directory (Azure AD) 테 넌 트의 테 넌 트 ID입니다. 특정 조직의 사용자를 로그인에 사용 합니다.
+- [https://login.microsoftonline.com/common/](https://login.microsoftonline.com/common/ ). 회사 및 학교 계정 또는 개인 Microsoft 계정을 사용 하 여 사용자를 로그인 하는 데 사용 합니다.
+- [https://login.microsoftonline.com/organizations/](https://login.microsoftonline.com/organizations/ ). 사용자가 회사 및 학교 계정으로 로그인 하는 데 사용 합니다.
+- [https://login.microsoftonline.com/consumers/](https://login.microsoftonline.com/consumers/ ). 만 개인 Microsoft 계정 (이전의 Windows Live ID 계정)를 사용 하 여 사용자를 로그인 하는 데 사용 합니다.
 
 기관 설정을 응용 프로그램 등록 포털에서 선언 된와 일치 해야 합니다.
 

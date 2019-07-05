@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072406"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -28,7 +28,7 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 
 ## <a name="core-features"></a>핵심 기능
 
-다음은 Speech SDK 및 REST API를 통해 사용 가능한 기능입니다.
+다음은 Speech SDK 및 REST Api를 통해 사용 가능한 기능입니다:
 
 | 사용 사례 | SDK | REST (영문) |
 |----------|-----|------|
@@ -46,7 +46,7 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 | [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>샘플 코드
 
@@ -67,11 +67,11 @@ Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. �
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 서비스 등록 키를 위한 무료](get-started.md)
+* [무료로 Speech Service 구독 키 받기](get-started.md)
 * [Speech SDK 가져오기](speech-sdk.md)

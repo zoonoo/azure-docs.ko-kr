@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341579"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541041"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API용 Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -48,13 +48,18 @@ ms.locfileid: "67341579"
 * 스트림 지원 
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK의 System.Net.Http 버전은 이제 NuGet 패키지에 정의 됩니다.
+* 원래 하나가 실패할 경우 다른 지역으로 대체 (fallback)에 대 한 쓰기 요청을 허용 합니다.
+* 쓰기 요청에 대 한 세션 다시 시도 정책을 추가 합니다.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* NuGet 패키지에 정의 된 SDK의 System.Net.Http 버전 일치
 * LINQ 쿼리에 대 한 전체 자릿수 크기를 늘렸습니다.
 * CompositePath "," CompositePathSortOrder "," SpatialSpec "," SpatialType "및" PartitionKeyDefinitionVersion 새 클래스 추가
 * DocumentCollection에 추가 된 TimeToLivePropertyPath
@@ -379,6 +384,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |2019 년 7 월 2 일 |--- |
 | [2.4.1](#2.4.1) |2019 년 6 월 20 일 |--- |
 | [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
 | [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |

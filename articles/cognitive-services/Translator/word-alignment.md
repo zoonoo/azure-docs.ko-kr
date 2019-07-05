@@ -3,20 +3,20 @@ title: 단어 맞춤 정보 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API에서 단어 맞춤 정보를 받습니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 040d122810529daafcebc2e66f2fa7b2730a6a0d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3db5e9651e307211e9dccee20bb8d69586bb9ef1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448156"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
 

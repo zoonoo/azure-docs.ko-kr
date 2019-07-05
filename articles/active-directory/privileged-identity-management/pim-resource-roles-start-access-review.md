@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0067bd6dc2f47c5460220295d486910d9195782d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143490"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476257"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할의 액세스 검토 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "65143490"
 
 1. 관리 아래에서 클릭 **액세스 검토**합니다.
 
-    ![Azure 리소스-액세스 검토](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Azure 리소스-액세스 검토 모든 검토의 상태를 보여주는 목록](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "65143490"
 
 액세스 검토에 대한 설정을 지정했으면 **시작**을 클릭합니다. 액세스 검토는 해당 상태 표시기를 사용 하 여 목록에 표시 됩니다.
 
-![액세스 검토 목록](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+![액세스 검토 시작된 검토의 상태를 보여주는 목록](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
 검토가 시작되면 Azure AD에서 기본적으로 검토자에게 전자 메일을 보냅니다. Azure AD에서 전자 메일을 보내지 않도록 선택한 경우 검토자에게 완료할 때까지 대기 중인 액세스 검토가 있음을 알려야 합니다. 방법에 대 한 지침을 표시할 수 있습니다 [Azure 리소스 역할에 대 한 액세스 검토](pim-resource-roles-perform-access-review.md)합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "65143490"
 
 검토자가 검토를 완료 진행률을 추적할 수는 **개요** 액세스 검토 페이지입니다. 액세스 권한이 없습니다. 디렉터리에 변경 되는 [검토가 완료 되](pim-resource-roles-complete-access-review.md)합니다.
 
-![액세스 검토 진행률](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![액세스 검토의 세부 정보를 표시 하는 개요 페이지를 검토](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
 일회성 검토 인 경우 다음 액세스 검토 기간이 만료 또는 관리자가 액세스 검토를 중지 한 후의 단계에 따라 [Azure 리소스 역할의 액세스 검토 완료](pim-resource-roles-complete-access-review.md) 확인 하 고 결과 적용 합니다.  
 

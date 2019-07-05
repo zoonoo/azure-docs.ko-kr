@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 950371fd92d255ed01dfa89d5c2fcbded686a971
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938096"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443088"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
 
@@ -89,4 +89,4 @@ Azure AD를 사용하여 다음 작업 중 하나를 지원합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Marketplace에 등록](https://azuremarketplace.microsoft.com/sell)했는지 확인합니다.
-- 제품을 만들거나 완성할 수 있도록 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com/)합니다.
+- 참조 [파트너 센터 계정을 만드는 방법을](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 또는 제품을 완료 하는 방법에 대 한 자세한 내용은 합니다.

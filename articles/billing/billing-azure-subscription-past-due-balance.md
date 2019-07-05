@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023390"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491465"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "66023390"
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>미지불 금액 해결 Azure portal에서 분산
 
 1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 에 계정 관리자로
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 1. 개요 페이지에서 구독 목록이 표시 됩니다. 구독 상태 기한 인 경우 클릭 합니다 **분산 납부** 링크 합니다.
     ![분산 링크를 납부를 보여 주는 스크린샷](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. 총 미지불 잔액 실패 한 결제 방법을 사용 하 여 모든 Microsoft 서비스에서 미 불 요금을 반영 합니다.

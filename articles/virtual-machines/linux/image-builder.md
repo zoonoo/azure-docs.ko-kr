@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 345b10a0d66456d795a63e3aacd941ade0e0159c
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159512"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467012"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Linux VM 만들기
 
@@ -21,6 +21,7 @@ ms.locfileid: "65159512"
 - 셸 (ScriptUri)-다운로드 및 실행을 [셸 스크립트](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh)합니다.
 - 셸 (인라인)-특정 명령 실행 합니다. 이 예제에서는 인라인 명령에는 디렉터리를 만들고 OS를 업데이트 합니다.
 - 파일 복사본을 [GitHub에서 파일](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) 디렉터리 VM에 있습니다.
+
 
 샘플.json 템플릿 이미지를 구성 하려면 사용 합니다. 사용 하 여.json 파일은 여기: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json)합니다. 
 
@@ -57,7 +58,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+## <a name="setup-example-variables"></a>예제에서는 변수를 설정 합니다.
 
 사용 합니다 일부의 정보를 반복적으로 해당 정보를 저장 하는 일부 변수를 만들어 됩니다.
 
@@ -79,14 +80,17 @@ runOutputName=aibLinux
 subscriptionID=<Your subscription ID>
 ```
 
-리소스 그룹을 만듭니다.
+## <a name="create-the-resource-group"></a>리소스 그룹을 만듭니다.
+이미지 구성 템플릿 아티팩트 및 이미지 저장에 사용 됩니다.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
+## <a name="set-permissions-on-the-resource-group"></a>리소스 그룹에 권한 설정
+리소스 그룹에서 이미지 만들기 이미지 작성기 '참가자' 권한을 부여 합니다. 적절 한 권한이 없으면 이미지 빌드 실패 합니다. 
 
-해당 리소스 그룹에 리소스를 만들 이미지 작성기 권한을 부여 합니다. `--assignee` 값은 이미지 작성기 서비스에 대 한 앱 등록 ID입니다. 
+`--assignee` 값은 이미지 작성기 서비스에 대 한 앱 등록 ID입니다. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +99,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>Json 예제를 다운로드 합니다.
+## <a name="download-the-template-example"></a>템플릿 예제를 다운로드 합니다.
 
-예제.json 파일을 다운로드 하 고 만든 변수를 사용 하 여 구성 합니다.
+매개 변수가 있는 샘플 이미지 구성 템플릿은 사용 하 여에 대 한 작성 되었습니다. 샘플.json 파일을 다운로드 하 고 앞에서 설정한 변수를 사용 하 여 구성 합니다.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -109,7 +113,19 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-## <a name="create-the-image"></a>이미지 만들기
+이 예제에서는.json 필요에 따라 수정할 수 있습니다. 예를 들어,의 값을 늘리려면 `buildTimeoutInMinutes` 오래 실행 중인 빌드 수 있도록 합니다. 다음을 사용 하 여 Cloud Shell에서 파일을 편집할 수 `vi`입니다.
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> 원본 이미지를 사용 해야 항상 [버전을 지정](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)를 사용할 수 없습니다 `latest`합니다.
+>
+> 를 추가 하거나 리소스 그룹 이미지를 배포할 위치를 변경 하는 경우 확인 해야 합니다 [리소스 그룹에 대 한 권한이 설정 된](#set-permissions-on-the-resource-group)합니다.
+
+
+## <a name="submit-the-image-configuration"></a>이미지 구성을 제출합니다
 이미지 구성을 VM 이미지 작성기 서비스에 제출
 
 ```azurecli-interactive
@@ -121,7 +137,26 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
+성공적으로 완료 되 면 성공 메시지가 반환 되며는 $imageResourceGroup에서 이미지 작성기 구성 템플릿 아티팩트를 만듭니다. '숨겨진된 형식 표시'를 사용 하는 경우 포털에서 리소스 그룹을 볼 수 있습니다.
+
+또한 백그라운드 이미지 작성기 구독의 준비 리소스 그룹을 만듭니다. 이미지 작성기 이미지 빌드에 대 한 준비 리소스 그룹을 사용합니다. 리소스 그룹의 이름을이 형식이 됩니다. `IT_<DestinationResourceGroup>_<TemplateName>`합니다.
+
+> [!IMPORTANT]
+> 준비 리소스 그룹을 직접 삭제 하지 마세요. 이미지 서식 파일 아티팩트를 삭제 하면 준비 리소스 그룹을 자동으로 삭제 됩니다. 자세한 내용은 참조는 [정리](#clean-up) 이 문서의 끝에 있는 섹션입니다.
+
+이미지 구성 템플릿 제출 하는 동안 오류를 보고 하는 서비스를 표시 합니다 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) 단계입니다. 또한 빌드를 제출 합니다. 다시 시도 하기 전에 템플릿을 삭제 해야 합니다. 템플릿을 삭제:
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>이미지 빌드를 시작 합니다.
+
 이미지 빌드를 시작 합니다.
+
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,7 +166,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-빌드가 완료 될 때까지 기다립니다. 약 15 분 정도 걸릴 수 있습니다.
+대기할 빌드를이 예제에 대 한 완료 될 때까지 10-15 분 정도 걸릴 수 있습니다.
+
+오류가 발생할 경우 살펴보시기 이러한 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) 단계입니다.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
@@ -179,14 +216,20 @@ cat helloImageTemplateLinux.json
 
 ## <a name="clean-up"></a>정리
 
-완료 되 면 리소스를 삭제 합니다.
+완료 되 면 리소스를 삭제할 수 있습니다.
+
+이미지 작성기 템플릿을 삭제 합니다.
 
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
+```
 
+이미지 리소스 그룹을 삭제 합니다.
+
+```bash
 az group delete -n $imageResourceGroup
 ```
 

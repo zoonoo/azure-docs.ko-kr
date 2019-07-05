@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866241"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
@@ -51,7 +51,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |독일|DE|
 |홍콩 특별 행정구|HK|
 |인도|IN|
-|인도네시아|ID|
+|인도네시아|id|
 |이탈리아|IT|
 |일본|JP|
 |한국|KR|
@@ -66,7 +66,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|PH|
 |러시아|RU|
 |사우디아라비아|SA|
-|남아프리카|ZA|
+|남아프리카 공화국|ZA|
 |스페인|ES|
 |스웨덴|SE|
 |스위스|CH|
@@ -93,7 +93,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어(번체)|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
@@ -109,13 +109,13 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
 |사우디아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어 번체|zh-TW|
+|대만|중국어(번체)|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
 |미국|영어|en-US|
-|미국|스페인어|es-US|
+|미국|스페인어|es (미국)|

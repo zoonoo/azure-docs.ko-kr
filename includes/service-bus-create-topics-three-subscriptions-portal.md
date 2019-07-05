@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111118"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182439"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Azure Portal을 사용하여 항목 만들기
 1. **Service Bus 네임스페이스** 페이지의 왼쪽 메뉴에서 **항목**을 선택합니다.

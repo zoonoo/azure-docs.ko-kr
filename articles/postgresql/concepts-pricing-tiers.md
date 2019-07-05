@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340734"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448074"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 가격 책정 계층
 
@@ -64,16 +64,16 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 | 저장소 유형 | Azure Premium Storage | Azure Premium Storage |
 | 저장소 크기 | 16TB를 32GB| 16 32 TB |
 | 저장소 증분 크기 | 1 GB | 1 GB |
-| IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS| 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS |
+| IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS |
 
 > [!IMPORTANT]
-> 대용량 저장소는 현재 다음 지역에서 공개 미리 보기: 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 북유럽, 유럽 서 부, 동남 아시아, 일본 동부, 한국 중부, 오스트레일리아 동부입니다.
+> 대용량 저장소는 현재 다음 지역에서 공개 미리 보기: 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 북유럽, 유럽 서 부, 영국 남부, 영국 서 부, 동남 아시아, 동아시아, 일본 서 부, 한국 중부, 대한민국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부 일본 동부, 합니다.
 >
->현재 큰 저장소 미리 보기 지원 하지 않습니다.
+> 현재 큰 저장소 미리 보기 지원 하지 않습니다.
 >
 > * Virtual network 서비스 끝점을 통해 들어오는 연결
 > * 지역 중복 백업
-> * 교차 지역 복제
+> * 읽기 복제본
 
 ### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
 

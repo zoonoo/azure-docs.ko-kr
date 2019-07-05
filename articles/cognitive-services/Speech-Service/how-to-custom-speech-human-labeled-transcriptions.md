@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060861"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>인간 레이블의 기록을 만드는 방법
 
@@ -78,7 +78,7 @@ ms.locfileid: "65026729"
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (ZH-CN)
 
 북경어 중국어 오디오에 대한 인간 레이블 기록은 바이트 순서 표식을 사용한 utf-8 인코딩이어야 합니다. 반자 문장 부호 문자를 사용하지 않아야 합니다. 이러한 문자는 웹 페이지에서 데이터를 수집하거나 워드 프로세서 프로그램에서 데이터를 준비하는 경우 실수로 포함할 수 있습니다. 이러한 문자가 있는 경우에 적절한 전자 대체를 사용하여 업데이트해야 합니다.
 

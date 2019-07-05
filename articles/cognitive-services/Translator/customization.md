@@ -3,19 +3,19 @@ title: 변환 사용자 지정 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Microsoft Translator Hub를 사용하여 기본 설정된 용어 및 스타일로 고유한 기계 번역 시스템을 빌드합니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515113"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447329"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252792"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508784"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -41,7 +41,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 �
 | sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | Ambari |443 |HTTPS |Ambari 웹 UI. [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요. |
 | Ambari |443 |HTTPS |Ambari REST API. [Apache Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요. |
-| WebHCat |443 |HTTPS |HCatalog REST API. [Curl에서 Apache Hive 사용](hadoop/apache-hadoop-use-pig-curl.md), [Curl에서 Apache Pig 사용](hadoop/apache-hadoop-use-pig-curl.md), [Curl에서 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-curl.md)을 참조하세요. |
+| WebHCat |443 |HTTPS |HCatalog REST API. 참조 [Curl에서 MapReduce 사용](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |ODBC를 사용하여 Hive에 연결합니다. [Microsoft ODBC 드라이버로 HDInsight에 Excel 연결](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요. |
 | HiveServer2 |443 |JDBC |JDBC를 사용하여 Apache Hive에 연결합니다. [Hive JDBC 드라이버를 사용하여 HDInsight에서 Apache Hive에 연결](hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요. |
 

@@ -7,7 +7,7 @@
 - name: 빠른 시작
   items:
     - name: 서비스 상태 이벤트에 대한 경고 구성
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
 - name: 개념
   items:
     - name: Azure 상태 페이지
@@ -19,9 +19,9 @@
 - name: 방법
   items:
     - name: 서비스 상태 이벤트에 대한 경고 구성
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: alerts-activity-log-service-notifications.md
     - name: Azure Portal을 사용하여 서비스 상태 알림 보기
-      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: service-notifications.md
     - name: 웹후크를 통해 외부 시스템에 경고 보내기
       href: service-health-alert-webhook-guide.md
     - name: ServiceNow에 경고 보내기

@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 'Stream Analytics는 애플리케이션 및 IoT 디바이스의 데이터 스트림을 실시간으로 분석할 수 있는 완전 관리형 서버리스 이벤트 처리 엔진입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.'
+  description: 'Stream Analytics는 IoT 디바이스, 애플리케이션, clickstreams 등에서 빠르게 이동하는 데이터 스트림을 실시간으로 분석 및 처리하고 필요에 따라 경고 및 작업을 트리거하는 데 도움이 되는 완전 관리형 PaaS 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Stream Analytics를 사용하는 방법을 알아보세요.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 'Azure Stream Analytics를 사용한 실시간 분석 및 기계 학습 | Microsoft Azure (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: '클라우드에서 인텔리전트 에지까지 - Azure Stream Analytics를 통해 실시간 의사 결정을 내립니다. (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: 5분 빠른 시작
@@ -68,6 +68,6 @@ sections:
           - title: 명령줄
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
           - title: 언어
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference">Stream Analytics 쿼리 언어</a></p>'
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p><p><a href="https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference">Stream Analytics 쿼리 언어</a></p>'
           - title: REST (영문)
             html: <p><a href="/rest/api/streamanalytics">REST API 참조</a></p>

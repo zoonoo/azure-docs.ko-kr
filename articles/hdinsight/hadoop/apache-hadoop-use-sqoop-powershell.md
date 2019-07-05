@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: 49375b00607f1f23a99855f8b80f5f5c3c4dac22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686664"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450141"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop용 Azure PowerShell을 사용하여 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -22,7 +22,7 @@ Azure PowerShell을 사용 하 여 가져오기 및 내보내기는 HDInsight �
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
+이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * Azure PowerShell을 사용 하 여 워크스테이션 [AZ 모듈](https://docs.microsoft.com/powershell/azure/overview) 설치 합니다.
 

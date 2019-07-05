@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389422"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542772"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 웹에서 이미지 가져오기
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+사용 된 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) url 인코딩된 검색 용어에 대 한 쿼리 매개 변수입니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+
 > [!IMPORTANT]
 > * 모든 요청은 클라이언트가 아닌 서버에서 이뤄져야 합니다.
 > * Bing Search API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 Bing API를 호출한 경우에만 클라이언트 ID를 포함합니다.
-> * 응답에 제공된 순서대로 이미지를 표시해야 합니다.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>특정 웹 도메인에서 이미지 가져오기
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
-
-다음 예제에서는 Bing이 지난 주에 발견한 ContosoSailing.com에서 작은 이미지를 가져오는 방법을 보여줍니다.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>이미지 필터링
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 특정 도메인에서 이미지를 가져오려면 [사이트:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
- > [!NOTE]
- > `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
-
 다음 예제에서는 Bing이 지난 주에 발견한 ContosoSailing.com의 작은 이미지를 가져오는 방법을 보여줍니다.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Bing Image Search 응답 형식
 
 Bing의 응답 메시지에는 Cognitive Services에서 쿼리와 관련되도록 결정한 이미지 목록을 포함하는 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 대답이 포함됩니다. 목록에서 각 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 개체에는 이미지에 대한 URL, 크기, 차원, 인코딩 형식, 이미지 썸네일에 대한 URL 및 썸네일의 차원과 같은 정보가 포함됩니다.
+
+> [!NOTE]
+> * 응답에 제공된 순서대로 이미지를 표시해야 합니다.
+> * 때문에 URL 형식 및 매개 변수는 통지 없이 변경 될 수 있습니다, 모든 Url로 사용-됩니다. 명시 된 경우를 제외 하 고 매개 변수를 URL 형식에 대 한 종속성을 사용 하지 않아야 합니다.
 
 ```json
 {
