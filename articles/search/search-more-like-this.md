@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d1c691e570d3cfc7e0475c02e4c60ed6ffa8440
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522917"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485345"
 ---
 # <a name="morelikethis-in-azure-search"></a>Azure Search의 moreLikeThis
 
@@ -50,4 +50,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 이 기능을 사용 하 여 실험에 웹 테스트 도구를 사용할 수 있습니다.  이 연습에 대 한 Postman을 사용 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [Postman을 사용 하 여 Azure Search REST Api 탐색](search-fiddler.md)
+> [Postman을 사용 하 여 Azure Search REST Api 탐색](search-get-started-postman.md)

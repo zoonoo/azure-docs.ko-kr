@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540273"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482704"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -90,7 +90,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 
 ### <a name="to-request-an-extension"></a>연장을 요청하려면
 
-1. Azure Portal에 로그인하고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
+1. Azure portal에 로그인 하 고 만들기를 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)합니다.
 1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
 
     | 지원 요청 필드 | 값 |
@@ -102,7 +102,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
     | **문제 유형** | `ACS to SAS Migration` |
     | **Subject** | 문제 설명 |
 
-   ![새 기술 지원 요청](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![새 기술 지원 요청 예제](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54851269"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444757"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
 이 문서에서는 토픽, 구독 및 규칙(필터)이 있는 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 이 문서는 어떤 리소스를 배포할지 지정하는 방법 및 배포를 실행할 때 지정되는 매개 변수를 정의하는 방법을 설명합니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
-템플릿 만들기에 관한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하십시오.
+템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하십시오.
 
-Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은 [Azure 리소스에 대한 권장되는 명명 규칙][Recommended naming conventions for Azure resources]을 참조하세요.
+Azure 리소스 명명 규칙의 사례 및 패턴에 대 한 자세한 내용은 참조 [권장 되는 Azure 리소스에 대 한 명명 규칙][Recommended naming conventions for Azure resources]합니다.
 
 전체 템플릿은 [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스][Service Bus namespace with topic, subscription, and rule] 템플릿을 참조하세요.
 
@@ -179,7 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
+구독 필터를 만드는 방법을 보여 주는 다음 항목을 참조 하세요. [토픽, 구독 및 Azure Resource Manager 템플릿을 사용 하는 규칙을 사용 하 여 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+이러한 문서를 확인 하 여 이러한 리소스를 관리 하는 방법에 알아봅니다.
 
 * [Azure Service Bus 관리](service-bus-management-libraries.md)
 * [PowerShell을 사용하여 Service Bus 관리](service-bus-manage-with-ps.md)

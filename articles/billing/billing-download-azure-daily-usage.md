@@ -1,26 +1,23 @@
 ---
-title: 보기 및 다운로드 Azure 사용량 및 요금이 | Microsoft Docs
+title: 보기 및 다운로드 Azure 사용량 및 요금이
 description: 보거나 Azure 일별 사용 현황 및 요금을 다운로드 하는 방법을 설명 합니다.
 keywords: 사용 대금 청구, 요금, 사용, 사용 현황 보기 azure 청구서, azure 사용량 다운로드
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919004"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491436"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금에 보기 및 다운로드
 
@@ -77,11 +74,11 @@ Microsoft 고객 계약에 있는 경우 청구 프로필에 대 한 Azure 사�
 ### <a name="download-usage-for-billed-charges"></a>청구 요금에 대 한 사용량 다운로드
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 *비용 관리 + 청구*합니다.
 3. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
 4. **청구서**를 선택합니다.
 5. 송장 표에서 해당 다운로드를 사용 하 여 청구서의 행을 찾습니다.
-6. 줄임표를 클릭 (`...`) 행의 끝입니다.
+6. 줄임표 (`...`) 행의 끝입니다.
 
     ![행의 끝에 줄임표 (...)를 보여 주는 스크린샷](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 
@@ -94,9 +91,9 @@ Microsoft 고객 계약에 있는 경우 청구 프로필에 대 한 Azure 사�
 또한 현재 청구 기간에 대 한 누계 월 사용량을 다운로드할 수 있습니다. 아직 청구 하지는 이러한 사용량 요금입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 *비용 관리 + 청구*합니다.
 3. 청구 프로필을 선택 합니다. 액세스를 따라 대금 청구 계정을 먼저 선택 해야 할 수 있습니다.
-4. 에 **개요** 블레이드에서 월-일 요금은 아래 다운로드 링크를 찾습니다.
+4. 에 **개요** 영역, 월-일 요금은 아래 다운로드 링크를 찾습니다.
 5. 선택 **Azure 사용량 및 요금이**합니다.
 
     ![다운로드 개요에서 보여 주는 스크린샷](./media/billing-download-azure-usage/open-usage.png)
@@ -104,9 +101,9 @@ Microsoft 고객 계약에 있는 경우 청구 프로필에 대 한 Azure 사�
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

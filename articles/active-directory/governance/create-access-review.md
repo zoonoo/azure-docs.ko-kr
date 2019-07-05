@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734573"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471914"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 만들거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -43,7 +43,7 @@ ms.locfileid: "66734573"
 
 1. **새 액세스 검토**를 클릭하여 새 액세스 검토를 만듭니다.
 
-    ![액세스 검토 - 컨트롤](./media/create-access-review/access-reviews.png)
+    ![Id 관리에 대 한 액세스 검토 창](./media/create-access-review/access-reviews.png)
 
 1. 액세스 검토의 이름을 지정합니다. 필요한 경우 검토에 설명을 지정합니다. 이름 및 설명이 검토자에게 표시됩니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "66734573"
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 
-    ![완료 시 설정](./media/create-access-review/upon-completion-settings.png)
+    ![설정 완료 시-액세스 검토 만들기](./media/create-access-review/upon-completion-settings.png)
 
 1. 거부된 사용자에 대한 액세스를 자동으로 제거하려면 **결과를 리소스에 자동 적용**을 **사용**으로 설정합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "66734573"
 
 1. 추가 설정을 지정하려면 **고급 설정** 섹션을 확장합니다.
 
-    ![고급 설정](./media/create-access-review/advanced-settings.png)
+    ![고급 설정-액세스 검토 만들기](./media/create-access-review/advanced-settings.png)
 
 1. **권장 사항 표시**를 **사용**으로 설정하면 사용자의 액세스 정보에 따라 검토자에게 시스템 권장 사항이 표시됩니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "66734573"
 
 액세스 검토에 대한 설정을 지정했으면 **시작**을 클릭합니다. 액세스 검토는 해당 상태 표시기를 사용 하 여 목록에 표시 됩니다.
 
-![액세스 검토 목록](./media/create-access-review/access-reviews-list.png)
+![액세스 검토의 목록과 해당 상태](./media/create-access-review/access-reviews-list.png)
 
 검토가 시작되면 Azure AD에서 기본적으로 검토자에게 전자 메일을 보냅니다. Azure AD에서 전자 메일을 보내지 않도록 선택한 경우 검토자에게 완료할 때까지 대기 중인 액세스 검토가 있음을 알려야 합니다. 방법에 대 한 지침을 표시할 수 있습니다 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다. 게스트가 자신의 액세스 검토를 표시 하는 방법에 대 한 지침 [그룹 또는 응용 프로그램에 직접 액세스를 검토](review-your-access.md)합니다.
 

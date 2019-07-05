@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539263"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485303"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
-Azure Search 서비스를 만들 때를 [리소스가 만들어집니다](search-create-service-portal.md) 가격 책정 계층 또는 서비스의 수명 동안 수정 된 SKU입니다. Free, Basic, Standard 및 저장소 액세스에 최적화 된 계층에 포함 됩니다. 표준 및 저장소 액세스에 최적화 된 여러 구성 및 용량을 사용 하 여 사용할 수 있습니다.
+Azure Search 서비스를 만들 때를 [리소스가 만들어집니다](search-create-service-portal.md) 가격 책정 계층 (또는 SKU)에서 서비스의 수명 동안 고정 되어 있는 합니다. Free, Basic, Standard 및 저장소 액세스에 최적화 된 계층에 포함 됩니다. 표준 및 저장소 액세스에 최적화 된 여러 구성 및 용량을 사용 하 여 사용할 수 있습니다.
 
-대부분의 고객이 서비스를 평가할 수 있도록 무료 계층을 사용 하 여 시작 합니다. 그런 다음 개발 및 프로덕션 배포에 대 한 더 높은 계층 중 하나로 업그레이드합니다. Cognitive search 리소스를 많이 사용에 대 한 것을 비롯 한 무료 계층에서 사용 하 여 모든 빠른 시작 및 자습서를 완료할 수 있습니다.
+대부분의 고객이 서비스를 평가할 수 있도록 무료 계층을 사용 하 여 시작 합니다. 개발 및 프로덕션 배포에 대 한 상위 계층 중 하나에서 두 번째 서비스를 만드는 일반적인 사후 평가 것입니다. Cognitive search 리소스를 많이 사용에 대 한 것을 비롯 한 무료 계층에서 사용 하 여 모든 빠른 시작 및 자습서를 완료할 수 있습니다.
 
 > [!NOTE]
-> Microsoft 테스트 및 피드백을 수집 하는 것을 목표로 실험에 대 한 할인 된 가격 미리 보기에서 저장소 액세스에 최적화 된 서비스 계층을 제공 하 고 있습니다. 최종 가격은 나중에 발표할 예정 경우 이러한 계층은 일반적으로 사용할 수 있습니다. 이러한 계층을 사용 하 여 프로덕션 응용 프로그램에 대 한 것이 좋습니다.
+> 년 7 월 1 일 기준으로 모든 계층은 공급 최적화 된 저장소 계층을 포함 합니다. 가격 책정은 모두에서 찾을 수 있습니다 합니다 [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지입니다.
 
 계층은 기능보다는 서비스를 호스팅하는 하드웨어의 특성을 반영하며 다음과 같이 구분됩니다.
 
 + 만들 수 있는 인덱스의 수입니다.
 + 파티션 (실제 저장소) 속도 크기입니다.
 
-무료 계층을 비롯 한 모든 계층에서 일반적으로 기능 패리티를 제공 하지만 더 큰 워크 로드 수 더 높은 계층에 대 한 필요성을 지정 합니다. 예를 들어 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md) 에 장기 실행 기술을 시간 초과 되는 무료 서비스는 데이터 집합이 작으면 하지 않는 한 합니다.
+무료 계층을 비롯 한 모든 계층에서 일반적으로 기능 패리티를 제공 하지만 더 큰 워크 로드 수 더 높은 계층에 대 한 필요성을 지정 합니다. 예를 들어 [Cognitive Services를 사용 하 여 AI 보강](cognitive-search-concept-intro.md) 에 장기 실행 기술을 시간 초과 되는 무료 서비스는 데이터 집합이 작으면 하지 않는 한 합니다.
 
 > [!NOTE] 
 > 예외는 기능 패리티 [인덱서](search-indexer-overview.md), S3 HD에 제공 되지 않는 합니다.
@@ -60,7 +60,11 @@ Azure Search 서비스를 만들 때를 [리소스가 만들어집니다](search
 
 ## <a name="how-billing-works"></a>청구 방법
 
-Azure search에서 비용이 발생 하는 방법은 세 가지가 되며 고정 및 변수 구성 요소입니다. 이 섹션에서는 세 가지 청구 구성 요소에 설명 합니다: 핵심 서비스 비용, 데이터 송신 요금이 및 인덱싱 AI 보강 합니다.
+Azure Search에서 비용이 발생 하는 방법은 세 가지가 있습니다. 이 섹션에서는 세 가지 청구 구성 요소를 설명합니다. 
+
++ 핵심 서비스 비용
++ 데이터 송신 (또는 대역폭) 요금
++ AI 강화
 
 ### <a name="core-service-costs-fixed-and-variable"></a>핵심 서비스 비용 (고정 및 변수)
 
@@ -98,9 +102,9 @@ SU 당 청구 요금은 시간당 경우 각 계층에 점차 더 높은 속도�
 
 서비스가 서로 다른 지역에 있으면 아웃 바운드 데이터에 대 한 요금이 적용지 않습니다. 이러한 요금은 Azure Search 청구서에 실제로 포함 되지 않습니다. 해당 하는 때문에 여기서 설명 데이터를 끌어오는 데이터 또는 AI를 보강 한 인덱서를 사용 하 여 서로 다른 지역에서 하는, 전체 청구 금액에 반영 하는 비용을 볼 수 있습니다.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>AI 보강 Cognitive Services를 사용 하 여 인덱싱
+### <a name="ai-enrichments-with-cognitive-services"></a>Cognitive Services를 사용 하 여 AI 강화
 
-에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md), 종 량 제 처리용 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 청구 가능 Azure Cognitive Services 리소스에 연결 하도록 계획 해야 합니다. Cognitive Services에 연결 된 연결 된 고정 비용은 없습니다. 필요한 처리에 대해서만 지불 합니다.
+에 대 한 [Cognitive Services를 사용 하 여 AI 보강](cognitive-search-concept-intro.md), 종 량 제 처리용 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 청구 가능 Azure Cognitive Services 리소스에 연결 하도록 계획 해야 합니다. Cognitive Services에 연결 된 연결 된 고정 비용은 없습니다. 필요한 처리에 대해서만 지불 합니다.
 
 문서 해독 하는 동안 이미지 추출은 Azure Search 요금이 발생 합니다. 문서에서 추출 된 이미지의 수에 따라 청구 됩니다. 텍스트 추출은 현재 무료입니다.
 

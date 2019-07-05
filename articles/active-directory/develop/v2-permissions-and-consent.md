@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544878"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482154"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>사용 권한 및 동의에 Microsoft id 플랫폼 끝점
 
@@ -89,7 +89,7 @@ OpenID Connect의 Microsoft id 플랫폼 구현을 특정 리소스에 적용 �
 
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email` 전자 메일 주소는 대/소문자 형태를 사용자 계정과 연결 된 경우에 클레임은 토큰에 포함 되어 있습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
-### <a name="profile"></a>프로필
+### <a name="profile"></a>profiles
 
 `profile` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 사용자에 대한 상당한 양의 정보에 액세스할 수 있도록 해줍니다. 정보에 액세스할 수를 포함 하지만 사용자의 지정 된 이름, 성, 기본 사용자 이름 및 개체 ID에 국한 되지 않습니다. 특정 사용자에 대한 id_token 매개 변수에서 사용할 수 있는 프로필 클레임의 전체 목록은 [`id_tokens` 참조](id-tokens.md)를 참조하세요.
 
@@ -124,7 +124,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 > [!NOTE]
 > 이제, `offline_access`("액세스 권한을 부여한 데이터에 대한 액세스 권한 유지") 및 `user.read`("로그인 및 프로필 읽기") 권한이 애플리케이션에 대한 초기 동의에 자동으로 포함됩니다.  이러한 권한은 일반적으로 적절한 앱 기능에 필요합니다. `offline_access`는 기본 및 웹앱에 중요한 새로 고침 토큰에 대한 앱 액세스 권한을 제공하지만, `user.read`는 `sub` 클레임에 대한 액세스 권한을 제공하여 클라이언트나 앱이 시간이 지나도 사용자를 올바르고 식별하고 기본적인 사용자 정보에 액세스할 수 있도록 합니다.  
 
-![작업 계정 동의](./media/v2-permissions-and-consent/work_account_consent.png)
+![작업 계정 동의 보여 주는 예제 스크린샷](./media/v2-permissions-and-consent/work_account_consent.png)
 
 사용자가 사용 권한 요청을 승인하면 동의가 기록되므로 후속 계정 로그인 시 다시 동의할 필요가 없습니다.
 

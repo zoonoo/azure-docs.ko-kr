@@ -1,23 +1,23 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse로 Azure 트래픽 전달 | Microsoft Doc
-description: 이 문서에서 또는 Azure 내에서 데이터베이스 연결에 대 한 Azcure SQL onnectivity 아키텍처를 설명 합니다. Azure 외부에서.
+title: Azure SQL Database 및 SQL 데이터 웨어하우스 연결 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure SQL 연결 아키텍처에서 또는 Azure 내에서 데이터베이스 연결에 대 한 Azure 외부에서.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164435"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537926"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -57,48 +57,47 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
-온-프레미스 리소스에서 Azure SQL 데이터베이스에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 `Proxy` 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
+아래 표에 IP 주소의 게이트웨이 지역별 있습니다. Azure SQL Database에 연결 하려면 &에서 네트워크 트래픽을 허용 해야 **모든** 지역에 대 한 게이트웨이.
 
-다음 표에서는 모든 데이터 지역에 있는 Azure SQL Database 게이트웨이의 기본 및 보조 IP를 나열합니다. 일부 지역에는 두 개의 IP 주소가 있습니다. 이러한 지역에서 기본 IP 주소는 게이트웨이의 현재 IP 주소이고 두 번째 IP 주소는 장애 조치 IP 주소입니다. 장애 조치 주소는 높은 서비스 가용성을 유지하기 위해 서버를 이동할 수 있는 주소입니다. 이러한 지역의 경우 두 IP 주소에 아웃바운드를 허용하는 것이 좋습니다. 두 번째 IP 주소는 Microsoft가 소유하고 있으며 Azure SQL Database에서 연결을 허용하기 위해 활성화될 때까지 어떤 서비스도 수신하지 않습니다.
+앞에서는 각 지역에서 자세한 게이트웨이 추가 하 고 아래 표의 해제 게이트웨이 IP 주소 열에 게이트웨이 사용 중지 합니다. 다음 문서에 지정 된 프로세스를 해제 하는 방법에 대 한 자세한 정보: [최신 게이트웨이를 azure SQL Database 트래픽 마이그레이션](sql-database-gateway-migration.md)
 
-| 지역 이름 | 기본 IP 주소 | 보조 IP 주소 |
-| --- | --- |--- |
-| 오스트레일리아 동부 | 13.75.149.87 | 40.79.161.1 |
-| 오스트레일리아 동남부 | 191.239.192.109 | 13.73.109.251 |
-| 브라질 남부 | 104.41.11.5 | |
-| 캐나다 중부 | 40.85.224.249 | |
-| 캐나다 동부 | 40.86.226.166 | |
-| 미국 중부 | 23.99.160.139 | 13.67.215.62 |
-| 중국 동부 1 | 139.219.130.35 | |
-| 중국 동부 2 | 40.73.82.1 | |
-| 중국 북부 1 | 139.219.15.17 | |
-| 중국 북부 2 | 40.73.50.0 | |
-| 동아시아 | 191.234.2.139 | 52.175.33.150 |
-| 미국 동부 1 | 191.238.6.43 | 40.121.158.30 |
-| 미국 동부 2 | 191.239.224.107 | 40.79.84.180 * |
-| 프랑스 중부 | 40.79.137.0 | 40.79.129.1 |
-| 독일 중부 | 51.4.144.100 | |
-| 독일 북동부 | 51.5.144.179 | |
-| 인도 중부 | 104.211.96.159 | |
-| 인도 남부 | 104.211.224.146 | |
-| 인도 서부 | 104.211.160.80 | |
-| 일본 동부 | 191.237.240.43 | 13.78.61.196 |
-| 일본 서부 | 191.238.68.11 | 104.214.148.156 |
-| 한국 중부 | 52.231.32.42 | |
-| 한국 남부 | 52.231.200.86 |  |
-| 미국 중북부 | 23.98.55.75 | 23.96.178.199 |
-| 유럽 북부 | 191.235.193.75 | 40.113.93.91 |
-| 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
-| 동남아시아 | 23.100.117.95 | 104.43.15.0 |
-| 영국 남부 | 51.140.184.11 | |
-| 영국 서부 | 51.141.8.11| |
-| 미국 중서부 | 13.78.145.25 | |
-| 서유럽 | 191.237.232.75 | 40.68.37.158 |
-| 미국 서부 1 | 23.99.34.75 | 104.42.238.205 |
-| 미국 서부 2 | 13.66.226.202 | |
-||||
 
-\* **참고:** *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
+| 지역 이름          | 게이트웨이 IP 주소 | 서비스 해제 된 게이트웨이 </br> IP 주소| 에 대 한 정보를 서비스 해제 | 
+| --- | --- | --- | --- |
+| 오스트레일리아 동부       | 13.75.149.87, 40.79.161.1 | | |
+| 오스트레일리아 동남부 | 191.239.192.109, 13.73.109.251 | | |
+| 브라질 남부         | 104.41.11.5        |                 | |
+| 캐나다 중부       | 40.85.224.249      |                 | |
+| 캐나다 동부          | 40.86.226.166      |                 | |
+| 미국 중부           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | 2019 년 9 월 1 일 후 연결 없음 |
+| 중국 동부 1         | 139.219.130.35     |                 | |
+| 중국 동부 2         | 40.73.82.1         |                 | |
+| 중국 북부 1        | 139.219.15.17      |                 | |
+| 중국 북부 2        | 40.73.50.0         |                 | |
+| 동아시아            | 191.234.2.139, 52.175.33.150 |       | |
+| 미국 동부 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | 2019 년 9 월 1 일 후 연결 없음 |
+| 미국 동부 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | 2019 년 9 월 1 일 후 연결 없음 |
+| 프랑스 중부       | 40.79.137.0, 40.79.129.1 |           | |
+| 독일 중부      | 51.4.144.100       |                 | |
+| 독일 북동부   | 51.5.144.179       |                 | |
+| 인도 중부        | 104.211.96.159     |                 | |
+| 인도 남부          | 104.211.224.146    |                 | |
+| 인도 서부           | 104.211.160.80     |                 | |
+| 일본 동부           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | 2019 년 9 월 1 일 후 연결 없음 |
+| 일본 서부           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | 2019 년 9 월 1 일 후 연결 없음 |
+| 한국 중부        | 52.231.32.42       |                 | |
+| 한국 남부          | 52.231.200.86      |                 | |
+| 미국 중북부     | 23.96.178.199      | 23.98.55.75     | 2019 년 9 월 1 일 후 연결 없음 |
+| 유럽 북부         | 40.113.93.91       | 191.235.193.75  | 2019 년 9 월 1 일 후 연결 없음 |
+| 미국 중남부     | 13.66.62.124       | 23.98.162.75    | 2019 년 9 월 1 일 후 연결 없음 |
+| 동남아시아      | 104.43.15.0        | 23.100.117.95   | 2019 년 9 월 1 일 후 연결 없음 |
+| 영국 남부             | 51.140.184.11      |                 | |
+| 영국 서부              | 51.141.8.11        |                 | |
+| 미국 중서부      | 13.78.145.25       |                 | |
+| 서유럽          | 191.237.232.75, 40.68.37.158 |       | |
+| 미국 서부 1            | 23.99.34.75, 104.42.238.205 |        | |
+| 미국 서부 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>SQL Database 연결 정책 변경
 
@@ -111,10 +110,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
-
-> [!IMPORTANT]
-> 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-az-ps)이 필요합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에 필요 합니다 [Azure PowerShell 모듈](/powershell/azure/install-az-ps)합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
 
-다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
+### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 azure CLI
+
+> [!IMPORTANT]
+> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
+
+다음 CLI 스크립트는 bash 셸에서 연결 정책을 변경 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Windows 명령 프롬프트에서 azure CLI
+
+> [!IMPORTANT]
+> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
+
+다음 CLI 스크립트 (Azure CLI를 통해 설치)는 Windows 명령 프롬프트에서 연결 정책을 변경 하는 방법을 보여 줍니다.
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>다음 단계

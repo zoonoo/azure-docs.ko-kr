@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204509"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440505"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
-Azure Active Directory Id 보호를 사용 하면 조직은 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하 합니다.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection을 사용 하면 조직에서 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -69,7 +69,7 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 
 ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇 가지 역할을 할당할 수 있습니다. Azure AD ID 보호는 3가지 디렉터리 역할을 지원합니다.
 
-| 역할 | 가능한 작업 | 불가능한 작업 |
+| Role | 가능한 작업 | 불가능한 작업 |
 | :-- | --- | --- |
 | 전역 관리자 | ID 보호에 대한 완전한 액세스, ID 보호 등록| |
 | 보안 관리자 | ID 보호에 대한 완전한 액세스 | ID 보호 등록, 사용자의 암호 재설정 |

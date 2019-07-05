@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754749"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488494"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -123,9 +123,13 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 다른 피어 링 위치에서 여러 ExpressRoute 회로 단일 회로 사용할 수 없게 되는 경우에서 고가용성을 제공 하려면 동일한 가상 네트워크에 연결할 수 있습니다. 그런 다음 [높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 우선 로컬 연결에는 특정 회로 선호 합니다. 고객은 단일 실패 지점을 방지 하려면 두 개 이상의 ExpressRoute 회로 설정 하는 것이 좋습니다. 
 
+참조 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 고가용성을 위해 설계 하 고 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) 재해 복구를 위한 디자인에 대 한 합니다.  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>어떻게 Microsoft 피어 링 중복성을 구현할 수행할 수 있나요?
 
 고객이 Microsoft와 같은 Azure Storage 또는 Azure SQL, 뿐만 아니라 다른 피어 링에 여러 회로 구현 하는 Office 365에 Microsoft 피어 링을 사용 하는 고객은 Azure 공용 서비스에 액세스 하려면 피어 링을 사용 하는 경우 좋습니다. faiure 단일 지점을 방지 하는 위치입니다. 고객 중 두 회로에서 동일한 접두사를 보급 하 고 사용할 수 [AS PATH 앞에 추가](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) 또는 온-프레미스에서 경로 확인 하도록 서로 다른 접두사를 보급 합니다.
+
+참조 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 고가용성을 위해 설계 합니다.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 

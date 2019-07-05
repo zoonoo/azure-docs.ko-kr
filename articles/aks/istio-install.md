@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850407"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465704"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
-[Istio][istio-github]는 Kubernetes 클러스터에서 마이크로서비스에서 기능 키 세트를 제공하는 오픈 소스 서비스 메시입니다. 이 기능에는 트래픽 관리, 서비스 ID 및 보안, 정책 적용 및 관찰성을 포함됩니다. Istio에 대한 자세한 내용은 [Istio는 무엇인가?][istio-docs-concepts] 공식 설명서를 참조하세요.
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] 설명서.
 
 이 문서에서는 Istio를 설치하는 방법을 보여줍니다. Istio `istioctl` 클라이언트 이진를 클라이언트 컴퓨터에 설치 되어 있고 Istio 구성 요소는 AKS에서 Kubernetes 클러스터에 설치 됩니다.
 
 > [!NOTE]
 > 이들이 명령은 Istio 버전 참조 `1.1.3`합니다.
 >
-> Istio `1.1.x` 릴리스 Kubernetes 버전에 대해 Istio 팀에서 테스트 되었습니다 `1.11`를 `1.12`, `1.13`합니다. 추가 Istio 버전을 찾을 수 있습니다 [GitHub-Istio 릴리스] [ istio-github-releases] 에서 릴리스의 각각에 대 한 정보와 [Istio-릴리스] [ istio-release-notes].
+> Istio `1.1.x` 릴리스 Kubernetes 버전에 대해 Istio 팀에서 테스트 되었습니다 `1.11`를 `1.12`, `1.13`합니다. 추가 Istio 버전을 찾을 수 있습니다 [GitHub-Istio 릴리스][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes]합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -38,11 +38,11 @@ ms.locfileid: "65850407"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에 설명 된 단계 가정 AKS 클러스터를 만든 (Kubernetes `1.11` 이상에서 RBAC를 사용 하 여 사용 하도록 설정 하 고) 설정 하 고는 `kubectl` 클러스터와 연결 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 설명 된 단계 가정 AKS 클러스터를 만든 (Kubernetes `1.11` 이상에서 RBAC를 사용 하 여 사용 하도록 설정 하 고) 설정 하 고는 `kubectl` 클러스터와 연결 합니다. 이러한 항목 중 하나를 사용 하 여 도움이 필요한 경우 다음 참조를 [AKS 빠른 시작][aks-quickstart]합니다.
 
-해야 [Helm] [ helm] 이러한 지침 및 Istio를 설치 합니다. 버전을 갖고 있는 것이 좋습니다. `2.12.2` 또는 나중에 올바르게 설치 하 고 클러스터에서 구성 합니다. Helm을 설치 하 여 도움이 필요한 경우 다음 참조를 [AKS Helm 설치 지침][helm-install]합니다. 또한 모든 Istio pod Linux 노드에서 실행 되도록 예약 해야 합니다.
+해야 [Helm][helm] 이러한 지침 및 Istio를 설치 합니다. 버전을 갖고 있는 것이 좋습니다. `2.12.2` 또는 나중에 올바르게 설치 하 고 클러스터에서 구성 합니다. Helm을 설치 하 여 도움이 필요한 경우 다음 참조를 [AKS Helm 설치 지침은][helm-install]합니다. 또한 모든 Istio pod Linux 노드에서 실행 되도록 예약 해야 합니다.
 
-이 문서에서는 몇 단계로 Istio 설치 지침을 구분합니다. 최종 결과는 공식 설치 [지침][istio-install-helm]과 동일한 구조입니다.
+이 문서에서는 몇 단계로 Istio 설치 지침을 구분합니다. 최종 결과 공식 Istio 설치와 구조의 동일 [지침][istio-install-helm]합니다.
 
 ## <a name="download-istio"></a>Istio 다운로드
 
@@ -83,6 +83,8 @@ PowerShell을 사용 하 여 `Invoke-WebRequest` 최신 Istio 릴리스를 다�
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -126,7 +128,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 ### <a name="linux-or-windows-subsystem-for-linux"></a>Linux 또는 Windows Subsystem for Linux
 
-다음 명령을 사용하여 Linux 또는 [Windows Subsystem for Linux][install-wsl]의 Bash 기반 셸에 Istio `istioctl` 클라이언트 이진 파일을 설치합니다. 이 명령을 사용하여 `istioctl` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
+다음 명령을 사용 하 여 설치를 Istio `istioctl` 클라이언트 linux 기반 bash 셸에서 이진 또는 [Linux 용 Windows 하위 시스템][install-wsl]. 이 명령을 사용하여 `istioctl` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -167,13 +169,13 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 > [!IMPORTANT]
 > 다운로드 및 추출한 Istio 릴리스의 최상위 폴더에서이 섹션의 단계를 실행 하는 것을 확인 합니다.
 
-Istio를 사용 하 여 [사용자 지정 리소스 정의 (CRDs)] [ kubernetes-crd] 해당 런타임 구성을 관리 합니다. Istio 구성 요소에 대 한 종속성 없으므로 Istio CRDs를 먼저 설치 해야 합니다. Helm을 사용 하며 `istio-init` Istio CRDs에 설치 하는 차트를 `istio-system` AKS 클러스터에 대 한 네임 스페이스:
+Istio를 사용 하 여 [사용자 지정 리소스 정의 (CRDs)][kubernetes-crd] 해당 런타임 구성을 관리 합니다. Istio 구성 요소에 대 한 종속성 없으므로 Istio CRDs를 먼저 설치 해야 합니다. Helm을 사용 하며 `istio-init` Istio CRDs에 설치 하는 차트를 `istio-system` AKS 클러스터에 대 한 네임 스페이스:
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
-[작업] [ kubernetes-jobs] 의 일부로 배포 되는 `istio-init` Helm 차트는 CRDs를 설치 합니다. 이러한 작업은 클러스터 환경에 따라 완료 하는 데 1 ~ 2 분 사이가 소요 됩니다. 작업을 다음과 같이 완료를 확인할 수 있습니다.
+[작업][kubernetes-jobs] 의 일부로 배포 되는 `istio-init` Helm 차트는 CRDs를 설치 합니다. 이러한 작업은 클러스터 환경에 따라 완료 하는 데 1 ~ 2 분 사이가 소요 됩니다. 작업을 다음과 같이 완료를 확인할 수 있습니다.
 
 ```azurecli
 kubectl get jobs -n istio-system
@@ -208,7 +210,7 @@ PowerShell
 > [!IMPORTANT]
 > 다운로드 및 추출한 Istio 릴리스의 최상위 폴더에서이 섹션의 단계를 실행 하는 것을 확인 합니다.
 
-에서는 설치할 수 [Grafana] [ grafana] 하 고 [Kiali] [ kiali] 우리의 Istio 설치의 일부로. Grafana를 분석 및 모니터링 대시보드를 제공 하 고 Kiali 서비스 메시 관찰성 대시보드를 제공 합니다. 당사 설정을 통해 이러한 각 구성이 요소 필요으로 제공 해야 하는 자격 증명을 [비밀][kubernetes-secrets]합니다.
+에서는 설치 하겠습니다 [Grafana][grafana] and [Kiali][kiali] 우리의 Istio 설치의 일부로. Grafana를 분석 및 모니터링 대시보드를 제공 하 고 Kiali 서비스 메시 관찰성 대시보드를 제공 합니다. 당사 설정을 통해 이러한 각 구성이 요소 필요으로 제공 해야 하는 자격 증명을 [비밀][kubernetes 비밀]합니다.
 
 Istio 구성 요소를 설치할 수 있습니다, 전에 Grafana와 Kiali에 대 한 암호를 만들어야 합니다. 사용자 환경에 대 한 적절 한 명령을 실행 하 여 이러한 비밀을 만듭니다.
 
@@ -344,7 +346,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 
 ## <a name="validate-the-istio-installation"></a>Istio 설치 유효성 검사
 
-먼저 예상 서비스가 만들어졌는지 확인합니다. [kubectl get svc][kubectl-get] 명령을 사용하여 실행 중인 서비스를 봅니다. 쿼리는 `istio-system` 네임 스페이스에서 Istio 및 추가 기능 구성 요소를 설치한 위치를 `istio` Helm 차트:
+먼저 예상 서비스가 만들어졌는지 확인합니다. 사용 합니다 [kubectl get svc][kubectl-get] 실행 중인 서비스를 보려면 명령입니다. 쿼리는 `istio-system` 네임 스페이스에서 Istio 및 추가 기능 구성 요소를 설치한 위치를 `istio` Helm 차트:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -379,7 +381,7 @@ tracing                  ClusterIP      10.0.165.210   <none>          80/TCP   
 zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
-다음으로 필요한 Pod가 만들어졌는지 확인합니다. 사용 된 [kubectl get pod] [ kubectl-get] 명령을 실행 하 고 다시 쿼리를 `istio-system` 네임 스페이스:
+다음으로 필요한 Pod가 만들어졌는지 확인합니다. 사용 된 [kubectl get pod][kubectl-get] 명령을 실행 하 고 다시 쿼리를 `istio-system` 네임 스페이스:
 
 ```console
 kubectl get pods --namespace istio-system
@@ -409,11 +411,11 @@ kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
 prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
-두 있어야 `istio-init-crd-*` 사용 하 여 포드를 `Completed` 상태입니다. 이러한 pod를 CRDs 이전 단계에서 만든 작업을 실행 하는 일을 담당 했습니다. 모든 다른 pod의 상태를 표시 해야 `Running`합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고하는 경우 [kubectl describe pod][kubectl-describe] 명령을 사용하여 출력과 상태를 검토합니다.
+두 있어야 `istio-init-crd-*` 사용 하 여 포드를 `Completed` 상태입니다. 이러한 pod를 CRDs 이전 단계에서 만든 작업을 실행 하는 일을 담당 했습니다. 모든 다른 pod의 상태를 표시 해야 `Running`합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. 모든 pod는 문제를 보고 하는 경우 사용 합니다 [kubectl pod에 설명][kubectl-describe] 상태와 출력을 검토 하려면 명령 합니다.
 
 ## <a name="accessing-the-add-ons"></a>추가 항목 액세스
 
-추가 기능을 제공하는 설정에서 Istio가 다양한 추가 항목을 설치했습니다. 추가 항목에 대한 사용자 인터페이스는 외부 IP 주소를 통해 공개적으로 노출되지 않습니다. 추가 항목 사용자 인터페이스에 액세스하려면 [kubectl 포트-착신 전환][kubectl-port-forward] 명령을 사용합니다. 이 명령은 AKS 클러스터의 클라이언트 컴퓨터와 관련 된 pod 간에 보안 연결을 만듭니다.
+추가 기능을 제공하는 설정에서 Istio가 다양한 추가 항목을 설치했습니다. 추가 항목에 대한 사용자 인터페이스는 외부 IP 주소를 통해 공개적으로 노출되지 않습니다. 추가 기능 사용자 인터페이스에 액세스 하려면 사용 합니다 [kubectl 포트 전달][kubectl-port-forward] 명령입니다. 이 명령은 AKS 클러스터의 클라이언트 컴퓨터와 관련 된 pod 간에 보안 연결을 만듭니다.
 
 이 문서의 앞부분에 자격 증명을 지정 하 여 Grafana 및 Kiali에 대 한 추가 보안 계층을 추가 했습니다.
 
@@ -470,7 +472,7 @@ Forwarding from [::1]:16686 -> 16686
 
 ### <a name="kiali"></a>Kiali
 
-서비스 메시 관찰성 대시보드는 [Kiali][kiali]에서 제공됩니다. 로컬 포트 전달 `20001` 포트에 클라이언트 컴퓨터에서 `20001` Kiali AKS 클러스터에서 실행 중인 pod에서:
+서비스 메시 관찰성 대시보드가 제공한 [Kiali][kiali]합니다. 로컬 포트 전달 `20001` 포트에 클라이언트 컴퓨터에서 `20001` Kiali AKS 클러스터에서 실행 중인 pod에서:
 
 ```console
 kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
@@ -527,14 +529,14 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 다음 설명서에서는 Istio를 사용 하 여 카나리아 릴리스를 롤아웃 하려면 지능형 라우팅을 제공 하는 방법을 설명 합니다.
 
 > [!div class="nextstepaction"]
-> [AKS Istio 인텔리전트 라우팅 시나리오][istio-scenario-routing]
+> [AKS Istio 지능형 라우팅 시나리오][istio-scenario-routing]
 
 Istio에 대한 자세한 설치 및 구성 옵션을 탐색하려면 다음 공식 Istio 문서를 참조하세요.
 
-- [Istio - Helm 설치 지침][istio-install-helm]
-- [Istio - Helm 설치 옵션][istio-install-helm-options]
+- [Istio-Helm 설치 가이드][istio-install-helm]
+- [Istio-Helm 설치 옵션][istio-install-helm-options]
 
-또한 [Istio Bookinfo 애플리케이션 예제][istio-bookinfo-example]를 사용하여 추가 시나리오를 수행할 수 있습니다.
+추가 시나리오를 사용 하 여 수행할 수 있습니다 합니다 [Istio Bookinfo 응용 프로그램 예제][istio-bookinfo-example]합니다.
 
 Application Insights와 Istio를 사용 하 여 AKS 응용 프로그램을 모니터링 하는 방법에 알아보려면 다음 Azure Monitor 설명서를 참조 합니다.
 - [호스트 응용 프로그램을 Kubernetes 0 계측 응용 프로그램 모니터링][app-insights]

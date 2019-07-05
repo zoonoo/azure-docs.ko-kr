@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288546"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476409"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 보안 경고를 구성 합니다.
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용자 환경에서 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 PIM 대시보드에 표시됩니다. 경고를 선택하여 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
-![PIM 보안 경고 - 스크린 샷](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD 역할-경고 및 심각도 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>보안 경고
 
@@ -122,11 +122,11 @@ PIM의 일부 보안 경고를 환경 및 보안 목표에 맞게 사용자 지�
 
 1. **설정**을 클릭한 다음, **경고**를 클릭합니다.
 
-    ![보안 경고 설정으로 이동](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Azure AD 역할-경고를 사용 하 여 설정 선택](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. 경고 이름을 클릭하여 해당 경고에 대해 설정을 구성합니다.
 
-    ![보안 경고 설정](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![선택한 경고 보안 경고 설정 창](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01e7ca184f2be755f23cd402e0694ea282e3b85e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391884"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441390"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -32,7 +32,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 * Office 2010 Professional Plus 이상 또는 Excel 2010 이상을 포함한 워크스테이션.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버 설치
-다운로드 및 설치 합니다 [Microsoft Hive ODBC 드라이버](https://go.microsoft.com/fwlink/?LinkID=286698) ODBC 드라이버가 사용할 응용 프로그램의 버전과 일치 하는 버전입니다.  이 자습서에서는 Office Excel에서 드라이버를 사용합니다.
+다운로드 및 설치 합니다 [Microsoft Hive ODBC 드라이버](https://go.microsoft.com/fwlink/?LinkID=286698) ODBC 드라이버가 사용할 응용 프로그램의 버전과 일치 하는 버전입니다.  이 문서에서는 Office Excel 용 드라이버가 사용 됩니다.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC 데이터 원본 만들기
 다음 단계에 따라 Hive ODBC 데이터 원본을 만들 수 있습니다.
@@ -50,7 +50,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
    | 자산 | 설명 |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |[https://slack.botframework.com](`HDInsightClusterName.azurehdinsight.net`) 을 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
+   |  호스트 |`HDInsightClusterName.azurehdinsight.net` 을 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
    |  포트 |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값**을 사용합니다. |
    |  메커니즘 |선택 **Windows Azure HDInsight 서비스** |

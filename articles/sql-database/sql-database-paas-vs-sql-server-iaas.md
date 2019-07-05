@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584869"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447748"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure에서 적절한 SQL Server 옵션 선택
 
@@ -167,3 +167,4 @@ Microsoft는 **SQL Database**에 대해 99.99%의 가용성 SLA를 제공합니�
 - SQL Database를 시작하려면 [첫 Azure SQL Database](sql-database-single-database-get-started.md)를 참조하세요.
 - [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 - Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 머신 프로비전](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+- [올바른 Azure SQL Database/관리 되는 인스턴스 SKU 온-프레미스 데이터베이스에 대 한 식별](/sql/dma/dma-sku-recommend-sql-db/)합니다.

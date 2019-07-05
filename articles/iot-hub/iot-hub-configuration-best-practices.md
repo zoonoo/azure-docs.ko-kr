@@ -3,16 +3,16 @@ title: Azure IoT Hub에 대한 디바이스 구성 모범 사례 | Microsoft Doc
 description: 대규모 IoT 디바이스 구성에 대한 모범 사례에 대해 알아보기
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734833"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485807"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례
 
@@ -64,9 +64,11 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 
 * **장치 쌍 태그를 사용 하 여 장치를 구성 합니다.** 솔루션 품질 링 또는 카나리아와 같은 다양 한 배포 전략에 따라 장치의 다른 집합을 정의 하는 연산자를 허용 해야 합니다. 디바이스 조직은 디바이스 쌍 태그 및 [쿼리](iot-hub-devguide-query-language.md)를 사용하여 솔루션 내에서 구현될 수 있습니다. 구성을 안전하고 정확하게 배포하도록 허용하는 데 디바이스 조직이 필요합니다.
 
-* **구현 [자동 장치 구성을](iot-hub-auto-device-config.md):** 자동 장치 구성을 배포 하 고 대량의 장치 쌍을 통해 IoT 장치 모니터 구성을 변경 합니다. 자동 디바이스 구성은 디바이스 쌍 태그 또는 reported 속성에서 쿼리인 **대상 조건**을 통해 디바이스 쌍의 집합을 대상으로 합니다. **대상 콘텐츠**는 대상 디바이스 쌍 내에서 설정될 desired 속성의 집합입니다. 대상 콘텐츠는 IoT 하드웨어 제조업체/통합업체에 의해 정의된 디바이스 쌍 구조에 맞춰야 합니다.
+* **구현 [자동 장치 구성을](iot-hub-auto-device-config.md):** 자동 장치 구성을 배포 하 고 대량의 장치 쌍을 통해 IoT 장치 모니터 구성을 변경 합니다.
 
-   **메트릭**은 디바이스 쌍 reported 속성의 쿼리이며, IoT 하드웨어 제조업체/통합업체에 의해 정의된 디바이스 쌍 구조에 맞춰야 합니다. 자동 디바이스 구성에는 디바이스 쌍 읽기 및 업데이트에 대한 [제한 한도](iot-hub-devguide-quotas-throttling.md)를 절대 초과하지 않는 비율에서 디바이스 쌍 작업을 수행하는 IoT Hub의 혜택도 있습니다.
+   자동 디바이스 구성은 디바이스 쌍 태그 또는 reported 속성에서 쿼리인 **대상 조건**을 통해 디바이스 쌍의 집합을 대상으로 합니다. **대상 콘텐츠**는 대상 디바이스 쌍 내에서 설정될 desired 속성의 집합입니다. 대상 콘텐츠는 IoT 하드웨어 제조업체/통합업체에 의해 정의된 디바이스 쌍 구조에 맞춰야 합니다. 합니다 **메트릭을** 쿼리 장치 쌍의 reported 속성 및 IoT 하드웨어 제조업체/통합 업체에서 정의한 장치 쌍 구조와도 일치 해야 합니다.
+
+   자동 장치 구성을 처음으로 구성을 만든 후에 곧 고 5 분 간격으로 실행 합니다. 또한 결코 초과 하지 않습니다는 장치 쌍 작업을 수행 하 여 IoT Hub 로부터 혜택 합니다 [제한](iot-hub-devguide-quotas-throttling.md) 장치 쌍 읽기 및 업데이트에 대 한 합니다.
 
 * **사용 된 [Device Provisioning Service](../iot-dps/how-to-manage-enrollments.md):** 에 의해 자동으로 구성 됩니다 있도록 솔루션 개발자가 새 장치에 장치 쌍 태그를 할당할 Device Provisioning Service를 사용 해야 **자동 장치 구성을** 는 대상 해당 태그를 사용 하 여 쌍으로 합니다. 
 

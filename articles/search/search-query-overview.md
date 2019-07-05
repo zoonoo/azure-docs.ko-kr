@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595968"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485181"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
@@ -29,7 +29,7 @@ Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청의 
 | 방법 | 설명 |
 |-------------|-------------|
 | [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
-| [Postman 또는 Fiddler](search-fiddler.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Search에서 가능한 모든 작업을 지원합니다. 이 문서에서는 Azure Search로 요청을 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 알아봅니다.  |
+| [Postman 또는 Fiddler](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Search에서 가능한 모든 작업을 지원합니다. 이 문서에서는 Azure Search로 요청을 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 알아봅니다.  |
 | [SearchIndexClient(.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Search 인덱스를 쿼리하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Search Documents(REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
 

@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services 비활성화 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: mstephen
-ms.openlocfilehash: 122caddd73219060689ac8f6e3ab6408ea99a422
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246226"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473538"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD 디렉터리에 대한 Azure AD(Active Directory) Domain Services를 사용하지 않도록 설정하는 방법을 설명합니다.
