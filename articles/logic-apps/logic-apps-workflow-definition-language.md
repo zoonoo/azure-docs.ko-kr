@@ -80,7 +80,7 @@ ms.locfileid: "65596750"
 |-----------|----------|------|-------------|
 | <*key-name*> | 예 | String | 출력 반환 값에 대한 키 이름 |
 | <*key-type*> | 예 | nt, float, string, securestring, bool, array, JSON 개체 | 출력 반환 값의 형식 |
-| <*key-value*> | 예 | 동일 <*키 유형*> | 출력 반환 값 |
+| <*key-value*> | 예 | 동일 <*key-type*> | 출력 반환 값 |
 |||||
 
 워크플로 실행에서 출력을 가져오려면, 논리 앱의 실행된 기록 및 Azure portal에서 세부 정보를 검토 하거나 사용 합니다 [워크플로 REST API](https://docs.microsoft.com/rest/api/logic/workflows)합니다. 또한 대시보드를 만들 수 있도록 외부 시스템, 예를 들어 PowerBI에 출력을 전달할 수 있습니다.

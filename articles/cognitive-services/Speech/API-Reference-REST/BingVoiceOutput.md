@@ -67,7 +67,7 @@ X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16kh
 X-Search-AppId | GUID(16진수만, 대시 없음) | 클라이언트 애플리케이션을 고유하게 식별하는 ID입니다. 앱의 스토어 ID일 수 있습니다. 스토어 ID를 사용할 수 없는 경우 사용자가 생성한 애플리케이션 ID일 수 있습니다.
 X-Search-ClientID | GUID(16진수만, 대시 없음) | 각 설치에서 애플리케이션 인스턴스를 고유하게 식별하는 ID입니다.
 사용자 에이전트 | 응용 프로그램 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
-권한 부여 | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
+Authorization | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
 
 ### <a name="InputParam"></a>입력 매개 변수
 
