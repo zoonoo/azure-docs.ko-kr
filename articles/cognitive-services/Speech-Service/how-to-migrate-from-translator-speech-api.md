@@ -1,7 +1,7 @@
 ---
 title: Translator Speech API에서 음성 서비스로 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: Translator Speech API에서 음성 서비스에 응용 프로그램을 마이그레이션하는 방법에 알아봅니다.
+description: Translator Speech API에서 음성 서비스로 응용 프로그램을 마이그레이션하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -66,5 +66,5 @@ ms.locfileid: "65785671"
 
 ## <a name="see-also"></a>참고 항목
 
-* [Speech Service란](overview.md)
+* [음성 서비스란](overview.md)
 * [음성 서비스 및 Speech SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
