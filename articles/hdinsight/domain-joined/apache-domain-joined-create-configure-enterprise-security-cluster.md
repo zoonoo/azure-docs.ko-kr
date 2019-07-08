@@ -304,14 +304,14 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
         | 자산 | Value |
         |---|---|
-        | 원본 | 모두 |
-        | 원본 포트 범위 | * |
-        | 대상 | 모두 |
-        | 대상 포트 범위 | 636 |
-        | Protocol | 모두 |
-        | 액션(Action) | 허용 |
-        | 우선 순위 | <Desired Number> |
-        | 이름 | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
+        | Name | Port_LDAP_636 |
 
     ![인바운드 보안 규칙](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
