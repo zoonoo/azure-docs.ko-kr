@@ -22,7 +22,7 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure에 로그인
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure에 로그인
 
 ## <a name="enable-solutions"></a>솔루션 사용
 

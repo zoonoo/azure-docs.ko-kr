@@ -39,7 +39,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
 
         다음 단계에서는 FairPlay에 대한 .pfx 인증서 파일을 생성하는 방법을 설명합니다.
 
-        1. https://slproweb.com/products/Win32OpenSSL.html 에서 OpenSSL을 설치합니다.
+        1. [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html )에서 OpenSSL을 설치합니다.
 
             FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
         2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.

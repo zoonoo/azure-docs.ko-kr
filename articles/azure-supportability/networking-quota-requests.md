@@ -24,7 +24,7 @@ ms.locfileid: "67297268"
 
 Azure portal에서 제공 하는 Azure의 '도움말 + 지원' 블레이드를 통해 지원 요청을 만들려면 아래 지침을 따릅니다. 
 
-1. https://portal.azure.com 을 선택 **도움말 + 지원**합니다.
+1. [https://portal.azure.com](https://portal.azure.com )을 선택 **도움말 + 지원**합니다.
 
     ![도움말 + 지원](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -61,7 +61,7 @@ Azure portal에서 제공 하는 Azure의 '도움말 + 지원' 블레이드를 �
 
 Azure의 '사용량 + 할당량'를 통해 지원 요청을 만들려면 사용 하 여 아래 지침에 따라 블레이드에서 Azure portal에서 사용할 수 있습니다. 
 
-1. https://portal.azure.com 에서 **구독**을 선택합니다.
+1. [https://portal.azure.com](https://portal.azure.com )에서 **구독**을 선택합니다.
 
     ![구독](./media/resource-manager-core-quotas-request/subscriptions.png)
 

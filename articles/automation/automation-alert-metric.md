@@ -21,7 +21,7 @@ ms.locfileid: "67478018"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure에 로그인
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure에 로그인
 
 ## <a name="create-alert"></a>경고 만들기
 

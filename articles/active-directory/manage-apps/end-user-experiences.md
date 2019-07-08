@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 조직에 배포할 방법을 선택하는 것은 여러분의 몫입니다.
 
 ## <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
-https://myapps.microsoft.com 의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+[https://myapps.microsoft.com](https://myapps.microsoft.com )의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![Azure AD 액세스 패널](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
