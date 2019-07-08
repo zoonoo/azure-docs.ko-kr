@@ -57,8 +57,6 @@ ms.locfileid: "59360174"
 
 또는 [PowerShell 스크립트](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수 있습니다.
 
-또는 [PowerShell 스크립트](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/)를 사용하여 네트워크 만들기를 자동화할 수도 있습니다.
-
 관리되는 인스턴스를 배포하려는 곳에 VNet과 서브넷이 이미 있는 경우에는 VNet과 서브넷이 [네트워킹 요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)을 충족하는지 확인해야 합니다. 이 [PowerShell 스크립트를 사용하여 서브넷이 제대로 구성되어 있는지 확인](sql-database-managed-instance-configure-vnet-subnet.md)하세요. 이 스크립트는 네트워크 유효성을 검사하여 문제를 보고할 뿐만 아니라 변경해야 하는 항목을 알려주고 VNet/서브넷에서 필요한 사항을 변경하도록 제안합니다. VNet/서브넷을 수동으로 구성하지 않으려는 경우 이 스크립트를 실행하세요. 또한 네트워크 인프라의 모든 주요 재구성 후 실행할 수도 있습니다. 자체 네트워크를 만들고 구성하려면 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md) 및 [관리되는 인스턴스 환경 생성 및 구성을 위한 최고의 가이드](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01)를 읽어 보세요.
 
 ## <a name="automating-creation-of-a-managed-instance"></a>관리되는 인스턴스 만들기 자동화
@@ -67,7 +65,7 @@ ms.locfileid: "59360174"
 
 - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
 - [Resource Manager와 PowerShell 템플릿](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
+- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/)
 - [Resource Manager 템플릿](sql-database-single-database-get-started-template.md)
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>최소 가동 중지 시간으로 관리되는 인스턴스로 마이그레이션
