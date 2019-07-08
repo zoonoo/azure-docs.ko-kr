@@ -23,7 +23,7 @@ ms.locfileid: "67561331"
 
 이 문서에서는 Bing Speech Api 및 음성 서비스 간의 차이점에 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다. Bing Speech API 구독 키 음성 서비스를 사용 하 여 작동 하지 않습니다. 새 음성 서비스 구독을 해야 합니다.
 
-단일 음성 서비스 등록 키를 다음과 같은 기능에 대 한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
+단일 음성 서비스 등록 키는 다음과 같은 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
 * [Speech-to-text](speech-to-text.md)
 * [사용자 지정 음성 텍스트 변환](https://cris.ai)
@@ -35,7 +35,7 @@ ms.locfileid: "67561331"
 
 ## <a name="comparison-of-features"></a>기능 비교
 
-음성 서비스는 다음과 같은 차이점이 사용 하 여 Bing Speech과 거의 비슷합니다.
+음성 서비스는 다음과 같은 차이점이 있으며 Bing Speech와 거의 비슷합니다.
 
 기능 | Bing Speech | Speech Services | 세부 정보
 -|-|-|-
@@ -57,21 +57,21 @@ WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech Servic
 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다.
 오픈 소스 SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
-음성 서비스에는 시간 기반 가격 책정 모델을 대신 트랜잭션 기반 모델을 사용합니다. 참조 [Speech Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 세부 정보에 대 한 합니다.
+음성 서비스에는 트랜잭션 기반 모델 대신 시간 기반 가격 책정 모델을 사용합니다. 세부 정보에 대해서는 [Speech Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조합니다.
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-또는 조직 개발 또는 프로덕션 환경에 Bing Speech API를 사용 하는 응용 프로그램이 있는 경우 가능한 한 빨리 음성 서비스를 사용 하도록 업데이트 해야 합니다. 참조 된 [음성 서비스 설명서](index.yml) Sdk, 코드 샘플 및 자습서를 사용할 수 있습니다.
+사용자 또는 사용자의 조직에서 개발 또는 프로덕션 환경에 Bing Speech API를 사용하는 응용 프로그램이 있는 경우, 가능한 한 빨리 음성 서비스를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서는 [음성 서비스 설명서](index.yml)를 확인합니다.
 
-Speech Services [REST Api](rest-apis.md) Bing Speech Api와 호환 됩니다. Bing Speech REST Api를 현재 사용 중인 경우 REST 끝점을 변경 하 고 음성 서비스 등록 키를 전환 하는 것이 해야 합니다.
+음성 서비스 [REST API](rest-apis.md)는 Bing Speech API와 호환됩니다. Bing Speech REST API를 현재 사용 중인 경우 REST 끝점을 변경하고 음성 서비스 등록 키로 전환하면 됩니다.
 
-음성 서비스 Websocket 프로토콜도 Bing Speech에서 사용 되는 호환 됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
+음성 서비스 Websocket 프로토콜도 Bing Speech와 호환됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 끝점과 업데이트된 키만 변경하면 됩니다.
 
-특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
+특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우, API가 다르기 때문에 [Speech SDK](speech-sdk.md)로 마이그레이션하는 경우 응용 프로그램을 변경해야 합니다. Speech SDK로 새 기능에 액세스하고, 코드를 더 간단히 만들 수 있습니다.
 
 Speech SDK 지원 되는 현재 C# ([여기에 세부 정보](https://aka.ms/csspeech)), Java (Android 및 사용자 지정 장치), Objective C (iOS), C++ (Windows 및 Linux) 및 JavaScript입니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 
-음성 서비스 전역 엔드포인트를 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역에 별도 음성 서비스 구독이 필요 합니다.
+음성 서비스는 전역 엔드포인트를 제공하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역별로 음성 서비스 구독이 필요합니다.
 
 애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
