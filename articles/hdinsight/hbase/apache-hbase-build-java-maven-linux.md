@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726450"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484130"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 애플리케이션 빌드
 
@@ -34,9 +34,6 @@ Java에서 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만�
 * PowerShell을 사용 하는 경우는 [AZ 모듈](https://docs.microsoft.com/powershell/azure/overview)합니다.
 
 * 텍스트 편집기. 이 문서에서는 Microsoft 메모장을 사용 합니다.
-
-> [!IMPORTANT]  
-> Azure PowerShell cmdlet [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 하 고 [Get AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) 현재 작동 하지 않습니다 때 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 저장소 계정에서 사용 가능 .
 
 ## <a name="test-environment"></a>테스트 환경
 이 문서에 사용 되는 환경에서 Windows 10을 실행 하는 컴퓨터.  명령 프롬프트에서 실행 된 명령 및 다양 한 파일을 메모장으로 편집 합니다. 그에 따라 수정 사용자 환경에 대 한 합니다.

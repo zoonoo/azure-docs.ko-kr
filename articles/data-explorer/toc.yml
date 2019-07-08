@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: 클러스터 상태 확인
           href: check-cluster-health.md
-        - name: 클러스터 스케일 아웃 관리
-          href: manage-cluster-scale-out.md
-        - name: 클러스터 강화 관리
-          href: manage-cluster-scale-up.md
+        - name: 클러스터 수평적 크기 조정 관리
+          href: manage-cluster-horizontal-scaling.md
+        - name: 클러스터 수직적 크기 조정 관리
+          href: manage-cluster-vertical-scaling.md
         - name: 데이터 삭제
           href: delete-data.md
         - name: 중복 데이터 처리

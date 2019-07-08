@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689705"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503326"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,11 +77,11 @@ Linux, UNIX에서 Windows (LUW) 용 IBM Db2 [높은 가용성 및 재해 복구 
 | 문서화 | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 모든 필요한 SAP Note |
-| [Azure Virtual Machines 계획 및 Linux에서 SAP에 대 한 구현을] [ planning-guide] 가이드 |
-| [Linux에서 SAP 용 azure Virtual Machines 배포] [ deployment-guide] (이 문서) |
-| [Azure 가상 머신에 Linux에서 SAP에 대 한 관리 system(DBMS) 배포 데이터베이스] [ dbms-guide] 가이드 |
+| [Azure Virtual Machines 계획 및 Linux에서 SAP에 대 한 구현을][planning-guide] 가이드 |
+| [Linux에서 SAP 용 azure Virtual Machines 배포][deployment-guide] (이 문서) |
+| [Azure Virtual Machines 관리 system(DBMS) 배포 Linux에서 SAP 용 데이터베이스][dbms-guide] 가이드 |
 | [SAP 워크 로드를 Azure의 계획 및 배포 검사 목록][azr-sap-plancheck] |
-| [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp] |
+| [SUSE Linux Enterprise Server SAP 응용 프로그램 12 sp3 모범 사례 가이드][sles-for-sap-bp] |
 | [SUSE Linux Enterprise 고가용성 확장 12 SP3][sles-ha-guide] |
 | [SAP 워크 로드 용 IBM Db2 Azure Virtual Machines DBMS 배포][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
@@ -496,13 +496,12 @@ Db2 HADR 구성 생성 하기 전에 설치를 수행한 경우 이전 섹션에
 
 J2EE 구성 도구를 사용 하 여 확인 하거나 JDBC URL을 업데이트 합니다. X 해야 하는 J2EE 구성 도구는 그래픽 도구 이기 때문에 서버를 설치 합니다.
  
-1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 실행 합니다.
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 실행 합니다.   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. 왼쪽된 프레임에서 선택 **보안 저장소**합니다.
-1. 오른쪽 프레임 선택 키 jdbc/풀 / \<SAPSID>/url 합니다.
+1. 오른쪽 프레임 선택 키jdbc/풀/\<SAPSID > / url입니다.
 1. 가상 호스트 이름을 JDBC URL에 호스트 이름을 변경 합니다.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. 선택 **추가**합니다.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. **추가**를 선택합니다.
 1. 변경 내용을 저장 하려면 왼쪽 위에 있는 디스크 아이콘을 선택 합니다.
 1. 구성 도구를 닫습니다.
 1. Java 인스턴스를 다시 시작 합니다.
@@ -516,7 +515,7 @@ HADR 설치에 대 한 보관 Db2 로그를 구성 하려면 주 및 대기 데�
 
 전송 또는 프로필 디렉터리에 대 한 기존 항상 사용 가능한 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][nfs-ha] 
+- [SUSE Linux Enterprise Server의 Azure Vm에 있는 NFS의 고가용성][nfs-ha] 
 - [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 - [Azure NetApp 파일](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (NFS 공유 만들려면)
 

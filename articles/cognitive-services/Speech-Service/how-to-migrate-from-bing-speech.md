@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/04/2019
 ms.locfileid: "67561331"
 ---
-# <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
+# <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 음성 서비스로 마이그레이션
 
-이 문서를 사용하여 Bing Speech API에서 Speech Service로 애플리케이션을 마이그레이션합니다.
+이 문서를 사용하여 Bing Speech API에서 음성 서비스로 애플리케이션을 마이그레이션합니다.
 
 이 문서에서는 Bing Speech Api 및 음성 서비스 간의 차이점에 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다. Bing Speech API 구독 키 음성 서비스를 사용 하 여 작동 하지 않습니다. 새 음성 서비스 구독을 해야 합니다.
 
@@ -73,19 +73,19 @@ Speech SDK 지원 되는 현재 C# ([여기에 세부 정보](https://aka.ms/css
 
 음성 서비스는 전역 엔드포인트를 제공하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역별로 음성 서비스 구독이 필요합니다.
 
-애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
+애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우, WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
-Speech Devices SDK를 시작하려면
+Speech SDK를 시작하려면
 
 1. [Speech SDK](speech-sdk.md)를 다운로드합니다.
-1. 음성 서비스를 통해 작업 [빠른 시작 가이드](quickstart-csharp-dotnet-windows.md) 하 고 [자습서](how-to-recognize-intents-from-speech-csharp.md)합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
-1. 음성 서비스를 사용 하도록 응용 프로그램을 업데이트 합니다.
+1. 음성 서비스 [빠른 시작 가이드](quickstart-csharp-dotnet-windows.md)와 [자습서](how-to-recognize-intents-from-speech-csharp.md)를 통해 작업합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
+1. 음성 서비스를 사용하도록 응용 프로그램을 업데이트합니다.
 
 ## <a name="support"></a>지원
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
-Speech Service, SDK 및 API 지원에 대 한 음성 서비스를 방문 [지원 페이지](support.md)합니다.
+Speech Service, SDK 및 API 지원에 대해서는 음성 서비스 [지원 페이지](support.md)를 방문합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
