@@ -174,7 +174,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 [다음 단계](#next-steps)를 진행하려면 이 리소스 그룹, 데이터베이스 서버 및 단일 데이터베이스를 그대로 유지합니다. 다음 단계에서는 다른 메서드를 사용하여 데이터베이스를 연결하고 쿼리하는 방법을 보여줍니다.
 
-Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하려면:
+Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하는 방법은 다음과 같습니다.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
