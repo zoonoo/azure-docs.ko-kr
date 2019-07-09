@@ -127,6 +127,14 @@
           href: sql-data-warehouse-overview-develop.md
         - name: 모범 사례
           href: sql-data-warehouse-best-practices-development.md
+        - name: 구체화된 뷰
+          items:
+            - name: 선택으로 구체화된 뷰(Transact-SQL) 만들기
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: 선택으로 구체화된 뷰(Transact-SQL) 변경
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: 결과 세트 캐싱
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: 테이블
           items:
             - name: 개요
