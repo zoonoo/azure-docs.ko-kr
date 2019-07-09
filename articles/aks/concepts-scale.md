@@ -83,7 +83,7 @@ AKS 클러스터 크기를 빠르게 조정하기 위해 ACI(Azure Container Ins
 
 ![Kubernetes를 ACI로 버스트 크기 조정](media/concepts-scale/burst-scaling.png)
 
-ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. ACI를 가상 Kubernetes 노드로 제공하는 가상 Kubelet 구성 요소가 AKS 클러스터에 설치됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다. 가상 노드에 현재 AKS에서 미리 보기에 있습니다.
+ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. ACI를 가상 Kubernetes 노드로 제공하는 가상 Kubelet 구성 요소가 AKS 클러스터에 설치됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다. AKS의 가상 노드는 현재 프리뷰입니다.
 
 가상 노드를 사용하기 위해 애플리케이션을 수정할 필요는 없습니다. AKS 및 ACI 간에 배포 크기를 조정할 수 있으며 클러스터 자동 크기 조정기가 AKS 클러스터에 새 노드를 배포할 때 지연이 발생하지 않습니다.
 
