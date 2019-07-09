@@ -21,7 +21,7 @@ ms.locfileid: "67490228"
 
 음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 최첨단 로컬 기능을 모두 활용할 수 있도록 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 
 
-두 음성 컨테이너가 **음성-텍스트** 하 고 **text to speech**합니다. 
+두 음성 컨테이너는 **음성 텍스트 변환**과 **텍스트 음성 변환**입니다. 
 
 |함수|기능|최신 버전|
 |-|-|--|
@@ -32,17 +32,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-음성 컨테이너를 사용 하기 전에 다음 필수 조건을 충족 해야 합니다.
+음성 컨테이너를 사용하기 전에 다음 필수 조건을 충족해야 합니다.
 
 |필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _음성_ Azure 리소스 연결 된 청구 키 및 청구 끝점 URI 가져올 수 있습니다. 두 값은 Azure portal에서 사용할 수 있습니다 **음성** 개요 및 키 페이지 되며 컨테이너를 시작 해야 합니다.<br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 수 있는 _음성_ Azure 리소스. 두 값은 Azure portal의 **음성** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하기 위해 필요합니다.<br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-먼저 완료 하 고 제출 합니다 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/) 컨테이너에 액세스를 요청 합니다. 
+컨테이너에 액세스를 요청하려면 먼저 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/)을 작성하여 제출합니다. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="advanced-vector-extension-support"></a>고급 벡터 확장 지원
 
-**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 호스트를 지원 해야 합니다 [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). 다음 명령 사용 하 여 Linux 호스트에서이 지원을 확인할 수 있습니다. 
+**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 호스트는 [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2)(AVX2)를 지원해야 합니다. 다음 명령을 사용하여 Linux 호스트에서의 이 지원을 확인할 수 있습니다. 
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -62,7 +62,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
-다음 표에 최소 및 권장 되는 CPU 코어 및 메모리 각 음성 컨테이너에 할당할 수 있습니다.
+다음 표는 각 음성 컨테이너에 할당하기 위한 최소 및 권장되는 CPU 코어 및 메모리를 설명합니다.
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
@@ -71,13 +71,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
-`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
+코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
 
 **참고**; 최소 및 권장 되는 Docker 제한 기반 *되지* 호스트 컴퓨터 리소스가 있습니다. 예를 들어, 음성-텍스트 컨테이너 메모리 맵 부분 큰 언어 모델 됩니다 _권장_ 전체 파일에는 추가 4 ~ 6 2GB는 메모리는 합니다. 또한 모델을 메모리로 페이징되지는 하므로 한쪽 컨테이너의 첫 번째 실행 더 오래 걸릴 수 있습니다.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-음성에 대 한 컨테이너 이미지는 사용할 수 있습니다.
+음성에 대한 컨테이너 이미지를 사용할 수 있습니다.
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -86,11 +86,11 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="language-locale-is-in-container-tag"></a>컨테이너 태그에는 언어 로캘
+### <a name="language-locale-is-in-container-tag"></a>컨테이너 태그의 언어 로캘
 
-`latest` 끌어오기를 태그 합니다 `en-us` 로캘 및 `jessarus` 음성.
+`latest` 태그는 `en-us` 로캘 및 `jessarus` 음성을 끌어오기 합니다.
 
-#### <a name="speech-to-text-locales"></a>로캘에서 텍스트 음성 변환
+#### <a name="speech-to-text-locales"></a>텍스트 음성 변환 로캘
 
 모든 태그를 제외한 `latest` 형식에 여기서는 `<culture>` 로캘 컨테이너를 나타냅니다:
 
@@ -98,7 +98,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 <major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
 ```
 
-다음 태그는 형식의 예:
+다음 태그는 해당 형식의 예입니다.
 
 ```
 1.1.3-amd64-en-us-preview
@@ -120,19 +120,19 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 #### <a name="text-to-speech-locales"></a>텍스트 음성 변환 로캘
 
-모든 태그를 제외 하 고 `latest` 형식에 위치 합니다 `<culture>` 로캘을 나타냅니다 및 `<voice>` 컨테이너의 음성 나타냅니다:
+`latest`를 제외한 모든 태그는 로캘 컨테이너를 나타내는 `<culture>`와 컨테이너의 음성을 나타내는  `<voice>`가 있는 다음 형식입니다.
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
 ```
 
-다음 태그는 형식의 예:
+다음 태그는 해당 형식의 예입니다.
 
 ```
 1.1.0-amd64-en-us-jessarus-preview
 ```
 
-다음 표에서 대 한 지원 되는 로캘 **text to speech** 1.1.0에서 컨테이너의 버전:
+다음 표는 컨테이너의 버전 1.1.0에서 **텍스트 음성 변환**에 대해 지원되는 로캘을 나열합니다.
 
 |언어 로캘|태그들|지원 되는 음성|
 |--|--|--|
@@ -151,7 +151,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |스페인어|`es-es`|elenarus<br>laura apollo<br>pablo-apollo<br>|
 |스페인어|`es-mx`|hildarus<br>raul-apollo|
 
-### <a name="docker-pull-for-the-speech-containers"></a>음성 컨테이너용 docker 풀
+### <a name="docker-pull-for-the-speech-containers"></a>음성 컨테이너용 Docker 풀
 
 #### <a name="speech-to-text"></a>음성 텍스트 변환
 

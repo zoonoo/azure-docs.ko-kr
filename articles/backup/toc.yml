@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: FAQ-Azure Backup Server 및 DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: FAQ-Azure Backup 모니터링 경고
+          href: backup-azure-monitor-alert-faq.md
     - name: 백업 아키텍처
       href: backup-architecture.md
     - name: 역할 기반 Access Control
