@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: 개념
           items:
+            - name: 보안 지침 읽기
+              href: data-box-heavy-safety.md
             - name: 추적 및 로깅 검토
               href: data-box-logs.md
             - name: 요구 사항 검토
