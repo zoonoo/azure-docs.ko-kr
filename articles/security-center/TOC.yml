@@ -35,6 +35,12 @@
       href: security-center-data-security.md
     - name: 권장 사항을 사용하여 보안 강화
       href: security-center-using-recommendations.md
+    - name: 위협 감지
+      href: security-center-detection-capabilities.md
+    - name: 보안 경고 관리
+      href: security-center-managing-and-responding-alerts.md
+    - name: 보안 인시던트
+      href: security-center-incident.md
     - name: 사고 대응
       href: security-center-incident-response.md
 - name: 방법 가이드
@@ -97,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: 적응형 네트워크 강화
           href: security-center-adaptive-network-hardening.md
-    - name: 위협 감지
-      href: security-center-detection-capabilities.md
+    - name: 위협 검색 경고
       items:
-        - name: 보안 경고
-          href: security-center-managing-and-responding-alerts.md
-        - name: 보안 인시던트
-          href: security-center-incident.md
-        - name: 보안 경고 이해
-          href: security-center-alerts-type.md
-        - name: 경고 유효성 검사
+        - name: 보안 경고 개요
+          href: security-center-alerts-overview.md
+        - name: VM 및 서버에 대한 위협 탐지
+          href: security-center-alerts-iaas.md
+        - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지
+          href: security-center-alerts-compute.md
+        - name: 데이터 서비스에 대한 위협 탐지
+          href: security-center-alerts-data-services.md
+        - name: Azure 서비스 계층에 대한 위협 탐지
+          href: security-center-alerts-service-layer.md
+        - name: Azure 보안 제품과 통합
+          href: security-center-alerts-integration.md
+        - name: 클라우드 스마트 경고 상관 관계(인시던트)
+          href: security-center-alerts-cloud-smart.md
+        - name: 경고 유효성 검사(EICAR 테스트 파일)
           href: security-center-alert-validation.md
-        - name: Azure 리소스와 사용자에 대한 UEBA
-          href: security-center-ueba-mcas.md
     - name: 보관
       items:
         - name: 디스크 암호화 적용
@@ -168,6 +179,10 @@
           href: security-center-search.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
+        - name: 보안 경고 이해
+          href: security-center-alerts-type.md
+        - name: Azure 리소스와 사용자에 대한 UEBA
+          href: security-center-ueba-mcas.md
 - name: 참고 자료
   items:
     - name: REST API

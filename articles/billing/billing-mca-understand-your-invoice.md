@@ -1,43 +1,40 @@
 ---
-title: Microsoft 고객 계약 청구서 이해 | Microsoft Docs
-description: 읽고 MCA 청구서를 이해 하는 방법을 알아봅니다
-services: ''
-documentationcenter: ''
-author: jureid
+title: Azure에서 Microsoft 고객 계약 청구서 이해
+description: 읽고 Azure에서 Microsoft 고객 계약 청구서를 이해 하는 방법을 알아봅니다
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604044"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490647"
 ---
-# <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서에서 용어 이해
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서에서 용어
 
-이 문서는 Microsoft 고객 계약에 대 한 대금 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
+이 문서는 Microsoft 고객 계약에 대 한 Azure 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
 
 청구서는 요금 및 지불에 대 한 지침의 요약을 제공합니다. [Azure Portal](https://portal.azure.com/)에서 .pdf(Portable Document Format)로 다운로드하고 전자 메일을 통해 전송할 수 있습니다. 자세한 내용은 [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)합니다.
 
-<!-- ## When am I billed?
+## <a name="billing-period"></a>청구 기간
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+매월 송장 처리 된 합니다. 확인 하 여 청구서를 수신 하면 해당 월의 날짜를 확인할 수 있습니다 *송장 날짜* 에서 프로필 속성을 청구 합니다 [Azure portal](https://portal.azure.com/)합니다. 다음 청구 기간에 있으므로 요금 청구 기간의 끝과 발행일 간에 발생 하는 다음 달의 청구서에 포함 됩니다. 청구 기간 시작 및 종료 날짜를 각 구매서에 대 한 위의 PDF 청구서에 나와 **청구 요약**합니다.
 
 ## <a name="invoice-terms-and-descriptions"></a>송장 용어 및 설명
 
-다음 섹션에서는 각 용어에 대 한 청구서 및 설명에 표시 되는 중요 한 용어를 나열 합니다.
+다음 섹션 목록 중요 한 용어는 청구서에 표시 하 고 각 용어에 대 한 설명을 제공 합니다.
 
 ### <a name="invoice-summary"></a>청구서 요약
 
-합니다 **청구서 요약** 첫 번째 페이지의 맨 위에서 이며 청구 프로필 및 지불 방법에 대 한 정보를 보여 줍니다.
+합니다 **청구서 요약** 첫 페이지의 맨 위에 있는 이며 청구 프로필 및 지불 방법에 대 한 정보를 보여 줍니다.
 
 ![청구서 요약 섹션](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
@@ -78,7 +75,6 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 각 서비스 제품군을 빼서 계산 지불할 총 금액 *크레딧은* 에서 *크레딧/요금* 추가 하 고 *세금*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![송장 섹션에서 세부 정보](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -103,9 +99,9 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

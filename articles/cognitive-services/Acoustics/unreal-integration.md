@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436146"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>소음 Unreal 및 Wwise 통합 프로젝트
 이 방법은 기존 Wwise 및 Unreal 게임 프로젝트에 프로젝트 소음 플러그 인 패키지의 자세한 통합 단계를 제공합니다. 

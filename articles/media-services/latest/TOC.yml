@@ -36,11 +36,16 @@
   items:
     - name: 개요
       href: concepts-overview.md
-    - name: 클라우드 업로드 및 저장
+    - name: 계정
       items:
-        - name: Storage
+        - name: Media Services 계정
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: Storage 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: 업로드
+      items:
         - name: 자산
           href: assets-concept.md
     - name: Encoding
@@ -223,6 +228,14 @@
             - name: REST 사용
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: 비디오 서브클립
+          items:
+            - name: .NET 사용
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: REST 사용
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Event Grid 사용
       items:
         - name: 이벤트 모니터링 - 포털

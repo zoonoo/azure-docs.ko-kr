@@ -3,7 +3,7 @@ title: Android용 Azure Mobile Apps SDK를 사용하는 방법 | Microsoft Docs
 description: Android용 Azure Mobile Apps SDK를 사용하는 방법
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859395"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443532"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
+
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) 지금 합니다.
+>
 
 이 가이드에서는 Mobile Apps용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
 
@@ -29,11 +33,11 @@ ms.locfileid: "60859395"
 * 오류 처리.
 * 클라이언트 사용자 지정.
 
-이 가이드는 클라이언트 쪽 Android SDK에 중점을 둡니다.  Mobile Apps용 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 백 엔드 SDK로 작업][10] 또는 [Node.js 백 엔드 SDK를 사용하는 방법][11]을 참조하세요.
+이 가이드는 클라이언트 쪽 Android SDK에 중점을 둡니다.  Mobile Apps 용 서버 쪽 Sdk에 대 한 자세히 알아보려면 참조 [.NET 백 엔드 SDK 사용 하 여 작동][10] or [How to use the Node.js backend SDK][11]합니다.
 
 ## <a name="reference-documentation"></a>참조 설명서
 
-Android 클라이언트 라이브러리용 [Javadocs API 참조][12]는 GitHub에서 확인할 수 있습니다.
+찾을 수 있습니다 합니다 [Javadocs API 참조][12] Android 클라이언트 라이브러리 GitHub에 대 한 합니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 
@@ -45,7 +49,7 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
 
 빠른 시작 자습서를 완료하지 않으려는 경우에는 다음 작업을 완료하세요.
 
-* Android 앱과 함께 사용할 [모바일 앱 백 엔드를 만듭니다][13].
+* [모바일 앱 백 엔드 만들기][13] Android 앱을 사용 합니다.
 * Android Studio에서 [Gradle 빌드 파일을 업데이트](#gradle-build)합니다.
 * [인터넷 권한을 사용합니다](#enable-internet).
 
@@ -77,7 +81,7 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    현재 최신 버전은 3.4.0입니다. 지원되는 버전은 [bintray][14]에 나열되어 있습니다.
+    현재 최신 버전은 3.4.0입니다. 지원 되는 버전 나와 [bintray][14]합니다.
 
 ### <a name="enable-internet"></a>인터넷 권한 사용
 
@@ -197,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15](.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의][16](Node.js 백 엔드)를 참조하세요.
+Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js 백 엔드).
 
 Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 이 중 4개는 클라이언트에서 사용할 수 있습니다.
 
-* `String id`: 레코드의 전역 고유 ID입니다.  가장 좋은 방법은 ID를 [UUID][17] 개체의 문자열 표현으로 만드는 것입니다.
+* `String id`: 레코드의 전역 고유 ID입니다.  모범 사례로, 확인 id의 문자열 표현 된 [UUID][17] 개체입니다.
 * `DateTimeOffset updatedAt`: 마지막 업데이트 날짜/시간입니다.  updatedAt 필드는 서버에 의해 설정되며 클라이언트 코드로 설정하지 말아야 합니다.
 * `DateTimeOffset createdAt`: 개체가 만들어진 날짜/시간입니다.  createdAt 필드는 서버에 의해 설정되며 클라이언트 코드로 설정하지 말아야 합니다.
 * `byte[] version`: 일반적으로 문자열로 표시되며 버전도 서버에 의해 설정됩니다.
 * `boolean deleted`: 레코드가 삭제되었지만 아직 제거되지 않았음을 나타냅니다.  `deleted`를 클래스에서 속성으로 사용하지 마십시오.
 
-`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  하지만 [gson][3] 라이브러리를 사용하여 개체와 "across-the-wire" 이름 사이에 매핑을 만들 수 있습니다.  예를 들면 다음과 같습니다.
+`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  개체와 사용 하 여 "간에 실시간" 이름 간의 매핑을 만들 수는 있지만 합니다 [gson][3] 라이브러리입니다.  예를 들면 다음과 같습니다.
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>테이블 참조 만들기
 
-테이블에 액세스하려면 우선 [MobileServiceClient][9]에서 **getTable** 메서드를 호출하여 [MobileServiceTable][8] 개체를 만듭니다.  이 메서드에는 두 가지 오버로드가 있습니다.
+테이블에 액세스 하려면 먼저 만듭니다는 [MobileServiceTable][8] 호출 하 여 개체를 **getTable** 메서드를 [MobileServiceClient][9].  이 메서드에는 두 가지 오버로드가 있습니다.
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  쿼리는 Mobile Apps 백 엔드로 전송되기 전에 [OData v3][19] 쿼리로 변환됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 작업에 시간이 걸리므로 `.execute()` 메서드는 [`ListenableFuture<E>`][18]를 반환합니다.
+앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  쿼리 변환 되는 [OData v3][19] Mobile Apps 백 엔드로 전송 되기 전에 쿼리 합니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 작업에 다소 시간이 걸리므로 합니다 `.execute()` 메서드가 반환 되는 [ `ListenableFuture<E>` ][18]합니다.
 
 ### <a name="filtering"></a>반환된 데이터 필터링
 
@@ -609,7 +613,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 **ToDoItem** 테이블을 수정할 때 언제든지 어댑터를 호출하세요. 수정은 레코드별로 이루어지기 때문에 사용자는 컬렉션이 아닌 단일 행을 다루게 됩니다. 항목을 삽입할 때는 어댑터에 대해 **add** 메서드를 호출하고, 삭제할 때는 **remove** 메서드를 호출합니다.
 
-전체 예제는 [Android 빠른 시작 프로젝트][21]에서 찾을 수 있습니다.
+전체 예제를 찾을 수 있습니다 합니다 [Android 빠른 시작 프로젝트][21]합니다.
 
 ## <a name="inserting"></a>백 엔드에 데이터 삽입
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 **MobileServiceJsonTable**의 인스턴스를 만들면 형식화된 프로그래밍 모델을 사용할 때와 거의 동일한 API를 사용할 수 있습니다. 경우에 따라 메서드가 형식화된 매개 변수 대신 형식화되지 않은 매개 변수를 가져오기도 합니다.
 
 ### <a name="json_insert"></a>형식화되지 않은 테이블에 삽입
-다음 코드는 삽입하는 방법을 보여 줍니다. 첫 번째 단계는 [gson][3] 라이브러리의 일부인 [JsonObject][1]를 만드는 것입니다.
+다음 코드는 삽입하는 방법을 보여 줍니다. 첫 번째 단계를 만드는 것을 [JsonObject][1] , which is part of the [gson][3] 라이브러리입니다.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1003,7 +1007,7 @@ dependencies {
 
 ### <a name="caching"></a>인증 토큰 캐시
 
-인증 토큰을 캐시하려면 사용자 ID 및 인증 토큰을 디바이스에 로컬로 저장해야 합니다. 다음에 앱이 시작될 때 캐시를 확인하여 이 값이 있는 경우 로그인 절차를 건너뛰고 이 데이터로 클라이언트를 리하이드레이션할 수 있습니다. 하지만 이 데이터는 중요하므로 휴대폰을 분실하는 경우 안전을 위해 암호화하여 저장해야 합니다.  인증 토큰을 캐시하는 방법의 전체 예제는 [캐시 인증 토큰 섹션][7]에서 볼 수 있습니다.
+인증 토큰을 캐시하려면 사용자 ID 및 인증 토큰을 디바이스에 로컬로 저장해야 합니다. 다음에 앱이 시작될 때 캐시를 확인하여 이 값이 있는 경우 로그인 절차를 건너뛰고 이 데이터로 클라이언트를 리하이드레이션할 수 있습니다. 하지만 이 데이터는 중요하므로 휴대폰을 분실하는 경우 안전을 위해 암호화하여 저장해야 합니다.  인증 토큰을 캐시 하는 방법의 전체 예제를 볼 수 있습니다 [캐시 인증 토큰 섹션][7]합니다.
 
 만료된 토큰을 사용하려고 하면 *401 권한 없음* 응답을 받습니다. 필터를 사용하여 인증 오류를 처리할 수 있습니다.  필터가 App Service 백 엔드에 대한 요청을 가로챕니다. 필터 코드가 401에 대한 응답을 테스트하고, 로그인 프로세스를 트리거한 후 401을 생성한 요청을 다시 시작합니다.
 
@@ -1081,7 +1085,7 @@ MobileServiceUser user = mClient
 
 Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
 
-1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
+1. 다음으로 [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. 다음 정의를 포함하도록 build.gradle 파일을 수정하여 ADAL을 설치합니다.
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>자동 직렬화 구성
 
-[gson][3] API를 사용하여 모든 열에 적용되는 변환 전략을 지정할 수 있습니다. Android 클라이언트 라이브러리는 배후에서 [gson][3]을 사용하여 Java 개체를 JSON 데이터로 직렬화한 후 Azure App Service로 데이터를 전송합니다.  다음은 **setFieldNamingStrategy()** 메서드를 사용하여 전략을 설정하는 코드입니다. 이 예에서는 시작 문자("m")를 삭제한 후 각 필드 이름에 대해 다음 문자를 소문자로 처리하도록 지시합니다. 예를 들어 "mId"를 "id"로 변환합니다.  대부분의 필드에서 `SerializedName()` 주석의 필요성을 줄이려면 변환 전략을 구현합니다.
+사용 하 여 모든 열에 적용 되는 변환 전략을 지정할 수는 [gson][3] API. Android 클라이언트 라이브러리를 사용 하 여 [gson][3] 내부적으로 Azure App Service에 데이터를 보내기 전에 Java 개체를 JSON 데이터로 직렬화 합니다.  다음은 **setFieldNamingStrategy()** 메서드를 사용하여 전략을 설정하는 코드입니다. 이 예에서는 시작 문자("m")를 삭제한 후 각 필드 이름에 대해 다음 문자를 소문자로 처리하도록 지시합니다. 예를 들어 "mId"를 "id"로 변환합니다.  대부분의 필드에서 `SerializedName()` 주석의 필요성을 줄이려면 변환 전략을 구현합니다.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

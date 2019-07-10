@@ -36,7 +36,7 @@ Azure AI Gallery 웹 사이트 UI를 통해 게시한 항목을 볼 수 있습�
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>AI Gallery 카탈로그 API를 사용하여 데이터 보기
 
-https://catalog.cortanaanalytics.com/entities 에서 액세스할 수 있는 AI Gallery 카탈로그 API를 통해 수집된 데이터를 프로그래밍 방식으로 볼 수 있습니다. 데이터를 보려면 작성자 ID가 필요합니다. 카탈로그 API를 통해 목록에 없는 엔터티를 보려면 액세스 토큰이 필요합니다.
+[https://catalog.cortanaanalytics.com/entities](https://catalog.cortanaanalytics.com/entities ) 에서 액세스할 수 있는 AI Gallery 카탈로그 API를 통해 수집된 데이터를 프로그래밍 방식으로 볼 수 있습니다. 데이터를 보려면 작성자 ID가 필요합니다. 카탈로그 API를 통해 목록에 없는 엔터티를 보려면 액세스 토큰이 필요합니다.
 
 카탈로그 응답은 JSON 형식으로 반환됩니다.
 

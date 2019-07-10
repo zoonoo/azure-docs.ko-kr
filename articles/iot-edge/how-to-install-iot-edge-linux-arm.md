@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7004edf2bab0e22d4d1e4c1200d6e8b8ef729b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152723"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485944"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치
 
@@ -27,7 +27,11 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 >[!NOTE]
 >Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
-## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치
+## <a name="install-the-latest-version"></a>최신 버전 설치
+
+Linux ARM 장치를 Azure IoT Edge 서비스의 최신 버전을 설치 하려면 다음 섹션을 사용 합니다. 
+
+### <a name="install-the-container-runtime"></a>컨테이너 런타임 설치
 
 Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에 제공된 [Moby 기반](https://mobyproject.org/) 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 기반 런타임과 호환 가능합니다.
 
@@ -47,7 +51,7 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 sudo apt-get install -f
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼 설치
+### <a name="install-the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼 설치
 
 합니다 **IoT Edge 보안 디먼** 제공 하 고 IoT Edge 장치의 보안 표준을 유지 관리 합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
 
@@ -66,7 +70,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>디바이스를 IoT Hub에 연결 
+IoT Edge 성공적으로 설치 되 면 출력 하 라는 메시지가 나타납니다 구성 파일을 업데이트 합니다. 단계를 수행 합니다 [Azure IoT Edge 보안 디먼을 구성](#configure-the-azure-iot-edge-security-daemon) 장치를 프로 비전을 완료할 섹션. 
+
+## <a name="install-a-specific-version"></a>특정 버전 설치
+
+Azure IoT Edge의 특정 버전을 설치 하려는 경우에 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상 수 있습니다. 사용한 것과 동일한 `curl` 모든 IoT Edge 장치에 구성 요소를 가져오려면 이전 섹션에 나열 된 명령을: 모 비 엔진 및 CLI, libiothsm, 및 마지막으로 IoT Edge 보안 디먼입니다. 유일한 차이점은 대체 하는 **aka.ms** 직접 사용 하려는 각 구성 요소의 버전을 가리키는 링크를 사용 하 여 Url입니다.
+
+이동할를 [Azure IoT Edge를 해제](https://github.com/Azure/azure-iotedge/releases)를 대상으로 하려는 릴리스 버전을 찾습니다. 확장 된 **자산** 버전에 대 한 섹션 및 장치의 아키텍처 하 여 IoT Edge를 일치 하는 파일을 선택 합니다. 모든 IoT Edge 릴리스에 포함 되어 있습니다 **iotedge** 하 고 **libiothsm** 파일입니다. 일부만 릴리스에 포함 됩니다 **모 비 엔진** 하거나 **모 비-cli**합니다. 설치 된 모 비 컨테이너 엔진, 아직 없는 경우 모 비 구성 요소를 포함 하는 것을 찾을 때까지 이전 릴리스를 확인 합니다. 
+
+IoT Edge 성공적으로 설치 되 면 출력 하 라는 메시지가 나타납니다 구성 파일을 업데이트 합니다. 장치를 프로 비전을 완료 하려면 다음 섹션의 단계를 수행 합니다. 
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
 
 물리적 디바이스를 Azure IoT Hub에 있는 디바이스 ID와 연결하도록 IoT Edge 런타임을 구성합니다. 
 

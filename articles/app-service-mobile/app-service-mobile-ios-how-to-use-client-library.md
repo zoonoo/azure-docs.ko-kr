@@ -3,7 +3,7 @@ title: Azure Mobile Apps에 iOS SDK를 사용하는 방법
 description: Azure Mobile Apps에 iOS SDK를 사용하는 방법
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,24 +11,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122458"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440381"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 iOS 클라이언트 라이브러리를 사용하는 방법
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-이 가이드에서는 최신 [Azure Mobile Apps iOS SDK][1]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) 지금 합니다.
+>
+
+## <a name="overview"></a>개요
+이 가이드에서는 최신을 사용 하 여 일반적인 시나리오를 수행할 수 있습니다 [Azure Mobile Apps iOS SDK][1]합니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
 
-iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps iOS 클라이언트 참조][2]에 있습니다.
+iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps iOS 클라이언트 참조][2]합니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 
@@ -435,7 +440,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다. 백 엔드에서 사용자 지정 API를 만드는 방법에 대한 자세한 내용은 [사용자 지정 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [의 다른 오버로드를 사용`invokeAPI`][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [의 다른 오버 로드를 사용 하 여 `invokeAPI` ][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
 
 **Objective-C**:
 
@@ -510,13 +515,13 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-보안을 위해 요청에서 모든 태그가 제거됩니다.  설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용][4]을 참조하세요.  이러한 등록된 템플릿을 사용하여 알림을 보내려면 [Notification Hubs API][3]로 작업하세요.
+보안을 위해 요청에서 모든 태그가 제거됩니다.  설치에 태그를 추가하거나 설치 내에 템플릿을 추가하려면 [Azure Mobile Apps에 대해 .NET 백 엔드 서버 SDK로 작업][4]을 참조하세요.  작업에 등록 된 이러한 템플릿을 사용 하 여 알림을 보내려면 [Notification Hubs Api][3]합니다.
 
 ## <a name="errors"></a>방법: 오류 처리
 
 Azure App Service 모바일 백 엔드를 호출할 때 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 앞의 코드 조각에서 보여준 것처럼, 코드에서 이 매개 변수를 확인하고 필요한 경우 오류를 처리해야 합니다.
 
-[`<WindowsAzureMobileServices/MSError.h>`][6] 파일은 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey` 상수를 정의합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
+파일 [ `<WindowsAzureMobileServices/MSError.h>` ][6] 상수를 정의 합니다 `MSErrorResponseKey`하십시오 `MSErrorRequestKey`, 및 `MSErrorServerItemKey`. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. ID 공급자 SDK를 사용하는 클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 [ADAL iOS 빠른 시작][8]을 참조하세요.
+1. 다음으로 [Active Directory 로그인에 App Service를 구성하는 방법][7] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 권장하는 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식입니다. 자세한 내용은 참조는 [ADAL iOS 빠른 시작][8]합니다.
 2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음 정의를 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 Facebook을 사용하여 애플리케이션에 사용자를 로그인하도록 iOS용 Facebook SDK를 사용할 수 있습니다.  클라이언트 흐름 인증이 `loginWithProvider:completion:` 메서드보다 선호도가 높습니다.  클라이언트 흐름 인증은 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기 때문입니다.
 
-1. [Facebook 로그인에 App Service를 구성하는 방법][9] 자습서를 수행하여 Facebook 로그인에 모바일 앱 백 엔드를 구성합니다.
-2. [iOS용 Facebook SDK - 시작][10] 설명서에 따라 iOS용 Facebook SDK를 설치합니다. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
+1. 에 따라 Facebook 로그인에 대 한 모바일 앱 백 엔드를 구성 합니다 [Facebook 로그인을 위해 App Service를 구성 하는 방법][9] 자습서입니다.
+2. 수행 하 여 iOS 용 Facebook SDK를 설치 합니다 [시작-iOS 용 Facebook SDK][10] 설명서. 앱을 만드는 대신 기존 등록에 iOS 플랫폼을 추가할 수 있습니다.
 3. Facebook의 설명서는 앱 대리자에서 일부 Objective-C 코드를 포함합니다. **Swift**를 사용 중인 경우 AppDelegate.swift에 다음 번역을 사용할 수 있습니다.
 
     ```swift

@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232638"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>REST API 및 Java를 사용 하 여 컴퓨터 비전 기능을 사용 합니다.
@@ -63,8 +63,8 @@ NetBeans는 .zip 파일에서 프로젝트를 가져오므로 .zip 파일의 콘
 1. NetBeans에서 **파일** > **프로젝트 가져오기** > **ZIP에서...** 를 클릭합니다. **ZIP에서 프로젝트 가져오기** 대화 상자가 표시됩니다.
 1. **ZIP 파일:** 필드에서 **찾아보기** 단추를 클릭하여 **cognitive-services-java-computer-vision-tutorial-master.zip** 파일을 찾은 후 **열기**를 클릭합니다.
 1. **ZIP에서 프로젝트 가져오기** 대화 상자에서 **가져오기**를 클릭합니다.
-1. **프로젝트** 패널에서 **ComputerVision** > **소스 패키지** > **&lt;기본 패키지&gt;** 를 확장합니다. 
-   일부 NetBeans 버전에서는 **소스 패키지** > **&lt;기본 패키지&gt;** 대신 **src**를 사용합니다. 이 경우 **src**를 확장합니다.
+1. **프로젝트** 패널에서 **ComputerVision** > **소스 패키지** >  **&lt;기본 패키지&gt;** 를 확장합니다. 
+   일부 NetBeans 버전에서는 **소스 패키지** >  **&lt;기본 패키지&gt;** 대신 **src**를 사용합니다. 이 경우 **src**를 확장합니다.
 1. **MainFrame.java**를 두 번 클릭하여 파일을 NetBeans 편집기로 로드합니다. **MainFrame.java** 파일의 **디자인** 탭이 표시됩니다.
 1. **소스** 탭을 클릭하여 Java 소스 코드를 표시합니다.
 

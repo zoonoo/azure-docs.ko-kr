@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495815"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446760"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>추적 및 Azure Data Box 및 Azure 데이터 많은 상자의 이벤트 로깅
 
@@ -29,7 +29,7 @@ Data Box 또는 상자에 과도 한 데이터 순서를 다음 단계를 거칩
 | 장치에 데이터 복사        | [뷰 *error.xml* 파일](#view-error-log-during-data-copy) 데이터 복사                                                             |
 | 배송 준비            | [BOM 파일 검사](#inspect-bom-during-prepare-to-ship) 또는 장치에서 매니페스트 파일                                      |
 | Azure에 데이터 업로드       | [검토 *copylogs* ](#review-copy-log-during-upload-to-azure) 데이터 중 오류에 대 한 Azure 데이터 센터에 업로드                         |
-| 장치의 데이터 지우기   | [로그 관리 권의 체인을 볼](#get-chain-of-custody-logs-after-data-erasure) 감사 로그 등 주문 내역                                                   |
+| 장치의 데이터 지우기   | [로그 관리 권의 체인을 볼](#get-chain-of-custody-logs-after-data-erasure) 감사 로그 등 주문 내역                |
 
 이 문서에서는 다양 한 메커니즘 또는 추적 하 고 Data Box 또는 상자에 과도 한 데이터 감사를 사용할 수 있는 도구를 자세히 설명 합니다. 이 문서의 정보는 Data Box 및 상자에 과도 한 데이터 모두에 적용 됩니다. 후속 섹션에서는 Data Box에 대 한 참조도 상자에 과도 한 데이터에 적용 됩니다.
 
@@ -203,7 +203,7 @@ Azure에 데이터 업로드를 사용 하는 동안에 *copylog* 만들어집�
 
 순환 중복 검사 (CRC) 계산을 Azure에 업로드 하는 동안 이루어집니다. Crc 데이터 복사본에서 전후 데이터 업로드를 비교 합니다. CRC 불일치가 해당 파일을 업로드 하지 못했음을 나타냅니다.
 
-기본적으로 로그 copylog 라는 컨테이너에 기록 됩니다. 로그는 다음 명명 규칙을 사용 하 여 저장 됩니다.
+기본적으로 로그 라는 컨테이너에 기록 됩니다 `copylog`합니다. 로그는 다음 명명 규칙을 사용 하 여 저장 됩니다.
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -245,7 +245,41 @@ Azure에 업로드 오류를 사용 하 여 완료할 수도 있습니다.
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+예로 `copylog` Azure 명명 규칙을 준수 하지 않아는 컨테이너를 Azure에 데이터 업로드를 사용 하는 동안 위치 바뀌었습니다.
 
+컨테이너에 대 한 새 고유 이름을 형식으로 `DataBox-GUID` 컨테이너에 대 한 데이터는 이름이 바뀐된 새 컨테이너에 넣습니다. `copylog` 이전 및 컨테이너에 대 한 새 컨테이너 이름을 지정 합니다.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+예로 `copylog` blob 또는 Azure 명명 규칙을 준수 하지 않아 파일을 Azure에 데이터 업로드를 사용 하는 동안 이름을 변경 했습니다. 새 blob 또는 파일 이름 컨테이너에 대 한 상대 경로의 SHA256 다이제스트로 변환 되 고 대상 유형을 기반으로 하는 경로에 업로드 됩니다. 대상 블록 blob, 페이지 blob 또는 Azure Files를 수 있습니다.
+
+`copylog` Azure에서 이전 및 새 blob 또는 파일 이름 및 경로 지정 합니다.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>데이터 지우기 후 로그 관리 권의 체인 가져오기
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 7/2/2019
 ms.author: victorh
-ms.openlocfilehash: 9ec37197376c815c4fb9072164520a707b02be2b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a5a53766df3338bb36913b589ebda970de55ec94
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312734"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491931"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 여러 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "67312734"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-최대 600 개의 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
+최대 100 개의 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
 
 이 기능을 사용 하면 다음과 같은 경우:
 

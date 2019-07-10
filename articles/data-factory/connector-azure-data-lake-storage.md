@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203306"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509245"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -115,7 +115,7 @@ Azure Data Lake 저장소 Gen2 커넥터는 다음 인증 유형을 지원합니
 >목록에 부여 된 서비스 주체의 사용 권한을 설정 해야 하는 계정 수준에서 또는 연결 테스트를 시작 하는 폴더가 **IAM에서 "저장소 Blob 데이터 읽기 권한자" 권한이 있는 저장소 계정을**합니다. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** 복사 파이프라인을 작성 하려면.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다. 
->계정 수준에서 권한을 부여 하는 방법에 대 한 관련 있는 경우 제작 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 복사 될 파일에 적절 한 권한이 있는 서비스 주체는 부여에 계속 작동 합니다.
+>를 작성 하는 동안 계정 수준에서 권한 부여에 대 한 질문이 있는 경우 테스트 연결 및 경로 지정 하는 권한 부여를 사용 하 여 부모 경로에서 찾아볼 수를 선택 하는 입력을 건너뜁니다. 복사할 파일에서 적절 한 권한이 있는 서비스 주체는 부여으로 작업 작동을 복사 합니다.
 
 이러한 속성은 연결된 된 서비스에 대 한 지원 됩니다.
 
@@ -169,7 +169,7 @@ Azure 리소스 인증에 대 한 관리 되는 id를 사용 하려면 다음이
 >목록에 관리 되는 id에 부여 된 사용 권한을 설정 해야 하는 계정 수준에서 또는 연결 테스트를 시작 하는 폴더가 **IAM에서 "저장소 Blob 데이터 읽기 권한자" 권한이 있는 저장소 계정을**합니다. 다음을 사용하는 경우에도 적용됩니다.
 >- **데이터 복사 도구** 복사 파이프라인을 작성 하려면.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다. 
->계정 수준에서 권한을 부여 하는 방법에 대 한 관련 있는 경우 제작 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id 복사 될 파일에 적절 한 권한이 부여 되에 계속 작동 합니다.
+>를 작성 하는 동안 계정 수준에서 권한 부여에 대 한 질문이 있는 경우 테스트 연결 및 경로 지정 하는 권한 부여를 사용 하 여 부모 경로에서 찾아볼 수를 선택 하는 입력을 건너뜁니다. 복사할 파일에서 적절 한 권한이 있는 서비스 주체는 부여으로 작업 작동을 복사 합니다.
 
 >[!IMPORTANT]
 >PolyBase를 사용 하 여 Data Lake 저장소 Gen2에 관리 되는 id 인증을 사용 하는 경우 Data Lake 저장소 Gen2에서 데이터를 SQL Data Warehouse로 로드 하는 경우의 1-2 단계를 수행 수도 있는지 확인 [이 지침은](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL 등록 Azure Active Directory (Azure AD)를 사용 하 여 데이터베이스 서버 및 2) SQL Database 서버;에 저장소 Blob 데이터 기여자 역할 할당 나머지는 Data Factory에 의해 처리 됩니다. 에 Data Lake 저장소 Gen2를 Azure Virtual Network 끝점을 사용 하 여 구성 된 경우 PolyBase에서 필요에 따라 관리 되는 id 인증을 사용 하에 PolyBase를 사용 하 여 데이터를 로드 해야 합니다.

@@ -3,19 +3,19 @@ title: Sharepoint 파일-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Active Directory를 사용 하 여 보호할 수 있는 질문과 대답을 사용 하 여 기술 자료를 보강 하 여 기술 자료로 보안 된 Sharepoint 데이터 소스를 추가 합니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 3e5aa1cc78efeb6e8158155b5e0676c8a63cf6e6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447544"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안된 Sharepoint 데이터 소스 추가
 
@@ -35,6 +35,20 @@ QnA Maker를 모두 지원를 추가할 수 있습니다 [파일 형식](../Conc
     ![다음 URL을 복사 하는 파일의 줄임표 메뉴를 선택 하 여 Sharepoint 파일 URL을 가져옵니다.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. QnA Maker 포털에서에 **설정** 페이지에서 [URL 추가](edit-knowledge-base.md#add-datasource) 기술 자료에 합니다. 
+
+### <a name="images-with-sharepoint-files"></a>Sharepoint 파일을 사용 하 여 이미지
+
+파일 이미지를 포함 하는 경우 해당 되지 추출 됩니다. 파일은 QnA 쌍으로 추출한 후 QnA Maker 포털에서 이미지를 추가할 수 있습니다.
+
+Markdown 구문 사용 하 여 이미지를 추가 합니다. 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+대괄호 안에 있는 텍스트 `[]`, 이미지에 설명 합니다. 괄호에 있는 URL `()`, 이미지에 대 한 직접 링크입니다. 
+
+QnA Maker 포털에서 대화형 테스트 패널에서 QnA 쌍을 테스트 하는 경우 이미지를 markdown 텍스트 대신 표시 됩니다. 이미지의 유효성을 검사 하는이 클라이언트 응용 프로그램에서 공개적으로 검색할 수 있습니다.
 
 ## <a name="permissions"></a>권한
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118063"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536231"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>VCore 기반 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -34,6 +34,9 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 > 크기 조정 고려 사항 및 지침을 참조 하세요 [단일 데이터베이스 확장](sql-database-single-database-scale.md)합니다.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
+
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
@@ -157,6 +160,9 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>프로 비전 된 계산 계층에 대 한 비즈니스 중요 한 서비스 계층
 
+> [!IMPORTANT]
+> 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>중요 비즈니스 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
 |컴퓨팅 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB 크기(GB)|64|128|256|384|384|384|384|384|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
-|대상 IOPS(64KB)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
+|대상 IOPS(64KB)| [참고 1](#note-1) |[참고 1](#note-1)|[참고 1](#note-1) |[참고 1](#note-1) |[참고 1](#note-1) |[참고 1](#note-1) |[참고 1](#note-1) | [참고 1](#note-1) |
 |IO 대기 시간(근사치)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
 |최대 동시 작업자(요청)|200|400|800|1600|2400|3200|4000|8000|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |포함되는 백업 저장소 |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>다음 단계
+### <a name="note-1"></a>참고 1
+
+대규모 여러 수준의 캐싱 사용 하 여 다중 계층 아키텍처를 사용 하는 경우 유효 IOPS 워크 로드에 따라 달라 집니다.
+
+### <a name="next-steps"></a>다음 단계
 
 - 단일 데이터베이스에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)을 참조하세요.
 - 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다.

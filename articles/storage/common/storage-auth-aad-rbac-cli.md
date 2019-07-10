@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153887"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443704"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Azure CLI를 사용 하 여 RBAC 사용 하 여 Azure blob 및 큐 데이터에 액세스 권한 부여
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage blob 또는 큐 데이터에 액세스 하는 데 사용 권한의 공통 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. 
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage blob 또는 큐 데이터에 액세스 하는 데 사용 권한의 공통 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다.
 
 RBAC 역할에는 Azure AD 보안 주체에 할당 된 Azure 부여 해당 보안 주체에 대 한 해당 리소스에 액세스 합니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. 사용자, 그룹, 응용 프로그램 서비스 주체를 Azure AD 보안 주체 수 또는 [Azure 리소스에 대 한 id 관리](../../active-directory/managed-identities-azure-resources/overview.md)합니다.
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>사용자에 게 RBAC 역할 할당
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>보안 주체에 RBAC 역할 할당
 
-RBAC 역할에 사용자를 할당 하려면 사용 합니다 [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create) 명령입니다. 명령의 형식을 할당의 범위에 따라 달라질 수 있습니다. 다음 예제에서는 다양 한 범위의 사용자 역할을 할당 하는 방법을 보여 줍니다.
+RBAC 역할에 보안 주체를 할당 하려면 사용 합니다 [az 역할 할당 만들기](/cli/azure/role/assignment#az-role-assignment-create) 명령입니다. 명령의 형식을 할당의 범위에 따라 달라질 수 있습니다. 다음 예제에서는 다양 한 범위의 사용자 역할을 할당 하는 방법을 보여주지만 동일한 명령을 사용 하 여 모든 보안 주체에 역할을 할당할 수 있습니다.
 
 ### <a name="container-scope"></a>컨테이너 범위
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442965"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure 데이터 상자의 가장자리에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -66,7 +66,7 @@ ms.locfileid: "66476909"
 -  연결 된 저장소 계정으로 공유를 만드는 중입니다.
 -  장치에서 공유에 액세스할 수 있는 사용자를 만드는 중입니다.
 
-해야는 `User` Active Directory 테 넌 트에 액세스할 수 있으려면 필요에 따라 `Read all directory objects`합니다. 권한이 없기 때문에 게스트 사용자 일 수 없습니다 `Read all directory objects`합니다. 게스트에서 다음 데이터 상자에 지 장치에서 공유를 생성 하는 정품 인증 키를 생성 하는 등 작업 인 경우 사용자의 모든 만들어지지 것입니다.
+해야는 `User` Active Directory 테 넌 트에 액세스할 수 있으려면 필요에 따라 `Read all directory objects`합니다. 권한이 없기 때문에 게스트 사용자 일 수 없습니다 `Read all directory objects`합니다. 게스트를 다음 생성 같은 작업 인 경우 키, 사용자 데이터 가장자리가 상자의 장치, 사용자를 만드는 가장자리의 구성에 공유를 만드는 계산 역할을 활성화 하 고 장치 암호 재설정 모두 실패 합니다.
 
 Azure Active Directory Graph API에는 사용자에 게 액세스를 제공 하는 방법에 대 한 자세한 내용은 참조 하세요. [관리자, 사용자 및 게스트 사용자에 대 한 액세스를 기본](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)입니다.
 

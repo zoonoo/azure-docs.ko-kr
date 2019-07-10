@@ -4,18 +4,18 @@ description: Azure Functions SendGrid 바인딩 참조.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511938"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480244"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -260,7 +260,7 @@ public static void Run(
 |**name**|| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
 |**apiKey**|**ApiKey**| API 키가 포함 된 앱 설정의 이름입니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsSendGridApiKey"입니다.|
 |**to**|**To**| 수신자의 전자 메일 주소입니다. |
-|**from**|**보낸 사람**| 발신자의 전자 메일 주소입니다. |
+|**from**|**From**| 발신자의 전자 메일 주소입니다. |
 |**subject**|**Subject**| 메일의 제목입니다. |
 |**text**|**Text**| 전자 메일 내용입니다. |
 

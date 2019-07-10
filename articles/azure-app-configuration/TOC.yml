@@ -73,10 +73,12 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: .NET Framework 작성기
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Java Spring 공급자
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: Java Spring 공급자
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+        - name: Java Azure SDK
+          href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: REST (영문)
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 기능 관리

@@ -256,9 +256,7 @@
             - name: 포털
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md
-            - name: 포털
-              href: shared-images-portal.md
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: 테넌트 간에 이미지 공유
               href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
@@ -267,13 +265,13 @@
           items:
             - name: 개요
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: CLI 사용
+            - name: Azure CLI 사용
               href: image-builder.md
-            - name: 갤러리를 통해 사용
+            - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
-            - name: 이미지 버전 업데이트
+            - name: 기존 이미지 업데이트
               href: image-builder-gallery-update-image-version.md
-            - name: Azure Storage에서 스크립트 사용
+            - name: 스크립트 저장
               href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: 템플릿 참조
               href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

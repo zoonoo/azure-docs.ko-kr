@@ -8,7 +8,7 @@ metadata:
   author: PatrickFarley
   manager: cgronlun
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: 컨테이너 설치 및 실행
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>사용자 지정 모델 학습에 최적화된 데이터 세트를 빌드합니다.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 학습 데이터 세트 빌드
   - title: 5분 빠른 시작
     items:
       - type: paragraph

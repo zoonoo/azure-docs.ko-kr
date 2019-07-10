@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 47ae3eb41145a74c1726847943df9074a4a75dfe
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273650"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461682"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -51,6 +51,8 @@ Event Hubs 캡처를 사용하면 기간을 설정하여 캡처를 제어할 수
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
+
+Azure storage blob을 일시적으로 사용할 수 없는 경우는 Event Hubs 캡처 이벤트 허브에 구성 된 데이터 보존 기간에 대 한 데이터를 유지를 저장소 계정에 다시 사용할 수 있으면 데이터를 다시 입력 합니다.
 
 ### <a name="scaling-to-throughput-units"></a>처리량 단위로 크기 조정
 
@@ -135,6 +137,8 @@ Apache Avro에 대 한 전체 시작 가이드가 [Java][Java] and [Python][Pyth
 ## <a name="how-event-hubs-capture-is-charged"></a>Event Hubs 캡처의 요금 부과 방식
 
 Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측정됩니다. 요금은 네임스페이스에 대해 구입한 처리량 단위 수에 정비례합니다. 처리량 단위가 증가 및 감소함에 따라 성능이 일치하도록 Event Hubs 캡처도 증가 및 감소합니다. 측정은 동시에 발생합니다. 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 
+
+참고 캡처는 별도로 요금이 청구 되는 대로 송신 할당량 사용 하지 않습니다. 
 
 ## <a name="integration-with-event-grid"></a>Event Grid와 통합 
 

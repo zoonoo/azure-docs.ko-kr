@@ -3,18 +3,18 @@ title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
 description: 이 자습서에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 01/28/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2bd22dec13e2dba63c512276a0b36d4fc50e05f8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 56ced4f5e2fd0fbf829f72cff2413998398a7a09
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066005"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "59681568"
 
     | 설정                                      | 값                             |
     | -------------------------------------------- | ------------------------------    |
-    | Name                                         | 공조 장치 온도 경고 |
+    | 이름                                         | 공조 장치 온도 경고 |
     | 이 템플릿의 모든 디바이스에 규칙 사용 | 다른                                |
     | 조건                                    | 온도가 90보다 큼    |
     | 집계                                  | 없음                              |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059150"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444710"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>용량 계획 및 Azure Service Fabric에 대 한 크기 조정
 
@@ -78,6 +78,8 @@ Resource Manager 템플릿의 다음 코드 조각은 선언에서는 속성을 
 2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드에 대해 하는 몇 시간 걸릴 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식에 따라 Vm의 수를 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
+5. ("Down"으로 표시 됨) 모든 Vm이 삭제 되 면 패브릭: / 시스템/InfrastructureService / [이름 노드]는 오류 상태를 표시 합니다. 그런 다음 노드 유형을 제거 하려면 클러스터 리소스를 업데이트할 수 있습니다. ARM 템플릿 배포를 사용 하거나 클러스터 리소스를 통해 편집 합니다 [Azure resource manager](https://resources.azure.com)합니다. 패브릭을 제거 하는 클러스터 업그레이드가 시작 됩니다. / 시스템/InfrastructureService / [노드 유형] 서비스는 오류 상태입니다.
+ 6. 이후에 VMScaleSet을 선택적으로 삭제할 수 있습니다에 "축소" Service Fabric Explorer에서 하지만 볼 노드를 계속 표시 됩니다. 마지막 단계를 사용 하 여 정리 하는 것 `Remove-ServiceFabricNodeState` 명령입니다.
 
 ### <a name="example-scenario"></a>예제 시나리오
 세로 크기 조정 작업을 수행 하는 경우에 대 한 지원 되는 시나리오: 응용 프로그램 가동 중지 시간 없이 managed disks로 관리 되지 않는 디스크에서 Service Fabric 클러스터 및 응용 프로그램을 마이그레이션할 합니다. 

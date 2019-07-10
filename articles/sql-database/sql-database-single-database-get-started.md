@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 > [!NOTE]
 > 이 빠른 시작에서는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)과 [서버리스](sql-database-serverless.md) 컴퓨팅 계층을 사용하지만 [DTU 기반 구매 모델](sql-database-service-tiers-DTU.md)도 사용할 수 있습니다.
 
-AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 만들려면:
+AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 만드는 방법은 다음과 같습니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 2. **데이터베이스**를 선택한 다음, **SQL Database**를 선택하여 **SQL Database 만들기** 페이지를 엽니다.

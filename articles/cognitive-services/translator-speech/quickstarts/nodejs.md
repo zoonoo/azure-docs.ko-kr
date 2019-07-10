@@ -3,20 +3,20 @@ title: '빠른 시작: Translator Speech API Node.js'
 titlesuffix: Azure Cognitive Services
 description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b79ca4ed259b561fadc4b7fa644b5c136192bb7f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c16b4ca0375376829c7617b488d16151363dc816
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442140"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>빠른 시작: Node.js를 사용한 Translator Speech API
 <a name="HOLTop"></a>

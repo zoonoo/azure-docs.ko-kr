@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289772"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476528"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>승인 또는 거부 PIM에서 Azure AD 역할에 대 한 요청
 
@@ -41,7 +41,7 @@ ms.locfileid: "60289772"
 
 1. **요청 승인**을 클릭합니다.
 
-    ![PIM Azure AD 역할-역할](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Azure AD 역할-승인 요청](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     승인 보류 중인 요청 목록이 표시됩니다.
 
@@ -49,27 +49,27 @@ ms.locfileid: "60289772"
 
 1. 승인할 요청을 클릭하고 **승인**을 클릭하여 선택한 요청 승인 창을 엽니다.
 
-    ![PIM 승인 요청 목록](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![강조 표시 하는 승인 옵션을 사용 하 여 승인 요청 목록](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. **승인 이유** 상자에 이유를 입력합니다.
 
-    ![PIM 선택한 요청 승인](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![승인 이유를 사용 하 여 창 선택한 요청 승인](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. **승인**을 클릭합니다.
 
     상태 기호가 승인으로 업데이트됩니다.
 
-    ![PIM 선택한 요청 승인](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![승인 단추를 클릭 한 후 선택한 요청 창 승인](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>요청 거부
 
 1. 거부할 요청을 클릭하고 **거부**를 클릭하여 선택한 요청 거부 창을 엽니다.
 
-    ![PIM 승인 요청 목록](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![요청 목록 거부 옵션이 강조 표시 된 승인](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. **거부 이유** 상자에 이유를 입력합니다.
 
-    ![PIM 선택한 요청 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![거부 이유를 사용 하 여 창 선택한 요청 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. **거부**를 클릭합니다.
 

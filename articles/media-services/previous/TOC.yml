@@ -51,6 +51,9 @@
   items:
     - name: 관리
       items:
+        - name: 계정
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: 엔터티
           items:
             - name: .NET

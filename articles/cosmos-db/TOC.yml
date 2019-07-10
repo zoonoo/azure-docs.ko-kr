@@ -121,6 +121,69 @@
         - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: SQL 쿼리 참조
+      items:
+        - name: 시작
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: 절
+          items:
+            - name: SELECT
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: ORDER BY
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: OFFSET LIMIT
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: 하위 쿼리
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: 조인
+          displayName: join
+          href: sql-query-join.md
+        - name: 별칭 지정
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: 배열 및 개체
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: 키워드
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: 연산자
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: 스칼라 식
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Functions
+          items:
+            - name: 사용자 정의 함수
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: 집계
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: 시스템 함수
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: 매개 변수가 있는 쿼리
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: SQL 쿼리 실행
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Azure Cosmos 계정 작업
       href: account-overview.md
     - name: 컨테이너 및 항목
@@ -128,12 +191,6 @@
         - name: '데이터베이스, 컨테이너 및 항목 작업'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: SQL 언어 참조
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: SQL 쿼리 예제
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: 모델 문서 데이터
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: Studio 3T를 사용하여 연결
               href: mongodb-mongochef.md
+            - name: Compass를 사용하여 연결
+              href: mongodb-compass.md
             - name: Robomongo를 사용하여 연결
               href: mongodb-robomongo.md
             - name: Mongoose를 사용하여 연결
@@ -401,12 +460,16 @@
               href: tutorial-query-graph.md
         - name: 방법 가이드
           items:
-            - name: 그래프 데이터 가져오기
-              href: bulk-executor-graph-dotnet.md
+            - name: 그래프 데이터 모델링
+              href: graph-modeling.md
             - name: 그래프 데이터 분할
               href: graph-partitioning.md
+            - name: 그래프 데이터 가져오기
+              href: bulk-executor-graph-dotnet.md
             - name: Gremlin 쿼리 최적화
               href: graph-execution-profile.md
+            - name: 그래프 데이터 시각화
+              href: graph-visualization.md
             - name: Spring 데이터 저장 및 관리
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
@@ -548,9 +611,6 @@
           href: how-to-manage-indexing-policy.md
         - name: 고유 키 정의
           href: how-to-define-unique-keys.md
-        - name: SQL 하위 쿼리 예제
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: 모범 사례
       items:
         - name: 성능 팁
@@ -712,7 +772,9 @@
     - name: REST 리소스 공급자
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager 템플릿
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: 에뮬레이터 릴리스 정보
+      href: local-emulator-release-notes.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

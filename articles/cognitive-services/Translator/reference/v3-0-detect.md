@@ -3,19 +3,19 @@ title: Translator Text API 검색 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API 검색 메서드를 사용합니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 275cf91eb3bf72a612882164c24e4773edcad0f2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 6e90626759b3c78d98c8c0f6e32d37c1440385cd
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389811"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357733"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 

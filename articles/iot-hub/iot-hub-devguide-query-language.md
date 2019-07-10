@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub에서 디바이스/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137722"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450069"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 합니다 **< from_specification >에서** 절만 세 개의 값을 가정할 수 있습니다. **장치의** 장치 쌍을 쿼리 하 **devices.modules에서** 쿼리 모듈 쌍에 또는 **FROM devices.jobs** 쿼리 작업에 대 한 장치별 세부 정보입니다.
 
-
 ## <a name="where-clause"></a>WHERE 절
+
 **WHERE <filter_condition>** 절은 선택 사항입니다. FROM 컬렉션의 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 하나 이상의 조건을 지정합니다. JSON 문서가 결과에 포함되려면 지정된 조건을 "true"로 평가해야 합니다.
 
 허용되는 조건은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions) 섹션에 설명되어 있습니다.
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 현재 **SELECT***와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
+
 **GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행되는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.
 
 GROUP BY를 사용한 쿼리의 예:
@@ -393,9 +394,9 @@ GROUP BY <group_by_element>
 > [!IMPORTANT]
 > 용어 `group`은 현재 쿼리에서 특수 키워드로 취급됩니다. 이 경우 속성 이름으로 `group`을 사용하고 오류를 방지하기 위해 이중 괄호를 사용하여 묶는 것이 좋습니다. 예를 들면 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`입니다.
 >
->
 
 ## <a name="expressions-and-conditions"></a>식 및 조건
+
 높은 수준에서 *식*은:
 
 * JSON 형식(예: 부울, 숫자, 문자열, 배열 또는 개체)의 인스턴스로 평가됩니다.
@@ -443,6 +444,7 @@ GROUP BY <group_by_element>
 | string_literal |문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은 따옴표나 큰 따옴표로 묶습니다. 허용되는 이스케이프: `\'`, `\"`, `\\`, 4개의 16진수로 정의되는 유니코드 문자인 경우 `\uXXXX` |
 
 ### <a name="operators"></a>연산자
+
 다음과 같은 연산자가 지원됩니다.
 
 | 패밀리 | 연산자 |
@@ -452,6 +454,7 @@ GROUP BY <group_by_element>
 | 비교 |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
+
 쌍과 작업을 쿼리할 때 지원되는 유일한 함수는 다음과 같습니다.
 
 | 함수 | 설명 |

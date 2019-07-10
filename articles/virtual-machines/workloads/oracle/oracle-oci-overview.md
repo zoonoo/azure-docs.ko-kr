@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808625"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446675"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Microsoft Azure 및 Oracle 클라우드 인프라 (미리 보기)를 통합 하는 oracle 응용 프로그램 솔루션
 
@@ -74,5 +74,7 @@ Id는 Microsoft와 Oracle 간의 파트너 관계의 핵심 요소 중 하나입
 현재이 통합을 사용 하면 Azure Active directory는 하나의 중앙 위치에서 관리할 수 있습니다. Azure AD 디렉터리에 모든 변경 내용을 해당 Oracle 디렉터리와 동기화 하 고 single sign on에 대 한 클라우드 간 Oracle 솔루션 하는 데 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+시작을 [클라우드 간 네트워크](configure-azure-oci-networking.md) Azure OCI 사이입니다. 
 
 자세한 내용 및 OCI에 대 한 백서를 참조 합니다 [Oracle 클라우드](https://docs.cloud.oracle.com/iaas/Content/home.htm) 설명서.

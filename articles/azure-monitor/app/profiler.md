@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a8a0e268c1b264a0a1a7f955f310bfddc830d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730193"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439952"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -58,6 +58,14 @@ Azure App Service에 대 한 앱 설정을 만들어 Application Insights Profil
 
 사용 하 여 이러한 값을 설정할 수 있습니다 [Azure Resource Manager 템플릿](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager)를 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp)합니다 [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest)합니다.
 
+### <a name="enabling-profiler-for-other-clouds-manually"></a>수동으로 다른 클라우드에 대 한 Profiler 사용
+
+다른 클라우드에 대 한 프로파일러를 사용 하도록 설정 하려는 경우 사용할 수 있습니다는 앱 설정 아래.
+
+|앱 설정    | 미국 정부 값| 중국 클라우드 |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
 ## <a name="disable-profiler"></a>Profiler 사용 안 함
 

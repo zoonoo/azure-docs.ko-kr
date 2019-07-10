@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814866"
 ---
 # <a name="grammar-format"></a>문법 형식
 
@@ -129,7 +129,7 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 | 특성 유형 | Op 값 | 설명 | 인덱스 작업
 |----|----|----|----|
 | 문자열 | eq | 문자열 정확한 일치 | equals |
-| 문자열 | starts_with | 문자열 접두사 일치 | starts_with |
+| String | starts_with | 문자열 접두사 일치 | starts_with |
 | Int32, Int64, Double | eq |  숫자 동등 일치 | equals |
 | Int32, Int64, Double | lt, le, gt, ge | 숫자 불균등 일치(<, <=, >, >=) | is_between |
 | Int32, Int64, Double | starts_with | 10진수 표기법으로 값의 접두사 일치 | starts_with |

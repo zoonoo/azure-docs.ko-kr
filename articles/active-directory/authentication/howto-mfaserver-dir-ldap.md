@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057353"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536905"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -49,6 +49,9 @@ LDAP 클라이언트를 더 추가하려면 이 단계를 반복합니다.
 ### <a name="configure-the-ldap-directory-connection"></a>LDAP 디렉터리 연결 구성
 
 Azure Multi-Factor Authentication이 LDAP 인증을 받도록 구성된 경우 해당 인증을 LDAP 디렉터리로 프록시해야 합니다. 따라서 대상 탭에는 LDAP 대상을 사용하기 위해 단일한 회색 옵션만 표시됩니다.
+
+> [!NOTE]
+> Active Directory Domain Services 이외의 디렉터리를 사용 하려면 디렉터리 통합 보장 되지 않습니다.
 
 1. LDAP 디렉터리 연결을 구성하려면 **디렉터리 통합** 아이콘을 클릭합니다.
 2. 설정 탭에서 **특정 LDAP 구성 사용** 라디오 단추를 선택합니다.

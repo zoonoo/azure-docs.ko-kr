@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808305"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514455"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문
 
 이 문서에서는 파일 및 폴더에서 Microsoft Azure Recovery Services (MARS) 에이전트를 사용 하 여 백업 이어지고, 일반적인 질문에 답 합니다 [Azure Backup](backup-overview.md) 서비스입니다.
 
 ## <a name="general"></a>일반
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>MARS 에이전트에서는.NET framework 4.5.2를 필요한 이유는 이상?
-
-사용할 수 있는 새로운 기능 [인스턴트 복원](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) 필요한.NET Framework 4.5.2 이상.
-
 ## <a name="configure-backups"></a>백업 구성
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>최신 버전의 MARS 에이전트를 어디서 다운로드할 수 있나요? 
-Windows Server 컴퓨터, System Center DPM 및 Microsoft Azure Backup server를 백업할 때 사용 되는 최신 MARS 에이전트에 대 한 제품은 [다운로드](https://aka.ms/azurebackup_agent)합니다. 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>최신 버전의 MARS 에이전트를 어디서 다운로드할 수 있나요?
+Windows Server 컴퓨터, System Center DPM 및 Microsoft Azure Backup server를 백업할 때 사용 되는 최신 MARS 에이전트에 대 한 제품은 [다운로드](https://aka.ms/azurebackup_agent)합니다.
 
 ### <a name="how-long-are-vault-credentials-valid"></a>유효한 자격 증명 모음 자격 증명 얼마나 걸리나요?
 자격 증명 모음 자격 증명은 48시간이 지나면 만료됩니다. 자격 증명 파일이 만료 되 면 파일 다시는 Azure portal에서 다운로드 합니다.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>어떤 드라이브에서 백업할 수 있는 I 파일 및 폴더 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>어떤 드라이브에서 백업할 수 있는 I 파일 및 폴더
 
 다음과 같은 유형의 드라이브 및 볼륨을 백업할 수 없습니다.
 
@@ -45,29 +41,20 @@ Windows Server 컴퓨터, System Center DPM 및 Microsoft Azure Backup server를
 
 ### <a name="what-file-and-folder-types-are-supported"></a>파일 및 폴더 유형은 지원 되나요?
 
-다음과 같은 형식이 지원됩니다.
-
-* 암호화
-* 압축
-* 스파스
-* 압축 + 스파스
-* 하드 링크: 지원되지 않음, 건너뜀
-* 재분석 지점: 지원되지 않음, 건너뜀
-* 암호화됨 + 스파스: 지원되지 않음, 건너뜀
-* 압축된 스트림: 지원되지 않음, 건너뜀
-* DFS 링크 및 연결 지점과 같은 재분석
-
+[자세한](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) 파일 및 폴더 백업에 대 한 지원의 형식에 대 한 합니다.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Azure VM에서 파일 및 폴더를 백업 하려면 MARS 에이전트를 사용할 수 있습니까?  
-예. Azure Backup VM 수준 백업을 제공 Azure Vm에 대 한 Azure VM 에이전트에 대 한 VM 확장을 사용 합니다. VM의 Windows 운영 체제를 게스트에 파일 및 폴더를 백업 하려는 경우에 이렇게 하려면 MARS 에이전트를 설치할 수 있습니다. 
+예. Azure Backup VM 수준 백업을 제공 Azure Vm에 대 한 Azure VM 에이전트에 대 한 VM 확장을 사용 합니다. VM의 Windows 운영 체제를 게스트에 파일 및 폴더를 백업 하려는 경우에 이렇게 하려면 MARS 에이전트를 설치할 수 있습니다.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Azure VM에 대 한 임시 저장소에 파일 및 폴더를 백업 하려면 MARS 에이전트를 사용할 수 있습니까? 
-예. MARS 에이전트를 설치 하 고 임시 저장소에 게스트 Windows 운영 체제의 파일 및 폴더를 백업 합니다. -임시 저장소 데이터가 초기화 된에 대 한 백업 작업이 실패 합니다.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Azure VM에 대 한 임시 저장소에 파일 및 폴더를 백업 하려면 MARS 에이전트를 사용할 수 있습니까?
+예. MARS 에이전트를 설치 하 고 임시 저장소에 게스트 Windows 운영 체제의 파일 및 폴더를 백업 합니다.
+
+- 백업 작업에는 임시 저장소 데이터가 초기화 된 경우 실패 합니다.
 - 임시 저장소 데이터가 삭제 되 면 비휘발성 저장소에만 복원할 수 있습니다.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>다른 지역에 서버를 등록 하는 방법
 
-백업 데이터는 서버가 등록 된 자격 증명 모음의 데이터 센터로 전송 됩니다. 데이터 센터를 변경 하는 가장 쉬운 방법은 에이전트를 제거 했다가를 이며 다음 필요한 지역에 새 자격 증명 모음에 컴퓨터를 등록
+백업 데이터는 서버가 등록 된 자격 증명 모음의 데이터 센터로 전송 됩니다. 데이터 센터를 변경 하는 가장 쉬운 방법은 에이전트를 제거 했다가으로 및 다음 필요한 지역에 새 자격 증명 모음에 컴퓨터를 등록 합니다.
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>MARS 에이전트 지원 Windows Server 2012 중복 제거는?
 예. MARS 에이전트는 백업 작업을 준비할 때 중복 제거 된 데이터를 일반 데이터로 변환 합니다. 그런 다음 백업에 대 한 데이터를 최적화, 데이터를 암호화 하 고 자격 증명 모음에 암호화 된 데이터를 보냅니다.
@@ -80,7 +67,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 - Backup 자격 증명 모음을 사용 하 여 새 컴퓨터 이름을 등록 해야 합니다.
 - 자격 증명 모음을 사용 하 여 새 이름으로 등록 하면 첫 번째 작업은는 *전체* 백업 합니다.
-- 이전 서버 이름으로 자격 증명 모음에 백업 된 데이터를 복구 해야 할 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- 이전 서버 이름으로 자격 증명 모음에 백업 된 데이터를 복구 해야 할 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업에 대 한 최대 파일 경로 길이 무엇 인가요?
 MARS 에이전트 NTFS를 사용 하 여 제한 된 파일 경로 길이 사양은 사용 하 여 [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)합니다. 보호 하려는 파일에 허용 되는 값을 초과할 경우 부모 폴더 또는 디스크 드라이브를 백업 합니다.  
@@ -143,8 +130,8 @@ MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/File
 캐시 폴더와 메타데이터 VHD에는 모두 Azure Backup 에이전트에 필요한 특성이 없습니다.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이?
- 
-예를 사용할 수 있습니다 합니다 **속성 변경** 대역폭 및 타이밍을 조정 하려면 MARS 에이전트의 옵션입니다. [자세한](backup-configure-vault.md#enable-network-throttling)* * 합니다.
+
+예를 사용할 수 있습니다 합니다 **속성 변경** 대역폭 및 타이밍을 조정 하려면 MARS 에이전트의 옵션입니다. [자세히 알아보기](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 

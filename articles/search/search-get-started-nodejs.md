@@ -1,6 +1,6 @@
 ---
-title: Node.js에서 Azure Search 시작 - Azure Search
-description: Node.js를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 애플리케이션을 빌드하는 과정을 안내합니다.
+title: 'Node.js 빠른 시작: 만들기, 로드 및 Azure Search REST Api-Azure Search를 사용 하 여 인덱스를 쿼리 합니다.'
+description: 인덱스를 만들고, 데이터를 로드, Node.js 및 Azure Search REST Api를 사용 하 여 쿼리를 실행 하는 방법을 설명 합니다.
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289206"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450034"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Node.js에서 Azure Search 시작
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>빠른 시작: Node.js에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [포털](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ ms.locfileid: "61289206"
 ## <a name="about-the-data"></a>데이터 정보
 이 샘플 애플리케이션에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 애플리케이션을 빌드합니다.
 
-이 애플리케이션에서 **DataIndexer** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL Database에서 필터링된 USGS 데이터 세트를 검색합니다. 온라인 데이터 원본에 대한 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 추가 구성은 필요하지 않습니다.
+이 응용 프로그램에는 **DataIndexer** 프로그램 빌드 및 사용 하 여 인덱스를 로드는 [인덱서](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문, Azure SQL Database에서 필터링 된 USGS 데이터 집합을 검색 합니다. 온라인 데이터 원본에 대한 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 추가 구성은 필요하지 않습니다.
 
 > [!NOTE]
 > 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 세트에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [Search 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.

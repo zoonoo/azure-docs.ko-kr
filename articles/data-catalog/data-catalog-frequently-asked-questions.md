@@ -1,19 +1,17 @@
 ---
 title: Azure 데이터 카탈로그에 대한 질문과 대답
 description: 데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004044"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508896"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -103,9 +101,6 @@ ms.locfileid: "61004044"
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>카탈로그에서 관심이 있는 다른 데이터 원본과 함께 작업하나요?
 Microsoft는 데이터 카탈로그에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 특정 데이터 원본이 지원되는지 확인하려는 경우 [Azure 피드백 포럼의 Data Catalog](https://feedback.azure.com/forums/906052-data-catalog)로 이동하여 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
-
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Azure Data Catalog는 어떻게 Office 365용 Power BI의 데이터 카탈로그와 연결되나요?
-Azure Data Catalog를 Power BI의 데이터 카탈로그가 진화한 것으로 생각할 수 있습니다. 2017년 봄 기준으로 Azure Data Catalog는 Excel 2016 및 Excel용 파워 쿼리에서 쿼리 공유 및 검색을 활성화하는 데 사용됩니다. Excel의 데이터 카탈로그 기능은 Power BI Pro 라이선스를 갖고 있는 사용자에게 제공됩니다.
 
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>데이터 카탈로그로 자산을 등록하는 데 필요한 권한은 무엇인가요?
 데이터 카탈로그 등록 도구를 실행하려면 사용자는 원본에서 메타데이터를 읽을 수 있도록 허용하는 데이터 원본에 대한 권한이 필요합니다. 미리 보기를 포함하려면 등록되는 개체에서 데이터를 읽을 수 있도록 허용하는 권한이 있어야 합니다.

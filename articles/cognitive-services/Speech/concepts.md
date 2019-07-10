@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954525"
 ---
 # <a name="basic-concepts"></a>기본 개념
@@ -81,10 +81,10 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예. | 예. |
-| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예. |
-| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예. |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예. |
+| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
+| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예 |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 

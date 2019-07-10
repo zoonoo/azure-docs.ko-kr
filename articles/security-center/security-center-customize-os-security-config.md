@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573594"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551381"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -56,13 +56,11 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 1.  **Security Center** 대시보드를 엽니다.
 
-2.  왼쪽 창의 **보안 정책**을 선택합니다.      
+2.  왼쪽된 창에서 선택 **가격 책정 및 설정**합니다.
 
     ![보안 정책 목록](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  사용자 지정할 구독의 행에서 **설정 편집**을 클릭합니다.
-
-4. **보안 구성 편집**을 선택합니다.  
+4. 해당 구독을 선택 하 고 선택 **보안 구성 편집**합니다.  
 
     !["보안 구성 편집" 창](media/security-center-customize-os-security-config/blade.png)
 

@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Azure 공통 보안 특성
       href: expressroute-security-attributes.md
+    - name: 고가용성을 위한 설계
+      href: designing-for-high-availability-with-expressroute.md
+    - name: 재해 복구를 위한 설계
+      items:
+        - name: 프라이빗 피어링
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: 방법 가이드
   items:
     - name: 회로 만들기 및 수정
@@ -68,6 +74,9 @@
           href: expressroute-howto-circuit-arm.md
         - name: Azure CLI
           href: howto-circuit-cli.md
+        - name: Azure Resource Manager 템플릿
+          displayName: 'ARM,resource manager template'
+          href: expressroute-howto-circuit-resource-manager-template.md
     - name: 피어링 구성 만들기 및 수정
       items:
         - name: Azure portal
@@ -184,6 +193,9 @@
       href: 'https://msdn.microsoft.com/library/azure/mt586720'
     - name: REST(클래식)
       href: 'https://msdn.microsoft.com/library/azure/dn606310'
+    - name: Resource Manager 템플릿
+      displayName: 'ARM,resource manager template'
+      href: /azure/templates/microsoft.network/expressroutecircuits
 - name: 리소스
   items:
     - name: ExpressRoute FAQ

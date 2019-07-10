@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: 청구서 약관 설명함 - Microsoft 고객 계약만
       href: billing-mca-understand-your-invoice.md
+    - name: 청구서 지불 방법 - Microsoft 고객 계약만
+      href: billing-how-to-pay-bill.md
     - name: Microsoft 고객 계약에 대한 청구 계정
       href: billing-mca-overview.md
 - name: 비용 관리
@@ -79,7 +81,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: 소프트웨어 비용 미포함
           href: billing-reserved-instance-windows-software-costs.md
-        - name: 종량제의 사용량
+        - name: 개별 구독에 대한 사용량
           href: billing-understand-reserved-instance-usage.md
         - name: 기업용 사용량
           href: billing-understand-reserved-instance-usage-ea.md

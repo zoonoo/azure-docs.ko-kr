@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d96e69fb526cff633c78e9ac8a1679762014cd4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14de5283197778464993b80b312a690662e066ab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133830"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443768"
 ---
 Azure Storage는 여러 유형의 저장소 계정이 제공 합니다. 각각의 유형은 서로 다른 기능을 지원하며 고유의 가격 책정 모델이 있습니다. 저장소 계정을 만들기 전에 애플리케이션에 적합한 계정 유형을 결정하는 데 이러한 차이점을 고려합니다. 저장소 계정 유형은 다음과 같습니다.
 
 - **범용 v2 계정**: Blob, 파일, 큐 및 테이블에 대한 기본 스토리지 계정 유형입니다. 대부분의 시나리오에 대해 Azure Storage를 사용하는 것이 좋습니다.
 - **범용 v1 계정**: Blob, 파일, 큐 및 테이블에 대한 레거시 계정 유형입니다. 가능한 경우 범용 v2 계정을 대신 사용합니다.
 - **Blob storage 계정은 블록**: Premium 성능 특징을 가진 blob 전용 저장소 계정입니다. 높은 트랜잭션 속도 일관 되 게 낮은 저장소 대기 시간을 요구 하거나 더 작은 개체를 사용 하 여 시나리오에 대 한 것이 좋습니다.
-- **저장소 계정 (미리 보기) FileStorage**: Premium 성능 특징을 가진 파일만 저장소 계정입니다. Enterprise 또는 고성능 규모의 응용 프로그램에 대 한 것이 좋습니다.
+- **저장소 계정 FileStorage**: Premium 성능 특징을 가진 파일만 저장소 계정입니다. Enterprise 또는 고성능 규모의 응용 프로그램에 대 한 것이 좋습니다.
 - **Blob Storage 계정**: Blob 전용 스토리지 계정입니다. 가능한 경우 범용 v2 계정을 대신 사용합니다.
 
 다음 표는 저장소 계정 유형과 해당 기능을 설명합니다.
@@ -30,7 +30,7 @@ Azure Storage는 여러 유형의 저장소 계정이 제공 합니다. 각각�
 | 범용 V2   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | 암호화              |
 | 범용 V1   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, 클래식    | 암호화              |
 | 블록 blob storage   | Blob(블록 Blob 및 추가 Blob만) | Premium                       | N/A                            | LRS                               | Resource Manager             | 암호화              |
-| FileStorage (미리 보기)   | 파일만 | Premium                       | N/A                            | LRS                               | Resource Manager             | 암호화              |
+| FileStorage   | 파일만 | Premium                       | N/A                            | LRS                               | Resource Manager             | 암호화              |
 | Blob 저장소         | Blob(블록 Blob 및 추가 Blob만) | Standard                      | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | 암호화              |
 
 <div id="deployment-model"><sup>1</sup>Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 클래식 배포 모델을 사용하는 저장소 계정도 일부 위치에서는 계속 만들 수 있고 기존 클래식 계정도 계속 지원됩니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해</a>를 참조하세요.</div>

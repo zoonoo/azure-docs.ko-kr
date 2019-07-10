@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072301"
 ---
 # <a name="webhooks-for-speech-services"></a>음성 서비스에 대 한 웹 후크
 
@@ -38,6 +38,8 @@ ms.locfileid: "59581037"
 ## <a name="create-a-webhook"></a>웹후크 만들기
 
 오프 라인을 기록에 대 한 웹 후크를 만들어 보겠습니다. 시나리오: 사용자는 일괄 처리 기록 API를 사용 하 여 비동기적으로 기록 하 고 싶은 장기 실행 중인 오디오 파일을 포함 합니다. 
+
+Https://에 POST 요청 하 여 웹 후크를 만들 수 있습니다\<지역\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks 합니다.
 
 요청에 대 한 구성 매개 변수는 JSON으로 제공 됩니다.
 
@@ -132,7 +134,51 @@ POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test 
 
 ### <a name="run-a-test"></a>테스트 실행
 
-빠른 테스트를 수행할 수 있습니다 웹 사이트를 사용 하 여 https://bin.webhookrelay.com입니다. 여기에서 호출을 가져올 수 있습니다는 문서의 앞부분에서 설명한 웹 후크를 만드는 HTTP POST를 매개 변수로 전달 하는 Url을 백업 합니다.
+빠른 테스트를 수행할 수 있습니다 웹 사이트를 사용 하 여 https://bin.webhookrelay.com 입니다. 여기에서 호출을 가져올 수 있습니다는 문서의 앞부분에서 설명한 웹 후크를 만드는 HTTP POST를 매개 변수로 전달 하는 Url을 백업 합니다.
+
+버킷 만들기 ' 클릭 하 고 수행는 화면의 후크를 가져오기 위한 지침이 있습니다. 다음이 페이지에 제공 된 정보를 사용 하 여 음성 서비스 후크를 등록 합니다. 완료를 기록 하는 응답에 있는 릴레이 메시지의 페이로드는 다음과 같습니다.
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+메시지 녹음/녹화 URL 및 해당 기록을 기록 하는 데 사용 되는 모델을 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

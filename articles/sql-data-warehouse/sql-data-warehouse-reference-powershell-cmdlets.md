@@ -53,7 +53,7 @@ $resultDatabase
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-이 예제에서는 "ResourceGroup1"이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색된 개체를 [Resume-AzSqlDatabase][Resume-AzSqlDatabase]으로 전송합니다. 검색된 된 개체를 파이프 [Resume AzSqlDatabase][Resume-AzSqlDatabase]합니다.
+변형인 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색된 된 개체를 파이프 [Resume AzSqlDatabase][Resume-AzSqlDatabase]합니다.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"

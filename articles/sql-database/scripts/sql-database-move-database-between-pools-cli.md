@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 640212b0ae3c9d5658b79652f394a1ad8b92e218
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/25/2019
+ms.openlocfilehash: 173e54dc6cf24676a8bf9833b0b6152a5fd89748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834513"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447851"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL 데이터베이스 이동
 
@@ -38,7 +38,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명

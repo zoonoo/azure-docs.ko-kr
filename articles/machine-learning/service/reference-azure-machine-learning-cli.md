@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 541ffe70ae5198e631568584a58d02ac283e89d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 601a6139b81e45fa5005b7510189eac594c29fb0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298251"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67475992"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -58,6 +58,15 @@ az extension add -n azure-cli-ml
 ```azurecli-interactive
 az ml -h
 ```
+
+## <a name="update-the-extension"></a>확장 업데이트
+
+Machine Learning CLI 확장을 업데이트 하려면 다음 명령을 사용 합니다.
+
+```azurecli-interactive
+az extension update -n azure-cli-ml
+```
+
 
 ## <a name="remove-the-extension"></a>확장 제거
 

@@ -95,7 +95,7 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
-        - name: Template
+        - name: 템플릿
           displayName: 'ARM, Resource Manager, template'
           href: create-vmss-template.md
     - name: 내부 부하 분산 장치 구성
@@ -220,6 +220,10 @@
           href: application-gateway-troubleshooting-502.md
         - name: WAF(웹 애플리케이션 방화벽)
           href: web-application-firewall-troubleshoot.md
+        - name: 리소스 상태
+          href: resource-health-overview.md
+        - name: Log Analytics 사용
+          href: log-analytics.md
     - name: v1에서 v2로 마이그레이션
       href: migrate-v1-v2.md
 - name: 참고 자료

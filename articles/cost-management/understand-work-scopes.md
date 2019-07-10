@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991390"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490122"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -100,19 +100,19 @@ Azure 구독 등록 계정 아래에 중첩 됩니다. 요금 청구 사용자�
 
 특정 청구 계정에서 명시적으로 포함 되지 때문에 청구 사용자 관리 그룹에 액세스할 수 없는 합니다. 액세스 관리 그룹에 명시적으로 부여 되어야 합니다. 관리는 중첩 된 모든 구독에서 롤업 비용을 그룹화합니다. 그러나 구매 사용량 기준만 포함 됩니다. 이러한 예약 등 제 3 자 Marketplace 제품 구매를 포함 하지 않습니다. 이러한 비용을 보려면 EA 청구 계정을 사용 합니다.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>각 계약 (종 량 제) 범위
+## <a name="individual-agreement-scopes"></a>각 계약 범위
 
-종 량 제 (PAYG) 구독을 관련된 형식을 비롯 한 체험/평가판 등의 청구 계정 명시적 범위가 없는 개발/테스트 제품. 대신, 각 구독에는 계정 소유자 또는 EA 계정 소유자와 같은 계정 관리자에 있습니다.
+개별 제품에서 만든 azure 구독은 무료 평가판과 같은 종 량 제 및 관련 형식 등의 청구 계정 명시적 범위가 없는 개발/테스트 제품. 대신, 각 구독에는 계정 소유자 또는 EA 계정 소유자와 같은 계정 관리자에 있습니다.
 
 - [**대금 청구 계정** ](../billing/billing-view-all-accounts.md) -하나 이상의 Azure 구독에 대 한 단일 계정 소유자를 나타냅니다. 현재 액세스 여러 사용자나 집계 비용 보기에 대 한 액세스 권한을 부여 지원 하지 않습니다.
 
     리소스 유형: 해당 없음
 
-종 량 제 구독 계정 관리자가 보고에서 송장 및 지불 같은 청구 데이터를 관리 하는 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다. 그러나 비용 데이터를 확인 하거나 Azure portal에서 리소스를 관리할 수는 없습니다. 계정 관리자에 대 한 액세스에 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
+개별 Azure 구독 계정 관리자가 보고에서 송장 및 지불 같은 청구 데이터를 관리 하는 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다. 그러나 비용 데이터를 확인 하거나 Azure portal에서 리소스를 관리할 수는 없습니다. 계정 관리자에 대 한 액세스에 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
 
-EA와 달리 종 량 제 구독 계정 관리자는 Azure portal에서 청구서를 볼 수 있습니다. 비용 관리 판독기 및 비용 관리 참여자 역할 송장에 대 한 액세스를 제공 하지는 것을 염두에 두십시오. 자세한 내용은 [PAYG 송장에 대 한 액세스를 부여 하는 방법을](../billing/billing-manage-access.md#give-access-to-billing)합니다.
+EA와 달리 개별 Azure 구독 계정 관리자는 Azure portal에서 청구서를 볼 수 있습니다. 비용 관리 판독기 및 비용 관리 참여자 역할 송장에 대 한 액세스를 제공 하지는 것을 염두에 두십시오. 자세한 내용은 [송장에 대 한 액세스를 부여 하는 방법을](../billing/billing-manage-access.md##give-read-only-access-to-billing)합니다.
 
-## <a name="customer-agreement-scopes"></a>고객 계약 범위
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft 고객 계약 범위
 
 Microsoft 고객 계약 청구 계정에 다음과 같은 범위:
 
@@ -148,7 +148,7 @@ Azure 구독 EA 등록 계정으로 하는 방법을 같은 청구서 섹션 아
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Cost Management에서 범위 사이 전환
 
-Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 필 뷰의 왼쪽 위에 있는 합니다. 신속 하 게 범위를 변경 하려면 사용 합니다. 클릭 합니다 **범위** 필을 범위 선택기를 엽니다. 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 모든 구독을 보여 줍니다. 범위를 선택 하려면 강조 표시 한 다음 클릭 배경을 클릭 **선택** 맨 아래에 있습니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 드릴 범위 이름 링크를 클릭 합니다. 모든 중첩된 수준에서 부모 범위를 선택 하려면 클릭 **이 선택 &lt;범위&gt;**  범위 선택의 맨 위에 있는 합니다.
+Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 뷰의 왼쪽 위에 있는 선택 필 합니다. 신속 하 게 범위를 변경 하려면 사용 합니다. 클릭 합니다 **범위** 필을 범위 선택기를 엽니다. 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 모든 구독을 보여 줍니다. 범위를 선택 하려면 강조 표시 한 다음 클릭 배경을 클릭 **선택** 맨 아래에 있습니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 드릴 범위 이름 링크를 클릭 합니다. 모든 중첩된 수준에서 부모 범위를 선택 하려면 클릭 **이 선택 &lt;범위&gt;**  범위 선택의 맨 위에 있는 합니다.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>범위에 대 한 리소스 ID를 식별 합니다.
 

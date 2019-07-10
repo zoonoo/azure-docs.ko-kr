@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519822"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561279"
 ---
 # <a name="scenario-availability"></a>가용성 시나리오
 
@@ -25,7 +25,7 @@ ms.locfileid: "65519822"
   - 모든 프로그래밍 언어/환경이 있는 화살표 링크를 <img src="media/index/link.jpg" height="15" width="15"></img> 빠른 시작 표에 [여기](https://aka.ms/csspeech)합니다.
 - **텍스트 음성 변환 (TTS)**
   - C++/Windows & Linux
-  - C#/Windows
+  - C#/Windows & UWP & Unity
   - 다른 모든 상황에서 TTS REST API는 사용할 수 있습니다.
 - **절전 모드 해제 단어 (키워드 된 관찰자/KWS)**
   - C++/Windows & Linux

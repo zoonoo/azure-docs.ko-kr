@@ -1,27 +1,24 @@
 ---
-title: 종 량 제 구독에 대 한 Azure 예약 사용량 이해 | Microsoft Docs
-description: 종량제 구독에서 Azure Reservations의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: 종 량 제 요금으로 개별 구독에 대 한 azure 예약 사용량
+description: 종 량 제 요금으로 개별 구독에 대 한 Azure 예약이 적용 되는 방식을 이해 하려면 사용량을 읽는 방법에 알아봅니다.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370359"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490377"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종 량 제로 구독을 사용 하 여 개별 구독에 대 한 Azure 예약 사용량 이해
 
 [예약 페이지](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)의 ReservationId 및 [Azure 계정 포털](https://account.azure.com)의 사용량 파일을 사용하여 예약 사용량을 평가합니다.
 
@@ -62,7 +59,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 4. **요금제 ID**는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 및 Cosmos DB 예약된 용량 예약의 사용량
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>SQL Database 및 Cosmos DB의 예약 사용량
 
 다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다.
 

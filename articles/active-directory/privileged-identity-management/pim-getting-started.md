@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289996"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476481"
 ---
 # <a name="start-using-pim"></a>PIM 사용
 
@@ -56,25 +56,25 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
 1. 목록에서 **PIM에 동의**를 클릭합니다.
 
-    ![PIM에 동의](./media/pim-getting-started/consent-pim.png)
+    ![PIM을 사용 하도록 설정 하려면 PIM에 동의](./media/pim-getting-started/consent-pim.png)
 
 1. **ID 확인**을 클릭하여 Azure MFA를 통해 ID를 확인합니다. 계정을 선택하라는 메시지가 표시됩니다.
 
-    ![계정 선택](./media/pim-getting-started/pick-account.png)
+    ![본인 여부를 확인 하기 위해 계정 창을 선택 합니다.](./media/pim-getting-started/pick-account.png)
 
 1. 확인을 위해 추가 정보가 필요한 경우 프로세스 안내가 제공됩니다. 자세한 내용은 [2단계 확인에 대한 도움말 보기](https://go.microsoft.com/fwlink/p/?LinkId=708614)를 참조하세요.
 
-    ![추가 정보 필요](./media/pim-getting-started/more-information-required.png)
+    ![자세한 내용은 조직 정보가 더 필요한 경우 창 필수](./media/pim-getting-started/more-information-required.png)
 
     예를 들어 전화 확인을 제공하도록 요청하는 메시지가 표시될 수 있습니다.
 
-    ![추가 보안 확인](./media/pim-getting-started/additional-security-verification.png)
+    ![사용자에 게 연락 하는 방법을 요청 하는 추가 보안 인증 페이지](./media/pim-getting-started/additional-security-verification.png)
 
 1. 확인 절차를 완료하면 **동의** 단추를 클릭합니다.
 
 1. 나타나는 메시지에서 **예**를 클릭하여 PIM 서비스에 동의합니다.
 
-    ![PIM에 동의 메시지](./media/pim-getting-started/consent-pim-message.png)
+    ![PIM 승인 프로세스를 완료 하는 메시지에 동의](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Azure AD 역할을 위해 PIM에 가입
 
@@ -100,7 +100,7 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
 PIM이 설정되면 ID 관리 작업을 수행할 수 있습니다.
 
-![PIM의 최상위 태스크 - 스크린샷](./media/pim-getting-started/pim-quickstart-tasks.png)
+![탐색 창에서 PIM 보여 주는 작업 및 관리 옵션](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | 작업 + 관리 | 설명 |
 | --- | --- |
@@ -125,11 +125,11 @@ PIM을 더 쉽게 열려면 Azure Portal 대시보드에 PIM 타일을 추가해
 
 1. **대시보드에 블레이드 고정**을 선택하여 PIM 빠른 시작 블레이드를 대시보드에 고정합니다.
 
-    ![대시보드에 블레이드 고정](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![대시보드에 PIM 블레이드를 고정 하려면 압정 아이콘](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Azure 대시보드에 다음과 같은 타일이 표시됩니다.
 
-    ![PIM 빠른 시작 타일](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![대시보드의 PIM 빠른 시작 타일](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693892"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>프로젝트 소음에 대 한 질문과 대답
 
@@ -27,7 +27,7 @@ ms.locfileid: "58317309"
 
 다운로드할 수 있습니다 합니다 [소음 Unity 프로젝트 플러그 인](https://www.microsoft.com/download/details.aspx?id=57346) 또는 [프로젝트 소음 Unreal 플러그 인](https://www.microsoft.com/download/details.aspx?id=58090)합니다.
 
-## <a name="does-project-acoustics-support-x-platform"></a>에서는 프로젝트 소음 <x> 플랫폼?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>에서는 프로젝트 소음 &lt;x&gt; 플랫폼?
 
 고객 요구에 따라 지원 되는 플랫폼 발전 함에 따라 음향을 프로젝트입니다. 에 문의 합니다 [프로젝트 소음 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) 추가 플랫폼에 대 한 지원에 대 한 질의 시에 합니다.
 

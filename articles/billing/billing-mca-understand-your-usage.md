@@ -1,42 +1,38 @@
 ---
-title: Microsoft 고객 계약에 대 한 Azure 사용량 및 요금 CSV에서 용어 이해 | Microsoft Docs
-description: 읽고 Azure 사용량 및 청구 프로필에 대 한 요금 CSV 섹션을 이해 하는 방법을 알아봅니다
-services: ''
-documentationcenter: ''
+title: Microsoft 고객 계약에 대 한 Azure 사용량 및 요금 파일의 사용 약관
+description: 읽고 Azure 사용량 및 청구 프로필에 대 한 요금 CSV 섹션을 이해 하는 방법에 알아봅니다.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371311"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490618"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 Azure 사용량 및 요금 CSV에서 용어 이해
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 Azure 사용량 및 요금 파일의 사용 약관
 
 이 문서는 Microsoft 고객 계약에 대 한 대금 청구 계정에 적용 됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인](#check-access-to-a-microsoft-customer-agreement)합니다.
 
 Azure 사용량 및 요금이 CSV 파일은 현재 청구 기간 동안 일별 및 미터 수준 사용 요금을 포함합니다.
 
-Azure 사용량 및 요금 파일을 참조 하세요 [뷰와 Azure 사용량 다운로드 및 Microsoft 고객 계약에 대 한 요금은](billing-download-azure-daily-usage.md)합니다.
-스프레드시트 애플리케이션에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다.
+Azure 사용량 및 요금 파일을 참조 하세요 [뷰와 Azure 사용량 다운로드 및 Microsoft 고객 계약에 대 한 요금은](billing-download-azure-daily-usage.md)합니다. 스프레드시트 애플리케이션에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다.
 
 사용 요금은 구독에 대한 총 **월별** 요금입니다. 사용 요금에서는 신용 또는 할인이 고려되지 않습니다.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>기업 계약 Azure 사용량 및 요금이 CSV 변경 내용
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Azure EA 사용량 및 요금이 변경
 
-EA 고객 인 경우 청구 프로필 Azure 사용량 CSV 파일의에서 용어에서에서 사용 중인 조건 보다 다양 한 EA Azure 사용 현황 CSV 파일을 확인할 수 있습니다. 청구 프로필 사용 약관에 EA 사용 약관의 매핑을 다음과 같습니다.
+EA 고객 인 경우 Azure 청구 프로필 사용 현황 CSV 파일에 Azure EA 사용량 CSV 파일의 조건에서 다른 지를 확인할 수 있습니다. 청구 프로필 사용 약관에 EA 사용 약관의 매핑을 다음과 같습니다.
 
-| EA Azure 사용 CSV | Microsoft 고객 계약 Azure 사용량 및 요금이 CSV |
+| Azure EA 사용량 CSV | Microsoft 고객 계약 Azure 사용량 및 요금이 CSV |
 | --- | --- |
 | Date | date |
 | 월| date |
@@ -49,7 +45,7 @@ EA 고객 인 경우 청구 프로필 Azure 사용량 CSV 파일의에서 용어
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | quantity |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ EA 고객 인 경우 청구 프로필 Azure 사용량 CSV 파일의에서 용어
 | AdditionalInfo | additionalInfo |
 | 태그들 | tags |
 | StoreServiceIdentifier | N/A |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>자세한 내용 및 설명
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>자세한 내용 및 Azure 사용량 및 요금 파일에 대 한 설명
-
-다음 섹션에서는 Azure 사용량 및 요금 파일에 표시 된 중요 한 용어를 설명 합니다.
+다음 용어는 Azure 사용량 및 요금 파일에 표시 됩니다.
 
 용어 | 설명
 --- | ---
@@ -107,7 +101,7 @@ publisherType | 게시자의 유형 (값: firstParty, thirdPartyReseller, thirdP
 publisherName | 마켓플레이스 서비스에 대 한 게시자
 resourceGroupId | 리소스와 연결 된 리소스 그룹에 대 한 고유 식별자
 resourceGroupName | 리소스와 연결 된 리소스 그룹의 이름
-ResourceId | 리소스 인스턴스에 대 한 고유 식별자
+resourceId | 리소스 인스턴스에 대 한 고유 식별자
 resourceType | 유형의 리소스 인스턴스
 resourceLocation | 리소스가 실행 되 고 있는 데이터 센터의 위치를 식별 합니다.
 location | 다른 리소스 위치는 동일한 지역에 대해 구성 된 경우 리소스의 정규화 된 위치
@@ -120,16 +114,16 @@ serviceInfo2 | 선택적 서비스 특정 메타데이터를 캡처하는 레거
 additionalInfo | 추가 서비스 특정 메타 데이터입니다.
 tags | 리소스에 할당 된 태그
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>내 Azure 사용량 및 요금 파일의 요금이 올바른지 확인 수행는 방법
+### <a name="make-sure-that-charges-are-correct"></a>요금이 올바른지 확인
 
-자세한 싶은 세부 사용량 파일에 요금이 있으면 참조 [청구 프로필의 청구서 요금 이해](billing-mca-understand-your-bill.md)
+세부 사용량 파일의 요금이 올바른지 확인 하려는 경우 정보를 확인할 수 있습니다. 참조 [청구 프로필의 청구서 요금 이해](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

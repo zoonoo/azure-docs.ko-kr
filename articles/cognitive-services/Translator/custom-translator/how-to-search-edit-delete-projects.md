@@ -2,19 +2,19 @@
 title: 프로젝트를 검색, 편집, 삭제하는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator는 프로젝트를 효율적으로 관리하는 다양한 방법을 제공합니다. 여러 개의 프로젝트를 만들고, 조건에 따라 검색하고, 프로젝트를 편집할 수 있습니다. 프로젝트를 삭제할 수도 있습니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0e3397151d2f88e0e55b9526b3c41de19c019a6b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3a19feb76b5f5e65f891dc9f4e9dbfbd642d15b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382553"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447933"
 ---
 # <a name="search-edit-and-delete-projects"></a>프로젝트 검색, 편집, 삭제
 

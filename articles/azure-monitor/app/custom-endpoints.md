@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e49fc96a9664b9f37b7b02fc0183f94a05db263
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d086815373b84c0f2a70144a505108875fc04981
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078444"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443315"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점을 재정의 하는 application Insights
 
@@ -25,6 +25,9 @@ ms.locfileid: "67078444"
 ## <a name="sdk-code-changes"></a>SDK 코드 변경 내용
 
 ### <a name="net-with-applicationinsightsconfig"></a>Applicationinsights.config 사용 하 여.NET
+
+> [!NOTE]
+> Applicationinsights.config 파일은 SDK에 업그레이드를 언제 든 지에 자동으로 덮어씁니다. SDK 업그레이드를 수행한 후 지역 특정 끝점 값을 다시 입력 해야 합니다.
 
 ```xml
 <ApplicationInsights>
@@ -123,8 +126,8 @@ appInsights.Configuration.start();
 환경 변수를 통해 끝점을 구성할 수도 있습니다.
 
 ```
-Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
-Profile Endpoint: “Profile_Query_Endpoint_address”
+Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
+Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
@@ -132,22 +135,34 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 ```javascript
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-(
-    {
-    instrumentationKey:"INSTRUMENTATION_KEY",
-    endpointUrl: "TelemetryChannel_Endpoint_Address"
-  }
-);
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-</script>
+   var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
+      function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
+   }({
+      instrumentationKey:"INSTRUMENTATION_KEY"
+      endpointUrl: "TelemetryChannel_Endpoint_Address"
+   });
 
+   window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
 ```
 
 ## <a name="regions-that-require-endpoint-modification"></a>끝점 수정 해야 하는 지역
 
-현재는 끝점 수정 해야 하는 유일한 지역이 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)합니다.
+현재는 끝점 수정 해야 하는 유일한 지역이 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) 하 고 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)합니다.
 
-## <a name="next-step"></a>다음 단계
+|지역 |  엔드포인트 이름 | 값 |
+|-----------------|:------------|:-------------|
+| Azure China | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure China | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+> [!NOTE]
+> 코드 없는 에이전트/확장 기반의 Azure App Services에 대 한 모니터링 **현재 지원 되지 않습니다** 이러한 지역에서. 이 기능은 사용할 수 있게 하는 즉시이 문서에서는 업데이트 됩니다.
+
+## <a name="next-steps"></a>다음 단계
 
 - Azure Government에 대 한 사용자 지정 수정에 대 한 자세한 내용은 참조에 대 한 자세한 지침은 [Azure 모니터링 및 관리](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)합니다.
+- Azure 중국에 대 한 자세한 내용은 참조는 [Azure 중국 플레이 북](https://docs.microsoft.com/azure/china/)합니다.

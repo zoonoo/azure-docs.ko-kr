@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055988"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536981"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -31,6 +31,9 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 기본적으로 Azure MFA(Multi-Factor Authentication) 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다.  디렉터리 통합 탭을 통해 기본 동작을 재정의하고 다른 LDAP 디렉터리, ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러에 바인딩할 수 있습니다.  또한 LDAP 프록시 또는 RADIUS 대상으로서 LDAP 바인딩을 위한 LDAP 인증, IIS 인증을 위한 사전 인증, 사용자 포털을 위한 기본 인증을 사용할 수 있습니다.  다음 표에서는 개별 설정을 설명합니다.
 
 ![MFA 서버에서 LDAP 구성 편집](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Active Directory Domain Services 이외의 디렉터리를 사용 하려면 디렉터리 통합 보장 되지 않습니다.
 
 | 기능 | 설명 |
 | --- | --- |

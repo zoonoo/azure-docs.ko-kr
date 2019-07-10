@@ -67,7 +67,7 @@ ms.locfileid: "67164704"
 ### <a name="get-the-current-list-of-selected-users"></a>선택한 사용자의 현재 목록을 가져옵니다.
 
 1. 관리자 계정으로 Microsoft 365에 로그인 합니다.
-1. https://linkedinselectedusermigration.azurewebsites.net/ 로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
+1. [https://linkedinselectedusermigration.azurewebsites.net/](https://linkedinselectedusermigration.azurewebsites.net/ ) 로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
 1. 목록을 CSV 파일로 내보냅니다.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>현재 선택된 된 개별 사용자를 그룹으로 이동

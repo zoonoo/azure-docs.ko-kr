@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991991"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543672"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Azure Python SDK 패키지][Azure Python package]를 사용합니다. 다루는 시나리오는 다음과 같습니다.
+이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성 되었으며 사용 된 [Azure Python SDK 패키지][Azure Python package]합니다. 다루는 시나리오는 다음과 같습니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 토픽에 대한 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 > [!NOTE]
-> 구독은 영구적이며, 구독 자체 또는 구독하는 토픽이 삭제될 때까지 계속 유지됩니다.
+> 기본적으로 구독은 영구적 이며, 또는 항목을 구독 하는 이러한,이 삭제 될 때까지 계속 됩니다.
 > 
-> 
+> 구독을 설정 하 여 자동으로 삭제 할 수 있습니다 합니다 [auto_delete_on_idle 속성](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)합니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -178,7 +178,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 
-토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적는 하지 않는 한 합니다 [auto_delete_on_idle 속성](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) 설정 됩니다. 수를 통해 삭제 합니다 [Azure portal][Azure portal] 또는 프로그래밍 방식으로 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -198,7 +198,7 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
 * [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
-* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]에 대한 참조입니다.
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression]에 대한 참조
 
 [Azure portal]: https://portal.azure.com
 [Azure Python package]: https://pypi.python.org/pypi/azure  

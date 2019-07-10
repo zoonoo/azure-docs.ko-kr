@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799994"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478369"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 구독 키에 대한 변수 및 Text Analytics REST API에 대한 엔드포인트를 만듭니다. 엔드포인트의 하위 지역이 가입할 때 사용한 것과 일치하는지 확인합니다(예: `westcentralus`). 평가판 키를 사용하는 경우에는 아무것도 변경할 필요가 없습니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919619"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514526"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 변경 내용을 저장하고 편집기를 종료합니다. `^S` 명령을 사용하여 저장하고 `^Q` 명령을 사용하여 종료합니다.
 
-[`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) 명령을 사용하여 앱을 다시 배포합니다. `<app-name>`을 앱의 이름으로 바꾸고 `<location-name>`에 대한 위치를 지정합니다([`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령에서 표시 된 값 중 하나를 사용).
+[`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 앱을 다시 배포합니다. `<app-name>`을 앱의 이름으로 바꾸고 `<location-name>`에 대한 위치를 지정합니다([`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령에서 표시 된 값 중 하나를 사용).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

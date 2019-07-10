@@ -2,27 +2,21 @@
 title: 어떻게 필요-Azure Active Directory 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 장치를 관리 합니다. | Microsoft Docs
 description: Azure Active Directory (Azure AD) 장치 기반 조건부 액세스 정책은 클라우드 앱 액세스를 위해 관리 되는 장치를 필요로 하는 방법에 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112138"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509368"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 관리 되는 장치 필요
 
@@ -30,15 +24,12 @@ ms.locfileid: "67112138"
 
 이 문서에서는 어떻게 사용자 환경에서 특정 클라우드 앱에 액세스 하는 관리 되는 장치를 필요로 하는 조건부 액세스 정책을 구성할 수 있습니다. 
 
-
 ## <a name="prerequisites"></a>필수 조건
 
 클라우드 앱 액세스 연결에 대 한 관리 되는 장치 필요 **Azure AD 조건부 액세스** 하 고 **Azure AD 장치 관리** 함께 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
 - **[Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)**  -이 문서에서는 조건부 액세스 및 관련된 용어에 대 한 개념적인 개요를 사용 하 여 제공 합니다.
-
 - **[Azure Active Directory의 디바이스 관리 소개](../devices/overview.md)** - 이 문서에서는 디바이스를 조직에서 제어해야 하는 다양한 옵션에 대해 간략히 설명합니다. 
-
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -47,11 +38,8 @@ ms.locfileid: "67112138"
 Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는 단일 정책 사용 하 여이 요구 사항을 해결할 수 있습니다.
 
 - 선택한 클라우드 앱으로
-
 - 선택한 사용자 및 그룹에 대해
-
 - 관리 디바이스 필요
-
 
 ## <a name="managed-devices"></a>관리 디바이스  
 
@@ -59,18 +47,17 @@ Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는
   
 ![디바이스 기반 조건](./media/require-managed-devices/32.png)
 
-Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 있습니다.
+Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 있습니다. 
 
-- **[Azure AD 등록 디바이스](../devices/overview.md#azure-ad-registered-devices)** - Azure AD에 등록된 개인 디바이스를 가져옵니다.
+- **Azure AD 등록 장치** -Azure AD에 등록 하는 개인 장치를 얻으려면
+- **Azure AD 가입 장치** -온-프레미스에 가입 되지 않은 조직의 Windows 10 장치를 Azure AD를 사용 하 여 AD에 등록 합니다. 
+- **하이브리드 Azure AD 가입 장치** -Windows 10 또는 온-프레미스에 가입 된 지원 되는 하위 수준 장치를 Azure AD를 사용 하 여 AD에 등록 합니다.
 
-- **[Azure AD 조인 디바이스](../devices/overview.md#azure-ad-joined-devices)** - Azure AD에 등록된 온-프레미스 AD에 조인되지 않은 조직의 Windows 10 디바이스를 가져옵니다. 
-
-- **[Azure AD 조인 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)** - Azure AD에 등록된 온-프레미스 AD에 조인된 Windows 10 또는 지원되는 하위 수준 디바이스를 가져옵니다.
+문서에서는 이러한 세 가지 옵션을 설명 [장치 id 란?](../devices/overview.md)
 
 관리되는 디바이스가 되려면, 등록된 디바이스는 **하이브리드 Azure AD 조인 디바이스** 또는 **준수 상태로 표시된 디바이스**여야 합니다.  
 
 ![디바이스 기반 조건](./media/require-managed-devices/47.png)
-
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인된 디바이스 필요
 
@@ -83,7 +70,6 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 ![디바이스 기반 조건](./media/require-managed-devices/45.png)
 
 하이브리드 Azure AD 조인 디바이스를 관리 디바이스로 어떻게 만드나요?  온-프레미스 AD에 조인된 디바이스의 경우, 이러한 디바이스에 대한 제어는 디바이스를 관리하는 **SCCM(System Center Configuration Manager)** 또는 **GP(그룹 정책)** 과 같은 관리 솔루션을 사용하여 시행되는 것으로 가정합니다. Azure AD가 이러한 방법 중 어떤 것을 디바이스에 적용할지 결정할 방법이 없기 때문에 하이브리드 Azure AD 조인 디바이스를 요구하는 것은 관리 디바이스를 필요로 하는 비교적 약한 메커니즘입니다. 온-프레미스 도메인에 가입된 디바이스에 적용되는 방법이 관리 디바이스(이러한 디바이스가 하이브리드 Azure AD 조인 디바이스이기도 하다면)를 구성할 만큼 충분히 강력한지 여부를 판단하는 것은 관리자의 몫입니다.
-
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>디바이스를 준수 상태로 표시해야 함
 
@@ -98,8 +84,6 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
  
 ![디바이스 기반 조건](./media/require-managed-devices/46.png)
 
-
-
 준수 상태로 표시된 디바이스의 경우 다음과 같이 가정할 수 있습니다. 
 
 - 직원이 회사 데이터에 액세스하는 데 사용하는 모바일 디바이스가 관리됩니다.
@@ -107,10 +91,6 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 - 직원이 정보에 액세스하고 공유하는 방식을 제어함으로써 회사 정보가 보호됩니다.
 - 디바이스와 해당 앱은 회사 보안 요구 사항을 준수합니다.
 
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
 사용자 환경에서 장치 기반 조건부 액세스 정책을 구성 하기 전에 살펴보겠습니다 수행 해야 합니다 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다.
-

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bc2e585ccce250dd83dc855c3eda5f958186a7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696920"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484064"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
 
@@ -64,7 +64,7 @@ Apache Spark는 애플리케이션 요구 사항에 따라 환경을 구성하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 Apache Storm 시작](storm/apache-storm-tutorial-get-started-linux.md)
+* [만들기 및 Azure HDInsight에서 Apache Storm 토폴로지를 모니터링 합니다.](storm/apache-storm-quickstart.md)
 * [HDInsight의 Apache Storm에 대한 예제 토폴로지](storm/apache-storm-example-topology.md)
 * [HDInsight의 Apache Spark 소개](spark/apache-spark-overview.md)
 * [HDInsight에서 Apache Kafka 시작](kafka/apache-kafka-get-started.md)

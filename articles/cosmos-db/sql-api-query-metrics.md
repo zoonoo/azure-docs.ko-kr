@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237862"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447266"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -272,7 +272,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 
 ## <a name="next-steps"></a>다음 단계
-* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](how-to-sql-query.md)를 참조하세요. 
+* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](sql-query-getting-started.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
 * 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요. 
 

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065488"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442174"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure PowerShell 함수 개발자 가이드
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 프로젝트의 루트에 없는 공유 [ `host.json` ](functions-host-json.md) 함수 앱을 구성 하는 파일입니다. 각 함수에는 고유한 코드 파일 (.ps1) 및 바인딩 구성 파일을 사용 하 여 폴더 (`function.json`). Function.json 파일의 부모 디렉터리의 이름은 항상 함수의 이름입니다.
 
-특정 바인딩이 필요는 `extensions.csproj` 파일입니다. 바인딩 확장에 필요 [버전 2.x](functions-versions.md) Functions 런타임의 정의 된 합니다 `extensions.csproj` 파일의 실제 라이브러리 파일을 사용 하 여를 `bin` 폴더. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+특정 바인딩이 필요는 `extensions.csproj` 파일입니다. 바인딩 확장에 필요 [버전 2.x](functions-versions.md) Functions 런타임의 정의 된 합니다 `extensions.csproj` 파일의 실제 라이브러리 파일을 사용 하 여를 `bin` 폴더. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 PowerShell 함수 앱에서 필요에 따라 했을 수 있습니다는 `profile.ps1` 함수 앱을 실행 하기 시작할 때 실행 되는 (그렇지 않은 경우으로 알고 있는  *[콜드](#cold-start)* 합니다. 자세한 내용은 [PowerShell 프로필](#powershell-profile)합니다.
 

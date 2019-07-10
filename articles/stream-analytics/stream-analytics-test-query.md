@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340872"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508710"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>샘플 데이터로 Stream Analytics 쿼리 테스트
 
 Azure Stream Analytics를 사용 하 여 입력에서 데이터를 샘플링 하거나 시작 하거나 작업을 중지 하지 않고 Azure portal에서 쿼리를 테스트 하려면 샘플 데이터 업로드 수 있습니다.
 
-## <a name="upload-sample-data-and-test-the-query"></a>샘플 데이터 업로드 및 쿼리 테스트
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>업로드 하거나 쿼리를 테스트 하는 라이브 원본에서 데이터 샘플링
 
 1. Azure 포털에 로그인합니다. 
 
@@ -30,7 +30,7 @@ Azure Stream Analytics를 사용 하 여 입력에서 데이터를 샘플링 하
 
 4. 쿼리를 테스트 하려면 샘플링할 수 있습니다 하거나 데이터에서 라이브 입력 또는 파일에서 업로드 합니다. 데이터는 JSON, CSV 또는 AVRO로 직렬화되어야 합니다. 샘플 입력은 압축되지 않고 UTF-8로 인코딩되어야 합니다. 포털의 CSV 입력 테스트에는 쉼표(,) 구분 기호만 지원됩니다.
 
-    1. 라이브 입력을 사용 하 여: 사용자 입력 중 하나를 마우스 오른쪽 단추로 클릭 합니다. 선택한 **입력의 샘플 데이터**입니다. 다음 화면에서 샘플의 기간을 설정할 수 있습니다.
+    1. 라이브 입력을 사용 하 여: 사용자 입력 중 하나를 마우스 오른쪽 단추로 클릭 합니다. 선택한 **입력의 샘플 데이터**입니다. 다음 화면에서 샘플의 기간을 설정할 수 있습니다. 라이브 원본에서 이벤트를 샘플링가 검색할 최대 1,000 개의 이벤트 또는 1MB (셋 중 첫 번째), 샘플링 된 데이터는 지정 된 전체 시간 간격을 나타내지 않을 수 있습니다.
 
     1. 파일을 사용 하 여: 사용자 입력 중 하나를 마우스 오른쪽 단추로 클릭 합니다. **파일에서 샘플 데이터 업로드**를 선택합니다. 
 

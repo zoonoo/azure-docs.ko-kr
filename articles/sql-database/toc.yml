@@ -8,6 +8,8 @@
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: 릴리스 정보
       href: sql-database-release-notes.md
+    - name: 게이트웨이 IP 마이그레이션 업데이트
+      href: sql-database-gateway-migration.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -207,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: 관리되는 인스턴스 기능
           href: sql-database-managed-instance.md
+        - name: 관리형 인스턴스 FAQ
+          href: sql-database-managed-instance-faq.md
         - name: 관리 API 참조
           href: sql-database-managed-instance-create-manage.md
         - name: 리소스 한계

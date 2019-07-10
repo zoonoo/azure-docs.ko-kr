@@ -49,6 +49,8 @@
       href: deploy-availability-zone-powershell.md
     - name: 부하 분산 장치와 통합
       href: integrate-lb.md
+    - name: SQL FQDN을 사용한 애플리케이션 규칙
+      href: sql-fqdn-filtering.md
 - name: 참고 자료
   items:
     - name: Azure CLI

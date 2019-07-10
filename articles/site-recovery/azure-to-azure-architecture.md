@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399584"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491879"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -31,7 +31,7 @@ Azure VM에 대한 재해 복구에 관련된 구성 요소는 다음 표에 요
 **원본 지역의 VM** | [지원되는 원본 지역](azure-to-azure-support-matrix.md#region-support)에서 하나 이상의 Azure VM입니다.<br/><br/> VM은 [지원되는 운영 체제](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)에서 실행될 수 있습니다.
 **원본 VM 스토리지** | Azure VM은 관리될 수 있습니다. 또는 스토리지 계정에 분산된 관리되지 않는 디스크를 가집니다.<br/><br/>지원되는 Azure 스토리지에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---storage).
 **원본 VM 네트워크** | VM은 원본 지역의 VNet(가상 네트워크)에서 하나 이상의 서브넷에 있을 수 있습니다. 네트워킹 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---networking).
-**캐시 스토리지 계정** | 원본 네트워크에서 캐시 스토리지 계정이 필요합니다. 복제 중 VM 변경 내용이 대상 스토리지로 전송되기 전에 캐시에 저장됩니다.<br/><br/> 캐시를 사용하여 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.<br/><br/> 캐시 스토리지 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#cache-storage). 
+**캐시 스토리지 계정** | 원본 네트워크에서 캐시 스토리지 계정이 필요합니다. 복제 중 VM 변경 내용이 대상 스토리지로 전송되기 전에 캐시에 저장됩니다.  캐시 저장소 계정은 표준 이어야 합니다.<br/><br/> 캐시를 사용하여 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.<br/><br/> 캐시 스토리지 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#cache-storage). 
 **대상 리소스** | 대상 리소스는 복제하는 동안 및 장애 조치(failover)가 발생하는 경우에 사용됩니다. Site Recovery는 기본적으로 대상 리소스를 설정할 수 있습니다. 또는 사용자가 만들거나 사용자 지정할 수 있습니다.<br/><br/> 대상 지역에서 VM을 만들 수 있는지, 구독에 대상 지역에 필요한 VM 크기를 지원하기 위해 충분한 리소스가 있는지 확인합니다. 
 
 ![원본 및 대상 복제](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

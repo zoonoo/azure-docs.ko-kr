@@ -1,129 +1,171 @@
 ---
-title: Azure Logic Apps에서 REST 엔드포인트 호출 | Microsoft Docs
-description: Azure Logic Apps에서 HTTP + Swagger를 사용하여 REST 엔드포인트와 통신하는 작업 및 워크플로를 자동화
+title: Azure Logic Apps에서 REST 끝점에 연결
+description: Azure Logic Apps를 사용 하 여 자동화 된 작업, 프로세스 및 워크플로 REST 끝점을 모니터링
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.topic: article
-ms.date: 07/18/2016
-ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448639"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541673"
 ---
-# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
+# <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 REST 끝점 호출
 
-논리 앱 워크플로에서 HTTP + Swagger 동작을 사용할 경우 [Swagger 문서](https://swagger.io)를 통해 REST 엔드포인트에 대한 최고급 커넥터를 만들 수 있습니다. 최고급 논리 앱 디자이너 환경이 있는 모든 REST 엔드포인트를 호출하도록 Logic Apps를 확장할 수도 있습니다.
+사용 하 여 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 HTTP + Swagger 커넥터를 통해 REST 끝점을 정기적으로 호출 하는 워크플로 자동화할 수 있습니다를 [Swagger 파일](https://swagger.io) 논리 앱을 빌드하여 합니다. HTTP + Swagger 트리거 및 동작은 동일 하 게 작동 합니다 [HTTP 트리거 및 작업](connectors-native-http.md) 의 API 구조 및 Swagger 파일에서 설명 하는 출력을 노출 하 여 논리 앱 디자이너에서 향상 된 환경을 제공 합니다. 폴링 트리거를 구현 하려면에 설명 된 폴링 패턴을 따릅니다 [논리 앱에서 다른 Api, 서비스 및 시스템 호출을 사용자 지정 Api 만들기](../logic-apps/logic-apps-create-api-app.md#polling-triggers)합니다.
 
-커넥터로 Logic Apps를 만드는 방법을 알아보려면 [새 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>HTTP + Swagger를 트리거 또는 동작으로 사용합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)과 동일하게 작동하지만 [swagger 메타데이터](https://swagger.io)의 API 구조 및 출력을 노출하여 논리 앱 디자이너에 더 나은 환경을 제공합니다. HTTP + Swagger 커넥터를 트리거로 사용할 수도 있습니다. 폴링 트리거를 구현하려면 [Logic Apps에서 다른 API, 서비스 및 시스템을 호출하기 위한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md#polling-triggers)에 설명된 폴링 패턴을 따라야 합니다.
+* 대상 REST 끝점을 설명 하는 Swagger 파일에 대 한 URL
 
-[논리 앱 트리거 및 동작](../connectors/apis-list.md)에 대해 알아봅니다.
+  일반적으로 REST 끝점에는 커넥터가 작동 하려면이 조건을 충족 해야 합니다.
 
-다음은 논리 앱에서 HTTP + Swagger 작업을 워크플로의 동작으로 사용하는 예제입니다.
+  * Swagger 파일을 공개적으로 액세스할 수 있는 HTTPS URL에서 호스트 되어야 합니다.
 
-1. **새 단계** 단추를 선택합니다.
-2. **작업 추가**를 선택합니다.
-3. 동작 검색 상자에 **swagger** 를 입력하여 HTTP + Swagger 동작을 나열합니다.
-   
-    ![HTTP + Swagger 동작 선택](./media/connectors-native-http-swagger/using-action-1.png)
-4. Swagger 문서에 대한 URL을 입력합니다.
-   
-   * 논리 앱 디자이너에서 작동하려면 URL이 HTTPS 엔드포인트여야 하고 CORS를 사용할 수 있어야 합니다.
-   * Swagger 문서가 이 요구 사항을 충족하지 않는 경우 CORS가 설정된 Azure Storage를 사용하여 문서를 저장할 수 있습니다.
-5. **다음** 을 클릭하여 Swagger 문서를 읽고 렌더링합니다.
-6. HTTP 호출에 필요한 모든 매개 변수를 추가합니다.
-   
-    ![HTTP 작업 완료](./media/connectors-native-http-swagger/using-action-2.png)
-7. 논리 앱을 저장하고 게시하려면 디자이너 도구 모음에서 **저장**을 클릭합니다.
+  * Swagger 파일 있어야 [크로스-원본 자원 공유 (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 사용 하도록 설정 합니다.
 
-### <a name="host-swagger-from-azure-storage"></a>Azure Storage에서 Swagger 호스트
-호스트되지 않거나 디자이너에 대한 보안 및 원본 간 요구 사항을 충족하지 않는 Swagger 문서를 참조할 수 있습니다. 이 문제를 해결하기 위해 Azure Storage에서 Swagger 문서를 저장하고 CORS를 사용하도록 설정하여 문서를 참조할 수 있습니다.  
+  호스트 되지 않는 또는 보안 및 원본 간 요구 사항을 충족 하지 않는 Swagger 파일을 참조 하려면 [Azure storage 계정에서 blob 컨테이너에 Swagger 파일을 업로드](#host-swagger), 따라서 해당 저장소 계정에서 CORS를 사용 하 고 파일을 참조할 수 있습니다.
 
-Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음과 같습니다.
+  이 항목에서는 사용 예제는 [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview), 필요는 [Cognitive Services 계정과 액세스 키](../cognitive-services/cognitive-services-apis-create-account.md)합니다.
 
-1. [Azure Blob 스토리지를 사용하여 Azure Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md). 이 단계를 수행하려면 **공용 액세스**에 대한 사용 권한을 설정합니다.
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-2. Blob에 대해 CORS를 사용하도록 설정합니다. 
+* 대상 끝점을 호출 하려는 논리 앱. 시작 하려면 HTTP + Swagger 트리거 [빈 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)합니다. 사용 하 여 HTTP + Swagger 동작을 원하는 모든 트리거를 사용 하 여 논리 앱을 시작 합니다. 이 예제에서는 HTTP + Swagger 트리거를 첫 번째 단계입니다.
 
-   이 설정을 자동으로 구성하려면 [이 PowerShell 스크립트](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)를 사용할 수 있습니다.
+## <a name="add-an-http--swagger-trigger"></a>추가 HTTP + Swagger 트리거
 
-3. Blob에 Swagger 파일을 업로드합니다. 
+기본 제공이 트리거는 REST API를 설명 하 고 해당 파일의 콘텐츠를 포함 하는 응답을 반환 하는 Swagger 파일에 대 한 URL로 HTTP 요청을 보냅니다.
 
-   [Azure Portal](https://portal.azure.com) 또는 [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-4. Azure Blob Storage의 문서에 대한 HTTPS 링크를 참조합니다. 
+1. 검색 상자에서 디자이너에서 필터로 "swagger"를 입력 합니다. **트리거** 목록에서 선택 합니다 **HTTP + Swagger** 트리거.
 
-   이 링크에서는 다음 형식을 사용합니다.
+   ![선택한 HTTP + Swagger 트리거](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
+1. 에 **SWAGGER 끝점 URL** 상자 Swagger 파일에 대 한 URL을 입력 하 고 선택 **다음**합니다.
 
-## <a name="technical-details"></a>기술 세부 정보
-이 HTTP + Swagger 커넥터가 지원하는 트리거 및 동작에 대한 세부 정보는 다음과 같습니다.
+   이 예제에서는 미국 서 부 지역에 있는 Swagger URL을 사용 합니다 [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
-## <a name="http--swagger-triggers"></a>HTTP + Swagger 트리거
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다. [트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-| 트리거 | 설명 |
-| --- | --- |
-| HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+   ![Swagger 끝점에 대 한 URL을 입력 합니다.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
-## <a name="http--swagger-actions"></a>HTTP + Swagger 동작
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. [작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
+1. 디자이너에서 Swagger 파일에 설명 된 작업 표시를 하는 경우 사용 하려는 작업을 선택 합니다.
 
-| 액션(Action) | 설명 |
-| --- | --- |
-| HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
+   ![Swagger 파일에서 작업](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
-### <a name="action-details"></a>작업 세부 정보
-HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. 다음은 각 동작, 해당 필수 및 옵션 입력 필드, 사용과 관련된 해당 출력 세부 정보에 대한 정보입니다.
+1. 끝점 호출에 포함 하려는 선택된 된 작업에 따라 달라 지는 트리거 매개 변수의 값을 제공 합니다. 되풀이 트리거 빈도 대 한 끝점을 호출 하도록 설정 합니다.
 
-#### <a name="http--swagger"></a>HTTP + Swagger
-Swagger 메타데이터를 지원하는 HTTP 아웃바운드 요청을 만듭니다.
-별표(*)는 필수 필드를 의미합니다.
+   이 예제에서는 트리거를 "HTTP + Swagger 트리거: 얼굴 감지-"단계 보다 알기 쉬운 이름에 포함 되도록 합니다.
 
-| Display name | 속성 이름 | 설명 |
-| --- | --- | --- |
-| Method* |메서드 |사용할 HTTP 동사 |
-| URI* |uri |HTTP 요청에 대한 URI |
-| 헤더 |headers |포함할 HTTP 헤더의 JSON 개체 |
-| 본문 |본문 |HTTP 요청 본문 |
-| Authentication |인증 |요청에 사용할 인증 자세한 내용은 [HTTP 커넥터](connectors-native-http.md#authentication)를 참조하세요. |
+   ![작업 세부 정보](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
-**출력 세부 정보**
+1. 다른 사용 가능한 매개 변수를 추가 하려면 열을 **새 매개 변수 추가** 목록 및 매개 변수를 선택 합니다.
 
-HTTP 응답
+   HTTP + Swagger에 대 한 인증 유형 사용할 수 있는 방법에 대 한 자세한 내용은 참조 [인증 HTTP 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)합니다.
 
-| 속성 이름 | 데이터 형식 | 설명 |
-| --- | --- | --- |
-| headers |object |응답 헤더 |
-| 본문 |object |응답 개체 |
-| 상태 코드 |int |HTTP 상태 코드 |
+1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-### <a name="http-responses"></a>HTTP 응답
-다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.
+1. 완료 하면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 선택 **저장할**합니다.
 
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 202 |동의함 |
-| 400 |잘못된 요청 |
-| 401 |권한 없음 |
-| 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
-| 500 |내부 서버 오류. 알 수 없는 오류 발생. |
+## <a name="add-an-http--swagger-action"></a>추가 HTTP + Swagger 동작
+
+이 기본 제공 작업 REST API를 설명 하 고 해당 파일의 콘텐츠를 포함 하는 응답을 반환 하는 Swagger 파일에 대 한 URL로 HTTP 요청을 만듭니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+
+1. HTTP + Swagger를 추가 하려는 단계 아래 작업을 선택 **새 단계**합니다.
+
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 더하기 기호 ( **+** ) 표시 하 고 선택한 **작업 추가**합니다.
+
+1. 검색 상자에서 디자이너에서 필터로 "swagger"를 입력 합니다. **작업** 목록에서 선택 합니다 **HTTP + Swagger** 작업 합니다.
+
+    ![HTTP + Swagger 동작 선택](./media/connectors-native-http-swagger/select-http-swagger-action.png)
+
+1. 에 **SWAGGER 끝점 URL** 상자 Swagger 파일에 대 한 URL을 입력 하 고 선택 **다음**합니다.
+
+   이 예제에서는 미국 서 부 지역에 있는 Swagger URL을 사용 합니다 [Cognitive Services Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
+
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
+
+   ![Swagger 끝점에 대 한 URL을 입력 합니다.](./media/connectors-native-http-swagger/http-swagger-action-parameters.png)
+
+1. 디자이너에서 Swagger 파일에 설명 된 작업 표시를 하는 경우 사용 하려는 작업을 선택 합니다.
+
+   ![Swagger 파일에서 작업](./media/connectors-native-http-swagger/http-swagger-action-operations.png)
+
+1. 끝점 호출에 포함 하려는 선택된 된 작업에 따라 달라 지는 작업 매개 변수의 값을 제공 합니다.
+
+   이 예제에서는 매개 변수가 있지만 작업의 이름을 바꿉니다 "HTTP + Swagger 동작: 얼굴-식별"단계 보다 알기 쉬운 이름에 포함 되도록 합니다.
+
+   ![작업 세부 정보](./media/connectors-native-http-swagger/http-swagger-action-operation-details.png)
+
+1. 다른 사용 가능한 매개 변수를 추가 하려면 열을 **새 매개 변수 추가** 목록 및 매개 변수를 선택 합니다.
+
+   HTTP + Swagger에 대 한 인증 유형 사용할 수 있는 방법에 대 한 자세한 내용은 참조 [인증 HTTP 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)합니다.
+
+1. 완료 하면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 선택 **저장할**합니다.
+
+<a name="host-swagger"></a>
+
+## <a name="host-swagger-in-azure-storage"></a>Azure Storage에서 Swagger 호스트
+
+호스트 되지 않는 또는 Azure storage 계정에서 blob 컨테이너에 해당 파일을 업로드 하 고 해당 저장소 계정에서 CORS를 사용 하 여 보안 및 원본 간 요구 사항을 충족 하지 않는 Swagger 파일을 참조할 수 있습니다. 만들기, 설정 및 Azure Storage에서 Swagger 파일을 저장, 하려면 다음이 단계를 수행 합니다.
+
+1. [Azure Storage 계정 만들기](../storage/common/storage-create-storage-account.md)
+
+1. 이제 CORS를 사용 하도록 설정 된 blob에 대 한 합니다. 저장소 계정 메뉴에서 선택 **CORS**합니다. 에 **Blob service** 탭, 이러한 값을 지정 하 고 선택한 **저장**합니다.
+
+   | 자산 | 값 |
+   |----------|-------|
+   | **허용 되는 원본** | `*` |
+   | **허용 되는 메서드** | `GET`, `HEAD`, `PUT` |
+   | **허용 되는 헤더** | `*` |
+   | **노출 된 헤더** | `*` |
+   | **최대 기간** 초 단위로 | `200` |
+   |||
+
+   이 예제에서는 합니다 [Azure portal](https://portal.azure.com)와 같은 도구를 사용할 수 있습니다 [Azure Storage 탐색기](https://storageexplorer.com/), 자동으로이 샘플을 사용 하 여이 설정을 구성 하거나 [PowerShell스크립트](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+
+1. [Blob 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)합니다. 컨테이너의 온 **개요** 창 **액세스 수준 변경**합니다. **공용 액세스 수준을** 목록에서 **Blob (blob 전용 익명 읽기 액세스)** 를 선택한 **확인**합니다.
+
+1. [Swagger 파일을 blob 컨테이너에 업로드](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)를 통해 합니다 [Azure portal](https://portal.azure.com) 또는 [Azure Storage 탐색기](https://storageexplorer.com/)합니다.
+
+1. Blob 컨테이너에 파일을 참조 하려면를 대/소문자 구분이 형식에 따라 HTTPS 링크를 사용 합니다.
+
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+
+## <a name="connector-reference"></a>커넥터 참조
+
+HTTP + Swagger에서 출력에 대 한 자세한 내용은 여기에 트리거 또는 동작 합니다. HTTP + Swagger 호출이이 정보를 반환 합니다.
+
+| 속성 이름 | 형식 | 설명 |
+|---------------|------|-------------|
+| headers | object | 요청에서 헤더 |
+| body | object | JSON 개체 | 요청 본문 내용 사용 하 여 개체 |
+| status code | int | 요청에서 상태 코드 |
+|||
+
+| status code | 설명 |
+|-------------|-------------|
+| 200 | 확인 |
+| 202 | 동의함 |
+| 400 | 잘못된 요청 |
+| 401 | 권한 없음 |
+| 403 | 사용할 수 없음 |
+| 404 | 찾을 수 없음 |
+| 500 | 내부 서버 오류. 알 수 없는 오류 발생. |
+|||
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [다른 커넥터 찾기](apis-list.md)
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

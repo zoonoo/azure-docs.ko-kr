@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: 컨테이너 로그 및 이벤트 가져오기
           href: container-instances-get-logs.md
-        - name: Azure Log Analytics로 로깅
+        - name: Azure Monitor 로그를 사용하여 로깅
           href: container-instances-log-analytics.md
     - name: 문제 해결
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: FAQ
+      href: container-instances-faq.md

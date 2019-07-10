@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072383"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 음성 장치 SDK 샘플 앱 실행
 
@@ -37,7 +37,7 @@ ms.locfileid: "66425672"
 
 * 가져오려는 [음성 서비스에 대 한 Azure 구독 키](get-started.md)
 
-* 대화 기록 사용 하려는 경우 사용 해야는 [순환 마이크 장치](get-speech-devices-sdk.md) 및 현재 서비스는 "EN-US" 및에 "ZH-CN" 지역, "centralus" 및 "eastasia"에서 사용할 수만 있습니다. 음성 키 대화 기록 사용 하려면 해당 지역 중 하나에 있어야 합니다.
+* 대화 기록 사용 하려는 경우 사용 해야는 [순환 마이크 장치](get-speech-devices-sdk.md) 이며이 기능은 현재만 "EN-US" 및에 "ZH-CN" 지역, "centralus" 및 "eastasia"에서 사용할 수 있습니다. 음성 키 대화 기록 사용 하려면 해당 지역 중 하나에 있어야 합니다.
 
 * 음성 서비스를 사용 하 여 사용자 표현에서 인 텐트 (또는 작업)를 식별 하려는 경우는 [Service LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독 합니다. LUIS 및 의도 인식 하는 방법에 대 한 자세한 내용은 참조 하세요 [LUIS 사용 하 여 음성 의도 인식 C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)합니다.
 

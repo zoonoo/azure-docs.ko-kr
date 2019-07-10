@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: bcd66d1a8077b4cc87c184f34b43cc5846a83f2f
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144426"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443251"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 보안 작업 및 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 컨트롤 소개 합니다. 보안 질문 및 개념의 Microsoft 구현 및 검증 단계 중 고려해 야 [수명 주기 SDL (Security Development)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 나와 있습니다. 활동 및 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 Azure 서비스를 정의 하는 데 목표가입니다.
@@ -139,7 +139,7 @@ DAST 정적 응용 프로그램 보안 테스트 (SAST)와 다릅니다. SAST �
 
 코드 완성 기능 응용 프로그램을 변경 하는 모든 디자인 또는 구현 하거나 시스템을 고려 했습니다. 확인 후 공격 노출 영역을 검토 합니다. 위협 모델을 비롯 한 변경의 결과로 생성 된 모든 새로운 공격 벡터가 검토 되었으며 완화는 확인 수 있습니다.
 
-응용 프로그램을 검색 하 여 공격 노출 영역에 대 한 그림을 빌드할 수 있습니다. Microsoft는 호출 하는 공격 노출 분석 도구를 제공 [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487)합니다. 많은 상용 동적 테스트 및 취약성 검색 도구 또는 포함 하 여 서비스에서 선택할 수 있습니다 [OWASP 제 드 공격 프록시 프로젝트](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/)하십시오 [Skipfish](http://code.google.com/p/skipfish/), 및 [w3af](http://w3af.sourceforge.net/)합니다. 이러한 검사 도구는 앱을 탐색 하 고 웹을 통해 액세스할 수 있는 응용 프로그램 부분을 매핑합니다. Azure Marketplace를 검색할 수도 있습니다와 비슷한 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)합니다.
+응용 프로그램을 검색 하 여 공격 노출 영역에 대 한 그림을 빌드할 수 있습니다. Microsoft는 호출 하는 공격 노출 분석 도구를 제공 [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487)합니다. 많은 상용 동적 테스트 및 취약성 검색 도구 또는 포함 하 여 서비스에서 선택할 수 있습니다 [OWASP 제 드 공격 프록시 프로젝트](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/)하십시오 [Skipfish](https://code.google.com/p/skipfish/), 및 [w3af](http://w3af.sourceforge.net/)합니다. 이러한 검사 도구는 앱을 탐색 하 고 웹을 통해 액세스할 수 있는 응용 프로그램 부분을 매핑합니다. Azure Marketplace를 검색할 수도 있습니다와 비슷한 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)합니다.
 
 ### <a name="perform-security-penetration-testing"></a>보안 침투 테스트 수행
 

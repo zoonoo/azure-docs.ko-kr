@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384770"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
@@ -42,7 +42,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |독일|DE|
 |홍콩 특별 행정구|HK|
 |인도|IN|
-|인도네시아|ID|
+|인도네시아|id|
 |이탈리아|IT|
 |일본|JP|
 |한국|KR|

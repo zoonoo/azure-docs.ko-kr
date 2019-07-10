@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494842"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537599"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>ODBC 사용 하 여 Azure 데이터 탐색기로 연결
 
@@ -20,7 +20,13 @@ Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview))는 데이
 
 응용 프로그램 내부적으로 호출 하는 데이터베이스 관련 모듈에서 구현 된 ODBC 인터페이스에서 함수를 호출할 *드라이버*합니다. Azure 데이터 탐색기는 SQL Server 통신 프로토콜의 하위 집합을 지원 합니다 ([MS TDS](/azure/kusto/api/tds/)) 이므로 SQL Server 용 ODBC 드라이버를 사용할 수 있습니다.
 
-이 문서에서는 ODBC를 지 원하는 응용 프로그램에서 Azure 데이터 탐색기로 연결할 수 있도록 SQL Server ODBC 드라이버를 사용 하는 방법을 알아봅니다.
+다음 비디오를 사용 하 여 ODBC 연결을 만들려면 알아볼 수 있습니다. 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+또는 수 있습니다 [ODBC 데이터 원본을 구성할](#configure-the-odbc-data-source) 아래 설명 된 대로 합니다. 
+
+문서에서 ODBC를 지 원하는 응용 프로그램에서 Azure 데이터 탐색기로 연결할 수 있도록 SQL Server ODBC 드라이버를 사용 하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

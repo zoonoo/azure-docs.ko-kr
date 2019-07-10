@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357193"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>인쇄, 필기된 텍스트 인식
@@ -58,7 +58,6 @@ Computer Vision의 OCR(광학 문자 인식) API는 읽기 API와 유사하지�
 OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니다.
 
 * 이미지를 JPEG, PNG, GIF 또는 BMP 형식으로 제공 해야 합니다.
-* 입력된 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
 * 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
 * 90도의 배수에 최대 40도의 작은 각도를 더한 값만큼 이미지의 텍스트를 회전할 수 있습니다.
 

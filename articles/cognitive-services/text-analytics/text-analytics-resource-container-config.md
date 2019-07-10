@@ -3,20 +3,20 @@ title: 컨테이너 구성
 titlesuffix: Text Analytics - Azure Cognitive Services
 description: Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 06/20/2019
+ms.author: dapine
+ms.openlocfilehash: 604b17bc3d4696ff0bf2be1759a53927a531fe13
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011761"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296013"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Text Analytics Docker 컨테이너 구성
 
@@ -31,7 +31,7 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 그 값은 [ `Billing` ](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스에 대한 유효한 키여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 그 값은 [ `Billing` ](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스를 위한 유효한 키여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -43,17 +43,17 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure에서 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure의 _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대 한 값을 지정 해야 하 고 값은 _에 대 한 유효한 끝점 URI 여야_Cognitive Services_ Azure에서 리소스입니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
+* Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
 
-다음 BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 끝점 URI로 라우팅할 `text/analytics/v2.0`을 추가해야 합니다.
+BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -73,9 +73,9 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="mount-settings"></a>탑재 설정
 
-바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 데이터를 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
+바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
-Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 입력 또는 출력 탑재를 사용하지 않습니다. 
+Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
@@ -91,22 +91,22 @@ Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기
 * **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
 * **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 
-다음 BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 끝점 URI로 라우팅할 `text/analytics/v2.0`을 추가해야 합니다.
+BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
-| 구분 | 값 | 형식 또는 예 |
+| 자리표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{BILLING_KEY} | Azure `Cognitive Services` [키] 페이지에서 사용 가능한 `Cognitive Services` 리소스의 끝점 키. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx| |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 청구 끝점 값은 Azure의 `Cognitive Services` 개요 페이지에서 사용 가능합니다.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{BILLING_KEY} | 끝점 키를 `Cognitive Services` 리소스는 Azure에서 사용 가능한 `Cognitive Services` [키] 페이지입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | 청구 끝점 값은 Azure에서 사용할 수 있는 `Cognitive Services` 개요 페이지.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 Azure `Cognitive Services` 리소스 [키] 페이지의 **키** 입니다. 
+> ApiKey 값은 Azure `Cognitive Services` 리소스 [키] 페이지의 **키**입니다. 
 
 ## <a name="key-phrase-extraction-container-docker-examples"></a>핵심 문구 추출 컨테이너 docker 예제
 
-다음 docker 예제는 핵심 문구 추출 컨테이너에 해당합니다. 
+다음 docker 예제를 사용 하는 핵심 문구 추출 컨테이너에 대 한입니다. 
 
 ### <a name="basic-example"></a>기본 예제 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440085"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543814"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
@@ -62,11 +62,11 @@ ms.locfileid: "61440085"
 
 디바이스에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. 장치를 마우스 오른쪽 단추로 클릭 **기본 제공 이벤트 끝점 모니터링 시작**합니다.
 
 2. 모니터링되는 메시지가 **OUTPUT** > **Azure IoT Hub Toolkit** 보기에 표시됩니다.
 
-3. 모니터링을 중지하려면 **OUTPUT** 보기를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 중지**를 선택합니다.
+3. 모니터링을 중지 하려면 마우스 오른쪽 단추로 클릭 합니다 **출력** 살펴보고 선택 **기본 제공 이벤트 끝점 모니터링 중지**합니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
 

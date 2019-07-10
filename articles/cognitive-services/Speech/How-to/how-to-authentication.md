@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515047"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Speech API 인증
 
@@ -35,7 +35,7 @@ Speech Service를 사용하려면 먼저 Cognitive Services(이전의 Project Ox
 
 Speech REST API를 사용하려면 요청 헤더의 `Ocp-Apim-Subscription-Key` 필드에 구독 키를 전달해야 합니다.
 
-이름| 형식| 설명
+Name| 형식| 설명
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

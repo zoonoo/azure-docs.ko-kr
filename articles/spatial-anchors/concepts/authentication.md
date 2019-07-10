@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073934"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478536"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>인증 및 Azure 공간 앵커에 대 한 권한 부여
 
@@ -45,9 +45,45 @@ Azure AD 인증 토큰에는 두 가지 방법으로 얻을 수 있습니다.
 
 SDK는 기본 제공 계정 키를 사용 하 여 인증 단순히 해야 cloudSession 개체 AccountKey 속성을 설정 합니다. 
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accountKey = @"MyAccountKey";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accountKey = "MyAccountKey"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccountKey(R"(MyAccountKey)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccountKey(LR"(MyAccountKey)");
+```
+
+***
 
 완료 되 면 SDK는 액세스 토큰에 대 한 계정 키를 교환 하 고 앱에 대 한 토큰의 필요한 캐싱을 처리할 수 있습니다. 
 
@@ -77,9 +113,45 @@ Azure Active Directory 사용자를 대상으로 하는 응용 프로그램에 �
 
 사용 하 여 응용 프로그램을 Azure AD 토큰을 ADAL에서 얻을 수 해야 해당 Azure AD 토큰으로 설정할 수 있습니다 합니다 **authenticationToken** 클라우드 세션 구성 개체입니다. 
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AuthenticationToken(R"(MyAuthenticationToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
+```
+
+***
 
 ## <a name="azure-ad-service-authentication"></a>Azure AD 서비스 인증
 
@@ -132,9 +204,45 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
  
 해당 MR 토큰을 클라이언트에 반환 됩니다. 클라이언트 앱 클라우드 세션 구성에서 해당 액세스 토큰으로 것을 설정할 수 있습니다.
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accessToken = @"MyAccessToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accessToken = "MyAccessToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccessToken(R"(MyAccessToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccessToken(LR"(MyAccessToken)");
+```
+
+***
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 

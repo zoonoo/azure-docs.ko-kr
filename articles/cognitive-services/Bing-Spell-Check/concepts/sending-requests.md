@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: e9f691147b5dcb12a48a632ff01880f3fdff89c5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2b33c27e7af603c73bf7b7c6188bd9aef5ebc669
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390273"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542709"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Bing Spell Check API에 요청 보내기
 
 텍스트 문자열의 맞춤법 및 문법 오류를 검사하려면 다음 엔드포인트로 GET 요청을 보냅니다.  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 ```  
@@ -73,6 +73,8 @@ JavaScript를 사용하여 Bing Spell Check API를 호출하면, 브라우저에
 
 다음은 이전 요청에 대한 응답을 보여 줍니다. 또한 이 예제는 Bing 관련 응답 헤더를 보여 줍니다.
 
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
@@ -119,7 +121,7 @@ BingAPIs-Market: en-US
 }  
 ```  
 
-# <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 - [Bing Spell Check API란?](../overview.md)
 - [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

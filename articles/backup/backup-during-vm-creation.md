@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436348"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -54,7 +54,8 @@ Azure virtual machines (Vm)를 백업 하기 위해 Azure Backup 서비스를 �
 
 
 > [!NOTE]
-> Azure Backup 서비스는 명명 형식 사용 하 여 스냅숏을 저장 하려면 (VM 리소스 그룹)을 제외한 별도 리소스 그룹을 만듭니다 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터를 기간 (일)에 지정 된 대로 유지 됩니다 *보관 인스턴트 복구 스냅숏을* Azure 가상 머신 백업 정책의 섹션입니다.  이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.
+> Azure Backup 서비스는 명명 형식 사용 하 여 스냅숏을 저장 하려면 (VM 리소스 그룹)을 제외한 별도 리소스 그룹을 만듭니다 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터를 기간 (일)에 지정 된 대로 유지 됩니다 *보관 인스턴트 복구 스냅숏을* Azure 가상 머신 백업 정책의 섹션입니다.  이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
+제한 정책을 다시 백업 실패를 유발에 리소스 지점 컬렉션을 만들 차단 하는 대로도이 리소스 그룹 이름/태그 제한에서 제외 해야 합니다.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>VM을 만든 후 백업 시작

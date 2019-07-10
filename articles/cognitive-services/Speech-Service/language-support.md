@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65020848"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561308"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>음성 서비스에 대한 언어 및 지역 지원
 
@@ -24,7 +24,7 @@ Speech Service 기능마다 다른 언어가 지원됩니다. 다음 표에서�
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다른 수준의 사용자 지정을 각 언어에 사용할 수 있습니다.
+Microsoft 음성 인식 SDK 및 REST API 모두는 다음 언어 (로캘)를 지원합니다. 서로 다른 수준의 사용자 지정을 각 언어에 사용할 수 있습니다.
 
   코드 | 언어 | [음향 적응](how-to-customize-acoustic-models.md) | [언어 적응](how-to-customize-language-model.md) | [발음 적응](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

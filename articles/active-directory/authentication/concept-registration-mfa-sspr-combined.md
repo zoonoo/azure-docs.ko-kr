@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113509"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537017"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
@@ -136,6 +136,8 @@ Multi-factor Authentication에 사용할 수 있는 하나 이상의 메서드 �
 ## <a name="next-steps"></a>다음 단계
 
 [테 넌 트의 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md)
+
+[SSPR 및 MFA 사용량 및 통찰력 보고](howto-authentication-methods-usage-insights.md)
 
 [Multi-factor Authentication 및 SSPR에 대 한 사용 가능한 메서드](concept-authentication-methods.md)
 

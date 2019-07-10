@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
 ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65913794"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
@@ -67,7 +67,7 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
 
 ## <a name="take-a-snapshot-of-a-persongroup"></a>PersonGroup의 스냅숏 만들기
 
-스냅숏은 특정 얼굴 데이터 형식에 대 한 임시 원격 저장소입니다. 스냅숏은 다른 구독 간에 데이터를 복사하기 위해 클립보드의 일종으로 작동합니다. 먼저 이전 구독에서 데이터의 스냅숏을 만듭니다. 그런 다음 적용할 있습니다 대상 구독에 새 데이터 개체입니다.
+스냅숏은 특정 얼굴 데이터 형식에 대 한 임시 원격 저장소입니다. 스냅숏은 다른 구독 간에 데이터를 복사하려면 클립보드의 일종으로 작동합니다. 먼저 이전 구독에서 데이터의 스냅숏을 만듭니다. 그런 다음 적용할 있습니다 대상 구독에 새 데이터 개체입니다.
 
 PersonGroup의 스냅숏을 만들려면 원본 구독의 FaceClient 인스턴스를 사용 합니다. 사용 하 여 [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) PersonGroup ID 및 대상 구독 id입니다. 대상 구독이 여러 개 있는 경우 세 번째 매개 변수 배열 항목으로 추가 합니다.
 

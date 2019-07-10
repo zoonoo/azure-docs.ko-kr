@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: eb405549ba2d1c97b16f5b465abf0dc54de3b80d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 46aca2c1a7d40df69b89e15917ff07b983f5ff5f
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000924"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561479"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -24,9 +24,18 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 
 특정 프로그래밍 언어 연결 문자열을 참조 하십시오 합니다 [샘플 코드](howto-configure-ssl.md#sample-code) 아래.
 
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL로 MySQL 워크벤치를 사용하는 서버에 연결
-SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
-![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png) 기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>MySQL Workbench를 사용 하 여 SSL을 통해 서버에 연결
+SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 
+
+1. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. 
+
+1. 업데이트를 **사용 하 여 SSL** 필드를 "Require"입니다.
+
+1. **SSL CA 파일:** 필드에 BaltimoreCyberTrustRoot.crt.pem의 파일 위치를 입력합니다. 
+    
+    ![SSL 구성을 저장 합니다.](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+기존 연결에 대 한 연결 아이콘을 마우스 오른쪽 단추로 클릭 하 여 SSL을 바인딩하고 수 있으며 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL로 MySQL CLI를 사용하는 서버에 연결
 SSL 인증서를 바인딩하는 또 다른 방법은 다음 명령을 실행하여 MySQL 명령줄 인터페이스를 사용하는 것입니다. 

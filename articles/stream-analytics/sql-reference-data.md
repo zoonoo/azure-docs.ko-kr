@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
+title: Azure Stream Analytics 작업에 대 한 SQL Database에서 사용 하 여 참조 데이터
 description: 이 문서에서는 Azure Portal 및 Visual Studio에서 Azure Stream Analytics 작업에 대한 참조 데이터 입력으로 SQL Database를 사용하는 방법을 설명합니다.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304982"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461747"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업에 대 한 SQL Database에서 사용 하 여 참조 데이터
 
 Azure Stream Analytics는 참조 데이터 입력 원본으로 Azure SQL Database를 지원합니다. Azure Portal 및 Stream Analytics 도구가 있는 Visual Studio에서 Stream Analytics 작업에 대한 참조 데이터로 SQL Database를 사용할 수 있습니다. 이 문서에서는 두 방법을 수행하는 방법을 모두 보여 줍니다.
 
@@ -157,7 +157,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   이 쿼리는 시작 시간 **\@deltaStartTime**과 종료 시간 **\@deltaEndTime** 사이에 SQL database에서 삽입 또는 삭제된 모든 행을 검색합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **\@deltaStartTime**과 **\@deltaEndTime** 내에서 삽입되거나 삭제되었는지를 정의합니다. 결과 행은 레코드가 삽입되면 **1**, 삭제되면 **2**가 플래그 지정됩니다. 
+   이 쿼리는 시작 시간  **\@deltaStartTime** 과 종료 시간  **\@deltaEndTime**사이에 SQL database에서 삽입 또는 삭제된 모든 행을 검색합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이  **\@deltaStartTime** 과  **\@deltaEndTime**내에서 삽입되거나 삭제되었는지를 정의합니다. 결과 행은 레코드가 삽입되면 **1**, 삭제되면 **2** 플래그 지정됩니다. 
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
