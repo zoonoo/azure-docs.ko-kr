@@ -87,7 +87,7 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 - Azure Virtual Machines - Linux 및 Windows
 
-- App Services(Web Apps, Mobile Apps, Logic Apps, API Apps 및 Function Apps)
+- App Services(Web Apps, Mobile Apps, Logic Apps, API Apps 및 함수 앱)
 
 - Azure Batch(대규모 병렬 및 배치 계산 작업의 경우)
 

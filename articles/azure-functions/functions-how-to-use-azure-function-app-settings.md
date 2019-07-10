@@ -1,5 +1,5 @@
 ---
-title: Azure Function App 설정 구성 | Microsoft Docs
+title: Azure 함수 앱 설정 구성 | Microsoft Docs
 description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 services: ''
 documentationcenter: .net
@@ -44,7 +44,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ## <a name="platform-features"></a>플랫폼 기능
 
-![함수 응용 프로그램 플랫폼 기능 탭](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+![함수 앱 플랫폼 기능 탭.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
 함수 앱은 Azure App Service 플랫폼에서 실행되고 유지 관리됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. **플랫폼 기능** 탭에서는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 많은 기능에 액세스할 수 있습니다. 
 
@@ -101,7 +101,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 |-|-|
 | ![Azure Portal의 함수 앱 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 서비스의 악의적인 코드 실행을 방지하기 위해 App Service는 외부 원본의 함수 앱에 대한 호출을 차단합니다. Functions는 CORS(원본 간 리소스 공유)를 지원하여 함수가 원격 요청을 수락할 수 있는 허용 원본을 나타내는 “허용 목록"을 정의할 수 있도록 합니다.  |
 
-![Function App CORS 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![함수 앱 CORS 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 ### <a name="auth"></a>인증
 
@@ -118,7 +118,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 |-|-|
 | ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하여 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 방문하세요. 또한 Functions 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조하세요. |
 
-![Function App API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
+![함수 앱 API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 

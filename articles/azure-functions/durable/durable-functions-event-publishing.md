@@ -91,7 +91,7 @@ Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
 Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다 [host.json 설명서](../functions-host-json.md#durabletask)합니다. 구성한 후의 `host.json` 파일을 함수 앱 수명 주기 이벤트를 event grid 토픽을 보냅니다. 로컬 및 Azure에서 함수 앱을 실행할 때 작동 합니다. ' '
 
-Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
+함수 앱 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
 ```json
 {
@@ -108,7 +108,7 @@ Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 �
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 
-Function App을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
+함수 앱을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Event grid 트리거 함수 만들기
 

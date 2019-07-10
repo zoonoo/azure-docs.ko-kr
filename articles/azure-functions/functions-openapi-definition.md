@@ -161,7 +161,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 1. **Function App에서 만들기** 페이지에서 기본값을 수락하고 **만들기**를 선택합니다.
 
-    ![Function App에서 만들기](media/functions-openapi-definition/create-function-openapi.png)
+    ![함수 앱에서 만들기](media/functions-openapi-definition/create-function-openapi.png)
 
 API가 함수에 대해 만들어집니다.
 

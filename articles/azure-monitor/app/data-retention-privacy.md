@@ -196,7 +196,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
-| Azure Function App | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
+| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
 |상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 애플리케이션 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |

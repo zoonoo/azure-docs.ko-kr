@@ -21,7 +21,7 @@ ms.locfileid: "61083864"
 
 이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 계산 리소스를 관리합니다.
 
-SQL Data Warehouse에 Azure Function App을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
+SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 타이머 기반 크기 조정 배포
 
@@ -41,11 +41,11 @@ SQL Data Warehouse에 Azure Function App을 사용하려면 데이터 웨어하�
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-템플릿이 배포되었으면 새로운 세 가지 리소스인 무료 Azure App Service 계획, 사용량 기준 Function App 계획, 로깅 및 작업 큐를 처리하는 저장소 계정을 찾아야 합니다. 다른 섹션을 계속 읽고 배포된 기능을 요구 사항에 맞게 수정하는 방법을 알아보세요.
+템플릿이 배포되었으면 새로운 세 가지 리소스인 무료 Azure App Service 계획, 사용량 기준 함수 앱 계획, 로깅 및 작업 큐를 처리하는 저장소 계정을 찾아야 합니다. 다른 섹션을 계속 읽고 배포된 기능을 요구 사항에 맞게 수정하는 방법을 알아보세요.
 
 ## <a name="change-the-compute-level"></a>계산 수준 변경
 
-1. Function App 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. Function App을 열면 Function App 서비스에 5개 함수가 배포되었을 것입니다. 
+1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다. 
 
    ![템플릿을 사용하여 배포되는 함수](media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -69,7 +69,7 @@ SQL Data Warehouse에 Azure Function App을 사용하려면 데이터 웨어하�
 
 ## <a name="change-the-time-of-the-scale-operation"></a>크기 조정 작업의 시간 변경
 
-1. Function App 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. Function App을 열면 Function App 서비스에 5개 함수가 배포되었을 것입니다. 
+1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다. 
 
 2. 강화 또는 규모 축소 계산 값을 변경할 것인지 여부에 따라 *DWScaleDownTrigger* 또는 *DWScaleUpTrigger*를 선택합니다. 함수를 선택하는 즉시 창에 *index.js* 파일이 표시됩니다.
 

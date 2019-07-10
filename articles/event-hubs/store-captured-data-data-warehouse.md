@@ -50,7 +50,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 이 [Azure Resource Manager �
 -   캡처 기능을 사용하도록 설정된 Event Hub
 -   캡처된 이벤트 데이터에 대한 저장소 계정
 -   Functions 앱 호스팅에 대한 Azure 앱 서비스 계획
--   캡처한 이벤트 파일을 처리하는 Function 앱
+-   캡처한 이벤트 파일을 처리하는 함수 앱
 -   Data Warehouse 호스팅용 SQL Server
 -   마이그레이션된 데이터 저장용 SQL Data Warehouse
 
@@ -146,7 +146,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    ![구독 만들기](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성  
-이제 Event Hub, SQL 데이터 웨어하우스, Azure Function App 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
+이제 Event Hub, SQL 데이터 웨어하우스, Azure 함수 앱 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
 
 1. Portal에서 이벤트 허브 네임스페이스를 선택합니다. **연결 문자열**을 선택합니다.
 

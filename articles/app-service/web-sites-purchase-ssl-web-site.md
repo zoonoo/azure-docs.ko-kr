@@ -17,14 +17,14 @@ ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955714"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
-이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에서 App Service 인증서를 작성(구매)한 다음, App Service 앱에 바인딩하여 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [Function App](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다.
+이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에서 App Service 인증서를 작성(구매)한 다음, App Service 앱에 바인딩하여 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [함수 앱](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다.
 
 > [!TIP]
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)를 참고하세요.

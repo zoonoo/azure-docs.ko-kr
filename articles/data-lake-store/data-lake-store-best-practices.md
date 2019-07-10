@@ -144,7 +144,7 @@ Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight�
 
 ### <a name="run-synthetic-transactions"></a>가상 트랜잭션 실행
 
-현재 Azure Portal의 Data Lake Storage Gen1에 대한 서비스 가용성 메트릭에는 7분 단위의 새로 고침 기간이 있습니다. 또한 공개적으로 노출된 API를 사용하여 쿼리할 수 없습니다. 따라서 최대 분 단위의 가용성을 제공할 수 있는 Data Lake Storage Gen1에 대해 가상 트랜잭션을 수행하는 기본 애플리케이션을 빌드하는 것이 좋습니다. 예를 들어 WebJob, Logic App 또는 Azure Function App을 만들어 Data Lake Storage Gen1에 대한 읽기, 만들기 및 업데이트를 수행하고 결과를 모니터링 솔루션에 보낼 수 있습니다. 작업은 임시 폴더에서 수행한 다음, 테스트 후 삭제할 수 있으며, 요구 사항에 따라 30-60초마다 실행할 수 있습니다.
+현재 Azure Portal의 Data Lake Storage Gen1에 대한 서비스 가용성 메트릭에는 7분 단위의 새로 고침 기간이 있습니다. 또한 공개적으로 노출된 API를 사용하여 쿼리할 수 없습니다. 따라서 최대 분 단위의 가용성을 제공할 수 있는 Data Lake Storage Gen1에 대해 가상 트랜잭션을 수행하는 기본 애플리케이션을 빌드하는 것이 좋습니다. 예를 들어 WebJob, Logic App 또는 Azure 함수 앱을 만들어 Data Lake Storage Gen1에 대한 읽기, 만들기 및 업데이트를 수행하고 결과를 모니터링 솔루션에 보낼 수 있습니다. 작업은 임시 폴더에서 수행한 다음, 테스트 후 삭제할 수 있으며, 요구 사항에 따라 30-60초마다 실행할 수 있습니다.
 
 ## <a name="directory-layout-considerations"></a>디렉터리 레이아웃 고려 사항
 

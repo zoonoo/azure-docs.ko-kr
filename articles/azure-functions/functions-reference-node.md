@@ -292,7 +292,7 @@ host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#config
 
 ## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
 
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 Function App 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
+Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 함수 앱 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
 
 `context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
 
@@ -426,7 +426,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다.
 
 ## <a name="dependency-management"></a>종속성 관리
-아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 Function App에 모든 종속성이 설치되어 있는지 확인해야 합니다.
+아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
 
 ```javascript
 // Import the underscore.js library
@@ -440,11 +440,11 @@ module.exports = function(context) {
 ```
 
 > [!NOTE]
-> Function App의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
+> 함수 앱의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
 
-원본 제어에서 Function App을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
+원본 제어에서 함수 앱을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
 
-Function App에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
+함수 앱에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
 
 ### <a name="deploying-with-dependencies"></a>종속성을 사용하여 배포
 1. `npm install`을 실행하여 모든 필수 패키지를 로컬에 설치합니다.

@@ -28,7 +28,7 @@ Application Insights 계측 기능은 필요한 Azure Functions에 빌드될 때
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 가격 책정 및 제한
 
-무료로 Function App과 Application Insights 통합을 사용해 볼 수 있습니다. 일일 한도 데이터의 양을 무료로 처리할 수 있습니다. 테스트 하는 동안이 제한에 도달할 수 있습니다. Azure는 일일 한도에 가까워지면 포털 및 이메일 알림을 제공합니다. 이러한 경고를 누락 하는 한도 도달 하는 경우 Application Insights 쿼리에 새 로그가 표시 되지 않습니다. 불필요 한 문제 해결 시간을 방지 하려면 이러한 제한을 고려해 야 합니다. 자세한 내용은 [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../azure-monitor/app/pricing.md)를 참조하세요.
+무료로 함수 앱과 Application Insights 통합을 사용해 볼 수 있습니다. 일일 한도 데이터의 양을 무료로 처리할 수 있습니다. 테스트 하는 동안이 제한에 도달할 수 있습니다. Azure는 일일 한도에 가까워지면 포털 및 이메일 알림을 제공합니다. 이러한 경고를 누락 하는 한도 도달 하는 경우 Application Insights 쿼리에 새 로그가 표시 되지 않습니다. 불필요 한 문제 해결 시간을 방지 하려면 이러한 제한을 고려해 야 합니다. 자세한 내용은 [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../azure-monitor/app/pricing.md)를 참조하세요.
 
 ## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
 

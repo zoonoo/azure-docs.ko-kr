@@ -139,7 +139,7 @@ PowerShell을 사용 하기 전에 [설치 하거나 최신 Azure PowerShell 모
 
 Power BI Desktop, Excel 및 사용자 지정 앱과 같은 최종 사용자 클라이언트 연결의 경우 **서버 이름**을 사용합니다. 
 
-SSMS, SSDT, PowerShell의 연결 문자열, Azure Function 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. (기본) 관리 서버에서 모든 처리 작업을 수행 합니다.
+SSMS, SSDT, PowerShell의 연결 문자열, Azure 함수 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. (기본) 관리 서버에서 모든 처리 작업을 수행 합니다.
 
 ![서버 이름](media/analysis-services-scale-out/aas-scale-out-name.png)
 

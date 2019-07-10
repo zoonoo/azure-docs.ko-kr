@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: 이벤트 모니터링 - CLI
           href: job-state-events-cli-how-to.md
+    - name: Azure Monitor 사용
+      items:
+        - name: 메트릭 모니터링
+          href: media-services-metrics-howto.md
+        - name: 진단 로그 모니터링
+          href: media-services-diagnostic-logs-howto.md
     - name: 콘텐츠 보호
       items:
         - name: 콘텐츠 키 정책 가져오기 - .NET

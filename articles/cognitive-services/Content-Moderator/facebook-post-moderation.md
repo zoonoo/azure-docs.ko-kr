@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 따릅니다.
 
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure Function App을 만듭니다.
-1. 새로 만든 Function App으로 이동합니다.
+1. 새로 만든 함수 앱으로 이동합니다.
 1. App 내에서 **플랫폼 기능** 탭으로 이동한 후 **구성**을 선택합니다. 다음 페이지의 **애플리케이션 설정** 섹션에서 **새 애플리케이션 설정**을 선택하여 다음 키/값 쌍을 추가합니다.
     
     | 앱 설정 이름 | 값   | 
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | cm:Region | Content Moderator 지역 이름(공백 없이) |
     | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
     | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
-    | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener Function App에 대한 Url |
+    | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |
     | fb:VerificationToken | Facebook 피드 이벤트 구독에 사용되는 사용자가 만든 비밀 토큰 |
     | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 가져옵니다. |
 
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. 이름을 지정합니다.
     1. **Webhook -> 설정**을 선택합니다.
     1. 드롭다운 메뉴에서 **페이지**를 선택하고 **이 개체에 가입**을 선택합니다.
-    1. 콜백 URL로 **FBListener Url** 및 **Function App 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
+    1. 콜백 URL로 **FBListener Url** 및 **함수 앱 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
     1. 구독한 후 피드 아래로 스크롤하고 **구독**을 선택합니다.
     1. **피드** 행의 **테스트** 단추를 클릭하여 FBListener Azure 함수로 테스트 메시지를 전송한 후 **내 서버로 보내기** 단추를 누릅니다. FBListener에서 요청이 수신되는 것을 볼 수 있습니다.
 
