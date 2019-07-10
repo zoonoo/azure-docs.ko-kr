@@ -35,9 +35,13 @@ ms.locfileid: "65785671"
 | 연결 시간 제한                             | 90분                                               | SDK를 사용할 경우 무제한 WebSocket 연결을 사용할 경우 10분                                                                                                                                                                                                                                                                                   |
 | 헤더의 인증 키                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 단일 요청을 통해 여러 언어 번역 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK 사용 가능                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 사용할 수 있는 SDK에 대해서는 [음성 서비스 설명서](index.yml)를 참조합니다.                                                                                                                                                    |
-| WebSocket 연결                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [Translator API 언어 참조](../translator-speech/languages-reference.md) 문서에서 설명된 범위와 같은 범위의 언어를 지원합니다. |
+
+| SDK 사용 가능 | :heavy_minus_sign: | :heavy_check_mark: | 사용할 수 있는 SDK에 대해서는 [음성 서비스 설명서](index.yml)를 참조합니다. |
+
+| Languages API | :heavy_check_mark: | :heavy_minus_sign: | 음성 서비스는 [Translator API 언어 참조](../translator-speech/languages-reference.md) 문서에서 설명된 범위와 같은 범위의 언어를 지원합니다. |
+
+| Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [Translator API 언어 참조](../translator-speech/languages-reference.md) 문서에서 설명된 같은 범위의 언어를 지원 합니다 . |
+
 | 욕설 필터 및 표식                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM을 입력으로 사용                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 다른 파일 형식을 입력으로 사용                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,9 +53,11 @@ ms.locfileid: "65785671"
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-사용자 또는 조직의 개발 또는 프로덕션 환경에 Translator Speech API를 사용하는 애플리케이션이 있는 경우 음성 서비스를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서에 대해서는 [음성 서비스](index.yml) 설명서를 참조하세요. 마이그레이션하는 경우 다음을 고려합니다.
 
 * 음성 서비스는 전역 엔드포인트를 제공하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다.
+
+* 음성 서비스는 전역 엔드포인트를 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다.
+
 
 * 애플리케이션이 수명이 긴 연결을 사용하고 사용 가능한 SDK를 사용할 수 없는 경우, WebSocket 연결을 사용할 수 있습니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
