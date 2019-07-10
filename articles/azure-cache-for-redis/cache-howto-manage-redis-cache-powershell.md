@@ -155,7 +155,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | set-max-intset-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | zset-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | zset-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
-| 데이터베이스 |데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. |표준 및 프리미엄 |
+| databases |데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. |표준 및 프리미엄 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Azure Cache for Redis를 만들려면
 [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet을 사용하여 새 Azure Cache for Redis 인스턴스를 만듭니다.
