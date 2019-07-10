@@ -21,7 +21,7 @@ ms.locfileid: "67561331"
 
 이 문서를 사용하여 Bing Speech API에서 음성 서비스로 애플리케이션을 마이그레이션합니다.
 
-이 문서에서는 Bing Speech Api 및 음성 서비스 간의 차이점에 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다. Bing Speech API 구독 키 음성 서비스를 사용 하 여 작동 하지 않습니다. 새 음성 서비스 구독을 해야 합니다.
+이 문서에서는 Bing Speech API 및 음성 서비스 간의 차이점에 대해 간략하게 설명하고 응용 프로그램을 마이그레이션하기 위한 전략을 제안합니다. Bing Speech API 구독 키는 음성 서비스에서 작동하지 않습니다. 새 음성 서비스 구독이 필요합니다.
 
 단일 음성 서비스 등록 키는 다음과 같은 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
@@ -52,7 +52,7 @@ Custom Speech 모델 | :heavy_check_mark: | :heavy_check_mark: | Bing Speech에�
 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark:
 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드를 Speech Service에서 사용할 수 없습니다.
 엔드포인트 위치 | 전역 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다.
-REST API | :heavy_check_mark: | :heavy_check_mark: | Speech Services REST Api를 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다.
+REST API | :heavy_check_mark: | :heavy_check_mark: | Speech Services REST API는 Bing Speech(다른 끝점)와 호환됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다.
 WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech Services Websocket API는 Bing Speech (다른 끝점)와 호환 됩니다. 코드를 단순화하기 위해 가능한 경우 Speech SDK로 마이그레이션합니다.
 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다.
 오픈 소스 SDK | :heavy_check_mark: | :heavy_minus_sign: |
