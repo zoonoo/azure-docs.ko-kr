@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Azure DevOps로부터 배포되는 함수 만들기 | Microsoft Docs
-description: Function App 만들기 및 Azure DevOps의 함수 코드 배포
+description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 services: functions
 keywords: ''
 author: ggailey777
@@ -18,7 +18,7 @@ ms.locfileid: "57852392"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 
-이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/solutions/serverless/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 Function App은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/solutions/serverless/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

@@ -73,7 +73,7 @@
           href: restify-soap-api.md
         - name: API 앱 가져오기
           href: import-api-app-as-api.md
-        - name: Function App 가져오기
+        - name: 함수 앱 가져오기
           href: import-function-app-as-api.md
         - name: 논리 앱 가져오기
           href: import-logic-app-as-api.md

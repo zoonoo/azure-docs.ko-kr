@@ -14,7 +14,7 @@ ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711206"
@@ -167,12 +167,12 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OperationNotAllowed  |  VM이 생성되어 있지 않아서 캡처 작업을 완료할 수 없습니다.  |
 |  OperationNotAllowed  |  VM 디스크가 Managed Disks로 변환 중이기 때문에 '{0}' VM에 대한 관리 작업이 허용되지 않습니다.  |
 |  OperationNotAllowed  |  진행 중인 작업이 Virtual Machine의 전원 상태를 {0}에서 {1}(으)로 변경하고 있습니다. 일정 시간이 지난 후 {2} 작업을 수행하세요.  |
-|  OperationNotAllowed  |  VM을 추가하거나 업데이트할 수 없습니다. 기존 할당 단위에서 요청된 VM 크기 {0}을(를) 사용하지 못할 수도 있습니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  OperationNotAllowed  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
-|  OperationNotAllowed  |  현재 VM이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. VM의 크기를 {1}(으)로 조정하려면 Azure Portal에서 중지 작업인 할당을 취소하고 크기 조정 작업을 다시 시도하세요. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  VM을 추가하거나 업데이트할 수 없습니다. 기존 할당 단위에서 요청된 VM 크기 {0}을(를) 사용하지 못할 수도 있습니다. [https://aka.ms/azure-resizevm](https://aka.ms/azure-resizevm ) 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. 사용 가능한 크기는 {1}입니다. [https://aka.ms/azure-resizevm](https://aka.ms/azure-resizevm ) 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  OperationNotAllowed  |  현재 VM이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. VM의 크기를 {1}(으)로 조정하려면 Azure Portal에서 중지 작업인 할당을 취소하고 크기 조정 작업을 다시 시도하세요. [https://aka.ms/azure-resizevm](https://aka.ms/azure-resizevm ) 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
 |  OSProvisioningClientError  |  게스트 OS가 현재 프로비전되고 있는 중이므로 '{0}' VM에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningClientError  |  VM '{0}'에 대한 OS를 프로비전하지 못했습니다. 오류 세부 정보: {1} 이미지가 올바르게 준비되었는지 확인합니다(일반화됨). <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ 에서 지침을 확인할 수 있습니다. </li></ul> |
+|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>[https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ )에서 지침을 확인할 수 있습니다. </li></ul> |
 |  OSProvisioningClientError  |  VM에 지정된 사용자 이름은 이 Linux 배포판에 유효하지 않습니다. 오류 세부 정보: {0}  |
 |  OSProvisioningInternalError  |  내부 오류로 인해 VM '{0}'에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다.  |

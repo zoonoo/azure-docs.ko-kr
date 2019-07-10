@@ -57,7 +57,7 @@ ms.locfileid: "61369851"
 
 7. Azure Resource Manager 템플릿 배포를 마칠 때까지 기다립니다. 완료를 나타내는 *Resource Manager 템플릿 배포: 완료* 메시지가 표시됩니다.
 
-## <a name="deploy-function-app"></a>Function App 배포
+## <a name="deploy-function-app"></a>함수 앱 배포
 
 1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-deploy**를 선택합니다.
 

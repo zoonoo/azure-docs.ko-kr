@@ -282,7 +282,7 @@ az functionapp deployment container config --enable-cd \
 
 ![DockerHub 리포지토리에서 웹후크 추가](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
-웹후크가 설정된 경우 DockerHub에서 연결된 이미지를 업데이트하면 Function App이 다운로드되고 최신 이미지가 설치됩니다.
+웹후크가 설정된 경우 DockerHub에서 연결된 이미지를 업데이트하면 함수 앱이 다운로드되고 최신 이미지가 설치됩니다.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

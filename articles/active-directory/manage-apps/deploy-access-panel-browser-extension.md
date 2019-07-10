@@ -96,7 +96,7 @@ ms.locfileid: "67481283"
 
 설치 프로그램을 실행하는 것 외에도 모든 Internet Explorer용 확장을 명시적으로 활성화해야 사용할 수 있습니다. 다음 단계에 따라 그룹 정책을 사용하여 액세스 패널 확장을 활성화합니다.
 
-1. **그룹 정책 관리 편집기** 창의 [Step 3: 설치 패키지 할당에서 선택한 구성의 유형에 따라 다음 경로 중 하나로 이동합니다.
+1. **그룹 정책 관리 편집기** 창의 [Step 3: 설치 패키지 할당 에서 선택한 구성의 유형에 따라 다음 경로 중 하나로 이동합니다](#step-3-assign-the-installation-package)
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
