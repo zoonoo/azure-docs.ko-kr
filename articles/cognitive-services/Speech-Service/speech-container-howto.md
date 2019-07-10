@@ -1,7 +1,7 @@
 ---
 title: 음성 컨테이너를 설치 합니다.
 titleSuffix: Azure Cognitive Services
-description: 설치 하 고 음성 컨테이너를 실행 합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
+description: 음성 컨테이너를 설치하고 실행합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/01/2019
 ms.locfileid: "67490228"
 ---
-# <a name="install-and-run-speech-service-containers"></a>설치 하 고 음성 서비스 컨테이너를 실행 합니다.
+# <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
 음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 최첨단 로컬 기능을 모두 활용할 수 있도록 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 
 
