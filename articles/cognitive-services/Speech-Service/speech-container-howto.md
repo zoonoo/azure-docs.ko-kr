@@ -178,9 +178,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 **미리 보기 동안**, 청구 설정을 컨테이너를 시작 하려면 유효 해야 합니다. 하지만 사용에 대 한 요금이 청구 되지 않습니다.
 
-| Placeholder | 값 |
+| 자리표시자 | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키 컨테이너를 시작 하는 데 사용 되 고 Azure portal의 음성 키 페이지에서 확인할 수 있습니다.  |
+|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure Portal의 음성 키 페이지에서 확인할 수 있습니다.  |
 |{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure portal의 음성 개요 페이지에서 사용할 수 있습니다.|
 
 다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
@@ -208,7 +208,7 @@ ApiKey={BILLING_KEY}
 이 명령은 다음을 수행합니다.
 
 * 컨테이너 이미지에서 음성 컨테이너를 실행합니다.
-* 2 CPU 코어 및 메모리의 2gb(기가바이트 (GB)를 할당합니다.
+* 2 CPU 코어 및 2GB(기가바이트) 메모리를 할당합니다.
 * TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
@@ -224,9 +224,9 @@ ApiKey={BILLING_KEY}
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-컨테이너 websocket 기반 쿼리 끝점을 통해 액세스 되는 Api를 제공 합니다 [Speech SDK](index.yml)합니다.
+컨테이너는 [Speech SDK](index.yml)를 통해 액세스되는 Websocket 기반 쿼리 끝점 API를 제공합니다.
 
-기본적으로 Speech SDK 온라인 음성 서비스를 사용합니다. 컨테이너를 사용하려면 초기화 메서드를 변경해야 합니다. 아래 예제를 참조하세요.
+기본적으로 Speech SDK는 온라인 음성 서비스를 사용합니다. 컨테이너를 사용하려면 초기화 메서드를 변경해야 합니다. 아래 예제를 참조하세요.
 
 #### <a name="for-c"></a>C#의 경우
 
@@ -262,7 +262,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-컨테이너 REST 끝점을 찾을 수 있는 Api를 제공 [같습니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) 샘플을 확인할 수 있습니다 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)합니다.
+컨테이너는 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)에서 찾을 수 있는 REST 끝점을 제공하며 샘플은 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)에서 찾을 수 있습니다.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -272,11 +272,11 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="troubleshooting"></a>문제 해결
 
-컨테이너를 실행하는 경우 컨테이너에서 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다.
+컨테이너를 실행할 때, 컨테이너는 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다.
 
 ## <a name="billing"></a>결제
 
-청구 정보를 Azure 사용 하 여 음성 컨테이너 송신을 _음성_ Azure 계정에는 리소스입니다.
+음성 컨테이너는 Azure 계정의 _음성_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -288,12 +288,12 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 개념 및 다운로드, 설치 및 음성 컨테이너 실행에 대 한 워크플로 알아보았습니다. 요약하면 다음과 같습니다.
+이 문서에서는 음성 컨테이너 다운로드, 설치 및 실행에 대한 개념 및 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
-* 음성 제공 두 개의 Linux 컨테이너 Docker 음성 텍스트와 텍스트를 음성에 캡슐화 합니다.
+* 음성은 음성을 텍스트로, 텍스트를 음성으로 캡슐화하는 두 개의 Linux 컨테이너 Docker를 제공합니다.
 * 컨테이너 이미지는 Azure의 프라이빗 컨테이너 레지스트리에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* 호스트 컨테이너의 URI를 지정 하 여 음성 컨테이너에서 작업을 호출 하려면 REST API 또는 SDK 중 하나를 사용할 수 있습니다.
+* 음성 컨테이너에서 작업을 호출하기 위해 컨테이너의 호스트 URI를 지정하여 REST API 또는 SDK 중 하나를 사용할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
@@ -302,4 +302,4 @@ speech_config = speechsdk.SpeechConfig(
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](speech-container-configuration.md)에서 구성 설정을 검토합니다.
-* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용
+* 추가로 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
