@@ -52,6 +52,8 @@
           items:
             - name: 제네릭 CEF 연결
               href: connect-common-event-format.md
+            - name: AWS 연결
+              href: connect-aws.md
             - name: Barracuda 연결
               href: connect-barracuda.md
             - name: Check Point 연결

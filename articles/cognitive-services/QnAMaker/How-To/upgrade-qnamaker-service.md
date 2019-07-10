@@ -3,19 +3,19 @@ title: QnA Maker 서비스 업그레이드 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 공유 하거나 더 나은 리소스를 관리 하려면 QnA Maker 서비스를 업그레이드 합니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: tulasim
-ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.author: diberry
+ms.openlocfilehash: 2fdbb245f838d92e84d1247faa610a2f1a66c532
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437990"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439757"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>공유 또는 QnA Maker 서비스 업그레이드
 공유 하거나 더 나은 리소스를 관리 하려면 QnA Maker 서비스를 업그레이드 합니다. 

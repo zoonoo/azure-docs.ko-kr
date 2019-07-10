@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016118"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203489"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -33,7 +33,7 @@ ms.locfileid: "66016118"
 SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하십시오.
 
 1. SQL Server 인스턴스를 호스트하는 VM과 동일한 지역이나 로캘에서 Recovery Services 자격 증명 모음을 식별하거나 [만듭니다](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault).
-2. SQL 데이터베이스를 백업하는 데 필요한 [VM 권한을 확인](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)합니다.
+2. SQL 데이터베이스를 백업하는 데 필요한 [VM 권한을 확인](backup-azure-sql-database.md#set-vm-permissions)합니다.
 3. VM에 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)이 있는지 확인합니다.
 4. SQL Server 데이터베이스의 이름이 Azure Backup [명명 지침](#verify-database-naming-guidelines-for-azure-backup)에 따라 지정되었는지 확인합니다.
 5. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 이 시나리오를 설정하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다. 충돌 없이 VM에서 실행되는 SQL Server 데이터베이스에 대한 Azure Backup과 함께 Azure VM에 대한 Azure Backup을 사용하도록 설정할 수 있습니다.
@@ -61,7 +61,7 @@ Azure Backup은 SQL Server 데이터베이스에 대한 백업을 구성할 때 
 - 가상 머신에서 데이터베이스를 검색하기 위해 Azure Backup은 **NT SERVICE\AzureWLBackupPluginSvc** 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다.
 - Azure Backup은 데이터베이스 검색/조회에서 **NT AUTHORITY\SYSTEM** 계정을 활용하므로 이 계정은 SQL에서 공개적으로 로그인해야 합니다.
 
-Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우 [다음 지침을 따르세요](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다. 이 경우 [다음 지침을 따르세요](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Azure Backup의 데이터베이스 명명 지침 확인
 
@@ -114,7 +114,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
     - Azure Backup에서 **NT Service\AzureWLBackupPluginSvc** 서비스 계정을 VM에 만듭니다.
       - 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다.
       - **NT Service\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. Azure Marketplace에서 만든 모든 SQL Server VM에는 **SqlIaaSExtension**이 설치되어 있습니다. **AzureBackupWindowsWorkload** 확장은 **SQLIaaSExtension**을 사용하여 필요한 권한을 자동으로 확보합니다.
-    - 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [지침](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)에 따라 이 문제를 해결합니다.
+    - 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [지침](backup-azure-sql-database.md#set-vm-permissions)에 따라 이 문제를 해결합니다.
 
         ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596097"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342132"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -130,11 +130,11 @@ Azure 구독 또는 Cosmos DB 체험 계정:
       
       ![Azure Portal에서 액세스 키 보기 및 복사](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하여 *Program.cs*의 `<your endpoint URL>`에 붙여넣습니다. 예:  
+   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하여 *Program.cs*의 `<your endpoint URL>`에 붙여넣습니다. 예: 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
-   1. **기본 키** 값을 복사하여 *Program.cs*의 `<your primary key>`에 붙여넣습니다. 예:  
+   1. **기본 키** 값을 복사하여 *Program.cs*의 `<your primary key>`에 붙여넣습니다. 예: 
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
@@ -450,7 +450,7 @@ Azure Cosmos DB는 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼�
 
 ![NoSQL에서 C# 콘솔 애플리케이션을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-Azure Cosmos DB 쿼리의 범위가 이미 단일 컬렉션으로 지정되었으므로 SQL 쿼리의 [FROM](how-to-sql-query.md#FromClause) 키워드는 선택 사항입니다. `FROM Families f`를 `FROM root r` 또는 선택한 다른 변수 이름과 바꿀 수 있습니다. Azure Cosmos DB는 선택한 `Families`, `root` 또는 변수 이름에서 현재 컬렉션을 참조한다고 유추합니다.
+Azure Cosmos DB 쿼리의 범위가 이미 단일 컬렉션으로 지정되었으므로 SQL 쿼리의 [FROM](sql-query-from.md) 키워드는 선택 사항입니다. `FROM Families f`를 `FROM root r` 또는 선택한 다른 변수 이름과 바꿀 수 있습니다. Azure Cosmos DB는 선택한 `Families`, `root` 또는 변수 이름에서 현재 컬렉션을 참조한다고 유추합니다.
 
 ## <a id="ReplaceDocument"></a>JSON 문서 업데이트
 

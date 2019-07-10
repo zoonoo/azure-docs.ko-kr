@@ -2,26 +2,21 @@
 title: Azure Active Directory 조건부 액세스 Faq | Microsoft Docs
 description: Azure Active Directory에서 조건부 액세스에 대 한 자주 묻는 질문에 답변을 받을 수 있습니다.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112405"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508983"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 조건부 액세스 Faq
 
@@ -33,12 +28,9 @@ ms.locfileid: "67112405"
 
 B2B(Business-to-Business) 협업 사용자에 대한 정책이 적용됩니다. 그러나 경우에 따라 사용자가 정책 요구 사항을 충족하지 못할 수 있습니다. 예를 들어 게스트 사용자의 조직이 다단계 인증을 지원하지 않는 경우가 있습니다. 
 
-
-
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>SharePoint Online 정책도 비즈니스용 OneDrive에 적용됩니까?
 
 예. SharePoint Online 정책은 비즈니스용 OneDrive에도 적용됩니다.
-
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Word나 Outlook 등의 클라이언트 앱에 정책을 설정할 수 없는 이유는 무엇입니까?
 
@@ -56,7 +48,6 @@ B2B(Business-to-Business) 협업 사용자에 대한 정책이 적용됩니다. 
 
 현재 iOS 및 Android 장치 사용자에 게 조건부 액세스 정책은 선택적으로 적용 됩니다. 다른 장치 플랫폼에서 응용 프로그램에 기본적으로 영향을 받지 iOS 및 Android 장치에 대 한 조건부 액세스 정책. 테넌트 관리자는 지원되지 않는 플랫폼의 사용자에 대해 액세스를 차단하도록 전역 정책을 재정의할 수 있습니다.
 
-
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Microsoft Teams 대 한 조건부 액세스 정책을 어떻게 작동 하나요?
 
 Microsoft Teams는 모임, 일정, 파일 공유 등의 핵심 생산성 시나리오를 위해 Exchange Online 및 SharePoint Online을 많이 사용합니다. 이러한 클라우드 앱에 대해 설정 된 조건부 액세스 정책은 Microsoft Teams 직접 사용자가 로그인 할 때 Microsoft Teams 적용 합니다.
@@ -64,3 +55,7 @@ Microsoft Teams는 모임, 일정, 파일 공유 등의 핵심 생산성 시나�
 Microsoft Teams 지원 됩니다 개별적으로 Azure Active Directory 조건부 액세스 정책에서 클라우드 앱으로. 클라우드 앱에 설정 된 조건부 액세스 정책은 사용자가 로그인 할 때 Microsoft Teams 적용 합니다. 그러나 Exchange Online 및 SharePoint Online 등의 다른 앱에 대한 정확한 정책이 없으면 사용자가 해당 리소스에 계속하여 직접 액세스할 수 있습니다.
 
 Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 애플리케이션에 제공합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성 하려면 참조는 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 

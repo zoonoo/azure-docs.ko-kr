@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190060"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540366"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -73,10 +73,10 @@ ms.locfileid: "65190060"
 
 * <a id="tier-options"></a>
   **Azure Files에서 어떤 저장소 계층이 지원되나요?**  
-    현재 Azure Files는 표준 저장소 계층만 지원합니다. 이 시점에서 Premium Storage 및 쿨 스토리지 지원에 대해 공유할 타임라인이 없습니다. 
+    Azure Files는 두 가지 저장소 계층을 지원 합니다: 프리미엄 및 표준입니다. 표준 파일 공유 일반적 용도 (GPv1 또는 GPv2) 저장소 계정이 생성 되 고 FileStorage 저장소 계정에서 premium 파일 공유가 만들어집니다. 만드는 방법에 자세히 알아보려면 [표준 파일 공유](storage-how-to-create-file-share.md) 하 고 [premium 파일 공유](storage-how-to-create-premium-fileshare.md)합니다. 
     
     > [!NOTE]
-    > Blob 전용 스토리지 계정 또는 Premium Storage 계정에서 Azure 파일 공유를 만들 수 없습니다.
+    > Blob 저장소 계정에서 Azure 파일 공유를 만들 수 없습니다 또는 *premium* 범용 (GPv1 또는 GPv2) 저장소 계정입니다. 표준 Azure 파일 공유에 생성 해야 합니다 *표준* 범용 계정 저장소 계정만 FileStorage에에서만 및 프리미엄 Azure 파일 공유를 만들어야 합니다. *Premium* 범용 GPv1과 GPv2 저장소 계정 프리미엄 페이지 blob에 적용 됩니다. 
 
 * <a id="give-us-feedback"></a>
   **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
@@ -356,8 +356,8 @@ ms.locfileid: "65190060"
     Azure Files의 확장성 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage-files-scale-targets.md)를 참조하세요.
 
 * <a id="need-larger-share"></a>
-**현재 지원하는 Azure Files보다 큰 파일 공유가 필요합니다. 내 Azure 파일 공유 크기를 늘릴 수 있나요?**  
-    아니요. Azure 파일 공유의 최대 크기는 5TiB입니다. 현재, 조정할 수 없는 하드 한도입니다. 공유 크기를 100TiB로 늘리기 위한 솔루션을 개발 중이지만 지금은 일정이 나와 있지 않습니다.
+**어떤 크기 Azure 파일 공유에 대해 사용할 수 있습니까?**  
+    (프리미엄 및 표준) azure 파일 공유 크기를 100tib 확장할 수 있습니다. 최대 100 TiB 프리미엄 파일 공유 크기는 GA 제품으로 사용할 수 있습니다. 최대 5tib 표준 파일 공유 크기는 GA 제품인 100tib 최대 크기는 미리 보기로 제공 하는 동안으로 사용할 수 있습니다. 참조를 [큰 파일 공유 (표준 계층)에 등록](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 더 큰 파일에 온 보 딩 지침에 대 한 계획 가이드의 섹션에서는 표준 계층에 대 한 미리 보기를 공유 합니다.
 
 * <a id="open-handles-quota"></a>
 **동일한 파일에 동시에 액세스할 수 있는 클라이언트는 몇 개인가요?**    

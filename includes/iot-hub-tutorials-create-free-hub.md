@@ -9,11 +9,11 @@ ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66163713"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182828"
 ---
 Azure Portal을 사용하여 IoT Hub를 만들려면
 
@@ -30,7 +30,7 @@ Azure Portal을 사용하여 IoT Hub를 만들려면
     | 구독 | 드롭다운에서 Azure 구독을 선택합니다. |
     | 리소스 그룹 | 새로 만듭니다. 이 자습서에서는 **tutorials-iot-hub-rg**라는 이름을 사용합니다. |
     | 지역 | 이 자습서에서는 **미국 서부**를 사용합니다. 자신에게 가장 가까운 지역을 선택할 수 있습니다. |
-    | Name | 다음 스크린샷에서는 **tutorials-iot-hub**라는 이름을 사용합니다. 허브를 만들 때 고유한 이름을 선택해야 합니다. |
+    | 이름 | 다음 스크린샷에서는 **tutorials-iot-hub**라는 이름을 사용합니다. 허브를 만들 때 고유한 이름을 선택해야 합니다. |
 
     ![허브 설정 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 

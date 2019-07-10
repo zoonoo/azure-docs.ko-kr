@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333655"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485853"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Azure portal을 사용 하 여 대규모로 자동 IoT 장치 관리
 
@@ -29,7 +29,9 @@ Desired 속성을 사용 하 여 장치 쌍의 집합을 업데이트 하 고 �
 
 * **대상 콘텐츠**는 대상으로 지정된 디바이스 쌍에 추가하거나 업데이트할 원하는 속성을 정의합니다. 콘텐츠에는 변경할 원하는 속성의 섹션에 대한 경로가 포함됩니다.
 
-* **메트릭**은 **성공**, **진행 중** 및 **오류**와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 디바이스 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 하는 장치 쌍의 수 및 성공적으로 업데이트 된 쌍의 수와 같은 쌍 업데이트 상태를 측정 하는 기본 메트릭입니다. 
+* **메트릭**은 **성공**, **진행 중** 및 **오류**와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 디바이스 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 하는 장치 쌍의 수 및 성공적으로 업데이트 된 쌍의 수와 같은 쌍 업데이트 상태를 측정 하는 기본 메트릭입니다.
+
+자동 장치 구성을 처음으로 구성을 만든 후에 곧 고 5 분 간격으로 실행 합니다. 메트릭 쿼리는 자동 장치 구성을 실행 될 때마다를 실행 됩니다.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>디바이스 쌍 구현으로 디바이스를 구성
 
@@ -178,7 +180,7 @@ SELECT deviceId FROM devices
    * 대상 조건 
    * 레이블 
    * 우선 순위 
-   * metrics
+   * 메트릭
 
 4. **저장**을 선택합니다.
 

@@ -3,7 +3,7 @@ title: Azure AD 조인 및 Azure Active Directory Domain Services 비교 | Micro
 description: Azure AD 조인과 Azure AD Domain Services 중에서 결정
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: b6f2ca922153bca4afa22c2b07db03ff2973444d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234955"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474282"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 조인과 Azure Active Directory Domain Services 중에서 선택
 이 문서에서는 Azure AD(Active Directory) 조인과 Azure AD Domain Services의 차이를 설명하고 사용 사례를 기반으로 선택하도록 도와줍니다.
@@ -38,8 +38,8 @@ Azure AD를 사용하면 조직에서 사용하는 디바이스의 ID를 관리�
 | **디바이스의 유형** | **디바이스 플랫폼** | **메커니즘** |
 |:---| --- | --- |
 | 개인 디바이스 | Windows 10, iOS, Android, Mac OS | Azure AD 등록 |
-| 온-프레미스 AD에 조인되지 않은 조직 소유 디바이스 | 윈도우 10 | Azure AD 가입 |
-| 온-프레미스 AD에 조인된 조직 소유 디바이스 | 윈도우 10 | 하이브리드 Azure AD 가입 |
+| 온-프레미스 AD에 조인되지 않은 조직 소유 디바이스 | Windows 10 | Azure AD 가입 |
+| 온-프레미스 AD에 조인된 조직 소유 디바이스 | Windows 10 | 하이브리드 Azure AD 가입 |
 
 Azure AD 가입 또는 등록 디바이스에서 사용자 인증은 최신 OAuth/OpenID Connect 기반 프로토콜을 사용하여 이루어집니다. 이러한 프로토콜은 인터넷을 통해 작동하도록 설계되었으며 사용자가 어디서든 회사 리소스에 액세스하는 모바일 시나리오에 적합합니다.
 

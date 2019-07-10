@@ -5,18 +5,18 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 05/27/2019
+ms.date: 07/01/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 953a549a44d224f9d196c6d6842bdcae04cca975
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474774"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485906"
 ---
-# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2019를 사용 하 여 개발 하 고 Azure IoT Edge (미리 보기)에 대 한 모듈 디버그
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019를 사용 하 여 개발 하 고 Azure IoT Edge 용 모듈 디버그
 
 비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 기본 도구와 Visual Studio 2019를 사용 하 여 개발 하 고 모듈을 디버그 하는 방법을 보여 줍니다.
 
@@ -40,10 +40,10 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 Visual Studio 2019에 준비 되 면 다음 도구와 구성 요소를도 필요 합니다.
 
-- 다운로드 및 설치 [Azure IoT Edge 도구 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) Visual Studio 2019에 IoT Edge 프로젝트를 만들려면 Visual Studio marketplace에서.
+- 다운로드 및 설치 [Azure IoT Edge 도구](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) Visual Studio 2019에 IoT Edge 프로젝트를 만들려면 Visual Studio marketplace에서.
 
 > [!TIP]
-> Visual Studio 2017을 사용 하는 경우 plrease 다운로드 하 고 설치 [Azure IoT Edge 도구 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) Visual Studio marketplace에서 VS 2017 용
+> Visual Studio 2017을 사용 하는 경우 plrease 다운로드 하 고 설치 [Azure IoT Edge 도구](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) Visual Studio marketplace에서 VS 2017 용
 
 - [Docker Community Edition](https://docs.docker.com/install/)을 개발 머신에 다운로드 및 설치하여 모듈 이미지를 빌드하고 실행합니다. Linux 컨테이너 모드 또는 Windows 컨테이너 모드에서 실행할 Docker CE를 설정해야 합니다.
 

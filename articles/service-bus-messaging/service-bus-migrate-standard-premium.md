@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991413"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566074"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>프리미엄 계층으로 기존 Azure Service Bus 표준 네임 스페이스 마이그레이션
 이전에 Azure Service Bus 네임 스페이스의 표준 계층 에서만 제공 됩니다. 네임 스페이스는 개발자 환경과 낮은 처리량에 최적화 된 다중 테 넌 트 설정 합니다. 프리미엄 계층은 예측 가능한 대기 시간 및 고정된 가격으로 향상 된 처리량에 대 한 네임 스페이스 당 전용된 리소스를 제공합니다. 프리미엄 계층은 높은 처리량과 추가 엔터프라이즈 기능을 필요로 하는 프로덕션 환경에 대 한 최적화 됩니다.
@@ -117,6 +117,28 @@ Azure portal을 사용 하 여 마이그레이션 명령을 사용 하 여 마�
 1. 요약 페이지에서 변경 내용을 검토 합니다. 선택 **마이그레이션 완료** 네임 스페이스를 전환 하 고 마이그레이션을 완료할 수 있습니다.
     ![네임 스페이스-스위치 메뉴 전환][] 마이그레이션이 완료 되 면 확인 페이지가 나타납니다.
     ![네임 스페이스 스위치-성공][]
+
+## <a name="caveats"></a>주의 사항
+
+Azure Service Bus 표준 계층에서 제공 하는 기능 중 일부는 Azure Service Bus 프리미엄 계층에서 지원 되지 않습니다. 이들은 디자인 하 여 예측 가능한 처리량 및 대기 시간에 대 한 전용된 리소스를 제공 하는 프리미엄 계층 때문입니다.
+
+다음은 프리미엄 및 완화 방법-지원 되지 않는 기능 목록 
+
+### <a name="express-entities"></a>Express 엔터티
+
+   Premium에는 모든 메시지 데이터 저장소를 지정 하지 마십시오는 express 엔터티가 지원 되지 않습니다. 전용된 리소스 제공는 데이터 유지 되는 엔터프라이즈 메시징 시스템에서에서 예상 대로 보장 하면서 처리량이 크게 개선 합니다.
+   
+   마이그레이션하는 동안 표준 네임 스페이스에서 express 엔터티 만들어집니다 프리미엄 네임 스페이스에서 express 이외 엔터티로.
+   
+   Azure 리소스 관리자 (ARM) 템플릿을 사용 하는 경우 자동화 된 워크플로 오류 없이 실행 되도록 배포 구성에서 'enableExpress' 플래그를 제거를 확인 하세요.
+
+### <a name="partitioned-entities"></a>분할 된 엔터티
+
+   분할 된 엔터티는 다중 테 넌 트 설정에서 더 나은 가용성을 제공 하려면 표준 계층에서 지원 되었습니다. 프리미엄 계층에서 네임 스페이스 당 사용할 수 있는 전용된 리소스의 프로 비전을 사용 하 여이 더 이상 필요 합니다.
+   
+   마이그레이션 중에 분할 되지 않은 엔터티로 표준 네임 스페이스의 모든 분할 된 엔터티에 Premium 네임 스페이스에 생성 됩니다.
+   
+   특정 큐 또는 토픽에 대 한 'enablePartitioning' to 'true'를 설정 하는 ARM 템플릿, 하는 경우 다음 무시 됩니다 broker에 의해 합니다.
 
 ## <a name="faqs"></a>FAQ
 

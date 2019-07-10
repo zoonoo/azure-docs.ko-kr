@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369166"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490261"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portal에서 Azure 예약 확인
 
@@ -32,7 +32,7 @@ ms.locfileid: "60369166"
 소유자 또는 읽기 권한자로 예약을 보려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **예약**에서 검색합니다.
+2. 검색할 **예약**합니다.
     ![Azure portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-reservation-search.png)  
 3. 목록은 소유자 또는 읽기 권한자 역할이 있는 모든 예약을 보여 줍니다. 각 예약 마지막 알려진된 사용률 백분율을 보여 줍니다.  
     ![예약의 목록을 보여 주는 예제](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ ms.locfileid: "60369166"
 Azure Portal에서 예약 트랜잭션을 보려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-cm-billing-search.png)
 

@@ -31,7 +31,7 @@ ms.locfileid: "60334491"
 
 **추가 보안 인증 페이지로 이동하려면**
 
-- https://aka.ms/MFASetup 로 이동합니다.
+- [https://aka.ms/MFASetup](https://aka.ms/MFASetup )로 이동합니다.
 
     ![검사](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 

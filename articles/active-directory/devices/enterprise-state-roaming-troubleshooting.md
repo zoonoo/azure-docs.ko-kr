@@ -2,29 +2,21 @@
 title: Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결 | Microsoft Docs
 description: 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
 services: active-directory
-keywords: 엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110661"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481864"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -70,12 +62,11 @@ ms.locfileid: "67110661"
 
 Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니다. 엔터프라이즈 상태 로밍에는 해당하지 않지만 아래 지침을 따르면 Windows 10 클라이언트 등록 여부뿐만 아니라, 지문, Azure AD 설정 URL, NGC 상태 및 기타 정보를 확인하는 데 도움이 됩니다.
 
-1.  비관리자 권한 명령 프롬프트를 엽니다. Windows에서 이 작업을 수행하려면 실행 시작 관리자(Win + R)를 열고 "cmd"를 입력하여 엽니다.
-2.  명령 프롬프트가 열리면 "*dsregcmd.exe /status*"을 입력합니다.
-3.  예상된 출력에서 **AzureAdJoined** 필드 값은 "YES", **WamDefaultSet** 필드 값도 "YES"여야 하고 **WamDefaultGUID** 필드 값은 끝에 "(AzureAd)"가 있는 GUID여야 합니다.
+1. 비관리자 권한 명령 프롬프트를 엽니다. Windows에서 이 작업을 수행하려면 실행 시작 관리자(Win + R)를 열고 "cmd"를 입력하여 엽니다.
+1. 명령 프롬프트가 열리면 "*dsregcmd.exe /status*"을 입력합니다.
+1. 예상된 출력에서 **AzureAdJoined** 필드 값은 "YES", **WamDefaultSet** 필드 값도 "YES"여야 하고 **WamDefaultGUID** 필드 값은 끝에 "(AzureAd)"가 있는 GUID여야 합니다.
 
 **잠재적인 문제**: **WamDefaultSet** 및 **AzureAdJoined** 필드의 값이 모두 "NO"이고, 디바이스가 도메인에 조인되고 Azure AD에 등록되었으며, 디바이스가 동기화되지 않습니다. 이것이 표시되는 경우 디바이스를 Azure AD에 연결할 때 디바이스는 정책을 적용하거나 디바이스에 대한 인증이 실패할 때까지 대기해야 합니다. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 기타 문제 해결 단계에는 로그아웃하고 다시 로그인함으로써 자동 등록 다시 시도 또는 작업 Scheduler에서 작업 시작이 포함될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
-
 
 **잠재적인 문제**: **SettingsUrl**에 대한 필드가 비어 있고, 디바이스가 동기화되지 않습니다. 사용자가 Azure Active Directory 포털에서 Enterprise State Roaming을 사용하기 전에 디바이스에 마지막으로 로그인했을 수 있습니다. 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 필요에 따라 포털에서 IT 관리자가 **Azure Active Directory** > **디바이스** > **Enterprise State Roaming** 비활성화로 이동하고 **사용자가 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음**을 다시 활성화하도록 합니다. 다시 활성화되면 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않는다면 잘못된 디바이스 인증서의 경우 **SettingsUrl**이 비어 있는 것일 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 

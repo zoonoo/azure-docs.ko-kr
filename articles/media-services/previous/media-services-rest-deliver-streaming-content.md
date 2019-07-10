@@ -46,7 +46,7 @@ ms.locfileid: "60598298"
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 >[!NOTE]
->https://media.windows.net 에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
+>[https://media.windows.net](https://media.windows.net ) 에 연결하면 다른 Media Services URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>주문형 스트리밍 로케이터 만들기
 OnDemand 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.

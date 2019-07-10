@@ -37,10 +37,12 @@
       items:
         - name: 시나리오
           href: scenarios.md
-        - name: 가상 네트워크 선택
+        - name: 가상 네트워크 계획
           href: network-considerations.md
     - name: Azure AD DS 관리
       items:
+        - name: 보안 감사 이벤트 활성화(미리 보기)
+          href: security-audit-events.md
         - name: 관리형 도메인의 상태 확인
           href: check-health.md
         - name: Azure AD부터 관리형 도메인까지 범위가 지정된 동기화 구성

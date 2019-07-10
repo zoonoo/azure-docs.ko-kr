@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393788"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485631"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -94,7 +94,7 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 
 ## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
 
-거의 예외 없이, 새 서비스를 사용하려면 URL 엔드포인트와 권한 부여 api-key 키를 제공해야 합니다. 빠른 시작, [Azure Search REST API 살펴보기(Postman)](search-fiddler.md) 및 [.NET에서 Azure Search 사용 방법](search-howto-dotnet-sdk.md)과 같은 자습서, 샘플 및 사용자 지정 코드 모두에서 특정 리소스에서 실행할 엔드포인트와 키가 필요합니다.
+거의 예외 없이, 새 서비스를 사용하려면 URL 엔드포인트와 권한 부여 api-key 키를 제공해야 합니다. 빠른 시작, [Azure Search REST API 살펴보기(Postman)](search-get-started-postman.md) 및 [.NET에서 Azure Search 사용 방법](search-howto-dotnet-sdk.md)과 같은 자습서, 샘플 및 사용자 지정 코드 모두에서 특정 리소스에서 실행할 엔드포인트와 키가 필요합니다.
 
 1. 서비스 개요 페이지의 오른쪽에서 URL 엔드포인트를 찾아 복사합니다.
 

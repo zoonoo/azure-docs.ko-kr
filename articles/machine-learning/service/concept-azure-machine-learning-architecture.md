@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331714"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461491"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
 아키텍처, 개념 및 Azure Machine Learning 서비스에 대 한 워크플로 알아봅니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
 
-[![Azure Machine Learning Service 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning 서비스 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>워크플로
 
-Machine learning 워크플로 일반적으로이 순서를 따릅니다.
+기계 학습 모델 워크플로 일반적으로이 순서는 다음과 같습니다.
 
-1. 기계 학습에서 스크립트 개발 **Python** 또는 시각적 인터페이스를 사용 하 여 합니다.
-1. **‘계산 대상’** 을 만들고 구성합니다.
-1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
-1. **‘실험을 쿼리’** 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
-1. 만족스러운 실행이 발견되면 **모델 레지스트리**에 지속되는 모델을 등록합니다.
-1. 모델을 사용 하는 점수 매기기 스크립트를 개발 및 **모델을 배포할** 으로 **웹 서비스** Azure에서 또는 **IoT Edge 장치**합니다.
+1. **학습**
+    + 기계 학습에서 스크립트 개발 **Python** 또는 시각적 인터페이스를 사용 하 여 합니다.
+    + **‘계산 대상’** 을 만들고 구성합니다.
+    + 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 
-다음 중 하나를 사용 하 여 이러한 단계를 수행.
-+ [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md)
-+  [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)
+1. **패키지** 만족 스 럽 지 실행을 찾으면-에서 지속 되는 모델을 등록 합니다 **모델 레지스트리**합니다.
 
+1. **유효성 검사** - **실험 쿼리** 에 대 한 현재 및 과거 실행 메트릭을 기록 합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
+
+1. **배포** -모델을 사용 하는 점수 매기기 스크립트를 개발 및 **모델을 배포할** 으로 **웹 서비스** Azure에서 또는 **IoT Edge 장치**.
+
+1. **모니터** -모니터링 **데이터 드리프트** 배포 된 모델의 학습 데이터 집합 및 유추 데이터 사이입니다. 필요한 경우 새 학습 데이터로 모델 다시 학습 하려면 1 단계를 다시 반복 합니다.
+
+## <a name="tools-for-azure-machine-learning"></a>Azure Machine Learning 위한 도구 
+
+Azure Machine Learning에 대 한 이러한 도구를 사용 합니다.
+
++  사용 하 여 모든 Python 환경에서 서비스와 상호 작용 합니다 [Python 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다.
++ 기계 학습 작업을 자동화 합니다 [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)합니다.
++ 사용 하 여 Visual Studio Code에서 코드를 작성 [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 
++ 사용 합니다 [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
 
 ## <a name="glossary-of-concepts"></a>개념의 용어집
 

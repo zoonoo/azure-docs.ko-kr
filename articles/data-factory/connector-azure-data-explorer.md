@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: orspodek
-ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394509"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449641"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 
@@ -140,6 +140,7 @@ Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 *
 | type | 복사 작업 원본의 **형식** 속성을 다음으로 설정해야 합니다. **AzureDataExplorerSource** | 예 |
 | query | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예. |
 | queryTimeout | 쿼리 요청 전의 대기 시간이 초과되었습니다. 기본값은 10분(00:10:00)이며, 허용되는 최댓값은 1시간(01:00:00)입니다. | 아닙니다. |
+| noTruncation | 반환된 된 결과 집합을 자를지 여부를 나타냅니다. 기본적으로 500,000 개의 레코드 또는 64MB 후 결과가 잘립니다. 활동의 적절 한 동작에 대 한 잘림을 사용 하는 것이 좋습니다. |아닙니다. |
 
 >[!NOTE]
 >기본적으로 azure 탐색기 데이터 원본에 500,000 레코드나 64MB의 크기 제한 합니다. 잘림 없이 모든 레코드를 검색 하려면 지정할 수 있습니다 `set notruncation;` 쿼리의 시작 부분에 있습니다. 가리킵니다 [제한 쿼리](https://docs.microsoft.com/azure/kusto/concepts/querylimits) 자세한 세부 정보입니다.

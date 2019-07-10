@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359061"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440966"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -114,7 +114,7 @@ ms.locfileid: "60359061"
   >
 * **Q:  암호 재설정으로 이동할 수 있는 위치에 대해 사용자에게 어떻게 교육할 수 있습니까?**
 
-  > **A:** [SSPR 배포](howto-sspr-deployment.md#sample-communication) 문서의 제안 사항을 직접 시도해 보세요.
+  > **A:** [SSPR 배포](howto-sspr-deployment.md#communications-plan) 문서의 제안 사항을 직접 시도해 보세요.
   >
   >
 * **Q:  모바일 디바이스에서 이 페이지를 사용할 수 있나요?**

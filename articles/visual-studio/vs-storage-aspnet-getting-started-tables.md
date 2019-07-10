@@ -710,5 +710,5 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
 ## <a name="next-steps"></a>다음 단계
 Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 
-  * PowerShell cmdlet 및 Azure CLI를 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고, 탑재하고, 관리할 수 있습니다. Azure Portal 및 Azure 스토리지 탐색기를 사용하여 Azure 파일 공유를 만들고 관리할 수 있습니다.
+  * [Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
   * [Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

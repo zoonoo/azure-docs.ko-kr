@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ac0890be0abccb316bffc4d9bdd6868a80173e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bdf1318f93697cd7b479d404f44b7617ad875dc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710123"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450146"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop에 대해 .NET SDK를 사용하여 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -25,12 +25,12 @@ Azure HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azure SQL 데
 > 이 문서의 절차는 Windows 기반 또는 Linux 기반 HDInsight 클러스터에서 사용할 수 있지만, Windows 클라이언트에서만 작동합니다. 다른 방법을 선택하려면 이 문서의 위쪽에 있는 탭 선택기를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
+이 문서를 시작 하기 전에 다음 항목이 있어야 합니다.
 
 * HDInsight의 Apache Hadoop 클러스터. 자세한 내용은 [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight 클러스터에서 Sqoop 사용
-HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 이 섹션에서는 C# 콘솔 애플리케이션을 만들어 이 자습서의 앞 부분에서 만든 SQL Database 테이블에 hivesampletable을 내보냅니다.
+HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .NET에서 HDInsight 클러스터 작업을 더 쉽게 수행할 수 있습니다. 만든이 섹션에는 C# 콘솔 응용 프로그램에이 문서의 앞부분에서 만든 Azure SQL Database 테이블에 hivesampletable을 내보냅니다.
 
 ## <a name="submit-a-sqoop-job"></a>Sqoop 작업 제출
 

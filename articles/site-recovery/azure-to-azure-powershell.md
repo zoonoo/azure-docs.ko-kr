@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258794"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491860"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -600,6 +600,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 다시 보호가 완료 되 면 역방향 (미국 동부에 미국 서 부) 및 원본 지역으로 장애 복구에서 장애 조치를 시작할 수 있습니다.
+
+## <a name="disable-replication"></a>복제 사용 안 함
+
+제거-ASRReplicationProtectedItem cmdlet을 사용 하 여 복제를 해제할 수 있습니다.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>다음 단계
 보기는 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/az.RecoveryServices) 하려면 복구 계획 만들기 및 PowerShell 통해 복구 계획의 장애 조치 테스트 등의 다른 작업을 수행 하는 방법을 알아봅니다.

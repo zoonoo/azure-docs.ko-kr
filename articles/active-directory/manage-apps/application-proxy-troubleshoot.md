@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108359"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440447"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>애플리케이션 프록시 문제 및 오류 메시지 문제 해결
 게시된 애플리케이션에 액세스할 때나 애플리케이션을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 애플리케이션 프록시가 올바르게 작동하는지 확인합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "67108359"
 * 이벤트 뷰어를 열고 **애플리케이션 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터** > **관리**에서 애플리케이션 프록시 커넥터 이벤트를 찾습니다.
 * 필요한 경우 [애플리케이션 프록시 커넥터 세션 로그를 켜면](application-proxy-connectors.md#under-the-hood) 더 자세한 로그를 볼 수 있습니다.
 
-Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워킹 필수 조건을 검사하는 문제 해결 도구](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)를 참조하세요.
+응용 프로그램 프록시 문제를 해결할 때 문제 해결 흐름을 검토 합니다. 시작 하는 것이 좋습니다 [응용 프로그램 프록시 커넥터 디버그 문제](application-proxy-debug-connectors.md)를 응용 프로그램 프록시 커넥터 올바르게 구성 되었는지 확인 합니다. 여전히 문제가 있는 응용 프로그램에 연결을 하는 경우의 문제 해결 흐름을 따릅니다 [디버깅할 응용 프로그램 프록시 응용 프로그램 문제](application-proxy-debug-apps.md)합니다.
 
 ## <a name="the-page-is-not-rendered-correctly"></a>페이지가 제대로 렌더링되지 않습니다.
 특정 오류 메시지를 수신하지 않고도 애플리케이션 렌더링 또는 기능이 제대로 이뤄지지 않는 문제가 있을 수 있습니다. 문서 경로를 게시했지만 애플리케이션에 해당 경로 밖에 있는 콘텐츠가 필요한 경우에 이 문제가 발생할 수 있습니다.
@@ -50,12 +50,13 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 | 오류 | 권장되는 단계 |
 | ----- | ----------------- |
-| 커넥터를 등록하지 못함: Azure 관리 포털에서 애플리케이션 프록시를 활성화했으며 Active Directory 사용자 이름과 암호를 올바르게 입력했는지 확인합니다. 오류: ‘하나 이상의 오류가 발생했습니다.’ | Azure AD에 로그인하지 않고 등록 창을 닫은 경우 커넥터 마법사를 다시 실행하고 커넥터를 등록합니다. <br><br> 등록 창이 열리고 로그인을 허용하지 않고 즉시 창이 닫히는 경우 이 오류가 나타날 것입니다. 시스템에 네트워킹 오류가 있을 때 이 오류가 발생합니다. 브라우저에서 공용 웹사이트에 연결할 수 있으며 포트가 [애플리케이션 프록시 사전 요구 사항](application-proxy-add-on-premises-application.md)에 지정된대로 열려 있는지 확인합니다. |
+| 커넥터를 등록하지 못함: Azure 관리 포털에서 애플리케이션 프록시를 활성화했으며 Active Directory 사용자 이름과 암호를 올바르게 입력했는지 확인합니다. 오류: ‘하나 이상의 오류가 발생했습니다.’ | Azure AD에 로그인하지 않고 등록 창을 닫은 경우 커넥터 마법사를 다시 실행하고 커넥터를 등록합니다. <br><br> 등록 창이 열리고 로그인을 허용하지 않고 즉시 창이 닫히는 경우 이 오류가 나타날 것입니다. 시스템에 네트워킹 오류가 있을 때 이 오류가 발생합니다. 브라우저에서 공용 웹사이트에 연결할 수 있으며 포트가 [애플리케이션 프록시 사전 요구 사항](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)에 지정된대로 열려 있는지 확인합니다. |
 | 등록 창에 명확한 오류가 표시됩니다. 설치를 진행할 수 없습니다. | 이 오류가 표시되고 창이 닫힌 경우 잘못된 사용자 이름 또는 암호를 입력했습니다. 다시 시도하세요. |
 | 커넥터를 등록하지 못함: Azure 관리 포털에서 애플리케이션 프록시를 활성화했으며 Active Directory 사용자 이름과 암호를 올바르게 입력했는지 확인합니다. 오류: ‘AADSTS50059: 테넌트를 식별하는 정보가 요청에서 찾을 수 없거나 제공된 자격 증명으로 암시되지 않으며, 서비스 주체 URI에 의한 검색이 실패했습니다. | 액세스하고자 하는 디렉터리의 조직 ID 일부인 도메인이 아닌 Microsoft 계정을 사용하여 로그인을 시도하고 있습니다. 관리자가 테넌트 도메인과 동일한 도메인 이름의 일부인지 확인하세요. 예를 들어, Azure AD 도메인이 contoso.com이라면 관리자는 admin@contoso.com여야 합니다. |
 | PowerShell 스크립트의 실행을 위한 현재 실행 정책을 검색하지 못했습니다. | 커넥터 설치에 실패한다면 PowerShell 실행 정책이 비활성화되어 있지 않은지 확인하세요. <br><br>1. 그룹 정책 편집기를 엽니다.<br>2. **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **Windows PowerShell**로 이동한 다음 **스크립트 실행 켜기**를 두 번 클릭합니다.<br>3. 실행 정책은 **구성 안 함** 또는 **사용**으로 설정될 수 있습니다. **사용**으로 설정했다면 옵션에 있는 실행 정책을 **로컬 스크립트 및 원격 서명된 스크립트 허용** 또는 **모든 스크립트 허용**으로 설정했는지 확인합니다. |
 | 커넥터에서 구성을 다운로드하지 못했습니다. | 인증에 사용되는 커넥터의 클라이언트 인증서가 만료되었습니다. 이것은 커넥터가 프록시 뒤에 설치되어 있는 경우 발생할 수도 있습니다. 이 경우 커넥터는 인터넷에 액세스할 수 없으며 원격 사용자에게 애플리케이션을 제공할 수 없게 됩니다. `Register-AppProxyConnector` Windows PowerShell에서 cmdlet을 사용하여 트러스트를 수동으로 갱신합니다. 커넥터가 프록시 뒤에 있는 경우 커넥터 계정 "네트워크 서비스" 및 "로컬 시스템"에 인터넷 액세스 권한을 부여해야 합니다. 이것은 프록시에 대한 액세스 권한을 부여하거나 프록시를 우회하도록 설정하여 수행할 수 있습니다. |
 | 커넥터를 등록하지 못함: 커넥터를 등록할 수 있는 Active Directory의 애플리케이션 관리자인지 확인합니다. 오류: ‘등록 요청이 거부되었습니다.’ | 로그인하고자 하는 별칭이 이 도메인에서 관리자가 아닙니다. 커넥터는 항상 사용자의 도메인을 소유하는 디렉터리에 대해 설치됩니다. 로그인하고자 하는 관리자 계정이 Azure AD 테넌트에 대한 애플리케이션 관리자 사용 권한을 가지고 있는지 확인합니다. |
+| 커넥터 네트워크 문제로 인해 서비스에 연결할 수 없습니다. 커넥터가 다음 URL에 액세스 하려고 했습니다. | 커넥터 응용 프로그램 프록시 클라우드 서비스에 연결할 수 없는 경우 이 연결을 차단 하는 방화벽 규칙이 있는 경우에 발생할 수 있습니다. 올바른 포트에 대 한 액세스를 허용 했어야 하에 나열 된 URL 했는지 [응용 프로그램 프록시 필수 구성 요소](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)합니다. |
 
 ## <a name="kerberos-errors"></a>Kerberos 오류
 

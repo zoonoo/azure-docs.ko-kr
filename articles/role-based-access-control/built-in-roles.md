@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442880"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -54,11 +54,17 @@ ms.locfileid: "67341498"
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
 | [Avere 참가자](#avere-contributor) | 수 만들고 Avere vFXT 클러스터를 관리 합니다. |
 | [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터 관리에 사용 |
+| [Azure Event Hubs 데이터 소유자 (미리 보기)](#azure-event-hubs-data-owner-preview) | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
+| [Azure Event Hubs 데이터 수신자 (미리 보기)](#azure-event-hubs-data-receiver-preview) | 사용 하면 Azure Event Hubs 리소스에 액세스 합니다. |
+| [Azure Event Hubs 데이터 보낸 사람 (미리 보기)](#azure-event-hubs-data-sender-preview) | Azure Event Hubs 리소스에 대 한 송신 액세스를 허용 합니다. |
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 | [Azure Maps 데이터 판독기 (미리 보기)](#azure-maps-data-reader-preview) | Azure 지도 계정에서 지도 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. |
+| [Azure Service Bus 데이터 소유자 (미리 보기)](#azure-service-bus-data-owner-preview) | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
+| [Azure Service Bus 데이터 수신기 (미리 보기)](#azure-service-bus-data-receiver-preview) | 사용 하면 Azure Service Bus 리소스에 액세스 합니다. |
+| [Azure Service Bus 데이터 보낸 사람 (미리 보기)](#azure-service-bus-data-sender-preview) | Azure Service Bus 리소스에 대 한 송신 액세스를 허용합니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
-| [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [Backup 기여자](#backup-contributor) | 관리할 수 있습니다. 백업 서비스 하지만 수 없습니다 자격 증명 모음 만들고 다른 사람에 게 액세스 권한을 부여합니다 |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
@@ -88,7 +94,6 @@ ms.locfileid: "67341498"
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
 | [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
-| [Event Hubs 데이터 소유자](#event-hubs-data-owner) | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. | 
 | [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
 | [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 클러스터 연산자](#hdinsight-cluster-operator) | 읽기 및 HDInsight 클러스터 구성을 수정할 수 있습니다. |
@@ -119,7 +124,6 @@ ms.locfileid: "67341498"
 | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
-| [Service Bus 데이터 소유자](#service-bus-data-owner) | Azure Service Bus 리소스에 대 한 전체 액세스 허용 |
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
@@ -130,15 +134,15 @@ ms.locfileid: "67341498"
 | [SQL 관리 인스턴스에 참가자](#sql-managed-instance-contributor) | SQL 관리 되는 인스턴스를 관리 하는 데 필요한 수 있습니다 네트워크 구성에 있지만 다른 사용자에 게 액세스할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
-| [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
-| [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [Storage Blob 데이터 기여자](#storage-blob-data-contributor) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
-| [Storage Blob 데이터 소유자](#storage-blob-data-owner) | POSIX 액세스 제어 할당을 포함하여 Azure Storage Blob 컨테이너 및 데이터에 대한 모든 액세스 권한을 허용합니다. |
-| [Storage Blob 데이터 읽기 권한자](#storage-blob-data-reader) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스를 허용합니다. |
-| [Storage 큐 데이터 기여자](#storage-queue-data-contributor) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
-| [Storage 큐 데이터 메시지 처리기](#storage-queue-data-message-processor) | Azure Storage 큐 메시지에 대한 미리 보기, 수신 및 삭제 권한 허용 |
-| [Storage 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐 메시지 보내기 허용 |
-| [Storage 큐 데이터 판독기](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
+| [Storage 계정 기여자](#storage-account-contributor) | 저장소 계정으로 관리할 수 있습니다. 저장소 계정에는 데이터에 대 한 액세스를 제공 하지 않습니다. |
+| [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 허용 목록 및 저장소 계정 액세스 키 다시 생성 합니다. |
+| [Storage Blob 데이터 기여자](#storage-blob-data-contributor) | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage Blob 데이터 소유자](#storage-blob-data-owner) | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage Blob 데이터 읽기 권한자](#storage-blob-data-reader) | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage 큐 데이터 기여자](#storage-queue-data-contributor) | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage 큐 데이터 메시지 처리기](#storage-queue-data-message-processor) | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage 큐 데이터 판독기](#storage-queue-data-reader) | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
 | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
@@ -548,6 +552,51 @@ ms.locfileid: "67341498"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs 데이터 소유자 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **actions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs 데이터 수신자 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 사용 하면 Azure Event Hubs 리소스에 액세스 합니다. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **actions** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs 데이터 보낸 사람 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Event Hubs 리소스에 대 한 송신 액세스를 허용 합니다. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **actions** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service 클러스터 관리자 역할
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ ms.locfileid: "67341498"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus 데이터 소유자 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **actions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus 데이터 수신기 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 사용 하면 Azure Service Bus 리소스에 액세스 합니다. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus 데이터 보낸 사람 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Service Bus 리소스에 대 한 송신 액세스를 허용합니다. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 등록 소유자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -625,7 +723,6 @@ ms.locfileid: "67341498"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 백업 관리와 관련된 메타데이터 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 백업 정책 만들기 및 관리 |
@@ -691,7 +788,6 @@ ms.locfileid: "67341498"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
@@ -758,7 +854,6 @@ ms.locfileid: "67341498"
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 작업의 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
@@ -1409,22 +1504,6 @@ ms.locfileid: "67341498"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
-## <a name="event-hubs-data-owner"></a>Event Hubs 데이터 소유자
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **설명** | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **actions** |  |
-> | Microsoft.EventHubs/* | Event Hubs 네임 스페이스에 대 한 완전 한 관리 액세스를 허용합니다. |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Event Hubs 네임 스페이스에 대 한 전체 데이터 액세스를 허용합니다. |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1721,9 +1800,9 @@ ms.locfileid: "67341498"
 > | **설명** | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **actions** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | 기존 사용자 할당 ID를 가져옵니다. |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | 새로운 사용자 할당 ID를 만들거나 기존 사용자 할당 ID와 연결된 태그를 업데이트합니다. |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | 기존 사용자 할당 ID를 삭제합니다. |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -2073,22 +2152,6 @@ ms.locfileid: "67341498"
 > | *없음* |  |
 > | **DataActions** |  |
 > | *없음* |  |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-## <a name="service-bus-data-owner"></a>Service Bus 데이터 소유자
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **설명** | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **actions** |  |
-> | Microsoft.ServiceBus/* | Service Bus 네임 스페이스에 대 한 완전 한 관리 액세스를 허용합니다. |
-> | **NotActions** |  |
-> | *없음* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Service Bus 네임 스페이스에 대 한 전체 데이터 액세스를 허용합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 

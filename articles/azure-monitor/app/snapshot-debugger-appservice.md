@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784098"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439872"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서.NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 
@@ -29,6 +29,8 @@ ms.locfileid: "60784098"
 * [Azure Service Fabric 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [온-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+미리 보기 버전의.NET Core를 사용 하는 경우에 대 한 지침을 따르세요 [다른 환경에 대해 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 포함 하려면 먼저는 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 응용 프로그램을 패키지 하 고 아래 지침의 나머지 부분을 완료 합니다. 
 
 Application Insights 스냅숏 디버거 App Services 런타임의 일부로 미리 설치 되어 있지만 App Service 앱에 대 한 get 스냅숏을에 설정 해야 합니다. 배포한 후 앱에 Application Insights SDK 소스 코드에 포함 된 경우에, 스냅숏 디버거를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
@@ -52,7 +54,9 @@ Application Insights 스냅숏 디버거 App Services 런타임의 일부로 미
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Visual Studio에서 Application Insights로 작업](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- 예외를 트리거할 수 있는 응용 프로그램에 대 한 트래픽을 생성 합니다. 그런 다음 Application Insights 인스턴스를 전송할 수 있도록 스냅숏 10 ~ 15 분을 기다립니다.
+- 참조 [스냅숏을](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) Azure portal에서 합니다.
+- 스냅숏 디버거 문제 해결 도움말을 참조 하세요 [Snapshot Debugger 문제 해결](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)합니다.
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

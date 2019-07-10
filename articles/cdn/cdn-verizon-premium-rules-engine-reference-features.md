@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443485"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon 프리미엄의 규칙 엔진 기능에서 azure CDN
 
@@ -36,7 +36,7 @@ ms.locfileid: "67080779"
 
 이러한 기능은 콘텐츠가 캐시되는 시기와 방식을 사용자 지정하기 위해 설계되었습니다.
 
-이름 | 목적
+Name | 목적
 -----|--------
 [대역폭 매개 변수](#bandwidth-parameters) | 대역폭 제한 매개 변수(예: ec_rate 및 ec_prebuf)를 활성화할지 여부를 결정합니다.
 [대역폭 제한](#bandwidth-throttling) | POP(상호 접속 위치)에서 제공하는 응답에 대한 대역폭을 제한합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "67080779"
 
 이러한 기능은 요청자 또는 응답에서 헤더를 추가, 수정 또는 삭제하도록 설계되었습니다.
 
-이름 | 목적
+Name | 목적
 -----|--------
 [Age 응답 헤더](#age-response-header) | 요청자에게 보내는 응답에 Age 응답 헤더를 포함할지 여부를 결정합니다.
 [디버그 캐시 응답 헤더](#debug-cache-response-headers) | 응답에 요청된 자산에 대한 캐시 정책 정보를 제공하는 X-EC-Debug 응답 헤더를 포함할 수 있는지 여부를 결정합니다.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 이러한 기능은 CDN이 원본 서버와 통신하는 방법을 제어하도록 설계되었습니다.
 
-이름 | 목적
+Name | 목적
 -----|--------
 [최대 연결 유지 요청](#maximum-keep-alive-requests) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다.
 [프록시 특별 헤더](#proxy-special-headers) | POP에서 원본 서버로 전달할 CDN 특정 요청 헤더의 집합을 정의합니다.
@@ -149,7 +149,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 이러한 기능은 고급 사용자용 고급 기능을 제공합니다.
 
-이름 | 목적
+Name | 목적
 -----|--------
 [캐시 가능한 HTTP 메서드](#cacheable-http-methods) | 네트워크에서 캐시할 수 있는 추가 HTTP 메서드 집합을 결정합니다.
 [캐시 가능한 요청 본문 크기](#cacheable-request-body-size) | POST 응답을 캐시할 수 있는지 여부를 결정하는 임계값을 정의합니다.
@@ -159,7 +159,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 이러한 기능을 통해 요청을 다른 URL로 리디렉션하거나 다시 작성할 수 있습니다.
 
-이름 | 목적
+Name | 목적
 -----|--------
 [리디렉션 추적](#follow-redirects) | 고객 원본 서버에서 반환된 Location 헤더에 정의된 호스트 이름으로 요청을 리디렉션할 수 있는지 여부를 결정합니다.
 [URL 리디렉션](#url-redirect) | Location 헤더를 통해 요청을 리디렉션합니다.
@@ -456,7 +456,7 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 - 클라이언트 IP 주소
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
-- 국가
+- Country
 - 디바이스
 - Microsoft Edge Cname
 - 참조 도메인
@@ -588,7 +588,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 클라이언트 IP 주소
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
-- 국가
+- Country
 - 디바이스
 - 에지 Cname
 - 참조 도메인
@@ -715,7 +715,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 클라이언트 IP 주소
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
-- 국가
+- Country
 - 디바이스
 - 에지 Cname
 - 참조 도메인
@@ -799,7 +799,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 클라이언트 IP 주소
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
-- 국가
+- Country
 - 디바이스
 - 에지 Cname
 - 참조 도메인
@@ -867,7 +867,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 클라이언트 IP 주소
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
-- 국가
+- Country
 - 디바이스
 - 에지 Cname
 - 참조 도메인
@@ -1128,7 +1128,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 
 지정된 헤더 이름이 다음 중 하나와 일치하는지 확인합니다.
 
-- 표준 요청 헤더 이름 - 표준 헤더 이름 목록은 [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)에 있습니다.
+- 표준 요청 헤더 이름 - 표준 헤더 이름 목록은 [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)에 있습니다.
 - 예약된 헤더 이름
     - forwarded-for
     - host

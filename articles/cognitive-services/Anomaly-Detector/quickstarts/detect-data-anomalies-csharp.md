@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2a02b56c2fa0f99166cfde0f0089273ed2af4cb9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073205"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: 비정상 탐지기 REST API를 사용 하 여 시계열 데이터에서 이상을 감지 하 고C# 
 
@@ -33,9 +33,9 @@ ms.locfileid: "65595832"
 
 - NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크. Visual Studio에서 NuGet 패키지로 Newtonsoft.Json을 설치 합니다.
     
-    1. 프로젝트를 마우스 오른쪽 단추로 클릭 **솔루션 탐색기**합니다.
-    2. 선택 **NuGet 패키지 관리**합니다.
-    3. 검색할 *Newtonsoft.Json* 및 패키지를 설치 합니다.
+    1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
+    2. **NuGet 패키지 관리**를 선택합니다.
+    3. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
 
 - Linux/MacOS를 사용 하는 경우이 응용 프로그램을 사용 하 여 실행할 수 있습니다 [Mono](https://www.mono-project.com/)합니다.
 

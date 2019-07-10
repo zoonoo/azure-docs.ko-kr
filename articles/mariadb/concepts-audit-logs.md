@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 765db8461465b74ac068782c1b91d3c68b73f7d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079523"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439214"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>MariaDB에 대 한 Azure Database에서 감사 로그
 
@@ -44,7 +44,7 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 
 감사 로그는 Azure Monitor 진단 로그와 통합 됩니다. MariaDB 서버에 감사 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure 저장소로 내보낼 수 있습니다. Azure portal에서 진단 로그를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 참조는 [감사 로그에 대 한 포털 문서](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)합니다.
 
-## <a name="schemas"></a>스키마
+## <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
 다음 섹션에서는 MariaDB 감사 로그 이벤트 유형을 기반으로 하 여 출력을 이란 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -64,13 +64,13 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT` |
-| `connection_id` | MariaDB에서 생성 된 고유 연결 ID |
-| `host` | 비어 있음 |
-| `ip` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
-| `user` | 쿼리를 실행 하는 사용자의 이름 |
-| `db` | 연결할 데이터베이스의 이름 |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` |
+| `connection_id_d` | MariaDB에서 생성 된 고유 연결 ID |
+| `host_s` | 비어 있음 |
+| `ip_s` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
+| `user_s` | 쿼리를 실행 하는 사용자의 이름 |
+| `db_s` | 연결할 데이터베이스의 이름 |
 | `\_ResourceId` | 리소스 URI |
 
 ### <a name="general"></a>일반
@@ -81,7 +81,7 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Utc에서 뚜껑이 로그가 기록 된 때의 타임 스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -91,15 +91,16 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` |
+| `LogicalServerName_s` | 서버의 이름 |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | 쿼리는 UNIX 타임 스탬프에 시간 (초) 시작 |
-| `error_code` | 쿼리 실패 한 경우 오류 코드입니다. `0` 의미 없는 오류 |
-| `thread_id` | 쿼리를 실행 하는 스레드의 ID |
-| `host` | 비어 있음 |
-| `ip` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
-| `user` | 쿼리를 실행 하는 사용자의 이름 |
-| `sql_text` | 전체 쿼리 텍스트 |
+| `error_code_d` | 쿼리 실패 한 경우 오류 코드입니다. `0` 의미 없는 오류 |
+| `thread_id_d` | 쿼리를 실행 하는 스레드의 ID |
+| `host_s` | 비어 있음 |
+| `ip_s` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
+| `user_s` | 쿼리를 실행 하는 사용자의 이름 |
+| `sql_text_s` | 전체 쿼리 텍스트 |
 | `\_ResourceId` | 리소스 URI |
 
 ### <a name="table-access"></a>테이블 액세스
@@ -108,7 +109,7 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 |---|---|
 | `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
 | `Type` | 로그의 형식 항상 `AzureDiagnostics` |
 | `SubscriptionId` | 서버가 속한 구독의 GUID |
 | `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
@@ -118,12 +119,13 @@ Azure Database for MariaDB, 감사 로그의 사용자에 게 제공 합니다. 
 | `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`하십시오 `INSERT`, `UPDATE`, 또는 `DELETE` |
-| `connection_id` | MariaDB에서 생성 된 고유 연결 ID |
-| `db` | 액세스 데이터베이스의 이름 |
-| `table` | 액세스 하는 테이블 이름 |
-| `sql_text` | 전체 쿼리 텍스트 |
+| `LogicalServerName_s` | 서버의 이름 |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`하십시오 `INSERT`, `UPDATE`, 또는 `DELETE` |
+| `connection_id_d` | MariaDB에서 생성 된 고유 연결 ID |
+| `db_s` | 액세스 데이터베이스의 이름 |
+| `table_s` | 액세스 하는 테이블 이름 |
+| `sql_text_s` | 전체 쿼리 텍스트 |
 | `\_ResourceId` | 리소스 URI |
 
 ## <a name="next-steps"></a>다음 단계

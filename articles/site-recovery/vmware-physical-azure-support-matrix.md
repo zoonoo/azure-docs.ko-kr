@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341446"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491637"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -186,8 +186,8 @@ Docker 디스크 구성 | 아닙니다.
 게스트/서버 SMB 3.0 | 아닙니다.
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-게스트/서버 디스크 4k 논리적 및 512 바이트 물리적 섹터 크기 | 예
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아닙니다.
+게스트/서버 디스크 4k 논리적 및 512 바이트 물리적 섹터 크기 | 아닙니다.
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
 게스트/서버 - 저장소 공간 | 아닙니다.
 게스트/서버 디스크 핫 추가/제거 | 아닙니다.
@@ -218,7 +218,7 @@ Docker 디스크 구성 | 아닙니다.
 Premium Storage | 예
 Import/Export 서비스 | 아닙니다.
 Vnet에 대 한 azure Storage 방화벽 | 예.<br/> 대상 저장소/캐시 저장소 계정 (복제 데이터를 저장 하는 데 사용)에서 구성 합니다.
-범용 v2 저장소 계정 (핫 및 쿨 계층) | 아닙니다.
+범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (트랜잭션 V1에 비해 V2에 대 한 비용이 상당히 높습니다.)
 
 ## <a name="azure-compute"></a>Azure Compute
 

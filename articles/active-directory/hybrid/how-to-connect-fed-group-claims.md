@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138751"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481418"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (공개 미리 보기)를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -137,7 +137,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 3. 그룹 이름을 구성에 대 한 선택적 클레임을 설정 합니다.
 
-   하려는 경우 토큰에서 그룹에 선택적 클레임 섹션에서 AD 그룹 특성 지정에 토큰 유형이 선택적 클레임을 적용 해야 하는 온-프레미스에서 요청한 선택적 클레임 및 필요한 추가 속성의 이름을 포함 합니다.  여러 토큰 형식은 나열할 수 있습니다.
+   선택적 클레임 섹션에서 AD 그룹 특성 지정에 토큰 유형이 선택적 클레임을 적용 해야 하는 온-프레미스에서 요청한 선택적 클레임 및 필요한 추가 속성의 이름을 포함 하는 토큰에 있는 그룹 원하는 경우입니다.  여러 토큰 형식은 나열할 수 있습니다.
 
    - OIDC ID 토큰에 대 한 idToken
    - OAuth/OIDC 액세스 토큰에 대 한 accessToken

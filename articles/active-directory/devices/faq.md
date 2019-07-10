@@ -2,26 +2,21 @@
 title: Azure Active Directory 디바이스 관리 FAQ | Microsoft Docs
 description: Azure Active Directory 디바이스 관리 FAQ
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110657"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481762"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -61,17 +56,15 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 온-프레미스 Active Directory 도메인에 조인된 Windows 10 및 Windows Server 2016에서 조인 상태를 지우려면 다음 단계를 수행합니다.
 
-1.  관리자 권한으로 명령 프롬프트를 엽니다.
-
-2.  [https://slack.botframework.com](`dsregcmd.exe /debug /leave`) 을 입력합니다.
-
-3.  로그아웃했다가 다시 로그인하여 디바이스를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
+1. 관리자 권한으로 명령 프롬프트를 엽니다.
+1. `dsregcmd.exe /debug /leave` 을 입력합니다.
+1. 로그아웃했다가 다시 로그인하여 디바이스를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
 
 온-프레미스 Active Directory 도메인에 조인된 하위 수준 Windows OS 버전의 경우 다음 단계를 수행합니다.
 
-1.  관리자 권한으로 명령 프롬프트를 엽니다.
-2.  [https://slack.botframework.com](`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`) 을 입력합니다.
-3.  [https://slack.botframework.com](`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`) 을 입력합니다.
+1. 관리자 권한으로 명령 프롬프트를 엽니다.
+1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` 을 입력합니다.
+1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` 을 입력합니다.
 
 ---
 
@@ -79,19 +72,16 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 **A:**
 
--   Windows 10 및 Windows Server 2016의 경우 동일한 디바이스에 조인 취소 및 다시 조인을 반복적으로 시도하면 중복된 항목이 발생할 수 있습니다. 
-
--   **회사 또는 학교 계정 추가**를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만듭니다.
-
--   온-프레미스 Azure Directory 도메인에 조인된 하위 수준 Windows OS 버전의 경우 자동 등록에 의해 디바이스에 로그인하는 각 도메인 사용자의 디바이스와 이름이 같은 새 디바이스 레코드가 생성됩니다. 
-
--   초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 Azure AD 조인 머신은 디바이스 이름이 같은 다른 레코드로 표시됩니다.
+- Windows 10 및 Windows Server 2016의 경우 동일한 디바이스에 조인 취소 및 다시 조인을 반복적으로 시도하면 중복된 항목이 발생할 수 있습니다. 
+- **회사 또는 학교 계정 추가**를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만듭니다.
+- 온-프레미스 Azure Directory 도메인에 조인된 하위 수준 Windows OS 버전의 경우 자동 등록에 의해 디바이스에 로그인하는 각 도메인 사용자의 디바이스와 이름이 같은 새 디바이스 레코드가 생성됩니다. 
+- 초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 Azure AD 조인 머신은 디바이스 이름이 같은 다른 레코드로 표시됩니다.
 
 ---
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>Q: Azure AD에서 Windows 10 장치 등록 FIPS 모드에서 Tpm을 지원 하나요?
 
-**A:** 아니요, 현재 하이브리드 Azure AD 가입, Azure AD 조인 및 Azure AD 등록-모든 장치 상태에 대 한 Windows 10 장치 등록 지원 하지 않습니다 Tpm FIPS 모드에서. 성공적으로 가입 또는 Azure AD에 등록 하려면 FIPS 모드 설정을 해제 해야 해당 장치에서 Tpm 해야
+**A:** 아니요, 현재-하이브리드 Azure AD 가입, Azure AD 조인 및 Azure AD 등록-모든 장치 상태에 대 한 Windows 10 장치 등록 지원 하지 않습니다 Tpm FIPS 모드에서. 성공적으로 가입 또는 Azure AD에 등록 하려면 FIPS 모드 설정을 해제 해야 해당 장치에서 Tpm 해야
 
 ---
 
@@ -110,12 +100,11 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 **A:** 
 - 하이브리드 Azure AD 조인 디바이스의 경우 자동 등록을 해제해야 합니다. 그러면 예약된 작업에서 디바이스를 다시 등록하지 않습니다. 다음으로, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 디바이스에서 이 명령을 스크립트로 실행하여 대량으로 조인 취소합니다.
-
 - 순수 Azure AD 조인 디바이스의 경우 오프라인 로컬 관리자 계정이 있어야 하며, 없으면 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
 
 ---
 
-### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>Q: 내 사용자가 로그인 할 수 삭제 되거나 사용 하지 않도록를 설정 하 여 Azure AD에서 Azure AD 가입 장치?
+### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>Q: 내 사용자의 로그인 할 수 삭제 되거나 사용 하지 않도록를 설정 하 여 Azure AD에서 Azure AD 가입 장치?
 
 **A:** 예. Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
 
@@ -125,7 +114,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>Q: 사용할 수 없거나 삭제 된 사용자가 로그인 할 수 Azure AD 가입 장치?
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>Q: 비활성화 되거나 삭제 된 사용자를 로그인 할 수는 Azure AD 가입 장치
 
 **A:** 예, 하지만 시간 제한이 있습니다. Azure AD에서 사용자가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 즉시 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 사용자 이름 및 암호를 사용하여 데스크톱에 액세스할 수 있습니다. 
 
@@ -166,7 +155,6 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 이 동작은 다음과 같습니다.
 
 - Azure AD 조인 디바이스 및 Azure AD 등록 디바이스에는 적용되지만 하이브리드 Azure AD 조인 디바이스에는 적용되지 않습니다.
-
 - 해당 디바이스에 로그인하는 다른 사용자에게 적용되지 않습니다. 따라서 해당 디바이스에 액세스하는 다른 모든 사용자에게 Multi-Factor Authentication이 요구됩니다. 그 후 Multi-Factor Authentication을 요구하는 애플리케이션에 액세스할 수 있습니다.
 
 ---
@@ -176,11 +164,8 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 이 시나리오에 대한 일반적인 이유는 다음과 같습니다.
 
 - 사용자 자격 증명이 더 이상 유효하지 않습니다.
-
 - 컴퓨터가 Azure Active Directory와 통신할 수 없습니다. 네트워크 연결 문제가 있는지 확인합니다.
-
 - 페더레이션 로그인을 수행하려면 사용하도록 설정되어 있고 액세스 가능한 WS-Trust 엔드포인트를 페더레이션 서버에서 지원해야 합니다. 
-
 - 통과 인증을 사용하도록 설정했습니다. 따라서 로그인할 때 임시 암호를 변경해야 합니다.
 
 ---
@@ -205,10 +190,9 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why 여러 만료 된 인증서는 Windows 10 장치에서 MS-조직-P2P-액세스에서 발급 한을 확인 하 시겠습니까? 삭제 하는 방법
 
-**A:** Windows 10 1709 이하 버전에서 암호화 문제로 인해 만료된 MS-Organization-P2P-Access 인증서가 컴퓨터 저장소에 계속 남아 있는 문제가 확인되었습니다. 만료된 인증서를 대규모로 처리할 수 없는 VPN 클라이언트(예: Cisco AnyConnect)를 사용하는 경우 고객이 네트워크 연결 문제를 겪을 수 있습니다. 이 문제는 만료된 MS-Organization-P2P-Access 인증서를 자동으로 삭제하는 방법을 사용하여 Windows 10 1803 릴리스에서 해결되었습니다. 디바이스를 Windows 10 1803으로 업데이트하여 이 문제를 해결할 수 있습니다. 업데이트할 수 없는 경우 악영향 없이 이러한 인증서를 삭제할 수 있습니다.  
+**A:** Windows 10 1709 이하 버전에서 암호화 문제로 인해 만료된 MS-Organization-P2P-Access 인증서가 컴퓨터 저장소에 계속 남아 있는 문제가 확인되었습니다. 사용자가 많은 만료 된 인증서를 처리할 수 없는 모든 VPN 클라이언트 (예를 들어 Cisco AnyConnect)를 사용 하는 경우 네트워크 연결 문제가 발생할 수 있습니다. 이 문제는 만료된 MS-Organization-P2P-Access 인증서를 자동으로 삭제하는 방법을 사용하여 Windows 10 1803 릴리스에서 해결되었습니다. 디바이스를 Windows 10 1803으로 업데이트하여 이 문제를 해결할 수 있습니다. 업데이트할 수 없는 경우 악영향 없이 이러한 인증서를 삭제할 수 있습니다.  
 
 ---
-
 
 ## <a name="hybrid-azure-ad-join-faq"></a>하이브리드 Azure AD 조인 FAQ
 
@@ -217,7 +201,6 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 문제 해결 정보는 다음 문서를 참조하세요.
 
 - [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)
-
 - [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>Q: 중복 된 Azure AD는 나타나는 이유는 내 Windows 10 하이브리드 Azure AD에 대 한 등록된 레코드는 Azure AD 장치 목록에서 장치를 가입?
@@ -226,27 +209,25 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치의 하이브리드 Azure AD 인증 및 조건부 액세스 평가 조인으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 알아보세요. 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>Q: 내 사용자가 있는 이유가 문제 하이브리드 Azure AD 가입 Windows 10 장치에서 해당 UPN을 변경한 후?
 
-**A:** 현재 하이브리드 Azure AD 조인 디바이스에서는 UPN이 완전히 지원되지 않습니다. 사용자는 디바이스에 로그인하여 온-프레미스 애플리케이션에 액세스할 수는 있지만 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이 경우 문제를 해결하려면 Azure AD에서 디바이스 조인을 취소한 다음(상승된 권한으로 "dsregcmd /leave" 실행) 다시 조인해야 합니다(자동으로 진행됨). 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+**A:** 현재 하이브리드 Azure AD 조인 디바이스에서는 UPN이 완전히 지원되지 않습니다. 사용자는 디바이스에 로그인하여 온-프레미스 애플리케이션에 액세스할 수는 있지만 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이때 ("dsregcmd /leave" 관리자 권한으로 실행) Azure AD에서 장치를 가입 해야 하 고 재 조인 (자동으로 수행 됨) 문제를 해결 하려면. 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>Q: Windows 10 하이브리드 Azure AD 가입 장치 시야 클라우드 리소스에 액세스 하는 도메인 컨트롤러에 필요 합니까?
 
-**A:** 일반적으로 아니요, 사용자의 암호가 변경 된 경우를 제외 하 고 있습니다. Windows 10 하이브리드 Azure AD 조인이 완료되고 사용자가 한 번 이상 로그인한 후, 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요하지 않습니다. Windows 10은 암호가 변경된 경우 외에는 인터넷 연결이 가능한 곳이면 어디서든 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 로 로그인 합니다. Windows Hello 비즈니스에 대 한 계속 단일 사용자 로그인 Azure AD 응용 프로그램 암호 변경 후에 시야가 도메인 컨트롤러에 없는 경우에 합니다. 
+**A:** 아니요, 사용자의 암호가 변경 된 경우를 제외 하 고 있습니다. Windows 10 하이브리드 Azure AD 조인을 완료 된 후 사용자가 한 번 이상 로그인 시야 클라우드 리소스에 액세스 하는 도메인 컨트롤러를 장치에 필요 하지 않습니다. Windows 10에서 single sign-on에 Azure AD 응용 프로그램 어디에서 얻을 수 인터넷에 연결 된 암호를 변경 하는 경우를 제외 하 고 있습니다. 로 로그인 합니다. Windows Hello 비즈니스에 대 한 계속 단일 사용자 로그인에 Azure AD 응용 프로그램 암호 변경 후에 시야가 도메인 컨트롤러에 없는 경우에 합니다. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>Q: 회사 네트워크 외부의 장치를 가입 사용자가 암호를 변경 하 고 해당 Windows 10 하이브리드 Azure AD에 로그인 하려고 하는 경우 어떻게 되나요?
 
-**A:** 암호는 회사 네트워크 외부 (예를 들어, Azure AD SSPR을 사용)가 변경 되 면 새 암호를 사용 하 여 사용자 로그온이 실패 합니다. 하이브리드 Azure AD 가입 장치에 대 한 온-프레미스 Active Directory는 기본 기관. 장치에 시야 도메인 컨트롤러를 찾을 수 없는 경우 새 암호를 유효성을 검사할 수 아닙니다. 사용자가 도메인 컨트롤러 (통해 VPN 또는 회사 네트워크에 있는 것 중 하나)를 사용 하 여 연결 해야 하는, 새 암호를 사용 하 여 장치에 로그인 할 되기 전에 합니다. 이 고, 그렇지만 로그인 할 수 이전 암호가 Windows의 캐시 된 로그온 기능 때문입니다. 그러나 이전 암호 토큰 요청 동안 Azure AD에서 무효화 되기 따라서에 단일 로그인을 차단 및 모든 장치 기반 조건부 액세스 정책이 실패 합니다. 사용 하는 경우 Windows Hello 비즈니스에 대 한이 문제가 발생 하지 않습니다. 
+**A:** 암호는 회사 네트워크 외부 (예를 들어, Azure AD SSPR을 사용)가 변경 되 면 새 암호를 사용 하 여 사용자 로그인이 실패 합니다. 하이브리드 Azure AD 가입 장치에 대 한 온-프레미스 Active Directory는 기본 기관. 장치에 시야 도메인 컨트롤러를 찾을 수 없는 경우 새 암호를 유효성을 검사할 수 아닙니다. 사용자가 도메인 컨트롤러 (통해 VPN 또는 회사 네트워크에 있는 것 중 하나)를 사용 하 여 연결 해야 하는, 새 암호를 사용 하 여 장치에 로그인 할 되기 전에 합니다. 이 고, 그렇지 로그인 할 수만 이전 암호를 사용 하 여 캐시 된 로그인으로 인해 Windows의 기능입니다. 그러나 이전 암호 토큰 요청 동안 Azure AD에서 무효화 되기 따라서 single sign on 방지 및 모든 장치 기반 조건부 액세스 정책이 실패 합니다. 사용 하는 경우 Windows Hello 비즈니스에 대 한이 문제가 발생 하지 않습니다. 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 등록 FAQ
 
@@ -259,11 +240,15 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 다음과 같은 단계를 수행합니다.
 
 1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [MacOS 장치에 대 한 조건부 액세스 정책을 정의 합니다.](../active-directory-conditional-access-azure-portal.md) 
+1.  [MacOS 장치에 대 한 조건부 액세스 정책을 정의 합니다.](../active-directory-conditional-access-azure-portal.md) 
 
 **설명**
 
 - 요구 사항에 대 한 조건부 액세스 정책에에서 포함 된 사용자를 [macOS에 대 한 지원 되는 Office 버전](../conditional-access/technical-reference.md#client-apps-condition) 리소스에 액세스 합니다. 
-
 - 첫 번째 액세스를 시도하는 동안 사용자에게는 회사 포털을 사용하여 디바이스를 등록하라는 메시지가 표시됩니다.
 
+## <a name="next-steps"></a>다음 단계
+
+- 자세한 내용은 [Azure AD 등록 장치](concept-azure-ad-register.md)
+- 자세한 내용은 [Azure AD 가입 장치](concept-azure-ad-join.md)
+- 자세한 내용은 [하이브리드 Azure AD 가입 장치](concept-azure-ad-join-hybrid.md)

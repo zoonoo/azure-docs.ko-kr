@@ -3,20 +3,20 @@ title: 컨테이너 설치 및 실행 방법 - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302839"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449345"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -125,7 +125,7 @@ ApiKey={BILLING_KEY}
 
 컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
 
-컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다.
+컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
 ### <a name="asynchronous-text-recognition"></a>비동기 텍스트 인식
 

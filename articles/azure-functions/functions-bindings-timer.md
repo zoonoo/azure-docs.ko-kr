@@ -4,7 +4,7 @@ description: Azure Functions에서 타이머 트리거를 사용하는 방법을
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: db80155b39602ad5810c83e03913fb0f3ccb4281
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342225"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508302"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -269,12 +269,7 @@ Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00부터 hh:55:00까지에서 hh는 매시간임(시간당 12번)|
 
-월 또는 요일을 지정하려면 숫자 값, 이름 또는 이름 약어를 사용할 수 있습니다.
-
-* 요일의 경우 숫자 값은 0에서 6까지이며 0은 Sunday로 시작합니다.
-* 이름은 영어입니다. 예: `Monday`, `January`.
-* 이름은 대/소문자를 구분하지 않습니다.
-* 이름은 축약될 수 있습니다. 약어 길이는 글자 세 개가 좋습니다.  예: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>CRON 예제
 

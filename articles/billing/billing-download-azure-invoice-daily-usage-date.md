@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616454"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491398"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 
@@ -56,9 +56,9 @@ Microsoft 고객 계약에 있는 경우 청구 프로필 소유자, 참가자, 
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 송장을 다운로드합니다
 
-각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#understand-billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다.
+각각에 대해 생성 된 송장 [청구 프로필](billing-mca-overview.md#billing-profiles) Microsoft 고객 계약에 있습니다. 청구 프로필 소유자, 참가자, 판독기 이거나 Azure portal에서 청구서를 다운로드 하려면 관리자는 청구서 있어야 합니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 2. 청구 프로필을 선택 합니다.
 3. **청구서**를 선택합니다.
 4. 송장 표의 다운로드할 청구서의 행을 찾습니다.
@@ -108,7 +108,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에 선택할 수 있습니다. 모든 청구 프로필 소유자, 참가자, 판독기 및 송장 관리자 전자 메일을 통해 청구서를 받습니다. 판독기는 전자 메일 청구서 기본 설정을 업데이트할 수 없습니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 1. 청구 프로필을 선택 합니다.
 1. **설정** 아래에서 **속성**을 선택합니다.
 1. 아래 **전자 메일 청구서**를 선택 **업데이트 전자 메일 청구서 기본**입니다.
@@ -169,7 +169,7 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 #### <a name="download-usage-for-billed-charges"></a>청구 요금에 대 한 사용량 다운로드
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 2. 청구 프로필을 선택 합니다.
 3. **청구서**를 선택합니다.
 4. 송장 표에서 해당 다운로드를 사용 하 여 청구서의 행을 찾습니다.
@@ -180,7 +180,7 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 다운로드할 수도 있습니다 누계 달 사용량은 현재 청구 기간 동안 요금이 청구 되지가 의미 합니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. 검색할 **비용 관리 + 청구**합니다.
 2. 청구 프로필을 선택 합니다.
 3. 에 **개요** 블레이드에서 클릭 **다운로드 Azure 사용량 및 요금이**합니다.
 

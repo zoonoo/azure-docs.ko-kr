@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588167"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449335"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
 
@@ -224,6 +224,8 @@ Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하
 - 네트워크 트래픽을 크게 증가시키는 바이럴 이벤트를 계획하고 있습니다.
 
 - 작업자가 리소스에 대한 DDoS 공격을 시작하겠다고 위협합니다.
+
+- Azure DDoS Protection 표준에서 화이트 리스트 IP 또는 IP 범위에 필요 합니다. 일반적인 시나리오는 트래픽이 Azure 클라우드 WAF 외부에서 라우팅되는 경우 화이트 리스트 IP 것입니다. 
 
 중요한 비즈니스에 영향을 주는 공격의 경우 심각도-A [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만듭니다.
 

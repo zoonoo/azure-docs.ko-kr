@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072626"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514060"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -42,7 +42,9 @@ ms.locfileid: "67072626"
 
 **만들기**를 선택합니다.  **개요를 제공** 이 제품에 대 한 페이지가 생성 됩니다.  
 
-![파트너 센터에 대 한 개요를 제공 합니다.](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>제품 개요
 
@@ -260,11 +262,11 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 ## <a name="technical-configuration"></a>기술 구성
 
-합니다 **기술 구성** 탭 기술 세부 정보를 정의 (예: URL 경로, webhook, 테 넌 트 ID 및 앱 ID) 제품에 연결 하는 데 사용 합니다. 이 연결을 통해 가져오는 선택 하는 경우 제품으로 고객의 Azure 구독에서 리소스를 프로 비전 할 수 있습니다.
+합니다 **기술 구성** 탭 기술 세부 정보를 정의 (예: URL 경로, webhook, 테 넌 트 ID 및 앱 ID) 제품에 연결 하는 데 사용 합니다. 이 연결을 통해 가져오는 선택 하는 경우 최종 사용자에 대 한 제품을 프로 비전 할 수 있습니다. 수집 된 필드의 용도 설명 하는 다이어그램에 대 한 설명서에서 사용할 수 있습니다 [SaaS fulfillment Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)합니다.
 
-- **방문 페이지 URL** (필수): Marketplace에서 제품을 가져오면를 고객에 게 될 URL 전달 하는 사이트를 정의 합니다. 이 URL은 Microsoft와의 거래를 용이하게 하기 위한 연결 API를 수신할 엔드포인트로도 사용됩니다.
+- **방문 페이지 URL** (필수): 고객은 marketplace에서 제품을 획득 한 후에 도착 하는 사이트 URL을 정의 합니다. 이 URL에는 고객은 페이지에 라우팅될 때 토큰을 수신 하는 끝점 됩니다. 확인을 사용 하 여 처리 Api에서에서 정보를 프로 비전에 대 한 해당 토큰을 교환할 수 있습니다. 이러한 세부 정보 및 다른 수집 사용할 수 환경에서 작성 된 고객 대화형 웹 페이지의 일부로 등록을 완료 하는 구매를 활성화 합니다.
 
-- **연결 웹 후크** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독에 잘못 된)를 완료 해야 연결 웹 후크를 제공할 수 있습니다. 가장 단순한 구성에 게시 되는 모든 이벤트에 대 한 수신 대기 하 고 다음 적절 하 게 처리 하는 HTTP 끝점 논리 앱은 현재 위치에서 웹 후크 시스템 없는 경우 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
+- **연결 웹 후크** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독에 잘못 된)를 완료 해야 연결 웹 후크를 제공할 수 있습니다. 가장 단순한 구성에 게시 되는 모든 이벤트에 대 한 수신 대기 하 고 다음 적절 하 게 처리 하는 HTTP 끝점 논리 앱은 현재 위치에서 웹 후크 시스템 없는 경우 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
 - **Azure AD 테 넌 트 ID** (필수): Azure portal 내에서는 위해서는 있습니다 [Azure AD (Active Directory) 앱 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 뒤에 인증 된 통신은 두 서비스 간의 연결 검증할 수 있도록 합니다. 찾을 수는 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory로 이동 및 선택 **속성**, 찾은 후에 대 한 합니다 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다.
 
@@ -438,7 +440,7 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 
 - **Azure AD 앱 ID** (필수): Azure Active Directory (AD)를 입력 [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)합니다. 이 ID를 찾으려면에 로그인 하는 [Azure portal](https://portal.azure.com/)고 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **앱 등록**, 찾아보십시오를 **응용 프로그램 ID** 수 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 나열 합니다.
 
-- **Azure AD 앱 키** (필수): Azure Active Directory (AD)를 입력 [응용 프로그램 키](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)합니다. 이 ID를 찾으려면에 로그인 합니다 [Azure portal](https://portal.azure.com/)고 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **앱 등록** 을 선택한 후 **설정**  >  **키**합니다.
+- **Azure AD 앱 클라이언트 비밀** (필수): Azure AD 응용 프로그램에 입력 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)합니다. 이 값 찾기에 로그인 합니다 [Azure portal](https://portal.azure.com/)합니다. 선택 된 **Azure Active Directory** 선택 왼쪽된 메뉴의 탭 **앱 등록**, 테스트 드라이브 앱을 선택 합니다. 다음으로, 선택 **인증서 및 비밀**를 선택 **새 클라이언트 암호**대 한 설명을 입력 **안 함** 아래 **Expires**, 다음 선택할 **추가**합니다. 값을 복사 해야 합니다. (없는 페이지 외부로 탐색 값에 액세스할 수 없습니다. 그렇지 않으면이 작업을 수행 하기 전에.)
 
 해야 **저장할** 다음 섹션으로 이동 하기 전에!
 

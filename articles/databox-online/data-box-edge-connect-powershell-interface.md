@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717493"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448643"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure 데이터 상자 Edge 장치를 관리 합니다.
 
@@ -52,8 +52,9 @@ Azure 데이터 가장자리가 상자의 솔루션을 사용 하 여 데이터�
 다음 예제에서는 IoT Edge 인증서를 설치 하려면이 cmdlet의 사용법을 보여 줍니다.
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+이 cmdlet을 실행 하면 네트워크 공유에 대 한 암호를 제공 묻는 메시지가 나타납니다.
 
 로 이동 하는 인증서에 대 한 자세한 내용은 [Azure IoT Edge 인증서](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 하거나 [게이트웨이에서 인증서를 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)합니다.
 
@@ -75,13 +76,12 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
     다음 예제에서는이 cmdlet의 사용법을 보여 줍니다.
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Cmdlet에 사용 되는 매개 변수 설명은 다음과 같습니다.
     - `Path`: 계산 로그 패키지를 만들려는 공유 네트워크 경로 제공 합니다.
-    - `Credential`: 네트워크 공유에 대 한 사용자 이름과 암호를 제공 합니다.
-    - `RoleInstanceName`: 이 문자열을 제공 `IotRole` 이 매개 변수에 대 한 합니다.
+    - `Credential`: 네트워크 공유에 대 한 사용자 이름을 제공 합니다. 이 cmdlet을 실행 하는 경우 공유 암호를 제공 해야 합니다.
     - `FullLogCollection`: 이 매개 변수는 로그 패키지의 모든 계산 로그에 포함 되어 있음을 확인 합니다. 기본적으로 로그 패키지에는 로그의 하위 집합만 포함 되어 있습니다.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>모니터링 및 계산 모듈 문제 해결

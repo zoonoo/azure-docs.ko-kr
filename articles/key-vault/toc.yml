@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: 고객 데이터
       href: key-vault-customer-data.md
-    - name: 릴리스 정보
-      href: key-vault-versions.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 지역 가용성

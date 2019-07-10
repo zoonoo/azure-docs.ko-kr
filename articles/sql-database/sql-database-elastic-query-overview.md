@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067064"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491662"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 
@@ -143,6 +143,7 @@ Elastic Database 쿼리는 Azure SQL Database 데이터베이스의 비용 안�
 * Nvarchar (max)를 제외 하 고 (공간 형식 포함) LOB 형식은 외부 테이블 정의에서 지원 되지 않습니다. 차선책으로, LOB 형식을 nvarchar(max)로 캐스팅하고, 기준 테이블 대신 뷰에서 외부 테이블을 정의한 다음 다시 쿼리에서 원래의 LOB 형식으로 캐스팅하는 원격 데이터베이스에서 뷰를 만들 수 있습니다.
 * 결과 집합에서 nvarchar(max) 데이터 형식의 열은 탄력적 쿼리 구현에 사용된 고급 일괄 처리 기술을 사용하지 않고, 집계되지 않은 엄청난 양의 데이터가 쿼리 결과로 전송되는 비규범적 사용 사례에서 자릿수, 심지어 두 자릿수에 대한 쿼리 성능에 영향을 줄 수 있습니다.
 * 외부 테이블에 대한 열 통계는 현재 지원되지 않습니다. 테이블 통계는 지원되지만 수동으로 만들어야 합니다.
+* 탄력적 쿼리는만 Azure SQL Database를 사용 하 여 작동합니다. 온-프레미스 SQL Server 또는 VM의 SQL Server를 쿼리 하는 것에 대 한 것을 사용할 수 없습니다.
 
 ## <a name="feedback"></a>사용자 의견
 

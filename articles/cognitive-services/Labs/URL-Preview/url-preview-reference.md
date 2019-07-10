@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60462591"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL Preview v7 참조
 
@@ -76,9 +76,9 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 |이름|값|Type|필수|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 미국 지역과 영어 언어만 지원합니다.<br /><br />|문자열|예|
-|<a name="query" />q|미리 보기할 URL입니다.|문자열|예|
+|<a name="query" />q|미리 보기할 URL입니다.|String|예|
 |<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|문자열|아닙니다.|
-|<a name="safesearch"/>safeSearch|불법 성인 콘텐츠 또는 해적판 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지는 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.|
+|<a name="safesearch"/>safeSearch|불법 성인 콘텐츠 또는 해적판 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지는 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |String|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.|
 
 ## <a name="response-objects"></a>응답 개체
 응답 스키마는 Web Search API와 같이 [WebPage] 또는 ErrorResponse입니다. 요청이 실패할 경우 최상위 개체는 [ErrorResponse](#errorresponse) 개체입니다.
@@ -92,12 +92,12 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 
 |요소|설명|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />code|오류 범주를 식별하는 오류 코드입니다. 가능한 코드 목록은 [오류 코드](#error-codes)를 참조하세요.|문자열|
-|<a name="error-message" />message|오류에 대한 설명입니다.|문자열|
-|<a name="error-moredetails" />moreDetails|오류에 대한 추가 정보를 제공하는 설명입니다.|문자열|
-|<a name="error-parameter" />parameter|오류를 발생시킨 요청의 쿼리 매개 변수입니다.|문자열|
+|<a name="error-code" />code|오류 범주를 식별하는 오류 코드입니다. 가능한 코드 목록은 [오류 코드](#error-codes)를 참조하세요.|String|
+|<a name="error-message" />message|오류에 대한 설명입니다.|String|
+|<a name="error-moredetails" />moreDetails|오류에 대한 추가 정보를 제공하는 설명입니다.|String|
+|<a name="error-parameter" />parameter|오류를 발생시킨 요청의 쿼리 매개 변수입니다.|String|
 |<a name="error-subcode" />subCode|오류를 식별하는 오류 코드입니다. 예를 들어 `code`가 InvalidRequest이면 `subCode`는 ParameterInvalid 또는 ParameterInvalidValue가 될 수 있습니다. |문자열|
-|<a name="error-value" />value|잘못된 쿼리 매개 변수의 값입니다.|문자열|
+|<a name="error-value" />value|잘못된 쿼리 매개 변수의 값입니다.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.
@@ -112,16 +112,16 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 
 |이름|값|Type|
 |----------|-----------|----------|
-|이름|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
-|URL|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|문자열|
+|name|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
+|url|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|String|
 |description|페이지 및 콘텐츠에 대한 간략한 설명입니다.|문자열|
-|isFamilyFriendly|웹 인덱스의 항목이 가장 정확합니다. 실시간 페치는 페이지 콘텐츠가 아니라 URL만 사용해서 이 검색을 수행합니다.|부울|
+|isFamilyFriendly|웹 인덱스의 항목이 가장 정확합니다. 실시간 페치는 페이지 콘텐츠가 아니라 URL만 사용해서 이 검색을 수행합니다.|boolean|
 |primaryImageOfPage/contentUrl|미리 보기에 포함할 대표 이미지의 URL입니다.|문자열|
 
 ### <a name="identifiable"></a>Identifiable
-|이름|값|Type|
+|Name|값|Type|
 |-------------|-----------------|----------|
-|id|리소스 식별자|문자열|
+|id|리소스 식별자|String|
 
 ## <a name="error-codes"></a>오류 코드
 

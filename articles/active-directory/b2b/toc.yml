@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: 일회성 암호 인증
               href: one-time-passcode.md
+            - name: 직접 페더레이션
+              href: direct-federation.md
+            - name: AD FS를 사용한 직접 페더레이션의 예제
+              href: direct-federation-adfs.md
             - name: 초대 허용 또는 차단
               href: allow-deny-list.md
             - name: 초대 없이 B2B 사용자 추가

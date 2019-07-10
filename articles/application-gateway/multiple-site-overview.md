@@ -23,7 +23,7 @@ ms.locfileid: "60715863"
 > [!IMPORTANT]
 > 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다.  그러면 트래픽이 올바른 백 엔드로 라우팅됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다.
 
-http://contoso.com 에 대한 요청은 ContosoServerPool로 라우팅되고, http://fabrikam.com 에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
+[http://contoso.com](http://contoso.com ) 에 대한 요청은 ContosoServerPool로 라우팅되고, http://fabrikam.com 에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
 마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 http://blog.contoso.com 및 http://app.contoso.com 이 포함됩니다.
 

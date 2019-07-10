@@ -45,8 +45,8 @@ ms.locfileid: "66382270"
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>SQL Database 연결에 대한 TLS 고려 사항
 TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을 위해 제공하거나 지원하는 모든 드라이버에서 사용됩니다. 특별한 구성은 필요하지 않습니다. SQL Server 또는 Azure SQL Database에 대한 모든 연결의 경우 모든 애플리케이션에서 다음 구성 또는 해당 사항을 설정하는 것이 좋습니다.
 
- - **암호화 = 켜짐**
- - **TrustServerCertificate = 꺼짐**
+ - **Encrypt = On**
+ - **TrustServerCertificate = Off**
 
 일부 시스템은 해당 구성 키워드에 대해 각기 다르지만 해당 키워드를 사용합니다. 이러한 구성은 클라이언트 드라이버에서 서버에서 받은 TLS 인증서의 ID를 확인하도록 합니다.
 
@@ -93,7 +93,7 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을
   - [Java를 사용하여 SQL Database에 연결](sql-database-connect-query-java.md) 
   - [Python을 사용하여 SQL Database에 연결](sql-database-connect-query-python.md)
   - [Ruby를 사용하여 SQL Database에 연결](sql-database-connect-query-ruby.md)
-- 다시 시도 논리 코드 예제:
+- 재시도 로직 코드 예제:
   - [ADO.NET으로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [PHP로 SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
 

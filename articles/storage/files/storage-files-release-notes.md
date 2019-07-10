@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303398"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449966"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -26,7 +26,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
 | V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | [플 라이팅](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| 2019 년 6 월 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 년 6 월 13 일 | 지원됨(권장 버전) |
+| 2019 년 6 월 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨(권장 버전) |
+| 2019 년 6 월 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 년 6 월 13 일 | 지원됨 |
 | 2019 년 5 월 업데이트 롤업- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 년 5 월 7 일 | 지원됨 |
 | V6 릴리스- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 년 4 월 21 일 | 지원됨 |
 | 2019 년 4 월 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 년 4 월 4 일 | 지원됨 |
@@ -113,6 +114,14 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ### <a name="cloud-tiering"></a>클라우드 계층화
 - 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
 - robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
+
+## <a name="agent-version-6300"></a>에이전트 버전 6.3.0.0
+다음 릴리스 정보는 2019 년 6 월 27 일 릴리스된 Azure File Sync 에이전트의 버전 6.3.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- Windows Server 2012 R2에서 액세스 하거나 SMB를 통한 서버 끝점 위치를 찾아보는 느림 
+- Azure File Sync v6 에이전트를 설치한 후 CPU 사용률 증가
+- 클라우드 계층화 원격 분석 향상
 
 ## <a name="agent-version-6200"></a>에이전트 버전 6.2.0.0
 다음 릴리스 정보는 2019 년 6 월 13 일 릴리스된 Azure File Sync 에이전트의 버전 6.2.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.

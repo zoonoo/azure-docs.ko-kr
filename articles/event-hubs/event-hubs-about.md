@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236234"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275367"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -45,9 +45,9 @@ Event Hubs는 구성 또는 관리 오버헤드가 거의 없는 완전 관리�
 
 ## <a name="support-for-real-time-and-batch-processing"></a>실시간 일괄 처리 지원
 
-스트림을 실시간으로 수집, 버퍼, 저장 및 처리하여 실행 가능한 인사이트를 얻을 수 있습니다. Event Hubs는 [분할된 소비자 모델](event-hubs-features.md#partitions)을 사용하여 여러 애플리케이션이 스트림을 동시에 처리할 수 있도록 지원하며, 처리 속도를 사용자가 제어할 수 있습니다.
+스트림을 실시간으로 수집, 버퍼, 저장 및 처리하여 실행 가능한 인사이트를 얻을 수 있습니다. Event Hubs는 [분할된 소비자 모델](event-hubs-scalability.md#partitions)을 사용하여 여러 애플리케이션이 스트림을 동시에 처리할 수 있도록 지원하며, 처리 속도를 사용자가 제어할 수 있습니다.
 
-[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 에서 데이터를 거의 실시간으로 [캡처](event-hubs-capture-overview.md)하여 장기 보존하거나 마이크로 일괄 처리할 수 있습니다. 이 동작은 실시간 분석 파생에 사용하는 것과 동일한 스트림에서 수행할 수 있습니다. 이벤트 데이터의 캡처는 빠르게 설정할 수 있습니다. 실행을 위한 관리 비용이 없고 Event Hubs  [처리량 단위](event-hubs-features.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs를 통해 데이터 캡처보다 데이터 처리에 집중할 수 있습니다.
+[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 에서 데이터를 거의 실시간으로 [캡처](event-hubs-capture-overview.md)하여 장기 보존하거나 마이크로 일괄 처리할 수 있습니다. 이 동작은 실시간 분석 파생에 사용하는 것과 동일한 스트림에서 수행할 수 있습니다. 이벤트 데이터의 캡처는 빠르게 설정할 수 있습니다. 실행을 위한 관리 비용이 없고 Event Hubs  [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs를 통해 데이터 캡처보다 데이터 처리에 집중할 수 있습니다.
 
 Azure Event Hubs를 [Azure Functions](/azure/azure-functions/)와 통합하여 서버 없는 아키텍처를 구현할 수도 있습니다.
 

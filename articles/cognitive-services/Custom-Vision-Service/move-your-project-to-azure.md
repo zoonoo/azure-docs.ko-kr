@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
 ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60816526"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>제한된 평가판 프로젝트를 Azure로 이동하는 방법
 
@@ -36,6 +36,7 @@ Custom Vision Service의 Azure로의 이동이 완료되면, Azure 외부에서 
 - [Pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 Custom Vision 리소스 만들기
+
 Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. 
 
 여러 프로젝트를 단일 리소스에 연결할 수 있습니다. [가격 책정 및 제한](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas)에 대한 자세한 정보를 사용할 수 있습니다. Custom Vision Service를 계속 무료로 사용하려면, Azure portal에서 F0 계층을 선택할 수 있습니다. 

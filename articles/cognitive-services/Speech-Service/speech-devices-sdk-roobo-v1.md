@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409071"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>디바이스: Roobo 스마트 오디오 Dev 키트
+# <a name="device-roobo-smart-audio-dev-kit"></a>장치: Roobo 스마트 오디오 Dev 키트
 
 이 문서에서는 Roobo 스마트 오디오 Dev 키트에 대 한 장치 특정 정보를 제공 합니다.
 

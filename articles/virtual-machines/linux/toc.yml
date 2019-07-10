@@ -274,13 +274,13 @@
           items:
             - name: 개요
               href: image-builder-overview.md
-            - name: CLI 사용
+            - name: Azure CLI 사용
               href: image-builder.md
             - name: 템플릿 참조
               href: image-builder-json.md
-            - name: 갤러리를 통해 사용
+            - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
-            - name: 이미지 버전 업데이트
+            - name: 기존 이미지 업데이트
               href: image-builder-gallery-update-image-version.md
             - name: 문제 해결
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'

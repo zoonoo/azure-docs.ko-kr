@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: 개념
   items:
-    - name: 사용자 지정 공급자
+    - name: Azure 사용자 지정 리소스 공급자
       href: custom-providers-overview.md
+    - name: 보기 정의 아티팩트
+      href: concepts-view-definition.md
 - name: 방법 가이드
   items:
+    - name: 사용자 지정 리소스 공급자
+      items:
+        - name: Azure에 사용자 지정 작업 추가
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Azure에 사용자 지정 리소스 추가
+          href: custom-providers-resources-endpoint-how-to.md
     - name: 게시자
       items:
         - name: 포털 인터페이스 만들기
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: 참고 자료
   items:
+    - name: 사용자 지정 리소스 공급자
+      items:
+        - name: 사용자 지정 리소스 프록시 참조
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: 사용자 지정 리소스 캐시 참조
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

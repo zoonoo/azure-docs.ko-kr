@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190796"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490103"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
@@ -146,6 +146,12 @@ Data Factory를 사용 하면 거의 80 네이티브 커넥터에 권한이 있�
 나중에 파생 열 변환에서 열 데이터 형식을 수정할 수 있습니다. 선택한 변환을 사용 하 여 열 이름을 수정 합니다.
 
 ![기본 데이터 형식에 대 한 설정을](media/data-flow/source2.png "기본 형식")
+
+### <a name="add-dynamic-content"></a>동적 콘텐츠 추가
+
+설정 패널에서 필드 내부를 클릭 하면 "동적 콘텐츠 추가"에 대 한 하이퍼링크를 표시 됩니다. 여기를 클릭 하면 식 작성기를 시작 됩니다. 이 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 설정에 대 한 값을 설정할 수 있습니다.
+
+![매개 변수](media/data-flow/params6.png "매개 변수")
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,19 +1,17 @@
 ---
 title: Azure 리소스 관리자 개요 | Microsoft Docs
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
-services: azure-resource-manager
 author: tfitzmac
-ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1b0135bfff7233367eaf47a2f6dd1ee3ccfbcaf6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514334"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205514"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 

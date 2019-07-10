@@ -1,23 +1,21 @@
 ---
-title: 소프트웨어 계획-Azure 예약에 대 한 요금을 선불 | Microsoft Docs
+title: 소프트웨어 계획-Azure 예약에 대 한 요금을 선불합니다
 description: 종 량 제 비용 보다 비용 절약 하는 소프트웨어 계획에 대해 선불 결제 수 하는 방법에 대해 알아봅니다.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771246"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489892"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Azure 소프트웨어 플랜 선결제
 
@@ -25,7 +23,7 @@ Azure에서 SUSE 및 RedHat 소프트웨어 사용량에 대 한 이용 하면 �
 
 Azure portal에서 SUSE 및 RedHat 소프트웨어 계획을 구입할 수 있습니다. 플랜을 구매하려면:
 
-- 하나 이상의 Enterprise 또는 종 량 제 구독에 대 한 소유자 역할이 있어야 합니다.
+- 하나 이상의 Enterprise 또는 종 량 제 가격으로 개별 구독에 대 한 소유자 역할이 있어야 합니다.
 - Enterprise 구독에 대 한 합니다 **Reserved Instances 추가** 옵션에서 사용할 수 있어야 합니다 합니다 [EA 포털](https://ea.azure.com/). 설정 하지 않으면 구독에 대해 EA 관리자 여야 합니다.
 - 클라우드 솔루션 공급자 (CSP) 프로그램에 대 한 관리 에이전트 및 영업 에이전트 소프트웨어 계획을 구입할 수 있습니다.
 
@@ -35,12 +33,12 @@ Azure portal에서 SUSE 및 RedHat 소프트웨어 계획을 구입할 수 있�
 2. 클릭 **추가** 다음 구입 하려는 소프트웨어 계획을 선택 하 고 있습니다.
 필수 필드를 입력합니다. 모든 SUSE Linux VM 또는 RedHat VM 구입할 있습니다의 특성과 일치 하는 할인을 가져옵니다. 할인을 받을 실제 배포 수는 선택한 범위 및 수량에 따라 달라집니다.
 3. 구독을 선택합니다. 계획에 대 한 요금을 지불 하는 것이 됩니다.
-구독 결제 방법은 예약에 대해 선불로 비용이 청구 됩니다. 구독 유형은 기업 계약을 체결 해야 합니다. (번호를 제공 합니다. MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
+구독 결제 방법은 예약에 대해 선불로 비용이 청구 됩니다. 구독 유형은 기업 계약을 체결 해야 합니다. (번호를 제공 합니다. MS-AZR-0017P 또는-0148 Ms-azr) 또는 종 량 제 가격으로 개별 계약 (번호를 제공 합니다. MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
     - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
-    - 종 량 제 구독에 대 한 구독의 신용 카드 또는 청구서 지불 방법으로 요금이 청구 됩니다.
+    - 종 량 제 가격을 사용 하 여 개별 구독에 대해 구독의 신용 카드 또는 청구서 지불 방법으로 요금이 청구 됩니다.
 4. 범위를 선택 합니다. 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다.
     - 구독에 대 한 사용량을 일치 하는 단일 구독-계획 할인 적용 됩니다.
-    - 공유-청구 컨텍스트에서 모든 구독에 있는 인스턴스를 일치 하는 계획 할인이 적용 됩니다. 기업 고객을 위한 청구 컨텍스트는 등록 및 등록에 대 한 모든 구독을 포함 합니다. 종 량 제 고객에 대 한 청구 컨텍스트는 계정 관리자가 만든 모든 종 량 제 구독입니다.
+    - 공유-청구 컨텍스트에서 모든 구독에 있는 인스턴스를 일치 하는 계획 할인이 적용 됩니다. 기업 고객을 위한 청구 컨텍스트는 등록 및 등록에 대 한 모든 구독을 포함 합니다. 종 량 제 가격 책정 고객과 개별 계획에 대 한 청구 컨텍스트는 계정 관리자가 만든 종 량 제 가격 책정 구독을 사용 하 여 모든 개별 계획 합니다.
 5. VM 크기 및 이미지 형식을 선택 하는 제품을 선택 합니다. 선택한 VM 크기에만에 할인이 적용 됩니다.
 6. 1 년 또는 3 년 기간을 선택 합니다.
 7. 청구 할인을 받을 수 있는 선불 VM 인스턴스의 수는 수량을 선택 합니다.

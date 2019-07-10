@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 서비스를 사용 하 여 MLflow를 사용 하는 방법
+title: Azure Machine Learning 서비스를 사용 하 여 사용 하 여 MLflow
 titleSuffix: Azure Machine Learning service
 description: 메트릭 및 Azure Machine Learning 서비스에 MLflow 라이브러리를 사용 하 여 아티팩트를 기록 하는 방법에 알아봅니다.
 services: machine-learning
@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144018"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461661"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스 (미리 보기)를 사용 하 여 MLflow를 사용 하는 방법
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스 (미리 보기)를 사용 하 여 사용 하 여 MLflow
 
 이 문서에서는 MLflow의 URI를 추적 및 로깅 API를 사용 하는 방법을 전체적으로 라고도 MLflow 추적을 추적 하 고 실험 메트릭 및 아티팩트를 기록할 Azure Machine Learning 서비스를 사용 하 여 프로그램 [Azure Machine Learning 서비스 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace)합니다. 사용 하는 경우 이미 MLflow 추적 실험에 대해, 작업 영역 중앙이 고 안전 하며 확장성이 뛰어난 교육 메트릭 및 모델을 저장할 위치를 제공 합니다.
 
 [MLflow](https://www.mlflow.org) 는 기계 학습 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리입니다. [MLFlow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) MLflow 로그 및 메트릭을 실행할 교육을 추적 하는의 구성 요소 이며 모델 아티팩트를 실험을 로컬로 실행 하는지 여부를 원격 컴퓨터나 가상 머신에서 계산 클러스터.
 ![azure machine learning 다이어그램을 사용 하 여 mlflow](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>MLflow 및 Azure Machine Learning 서비스 클라이언트를 비교 합니다.
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Azure Machine Learning 및 MLflow 클라이언트를 비교 합니다.
 
  아래 표에서 각 함수의 기능과 Azure Machine Learning 서비스를 사용할 수 있는 다른 클라이언트를 요약 합니다.
 

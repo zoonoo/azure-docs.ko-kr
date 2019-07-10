@@ -212,7 +212,7 @@ Data Lake Storage Gen1은 사전 변환 없이 모든 데이터를 원시 형식
 
 데이터에 대한 Data Lake Storage Gen1 컨테이너는 기본적으로 폴더 및 파일입니다. SDK, Azure Portal 및 Azure Powershell을 사용하여 저장된 데이터에서 작동합니다. 이러한 인터페이스 및 적절한 컨테이너를 사용하여 저장소에 데이터를 저장하는 한 모든 종류의 데이터를 저장할 수 있습니다. Data Lake Storage Gen1은 저장하는 데이터의 형식에 따라 데이터의 특수한 처리를 수행하지 않습니다.
 
-## <a name="DataLakeStoreSecurity">Data Lake Storage Gen1의 데이터 보안</a>
+## <a name="DataLakeStoreSecurity"></a>Data Lake Storage Gen1의 데이터 보안
 Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하고 데이터에 대한 액세스를 관리하기 위해 ACL(액세스 제어 목록)을 사용합니다.
 
 | **기능** | **설명** |

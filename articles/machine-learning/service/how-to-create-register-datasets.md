@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: b4c22caae86e20b8379db2b7feffb1ca82001239
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753161"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444040"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>만들기 및 Azure Machine Learning에서 데이터 집합 (미리 보기)에 액세스
 
@@ -150,5 +150,4 @@ dataset = workspace.datasets['dataset_crime']
 ## <a name="next-steps"></a>다음 단계
 
 * [탐색 하 고 데이터 집합 준비](how-to-explore-prepare-data.md)합니다.
-* [데이터 집합 정의의 수명 주기 관리](how-to-manage-dataset-definitions.md)합니다.
 * 데이터 집합을 사용 하 여 예제를 참조 하세요. 합니다 [샘플 notebook](https://aka.ms/dataset-tutorial)합니다.

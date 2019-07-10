@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152408"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449694"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사
 
@@ -125,7 +125,7 @@ Azure portal에서 데이터 팩터리로 이동 합니다. 선택 **작성자 �
 
     ![활동 출력 세부 정보 보기](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="do-an-incremental-copy-from-sap-bw-open-hub"></a>SAP BW 오픈 허브에서를 증분 복사를 수행 합니다.
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>SAP BW 오픈 허브에서 증분 복사
 
 > [!TIP]
 > 참조 [SAP BW 오픈 허브 커넥터 델타 추출 흐름](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) 를 Data Factory에서 SAP BW 오픈 허브 커넥터 SAP BW에서 증분 데이터를 복사 하는 방법에 대해 알아봅니다. 이 문서에서는 기본 커넥터 구성을 이해 하면을 수 있습니다.

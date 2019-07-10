@@ -40,7 +40,7 @@ ms.locfileid: "58137847"
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
+## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

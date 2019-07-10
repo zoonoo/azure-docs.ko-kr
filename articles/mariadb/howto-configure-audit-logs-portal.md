@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: c9ee106972cc78a08709d2ce55d2dfddc96edbf7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: 8fadcc8cb418063662df45d4134bef0578ffccda
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079237"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444812"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Azure portal에서 감사 로그 구성 및 액세스
 
@@ -40,7 +40,7 @@ ms.locfileid: "67079237"
 1. 업데이트를 **audit_log_enabled** 매개 변수를 합니다.
     ![감사 로그를 사용 하도록 설정](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. 업데이트 하 여 로깅할 이벤트를 선택 합니다 **audit_log_events** 매개 변수입니다.
+1. 선택 합니다 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 업데이트 하 여 기록할 합니다 **audit_log_events** 매개 변수.
     ![감사 로그 이벤트](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. 업데이트 하 여 로깅에서 제외할 MariaDB 사용자를 추가 합니다 **audit_log_exclude_users** 매개 변수입니다. 해당 MariaDB 사용자 이름을 제공 하 여 사용자를 지정 합니다.

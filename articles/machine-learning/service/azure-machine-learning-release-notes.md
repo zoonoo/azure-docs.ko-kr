@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065779"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514047"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -24,6 +24,57 @@ ms.locfileid: "67065779"
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+
+## <a name="2019-07-01"></a>2019-07-01
+
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning 데이터 준비 SDK v1.1.7
+
+일부 고객의 Azure Databricks를 사용 하 여 문제가 야기 했습니다 복구 성능을 향상 하는 변경. Azure Databricks에서 문제가 발생 하는 경우에 다음 방법 중 하나를 사용 하 여 1.1.7 버전으로 업그레이드할 수 있습니다.
+1. 업그레이드 하려면이 스크립트를 실행 합니다. `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. 최신 데이터 준비 SDK 버전을 설치 하는 클러스터를 다시 만듭니다.
+
+## <a name="2019-06-25"></a>2019-06-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning Python v1.0.45 for SDK
+
++ **새로운 기능**
+  + Azureml 설명 모델 패키지의 설명 모방 하기 위해 의사 결정 트리 서로게이트 모델 추가
+  + 추론 이미지에 설치할 CUDA 버전을 지정할 수 있습니다. CUDA 9.0, 9.1, 및 10.0에 대 한 지원.
+  + 기본 이미지에 제공 됩니다. Azure ML 학습에 대 한 정보 [Azure ML 컨테이너 GitHub 리포지토리](https://github.com/Azure/AzureML-Containers) 고 [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + 파이프라인 일정에 대 한 추가 CLI를 지원 합니다. 자세한 내용은 "az ml 파이프라인-h" 실행
+  + AKS 웹 서비스 배포 구성 및 CLI에 사용자 지정 Kubernetes 네임 스페이스 매개 변수를 추가 합니다.
+  + 모든 파이프라인 단계에 대 한 사용 되지 않는 hash_paths 매개 변수
+  + Model.register 이제 여러 개별 파일을 단일 모델로 사용 하 여 등록을 지원 합니다 `child_paths` 매개 변수입니다.
+  
++ **미리 보기 기능**
+    + 점수 매기기 explainers 수 이제 필요에 따라 저장 conda 하 고 보다 안정적인 직렬화 및 역직렬화에 대 한 정보를 pip입니다.
+    + 자동 기능 선택기에 대 한 버그 수정입니다.
+    + 새 api에 새 구현에 의해 노출 되는 패치 버그 mlflow.azureml.build_image를 업데이트 합니다.
+
++ **주요 변경 내용**
+
++ **버그 수정 및 향상 된 기능**
+  + Azureml 코어에서 제거 paramiko 종속성입니다. 레거시 계산 대상에 대 한 추가 사용 중단 경고 메서드를 연결합니다.
+  + Run.create_children의 성능 향상
+  + 이진 분류자를 사용 하 여 모방 설명 해결할 확률 순서 교사 확률 shap 값 크기 조정에 사용 되는 경우
+  + 향상 된 오류 처리 및 자동화 된 machine learning 위한 메시지입니다. 
+  + 자동화 된 machine learning 위한 반복 시간 제한 문제를 해결 했습니다.
+  + 자동화 된 machine learning 위해 시계열 변환 성능이 향상 되었습니다.
+
+## <a name="2019-06-24"></a>2019-06-24
+
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning 데이터 준비 SDK v1.1.6
+
++ **새로운 기능**
+  + 추가 되는 상위 값에 대 한 요약 함수 (`SummaryFunction.TOPVALUES`) 및 하위 값 (`SummaryFunction.BOTTOMVALUES`).
+
++ **버그 수정 및 향상 된 기능**
+  + 성능이 크게 향상 될 `read_pandas_dataframe`합니다.
+  + 시키는 버그가 `get_profile()` 실패 이진 파일을 가리키는 데이터 흐름에서 합니다.
+  + 노출 `set_diagnostics_collection()` 프로그래밍 방식으로 설정/해제 원격 분석 컬렉션의 수 있도록 합니다.
+  + 동작 변경 `get_profile()`합니다. 최소, 평균, 표준, 및 합계 Pandas의 동작을 사용 하 여 정렬 이며, 이제 NaN 값 무시 됩니다.
+
 
 ## <a name="2019-06-10"></a>2019-06-10
 
@@ -38,7 +89,6 @@ ms.locfileid: "67065779"
     + 예측에 대 한 STL featurizer
     + KMeans 클러스터링 비우기 기능에 대 한 사용 가능
   + AmlCompute 할당량 승인 빠르게 되었습니다! 이제 임계값 내에서 할당량 요청을 승인 하는 프로세스를 자동화 된 것입니다. 할당량의 작동 방식에 대 한 자세한 내용은 알아봅니다 [할당량을 관리 하는 방법](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas)합니다.
- 
 
 + **미리 보기 기능**
     + 와 통합 [MLflow](https://mlflow.org) azureml mlflow 패키지를 통해 추적 1.0.0 ([예제 notebook](https://aka.ms/azureml-mlflow-examples)).

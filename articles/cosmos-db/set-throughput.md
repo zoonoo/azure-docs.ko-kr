@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165023"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561388"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -98,7 +98,6 @@ Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량
 |---------|---------|---------|
 |최소 RU |400(처음 네 개의 컨테이너 후 각 추가 컨테이너에는 초당 최소 100RU가 필요합니다.) |400|
 |컨테이너당 최소 RU|100|400|
-|스토리지 1GB를 사용하는 데 필요한 최소 RU|40|40|
 |최대 RU|데이터베이스에서 무제한|컨테이너에서 무제한|
 |특정 컨테이너에 할당 또는 제공되는 RU|보장되지 않습니다. 지정된 컨테이너에 할당되는 RU는 속성에 따라 다릅니다. 속성은 처리량, 워크로드 분산 및 컨테이너 수를 공유하는 컨테이너 파티션 키의 선택 항목일 수 있습니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|
 |컨테이너의 최대 스토리지|무제한.|무제한.|

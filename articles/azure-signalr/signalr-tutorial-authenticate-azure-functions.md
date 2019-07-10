@@ -367,7 +367,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 ### <a name="deploy-function-app-to-azure"></a>Azure에 함수 앱 배포
 
-1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: Function App에 배포**를 선택합니다.
+1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: 함수 앱에 배포**를 선택합니다.
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 

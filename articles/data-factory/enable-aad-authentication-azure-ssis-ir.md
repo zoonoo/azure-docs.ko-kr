@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593806"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490065"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -146,17 +146,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance를 위한 Azure AD 인증 구성
 
-1.   Azure Portal의 왼쪽 탐색 영역에서 **모든 서비스** -> **SQL 서버**를 선택합니다.
-
-2.   Azure AD 인증을 사용하여 구성할 Managed Instance를 선택합니다.
-
-3.   블레이드의 **설정** 섹션에서 **Active Directory 관리자**를 선택합니다.
-
-4.   명령 모음에서 **관리자 설정**을 선택합니다.
-
-5.   서버 관리자로 만들 Azure AD 사용자 계정을 선택한 다음, **선택**을 선택합니다.
-
-6.   명령 모음에서 **저장**을 선택합니다.
+단계를 따릅니다 [관리 되는 인스턴스에 대 한 Azure Active Directory 관리자 프로 비전](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance)합니다.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>ADF에 대한 관리 ID를 Azure SQL Database Managed Instance의 사용자로 추가
 
@@ -164,7 +154,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 
 1.  SSMS를 시작합니다.
 
-2.  SQL/Active Directory 관리자 계정을 사용하여 Managed Instance에 연결합니다.
+2.  SQL Server 계정을 사용 하는 관리 되는 인스턴스에 연결 하는 **sysadmin**합니다. Azure SQL Database Managed Instance에 대 한 Azure AD 서버 주체 (로그인) 조지아 되 면 제거 될 임시 제한 사항 Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 다음 오류가 발생합니다. Msg 15247, Level 16, 상태 1, 줄 1 사용자에이 작업을 수행할 권한이 없습니다.
 
 3.  **개체 탐색기**에서 **데이터베이스** -> **시스템 데이터베이스** 폴더를 확장합니다.
 

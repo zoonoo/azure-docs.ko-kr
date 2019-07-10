@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 903b4f1ea1484aec827c4b2d54c8dd8a9dd69d8f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519304"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509531"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 작업 만들기 및 실행
 
@@ -106,4 +106,4 @@ Azure IoT Central 응용 프로그램에서 작업을 만드는 방법, 배웠�
 
 - [디바이스 설정 사용](howto-use-device-sets.md)
 - [디바이스 관리](howto-manage-devices.md)
-- [장치 템플릿 버전 관리](howto-version-devicetemplate.md)
+- [장치 템플릿 버전 관리](howto-version-device-template.md)

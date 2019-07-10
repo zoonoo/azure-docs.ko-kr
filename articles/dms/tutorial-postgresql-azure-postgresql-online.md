@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461527"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
@@ -24,6 +24,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
+>
 > * pg_dump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
 > * Azure Database Migration Service의 인스턴스를 만듭니다.
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
@@ -65,11 +66,11 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 * Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 제공합니다.
 * CLI를 호출하는 방법은 두 가지가 있습니다.
 
-    * Azure Portal 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
+  * Azure Portal 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
 
        ![Azure Portal의 Cloud Shell 단추](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * CLI를 로컬로 설치하고 실행합니다. CLI 2.0은 Azure 리소스를 관리하기 위한 명령줄 도구입니다.
+  * CLI를 로컬로 설치하고 실행합니다. CLI 2.0은 Azure 리소스를 관리하기 위한 명령줄 도구입니다.
 
        CLI를 다운로드하려면 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 문서에 제시된 지침을 참조하세요. 이 문서는 또한 CLI 2.0을 지원하는 플랫폼을 나열합니다.
 
@@ -77,9 +78,9 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 * postgresql.config 파일의 논리적 복제를 활성화하고 다음 매개 변수를 설정합니다.
 
-    * wal_level = **logical**
-    * max_replication_slots = [number of slots], **5슬롯**으로 설정하는 것이 좋습니다.
-    * max_wal_senders =[동시 작업 수] - max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. **10작업**으로 설정하는 것이 좋습니다.
+  * wal_level = **logical**
+  * max_replication_slots = [number of slots], **5슬롯**으로 설정하는 것이 좋습니다.
+  * max_wal_senders =[동시 작업 수] - max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. **10작업**으로 설정하는 것이 좋습니다.
 
 ## <a name="migrate-the-sample-schema"></a>샘플 스키마 마이그레이션
 
@@ -108,15 +109,14 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    예: 
+    예:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
 4. 스키마에 외래 키가 있으면 마이그레이션의 초기 로드 및 지속적인 동기화가 실패합니다. PgAdmin 또는 psql에서 다음 스크립트를 실행하여 드롭 외래 키 스크립트를 추출하고 대상(Azure Database for PostgreSQL)에서 외래 키 스크립트를 추가합니다.
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
 
@@ -228,7 +228,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    예: 
+    예:
 
     ```
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -474,7 +474,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     az dms project task cutover -h
     ```
 
-    예: 
+    예:
 
     ```
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --database-name Inventory

@@ -8,25 +8,26 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116196"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448563"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
 Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효과는 정책 규칙이 일치되는 것으로 평가될 때 어떻게 되는지 결정합니다. 효과는 새 리소스, 업데이트된 리소스 또는 기존 리소스인 경우 서로 다르게 동작합니다.
 
-현재 정책 정의에서 지원되는 6가지 효과가 있습니다.
+이러한 효과 정책 정의에서 현재 지원 됩니다.
 
-- 추가
-- 감사
-- AuditIfNotExists
-- 거부
-- DeployIfNotExists
-- 사용 안 함
+- [추가](#append)
+- [감사](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [거부](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [사용 안 함](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (미리 보기)
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
@@ -38,6 +39,8 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - 그런 다음, 리소스 공급 기업으로 가는 요청 전에 **감사**가 평가됩니다.
 
 리소스 공급 기업이 성공 코드를 반환하면 **AuditIfNotExists** 및 **DeployIfNotExists**가 추가 규정 준수 로깅 또는 작업이 필요한지 확인하기 위해 평가합니다.
+
+계산 순서에 관계 없이 현재 없습니다 합니다 **EnforceRegoPolicy** 적용 합니다.
 
 ## <a name="disabled"></a>사용 안 함
 
@@ -332,6 +335,58 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
                     }
                 }
             }
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+정책 정의 사용 하 여이 효과가 사용 되는지 *모드* 의 `Microsoft.ContainerService.Data`합니다. 입학 허가 제어 규칙을 사용 하 여 정의 전달 하는 것 [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 하 [열려 정책 에이전트](https://www.openpolicyagent.org/) (불투명)에서 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)합니다.
+
+> [!NOTE]
+> [Kubernetes에 대 한 azure Policy](rego-for-aks.md) 공개 미리 보기로 제공 되며만 기본 제공 정책 정의 지원 합니다.
+
+### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
+
+정책 에이전트 열기 입학 허가 컨트롤러 실시간 클러스터에서 새 요청을 평가합니다.
+5 분 마다 클러스터의 전체 검색이 완료 되 고 Azure Policy에는 결과가 보고 합니다.
+
+### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 속성
+
+합니다 **세부 정보** EnforceRegoPolicy 효과의 속성이 Rego 입학 허가 제어 규칙을 설명 하는 하위 속성입니다.
+
+- **policyId** [required]
+  - 고유한 이름을 Rego 입학 허가 제어 규칙을 매개 변수로 전달 합니다.
+- **policy** [required]
+  - Rego 입학 허가 제어 규칙의 URI를 지정 합니다.
+- **policyParameters** [optional]
+  - 모든 매개 변수 및 rego 정책에 전달할 값을 정의 합니다.
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
+
+예제: AKS에서 지정 된 컨테이너 이미지만 수 있도록 허용 제어 규칙을 rego입니다.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
         }
     }
 }

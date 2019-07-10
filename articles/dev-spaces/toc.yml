@@ -9,14 +9,18 @@
       items:
         - name: 팀 개발
           href: quickstart-team-development.md
-        - name: Java(VS 코드 & CLI)
+        - name: 애플리케이션 실행
+          href: quickstart-cli.md
+        - name: Dockerfile을 사용하여 애플리케이션 실행
+          href: quickstart-cli-dockerfile.md
+        - name: VS Code를 사용하여 Java 실행 및 디버그
           href: quickstart-java.md
-        - name: .NET Core(VS 코드 & CLI)
+        - name: VS Code를 사용하여 .NET Core 실행 및 디버그
           href: quickstart-netcore.md
-        - name: .NET Core(Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js(VS 코드 & CLI)
+        - name: VS Code를 사용하여 Node.js 실행 및 디버그
           href: quickstart-nodejs.md
+        - name: Visual Studio를 사용하여 .NET Core 실행 및 디버그
+          href: quickstart-netcore-visualstudio.md
     - name: 자습서
       items:
         - name: Java(VS 코드 & CLI)
@@ -55,6 +59,8 @@
       items:
         - name: Dev Spaces의 작동 원리
           href: how-dev-spaces-works.md
+        - name: VS Code가 Dev Spaces에서 작동하는 방법
+          href: how-vs-code-works-with-dev-spaces.md
     - name: 방법
       items:
         - name: Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
@@ -71,6 +77,8 @@
           href: how-to/upgrade-tools.md
         - name: Azure Dev Spaces로 CI/CD 사용
           href: how-to/setup-cicd.md
+        - name: Jenkins용 Azure Dev Spaces 플러그 인 사용
+          href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Azure Dev Spaces에 대한 비즈니스 연속성 및 재해 복구
           href: how-to/dev-spaces-business-continuity.md
     - name: 문제 해결

@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61401189"
 ---
 # <a name="analyze-method"></a>분석 메서드
 
@@ -59,7 +59,7 @@ result | object | 분석기 결과
 
 ### <a name="tokens-response-json"></a>토큰 응답(JSON)
 
-이름 | 형식 | 설명
+Name | 형식 | 설명
 -----|------|-------------
 result | 문장 개체의 목록 | 텍스트 내에서 식별된 문장 경계 |
 result[x].Offset | int | 각 문장의 시작 문자 오프셋 |
