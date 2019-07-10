@@ -22,11 +22,13 @@ ms.locfileid: "60995644"
 
 이 문서를 사용하여 Custom Speech Service에서 음성 서비스로 마이그레이션합니다.
 
-Custom Speech Service는 이제 Speech Service의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용하려면 음성 서비스로 전환합니다.
+
+Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용하도록 음성 서비스로 전환합니다.
+
 
 ## <a name="migration-for-new-customers"></a>신규 고객에 대한 마이그레이션
 
-가격 책정 모델은 더 간단합니다. Speech Service에 대한 시간 기반 가격 책정 모델을 사용합니다.  
+가격 책정 모델은 더 간단합니다. 음성 서비스에 대한 시간 기반 가격 책정 모델을 사용합니다.  
 
 1. 애플리케이션을 사용할 수 있는 각 지역에서 Azure 리소스를 만듭니다. Azure 리소스 이름이 **Speech**입니다. 별도 리소스를 만드는 대신 동일한 지역에서 다음 서비스에 대해 단일 Azure 리소스를 사용할 수 있습니다.
 
