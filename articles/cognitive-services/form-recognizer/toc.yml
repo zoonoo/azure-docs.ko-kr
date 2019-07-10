@@ -35,6 +35,8 @@
         - name: 컨테이너 구성
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-form-recognizer-on-container-instances.md
 - name: 참고 자료
   items:
     - name: Form Recognizer API

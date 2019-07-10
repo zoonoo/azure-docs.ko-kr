@@ -49,6 +49,14 @@
       items:
         - name: Single Sign-On이란?
           href: what-is-single-sign-on.md
+        - name: 다중 테넌트 애플리케이션용 SSO 사용
+          href: isv-sso-content.md
+        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
+          href: isv-tenant-multi-tenant-app.md
+        - name: 다중 테넌트 페더레이션 선택
+          href: isv-choose-multi-tenant-federation.md
+        - name: 다중 테넌트 애플리케이션용 설명서 만들기
+          href: isv-create-sso-documentation.md
         - name: Single Sign-On 배포 계획
           href: plan-sso-deployment.md
     - name: 한 번 클릭 SSO
@@ -73,6 +81,20 @@
           href: tenant-restrictions.md
         - name: SAML 토큰 암호화 구성(미리 보기)
           href: howto-saml-token-encryption.md
+    - name: SSO(Single sign-on)
+      items:
+        - name: Single Sign-On이란?
+          href: what-is-single-sign-on.md
+        - name: Single Sign-On 배포 계획
+          href: plan-sso-deployment.md
+        - name: 다중 테넌트 애플리케이션에서 Single Sign-On 사용
+          href: isv-sso-content.md
+        - name: 올바른 SSO 페더레이션 프로토콜 선택
+          href: isv-choose-multi-tenant-federation.md
+        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
+          href: isv-tenant-multi-tenant-app.md
+        - name: 애플리케이션용 SSO 설명서 만들기 및 게시
+          href: isv-create-sso-documentation.md
     - name: 최종 사용자 포털
       href: end-user-experiences.md
 - name: 방법 가이드

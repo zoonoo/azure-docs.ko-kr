@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: 관리되는 인스턴스 기능
           href: sql-database-managed-instance.md
+        - name: 관리형 인스턴스 FAQ
+          href: sql-database-managed-instance-faq.md
         - name: 관리 API 참조
           href: sql-database-managed-instance-create-manage.md
         - name: 리소스 한계

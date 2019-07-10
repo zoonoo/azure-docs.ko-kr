@@ -8,23 +8,31 @@ metadata:
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 04/29/2019
+  ms.date: 07/08/2019
   ms.author: zarhoads
-  manager: jeconnoc
+  manager: gwallace
 abstract:
   description: Azure Dev Spaces를 사용하면 종속성을 복제하거나 모방할 필요 없이 Azure Kubernetes Service(AKS)에서 실행되는 전체 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Azure Dev Spaces는 AKS에서 바로 컨테이너를 실행하고 디버그할뿐만 아니라 공유 Azure Kubernetes Service(AKS) 클러스터에서 팀과 협업하는 부담과 복잡성을 줄여줍니다. 이 빠른 시작을 사용하여 Azure Dev Spaces를 사용하는 방법에 대해 알아봅니다.
 sections:
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: AKS에서 팀 협업을 위해 Azure Dev Spaces를 사용하는 방법에 대해 알아봅니다.
+        text: AKS에서 Azure Dev Spaces를 사용하는 방법을 알아봅니다.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI를 사용하여 팀 개발
+            text: 팀의 일원으로 개발
             href: quickstart-team-development.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: 애플리케이션 실행
+            href: quickstart-cli.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Dockerfile을 사용하여 애플리케이션 실행
+            href: quickstart-cli-dockerfile.md
       - type: paragraph
         text: Azure Dev Spaces로 AKS에서 반복적으로 개발하고 디버그하는 방법에 대해 알아봅니다.
       - type: list

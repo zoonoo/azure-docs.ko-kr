@@ -25,6 +25,8 @@
   items:
     - name: 인증 방법
       href: concept-authentication-methods.md
+    - name: 암호 없는 인증
+      href: concept-authentication-passwordless.md
     - name: 결합 등록
       href: concept-registration-mfa-sspr-combined.md
     - name: 암호 재설정
@@ -131,8 +133,12 @@
       href: howto-password-smart-lockout.md
     - name: 비즈니스용 Windows Hello
       href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: 암호 없는 휴대폰 로그인
-      href: howto-authentication-phone-sign-in.md
+    - name: 암호 없음
+      items:
+        - name: 암호 없음 사용
+          href: howto-authentication-passwordless-enable.md
+        - name: 암호 없는 휴대폰 로그인
+          href: howto-authentication-phone-sign-in.md
     - name: 인증서 기반 인증
       items:
         - name: 인증서 인증 시작

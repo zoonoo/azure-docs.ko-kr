@@ -70,10 +70,10 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: 컨테이너 구성
           href: text-analytics-resource-container-config.md
-        - name: 컨테이너 인스턴스(ACI) 사용
+        - name: 컨테이너 인스턴스 사용
           items:
             - name: 정서 분석
-              href: how-tos/use-sentiment-analysis-on-aci.md
+              href: how-tos/deploy-sentiment-analysis-on-container-instances.md
         - name: Kubernetes 서비스(AKS) 사용
           items:
             - name: 언어 검색
