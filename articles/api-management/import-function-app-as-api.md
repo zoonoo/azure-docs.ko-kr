@@ -111,7 +111,7 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
 
     ![함수 앱에서 추가](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization">권한 부여</a>
+## <a name="authorization"></a> 권한 부여
 
 Azure 함수 앱 가져오기에서 자동으로 생성되는 항목은 다음과 같습니다.
 
