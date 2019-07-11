@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5d0c8b458f11076ea87d74eae3eecd72fb37eb40
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302377"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621520"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예: 
+클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예:
 - Windows에서: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
 - Mac에서: 키 집합 앱을 사용합니다.
 - Ubuntu에서: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.
