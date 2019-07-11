@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: bf07e6a2daac7889e11df2cb5d689daef44266f9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465648"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602887"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>빠른 시작: C++용 Speech SDK를 사용하여 음성 번역
 
@@ -42,7 +42,7 @@ ms.locfileid: "65465648"
 
     [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp#code)]
 
-1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 

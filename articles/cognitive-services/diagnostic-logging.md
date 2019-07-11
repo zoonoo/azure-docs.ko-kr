@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155749"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657675"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Cognitive Services에 대 한 진단 로깅을 사용 하도록 설정
 
 이 가이드는 Azure 인식 서비스에 대 한 진단 로깅을 사용 하도록 설정 하기 위한 단계별 지침을 제공 합니다. 이러한 로그는 문제 식별 및 디버깅에 사용 되는 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 계속 하기 전에 Azure 계정이 있어야 Cognitive 서비스가 하나 이상에 대 한 구독을 사용 하 여 같은 [Bing Web Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview)를 [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), 또는 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 진단 로깅을 사용 하려면 해야 로그 데이터를 저장할 위치 합니다. 이 자습서에서는 Azure Storage 및 Log Analytics를 사용 합니다.
 
@@ -28,14 +28,14 @@ ms.locfileid: "67155749"
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -에 대 한 Azure 리소스에서 생성 된 원시 로그를 분석 하는 유연한 로그 검색 및 분석 도구입니다.
 
 > [!NOTE]
-> 추가 구성 옵션을 사용할 수 있습니다. 자세한 내용은 참조 하세요 [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)합니다.
+> 추가 구성 옵션을 사용할 수 있습니다. 자세한 내용은 참조 하세요 [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)합니다.
 
 ## <a name="enable-diagnostic-log-collection"></a>진단 로그 컬렉션 활성화  
 
 Azure portal을 사용 하 여 로깅을 진단 사용 하 여 시작 해 보겠습니다.
 
 > [!NOTE]
-> PowerShell 또는 Azure CLI를 사용 하 여이 기능을 사용 하려면에 제공 된 지침을 사용 하 여 [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)합니다.
+> PowerShell 또는 Azure CLI를 사용 하 여이 기능을 사용 하려면에 제공 된 지침을 사용 하 여 [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings)합니다.
 
 1. Azure Portal로 이동합니다. 그런 다음 찾습니다 하 고 Cognitive Services 리소스를 선택 합니다. 예를 들어 Bing 웹 검색을 구독 합니다.   
 2. 그런 다음 왼쪽 탐색 메뉴에서 찾은 **모니터링** 선택한 **진단 설정**합니다. 이 화면에는이 리소스에 대 한 모든 이전에 만든된 진단 설정을 포함합니다.
@@ -43,7 +43,7 @@ Azure portal을 사용 하 여 로깅을 진단 사용 하 여 시작 해 보겠
 4. 설정에 대 한 이름을 입력 합니다. 선택한 **저장소 계정에 보관** 하 고 **log Analytics에 보내기**합니다.
 5. 구성 하는 메시지가 표시 되 면 저장소 계정 및 OMS 작업 영역을 사용 하 여 진단 로그를 저장 하려면 선택 합니다. **참고**: 저장소 계정 또는 OMS 작업 영역에 없는 경우 새로 만들려면 지시를 따릅니다.
 6. 선택 **감사**하십시오 **RequestResponse**, 및 **AllMetrics**합니다. 진단 로그 데이터의 보존 기간을 설정 합니다. 보존 정책이 0으로 설정 되 면 해당 로그 범주에 대 한 이벤트는 무기한으로 저장 됩니다.
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 로깅 데이터를 쿼리 및 분석 전에 최대 2 시간이 걸릴 수 있습니다. 표시 되지 않는 경우 아무 것도 바로 하므로 걱정 하지 마세요.
 

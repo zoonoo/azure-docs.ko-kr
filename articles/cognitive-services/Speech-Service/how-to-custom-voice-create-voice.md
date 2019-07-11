@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2889cef01345f00d1669e7549a2fe25ac07b97
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410708"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603143"
 ---
 # <a name="create-a-custom-voice"></a>사용자 지정 음성 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "65410708"
 
 다음 표에서는 가져온 데이터 세트에 대한 처리 상태를 보여 줍니다.
 
-| 시스템 상태 | 의미 |
+| State | 의미 |
 | ----- | ------- |
 | 처리 중 | 데이터 집합을 받아 처리 하는 중입니다. |
 | Succeeded | 데이터 집합을 확인 하 고 이제 음성 모델을 만드는 데 사용할 수 있습니다. |
@@ -64,7 +64,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 1.  이동할 **text to speech > 사용자 지정 음성 > 교육**합니다.
 
-2.  클릭 **모델 학습**합니다.
+2.  **모델 학습**을 클릭합니다.
 
 3.  그런 다음 입력을 **이름** 및 **설명** 이 모델을 식별할 수 있도록 합니다.
 
@@ -82,11 +82,11 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 5.  클릭 **학습** 음성 모델을 만들기 시작 합니다.
 
-학습 테이블 모델을 새로 만든이에 해당 하는 새 항목을 표시 합니다. 테이블에는 상태가 표시 됩니다. 처리, 성공, 실패 합니다.
+학습 표는 새롭게 생성된 모델에 해당하는 새 항목을 표시합니다. 표에는 또한 다음과 같은 상태가 표시됩니다: 처리 중, 성공, 실패.
 
 표시 되는 상태는 다음과 같이 음성 모델에 데이터 집합을 변환 하는 프로세스를 반영 합니다.
 
-| 시스템 상태 | 의미 |
+| State | 의미 |
 | ----- | ------- |
 | 처리 중 | 음성 모델을 만드는 중입니다. |
 | Succeeded | 음성 모델에 만들고 배포할 수 있습니다. |

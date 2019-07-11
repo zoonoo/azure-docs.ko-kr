@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954644"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604900"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -33,7 +32,7 @@ ms.locfileid: "65954644"
 
 사용자 지정 음성 녹음 프로젝트에는 다음 네 가지 기본 역할이 있습니다.
 
-Role|목적
+역할|목적
 -|-
 성우        |이 성우의 음성이 사용자 지정 음성의 기초가 됩니다.
 녹음 엔지니어  |녹음의 기술적 측면을 감독하고 녹음 장비를 작동합니다.

@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444878"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657723"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 Interface(CLI)를 사용 하 여 Cognitive Services 계정 만들기
 
 이 빠른 시작에서는 Azure Cognitive Services에 등록 하 고 단일 서비스 또는 다중 서비스 구독에 계정을 만들어야 하는 방법을 알아봅니다 사용 합니다 [Azure 명령줄 Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)합니다. 이러한 서비스는 Azure에서 표시 됩니다 [리소스](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), 하나 이상의 Azure Cognitive Services Api에 연결할 수 있도록 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 유효한 Azure 구독. 평가판 [계정을 만들 수 있습니다](https://azure.microsoft.com/free/).
 * [Azure 명령줄 Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -43,7 +43,7 @@ az login
 
 ### <a name="choose-your-resource-group-location"></a>리소스 그룹 위치 선택
 
-리소스를 만들려면 해야 사용할 수 있는 Azure 위치 중 하나에 구독에 대 한 합니다. 사용 하 여 사용 가능한 위치 목록을 검색할 수 있습니다 합니다 [위치 목록 az 계정](/cli/azure/account#az_account_list) 명령입니다. 대부분의 Cognitive Services는 여러 위치에서 액세스할 수 있습니다. 사용자에 게 가장 가까운 하나를 선택 하거나 서비스에 사용할 수 있는 위치를 참조 하세요.
+리소스를 만들려면 해야 사용할 수 있는 Azure 위치 중 하나에 구독에 대 한 합니다. 사용 하 여 사용 가능한 위치 목록을 검색할 수 있습니다 합니다 [위치 목록 az 계정](/cli/azure/account#az-account-list-locations) 명령입니다. 대부분의 Cognitive Services는 여러 위치에서 액세스할 수 있습니다. 사용자에 게 가장 가까운 하나를 선택 하거나 서비스에 사용할 수 있는 위치를 참조 하세요.
 
 > [!IMPORTANT]
 > * 필요할 때 Azure Cognitive Services를 호출할 때 해당 Azure 위치를 기억 합니다.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-Azure 위치를 설정한 후 새 리소스 그룹을 사용 하 여 Azure CLI 만들기 합니다 [az 그룹 만들기](/cli/azure/group#az_group_create) 명령입니다.
+Azure 위치를 설정한 후 새 리소스 그룹을 사용 하 여 Azure CLI 만들기 합니다 [az 그룹 만들기](/cli/azure/group#az-group-create) 명령입니다.
 
 아래 예제에서는 azure 위치를 바꿀 `westus2` 구독에 사용할 수 있는 Azure 위치 중 하나를 사용 하 여 합니다.
 
@@ -170,7 +170,7 @@ az login
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
 * [Azure Cognitive Services 란?](Welcome.md)

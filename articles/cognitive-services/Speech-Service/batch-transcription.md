@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311835"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606735"
 ---
 # <a name="why-use-batch-transcription"></a>일괄 처리 기록을 사용하는 이유
 
 일괄 처리 기록은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 기록하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 기록을 수신할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="subscription-key"></a>구독 키
 
@@ -56,9 +55,9 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 | MP3 | PCM | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
 | OGG | OPUS | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
 
-스테레오 오디오 스트림의 경우 Batch Transcription API는 기록하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 이 샘플 요청에는 욕설 필터링, 문장 부호 및 단어 수준 타임스탬프에 대한 속성이 포함되어 있습니다. 
+스테레오 오디오 스트림의 경우 Batch Transcription API는 기록하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 이 샘플 요청에는 욕설 필터링, 문장 부호 및 단어 수준 타임스탬프에 대한 속성이 포함되어 있습니다.
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 구성 매개 변수는 JSON으로 제공됩니다.
 
@@ -93,11 +92,11 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
  | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
  | `AddDiarization` | Mono 채널이 두 음성 포함 될 예상 되는 입력에 해당 diarization alalysis 실행 되도록 지정 합니다. 허용 되는 값은 `true` diarization 그러면 및 `false` (기본값) 사용 하지 않도록 합니다. 또한 필요 `AddWordLevelTimestamps` 설정을 true로 합니다.|
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 
 일괄 처리 기록은 오디오를 읽고 기록을 저장소에 쓰기 위해 [Azure Blob 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)를 지원합니다.
 
-## <a name="webhooks"></a>Webhook 
+## <a name="webhooks"></a>webhooks
 
 기록 상태에 대한 폴링은 가장 효율적이거나 최상의 사용자 환경을 제공하지 못할 수 있습니다. 상태를 조사하기 위해, 장기 실행 기록 작업이 완료되었을 때 클라이언트에 알리도록 콜백을 등록할 수 있습니다.
 
@@ -123,7 +122,7 @@ Diarization은 스피커의 오디오 부분을 분리 하는 프로세스입니
 }
 ```
 
-위의 요청에 매개 변수를 나타내는 ' 설정 ' 단어 수준 타임 스탬프도 해야 합니다. 
+위의 요청에 매개 변수를 나타내는 ' 설정 ' 단어 수준 타임 스탬프도 해야 합니다.
 
 해당 하는 오디오 번호로 식별 스피커 포함 됩니다 (스피커 취급할 수 있도록 두 개의 음성 지원 현재 ' 발표자 1 ' 및 ' 발표자 2') 그 다음에 출력이 기록 합니다.
 
@@ -134,7 +133,7 @@ Diarization은 스피커의 오디오 부분을 분리 하는 프로세스입니
 
 ## <a name="sentiment"></a>감정
 
-감정은 일괄 처리 기록 API의 새로운 기능이자 호출 센터 도메인의 중요한 기능입니다. 고객은 다음 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다. 
+감정은 일괄 처리 기록 API의 새로운 기능이자 호출 센터 도메인의 중요한 기능입니다. 고객은 다음 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다.
 
 1.  고객 만족도에 대한 통찰력 얻기
 2.  에이전트(호출을 수행하는 팀)의 성능에 대한 통찰력 확보
@@ -187,7 +186,7 @@ JSON 출력 예제는 아래와 같습니다.
 
 전체 샘플에서 사용할 수는 [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples) 내에서 `samples/batch` 하위 디렉터리입니다.
 
-사용자 지정 어쿠스틱 또는 언어 모델을 사용하려는 경우 사용자 구독 정보, 서비스 지역, 기록할 오디오 파일을 가리키는 SAS URI 및 모델 ID를 사용하여 샘플 코드를 사용자 지정해야 합니다. 
+사용자 지정 어쿠스틱 또는 언어 모델을 사용하려는 경우 사용자 구독 정보, 서비스 지역, 기록할 오디오 파일을 가리키는 SAS URI 및 모델 ID를 사용하여 샘플 코드를 사용자 지정해야 합니다.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

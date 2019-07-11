@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65026787"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721746"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>잉크 인식기 API에 대 한 언어 및 지역 지원
 
@@ -39,14 +39,14 @@ ms.locfileid: "65026787"
 | 네덜란드어(네덜란드)                        |     `nl-NL`     |
 | 영어(오스트레일리아)                        |     `en-AU`     |
 | 영어(캐나다)                           |     `en-CA`     |
-| 영어(영국)                   |     `en-GB`     |
+| English (United Kingdom)                   |     `en-GB`     |
 | 영어(인도)                            |     `en-IN`     |
-| 영어(미국)                    |     `en-US`     |
+| 영어 (미국)                    |     `en-US`     |
 | 핀란드어                                    |     `fi-FI`     |
-| 프랑스어(프랑스)                            |     `fr-FR`     |
+| 프랑스어 (프랑스)                            |     `fr-FR`     |
 | 갈리시아어                                   |     `gl-ES`     |
 | 독일어 (스위스)                      |     `de-CH`     |
-| 독일어(독일)                           |     `de-DE`     |
+| 독일어 (독일)                           |     `de-DE`     |
 | 그리스어                                      |     `el-GR`     |
 | 힌디어                                      |     `hi-IN`     |
 | 인도네시아어                                 |     `id-ID`     |
@@ -89,7 +89,7 @@ ms.locfileid: "65026787"
 | Xhosa                                      |     `xh-ZA`     |
 | 줄루어                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [Ink Recognizer API란?](overview.md)
 * [디지털 잉크 스트로크 잉크 인식기 API 보내기](concepts/send-ink-data.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 3a9a50d1809461791c968113a8237cf8670c521f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 120dd4a6a342732f3e07d87786009779d23be829
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484937"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606418"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -56,7 +56,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-* C#: 최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
+* C#:  최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.6.0" />
@@ -66,9 +66,9 @@ sudo apt-get install libssl1.0.2 libasound2
 
 * C++: SDK를 [.tar package](https://aka.ms/csspeech/linuxbinary)로 다운로드하고 원하는 디렉터리에 파일의 압축을 풉니다. 다음 표는 SDK 폴더 구조를 보여줍니다.
 
-  |Path|설명|
+  |경로|설명|
   |-|-|
-  |`license.md`|License|
+  |`license.md`|라이선스|
   |`ThirdPartyNotices.md`|타사 알림|
   |`include`|C 및 C++용 헤더 파일|
   |`lib/x64`|애플리케이션과 연결할 기본 x64 라이브러리|

@@ -3,17 +3,17 @@ title: 포함 파일
 description: 포함 파일
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c519fc2db020b8df22275c6b276c6ec23d10b1c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181966"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608275"
 ---
 Functions를 사용하면 간단하게 [Azure Portal]에서 함수 앱에 Application Insights 통합을 추가할 수 있습니다.
 

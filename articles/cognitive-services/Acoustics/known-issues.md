@@ -7,15 +7,15 @@ author: kylestorck
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kylestorck
-ms.openlocfilehash: 50de4d983ed24440d655cf5b9ba3fb5e33d8d7cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02156f6e39c213764c35e67d8af028489d265835
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61335350"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616343"
 ---
 # <a name="project-acoustics-known-issues"></a>프로젝트 소음 알려진 문제
 프로젝트 Acoustics용 디자이너 미리 보기를 사용할 경우 다음과 같은 알려진 문제가 발생할 수 있습니다.

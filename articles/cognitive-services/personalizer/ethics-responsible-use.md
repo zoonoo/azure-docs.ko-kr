@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428443"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722398"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -102,7 +102,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="unintended-consequences-from-reward-scores"></a>보상 점수에서 의도하지 않은 결과
 보상 점수는 최선의 의도로 작성될 수 있지만, Personalizer에서 콘텐츠의 순위를 지정하는 방식에 대해 예기치 않은 결과 또는 의도하지 않은 결과를 초래할 수 있습니다. 
 
-다음 예제를 살펴보세요.
+다음 예를 참조하세요.
 
 * 시청한 비디오 길이의 비율에 대해 비디오 콘텐츠 맞춤 설정을 보상하는 경우 아마도 더 짧은 비디오의 순위를 지정하는 경향이 있습니다.
 * 공유 방식 또는 콘텐츠 자체에 대한 감정 분석 없이 소셜 미디어 공유를 보상하는 경우 공격적이거나, 변조되지 않거나, 선동적인 콘텐츠의 순위로 지정될 수 있으며, 이는 많은 "참여"를 유도하는 경향이 있지만 거의 가치가 없습니다.

@@ -1,20 +1,20 @@
 ---
-title: 컨테이너 구성 - Form Recognizer
+title: 폼 인식기에 대 한 컨테이너를 구성 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 양식 및 테이블 데이터를 구문 분석하도록 Form Recognizer 컨테이너를 구성하는 방법을 알아봅니다.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296242"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718444"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
 
@@ -47,7 +47,7 @@ Azure 폼 인식기 컨테이너를 사용 하 여 강력한 클라우드 기능
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -74,10 +74,10 @@ Azure 폼 인식기 컨테이너를 사용 하 여 강력한 클라우드 기능
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 탑재 위치의 합니다 [호스트 컴퓨터](form-recognizer-container-howto.md#the-host-computer) 는 Docker 서비스 계정 사용 권한과 호스트 탑재 위치 사이 충돌이 발생 액세스할 수 없습니다.
 
-|옵션| 이름 | 데이터 형식 | 설명 |
+|Optional| 이름 | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
-|필수| `Input` | 문자열 | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
-|필수| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|필수| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
+|필수| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제
 

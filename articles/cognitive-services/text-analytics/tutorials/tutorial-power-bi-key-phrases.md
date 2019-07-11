@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003471"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626029"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -103,7 +103,7 @@ Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.micros
 이제 Power BI와 Text Analytics를 통합하는 사용자 지정 함수를 만들 준비가 완료되었습니다. 이 함수는 매개 변수로 처리할 텍스트를 받습니다. 데이터를 필요한 JSON 형식으로 또는 그 반대로 변환하고 핵심 구 API에 대한 HTTP 요청을 만듭니다. 그런 다음, 함수는 API의 응답을 구문 분석하고 추출된 핵심 구의 쉼표로 구분된 목록을 포함하는 문자열을 반환합니다.
 
 > [!NOTE]
-> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://msdn.microsoft.com/library/mt211003.aspx) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](https://docs.microsoft.com/dotnet/fsharp/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
+> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](https://docs.microsoft.com/dotnet/fsharp/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
 
 Power BI Desktop에서 아직 쿼리 편집기 창에 있는지 확인합니다. 그렇지 않은 경우에는 **홈** 리본을 선택하고 **외부 데이터** 그룹에서 **쿼리 편집**을 클릭합니다.
 
@@ -294,7 +294,7 @@ Text Analytics 서비스, 파워 쿼리 M 수식 언어 또는 Power BI에 대�
 > [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [파워 쿼리 M 참조](https://msdn.microsoft.com/library/mt211003.aspx)
+> [파워 쿼리 M 참조](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI 설명서](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

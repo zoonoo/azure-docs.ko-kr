@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: f34504dddaa21cc162476d1fdb462e7be5c48629
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06b69da7f7435ce8a1e32150b7abe161ebdf527c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60697916"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606495"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
@@ -59,7 +59,7 @@ ms.locfileid: "60697916"
    };
   ```
 
-- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예를 들면 다음과 같습니다.
+- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예:
 
   ```
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

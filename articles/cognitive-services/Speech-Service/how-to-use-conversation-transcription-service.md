@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 215209a5b8e3ed46b25fbfa492c305785a9a0070
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073097"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606476"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Speech SDK를 사용하여 다중 참가자 대화 기록
 
@@ -28,7 +28,7 @@ Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을
 * 대화 기록에 대한 Speech SDK 지원은 16 비트 16kHz PCM 오디오의 8개 채널로 오디오 풀 및 푸시 모드의 사용으로 제한됩니다.
 * 대화 기록 현재 다음 지역에서 "EN-US" 및 "ZH-CN" 언어로 제공 됩니다: centralus 및 eastasia 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Speech SDK를 사용하여 음성-텍스트를 사용하는 방법에 대해 알아봅니다.](quickstart-csharp-dotnet-windows.md)
 * [음성 평가판 구독을 가져옵니다.](https://azure.microsoft.com/try/cognitive-services/)
@@ -159,7 +159,7 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Create voice signatures using REST API described in the earlier section in this document.
                 // Voice signature needs to be in the following format:
                 // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547830"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656632"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -129,7 +129,7 @@ SQL Database 논리 서버를 만들면 Azure CLI는 다음 예제와 비슷한 
 
 ### <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create)를 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](../../sql-database/sql-database-firewall-configure.md)을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>연결 문자열 만들기
 
-다음 문자열을 이전에 사용한 *\<server-name>*, *\<db-username>* 및 *\<db-password>* 로 바꿉니다.
+다음 문자열을 이전에 사용한 *\<server-name>* , *\<db-username>* 및 *\<db-password>* 로 바꿉니다.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -362,7 +362,7 @@ git push azure master
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 
-샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)의 지침을 따릅니다.
+샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
 
 - *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
 - *Startup.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.

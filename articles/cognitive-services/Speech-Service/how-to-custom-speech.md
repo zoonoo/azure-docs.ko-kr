@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 668ce2206f54fb7bb84d641a1e46f8d5ea9f833d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060867"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603166"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성이란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "67060867"
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
-사용자 지정 음성 포털을 사용 하 여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요 합니다. 표준 음성 서비스 구독을 만들려면 이러한 지침을 따릅니다. [음성 구독 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)합니다.
+사용자 지정 음성 포털을 사용하여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요합니다. 표준 음성 서비스 구독을 만들려면 이러한 지침을 따릅니다. [음성 구독 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)합니다.
 
 > [!NOTE]
 > 표준 (S0) 구독을 만드는 해야 합니다 (F0) 무료 평가판 구독은 지원 되지 않습니다.
@@ -63,7 +63,7 @@ Azure 계정 및 음성 서비스 구독을 만든 후에는 사용자 지정 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [준비 및 테스트 데이터](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
 * [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)

@@ -7,15 +7,15 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436146"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704803"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>소음 Unreal 및 Wwise 통합 프로젝트
 이 방법은 기존 Wwise 및 Unreal 게임 프로젝트에 프로젝트 소음 플러그 인 패키지의 자세한 통합 단계를 제공합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "61436146"
 * [Unreal 용 Wwise 플러그 인](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Wwise SDK의 직접 통합 Wwise Unreal 플러그 인을 사용 하는 대신를 사용 하는 경우 프로젝트 소음 Unreal 플러그 인을 참조 하 고 Wwise API 호출을 조정 합니다.
 
-프로젝트 소음 Wwise 이외의 오디오 엔진을 사용 하려는 경우에 문의 합니다 [프로젝트 소음 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)합니다. 데이터를 쿼리하고 소음 엔진에 대 한 API 호출을 확인 한 다음 프로젝트 소음 Unreal 플러그 인을 사용할 수 있습니다.
+프로젝트 소음 Wwise 이외의 오디오 엔진을 사용 하려는 경우에 향상 된 기능 요청을 수행 합니다 [프로젝트 소음 토론 포럼](https://github.com/microsoft/ProjectAcoustics/issues)합니다. 데이터를 쿼리하고 소음 엔진에 대 한 API 호출을 확인 한 다음 프로젝트 소음 Unreal 플러그 인을 사용할 수 있습니다.
 
 ## <a name="download-project-acoustics"></a>프로젝트 소음 다운로드
 이미 않았다면 다운로드 합니다 [플러그 인 패키지를 프로젝트 소음 Unreal & Wwise](https://www.microsoft.com/download/details.aspx?id=58090)). 

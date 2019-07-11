@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.openlocfilehash: 26f8348bc2de9cb56110c1cc7ce896934bb46ef7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506881"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722462"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
 
@@ -59,7 +59,7 @@ John은 이전에도 Joint Prediction(ICML 2015), Contextual Bandit Theory(NIPS 
 
 현재 Personalizer는 기계 학습의 기초로 [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki)를 사용합니다. 이 프레임워크는 모든 이벤트를 사용하여 개인 설정 순위를 지정하고 모델을 학습할 때 최대 처리량과 가장 낮은 대기 시간을 허용합니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 * [기술적인 문제가 적도록 상황에 맞는 결정 내리기](https://arxiv.org/abs/1606.03966)
 * [공정 분류에 대한 축소 접근 방식](https://arxiv.org/abs/1803.02453)

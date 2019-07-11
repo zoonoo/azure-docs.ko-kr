@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072301"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606214"
 ---
 # <a name="webhooks-for-speech-services"></a>음성 서비스에 대 한 웹 후크
 
@@ -24,7 +23,7 @@ ms.locfileid: "67072301"
 
 ## <a name="supported-operations"></a>지원되는 작업
 
-음성 서비스는 모든 장기 실행 작업에 대 한 웹 후크를 지원 합니다. 아래 나열 된 작업의 각 완료 되 면 HTTP 콜백을 트리거할 수 있습니다. 
+음성 서비스는 모든 장기 실행 작업에 대 한 웹 후크를 지원 합니다. 아래 나열 된 작업의 각 완료 되 면 HTTP 콜백을 트리거할 수 있습니다.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,7 +36,7 @@ ms.locfileid: "67072301"
 
 ## <a name="create-a-webhook"></a>웹후크 만들기
 
-오프 라인을 기록에 대 한 웹 후크를 만들어 보겠습니다. 시나리오: 사용자는 일괄 처리 기록 API를 사용 하 여 비동기적으로 기록 하 고 싶은 장기 실행 중인 오디오 파일을 포함 합니다. 
+오프 라인을 기록에 대 한 웹 후크를 만들어 보겠습니다. 시나리오: 사용자는 일괄 처리 기록 API를 사용 하 여 비동기적으로 기록 하 고 싶은 장기 실행 중인 오디오 파일을 포함 합니다.
 
 Https://에 POST 요청 하 여 웹 후크를 만들 수 있습니다\<지역\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks 합니다.
 
@@ -65,7 +64,7 @@ Https://에 POST 요청 하 여 웹 후크를 만들 수 있습니다\<지역\>.
 
 `Active` 속성 삭제 및 웹 후크 등록을 다시 만들 필요가 없는 URL 설정 및 해제를 다시 호출을 전환 하는 데 사용 됩니다. 다시 한 번 호출 하는 프로세스 후 완료 해야 하는 경우 다음 삭제 웹 후크 및 스위치는 `Active` 속성을 false로 합니다.
 
-이벤트 유형 `TranscriptionCompletion` 이벤트 배열에서 제공 됩니다. 터미널 상태에는 기록을 가져오면 끝점으로 다시 호출 합니다 (`Succeeded` 또는 `Failed`). 를 호출할 때 다시 등록 된 URL로 요청 포함 됩니다는 `X-MicrosoftSpeechServices-Event` 등록된 된 이벤트 유형 중 하나를 포함 하는 헤더입니다. 등록 된 이벤트 유형 마다 하나의 요청이 있습니다. 
+이벤트 유형 `TranscriptionCompletion` 이벤트 배열에서 제공 됩니다. 터미널 상태에는 기록을 가져오면 끝점으로 다시 호출 합니다 (`Succeeded` 또는 `Failed`). 를 호출할 때 다시 등록 된 URL로 요청 포함 됩니다는 `X-MicrosoftSpeechServices-Event` 등록된 된 이벤트 유형 중 하나를 포함 하는 헤더입니다. 등록 된 이벤트 유형 마다 하나의 요청이 있습니다.
 
 형식이 하나 이벤트를 구독할 수 없습니다. 것은 `Ping` 이벤트 유형입니다. 이 형식 사용 하 여 요청을 ping URL (아래 참조)를 사용 하는 경우 웹 후크를 만드는 작업을 완료 하는 경우 URL로 보내집니다.  
 
@@ -94,7 +93,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -106,7 +105,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -121,12 +120,12 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 
 에 특정 웹 후크 하나를 제거 합니다. DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > 위의 예에서 지역은 'westus'입니다. 이 음성 서비스 리소스에서에서 만든 Azure portal 지역별 대체 되어야 합니다.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping 본문: 빈
 
-등록된 URL에 POST 요청을 보냅니다. 요청에는 `X-MicrosoftSpeechServices-Event` 값 ping 사용 하 여 헤더입니다. 웹 후크는 암호를 사용 하 여 등록 된 경우 포함 됩니다는 `X-MicrosoftSpeechServices-Signature` HMAC 키로 암호를 사용 하 여 페이로드의 SHA256 해시를 사용 하 여 헤더입니다. 해시는 Base64로 인코딩됩니다. 
+등록된 URL에 POST 요청을 보냅니다. 요청에는 `X-MicrosoftSpeechServices-Event` 값 ping 사용 하 여 헤더입니다. 웹 후크는 암호를 사용 하 여 등록 된 경우 포함 됩니다는 `X-MicrosoftSpeechServices-Signature` HMAC 키로 암호를 사용 하 여 페이로드의 SHA256 해시를 사용 하 여 헤더입니다. 해시는 Base64로 인코딩됩니다.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test 본문: 빈
 

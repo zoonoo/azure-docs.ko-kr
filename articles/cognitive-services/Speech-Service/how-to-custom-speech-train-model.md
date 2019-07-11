@@ -1,23 +1,21 @@
 ---
 title: 사용자 지정 음성-음성 서비스에 대한 모델 학습
 titlesuffix: Azure Cognitive Services
-
-description: 음성-텍스트를 학습시키는 것은 Microsoft의 기본 모델 또는 만들려고 계획 중인 사용자 지정 모델 모두에 대한 인식 정확도를 향상하는 데 필요합니다. 사람 레이블 기록 및 관련된 텍스트를 사용하여 모델을 학습시킵니다. 이전에 업로드된 오디오 데이터와 함께 이러한 데이터 집합은 단어, 구, 약어, 이름 및 제품 관련 용어를 인식하는 음성-텍스트 모델을 학습시키고 다듬어 개선하는 데 사용됩니다.	
-
+description: 음성-텍스트를 학습시키는 것은 Microsoft의 기본 모델 또는 만들려고 계획 중인 사용자 지정 모델 모두에 대한 인식 정확도를 향상하는 데 필요합니다. 사람 레이블 기록 및 관련된 텍스트를 사용하여 모델을 학습시킵니다. 이전에 업로드된 오디오 데이터와 함께 이러한 데이터 집합은 단어, 구, 약어, 이름 및 제품 관련 용어를 인식하는 음성-텍스트 모델을 학습시키고 다듬는 데 사용됩니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063929"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625380"
 ---
 # <a name="train-a-model-for-custom-speech"></a>사용자 지정 음성 모델 학습
 
@@ -27,14 +25,11 @@ ms.locfileid: "67063929"
 
 모델에서 인식 문제가 발생할 경우, 추가 학습에 대한 사람 레이블 기록과 관련 데이터를 사용하면 정확도를 향상시키는 데 도움이 됩니다. 이 표를 사용하여 문제를 해결하는 데 사용할 데이터 집합을 결정합니다.
 
-| 사용 사례 | 데이터 형식 | 데이터 수량 |
-|----------|-----------|---------------|
-
-| 적절한 이름이 잘못 인식됩니다. | 관련 텍스트 (문장/발언) | 500mb 10MB |
-
-| 액센트 때문에 단어가 잘못 인식됩니다. | 관련된 텍스트(발음) | 잘못 인식된 단어를 제공합니다. |
-| 일반적인 단어가 삭제되거나 잘못 인식됩니다. | 오디오 + 사람 레이블 기록 | 10 ~ 1000 기록 시간 |
-
+| 사용 사례 | 데이터 형식 |
+|----------|-----------|
+| 산업별 어휘 및 의료 용어 또는 IT 전문 용어 등의 문법에 대 한 인식 정확도 개선 합니다. | 관련된 텍스트 (문장을/utterances) |
+| 음성 및 표시 된 형식의 단어 또는 용어 제품 이름이 나 약어와 같은 비표준 발음을 정의 합니다. | 관련된 텍스트(발음) |
+| 말하기 스타일, 악센트, 또는 특정 배경 소음으로 인식 정확도 향상 | 오디오 + 사람 레이블 기록 |
 > [!IMPORTANT]
 > 데이터 집합을 업로드하지 않은 경우, [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)를 참조하세요. 이 문서에서는 데이터를 업로드하는 것에 대한 지침 및 고품질 데이터 집합 만들기에 대한 지침을 제공합니다.
 
@@ -50,9 +45,7 @@ ms.locfileid: "67063929"
 6. 학습이 완료되면 새로 학습된 모델에서 정확도 테스트를 수행하는 것을 선택할 수 있습니다. 이 단계는 선택 사항입니다.
 7. **만들기**를 선택하여 사용자 지정 모델을 작성합니다.
 
-
-학습 표는 새롭게 생성된 모델에 해당하는 새 항목을 표시합니다. 표에는 또한 다음과 같은 상태가 표시됩니다: 처리 중, 성공, 실패.
-
+학습 표는 새롭게 생성된 모델에 해당하는 새 항목을 표시합니다. 표에는 또한 다음과 같은 상태가 표시됩니다:  처리 중, 성공, 실패.
 
 ## <a name="evaluate-the-accuracy-of-a-trained-model"></a>학습된 모델의 정확도 평가
 
@@ -68,7 +61,7 @@ ms.locfileid: "67063929"
 
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)

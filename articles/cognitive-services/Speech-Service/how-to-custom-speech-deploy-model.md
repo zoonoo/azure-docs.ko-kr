@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fc51c1d9d47340da85d42f7c398c8ee21c601beb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f2b69bf3e5d536e7e813ef4a7c36b2937141fd43
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026721"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606620"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
@@ -44,9 +44,9 @@ ms.locfileid: "65026721"
 
 * [Speech SDK](speech-sdk.md)를 사용하여 사용자 지정 끝점을 사용합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
-* [준비 및 테스트 데이터](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
 * [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)

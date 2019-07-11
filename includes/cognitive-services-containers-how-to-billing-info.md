@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2019
-ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a24300958c27daaaf49cc3045a5e99d77c938ab7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052016"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704203"
 ---
 컨테이너에 대 한 쿼리에 사용 되는 Azure 리소스의 가격 책정 계층으로 청구를 `<ApiKey>`입니다.
 
@@ -26,7 +26,7 @@ Azure Cognitive Services 컨테이너는 측정을 위해 청구 엔드포인트
 | 옵션 | 설명 |
 |--------|-------------|
 | `ApiKey` | 청구 정보를 추적 하는 데 사용 되는 Cognitive Services 리소스의 API 키입니다.<br/>이 옵션의 값에 지정 된 프로 비전 된 리소스에 대 한 API 키로 변경 해야 `Billing`합니다. |
-| `Billing` | 청구 정보를 추적 하는 데 사용 되는 Cognitive Services 리소스의 끝점입니다.<br/>이 옵션의 값은 프로비전된 Azure 리소스의 URI 끝점으로 설정되어야 합니다.|
+| `Billing` | 청구 정보를 추적 하는 데 사용 되는 Cognitive Services 리소스의 끝점입니다.<br/>이 옵션의 값은 프로비저닝된 Azure 리소스의 엔드포인트 URI로 설정해야 합니다.|
 | `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값으로 설정 되어 있어야 **수락**합니다. |
 
 

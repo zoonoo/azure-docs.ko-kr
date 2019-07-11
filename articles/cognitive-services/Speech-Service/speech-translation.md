@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072406"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657738"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -30,7 +29,7 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 
 다음은 Speech SDK 및 REST Api를 통해 사용 가능한 기능입니다:
 
-| 사용 사례 | SDK | REST (영문) |
+| 사용 사례 | SDK | REST(영문) |
 |----------|-----|------|
 | 인식 결과를 사용하여 음성-텍스트를 번역합니다. | 예 | 아니요 |
 | 음성-음성 번역입니다. | 예 | 아니요 |
@@ -42,11 +41,11 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>샘플 코드
 
@@ -56,10 +55,7 @@ Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. �
 
 ## <a name="migration-guides"></a>마이그레이션 가이드
 
-> [!WARNING]
-> Translator Speech는 2019년 10월 15일에 폐기될 예정입니다.
-
-응용 프로그램, 도구 또는 제품이 Translator Speech를 사용하는 경우, 음성 서비스로 마이그레이션할 수 있도록 가이드를 만들었습니다.
+응용 프로그램, 도구 또는 제품 사용 중인 경우는 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), 음성 서비스를 마이그레이션할 수 있도록 가이드를 만들었습니다.
 
 * [Translator Speech API에서 Speech Services로 마이그레이션](how-to-migrate-from-translator-speech-api.md)
 
@@ -67,7 +63,7 @@ Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. �
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751616"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606668"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
 
@@ -59,7 +59,7 @@ ms.locfileid: "66751616"
 
 **Q: 요청에 제한이 있나요?**
 
-**A**: REST API에서는 요청이 5초당 25개로 제한됩니다. 자세한 내용은 [Text to Speech](text-to-speech.md)에 대한 페이지에서 찾을 수 있습니다. 
+**A**: REST API에서는 요청이 5초당 25개로 제한됩니다. 자세한 내용은 [Text to Speech](text-to-speech.md)에 대한 페이지에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

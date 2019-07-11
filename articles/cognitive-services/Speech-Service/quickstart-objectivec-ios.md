@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 023bb95eb55c88c7da548af003132bb391fdb7ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484973"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605052"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -102,4 +102,3 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 
 > [!div class="nextstepaction"]
 > [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
-

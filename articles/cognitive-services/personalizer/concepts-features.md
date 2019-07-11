@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340883"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620275"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -56,7 +56,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음은 애플리케이션에 사용하는 기능 네임스페이스의 예입니다.
 
 * User_Profile_from_CRM
-* Time
+* 시간
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -132,7 +132,7 @@ AI 및 즉시 실행할 수 있는 Cognitive Services는 Personalizer에 매우 
 
 AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용할 가능성이 있는 정보를 자동으로 추출할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)를 통해 동영상 파일을 실행하여 장면 요소, 텍스트, 감정 및 기타 많은 특성을 추출할 수 있습니다. 그런 다음, 원본 항목 메타데이터에 없었던 특성을 반영하도록 해당 특성을 더 정교하게 만들 수 있습니다. 
 * 개체 감지를 통해 이미지를 반영하고 감정을 통해 얼굴을 반영할 수 있는 식입니다.
@@ -165,9 +165,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-예를 들어 다음과 같은 노래를 선택할 수 있다.
+다음은 몇 가지 예입니다.
 
-|목적|액션(Action)|
+|용도|Action|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트에 대한 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|
