@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure에서 Linux 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1de2d40e107c03db8c0e406a7bb1a12c15d5c736
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171851"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708509"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupVM --location eastus
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
-가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치(*~/.ssh*)에 없는 경우 새로 만듭니다.
+가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 다음 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 VM을 만듭니다. VM에서 *azureuser*라는 사용자 계정을 만들고, SSH 키가 기본 키 위치( *~/.ssh*)에 없는 경우 새로 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -155,14 +155,14 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 크기           |    설명       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
-| [컴퓨팅 최적화](sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
-| [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
-| [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)      | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
-| [고성능](sizes-hpc.md) | H, A8-11          | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
+| [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
+| [컴퓨팅 최적화](sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
+| [메모리에 최적화](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [Storage에 최적화](sizes-storage.md)      | Lsv2, Ls              | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 VM입니다.       |
+| [고성능](sizes-hpc.md) | H        | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
 ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607184"
 ---
 # <a name="create-human-reviews-net"></a>사용자 검토 (.NET) 만들기
 
@@ -157,7 +157,7 @@ public static class Clients
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다.
 >
-> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
 #### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>다음 상수를 추가 합니다 **프로그램** Program.cs 클래스
 

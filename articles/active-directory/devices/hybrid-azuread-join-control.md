@@ -4,19 +4,19 @@ description: 한 번에 전체 조직에서 사용 하기 전에 하이브리드
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: article
-ms.date: 05/30/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513282"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481713"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 

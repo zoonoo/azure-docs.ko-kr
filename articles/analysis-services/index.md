@@ -8,14 +8,14 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 05/09/2019
-ms.openlocfilehash: acfbc3d44e5e7604f03b3e67db5846487a726d40
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c69b1204332a94b21f845d1330bc39e3f4ac7144
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510251"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540842"
 ---
-# <a name="analysis-services-documentation"></a>Analysis Services 설명서
+# <a name="azure-analysis-services-documentation"></a>Azure Analysis Services 설명서
 
 Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 클라우드 또는 온-프레미스에서 표 형식 데이터를 사용하여 엔터프라이즈 수준 BI 솔루션을 만드는 방법을 보여 줍니다.
 
@@ -31,7 +31,7 @@ Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Analysis Services에 대해 알아보기</h3>
+                        <h3>Azure Analysis Services에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Analysis Services 서버 만들기</h3>
+                        <h3>Azure Analysis Services 서버 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,8 @@ Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하�
                 <div class="card">
                     <div class="cardText">
                         <h3>기타</h3>
-                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">파워 쿼리 M</a></p>
+                        <p><a href="https://docs.microsoft.com/dax/data-analysis-expressions-dax-reference">DAX</a></p>
+                        <p><a href="https://docs.microsoft.com/powerquery-m/power-query-m-reference">파워 쿼리 M</a></p>
                     </div>
                 </div>
             </div>

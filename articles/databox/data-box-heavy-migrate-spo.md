@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 5628a1b3ea42c91f49f78699c37bb2b306275e9e
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730831"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592346"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Azure Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션
 
@@ -23,7 +23,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 
 - [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview): 주문당 사용 가능한 용량이 35TB이며 중소형 데이터 세트에 적합합니다.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview): 디바이스당 사용 가능한 용량이 80TB이며 중대형 데이터 세트에 적합합니다.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다. Data Box Heavy는 현재 미리 보기로 있습니다.
+- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다.
 
 이 문서에서는 Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션하는 방법을 구체적으로 설명합니다.
 
@@ -81,7 +81,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 
 1. Azure Portal에 로그인한 다음, [가상 머신을 만듭니다](../virtual-machines/windows/quick-create-portal.md).
 2. [Azure 파일 공유를 VM에 탑재](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer)합니다.
-3. [SharePoint 마이그레이션 도구를 다운로드](http://spmtreleasescus.blob.core.windows.net/install/default.htm)하여 Azure VM에 설치합니다.
+3. [SharePoint 마이그레이션 도구를 다운로드](https://spmtreleasescus.blob.core.windows.net/install/default.htm)하여 Azure VM에 설치합니다.
 4. SharePoint 마이그레이션 도구를 시작합니다. **로그인**을 클릭하고 Office 365 사용자 이름 및 암호를 입력합니다.
 5. **데이터가 어디에 있나요?** 라는 메시지가 표시되면 **파일 공유**를 선택합니다. 데이터가 있는 Azure 파일 공유의 경로를 입력합니다.
 6. 대상 위치를 포함하여 나머지 지시를 평소와 같이 따릅니다. 자세한 내용은 [SharePoint 마이그레이션 도구를 사용하는 방법](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 참조하세요.

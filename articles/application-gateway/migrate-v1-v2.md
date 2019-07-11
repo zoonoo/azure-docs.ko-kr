@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154168"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550444"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure 응용 프로그램 게이트웨이 마이그레이션 및 웹 v1에서 v2로 응용 프로그램 방화벽
 
@@ -76,7 +76,8 @@ Az Azure 모듈이 설치 된 경우를 확인 하려면 실행 `Get-InstalledMo
 
 1. 실행 `Get-Help AzureAppGWMigration.ps1` 필수 매개 변수를 검사 하려면:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
@@ -84,7 +85,8 @@ Az Azure 모듈이 설치 된 경우를 확인 하려면 실행 `Get-InstalledMo
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
     -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -validateMigration -enableAutoScale
+   ```
 
    스크립트에 대 한 매개 변수:
    * **resourceId: [String]: 필요한** -기존 표준 v1 또는 WAF v1 게이트웨이 Azure 리소스 ID입니다. 이 문자열 값을 찾으려면 Azure portal로 이동, 응용 프로그램 게이트웨이 또는 WAF 리소스를 선택 하 고 클릭 합니다 **속성** 게이트웨이에 대 한 링크입니다. 리소스 ID는 해당 페이지에 있습니다.

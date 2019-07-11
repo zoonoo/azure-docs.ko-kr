@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure CLI를 사용하여 세 Linux 가상 �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1fce6292ffd7307ff0a294c6fa25412962acd1cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b813a197266db37bde961e079f5d5d5e92353db1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161680"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708521"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>자습서: Azure CLI로 Azure의 Linux 가상 머신 부하를 분산하여 고가용성 애플리케이션 만들기
 
@@ -311,7 +311,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다. 
+가상 NIC가 백엔드 주소 풀에 연결되었는지 확인하려면 앞 단계의 [az network lb address-pool show](/cli/azure/network/lb/address-pool)를 다시 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

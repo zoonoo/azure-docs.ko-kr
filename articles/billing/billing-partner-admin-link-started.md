@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694214"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502687"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
-파트너로서 고객 참여에 미치는 영향을 추적할 수 있습니다. 고객 리소스를 관리하는 데 사용되는 계정에 파트너 ID를 연결할 수 있습니다.
+Microsoft 파트너는 비즈니스 및 Microsoft 제품을 사용 하 여 업무 목표를 달성 하는 수 있도록 도와주는 서비스를 제공 합니다. 고객 관리를 대신 하는 경우 구성 및 Azure 서비스를 지 원하는 파트너 사용자가 할 고객 환경에 액세스할 수 있습니다. 파트너 관리자 링크를 사용 하 여 파트너는 해당 파트너 네트워크 ID 서비스 제공에 대해 사용 된 자격 증명을 사용 하 여 연결할 수 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ C:\ az managementpartner delete --partner-id 12345
 
 **MPN ID는 경우 사용 해야 우리 회사의 여러?**
 
-MPN id입니다. 가상 organization(v-org) 제외 하 고 모든 유효한 MPN ID를 사용할 수 있습니다. 대부분의 파트너 MPN ID를 사용 하 여 geography 고객 기반 하거나 서비스를 제공 하는 위치를 선택 합니다.
+파트너 ID 연결에 대 한 파트너 위치 계정과 연관 된 MPN Id를 사용 해야  자세한 내용은 [파트너 계정](https://docs.microsoft.com/partner-center/account-structure)
 
 **영향을 받는 수익 연결 된 파트너 ID에 대 한 보고는 어디서 찾을 수 있습니까?**
 
-영향을 받는 수익 보고에서 찾을 수 있습니다 [내 Insights 대시보드](https://partner.microsoft.com/membership/reports/myinsights)합니다. 파트너 연결 형식으로 파트너 관리자 링크를 선택 해야 합니다.
+클라우드 제품 성능 reporting은 파트너 센터에서 파트너에 게 제공 됩니다 [내 Insights 대시보드](https://partner.microsoft.com/membership/reports/myinsights)합니다. 파트너 연결 형식으로 파트너 관리자 링크를 선택 해야 합니다.
 
 **보고서에 고객을 볼 수 없습니다는 이유**
 

@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: eda4395b46abdfdccb76c0960984b3f6d7614a48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5b464ed4eaf576bc77c2c1eda17ae68b598dc2a4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124314"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704295"
 ---
 호스트는 Docker 컨테이너를 실행하는 x64 기반 컴퓨터입니다. 다음과 같이 Azure에서 컴퓨터 온-프레미스 또는 Docker 호스팅 서비스일 수 있습니다.
 

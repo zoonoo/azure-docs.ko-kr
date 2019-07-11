@@ -59,7 +59,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 ## <a name="set-up-a-test-function-on-azure"></a>Azure에서 테스트 함수 설정 
 시나리오 전체를 수행하려면 적어도 현재 진행 중인 이벤트를 디버그하고 살펴볼 수 있는 작은 테스트 함수가 필요합니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md) 문서의 지침에 따라 다음 작업을 수행합니다. 
 
-1. Function App을 만듭니다.
+1. 함수 앱을 만듭니다.
 2. HTTP 트리거 함수를 만듭니다. 
 
 그런 후 다음 단계를 수행합니다. 
@@ -117,7 +117,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
     ```
 2. **저장 및 실행**을 선택합니다.
 
-    ![Function App 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+    ![함수 앱 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 3. **함수 URL 가져오기**를 선택하고 URL을 기록해 둡니다. 
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -125,7 +125,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
 # <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
 
 1. 다음과 같이 **V1** 버전을 사용하도록 함수를 구성합니다. 
-    1. 트리 보기에서 Function App을 선택하고 **Function App 설정**을 선택합니다. 
+    1. 트리 보기에서 함수 앱을 선택하고 **함수 앱 설정**을 선택합니다. 
 
         ![함수 앱 설정]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. **런타임 버전**으로 **~1**을 선택합니다. 
@@ -176,7 +176,7 @@ Service Bus, Event Grid, Azure Functions 및 Logic Apps 아티팩트를 만든 �
     ```
 4. **저장 및 실행**을 선택합니다.
 
-    ![Function App 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+    ![함수 앱 출력](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 4. **함수 URL 가져오기**를 선택하고 URL을 기록해 둡니다. 
 
     ![함수 URL 가져오기](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
@@ -211,7 +211,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 1. Service Bus 항목으로 메시지를 보내는 .NET C# 애플리케이션을 실행합니다. 
 
     ![콘솔 앱 출력](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. Azure Function App의 페이지에서 **함수**, 사용자 **함수**를 차례로 확장한 후 **모니터링**를 선택합니다. 
+1. Azure 함수 앱의 페이지에서 **함수**, 사용자 **함수**를 차례로 확장하고 **모니터링**를 선택합니다. 
 
     ![함수 모니터링](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
 
@@ -228,7 +228,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 3. 함수의 **게시 프로필**을 다운로드합니다.
-    1. Function App을 선택합니다. 
+    1. 함수 앱을 선택합니다. 
     2. **개요** 탭을 아직 선택하지 않은 경우 선택합니다. 
     3. 도구 모음에서 **게시 프로필 가져오기**를 선택합니다. 
 

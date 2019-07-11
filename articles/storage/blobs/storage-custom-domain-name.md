@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148923"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501939"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
 
@@ -34,10 +34,10 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 | 리소스 종류 | 기본 URL | 사용자 지정 도메인 URL |
 | --- | --- | --- |
-| Storage 계정 | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| 루트 컨테이너 | http://mystorageaccount.blob.core.windows.net/myblob 또는 http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob 또는 http://www.contoso.com/ $root/myblob |
-| 웹 |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] 또는 http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] 또는 http://mystorageaccount.[zone].web.core.windows.net/$web 또는 http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/ $web 또는 http://www.contoso.com/ 또는 http://www.contoso.com/ $web/[indexdoc] 또는 http://www.contoso.com/ [indexdoc] |
+| Storage 계정 | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| 루트 컨테이너 | http:\//mystorageaccount.blob.core.windows.net/myblob 또는 http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob 또는 http:\//www.contoso.com/$ 루트/myblob |
+| 웹 |  http:\//mystorageaccount. [ zone].web.core.windows.net/$web/[indexdoc] 또는 http:\//mystorageaccount. [ zone].web.core.windows.net/[indexdoc] 또는 http:\//mystorageaccount. [ zone].web.core.windows.net/$web 또는 http:\//mystorageaccount. [ zone].web.core.windows.net/ | http:\//www.contoso.com/$ 웹 또는 http:\//www.contoso.com/ 또는 http:\//www.contoso.com/$ 웹 / [indexdoc] 또는 http:\//www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > 다음 섹션에 표시된 대로 Blob 서비스 엔드포인트에 대한 모든 예제는 웹 서비스 엔드포인트에도 적용됩니다.

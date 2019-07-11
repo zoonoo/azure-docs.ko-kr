@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: b87fea5120ae09848eef9fcb29ef0912bf17fa0f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: eff7bbc8a7600667254bc9d49627e707b063bc41
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796914"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592753"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 

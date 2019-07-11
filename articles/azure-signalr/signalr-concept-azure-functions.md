@@ -44,7 +44,7 @@ Azure Functions 및 SignalR Service로 구현할 수 있는 실시간 서버리�
 
 ## <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
-Azure Functions용 SignalR Service 바인딩을 통해 Azure Function 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
+Azure Functions용 SignalR Service 바인딩을 통해 Azure 함수 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
 
 ### <a name="an-example-scenario"></a>예제 시나리오
 

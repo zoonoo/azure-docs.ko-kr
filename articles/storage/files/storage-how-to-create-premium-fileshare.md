@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190105"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449877"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
-프리미엄 파일 공유 (미리 보기) 반도체 디스크 (SSD) 저장소 미디어에 제공 됩니다 및 호스팅 데이터베이스와 고성능 컴퓨팅 (HPC) 등의 IO 집약적 워크 로드에 유용 합니다. 프리미엄 파일 공유는 특수 한 용도의 저장소 계정 종류, FileStorage 계정 이라는에서 호스팅됩니다. 프리미엄 파일 공유 고성능 및 엔터프라이즈 규모 응용 프로그램을 일관 된 짧은 대기 시간, 높은 IOPS 및 처리량이 높은 공유를 제공 하도록 디자인 되었습니다.
+프리미엄 파일 공유 반도체 디스크 (SSD) 저장소 미디어에 제공 됩니다 및 호스팅 데이터베이스와 고성능 컴퓨팅 (HPC) 등의 IO 집약적 워크 로드에 유용 합니다. 프리미엄 파일 공유는 특수 한 용도의 저장소 계정 종류, FileStorage 계정 이라는에서 호스팅됩니다. 프리미엄 파일 공유 고성능 및 엔터프라이즈 규모 응용 프로그램을 일관 된 짧은 대기 시간, 높은 IOPS 및 처리량이 높은 공유를 제공 하도록 디자인 되었습니다.
 
 이 문서에서는이 새 계정 유형을 사용 하 여 만드는 방법을 보여 줍니다. [Azure portal](https://portal.azure.com/), Azure PowerShell 및 Azure CLI.
 
@@ -30,7 +30,7 @@ ms.locfileid: "65190105"
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Filestorage (미리 보기) 저장소 계정 만들기
+### <a name="create-a-filestorage-storage-account"></a>Filestorage 저장소 계정 만들기
 
 이제 저장소 계정을 만들 준비가 되었습니다.
 
@@ -47,10 +47,10 @@ ms.locfileid: "65190105"
 1. 그런 다음, 저장소 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 1. 저장소 계정의 위치를 선택하거나 기본 위치를 사용합니다.
 1. 에 대 한 **성능** 선택 **Premium**합니다.
-1. 선택 **계정 종류** 선택한 **FileStorage (미리 보기)** 합니다.
+1. 선택 **계정 종류** 선택한 **FileStorage**합니다.
 1. 둡니다 **복제** 의 기본값으로 설정 **로컬 중복 저장소 (LRS)** 합니다.
 
-    ![프리미엄 파일 공유에 대 한 저장소 계정을 만드는 방법](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![프리미엄 파일 공유에 대 한 저장소 계정을 만드는 방법](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. **검토 + 만들기**를 선택하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
 1. **만들기**를 선택합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "65190105"
 
 ### <a name="create-a-premium-file-share"></a>프리미엄 파일 공유 만들기
 
-1. 저장소 계정의 왼쪽된 메뉴에서 스크롤하여 합니다 **파일 서비스** 섹션을 선택한 다음 선택 **파일 (미리 보기)** 합니다.
+1. 저장소 계정의 왼쪽된 메뉴에서 스크롤하여 합니다 **파일 서비스** 섹션을 선택한 다음 선택 **파일**합니다.
 1. 선택 **+ 파일 공유** premium 파일 공유를 만듭니다.
 1. 이름과 원하는 할당량을 파일 공유를 입력 하 고 선택 **만들기**합니다.
 
@@ -82,14 +82,14 @@ ms.locfileid: "65190105"
 
 ### <a name="upgrade-your-powershell-module"></a>PowerShell 모듈을 업그레이드
 
-Powershell에서 premium 파일 공유와 상호 작용을 하 여 최신 Az.Storage 모듈을 설치 해야 합니다.
+Powershell에서 premium 파일 공유와 상호 작용을 하는 Az.Storage 모듈 버전 1.4.0, 또는 최신 Az.Storage 모듈을 설치 해야 합니다.
 
 관리자 권한으로 PowerShell 세션을 열어 시작합니다.
 
 Az.Storage 모듈을 설치 합니다.
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>FileStorage (미리 보기) 저장소 계정 만들기
+### <a name="create-a-filestorage-storage-account"></a>FileStorage 저장소 계정 만들기
 
-PowerShell에서 filestorage (미리 보기) 저장소 계정을 만들려면 사용 합니다 [새 AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령:
+PowerShell에서 filestorage 저장소 계정을 만들려면 다음을 사용 합니다 [새로 만들기-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-CLI의 로컬 설치에 로그인하려면 로그인 명령을 실행합니다.
+CLI의 로컬 설치에 로그인 하려는 경우 먼저 했는지 최신 버전인 로그인 명령을 실행 합니다.
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>미리 보기 저장소 CLI 확장 추가
-
-프리미엄 파일 공유는 미리 보기 기능 이므로 셸을에 미리 보기 확장을 추가 해야 합니다. 이렇게 하려면 Cloud Shell이나 로컬 셸을 사용하여 다음 명령을 입력합니다. `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

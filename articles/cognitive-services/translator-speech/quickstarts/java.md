@@ -3,20 +3,20 @@ title: '빠른 시작: Translator Speech API Java'
 titlesuffix: Azure Cognitive Services
 description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b9cf9a5e60ff5f66a3956170b4f5fb41d4b6d66c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 587c55148d3c5ee2bdad5b25747e5dd8dadc35ba
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551044"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442165"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>빠른 시작: Java를 사용한 Translator Speech API
 <a name="HOLTop"></a>

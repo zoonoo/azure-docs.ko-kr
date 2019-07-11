@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a51401bcb8d282fef10b0b06e646b652bf5f8e8
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742464"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513404"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -259,10 +259,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="get-user"></a>사용자 가져오기
 
-###### <a name="request"></a>요청
+###### <a name="request-1"></a>요청
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response"></a>response
+###### <a name="response-1"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -290,10 +290,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 ```
 #### <a name="get-user-by-query"></a>쿼리에서 사용자 가져오기
 
-##### <a name="request"></a>요청
+##### <a name="request-2"></a>요청
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### <a name="response"></a>response
+##### <a name="response-2"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -329,10 +329,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="get-user-by-query---zero-results"></a>쿼리-결과에서 사용자 가져오기
 
-##### <a name="request"></a>요청
+##### <a name="request-3"></a>요청
 *GET /Users?filter=userName eq "non-existent user"*
 
-##### <a name="response"></a>response
+##### <a name="response-3"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -347,7 +347,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="update-user-multi-valued-properties"></a>사용자 업데이트 [다중값된 속성]
 
-##### <a name="request"></a>요청
+##### <a name="request-4"></a>요청
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -367,7 +367,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-4"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -396,7 +396,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="update-user-single-valued-properties"></a>사용자 업데이트 [단일 값 속성]
 
-##### <a name="request"></a>요청
+##### <a name="request-5"></a>요청
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -409,7 +409,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-5"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -439,10 +439,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="delete-user"></a>사용자 삭제
 
-##### <a name="request"></a>요청
+##### <a name="request-6"></a>요청
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a>response
+##### <a name="response-6"></a>응답
 *HTTP/1.1 204 No Content*
 
 ### <a name="group-operations"></a>그룹 작업
@@ -454,7 +454,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="create-group"></a>그룹 만들기
 
-##### <a name="request"></a>요청
+##### <a name="request-7"></a>요청
 *POST /Groups HTTP/1.1*
 ```json
 {
@@ -468,7 +468,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-7"></a>응답
 *Http/1.1 201 생성 됨*
 ```json
 {
@@ -488,10 +488,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="get-group"></a>그룹 가져오기
 
-##### <a name="request"></a>요청
+##### <a name="request-8"></a>요청
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
-##### <a name="response"></a>response
+##### <a name="response-8"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -509,10 +509,10 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 
 #### <a name="get-group-by-displayname"></a>Displayname 그룹 가져오기
 
-##### <a name="request"></a>요청
+##### <a name="request-9"></a>요청
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
-##### <a name="response"></a>response
+##### <a name="response-9"></a>응답
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -536,7 +536,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 ```
 #### <a name="update-group-non-member-attributes"></a>업데이트 그룹 [비 멤버 특성]
 
-##### <a name="request"></a>요청
+##### <a name="request-10"></a>요청
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -549,12 +549,12 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-10"></a>응답
 *HTTP/1.1 204 No Content*
 
 ### <a name="update-group-add-members"></a>업데이트 그룹 [구성원을 추가 합니다.]
 
-##### <a name="request"></a>요청
+##### <a name="request-11"></a>요청
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -570,12 +570,12 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-11"></a>응답
 *HTTP/1.1 204 No Content*
 
 #### <a name="update-group-remove-members"></a>그룹 [멤버 제거]를 업데이트 합니다.
 
-##### <a name="request"></a>요청
+##### <a name="request-12"></a>요청
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -591,15 +591,15 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response-12"></a>응답
 *HTTP/1.1 204 No Content*
 
 #### <a name="delete-group"></a>그룹 삭제
 
-##### <a name="request"></a>요청
+##### <a name="request-13"></a>요청
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a>response
+##### <a name="response-13"></a>응답
 *HTTP/1.1 204 No Content*
 
 
@@ -1331,7 +1331,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | mailNickname |externalId |
 | 관리자 |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |ID |
+| objectId |id |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -1348,7 +1348,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
-| objectId |ID |
+| objectId |id |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>IP 허용 SCIM 요청을 Azure AD 프로 비전 서비스에서 사용 되는 주소

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 498246292b3cf591433a709139621b039ac3af33
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: de170955ced45040541565800fc9853edea322f5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002178"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603074"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 C++로 음성 인식
 
@@ -31,9 +31,9 @@ ms.locfileid: "66002178"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.1`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
 
-macOS용 Speech SDK는 https://aka.ms/csspeech/macosbinary에서 압축된 프레임워크 번들로 다운로드할 수 있습니다.
+macOS용 Speech SDK는 https://aka.ms/csspeech/macosbinary 에서 압축된 프레임워크 번들로 다운로드할 수 있습니다.
 
 SDK를 다음과 같이 다운로드하고 설치합니다.
 
@@ -115,4 +115,3 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
-

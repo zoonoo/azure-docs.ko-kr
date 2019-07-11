@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752579"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551756"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -71,7 +71,7 @@ Security Center에 서버를 등록하려면 Windows Defender ATP 서버 온보�
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP 통합 사용
 
-Windows Defender ATP 통합이 사용하도록 설정되어 있는지 확인하려면 선택 **Security Center** > **보안 정책** > **구독** > **설정 편집**을 선택합니다.
+Windows Defender ATP 통합을 사용 하는 경우를 보려면 선택 **Security center** > **가격 책정 및 설정** > 구독을 클릭 합니다.
 
   ![Azure Security Center 정책 관리](media/security-center-wdatp/policy-management.png)
 

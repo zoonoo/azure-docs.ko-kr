@@ -4,7 +4,7 @@ description: Azure PowerShell 스크립트 샘플 - Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 595496fd6756c2d42b5eabed8a463ca7c702590c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 95672a2fd26461b5febeb571163673a3c5e8ee83
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983307"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708296"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>PowerShell로 완벽히 구성된 가상 머신 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "55983307"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

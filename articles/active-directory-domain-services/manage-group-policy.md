@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인에서 그
 description: Azure Active Directory Domain Services 관리되는 도메인에서 그룹 정책 관리
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: db5fd06bc4d9a923279095ab187d867a6624480a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245851"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473094"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리
 Azure Active Directory Domain Services는 'AADDC 사용자' 및 'AADDC 컴퓨터' 컨테이너에 대한 기본 제공 GPO(그룹 정책 개체)를 포함합니다. 이러한 기본 제공 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다. 또한 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 자체 사용자 지정 OU를 만들 수 있습니다. 사용자 지정 GPO을 만들고 이러한 사용자 지정 OU에 연결할 수도 있습니다. 'AAD DC 관리자' 그룹에 속한 사용자에게 관리되는 도메인에 대한 그룹 정책 관리 권한이 부여됩니다.

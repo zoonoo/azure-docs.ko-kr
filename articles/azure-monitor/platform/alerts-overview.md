@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347448"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560433"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -33,7 +33,7 @@ ms.locfileid: "60347448"
 
 ![경고 흐름](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-경고 규칙은 경고 및 경고가 발생할 때 수행되는 작업에서 분리됩니다. 
+경고 규칙은 경고 및 경고가 발생할 때 수행 되는 작업에서 분리 됩니다. 
 
 **경고 규칙** - 경고 규칙은 경고의 대상 및 조건을 캡처합니다. 경고 규칙은 사용 또는 사용 안 함 상태입니다. 경고 규칙이 사용인 경우에만 경고가 발생합니다. 
 
@@ -94,6 +94,8 @@ ms.locfileid: "60347448"
 ## <a name="alerts-experience"></a>경고 환경 
 기본 경고 페이지는 특정 시간 내에 생성된 경고의 요약 정보를 제공합니다. 심각도 상태별 총 경고 수를 나타내는 열을 통해 심각도별 총 경고 수가 표시됩니다. 아무 심각도나 선택하면 해당 심각도를 기준으로 필터링된 [모든 경고](#all-alerts-page) 페이지가 열립니다.
 
+또는 수 있습니다 [프로그래밍 방식으로 REST Api를 사용 하 여 구독에서 생성 된 경고 인스턴스를 열거할](#manage-your-alert-instances-programmatically)합니다.
+
 기존의 [클래식 경고](#classic-alerts)를 표시하거나 추적하지 않습니다. 구독을 변경하거나 매개 변수를 필터링하여 페이지를 업데이트할 수 있습니다. 
 
 ![경고 페이지](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ ms.locfileid: "60347448"
 
 | 열 | 설명 |
 |:---|:---|
-| 구독 | Azure 구독을 최대 5개까지 선택합니다. 선택한 구독의 경고만 보기에 포함됩니다. |
+| 구독 | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택할 수 있습니다. 선택한 구독에 대 한 있다고 경고 보기에 포함 됩니다. |
 | 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 시간 범위 | 선택한 기간 내에 발생한 경고만 보기에 포함됩니다. 지원되는 값은 지난 1시간, 지난 24시간, 지난 7일 및 지난 30일입니다. |
 
@@ -145,7 +147,7 @@ ms.locfileid: "60347448"
 
 | 열 | 설명 |
 |:---|:---|
-| 구독 | Azure 구독을 최대 5개까지 선택합니다. 선택한 구독의 경고만 보기에 포함됩니다. |
+| 구독 | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택할 수 있습니다. 선택한 구독에 대 한 있다고 경고 보기에 포함 됩니다. |
 | 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 리소스 종류 | 리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
 | 리소스 | 리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. |
@@ -157,20 +159,47 @@ ms.locfileid: "60347448"
 
 페이지 맨 위에서 **열**을 선택하여 표시할 열을 선택합니다. 
 
-## <a name="alert-detail-page"></a>경고 세부 정보 페이지
+## <a name="alert-details-page"></a>경고 세부 정보 페이지
 경고를 선택하면 경고 세부 정보 페이지가 표시됩니다. 이 페이지에서 경고 세부 정보를 확인하고, 경고 상태를 변경할 수 있습니다.
 
 ![경고 세부 정보](media/alerts-overview/alert-detail2.png)
 
-경고 세부 정보 페이지에는 다음과 같은 섹션이 있습니다.
+다음 섹션을 포함 하는 경고 세부 정보 페이지입니다.
 
 | 섹션 | 설명 |
 |:---|:---|
-| 기본 정보 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
+| 요약 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
 | 기록 | 경고에서 수행한 각 작업과 경고의 변경 내용을 나열합니다. 현재는 상태 변경으로 제한되어 있습니다. |
-| 스마트 그룹 | 경고가 포함된 스마트 그룹에 대한 정보입니다. *경고 수*는 스마트 그룹에 포함된 경고 수를 나타냅니다. 경고 목록 페이지에서 시간 필터에 관계 없이 지난 30일 동안 생성된 동일한 스마트 그룹에 다른 경고를 포함합니다. 경고를 선택하면 세부 정보를 볼 수 있습니다. |
-| 자세한 내용 | 일반적으로 경고를 만든 원본 형식과 관련된 추가 컨텍스트 정보를 표시합니다. |
+| 진단 | 경고가 포함된 스마트 그룹에 대한 정보입니다. *경고 수*는 스마트 그룹에 포함된 경고 수를 나타냅니다. 경고 목록 페이지에서 시간 필터에 관계 없이 지난 30일 동안 생성된 동일한 스마트 그룹에 다른 경고를 포함합니다. 경고를 선택하면 세부 정보를 볼 수 있습니다. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>경고 인스턴스에 대 한 역할 기반 액세스 제어 (RBAC)
+
+사용 및 경고 인스턴스 관리에 필요한 사용자의 기본 제공 RBAC 역할을 보유 [참가자 모니터링](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 또는 [판독기 모니터링](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)합니다. 이러한 역할은 리소스 수준에서 세분화 된 할당에 대 한 구독 수준에서 모든 Azure 리소스 관리자 범위에서 지원 됩니다. 예를 들어, 사용자는 가상 컴퓨터 'ContosoVM1'에 대 한 액세스 '참가자 모니터링'에 있는 경우 다음 그 소비 되 고 'ContosoVM1'에서 생성 된 경고에만 관리.
+
+## <a name="manage-your-alert-instances-programmatically"></a>경고 인스턴스를 프로그래밍 방식으로 관리
+
+여기서는 프로그래밍 방식으로 쿼리 하려는 생성 된 경고에 대 한 구독에 대해 많은 시나리오가 있습니다. Azure portal 외부에서 사용자 지정 뷰 만들기 또는 패턴 및 추세를 식별 하 여 경고를 분석할 수 있습니다.
+
+사용 하 여 구독에 대해 생성 된 경고에 대 한 쿼리 수를 [경고 관리 REST API](https://aka.ms/alert-management-api) 또는 사용 하 여 합니다 [경고에 대 한 Azure 리소스 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)합니다.
+
+합니다 [경고에 대 한 Azure 리소스 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 규모에서 경고 인스턴스를 쿼리할 수 있습니다. 이 여러 구독에서 생성 된 경고를 관리 해야 하는 시나리오에 권장 됩니다. 
+
+API에 다음 샘플 요청은 단일 구독 내에서 경고의 수를 반환 합니다.
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+에 대 한 경고를 쿼리할 수 있습니다 자신의 ['필수'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) 필드입니다.
+
+합니다 [경고 관리 REST API](https://aka.ms/alert-management-api) 비롯 한 특정 경고에 대 한 자세한 정보를 가져오는 데 사용할 수 있습니다 해당 ['경고 컨텍스트'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 필드입니다.
 
 ## <a name="classic-alerts"></a>클래식 경고 
 

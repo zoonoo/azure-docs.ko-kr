@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110406"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471847"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>조건부 액세스 정책에서 제외 된 사용자 관리를 사용 하 여 Azure AD 액세스 검토
 
@@ -36,7 +36,7 @@ IT 관리자로 서 사용할 수 있습니다 [Azure AD 조건부 액세스](..
 
 또 다른 예로, 사용할 수 있습니다 [명명 된 위치](../conditional-access/location-condition.md) 지방 및 지역은 사용자가 테 넌 트에 액세스할 수 있도록 않으려는의 집합을 구성 하려면 조건부 액세스에서.
 
-![명명된 위치](./media/conditional-access-exclusion/named-locations.png)
+![조건부 액세스의 명명 된 위치](./media/conditional-access-exclusion/named-locations.png)
 
 그러나 경우에 따라 사용자가이 차단 된 국가/지역에서 로그인 하는 정당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장이나 개인적인 여행 중일 수도 있습니다. 이 예제에서 이러한 국가/지역 차단 하는 조건부 액세스 정책을 정책에서 제외 된 사용자에 대 한 전용된 클라우드 보안 그룹을 가질 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure AD에서 사용자 집합에 조건부 액세스 정책을 범위를 지�
 
 1. 이 제외 그룹의 일부인 사용자를 선택한 다음, **만들기**를 클릭합니다.
 
-    ![새 그룹 창](./media/conditional-access-exclusion/new-group.png)
+    ![Azure Active Directory에서 새 그룹 창](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>그룹을 제외 하는 조건부 액세스 정책 만들기
 
@@ -93,7 +93,7 @@ Azure AD에서 사용자 집합에 조건부 액세스 정책을 범위를 지�
 
 1. 조직의 요구 사항에 따라 조건부 액세스 정책 설정을 사용 하 여 계속 합니다.
 
-    ![제외된 사용자 선택](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![조건부 액세스 제외 사용자 선택 창](./media/conditional-access-exclusion/select-excluded-users.png)
 
 액세스 검토 관리 조건부 액세스 정책에서 제외를 사용할 수 있는 두 가지 예제를 살펴봅니다.
 
@@ -116,7 +116,7 @@ Azure AD에서 사용자 집합에 조건부 액세스 정책을 범위를 지�
 
 6. 사용자가 액세스 검토의 시작 및 완료를 알 수 있도록 메일 알림을 사용합니다.
 
-    ![액세스 검토 만들기](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![예를 들어 1에는 액세스 검토 창 만들기](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>예 2: 레거시 인증을 사용하여 액세스하는 사용자에 대한 액세스 검토
 
@@ -134,7 +134,7 @@ Azure AD에서 사용자 집합에 조건부 액세스 정책을 범위를 지�
 
 6. 사용자가 액세스 검토의 시작 및 완료를 알 수 있도록 메일 알림을 사용합니다.
 
-    ![액세스 검토 만들기](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![예를 들어 2는 액세스 검토 창 만들기](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Pro 팁**: 많은 제외 그룹이 있고 따라서 여러 액세스 검토를 만들어야 하는 경우 이제 Microsoft Graph 베타 엔드포인트에서 API가 있으므로 프로그래밍 방식으로 만들고 관리할 수 있습니다. 시작하려면 [Azure AD 액세스 검토 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) 및 [Microsoft Graph를 통해 Azure AD 액세스 검토를 검색하는 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096)를 참조하세요.
 
@@ -148,11 +148,11 @@ Azure AD에서 사용자 집합에 조건부 액세스 정책을 범위를 지�
 
 1. **결과**를 클릭하여 목록에 유지되도록 승인된 사용자 및 제거된 사용자를 확인합니다.
 
-    ![액세스 검토 결과](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![액세스 검토 승인 하는 결과 표시](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. 그런 다음, **감사 로그**를 클릭하여 검토하는 동안 수행된 작업을 확인합니다.
 
-    ![액세스 검토 감사 로그](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![액세스 검토 감사 로그 작업 나열](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 IT 관리자인 경우 경우에 따라 정책에 대한 제외 그룹을 관리하는 작업을 피할 수 없습니다. 그러나 이러한 그룹을 유지 관리하고, 비즈니스 소유자 또는 사용자가 정기적으로 검토하고, 이러한 변경 내용을 감사하는 작업은 Azure AD 액세스 검토를 사용하여 더욱 간편해졌습니다.
 

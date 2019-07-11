@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480804"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592952"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>열거형 엔터티 및 엔터티 집합 작업을 사용 하는 경우
 
@@ -34,13 +34,13 @@ ms.locfileid: "66480804"
 ![enum_entity_type.png](../media/tutorial-enum-set-entity/enum_entity_type.png)
 ![action_set_entity_type.png](../media/tutorial-enum-set-entity/action_set_entity_type.png)
 
-## <a name="problem"></a>문제
+## <a name="problem"></a>문제점
 
 단어의 의미는 컨텍스트에 따라 달라 집니다 대화에는 경우가 있습니다.  일반적으로 레이블이 지정 된 키 단어를 학습 언어 이해 서비스를 사용 하 여 추출 하며 이러한 경우에 이러한 시스템 못할 레이블이 지정 된 예제를 사용 하 여 자세한 합니다.
 
 Imagine 주변 사람 간의 대화의 일부를 없을지도 고만 단어 "Yes"로 지정 합니다. 에 동의 하는 "예"는 알고는 또는 하기 전에 묻는 질문을 줄여놓았기 때문를 확인 합니다. 이전에 요청 하는 질문에 답변 의미를 제공 하는 컨텍스트로 사용 됩니다. "Yes" 이후 마찬가지로 이러한에 대 한 일반적인 응답 다양 한 질문을 사용 하 여 예제를 제공 하 여 학습할 수 없습니다 [숙련 된 사용자 지정](04-introduction-to-entities.md) 엔터티 때문에 모든 "Yes"는 엔터티로 레이블을 배웁니다 됩니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제를 사용 하 여 더 자세하게 설명 해 보겠습니다.
 
@@ -85,7 +85,7 @@ Imagine 주변 사람 간의 대화의 일부를 없을지도 고만 단어 "Yes
 
 ### <a name="set-entity-actions"></a>엔터티 작업 설정
 
-위에서 설명한 대로 "엔터티 설정" 작업은 단순히 엔터티 알려진된 열거형 값으로 설정 합니다. API 콜백 작업 만들기 및 메모리 관리자를 사용 하 여 엔터티를 값으로 설정 하 여 동일한 결과 얻을 수 있습니다. 예: `memory.Set(entityName, entityValue)`. 이러한 작업을 만들고이 코드를 작성 하지 않아도 됩니다 될 번거롭고-관리 하기가 있으므로 대화 학습자의 특별 한 동작을 사용할 때 이러한 작업을 자동으로 생성 하 고이 작업을 용이 하 게 합니다. 독립적인 작업으로 이러한 다른 작업 또는 봇의 코드를 사용 하 여 결합 되지 않고 이러한 작성 하는 기능을 유지 합니다.
+위에서 설명한 대로 "엔터티 설정" 작업은 단순히 엔터티 알려진된 열거형 값으로 설정 합니다. API 콜백 작업 만들기 및 메모리 관리자를 사용 하 여 엔터티를 값으로 설정 하 여 동일한 결과 얻을 수 있습니다. 예를 들어 `memory.Set(entityName, entityValue)`. 이러한 작업을 만들고이 코드를 작성 하지 않아도 됩니다 될 번거롭고-관리 하기가 있으므로 대화 학습자의 특별 한 동작을 사용할 때 이러한 작업을 자동으로 생성 하 고이 작업을 용이 하 게 합니다. 독립적인 작업으로 이러한 다른 작업 또는 봇의 코드를 사용 하 여 결합 되지 않고 이러한 작성 하는 기능을 유지 합니다.
 
 - 엔터티 작업 집합 열거형 엔터티를 먼저 만들어야 하므로 열거형 엔터티의 값으로 참조 하는 경우에 만들 수 있습니다.
 - 집합 엔터티 작업은 또한 "비-await" 출력 하지 않도록 표시 하며 사용자가 볼 수 "대기" 작업으로 수행 해야 하므로입니다.

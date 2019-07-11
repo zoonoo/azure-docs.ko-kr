@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001451"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702996"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -292,7 +292,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 | 자산 | 값 | 설명 |
 |---|---|---|
-| Name | {User Full Name} | 사용자의 이름과 성 |
+| 이름 | {User Full Name} | 사용자의 이름과 성 |
 | 사용자 이름 | <span>user@domain.com</span> | 로그온한 사용자를 식별하는 데 사용되는 사용자 이름 |
 | 제목| {Subject} |전체 웹에서 사용자 로그온을 고유하게 식별하는 문자열 |
 | 테넌트 ID | {Guid} | 사용자의 Azure AD 조직을 고유하게 나타내는 *guid*입니다. |

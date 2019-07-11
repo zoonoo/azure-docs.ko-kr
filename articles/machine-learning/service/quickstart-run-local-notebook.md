@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 406797203a99df7e805e08ee7589148599eeffce
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237806"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670710"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
@@ -25,7 +25,7 @@ ms.locfileid: "66237806"
 
 이 빠른 시작의 비디오 버전을 보려면:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2G9N6]
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 

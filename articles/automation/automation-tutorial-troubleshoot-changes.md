@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816945"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476852"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "56816945"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -197,7 +197,7 @@ ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName ==
 
 **작업 그룹** 아래에서 **새로 만들기**를 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
-**경고 세부 정보** 아래에서 경고에 대한 이름과 설명을 입력합니다. **심각도**를 **정보(심각도 2)**, **경고(심각도 1)** 또는 **위험(심각도 0)** 으로 설정합니다.
+**경고 세부 정보** 아래에서 경고에 대한 이름과 설명을 입력합니다. **심각도**를 **정보(심각도 2)** , **경고(심각도 1)** 또는 **위험(심각도 0)** 으로 설정합니다.
 
 **작업 그룹 이름** 상자에 경고의 이름 및 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 

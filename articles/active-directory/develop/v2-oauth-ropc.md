@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545120"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482376"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -39,7 +39,7 @@ Microsoft identity 플랫폼에서 지 원하는 [리소스 소유자 암호 자
 
 다음 다이어그램은 ROPC 흐름을 보여 줍니다.
 
-![ROPC 흐름](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![리소스 소유자 암호 자격 증명 흐름을 보여 주는 다이어그램](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>권한 부여 요청
 
@@ -47,7 +47,7 @@ ROPC 흐름은 단일 요청임 &mdash; 클라이언트 식별 및 사용자의 
 
 > [!TIP]
 > Postman에서 이 요청을 실행해 보세요.
-> [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Postman에서이 요청을 실행 해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```

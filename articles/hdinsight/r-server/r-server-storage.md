@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: cb0c350df3056636701b5ff5d3962e2a0e96f40d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1624ba6780fc45e3e663cadc032e253ce9545f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696360"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448870"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 
@@ -169,6 +169,5 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 ML Services 클러스터 개요](r-server-overview.md)
-* [Apache Hadoop에서 ML Services 클러스터 시작](r-server-get-started.md)
 * [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

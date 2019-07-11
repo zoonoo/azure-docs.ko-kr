@@ -1,21 +1,20 @@
 ---
 title: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 앱과 통신(미리 보기) | Microsoft Docs
 description: 이 빠른 시작에서는 디바이스 스트림을 통해 IoT 디바이스와 통신하는 Node.js 서비스 쪽 애플리케이션을 실행합니다.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: d9d083569d648b2bd22438f295a640b4e8d03b77
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 74a9e5e6be326bf9cef3dc6d26594b80491deb3e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733270"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446058"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 

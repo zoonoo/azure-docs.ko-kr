@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289405"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476519"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할 할당
 
@@ -42,17 +42,17 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **역할** 또는 **멤버**를 클릭합니다.
 
-    ![Azure AD 역할](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![역할 및 멤버에 해당 하는 메뉴의 옵션을 사용 하 여 azure AD 역할 강조 표시](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. **멤버 추가**를 클릭하여 관리되는 멤버 추가를 엽니다.
 
 1. **역할 선택**을 클릭하고 관리하려는 역할을 클릭한 후 **선택**을 클릭합니다.
 
-    ![역할 선택](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Azure AD 역할을 나열 하는 역할 창 선택](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. **멤버 선택**을 클릭하고 역할에 할당할 사용자를 선택한 후 **선택**을 클릭합니다.
 
-    ![역할 선택](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![사용자를 선택할 수 있는 멤버 창 선택](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. 관리되는 멤버 추가에서 **확인**을 클릭하여 역할에 사용자를 추가합니다.
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
      역할이 할당되면 선택한 사용자가 멤버 목록에 해당 역할의 **적격** 사용자로 표시됩니다.
 
-    ![역할의 적격 사용자](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![역할의 멤버가 해당 정품 인증 상태와 함께 나열 됩니다.](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. 사용자가 역할을 수행할 수는 이제 알 수 있도록의 지침에 따라 활성화할 수 있음을 [PIM에서 내 Azure AD 역할 활성화](pim-how-to-activate-role.md)합니다.
 
@@ -76,17 +76,17 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **구성원**을 클릭합니다.
 
-    ![멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD 역할-멤버 목록을 보여 주는 역할 및 활성화 상태](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. 영구적으로 유지하려는 **적격** 역할을 클릭합니다.
 
 1. **추가**를 클릭하고 **영구 상태로 만들기**를 클릭합니다.
 
-    ![역할 할당을 영구 상태로 만들기](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![더 많은 메뉴 옵션을 사용 하 여 역할에 대 한 적합 한 사용자를 나열 하는 창 열기](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     이제 역할이 **영구**로 표시됩니다.
 
-    ![영구로 변경된 멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![영구는 역할 및 활성화 상태를 표시 하는 멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>역할에서 사용자 제거
 
@@ -100,17 +100,17 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **구성원**을 클릭합니다.
 
-    ![멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD 역할-멤버 목록을 보여 주는 역할 및 활성화 상태](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. 제거할 역할 할당을 클릭합니다.
 
 1. **추가**를 클릭한 후 **제거**를 클릭합니다.
 
-    ![역할 제거](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![더 많은 메뉴 옵션을 사용 하 여 영구 역할이 있는 사용자를 나열 하는 창 열기](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. 확인하라는 메시지에서 **예**를 클릭합니다.
 
-    ![역할 제거](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![역할에서 멤버를 제거할 것인지 묻는 메시지](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     역할 할당이 제거됩니다.
 
@@ -140,13 +140,13 @@ Azure Active Directory (Azure AD)를 사용 하 여 전역 관리자를 만들 �
 
 1. **선택** 목록에서 **MS-PIM** 서비스 주체를 찾고 선택합니다.
 
-   ![MS-PIM에 대한 권한 추가](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![추가 역할 할당 창-MS PIM 서비스 주체에 대 한 권한 추가](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. **저장**을 선택하여 역할을 할당합니다.
 
    몇 분 후 MS-PIM 서비스 주체가 구독 범위에서 사용자 액세스 관리자 역할로 할당됩니다.
 
-   ![MS-PIM에 대한 사용자 액세스 관리자 역할](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![사용자 액세스 관리자 MS PIM에 대 한 역할 할당을 표시 하는 액세스 제어 (IAM) 블레이드](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>다음 단계

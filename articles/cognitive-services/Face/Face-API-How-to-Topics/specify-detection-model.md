@@ -6,18 +6,18 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: dde5623bf5bd579a13fa7271dfba64f9df61bad1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66576719"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592935"
 ---
-# <a name="specify-a-face-detection-model"></a>얼굴 감지 모델을 지정 합니다.
+# <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
 이 가이드에서는 Azure의 Face API에 대 한 얼굴 감지 모델을 지정 하는 방법을 보여 줍니다.
 
@@ -27,7 +27,7 @@ Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 �
 
 모르는 경우 최신 모델을 사용 해야 하는지 여부를 건너뜁니다 합니다 [여러 모델 평가](#evaluate-different-models) 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과 비교 하는 섹션입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 AI 얼굴 감지의 개념에 익숙해야 합니다. 가 아닌 경우 얼굴 감지 개념 가이드 또는 방법 가이드를 참조 하세요.
 
@@ -52,7 +52,7 @@ AI 얼굴 감지의 개념에 익숙해야 합니다. 가 아닌 경우 얼굴 �
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>지정 된 모델을 사용 하 여 사람의 얼굴 추가
@@ -64,9 +64,9 @@ Face API는 이미지에서 얼굴 데이터를 추출 하 고 사용 하 여를
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 
-string personId = (await faceServiceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
+string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
@@ -82,7 +82,7 @@ await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imag
 얼굴을 추가 하면 기존 감지 모델을 지정할 수도 있습니다 **FaceList** 개체입니다. .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077170"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433426"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽 (미리 보기)를 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -89,7 +89,7 @@ HDInsight 클러스터를 올바르게 구성 하도록 네트워크 규칙을 �
 
    | **Name** | **프로토콜** | **소스 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | SQL을 사용 하면 로그인 하 고 SQL 트래픽 감사 방화벽을 바이패스 하는 HDInsight 서브넷의 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
+   | Rule_7 | TCP | * | SQL | `1433` | SQL을 사용 하면 로그인 하 고 SQL 트래픽 감사 방화벽을 바이패스 하는 HDInsight 서브넷의 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
 
 1. 클릭 **추가** 네트워크 규칙 컬렉션 만들기를 완료 합니다.
 

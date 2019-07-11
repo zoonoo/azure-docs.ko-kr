@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204665"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560753"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -76,14 +76,14 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 합니다.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
 또한 다음 Url에 연결 해야 완료를 [제공된 된 PowerShell 스크립트를 사용 하 여 어댑터의 설치](#run-the-powershell-script)
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -121,9 +121,14 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
    - **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
-2. 클라이언트 애플리케이션(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
-NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
+      > [!NOTE]
+      > NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
+      >
+      > 또한 VPN 클라이언트 UX에 입력 필드를 지원 하 고 있습니다-네트워크 액세스 정책을 구성한 경우 인증 성공할 수 있지만 네트워크 정책에 구성 RADIUS 특성을 하나도 적용할 모두 네트워크 액세스 장치 같은 RRAS 서버와 VPN 클라이언트입니다. 결과적으로, VPN 클라이언트에 액세스할 수 없는 이하의 원하는 보다 많은 액세스 권한이 있을 수 있습니다.
+      >
+
+2. 클라이언트 애플리케이션(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
 Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정](howto-mfa-mfasettings.md#verification-methods)할 수 있습니다.
 
@@ -132,11 +137,10 @@ Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정]
 NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 수행해야 하는 사용자를 MFA에 등록해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
-1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 
-2. 지시에 따라 확인 방법을 설정합니다.
-3. 조건부 액세스 정책을 만들거나 또는 [사용자 상태를 변경](howto-mfa-userstates.md) 테스트 계정에 대 한 2 단계 확인이 필요 합니다. 
 
-사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
+1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다.
+2. 지시에 따라 확인 방법을 설정합니다.
+3. [조건부 액세스 정책을 만들려면](howto-mfa-getstarted.md#create-conditional-access-policy) 테스트 계정에 대 한 다단계 인증을 요구 하도록 합니다.
 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -188,6 +192,14 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 > [!NOTE]
 > PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
+
+### <a name="certificate-rollover"></a>인증서 롤오버
+
+릴리스를 사용 하 여 여러 인증서를 읽는 NPS 확장의 1.0.1.32 이제 지원 됩니다. 이 기능은 해당 만료 전에 롤링 인증서 업데이트를 용이 하 게 하는 데 도움이 됩니다. 1\.0.1.32 버전으로 업그레이드 해야 조직 NPS 확장의 이전 버전을 실행 하는 경우 이상.
+
+만든 인증서는 `AzureMfaNpsExtnConfigSetup.ps1` 스크립트는 2 년 동안 유효 합니다. IT 조직은 만료에 대 한 인증서를 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인 로컬 컴퓨터 인증서 저장소에 배치 됩니다 및 발급 된 테 넌 트 ID를 제공 하는 스크립트입니다.
+
+인증서 만료 날짜가 도달 하는 경우를 대체할 새 인증서를 만들어야 합니다.  이 프로세스를 실행 하 여 수행 된 `AzureMfaNpsExtnConfigSetup.ps1` 다시 및 메시지가 표시 되 면 동일한 테 넌 트 ID를 유지 합니다. 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -291,6 +303,10 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
+
+### <a name="additional-troubleshooting"></a>추가적인 문제 해결
+
+이 문서에서 추가 문제 해결 지침 및 가능한 솔루션을 찾을 수 있습니다 [Azure Multi-factor Authentication 용 NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

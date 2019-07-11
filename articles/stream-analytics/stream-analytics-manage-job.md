@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493425"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612375"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
@@ -191,7 +191,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 ## <a name="define-a-query-to-analyze-input-data"></a>입력 데이터를 분석하는 쿼리 정의
 
-다음 단계는 실시간으로 데이터를 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://msdn.microsoft.com/library/dn834998.aspx)를 사용하여 변환 쿼리를 정의합니다. 이 자습서에 사용된 쿼리는 전화 데이터에서 사기성 호출을 검색합니다.
+다음 단계는 실시간으로 데이터를 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용하여 변환 쿼리를 정의합니다. 이 자습서에 사용된 쿼리는 전화 데이터에서 사기성 호출을 검색합니다.
 
 이 예제에서는 동일한 사용자가 5초 이내에 다른 위치에서 사기성 호출을 만듭니다. 예를 들어 동일한 사용자가 미국 및 오스트레일리아에서 동시에 합법적으로 전화를 걸 수 없습니다. Stream Analytics 작업에 대한 변환 쿼리를 정의하려면:
 
@@ -212,7 +212,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가/지역)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) 함수를 사용하여 조인의 **ON** 절 내에서 지정됩니다.
+   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가/지역)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) 함수를 사용하여 조인의 **ON** 절 내에서 지정됩니다.
 
    이 쿼리는 **DATEDIFF** 함수를 제외하고 일반 SQL 조인과 흡사합니다. 이 쿼리에 사용되는 **DATEDIFF** 함수는 Stream Analytics로 한정되며, `ON...BETWEEN` 절 내부에 나타나야 합니다.
 

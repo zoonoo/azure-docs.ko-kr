@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447666"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -125,6 +125,7 @@ ms.locfileid: "60776598"
 ## <a name="next-steps"></a>다음 단계
 
 - [웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 공통 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
+- [모든 경고를 처리 하도록 경고 공통 스키마를 활용 하는 논리 앱을 만드는 방법에 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

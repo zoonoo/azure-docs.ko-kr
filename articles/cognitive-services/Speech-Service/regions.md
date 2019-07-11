@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466982"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -35,9 +35,9 @@ Speech SDK는 **음성 인식**, **텍스트 음성 변환** 및 **번역**에 �
   지역 | 음성 SDK 매개 변수 | 음성 사용자 지정 포털
  ------|-------|--------
  미국 서부 | `westus` | https://westus.cris.ai
- 미국 서부2 | `westus2` | https://westus2.cris.ai
- 미국 동부 | `eastus` | https://eastus.cris.ai
- 미국 동부2 | `eastus2` | https://eastus2.cris.ai
+ 미국 서부 2 | `westus2` | https://westus2.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
+ 미국 동부 2 | `eastus2` | https://eastus2.cris.ai
  미국 중부 | `centralus` | https://centralus.cris.ai
  미국 중북부 | `northcentralus` | https://northcentralus.cris.ai
  미국 중남부 | `southcentralus` | https://southcentralus.cris.ai
@@ -74,18 +74,32 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
 
 [LUIS(Language Understanding Service)](/azure/cognitive-services/luis/luis-reference-regions)에서 지원하는 게시 지역의 하위 집합입니다.
 
+### <a name="voice-first-virtual-assistants"></a>음성 우선 가상 도우미
+
+합니다 [Speech SDK](speech-sdk.md) 지 원하는 **음성 우선 가상 도우미** 이러한 지역에서 기능:
+
+지역 | 음성 SDK 매개 변수
+-------|---------------------
+미국 서부 | `westus`
+미국 서부 2 | `westus2`
+East US | `eastus`
+미국 동부 2 | `eastus2`
+서유럽 | `westeurope`
+유럽 북부 | `northeurope`
+동남아시아 | `southeastasia`
+
 ## <a name="rest-apis"></a>REST API
 
 음성 서비스는 또한 음성-텍스트 및 텍스트-음성 변환 요청에 대한 REST 엔드포인트를 노출합니다.
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-음성-텍스트 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 참조하세요.
+음성-텍스트 참조 설명서를 참조 하세요 [음성-텍스트 REST API](rest-speech-to-text.md)합니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-텍스트-음성 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 참조하세요.
+텍스트 음성 변환 참조 설명서를 참조 하세요 [text to speech REST API](rest-text-to-speech.md)합니다.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118589"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436170"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>렌더링 팜 관리자로 Azure Batch 사용
 
@@ -23,7 +23,7 @@ Azure는 주요 렌더링 관리자에 대한 기본 제공 지원 또는 추가
 다음 렌더링 관리자가 지원됩니다.
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Azure에 PipelineFX Qube 사용
@@ -32,7 +32,7 @@ Azure Batch 풀 VM을 Qube 작업자로 사용하도록 활성화하기 위한 �
 
 ## <a name="using-azure-with-royal-render"></a>Azure에 Royal Render 사용
 
-Royal Render는 Azure와 Azure Batch 통합을 기본 제공하므로 Azure 기반 VM을 통해 렌더링 팜을 확장할 수 있습니다. 요약은 [도움말 파일](http://www.royalrender.de/help8/index.html?Cloudrendering.html)을 참조하세요.
+Royal Render는 Azure와 Azure Batch 통합을 기본 제공하므로 Azure 기반 VM을 통해 렌더링 팜을 확장할 수 있습니다. 요약은 [도움말 파일](https://www.royalrender.de/help8/index.html?Cloudrendering.html)을 참조하세요.
 
 Azure 통합을 사용하는 Royal Render 고객 예는 [Jellyfish Pictures 고객 스토리](https://customers.microsoft.com/story/jellyfishpictures)를 참조하세요.
 

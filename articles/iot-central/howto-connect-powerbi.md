@@ -58,7 +58,7 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 각 리소스의 세부 정보 및 리소스가 사용되는 방식이 아래에 설명되어 있습니다.
 
 ### <a name="azure-functions"></a>Azure 기능
-Azure Function App은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
+Azure 함수 앱은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩니다. 데이터를 처리하고 분석 테이블에 저장하는 저장 프로시저 활동을 실행합니다.

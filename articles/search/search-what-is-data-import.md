@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024350"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445389"
 ---
 # <a name="data-import-overview---azure-search"></a>데이터 가져오기 개요-Azure Search
 
@@ -36,7 +36,7 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 
 현재 포털을 통해 데이터를 푸시할 수 있는 도구가 없습니다.
 
-각 방법에 대 한 소개를 참조 하세요. [빠른 시작: PowerShell 및 REST API를 사용 하 여 Azure Search 인덱스 만들기](search-create-index-rest-api.md) 또는 [빠른 시작: Azure Search 인덱스 만들기 C# ](search-import-data-dotnet.md)합니다.
+각 방법에 대 한 소개를 참조 하세요. [빠른 시작: PowerShell을 사용 하 여 Azure Search 인덱스 만들기](search-create-index-rest-api.md) 나 [ C# 빠른 시작: .NET SDK를 사용 하 여 Azure Search 인덱스 만들기](search-get-started-dotnet.md)합니다.
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 
 전체, 기존 문서 콘텐츠와 병합 또는 삭제 된 문서를 업로드 해야 하는지 여부를 지정 합니다. 문서 단위로 인덱싱 동작의 유형을 제어할 수 있습니다.
 
-REST api에서 Azure Search 인덱스의 끝점 URL에 JSON 요청 본문을 사용 하 여 HTTP POST 요청을 실행 합니다. "값" 배열의 각 JSON 개체는 문서 키를 포함 하 고 인덱싱 작업을 추가, 업데이트, 또는 문서 콘텐츠를 삭제를 지정 합니다. 코드 예제를 참조 하세요 [문서를 로드](search-create-index-rest-api.md#load-documents)합니다.
+REST api에서 Azure Search 인덱스의 끝점 URL에 JSON 요청 본문을 사용 하 여 HTTP POST 요청을 실행 합니다. "값" 배열의 각 JSON 개체는 문서 키를 포함 하 고 있는지 여부를 인덱싱 작업을 추가, 업데이트 또는 문서 콘텐츠를 삭제를 지정 합니다. 코드 예제를 참조 하세요 [문서를 로드](search-get-started-dotnet.md#load-documents)합니다.
 
-.NET SDK에서 데이터를 패키지는 `IndexBatch` 개체입니다. `IndexBatch` 의 컬렉션을 캡슐화 `IndexAction` 개체를 각 문서와 Azure Search는 문서에서 수행할 작업을 지시 하는 속성을 포함 합니다. 코드 예제를 참조 하세요 [IndexBatch 생성](search-import-data-dotnet.md#construct-indexbatch)합니다.
+.NET SDK에서 데이터를 패키지는 `IndexBatch` 개체입니다. `IndexBatch` 의 컬렉션을 캡슐화 `IndexAction` 개체를 각 문서와 Azure Search는 문서에서 수행할 작업을 지시 하는 속성을 포함 합니다. 코드 예제를 참조 하세요. 합니다 [ C# 빠른 시작](search-get-started-dotnet.md)합니다.
 
 
 | @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |

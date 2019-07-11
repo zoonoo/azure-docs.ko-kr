@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602820"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594217"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
@@ -76,7 +76,7 @@ DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는
 | ------- | --------------- | ----------- |
 | **CDN 프로필** | myCDNProfile | CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 엔드포인트의 컬렉션입니다. |
 | **가격 책정 계층** | Standard Akamai | [가격 책정 계층](cdn-features.md)은 공급자 및 사용 가능한 기능을 지정합니다. 이 자습서에서는 *Standard Akamai*를 사용합니다. |
-| **CDN 엔드포인트 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;*.azureedge.net에서 캐시된 리소스에 액세스합니다.
+| **CDN 엔드포인트 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;* .azureedge.net에서 캐시된 리소스에 액세스합니다.
 
 **만들기**를 선택하여 CDN 프로필을 만듭니다.
 

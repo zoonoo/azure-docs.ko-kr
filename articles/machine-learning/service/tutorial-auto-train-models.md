@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417297"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622370"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 처음 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표를 살펴보면 거리/비용 관계가 거의 선형이고, 대부분의 경우 예측 비용 값이 동일한 여행 거리에 대한 실제 비용 값에 매우 가깝다는 것을 알 수 있습니다.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

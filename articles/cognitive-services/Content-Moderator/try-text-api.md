@@ -4,17 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 온라인 콘솔에서 텍스트 조정 API를 사용하여 텍스트 조정을 시험 사용해 보세요.
 services: cognitive-services
 author: sanjeev3
+ms.author: sajagtap
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: a3eb134d655f2a25acb45e0d249aa421667d1520
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688832"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621395"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 

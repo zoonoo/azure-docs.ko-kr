@@ -3,7 +3,7 @@ title: App Service Mobile Apps로 관리되는 클라이언트 라이브러리 �
 description: Windows 및 Xamarin 앱에서 Azure App Service Mobile Apps용 .NET 클라이언트 라이브러리를 사용하는 방법을 알아봅니다.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,23 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119306"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446352"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) 지금 합니다.
+>
+
 ## <a name="overview"></a>개요
-이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps에 대한 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 서버 SDK][2] 또는 [Node.js 서버 SDK][3]에 대한 설명서를 참조하세요.
+이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps 용 서버 쪽 Sdk에 대 한 자세히 알아보려면에 대 한 설명서를 참조 합니다 [.NET 서버 SDK][2] or the
+[Node.js Server SDK][3]합니다.
 
 ## <a name="reference-documentation"></a>참조 설명서
-클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps .NET 클라이언트 참조][4]에 있습니다.
+클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps.NET 클라이언트 참조][4]합니다.
 [Azure 샘플 GitHub 리포지토리][5]에서 몇 가지 클라이언트 샘플을 찾을 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
@@ -60,9 +65,10 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute][6]는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
+합니다 [JsonPropertyAttribute][6] 정의 하는 데 사용 되는 *PropertyName* 클라이언트 필드와 테이블 필드 간의 매핑.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법에 알아보려면 참조를 [.NET 서버 SDK 토픽][7]
+or the [Node.js Server SDK topic][8]합니다. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리형 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
@@ -80,7 +86,8 @@ using Microsoft.WindowsAzure.MobileServices;
 > Android 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. SDK에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ### <a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
-Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있습니다.  SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침][11]을 참조하세요.
+Microsoft.Azure.Mobile 네임 스페이스에 대 한 기호에 사용할 수 있습니다 [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] SymbolSource를 Visual Studio 통합할 수 있습니다.
 
 ## <a name="create-client"></a>Mobile Apps 클라이언트 만들기
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient][12] 개체를 만듭니다.
@@ -520,9 +527,9 @@ PullOptions pullOptions = new PullOptions
 1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...** 를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
-   * **Windows 8.1 런타임:** [Windows 8.1용 SQLite][3]를 설치합니다.
-   * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite][4]를 설치합니다.
-   * **범용 Windows 플랫폼** [범용 Windows용 SQLite][5]를 설치합니다.
+   * **Windows 8.1 런타임:** 설치할 [Windows 8.1 용 SQLite][3]합니다.
+   * **Windows Phone 8.1:** 설치할 [Windows Phone 8.1 용 SQLite][4]합니다.
+   * **유니버설 Windows 플랫폼** 설치 [유니버설 Windows 용 SQLite][5]합니다.
 3. (선택 사항). Windows 디바이스의 경우, **참조** > **참조 추가...** , **Windows** 폴더 &gt; **확장**을 펼친 후, **Visual C++ 2013 Runtime for Windows** SDK와 함께 해당 **SQLite for Windows** SDK를 사용하도록 설정합니다.
     SQLite SDK 이름은 Windows 플랫폼마다 약간 다릅니다.
 

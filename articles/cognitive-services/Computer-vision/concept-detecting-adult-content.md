@@ -12,15 +12,15 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368349"
 ---
-# <a name="detect-adult-and-racy-content"></a>성인 및 외설 콘텐츠 감지
+# <a name="detect-adult-and-racy-content"></a>성인 및 외설 콘텐츠 검색
 
-Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표시를 제한할 수 있도록 이미지의 성인 자료를 감지할 수 있습니다. 콘텐츠 플래그는 0과 1 사이의 점수로 적용되므로 개발자가 고유한 기본 설정에 따라 결과를 해석할 수 있습니다. 
+Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표시를 제한할 수 있도록 이미지의 성인 자료를 검색할 수 있습니다. 콘텐츠 플래그는 0과 1 사이의 점수로 적용되므로 개발자가 고유한 기본 설정에 따라 결과를 해석할 수 있습니다. 
 
 > [!NOTE]
 > 이 기능은 [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) 서비스를 통해서도 제공됩니다. 텍스트 조정, 사용자 검토 워크플로 등의 좀 더 엄격한 콘텐츠 조정 시나리오에 대한 솔루션으로 이 대안을 참조하세요.

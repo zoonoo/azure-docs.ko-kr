@@ -1,21 +1,21 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2019
-ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 00cc63f53388ab7bea05a0b55784247f63477684
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124288"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704269"
 ---
 ## <a name="validate-that-a-container-is-running"></a>컨테이너가 실행 중인지 확인 
 
 컨테이너가 실행되고 있는지 확인하는 방법은 여러 가지가 있습니다. 
 
-|요청|목적|
+|요청|용도|
 |--|--|
 |`http://localhost:5000/`|컨테이너는 홈페이지를 제공합니다.|
 |`http://localhost:5000/status`|컨테이너가 실행 중인지 확인하기 위해 GET과 함께 요청되며, 엔드포인트 쿼리를 유발하지 않습니다. 이 요청은 Kubernetes [활동성 및 준비 상태 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)에 사용될 수 있습니다.|

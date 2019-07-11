@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962867"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483014"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft id 플랫폼 (v2.0)에 업데이트 이유는?
 
@@ -46,7 +46,7 @@ Microsoft id 플랫폼 끝점에 대 한 교육을 소비자에 대 한 액세�
 
 Azure AD v1.0 엔드포인트를 사용하는 앱은 필수 OAuth 2.0 권한을 사전에 지정해야 합니다. 예를 들면:
 
-![권한 등록 UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![사용 권한 등록 UI를 보여 주는 예제](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 애플리케이션 등록에서 직접 설정한 권한은 **정적**입니다. Azure Portal에 정의된 앱의 정적 권한은 코드를 멋지고 간단하게 유지했지만, 개발자에게 몇 가지 가능한 문제를 줄 수 있습니다.
 

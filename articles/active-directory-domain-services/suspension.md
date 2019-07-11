@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 일시 중단된 도메인 | Mic
 description: 관리되는 도메인 일시 중단 및 삭제
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: a4e43518ce70c040b8243034c52e4b215548a47c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: f50d16687632224a21d6ae294f4070485fb4eead
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246721"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472501"
 ---
 # <a name="suspended-domains"></a>일시 중단된 도메인
 Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을 오랫동안 서비스할 수 없는 경우 관리되는 도메인이 일시 중단됨 상태로 전환됩니다. 이 문서에서는 관리되는 도메인이 일시 중단된 이유와 일시 중단된 도메인을 수정하는 방법을 설명합니다.

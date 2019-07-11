@@ -62,7 +62,7 @@
         - name: 디바이스 설정 사용
           href: howto-use-device-sets.md
         - name: 버전 디바이스 템플릿
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: 모니터링 및 분석
       items:
         - name: 원격 분석 규칙 만들기
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: 애플리케이션 대시보드 구성
           href: howto-configure-homepage.md
+        - name: 대시보드 타일 사용
+          href: howto-use-tiles.md
         - name: 애플리케이션 UI 사용자 지정
           href: howto-customize-ui.md
         - name: 애플리케이션 템플릿 사용

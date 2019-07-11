@@ -49,11 +49,33 @@
         - name: 배포 단계
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
-    - name: 영국 공식
+    - name: NIST SP 800-53 Rev 4
       items:
         - name: 컨트롤 매핑
-          displayName: 'standards, uk official'
+          displayName: 'standards, nist, 800-53'
+          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+    - name: PCI-DSS v3.2.1
+      items:
+        - name: 개요
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/index.md
+        - name: 컨트롤 매핑
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/control-mapping.md
+        - name: 배포 단계
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/deploy.md
+    - name: 영국 공식 및 영국 NHS
+      items:
+        - name: 개요
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/index.md
+        - name: 컨트롤 매핑
+          displayName: 'standards, uk official, uk nhs'
           href: ./samples/ukofficial/control-mapping.md
+        - name: 배포 단계
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/deploy.md
 - name: 개념
   items:
     - name: 청사진 수명 주기

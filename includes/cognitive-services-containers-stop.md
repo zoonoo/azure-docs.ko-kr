@@ -1,14 +1,14 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: c0c3675b68c8ecc83a56b99c44db71b2ac2d28d7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: a642160fc7e94979a91687b07c26fafeb786bbb4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124581"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704310"
 ---
-컨테이너를 종료하려면 컨테이너를 실행하는 명령줄 환경에서 Ctrl+C를 선택합니다.
+컨테이너를 실행 하는 명령줄 환경에서 컨테이너를 종료 하려면 <kbd>Ctrl + C</kbd>합니다.

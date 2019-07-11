@@ -3,19 +3,19 @@ title: GenerateAnswer API와 메타데이터 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 사용자 쿼리 결과 필터링 하 고 후속 대화에 사용할 수 있는 추가 정보를 저장할 수 있습니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/30/2019
-ms.author: tulasim
-ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693234"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785692"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변을 가져오려면
 
@@ -37,13 +37,13 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 특정 QnA 엔터티를
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API를 사용 하 여 답변 예측
 
-봇 또는 응용 프로그램에서 GenerateAnswer API를 사용 하 여 사용자 질문을 사용 하 여 기술 자료를 쿼리할 수, 가장 일치 하는 질문 및 답변에서 가져오려는 설정 합니다.
+사용 된 [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) 봇 또는 사용자 질문을 사용 하 여 기술 자료를 쿼리 하는 응용 프로그램에서 설정에 가장 일치 하는 질문 및 답변에서 가져오려고 합니다.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점에 게시 
 
-기술 자료에 게시 한 후 합니다 [QnA Maker 포털](https://www.qnamaker.ai), 또는 사용 하 여 합니다 [API](https://go.microsoft.com/fwlink/?linkid=2092179), GenerateAnswer 끝점의 세부 정보를 가져올 수 있습니다.
+기술 자료에 게시 한 후 합니다 [QnA Maker 포털](https://www.qnamaker.ai), 또는 사용 하 여 합니다 [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), GenerateAnswer 끝점의 세부 정보를 가져올 수 있습니다.
 
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
@@ -59,34 +59,21 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 특정 QnA 엔터티를
 
 ## <a name="generateanswer-request-configuration"></a>GenerateAnswer 요청 구성
 
-HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnswer를 호출하는 방법을 보여주는 샘플 코드는 [빠른 시작](../quickstarts/csharp.md)을 참조하세요.
+HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnswer를 호출하는 방법을 보여주는 샘플 코드는 [빠른 시작](../quickstarts/csharp.md)을 참조하세요. 
 
-합니다 **요청 URL** 형식은 다음과 같습니다. 
+POST 요청을 사용합니다.
+
+* 필요한 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, 보안
+* 필요한 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)합니다. 
+
+GenerateAnswer URL의 형식은: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP 요청 속성|이름|Type|목적|
-|--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
-|URL 경로 매개 변수|QnAMaker 끝점 호스트|문자열|Azure 구독에 배포된 엔드포인트의 호스트 이름입니다. 사용할 수 있습니다 합니다 **설정을** 기술 자료를 게시 한 후 페이지입니다. |
-|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은: '|
-|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
-|Post 본문|JSON 개체|JSON|설정 사용 하 여 질문입니다.|
-
-
-JSON 본문을 몇 가지 설정은 다음과 같습니다.
-
-|JSON 본문 속성|필수|Type|목적|
-|--|--|--|--|
-|`question`|필수|문자열|기술 자료에 보낼 사용자 질문입니다.|
-|`top`|선택 사항|정수|출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.|
-|`userId`|선택 사항|문자열|사용자를 식별하는 고유 ID입니다. 이 ID는 채팅 로그에 기록됩니다.|
-|`scoreThreshold`|선택 사항|정수|이 임계값 보다 신뢰성 점수를 사용 하 여 대답만 반환 됩니다. 기본값은 0입니다.|
-|`isTest`|선택 사항|Boolean|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
-|`strictFilters`|선택 사항|문자열|지정할 경우 지정된 메타데이터가 있는 답변만 반환하라고 QnA Maker에 지시합니다. 사용 하 여 `none` 를 나타내는 응답에는 메타 데이터 필터가 있어야 합니다. |
-|`RankerType`|선택 사항|문자열|로 지정 하는 경우 `QuestionOnly`, 질문만 검색할 QnA Maker를 알려 줍니다. 지정 하지 않으면 QnA Maker 질문 및 답변을 검색 합니다.
+HTTP 헤더 속성을 설정 해야 `Authorization` 문자열의 값을 사용 하 여 `EndpointKey` 는 후행 공백 다음에서 찾을 끝점 키를 **설정** 페이지입니다.
 
 예제 JSON 본문 다음과 같습니다.
 
@@ -109,19 +96,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer 응답 속성
 
-응답에 성공 하면 200 및 JSON 응답의 상태를 반환합니다. 
-
-|답변 속성 (점수에 의해 정렬)|목적|
-|--|--|
-|score에 대한 임계값 수준 보기|0~100 사이의 순위 점수입니다.|
-|Id|답변에 할당된 고유 ID입니다.|
-|질문|사용자가 제공한 질문입니다.|
-|대답|질문에 대한 답변입니다.|
-|source|기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.|
-|metadata|답변과 연결된 메타데이터입니다.|
-|metadata.name|메타데이터 이름입니다. (문자열, 최대 길이: 100자, 필수)|
-|metadata.value|메타데이터 값입니다. (문자열, 최대 길이: 100자, 필수)|
-
+합니다 [응답](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) 사용 가능한 경우 답변 및 다음 표시 하는 데 필요한 정보를 대화의 설정 모두를 포함 하 여 JSON 개체입니다.
 
 ```json
 {
@@ -144,6 +119,40 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
     ]
 }
 ```
+
+## <a name="use-qna-maker-with-a-bot-in-c"></a>에 봇과 QnA Maker를 사용 합니다.C#
+
+Bot framework QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+
+```csharp
+using Microsoft.Bot.Builder.AI.QnA;
+var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
+var qnaOptions = new QnAMakerOptions();
+
+qnaOptions.Top = Constants.DefaultTop;
+qnaOptions.ScoreThreshold = 0.3F;
+var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
+```
+
+지원 봇이 [예로](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 이 코드로 변경 합니다.
+
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 QnA Maker를 사용 합니다.
+
+Bot framework QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+
+```javascript
+const { QnAMaker } = require('botbuilder-ai');
+this.qnaMaker = new QnAMaker(endpoint);
+
+// Default QnAMakerOptions
+var qnaMakerOptions = {
+    ScoreThreshold: 0.03,
+    Top: 3
+};
+var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
+```
+
+지원 봇이 [예로](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 이 코드로 변경 합니다.
 
 <a name="metadata-example"></a>
 

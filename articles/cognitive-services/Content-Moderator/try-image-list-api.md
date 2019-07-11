@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7efa5114a903ba88010ec44f2f1038331df62948
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075700"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097983"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 이미지 목록을 사용하여 조정
 

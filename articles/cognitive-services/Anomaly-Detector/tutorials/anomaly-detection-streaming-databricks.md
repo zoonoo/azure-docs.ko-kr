@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807471"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080799"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -74,7 +74,7 @@ Azure Event Hubs를 참조 하세요 [퀵 스타트](../../../event-hubs/event-h
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
-    |**Location**:     | 선택 **미국 동부 2** 또는 다른 지역 중 하나입니다. 참조 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/) 지역 가용성에 대 한 합니다.        |
+    |**위치**:     | 선택 **미국 동부 2** 또는 다른 지역 중 하나입니다. 참조 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/) 지역 가용성에 대 한 합니다.        |
     |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 선택 하지 마십시오 **평가판**합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
     **만들기**를 선택합니다.
@@ -164,7 +164,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
     |값 |Description  |
     |---------|---------|
-    |이름     | 비정상 탐지기 리소스의 이름입니다.        |
+    |Name     | 비정상 탐지기 리소스의 이름입니다.        |
     |구독     | Azure 구독 리소스와 연결 합니다.        |
     |Location     | Azure 위치입니다.        |
     |가격 책정 계층     | 서비스에 대 한 가격 책정 계층입니다. 비정상 탐지기 가격 책정에 대 한 자세한 내용은 참조 하세요. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)합니다.        |
@@ -670,22 +670,22 @@ adResult.show()
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
+```
 
+정말 간단하죠. Azure Databricks를 사용 하 여 Azure Event Hubs로 데이터를 성공적으로 스트리밍, Event Hubs 커넥터를 사용 하 여 스트림 데이터를 사용한 있고 스트리밍 데이터를 거의 실시간으로 변칙 검색을 실행 합니다.
+이 자습서에서는 있지만 세분성은 매시간, 필요에 맞게 세분성을 항상 변경할 수 있습니다. 
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
-Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
+## <a name="clean-up-resources"></a>리소스 정리
 
-## Clean up resources
+자습서 실행이 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면, Azure Databricks 작업 영역에서 선택 **클러스터** 왼쪽된 창에서. 종료 하려는 클러스터에 대해 아래의 줄임표 위로 커서를 이동 **작업** 열을 선택 합니다 **Terminate** 아이콘을 선택 합니다 **확인**합니다.
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
+![Databricks 클러스터 중지](../media/tutorials/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
+자동으로 중지 됩니다 클러스터를 수동으로 종료 하지 않습니다, 경우 선택한 제공 합니다 **후 종료 \_ \_ 전까지 비활성 시간 (분)** 클러스터를 만드는 동안 확인란을 선택 합니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
-If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+## <a name="next-steps"></a>다음 단계
 
-## Next steps
-
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
+이 자습서에서는 Azure Databricks를 사용하여 Azure Event Hubs로 데이터를 스트리밍한 다음, Event Hubs에서 스트리밍 데이터를 실시간으로 읽는 방법을 알아보았습니다. 비정상 탐지기 API를 호출 하 고 Power BI desktop을 사용 하 여 잘못 된 부분을 시각화 하는 방법을 알아보려면 다음 자습서로 이동 합니다. 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Power BI desktop 사용 하 여 일괄 처리 변칙 검색](batch-anomaly-detection-powerbi.md)

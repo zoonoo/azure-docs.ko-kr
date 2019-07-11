@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706318"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565606"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
@@ -49,7 +49,7 @@ Azure에서는 Azure VM OS 및 데이터 디스크의 스냅샷, 관리되는 �
 
 ### <a name="prepare-a-vm"></a>VM 준비
 
-이미지에 대 한 새 VM을 만드는 경우 관리 되는 이미지에 대 한 기본 이미지로 Batch에서 지 원하는 첫 번째 파티 Azure Marketplace 이미지를 사용 합니다. 만 자사 이미지를 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지 원하는 Azure Marketplace 이미지 참조의 전체 목록은 참조 합니다 [목록 노드 에이전트 Sku](/rest/api/batchservice/account/listnodeagentskus) 작업 합니다.
+이미지에 대 한 새 VM을 만드는 경우 관리 되는 이미지에 대 한 기본 이미지로 Batch에서 지 원하는 첫 번째 파티 Azure Marketplace 이미지를 사용 합니다. 만 자사 이미지를 기본 이미지로 사용할 수 있습니다. Azure Batch에서 지 원하는 Azure Marketplace 이미지 참조의 전체 목록은 참조 합니다 [목록 노드 에이전트 Sku](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) 작업 합니다.
 
 > [!NOTE]
 > 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

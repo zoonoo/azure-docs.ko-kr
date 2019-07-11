@@ -2,19 +2,20 @@
 title: 윤리 및 사용 책임 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이러한 지침은 회사와 서비스에서 신뢰를 구축하는 데 도움이 되는 방식으로 맞춤 설정을 구현하기 위한 것입니다. 잠시 여유를 갖고 맞춤 설정이 사람들의 삶에 미치는 영향에 대해 연구하고, 알아보고, 깊이 생각해 보세요. 의심스러우면 지침을 확인해 보세요.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239881"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722398"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -101,7 +102,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="unintended-consequences-from-reward-scores"></a>보상 점수에서 의도하지 않은 결과
 보상 점수는 최선의 의도로 작성될 수 있지만, Personalizer에서 콘텐츠의 순위를 지정하는 방식에 대해 예기치 않은 결과 또는 의도하지 않은 결과를 초래할 수 있습니다. 
 
-다음 예제를 살펴보세요.
+다음 예를 참조하세요.
 
 * 시청한 비디오 길이의 비율에 대해 비디오 콘텐츠 맞춤 설정을 보상하는 경우 아마도 더 짧은 비디오의 순위를 지정하는 경향이 있습니다.
 * 공유 방식 또는 콘텐츠 자체에 대한 감정 분석 없이 소셜 미디어 공유를 보상하는 경우 공격적이거나, 변조되지 않거나, 선동적인 콘텐츠의 순위로 지정될 수 있으며, 이는 많은 "참여"를 유도하는 경향이 있지만 거의 가치가 없습니다.
@@ -196,7 +197,7 @@ Microsoft는 이러한 책임을 이행하는 데 도움을 주기 위해 도구
 * [Ethics and Data Science(데이터 과학 및 윤리)](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/)(DJ Patil, Hilary Mason, Mike Loukides, 공동 작성자)
 * [ACM Code of Ethics(ACM 윤리 강령)](https://www.acm.org/code-of-ethics)
 * [GINA(Genetic Information Nondiscrimination Act)](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>다음 단계

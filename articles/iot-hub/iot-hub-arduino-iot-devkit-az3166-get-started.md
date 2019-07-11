@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4017a3be5e03e1a9b85b4002b8069a1adc3a6b83
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924640"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551579"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -30,6 +30,8 @@ Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션을 개
 * 개발 환경을 준비 하 고 IoT DevKit에 대 한 응용 프로그램을 개발 하는 방법입니다.
 
 DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.github.io/iot-devkit-web-simulator/)를 시도하거나 [DevKit를 구매](https://aka.ms/iot-devkit-purchase)합니다.
+
+제공 되는 모든 DevKit 자습서에 대 한 소스 코드를 찾을 수 있습니다 합니다 [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) 리포지토리.
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -132,6 +134,11 @@ DevKit은 IoT hub에서 장치 특정 끝점에 연결 하 고 온도 및 습도
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![데이터 전송](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. Azure에 보낸 원격 분석 데이터를 확인 하려면 Azure Cloud Shell에서 다음 명령을 실행 합니다.
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
@@ -301,7 +308,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 1. VS Code에서 `F1` 키를 클릭하고, **Azure IoT Hub: IoT Hub 연결 문자열 설정**을 입력하고 선택합니다. 연결 문자열을 복사합니다.
     ![Azure IoT Hub 연결 문자열 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 오른쪽의 **AZURE IOT HUB 디바이스** 창을 확장하고, 만든 디바이스 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. 확장 된 **AZURE IOT HUB 장치** 장치 이름을 생성 하 고 선택 창 오른쪽을 마우스 오른쪽 단추로 클릭 **기본 제공 이벤트 끝점 모니터링 시작**합니다.
     ![D2C 메시지 모니터링](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. **출력** 창에서, IoT Hub로 들어오는 D2C 메시지를 볼 수 있습니다.

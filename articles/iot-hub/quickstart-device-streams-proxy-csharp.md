@@ -1,21 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP - C# 빠른 시작(미리 보기) | Microsoft Docs
 description: 이 빠른 시작에서는 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 시나리오를 활성화하는 두 개의 C# 샘플 애플리케이션을 실행합니다.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 1d5fbb410a61419f6f6d2e80cdb1a16c07672fe9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 914568ee4b669605807c8a0e386cd540145c9522
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733336"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446088"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -50,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+* 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
 
   * 미국 중부
   * 미국 중부 EUAP
@@ -84,36 +83,36 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > * *YourIoTHubName* 자리 표시자를 IoT Hub로 선택한 이름으로 바꿉니다.
-   > * 아래에 표시된 대로 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
+   > * *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > * 다음과 같이 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-1. 방금 등록한 디바이스에 대한 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
+1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub로 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
 1. IoT Hub에 연결하고 디바이스 스트림을 설정하려면 서비스 쪽 애플리케이션을 사용하도록 설정하기 위해 IoT Hub의 *서비스 연결 문자열*도 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub로 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 값을 적어두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 값을 적어 두세요. 다음 예제와 유사합니다.
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 

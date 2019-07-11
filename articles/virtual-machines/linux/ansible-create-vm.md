@@ -5,15 +5,15 @@ keywords: ansible, azure, devops, 가상 머신
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237050"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668638"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성
 
@@ -105,7 +105,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 다음 샘플 Ansible 플레이북 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결되는 `myNIC`라는 가상 네트워크 인터페이스 카드를 만듭니다.
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -184,7 +184,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -270,7 +270,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
    TASK [Create Network Security Group that allows SSH] **********************
    changed: [localhost]
 
-   TASK [Create virtual network inteface card] *******************************
+   TASK [Create virtual network interface card] *******************************
    changed: [localhost]
 
    TASK [Create VM] **********************************************************

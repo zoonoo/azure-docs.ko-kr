@@ -3,20 +3,20 @@ title: 기술 자료 만들기
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: 추가할 QnA Maker API 서비스 포털을 사용 하 여 chit 채팅을 사용 하 여 기술 자료를 만듭니다. 이를 통해 앱을 더 개선할 수 있습니다. KB에서 사전에 채워지는 상단 잡담 세트를 추가하면 봇 잡담의 시작점 역할을 하며, 잡담을 처음부터 작성하는 데 드는 비용과 시간을 많이 절약할 수 있습니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541789"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447454"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>빠른 시작: QnA Maker API 서비스 포털을 사용 하 여 기술 자료 만들기
 

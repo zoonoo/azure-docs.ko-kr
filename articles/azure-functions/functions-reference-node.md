@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729476"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460210"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 프로젝트 루트에는 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.js)과 바인딩 구성 파일(function.json)이 있는 폴더가 있습니다. `function.json`의 부모 디렉터리 이름은 항상 함수의 이름입니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="exporting-a-function"></a>함수 내보내기
 
@@ -60,7 +60,7 @@ JavaScript 함수는 [`module.exports`](https://nodejs.org/api/modules.html#modu
 
 기본적으로 Functions 런타임은 `index.js`에서 함수를 찾습니다. 여기서 `index.js`는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유합니다. 기본적인 경우 내보낸 함수는 `run` 또는 `index`라는 해당 파일 또는 내보내기의 유일한 내보내기여야 합니다. 함수의 파일 위치 및 내보내기 이름을 구성하려면 아래에서 [함수의 진입점 구성](functions-reference-node.md#configure-function-entry-point)에 대한 내용을 읽어보세요.
 
-내보낸 함수는 실행에서 인수의 수로 전달됩니다. 사용하는 첫 번째 인수는 항상 `context` 개체입니다. 함수가 동기화되면(Promise를 반환하지 않음) 올바른 사용을 위해 `context.done`을 호출해야 할 때 `context` 개체를 전달해야 합니다.
+내보낸 함수는 실행에서 인수의 수로 전달됩니다. 사용하는 첫 번째 인수는 항상 `context` 개체입니다. 함수 동기 이면 (프라미스를 반환 하지 않습니다)를 전달 해야 합니다는 `context` 개체를 호출 하는 것 `context.done` 올바른 사용에 필요 합니다.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -292,7 +292,7 @@ host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#config
 
 ## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
 
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 Function App 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
+Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 함수 앱 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
 
 `context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
 
@@ -399,7 +399,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     ```
 + ** _[응답 전용]_ `context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
 
-+ ** _[응답 전용]_ `context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
++ ** _[응답 전용]_ `context.done()`를 호출합니다.** 에 전달 되는 응답을 반환 하는 특수 한 유형의 HTTP 바인딩은 `context.done()` 메서드. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
 
     ```json
     {
@@ -421,12 +421,12 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 | Functions 버전 | Node.js 버전 | 
 |---|---|
 | 1.x | 6.11.2(런타임에 의해 잠김) |
-| 2.x  | _활성 LTS_ 및 짝수 번호의 _현재_ Node.js 버전(8.11.1 및 10.14.1 권장). WEBSITE_NODE_DEFAULT_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
+| 2.x  | _활성 LTS_ 하 고 _유지 관리 LTS_ Node.js 버전 (8.11.1 및 10.14.1 권장). WEBSITE_NODE_DEFAULT_VERSION [앱 설정](functions-how-to-use-azure-function-app-settings.md#settings)을 사용하여 버전을 설정합니다.|
 
 위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다.
 
 ## <a name="dependency-management"></a>종속성 관리
-아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 Function App에 모든 종속성이 설치되어 있는지 확인해야 합니다.
+아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.
 
 ```javascript
 // Import the underscore.js library
@@ -440,11 +440,11 @@ module.exports = function(context) {
 ```
 
 > [!NOTE]
-> Function App의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
+> 함수 앱의 루트에 `package.json` 파일을 정의해야 합니다. 파일을 정의하면 앱의 모든 함수에서 동일한 캐시된 패키지를 공유할 수 있으므로 최상의 성능을 제공합니다. 버전 충돌이 발생하는 경우 특정 함수의 폴더에 `package.json` 파일을 추가하여 이 충돌을 해결할 수 있습니다.  
 
-원본 제어에서 Function App을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
+원본 제어에서 함수 앱을 배포할 때 리포지토리에 있는 모든 `package.json` 파일이 배포 중에 폴더의 `npm install`을 트리거합니다. 그러나 포털 또는 CLI를 통해 배포할 때는 수동으로 패키지를 설치해야 합니다.
 
-Function App에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
+함수 앱에 패키지를 설치하는 방법에는 두 가지가 있습니다. 
 
 ### <a name="deploying-with-dependencies"></a>종속성을 사용하여 배포
 1. `npm install`을 실행하여 모든 필수 패키지를 로컬에 설치합니다.
@@ -576,7 +576,7 @@ TypeScript 파일 (.ts)은 트랜스 파일 된 JavaScript (.js) 파일에는 `d
 
 합니다 [Visual Studio Code에 대 한 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) 확장을 사용 하면 TypeScript를 사용 하 여 함수를 개발할 수 있습니다. 핵심 도구는 Azure Functions 확장의 요구 사항입니다.
 
-Visual Studio Code에는 TypeScript 함수 앱을 만들려면 선택 하기만 하면 `TypeScript` 을 함수 앱을 만들고 언어를 선택 하 라는 메시지가 표시 됩니다.
+Visual Studio Code에는 TypeScript 함수 앱을 만들려면 선택 `TypeScript` 로 함수 앱을 만들 때 언어입니다.
 
 누르면 **F5** 앱을 실행 하려면 로컬에서 소스 간 컴파일을 수행 됩니다 (func.exe) 호스트 초기화 되기 전에 합니다. 
 
@@ -584,7 +584,7 @@ Visual Studio Code에는 TypeScript 함수 앱을 만들려면 선택 하기만 
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions 핵심 도구
 
-핵심 도구를 사용 하는 TypeScript 함수 앱 프로젝트를 만들려면 함수 앱을 만들 때 typescript 언어 옵션을 지정 해야 합니다. 다음 방법 중 하나에서이 수행할 수 있습니다.
+핵심 도구를 사용 하는 TypeScript 함수 앱 프로젝트를 만들려면 함수 앱을 만들 때 TypeScript 언어 옵션을 지정 해야 합니다. 다음 방법 중 하나에서이 수행할 수 있습니다.
 
 - 실행 합니다 `func init` 명령을 선택 `node` 언어 스택 및 선택 `typescript`합니다.
 
@@ -614,6 +614,55 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 ### <a name="connection-limits"></a>연결 제한
 
 Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 마세요. 대신, 전역 범위에서 정적 클라이언트를 만듭니다. 자세한 내용은 [Azure Functions에서 연결 관리](manage-connections.md)합니다.
+
+### <a name="use-async-and-await"></a>사용 하 여 `async` 및 `await`
+
+Azure Functions javascript에서를 작성할 때 코드를 사용 하 여 작성 해야 합니다 `async` 고 `await` 키워드입니다. 사용 하 여 코드를 작성 `async` 하 고 `await` 콜백을 대신 또는 `.then` 및 `.catch` Promise와 함께 사용 하면 두 가지 일반적인 문제를 방지 합니다.
+ - 확인할 수 없는 예외를 throw 하는 [Node.js 프로세스를 중단](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), 잠재적으로 다른 함수 실행에 영향을 주는 합니다.
+ - Context.log 제대로 대기 되지는 비동기 호출에 의해 발생에서 누락 된 로그와 같은 예기치 않은 동작입니다.
+
+비동기 메서드를 아래 예제에서는 `fs.readFile` 두 번째 매개 변수로 오류 첫 번째 콜백 함수를 사용 하 여 호출 합니다. 이 코드에는 위에서 언급 한 문제를 모두 발생 합니다. 올바른 범위에 명시적으로 잡히지 않아 예외가 전체 프로세스 (문제 #1)으로 충돌 했습니다. 호출 `context.done()` 함수 콜백 범위 밖에 서 파일을 읽기 전에 함수 호출을 끝낼 수는 의미 (문제 #2). 이 예제에서는 호출 `context.done()` 이릅니다 결과가 누락 된 로그 항목부터 `Data from file:`합니다.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+사용 하는 `async` 및 `await` 키워드 모두 이러한 오류를 방지할 수 있습니다. Node.js 유틸리티 함수를 사용 해야 [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) awaitable 함수로 오류 첫 번째 스타일 콜백 함수를 설정 합니다.
+
+아래 예제에서 함수 실행 하는 동안 throw 된 처리 되지 않은 예외는 예외가 발생 하는 개별 호출만 실패 합니다. `await` 키워드는 다음 단계를 의미 `readFileAsync` 만 실행 `readFile` 완료 됩니다. 사용 하 여 `async` 하 고 `await`, 또한 호출할 필요가 없습니다를 `context.done()` 콜백 합니다.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

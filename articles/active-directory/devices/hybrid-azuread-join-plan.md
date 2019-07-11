@@ -2,27 +2,21 @@
 title: Azure AD(Azure Active Directory)에서 하이브리드 Azure Active Directory 조인 구현을 계획하는 방법 | Microsoft Docs
 description: 하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110603"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509600"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -83,7 +77,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 하이브리드 Azure AD 조인 현재 지원 되지 않습니다 VDI (가상 데스크톱 인프라)를 사용 하는 경우.
 
-하이브리드 Azure AD는 FIPS 규격 Tpm에 대 한 지원 되지 않습니다. FIPS 규격 장치의 경우, 하이브리드 Azure AD 조인을 사용 하 여 계속 진행 하기 전에 해제 해야 합니다. Microsoft은 TPM 제조업체에 따라 달라 집니다 이므로 Tpm에 대 한 FIPS 모드를 해제 하는 것에 대 한 모든 도구를 제공 하지 않습니다. OEM의 하드웨어가 지원에 문의 하세요.
+FIPS 규격 Tpm에 대 한 하이브리드 Azure AD 조인은 지원 되지 않습니다. FIPS 규격 장치의 경우, 하이브리드 Azure AD 조인을 사용 하 여 계속 진행 하기 전에 해제 해야 합니다. Microsoft은 TPM 제조업체에 따라 달라 집니다 이므로 Tpm에 대 한 FIPS 모드를 해제 하는 것에 대 한 모든 도구를 제공 하지 않습니다. OEM의 하드웨어가 지원에 문의 하세요.
 
 도메인 컨트롤러 (DC) 역할을 실행 하는 Windows 서버에 대 한 하이브리드 Azure AD 조인은 지원 되지 않습니다.
 
@@ -99,13 +93,11 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 - 이 레지스트리 키-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"를 추가 하 여 등록 하는 Azure AD에서 도메인에 가입 된 장치를 방지할 수 있습니다 = dword: 00000001 합니다.
 - 이 변경은 KB4489894 적용을 사용 하 여 Windows 10 1803 릴리스에 대 한 출시 되었습니다. 그러나 경우 Windows Hello for Business 구성 사용자는 다시 설정 Windows Hello 비즈니스에 대 한 이중 상태 후 정리 해야 합니다.
 
-
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD join의 제어 된 유효성 검사를 검토 합니다.
 
 사전 요구 사항이 적으면 서 모두 준비에서 되 면 Windows 장치를 Azure AD 테 넌 트에서 장치로 자동으로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 설명 된 개념에 대 한 자세한 문서에서 찾을 수 있습니다 [Azure Active Directory에서 장치 id 관리 소개](overview.md) 고 [에 하이브리드 Azure Active Directory 조인 계획 구현](hybrid-azuread-join-plan.md)합니다.
 
 조직이 제어 유효성 검사를 하이브리드 Azure AD 조인 중 한 번에 전체 조직에서 사용 하기 전에 할 수 있습니다. 문서를 검토 [하이브리드 Azure AD 조인 유효성 검사 제어](hybrid-azuread-join-control.md) 작업을 수행 하는 방법을 알아야 합니다.
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Id 인프라가 기반 시나리오를 선택 합니다.
 
@@ -135,8 +127,6 @@ Id 인프라가 일치 하는 시나리오에 따른, 참조:
 
 - [페더레이션된 환경에 대 한 하이브리드 Azure Active Directory 연결 구성](hybrid-azuread-join-federated-domains.md)
 - [관리 되는 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>검토 온-프레미스 하이브리드 Azure AD 조인에 대 한 AD UPN 지원
 

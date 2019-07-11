@@ -1,5 +1,5 @@
 ---
-title: REST API 클레임 교환을-Azure Active Directory B2C | Microsoft Docs
+title: REST API 클레임 교환을-Azure Active Directory B2C
 description: Active Directory B2C에서 사용자 지정 정책에 REST API 클레임 교환을 추가 합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508761"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439005"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책에 REST API 클레임 교환을 추가합니다
 
@@ -28,7 +28,7 @@ REST API 클레임 및 Azure AD B2C 간에 정보를 클레임 교환을 포함 
 - 오케스트레이션 단계로 설계할 수 있습니다.
 - 외부 동작을 트리거할 수 있습니다. 예를 들어 외부 데이터베이스에 이벤트를 기록할 수 있습니다.
 - 값을 가져와서 사용자 데이터베이스에 저장하는 데 사용할 수 있습니다.
-- 실행 흐름을 변경할 수 있습니다. 
+- 실행 흐름을 변경할 수 있습니다.
 
 이 문서에 표시 되는 시나리오에는 다음 작업을 포함 합니다.
 
@@ -45,9 +45,16 @@ REST API 클레임 및 Azure AD B2C 간에 정보를 클레임 교환을 포함 
 
 이 섹션에서는 Azure function에 대 한 값을 받도록 준비한 `email`에 대 한 값을 반환 하 고 `city` 사용할 수 있는 Azure AD B2C에 의해 클레임으로 합니다.
 
-다음 코드를 사용 하기 위해 만든 Azure 함수에 대 한 run.csx 파일을 변경 합니다. 
+다음 코드를 사용 하기 위해 만든 Azure 함수에 대 한 run.csx 파일을 변경 합니다.
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>클레임 교환 구성
 
-기술 프로필 클레임 교환에 대 한 구성을 제공합니다. 
+기술 프로필 클레임 교환에 대 한 구성을 제공합니다.
 
-열기는 *TrustFrameworkExtensions.xml* 파일과 안에 다음 XML 요소를 추가 합니다 **ClaimsProvider** 요소입니다.
+열기는 *TrustFrameworkExtensions.xml* 파일을 추가한 다음 **ClaimsProvider** 내에 XML 요소를 **ClaimsProviders** 요소.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 �
 새 클레임을 추가한 후에 기술 프로필은이 예제와 비슷합니다.
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

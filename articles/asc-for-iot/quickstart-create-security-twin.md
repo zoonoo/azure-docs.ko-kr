@@ -2,24 +2,25 @@
 title: IoT용 Azure Security Center 보안 모듈 쌍 만들기 - 미리 보기 | Microsoft Docs
 description: IoT용 Azure Security Center에서 사용할 IoT용 ASC 모듈 쌍을 만드는 방법을 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: af952b59a2f4924be79c0ac7dc728f1d9bd0d641
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200729"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616667"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 

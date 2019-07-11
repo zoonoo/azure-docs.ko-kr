@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288478"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476376"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부
 
@@ -38,15 +38,15 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. **요청 승인**을 클릭합니다.
 
-    ![Azure 리소스 - 요청 승인](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![승인 요청 수-검토 요청을 표시 하는 Azure 리소스 페이지](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     **역할 활성화 요청** 섹션에서는 사용자의 승인이 보류 중인 요청 목록이 표시됩니다.
 
 ## <a name="approve-requests"></a>요청 승인
 
-1. 승인하려는 요청을 찾아 클릭합니다. 승인 창이 나타납니다.
+1. 승인하려는 요청을 찾아 클릭합니다. 승인 또는 거부 창이 나타납니다.
 
-    ![승인 요청 창](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![요청 승인-승인 또는 거부 세부 정보 및 맞춤 상자를 사용 하 여 창](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. **근거** 상자에 이유를 입력합니다.
 
@@ -54,13 +54,13 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
     승인이 포함된 알림이 표시됩니다.
 
-    ![승인 알림](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![요청이 승인 되었는지 보여 주는 알림 승인](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>요청 거부
 
-1. 거부하려는 요청을 찾아 클릭합니다. 승인 창이 나타납니다.
+1. 거부하려는 요청을 찾아 클릭합니다. 승인 또는 거부 창이 나타납니다.
 
-    ![승인 요청 창](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![요청 승인-승인 또는 거부 세부 정보 및 맞춤 상자를 사용 하 여 창](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. **근거** 상자에 이유를 입력합니다.
 

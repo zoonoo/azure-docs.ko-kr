@@ -36,6 +36,8 @@
   items:
     - name: 스트리밍 분석 기술 선택
       href: streaming-technologies.md
+    - name: 작업 개발 도구 선택
+      href: feature-comparison.md
     - name: 작업에 대한 입력 형식
       items:
         - name: 입력 개요
@@ -116,6 +118,9 @@
           href: stream-analytics-threshold-based-rules.md
         - name: Kafka 이벤트 처리
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          maintainContext: true
+        - name: Event Hubs 데이터 처리
+          href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
         - name: 지리 공간적 시나리오
           href: geospatial-scenarios.md
@@ -494,6 +499,9 @@
           maintainContext: true
         - name: JOIN
           href: /stream-analytics-query/join-azure-stream-analytics
+          maintainContext: true
+        - name: MATCH_RECOGNIZE
+          href: /stream-analytics-query/match-recognize-stream-analytics.md
           maintainContext: true
         - name: 참조 데이터 JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics

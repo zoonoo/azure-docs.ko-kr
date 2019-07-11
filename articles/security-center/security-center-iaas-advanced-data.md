@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154823"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551832"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Azure Virtual Machines (공개 미리 보기)에서 SQL server에 대 한 고급 데이터 보안
 Azure Virtual Machines에서 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 (공개 미리 보기로 제공) 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다. 
@@ -95,7 +95,7 @@ Azure Vm SQL server에 대 한 제공이 보안은에 사용 된 동일한 기�
 
 ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일 링크를 모든 관련 세부 정보를 사용 하 여 Azure Security Center에서 경고를 포함합니다. 
 
-1. 로 이동 **Security Center** > **보안 정책** 행 관련 구독을 클릭 하 고 **설정 편집 >** 합니다.
+1. 로 이동 **Security Center** > **가격 책정 및 설정** 관련 구독 클릭
 
     ![구독 설정](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

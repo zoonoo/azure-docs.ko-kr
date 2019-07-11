@@ -130,6 +130,28 @@
           href: vs-resource-groups-project-devops-pipelines.md
     - name: 템플릿 내보내기
       href: export-template-portal.md
+    - name: 이동
+      items:
+        - name: 리소스 이동
+          href: resource-group-move-resources.md
+        - name: 리소스 지원
+          href: move-support-resources.md
+        - name: 이동 문제 해결
+          href: troubleshoot-move.md
+        - name: 서비스 지침 이동
+          items:
+            - name: App Service
+              href: ./move-limitations/app-service-move-limitations.md
+            - name: Azure DevOps
+              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+            - name: 클래식 배포
+              href: ./move-limitations/classic-model-move-limitations.md
+            - name: Recovery Services
+              href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Virtual Machines
+              href: ./move-limitations/virtual-machines-move-limitations.md
+            - name: Virtual Network
+              href: ./move-limitations/virtual-network-move-limitations.md
     - name: 관리
       items:
         - name: 리소스 그룹 관리
@@ -154,8 +176,6 @@
             - name: Azure PowerShell 사용
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: 리소스 이동
-          href: resource-group-move-resources.md
         - name: 리소스 정리
           displayName: tags
           href: resource-group-using-tags.md
@@ -235,8 +255,6 @@
       items:
         - name: 전체 모드 삭제
           href: complete-mode-deletion.md
-        - name: 이동 지원
-          href: move-support-resources.md
         - name: 태그 지원
           href: tag-support.md
     - name: 서비스별 리소스 공급자

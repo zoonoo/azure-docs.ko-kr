@@ -51,7 +51,7 @@ ms.locfileid: "60679054"
 - Azure에서 VM에 배포된 Red Hat 구독 관리자. Red Hat 구독 관리자는 Red Hat에서 SAP HANA on Azure(대규모 인스턴스)를 등록하고 하나씩 업데이트할 수 있는 기능을 제공합니다. (Azure 대규모 인스턴스 스탬프에 배포된 테넌트 내에서는 인터넷에 직접 액세스할 수 없습니다.)
 - SAP를 사용하려면 Linux 공급자와도 지원 계약을 체결해야 합니다. 이 요구 사항은 HANA 대규모 인스턴스 솔루션 또는 Azure에서 Linux를 실행한다는 사실로 인해 제거되지 않습니다. 일부 Linux Azure 갤러리 이미지와 달리, HANA 대규모 인스턴스의 솔루션 제품에는 서비스 요금이 *포함되지 않습니다*. Linux 배포자와의 지원 계약과 관련하여 SAP의 요구 사항을 충족시키는 것은 사용자의 책임입니다. 
    - SUSE Linux의 경우 [SAP Note #1984787 - SUSE Linux Enterprise Server 12: 설치 정보](https://launchpad.support.sap.com/#/notes/1984787) 및 [SAP Note #1056161 - SAP 애플리케이션에 대한 SUSE 우선 지원](https://launchpad.support.sap.com/#/notes/1056161)에서 지원 계약의 요구 사항을 살펴보세요.
-   - Red Hat Linux의 경우 HANA 대규모 인스턴스의 운영 체제에 대한 지원 및 서비스 업데이트가 포함된 올바른 구독 수준을 있어야 합니다. Red Hat에서는 SAP 솔루션용 Red Hat Enterprise Linux 구독을 권장합니다. https://access.redhat.com/solutions/3082481 을 참조하세요. 
+   - Red Hat Linux의 경우 HANA 대규모 인스턴스의 운영 체제에 대한 지원 및 서비스 업데이트가 포함된 올바른 구독 수준을 있어야 합니다. Red Hat에서는 SAP 솔루션용 Red Hat Enterprise Linux 구독을 권장합니다. [https://access.redhat.com/solutions/3082481](https://access.redhat.com/solutions/3082481 ) 을 참조하세요. 
 
 Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026729"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606559"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>인간 레이블의 기록을 만드는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "65026729"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 문자 | 메모 |
+| 피할 문자 | Substitution | 참고 |
 |---------------------|--------------|-------|
 | "Hello world" | "Hello world" | 적절 한 ASCII 문자를 사용 하 여 대체 된 중괄호 및 닫는 따옴표입니다. |
 | John의 하루 | John의 하루 | 아포스트로피는 적절 한 ASCII 문자를 사용 하 여 값으로 대체 되었습니다. |
@@ -78,13 +78,13 @@ ms.locfileid: "65026729"
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (ZH-CN)
 
 북경어 중국어 오디오에 대한 인간 레이블 기록은 바이트 순서 표식을 사용한 utf-8 인코딩이어야 합니다. 반자 문장 부호 문자를 사용하지 않아야 합니다. 이러한 문자는 웹 페이지에서 데이터를 수집하거나 워드 프로세서 프로그램에서 데이터를 준비하는 경우 실수로 포함할 수 있습니다. 이러한 문자가 있는 경우에 적절한 전자 대체를 사용하여 업데이트해야 합니다.
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 문자 | 메모 |
+| 피할 문자 | Substitution | 참고 |
 |---------------------|--------------|-------|
 | "你好" | "你好" | 닫는 따옴표 문자를 사용 하 여 대체 된 합니다. |
 | 需要什么帮助? | 需要什么帮助？ | 물음표가 적절한 문자로 대체되었습니다. |
@@ -164,7 +164,7 @@ It costs $3.14| it costs three fourteen |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [준비 및 테스트 데이터](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
 * [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)

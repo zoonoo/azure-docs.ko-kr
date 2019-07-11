@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053155"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker 및 LUIS와 함께 봇을 사용하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
@@ -27,7 +27,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 ## <a name="architecture"></a>아키텍처
 
-![QnA Maker luis 아키텍처](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Language Understanding 아키텍처를 사용 하 여 QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 위의 시나리오에서 QnA Maker는 먼저 LUIS 모델에서 들어오는 질문의 의도를 가져온 다음, 이 의도를 사용하여 올바른 QnA Maker 기술 자료로 라우팅합니다.
 
@@ -43,7 +43,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 1. [QnA Maker](https://qnamaker.ai)에 로그인합니다.
 1. LUIS 앱의 각 의도에 대해 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
-1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 호스트(_.azurewebsites.net/qnamaker_ 앞의 하위 도메인) 및 인증 엔드포인트 키를 기록해 둡니다. 나중에 이러한 값이 필요합니다. 
+1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 호스트( _.azurewebsites.net/qnamaker_ 앞의 하위 도메인) 및 인증 엔드포인트 키를 기록해 둡니다. 나중에 이러한 값이 필요합니다. 
 
     이 문서에서는 기술 자료가 모두 동일한 Azure QnA Maker 구독에서 생성된다고 가정합니다.
 
@@ -51,7 +51,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 
 ## <a name="web-app-bot"></a>웹앱 봇
 
-1. LUIS 템플릿을 사용하여 [웹앱 봇을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample). 3.x SDK 및 C# 프로그래밍 언어를 선택합니다.
+1. ["기본" Web App 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) LUIS 앱을 자동으로 포함 합니다. SDK 4.x를 선택 하며 C# 프로그래밍 언어입니다.
 
 1. 웹앱 봇이 만들어지면 Azure Portal에서 해당 웹앱 봇을 선택합니다.
 1. 웹앱 봇 서비스 탐색에서 **애플리케이션 설정**을 선택하고 아래로 스크롤하여 사용 가능한 설정의 **애플리케이션 설정** 섹션으로 이동합니다.

@@ -4,14 +4,14 @@ description: vFXT 클러스터 및 브라우저 기반 Avere 제어판에 연결
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794315"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439982"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
@@ -27,9 +27,11 @@ vFXT 클러스터는 프라이빗 가상 네트워크 내에 있으므로 SSH �
 
 연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 공개/개인 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용한 경우에는 연결 시 암호를 입력하라는 메시지가 표시됩니다. 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>Linux 호스트가 있는 SSH 터널
+## <a name="create-an-ssh-tunnel"></a>SSH 터널 만들기 
 
-Linux 기반 클라이언트를 사용하는 경우 이 양식으로 SSH 터널링 명령을 사용합니다. 
+Linux 기반의 명령줄에서 SSH 터널 또는 Windows 10 클라이언트 시스템을 만들 수 있습니다. 
+
+SSH 터널링이 폼을 사용 하 여 명령을 사용 합니다. 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_pub
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클라이언트 시스템에 설치된 경우 인증이 자동으로 수행됩니다. 암호를 사용한 경우에는 시스템에 암호를 입력하라는 메시지가 표시됩니다.
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>Windows 호스트가 있는 SSH 터널
-
-이 예제에서는 일반적인 Windows 기반 터미널 유틸리티, PuTTY를 사용합니다.
-
-PuTTY **호스트 이름** 필드에 클러스터 컨트롤러 사용자 이름과 해당 IP 주소(*your_username*\@*controller_public_IP*)를 입력합니다.
-
-예제: ``azureuser@203.0.113.51``
-
-**구성** 패널에서 다음을 수행합니다.
-
-1. 왼쪽에서 **연결** > **SSH**를 차례로 펼칩니다. 
-1. **터널**을 클릭합니다. 
-1. 8443과 같은 원본 포트를 입력합니다. 
-1. 대상에 대해 vFXT 클러스터의 관리 IP 주소와 443 포트를 입력합니다. 
-   예제: ``203.0.113.51:443``
-1. **추가**를 클릭합니다.
-1. **열기**를 클릭합니다.
-
-![터널을 추가하기 위해 클릭할 위치를 보여 주는 Putty 애플리케이션의 스크린샷](media/avere-vfxt-ptty-numbered.png)
 
 SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클라이언트 시스템에 설치된 경우 인증이 자동으로 수행됩니다. 암호를 사용한 경우에는 시스템에 암호를 입력하라는 메시지가 표시됩니다.
 

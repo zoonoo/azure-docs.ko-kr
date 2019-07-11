@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072803"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -57,7 +57,7 @@ Event Hubs 네임스페이스는 정규화된 도메인 이름으로 참조되�
    ![Event Hubs 검색](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. 왼쪽 탐색 메뉴의 **즐겨찾기** 아래에서 **Event Hubs**를 선택하고, 도구 모음에서 **추가**를 선택합니다.
 
-   ![추가 도구 모음 단추](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![추가 단추](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. **네임스페이스 만들기** 페이지에서 다음 단계를 수행합니다.
     1. 네임스페이스의 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
     2. 가격 책정 계층(기본 또는 표준)을 선택합니다.

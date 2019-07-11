@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b6e442ff3333a7fd085f8e452ae056e7daaba8c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153775"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565511"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -176,23 +176,23 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
-    ```
+        ```
 
-    AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: *&lt;source&gt;:* ** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
-   * **/SourceKey: *&lt;source-account-key&gt;:* ** 원본 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Dest: *&lt;destination&gt;:* ** VHD를 복사할 스토리지 컨테이너 URL입니다.
-   * **/DestKey: *&lt;dest-account-key&gt;:* ** 대상 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Pattern: *&lt;file-name&gt;:* ** 복사할 VHD의 파일 이름을 지정합니다.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-AzCopy 도구 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>옵션 2: PowerShell을 사용하여 VHD 복사(동기 복사)
+##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-PowerShell cmdlet Start-AzStorageBlobCopy를 사용하여 VHD 파일을 복사할 수도 있습니다. Azure PowerShell에서 다음 명령을 사용하여 VHD를 복사합니다. 원본 및 대상 저장소 계정에서 해당 값으로 <>의 값을 대체합니다. 이 명령을 사용하려면 대상 저장소 계정에 vhd라는 컨테이너가 있어야 합니다. 컨테이너가 존재하지 않으면 명령을 실행하기 전에 하나를 만듭니다.
+You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
@@ -256,7 +256,7 @@ VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저�
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-예로 \<Uri > 않을 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"*** 합니다. 예로 \<FileInfo > 않을 ***"C:\path\to\upload.vhd"*** 합니다.
+예로 \<Uri > 않을  ** _"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** 합니다. 예로 \<FileInfo > 않을  ** _"C:\path\to\upload.vhd"_** 합니다.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>옵션 2: AzCopy를 사용하여 .vhd 파일 업로드
 AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
@@ -273,57 +273,57 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+        ```
 
-    AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: *&lt;source&gt;:* ** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
-   * **/SourceKey: *&lt;source-account-key&gt;:* ** 원본 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Dest: *&lt;destination&gt;:* ** VHD를 복사할 스토리지 컨테이너 URL입니다.
-   * **/DestKey: *&lt;dest-account-key&gt;:* ** 대상 스토리지 계정의 스토리지 계정 키입니다.
-   * **/BlobType: page:** 대상을 페이지 Blob으로 지정합니다.
-   * **/Pattern: *&lt;file-name&gt;:* ** 복사할 VHD의 파일 이름을 지정합니다.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/BlobType: page:** Specifies that the destination is a page blob.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-AzCopy 도구 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="other-options-for-uploading-a-vhd"></a>VHD를 업로드하기 위한 기타 옵션
-또한 다음과 같은 방법 중 하나를 사용하여 저장소 계정에 VHD를 업로드할 수 있습니다.
+##### Other options for uploading a VHD
+You can also upload a VHD to your storage account using one of the following means:
 
-* [Azure Storage Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-* [Azure Storage 탐색기 Blob 업로드](https://azurestorageexplorer.codeplex.com/)
-* [저장소 Import/Export 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
-
-> [!NOTE]
-> 예상 업로드 시간이 7일보다 긴 경우 Import/Export 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다.
->
-> Import/Export를 사용하여 표준 저장소 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 스토리지에서 Premium Storage 계정으로 복사해야 합니다.
->
->
-
-## <a name="create-azure-virtual-machine-using-premium-storage"></a>Premium Storage를 사용하여 Azure VM 만들기
-VHD를 원하는 저장소 계정에 업로드 또는 복사한 후에는 이 섹션의 설명에 따라 VHD를 OS 이미지로 등록하거나 사용자 시나리오에 따라 OS 디스크를 등록한 다음, 해당 이미지나 디스크에서 VM 인스턴스를 만듭니다. 생성되면 데이터 디스크 VHD를 VM에 연결할 수 있습니다.
-이 섹션의 끝부분에 마이그레이션 스크립트 예제가 제공됩니다. 이 간단한 스크립트가 모든 시나리오에 적합한 것은 아닙니다. 특정 시나리오에 맞게 스크립트를 업데이트해야 할 수 있습니다. 이 스크립트가 내 시나리오에 적용되는지 알아보려면 아래의 [샘플 마이그레이션 스크립트](#a-sample-migration-script)를 참조하세요.
-
-### <a name="checklist"></a>검사 목록
-1. VHD 디스크 복사가 완료될 때까지 기다립니다.
-2. Premium Storage를 마이그레이션하는 지역에서 사용할 수 있는지 확인합니다.
-3. 사용할 새 VM 시리즈를 결정합니다. Premium Storage를 지원해야 하며, 크기는 해당 지역의 제품 제공 여부와 사용자 요구 사항에 따라 결정해야 합니다.
-4. 사용할 정확한 VM 크기를 결정합니다. VM 크기는 현재 포함하고 있는 데이터 디스크 수를 지원할 만큼 충분히 커야 합니다. 예: 데이터 디스크가 4개 있는 경우 VM은 2개 이상의 코어를 포함해야 합니다. 또한 처리 능력, 메모리 및 네트워크 대역폭 요구 사항을 고려합니다.
-5. 대상 지역에 Premium Storage 계정을 만듭니다. 새 VM에 사용할 계정입니다.
-6. 디스크 및 해당 VHD Blob의 목록을 포함하여 도움이 될 현재 VM 세부 정보를 포함합니다.
-
-애플리케이션의 가동 중지 시간을 준비합니다. 원활한 마이그레이션 작업을 수행하려면 현재 시스템에서 모든 처리를 중지해야 합니다. 그런 다음 새 플랫폼으로 마이그레이션할 수 있는 일관된 상태로 가져올 수 있습니다. 가동 중지 시간은 디스크에서 마이그레이션할 데이터 양에 따라 달라집니다.
+* [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+* [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+* [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 
 > [!NOTE]
-> 특수한 VHD 디스크에서 Azure Resource Manager VM을 만드는 경우 기존 디스크를 사용하여 Resource Manager VM을 배포하는 데 사용되는 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)을 참조하세요.
+> We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit.
+>
+> Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 >
 >
 
-### <a name="register-your-vhd"></a>장치를 등록합니다.
-OS VHD에서 VM을 만들거나 새 VM에 데이터 디스크를 연결하려면 먼저 등록해야 합니다. VHD 시나리오에 따라 아래 단계를 따르세요.
+## <a name="create-azure-virtual-machine-using-premium-storage"></a>Create Azure VMs using Premium Storage
+After the VHD is uploaded or copied to the desired storage account, follow the instructions in this section to register the VHD as an OS image, or OS disk depending on your scenario and then create a VM instance from it. The data disk VHD can be attached to the VM once it is created.
+A sample migration script is provided at the end of this section. This simple script does not match all scenarios. You may need to update the script to match with your specific scenario. To see if this script applies to your scenario, see below [A Sample Migration Script](#a-sample-migration-script).
 
-#### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>여러 Azure VM 인스턴스를 만드는 일반화된 운영 체제 VHD
-일반화된 OS 이미지를 저장소 계정에 업로드한 후에는 이 이미지에서 하나 이상의 VM 인스턴스를 만들 수 있도록 이미지를 **Azure VM 이미지**로 등록합니다. Azure VM OS 이미지로 VHD를 등록 하려면 다음 PowerShell cmdlet을 사용합니다. VHD가 복사된 완전한 컨테이너 URL을 제공합니다.
+### Checklist
+1. Wait until all the VHD disks copying is complete.
+2. Make sure Premium Storage is available in the region you are migrating to.
+3. Decide the new VM series you will be using. It should be a Premium Storage capable, and the size should be depending on the availability in the region and based on your needs.
+4. Decide the exact VM size you will use. VM size needs to be large enough to support the number of data disks you have. E.g. if you have 4 data disks, the VM must have 2 or more cores. Also, consider processing power, memory and network bandwidth needs.
+5. Create a Premium Storage account in the target region. This is the account you will use for the new VM.
+6. Have the current VM details handy, including the list of disks and corresponding VHD blobs.
+
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+
+> [!NOTE]
+> If you are creating an Azure Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) for deploying Resource Manager VM using existing disk.
+>
+>
+
+### Register your VHD
+To create a VM from OS VHD or to attach a data disk to a new VM, you must first register them. Follow steps below depending on your VHD's scenario.
+
+#### Generalized Operating System VHD to create multiple Azure VM instances
+After generalized OS image VHD is uploaded to the storage account, register it as an **Azure VM Image** so that you can create one or more VM instances from it. Use the following PowerShell cmdlets to register your VHD as an Azure VM OS image. Provide the complete container URL where VHD was copied to.
 
 ```powershell
 Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osimage.vhd" -OS Windows

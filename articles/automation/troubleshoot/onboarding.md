@@ -2,18 +2,18 @@
 title: 업데이트 관리, 변경 내용 추적 및 인벤토리 온보딩 오류 문제 해결
 description: 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션에 관한 온보딩 오류 문제를 해결하는 방법을 알아봅니다.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 012cf227bea7dc24eb85fcd9179a7b1025327dcf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342144"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477495"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 

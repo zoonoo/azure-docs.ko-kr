@@ -266,6 +266,8 @@
           href: luis-container-howto.md
         - name: 컨테이너 구성
           href: luis-container-configuration.md
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-luis-on-container-instances.md
 - name: 참고 자료
   items:
     - name: 사용자 개인 정보
@@ -300,8 +302,10 @@
           href: luis-reference-prebuilt-keyphrase.md
         - name: Number 엔터티
           href: luis-reference-prebuilt-number.md
-        - name: 서수 엔터티
+        - name: Ordinal 엔터티
           href: luis-reference-prebuilt-ordinal.md
+        - name: Ordinal V2 엔터티
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Percentage 엔터티
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName 엔터티

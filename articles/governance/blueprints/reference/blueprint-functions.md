@@ -109,7 +109,7 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 | 식 | Type | 값 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | 배열 | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "내 문자열 값" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |

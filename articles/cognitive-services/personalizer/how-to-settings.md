@@ -1,5 +1,5 @@
 ---
-title: 설정 구성
+title: 설정-Personalizer 구성
 titleSuffix: Azure Cognitive Services
 description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: HT
+ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478586"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722343"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "66478586"
 1. Personalizer 리소스를 찾습니다. 
 1. **리소스 관리** 섹션에서 **설정**을 선택합니다.
 
-    Azure Portal을 벗어나기 전에 **키** 페이지에서 리소스 키 중 하나를 복사합니다. 이 정보는 [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353)를 사용할 때 필요합니다.
+    Azure Portal을 벗어나기 전에 **키** 페이지에서 리소스 키 중 하나를 복사합니다. 이 정보는 [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)를 사용할 때 필요합니다.
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>사용 사례 기반 피드백 루프에 대한 보상 설정 구성
 
@@ -43,7 +43,7 @@ ms.locfileid: "66478586"
 
 ![피드백 루프에 대한 보상 설정 구성](media/settings/configure-model-reward-settings.png)
 
-|설정|목적|
+|설정|용도|
 |--|--|
 |보상 대기 시간|Personalizer가 순위 호출에 대한 보상 값을 수집하는 시간 길이를 설정하며, 순위 호출이 발생하는 순간부터 시작합니다. 이 값은 "Personalizer가 보상 호출을 얼마나 오래 기다려야 하나요?"라는 질문에 대한 답변에 따라 설정됩니다. 이 기간 후에 도착하는 보상은 기록되지만 학습에 사용되지는 않습니다.|
 |기본 보상|순위 호출과 연결된 보상 대기 시간 동안 Personalizer가 보상 호출을 하나도 받지 않은 경우 Personalizer는 기본 보상을 할당합니다. 기본적으로 대부분의 시나리오에서 기본 보상은 0입니다.|

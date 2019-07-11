@@ -4,18 +4,18 @@ description: Azure Portal을 사용하여 IoT Edge 디바이스에 모듈 배포
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595235"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448557"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -43,9 +43,9 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="add-modules"></a>모듈 추가
 
-1. 페이지의 **레지스트리 설정** 섹션에서는 모듈 이미지를 포함하는 프라이빗 컨테이너 레지스트리에 액세스할 수 있는 자격 증명을 제공합니다.
+1. 에 **컨테이너 레지스트리 설정** 섹션 페이지의 모듈 이미지를 포함 하는 모든 개인 컨테이너 레지스트리에 액세스 하려면 자격 증명을 제공 합니다.
 
-1. 페이지의 **배포 모듈** 섹션에서는 **추가**를 선택합니다.
+1. 에 **배포 모듈** 선택 페이지의 섹션 **추가**합니다.
 
 1. 드롭다운 목록에서 모듈 형식을 살펴봅니다.
 

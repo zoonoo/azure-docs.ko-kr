@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024630"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485405"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서, 수량에 대 한 최대 제한은 및 다른 개체가 있는지 여부에 종속 되어 있습니다 [Azure Search를 프로 비전](search-create-service-portal.md) 에 **무료**, **기본**합니다  **표준**, 또는 **저장소에 최적화 된** 가격 책정 계층입니다.
@@ -29,7 +29,7 @@ ms.locfileid: "65024630"
 + **저장소 최적화** 총 저장소, 저장소 대역폭 및 보다 메모리를 사용 하 여 전용된 컴퓨터에서 실행 됩니다 **표준**합니다. 저장소 액세스에 최적화 된 두 가지 수준에서 제공 됩니다. L1 및 L2
 
 > [!NOTE]
-> 저장소 액세스에 최적화 된 서비스 계층은 현재 미리 보기 피드백을 수집 하는 것을 목표로 테스트 및 실험 목적에 대 한 할인 된 가격으로 사용할 수 있습니다. 최종 가격은 나중에 발표할 예정 경우 이러한 계층은 일반적으로 사용할 수 있습니다. 이러한 계층을 사용 하 여 프로덕션 응용 프로그램에 대 한 것이 좋습니다.
+> 년 7 월 1 일 기준으로 모든 계층은 공급 최적화 된 저장소 계층을 포함 합니다. 가격 책정은 모두에서 찾을 수 있습니다 합니다 [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지입니다.
 
   S3 HD(S3 고밀도)는 특정 작업에 대해 설계되었습니다. [다중 테넌트](search-modeling-multitenant-saas-applications.md) 및 많은 양의 작은 인덱스(인덱스당 1백만 개의 문서, 서비스당 3천 개의 인덱스) 이 계층은 [인덱서 기능](search-indexer-overview.md)을 제공하지 않습니다. S3 HD에서 데이터 수집은 원본에서 인덱스로 데이터를 푸시하는 API 호출을 사용하여 푸시 접근 방식을 활용해야 합니다. 
 
@@ -76,7 +76,7 @@ ms.locfileid: "65024630"
 
 + 오스트레일리아 동부
 + 동아시아
-+ 인도 중부
++ 중앙 인도
 + 일본 서부
 + 미국 중서부
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 42ef03d604caacf5ba18773b88e892237b5f0eae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 485f3a4b6a5fde532229873fe1f3feaa30ece523
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688537"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450208"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -29,7 +29,7 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하고 Data Lake Tools for Visual Studio를 사용하려면 다음 항목이 필요합니다.
+이 문서를 완료 하 고 Visual Studio 용 Data Lake Tools를 사용 하려면 다음 항목이 필요 합니다.
 
 * Azure HDInsight 클러스터를 만듭니다. HDInsight 클러스터를 만들려면 [Azure HDInsight에서 Apache Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요. 대화형 Apache Hive 쿼리를 실행하려면 [HDInsight 대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터가 필요합니다.  
 

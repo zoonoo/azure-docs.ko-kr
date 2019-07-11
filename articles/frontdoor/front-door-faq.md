@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330876"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442891"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure 프런트 도어 서비스에 대 한 질문과 대답
 
@@ -79,25 +79,34 @@ Azure 프런트 도어 서비스는 전역적으로 분산 된 다중 테 넌 �
 
 ### <a name="is-http-https-redirection-supported"></a>HTTP->HTTPS 리디렉션이 지원되나요?
 
-예. 사실, Azure 프런트 도어 서비스 호스트는 지원, 경로 및 쿼리 문자열 URL 리디렉션의 뿐만 아니라 리디렉션. 에 대해 자세히 알아보세요 [URL 리디렉션](front-door-url-redirect.md)합니다. 
+예. 사실, Azure 프런트 도어 서비스 URL 리디렉션의 뿐만 아니라 호스트, 경로 및 쿼리 문자열 리디렉션을 지원합니다. 에 대해 자세히 알아보세요 [URL 리디렉션](front-door-url-redirect.md)합니다. 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>어떤 순서로 처리 규칙을 라우팅하는?
 
 첫 번째 관문 프로그램에 대 한 경로 정렬 되지 않습니다 하 고 최상의 일치를 기반으로 특정 경로가 선택 됩니다. 에 대해 자세히 알아보세요 [어떻게 프런트 도어 라우팅 규칙에는 요청과 일치](front-door-route-matching.md)합니다.
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>잠그는 방법 대 한 액세스는 Azure 프런트 도어 Service에 내 백 엔드를?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>잠그는 방법 대 한 액세스를 아래로 내 백 엔드에 Azure 프런트 도어?
 
-만 Azure 프런트 도어 서비스에서 트래픽을 허용 하 여 백 엔드에 대 한 IP ACLing를 구성할 수 있습니다. Azure 프런트 도어 서비스의 백 엔드 IP 공간 에서만에서 들어오는 연결을 허용 하도록 응용 프로그램을 제한할 수 있습니다. 통합 노력 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 하지만 이제 아래와 같이 IP 범위를 참조할 수 있습니다.
+에 특정 프런트 도어 에서만에서 트래픽을 허용 하도록 응용 프로그램을 잠그려면 백 엔드에 대 한 IP Acl을 설정 하 고 그런 다음 Azure 프런트 도어에서 전송 하는 ' X-전달-호스트 ' 헤더에 대 한 허용 되는 값의 집합을 제한 해야 합니다. 이러한 단계는 아래와 같이 자세히:
+
+- Azure 프런트 도어 백 엔드 IP 주소 공간 및 Azure 인프라 서비스 에서만에서 트래픽을 허용 하 여 백 엔드에 대 한 IP ACLing를 구성 합니다. 통합 노력 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 하지만 이제 아래와 같이 IP 범위를 참조할 수 있습니다.
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - 프런트 도어 **IPv4** 백 엔드 IP 공간: `147.243.0.0/16`
+    - 프런트 도어 **IPv6** 백 엔드 IP 공간: `2a01:111:2050::/44`
+    - Azure의 [기본 인프라 서비스](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 가상화 된 호스트 IP 주소를 통해: `168.63.129.16` 및 `169.254.169.254`
 
-> [!WARNING]
-> 이 백 엔드 IP 공간 나중에 변경할 수 있습니다, 있지만 되도록 하는 것을 통합 했습니다 사용 하 여 이런 전에 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)합니다. 구독 하는 것이 좋습니다 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 모든 변경 내용이 나 업데이트 합니다. 
+    > [!WARNING]
+    > 첫 번째 관문의 백 엔드 IP 공간 나중에 변경할 수 있습니다, 있지만 되도록 하는 것을 통합 했습니다 사용 하 여 이런 전에 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)합니다. 구독 하는 것이 좋습니다 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 모든 변경 내용이 나 업데이트 합니다.
+
+-   들어오는 헤더에 대 한 필터 값 '**X 전달 호스트**' 첫 번째 관문에서 전송 합니다. 첫 번째 관문 config에 정의 된 대로 헤더에 대 한 허용 되는 유일한 값은 모든 프런트 엔드 호스트 이어야 합니다. 실제로 구체적으로, 호스트 이름만에서 사용자의이 특정 백 엔드에 트래픽을 허용 하려면.
+    - 예제 – 보겠습니다 예를 들어 첫 번째 관문 config에 다음 프런트 엔드 호스트로 _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B) _ (C) 및 _`notifications.contoso.com`_ (D). X 및 Y 두 개의 백 엔드 있다고 가정해 보겠습니다. 
+    - 2\. 백 엔드 Y에서에서 트래픽을 받을 수 있습니다 및 백 엔드 X 해야 호스트 이름의 트래픽을 시에만 C 및 4.
+    - 따라서 백 엔드 x만 허용 하는 헤더에는 트래픽을 '**X 전달 호스트**' 중 하나로 설정할 _`contoso.azurefd.net`_ 하거나 _`www.contoso.com`_ . 그 외 모든 경우에 대 한 백 엔드 X 트래픽을 거부 해야 합니다.
+    - 마찬가지로, 백 엔드 y만 허용 하는 헤더에는 트래픽을 "**X 전달 호스트**"로 설정 _`contoso.azurefd.net`_ 를 _`api.contoso.com`_ 또는 _`notifications.contoso.com`_ . 그 외 모든 경우에 대 한 백 엔드 Y 트래픽을 거부 해야 합니다.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>애니캐스트 IP 내 첫 번째 관문의 수명 동안 변경할 수 있습니까?
 
-첫 번째 관문 프로그램에 대 한 프런트 엔드 애니캐스트 IP는 일반적으로 변경 하지 않으며 첫 번째 관문의 수명 동안 정적 남아 있을 수 있습니다. 그러나 **보장 되지 않습니다** 동일한 합니다. 수행할 IP에 직접적인 종속성을 사용 하지 않습니다.  
+첫 번째 관문 프로그램에 대 한 프런트 엔드 애니캐스트 IP는 일반적으로 변경 하지 않으며 첫 번째 관문의 수명 동안 정적 남아 있을 수 있습니다. 그러나 **보장 되지 않습니다** 동일한 합니다. 수행할 IP에 직접적인 종속성을 사용 하지 않습니다.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Azure 프런트 도어 서비스 정적 또는 전용 Ip를 지원 하나요?
 
@@ -142,10 +151,10 @@ Azure 프런트 도어 서비스는 엄청난 양의 응용 프로그램의 확�
 안전 하 게 첫 번째 관문 사용자 지정 도메인에서 콘텐츠를 제공 하는 것에 대 한 HTTPS 프로토콜을 사용 하려면 Azure 프런트 도어 서비스에서 관리 되는 인증서를 사용 하거나 사용자 고유의 인증서를 사용 하 여 선택할 수 있습니다.
 첫 번째 관문 Digicert 통해 표준 SSL 인증서를 프로 비전 옵션을 관리 및 앞에 도어의 키 자격 증명 모음을 저장 합니다. 사용자 고유의 인증서를 사용 하려는 경우 지원 되는 CA에서 인증서를 등록할 수 있습니다 및 표준 SSL, 확장된 유효성 검사 인증서 또는 와일드 카드 인증서도 될 수 있습니다. 자체 서명 된 인증서는 지원 되지 않습니다. 에 대해 알아봅니다 [사용자 지정 도메인에 대 한 HTTPS를 사용 하는 방법](https://aka.ms/FrontDoorCustomDomainHTTPS)합니다.
 
-### <a name="does-front-door-support-auto-rotation-of-certificates"></a>첫 번째 관문에서 인증서의 자동 회전을 지원 하나요?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>첫 번째 관문에서 인증서의 자동 순환은 꺼짐으로 되어를 지원 하나요?
 
-사용자 고유의 사용자 지정 SSL 인증서에 대 한 자동 회전 지원 되지 않습니다. 어떻게이 설정 된 지정된 된 사용자 지정 도메인을 위해 처음으로 비슷합니다는 해야 지점 프런트 도어를 올바른 인증서 버전 Key Vault에서 하 고 첫 번째 관문의 서비스 주체 키 자격 증명 모음에 대 한 액세스를 여전히에 있는지 확인 합니다. 첫 번째 관문에서이 업데이트 된 인증서 출시 작업 완전 한 원자성 이며 프로덕션 영향은 주체 이름을 제공 해도 또는 SAN 인증서에 대 한 변경 되지 않습니다.
-</br>관리 되는 첫 번째 관문 인증서 옵션에 대 한 인증서가 첫 번째 관문에서 자동으로 회전 합니다.
+관리 되는 첫 번째 관문 인증서 옵션에 대 한 인증서가 첫 번째 관문에서 autorotated 합니다. 표시 되 면 첫 번째 관문 관리 되는 인증서를 사용 하는 인증서 만료 날짜 보다 작거나 60 일에는 지원 티켓을 제출 합니다.
+</br>사용자 고유의 사용자 지정 SSL 인증서에 대 한 자동 순환은 꺼짐으로 되어 지원 되지 않습니다. 와 마찬가지로 지정된 된 사용자 지정 도메인에 대 한 첫 번째 시간 설정 된 방법, 됩니다 해야 지점 프런트 도어를 올바른 인증서 버전을 Key Vault에서 하 고 첫 번째 관문의 서비스 주체 키 자격 증명 모음에 대 한 액세스를 여전히에 있는지 확인 합니다. 첫 번째 관문에서이 업데이트 된 인증서 출시 작업은 원자성을 갖습니다 하 고 프로덕션 영향은 주체 이름을 제공 해도 또는 SAN 인증서에 대 한 변경 되지 않습니다.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Azure 프런트 도어 서비스에서 지원 되는 현재 암호 그룹 이란?
 

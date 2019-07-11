@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: rosh
 ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65896261"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>자습서: Bing Visual Search SDK for C#을 사용하여 이미지 자르기
@@ -33,7 +33,7 @@ Bing Visual Search SDK를 사용 하면 유사한 온라인 이미지를 찾기 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 모든 에디션의 [Visual Studio 2019](https://www.visualstudio.com/downloads/)합니다.
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 * [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) 패키지 설치.
     - Visual Studio에서 솔루션 탐색기에서 마우스 오른쪽 단추로 클릭 하면 프로젝트를 마우스 **NuGet 패키지 관리** 합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지를 설치합니다. NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설치됩니다.

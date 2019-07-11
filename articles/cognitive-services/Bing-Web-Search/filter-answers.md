@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383846"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626014"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 
@@ -44,14 +44,20 @@ ms.locfileid: "66383846"
     }
 }    
 ```
-[responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수를 사용하여 수신하는 콘텐츠의 유형(예: 이미지, 비디오 및 뉴스)을 필터링할 수 있습니다. Bing에서 지정한 답변의 관련 콘텐츠를 찾으면 반환됩니다. 응답 필터는 쉼표로 구분된 답변 목록입니다. 
 
-응답에서 이미지와 같은 특정 콘텐츠 유형을 제외하려면 `responseFilter` 값의 시작 부분에 `-` 문자를 추가할 수 있습니다. 쉼표(`,`)를 사용하여 제외된 형식을 구분할 수 있습니다. 예를 들면 다음과 같습니다.
+## <a name="query-parameters"></a>쿼리 매개 변수
+
+사용 하 여 Bing에서 반환 된 응답을 필터링 하려면는 아래 API를 호출 하는 경우 쿼리 매개 변수입니다.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+사용 하 여 Bing 응답 (예: 이미지, 비디오 및 뉴스)에 포함 된 응답 유형을 필터링 할 수 있습니다 합니다 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수에 대 한 답을 쉼표로 구분 된 목록입니다. 답변은 Bing에 대 한 관련 콘텐츠를 발견 한 경우 응답에 포함 됩니다. 
+
+특정 답변 이미지와 같은 응답에서 제외할 앞을 `-` 응답 형식 문자. 예를 들어:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 아래에서는 `responseFilter`를 사용하여 돛단배의 이미지, 비디오 및 뉴스를 요청하는 방법을 보여 줍니다. 쿼리 문자열을 인코드하면 쉼표가 %2C로 바뀝니다.  
 
@@ -94,7 +100,9 @@ Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았�
 
 `responseFilter`를 사용하여 단일 API에서 결과를 가져오는 것은 좋지 않습니다. 단일 Bing API의 콘텐츠를 원하는 경우 해당 API를 직접 호출합니다. 예를 들어 이미지만 받으려면 Image Search API 엔드포인트 `https://api.cognitive.microsoft.com/bing/v7.0/images/search` 또는 다른 [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) 엔드포인트 중 하나에 요청을 전송합니다. 성능상의 이유뿐 아니라 콘텐츠 특정 API가 더 풍부한 결과를 제공한다는 점에서 단일 API 호출이 중요합니다. 예를 들어 Web Search API에 제공되지 않는 필터를 사용하여 결과를 필터링할 수 있습니다.  
 
-특정 도메인에서 검색 결과를 가져오려면 쿼리 문자열에 `site:` 쿼리 연산자를 포함합니다.  
+### <a name="site"></a>사이트
+
+특정 도메인에서 검색 결과 얻으려면 포함을 `site:` 쿼리 문자열에 매개 변수를 쿼리 합니다.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
 
+### <a name="freshness"></a>최신
+
+Bing 검색 특정 기간 동안 웹 페이지에 웹 응답 결과 제한 하려면 설정 합니다 [새로 고침](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) 쿼리 매개 변수를 다음과 같은 대/소문자 값 중 하나:
+
+* `Day` -지난 24 시간 동안 Bing 검색 웹 페이지를 반환 합니다.
+* `Week` -지난 7 일이 내의 Bing 검색 웹 페이지를 반환 합니다.
+* `Month` -지난 30 일 이내에 검색 하는 웹 페이지를 반환 합니다.
+
+양식에서 사용자 지정 날짜 범위에이 매개 변수를 설정할 수도 있습니다 `YYYY-MM-DD..YYYY-MM-DD`합니다. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+하나의 날짜에 결과 제한 하려면 특정 날짜에 새로 고침 매개 변수를 설정 합니다.
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+결과 Bing 필터 조건에 일치 하는 웹 페이지 수가 요청한 웹 페이지 (또는 Bing에서 반환 하는 기본 번호) 수보다 적은 경우 지정 된 기간 외에 속하는 웹 페이지를 포함할 수 있습니다.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>응답의 답변 수 제한
 
-Bing은 순위에 따라 응답에 답변을 포함합니다. 예를 들어 *sailing+dinghies*를 쿼리하는 경우 Bing은 `webpages`, `images`, `videos` 및 `relatedSearches`를 반환합니다.
+Bing 여러 응답 형식이 JSON 응답을 반환할 수 있습니다. 예를 들어, 쿼리 하는 경우 *sailing + dinghies*, Bing 반환할 수 있습니다 `webpages`를 `images`에 `videos`, 및 `relatedSearches`합니다.
 
 ```json
 {

@@ -7,15 +7,15 @@ author: ashtat
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: db4f96ff7c355f3582966e4daa945f54a6e5b847
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309676"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616542"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>프로젝트 소음 Azure Batch 계정 설정
 이 방법 설명 프로젝트 소음 Unity 및 Unreal 엔진 통합을 사용 하 여 사용 하 여 Azure Batch 계정 설정을 합니다.

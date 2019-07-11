@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 데이터 탐색기란?
+    - name: Azure 데이터 탐색기란?
       href: data-explorer-overview.md
 - name: 빠른 시작
   expanded: true
@@ -11,12 +11,8 @@
       href: create-cluster-database-portal.md
     - name: 샘플 데이터 수집
       href: ingest-sample-data.md
-    - name: 쿼리 데이터
-      items:
-        - name: 웹 UI
-          href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
+    - name: 웹 UI를 사용하여 데이터 쿼리
+      href: web-query-data.md
 - name: 자습서
   items:
     - name: 코드를 사용하지 않고 데이터 수집
@@ -68,12 +64,18 @@
       items:
         - name: 쿼리 쓰기
           href: write-queries.md
-        - name: 시계열 분석
-          href: time-series-analysis.md
-        - name: 변칙 검색 및 예측
-          href: anomaly-detection.md
-        - name: Machine Learning
-          href: machine-learning-clustering.md
+        - name: Azure Data Lake에서 데이터 쿼리
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: 시계열 분석 및 Machine Learning
+          items:
+            - name: 시계열 분석
+              href: time-series-analysis.md
+            - name: 변칙 검색 및 예측
+              href: anomaly-detection.md
+            - name: Machine Learning
+              href: machine-learning-clustering.md
     - name: 데이터 가상화
       items:
         - name: Power BI
@@ -84,24 +86,24 @@
               href: power-bi-imported-query.md
             - name: SQL 쿼리
               href: power-bi-sql-query.md
-        - name: ODBC 커넥터
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: ODBC 커넥터
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: 관리
       items:
         - name: 데이터베이스 권한 관리
           href: manage-database-permissions.md
         - name: 클러스터 상태 확인
           href: check-cluster-health.md
-        - name: 클러스터 스케일 아웃 관리
-          href: manage-cluster-scale-out.md
-        - name: 클러스터 강화 관리
-          href: manage-cluster-scale-up.md
+        - name: 클러스터 수평적 크기 조정 관리
+          href: manage-cluster-horizontal-scaling.md
+        - name: 클러스터 수직적 크기 조정 관리
+          href: manage-cluster-vertical-scaling.md
         - name: 데이터 삭제
           href: delete-data.md
         - name: 중복 데이터 처리

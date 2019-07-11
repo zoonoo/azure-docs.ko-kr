@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026663"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620275"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -29,7 +29,7 @@ Personalizer는 **현재 컨텍스트**에 관한 정보인 **기능**을 사용
 * _콘텐츠_(예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
 * _현재_ 기간(예: 요일)
 
-Personalizer는 작업 및 컨텍스트에 대해 보낼 수 있는 기능이 무엇인지 규정하거나 제한하거나 고정하지 않습니다.
+Personalizer 규정 하지 않습니다 제한, 또는 작업 및 컨텍스트에 대 한 보내기 수 기능을 수정 합니다.
 
 * 일부 작업을 일부 작업에 대해 보내고 다른 작업에 대해서는 보내지 않을 수 있습니다(없는 경우). 예를 들어 TV 시리즈에는 동영상에 없는 특성이 있을 수 있습니다.
 * 일부 기능은 일부 시간에만 사용 가능할 수 있습니다. 예를 들어 모바일 애플리케이션은 웹 페이지보다 더 많은 기능을 제공할 수 있습니다. 
@@ -41,6 +41,12 @@ Personalizer는 작업 및 컨텍스트에 대해 보낼 수 있는 기능이 �
 
 Personalizer는 문자열, 숫자 및 부울 형식의 기능을 지원합니다.
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>다양 한 기능 유형 Personalizer에서 Machine Learning에 미치는 영향
+
+* **문자열**: 문자열 형식에 대 한 키와 값의 모든 조합을 Personalizer 기계 학습 모델에에서 새 가중치를 만듭니다. 
+* **숫자**: 수는 개인 설정 결과 영향을 비례적으로 해야 하는 경우에 숫자 값을 사용 해야 합니다. 종속 매우 시나리오입니다. 간단한 예제에서 예를 들어 소매를 개인 설정 경험 하는 경우, NumberOfPetsOwned 하 게 2 또는 3 마리를 사용 하 여 두 배 또는 세 번으로 1 애완 동물 있는 개인 설정 결과 영향을 줄 수 있으므로 숫자는 기능이 될 수 있습니다. 문자열 및 기능 품질 일반적으로 향상 시킬 수 있습니다 범위를 사용 하는 대로 숫자 단위를 기반으로 하는 있지만 의미를 선형-예: 연령, 온도, 또는 사용자 높이-되지 않습니다 기능 가장 인코딩됩니다. 예를 들어 "Age"로 Age를 인코딩할 수 없습니다: "0-5", "Age": "6-10" 등입니다.
+* **부울** 전혀 전송 된 하지 않은 경우 "false" act의 값을 사용 하 여 전송 되는 값입니다.
+
 존재하지 않는 기능은 요청에서 생략해야 합니다. Null 값은 모델을 학습할 때 기능이 존재하고 값이 "null"인 것으로 처리되므로 Null 값을 포함하는 기능은 보내지 않아야 합니다.
 
 ## <a name="categorize-features-with-namespaces"></a>네임스페이스로 기능 분류
@@ -50,7 +56,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음은 애플리케이션에 사용하는 기능 네임스페이스의 예입니다.
 
 * User_Profile_from_CRM
-* Time
+* 시간
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -64,12 +70,15 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 
 다음 JSON에서 `user`, `state` 및 `device`는 기능 네임스페이스입니다.
 
+JSON 개체는 중첩 된 JSON 개체 및 간단한 속성/값에 포함할 수 있습니다. 배열 항목 번호 경우에 배열을 포함할 수 있습니다. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -115,7 +124,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>추정한 정보를 사용하여 기능 세트 확장
 
-이미 가지고 있는 정보에서 추정할 수 있는 암묵적 특성을 생각하여 더 많은 기능을 얻을 수도 있습니다. 예를 들어 가상의 동영상 목록을 맞춤화하는 경우 주말과 평일에 사용자의 행동이 서로 다르다고 추정할 수 있습니까? 시간은 "주말" 또는 "평일" 특성을 갖도록 확장할 수 있습니다. 국경일에는 특정 동영상 유형에 주의를 기울이게 될까요? 예를 들어 "핼러윈" 특성은 핼러윈 행사와 관련된 장소에서 유용합니다. 비가 오는 날씨는 많은 사람의 동영상 선택에 크게 영향을 미칠 수 있습니까? 기상 서비스에서 시간 및 장소와 함께 해당 정보를 제공하면 사용자는 해당 서비스를 특별한 기능으로 추가할 수 있습니다. 
+이미 가지고 있는 정보에서 추정할 수 있는 암묵적 특성을 생각하여 더 많은 기능을 얻을 수도 있습니다. 예를 들어 가상의 영화 목록 개인 설정에서이 수는 주말 vs 평일 사용자에서 다른 동작을 이끌어 냅니다? 시간은 "주말" 또는 "평일" 특성을 갖도록 확장할 수 있습니다. 국경일에는 특정 동영상 유형에 주의를 기울이게 될까요? 예를 들어 "핼러윈" 특성은 핼러윈 행사와 관련된 장소에서 유용합니다. 비가 오는 날씨는 많은 사람의 동영상 선택에 크게 영향을 미칠 수 있습니까? 기상 서비스에서 시간 및 장소와 함께 해당 정보를 제공하면 사용자는 해당 서비스를 특별한 기능으로 추가할 수 있습니다. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>AI 및 Cognitive Services를 사용하여 기능 세트 확장
 
@@ -123,7 +132,7 @@ AI 및 즉시 실행할 수 있는 Cognitive Services는 Personalizer에 매우 
 
 AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용할 가능성이 있는 정보를 자동으로 추출할 수 있습니다.
 
-예: 
+예:
 
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)를 통해 동영상 파일을 실행하여 장면 요소, 텍스트, 감정 및 기타 많은 특성을 추출할 수 있습니다. 그런 다음, 원본 항목 메타데이터에 없었던 특성을 반영하도록 해당 특성을 더 정교하게 만들 수 있습니다. 
 * 개체 감지를 통해 이미지를 반영하고 감정을 통해 얼굴을 반영할 수 있는 식입니다.
@@ -156,9 +165,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-예를 들어 다음과 같은 노래를 선택할 수 있다.
+다음은 몇 가지 예입니다.
 
-|목적|조치|
+|용도|Action|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트에 대한 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|
@@ -190,6 +199,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위를 호출할 때에는 여러 작업을 보내고 해당 작업 중에서 선택하게 합니다.
 
+JSON 개체는 중첩 된 JSON 개체 및 간단한 속성/값에 포함할 수 있습니다. 배열 항목 번호 경우에 배열을 포함할 수 있습니다. 
+
 ```json
 {
     "actions": [
@@ -198,7 +209,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +280,8 @@ _컨텍스트_에 대한 정보는 각 애플리케이션 및 사용 사례에 �
 
 컨텍스트는 순위 API에 보내는 JSON 개체로 표시됩니다.
 
+JSON 개체는 중첩 된 JSON 개체 및 간단한 속성/값에 포함할 수 있습니다. 배열 항목 번호 경우에 배열을 포함할 수 있습니다. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +299,9 @@ _컨텍스트_에 대한 정보는 각 애플리케이션 및 사용 사례에 �
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

@@ -484,7 +484,7 @@ Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure Table servi
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |
 | Edm.Int64 |Int64 |64비트 정수입니다. |
-| Edm.String |문자열 |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
+| Edm.String |String |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ### <a name="type-conversion-sample"></a>형식 변환 샘플
 다음 샘플은 Azure Blob에서 형식 변환이 있는 Azure 테이블에 데이터를 복사하는 데 사용합니다.

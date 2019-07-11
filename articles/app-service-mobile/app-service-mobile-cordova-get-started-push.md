@@ -5,31 +5,35 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114362"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443565"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) 지금 합니다.
+>
+
 ## <a name="overview"></a>개요
 
-이 자습서에서는 푸시 알림을 [Apache Cordova 빠른 시작][5] 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
+이 자습서에서는 푸시 알림을 추가 합니다 [Apache Cordova 빠른 시작][5] 프로젝트에 레코드가 삽입 될 때마다 푸시 알림을 장치로 전송 됩니다.
 
-다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Mobile Apps용 .NET 백 엔드 서버 SDK 사용][1]을 참조하세요.
+다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Mobile Apps 용.NET 백 엔드 서버 SDK 사용 하 여 작동][1]합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,19 +41,19 @@ ms.locfileid: "62114362"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Community 2015][2] 이상이 설치된 PC
+* 설치 된 PC [Visual Studio Community 2015][2] 이상
 * [Visual Studio Tools for Apache Cordova][4]
 * [활성 Azure 계정][3]
-* 완료된 [Apache Cordova 빠른 시작][5] 프로젝트
-* (Android)검증된 메일 주소를 사용하는 [Google 계정][6]
-* (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 디바이스(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
-* (Windows) [Microsoft Store 개발자 계정][8] 및 Windows 10 디바이스
+* 완료 된 [Apache Cordova 빠른 시작][5] 프로젝트
+* (Android) A [Google 계정][6] 검증 된 메일 주소를 사용 하 여
+* (iOS) [Apple 개발자 프로그램 멤버 자격][7] 및 iOS 장치 (iOS 시뮬레이터를 지원 하지 않습니다 푸시 알림)
+* (Windows) A [Microsoft Store 개발자 계정][8] 및 Windows 10 장치
 
 ## <a name="configure-hub"></a>알림 허브 구성
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[이 섹션의 단계를 보여 주는 비디오 시청][9]
+[이 섹션의 단계를 보여 주는 동영상을 시청][9]합니다.
 
 ## <a name="update-the-server-project"></a>서버 프로젝트 업데이트
 
@@ -177,7 +181,7 @@ Apache Cordova 애플리케이션에서는 기본적으로 장치 또는 네트�
     pushRegistration.on('error', handleError);
     }
     ```
-3. (Android) 앞의 코드에서는 `Your_Project_ID`를 [Google 개발자 콘솔][18]의 앱에 대한 숫자 프로젝트 ID로 바꿉니다.
+3. (Android) 위의 코드에서 바꿉니다 `Your_Project_ID` 에서 앱에 대 한 숫자 프로젝트 ID를 [Google 개발자 콘솔][18]합니다.
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(선택 사항) Android에서 앱 구성 및 실행
 
@@ -195,7 +199,7 @@ Apache Cordova 애플리케이션에서는 기본적으로 장치 또는 네트�
 
 #### <a name="configure-your-cordova-app-for-android"></a>Android용 Cordova 앱 구성
 
-Cordova 앱에서 **config.xml**을 엽니다. `Your_Project_ID` 를 [Google 개발자 콘솔][18]의 앱에 대한 숫자 프로젝트 ID로 바꿉니다.
+Cordova 앱에서 **config.xml**을 엽니다. 그런 `Your_Project_ID` 에서 앱에 대 한 숫자 프로젝트 ID를 [Google 개발자 콘솔][18]합니다.
 
 ```xml
 <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
@@ -242,7 +246,7 @@ Android 장치에 애플리케이션을 배포하려면 먼저 USB 디버깅을 
 
 * *실제 디바이스에서:* USB 케이블을 사용하여 Android 디바이스를 개발 컴퓨터에 연결합니다.  **Google Android Emulator** 대신 **디바이스**를 선택합니다. Visual Studio에서 장치에 애플리케이션을 배포하고 애플리케이션을 실행합니다. 이제 장치에서 애플리케이션과 상호 작용할 수 있습니다.
 
-  [Mobizen][20]과 같은 화면 공유 애플리케이션을 사용하면 Android 애플리케이션을 개발하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
+  와 같은 화면 공유 응용 프로그램 [Mobizen][20] Android 응용 프로그램을 개발 하는 데 도움이 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
 * *Android 에뮬레이터에서:* 에뮬레이터를 사용할 때 필요한 추가 구성 단계가 있습니다.
 
@@ -250,7 +254,7 @@ Android 장치에 애플리케이션을 배포하려면 먼저 USB 디버깅을 
 
     ![Android Virtual Device Manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    더 빠른 x86 에뮬레이터를 사용하려는 경우 [HAXM 드라이버를 설치][11]하고 해당 드라이버를 사용하도록 에뮬레이터를 구성합니다.
+    더 빠른 x86을 사용 하려는 경우 에뮬레이터 [HAXM 드라이버를 설치할][11], 한 다음 사용 하도록 에뮬레이터를 구성 합니다.
 
     **앱** > **설정** > **계정 추가**를 선택하여 Android 디바이스에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
 
@@ -266,9 +270,9 @@ Android 장치에 애플리케이션을 배포하려면 먼저 USB 디버깅을 
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
-Visual Studio를 사용하여 iOS에서 Cordova 앱을 실행하려면 먼저 [iOS 설치 가이드][12]의 단계에 따라 원격 빌드 에이전트를 설치하고 실행합니다.
+Visual Studio를 사용 하 여 iOS에서 Cordova 앱을 실행할 수 있습니다, 전에의 단계를 진행 합니다 [iOS 설치 가이드][12] 를 설치 하 여 remotebuild 에이전트를 실행 합니다.
 
-IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS용 앱을 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱 실행][21]을 참조하세요.
+IOS용 앱을 빌드할 수 있는지 확인합니다. 설치 가이드의 단계는 Visual Studio에서 iOS용 앱을 빌드하는 데 필요합니다. Mac이 없는 경우 MacInCloud와 같은 서비스에서 remotebuild 에이전트를 사용하여 iOS를 빌드할 수 있습니다. 자세한 내용은 [클라우드에서 iOS 앱을 실행][21]합니다.
 
 > [!NOTE]
 > Xcode 7 이상에서는 iOS에 대한 푸시 플러그 인을 사용해야 합니다.
@@ -380,7 +384,7 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 ## <a name="next-steps"></a>다음 단계
 
 * 푸시 알림에 대한 자세한 내용은 [Notification Hubs][17]를 참조하세요.
-* 아직 Apache Cordova 앱에 [인증을 추가][14]하지 않은 경우 추가하여 자습서를 계속합니다.
+* 아직 수행 하는 경우 자습서를 계속 [authentication 추가][14] Apache Cordova 앱에 있습니다.
 
 다음 SDK를 사용하는 방법을 알아봅니다.
 

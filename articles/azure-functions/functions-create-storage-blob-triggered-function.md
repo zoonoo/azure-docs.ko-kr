@@ -30,7 +30,7 @@ ms.locfileid: "54901465"
 + [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 + Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
-## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
+## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

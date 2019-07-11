@@ -24,7 +24,7 @@ Azure DNS는 사용자 지정 도메인을 지원하거나 FQDN(정규화된 도
 
 [Azure Function App](#azure-function-app), [공용 IP 주소](#public-ip-address), [App Service(Web Apps)](#app-service-web-apps), [Blob Storage](#blob-storage) 및 [Azure CDN](#azure-cdn)에 대해 베니티 또는 사용자 지정 도메인을 구성할 수 있습니다.
 
-## <a name="azure-function-app"></a>Azure Function App
+## <a name="azure-function-app"></a>Azure 함수 앱
 
 Azure 함수 앱에 대해 사용자 지정 도메인을 구성하기 위해 함수 앱 자체의 구성은 물론 CNAME 레코드가 생성됩니다.
  

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274688"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477667"
 ---
 # <a name="mapping-data-flow-parameters"></a>데이터 흐름 매개 변수 매핑
 
@@ -37,6 +37,12 @@ Azure Data Factory의 데이터 흐름에서는 매핑 매개 변수 사용을 �
 모든 데이터 흐름 식에서 매개 변수를 활용할 수 있습니다. 매개 변수 $로 시작 되며 변경할 수 없습니다. 'Parameters' 탭의 식 작성기 내에서 사용할 수 있는 매개 변수 목록을 찾을 수 있습니다.
 
 ![데이터 흐름 매개 변수 식을](media/data-flow/parameter-expression.png "데이터 흐름 매개 변수 식")
+
+## <a name="use-parameters-in-your-data-flow"></a>데이터 흐름에서 매개 변수를 사용 합니다.
+
+* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 매개 변수 탭 아래에 있는 매개 변수 목록 식 작성기에서 찾을 수 있습니다. ![매개 변수 데이터 흐름 사용](media/data-flow/params9.png "매개 변수를 사용 하 여 데이터 흐름")
+
+* 매개 변수 원본에 대 한 동적 값을 구성 하 고 변환 설정을 싱크 하도 사용 됩니다. 구성 가능한 필드 내부를 클릭 하면 표시 "동적 contect 추가" 링크가 표시 됩니다. 클릭 있습니다 동적 값을 매개 변수를 사용할 수 있는 식 작성기에 이동 됩니다. ![데이터 흐름 동적 콘텐츠](media/data-flow/params6.png "데이터 흐름 동적 콘텐츠")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>파이프라인에서 데이터 흐름 매핑 매개 변수를 설정 합니다.
 

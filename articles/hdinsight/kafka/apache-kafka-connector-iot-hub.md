@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698173"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446434"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -37,7 +37,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 * Kafka 클러스터의 에지 노드입니다. 자세한 내용은 [HDInsight와 함께 에지 노드 사용](../hdinsight-apps-use-edge-node.md) 문서를 참조하세요.
 
-* Azure IoT Hub입니다. 이 자습서에서는 [Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터 연결](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) 문서가 좋습니다.
+* Azure IoT Hub입니다. 이 문서에 대 한 것이 좋습니다 합니다 [Azure IoT Hub에 연결 하는 Raspberry Pi 온라인 시뮬레이터](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) 문서.
 
 * SSH 클라이언트. 이 문서의 단계는 SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 

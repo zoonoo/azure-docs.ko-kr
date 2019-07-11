@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003137"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605052"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -35,7 +35,7 @@ ms.locfileid: "66003137"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.1`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
 
 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
 [여기](https://aka.ms/csspeech/iosbinary)에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.
@@ -67,7 +67,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 
 예제 앱에서는 UI가 아주 단순합니다. 파일 또는 마이크 입력에서 음성 인식을 시작하는 단추 두 개와 결과를 표시하는 텍스트 레이블로 구성되어 있습니다.
 UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
-마우스 오른쪽 단추로 프로젝트 트리의 `Main.storyboard` 항목을 클릭하고 **다음 형식으로 열기...** > **소스 코드**를 선택하여 스토리보드의 XML 뷰를 엽니다.
+마우스 오른쪽 단추로 프로젝트 트리의 `Main.storyboard` 항목을 클릭하고 **다음 형식으로 열기...**  > **소스 코드**를 선택하여 스토리보드의 XML 뷰를 엽니다.
 자동으로 생성된 XML을 이 코드로 바꿉니다.
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
@@ -81,7 +81,7 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
-1. 마이크 액세스에 대한 요청을 추가합니다. 프로젝트 트리의 `Info.plist` 항목을 마우스 오른쪽 단추로 클릭하고 **다음 형식으로 열기...** > **소스 코드**를 선택합니다. `<dict>` 섹션으로 다음 줄을 추가한 다음, 파일을 저장합니다.
+1. 마이크 액세스에 대한 요청을 추가합니다. 프로젝트 트리의 `Info.plist` 항목을 마우스 오른쪽 단추로 클릭하고 **다음 형식으로 열기...**  > **소스 코드**를 선택합니다. `<dict>` 섹션으로 다음 줄을 추가한 다음, 파일을 저장합니다.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -90,9 +90,8 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 ## <a name="building-and-running-the-sample"></a>샘플 빌드 및 실행
 
 1. 디버그 출력을 표시되도록 설정합니다(**뷰** > **디버그 영역** > **콘솔 활성화**).
-1. **제품** -> **대상** 메뉴의 목록에서 앱에 대한 대상으로 개발 머신에 연결된 iOS 시뮬레이터 또는 iOS 디바이스를 선택합니다.
-1. 메뉴에서 **제품** -> **실행**을 선택하거나 **재생** 단추를 클릭하여 iOS 시뮬레이터에서 예제 코드를 빌드하고 실행합니다.
-   현재 Speech SDK는 64비트 iOS 플랫폼만 지원합니다.
+1. **제품** > **대상** 메뉴의 목록에서 앱에 대한 대상으로 개발 머신에 연결된 iOS 시뮬레이터 또는 iOS 디바이스를 선택합니다.
+1. 메뉴에서 **제품** > **실행**을 선택하거나 **재생** 단추를 클릭하여 iOS 시뮬레이터에서 예제 코드를 빌드하고 실행합니다.
 1. 앱에서 "Recognize (File)" 단추를 클릭하면 오디오 파일의 콘텐츠인 "What's the weather like?"가 화면 아래쪽 부분에 표시됩니다.
 
    ![시뮬레이션된 iOS 앱](media/sdk/qs-objectivec-simulated-app.png)
@@ -103,4 +102,3 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 
 > [!div class="nextstepaction"]
 > [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
-

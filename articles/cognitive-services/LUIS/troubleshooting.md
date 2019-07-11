@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417984"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204111"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -189,11 +189,11 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>할당량 초과 오류가 발생합니다. 이 문제를 어떻게 해결하나요? 
 
-[키가 가격 책정 계층 사용량을 초과할 때 발생하는 할당량 초과 오류를 해결하는 방법](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage)을 참조하세요.
+하세요 [해결 HTTP 상태 코드 403 및 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 에 대해 자세히 알아보세요.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>많은 엔드포인트 쿼리를 처리해야 합니다. 어떻게 할까요? 
 
-[키가 가격 책정 계층 사용량을 초과할 때 발생하는 할당량 초과 오류를 해결하는 방법](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage)을 참조하세요.
+하세요 [해결 HTTP 상태 코드 403 및 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 에 대해 자세히 알아보세요.
 
 
 

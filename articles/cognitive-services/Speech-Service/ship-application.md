@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808445"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604855"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -46,6 +46,9 @@ Cognitive Services 음성 SDK에는 [Microsoft Visual C++ Visual Studio 2019에 
 
 >[!NOTE]
 > 릴리스부터 1.3.0 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공) 더 이상 필요 하지 않습니다. Core SDK의에서 기능 통합 되었습니다.
+
+>[!NOTE]
+> Windows Forms 앱 (.NET Framework)에 대 한 C# 프로젝트에서 라이브러리 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. 아래에서 확인할 수 있습니다 `Properties -> Publish Section`합니다. 클릭 된 `Application Files` 단추 및 목록 아래로 스크롤한에서 해당 라이브러리를 검색 합니다. 값 설정 되어 있는지 확인 `Included`합니다. Visual Studio 프로젝트를 게시 하 고 배포 하는 경우 파일을 포함 됩니다.
 
 ## <a name="linux"></a>Linux
 

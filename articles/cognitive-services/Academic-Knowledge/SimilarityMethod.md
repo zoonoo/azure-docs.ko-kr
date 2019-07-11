@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61336520"
 ---
 # <a name="similarity-method"></a>유사성 메서드
 
@@ -28,26 +28,34 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>요청 매개 변수
+
 매개 변수        |데이터 형식      |필수 | 설명
 ----------|----------|----------|------------
 **s1**        |문자열   |예  |비교할 문자열*
-**s2**        |문자열   |예  |비교할 문자열*
+**s2**        |String   |예  |비교할 문자열*
+
 <sub> *비교할 문자열의 최대 길이는 1MB입니다. </sub>
 <br>
+
 ## <a name="response"></a>response
-Name | 설명
+
+이름 | 설명
 --------|---------
 **SimilarityScore**        |s1과 s2의 코사인 유사성을 나타내는 부동 소수점 값으로, 1.0에 가까울수록 유사성이 높고 -1.0에 가까울수록 유사성이 낮습니다.
+
 <br>
 
 ## <a name="successerror-conditions"></a>성공/오류 조건
+
 HTTP 상태 | 이유 | response
 -----------|----------|--------
 **200**         |성공 | 부동 소수점 숫자
 **400**         | 잘못된 요청 또는 요청이 유효하지 않음 | 오류 메시지      
 **500**         |내부 서버 오류 | 오류 메시지
 **Timed out**     | 요청 시간이 초과되었습니다.  | 오류 메시지
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>예제: 두 부분 요약의 유사성 계산
 #### <a name="request"></a>요청:
 ```

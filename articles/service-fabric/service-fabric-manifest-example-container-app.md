@@ -351,7 +351,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
  자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-https://hub.docker.com 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+[https://hub.docker.com](https://hub.docker.com ) 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="environmentvariables-element"></a>EnvironmentVariables 요소
 환경 변수를 컨테이너 또는 exe.에 전달합니다.  자세한 내용은 [EnvironmentVariables 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
@@ -395,7 +395,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-https://hub.docker.com 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+[https://hub.docker.com](https://hub.docker.com ) 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="commands-element"></a>Commands 요소
 쉼표로 구분된 명령 목록을 컨테이너에 전달합니다. 자세한 내용은 [Commands 요소](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.

@@ -4,17 +4,17 @@ description: 다른 Runbook에서 Azure Automation의 Runbook을 시작하고 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61081581"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477961"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -116,7 +116,7 @@ Start-AzureRmAutomationRunbook `
 |:--- |:--- |:--- |
 | 작업 |자식 runbook은 부모와 동일한 작업을 실행합니다. |자식 runbook에 대한 별도 작업을 만듭니다. |
 | 실행 |계속하기 전에 부모 runbook은 자식 runbook이 완료되기를 기다립니다. |자식 Runbook이 시작된 후에 즉시 부모 Runbook이 계속되거나 *또는* 자식 작업이 완료될 때까지 부모 Runbook이 대기합니다. |
-| 출력 |부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다. |부모 Runbook은 자식 Runbook 작업에서 출력을 검색하거나 *또는* 자식 Runbook에서 출력을 직접 가져올 수 있습니다. |
+| Output |부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다. |부모 Runbook은 자식 Runbook 작업에서 출력을 검색하거나 *또는* 자식 Runbook에서 출력을 직접 가져올 수 있습니다. |
 | 매개 변수 |자식 runbook 매개 변수 값은 별도로 지정되며 모든 데이터 형식을 사용할 수 있습니다. |자식 runbook 매개 변수 값은 단일 해시 테이블로 결합해야 합니다. 이 해시 테이블은 JSON 직렬화를 사용하는 단순, 배열 및 개체 데이터 형식만 포함할 수 있습니다. |
 | Automation 계정 |부모 runbook은 같은 자동화 계정에서 자식 runbook을 사용할 수 있습니다. |부모 runbook은 연결된 경우 동일한 Azure 구독 및 심지어 다른 구독의 자동화 계정에서 자식 runbook을 사용할 수 있습니다. |
 | 게시 |부모 runbook을 게시하기 전에 자식 runbook을 게시해야 합니다. |부모 runbook을 시작하기 전 언제든 자식 runbook을 게시해야 합니다. |

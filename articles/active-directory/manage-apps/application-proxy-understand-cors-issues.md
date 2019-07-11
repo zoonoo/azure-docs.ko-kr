@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399339"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440427"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>파악 하 고 Azure Active Directory 응용 프로그램 프록시 CORS 문제 해결
 
-[크로스-원본 자원 공유 (CORS)](http://www.w3.org/TR/cors/) 이 Azure Active Directory 응용 프로그램 프록시를 통해 게시할 앱 및 Api에 대 한 문제가 될 경우에 따라 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제와 해결 방법을 설명 합니다.
+[크로스-원본 자원 공유 (CORS)](https://www.w3.org/TR/cors/) 이 Azure Active Directory 응용 프로그램 프록시를 통해 게시할 앱 및 Api에 대 한 문제가 될 경우에 따라 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제와 해결 방법을 설명 합니다.
 
 브라우저 보안은 일반적으로 AJAX 요청을 다른 도메인에서 웹 페이지를 방지 합니다. 이 제약 사항을 *동일 원본 정책(Same-Origin Policy)* 이라고 부르며, 악의적인 사이트가 다른 사이트의 민감한 데이터를 무차별적으로 읽는 것을 방지합니다. 그러나 하려는 경우가 있습니다 수 다른 사이트에 web API를 호출할 수 있습니다. CORS는 동일 원본 정책을 완화 하 고 다른 사용자를 거부 하는 동안 일부 원본 간 요청을 허용 하는 서버 수 있는 W3C 표준입니다.
 

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인 보호 | 
 description: 관리되는 도메인 보호
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: ab371553a96f3a8d393c8b773c4024d04fd171a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246736"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483272"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인 보호
 이 문서에서는 관리되는 도메인을 보호하는 방법을 설명합니다. 취약한 암호 그룹 사용을 해제하고 NTLM 자격 증명 해시 동기화를 사용하지 않도록 설정할 수 있습니다.
@@ -56,6 +56,11 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 // Apply the settings to the managed domain.
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
+
+> [!IMPORTANT]
+> 사용자 (및 서비스 계정)는 Azure AD Domain Services 인스턴스에서 NTLM 암호 해시 동기화를 해제 한 경우 LDAP 단순 바인딩을 수행할 수 없습니다.  NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법은 읽을 [Azure AD DOmain Services 관리 되는 도메인 보안](secure-your-domain.md)합니다.
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD Domain Services의 동기화 이해](synchronization.md)

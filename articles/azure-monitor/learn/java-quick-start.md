@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808388"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656737"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 애플리케이션 모니터링 시작
 
@@ -57,7 +57,6 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **애플리케이션 유형** | Java 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 

@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254678"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446785"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 
@@ -93,6 +93,9 @@ Azure Advisor는 이전 버전의 Java SDK를 사용 하는 최신 수정, 성�
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Connector를 최신 버전의 Maven으로 업그레이드
 
 Azure Advisor는 Cosmos DB Spark 커넥터의 이전 버전을 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Maven에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB Spark 커넥터에 자세히 알아보기](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>가상 컴퓨터 복제를 사용하도록 설정
+가상 컴퓨터 복제를 다른 지역에 사용 되지 않은 지역 가동 중단 시 복원 하지 않습니다. 가상 머신을 복제 Azure 지역 가동 중단 시간 동안 부정적인 비즈니스 영향을 줄일 수 있습니다. 관리자가 복제 되지 않은 Vm 사용 하도록 설정 하 고 중단이 발생할 경우 가져올 수 있습니다 신속 하 게 가상 컴퓨터 원격 Azure 지역에 있도록 복제를 사용 하도록 설정 하는 것이 좋습니다 검색 됩니다. [가상 머신 복제에 자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 

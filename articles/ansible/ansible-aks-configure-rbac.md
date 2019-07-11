@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231289"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719828"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 RBAC(역할 기반 액세스 제어) 역할 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "65231289"
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>AKS 인증을 위해 Azure AD 구성
 
-AKS 인증을 위해 Azure AD를 구성할 때 두 개의 Azure AD 애플리케이션을 구성합니다. Azure 테넌트 관리자가 이 작업을 완료해야 합니다. 자세한 내용은 [AKS와 Azure Active Directory 통합](/azure/aks/aad-integration#create-server-application)을 참조하세요. 
+AKS 인증을 위해 Azure AD를 구성할 때 두 개의 Azure AD 애플리케이션을 구성합니다. Azure 테넌트 관리자가 이 작업을 완료해야 합니다. 자세한 내용은 [AKS와 Azure Active Directory 통합](/azure/aks/aad-integration#create-the-server-application)을 참조하세요. 
 
 Azure 테넌트 관리자에서 다음 값을 가져옵니다.
 
@@ -73,7 +73,7 @@ Azure 테넌트 관리자에서 다음 값을 가져옵니다.
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 

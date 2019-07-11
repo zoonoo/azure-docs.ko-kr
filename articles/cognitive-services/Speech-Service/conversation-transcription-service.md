@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18de3e52d61afd8e1ef20f80c020c8b7d96b9757
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243857"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603260"
 ---
 # <a name="what-is-conversation-transcription"></a>대화 기록 란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "66243857"
 
 ## <a name="collect-user-voice-samples"></a>사용자 음성 샘플 수집
 
-첫 번째 단계는 각 사용자의 오디오 녹음/녹화를 수집 하는 것입니다. 사용자 음성 배경 노이즈 없이 훈련 기록 되어야 합니다. 각 오디오 샘플에 대 한 권장 되는 길이 30 초에서 2 분 사이입니다. 긴 오디오 샘플 정확성 향상된 화자를 식별 하는 경우 발생 합니다. 오디오 16 KHz 샘플링 주기를 사용 하 여 mono 채널 이어야 합니다.
+첫 번째 단계는 각 사용자의 오디오 녹음/녹화를 수집 하는 것입니다. 사용자 음성 배경 노이즈 없이 훈련 기록 되어야 합니다. 각 오디오 샘플에 대해 권장되는 길이는 30초에서 2분 사이입니다. 긴 오디오 샘플 정확성 향상된 화자를 식별 하는 경우 발생 합니다. 오디오 16 KHz 샘플링 주기를 사용 하 여 mono 채널 이어야 합니다.
 
 오디오 기록 되 고 있습니다-달려 저장 하는 방법에 앞서 언급 한 지침을 넘어 안전한 데이터베이스 권장 됩니다. 다음 섹션에서는이 오디오 Speech SDK를 사용 하 여 화자를 인식 하는 데 사용 되는 사용자 프로필을 생성 하는 방법을 살펴보겠습니다.
 

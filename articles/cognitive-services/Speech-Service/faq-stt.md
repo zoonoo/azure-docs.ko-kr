@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431991"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606655"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -69,7 +69,7 @@ ms.locfileid: "57431991"
 
 **A**: 동시 요청을 20개씩 추가하여 모델을 강화할 수 있습니다.
 
-더 큰 규모가 필요한 경우 문의해 주세요.
+연락처 [음성 지원](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) 더 큰 규모를 해야 하는 경우.
 
 **Q: 모델을 다운로드하여 로컬에서 실행할 수 있나요?**
 

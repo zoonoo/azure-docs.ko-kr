@@ -221,8 +221,8 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
 
     | 값 | 설명
     |-------|-------------
-    | \<alpha 노드 공개 키\> | alpha 노드의 공개 키
-    | \<Ethereum 계정 주소\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소
+    | \<alpha node public key\> | alpha 노드의 공개 키
+    | \<Ethereum account address\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소
 
     이 예제에서는 **storeData** 값의 초기 값이 42로 설정되었습니다.
 
@@ -392,8 +392,8 @@ Summary
 
     | 값 | 설명
     |-------|-------------
-    | \<alpha 노드 공개 키\> | alpha 노드의 공개 키
-    | \<Ethereum 계정 주소\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소입니다.
+    | \<alpha node public key\> | alpha 노드의 공개 키
+    | \<Ethereum account address\> | 기본 트랜잭션 노드에 만든 Ethereum 계정 주소입니다.
 
     **privateFor**은 트랜잭션을 사용할 수 있는 노드를 정의합니다. 이 예제에서는 기본 트랜잭션 노드의 계정에서 프라이빗 트랜잭션을 **alpha** 노드에 캐스팅할 수 있습니다. 모든 프라이빗 트랜잭션 참가자에 대한 공개 키를 추가해야 합니다.
 

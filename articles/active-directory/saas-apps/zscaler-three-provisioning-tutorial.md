@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: jeedes
+ms.openlocfilehash: 93efb44668a3a0b189e96c1b1212766dee075ef3
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579056"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672835"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>자습서: Zscaler Three에 대한 자동 사용자 프로비저닝 구성
 

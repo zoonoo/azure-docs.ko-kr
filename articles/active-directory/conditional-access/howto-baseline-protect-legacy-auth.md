@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112312"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560934"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기본 정책: 블록 레거시 인증 (미리 보기)
 
@@ -28,8 +28,6 @@ ms.locfileid: "67112312"
 오늘날 대부분 모든 그대로 유지 하면서 로그인 시도의 레거시 인증에서 제공 됩니다. 레거시 인증 (MFA) multi-factor authentication을 지원 하지 않습니다. 디렉터리에서 사용 하도록 설정 하는 MFA 정책에 있는 경우에 악의적 행위자가 레거시 프로토콜을 사용 하 여 인증 하 고 MFA를 무시할 수 있습니다.
 
 계정을 보호 하기 위해 레거시 프로토콜에서 악의적인 인증 요청에서 모두 함께 이러한 시도 차단 하는 가장 좋은 방법은 합니다. 레거시 프로토콜에서 만든 모든 로그인 요청을 차단 하기 쉽게 이러한 작업을 수행 하는 기준 정책을 만들었습니다.
-
-![조건부 액세스를 사용 하 여 레거시 인증 블록](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **블록 레거시 인증** 됩니다 [기준 정책](concept-baseline-protection.md) 레거시 프로토콜의 모든 인증 요청을 차단 하는 합니다. 최신 인증을 성공적으로 모든 사용자에 대 한 로그인에 사용 되어야 합니다. 다른 기준 정책과 함께에서 사용 되는, 레거시 프로토콜에서 들어오는 모든 요청이 차단 되 고 모든 사용자가 필요할 때마다 MFA를 해야 합니다. 이 정책은 Exchange ActiveSync를 차단 하지 않습니다.
 
@@ -111,7 +109,6 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 1. 이동할 **Azure Active Directory** > **조건부 액세스**합니다.
 1. 정책 목록에서 선택 **기준 정책: 블록 레거시 인증 (미리 보기)** 합니다.
 1. 설정할 **정책을 사용 하도록 설정** 하 **즉시 정책을 사용 하 여**입니다.
-1. 클릭 하 여 모든 사용자 제외를 추가할 **사용자** > **제외 된 사용자 선택** 제외할 수 해야 하는 사용자를 선택 합니다. 클릭 **선택** 한 다음 **수행**합니다.
 1. 클릭 **저장할**합니다.
 
 ## <a name="next-steps"></a>다음 단계

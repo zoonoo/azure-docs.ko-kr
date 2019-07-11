@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478318"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443331"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
-[Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Application Insights][start] 모니터링할 수 있습니다 [Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/) 가용성, 성능, 오류 및 사용 하 여 Application Insights Sdk에서 데이터를 결합 하 여 사용량에 대 한 [Azure 진단을](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)클라우드 서비스의 데이터입니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
@@ -80,7 +80,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 각 역할에 대한 별도의 리소스(각 빌드 구성에 대한 별도의 집합)를 만들기로 결정한 경우 Application Insights 포털에서 모든 리소스를 만드는 것이 가장 간편합니다. 많은 리소스를 만드는 경우 [프로세스를 자동화](../../azure-monitor/app/powershell.md)할 수 있습니다.
 
-1. [Azure Portal][portal]에서 **새로 만들기** > **개발자 서비스** > **Application Insights**를 선택합니다.  
+1. 에 [Azure portal][portal]를 선택 **새로 만들기** > **개발자 서비스** > **Application Insights**합니다.  
 
     ![Application Insights 창](./media/cloudservices/01-new.png)
 
@@ -136,7 +136,38 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 1. 항상 출력 디렉터리에 복사되도록 *ApplicationInsights.config* 파일을 설정합니다.  
     *.config* 파일에 계측 키를 배치하도록 요청하는 메시지가 표시됩니다. 그러나 클라우드 앱의 경우에는 *.cscfg* 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
-#### <a name="run-and-publish-the-app"></a>앱 실행 및 게시
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>(선택 사항) 전체 SQL 쿼리를 수집 하도록 상태 모니터 설정
+
+이 단계는.NET Framework에 대 한 전체 SQL 쿼리를 캡처하려고 할 경우에 필요 합니다. 
+
+1. `\*.csdef` 파일 추가 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 비슷하게 각 역할에 대 한 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. 다운로드 [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 하 고 [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)에 넣습니다는 `AppInsightsAgent` 각 역할 프로젝트의 폴더입니다. Visual Studio 파일 속성을 통해 출력 디렉터리에 복사 하거나 스크립트를 작성 해야 합니다.
+
+3. 모든 작업자 역할에서 환경 변수를 추가 합니다. 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>앱 실행 및 게시
 
 1. 앱을 실행하고 Azure에 로그인합니다. 
 
@@ -146,7 +177,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 1. 원격 분석을 더 추가하고(다음 섹션 참조) 앱을 게시하여 라이브 진단 및 사용 피드백을 가져옵니다. 
 
 데이터가 없는 경우 다음을 수행합니다.
-1. 개별 이벤트를 보려면 [Search][diagnostic] 타일을 엽니다.
+1. 개별 이벤트를 보려면 엽니다는 [검색][diagnostic] 바둑판식으로 배열 합니다.
 1. 앱에서 원격 분석이 생성되도록 다양한 페이지를 엽니다.
 1. 몇 초 정도 기다렸다가 **새로 고침**을 클릭합니다.  
     자세한 내용은 [문제 해결][qna]을 참조하세요.
@@ -223,10 +254,10 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * 사용자 지정 원격 분석 이니셜라이저를 추가합니다. *ApplicationInsights.config* 파일 또는 [이 예제와 같이](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233) 코드에서 이 작업을 수행할 수 있습니다.
 
 ## <a name="client-telemetry"></a>클라이언트 원격 분석
-페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 쓰려면 [JavaScript SDK를 웹 페이지에 추가][client]를 참조하세요.
+페이지 보기 수, 페이지 로드 시간, 스크립트 예외와 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성 하를 참조 하세요 [웹 페이지에 JavaScript SDK 추가][client]합니다.
 
 ## <a name="availability-tests"></a>가용성 테스트
-앱을 라이브 상태로 유지하고 응답하도록 하려면 [웹 테스트를 설정][availability]합니다.
+라이브 및 응답성이 뛰어난 앱 상태를 유지 해야 [웹 테스트 설정][availability]합니다.
 
 ## <a name="display-everything-together"></a>모든 항목을 함께 표시
 시스템에 대한 전반적인 정보를 얻기 위해 주요 모니터링 차트를 하나의 [대시보드](../../azure-monitor/app/overview-dashboard.md)에 표시할 수 있습니다. 예를 들어 각 역할의 요청 및 실패 수를 고정할 수 있습니다. 

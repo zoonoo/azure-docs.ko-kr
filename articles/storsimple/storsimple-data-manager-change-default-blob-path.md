@@ -37,11 +37,11 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
 2. **+ 리소스 만들기**를 클릭합니다. **검색** 상자에 **Function App**을 입력한 다음 **Enter** 키를 누릅니다. 표시되는 앱 목록에서 **함수 앱**을 선택한 후 클릭합니다.
 
-    ![검색 상자에 “Function App” 입력](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![검색 상자에 "함수 앱" 입력](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. **만들기**를 클릭합니다.
 
-    ![Function App 창의 “만들기” 단추](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![함수 앱 창의 "만들기" 단추](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
 4. **Function App** 구성 블레이드에서 다음 단계를 수행합니다.
 
@@ -52,11 +52,11 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
     5. 함수가 실행되는 위치를 지정합니다. StorSimple 데이터 관리자 서비스 및 작업 정의와 연결된 저장소 계정이 있는 동일한 영역이 좋습니다.
     6. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 저장소 계정은 함수에 대해 내부적으로 사용됩니다.
 
-        ![새 Function App 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
+        ![새 함수 앱 구성 데이터 입력](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
     7. **만들기**를 클릭합니다. 함수 앱이 생성됩니다.
      
-        ![Function App이 생성됨](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
+        ![함수 앱이 생성됨](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
 5. **함수**를 선택하고 **+ 새 함수**를 클릭합니다.
 

@@ -5,17 +5,18 @@ services: functions
 keywords: ''
 author: joeyaiello
 manager: jeconnoc
-ms.author: jaiello, glenga
+ms.author: jaiello
+ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cb175191cb080cffb6feb52b724c29568fd549a5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473281"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706529"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Azure에서 첫 번째 PowerShell 함수 만들기(미리 보기)
 
@@ -36,7 +37,7 @@ ms.locfileid: "65473281"
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) 설치
+* [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows) 설치
 
 * [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나에 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다. 
 

@@ -9,29 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781700"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797945"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS 앱에서 구독 키 사용
 
-사용 가능한 처음 1,000개 엔드포인트 쿼리를 사용하기 위해서는 구독 키를 만들 필요가 없습니다. 이러한 엔드포인트 쿼리가 사용되면 [Azure Portal](https://portal.azure.com)에서 Azure 리소스를 만들고 해당 리소스를 [LUIS 포털](https://www.luis.ai)의 LUIS 앱에 할당합니다.
-
-HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만든 후 앱에 할당해야 합니다. 
+LUIS (Language Understanding)을 처음 사용할 때 구독 키를 만들 필요가 없습니다. 1000 끝점 쿼리를 먼저 지정 됩니다. 
 
 테스트 및 프로토타입에 대해서만 무료(F0) 계층을 사용합니다. 프로덕션 시스템의 경우 [유료](https://aka.ms/luis-price-tier) 계층을 사용합니다. 프로덕션의 엔드포인트 쿼리에 [작성 키](luis-concept-keys.md#authoring-key)를 사용하지 마세요.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Azure portal에서 예측 끝점 런타임 리소스 만들기
 
-사용 하 여 자세한 정보는 [응용 프로그램을 구축](get-started-portal-build-app.md) 빠른 시작 합니다.
+만든 합니다 [예측 끝점 리소스](get-started-portal-deploy-app.md#create-the-endpoint-resource) Azure portal에서 합니다. 이 리소스는 엔드포인트 예측 쿼리에만 사용해야 합니다. 앱을 변경하는 작업에는 이 리소스를 사용하지 마세요.
+
+Language Understanding 리소스 또는 Cognitive Services 리소스를 만들 수 있습니다. Language Understanding 리소스를 만드는 경우 postpend 리소스 리소스 이름으로 입력 하는 것이 좋습니다. 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -46,10 +47,19 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>LUIS 포털에서 리소스를 사용 하 여
+
+LUIS 포털에서 리소스를 사용 하는 경우에 키와 위치를 알 필요가 없습니다. 대신에 리소스 테 넌 트, 구독 및 리소스 이름을 알아야 해야 합니다.
+
+나면 [할당할](#assign-resource-key-to-luis-app-in-luis-portal) LUIS 포털, 키 및 위치에서 LUIS 앱 리소스 관리 섹션의 쿼리 예측 끝점 URL의 일부로 제공 됩니다 **키 및 끝점 설정** 페이지입니다.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>REST API 또는 SDK에서 리소스를 사용 하 여
+
+API(s) REST 또는 SDK에서 리소스를 사용 하는 경우에 키와 위치를 알아야 할 합니다. 이 정보는 관리 섹션의 쿼리 예측 끝점 URL의 일부로 제공 됩니다 **키 및 끝점 설정** 리소스의 개요 및 키 페이지에서 Azure portal에서와 같이 페이지도 있습니다.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>LUIS 포털의 LUIS 앱에 리소스 키 할당
 
-사용 하 여 자세한 정보는 [배포](get-started-portal-deploy-app.md) 빠른 시작 합니다.
+LUIS에 대 한 새 리소스를 만들 때마다 해야 [LUIS 앱 리소스를 할당할](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)합니다. 리소스가 할당되면 새 리소스를 만들지 않는 이상 이 단계를 다시 수행할 필요가 없습니다. 앱의 영역을 확장하거나 더 많은 예측 쿼리를 지원하기 위해 새 리소스를 만들어야 하는 경우가 있습니다.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -133,7 +143,7 @@ CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 �
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |Type|설정|값|
+    |형식|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|[작성 키](luis-how-to-account-settings.md)|
@@ -155,10 +165,30 @@ CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 �
     ![LUIS 결제 계층 확인](./media/luis-usage-tiers/updated.png)
 1. **게시** 페이지에서 [이 엔드포인트 키를 할당](#assign-endpoint-key)하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>키가 가격 책정 계층 사용량을 초과할 때 발생하는 할당량 초과 오류를 해결하는 방법
-각 계층은 특정 요금으로 LUIS 계정에 대한 엔드포인트 요청을 허용합니다. 요청 요금이 분당 또는 월별 계정 요금제의 허용된 요금보다 높은 경우 요청은 HTTP 오류 “429: 요청이 너무 많음”을 수신합니다.
+## <a name="fix-http-status-code-403-and-429"></a>HTTP 상태 코드 403 및 429를 수정 합니다.
 
-각 계층은 월별 누적 요청을 허용합니다. 총 요청이 허용된 요금보다 높은 경우 요청은 HTTP 오류 “403: 금지됨”을 수신합니다.  
+403 및 429 때 오류가 발생 하면 상태 코드 초당 트랜잭션 수 또는 가격 책정 계층에 대 한 월별 트랜잭션을 초과 합니다.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>HTTP 403 오류 상태 코드를 받으면
+
+쿼리를 사용 하면 모든 해당 무료 1000 끝점 또는 가격 책정 계층의 월간 트랜잭션 할당량을 초과 하는 경우 HTTP 403 오류 상태 코드를 수신 합니다. 
+
+이 오류를 해결 하려면 하나 [가격 책정 계층을 변경](luis-how-to-azure-subscription.md#change-pricing-tier) 상위 계층으로 또는 [새 리소스를 만듭니다](get-started-portal-deploy-app.md#create-the-endpoint-resource) 하 고 [앱에 할당할](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)합니다.
+
+이 오류에 대 한 솔루션은 다음과 같습니다.
+
+* 에 [Azure portal](https://portal.azure.com)에서 리소스를 이해 하 여 언어에는 **리소스 관리 가격 책정 계층->** , 더 높은 TPS 계층 가격 책정 계층을 변경 합니다. 리소스 Language Understanding 앱에 이미 할당 된 경우 Language Understanding 포털에서 어떤 작업도 수행할 필요가 없습니다.
+*  프로그램 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 앞에 부하 분산 장치를 사용 하 여 자세한 Language Understanding 리소스를 추가 합니다. 합니다 [Language Understanding 컨테이너](luis-container-howto.md) Kubernetes 또는 Docker Compose를 사용 하 여이 사용 하 여 도움말 수 있습니다.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>HTTP 429 오류 상태 코드를 받으면
+
+이 상태 코드를 반환 하는 경우 가격 책정 계층을 초과 하는 초당 트랜잭션 수에 합니다.  
+
+솔루션은 다음과 같습니다.
+
+* 할 수 있습니다 [가격 책정 계층을 증가](#change-pricing-tier)가장 높은 계층에 있지 않은 경우.
+* 프로그램 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 앞에 부하 분산 장치를 사용 하 여 자세한 Language Understanding 리소스를 추가 합니다. 합니다 [Language Understanding 컨테이너](luis-container-howto.md) Kubernetes 또는 Docker Compose를 사용 하 여이 사용 하 여 도움말 수 있습니다.
+* 사용 하 여 클라이언트 응용 프로그램 요청 게이트 수를 [다시 시도 정책](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) 이 상태 코드를 가져올 때 구현 직접. 
 
 ## <a name="viewing-summary-usage"></a>요약 사용량 보기
 Azure에서 LUIS 사용량 정보를 볼 수 있습니다. **개요** 페이지에는 호출 및 오류를 포함한 최근 요약 정보가 표시됩니다. LUIS 엔드포인트 요청을 만들고 나서 **개요 페이지**를 즉시 확인할 경우 사용량이 표시되는 데 최대 5분이 걸릴 수 있습니다.

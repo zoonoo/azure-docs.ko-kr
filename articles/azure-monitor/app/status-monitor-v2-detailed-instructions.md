@@ -167,7 +167,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>수동으로 최신 nupkg 파일 다운로드
 
-1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor 로 이동합니다.
+1. [https://www.powershellgallery.com/packages/Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor )로 이동합니다.
 2. 파일의 최신 버전을 선택 합니다 **버전 기록** 테이블입니다.
 3. 아래 **설치 옵션**를 선택 **수동 다운로드**합니다.
 

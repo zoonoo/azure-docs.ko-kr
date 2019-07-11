@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408691"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795716"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -41,7 +41,7 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -86,9 +86,9 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 
-1. 다음 명령을 실행하여 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지에 대한 참조를 추가합니다.
+1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
@@ -131,8 +131,6 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    <!DOCTYPE html>
-    <html lang="en">
     <style>
         body {
             background-color: @Configuration["TestApp:Settings:BackgroundColor"]
@@ -142,13 +140,8 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
             font-size: @Configuration["TestApp:Settings:FontSize"];
         }
     </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    </body>
-    </html>
+
+    <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
 7. 보기 > 공유 디렉터리에서 *_Layout.cshtml*을 열고, 해당 콘텐츠를 다음 코드로 바꿉니다.

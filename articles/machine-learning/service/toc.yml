@@ -78,6 +78,9 @@
         - name: 이탈 예측
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+        - name: 비행 지연 예측
+          displayName: 'Basic Sample, training, classification, sample 6'
+          href: ui-sample-classification-predict-flight-delay.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 개념
@@ -106,6 +109,8 @@
       href: concept-accelerate-with-fpgas.md
     - name: ONNX 및 ONNX 런타임
       href: concept-onnx.md
+    - name: 데이터 드리프트 모니터링
+      href: concept-data-drift.md
     - name: 보안
       items:
         - name: 엔터프라이즈 보안 개요
@@ -151,12 +156,6 @@
         - name: 데이터 탐색
           displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
           href: how-to-explore-prepare-data.md
-        - name: 데이터 정의 버전 관리 및 관리
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: 데이터 스냅샷 만들기
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
         - name: 데이터 저장소에서 데이터 가져오기
           displayName: blob get fileshare access storage
           href: how-to-access-data.md
@@ -178,12 +177,16 @@
           href: how-to-set-up-training-targets.md
         - name: 학습에서 추정 만들기
           href: how-to-train-ml-models.md
+        - name: Scikit-learn 사용
+          href: how-to-train-scikit-learn.md
         - name: TensorFlow 사용
           href: how-to-train-tensorflow.md
         - name: Keras 사용
           href: how-to-train-keras.md
         - name: PyTorch 사용
           href: how-to-train-pytorch.md
+        - name: Chainer 사용
+          href: how-to-train-chainer.md
         - name: hyperparameters 조정
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -197,6 +200,9 @@
         - name: MLflow로 실험 추적
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: TensorBoard로 시각화 실행
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: 기계 학습 자동화
       displayName: 'automl, auto ml'
       items:
@@ -211,6 +217,8 @@
         - name: 예측 모델 자동 학습
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: 정확도 메트릭 보기
+          href: how-to-understand-accuracy-metrics.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법
@@ -224,6 +232,9 @@
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: 사용자 지정 Docker 이미지
           href: how-to-deploy-custom-docker-image.md
+        - name: 기존 모델 배포
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
         - name: 문제 해결
           href: how-to-troubleshoot-deployment.md
     - name: 웹 서비스 사용
@@ -239,6 +250,8 @@
         - name: 모델 데이터 수집 및 평가
           displayName: track production
           href: how-to-enable-data-collection.md
+        - name: 데이터 드리프트 검색
+          href: how-to-monitor-data-drift.md
         - name: Application Insights로 모니터링
           href: how-to-enable-app-insights.md
     - name: 재사용 가능한 워크플로 만들기
@@ -297,6 +310,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: 중복 행 제거
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: 데이터 조인
+              href: ../algorithm-module-reference/join-data.md
             - name: 데이터 분할
               href: ../algorithm-module-reference/split-data.md
             - name: 데이터 정규화
@@ -345,12 +360,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: K-평균 클러스터링
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Python 언어 모듈
+        - name: Python 및 R 언어 모듈
           items:
             - name: Python 스크립트 실행
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Python 모델 만들기
               href: ../algorithm-module-reference/create-python-model.md
+            - name: R 스크립트 실행
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: 오류 메시지 및 코드
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 리소스

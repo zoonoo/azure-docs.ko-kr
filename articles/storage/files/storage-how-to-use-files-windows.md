@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926269"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560488"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -234,7 +234,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 
 | Windows 버전                           | SMB 1 기본 상태 | 해제/제거 방법       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019(미리 보기)             | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows Server 2019                       | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 버전 1709+            | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows 10 버전 1709+                | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 2016                       | 사용              | Windows 기능을 사용하여 제거 |
@@ -246,7 +246,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 | Windows 7                                 | 사용              | 레지스트리를 사용하여 해제       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1 사용 감사
-> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows 10(버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2, Windows 8.1에 적용
+> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows 10 (버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2 및 Windows 8.1 적용 됩니다.
 
 환경에서 SMB 1을 제거하기 전에, SMB 1 사용을 감사하여 변경 때문에 손상되는 클라이언트가 있는지 확인할 수 있습니다. SMB 1을 사용하여 SMB 공유에 대한 요청이 만들어지는 경우 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 아래의 이벤트 로그에 감사 이벤트가 기록됩니다. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Windows Server에서 SMB 1 제거
-> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용
+> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용 됩니다.
 
 Windows Server 인스턴스에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
 

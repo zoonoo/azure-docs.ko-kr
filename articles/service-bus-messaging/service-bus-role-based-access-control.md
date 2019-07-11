@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979634"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444725"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -33,12 +33,12 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 
 Azure에서 제공 된 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하는 것에 대 한 기본 제공 RBAC 역할 아래:
 
-* [Service Bus 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Service Bus 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 사용 하도록 설정
+* [Azure Service Bus 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Service Bus 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 사용 하도록 설정
 
 >[!IMPORTANT]
 > 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **"소유자"** 또는 **"참가자"** 역할입니다.
 >
-> 그러나 데이터 액세스에 대 한 권한을 **"소유자"** 및 **"참가자"** 역할 더 이상 적용 됩니다. 사용한 경우는 **"소유자"** 또는 **"참가자"** 역할을 활용 하도록 조정할 필요 합니다 **"Service Bus 데이터 소유자"** 역할.
+> 그러나 데이터 액세스에 대 한 권한을 **"소유자"** 및 **"참가자"** 역할 더 이상 적용 됩니다. 사용한 경우는 **"소유자"** 또는 **"참가자"** 역할을 활용 하도록 조정할 필요 합니다 **"Azure Service Bus 데이터 소유자 (미리 보기)"** 역할입니다.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Service Bus 사용
 

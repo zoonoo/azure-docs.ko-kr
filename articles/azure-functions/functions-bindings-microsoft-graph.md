@@ -3,18 +3,18 @@ title: Azure Functions에 대한 Microsoft Graph 바인딩
 description: Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae376343103d68df226d30d1d76133a3f055f5c2
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511812"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480382"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 

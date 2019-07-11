@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946734"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702751"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -69,7 +69,7 @@ ms.locfileid: "64946734"
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 Auth 브로커와 호환되는 리디렉션 URI를 추가해야 합니다. 
+> 이 빠른 시작의 코드 샘플이 작동하려면 인증 broker와 호환되는 리디렉션 URI를 추가해야 합니다. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -208,7 +208,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent: 자동으로 사용자 토큰 가져오기
 
-앱은 사용자가 토큰을 요청할 때마다 로그인하도록 요구해서는 안됩니다. 사용자가 이미 로그인한 경우 이 메서드를 사용하면 앱이 토큰을 자동으로 요청할 수 있습니다.
+앱은 사용자가 토큰을 요청할 때마다 로그인하도록 요구해서는 안됩니다. 사용자가 이미 로그인한 경우 다음 메서드를 사용하면 앱에서 토큰을 자동으로 요청할 수 있습니다.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {

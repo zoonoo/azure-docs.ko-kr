@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd11696ea4a90e61408a03400fa3315ee7eaff5f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205388"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653499"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>자습서: Azure Notification Hubs 및 Google FCM(Firebase Cloud Messaging)을 사용하여 특정 Android 디바이스에 알림 푸시
 
@@ -329,7 +329,7 @@ ms.locfileid: "65205388"
 이 자습서에서는 범주에 등록한 특정 Android 디바이스에 브로드캐스트 알림을 보냈습니다. 특정 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[특정 사용자에 알림 푸시](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

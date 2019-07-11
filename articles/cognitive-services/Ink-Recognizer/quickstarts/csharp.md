@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: d661d6eca6e4916946944c48cc2e5411aeaf8f14
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061001"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: 잉크 인식기 REST API를 사용 하 여 디지털 잉크를 인식 하 고C#
 
@@ -34,7 +34,7 @@ ms.locfileid: "65518665"
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
     - Visual studio에서 NuGet 패키지로 Newtonsoft.Json을 설치 합니다.
         1. 마우스 오른쪽 단추로 클릭는 **솔루션 관리자**
-        2.  **NuGet 패키지 관리...**
+        2. **NuGet 패키지 관리...**
         3. 검색할 `Newtonsoft.Json` 패키지 및 설치
 - Linux/MacOS를 사용 하는 경우이 응용 프로그램 실행할 수 있습니다 사용 하 여 [Mono](https://www.mono-project.com/)합니다.
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331667"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514251"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -100,6 +100,8 @@ ms.locfileid: "67331667"
 **예상 시간**: 약 10초
 
 자세한 내용은 [Model 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
+
+모델을 사용 하는 방법은 외부 Azure Machine Learning 서비스를 학습, 참조 [기존 모델을 배포 하는 방법을](how-to-deploy-existing-model.md)합니다.
 
 <a name="target"></a>
 
@@ -259,16 +261,22 @@ def run(data):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. 프로그램 InferenceConfig 정의
 
-유추 구성 예측 하는 모델을 구성 하는 방법에 설명 합니다. 다음 예제는 유추 구성을 만드는 방법을 보여 줍니다.
+유추 구성 예측 하는 모델을 구성 하는 방법에 설명 합니다. 다음 예제는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성을 런타임, 엔트리 스크립트가 및 (선택 사항) conda 환경 파일을 지정합니다.
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+자세한 내용은 참조는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 참조 합니다.
+
+유추 구성을 사용 하 여 사용자 지정 Docker 이미지 사용에 대 한 내용은 참조 하세요 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법을](how-to-deploy-custom-docker-image.md)합니다.
+
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig의 CLI 예제
+
+다음 JSON 문서는 기계 학습 CLI 사용에 대 한 유추 구성 예제:
+
 ```JSON
 {
    "entryScript": "x/y/score.py",
@@ -277,6 +285,23 @@ inference_config = InferenceConfig(source_directory="C:/abc",
    "sourceDirectory":"C:/abc",
 }
 ```
+
+엔터티는이 파일에 유효 합니다.
+
+* __entryScript__: 이미지에 대해 실행 하는 코드를 포함 하는 로컬 파일 경로입니다.
+* __런타임__: 이미지를 사용 하는 런타임입니다. 현재 지원 되는 런타임을 ' spark py' 및 'python'입니다.
+* __condaFile__ (선택 사항): 이미지를 사용 하는 conda 환경 정의 포함 하는 로컬 파일 경로입니다.
+* __extraDockerFileSteps__ (선택 사항): 이미지를 설정 하는 경우를 실행 하는 추가 Docker 단계를 포함 하는 로컬 파일 경로입니다.
+* __sourceDirectory__ (선택 사항): 이미지를 만드는 모든 파일이 포함 된 폴더 경로입니다.
+* __enableGpu__ (선택 사항): GPU를 사용 하도록 설정 하려면 여부 이미지에서 지원 합니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines 및 Azure Kubernetes Service와 같은 Microsoft Azure 서비스에서 사용 되어야 합니다. 기본값은 False입니다.
+* __baseImage__ (선택 사항): 기본 이미지로 사용할 이미지를 사용자 지정 합니다. 기본 이미지 없음이 지정 되 면 기본 이미지를 기반으로 런타임 매개 변수 지정 된 사용 됩니다.
+* __baseImageRegistry__ (선택 사항): 기본 이미지가 포함 된 이미지 레지스트리입니다.
+* __cudaVersion__ (선택 사항): CUDA GPU 지원 해야 하는 이미지에 대 한 설치의 버전입니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines 및 Azure Kubernetes Service와 같은 Microsoft Azure 서비스에서 사용 되어야 합니다. 지원 되는 버전은 9.0, 9.1, 및 10.0입니다. 'Enable_gpu'으로 설정 된 경우 '9.1' 기본값은입니다.
+
+이러한 엔터티 매개 변수를 매핑하는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스입니다.
+
+명령 다음에 CLI를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
+
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
@@ -287,8 +312,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 * 이 모델에서는 Python는
 * 합니다 [엔트리 스크립트가](#script), 배포 된 서비스에 전송 하는 웹 요청을 처리 하는 데 사용 되는
 * 유추 하는 데 필요한 Python 패키지를 설명 하는 conda 파일
-
-InferenceConfig 기능에 대 한 내용은 참조는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 참조 합니다.
 
 유추 구성을 사용 하 여 사용자 지정 Docker 이미지 사용에 대 한 내용은 참조 하세요 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법을](how-to-deploy-custom-docker-image.md)합니다.
 
@@ -309,9 +332,7 @@ InferenceConfig 기능에 대 한 내용은 참조는 [InferenceConfig](https://
 다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
 
 ### <a name="optional-profile-your-model"></a>선택 사항: 모델을 프로 파일링
-서비스 모델을 배포 하기 전에 최적의 CPU 및 메모리 요구 사항을 확인 하는 프로 파일링 하는 것이 좋습니다.
-
-사용자 프로필 모델 SDK 또는 CLI를 사용 하 여 수행할 수 있습니다.
+서비스 모델을 배포 하기 전에 최적의 CPU 및 메모리 요구 사항을 확인 하는 프로 파일링 하는 것이 좋습니다. 사용자 프로필 모델 SDK 또는 CLI를 사용 하 여 수행할 수 있습니다.
 
 자세한 내용은 여기 SDK 설명서를 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -544,6 +565,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## <a name="continuous-model-deployment"></a>연속적 모델 배포 
+
+Machine Learning에 대 한 확장을 사용 하 여 모델을 지속적으로 배포할 수 있습니다 [Azure DevOps](https://azure.microsoft.com/services/devops/)합니다. Azure DevOps에 대 한 Machine Learning 확장을 사용 하 여 새로운 기계 학습 모델을 Azure Machine Learning 서비스 작업 영역에서 등록 될 때 배포 파이프라인을 트리거할 수 있습니다. 
+
+1. 신청 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), 그러면 지속적인 통합 및 클라우드 플랫폼 간 모든 응용 프로그램의 업데이트 가능 합니다. Azure 파이프라인 [ML 파이프라인에서 다른](concept-ml-pipelines.md#compare)합니다. 
+
+1. [Azure DevOps 프로젝트를 만듭니다.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. 설치는 [Azure 파이프라인에 대 한 기계 학습 확장](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. 사용 하 여 __서비스 연결__ 에 모든 아티팩트에 액세스 하려면 Azure Machine Learning 서비스 작업 영역에 서비스 주체 연결을 설정 합니다. 프로젝트 설정으로 이동한 서비스 연결을 클릭 합니다. Azure Resource Manager를 선택 합니다.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. AzureMLWorkspace로 정의 합니다 __수준 범위__ 후속 매개 변수를 입력 합니다.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. 그런 다음 Azure 파이프라인을 사용 하 여 기계 학습 모델을 지속적으로 배포 하려면 파이프라인 선택 __릴리스__합니다. 새 아티팩트를 추가 하 고 AzureML 모델 아티팩트 및 이전 단계에서 만든 서비스 연결을 선택 합니다. 모델 및 배포를 트리거하려면 버전을 선택 합니다. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. 모델 아티팩트에 모델 트리거를 사용 하도록 설정 합니다. 설정 하 여 트리거를 때마다 지정된 된 버전 (즉 최신 버전)이 모델은 작업 영역에서 등록, Azure DevOps 릴리스 파이프라인을 트리거됩니다. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+샘플 프로젝트 및 예제를 체크 아웃 [MLOps 리포지토리](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.

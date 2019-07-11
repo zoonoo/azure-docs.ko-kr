@@ -3,17 +3,17 @@ title: 포함 파일
 description: 포함 파일
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125549"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594011"
 ---
 ## <a name="create-a-new-cdn-profile"></a>새 CDN 프로필 만들기
 
@@ -35,7 +35,7 @@ CDN 프로필은 CDN 엔드포인트에 대한 컨테이너이며 가격 책정 
     | -------- | ----- |
     | **Name** | 프로필 이름에 *my-cdn-profile-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. |
     | **구독** | 드롭다운 목록에서 Azure 구독을 선택합니다. |
-    | **리소스 그룹** | **새로 만들기**를 선택하고, 리소스 그룹 이름에 *my-resource-group-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 **my-resource-group-123**을 선택할 수 있습니다. | 
+    | **리소스 그룹** | **새로 만들기**를 선택하고, 리소스 그룹 이름에 *my-resource-group-123*을 입력합니다. 이미 사용 중인 경우 다른 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 **my-resource-group-123**을 선택할 수 있습니다. | 
     | **리소스 그룹 위치** | 드롭다운 목록에서 **미국 중부**를 선택합니다. |
     | **가격 책정 계층** | 드롭다운 목록에서 **Standard Verizon**을 선택합니다. |
     | **지금 새 CDN 엔드포인트 만들기** | 선택하지 않고 그대로 둡니다. |  

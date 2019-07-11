@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.author: rosh
+ms.openlocfilehash: 5fa3b723b184e6c20ee678e7ef750d6a9d18f2c6
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259604"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592844"
 ---
 # <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 사용하는 URL 미리 보기
 
-다음 Java 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
+다음 Java 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

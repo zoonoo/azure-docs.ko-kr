@@ -2,19 +2,19 @@
 title: 설정을 관리하는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator에서 설정을 관리하고, 작업 영역을 만들고, 작업 영역을 공유하며 구독 키를 관리하는 방법입니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb766a8cc6ae0de2407f44982a58fcc448e4b00c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d141b5dea8b0b12889559e6c80770379a6afac63
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382662"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448350"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: areddish
 manager: daauld
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dd30d26777ff4f458a4b70f17d77ece527bc523a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487263"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593000"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 개체 검색 프로젝트 만들기
 
@@ -31,8 +31,8 @@ ms.locfileid: "58487263"
 Node.js용 Custom Vision Service SDK를 설치하려면 다음 명령을 실행합니다.
 
 ```command
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)과 함께 이미지를 다운로드할 수 있습니다.

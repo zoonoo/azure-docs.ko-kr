@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
-ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116729"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712408"
 ---
 아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성해야 하는 경우 다음 두 인수를 사용합니다.
 
-| 이름 | 데이터 형식 | 설명 |
+| 이름 | 데이터 형식 | Description |
 |--|--|--|
 |HTTP_PROXY|문자열|사용할 프록시(예: `http://proxy:8888`)<br><proxy-url>|
 |HTTP_PROXY_CREDS|문자열|프록시를 인증하는 데 필요한 자격 증명(예: username:password).|

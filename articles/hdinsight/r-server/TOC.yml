@@ -4,16 +4,23 @@
   items:
     - name: HDInsight에서 ML Services란?
       href: r-server-overview.md
-- name: 시작하기
+- name: 빠른 시작
+  expanded: true
   items:
-    - name: ML 서비스 시작
-      href: r-server-get-started.md
+    - name: 샘플 작업 - RStudio Server
+      href: ./machine-learning-services-quickstart-job-rstudio.md
+    - name: 샘플 작업 - R 콘솔
+      href: ./machine-learning-services-quickstart-job-rconsole.md
+- name: 자습서
+  items:
+    - name: HDInsight Spark 컴퓨팅 컨텍스트의 R
+      href: ml-services-tutorial-spark-compute.md
+- name: 개념
+  items:
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
-- name: 개념
-  items:
     - name: HDInsight의 Apache Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
@@ -56,8 +63,6 @@
           href: ../hdinsight-hadoop-customize-cluster-linux.md
         - name: 스크립트 작업 개발
           href: ../hdinsight-hadoop-script-actions-linux.md
-        - name: Presto 설치 및 사용
-          href: ../hdinsight-hadoop-install-presto.md
         - name: Apache Hive 라이브러리 추가
           href: ../hdinsight-hadoop-add-hive-libraries.md
         - name: Apache Giraph 사용

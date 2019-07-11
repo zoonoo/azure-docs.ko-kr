@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 13231fe75ff173999f3a7fa4728f583c6f04c54d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: jeedes
+ms.openlocfilehash: 99c94792f48db7a932e670f05216bcea0e90a27c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579175"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672802"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>자습서: Zscaler ZSCloud에 대한 자동 사용자 프로비저닝 구성
 

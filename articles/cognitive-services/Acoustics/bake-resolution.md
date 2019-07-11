@@ -7,15 +7,15 @@ author: KyleStorck
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: KyleStorck
-ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8684cf16e41c763db01c064242cc5466b1c83f01
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789757"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621405"
 ---
 # <a name="project-acoustics-bake-resolution"></a>프로젝트 소음 적용 확인
 이 개념 개요 소음 이루어졌습니다 하는 동안 대략적인 및 세밀 하 게 해결 간의 차이점을 설명 합니다. 제과점 워크플로 프로브 단계에서이 설정을 선택 합니다.

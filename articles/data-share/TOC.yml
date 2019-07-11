@@ -1,0 +1,39 @@
+- name: Azure Data Share 미리 보기 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Data Share 미리 보기란?
+      href: overview.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 데이터 공유
+      href: share-your-data.md
+    - name: 데이터 수락 및 받기
+      href: subscribe-to-data-share.md
+- name: 개념
+  items:
+    - name: Azure Data Share 용어
+      href: terminology.md
+    - name: 역할 및 요구 사항
+      href: concepts-roles-permissions.md
+- name: 방법 가이드
+  items:
+    - name: 모니터
+      href: how-to-monitor.md
+    - name: 데이터 세트 매핑 구성
+      href: how-to-configure-mapping.md
+    - name: 문제 해결
+      href: data-share-troubleshoot.md
+- name: 리소스
+  items:
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/tag/data-share'
+    - name: Microsoft 기술 커뮤니티
+      href: 'https://techcommunity.microsoft.com/'
+    - name: 제품 사용자 의견
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

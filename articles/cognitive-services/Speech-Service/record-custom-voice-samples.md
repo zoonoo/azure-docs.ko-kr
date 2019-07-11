@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954644"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604900"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -167,7 +166,7 @@ Studio의 기록 엔지니어를 사용 하 여 프로젝트에 설명 하 고 �
 
 성우에게 단어를 구분해서 발음하도록 지시합니다. 스크립트의 모든 단어는 쓰여진 그대로 발음해야 합니다. *스크립트에서 생략하거나 분명하게 발음하지 않도록 쓰여 있지 않는 한* 소리는 일상적인 말투에서 흔히 있는 것처럼 이런 방식으로 처리되지 않아야 합니다.
 
-|기록된 텍스트|원치 않는 평상시 발음|
+|작성된 텍스트|원치 않는 평상시 발음|
 |-|-|
 |never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|
