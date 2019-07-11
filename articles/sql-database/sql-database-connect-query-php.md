@@ -109,4 +109,4 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 - [문제 보고 또는 질문(영문)](https://github.com/Microsoft/msphpsql/issues)
 
-- [다시 시도 논리 예제: PHP로 SQL에 탄력적으로 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [재시도 논리 예제: PHP로 SQL에 탄력적으로 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
