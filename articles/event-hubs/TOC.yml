@@ -92,6 +92,10 @@
           href: event-hubs-programming-guide.md
         - name: 이벤트 프로세서 호스트를 사용하여 이벤트 수신
           href: event-hubs-event-processor-host.md
+    - name: 데이터 처리
+      items:
+        - name: Azure Stream Analytics를 사용하여 데이터 처리
+          href: process-data-azure-stream-analytics.md
     - name: 클라이언트 라이브러리 사용
       items:
         - name: .NET Framework

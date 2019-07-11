@@ -119,6 +119,9 @@
         - name: Kafka 이벤트 처리
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: Event Hubs 데이터 처리
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: 지리 공간적 시나리오
           href: geospatial-scenarios.md
     - name: 모니터

@@ -105,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Java 구성
           href: configure-language-java.md
+        - name: 온-프레미스 리소스에 연결
+          href: web-sites-integrate-with-vnet.md
+        - name: Azure Storage(컨테이너) 구성
+          href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
         - name: 앱 배포

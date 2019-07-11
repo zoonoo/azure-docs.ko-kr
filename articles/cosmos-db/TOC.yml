@@ -797,6 +797,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: 다중 마스터 혜택
+      href: multi-master-benefits.md
     - name: 사용 사례
       items:
         - name: 일반 사용 예

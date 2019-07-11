@@ -142,6 +142,9 @@
         - name: 보안 검사 목록
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: 암호 없음 선택
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: 모범 사례
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md
