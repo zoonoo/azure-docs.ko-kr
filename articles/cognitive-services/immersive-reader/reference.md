@@ -1,26 +1,27 @@
 ---
 title: 몰입 형 판독기 SDK 참조
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 몰입 형 판독기 SDK에 대 한 참조
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311795"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718397"
 ---
 # <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
 
 몰입 형 판독기 SDK에는 몰입 형 판독기를 웹 응용 프로그램에 통합할 수 있는 JavaScript 라이브러리입니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 SDK는 단일 함수로 노출 `ImmersiveReader.launchAsync(token, resourceName, content, options)`합니다.
 
@@ -36,8 +37,8 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 | 이름 | 형식 | 설명 |
 | ---- | ---- |------------ |
-| `token` | 문자열 | 에 대 한 호출에서 얻은 액세스 토큰을 `issueToken` 끝점입니다. |
-| `resourceName` | 문자열 | 예약되어 있습니다. `null`로 설정해야 합니다. |
+| `token` | string | 에 대 한 호출에서 얻은 액세스 토큰을 `issueToken` 끝점입니다. |
+| `resourceName` | string | 예약되어 있습니다. `null`로 설정해야 합니다. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
 | `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
 
@@ -51,7 +52,7 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 ## <a name="types"></a>유형
 
-### <a name="content"></a>Content
+### <a name="content"></a>콘텐츠
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -68,12 +69,12 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="supported-mime-types"></a>지원 되는 MIME 형식
 
-| MIME 형식 | 설명 |
+| MIME 형식 | Description |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
 | application/mathml+xml | 수학 Markup Language (MathML)입니다. [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-### <a name="options"></a>옵션
+### <a name="options"></a>변수
 
 몰입 형 판독기의 특정 동작을 구성 하는 속성을 포함 합니다.
 
@@ -86,7 +87,7 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 }
 ```
 
-### <a name="error"></a>오류
+### <a name="error"></a>Error
 
 오류에 대 한 정보를 포함합니다.
 
@@ -99,10 +100,10 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="error-codes"></a>오류 코드
 
-| 코드 | 설명 |
+| 코드 | Description |
 | ---- | ----------- |
 | BadArgument | 제공 된 인수가 잘못 되었습니다. 내용은 `message` 세부 정보에 대 한 합니다. |
-| 시간 제한 | 몰입 형 판독기를 지정된 된 시간 제한 내에서 로드 하지 못했습니다. |
+| 제한 시간 | 몰입 형 판독기를 지정된 된 시간 제한 내에서 로드 하지 못했습니다. |
 | TokenExpired| 제공 된 토큰이 만료 되었습니다. |
 
 ## <a name="launching-the-immersive-reader"></a>몰입 형 판독기를 시작합니다.
@@ -117,7 +118,7 @@ SDK는 몰입 형 판독기를 시작 하는 단추에 대 한 기본 스타일�
 
 단추의 모양과 느낌을 구성 하려면 다음 특성을 사용 합니다.
 
-| 특성 | 설명 |
+| 특성 | Description |
 | --------- | ----------- |
 | `data-button-style` | 단추 스타일을 설정합니다. `icon`, `text` 또는 `iconAndText`일 수 있습니다. 기본값은 `icon`입니다. |
 | `data-locale` | 설정 하는 예를 들어 `en-US`, `fr-FR`합니다. 영어 기본값은입니다. |

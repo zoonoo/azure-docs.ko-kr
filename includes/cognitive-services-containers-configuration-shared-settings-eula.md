@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: 04b7031382d7ed611822a3dd721dfa09f01bce74
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 98a0ddd828c3d72fdead0ccc2fb1daabf7548de1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182472"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712398"
 ---
 `Eula` 설정은 컨테이너에 대한 라이선스에 동의했음을 나타냅니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 `accept`로 설정해야 합니다.
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| 이름 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Eula` | String | 라이선스 승인<br><br>예제:<br>`Eula=accept` |
 

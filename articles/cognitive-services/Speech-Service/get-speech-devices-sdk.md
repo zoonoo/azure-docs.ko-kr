@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: b9a0890000cda0b3663ac29bee61fc1c702f6254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cff35398509c021a3d2ccf708e2705ab7e259d34
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410700"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719801"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 
@@ -24,10 +23,10 @@ ms.locfileid: "65410700"
 
 ## <a name="choose-a-development-kit"></a>개발 키트를 선택 합니다.
 
-|디바이스|사양|설명|시나리오|
+|장치|사양|Description|시나리오|
 |--|--|--|--|
-|[Roobo Smart Audio Dev Kit](https://ddk.roobo.com)</br>[설치 프로그램](speech-devices-sdk-roobo-v1.md) / [퀵 스타트](speech-devices-sdk-android-quickstart.md)![Roobo 스마트 오디오 Dev 키트](media/speech-devices-sdk/device-roobo-v1.jpg)|7 mic 배열에 ARM SOC WIFI, 오디오 출력, IO입니다. </br>Android|Microsoft Mic 배열 및 고품질 기록 및 음성 시나리오를 개발 하기 위한 SDK를 처리 하는 앞에 맞게 첫 번째 음성 장치 SDK|대화 기록, 스마트 발표자 음성 에이전트, 착용 식|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Mic 배열 RGB 및 깊이 카메라 7입니다. </br>Windows/Linux|복잡 한 컴퓨터 시각 및 음성 모델을 빌드하기 위한 고급 AI (인공 지능) 센서를 사용 하 여 개발자 키트. 비디오 카메라 및 방향 센서를 사용 하 여 최고의에서 공간 마이크 배열 및 깊이 카메라 결합-여러 모드, 옵션 및 Sdk의 범위를 수용 하기 위해 사용 하 여 하나의 작은 장치에서 모든 계산 형식입니다.|대화 기록, 로봇 공학 스마트 빌딩|
+|[Roobo Smart Audio Dev Kit](https://ddk.roobo.com)</br>[설치 프로그램](speech-devices-sdk-roobo-v1.md) / [퀵 스타트](speech-devices-sdk-android-quickstart.md)![Roobo 스마트 오디오 Dev 키트](media/speech-devices-sdk/device-roobo-v1.jpg)|7 mic 배열에 ARM SOC WIFI, 오디오 출력, IO입니다. </br>[Android](speech-devices-sdk-android-quickstart.md)|Microsoft Mic 배열 및 고품질 기록 및 음성 시나리오를 개발 하기 위한 SDK를 처리 하는 앞에 맞게 첫 번째 음성 장치 SDK|대화 기록, 스마트 발표자 음성 에이전트, 착용 식|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br>[설치 프로그램](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [퀵 스타트](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Mic 배열 RGB 및 깊이 카메라 7입니다. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|복잡 한 컴퓨터 시각 및 음성 모델을 빌드하기 위한 고급 AI (인공 지능) 센서를 사용 하 여 개발자 키트. 비디오 카메라 및 방향 센서를 사용 하 여 최고의에서 공간 마이크 배열 및 깊이 카메라 결합-여러 모드, 옵션 및 Sdk의 범위를 수용 하기 위해 사용 하 여 하나의 작은 장치에서 모든 계산 형식입니다.|대화 기록, 로봇 공학 스마트 빌딩|
 |Roobo Smart Audio Dev Kit 2![Roobo Smart Audio Dev Kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 mic 배열에 ARM SOC WIFI, Bluetooth, IO입니다. </br>Linux|두 번째 세대 대체 OS 및 비용 효율적인 참조 디자인에 더 많은 기능을 제공 하는 음성 장치 SDK입니다.|대화 기록, 스마트 발표자 음성 에이전트, 착용 식|
 |URbetter T11 개발 보드![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 mic 배열에 ARM SOC WIFI, 이더넷, HDMI, USB 카메라입니다. </br>Linux|Microsoft Mic 배열을 조정 하 고 지 원하는 음성 장치 SDK는 업계 수준 확장 HDMI/이더넷 등 자세한 USB 주변 장치 I/O|에이전트, 음성 드라이브부터 대화 기록, 교육, 병원, 로봇, OTT 상자|
 

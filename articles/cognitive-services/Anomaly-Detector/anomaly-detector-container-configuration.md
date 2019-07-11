@@ -1,20 +1,21 @@
 ---
-title: 컨테이너-이상 감지기를 구성 합니다.
+title: 비정상 탐지기 API에 대 한 컨테이너를 구성 하는 방법
 titleSuffix: Azure Cognitive Services
-description: 이상 감지기 컨테이너 런타임 환경을 사용 하도록 구성 된 `docker run` 명령 인수입니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다.
+description: 비정상 탐지기 API 컨테이너 런타임 환경을 사용 하도록 구성 된 `docker run` 명령 인수입니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e6b5bcefb2a8df136d37dad062fbca651c312dc4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275504"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721723"
 ---
 # <a name="configure-anomaly-detector-containers"></a>비정상 탐지기 컨테이너 구성
 
@@ -24,16 +25,16 @@ ms.locfileid: "67275504"
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
 |예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적하는 데 사용됩니다.|
 |아니요|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
-|예|[결제](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|예|[Billing](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
 |예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
 |아니요|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
-|아니요|[Http Proxy](#http-proxy-credentials-settings)|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
-|아니요|[로깅](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
-|아니요|[탑재](#mount-settings)|호스트 컴퓨터에서 컨테이너로 데이터를 읽고 쓰고, 컨테이너에서 호스트 컴퓨터로 다시 데이터를 읽고 씁니다.|
+|아니요|[Http 프록시](#http-proxy-credentials-settings)|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
+|아니요|[Logging](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
+|예|[Mounts](#mount-settings)|호스트 컴퓨터에서 컨테이너로 데이터를 읽고 쓰고, 컨테이너에서 호스트 컴퓨터로 다시 데이터를 읽고 씁니다.|
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정은 함께 사용됩니다. 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](anomaly-detector-container-howto.md#billing)를 참조하세요.
@@ -58,9 +59,9 @@ ms.locfileid: "67275504"
 
 * Azure Portal: **비정상 탐지기** 개요, 레이블이 지정 `Endpoint`
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| 이름 | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -87,10 +88,10 @@ ms.locfileid: "67275504"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](anomaly-detector-container-howto.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| 이름 | 데이터 형식 | 설명 |
+|Optional| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | 비정상 탐지기 컨테이너 사용 하지 마세요.|
-|옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 

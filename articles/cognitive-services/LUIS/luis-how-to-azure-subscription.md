@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204154"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797945"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS 앱에서 구독 키 사용
 
@@ -32,6 +32,8 @@ LUIS (Language Understanding)을 처음 사용할 때 구독 키를 만들 필�
 
 만든 합니다 [예측 끝점 리소스](get-started-portal-deploy-app.md#create-the-endpoint-resource) Azure portal에서 합니다. 이 리소스는 엔드포인트 예측 쿼리에만 사용해야 합니다. 앱을 변경하는 작업에는 이 리소스를 사용하지 마세요.
 
+Language Understanding 리소스 또는 Cognitive Services 리소스를 만들 수 있습니다. Language Understanding 리소스를 만드는 경우 postpend 리소스 리소스 이름으로 입력 하는 것이 좋습니다. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ LUIS (Language Understanding)을 처음 사용할 때 구독 키를 만들 필�
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>LUIS 포털에서 리소스를 사용 하 여
+
+LUIS 포털에서 리소스를 사용 하는 경우에 키와 위치를 알 필요가 없습니다. 대신에 리소스 테 넌 트, 구독 및 리소스 이름을 알아야 해야 합니다.
+
+나면 [할당할](#assign-resource-key-to-luis-app-in-luis-portal) LUIS 포털, 키 및 위치에서 LUIS 앱 리소스 관리 섹션의 쿼리 예측 끝점 URL의 일부로 제공 됩니다 **키 및 끝점 설정** 페이지입니다.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>REST API 또는 SDK에서 리소스를 사용 하 여
+
+API(s) REST 또는 SDK에서 리소스를 사용 하는 경우에 키와 위치를 알아야 할 합니다. 이 정보는 관리 섹션의 쿼리 예측 끝점 URL의 일부로 제공 됩니다 **키 및 끝점 설정** 리소스의 개요 및 키 페이지에서 Azure portal에서와 같이 페이지도 있습니다.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>LUIS 포털의 LUIS 앱에 리소스 키 할당
 
@@ -132,7 +143,7 @@ CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 �
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |Type|설정|값|
+    |형식|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|[작성 키](luis-how-to-account-settings.md)|

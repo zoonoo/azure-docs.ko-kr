@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Expres
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d870e5eedf362a6c929216735c8b5e9240aaa4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155271"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708490"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -328,7 +328,7 @@ sudo apt-get install -y nodejs
 
     ![책 레코드](media/tutorial-mean/meanstack-init.png)
 
-3. 데이터를 텍스트 상자에 입력하고 **추가**를 클릭합니다. 예: 
+3. 데이터를 텍스트 상자에 입력하고 **추가**를 클릭합니다. 예:
 
     ![책 레코드 추가](media/tutorial-mean/meanstack-add.png)
 
