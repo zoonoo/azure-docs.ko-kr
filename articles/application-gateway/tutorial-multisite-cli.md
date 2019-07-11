@@ -117,7 +117,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>수신기 추가
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com*의 도메인에 대해 수신기가 생성됩니다. 
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com* 의 도메인에 대해 수신기가 생성됩니다. 
 
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)를 사용하여 트래픽을 라우팅하는 데 필요한 *contosoListener* 및 *fabrikamListener*라는 백 엔드 수신기를 추가합니다.
 
