@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: b691d447f51165ea3cb56410da9cd2d4d00ce913
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490195"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785692"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변을 가져오려면
 
@@ -96,7 +96,7 @@ HTTP 헤더 속성을 설정 해야 `Authorization` 문자열의 값을 사용 �
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer 응답 속성
 
-합니다 [응답](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) 사용 가능한 경우 답변 및 다음 표시 하는 데 필요한 정보를 대화의 설정 모두를 포함 하 여 JSON 개체입니다.
+합니다 [응답](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) 사용 가능한 경우 답변 및 다음 표시 하는 데 필요한 정보를 대화의 설정 모두를 포함 하 여 JSON 개체입니다.
 
 ```json
 {

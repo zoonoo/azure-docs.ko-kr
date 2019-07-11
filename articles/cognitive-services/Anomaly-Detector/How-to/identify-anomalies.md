@@ -1,5 +1,6 @@
 ---
 title: 시계열 데이터에서 변칙 검색기 API를 사용 하는 방법
+titleSuffix: Azure Cognitive Services
 description: 일괄 처리 또는 데이터를 스트리밍 데이터에서 변칙을 검색 하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 551196815004cb047680e2ae2f8dbe32186c1a0c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432347"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721799"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 비정상 탐지기 API를 사용 하 여 시계열 데이터에서  
 

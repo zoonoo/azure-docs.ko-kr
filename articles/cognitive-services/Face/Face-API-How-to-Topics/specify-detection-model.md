@@ -6,16 +6,16 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449024"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592935"
 ---
 # <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
@@ -27,7 +27,7 @@ Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 �
 
 모르는 경우 최신 모델을 사용 해야 하는지 여부를 건너뜁니다 합니다 [여러 모델 평가](#evaluate-different-models) 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과 비교 하는 섹션입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 AI 얼굴 감지의 개념에 익숙해야 합니다. 가 아닌 경우 얼굴 감지 개념 가이드 또는 방법 가이드를 참조 하세요.
 

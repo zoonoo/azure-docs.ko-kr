@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e40af9b2362ee52a1d00f29cdc112d3c2b9a842
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447586"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565842"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료란?
 
@@ -40,15 +40,15 @@ QnA Maker 기술 자료는 질문/답변(QnA) 쌍, 각 QnA 쌍과 연결된 선�
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>QnA Maker는 가장 적합 한 답변을 선택 하는 사용자 쿼리를 처리 하는 방법
 
-그러면 학습 된 및 [게시](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker 기술 자료에서 봇 또는 다른 클라이언트 응용 프로그램에서 사용자 쿼리를 수신 합니다 [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)합니다. 다음 다이어그램은 사용자 쿼리를 받을 때 프로세스를 보여 줍니다.
+그러면 학습 된 및 [게시](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker 기술 자료에서 봇 또는 다른 클라이언트 응용 프로그램에서 사용자 쿼리를 수신 합니다 [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)합니다. 다음 다이어그램은 사용자 쿼리를 받을 때 프로세스를 보여 줍니다.
 
 ![사용자 쿼리에 대 한 순위 프로세스](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
 프로세스는 다음 표에 설명 됩니다.
 
-|단계|목적|
+|단계|용도|
 |--|--|
-|1|클라이언트 응용 프로그램에 사용자 쿼리를 전송 합니다 [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)합니다.|
+|1|클라이언트 응용 프로그램에 사용자 쿼리를 전송 합니다 [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)합니다.|
 |2|Qna Maker를 language 검색과 spellers, 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|
 |3|이 전처리 최상의 검색 결과 대 한 사용자 쿼리를 변경 하려면 수행 됩니다.|
 |4|이 변경 된 쿼리는 Azure Search 인덱스에 전송 됩니다 수신 된 `top` 결과의 수입니다. 올바른 답을 이러한 결과 없는 경우의 가치를 높였습니다 `top` 약간 있습니다. 일반적으로 값에 대 한 10 `top` 쿼리의 90%에서 작동 합니다.|
@@ -65,6 +65,6 @@ QnA Maker 기술 자료는 질문/답변(QnA) 쌍, 각 QnA 쌍과 연결된 선�
 > [!div class="nextstepaction"]
 > [기술 자료의 개발 수명 주기](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [QnA Maker 개요](../Overview/overview.md)

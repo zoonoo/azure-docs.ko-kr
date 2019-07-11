@@ -10,18 +10,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445827"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704365"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>배포 하 고 컨테이너에서 컨테이너 인스턴스 ACI (Azure) 실행
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>배포 하 고 Azure Container Instance에 컨테이너 실행
 
-다음 단계를 사용 하 여 쉽게 Azure 사용 하 여 클라우드에서 Azure Cognitive Services 응용 프로그램을 확장할 [컨테이너 인스턴스](https://docs.microsoft.com/azure/container-instances/) (ACI). 인프라 관리 대신 응용 프로그램 개발에 집중할 수이 있습니다.
+다음 단계를 사용 하 여 쉽게 Azure 사용 하 여 클라우드에서 Azure Cognitive Services 응용 프로그램을 확장할 [컨테이너 인스턴스](https://docs.microsoft.com/azure/container-instances/)합니다. 인프라 관리 대신 응용 프로그램 개발에 집중할 수이 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 솔루션은 모든 Cognitive Services 컨테이너를 사용 하 여 작동합니다. 이 작성법을 사용 하기 전에 Azure portal에서 Cognitive 서비스 리소스를 생성 되어야 합니다. 컨테이너를 지 원하는 각 Cognitive 서비스 컨테이너에 대 한 서비스 설치 및 구성에 맞게 "설치 하는 방법" 문서를 있습니다. 있기 때문에 컨테이너에 대 한 입력으로 파일 또는 파일 집합이 필요로 하는 일부 서비스를 이해 하 고이 솔루션을 사용 하기 전에 컨테이너를 성공적으로 사용 했던 것이 중요 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67445827"
 
 꺾쇠 괄호 안에 있는 모든 변수 `<>`, 사용자 고유의 값으로 대체 해야 합니다. 이 대체 꺾쇠 괄호를 포함합니다.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>컨테이너 인스턴스를 사용 합니다.
 

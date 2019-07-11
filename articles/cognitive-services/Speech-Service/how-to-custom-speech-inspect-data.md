@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064032"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603121"
 ---
 # <a name="inspect-custom-speech-data"></a>사용자 지정 음성 데이터 검사
 
@@ -54,6 +54,6 @@ ms.locfileid: "67064032"
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [사용자 지정 음성에 대한 테스트 데이터를 준비합니다.](how-to-custom-speech-test-data.md)

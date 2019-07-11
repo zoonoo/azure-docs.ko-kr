@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751816"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797922"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="speech-devices-sdk-160"></a>Speech Devices SDK 1.6.0:
+
+*   지원 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) Windows 및 Linux 일반 [샘플 응용 프로그램](https://aka.ms/sdsdk-download)
+*   업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.6.0으로 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 
 ## <a name="speech-devices-sdk-151"></a>Speech Devices SDK 1.5.1:
 
@@ -37,17 +42,17 @@ ms.locfileid: "66751816"
 *   새 인해 wake word 기술 향상 된 절전 모드 해제 단어 포털에서 절전 모드 해제 하는 모든 단어를 다시 만들어야 합니다. 완전히 제거 하려면 장치에서 이전 키워드는 기존 앱을 제거 합니다.
     - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services Speech Devices SDK 1.4.0: 2019 년-4 월 릴리스 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services Speech Devices SDK 1.4.0: 2019 년-4 월 릴리스
 
-* 업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.4.0 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+* 업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.4.0 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services Speech Devices SDK 1.3.1: 2019-3 월 릴리스 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services Speech Devices SDK 1.3.1: 2019-3 월 릴리스
 
-* 업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.3.1 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+* 업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 버전 1.3.1 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 *   처리 하는 업데이트 된 절전 모드 해제 단어의 주요 변경 내용을 참조 하세요.
 *   샘플 응용 프로그램 모두 음성 인식 및 변환에 대 한 언어를 추가합니다.
 
-**주요 변경 내용** 
+**주요 변경 내용**
 
 *   [절전 모드 해제 단어 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 되었습니다 간체, 이제 앱의 일부 이며 별도 장치에 설치할 필요가 없습니다.
 *   절전 모드 해제 단어 인식 변경 하 고 두 이벤트는 지원 합니다.
@@ -55,22 +60,22 @@ ms.locfileid: "66751816"
     - RecognizedKeyword, 지정 된 키워드가 인식 완료 하는 키워드 인식을 나타냅니다.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services Speech Devices SDK 1.1.0: 2018년 11월 릴리스 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services Speech Devices SDK 1.1.0: 2018년 11월 릴리스
 
-* [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.1.0 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+* [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.1.0 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 * 향상된 오디오 처리 알고리즘으로 원거리 음성 인식 정확도가 향상되었습니다.
 * 샘플 애플리케이션에 중국어 음성 인식 지원이 추가되었습니다.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services Speech Devices SDK 1.0.1: 2018년 10월 릴리스 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services Speech Devices SDK 1.0.1: 2018년 10월 릴리스
 
-* [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.0.1 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+* [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.0.1 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 * 향상된 오디오 처리 알고리즘을 사용하여 음성 인식 정확도가 향상됩니다.  
 * 연속 인식 오디오 세션 버그 하나가 해결되었습니다.
 
-**주요 변경 내용** 
+**주요 변경 내용**
 
-* 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요. 
-* KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새로운 절전 모드 해제 단어 파일이 디바이스에 기록되면 기존의 절전 모드 해제 단어 파일이 삭제됩니다. 
+* 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요.
+* KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새로운 절전 모드 해제 단어 파일이 디바이스에 기록되면 기존의 절전 모드 해제 단어 파일이 삭제됩니다.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Cognitive Services Speech Devices SDK 0.5.0: 2018년 8월 릴리스
 

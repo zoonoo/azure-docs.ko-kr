@@ -6,16 +6,16 @@ services: cognitive-services
 author: longl
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449019"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592960"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -25,7 +25,7 @@ Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 �
 
 새 사용자인 경우 최신 모델을 사용하는 것이 좋습니다. 모델 충돌을 방지하면서 다양한 얼굴 작업에서 그것을 지정하는 방법을 알아봅니다. 고급 사용자이면서 최신 모델로의 전환에 대해 확실하지 않으면, 새 모델을 평가하고 현재 데이터 집합을 사용하여 결과를 비교하는 [다른 모델 평가](#evaluate-different-models) 섹션으로 이동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇치 않은 경우 먼저 다음의 방법 가이드를 참조합니다.
 
@@ -60,7 +60,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(예를 들어, [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해)와 연결하고, 여러 **Person** 개체는 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
 
-**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹은 항상 생성된 인식 모델을 사용하며 추가된 새 얼굴은 이 모델과 연관됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
+**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 

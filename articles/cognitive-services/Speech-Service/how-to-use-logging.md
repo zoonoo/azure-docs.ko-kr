@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6179634bb949dbb9da8475e87494eef0f145f13b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073079"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605081"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅을 사용 하도록 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "67073079"
 > [!NOTE]
 > 로깅은 Speech SDK 버전 1.4.0 모든 프로그래밍 언어, JavaScript 제외 하 고 Speech SDK를 지원 하므로 사용할 수 있습니다.
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 
 로그 파일 이름은 구성 개체에 지정됩니다. `SpeechConfig`를 예로 들어 `config` 라는 인스턴스를 만들었다고 가정합니다.
 
@@ -119,4 +119,3 @@ iOS의 파일 시스템에 대한 추가 정보는 [여기](https://developer.ap
 
 > [!div class="nextstepaction"]
 > [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
-

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236996"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606328"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>음성 장치 SDK 마이크 배열 권장 사항
 
@@ -87,7 +87,7 @@ Echo 취소 발표자를 포함 하는 음성 인식 장치에 필요한 경우 
 
 아키텍처에 대 한 다음 지침은 마이크 장치를 통합 하는 경우에 필요 합니다.
 
-| 매개 변수                         | 권장 사항                    |
+| 매개 변수                         | 권장                    |
 |-----------------------------------|-----------------------------------|
 | Mic 포트 유사성               | 모든 마이크 포트가 동일한 배열 길이    |
 | Mic 포트 차원               | 포트 크기 Ø0.8 1.0 mm 합니다. 길이 포트 / 포트 지름 \< 2              |
