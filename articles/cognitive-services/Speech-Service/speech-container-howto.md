@@ -19,14 +19,18 @@ ms.locfileid: "67490228"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
-음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 최첨단 로컬 기능을 모두 활용할 수 있도록 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 
+
+음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다.
+
 
 두 음성 컨테이너는 **음성 텍스트 변환**과 **텍스트 음성 변환**입니다. 
 
 |함수|기능|최신 버전|
 |-|-|--|
-|음성 텍스트 변환| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화 중간 결과 사용 하 여 텍스트로 transcribes 합니다.|1.1.3|
-|텍스트 음성 변환| <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. 일반 텍스트 입력 또는 Speech Synthesis Markup Language (SSML). |1.1.0|
+
+|음성 텍스트 변환| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다.|1.1.3|
+|텍스트 음성 변환| <li>일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 사용하여 텍스트를 자연스럽게 들리는 음성으로 변환합니다. |1.1.0|
+
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -42,7 +46,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-컨테이너에 액세스를 요청하려면 먼저 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/)을 작성하여 제출합니다. 
+
+컨테이너에 액세스를 요청하려면 먼저 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/)을 작성하여 제출합니다.
+
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -54,7 +60,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="advanced-vector-extension-support"></a>고급 벡터 확장 지원
 
-**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 호스트는 [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2)(AVX2)를 지원해야 합니다. 다음 명령을 사용하여 Linux 호스트에서의 이 지원을 확인할 수 있습니다. 
+
+**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 호스트는 [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2)(AVX2)를 지원해야 합니다. 다음 명령을 사용하여 Linux 호스트에서의 이 지원을 확인할 수 있습니다.
+
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -73,11 +81,14 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
 
-**참고**; 최소 및 권장 되는 Docker 제한 기반 *되지* 호스트 컴퓨터 리소스가 있습니다. 예를 들어, 음성-텍스트 컨테이너 메모리 맵 부분 큰 언어 모델 됩니다 _권장_ 전체 파일에는 추가 4 ~ 6 2GB는 메모리는 합니다. 또한 모델을 메모리로 페이징되지는 하므로 한쪽 컨테이너의 첫 번째 실행 더 오래 걸릴 수 있습니다.
+코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
+
+**참고**: 최소 및 권장 사항은 Docker 제한 기반을 두고 있으며 호스트 컴퓨터 리소스가 *아닙니다*. 예를 들어, 음성-텍스트 컨테이너는 큰 언어 모델의 맵 부분을 기억하며 추가로 4 ~ 6GB의 메모리에 전체 파일을 두는 것을 _권장_ 합니다. 또한 모델은 메모리로 페이징되므로 두 컨테이너의 첫 번째 실행은 더 오래 걸릴 수 있습니다.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-음성에 대한 컨테이너 이미지를 사용할 수 있습니다.
+음성에 대한 컨테이너 이미지를 사용할 수 있습니다. 
+
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -88,11 +99,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="language-locale-is-in-container-tag"></a>컨테이너 태그의 언어 로캘
 
-`latest` 태그는 `en-us` 로캘 및 `jessarus` 음성을 끌어오기 합니다.
+
+`latest` 태그는 `en-us` 로캘 및 `jessarus` 음성을 끌어오기 합니다. 
+
 
 #### <a name="speech-to-text-locales"></a>텍스트 음성 변환 로캘
 
-모든 태그를 제외한 `latest` 형식에 여기서는 `<culture>` 로캘 컨테이너를 나타냅니다:
+`latest`를 제외한 모든 태그는 `<culture>`가 로캘을 나타내고 `<voice>`가 컨테이너의 음성을 나타내는 다음 형식으로 되어 있습니다.
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
@@ -104,7 +117,9 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 1.1.3-amd64-en-us-preview
 ```
 
-다음 표에서 대 한 지원 되는 로캘 **음성-텍스트** 는 1.1.3에서 컨테이너의 버전:
+
+다음 표는 컨테이너의 버전 1.1.1에서 **음성 텍스트 변환**에 대해 지원되는 로캘을 나열합니다.
+
 
 |언어 로캘|태그들|
 |--|--|
@@ -120,7 +135,9 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 #### <a name="text-to-speech-locales"></a>텍스트 음성 변환 로캘
 
-`latest`를 제외한 모든 태그는 로캘 컨테이너를 나타내는 `<culture>`와 컨테이너의 음성을 나타내는  `<voice>`가 있는 다음 형식입니다.
+
+`latest`를 제외한 모든 태그는 로캘 컨테이너를 나타내는 `<culture>`와 컨테이너의 음성을 나타내는 `<voice>`가 있는 다음 형식입니다.
+
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
@@ -176,11 +193,13 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-**미리 보기 동안**, 청구 설정을 컨테이너를 시작 하려면 유효 해야 합니다. 하지만 사용에 대 한 요금이 청구 되지 않습니다.
+**미리 보기 동안**, 컨테이너를 시작하려면 청구 설정이 유효해야 합니다. 하지만 사용에 대한 요금은 청구되지 않습니다.
 
 | 자리표시자 | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure Portal의 음성 키 페이지에서 확인할 수 있습니다.  |
+
+|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure Portal의 음성 키 페이지에서 확인할 수 있습니다. |
+
 |{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure portal의 음성 개요 페이지에서 사용할 수 있습니다.|
 
 다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
@@ -213,7 +232,7 @@ ApiKey={BILLING_KEY}
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다. 자세한 내용은 [Billing](#billing)을 참조하세요.
 
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
@@ -230,7 +249,7 @@ ApiKey={BILLING_KEY}
 
 #### <a name="for-c"></a>C#의 경우
 
-다음 Azure 클라우드 초기화 호출을
+다음 Azure 클라우드 초기화 호출을 
 
 ```C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -264,6 +283,7 @@ speech_config = speechsdk.SpeechConfig(
 
 컨테이너는 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)에서 찾을 수 있는 REST 끝점을 제공하며 샘플은 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)에서 찾을 수 있습니다.
 
+
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>컨테이너 중지
@@ -272,7 +292,9 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="troubleshooting"></a>문제 해결
 
-컨테이너를 실행할 때, 컨테이너는 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다.
+
+컨테이너를 실행할 때, 컨테이너는 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다. 
+
 
 ## <a name="billing"></a>결제
 
