@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507552"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835199"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -23,7 +23,7 @@ ms.locfileid: "66507552"
 
 이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  드롭다운으로 항목을 구성 하 고가 필요한 지 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다. 진행하기 전에 등록/로그인 사용자 경험을 테스트하여 새 로컬 계정을 등록합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "66507552"
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![드롭다운 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![몇 가지 옵션을 보여 주는 단일 선택 드롭다운 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ ms.locfileid: "66507552"
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![다중 선택 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![몇 가지 옵션을 보여 주는 다중 선택 확인란 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ ms.locfileid: "66507552"
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. SignUporSignIn.xml 파일에 `<OutputClaim ClaimTypeReferenceId="city" />` 클레임을 추가하여 성공적인 사용자 경험 후에 이 클레임이 애플리케이션에 토큰으로 전송되도록 합니다.
 
     ```xml

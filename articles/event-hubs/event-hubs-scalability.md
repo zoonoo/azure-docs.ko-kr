@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276783"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827713"
 ---
 # <a name="scaling-with-event-hubs"></a>Event Hubs를 사용 하 여 크기 조정
 
@@ -48,14 +48,14 @@ ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 �
 에 대 한 자세한 내용은 자동 팽창 기능을 참조 하십시오 [처리량 단위 자동으로](event-hubs-auto-inflate.md)입니다.
 
 ## <a name="partitions"></a>파티션
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-파티션을 통해 규모 확장 다운스트림 처리에 대 한 합니다. 파티션이 있는 Event Hubs에서 제공 하는 분할 된 소비자 모델을 인해 있습니다 스케일 아웃할 수 이벤트를 동시에 처리 하는 동안. 이벤트 허브에는 최대 32 개의 파티션이 있을 수 있습니다.
+### <a name="partition-key"></a>파티션 키
 
-최적의 크기를 달성 하려면 1:1 처리량 단위와 파티션 분산 하는 것이 좋습니다. 단일 파티션에 보장 된의 수신 및 발신 최대 1 개 처리량 단위는 합니다. 파티션의 처리량을 높이기 위해 할 수 있지만, 성능 보장 되지 않습니다. 이 때문에 이벤트 허브의 파티션 수가 되도록 보다 크거나 처리량 단위 수가 같은 것이 좋습니다.
+[파티션 키](event-hubs-programming-guide.md#partition-key)를 사용하여 들어오는 이벤트 데이터를 데이터 구성을 위한 특정 파티션에 매핑할 수 있습니다. 파티션 키는 Event Hub로 전달된 발신자가 제공하는 값입니다. 이 키는 파티션 할당을 만드는 정적 해싱 기능을 통해 처리됩니다. 이벤트를 게시할 때 파티션 키를 지정하지 않으면 라운드 로빈 할당이 사용됩니다.
 
-필요 하려는 총 처리량을 지정 해야 하는 처리량 단위 수 및 최소 파티션 수를 하지만 파티션 수는 알 수 있을까요? 사용자가 원하는 다운스트림 병렬 처리 뿐만 아니라 향후 처리량 요구에 따라 파티션 수를 선택 합니다. 이벤트 허브 내에 있는 파티션 수에 대 한 요금은 없습니다.
+이벤트 게시자는 이벤트를 게시하는 파티션이 아니라 파티션 키만 인식합니다. 이렇게 키와 파티션을 분리하면 발신자가 다운스트림 처리에 대해 너무 많이 알 필요가 없습니다. 장치 단위 또는 사용자 공유 ID는 좋은 파티션 키가 되지만 지리와 같은 다른 특성은 단일 파티션으로 관련 이벤트를 그룹화하는 데도 사용할 수 있습니다.
 
-Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.

@@ -4,7 +4,7 @@ description: Linux VM 디바이스 이름이 변경되는 이유와 이 문제�
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362240"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710429"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 디바이스 이름 변경 문제 해결
 
@@ -38,7 +38,7 @@ Linux의 디바이스 경로는 다시 시작에 대해 일관되도록 보장�
 
 SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 비동기적으로 발생하므로 문제가 발생합니다. 결과적으로 다시 시작할 때마다 디바이스 경로 이름이 달라질 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 영구 이름 지정을 사용합니다. 영구적으로 이름을 지정하는 네 가지 방법에는 파일 시스템 레이블별, UUID별, ID별 및 경로별이 있습니다. Azure Linux VM에 대해 파일 시스템 레이블 또는 UUID를 사용하는 것이 좋습니다.
 
@@ -148,7 +148,7 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 자세한 내용은 다음 문서를 참조하세요.
 

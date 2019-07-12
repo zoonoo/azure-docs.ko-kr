@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2c9b104d1fe9333221bc20e7e23b436358c9ece
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: c9e983f7981c1155964617694d2cce86aba741b7
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514029"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840012"
 ---
 # <a name="train-and-register-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 scikit-learn 모델 등록
 
@@ -25,7 +25,7 @@ Scikit-학습는 기계 학습에 흔히 사용 되는 오픈 소스 계산 프�
 
 부터 Scikit-학습 모델을 개발 하 든 기존 모델을 클라우드로 가져오는 Azure Machine Learning 서비스 도움이 될 수 있습니다 프로덕션이 준비 된 모델을 작성 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning Notebook VM-다운로드 나 설치 필요 없이
@@ -194,6 +194,6 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 * 모델을 배포 하는 방법에 알아보려면에 계속 우리의 [배포 모델](how-to-deploy-and-where.md) 문서.
 
-* [하이퍼 매개 변수 튜닝](how-to-tune-hyperparameters.md)
+* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)

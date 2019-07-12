@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242973"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839670"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -33,7 +33,7 @@ ms.locfileid: "66242973"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
@@ -56,7 +56,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 3. 다음 정보로 SQL Data Warehouse 양식을 작성합니다.   
 
-   | 설정 | 제안 값 | 설명 | 
+   | 설정 | 제안된 값 | Description | 
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -65,14 +65,14 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
     ![데이터 웨어하우스 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 양식**을 작성합니다. 
+4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정 | 제안 값 | Description | 
+    | 설정 | 제안된 값 | Description | 
     | ------- | --------------- | ----------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -93,7 +93,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 12. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
     
-     ![알림](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![알림(notification)](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
@@ -105,7 +105,7 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
-2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 후 서버 이름을 클릭하여 서버 설정을 엽니다.
+2. 뒷부분의 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 후 서버 이름을 클릭하여 서버 설정을 엽니다.
 
     ![서버 이름 찾기](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
@@ -119,14 +119,14 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **Save**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
 이제 이 IP 주소를 사용하여 SQL 서버 및 해당 데이터 웨어하우스에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.  
 
 > [!IMPORTANT]
-> SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **꺼짐**을 클릭한 다음 **저장**을 클릭하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
+> SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **해제**를 클릭한 다음 **저장**을 클릭하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
 
 ## <a name="get-the-fully-qualified-server-name"></a>정규화된 서버 이름 확인
 
@@ -146,7 +146,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
 
-    | 설정      | 제안 값 | 설명 | 
+    | 설정      | 제안된 값 | 설명 | 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
@@ -564,7 +564,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>(선택 사항) 부하를 관리 되는 id를 사용 하 여 인증
 PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 가장 안전한 메커니즘 및 Azure storage를 사용 하 여 VNet 서비스 엔드포인트를 활용할 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
 3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
@@ -603,7 +603,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
         
    1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
 
-다음을 참조 하십시오 [설명서] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) SQL Data Warehouse에 대 한 virtual network 서비스 끝점을 설정 하려는 경우. 
+다음을 참조 하십시오 [설명서](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) SQL Data Warehouse에 대 한 virtual network 서비스 끝점을 설정 하려는 경우. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

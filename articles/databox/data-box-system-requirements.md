@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242141"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839771"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 시스템 요구 사항
 
@@ -52,6 +52,13 @@ ms.locfileid: "66242141"
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
 데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용하여 데이터를 복사할 수 있지만 복사 속도는 느려집니다.
+
+### <a name="port-requirements"></a>포트 요구 사항
+
+다음 표에서 SMB 또는 NFS 트래픽을 허용 하려면 방화벽에서 열려야 하는 포트를 나열 합니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *Out* 또는 *아웃 바운드* Data Box 장치 외부적으로 데이터 배포를 벗어나 전송 방향을 가리킵니다: 예를 들어, 인터넷에 아웃 바운드입니다.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 

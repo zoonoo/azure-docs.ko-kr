@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955714"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618906"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -30,7 +31,7 @@ ms.locfileid: "65955714"
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)를 참고하세요.
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "65955714"
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 이름 | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기에 루트 도메인을 지정하면 루트 도메인 및 `www` 하위 도메인을 ‘둘 다’ 보호하는 인증서를 얻게 됩니다.  하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`). |
@@ -68,11 +69,11 @@ ms.locfileid: "65955714"
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. 동일한 구독 및 리소스 그룹 내에서 새로운 Key Vault 생성을 참조하세요.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | 이름 | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
-| Location | App Service 앱과 동일한 위치를 선택합니다. |
+| 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
 | 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [키 자격 증명 모음에 여러 애플리케이션에 대한 액세스 권한 부여](../key-vault/key-vault-group-permissions-for-apps.md)의 단계에 따라 구성할 수 있습니다. |
 | Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](../key-vault/key-vault-network-security.md)의 단계에 따라 구성할 수 있습니다. |
@@ -111,9 +112,9 @@ ms.locfileid: "65955714"
 
 다음 표를 사용하여 **SSL 바인딩** 대화 상자에서 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
-| 호스트 이름 | SSL 바인딩을 추가할 도메인 이름입니다. |
+| Hostname | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
 | SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
 

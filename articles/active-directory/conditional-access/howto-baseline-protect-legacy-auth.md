@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560934"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655717"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기본 정책: 블록 레거시 인증 (미리 보기)
 
@@ -27,9 +27,9 @@ ms.locfileid: "67560934"
 
 오늘날 대부분 모든 그대로 유지 하면서 로그인 시도의 레거시 인증에서 제공 됩니다. 레거시 인증 (MFA) multi-factor authentication을 지원 하지 않습니다. 디렉터리에서 사용 하도록 설정 하는 MFA 정책에 있는 경우에 악의적 행위자가 레거시 프로토콜을 사용 하 여 인증 하 고 MFA를 무시할 수 있습니다.
 
-계정을 보호 하기 위해 레거시 프로토콜에서 악의적인 인증 요청에서 모두 함께 이러한 시도 차단 하는 가장 좋은 방법은 합니다. 레거시 프로토콜에서 만든 모든 로그인 요청을 차단 하기 쉽게 이러한 작업을 수행 하는 기준 정책을 만들었습니다.
+계정을 보호 하기 위해 레거시 프로토콜에서 악의적인 인증 요청에서 이러한 시도 완전히 차단 하는 가장 좋은 방법은 합니다. 쉽게 환경을 보호 하는 노력 블록 레거시 인증이 기본 정책을 만들었습니다.
 
-**블록 레거시 인증** 됩니다 [기준 정책](concept-baseline-protection.md) 레거시 프로토콜의 모든 인증 요청을 차단 하는 합니다. 최신 인증을 성공적으로 모든 사용자에 대 한 로그인에 사용 되어야 합니다. 다른 기준 정책과 함께에서 사용 되는, 레거시 프로토콜에서 들어오는 모든 요청이 차단 되 고 모든 사용자가 필요할 때마다 MFA를 해야 합니다. 이 정책은 Exchange ActiveSync를 차단 하지 않습니다.
+**블록 레거시 인증** 되는 [기준 정책](concept-baseline-protection.md) 레거시 프로토콜의 모든 인증 요청을 차단 하는 합니다. 최신 인증을 성공적으로 모든 사용자에 대 한 로그인에 사용 되어야 합니다. 다른 기준 정책과 함께에서 사용 되는, 레거시 프로토콜에서 들어오는 모든 요청이 차단 되 고 모든 사용자가 필요할 때마다 MFA를 해야 합니다. 이 정책은 Exchange ActiveSync를 차단 하지 않습니다.
 
 ## <a name="identify-legacy-authentication-use"></a>레거시 인증 사용을 식별
 
@@ -78,13 +78,13 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 
 비즈니스용 Skype에서 레거시 인증 요청을 방지 하려면 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 데 필요한 됩니다. 2017 년 8 월 1 일 이후 생성 된 디렉터리에 대 한 비즈니스용 Skype에 대 한 최신 인증이 기본적으로 사용 됩니다.
 
-비즈니스용 Skype에 최신 인증을 사용 하려면 기본적으로 최신 인증을 지 원하는 Microsoft Teams 전환한을 것이 좋습니다. 그러나 없는 경우 tr 할 지금은, Skype 비즈니스 클라이언트에 대 한 최신 인증을 사용 하 여 시작 되도록 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 해야 합니다. 문서의 다음이 단계를 수행 [최신 인증을 사용 하 여 지원 되는 비즈니스 기술에 대 한 Skype](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 단계입니다.
+기본적으로 최신 인증을 지 원하는 Microsoft Teams 전환을 사용 하는 것이 좋습니다. 그러나이 이번에 마이그레이션할 수 없는 경우 비즈니스 클라이언트에 대 한 Skype 시작 최신 인증을 사용 하 여 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 해야 합니다. 이 문서의 단계를 따릅니다 [최신 인증을 사용 하 여 지원 되는 비즈니스 기술에 대 한 Skype](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정 합니다.
 
-비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 것 외에도 최신 권장 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정할 때 Exchange Online에 대 한 인증을 사용 합니다. 이 프로세스는 온라인 Exchange Online 및 비즈니스용 Skype에 최신 인증의 상태를 동기화 하는 데 도움이 됩니다 하 고 비즈니스 클라이언트에 대 한 Skype에 대 한 여러 로그인 프롬프트 방지 됩니다.
+비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 것 외에도 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정할 때 Exchange Online에 대 한 최신 인증을 사용 하도록 설정 하는 것이 좋습니다. 이 프로세스는 온라인 Exchange Online 및 비즈니스용 Skype에 최신 인증의 상태를 동기화 하는 데 도움이 됩니다 하 고 비즈니스 클라이언트에 대 한 Skype에 대 한 여러 로그인 프롬프트 방지 됩니다.
 
 ### <a name="step-5-using-mobile-devices"></a>5단계: 모바일 장치를 사용 하 여
 
-모바일 장치에서 응용 프로그램은 레거시 인증도 차단 해야 합니다. Outlook mobile을 사용 하는 것이 좋습니다. Outlook Mobile 기본적으로 최신 인증을 지원 하 고 다른 MFA 기본 보호 정책은 충족 됩니다.
+모바일 장치에서 응용 프로그램은 레거시 인증도 차단 해야 합니다. Outlook mobile을 사용 하는 것이 좋습니다. Outlook Mobile에 대 한 기본적으로 최신 인증을 지원 하 고 다른 MFA 기본 보호 정책은 충족 됩니다.
 
 네이티브 iOS 메일 클라이언트를 사용 하려면 메일 클라이언트는 레거시 인증을 차단 하도록 업데이트 되었습니다 되도록 11.0 이상 iOS 버전을 실행 해야 합니다.
 
@@ -92,9 +92,10 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 
 비즈니스 온-프레미스 Exchange Server 온-프레미스 및 Skype를 사용 하 여 하이브리드 고객 인 경우 두 서비스 모두 최신 인증을 사용 하도록 업데이트 해야 합니다. 하이브리드 환경에서 최신 인증을 사용 하면 여전히 사용자가 온-프레미스를 인증 하는 있습니다. 리소스 (파일 또는 전자 메일) 변경 내용에 대 한 액세스 권한을 부여 하는 사례입니다.
 
-최신 인증 온-프레미스를 사용 하도록 설정 하려면, 먼저 수 theIf 충족 하는지 요건, 준비가 이제 온-프레미스 최신 인증을 사용 하도록 설정 합니다.
+최신 인증 온-프레미스를 사용 하도록 설정 하려면, 먼저 해야 필수 조건을 충족 합니다.
+이제 온-프레미스 최신 인증을 사용 하도록 설정 하려면 준비가 되었습니다.
 
-최신 인증을 사용 하도록 설정 하는 단계는 다음 문서에서 찾을 수 있습니다:
+최신 인증을 사용 하도록 설정 하는 단계는 다음 문서에서 찾을 수 있습니다.
 
 * [Exchange Server 온-프레미스 하이브리드 최신 인증을 사용 하도록 구성 하는 방법](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [비즈니스용 Skype를 사용 하 여 최신 인증 (ADAL)를 사용 하는 방법](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
@@ -113,7 +114,7 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)

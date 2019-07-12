@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e3be8f0c565f86ab5332730972e0ed960d22255
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080495"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603733"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>기존 프로젝트에 OPC 쌍 배포
 
@@ -28,7 +28,7 @@ OPC UA 장치 레지스트리 마이크로 서비스를 등록 된 OPC UA 응용
 > [!NOTE]
 > 배포 세부 정보 및 지침에 대 한 자세한 내용은 참조는 GitHub [리포지토리](https://github.com/Azure/azure-iiot-opc-twin-module)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 PowerShell이 있는지 확인 하 고 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 확장을 설치 합니다. 경우 지금 않은 한이 GitHub 리포지토리를 복제 합니다. PowerShell에서 다음 명령을 실행합니다.
 

@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 798f087c260b6b0a1efc366b864fe2bb7bce732e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203938"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603696"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈과부터 종속성 배포
 
@@ -72,7 +72,7 @@ OPC 쌍 모듈이 IoT Edge에서 실행 하 고 여러 OPC 장치 쌍을에 지 
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
-                "createOptions": "{\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"CapAdd\":[\"NET_ADMIN\"]}}"
+                "createOptions": "{\"NetworkingConfig\": {\"EndpointsConfig\": {\"host\": {}}}, \"HostConfig\": {\"NetworkMode\": \"host\" }}"
               }
             },
             "opcpublisher": {
@@ -109,7 +109,7 @@ OPC 쌍 모듈이 IoT Edge에서 실행 하 고 여러 OPC 장치 쌍을에 지 
 
 Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 방법은 Azure portal을 통해 됩니다.  
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 1. OPC 쌍 배포할 [종속성](howto-opc-twin-deploy-dependencies.md) 결과 가져올 `.env` 파일입니다. 배포 참고 `hub name` 의 합니다 `PCS_IOTHUBREACT_HUB_NAME` 결과 변수 `.env` 파일입니다.
 
@@ -136,7 +136,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
    로 *만들기 옵션* 다음 JSON을 사용 합니다.
 
    ```json
-   {"HostConfig":{"NetworkMode":"host","CapAdd":["NET_ADMIN"]}}
+   {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
    필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)을 참조하세요.
@@ -176,7 +176,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 ## <a name="deploying-using-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 1. 최신 버전을 설치 합니다 [Azure 명령줄 인터페이스 (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 에서 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)합니다.
 

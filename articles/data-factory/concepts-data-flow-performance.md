@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190616"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569020"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 튜닝 가이드
 
@@ -127,7 +127,18 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 * 이 인기 있는 옵션을 선택할 때이 점에 염두 해야 합니다. 단일 출력 파일 파티션으로 많은 큰 소스 파일을 결합 하는 경우 클러스터 노드에 리소스가 부족할 수 있습니다.
 * 계산 노드 리소스 소진을 방지 하려면 성능에 대 한 단위를 최적화 하는 ADF에 기본값 또는 명시적인 파티션 구성표를 유지 및 추가한 다음 새 단일 출력 폴더에서 파일을 파트의 모든 병합 하는 파이프라인의 후속 복사 작업 수 있습니다. 파일입니다. 기본적으로,이 기술은 파일 병합에서 변환의 작업을 나누고 "단일 파일에 출력을" 설정으로 동일한 결과 달성 합니다.
 
+### <a name="looping-through-file-lists"></a>파일 목록 반복
+
+대부분의 경우 ADF에서 데이터 흐름 실행 여러 파일에 대해 반복 하도록 데이터 흐름 원본 변환을 허용 하는 파이프라인에서 더 나은 합니다. 즉,이 와일드 카드를 사용 하도록 기본 설정 또는 파일 목록에서 데이터 원본 내에서 반복 될 때마다 실행을 데이터 흐름을 호출 하는 파이프라인의 ForEach를 사용 하 여 파일의 큰 목록을 반복 하는 흐름. 데이터 흐름 프로세스는 데이터 흐름 내에서 발생을 반복 함으로써 더 빠르게 실행 됩니다.
+
+예를 들어, Blob Storage의 폴더에서에서 처리 하려는 하는 경우 2019 년 7 월에서에서 데이터 파일의 목록에 있으면 것 뛰어난을 파이프라인에서 한 번 실행 데이터 흐름 작업을 호출 하 여 와일드 카드를 사용 하 여 다음과 같은 원본에서 :
+
+```DateFiles/*_201907*.txt```
+
+이 작업은 다음 내에서 데이터 흐름 실행 활동을 사용 하 여 ForEach를 사용 하 여 모든 일치 파일에서 반복 하는 파이프라인에서 Blob 저장소에 대해 조회를 보다 잘 수행 됩니다.
+
 ## <a name="next-steps"></a>다음 단계
+
 다른 데이터 흐름 문서 성능과 관련 된 참조:
 
 - [데이터 흐름 탭 최적화](concepts-data-flow-optimize-tab.md)

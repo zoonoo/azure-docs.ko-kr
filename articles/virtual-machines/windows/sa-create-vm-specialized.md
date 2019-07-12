@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델에서 특수한 비관리 디스크�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8833ddf487c36446b5e5b4ce1d6cfc6363d3ceeb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710383"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+두 가지가 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
@@ -110,7 +110,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 중복된 새 VM을 만들 때 사용할 다른 저장소 계정에 VHD를 복사할 수 있습니다.
 
-### <a name="before-you-begin"></a>시작하기 전에
+### <a name="before-you-begin"></a>시작하기 전 주의 사항
 다음 사항을 확인합니다.
 
 * **원본 및 대상 저장소 계정**에 대한 정보가 있습니다. 원본 VM의 경우 저장소 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 저장소 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 

@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055288"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840133"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -97,7 +97,7 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다. 
-13. [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
+13. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
 14. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 15. 각 샘플을 만든 후에 라이브 이벤트 상태를 다시 설정합니다.
 16. 인코더에서 지원하는 모든 구성에 대해 5-15단계를 반복합니다(광고 신호, 자막 또는 다른 인코딩 속도의 사용 여부와 관계없이).
@@ -116,14 +116,14 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다.
-13. [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
+13. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
 14. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 15. 각 샘플을 만든 후에 라이브 이벤트 상태를 다시 설정합니다.
 16. 인코더에서 지원하는 모든 구성에 대해 5-15단계를 반복합니다(광고 신호, 자막 또는 다른 인코딩 속도의 사용 여부와 관계없이).
 
 ### <a name="longevity-verification"></a>수명 확인
 
-11단계를 제외하고는 [통과 라이브 이벤트 확인](#pass-through-live-event-verification)과 동일한 단계를 따릅니다. <br/>10분 대신 1주 이상 라이브 인코더를 실행합니다. [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시합니다.
+11단계를 제외하고는 [통과 라이브 이벤트 확인](#pass-through-live-event-verification)과 동일한 단계를 따릅니다. <br/>10분 대신 1주 이상 라이브 인코더를 실행합니다. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시합니다.
 
 ### <a name="email-your-recorded-settings"></a>기록된 설정을 이메일로 보내기
 

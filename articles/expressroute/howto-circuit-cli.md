@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837813"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657062"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -23,11 +24,12 @@ ms.locfileid: "60837813"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
-> 
+>
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 * 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 설치 명령에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
@@ -127,8 +129,8 @@ az network express-route list-service-providers
 
 > [!IMPORTANT]
 > ExpressRoute 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 되면 이 작업을 수행합니다.
-> 
-> 
+>
+>
 
 아직 리소스 그룹이 없는 경우 ExpressRoute 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 리소스 그룹을 만들 수 있습니다.
 
@@ -136,7 +138,7 @@ az network express-route list-service-providers
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps ExpressRoute 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다. 
+아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps ExpressRoute 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
@@ -267,8 +269,8 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 > [!IMPORTANT]
 > 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IP VPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 ExpressRoute 회로에 연결합니다.
 
@@ -279,7 +281,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다. 중단 시간 없이 다음과 같이 변경할 수 있습니다.
 
 * ExpressRoute 회로에 대해 ExpressRoute Premium 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
-* 포트에 사용 가능한 수용작업량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킬 수 있습니다. 그러나, 회로의 대역폭 다운그레이드는 지원되지 않습니다. 
+* 포트에 사용 가능한 수용작업량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킬 수 있습니다. 그러나, 회로의 대역폭 다운그레이드는 지원되지 않습니다.
 * 요금제를 데이터 요금에서 무제한 데이터 요금으로 변경할 수 있습니다. 그러나 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
 
@@ -299,8 +301,8 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 > [!IMPORTANT]
 > 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패할 수 있습니다.
-> 
-> 
+>
+>
 
 ExpressRoute Premium 추가 기능을 해제하기 전에 다음 조건을 이해합니다.
 

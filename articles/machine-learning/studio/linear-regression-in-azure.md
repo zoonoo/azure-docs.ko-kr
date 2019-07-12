@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861117"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786679"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션
 
@@ -44,24 +44,24 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 다음 단계에 따라 Studio에서 실험을 만들었습니다. 
 
 1. 데이터 세트를 csv 파일(매우 작은 파일)로 Studio에 업로드했습니다.
-2. 새 실험을 만들고 [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다. 
-3. [데이터 분할][split] 모듈(*상대 식* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 동일한 학습 데이터 세트로 나누었습니다. 
-4. [Linear Regression][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
+2. 새 실험을 만들고 사용 합니다 [Select Columns in Dataset][select-columns] Excel에 사용 되는 동일한 데이터 기능 선택 모듈 
+3. 사용 된 [데이터 분할][split] 모듈 (사용 하 여 *상대 식* 모드) Excel에서 수행한 것 처럼 동일한 학습 데이터 집합에 데이터를 분할할 
+4. 사용 하 여 실험을 [선형 회귀][linear-regression] 모듈 (기본 옵션만)를 문서화 하 고 결과를 Excel 회귀 모델과 비교
 
 ### <a name="review-initial-results"></a>초기 결과 검토
 Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다. 
 
-|  | Excel | Studio |
+|  | Excel | 스튜디오 |
 | --- |:---:|:---:|
 | 성능 | | |
-| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |N/A |
+| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |해당 사항 없음 |
 | <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |N/A |0.78<br />(낮은 정확도) |
 | 평균 절대 오류 |$9.5M |$19.4M |
 | 평균 절대 오차율(%) |6.03% |12.2% |
 
 프로세스를 실행한 결과 Machine Learning 팀의 개발자 및 데이터 과학자는 몇 가지 유용한 팁을 신속하게 제공했습니다. 
 
-* Studio에서 [Linear Regression][linear-regression] 모듈을 사용할 경우 두 가지 방법이 제공됩니다.
+* 사용 하는 경우는 [선형 회귀][linear-regression] Studio에서 모듈을 두 가지 방법이 제공 됩니다.
   * 온라인 그라데이션 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
   * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 세트가 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
 * L2 정규화 가중치 매개 변수를 조정하여 성능을 개선하는 것이 좋습니다. 기본적으로 0.001로 설정되지만 작은 데이터 집합에서는 성능 향상을 위해 0.005로 설정했습니다. 
@@ -75,10 +75,10 @@ Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다.
 | 학습자 |Excel -> 데이터 분석 ->회귀 |선형 회귀 |Linear Regression |
 | 학습자 옵션 |N/A |기본값 |최소 자승법<br />L2 = 0.005 |
 | 데이터 집합 |26개 행, 3가지 기능, 1개 레이블 모든 숫자 |동일 |동일 |
-| 분할: 학습 |처음 18개 행에서 학습되고 마지막 8개 행에서 테스트된 Excel |동일 |동일 |
+| 분할: 기차 |처음 18개 행에서 학습되고 마지막 8개 행에서 테스트된 Excel |동일 |동일 |
 | 분할: 테스트 |마지막 8개 행에 적용되는 Excel 회귀 수식 |동일 |동일 |
 | **성능** | | | |
-| 조정된 R 제곱 |0.96 |N/A | |
+| 조정된 R 제곱 |0.96 |해당 사항 없음 | |
 | 결정 계수 |N/A |0.78 |0.952049 |
 | 평균 절대 오류 |$9.5M |$19.4M |$9.5M |
 | 평균 절대 오차율(%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
@@ -109,13 +109,13 @@ Excel 내에서 Machine Learning 웹 서비스를 사용하려고 했습니다. 
 ![배포 된 웹 서비스에 연결 하는 템플릿 Excel 통합 문서](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>최적화 및 추가 실험
-Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learning 선형 회귀 모델을 최적화하는 과정을 진행했습니다. [Filter-Based Feature Selection][filter-based-feature-selection] 모듈을 사용하여 초기 데이터 요소 선택을 개선함으로써 절대 평균 오차가 4.6%로 향상되는 효과를 얻었습니다. 향후 프로젝트에 대 한이 기능을 단축할 수 주 올바른 모델링에 사용할 기능 집합을 찾기 위해 데이터 특성을 반복에 사용 됩니다. 
+Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learning 선형 회귀 모델을 최적화하는 과정을 진행했습니다. 모듈을 사용 했습니다 [필터 기반 기능 선택][filter-based-feature-selection] 초기 데이터 선택을 개선 하기 위해 요소 주었습니다 4.6% 성능 향상 절대 평균 오차입니다. 향후 프로젝트에 대 한이 기능을 단축할 수 주 올바른 모델링에 사용할 기능 집합을 찾기 위해 데이터 특성을 반복에 사용 됩니다. 
 
-다음에는 [Bayesian][bayesian-linear-regression] 또는 [Boosted Decision Trees][boosted-decision-tree-regression]와 같은 추가 알고리즘을 포함하여 성능을 비교할 계획입니다. 
+와 같은 추가 알고리즘을 포함 시킬 계획 옆 [Bayesian][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] 성능을 비교 하는 실험에 있습니다. 
 
 회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 세트를 사용하는 것이 좋습니다. 이 데이터 세트는 Studio에서 샘플 데이터 세트의 일부로 제공됩니다. 다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다. 아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 세트에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
 
-| 모델 | 평균 절대 오류 | 제곱 평균 오차 | 상대 절대 오차 | 상대 제곱 오차 | 결정 계수 |
+| Model | 평균 절대 오류 | 제곱 평균 오차 | 상대 절대 오차 | 상대 제곱 오차 | 결정 계수 |
 | --- | --- | --- | --- | --- | --- |
 | 향상된 의사 결정 트리 |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | 선형 회귀(기울기 하강) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
@@ -123,9 +123,9 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learnin
 | 선형 회귀(최소 자승법) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>핵심 내용
-Excel 회귀와 Studio 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Machine Learning [선형 회귀][linear-regression]를 사용하는 모델과 비교하여 Studio에 대해 배우고 데이터 선택 및 모델 성능을 향상시킬 수 있었습니다. 
+Excel 회귀와 Studio 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 및 Machine Learning을 사용 하 여 모델을 비교 [선형 회귀][linear-regression] 우리 Studio 배우고 데이터 선택 및 모델 성능을 향상 시킬 수 있었습니다. 
 
-또한 향후 예측 프로젝트를 가속화하려면 [Filter-Based Feature Selection][filter-based-feature-selection]을 사용하는 것이 좋다는 것도 알았습니다. 기능 선택을 데이터에 적용하면 Studio에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
+사용 하시는 것도 발견 [필터 기반 기능 선택][filter-based-feature-selection] 을 향후 예측 프로젝트를 가속화 합니다. 기능 선택을 데이터에 적용하면 Studio에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
 
 Studio에서 Excel로 예측 분석을 체계적으로 전송하는 기능을 사용하면 광범위한 비즈니스 사용자에게 결과를 제공할 수 있는 성능이 크게 향상됩니다. 
 
@@ -133,7 +133,7 @@ Studio에서 Excel로 예측 분석을 체계적으로 전송하는 기능을 �
 회귀 작업에 유용한 일부 리소스는 다음과 같습니다. 
 
 * Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * 최소 자승법 선형 회귀: 결함, 문제 및 위험 요인 회귀에 대한 소개 및 설명은 다음을 참조하세요. [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
