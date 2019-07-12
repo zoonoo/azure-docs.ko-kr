@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c945f39218f9099d5c304739ca9b567ab9b3325
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2d74488f60f21e3644a7a04579bfab7e70882b01
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164688"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621537"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Azure Stream Analytics 및 Azure Machine Learning Studio (미리 보기)를 사용 하 여 감정 분석을 수행 합니다.
 이 문서에서는 Azure Machine Learning Studio를 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -36,10 +36,10 @@ ms.locfileid: "67164688"
 
 ![Stream Analytics Machine Learning 통합 개요](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 다음이 필요합니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
 * 데이터가 포함된 CSV 파일. [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv)에서 이전에 표시된 파일을 다운로드하거나 고유한 파일을 직접 만들 수 있습니다. 이 문서의 경우 GitHub의 파일을 사용한다고 가정합니다.
 
 좀 더 높은 수준에서 이 문서에 설명된 작업을 완료하려면 다음을 수행합니다.
@@ -145,7 +145,7 @@ ms.locfileid: "67164688"
 
    ![새 Stream Analytics 작업 입력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ### <a name="configure-the-job-output"></a>작업 출력 구성
 작업은 입력을 가져오는 동일한 Blob Storage에 결과를 보냅니다. 
@@ -165,7 +165,7 @@ ms.locfileid: "67164688"
 
    ![새 Stream Analytics 작업 출력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. **저장**을 클릭합니다.   
+4. **Save**을 클릭합니다.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Machine Learning 함수 추가 
@@ -183,11 +183,11 @@ ms.locfileid: "67164688"
    |---------|---------|
    | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.** 를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
-   |**Key** | API 키를 붙여넣습니다. |
+   |**키** | API 키를 붙여넣습니다. |
   
    ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 ### <a name="create-a-query-to-transform-the-data"></a>데이터를 변환하는 쿼리 만들기
 
@@ -252,7 +252,7 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [REST API 및 Machine Learning 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

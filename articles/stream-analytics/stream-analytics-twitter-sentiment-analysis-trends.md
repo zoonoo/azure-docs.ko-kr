@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763360"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620850"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -33,7 +33,7 @@ ms.locfileid: "60763360"
 
 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 기업에서는 주요 토픽에 대한 트윗 볼륨 및 감정에 대한 실시간 분석이 필요합니다. 즉, 이 소셜 미디어 피드를 기반으로 하는 감정 분석 엔진이 필요합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서에서는 Twitter에 연결하고 특정 해시태그(설정 가능)가 있는 트윗을 찾는 클라이언트 애플리케이션을 사용합니다. 애플리케이션을 실행하고 Azure Streaming Analytics를 사용하여 트윗을 분석하려면 다음이 필요합니다.
 
 * Azure 구독
@@ -232,9 +232,9 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 ## <a name="specify-the-job-query"></a>작업 쿼리 지정
 
-Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)를 참조하세요.  이 자습서에서는 Twitter 데이터에 대해 여러 쿼리를 작성하고 테스트하도록 도와줍니다.
+Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모델을 지원합니다. 이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 참조하세요.  이 자습서에서는 Twitter 데이터에 대해 여러 쿼리를 작성하고 테스트하도록 도와줍니다.
 
-항목 간의 멘션 수를 비교하기 위해 [연속 창](https://msdn.microsoft.com/library/azure/dn835055.aspx)을 활용하여 5초마다 항목별 멘션 수를 수집합니다.
+항목 간의 멘션 수를 비교하기 위해 [연속 창](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)을 활용하여 5초마다 항목별 멘션 수를 수집합니다.
 
 1. 없는 경우 **입력** 블레이드를 닫습니다.
 
@@ -266,13 +266,13 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
     입력에 대한 별칭으로 `TwitterStream`을 사용하지 않은 경우 쿼리에서 `TwitterStream`에 대한 별칭을 대체합니다.  
 
-    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 애플리케이션 시간” 섹션을 참조하세요.
+    이 쿼리에서는 **TIMESTAMP BY** 키워드를 사용하여 임시 계산에서 사용할 페이로드에 타임스탬프 필드를 지정합니다. 이 필드를 지정하지 않으면 각 이벤트가 이벤트 허브에 도착한 시간을 사용하여 창 작업이 수행됩니다. 자세한 내용은 [Stream Analytics 쿼리 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)에서 “도착 시간과 애플리케이션 시간” 섹션을 참조하세요.
 
     또한 이 쿼리는 **System.Timestamp** 속성을 사용하여 각 창 끝부분의 타임스탬프에도 액세스합니다.
 
 5. **테스트**를 클릭합니다. 샘플링된 데이터에 대해 쿼리가 실행됩니다.
     
-6. **저장**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
+6. **Save**을 클릭합니다. 그러면 Streaming Analytics 작업의 일부로 쿼리를 저장합니다. (샘플 데이터를 저장하지 않음)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>스트림에서 서로 다른 필드를 사용하여 실험 
@@ -305,7 +305,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
    * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
    * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
    * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
-   * **컨테이너**. [https://slack.botframework.com](`socialtwitter`) 을 입력합니다.
+   * **컨테이너**. `socialtwitter` 을 입력합니다.
      스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
      `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
@@ -348,7 +348,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>추세 항목을 확인하는 다른 쿼리 만들기
 
-Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라이딩 윈도우](https://msdn.microsoft.com/library/azure/dn835051.aspx)를 기반으로 합니다. 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다.
+Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라이딩 윈도우](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)를 기반으로 합니다. 인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다.
 
 이 자습서에서는 마지막 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
 
@@ -365,7 +365,7 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
     HAVING COUNT(*) > 20
     ```
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 5. TwitterWpfClient 애플리케이션이 실행되고 있는지 확인합니다. 
 
@@ -379,5 +379,5 @@ Twitter 감정을 이해하는 데 사용할 수 있는 다른 쿼리는 [슬라
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

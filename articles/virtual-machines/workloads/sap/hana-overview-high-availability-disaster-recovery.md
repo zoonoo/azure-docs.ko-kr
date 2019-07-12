@@ -4,7 +4,7 @@ description: Azure(큰 인스턴스)에서 SAP HANA의 재해 복구 계획 및 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b7cc1744ac285df8ed502256c30f77bdc8db81f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 078ce7e2acd93ecab6b37407f460672d4acb1853
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477586"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707334"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -41,7 +41,7 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 
 다음 표에는 현재 지원되는 고가용성 및 재해 복구 방법과 조합이 제공되어 있습니다.
 
-| HANA 큰 인스턴스에서 지원되는 시나리오 | 고가용성 옵션 | 재해 복구 옵션 | 설명 |
+| HANA 큰 인스턴스에서 지원되는 시나리오 | 고가용성 옵션 | 재해 복구 옵션 | 주석 |
 | --- | --- | --- | --- |
 | 단일 노드 | 사용할 수 없습니다. | 전용 DR 설치.<br /> 다목적 DR 설치. | |
 | 호스트 자동 장애 조치 합니다. 수평 확장 (대기 없이 또는)<br /> 1+1 포함 | 활성 역할의 대기에서 가능.<br /> HANA에서 역할 전환 제어. | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화. | HANA 볼륨 세트가 모든 노드에 연결됨.<br /> DR 사이트에는 동일한 수의 노드가 있어야 함. |

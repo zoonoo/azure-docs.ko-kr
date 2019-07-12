@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514251"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706277"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "67514251"
 
 배포 워크플로에 관련된 개념에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 모델. 학습된 된 모델이 없는, 모델을 사용할 수 있습니다 & 종속성 파일에서 제공 [이 자습서](https://aka.ms/azml-deploy-cloud)합니다.
 
@@ -332,12 +332,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
 
 ### <a name="optional-profile-your-model"></a>선택 사항: 모델을 프로 파일링
-서비스 모델을 배포 하기 전에 최적의 CPU 및 메모리 요구 사항을 확인 하는 프로 파일링 하는 것이 좋습니다. 사용자 프로필 모델 SDK 또는 CLI를 사용 하 여 수행할 수 있습니다.
+서비스로 모델을 배포 하기 전에 프로 파일링 최적의 CPU 및 메모리 요구 사항 SDK 또는 CLI를 사용 하 여 확인 되도록 합니다.  프로 파일링 결과 모델로 내보내집니다를 `Run` 개체입니다. 에 대해 자세히 알아보지 [모델 프로필 스키마 API 설명서에서 확인할 수 있습니다](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-자세한 내용은 여기 SDK 설명서를 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-실행 개체 모델 프로 파일링 결과 내보냅니다.
-모델 프로필 스키마에 대 한 세부 사항은 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+자세한 내용은 [SDK를 사용 하 여 모델을 프로 파일링 하는 방법](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
@@ -356,9 +353,27 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 + **CLI를 사용 하 여**
 
+    CLI를 사용 하 여를 배포 하려면 다음 명령을 사용 합니다. 대체 `mymodel:1` 이름 및 등록 된 모델의 버전을 사용 하 여:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    항목의 `deploymentconfig.json` 문서 구조에 대 한 매개 변수에 [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)합니다. 다음 표에서 JSON 문서에서 엔터티 및 메서드에 대 한 매개 변수 간의 매핑을 설명합니다.
+
+    | JSON 엔터티 | 메서드 매개 변수 | 설명 |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 계산 대상. 로컬 값 이어야 합니다 `local`합니다. |
+    | `port` | `port` | 서비스의 HTTP 끝점을 노출 하는 로컬 포트입니다. |
+
+    다음 JSON은 CLI와 함께 사용 하 여 배포 구성 예제:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +394,44 @@ ACI에 대 한 할당량 및 지역 가용성을 확인, 참조를 [할당량 �
 
 + **CLI를 사용 하 여**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    CLI를 사용 하 여를 배포 하려면 다음 명령을 사용 합니다. 대체 `mymodel:1` 이름 및 등록 된 모델의 버전입니다. 대체 `myservice` 이름으로이 서비스를 제공 합니다.
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    항목의 `deploymentconfig.json` 문서 구조에 대 한 매개 변수에 [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)합니다. 다음 표에서 JSON 문서에서 엔터티 및 메서드에 대 한 매개 변수 간의 매핑을 설명합니다.
+
+    | JSON 엔터티 | 메서드 매개 변수 | 설명 |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 계산 대상. ACI에는 값은 `ACI`합니다. |
+    | `containerResourceRequirements` | NA | 컨테이너에 대해 할당 된 메모리 및 CPU에 대 한 구성 요소를 포함 합니다. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | 이 웹 서비스에 대해 할당할 CPU 코어 수입니다. 기본값 `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 메모리의 양 (GB)이 웹 서비스에 대 한 할당 합니다. 기본적으로 `0.5` |
+    | `location` | `location` | 이 웹 서비스를 배포할 Azure 지역입니다. 지정 하지 않으면 작업 영역 위치가 사용 됩니다. 사용 가능한 영역에 대 한 자세한 내용은 여기에서 찾을 수 있습니다. [ACI 지역](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | 이 Webservice에 대 한 인증을 사용 하도록 설정 여부를 나타냅니다. 기본값은 False |
+    | `sslEnabled` | `ssl_enabled` | 이 Webservice에 대 한 SSL을 사용 하도록 설정 여부를 나타냅니다. 기본값은 False입니다. |
+    | `appInsightsEnabled` | `enable_app_insights` | 이 Webservice에 AppInsights를 사용 하도록 설정 여부를 나타냅니다. 기본값은 False |
+    | `sslCertificate` | `ssl_cert_pem_file` | SSL을 사용 하는 경우 필요한 인증서 파일 |
+    | `sslKey` | `ssl_key_pem_file` | SSL을 사용 하는 경우 필요한 키 파일 |
+    | `cname` | `ssl_cname` | Cname에 대 한 SSL 사용 하도록 설정 |
+    | `dnsNameLabel` | `dns_name_label` | 점수 매기기 끝점에 대 한 dns 이름 레이블입니다. 점수 매기기 끝점에 대 한 고유 dns 이름 레이블을 생성할 지정 되지 않은 경우. |
+
+    다음 JSON은 CLI와 함께 사용 하 여 배포 구성 예제:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **VS Code를 사용 하 여**
 
@@ -414,9 +463,71 @@ ACI에 대 한 할당량 및 지역 가용성을 확인, 참조를 [할당량 �
 
 + **CLI를 사용 하 여**
 
+    CLI를 사용 하 여를 배포 하려면 다음 명령을 사용 합니다. 대체 `myaks` 계산 대상의 AKS의 이름입니다. 대체 `mymodel:1` 이름 및 등록 된 모델의 버전입니다. 대체 `myservice` 이름으로이 서비스를 제공 합니다.
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    항목의 `deploymentconfig.json` 문서 구조에 대 한 매개 변수에 [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)합니다. 다음 표에서 JSON 문서에서 엔터티 및 메서드에 대 한 매개 변수 간의 매핑을 설명합니다.
+
+    | JSON 엔터티 | 메서드 매개 변수 | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 계산 대상. AKS 용 값 이어야 합니다 `aks`합니다. |
+    | `autoScaler` | NA | 자동 크기 조정에 대 한 구성 요소를 포함합니다. Autoscaler 표를 참조 하세요. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | 웹 서비스에 대 한 자동 크기 조정을 사용 하도록 설정 여부를 나타냅니다. 하는 경우 `numReplicas`  =  `0`하십시오 `True`고, 그렇지 않으면 `False`합니다. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | 사용 하는 컨테이너의 최소 수를 자동 크기 조정이 웹 서비스입니다. 기본적으로 `1`입니다. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | 사용 하는 컨테이너의 최대 수 자동 크기 조정이 웹 서비스입니다. 기본적으로 `10`입니다. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | 얼마나 자주 autoscaler이 웹 서비스를 확장 하려고 합니다. 기본적으로 `1`입니다. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Autoscaler가이 웹 서비스에 대 한 유지 관리를 시도 하는 백분율로 100에서 대상 사용률입니다. 기본적으로 `70`입니다. |
+    | `dataCollection` | NA | 데이터 컬렉션에 대 한 구성 요소를 포함합니다. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 웹 서비스에 대 한 모델 데이터 수집을 사용 하도록 설정 여부를 나타냅니다. 기본적으로 `False`입니다. |
+    | `authEnabled` | `auth_enabled` | 웹 서비스에 대 한 인증을 사용 하도록 설정 여부를 나타냅니다. 기본적으로 `True`입니다. |
+    | `containerResourceRequirements` | NA | 컨테이너에 대해 할당 된 메모리 및 CPU에 대 한 구성 요소를 포함 합니다. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | 이 웹 서비스에 대해 할당할 CPU 코어 수입니다. 기본값 `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 메모리의 양 (GB)이 웹 서비스에 대 한 할당 합니다. 기본적으로 `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | 웹 서비스에 대 한 Application Insights 로깅을 사용 하도록 설정 여부를 나타냅니다. 기본적으로 `False`입니다. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | 점수 매기기 웹 서비스에 대 한 호출에 대 한 적용 시간 제한입니다. 기본적으로 `60000`입니다. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | 이 웹 서비스에 대 한 노드 당 최대 동시 요청. 기본적으로 `1`입니다. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | 요청에 남아 있는 3 개 (밀리초)을 503 하기 전에 큐는 최대 시간 오류가 반환 됩니다. 기본적으로 `500`입니다. |
+    | `numReplicas` | `num_replicas` | 이 웹 서비스에 대 한 할당 하는 컨테이너의 수입니다. 기본값은 없습니다. 이 매개 변수를 설정 하지 않으면 경우 autoscaler는 기본적으로 사용 됩니다. |
+    | `keys` | NA | 키에 대 한 구성 요소를 포함합니다. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | 이 Webservice에 사용할 기본 인증 키 |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | 이 Webservice에 사용할 보조 인증 키 |
+    | `gpuCores` | `gpu_cores` | 이 Webservice에 할당할 GPU 코어 수입니다. 기본값은 1입니다. |
+    | `livenessProbeRequirements` | NA | 선거의 프로브 요구 사항에 대 한 구성 요소를 포함합니다. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | 빈도 (초 단위로) 이전에서는 liveness 프로브가 수행 하 합니다. 10 초를 기본값으로 합니다. 최소값은 1입니다. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | 컨테이너는 선거의 프로브 시작 전에 시작 된 후 시간 (초) 수입니다. 310 기본값 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | 이전에서는 liveness 프로브가 시간이 초과 되는 시간 (초) 수입니다. 기본값은 2 초입니다. 최소값은 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | 있는 실패 한 후에 성공적으로 간주 되기 위해 liveness 프로브에 대 한 최소 연속 성공 합니다. 기본값은 1입니다. 최소값은 1입니다. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Pod 시작 이전에서는 liveness 프로브가 실패 했을 때, Kubernetes 포기 하기 전에 failureThreshold 번 시도 합니다. 기본값은 3입니다. 최소값은 1입니다. |
+    | `namespace` | `namespace` | 웹 서비스에 배포 된 Kubernetes 네임 스페이스입니다. 최대 63 소문자 영숫자 ('a'-'z', '0'-'9') 및 하이픈 ('-') 문자입니다. 첫 문자와 마지막 문자는 하이픈을 사용할 수 없습니다. |
+
+    다음 JSON은 CLI와 함께 사용 하 여 배포 구성 예제:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **VS Code를 사용 하 여**
 
