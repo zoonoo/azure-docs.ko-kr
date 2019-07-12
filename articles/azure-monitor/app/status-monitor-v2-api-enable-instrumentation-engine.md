@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1e30490dbd51f541afd0b7036769cfc638a75877
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79446e6676a35a1b51e5e0839eb539d730b499da
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514377"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807124"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>상태 모니터 v2 API: 사용-InstrumentationEngine (v0.2.1 알파)
+# <a name="status-monitor-v2-api-enable-instrumentationengine-v040-alpha"></a>상태 모니터 v2 API: 사용-InstrumentationEngine (v0.4.0 알파)
 
 이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "66514377"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 하지 않습니다. 일부 기능은 지원 되지 않는, 및 일부 기능이 제한 될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 일부 레지스트리 키를 설정 하 여 계측 엔진을 수 있습니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 합니다.

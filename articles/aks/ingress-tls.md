@@ -2,37 +2,37 @@
 title: AKS(Azure Kubernetes Service) 클러스터로 HTTPS 수신 만들기
 description: 설치 및 Azure Kubernetes Service (AKS) 클러스터에서 자동으로 TLS 인증서 생성에 대 한 let 's Encrypt를 사용 하 여 NGINX 수신 컨트롤러를 구성 하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: c858d1ac56da5f04346b3cd84402d4eeeb7fd975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 30f25ad9152bc722b54a834ef0ed037ac1666014
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430981"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615283"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
 수신 컨트롤러는 역방향 프록시, 구성 가능한 트래픽 라우팅, Kubernetes 서비스에 대한 TLS 종료를 제공하는 소프트웨어입니다. Kubernetes 수신 리소스는 개별 Kubernetes 서비스에 대한 수신 규칙 및 라우팅을 구성하는 데 사용됩니다. 수신 컨트롤러 및 수신 규칙을 사용하면 단일 IP 주소를 사용하여 Kubernetes 클러스터의 여러 서비스에 트래픽을 라우팅할 수 있습니다.
 
-이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. [cert-manager][cert-manager] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
+이 문서에서는 배포 하는 방법을 보여 줍니다 합니다 [NGINX 수신 컨트롤러][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The [cert-manager][cert-manager] 프로젝트는 자동으로 생성 하 고 구성 하는 데 사용 됩니다 [let 's Encrypt][있습니다 암호화]인증서입니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
 또한 다음을 수행할 수 있습니다.
 
-- [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
-- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
-- [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
-- [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
-- [고정 공용 IP를 사용하여 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt를 사용하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
+- [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
+- [HTTP 응용 프로그램 라우팅 추가 기능을 사용 하도록 설정][aks-http-app-routing]
+- [개인 내부 네트워크 및 IP 주소를 사용 하는 수신 컨트롤러 만들기][aks-ingress-internal]
+- [사용자 고유의 TLS 인증서를 사용 하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
+- [고정 공용 IP 주소를 사용 하 여 TLS 인증서를 자동으로 생성 하는 데 let 's Encrypt를 사용 하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에 필요한 경우 AKS 빠른 시작을 참조 하세요 [Azure CLI를 사용 하 여][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]합니다.
 
-이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러, cert-manager 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
+이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러, cert-manager 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침에 대 한 참조를 [Helm 설치 문서][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm]합니다.
 
 이 문서에서는 Azure CLI 버전 2.0.64 중인지 필요 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "66430981"
 > 다음 예제에서는 명명 된 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다 *수신 basic*합니다. 필요에 따라 사용자 고유의 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터 RBAC를 사용할 수 없는 경우 추가 `--set rbac.create=false` Helm 명령입니다.
 
 > [!TIP]
-> 사용 하도록 설정 하려는 경우 [클라이언트 소스 IP 보존] [ client-source-ip] 클러스터에서 컨테이너에 대 한 요청에 대 한 추가 `--set controller.service.externalTrafficPolicy=Local` 를 Helm 설치 명령을 합니다. 클라이언트 원본 IP에서 요청 헤더에 저장 됩니다 *X-전달 기능에 대 한*합니다. 사용 하도록 설정 하는 클라이언트 소스 IP 보존을 사용 하 여 수신 컨트롤러를 사용 하는 경우 SSL 통과 작동 하지 않습니다.
+> 사용 하도록 설정 하려는 경우 [클라이언트 소스 IP 보존][client-source-ip] 클러스터에서 컨테이너에 대 한 요청에 대 한 추가 `--set controller.service.externalTrafficPolicy=Local` 를 Helm 설치 명령을 합니다. 클라이언트 원본 IP에서 요청 헤더에 저장 됩니다 *X-전달 기능에 대 한*합니다. 사용 하도록 설정 하는 클라이언트 소스 IP 보존을 사용 하 여 수신 컨트롤러를 사용 하는 경우 SSL 통과 작동 하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -60,7 +60,7 @@ helm install stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.
+설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 사용 하 여 유지 하려는 경우 할 수 있습니다 [정적 공용 IP 주소를 사용 하 여 수신 컨트롤러를 만들기][aks-ingress-static-tls]합니다.
 
 공용 IP 주소를 얻으려면 `kubectl get service` 명령을 사용합니다. 서비스에 IP 주소가 할당될 때까지 몇 분 정도 걸립니다.
 
@@ -98,7 +98,7 @@ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 
 ## <a name="install-cert-manager"></a>cert-manager 설치
 
-NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인증서를 검색하고 구성하는 몇 가지 방법이 있습니다. 이 문서에서는 자동 [Lets Encrypt][lets-encrypt] 인증서 생성 및 관리 기능을 제공하는 [cert-manager][cert-manager]를 사용하는 방법을 보여 줍니다.
+NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인증서를 검색하고 구성하는 몇 가지 방법이 있습니다. 이 문서를 사용 하 여 하는 방법을 보여 줍니다 [인증서 관리자][cert-manager] , which provides automatic [Lets Encrypt][lets-encrypt] 인증서 생성 및 관리 기능입니다.
 
 > [!NOTE]
 > 이 문서에서는 Let's Encrypt에 대해 `staging` 환경을 사용합니다. 프로덕션 배포에서는 Helm 차트를 설치할 때 및 리소스 정의에서 `letsencrypt-prod` 및 `https://acme-v02.api.letsencrypt.org/directory`를 사용합니다.
@@ -129,11 +129,11 @@ helm install \
   jetstack/cert-manager
 ```
 
-cert-manager 구성에 대한 자세한 내용은 [cert-manager 프로젝트][cert-manager]를 참조합니다.
+인증서 관리자 구성에 대 한 자세한 내용은 참조는 [인증서 관리자 프로젝트][cert-manager]합니다.
 
 ## <a name="create-a-ca-cluster-issuer"></a>CA 클러스터 발급자 만들기
 
-인증서가 발급되기 전에 cert-manager에게는 [발급자][cert-manager-issuer] 또는 [ClusterIssuer][cert-manager-cluster-issuer] 리소스가 필요합니다. 이러한 Kubernetes 리소스는 기능이 동일하지만, `Issuer`는 단일 네임스페이스에서 작동하고 `ClusterIssuer`는 모든 네임스페이스에서 작동합니다. 자세한 내용은 [cert-manager 발급자][cert-manager-issuer] 설명서를 참조하세요.
+인증서 관리자에서 필요한 인증서를 발행할 수 있습니다, 전에 [발급자][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] 리소스입니다. 이러한 Kubernetes 리소스는 기능이 동일하지만, `Issuer`는 단일 네임스페이스에서 작동하고 `ClusterIssuer`는 모든 네임스페이스에서 작동합니다. 자세한 내용은 참조는 [인증서 관리자 발급자][cert-manager-issuer] 설명서.
 
 다음 예제 매니페스트를 사용하여 클러스터 발급자(예: `cluster-issuer.yaml`)를 만듭니다. 조직의 유효한 주소로 메일 주소를 업데이트합니다.
 
@@ -232,9 +232,9 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="create-a-certificate-object"></a>인증서 개체 만들기
 
-다음으로, 인증서 리소스를 만들어야 합니다. 인증서 리소스는 원하는 X.509 인증서를 정의합니다. 자세한 내용은 [cert-manager 인증서][cert-manager-certificates]를 참조하세요.
+다음으로, 인증서 리소스를 만들어야 합니다. 인증서 리소스는 원하는 X.509 인증서를 정의합니다. 자세한 내용은 [인증서 관리자 인증서][cert-manager-certificates]합니다.
 
-인증서 관리자는 v0.2.2 이후 인증서 관리자와 자동으로 배포되는 수신 shim을 사용하여 해당 관리자에 대한 인증서 개체가 자동으로 생성되었을 가능성이 있습니다. 자세한 내용은 [수신 shim 설명서][ingress-shim]를 참조하세요.
+인증서 관리자는 v0.2.2 이후 인증서 관리자와 자동으로 배포되는 수신 shim을 사용하여 해당 관리자에 대한 인증서 개체가 자동으로 생성되었을 가능성이 있습니다. 자세한 내용은 참조는 [수신 shim 설명서][ingress-shim]합니다.
 
 인증서가 성공적으로 만들어졌는지 확인하려면 `kubectl describe certificate tls-secret --namespace ingress-basic` 명령을 사용합니다.
 
@@ -378,11 +378,11 @@ kubectl delete -f hello-world-ingress.yaml
 
 또한 다음을 수행할 수 있습니다.
 
-- [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
-- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
-- [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
-- [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
-- [고정 공용 IP를 사용하여 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt를 사용하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
+- [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
+- [HTTP 응용 프로그램 라우팅 추가 기능을 사용 하도록 설정][aks-http-app-routing]
+- [개인 내부 네트워크 및 IP 주소를 사용 하는 수신 컨트롤러 만들기][aks-ingress-internal]
+- [사용자 고유의 TLS 인증서를 사용 하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
+- [고정 공용 IP 주소를 사용 하 여 TLS 인증서를 자동으로 생성 하는 데 let 's Encrypt를 사용 하는 수신 컨트롤러 만들기][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

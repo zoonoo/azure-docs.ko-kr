@@ -7,7 +7,7 @@ metadata:
   author: ekpgh
   ms.service: fxt-edge-filer
   ms.topic: landing-page
-  ms.date: 06/20/2019
+  ms.date: 07/10/2019
   ms.author: v-erkell
 abstract:
   description: 'Azure FXT Edge Filer 하이브리드 스토리지 캐시는 파일 기반의 읽기 집약적인 고성능 컴퓨팅(HPC) 워크플로를 위한 데이터 액세스를 가속화하는 하드웨어/소프트웨어 하이브리드 시스템입니다. 3개 이상의 Azure FXT Edge Filer 디바이스 클러스터는 온-프레미스 NAS 시스템(NetApp 또는 Dell EMC Isilon), 클라우드 스토리지 또는 여러 솔루션의 스토리지 성능을 가속화할 수 있습니다.'
@@ -39,3 +39,4 @@ sections:
         items:
           - html: <a href="fxt-specs">하드웨어 사양</a>
           - html: <a href="fxt-additional-doc">추가 설명서</a>
+          - html: <a href="fxt-support-ticket">지원 티켓 열기</a>

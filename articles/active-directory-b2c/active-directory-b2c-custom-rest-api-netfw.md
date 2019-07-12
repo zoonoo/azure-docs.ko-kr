@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510714"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835503"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -53,7 +53,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 * 전용 번호 다시 보내기
 * JWT(JSON Web Token)에 전용 번호 추가
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>1단계: ASP.NET Web API 만들기
@@ -64,11 +64,11 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 3. **이름** 상자에서 애플리케이션의 이름(예: *Contoso.AADB2C.API*)을 지정한 후 **확인**을 선택합니다.
 
-    ![새 Visual Studio 프로젝트를 만듭니다.](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Visual Studio에서 새 Visual Studio 프로젝트 만들기](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. **새 ASP.NET 웹 애플리케이션** 창에서 **Web API** 또는 **Azure API 앱** 템플릿을 선택합니다.
 
-    ![Web API 템플릿 선택](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Visual Studio에서 web API 템플릿 선택](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. 인증을 **인증 없음**으로 설정해야 합니다.
 
@@ -138,15 +138,15 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 1. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.
 
-    ![새 컨트롤러 추가](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Visual Studio에서 새 컨트롤러 추가](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. **스캐폴드 추가** 창에서 **Web API 컨트롤러 - 비어 있음**을 선택하고 **추가**를 선택합니다.
 
-    ![Web API 2 컨트롤러 - 비어 있음을 선택합니다.](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Web API 2 selecting를 Visual Studio에서 컨트롤러-비어 있음](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. **컨트롤러 추가** 창에서 컨트롤러의 이름을 **IdentityController**로 지정한 후 **추가**를 선택합니다.
 
-    ![컨트롤러 이름을 입력합니다.](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![입력은 Visual Studio에서 컨트롤러 이름을](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     스캐폴딩은 *Controllers* 폴더에서 *IdentityController.cs*라는 파일을 만듭니다.
 
@@ -206,11 +206,11 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 ## <a name="step-3-publish-the-project-to-azure"></a>3단계: Azure에 프로젝트 게시
 1. 솔루션 탐색기에서 **Contoso.AADB2C.API** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
-    ![Microsoft Azure App Service에 게시](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Visual Studio 사용 하 여 Microsoft Azure App Service에 게시](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. **게시** 창에서 **Microsoft Azure App Service**를 선택한 다음 **게시**를 선택합니다.
 
-    ![Microsoft Azure App Service 만들기](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Visual Studio를 사용 하 여 새 Microsoft Azure App Service 만들기](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     **App Service 만들기** 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만듭니다.
 
@@ -219,9 +219,9 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 3. **Web App 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, 0-9 및 -(하이픈)). 웹앱의 URL은 http://<app_name>.azurewebsites.NET입니다. 여기서 *app_name*은 웹앱의 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
 
-    ![App Service 속성 제공](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![App Service 속성 구성](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Azure 리소스 만들기를 시작하려면 **만들기**를 선택합니다.  
+4. Azure 리소스 만들기를 시작하려면 **만들기**를 선택합니다.
     ASP.NET 웹앱을 만든 후에 마법사는 Azure에 게시한 다음 기본 브라우저에서 앱을 시작합니다.
 
 6. 웹앱의 URL을 복사합니다.
@@ -262,7 +262,7 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -347,14 +347,14 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
-    ![B2C_1A_signup_signin 창](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![Azure portal에서 B2C_1A_signup_signin 사용자 지정 정책 페이지](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.  
+3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.
     Azure AD B2C는 창의 위쪽에 오류 메시지를 표시합니다.
 
-    ![정책 테스트](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![등록에서 로그인 페이지에 지정 된 이름 입력된 유효성 검사 테스트](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
+4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT의 번호를 적어둡니다.
 
 ```

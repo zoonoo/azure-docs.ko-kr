@@ -3,18 +3,18 @@ title: Azure Red Hat OpenShift에 대 한 azure Active Directory 통합 | Micros
 description: Microsoft Azure의 Red Hat OpenShift 클러스터에서 앱을 테스트 하는 것에 대 한 Azure AD 보안 그룹 및 사용자를 만드는 방법에 알아봅니다.
 author: jimzim
 ms.author: jzim
-ms.service: openshift
+ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 00609905d09f8d414660c21805c6efca5eb30843
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458712"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669394"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 azure Active Directory 통합
 
@@ -33,7 +33,7 @@ Azure Red Hat OpenShift 클러스터에 로그인 할 새 Azure Active Directory
 1. 로 이동 합니다 [사용자가 모든 사용자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 블레이드입니다.
 2. 클릭 **+ 새 사용자** 열려는 합니다 **사용자** 창입니다.
 3. 입력 한 **이름을** 이 사용자에 대 한 합니다.
-4. 만들기는 **사용자 이름** 만든 테 넌 트 이름을 기반으로 사용 하 여 `.onmicrosoft.com` 끝에 추가 됩니다. 예: `yourUserName@yourTenantName.onmicrosoft.com`. 이 사용자 이름을 적어 둡니다. 클러스터에 로그인 되도록 해야 합니다.
+4. 만들기는 **사용자 이름** 만든 테 넌 트 이름을 기반으로 사용 하 여 `.onmicrosoft.com` 끝에 추가 됩니다. `yourUserName@yourTenantName.onmicrosoft.com` )을 입력합니다. 이 사용자 이름을 적어 둡니다. 클러스터에 로그인 되도록 해야 합니다.
 5. 클릭 **디렉터리 역할** 디렉터리 역할 창을 열려면 선택 하 **전역 관리자** 클릭 하 고 **확인** 창의 맨 아래에 있습니다.
 6. 에 **사용자** 창 클릭 **암호 표시** 하 고 임시 암호를 기록 합니다. 처음으로 로그인 한 후 다시 설정 하려면 묻는 메시지가 나타납니다.
 7. 창의 맨 아래에서 클릭 **만들기** 사용자를 만들려고 합니다.

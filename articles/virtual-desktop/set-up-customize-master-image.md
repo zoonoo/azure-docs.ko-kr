@@ -4,15 +4,15 @@ description: 준비 하 고 사용자 지정 Windows 가상 데스크톱 미리 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 186086a94470faaf19fa8a3c07939b9856ae2ec9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466811"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620432"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 

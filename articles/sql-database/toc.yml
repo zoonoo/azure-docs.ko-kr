@@ -30,6 +30,8 @@
       items:
         - name: 서버 수준 IP 방화벽 규칙
           href: sql-database-server-level-firewall-rule.md
+        - name: Managed Instance에서 공용 엔드포인트 구성
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: 관리되는 인스턴스에 대한 클라이언트 VM 연결
           href: sql-database-managed-instance-configure-vm.md
         - name: 관리되는 인스턴스에 대한 지점 및 사이트 간 연결
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: 애플리케이션 연결
           href: sql-database-managed-instance-connect-app.md
-        - name: 공용 엔드포인트 구성
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: 데이터 로드 및 이동
       items:
         - name: Azure 내에서 데이터베이스 복사

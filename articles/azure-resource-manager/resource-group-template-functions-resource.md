@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/21/2019
+ms.date: 07/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b65c7a9b6d4f025c574c2dddace6fa45b77398c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990751"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835779"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -39,9 +39,9 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |문자열 |리소스에 대한 고유 식별자. |
-| apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| functionValues |아닙니다. |object | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
+| resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
+| apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| functionValues |아니요 |개체(object) | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
 
 ### <a name="implementations"></a>구현
 
@@ -50,9 +50,13 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | 리소스 종류 | 함수 이름 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
+| Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/channels | listChannelWithKeys |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -60,8 +64,12 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | Microsoft.ContainerRegistry/registries | [listPolicies](/rest/api/containerregistry/registries/listpolicies) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
+| Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
+| Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
+| Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
+| Microsoft.DataBox/jobs | listCredentials |
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
@@ -76,11 +84,14 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/domains/listsharedaccesskeys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
+| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
+| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -90,6 +101,8 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
 | Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
 | Microsoft.Logic/workflows | [listSwagger](/rest/api/logic/workflows/listswagger) |
+| Microsoft.Logic/workflows/triggers | [listCallbackUrl](/rest/api/logic/workflowtriggers/listcallbackurl) |
+| Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
 | Microsoft.MachineLearningServices/workspaces/computes | listKeys |
@@ -99,10 +112,12 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
 | Microsoft.Media/mediaservices/streamingLocators | [listContentKeys](/rest/api/media/streaminglocators/listcontentkeys) |
 | Microsoft.Media/mediaservices/streamingLocators | [listPaths](/rest/api/media/streaminglocators/listpaths) |
+| Microsoft.Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
+| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
@@ -123,6 +138,8 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 | microsoft.web/connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
 | microsoft.web/locations | listwsdlinterfaces |
+| microsoft.web/apimanagementaccounts/apis/connections | listconnectionkeys |
+| microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
 | microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/webapps/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
@@ -171,7 +188,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 사용 하는 경우는 **목록** 리소스 배포 되지 않는 경우에 리소스를 조건부로 배포 되는 함수에 함수 계산 됩니다. 오류가 발생 합니다 **목록** 함수 존재 하지 않는 리소스를 가리킵니다. 사용 된 **경우** 함수가 리소스를 배포 하는 경우에 계산 되도록 하는 함수입니다. 참조를 [하는 경우 함수](resource-group-template-functions-logical.md#if) 경우 사용 하는 샘플 템플릿은 조건부로 배포 된 리소스를 사용 하 여 목록에 대 한 합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 저장소 계정에 대한 SAS 토큰을 반환합니다. 
 
@@ -248,10 +265,10 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |예 |문자열 |공급자의 네임스페이스입니다. |
-| resourceType |아닙니다. |문자열 |지정된 네임스페이스 내의 리소스 유형입니다. |
+| providerNamespace |예 |string |공급자의 네임스페이스입니다. |
+| resourceType |아니요 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -267,7 +284,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 반환된 값의 배열 순서는 보장되지 않습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json)에서는 공급자 함수를 사용하는 방법을 보여줍니다.
 
@@ -323,11 +340,11 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. |
-| apiVersion |아닙니다. |문자열 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| 'Full' |아닙니다. |문자열 |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
+| resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. |
+| apiVersion |아니요 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| 'Full' |아니요 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -386,7 +403,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 이전 템플릿의 전체 예제는 [WindowsToKeyvault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json)를 참조하세요. [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json)에서도 비슷한 예제를 사용할 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json)에서는 리소스를 배포하고 해당 리소스를 참조합니다.
 
@@ -547,7 +564,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 ]
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)은 리소스 그룹의 속성을 반환합니다.
 
@@ -578,7 +595,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-## <a name="resourceid"></a>ResourceId
+## <a name="resourceid"></a>resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
@@ -588,11 +605,11 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아닙니다. |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceGroupName |아닙니다. |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |문자열 |리소스의 이름입니다. |
-| resourceName2 |아닙니다. |문자열 |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
+| subscriptionId |아니요 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceGroupName |아니요 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |예 |string |리소스의 이름입니다. |
+| resourceName2 |아니요 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -680,7 +697,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)에서는 리소스 그룹의 저장소 계정에 대한 리소스 ID를 반환합니다.
 
@@ -712,14 +729,14 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| nestedResourceOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>구독(subscription)
 
 `subscription()`
 
@@ -738,7 +755,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json)에서는 출력 섹션에서 호출되는 구독 함수를 보여줍니다. 
 

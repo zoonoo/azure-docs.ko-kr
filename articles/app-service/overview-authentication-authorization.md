@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835603"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836723"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
 
@@ -55,7 +56,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 ### <a name="user-claims"></a>사용자 클레임
 
-모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다.
+모든 언어 프레임워크의 경우 App Service는 요청 헤더에 코드를 삽입하여 사용자의 클레임을 코드에 사용할 수 있게 합니다. ASP.NET 4.6 응용 프로그램의 경우 App Service는 인증된 사용자의 클레임을 사용하여 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)를 채우기 때문에 `[Authorize]` 특성을 비롯한 표준 .NET 코드 패턴을 따를 수 있습니다. 마찬가지로 PHP 앱의 경우, App Service는 `_SERVER['REMOTE_USER']` 변수를 채웁니다. Java 앱에 대 한 클레임은 [Tomcat servlet에서 액세스할 수 있는](containers/configure-language-java.md#authenticate-users)합니다.
 
 [Azure Functions](../azure-functions/functions-overview.md)의 경우, `ClaimsPrincipal.Current`는 .NET 코드에 대해 하이드레이션되지 않지만 요청 헤더에서 사용자 클레임을 찾을 수 있습니다.
 
@@ -90,7 +91,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수도 있습니다.
+이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다. 사용자에게 여러 가지 로그인 옵션을 쉽게 제공할 수 있습니다. 또한 다른 id 공급자를 통합할 수 있습니다 또는 [사용자 고유의 사용자 지정 id 솔루션][custom-auth]합니다.
 
 ## <a name="authentication-flow"></a>인증 흐름
 

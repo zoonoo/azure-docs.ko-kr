@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486853"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839347"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -35,7 +35,7 @@ Data Factory를 사용하면 온-프레미스와 클라우드 데이터 저장�
 자세한 내용은 [개요 및 주요 개념](data-factory-introduction.md)을 참조하세요.
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Azure 데이터 팩터리에 대한 가격 정보는 어디서 찾을 수 있나요?
-Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격 정보 페이지][adf-pricing-details]를 참조하세요.  
+참조 [데이터 팩터리 가격 정보 페이지][adf-pricing-details] Azure Data Factory에 대 한 가격 책정 세부 정보에 대 한 합니다.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 * Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
@@ -51,11 +51,10 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Azure Data Factory 서비스를 사용한 제작/개발자 환경이란 무엇인가요?
 다음 도구/SDK 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
-* **Azure 포털** Azure 포털의 Data Factory 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [Build your first data pipeline using Azure Portal](data-factory-build-your-first-pipeline-using-editor.md) (Azure 포털을 사용하여 첫 번째 데이터 파이프라인 빌드)를 참조하세요.
 * **Visual Studio** Visual Studio를 사용하여 Azure Data Factory를 만들 수 있습니다. 자세한 내용은 [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) (Visual Studio를 사용하여 첫 번째 데이터 파이프라인 빌드)를 참조하세요.
-* **Azure PowerShell** PowerShell을 사용하여 Data Factory를 만드는 자습서는 [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) (Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링)을 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.
-* **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md)를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.
-* **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 데이터 팩터리 REST API의 포괄적인 설명서는 [데이터 팩터리 REST API 참조][msdn-rest-api-reference]를 참조하세요.
+* **Azure PowerShell** PowerShell을 사용하여 Data Factory를 만드는 자습서는 [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) (Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링)을 참조하세요. 참조 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 콘텐츠입니다.
+* **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md)를 참조하세요. 참조 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference] 데이터 팩터리.NET SDK의 포괄적인 설명서에 대 한 합니다.
+* **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 참조 [데이터 팩터리 REST API 참조][msdn-rest-api-reference] 데이터 팩터리 REST API의 포괄적인 설명서에 대 한 합니다.
 * **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md)를 참조하세요.
 
 ### <a name="can-i-rename-a-data-factory"></a>Data Factory의 이름을 바꿀 수 있나요?
@@ -69,7 +68,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory에서 지원하는 컴퓨팅 환경은 무엇입니까?
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다.
 
-| 컴퓨팅 환경 | 작업 |
+| 컴퓨팅 환경 | activities |
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
@@ -108,7 +107,7 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
 
 ## <a name="hdinsight-activity---faq"></a>HDInsight 작업 - FAQ
 ### <a name="what-regions-are-supported-by-hdinsight"></a>HDInsight에서 지원하는 지역은 어디인가요?
-다음 문서의 지리적 가용성 섹션 또는 [HDInsight 가격 정보][hdinsight-supported-regions]를 참조하세요.
+다음 문서의 지리적 가용성 섹션을 참조 하세요: 또는 [HDInsight 가격 책정 세부 정보][hdinsight-supported-regions]합니다.
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>주문형 HDInsight 클러스터가 사용되는 지역은 어디인가요?
 주문형 HDInsight 클러스터는 클러스터에서 사용하도록 지정한 저장소가 있는 지역과 동일한 지역에 생성됩니다.    
@@ -116,7 +115,7 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>추가 저장소 계정을 HDInsight 클러스터에 연결하려면 어떻게 해야 하나요?
 사용자 고유의 HDInsight 클러스터를 사용하는 경우(BYOC - 자체 클러스터 가져오기) 다음 항목을 참조하세요.
 
-* [대체 Storage 계정 및 메타스토어와 HDInsight 클러스터 사용][hdinsight-alternate-storage]
+* [대체 Storage 계정 및 Metastore를 사용 하 여 HDInsight 클러스터를 사용 하 여][hdinsight-alternate-storage]
 * [HDInsight Hive와 추가 Storage 계정 사용][hdinsight-alternate-storage-2]
 
 데이터 팩터리 서비스에서 만든 주문형 클러스터를 사용하는 경우 데이터 팩터리 서비스가 사용자를 대신해서 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. 주문형 연결된 서비스에 대한 JSON 정의에서, 다음 JSON 조각과 같이 **additionalLinkedServiceNames** 속성을 사용하여 대체 저장소 계정을 지정합니다.
@@ -178,7 +177,7 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  참조 [집합 AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet에 대 한 세부 정보에 대 한 합니다.
+  참조 [집합 AzDataFactorySliceStatus][set-azure-datafactory-slice-status] cmdlet에 대 한 세부 정보에 대 한 합니다.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>조각을 처리하는 데 얼마나 오래 걸렸나요?
 모니터링 및 관리 앱에서 작업 창 탐색기를 사용하여 데이터 조각을 처리하는 데 걸린 시간을 확인합니다. 자세한 내용은 [작업 창 탐색기](data-factory-monitor-manage-app.md#activity-window-explorer)를 참조하세요.

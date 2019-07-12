@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 12fbf2ae5387ac0a9350cc203f4a6f2587c8dafe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e591bdf2ff0b6493f092d666d02c2614c907700
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62131015"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798970"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network-CLI (미리 보기)에 IPv6 이중 스택 응용 프로그램 배포
 
@@ -33,7 +33,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 이 빠른 시작에서는 Azure CLI 버전 2.0.49 사용 하 여 설치 하 고 Azure CLI를 로컬로 사용 하려는 경우 이상. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure 가상 네트워크 기능에 대 한 IPv6를 사용 하려면 다음과 같이 Azure PowerShell을 사용 하 여 구독을 구성 해야 합니다.
 
 ```azurecli
@@ -166,7 +166,7 @@ az network lb rule create \
 --backend-pool-name dsLbBackEndPool_v4
 
 
-az network lb rule create \ 
+az network lb rule create \
 --lb-name dsLB  \
 --name dsLBrule_v6  \
 --resource-group DsResourceGroup01 \

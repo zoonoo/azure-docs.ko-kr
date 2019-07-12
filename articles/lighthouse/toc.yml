@@ -1,0 +1,63 @@
+- name: Azure Lighthouse 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Lighthouse란?
+      displayName: 'management at scale, service providers'
+      href: overview.md
+- name: 샘플
+  items:
+    - name: 인덱스
+      displayName: 'template, sample'
+      href: ./samples/index.md
+- name: 개념
+  items:
+    - name: Azure 위임 리소스 관리
+      displayName: delegation
+      href: ./concepts/azure-delegated-resource-management.md
+    - name: 테넌트 간 관리 환경
+      displayName: scenarios
+      href: ./concepts/cross-tenant-management-experience.md
+    - name: Azure Marketplace의 관리형 서비스 솔루션
+      displayName: 'managed services offer, azure marketplace'
+      href: ./concepts/managed-services-offers.md
+    - name: 권장 보안 방법
+      displayName: 'mfa, authentication, secure, group'
+      href: ./concepts/recommended-security-practices.md
+    - name: 클라우드 솔루션 공급자 프로그램 고려 사항
+      displayName: 'csp, aobo, partner'
+      href: ./concepts/cloud-solution-provider.md
+- name: 방법 가이드
+  items:
+    - name: Azure 위임 리소스 관리에 고객 등록
+      displayName: resource management
+      href: ./how-to/onboard-customer.md
+    - name: Azure Marketplace에 관리형 서비스 솔루션 게시
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/publish-managed-services-offers.md
+    - name: 고객 보기 및 관리
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-customers.md
+    - name: 서비스 공급자 보기 및 관리
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-service-providers.md
+- name: 참고 자료
+  items:
+    - name: Azure SDK for .NET
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+    - name: Azure SDK for .NET(NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
+    - name: Python용 Azure SDK
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+    - name: REST (영문)
+      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+    - name: OpenAPI
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/922753'

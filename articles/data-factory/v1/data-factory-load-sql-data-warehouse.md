@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825423"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839100"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
@@ -41,11 +41,11 @@ ms.locfileid: "60825423"
 > [!NOTE]
 >  Azure SQL Data Warehouse 간에 데이터를 이동하는 Data Factory 기능에 대한 일반적인 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
 >
-> Azure Portal, Visual Studio, PowerShell 등을 사용하여 파이프라인을 빌드할 수도 있습니다. 단계별 지침은 [자습서: Azure Blob에서 Azure SQL Database에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. Azure Data Factory에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습을 볼 수 있습니다.  
+> Visual Studio, PowerShell 등을 사용 하 여 파이프라인을 빌드할 수 있습니다. 단계별 지침은 [자습서: Azure Blob에서 Azure SQL Database에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. Azure Data Factory에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습을 볼 수 있습니다.  
 >
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-quickstart-create-account.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 

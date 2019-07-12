@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: baca05a9c007849d813b2f4de17378e6d18da4a5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: HT
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701728"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839289"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 
@@ -45,7 +45,7 @@ ms.locfileid: "67701728"
 
 - 파이프라인을 만드는 가장 쉬운 방법은 데이터 복사 마법사를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-- 또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 또는 **REST API** 등의 도구를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업이 포함된 파이프라인을 만드는 방법에 대한 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 JSON 샘플은 [JSON 예](#json-examples) 섹션을 참조하세요.
+- 파이프라인을 만들려면 다음 도구를 사용할 수도 있습니다:는 **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿을**는 **.NET API** , 또는 **REST API**합니다. 복사 작업이 포함된 파이프라인을 만드는 방법에 대한 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 JSON 샘플은 [JSON 예](#json-examples) 섹션을 참조하세요.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -231,7 +231,7 @@ ms.locfileid: "67701728"
 
 ## <a name="json-examples"></a>JSON 예
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [지원되는](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 싱크로 직접 데이터를 복사할 수 있습니다. 
+다음 예제를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [지원되는](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 싱크로 직접 데이터를 복사할 수 있습니다. 
 
 **예제: HTTP 소스에서 Azure Blob Storage로 데이터 복사**
 

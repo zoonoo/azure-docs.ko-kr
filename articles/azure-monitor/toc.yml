@@ -358,6 +358,8 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
+                    - name: API Start-ApplicationInsightsMonitoringTrace
+                      href: app/status-monitor-v2-api-start-trace.md
                 - name: Windows 데스크톱
                   href: app/windows-desktop.md
                 - name: 콘솔
@@ -459,7 +461,20 @@
               href: app/create-new-resource.md
             - name: 애플리케이션 데이터를 Log Analytics로 라우팅
               href: platform/app-insights-connector.md
-            - name: 애플리케이션 데이터 내보내기
+            - name: 응용 프로그램 데이터 내보내기
+              items:
+                - name: 연속 내보내기
+                  href: app/export-telemetry.md
+                  items:
+                    - name: 코드 샘플
+                      items:
+                        - name: Stream Analytics를 사용하여 SQL로 내보내기
+                          href: app/code-sample-export-sql-stream-analytics.md
+                        - name: Stream Analytics로 내보내기
+                          href: app/export-stream-analytics.md
+                - name: 데이터 모델 내보내기
+                  href: app/export-data-model.md
+            - name: 문제 해결
               items:
                 - name: .NET에 대한 데이터 없음
                   href: app/asp-net-troubleshoot-no-data.md

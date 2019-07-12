@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff8330ab8aec7f0e9aa92409ce1eafd5be5ceeaf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241331"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605749"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 정책 구성
 Azure 웹 응용 프로그램 방화벽 (WAF) 정책 정의 검사 요청이 첫 번째 관문에서 도착 하는 경우에 필요 합니다.
@@ -24,7 +24,7 @@ Azure 웹 응용 프로그램 방화벽 (WAF) 정책 정의 검사 요청이 첫
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 속도 제한 정책을 설정 하려면 먼저 PowerShell 환경을 설정 하 고 첫 번째 관문 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 
@@ -79,7 +79,7 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 다음 예제에서는 관리 되는 기본 규칙 집합을 Azure PowerShell을 사용 하 여 만듭니다.
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>보안 정책 구성
 

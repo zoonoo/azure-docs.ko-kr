@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059345"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795481"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -23,7 +23,7 @@ ms.locfileid: "67059345"
 
 클라우드 서비스를 사용 하는 경우 것이 필요한 사용자 에게만 액세스를 제한 하는 것이 좋습니다. 이 서비스에서 사용 되는 인증 및 권한 부여 모델을 이해 하 여 시작 합니다. 네트워크 액세스를 제한 해야 할 수도 안전 하 게 클라우드에 있는 온-프레미스 네트워크에 리소스를 연결 합니다. 데이터 암호화, 중요 한 미사용와 서비스 간에 데이터를 이동 하는 동안 이기도 합니다. 마지막으로 서비스를 모니터링 하 고 모든 작업의 감사 로그를 생성 하는 일을 할 수 해야 합니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 다단계 인증에는 동일한 Azure Active Directory (Azure AD)가 구성 하는 경우 지원 됩니다.
 * 클라이언트는 Azure AD에 로그인 하 고 Azure Resource Manager 토큰을 가져옵니다.  사용자 및 서비스 주체 완전히 지원 됩니다.
 * 클라이언트 토큰에서 Azure Resource Manager 및 모든 Azure Machine Learning 서비스를 표시합니다.
@@ -51,7 +51,7 @@ print(primary)
 > 사용 하 여 키를 다시 생성 해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>권한 부여
+## <a name="authorization"></a>Authorization
 
 여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유하는 경우 사용자에게 다음 역할을 할당하여 작업 영역에 대한 액세스를 제어할 수 있습니다.
 * 소유자
@@ -83,12 +83,12 @@ print(primary)
 
 관리 되는 id에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 id 관리](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Resource | 권한 |
+| 리소스 | 사용 권한 |
 | ----- | ----- |
 | 작업 영역 | 참가자 | 
-| Storage 계정 | Storage Blob 데이터 Contributor | 
+| 스토리지 계정 | Storage Blob 데이터 기여자 | 
 | Key Vault | 모든 키, 비밀, 인증서에 대 한 액세스 | 
-| Azure 컨테이너 레지스트리 | 참가자 | 
+| Azure Container Registry | 참가자 | 
 | 작업 영역을 포함 하는 리소스 그룹 | 참가자 | 
 | (다른 작업 영역에 포함 된) 경우 Key Vault를 포함 하는 리소스 그룹 | 참가자 | 
 

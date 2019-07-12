@@ -67,6 +67,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">ASP.NET Core에서 동적 구성을 사용하도록 설정</a>
+          - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-dotnet-core">.NET Core 앱에서 동적 구성을 사용하도록 설정</a>
           - html: <a href="/azure/azure-app-configuration/use-feature-flags-dotnet-core">.NET Core 앱에서 기능 플래그 사용</a>
           - html: <a href="/azure/azure-app-configuration/manage-feature-flags">기능 플래그 관리</a>
           - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">CI/CD 파이프라인과 통합</a>

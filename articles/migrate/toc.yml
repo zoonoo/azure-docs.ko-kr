@@ -3,45 +3,97 @@
 - name: 개요
   items:
     - name: Azure Migrate 정보
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 자습서
   items:
-    - name: VMware VM 검색 및 평가
-      href: tutorial-assessment-vmware.md
+    - name: VMware VM 평가 및 마이그레이션
+      items:
+        - name: VMware 평가 및 마이그레이션 준비
+          href: tutorial-prepare-vmware.md
+        - name: VMware VM 마이그레이션 평가
+          href: tutorial-assess-vmware.md
+        - name: VMware VM 마이그레이션
+          items:
+            - name: VMware VM 마이그레이션 옵션 정보
+              href: server-migrate-overview.md
+            - name: 에이전트 없는 마이그레이션을 사용하여 VMware VM 마이그레이션
+              href: tutorial-migrate-vmware.md
+            - name: 에이전트 기반 마이그레이션을 사용하여 VMware VM 마이그레이션
+              href: tutorial-migrate-vmware-agent.md
+    - name: Hyper-V 평가 및 마이그레이션
+      items:
+        - name: Hyper-V 평가 및 마이그레이션 준비
+          href: tutorial-prepare-hyper-v.md
+        - name: Hyper-V VM 마이그레이션 평가
+          href: tutorial-assess-hyper-v.md
+        - name: Hyper-V VM 마이그레이션
+          href: tutorial-migrate-hyper-v.md
+    - name: 실제 서버 및 가상 머신 마이그레이션
+      href: tutorial-migrate-physical-virtual-machines.md
 - name: 개념
   items:
-    - name: 수집기 정보
-      href: concepts-collector.md
-    - name: 수집기 버전 업그레이드
-      href: concepts-collector-upgrade.md
+    - name: 일반적인 질문
+      href: resources-faq.md
+    - name: 지원 매트릭스
+      items:
+        - name: Azure Migrate의 지원 매트릭스
+          href: migrate-support-matrix.md
+        - name: VMware 평가 및 마이그레이션 지원 매트릭스
+          href: migrate-support-matrix-vmware.md
+        - name: Hyper-V 평가 및 마이그레이션 지원 매트릭스
+          href: migrate-support-matrix-hyper-v.md
+    - name: Hyper-V 마이그레이션 아키텍처
+      href: hyper-v-migration-architecture.md
+    - name: 에이전트 기반 마이그레이션 아키텍처
+      href: agent-based-migration-architecture.md
+    - name: Azure Migrate 어플라이언스
+      href: migrate-appliance.md
+    - name: Azure Migrate 복제 어플라이언스
+      href: migrate-replication-appliance.md
+    - name: 평가 모범 사례
+      href: best-practices-assessment.md
     - name: 평가 계산
       href: concepts-assessment-calculation.md
-    - name: 종속성 시각화 정보
+    - name: 종속성 시각화
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
     - name: 마이그레이션 예제-Contoso 시리즈
       href: contoso-migration-overview.md
-    - name: 대규모 환경 검색 및 평가
-      href: how-to-scale-assessment.md
-    - name: 컴퓨터 그룹화
-      href: how-to-create-a-group.md
-    - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
-      href: how-to-create-group-machine-dependencies.md
-    - name: 그룹 종속성을 사용하여 그룹 상세 검색
-      href: how-to-create-group-dependencies.md
+    - name: VMware 평가/마이그레이션(에이전트 없는)용 어플라이언스 배포
+      href: how-to-set-up-appliance-vmware.md
+    - name: Hyper-V 평가/마이그레이션용 어플라이언스 배포
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: 처음으로 평가/마이그레이션 도구에 추가
+      href: how-to-add-tool-first-time.md
+    - name: 평가 도구 추가
+      href: how-to-assess.md
+    - name: 마이그레이션 도구 추가
+      href: how-to-migrate.md
+    - name: 평가할 컴퓨터 그룹화
+      items:
+        - name: 그룹 만들기
+          href: how-to-create-a-group.md
+        - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
+          href: how-to-create-group-machine-dependencies.md
+        - name: 그룹 종속성을 사용하여 그룹 상세 검색
+          href: how-to-create-group-dependencies.md
     - name: 평가 사용자 지정
       href: how-to-modify-assessment.md
-    - name: 평가 후 컴퓨터 마이그레이션
-      href: how-to-get-migration-tool.md
-    - name: 많은 수의 VM의 마이그레이션 자동화
-      href: how-to-migrate-at-scale.md
+    - name: 규모 평가 및 마이그레이션
+      items:
+        - name: 다수의 VMware VM 평가
+          href: scale-vmware-assessment.md
+        - name: 다수의 Hyper-V VM 평가
+          href: scale-hyper-v-assessment.md
+        - name: 많은 수의 VM의 마이그레이션 자동화
+          href: how-to-migrate-at-scale.md
     - name: Azure Migrate 문제 해결
       href: troubleshooting-general.md
 - name: 리소스
   items:
-    - name: FAQ
-      href: resources-faq.md
     - name: CAF(클라우드 채택 프레임워크)에 마이그레이션
       href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST API

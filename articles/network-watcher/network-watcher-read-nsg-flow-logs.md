@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 23eacd0fdb85eea43c534fc0f98a14188b954502
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: becae0f085fcaf4b0d0c7b29e102aaa3186fb85e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061630"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653736"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -33,7 +33,7 @@ NSG 흐름 로그는 스토리지 계정의 [블록 Blob](https://docs.microsoft
 
 다음 시나리오에서는 저장소 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽는 방법을 알아봅니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설정
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 다음 문서를 참조하세요. [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>블록 Blob 읽기
 
-다음으로는 `$blocklist` 변수를 읽어 데이터를 검색해야 합니다. 이 예제에서는 블록 목록을 반복 검색하면서 각 블록의 바이트를 읽어 배열에 저장합니다. 이때 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 데이터를 검색합니다.
+다음으로는 `$blocklist` 변수를 읽어 데이터를 검색해야 합니다. 이 예제에서는 블록 목록을 반복 검색하면서 각 블록의 바이트를 읽어 배열에 저장합니다. 이때 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) 메서드를 사용하여 데이터를 검색합니다.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

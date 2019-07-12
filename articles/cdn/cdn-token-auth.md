@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472162"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593384"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -72,7 +72,7 @@ ms.locfileid: "66472162"
 
       ```rand -hex <key length>```
 
-      예를 들면 다음과 같습니다.
+      예를 들어:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -96,7 +96,7 @@ ms.locfileid: "66472162"
       > <table>
       > <tr>
       >   <th>매개 변수 이름</th> 
-      >   <th>설명</th>
+      >   <th>Description</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -114,7 +114,7 @@ ms.locfileid: "66472162"
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>입력 값 `/pictures/`: 포함 된 요청만 `/pictures/` 경로 허용 됩니다. 예: `http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+      >       <li>입력 값 `/pictures/`: 포함 된 요청만 `/pictures/` 경로 허용 됩니다. `http://www.mydomain.com/pictures/city/strasbourg.png` )을 입력합니다.</li>
       >       <li>입력 값 `/pictures/city/strasbourg.png`: 이 특정 경로 및 자산에 대 한 요청만 허용 됩니다.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ ms.locfileid: "66472162"
 
    7. **암호화**를 선택하여 토큰을 생성합니다.
 
-      토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. 예: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`
+      토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b` )을 입력합니다.
         
    8. 필요에 따라 토큰의 매개 변수를 볼 수 있도록 암호 해독 도구로 토큰을 테스트합니다. **암호를 해독할 토큰** 상자에 토큰 값을 붙여넣습니다. **해독할 키** 목록에서 사용할 암호화 키를 선택한 다음, **암호 해독**을 선택합니다.
 

@@ -52,6 +52,10 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: SDK 사용
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
 - name: 자습서
   items:
     - name: KB에서 만들기 및 대답
@@ -169,7 +173,9 @@
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: 참조 설명서
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: NuGet 패키지
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
         - name: Go
           items:

@@ -2,17 +2,17 @@
 title: '네트워킹 파트너: Azure 네트워킹 | Microsoft Docs'
 description: 이 문서에서는 MSP 네트워킹 파트너의 목록을 제공합니다
 services: networking
-author: cherylmc
+author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: cherylmc
-ms.openlocfilehash: a28f787ba7796185112b7293b91688d2572f5e22
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: HT
+ms.author: sukishen
+ms.openlocfilehash: 922749591bdc9222e5f97b2bb6828c5660c0dbac
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800355"
+ms.locfileid: "67840319"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너에 대 한
 
@@ -28,7 +28,7 @@ Azure 네트워킹 Msp는 클라우드 및 하이브리드 네트워킹의 모�
 
 네트워킹 Azure 네트워킹 MSP 파트너에서 제공 하는 서비스 관리 되는 클라우드에 대 한 자세한 내용은이 섹션의 링크를 사용 합니다. 클라우드 네트워크 서비스 파트너 아래 섹션에 나열 되지 않으면 있으면 공급자 문의해 주세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
 
-[Aryka](https://www.aryaka.com/)
+[Aryaka 네트워크](https://www.aryaka.com/)
 
 [BT](https://www.bt.com/)
 

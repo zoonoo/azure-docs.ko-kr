@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885fb18e6f582caba2e90bbe3f535b9c763aff85
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389037"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839332"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -50,7 +50,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -65,15 +65,15 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 ODBC 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesOdbc** |예. |
-| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예. |
-| 자격 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |아닙니다. |
-| authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 다음과 같습니다. 익명 및 기본. |예 |
-| userName |기본 인증을 사용 하는 경우 사용자 이름을 지정 합니다. |아닙니다. |
-| password |UserName에 지정한 사용자 계정의 암호를 지정 합니다. |아닙니다. |
-| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예. |
+| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesOdbc** |예 |
+| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예 |
+| 자격 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예를 들어, `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"` 같은 형식입니다. |아니요 |
+| authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본. |예 |
+| userName |기본 인증을 사용 하는 경우 사용자 이름을 지정 합니다. |아니요 |
+| password |UserName에 지정한 사용자 계정의 암호를 지정 합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
@@ -137,9 +137,9 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(ODBC 데이터 세트를 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예. |
+| tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -148,13 +148,13 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 
 원본이 **RelationalSource** 형식인 복사 작업(ODBC 포함)에서 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON 예제: ODBC 데이터 저장소에서 Azure Blob로 데이터 복사
-다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 JSON 정의를 제공합니다. 이 샘플은 ODBC 원본에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 이 샘플은 ODBC 원본에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 

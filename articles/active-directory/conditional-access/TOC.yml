@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
-    - name: 클래식 정책 마이그레이션
-      href: policy-migration.md
-    - name: 로그인 빈도 및 브라우저 지속성 컨트롤
-      href: howto-conditional-access-session-lifetime.md
+    - name: MFA에 대한 조건부 액세스 등록
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 승인된 클라이언트 앱 필요
       href: app-based-conditional-access.md
     - name: 앱 보호 정책 필요
       href: app-protection-based-conditional-access.md
     - name: 관리 디바이스 필요
       href: require-managed-devices.md
-    - name: MFA 등록을 위해 신뢰할 수 있는 네트워크 필요
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
       href: untrusted-networks.md
     - name: 사용 약관 필요
       href: terms-of-use.md
+    - name: 로그인 빈도 및 브라우저 지속성 컨트롤
+      href: howto-conditional-access-session-lifetime.md
+    - name: 클래식 정책 마이그레이션
+      href: policy-migration.md
 - name: 참고 자료
   items:
     - name: 기술 참조

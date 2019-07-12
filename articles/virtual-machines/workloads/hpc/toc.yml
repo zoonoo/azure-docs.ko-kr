@@ -1,12 +1,14 @@
 - name: 고성능 컴퓨팅 설명서
   items:
     - name: 개요
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      items:
+        - name: H 시리즈 VM용 HPC
+          href: overview.md
     - name: 구성
       items:
         - name: Linux용 최적화
           href: configure.md
-        - name: Infiniband 사용
+        - name: InfiniBand 사용
           href: enable-infiniband.md
     - name: MPI 설정
       href: setup-mpi.md

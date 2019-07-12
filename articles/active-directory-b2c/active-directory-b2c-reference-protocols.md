@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f1953535a19be1a6aa3963776515b1f2c0d979c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508958"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835747"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
-Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다. 
+Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다.
 
 이 가이드의 정보는 오픈 소스 라이브러리를 사용하지 않고 HTTP 요청을 직접 전송하고 처리하여 코드를 작성하는 경우에 유용합니다. 각 특정 프로토콜의 세부 정보를 자세히 살펴보기 전에 이 페이지를 참조하는 것이 좋습니다. Azure AD B2C에 대해 이미 잘 알고 있는 경우 [프로토콜 참조 가이드](#protocols)로 바로 이동해도 됩니다.
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 거의 모든 OAuth 및 OpenID Connect 흐름에서 다음과 같이 네 주체가 교환에 포함됩니다.
 
-![OAuth 2.0 역할](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![OAuth 2.0 역할 4 개를 보여 주는 다이어그램](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * **권한 부여 서버**는 Azure AD 엔드포인트입니다. 사용자 정보 및 액세스와 관련된 모든 것을 안전하게 처리합니다. 또한 흐름에서 당사자 간의 트러스트 관계를 처리합니다. 사용자 ID를 확인하고 리소스에 대한 액세스 권한을 부여 및 해지하고, 토큰을 발급합니다. ID 공급자라고도 합니다.
 
@@ -51,9 +51,9 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 * **리소스 서버** 는 리소스 또는 데이터가 있는 곳입니다. OAuth 클라이언트를 안전하게 인증하고 권한을 부여하는 권한 부여 서버를 신뢰합니다. 또한 전달자 액세스 토큰을 사용하여 리소스에 액세스 권한이 부여되어야 합니다.
 
 ## <a name="policies-and-user-flows"></a>정책 및 사용자 흐름
-Azure AD B2C 정책은 분명히 서비스의 가장 중요한 기능입니다. Azure AD B2C에서 정책이 도입되어 표준 OAuth 2.0 및 OpenID Connect 프로토콜이 확장됩니다. 이렇게 하면 Azure AD B2C에서 더 쉽게 인증 및 권한 부여를 수행할 수 있습니다. 
+Azure AD B2C 정책은 분명히 서비스의 가장 중요한 기능입니다. Azure AD B2C에서 정책이 도입되어 표준 OAuth 2.0 및 OpenID Connect 프로토콜이 확장됩니다. 이렇게 하면 Azure AD B2C에서 더 쉽게 인증 및 권한 부여를 수행할 수 있습니다.
 
-가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름**이라는 미리 정의되고 구성 가능한 정책을 포함합니다. 사용자 흐름은 가입, 로그인, 프로필 편집 등의 소비자 ID 경험을 완벽하게 설명합니다. 사용자 흐름은 관리 UI에서 정의될 수 있습니다. HTTP 인증 요청에서 특별한 쿼리 매개 변수를 사용하여 실행될 수 있습니다. 
+가장 일반적인 ID 작업을 설정하는 데 도움을 주기 위해 Azure AD B2C 포털은 **사용자 흐름**이라는 미리 정의되고 구성 가능한 정책을 포함합니다. 사용자 흐름은 가입, 로그인, 프로필 편집 등의 소비자 ID 경험을 완벽하게 설명합니다. 사용자 흐름은 관리 UI에서 정의될 수 있습니다. HTTP 인증 요청에서 특별한 쿼리 매개 변수를 사용하여 실행될 수 있습니다.
 
 정책 및 사용자 흐름은 OAuth 2.0 및 OpenID Connect의 표준 기능이 아니므로 이해하는 데 시간이 필요합니다. 자세한 내용은 [Azure AD B2C 사용자 흐름 참조 가이드](active-directory-b2c-reference-policies.md)를 참조하세요.
 
@@ -62,7 +62,7 @@ OAuth 2.0 및 OpenID Connect의 Azure AD B2C 구현은 JWT(JSON 웹 토큰)로 �
 
 전달자는 토큰을 제공할 수 있는 당사자입니다. Azure AD에서 전달자 토큰을 받으려면 먼저 당사자를 인증해야 합니다. 하지만 전송 및 저장에 토큰을 보호하는 데 필요한 단계를 수행하지 않으면 의도하지 않은 당사자가 가로채서 사용할 수 있습니다.
 
-일부 보안 토큰에는 권한이 없는 당사자가 토큰을 사용하지 못하게 하는 메커니즘이 기본 제공되지만 전달자 토큰에는 이 메커니즘이 없습니다. 전송 계층 보안(HTTPS) 등의 보안 채널로 전송해야 합니다. 
+일부 보안 토큰에는 권한이 없는 당사자가 토큰을 사용하지 못하게 하는 메커니즘이 기본 제공되지만 전달자 토큰에는 이 메커니즘이 없습니다. 전송 계층 보안(HTTPS) 등의 보안 채널로 전송해야 합니다.
 
 전달자 토큰이 보안 채널 밖으로 전송되는 경우 악의적인 당사자가 메시지 가로채기(man-in-the-middle) 공격으로 토큰을 획득하고 이를 사용하여 보호된 리소스에 무단으로 액세스할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다.
 

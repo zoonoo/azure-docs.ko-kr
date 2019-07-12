@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022176"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671901"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>인식 검색 작업에 대한 설명서 리소스
 
@@ -27,7 +27,7 @@ ms.locfileid: "65022176"
 + ["인식 검색이란?"](cognitive-search-concept-intro.md)
 + [빠른 시작: 포털에서 인식 검색 시도](cognitive-search-quickstart-blob.md)
 + [자습서: Cognitive Search API 알아보기](cognitive-search-tutorial-blob.md)
-+ [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예제: Cognitive search에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>방법 가이드
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
@@ -55,7 +55,7 @@ ms.locfileid: "65022176"
   + [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Azure Search의 인덱서](search-indexer-overview.md)

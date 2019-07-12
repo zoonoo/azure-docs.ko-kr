@@ -128,6 +128,8 @@
           href: dbms_guide_ibm.md
         - name: SUSE Linux Enterprise Server의 Azure VM에서 IBM DB2 LUW의 고가용성
           href: dbms-guide-ha-ibm.md
+        - name: Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
+          href: high-availability-guide-rhel-ibm-db2-luw.md
         - name: SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
           href: dbms_guide_sapase.md
         - name: 'Azure에서 SAP MaxDB, liveCache 및 Content Server 배포'
