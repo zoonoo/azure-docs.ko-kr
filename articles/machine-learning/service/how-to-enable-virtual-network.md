@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/08/2019
-ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/10/2019
+ms.openlocfilehash: 06004f766cb8e9b12c2353bbe5e432e77df03cee
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165341"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797690"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>실험 및 Azure virtual network 내에서 유추를 안전 하 게 실행
 
@@ -23,7 +23,7 @@ ms.locfileid: "67165341"
 
 Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리소스를 얻습니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 이러한 컴퓨팅 대상을 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Microsoft Data Science Virtual Machine을 사용하여 모델을 학습시킨 다음, AKS(Azure Kubernetes Service)에 모델을 배포할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure 가상 네트워크 및 IP 네트워킹 일반적 잘 알고 있다고 가정 합니다. 이 문서는 또한는 만든 가상 네트워크 및 계산 리소스를 사용 하는 서브넷을 가정 합니다. Azure Virtual Network를 사용 하 여 잘 모르는 경우에 서비스에 대해 자세히 알아보려면 다음 문서를 읽어보세요.
 
@@ -225,7 +225,7 @@ except ComputeTargetException:
 
     * __원본 서비스 태그__: __AzureMachineLearning__을 선택합니다.
 
-    * __원본 포트 범위__: __*__ 를 선택합니다.
+    * __원본 포트 범위__: *__ 를 선택합니다.
 
     * __대상__: __모두__를 선택합니다.
 
@@ -275,11 +275,11 @@ except ComputeTargetException:
 
     - __서브넷__: 서브넷을 선택합니다.
 
-    - __Kubernetes 서비스 주소 범위__: Kubernetes 서비스 주소 범위를 선택합니다. 이 주소 범위는 CIDR 표기법 IP 범위를 사용하여 클러스터에 사용할 수 있는 IP 주소를 정의합니다. 서브넷 IP 범위와 겹치지 않아야 합니다. 예를 들면 다음과 같습니다. 10.0.0.0/16.
+    - __Kubernetes 서비스 주소 범위__: Kubernetes 서비스 주소 범위를 선택합니다. 이 주소 범위는 CIDR 표기법 IP 범위를 사용하여 클러스터에 사용할 수 있는 IP 주소를 정의합니다. 서브넷 IP 범위와 겹치지 않아야 합니다. 예: 10.0.0.0/16.
 
-    - __Kubernetes DNS 서비스 IP 주소__: Kubernetes DNS 서비스 IP 주소를 선택합니다. 이 IP 주소는 Kubernetes DNS 서비스에 할당됩니다. 이 주소는 Kubernetes 서비스 주소 범위에 속해야 합니다. 예를 들면 다음과 같습니다. 10.0.0.10.
+    - __Kubernetes DNS 서비스 IP 주소__: Kubernetes DNS 서비스 IP 주소를 선택합니다. 이 IP 주소는 Kubernetes DNS 서비스에 할당됩니다. 이 주소는 Kubernetes 서비스 주소 범위에 속해야 합니다. 예: 10.0.0.10.
 
-    - __Docker 브리지 주소__: Docker 브리지 주소를 선택합니다. 이 IP 주소는 Docker 브리지에 할당됩니다. 서브넷 IP 범위 또는 Kubernetes 서비스 주소 범위에 속하지 않아야 합니다. 예를 들면 다음과 같습니다. 172.17.0.1/16.
+    - __Docker 브리지 주소__: Docker 브리지 주소를 선택합니다. 이 IP 주소는 Docker 브리지에 할당됩니다. 서브넷 IP 범위 또는 Kubernetes 서비스 주소 범위에 속하지 않아야 합니다. 예를 들어: 172.17.0.1/16.
 
    ![Azure Machine Learning 서비스: Machine Learning 컴퓨팅 가상 네트워크 설정](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 

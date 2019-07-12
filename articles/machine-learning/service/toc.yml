@@ -245,7 +245,7 @@
         - name: 일괄 처리 예측 실행
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
-    - name: 웹 서비스 모니터링
+    - name: 모델 모니터링
       items:
         - name: 모델 데이터 수집 및 평가
           displayName: track production
@@ -273,9 +273,6 @@
     - name: Machine Learning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: 모니터링 SDK
-      displayName: api package python monitor
-      href: 'https://aka.ms/aml-monitoring-sdk'
     - name: Machine Learning CLI
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md

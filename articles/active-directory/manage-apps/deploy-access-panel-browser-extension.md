@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf665362e2d20f26c17e8a4ae9da29fc30cb47ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481283"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807678"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>방법: 그룹 정책을 사용 하 여 Internet Explorer 용 액세스 패널 확장을 배포 합니다.
 
@@ -30,22 +30,24 @@ ms.locfileid: "67481283"
 
 액세스 패널 확장은 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 및 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998)에도 사용할 수 있으며 설치에 관리자 권한이 필요하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
 * 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 다음 보안 그룹의 구성원에게는 이 권한이 있습니다: 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성 소유자. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>1단계: 배포 지점 만들기
 
-먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
+먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
 
 1. 서버에 관리자로 로그인 합니다.
 1. **서버 관리자** 창에서 **파일 및 Storage 서비스**로 이동합니다.
 
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/files-services.png)
+
 1. **공유** 탭으로 이동합니다. 그런 다음 **태스크** > **새 공유...** 를 클릭합니다.
 
-    ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/shares.png)
+    ![스크린샷은 작업 화면에서 새 공유를 찾을 수 있는 위치를 보여 줍니다.](./media/deploy-access-panel-browser-extension/shares.png)
+
 1. **새 공유 마법사** 를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)
 1. Microsoft Windows Installer 패키지(.msi 파일) [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)를 다운로드합니다.
 1. 설치 관리자 패키지를 공유의 원하는 위치에 복사합니다.
@@ -80,15 +82,16 @@ ms.locfileid: "67481283"
 
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
+
 1. **소프트웨어 설치**를 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **패키지...** 를 선택합니다.
 1. [1단계: 배포 지점 만들기에서 설치 관리자 패키지를 포함하는 공유 폴더로 이동하여 .msi 파일을 선택하 고 **열기**를 클릭합니다.
 
    > [!IMPORTANT]
    > 공유가 같은 서버에 있는 경우 로컬 파일 경로가 아닌 네트워크 파일 경로를 통해 .msi에 액세스하고 있는지 확인합니다.
 
-    ![공유 폴더에서 설치 패키지를 선택합니다.](./media/deploy-access-panel-browser-extension/select-package.png)
+    ![공유 폴더에서 설치 패키지를 선택 합니다.](./media/deploy-access-panel-browser-extension/select-package.png)
 
-1. **소프트웨어 배포** 프롬프트에서 배포 방법으로 **할당**을 선택합니다. 그런 후 **OK**를 클릭합니다.
+1. **소프트웨어 배포** 프롬프트에서 배포 방법으로 **할당**을 선택합니다. 그런 다음 **확인**을 클릭합니다.
 
 이제 확장이 선택한OU에 배포되었습니다. [그룹 정책 소프트웨어 설치에 대해 알아봅니다.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
@@ -100,6 +103,7 @@ ms.locfileid: "67481283"
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+
 1. **추가 기능 목록**을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
     !["추가 기능 목록"을 마우스 오른쪽 단추로 클릭 하 고 "편집" 선택](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
@@ -111,8 +115,8 @@ ms.locfileid: "67481283"
 1. **내용 표시** 창에서 다음 단계를 수행합니다.
 
    1. 첫번째 열(**값 이름** 필드)에 클래스 ID `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`를 복사하여 붙여 넣습니다.
-   2. 두번째 열(**값** 필드)에 `1` 값을 입력합니다.
-   3. **확인**을 클릭하여 **내용 표시** 창을 닫습니다.
+   1. 두번째 열(**값** 필드)에 `1` 값을 입력합니다.
+   1. **확인**을 클릭하여 **내용 표시** 창을 닫습니다.
 
       ![이전 단계에서 지정한 대로 값을 채웁니다](./media/deploy-access-panel-browser-extension/show-contents.png)
 
@@ -160,7 +164,7 @@ ms.locfileid: "67481283"
 1. 다시 시작한 후 **Internet Explorer**를 엽니다. 창의 오른쪽 위 모퉁이에서 **도구**(기어 아이콘)를 클릭한 다음 **추가 기능 관리**를 선택합니다.
 1. **추가 기능 관리** 창에서 **액세스 패널 확장**이 설치되었으며 그 **상태**가 **사용**으로 설정되었는지 확인합니다.
 
-   ![액세스 패널 확장이 설치되었으며 활성화되었는지 확인합니다.](./media/deploy-access-panel-browser-extension/verify-install.png)
+   ![액세스 패널 확장이 설치 되어 있고 사용 하도록 설정 확인](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="learn-more"></a>자세한 정보
 

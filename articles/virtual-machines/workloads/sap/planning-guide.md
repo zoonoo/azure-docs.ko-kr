@@ -4,7 +4,7 @@ description: SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6a119fe777c443c777781aca4ae46e0ca171e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442126"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710190"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -770,7 +770,7 @@ Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를
 
 ## <a name="managing-azure-assets"></a>Azure 자산 관리
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal은 Azure VM 배포를 관리하기 위한 세 가지 인터페이스 중 하나입니다. 이미지에서 VM을 배포하는 등의 기본적인 관리 작업은 Azure Portal을 통해 수행할 수 있습니다. 또한 Storage 계정, Virtual Network 및 기타 Azure 구성 요소 만들기 작업은 Azure Portal에서 효율적으로 처리할 수 있는 작업이기도 합니다. 그러나 온-프레미스에서 Azure로 VHD를 업로드하거나, Azure 내에서 VHD를 복사하는 등의 기능을 수행하려면 타사 도구나 PowerShell 또는 CLI를 통한 관리가 필요합니다.
 
@@ -1332,7 +1332,7 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 > ![Windows][Logo_Windows] Windows
 >
 > 기본적으로 Azure 배포 VM 내의 Windows 방화벽은 켜져 있습니다. 이제 SAP 포트가 열리도록 허용해야 하며 그러지 않으면 SAP GUI에 연결할 수 없게 됩니다.
-> 다음을 수행합니다.
+> 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 >
 > * 제어판\시스템 및 보안\Windows 방화벽의 **고급 설정**을 엽니다.
 > * 인바운드 규칙을 마우스 오른쪽 단추로 클릭하고 **새 규칙**을 선택합니다.
@@ -1574,7 +1574,7 @@ az vm unmanaged-disk attach --resource-group $rgName --vm-name SAPERPDemo --size
 az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 --disk datadisk --new
 ```
 
-##### <a name="template"></a>Template
+##### <a name="template"></a>템플릿
 
 샘플 템플릿은 GitHub에서 azure 빠른 시작-템플릿 리포지토리에서 사용할 수 있습니다.
 
@@ -1629,7 +1629,7 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 주석 |
+| 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 설명 |
 | --- | --- | --- | --- | --- |
 | 디스패처 |sapdp`<nn>` 참조: * |3201 |3200 - 3299 |SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
 | 메시지 서버 |sapms`<sid`> 참조: ** |3600 |제한 없는 sapms`<anySID`> |sid = SAP-System-ID |
@@ -1658,7 +1658,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> 다음을 수행합니다.
+> 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 >
 > * 일부 네트워크 프린터에는 Azure VM에서 프린터를 쉽게 설정할 수 있도록 하는 구성 마법사가 포함되어 있습니다. 마법사 소프트웨어가 프린터와 함께 배포되지 않은 경우 프린터를 설정하는 "수동" 방법은 새 TCP/IP 프린터 포트를 만드는 것입니다.
 > * [제어판] -&gt; [디바이스 및 프린터] -&gt; [프린터 추가] 열기
@@ -1844,7 +1844,7 @@ SAP Enterprise Portal의 URL 및/또는 포트를 사용자 지정하려는 경�
 
 Azure의 SAP 고가용성에 대한 논의는 다음 두 부분으로 구분할 수 있습니다.
 
-* **Azure 인프라 고가용성** - 계산(VM), 네트워크, 저장소 등의 HA와 이러한 HA가 SAP 애플리케이션 가용성 향상에 주는 이점
+* **Azure 인프라 고가용성** - 계산(VM), 네트워크, 스토리지 등 HA와 이러한 HA가 SAP 애플리케이션 가용성 향상에 주는 이점.
 * **SAP 애플리케이션 고가용성** - 다음과 같은 SAP 소프트웨어 구성 요소의 HA
   * SAP 애플리케이션 서버
   * SAP ASCS/SCS 인스턴스

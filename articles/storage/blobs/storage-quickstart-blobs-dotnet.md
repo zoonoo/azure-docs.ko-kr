@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435763"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625672"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리
 
@@ -179,7 +179,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): **CloudStorageAccount** 클래스는 Azure Storage 계정을 나타냅니다. 이 클래스를 사용하여 계정 액세스 키를 통한 Blob Storage 액세스 권한을 부여합니다.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): **CloudBlobClient** 클래스는 코드에서 Blob service에 대한 액세스 지점을 제공합니다.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): **CloudBlobContainer** 클래스는 코드에서 Blob 컨테이너를 나타냅니다.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): **CloudBlockBlob** 개체는 코드에서 블록 Blob을 나타냅니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): **CloudBlockBlob** 개체는 코드에서 블록 Blob을 나타냅니다. 블록 Blob은 개별적으로 관리할 수 있는 데이터 블록으로 구성됩니다.
 
 ## <a name="code-examples"></a>코드 예제
 

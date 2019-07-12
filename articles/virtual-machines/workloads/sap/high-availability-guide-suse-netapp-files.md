@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357723"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797964"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -80,11 +80,11 @@ ms.locfileid: "66357723"
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
-* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
+* [Linux에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 가이드 Netweaver HA를 설정 하는 데 필요한 모든 정보를 포함 하 고 온-프레미스 SAP HANA 시스템 복제 합니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
+* [고가용성 확장 SUSE 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 * [NetApp Azure Files를 사용 하 여 Microsoft Azure의 NetApp SAP 응용 프로그램][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
@@ -426,7 +426,6 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -549,7 +548,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 6. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 읽기 [SAP Note 1410736][1410736] 자세한 내용은 합니다.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -788,7 +787,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요. 지원되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 참조 하세요. [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]합니다.
 
 * SAP 데이터베이스 인스턴스 설치 실행
 
@@ -967,6 +966,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    테스트 후 리소스 상태:
@@ -1296,9 +1298,9 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
+* [SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * 고가용성 및 재해 복구의 SAP에 대 한 계획을 설정 하는 방법을 알아보려면 
 * HANA on Azure (큰 인스턴스)를 참조 하세요 [SAP HANA (큰 인스턴스) 고가용성 및 재해 복구 Azure에서](hana-overview-high-availability-disaster-recovery.md)합니다.
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* 고가용성 및 Azure Vm에서 SAP HANA의 재해 복구에 대 한 계획을 설정 하는 방법에 알아보려면 참조 [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]

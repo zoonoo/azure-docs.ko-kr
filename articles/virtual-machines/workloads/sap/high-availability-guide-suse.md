@@ -4,7 +4,7 @@ description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWe
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142965"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797500"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142965"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 이 문서에서는 가상 머신을 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
-그리고 예제 구성, 설치 명령 등을 소개합니다. 00 ASCS 인스턴스 번호, 02 ERS 인스턴스 번호 및 NW1 SAP 시스템 ID를 사용합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 NW1인 [수렴형 템플릿][template-converged]을 사용하여 리소스를 만들었다고 가정합니다.
+그리고 예제 구성, 설치 명령 등을 소개합니다. 00 ASCS 인스턴스 번호, 02 ERS 인스턴스 번호 및 NW1 SAP 시스템 ID를 사용합니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크) 이름을 사용 하는 것으로 가정 합니다 [수렴 형 템플릿][template-converged] SAP 시스템 ID가 nw1 인 리소스를 만듭니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -73,11 +73,11 @@ ms.locfileid: "65142965"
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
-* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
+* [Linux에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 가이드 Netweaver HA를 설정 하는 데 필요한 모든 정보를 포함 하 고 온-프레미스 SAP HANA 시스템 복제 합니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
+* [고가용성 확장 SUSE 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>개요
 
@@ -125,7 +125,7 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>고가용성 NFS 서버 설정
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다. SAP NetWeaver용 NFS 서버를 설정하는 방법은 [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][nfs-ha]을 참조하세요.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다. 읽기 [SUSE Linux Enterprise Server의 Azure Vm에 있는 NFS의 고가용성][nfs-ha] SAP NetWeaver 용 NFS 서버를 설정 하는 방법에 있습니다.
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 
@@ -137,8 +137,8 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
-1. 엽니다는 [ASCS/SCS 다중 SID 템플릿을] [ template-multisid-xscs] 또는 [수렴 형 템플릿] [ template-converged] Azure portal에서 합니다. 
-   ASCS/SCS 템플릿은 부하 분산 규칙만 만드는 SAP NetWeaver ASCS/SCS 및 ERS (Linux 전용) 인스턴스의 반면 수렴 형된 템플릿은 데이터베이스 (예: Microsoft SQL Server 또는 SAP HANA)에 대 한 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
+1. 엽니다는 [ASCS/SCS 다중 SID 템플릿을][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged]합니다.
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사(ASCS/SCS 다중 SID 템플릿에만 해당)  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -512,7 +512,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 읽기 [SAP Note 1410736][1410736] 자세한 내용은 합니다.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -710,7 +710,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치하는 방법에 대한 자세한 내용은 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요. 지원되는 데이터베이스 목록은 [SAP Note 1928533][1928533]을 참조하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에서 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 참조 하세요. [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]합니다.
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -887,6 +887,9 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    테스트 후 리소스 상태:
@@ -1196,8 +1199,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
+* [SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* 고가용성 및 Azure Vm에서 SAP HANA의 재해 복구에 대 한 계획을 설정 하는 방법에 알아보려면 참조 [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]
