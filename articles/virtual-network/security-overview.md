@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436620"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709532"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -30,15 +30,15 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 네트워크 보안 그룹은 Azure 구독 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 내에서 필요한 만큼 0개 또는 많은 규칙을 포함합니다. 각 규칙은 다음 속성을 지정합니다.
 
-|자산  |설명  |
+|속성  |설명  |
 |---------|---------|
 |이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
-|우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
+|Priority | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](#service-tags) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 개인 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 개인 IP 주소로 변환한 후에, 그리고 Azure가 개인 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 애플리케이션 그룹을 지정할 수 없음)은 [보강된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
-|Protocol     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
+|프로토콜     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
 |Direction| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
-|액션(Action)     | 허용 또는 거부        |
+|Action     | 허용 또는 거부        |
 
 네트워크 보안 그룹 보안 규칙은 5 튜플 정보(원본, 원본 포트, 대상, 대상 포트 및 프로토콜)를 사용하는 우선 순위를 통해 평가되어 트래픽을 허용하거나 거부합니다. 기존 연결에 대한 흐름 레코드가 만들어집니다. 통신은 흐름 레코드의 연결 상태에 따라 허용 또는 거부됩니다. 흐름 레코드는 네트워크 보안 그룹의 상태 저장을 허용합니다. 예를 들어 포트 80을 통해 모든 주소에 대한 아웃바운드 보안 규칙을 지정하는 경우 아웃바운드 트래픽에 대한 응답에 인바운드 보안 규칙을 지정하지 않아도 됩니다. 통신이 외부에서 시작된 경우 인바운드 보안 규칙을 지정하기만 하면 됩니다. 반대의 경우도 마찬가지입니다. 포트를 통해 인바운드 트래픽이 허용되는 경우 포트를 통해 트래픽에 응답하도록 아웃바운드 보안 규칙을 지정하지 않아도 됩니다.
 흐름을 사용하는 보안 규칙을 제거해도 기존 연결이 중단되지 않을 수 있습니다. 연결이 중단되고 몇 분 이상 어느 방향으로도 트래픽이 흐르지 않으면 트래픽 흐름이 중단됩니다.
@@ -82,6 +82,11 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **AzureBackup*** (Resource Manager만 해당): 이 태그는 AzureBackup 서비스의 주소 접두사를 나타냅니다. 지정 하는 경우 *AzureBackup* 트래픽을 값에 대해 허용 되거나 AzureBackup를 거부 합니다. 이 태그에 종속 된 **저장소** 하 고 **AzureActiveDirectory** 태그입니다. 아웃 바운드 보안 규칙에 대 한이 태그를 사용 하는 것이 좋습니다. 
 * **AzureActiveDirectoryDomainServices*** (Resource Manager만 해당): 이 태그는 Azure Active Directory Domain Services 전용된 배포에 대 한 관리 트래픽의 주소 접두사를 나타냅니다. 지정 하는 경우 *AzureActiveDirectoryDomainServices* 트래픽을 값에 대해 허용 되거나 AzureActiveDirectoryDomainServices를 거부 합니다. 인바운드/아웃 바운드 보안 규칙에 대 한이 태그를 사용 하는 것이 좋습니다.  
 * **SqlManagement*** (Resource Manager만 해당): 이 태그는 SQL에 대 한 관리 트래픽의 주소 접두사는 전용 배포를 나타냅니다. 지정 하는 경우 *SqlManagement* 트래픽을 값에 대해 허용 되거나 SqlManagement를 거부 합니다. 인바운드/아웃 바운드 보안 규칙에 대 한이 태그를 사용 하는 것이 좋습니다. 
+* **CognitiveServicesManagement** (Resource Manager만 해당): 이 태그는 Cognitive Services에 대 한 트래픽의 주소 접두사를 나타냅니다. 지정 하는 경우 *CognitiveServicesManagement* 트래픽을 값에 대해 허용 되거나 CognitiveServicesManagement를 거부 합니다. 아웃 바운드 보안 규칙에 대 한이 태그를 사용 하는 것이 좋습니다.  
+* **Dynamics365ForMarketingEmail** (Resource Manager만 해당): 이 태그는 Dynamics 365 마케팅 전자 메일 서비스의 주소 접두사를 나타냅니다. 지정 하는 경우 *Dynamics365ForMarketingEmail* 트래픽을 값에 대해 허용 되거나 Dynamics365ForMarketingEmail를 거부 합니다. 특정에서 Dynamics365ForMarketingEmail에 대 한 액세스를 허용 하려는 경우 [지역](https://azure.microsoft.com/regions), 형식은 Dynamics365ForMarketingEmail 지역을 지정할 수 있습니다. [ 지역 이름]입니다.
+* **AzurePlatformDNS** (Resource Manager만 해당): 이 태그는 기본 인프라 서비스는 DNS를 나타냅니다. 지정 하는 경우 *AzurePlatformDNS* 값으로 기본값을 비활성화할 수 있습니다 [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) DNS에 대 한 합니다. 이 태그를 사용 하 여 주의 수행 하세요. 이 태그를 사용 하기 전에 테스트 하는 것이 좋습니다. 
+* **AzurePlatformIMDS** (Resource Manager만 해당): 이 태그는 기본 인프라 서비스는 IMDS를 나타냅니다. 지정 하는 경우 *AzurePlatformIMDS* 값으로 기본값을 비활성화할 수 있습니다 [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) IMDS에 대 한 합니다. 이 태그를 사용 하 여 주의 수행 하세요. 이 태그를 사용 하기 전에 테스트 하는 것이 좋습니다. 
+* **AzurePlatformLKM** (Resource Manager만 해당): 이 태그는 Windows 라이선스 또는 키 관리 서비스를 나타냅니다. 지정 하는 경우 *AzurePlatformLKM* 값으로 기본값을 비활성화할 수 있습니다 [Azure 플랫폼 고려 사항](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 라이선스에 대 한 합니다. 이 태그를 사용 하 여 주의 수행 하세요. 이 태그를 사용 하기 전에 테스트 하는 것이 좋습니다. 
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 
@@ -105,19 +110,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
+|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|허용|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
+|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|허용|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
+|Priority|Source|원본 포트|Destination|대상 포트|프로토콜|액세스|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|모두|거부|
 
@@ -125,19 +130,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | 허용 |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | 허용 |
+| 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 모두 | 거부 |
 
@@ -157,15 +162,15 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 [DenyAllInbound](#denyallinbound) 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
-| 100 | 인터넷 | * | AsgWeb | 80 | TCP | 허용 |
+| 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
 [AllowVNetInBound](#allowvnetinbound) 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 모두 | 거부 |
 
@@ -173,9 +178,9 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
+|Priority|Source|원본 포트| Destination | 대상 포트 | 프로토콜 | 액세스 |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | 허용 |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 원본 또는 대상으로 애플리케이션 보안 그룹을 지정하는 규칙은 애플리케이션 보안 그룹의 멤버인 네트워크 인터페이스에만 적용됩니다. 네트워크 인터페이스가 애플리케이션 보안 그룹의 멤버가 아닌 경우에는 네트워크 보안 그룹이 서브넷과 연결되어도 규칙이 네트워크 인터페이스에 적용되지 않습니다.
 

@@ -4,15 +4,15 @@ description: Windows 가상 데스크톱 미리 보기 세션 호스트에 대 �
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755138"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620425"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
@@ -20,7 +20,7 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
 
 이 문서에서는 간단한 크기 조정 스크립트를 사용 하 여 Windows 가상 데스크톱 환경에서 가상 컴퓨터를 호스트 하는 세션을 자동으로 조정. 크기 조정 스크립트의 작동 원리에 대 한 자세한 내용은 참조는 [크기 조정 스크립트의 작동 방법을](#how-the-scaling-script-works) 섹션입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 스크립트를 실행 하는 환경에는 다음 작업을 있어야 합니다.
 
@@ -75,13 +75,13 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
     예를 들어 **Set-variable-KeyPath 이름-범위 전역-값 "c:\\확장 HostPool1"**
 5. 실행 합니다 **새로 만들기-StoredCredential KeyPath \$KeyPath** cmdlet. 메시지가 표시 되 면 호스트 풀을 쿼리할 수 있는 권한이 있는 Windows 가상 데스크톱 자격 증명을 입력 합니다. (호스트 풀에 지정 된 된 **config.xml**).
     - 표준 계정 또는 다른 서비스 주체를 사용 하는 경우 실행 합니다 **새로 만들기-StoredCredential KeyPath \$KeyPath** 로컬 만들려는 각 계정에 대 한 자격 증명을 저장 한 후 cmdlet.
-6. 실행 **Get StoredCredentials-목록** 자격 증명 생성 되었는지 확인 합니다.
+6. 실행 **Get StoredCredential-목록** 자격 증명 생성 되었는지 확인 합니다.
 
 ### <a name="configure-the-configxml-file"></a>Config.xml 파일 구성
 
 Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다음 필드에 관련 값을 입력 합니다.
 
-| 필드                     | 설명                    |
+| 필드                     | Description                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 세션 호스트 Vm이 실행 되는 구독을 연결 하는 azure AD 테 넌 트 ID     |
 | AADApplicationId              | 서비스 주체 응용 프로그램 ID                                                       |
@@ -90,7 +90,7 @@ Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다
 | tenantName                    | Windows 가상 데스크톱 테 넌 트 이름                                                    |
 | hostPoolName                  | Windows 가상 데스크톱 호스트 풀 이름                                                 |
 | RDBroker                      | WVD 서비스 URL을 기본 값 https:\//rdbroker.wvd.microsoft.com             |
-| 사용자 이름                      | 서비스 주체 응용 프로그램 ID (AADApplicationId 에서처럼에서 동일한 서비스 주체를 가질 수는) 또는 multi-factor authentication 없이 표준 사용자 |
+| Username                      | 서비스 주체 응용 프로그램 ID (AADApplicationId 에서처럼에서 동일한 서비스 주체를 가질 수는) 또는 multi-factor authentication 없이 표준 사용자 |
 | isServicePrincipal            | 허용 되는 값은 **true** 하거나 **false**합니다. 자격 증명을 사용 하 고 두 번째 집합의 서비스 주체 인지 또는 표준 계정을 나타냅니다. |
 | BeginPeakTime                 | 최대 사용량 시간 시작 될 때                                                            |
 | EndPeakTime                   | 최대 사용 시간이 종료 될 때                                                              |

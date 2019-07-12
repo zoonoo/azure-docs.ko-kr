@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8a3c6f5e18d4d6b75e8d0884acd52ef6bb716bd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507658"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835672"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.
 
 ## <a name="user-migration-flows"></a>사용자 마이그레이션 흐름
-Azure AD B2C를 사용하면 [Azure AD Graph API][B2C-GraphQuickStart]를 통해 사용자를 마이그레이션할 수 있습니다. 사용자 마이그레이션 프로세스는 두 개의 흐름으로 나누어 집니다.
+Azure AD b2c를 통해 사용자를 마이그레이션할 수 있습니다 [Azure AD Graph API][B2C-GraphQuickStart]합니다. 사용자 마이그레이션 프로세스는 두 개의 흐름으로 나누어 집니다.
 
 - **사전 마이그레이션**: 이 흐름은 사용자의 자격 증명(사용자 이름 및 암호)에 대한 명확한 액세스 권한이 있거나 자격 증명이 암호화되어 있지만 암호를 해독할 수 있는 경우에 적용됩니다. 사전 마이그레이션 프로세스에는 이전 ID 공급자의 사용자를 읽고 Azure AD B2C 디렉터리에 새 계정을 만드는 작업이 포함됩니다.
 
-- **사전 마이그레이션 및 암호 재설정**: 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예를 들면 다음과 같습니다.
+- **사전 마이그레이션 및 암호 재설정**: 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예를 들어:
    - 암호는 해시 형식으로 저장됩니다.
    - 암호는 액세스할 수 없는 ID 공급자에 저장됩니다. 이전 ID 공급자는 웹 서비스를 호출하여 사용자 자격 증명의 유효성을 검사합니다.
 
@@ -49,45 +49,45 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 먼저 Azure AD에서 마이그레이션 애플리케이션을 등록합니다. 그런 다음, 애플리케이션 키(애플리케이션 비밀)를 만들고 쓰기 권한으로 애플리케이션을 설정합니다.
 
 1. [Azure Portal][Portal]에 로그인합니다.
-   
+
 1. 창의 오른쪽 위에서 계정을 선택하여 Azure AD **B2C** 테넌트를 선택합니다.
-   
+
 1. 왼쪽 창에서 **Azure Active Directory**(Azure AD B2C 아님)를 선택합니다. 찾으려면 **추가 서비스**를 선택해야 합니다.
-   
+
 1. **앱 등록**을 선택합니다.
-   
+
 1. **새 애플리케이션 등록**을 선택합니다.
-   
-   ![새 애플리케이션 등록](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
-   
+
+   ![Azure Active Directory 및 앱 등록 메뉴 항목이 강조 표시](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+
 1. 다음을 수행하여 새 애플리케이션을 만듭니다.
    - **이름**에서 **B2CUserMigratioin** 또는 원하는 다른 이름을 사용합니다.
    - **애플리케이션 종류**에는 **웹앱/API**를 사용합니다.
    - 에 대 한 **로그온 URL**를 사용 하 여 `https://localhost` (아니므로이 응용 프로그램에 관련)입니다.
    - **만들기**를 선택합니다.
-   
+
 1. 애플리케이션을 만든 후 **애플리케이션** 목록에서 새로 만든 **B2CUserMigration** 애플리케이션을 선택합니다.
-   
+
 1. **속성**을 선택하고 **애플리케이션 ID**를 복사하여 나중에 사용할 수 있도록 저장해 둡니다.
 
 ### <a name="step-12-create-the-application-secret"></a>1\.2단계: 애플리케이션 비밀 만들기
 1. Azure Portal **등록된 앱** 창에서 **키**를 선택합니다.
-   
+
 1. 새 키(클라이언트 비밀이라고도 함)를 추가한 다음 나중에 사용하기 위해 키를 복사합니다.
-   
-   ![애플리케이션 ID 및 키](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-   
+
+   ![응용 프로그램 ID 값 및 Azure portal에서 항목 강조 표시 하는 키 메뉴](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+
 ### <a name="step-13-grant-administrative-permission-to-your-application"></a>1\.3단계: 애플리케이션에 관리 권한 부여
 1. Azure Portal **등록된 앱** 창에서 **필요한 권한**을 선택합니다.
 
 1. **Windows Azure Active Directory**를 선택합니다.
-   
+
 1. **액세스 사용** 창의 **애플리케이션 권한** 아래에서 **디렉터리 데이터 읽기 및 쓰기**를 선택한 다음, **저장**을 선택합니다.
-   
+
 1. **필요한 권한** 창에서 **권한 부여**를 선택합니다.
-   
-   ![애플리케이션 사용 권한](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-   
+
+   ![읽기/쓰기 디렉터리 확인란, 저장 및 Grant 권한을 강조 표시](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+
 이제 Azure AD B2C 테넌트에서 사용자를 만들고, 읽고, 업데이트할 수 있는 권한이 있는 애플리케이션이 있습니다.
 
 ### <a name="step-14-optional-environment-cleanup"></a>1\.4단계: (선택 사항) 환경 정리
@@ -101,9 +101,9 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 
 PowerShell 스크립트에서 다음을 수행합니다.
 1. 온라인 서비스에 연결 이렇게 하려면 Windows PowerShell 명령 프롬프트에서 `Connect-AzureAD` cmdlet을 실행하고 자격 증명을 제공합니다.
-   
+
 1. **애플리케이션 ID**를 사용하여 애플리케이션에 사용자 계정 관리자 역할을 할당할 수 있습니다. 이러한 역할은 잘 알려진 식별자로서 스크립트에 **애플리케이션 ID**를 입력하기만 하면 됩니다.
-   
+
 ```powershell
 Connect-AzureAD
 
@@ -142,10 +142,10 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루션을 엽니다. `AADB2C.UserMigration` 프로젝트에서 `UsersData.json` 파일을 엽니다.
 
-![사용자 데이터 파일](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
+![두 사용자의 JSON 블록을 표시 하는 UsersData.json 파일의 부분](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 보이는 것 처럼 이 파일에는 사용자 엔터티 목록이 포함됩니다. 각 사용자 엔터티에는 다음과 같은 속성이 있습니다.
-- 이메일
+- email
 - displayName
 - firstname
 - Lastname
@@ -178,32 +178,32 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
 
 - **임의 암호로 사용자를 마이그레이션**하려면 `UserMigration.exe 2` 명령을 사용합니다. 또한 이 작업에서는 Azure 테이블 엔터티를 만듭니다. 나중에 서비스 REST API 서비스를 호출하도록 정책을 구성합니다. 서비스는 Azure 테이블을 사용하여 마이그레이션 프로세스를 추적하고 관리합니다.
 
-![마이그레이션 프로세스 데모](media/active-directory-b2c-user-migration/pre-migration-demo.png)
+![UserMigration.exe 명령의 출력을 표시 하는 명령 프롬프트 창](media/active-directory-b2c-user-migration/pre-migration-demo.png)
 
 ### <a name="step-24-check-the-pre-migration-process"></a>2\.4단계: 사전 마이그레이션 프로세스 확인
 마이그레이션의 유효성을 검사하려면 다음 두 가지 방법 중 하나를 사용합니다.
 
 - 사용자를 표시 이름으로 검색하려면 Azure Portal을 사용합니다.
-   
+
    1. **Azure AD B2C**를 열고 **사용자 및 그룹**을 선택합니다.
-   
+
    1. 검색 상자에 사용자의 표시 이름을 입력한 다음 사용자 프로필을 확인합니다.
-   
+
 - 로그인 이메일 주소로 사용자를 검색하려면 이 애플리케이션 예제를 사용합니다.
-   
-   1. 다음 명령 실행:
-   
+
+   1. 다음 명령을 실행합니다.
+
       ```Console
           UserMigration.exe 3 {email address}
       ```
-      
+
       > [!TIP]
       > 다음 명령을 사용하여 표시 이름으로 사용자를 검색할 수도 있습니다. `UserMigration.exe 4 "<Display name>"`
-      
+
    1. JSON 편집기에서 UserProfile.json 파일을 열어 사용자의 정보를 봅니다.
-   
-      ![UserProfile.json 파일](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
-      
+
+      ![Visual Studio Code 편집기에서 UserProfile.json 파일 열기](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
+
 ### <a name="step-25-optional-environment-cleanup"></a>2\.5단계: (선택 사항) 환경 정리
 Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제거하려면 `UserMigration.exe 5` 명령을 실행합니다.
 
@@ -224,21 +224,21 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 1. 애플리케이션을 선택합니다.
 
     > [!NOTE]
-    > 지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작][B2C-GetStarted] 문서 또는 [애플리케이션 등록][B2C-AppRegister] 문서를 참조하세요.
+    > 지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록 하는 방법에 알아보려면 참조 Azure AD B2C [시작][B2C-GetStarted] article or the [Application registration][B2C-AppRegister] 문서.
 
 1. **지금 실행**을 선택한 다음 정책을 확인합니다.
 
 1. **지금 실행 엔드포인트** 상자에서 URL을 복사한 다음 사용자에게 보냅니다.
 
-    ![진단 로그 설정](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
+    ![강조 표시 하는 실행 이제 끝점을 사용 하 여 암호 재설정 정책 페이지](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
 ## <a name="step-4-optional-change-your-policy-to-check-and-set-the-user-migration-status"></a>4단계: (선택 사항) 정책을 변경하여 사용자 마이그레이션 상태 확인 및 설정
 
 > [!NOTE]
-> 사용자 마이그레이션 상태를 확인하고 변경하려면 사용자 지정 정책을 사용해야 합니다. [사용자 지정 정책 시작][B2C-GetStartedCustom]에서 설정 지침을 완료해야 합니다.
+> 사용자 마이그레이션 상태를 확인하고 변경하려면 사용자 지정 정책을 사용해야 합니다. 설치 지침 [사용자 지정 정책 시작][B2C-GetStartedCustom] 완료 해야 합니다.
 >
 
-사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예를 들면 다음과 같습니다.
+사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예를 들어:
 >*암호가 만료되었습니다. 다시 설정하려면 암호 다시 설정 링크를 선택하세요.*
 
 이 선택적 단계에서는 [사용자 지정 정책 시작][B2C-GetStartedCustom] 문서에 설명된 대로 Azure AD B2C 사용자 지정 정책을 사용해야 합니다.
@@ -272,7 +272,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4\.3단계: 정책에 기술 프로필 및 기술 프로필 유효성 검사 추가
 1. 솔루션 탐색기에서 "솔루션 항목"을 확장하고, *TrustFrameworkExtensions.xml* 정책 파일을 엽니다.
 1. `yourtenant.onmicrosoft.com`에서 `TenantId`, `PublicPolicyUri` 및 `<TenantId>` 필드를 테넌트의 이름으로 변경합니다.
-1. `<TechnicalProfile Id="login-NonInteractive">` 요소에서 `ProxyIdentityExperienceFrameworkAppId` 및 `IdentityExperienceFrameworkAppId`의 모든 인스턴스를 [사용자 지정 정책 시작][B2C-GetStartedCustom]에서 구성된 애플리케이션 ID로 바꿉니다.
+1. 아래는 `<TechnicalProfile Id="login-NonInteractive">` 요소를 바꾸려면 `ProxyIdentityExperienceFrameworkAppId` 및 `IdentityExperienceFrameworkAppId` 에 구성 된 응용 프로그램 Id를 사용 하 여 [사용자 지정 정책 시작][B2C-GetStartedCustom]합니다.
 1. `<ClaimsProviders>` 노드에서 다음 XML 코드 조각을 찾습니다. `ServiceUrl` 값을 변경하여 Azure App Service URL을 가리킵니다.
 
     ```XML
@@ -316,7 +316,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책에 해당 기술 프로필을 호출하도록 지시합니다. XML 코드 조각은 `SelfAsserted-LocalAccountSignin-Email`을 재정의합니다. 해당 항목은 기본 정책에서 정의됩니다. XML 코드 조각은 `LocalAccountUserMigration` 기술 프로필을 가리키는 ReferenceId를 사용하여 `ValidationTechnicalProfile`을 추가합니다.
 
 ### <a name="step-44-upload-the-policy-to-your-tenant"></a>4\.4단계: 테넌트에 정책 업로드
-1. [Azure Portal][Portal]에서 [Azure AD B2C 테넌트의 컨텍스트][B2C-NavContext]로 전환한 다음, **Azure AD B2C**를 선택합니다.
+1. 에 [Azure portal][Portal], switch to the [context of your Azure AD B2C tenant][B2C-NavContext]를 선택한 후 **Azure AD B2C**합니다.
 
 1. **ID 경험 프레임워크**를 선택합니다.
 
@@ -335,7 +335,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 
 1. 마이그레이션된 사용자 중 하나로 로그인을 시도한 다음 **로그인**을 선택합니다. REST API는 다음과 같은 오류 메시지를 throw합니다.
 
-    ![진단 로그 설정](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
+    ![로그인 등록 페이지 변경 암호 오류 메시지를 표시 합니다.](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
 ### <a name="step-46-optional-troubleshoot-your-rest-api"></a>4\.6단계: (선택 사항) REST API 문제 해결
 거의 실시간으로 로깅 정보를 볼 수 있고 모니터링할 수 있습니다.
@@ -348,7 +348,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 
 1. **저장**을 선택합니다.
 
-    ![진단 로그 설정](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
+    ![Azure portal에서 진단 로그 구성 페이지](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
 
 1. **설정** 메뉴에서 **로그 스트림**을 선택합니다.
 
@@ -359,7 +359,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 >
 
 ## <a name="optional-download-the-complete-policy-files"></a>(선택 사항) 전체 정책 파일 다운로드
-[사용자 지정 정책 시작][B2C-GetStartedCustom] 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일][UserMigrationSample]이 제공됩니다.
+완료 한 후 합니다 [사용자 지정 정책을 사용 하 여 시작][B2C-GetStartedCustom] walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files][UserMigrationSample]합니다.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2

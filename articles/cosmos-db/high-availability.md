@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508564"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839791"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -42,7 +42,7 @@ Cosmos 계정의 분산 되는 경우 *N* Azure 지역에 있을 것 이상 *N* 
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>지역 가동 중단 발생 시 Cosmos DB를 사용 하 여 높은 가용성
 
-지역 가동 중단 흔한 및 Azure Cosmos DB 데이터베이스는 항상 항상 사용할 수 있도록 합니다. 다음 세부 정보를 Cosmos 계정 구성에 따라 가동 중단이 발생 하는 동안 Cosmos DB 동작을 캡처합니다.
+지역 중단은 드물게 나타나며, Azure Cosmos DB는 사용자의 데이터베이스를 항상 사용할 수 있도록 합니다. 다음 세부 정보를 Cosmos 계정 구성에 따라 가동 중단이 발생 하는 동안 Cosmos DB 동작을 캡처합니다.
 
 - Cosmos DB를 사용하면 쓰기 작업이 클라이언트에서 승인되기 전에 쓰기 작업을 허용하는 지역 내에서 복제본의 쿼럼에 의해 데이터가 지속적으로 커밋됩니다.
 
@@ -93,7 +93,8 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성할 때 없이 영�
 |처리량    |  처리량을 프로 비전 된 RU/s X      |  처리량을 프로 비전 된 RU/s X       |  RU/s 프로 비전 된 처리량 2x <br/><br/> 이 구성 모드에서는 두 지역에 있기 때문에 가용성 영역을 사용 하 여 단일 지역을 비교할 때 처리량의 두 배입니다.   |
 
 > [!NOTE] 
-> 가용성 영역 지원을 사용 하려면 Azure Cosmos DB 계정에 다중-마스터/다중 지역 쓰기 사용할 수 있어야 합니다. 
+> 다중 하위 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하려면 계정을 사용 하도록 설정 하는 다중 마스터 쓰기 있어야 합니다.
+
 
 새 또는 기존 Azure Cosmos 계정에 지역을 추가 하는 경우 영역 중복을 설정할 수 있습니다. Azure를 사용 하 여 영역 중복만 설정할 수 있습니다. 현재는 포털, PowerShell 및 Azure Resource Manager 템플릿. Azure Cosmos 계정의 영역 중복을 사용 하도록 설정 하려면 설정 해야 합니다 `isZoneRedundant` 플래그를 `true` 특정 위치에 대 한 합니다. 위치 속성 내에서이 플래그를 설정할 수 있습니다. 예를 들어, 다음 powershell 코드 조각은 "동남 아시아" 지역에 대 한 영역 중복을 수 있습니다.
 

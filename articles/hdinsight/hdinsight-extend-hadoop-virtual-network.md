@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: fc46b971ee3abb4c7e52f0cfa07a7098e2f86c19
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: HT
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797724"
+ms.locfileid: "67839180"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -25,7 +25,9 @@ ms.locfileid: "67797724"
 * 인터넷을 통해 공개적으로 사용할 수 없는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 직접 액세스합니다. 예: [Apache Kafka](https://kafka.apache.org/) API 또는 [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!IMPORTANT]  
-> 2019 년 2 월 28 일 후 VNET에서 만든 새 클러스터에 대 한 네트워킹 리소스 (예: Nic, 무게, 등) 동일한 HDInsight 클러스터 리소스 그룹에 프로 비전 됩니다. 이전에 이러한 리소스는 VNET 리소스 그룹에 프로 비전 된 합니다. 현재 실행 중인 클러스터 및 해당 클러스터에 VNET을 선택 하지 않고 만든 변하지가 않습니다.
+> VNET에서 HDInsight 클러스터를 만드는 Nic와 같은 몇 가지 네트워킹 리소스를 만들고 부하 분산 장치. 수행할 **되지** VNET 올바르게 작동 하려면 클러스터에 대해 필요에 따라 이러한 네트워킹 리소스를 삭제 합니다.
+>
+> 2019 년 2 월 28 일 후 VNET에서 만든 새 클러스터에 대 한 네트워킹 리소스 (예: Nic, 무게, 등) 이러한 동일한 HDInsight 클러스터 리소스 그룹에 프로 비전 됩니다. 이전에 이러한 리소스는 VNET 리소스 그룹에 프로 비전 된 합니다. 현재 실행 중인 클러스터 및 해당 클러스터에 VNET을 선택 하지 않고 만든 변하지가 않습니다.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>코드 샘플 및 예제에 대 한 필수 구성 요소
 

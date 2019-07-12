@@ -3,17 +3,17 @@ title: FAQ-CloudSimple VMware 솔루션
 description: VMware 솔루션 CloudSimple Azure에 대 한 질문과 대답
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 05/24/19
+ms.date: 05/24/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165809"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595353"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>CloudSimple 하 여 VMware 솔루션에 대 한 질문과 대답
 
@@ -24,7 +24,7 @@ ms.locfileid: "67165809"
 * 네트워킹
 * 보안
 * 컴퓨팅
-* Storage
+* 저장 공간
 * VMware
 * Azure 통합
  
@@ -124,7 +124,7 @@ CloudSimple는 두 호스트 형식을 제공합니다.
 
 모든 CloudSimple 인프라 CloudSimple 플랫폼 및 해당 서비스 운영 팀에서 지속적으로 모니터링 됩니다. 하드웨어 오류가 감지 되 면 새 노드를 사설 클라우드에 추가 됩니다. 실패 한 노드는 사설 클라우드에서의 높은 가용성을 보장 하려면 제거 됩니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>저장 공간
 
 **어떤 유형의 저장소는 사설 클라우드에서 지원 되나요?**
 
@@ -160,7 +160,7 @@ CloudSimple는 업그레이드 또는 사설 클라우드에 설치 된 응용 �
 
 **어떤 Azure 서비스가 지원 됩니까?**
 
-CloudSimple는 Azure에서 구독에 Azure ExpressRoute 연결을 제공합니다. 구독에서 실행 되는 모든 서비스는 사설 클라우드를 네트워크에 연결 되어 및 사설 클라우드를 연결할 수 있습니다. 예제:
+CloudSimple는 Azure에서 구독에 Azure ExpressRoute 연결을 제공합니다. 구독에서 실행 되는 모든 서비스는 사설 클라우드를 네트워크에 연결 되어 및 사설 클라우드를 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - **Azure Active Directory**: Identity 소스로 CloudSimple vCenter에 대 한 Azure Active Directory를 사용 합니다.
 - **Azure Storage**: 백업, 이미지 및 사설 클라우드에서의 다른 데이터를 저장할 저장소를 사용 합니다.

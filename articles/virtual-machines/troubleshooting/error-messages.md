@@ -4,7 +4,7 @@ description: Azure에서 가상 머신을 프로비전하고 관리할 때 발�
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711206"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695318"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리할 때 발생하는 일반적인 오류 메시지를 이해
 
@@ -118,7 +118,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  InvalidParameter  |  {0}'은(는) 캡처된 유효한 VHD Blob 이름 접두사가 아닙니다. 유효한 접두사는 regex '{1}'와(과) 일치합니다.  |
 |  InvalidParameter  |  VM 에이전트가 프로비전되어 있지 않으면 VM에 인증서를 추가할 수 없습니다.  |
 |  InvalidParameter  |  LUN {0}에 디스크가 이미 있습니다.  |
-|  InvalidParameter  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM을 만들 수 없습니다. 사용 가능한 크기는 {1}입니다. https://aka.ms/azure-resizevm 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
+|  InvalidParameter  |  현재 가용성 집합이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM을 만들 수 없습니다. 사용 가능한 크기는 {1}입니다. [https://aka.ms/azure-resizevm](https://aka.ms/azure-resizevm ) 에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
 |  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. 현재 지역에서 사용할 수 있는 크기는 {1}입니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
 |  InvalidParameter  |  요청한 VM 크기 {0}을(를) 현재 지역에서 사용할 수 없습니다. https://aka.ms/azure-regions 에서 각 지역에서 사용 가능한 VM 크기에 대해 자세히 알아봅니다.  |
 |  InvalidParameter  |  Windows 관리자 사용자 이름은 길이가 {0}자 이하이거나 마침표(.)로 끝나거나 문자 {1}을(를) 포함할 수 없습니다.  |

@@ -1,17 +1,17 @@
 ---
 author: zhangmanling
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182549"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594137"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 상호 작용하도록 몇 가지 준비 작업을 수행해야 합니다. 이러한 준비를 위해 다음이 필요합니다.
 
 * 이 자습서에서 만든 CDN 프로필을 담기 위한 리소스 그룹 만들기

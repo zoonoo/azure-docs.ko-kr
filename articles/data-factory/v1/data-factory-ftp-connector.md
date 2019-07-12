@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486586"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836332"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -40,12 +40,12 @@ FTP 서버에서 지원되는 모든 싱크 데이터 저장소로 데이터를 
 
 FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트웨이를 설치할 수 있습니다. 그러나 리소스 경합을 방지하고 성능 향상을 꾀하려면 게이트웨이를 별도 컴퓨터 또는 IaaS VM에 설치하는 것이 좋습니다. 별도 컴퓨터에 게이트웨이를 설치하는 경우 컴퓨터가 FTP 서버에 액세스할 수 있어야 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 다른 도구 또는 API를 사용하여 FTP 원본의 데이터를 이동하는 복사 작업이 포함된 파이프라인을 만들 수 있습니다.
 
 파이프라인을 만드는 가장 쉬운 방법은 **데이터 팩터리 복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 빠른 연습을 볼 수 있습니다.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하거나 API를 사용하는 경우에도 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만듭니다.
 
@@ -63,18 +63,18 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 FTP 연결 서비스에만 해당하는 JSON 요소에 대해 설명합니다.
 
-| 자산 | 설명 | 필수 | Default |
+| 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | type |FtpServer로 설정합니다. |예 |&nbsp; |
-| host |FTP 서버의 이름 또는 IP 주소를 지정합니다. |예 |&nbsp; |
+| 호스트 |FTP 서버의 이름 또는 IP 주소를 지정합니다. |예 |&nbsp; |
 | authenticationType |인증 유형을 지정합니다. |예 |기본, 익명 |
-| username |FTP 서버에 액세스하는 사용자를 지정합니다. |아닙니다. |&nbsp; |
-| password |사용자(사용자 이름)의 암호를 지정합니다. |아닙니다. |&nbsp; |
-| encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명을 지정합니다. |아닙니다. |&nbsp; |
-| gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 게이트웨이 이름을 지정합니다. |아닙니다. |&nbsp; |
-| port |FTP 서버가 수신 대기하는 포트를 지정합니다. |아닙니다. |21 |
-| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다. |아닙니다. |true |
-| enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. |아닙니다. |true |
+| username |FTP 서버에 액세스하는 사용자를 지정합니다. |아니요 |&nbsp; |
+| password |사용자(사용자 이름)의 암호를 지정합니다. |아니요 |&nbsp; |
+| encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명을 지정합니다. |아니요 |&nbsp; |
+| gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 게이트웨이 이름을 지정합니다. |아니요 |&nbsp; |
+| port |FTP 서버가 수신 대기하는 포트를 지정합니다. |아니요 |21 |
+| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다. |아니요 |true |
+| enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. |아니요 |true |
 
 >[!NOTE]
 >FTP 커넥터는 암호화 또는 명시적인 SSL/TLS 암호화를 사용하지 않고 FTP 서버에 액세스하도록 지원하며, 암시적인 SSL/TLS 암호화를 지원하지 않습니다.
@@ -153,15 +153,15 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식마다 다릅니다. 데이터 세트 형식에 대한 정보를 제공합니다. **FileShare** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |폴더의 하위 경로입니다. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작 및 종료 날짜-시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 **fileName**이 지정되지 않은 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아닙니다. |
-| fileFilter |모든 파일이 아닌 **folderPath**의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter**는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS(Hadoop Distributed File System)에서 지원되지 않습니다. |아닙니다. |
-| partitionedBy |동적 **folderPath** 및 시계열 데이터에 대한 **filename**을 지정하는 데 사용합니다. 예를 들어 매 시간 데이터에 대해 매개 변수가 있는 **folderPath**를 지정할 수 있습니다. |아닙니다. |
-| format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의에서 형식 섹션을 건너뜁니다. |아닙니다. |
-| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2**, **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
-| useBinaryTransfer |이진 전송 모드를 사용할지 여부를 지정합니다. 값은 이진 모드(기본값)에서만 true이며 ASCII에서는 false입니다. 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아닙니다. |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 **fileName**이 지정되지 않은 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 **folderPath**의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter**는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS(Hadoop Distributed File System)에서 지원되지 않습니다. |아니요 |
+| partitionedBy |동적 **folderPath** 및 시계열 데이터에 대한 **filename**을 지정하는 데 사용합니다. 예를 들어 매 시간 데이터에 대해 매개 변수가 있는 **folderPath**를 지정할 수 있습니다. |아니요 |
+| format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의에서 형식 섹션을 건너뜁니다. |아니요 |
+| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2**, **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| useBinaryTransfer |이진 전송 모드를 사용할지 여부를 지정합니다. 값은 이진 모드(기본값)에서만 true이며 ASCII에서는 false입니다. 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아니요 |
 
 > [!NOTE]
 > **filename** 및 **fileFilter**는 동시에 사용할 수 없습니다.
@@ -204,14 +204,14 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 
 원본이 **FileSystemSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아닙니다. |
+| recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON 예제: FTP 서버에서 Azure Blob으로 데이터 복사
 이 샘플은 FTP 서버에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여줍니다. 하지만 데이터 팩터리의 복사 작업을 사용하여 [지원되는 데이터 저장소 및 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 지정된 싱크로 데이터를 직접 복사할 수 있습니다.
 
-다음 예에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.
+다음 예제를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * [FtpServer](#linked-service-properties) 형식의 연결된 서비스
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스

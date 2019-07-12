@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c3ee05096b0bfd071ea569105973097ce9727b07
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540383"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604536"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>사용자 지정 정책을 사용하여 Azure Active Directory B2C에서 페이지 계약 선택
 
@@ -79,7 +79,7 @@ ms.locfileid: "67540383"
   - 현재 수행 되는 코드에 대 한 입력된 필드에 최대 6 개의 문자 입력
   - 페이지는 모든 단추를 클릭할 필요가 없이 6 자리 코드를 입력 하면 입력 한 코드를 확인 하려고 자동으로
   - 코드 입력된 필드는 자동으로 선택 취소 한 다음 잘못 된 경우
-  - 잘못 된 코드를 사용 하 여 3 회 시도 후 B2C 서비스에 오류를 전송
+  - 잘못 된 코드를 사용 하 여 3 회 시도 후 B2C 신뢰 당사자에 다시 오류를 전송
   - 내게 필요한 옵션 수정
   - CSS 기본 제거
 - 자체 어설션된 페이지 (selfasserted)

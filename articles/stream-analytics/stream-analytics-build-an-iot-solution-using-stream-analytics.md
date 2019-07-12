@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443670"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620516"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -164,7 +164,7 @@ ms.locfileid: "67443670"
 
    쿼리를 설명하기 위해 요금소 창구에 진입하는 차량 수를 계산해야 한다고 가정해 보겠습니다. 고속도로 요금소 창구에 차량 진입의 연속 스트림이 있기 때문에 진입 이벤트는 중지되지 않는 스트림과 유사합니다. 스트림을 수량화하기 위해 측정할 "시간"을 정의해야 합니다. 질문을 "3분 간격으로 요금소 창구에 진입하는 차량은 몇 대입니까?"로 더 구체화해 보겠습니다. 이를 일반적으로 연속 개수(Tumbling Count)라고 합니다.
 
-   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [시간대](https://msdn.microsoft.com/library/azure/dn835019.aspx)(Windowing) 구성을 참조하세요.
+   아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.  자세한 내용은 쿼리에 사용된 [시간 관리](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) 및 [시간대](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)(Windowing) 구성을 참조하세요.
 
 3. TollApp 샘플 작업의 입력을 검사합니다. 현재 쿼리에 EntryStream 입력만 사용됩니다.
    - **EntryStream** 입력은 자동차가 고속도로의 요금소에 진입할 때마다 나타내는 데이터를 큐에 대기하는 Event Hub 연결입니다. 이 샘플의 일부인 웹앱은 이벤트를 만들고, 해당 데이터는 이 Event Hub에서 큐에 대기합니다. 이 입력은 스트리밍 쿼리의 FROM 절에 쿼리됩니다.

@@ -4,7 +4,7 @@ description: Oracle Golden Gate를 Azure 환경에서 빠르게 시작하고 실
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c8d2a948dd82fb2c04aceb24815e63be13e35919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39d1b8b860fd19261bd39c345d464dd37b48d871
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722595"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707546"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -391,7 +391,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 
    - 키를 생성하려면 **생성** 단추를 선택합니다.
    - 키의 콘텐츠를 복사합니다(**Ctrl + C**).
-   - **개인 키 저장** 단추를 선택합니다.
+   - **프라이빗 키 저장** 단추를 선택합니다.
    - 표시되는 경고를 무시하고 **확인**을 선택합니다.
 
    ![PuTTY 키 생성기 페이지의 스크린샷](./media/oracle-golden-gate/puttykeygen.png)
@@ -410,7 +410,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택합니다. **인증에 대한 개인 키 파일** 상자에서 이전에 생성한 키를 찾아봅니다.
+6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택합니다. **인증에 대한 프라이빗 키 파일** 상자에서 이전에 생성한 키를 찾아봅니다.
 
    ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 

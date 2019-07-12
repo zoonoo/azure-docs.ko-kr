@@ -11,158 +11,152 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
-ms.author: cephalin
+ms.date: 06/18/2019
+ms.author: cephalin;dariagrigoriu
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 13aaccdbc07f7829d6ac9870fbc46f7d78381db8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: HT
+ms.openlocfilehash: 3a207f5513c24f2c33571df929f7490ec7f2eba5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617258"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836764"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
-이 문서에서는 [Azure App Service](overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
 
-Azure Portal에 의해 나열되지 않은 클라우드 리포지토리에서 수동으로 지속적인 배포를 구성하는 방법을 확인하려면(예: [GitLab](https://gitlab.com/)), [수동 단계를 사용하여 지속적인 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조하세요.
+[Azure App Service](overview.md) BitBucket, GitHub에서 연속 배포를 사용 하도록 설정 하 고 [Azure 리포지토리](https://azure.microsoft.com/services/devops/repos/) 최신 업데이트에서 풀링 하 여 리포지토리. 이 문서에서는 지속적으로 Kudu 빌드 서비스를 통해 앱을 배포 하려면 Azure portal을 사용 하는 방법 또는 [Azure 파이프라인](https://azure.microsoft.com/services/devops/pipelines/)합니다. 
+
+원본 제어 서비스에 대 한 자세한 내용은 참조 하세요. [리포지토리 만들기(GitHub)], [리포지토리 만들기(BitBucket)], 또는 [새 Git 리포지토리 (Azure 리포지토리) 만들기]합니다.
+
+포털을 지원 하지 않는 직접,와 같은 클라우드 저장소에서 연속 배포를 수동으로 구성 하려면 [GitLab](https://gitlab.com/)를 참조 하세요 [수동 단계를 사용 하 여 연속 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-지원되는 서비스 중 하나에 준비된 리포지토리를 게시합니다. 이러한 서비스에 프로젝트를 게시하는 것에 대한 자세한 내용은 [리포지토리 만들기(GitHub)], [리포지토리 만들기(BitBucket)] 및 [Azure DevOps Services 시작]을 참조하세요.
+## <a name="authorize-azure-app-service"></a>Azure App Service 인증 
 
-## <a name="deploy-continuously-from-github"></a>GitHub에서 지속적으로 배포
+Azure 리포지토리를 사용 하려면 Azure DevOps 조직에 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps 서비스 계정을 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)합니다.
 
-GitHub를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
+GitHub, Bitbucket에 대 한 Azure App Service 리포지토리에 연결할 권한을 부여 합니다. 소스 제어 서비스를 사용 하 여 한 번 인증 해야 합니다. 
 
-왼쪽 메뉴에서 **배포 센터** > **GitHub** > **인증**을 클릭합니다. 표시되는 인증 메시지를 따릅니다. 
+1. 선택 **App Services** 에 [Azure portal](https://portal.azure.com) 왼쪽 탐색을 하 고 배포 하려면 웹 앱을 선택 합니다. 
+   
+1. 앱 페이지에서 선택 **배포 센터** 왼쪽된 메뉴에서.
+   
+1. 에 **배포 센터** 페이지에서 **GitHub** 또는 **Bitbucket**를 선택한 후 **Authorize**. 
+   
+   ![소스 제어 서비스를 선택한 다음 권한 부여를 선택 합니다.](media/app-service-continuous-deployment/github-choose-source.png)
+   
+1. 필요한 경우 서비스에 로그인 하는 권한 부여 지침을 따릅니다. 
 
-![](media/app-service-continuous-deployment/github-choose-source.png)
+## <a name="enable-continuous-deployment"></a>연속 배포 사용 
 
-한 번 GitHub로 인증해야 합니다. 이미 인증된 경우 **계속**을 클릭합니다. **계정 변경**을 클릭하여 인증된 GitHub 계정을 변경할 수 있습니다.
+소스 제어 서비스를 인증 한 후 기본 제공을 통해 연속 배포를 위한 앱 구성 [App Service Kudu 빌드 서버](#option-1-use-the-app-service-build-service), 또는 [Azure 파이프라인](#option-2-use-azure-pipelines)합니다. 
 
-![](media/app-service-continuous-deployment/github-continue.png)
+### <a name="option-1-use-the-app-service-build-service"></a>옵션 1: App Service는 빌드 서비스를 사용 합니다.
 
-**빌드 공급자** 페이지에서 빌드 공급자를 선택하고 **계속**을 클릭합니다.
+기본 제공 App Service Kudu 빌드 GitHub, Bitbucket 또는 Azure 리포지토리를 지속적으로 배포 하는 서버를 사용할 수 있습니다. 
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>옵션 1: App Service Kudu 빌드 서버 사용
+1. 선택 **App Services** 에 [Azure portal](https://portal.azure.com) 왼쪽 탐색을 하 고 배포 하려면 웹 앱을 선택 합니다. 
+   
+1. 앱 페이지에서 선택 **배포 센터** 왼쪽된 메뉴에서.
+   
+1. 권한 있는 원본 제어 공급자를 선택 합니다 **배포 센터** 페이지에서 선택한 **계속**합니다. GitHub 또는 Bitbucket을 선택할 수도 있습니다 **계정을 변경** 권한 있는 계정을 변경 합니다. 
+   
+   > [!NOTE]
+   > Azure 리포지토리를 사용 하려면 Azure DevOps 서비스 조직에 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps 서비스 계정을 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)합니다.
+   
+1. Azure 리포지토리를 GitHub에에 **빌드 공급자** 페이지에서 **App Service 서비스 빌드**를 선택한 후 **계속**합니다. Bitbucket에는 항상 앱 빌드 서비스를 사용합니다.
+   
+   ![App Service 빌드 서비스를 선택한 다음 계속을 선택 합니다.](media/app-service-continuous-deployment/choose-kudu.png)
+   
+1. 에 **구성** 페이지:
+   
+   - GitHub에 대 한 드롭다운을 선택 합니다 **조직**, **리포지토리**, 및 **분기** 지속적으로 배포 하려면.
+     
+     > [!NOTE]
+     > 모든 리포지토리 표시 되지 않는 경우 GitHub의 Azure App Service에 권한을 부여 해야 합니다. GitHub 리포지토리를 찾아 이동할 **설정을** > **응용 프로그램** > **OAuth 앱 권한이**합니다. 선택 **Azure App Service**를 선택한 후 **Grant**합니다.
+     
+   - Bitbucket, 선택는 Bitbucket **Team**를 **리포지토리**, 및 **분기** 지속적으로 배포 하려면.
+     
+   - Azure 리포지토리를 선택 합니다 **Azure DevOps 조직**, **프로젝트**를 **리포지토리**, 및 **분기** 지속적으로 배포 하려면.
+     
+     > [!NOTE]
+     > Azure DevOps 조직 목록에 없으면 Azure 구독에 연결 되어 있는지 확인 합니다. 자세한 내용은 [웹 앱에 배포할 수 있도록 Azure DevOps 서비스 계정을 설정](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)...
+     
+1. 선택 **계속**합니다.
+   
+   ![리포지토리 정보를 채웁니다 다음 계속을 선택 합니다.](media/app-service-continuous-deployment/configure-kudu.png)
+   
+1. 빌드 공급자를 구성한 후에서 설정을 검토 합니다 **요약** 페이지를 선택한 후 **마침**합니다.
+   
+   선택한 리포지토리 및 분기를 새 커밋이 이제 App Service 앱에 지속적으로 배포합니다. 커밋 및 배포를 추적할 수 있습니다 합니다 **배포 센터** 페이지입니다.
+   
+   ![커밋 및 배포 센터에서 배포를 추적 합니다.](media/app-service-continuous-deployment/github-finished.png)
 
-**구성** 페이지에서 지속적으로 배포하려는 조직, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+### <a name="option-2-use-azure-pipelines"></a>옵션 2: Azure Pipelines 사용 
 
-GitHub 조직에서 리포지토리의 배포 하려면 GitHub로 이동 하 고 이동할 **설정을** > **응용 프로그램** > **권한이 부여 된 OAuth 앱**. "Azure App Service"를 클릭 합니다.
+계정에 필요한 권한이 있는 경우 Azure 리포지토리 또는 GitHub 리포지토리에서 지속적으로 배포 하려면 Azure 파이프라인을 설정할 수 있습니다. Azure 파이프라인을 통해 배포 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure App Services에 웹 앱 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)합니다.
 
-![설정 > 응용 프로그램 > 권한 있는 OAuth 앱 > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+Azure DevOps 조직에서 지속적인 Azure 파이프라인을 만들려면 Azure App service: 
 
-다음 페이지의 오른쪽에 있는 "권한 부여" 단추를 클릭 하 여 조직의 리포지토리에 앱 서비스 액세스를 부여 합니다.
+- Azure 계정 서비스를 만들고 Azure Active Directory에 쓰기 권한이 있어야 합니다. 
+  
+- Azure 계정에 있어야 합니다 **소유자** Azure 구독에 역할입니다.
 
-![조직의 리포지토리에 앱 서비스 액세스 권한을 부여 하려면 "권한 부여"를 클릭 합니다.](media/app-service-continuous-deployment/grant-access.png)
+- 사용 하려는 Azure DevOps 프로젝트 관리자 여야 합니다.
 
-이제 조직에서 "조직" 목록에 표시 합니다 **구성** 배포 센터 페이지입니다.
+구성 하려면 Azure 파이프라인 (미리 보기):
 
-### <a name="option-2-use-azure-pipelines-preview"></a>옵션 2: Azure Pipelines(미리 보기) 사용
-
-> [!NOTE]
-> App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
->
-
-**구성** 페이지의 **코드** 섹션에서 지속적으로 배포하려는 조직, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-**구성** 페이지의 **빌드** 섹션에서 새 Azure DevOps Services 조직을 구성하거나 기존 조직을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-> [!NOTE]
-> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
-
-**테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
-
-App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](deploy-staging-slots.md)할지 여부를 선택한 다음, **계속**을 클릭합니다.
-
-### <a name="finish-configuration"></a>구성 완료
-
-**요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
-
-구성이 완료되면 선택한 리포지토리에 새 커밋이 App Service 앱에 지속적으로 배포됩니다.
-
-![](media/app-service-continuous-deployment/github-finished.png)
-
-## <a name="deploy-continuously-from-bitbucket"></a>BitBucket에서 지속적으로 배포
-
-BitBucket을 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
-
-왼쪽 메뉴에서 **배포 센터** > **BitBucket** > **인증**을 클릭합니다. 표시되는 인증 메시지를 따릅니다. 
-
-![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
-
-한 번 BitBucket으로 인증해야 합니다. 이미 인증된 경우 **계속**을 클릭합니다. **계정 변경**을 클릭하여 인증된 BitBucket 계정을 변경할 수 있습니다.
-
-![](media/app-service-continuous-deployment/bitbucket-continue.png)
-
-**구성** 페이지에서 지속적으로 배포하려는 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-**요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
-
-구성이 완료되면 선택한 리포지토리에 새 커밋이 App Service 앱에 지속적으로 배포됩니다.
-
-## <a name="deploy-continuously-from-azure-repos-devops-services"></a>Azure Repos(DevOps Services)에서 지속적으로 배포
-
-[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index)에서 지속적인 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 페이지로 이동합니다.
-
-왼쪽 메뉴에서 **배포 센터** > **Azure Repos** > **계속**을 클릭합니다. 
-
-![](media/app-service-continuous-deployment/vsts-choose-source.png)
-
-**빌드 공급자** 페이지에서 빌드 공급자를 선택하고 **계속**을 클릭합니다.
-
-> [!NOTE]
-> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
-
-### <a name="option-1-use-app-service-kudu-build-server"></a>옵션 1: App Service Kudu 빌드 서버 사용
-
-**구성** 페이지에서 지속적으로 배포하려는 Azure DevOps Services 조직, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>옵션 2: Azure DevOps Services 지속적인 업데이트 사용
-
-> [!NOTE]
-> App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
->
-
-**구성** 페이지의 **코드** 섹션에서 지속적으로 배포하려는 Azure DevOps Services 조직, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-**구성** 페이지의 **빌드** 섹션에서 선택한 리포지토리에 대한 빌드 작업을 실행하는 데 Azure DevOps Services에서 사용해야 하는 언어 프레임워크를 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
-
-**테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
-
-App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](deploy-staging-slots.md)할지 여부를 선택한 다음, **계속**을 클릭합니다. DevOps는 프로덕션 슬롯으로 연속 배달을 허용 하지 않습니다. 이 프로덕션 환경에 실수로 인 한 배포를 방지 하기 위해 의도적입니다. 스테이징 슬롯에 지속적인 전송을 설정 하 고, 여기에서 변경 내용을 확인 하 고, 준비가 되 면 경우 슬롯을 교환 해야 합니다.
-
-### <a name="finish-configuration"></a>구성 완료
-
-**요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
-
-구성이 완료되면 선택한 리포지토리에 새 커밋이 App Service 앱에 지속적으로 배포됩니다.
+1. 선택 **App Services** 에 [Azure portal](https://portal.azure.com) 왼쪽 탐색을 하 고 배포 하려면 웹 앱을 선택 합니다. 
+   
+1. 앱 페이지에서 선택 **배포 센터** 왼쪽된 메뉴에서.
+   
+1. 에 **빌드 공급자** 페이지에서 **Azure 파이프라인 (미리 보기)** 를 선택한 후 **계속**합니다. 
+   
+1. 에 **구성** 페이지의 **코드** 섹션:
+   
+   - GitHub에 대 한 드롭다운을 선택 합니다 **조직**, **리포지토리**, 및 **분기** 지속적으로 배포 하려면.
+     
+     > [!NOTE]
+     > 모든 리포지토리 표시 되지 않는 경우 GitHub의 Azure App Service에 권한을 부여 해야 합니다. GitHub 리포지토리를 찾아 이동할 **설정을** > **응용 프로그램** > **OAuth 앱 권한이**합니다. 선택 **Azure App Service**를 선택한 후 **Grant**합니다.
+     
+   - Azure 리포지토리를 선택 합니다 **Azure DevOps 조직**를 **프로젝트**를 **리포지토리**, 및 **분기** 지속적으로 배포 하려면 또는 새 Azure DevOps 조직을 구성 합니다.
+     
+     > [!NOTE]
+     > 기존 Azure DevOps 조직 목록에 없으면 Azure 구독에 연결 해야 합니다. 자세한 내용은 [CD 릴리스 파이프라인 정의](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd)합니다.
+     
+1. 선택 **계속**합니다.
+   
+1. Azure 리포지토리에 대 한에 **빌드** 섹션에서 Azure 파이프라인을 사용 하 여 빌드 작업을 실행 하려면 다음을 선택 하는 언어 프레임 워크를 지정 **계속**합니다.
+   
+1. 에 **테스트** 페이지에서 다음을 선택 하 고 부하 테스트를 사용할지 여부 **계속**합니다.
+   
+1. App Service 계획에 따라 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 표시 될 수 있습니다를 **스테이징에 배포** 페이지입니다. 선택 것인지 [배포 슬롯을 사용 하도록 설정](deploy-staging-slots.md)를 선택한 후 **계속**합니다.
+   
+   > [!NOTE]
+   > Azure 파이프라인 프로덕션 슬롯에 대 한 지속적인 업데이트를 허용 하지 않습니다. 이 제한으로 인해 프로덕션에 실수로 인 한 배포 합니다. 스테이징 슬롯에 대 한 지속적인 업데이트를 설정 하 고, 변경 내용을 확인 하 고 및 다음 준비가 되 면 슬롯을 교환 합니다.
+   
+1. 빌드 공급자를 구성한 후에서 설정을 검토 합니다 **요약** 페이지를 선택한 후 **마침**합니다.
+   
+   선택한 리포지토리 및 분기를 새 커밋이 이제 App Service 앱에 지속적으로 배포합니다. 커밋 및 배포를 추적할 수 있습니다 합니다 **배포 센터** 페이지입니다.
+   
+   ![커밋 및 배포 센터에서 배포를 추적 합니다.](media/app-service-continuous-deployment/github-finished.png)
 
 ## <a name="disable-continuous-deployment"></a>지속적 배포 사용 안 함
 
-지속적인 배포를 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
+연속 배포를 사용 하지 않으려면 선택 **연결 끊기** 앱의 맨 위에 있는 **Deployment Center** 페이지입니다.
 
-왼쪽 메뉴에서 **배포 센터** > **GitHub** 또는 **Azure DevOps Services** 또는 **BitBucket** > **연결 해제**를 클릭합니다.
-
-![](media/app-service-continuous-deployment/disable.png)
+![지속적 배포 사용 안 함](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
-* [연속 배포의 일반 문제를 조사하는 방법](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Azure용 PowerShell 사용 방법]
-* [Git 설명서]
+* [연속 배포를 사용 하 여 일반적인 문제를 조사 합니다.](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+* [Azure PowerShell 사용](/powershell/azureps-cmdlets-docs)
+* [Git 설명서](https://git-scm.com/documentation)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)(Azure를 사용하여 ASP.NET 4 앱을 배포할 CI/CD 파이프라인을 자동으로 생성)
-
-[Azure portal]: https://portal.azure.com
-[Azure DevOps portal]: https://azure.microsoft.com/services/devops/
-[Installing Git]: https://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure용 PowerShell 사용 방법]: /powershell/azureps-cmdlets-docs
-[Git 설명서]: https://git-scm.com/documentation
 
 [리포지토리 만들기(GitHub)]: https://help.github.com/articles/create-a-repo
 [리포지토리 만들기(BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
-[Azure DevOps Services 시작]: https://docs.microsoft.com/azure/devops/user-guide/devops-alm-overview
+[새 Git 리포지토리 (Azure 리포지토리) 만들기]: /azure/devops/repos/git/creatingrepo

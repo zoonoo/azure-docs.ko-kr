@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: e42e017730ebee6b9b0f06f700a33e499d7eba51
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: HT
+ms.openlocfilehash: 247665f58dd064565f0e9aebc9859e97ce0ab0c0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615704"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836970"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
 
@@ -31,11 +31,11 @@ AKS 관리 되는 서비스 이므로 CoreDNS에 대 한 기본 구성을 수정
 
 ## <a name="what-is-supportedunsupported"></a>지원/지원 되지 않는 새로운 기능
 
-모든 기본 제공 CoreDNS 플러그 인이 지원 됩니다. 추가 시/제 3 자 플러그 인을 찾지 지원 됩니다.
+모든 기본 제공 CoreDNS 플러그 인이 지원 됩니다. 추가 시/제 3 자 플러그 인을 찾지 지원 됩니다. 
 
 ## <a name="rewrite-dns"></a>Rewrite DNS
 
-해야 하는 한 가지 시나리오 즉석에서 DNS 이름을 다시 쓰기를 수행 하는 것입니다. 다음 예제에서는 대체 `<domain to be written>` 사용 하는 정규화 된 도메인 이름입니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
+해야 하는 한 가지 시나리오 즉석에서 DNS 이름을 다시 쓰기를 수행 하는 것입니다. 다음 예제에서는 대체 `<domain to be written>` 사용 하는 정규화 된 도메인 이름입니다. 라는 파일을 만들고 `corednsms.yaml` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -56,7 +56,7 @@ data:
 ConfigMap 하 여 만들기는 [kubectl configmap을 적용][kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다.
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 ```
 
 사용자 지정 항목 적용 되었는지 확인 하려면 사용 합니다 [kubectl get configmaps][kubectl-get] 지정 하 *coredns-사용자 지정* ConfigMap:
@@ -76,7 +76,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 
 ## <a name="custom-proxy-server"></a>사용자 지정 프록시 서버
 
-네트워크 트래픽에 대 한 프록시 서버를 지정 하는 경우 DNS에 맞게 ConfigMap을 만들 수 있습니다. 다음 예제에서는 업데이트 된 `proxy` 이름 및 고유한 환경에 대 한 값을 사용 하 여 주소입니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
+네트워크 트래픽에 대 한 프록시 서버를 지정 하는 경우 DNS에 맞게 ConfigMap을 만들 수 있습니다. 다음 예제에서는 업데이트 된 `proxy` 이름 및 고유한 환경에 대 한 값을 사용 하 여 주소입니다. 라는 파일을 만들고 `corednsms.yaml` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ data:
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
@@ -102,7 +102,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 내부적으로 확인 될 수만 있는 사용자 지정 도메인을 구성 하려는 경우. 사용자 지정 도메인을 확인 하려는 하는 예를 들어 *puglife.local*, 유효한 최상위 도메인을 아닌 합니다. 사용자 지정 도메인 ConfigMap 없이 AKS 클러스터 주소를 확인할 수 없습니다.
 
-다음 예제에서는 자체 환경에 대 한 값을 사용 하 여에 트래픽을 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
+다음 예제에서는 자체 환경에 대 한 값을 사용 하 여에 트래픽을 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.yaml` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -122,13 +122,13 @@ data:
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>스텁 도메인
 
-CoreDNS 스텁 도메인 구성에 사용할 수 있습니다. 다음 예제에서는 자체 환경에 대 한 값을 사용 하 여 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
+CoreDNS 스텁 도메인 구성에 사용할 수 있습니다. 다음 예제에서는 자체 환경에 대 한 값을 사용 하 여 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.yaml` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -154,7 +154,7 @@ data:
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 

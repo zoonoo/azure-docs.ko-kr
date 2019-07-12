@@ -2,24 +2,25 @@
 title: IoT 용 Azure Security Center 미리 보기 비용 이해 | Microsoft Docs
 description: IoT 및 제어 하는 방법에 대 한 Azure Security Center와 사용 하 여 관련 비용에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198334"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618449"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
@@ -58,11 +59,11 @@ IoT 용 ASC에 두 가지 유형의 관련된 비용을 직접 가격의 일부�
 
 2. 아래 **Security**, 클릭 **개요**합니다.
 
-3. **설정**을 클릭합니다.
+3.           **설정**을 클릭합니다.
 
 다음 표에서 각 옵션의 의미 및 관련 된 비용의 요약을 제공합니다.
 
-|     | 사용 현황 | 주석 |
+|     | 사용법 | 설명 |
 | --- | --- | --- |
 | **IoT Hub 할당량 사용** |  |
 | [장치를 내보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) 작업 (쌍 내보내기) | 하루 한 번 | 사용 하지 않도록 설정 _쌍 메타 데이터 컬렉션_ |
@@ -82,7 +83,7 @@ IoT 용 ASC에 두 가지 유형의 관련된 비용을 직접 가격의 일부�
 | | 세부 정보 [경고](concept-security-alerts.md) 하 고 [권장 사항을](concept-recommendations.md) 조사를 사용할 수 없는 경우 |
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - 액세스에 [원시 보안 데이터](how-to-security-data-access.md)
 - [장치를 조사 합니다.](how-to-investigate-device.md)

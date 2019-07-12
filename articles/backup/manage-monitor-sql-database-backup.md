@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492734"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704875"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -145,7 +145,7 @@ SQL database에 대 한 보호를 다시 시작 합니다.
 
 경우에 따라 이유 중 하나 또는 다른 VM에서 워크 로드 확장 영향 수 있습니다. 이러한 경우 VM에서 트리거된 모든 작업이 실패 하기 시작 합니다. 그런 다음 VM에서 확장을 다시 등록 해야 합니다. **Re-register** 작업을 계속 하려면 작업에 대 한 VM에서 워크 로드 백업 확장을 다시 설치 합니다.  <br>
 
-주의 사용 하 여이 옵션을 사용 하는 것이 좋습니다. 이미 정상 확장을 사용 하 여 VM에서 트리거되면이 작업에 확장을 다시 시작 가져오기 발생 합니다. 따라서 모든 진행 중인 작업이 실패할 수 있습니다. 하나 이상의 참조 확인 합니다 [증상](backup-sql-server-azure-troubleshoot.md#symptoms) 다시 등록 작업을 트리거하기 전에 합니다.
+주의 사용 하 여이 옵션을 사용 하는 것이 좋습니다. 이미 정상 확장을 사용 하 여 VM에서 트리거되면이 작업에 확장을 다시 시작 가져오기 발생 합니다. 따라서 모든 진행 중인 작업이 실패할 수 있습니다. 하나 이상의 참조 확인 합니다 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 다시 등록 작업을 트리거하기 전에 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

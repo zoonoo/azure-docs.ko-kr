@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254000"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785475"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>웹 앱 로그인 사용자-코드 구성
 
@@ -31,11 +31,13 @@ ms.locfileid: "66254000"
 <!-- This section can be in an include for Web App and Web APIs -->
 웹 앱과 Web API를 보호 하기 위해 사용 하는 라이브러리가 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | 설명 |
+| 플랫폼 | Library | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET에 대 한 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | .NET 용 Microsoft Id 확장을 사용 하는 직접 ASP.NET 및 ASP.NET Core 모두.NET Framework 및.NET Core에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET/ASP.NET Core 웹 앱에서 제어할 수 있습니다. 토큰 유효성 검사를 사용 하 여 **TokenValidationParameters** 클래스 (일부 ISV 시나리오에서 특히) |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 구성
+
+이 문서 및 다음 코드 조각에서 추출 되는 [ASP.NET Core 웹 앱 증분 자습서, 1 장](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)합니다. 완벽 하 게 구현 세부 정보에 대 한 자습서를 참조할 수도 있습니다.
 
 ### <a name="application-configuration-files"></a>응용 프로그램 구성 파일
 
