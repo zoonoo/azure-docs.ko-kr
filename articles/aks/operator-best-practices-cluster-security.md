@@ -2,23 +2,23 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 클러스터 보안
 description: AKS(Azure Kubernetes Services)에서 클러스터 보안 및 업그레이드를 관리하는 방법에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
-ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475596"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614886"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
 AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 및 데이터의 보안은 주요 고려 사항입니다. 논리적 격리를 사용하여 다중 테넌트 클러스터를 실행하는 경우에 특히, 리소스 및 워크로드에 대한 액세스를 보호해야 합니다. 공격 위험을 최소화하려면 최신 Kubernetes 및 노드 OS 보안 업데이트를 적용하는지도 확인해야 합니다.
 
-이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 다음 방법에 대해 알아봅니다.
+이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > * Azure Active Directory 및 역할 기반 액세스 제어를 사용하여 API 서버 액세스 보안 유지
@@ -26,7 +26,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 때 워크로드 �
 > * AKS 클러스터를 최신 Kubernetes 버전으로 업그레이드
 > * 노드 업데이트를 최신 상태로 유지하고 자동으로 보안 패치 적용
 
-[컨테이너 이미지 관리][best-practices-container-image-management] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
+에 대 한 모범 사례를 참조할 수 있습니다 [컨테이너 이미지 관리][best-practices-container-image-management] and for [pod security][best-practices-pod-security]합니다.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>API 서버 및 클러스터 노드에 대한 액세스 보안 유지
 
@@ -42,13 +42,13 @@ Kubernetes RBAC 및 Azure AD 통합을 사용하여 API 서버를 보호하고, 
 
 권장되는 모범 사례는 개별 ID가 아니라 그룹을 사용하여 파일 및 폴더에 대한 액세스 권한을 제공하고, Azure AD *그룹* 멤버 자격을 사용하여 개발 *사용자*가 아닌 여러 사용자를 RBAC 역할에 바인딩하는 것입니다. 사용자의 그룹 멤버 자격이 변경되면 AKS 클러스터에 대한 해당 액세스 권한도 그에 따라 변경됩니다. 역할에 직접 사용자를 바인딩하는 경우 직무가 변경될 수 있습니다. Azure AD 그룹 멤버 자격이 업데이트되지만 AKS 클러스터에 대한 권한에는 이러한 업데이트 결과가 반영되지 않습니다. 이 시나리오에서는 사용자에게 필요한 것보다 더 많은 권한이 부여됩니다.
 
-Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한 부여 모범 사례][aks-best-practices-identity]를 참조하세요.
+Azure AD 통합 및 RBAC에 대 한 자세한 내용은 참조 하세요. [인증 및 권한 부여 AKS에 대 한 유용한][aks-best-practices-identity]합니다.
 
 ## <a name="secure-container-access-to-resources"></a>리소스에 대한 컨테이너 액세스 보호
 
 **모범 사례 지침** - 컨테이너에서 수행할 수 있는 작업에 대한 액세스를 제한합니다. 최소 개수의 권한을 제공하고, 루트/권한 에스컬레이션을 사용하지 않도록 합니다.
 
-사용자 또는 그룹에 필요한 최소 개수의 권한을 부여하는 것과 같은 방식으로, 컨테이너도 필요한 작업 및 프로세스로 제한해야 합니다. 공격 위험을 최소화하기 위해서는 에스컬레이션된 권한 또는 루트 액세스를 요구하는 애플리케이션 및 컨테이너를 구성하지 마세요. 예를 들어 pod 매니페스트에서 `allowPrivilegeEscalation: false`를 설정합니다. 이러한 *pod 보안 컨텍스트*가 Kubernetes에 빌드되며, 추가 권한(예: 사용자 또는 그룹으로 실행)을 정의하거나 노출할 Linux 기능을 정의할 수 있습니다. 추가 모범 사례에 대해서는 [리소스에 대한 pod 액세스 보안 유지][pod-security-contexts]를 참조하세요.
+사용자 또는 그룹에 필요한 최소 개수의 권한을 부여하는 것과 같은 방식으로, 컨테이너도 필요한 작업 및 프로세스로 제한해야 합니다. 공격 위험을 최소화하기 위해서는 에스컬레이션된 권한 또는 루트 액세스를 요구하는 애플리케이션 및 컨테이너를 구성하지 마세요. 예를 들어 pod 매니페스트에서 `allowPrivilegeEscalation: false`를 설정합니다. 이러한 *pod 보안 컨텍스트*가 Kubernetes에 빌드되며, 추가 권한(예: 사용자 또는 그룹으로 실행)을 정의하거나 노출할 Linux 기능을 정의할 수 있습니다. 더 많은 모범 사례를 참조 하세요 [리소스에 대 한 보안 pod 액세스][pod-security-contexts]합니다.
 
 컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다. 기본 제공 Linux 보안 기능에만 Linux 노드 및 pod에서 제공 됩니다.
 
@@ -57,11 +57,11 @@ Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한
 
 ### <a name="app-armor"></a>App Armor
 
-컨테이너에서 수행할 수 있는 작업을 제한하려는 경우 [AppArmor][k8s-apparmor] Linux 커널 보안 모듈을 사용할 수 있습니다. AppArmor는 기본 AKS 노드 OS의 일부로 사용할 수 있으며 기본적으로 사용하도록 설정됩니다. 읽기, 쓰기 또는 실행과 같은 작업이나 파일 시스템 탑재와 같은 시스템 기능을 제한하는 AppArmor 프로필을 만듭니다. 기본 AppArmor 프로필은 다양한 `/proc` 및 `/sys` 위치에 대한 액세스를 제한하며, 기본 노드에서 컨테이너를 논리적으로 격리하는 방법을 제공합니다. AppArmor는 Kubernetes pod 뿐 아니라 Linux에서 실행되는 모든 애플리케이션에 작동합니다.
+컨테이너에서 수행할 수 있는 작업을 최소화 하려면 사용할 수 있습니다 합니다 [AppArmor][k8s-apparmor] Linux 커널 보안 모듈입니다. AppArmor는 기본 AKS 노드 OS의 일부로 사용할 수 있으며 기본적으로 사용하도록 설정됩니다. 읽기, 쓰기 또는 실행과 같은 작업이나 파일 시스템 탑재와 같은 시스템 기능을 제한하는 AppArmor 프로필을 만듭니다. 기본 AppArmor 프로필은 다양한 `/proc` 및 `/sys` 위치에 대한 액세스를 제한하며, 기본 노드에서 컨테이너를 논리적으로 격리하는 방법을 제공합니다. AppArmor는 Kubernetes pod 뿐 아니라 Linux에서 실행되는 모든 애플리케이션에 작동합니다.
 
 ![AKS 클러스터에서 컨테이너 작업을 제한하기 위해 사용되는 AppArmor 프로필](media/operator-best-practices-container-security/apparmor.png)
 
-작동하는 AppArmor를 볼 수 있도록 하기 위해 다음 예제에서는 파일에 대한 쓰기를 방지하는 프로필을 만듭니다. AKS 노드에 대해 [SSH][aks-ssh]를 수행한 후 *deny-write.profile*이라는 파일을 만들고 다음 콘텐츠를 붙여넣습니다.
+작동하는 AppArmor를 볼 수 있도록 하기 위해 다음 예제에서는 파일에 대한 쓰기를 방지하는 프로필을 만듭니다. [SSH][aks-ssh] AKS 노드에, 라는 파일을 만듭니다 *거부 write.profile* 다음 콘텐츠를 붙여넣습니다.
 
 ```
 #include <tunables/global>
@@ -98,13 +98,13 @@ spec:
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 샘플 pod를 배포합니다.
+사용 하 여 샘플 pod를 배포 합니다 [kubectl 적용][kubectl-apply] 명령:
 
 ```console
 kubectl apply -f aks-apparmor.yaml
 ```
 
-pod가 배포되면 [kubectl exec][kubectl-exec] 명령을 사용하여 파일에 씁니다. 다음 예제 출력에서처럼 명령을 실행할 수 없습니다.
+배포의 pod를 사용 합니다 [kubectl exec][kubectl-exec] 파일에 쓰는 명령을 합니다. 다음 예제 출력에서처럼 명령을 실행할 수 없습니다.
 
 ```
 $ kubectl exec hello-apparmor touch /tmp/test
@@ -113,13 +113,13 @@ touch: /tmp/test: Permission denied
 command terminated with exit code 1
 ```
 
-AppArmor에 대한 자세한 내용은 [Kubernetes의 AppArmor 프로필][k8s-apparmor]을 참조하세요.
+AppArmor에 대 한 자세한 내용은 참조 하세요. [Kubernetes에서 AppArmor 프로필][k8s-apparmor]합니다.
 
 ### <a name="secure-computing"></a>컴퓨팅 보안
 
-AppArmor는 Linux 애플리케이션에 작동하지만 [seccomp(*sec*ure *comp*uting)][seccomp]는 프로세스 수준에서 작동합니다. Seccomp는 또한 Linux 커널 보안 모듈이며, 기본적으로 AKS 노드에 사용되는 Docker 런타임에서 지원됩니다. Seccomp를 사용하는 경우 컨테이너가 수행할 수 있는 프로세스 호출이 제한됩니다. 허용 또는 거부할 작업을 정의하는 필터를 만들고, pod YAML 매니페스트 내에서 주석을 사용하여 seccomp 필터에 연결합니다. 이러한 방식은 실행하는 데 필요한 최소 권한만 컨테이너에 부여하는 모범 사례에 적합합니다.
+AppArmor Linux 응용 프로그램의 경우 작동 하는 동안 [seccomp (*sec*ure *comp*uting)][seccomp] 프로세스 수준에서 작동 합니다. Seccomp는 또한 Linux 커널 보안 모듈이며, 기본적으로 AKS 노드에 사용되는 Docker 런타임에서 지원됩니다. Seccomp를 사용하는 경우 컨테이너가 수행할 수 있는 프로세스 호출이 제한됩니다. 허용 또는 거부할 작업을 정의하는 필터를 만들고, pod YAML 매니페스트 내에서 주석을 사용하여 seccomp 필터에 연결합니다. 이러한 방식은 실행하는 데 필요한 최소 권한만 컨테이너에 부여하는 모범 사례에 적합합니다.
 
-작동 중인 seccomp를 보려면 파일에 대한 권한을 변경하지 못하게 하는 필터를 만듭니다. AKS 노드에 대해 [SSH][aks-ssh]를 수행하고 /var/lib/kubelet/seccomp/prevent-chmod라는 seccomp 필터를 만든 후 다음 콘텐츠를 붙여넣습니다. 
+작동 중인 seccomp를 보려면 파일에 대한 권한을 변경하지 못하게 하는 필터를 만듭니다. [SSH][aks-ssh] AKS 노드에, 만든 seccomp 필터가 */var/lib/kubelet/seccomp/prevent-chmod* 다음 콘텐츠를 붙여넣습니다.
 
 ```
 {
@@ -154,13 +154,13 @@ spec:
   restartPolicy: Never
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 샘플 pod를 배포합니다.
+사용 하 여 샘플 pod를 배포 합니다 [kubectl 적용][kubectl-apply] 명령:
 
 ```console
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-[kubectl get pods][kubectl-get] 명령을 사용하여 pod의 상태를 확인합니다. Pod는 오류를 보고합니다. 다음 예제 출력에서처럼 `chmod` 명령이 seccomp 필터에 의해 실행되지 않도록 합니다.
+사용 하 여 pod의 상태를 확인 합니다 [kubectl get pod][kubectl-get] 명령입니다. Pod는 오류를 보고합니다. 다음 예제 출력에서처럼 `chmod` 명령이 seccomp 필터에 의해 실행되지 않도록 합니다.
 
 ```
 $ kubectl get pods
@@ -169,7 +169,7 @@ NAME                      READY     STATUS    RESTARTS   AGE
 chmod-prevented           0/1       Error     0          7s
 ```
 
-사용 가능한 필터에 대한 자세한 내용은 [Docker에 대한 Seccomp 보안 프로필][seccomp]을 참조하세요.
+사용 가능한 필터에 대 한 자세한 내용은 참조 하세요. [Docker에 대 한 보안 프로필 Seccomp][seccomp]합니다.
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>최신 버전의 Kubernetes로 정기적으로 업데이트
 
@@ -177,21 +177,21 @@ chmod-prevented           0/1       Error     0          7s
 
 Kubernetes는 보다 일반적인 인프라 플랫폼보다 더 빠른 속도로 새 기능을 릴리스합니다. Kubernetes 업데이트에는 새 기능, 버그 또는 보안 수정 사항이 포함됩니다. 일반적으로 새로운 기능은 *알파* 버전으로 이동된 후 *베타* 상태가 되며, 그 이후에 *안정화*되면서 일반 공급되고 프로덕션 용도로 권장됩니다. 이러한 릴리스 주기에 따라 정기적으로 호환성이 손상되는 변경을 겪거나 배포 및 템플릿을 조정하지 않고도 Kubernetes를 업데이트할 수 있습니다.
 
-AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다. 즉, 새로운 부 패치 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. Kubernetes의 부 업데이트는 정기적으로 발생합니다. 거버넌스 프로세스를 확인하고 지원을 받지 못하는 일이 없도록 필요할 때 업그레이드해야 합니다. 자세한 내용은 [지원되는 Kubernetes 버전 AKS][aks-supported-versions]를 참조하세요.
+AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다. 즉, 새로운 부 패치 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. Kubernetes의 부 업데이트는 정기적으로 발생합니다. 거버넌스 프로세스를 확인하고 지원을 받지 못하는 일이 없도록 필요할 때 업그레이드해야 합니다. 자세한 내용은 참조 하세요. [AKS의 Kubernetes 지원 버전][aks-supported-versions]
 
-클러스터에 사용할 수 있는 버전을 확인하려면 다음 예제와 같이 [az aks get-upgrades][az-aks-get-upgrades] 명령을 사용합니다.
+클러스터에 사용할 수 있는 버전을 확인 하려면 사용 합니다 [az aks get-업그레이드][az-aks-get-upgrades] 다음 예와에서 같이 명령:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-그런 다음, [az aks upgrade][az-aks-upgrade] 명령을 사용하여 AKS 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스는 한 번에 하나의 노드를 안전하게 차단했다가 드레이닝하고, 나머지 노드에서 pod를 예약한 후 최신 OS 및 Kubernetes 버전을 실행하는 새 노드를 배포합니다.
+그런 다음 사용 하 여 AKS 클러스터를 업그레이드할 수 있습니다 합니다 [az aks 업그레이드][az-aks-upgrade] 명령입니다. 업그레이드 프로세스는 한 번에 하나의 노드를 안전하게 차단했다가 드레이닝하고, 나머지 노드에서 pod를 예약한 후 최신 OS 및 Kubernetes 버전을 실행하는 새 노드를 배포합니다.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
-AKS의 업그레이드에 대한 자세한 내용은 [AKS의 지원되는 Kubernetes 버전][aks-supported-versions] 및 [AKS 클러스터 업그레이드][aks-upgrade]를 참조하세요.
+AKS에서 업그레이드 하는 방법에 대 한 자세한 내용은 참조 하세요. [AKS의 Kubernetes 지원 버전][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade]합니다.
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>프로세스 Linux 노드를 업데이트 및 kured를 사용 하 여 다시 부팅
 
@@ -199,21 +199,21 @@ AKS의 업그레이드에 대한 자세한 내용은 [AKS의 지원되는 Kubern
 
 시간 늘어 매일 저녁 AKS의 Linux 노드 업데이트 distro 채널을 통해 사용할 수 있는 보안 패치를 가져옵니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
 
-Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. Linux 노드에 재부팅이 필요한 업데이트에 적용 될 때 노드는 안전 하 게 통제 하 고 드레이닝 이동 하 고 클러스터의 다른 노드에 pod를 예약 합니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
+오픈 소스 [kured (KUbernetes 재부팅 디먼)][kured] 노드 다시 부팅 보류 중 Weaveworks 하 여 프로젝트를 감시 합니다. Linux 노드에 재부팅이 필요한 업데이트에 적용 될 때 노드는 안전 하 게 통제 하 고 드레이닝 이동 하 고 클러스터의 다른 노드에 pod를 예약 합니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
 
 ![kured를 사용하는 AKS 노드 다시 부팅 프로세스](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
 다시 부팅이 발생하는 경우를 보다 세부적으로 제어하려는 경우, `kured`를 Prometheus와 통합하여 다른 유지 관리 이벤트 또는 클러스터 문제가 진행 중인 경우에는 다시 부팅을 방지할 수 있습니다. 이러한 통합은 다른 문제를 해결하는 동안, 노드를 다시 부팅하여 추가적인 복잡성을 최소화합니다.
 
-노드 다시 부팅을 처리하는 방법에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][aks-kured]을 참조하세요.
+노드 다시 부팅을 처리 하는 방법에 대 한 자세한 내용은 참조 하세요. [AKS의 노드에 보안 및 커널 업데이트 적용][aks-kured]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 AKS 클러스터의 보안을 유지하는 방법을 중점적으로 설명했습니다. 이러한 일부 영역을 구현하려면 다음 문서를 참조하세요.
 
-* [AKS와 Azure Active Directory 통합][aks-aad]
-* [AKS 클러스터를 최신 버전의 Kubernetes로 업그레이드][aks-upgrade]
-* [Kured를 사용하여 보안 업데이트 및 노드 다시 부팅 처리][aks-kured]
+* [AKS를 사용 하 여 Azure Active Directory 통합][aks-aad]
+* [최신 버전의 Kubernetes AKS 클러스터 업그레이드][aks-upgrade]
+* [Kured를 사용 하 여 다시 부팅 프로세스 보안 업데이트 및 노드][aks-kured]
 
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured

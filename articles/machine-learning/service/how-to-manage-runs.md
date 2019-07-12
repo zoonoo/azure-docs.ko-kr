@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/05/2019
-ms.openlocfilehash: a93492b8ea97500fe3c761f3ac0c49f8c1342d09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a67ac07c26063b380bda2b8cb2b6a02677e7f816
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074968"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656197"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>시작, 모니터링 및 python에서 교육 실행 취소
 
@@ -29,7 +29,7 @@ ms.locfileid: "67074968"
 * 자식 실행을 만듭니다.
 * 태그를 찾아 실행 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 다음 항목이 필요 합니다.
 
@@ -178,7 +178,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-실행이 완료 되 면 오류가 포함 된 경우 (예를 들어 잘못 된 학습 스크립트)를 사용한 사용할 수는 [ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) 실패로 표시 하는 방법입니다.
+실행이 완료 되 면 오류가 포함 된 경우 (예를 들어 잘못 된 학습 스크립트)를 사용한 사용할 수는 [ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) 실패로 표시 하는 방법입니다.
 
 ```Python
 local_script_run = exp.submit(run_config)

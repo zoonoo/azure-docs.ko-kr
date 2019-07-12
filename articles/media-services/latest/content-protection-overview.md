@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068840"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835806"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -73,7 +73,7 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
   
      [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만들 수 있습니다. [Azure Media Player의 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
 
-     AES 또는 CENC(Widevine 및/또는 PlayReady) 암호화된 콘텐츠를 테스트하려면 [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)를 사용할 수 있습니다. “고급 옵션”을 클릭하고 암호화 옵션을 확인합니다.
+     AES 또는 CENC(Widevine 및/또는 PlayReady) 암호화된 콘텐츠를 테스트하려면 [Azure Media Player](http://aka.ms/azuremediaplayer)를 사용할 수 있습니다. “고급 옵션”을 클릭하고 암호화 옵션을 확인합니다.
 
      FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 
     
@@ -167,7 +167,7 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 * StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate-위와 동일 하며 Widevine에 대해서만 합니다. 
 * StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate-위와 동일 하며 FairPlay에 대 한 합니다.  
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -203,7 +203,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 표시 되 면는 `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 오류를 적절 한 스트리밍 정책을 지정 해야 합니다.
 
-로 끝나는 오류가 발생할 경우 `_NOT_SPECIFIED_IN_URL`를 확인 하는 암호화 형식을 URL에 지정 해야 합니다. 예: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` 참조 [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)합니다.
+로 끝나는 오류가 발생할 경우 `_NOT_SPECIFIED_IN_URL`를 확인 하는 암호화 형식을 URL에 지정 해야 합니다. `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` )을 입력합니다. 참조 [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)합니다.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS)에서 송신 트래픽을 제한합니다
 description: Azure Kubernetes Service (AKS)에서 송신 트래픽을 제어 하는 데 필요한 어떤 포트와 주소 되는지 알아보세요.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441931"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614952"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>미리 보기-클러스터 노드 및 필요한 포트 및 Azure Kubernetes Service (AKS)에서 서비스에 대 한 액세스 제어에 대 한 송신 트래픽 제한
 
@@ -26,7 +26,7 @@ AKS 클러스터는 기본적으로 아웃 바운드 (송신) 인터넷을 무�
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.66 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 

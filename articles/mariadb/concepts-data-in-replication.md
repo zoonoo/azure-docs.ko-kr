@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364441"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839248"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Azure Database for MariaDB에 데이터 복제
 
@@ -37,7 +37,6 @@ ms.locfileid: "61364441"
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.
-- GTID(전역 트랜잭션 식별자)는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [입력 데이터 복제 설정](howto-data-in-replication.md) 방법을 알아보세요.

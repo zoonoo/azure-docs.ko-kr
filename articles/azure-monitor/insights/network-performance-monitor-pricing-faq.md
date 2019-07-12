@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
-ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: agummadi
+ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401411"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612848"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
 
@@ -38,7 +38,7 @@ ms.locfileid: "60401411"
 
 NPM의 청구는 사용량 및 소비량의 두 가지 구성 요소를 기준으로 했습니다.
 * **노드**: 모든 가상 트랜잭션은 노드에서 시작되고 종료됩니다. 노드를 에이전트 또는 Microsoft Management Agents라고도 합니다.
-* **Data**: 다양 한 네트워크 테스트의 결과 Log Analytics 작업 영역에 저장 됩니다.
+* **데이터**: 다양 한 네트워크 테스트의 결과 Log Analytics 작업 영역에 저장 됩니다.
 
 이전 모델에서 청구서는 노드 수 및 생성된 데이터의 볼륨에 따라 계산되었습니다. 
 
@@ -117,7 +117,7 @@ ExpressRoute가 프라이빗 피어링 연결을 모니터링할 때 생성되�
 
 한 달 간 엔드포인트를 모니터링하는 데 드는 비용은 [연결 모니터링](https://azure.microsoft.com/pricing/details/network-watcher/) 섹션을 참조하세요. 데이터 요금은 데이터 수집 섹션에서 Log Analytics에 대한 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인할 수 있습니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 [Log Analytics 가격 책정 FAQ](https://azure.microsoft.com/pricing/details/log-analytics/): FAQ 섹션에는 무료 계층, 노드당 가격 책정, 기타 가격 책정 정보가 있습니다.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/05/2019
-ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/11/2019
+ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543848"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840064"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 
@@ -38,7 +38,7 @@ Azure Machine Learning 서비스 만들기에 대 한 걱정 하지 않아도 �
 * 사용자 지정 이미지를 만듭니다. 사용자 지정 이미지 만들기 및 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry로 인증 구성 관리자 및 DevOps 정보를 제공 합니다.
 * 사용자 지정 이미지를 사용 합니다. Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/MLOps 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 서비스는 작업 그룹. 자세한 내용은 참조는 [작업 영역 만들기](setup-create-workspace.md) 문서.
 * Azure Machine Learning SDK입니다. 자세한 내용은 Python SDK 섹션을 참조 합니다 [작업 영역 만들기](setup-create-workspace.md#sdk) 문서.
@@ -116,6 +116,9 @@ Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는이
     ```text
     FROM ubuntu:16.04
 
+    ARG CONDA_VERSION=4.5.12
+    ARG PYTHON_VERSION=3.6
+
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
 
@@ -124,12 +127,12 @@ Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는이
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
-    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
         /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
         rm ~/miniconda.sh && \
         /opt/miniconda/bin/conda clean -tipsy
 
-    RUN conda install -y python=3.6 && \
+    RUN conda install -y conda=${CONDA_VERSION} python=${PYTHON_VERSION} && \
         conda clean -aqy && \
         rm -rf /opt/miniconda/pkgs && \
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
@@ -164,7 +167,7 @@ Azure Container Registry를 사용 하 여 이미지를 빌드에 대 한 자세
 * 합니다 __이미지 이름을__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` Microsoft에서 제공 하는 기본 Docker 이미지의 경로입니다.
 * 이미지의 경우는 __개인 리포지토리__, 다음 정보가 필요 합니다.
 
-    * 레지스트리에 __주소__합니다. 예: `myregistry.azureecr.io`.
+    * 레지스트리에 __주소__합니다. `myregistry.azureecr.io` )을 입력합니다.
     * 서비스 주체 __사용자 이름__ 하 고 __암호__ 레지스트리에 대 한 읽기 액세스 권한이 있는 합니다.
 
     이 정보가 없으면 이미지를 포함 하는 Azure Container Registry에 대 한 관리자에 게 문의 합니다.

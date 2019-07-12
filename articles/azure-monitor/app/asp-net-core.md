@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7fe5a4f5a5d1d254918f1b4f997acfb9cf67a75b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5ea7ec41ccc721e8eafda56aa7463505ba089845
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272446"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827801"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램용 application Insights
 
@@ -35,7 +35,7 @@ ms.locfileid: "67272446"
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS) 및 등의 Web Apps 기능입니다.
 * **IDE**: Visual Studio, VS Code 또는 명령줄입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 작동 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들려는 경우이 따라 [ASP.NET Core 자습서](https://docs.microsoft.com/aspnet/core/getting-started/)합니다.
 - 올바른 Application Insights 계측 키입니다. 이 키를 Application Insights로 모든 원격 분석을 전송 해야 합니다. 새 Application Insights 리소스는 계측 키를 참조 하세요를 만들어야 하는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)합니다.
@@ -108,7 +108,7 @@ ms.locfileid: "67272446"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -177,7 +177,7 @@ ms.locfileid: "67272446"
 기본 구성을 변경 하려면 ASP.NET Core 용 Application Insights SDK를 사용자 지정할 수 있습니다. Application Insights ASP.NET SDK의 사용자를 사용 하 여 구성을 변경 하는 일을 알고 있을 `ApplicationInsights.config` 하거나 수정 하 여 `TelemetryConfiguration.Active`입니다. ASP.NET Core에 대 한 다른 방식으로 구성을 변경할 수 있습니다. 응용 프로그램에 ASP.NET Core SDK를 추가 하 고 기본 제공 ASP.NET Core를 사용 하 여 구성 [종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)합니다. 거의 모든 구성 변경 합니다 `ConfigureServices()` 메서드의 프로그램 `Startup.cs` 으로 배포할지에 고, 그렇지 않으면 클래스입니다. 다음 섹션에서는 자세한 정보를 제공 합니다.
 
 > [!NOTE]
-> ASP.NET Core 응용 프로그램을 수정 하 여 구성 변경에 `TelemetryConfiguration.Active` 권장 되지 않습니다.
+> ASP.NET Core 응용 프로그램을 수정 하 여 구성 변경에 `TelemetryConfiguration.Active` 지원 되지 않습니다.
 
 ### <a name="using-applicationinsightsserviceoptions"></a>ApplicationInsightsServiceOptions를 사용 하 여
 
@@ -314,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### <a name="disable-telemetry-dynamically"></a>동적 원격 분석 사용 안 함
+
+조건부로 및 동적 원격 분석을 사용 하지 않도록 설정 하려는 경우를 해결할 수 있습니다 `TelemetryConfiguration` 어디서 나 코드에서에서 ASP.NET Core 종속성 주입 컨테이너를 사용 하 여 인스턴스 및 설정 `DisableTelemetry` 를 플래그 합니다.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>자동으로 수집 되는 원격 분석을 어떻게 추적할 수 있습니까?
@@ -408,3 +425,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [스냅숏 컬렉션 구성](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 예외가 현재 소스 코드 및 변수의 상태를 파악할 수 있습니다.
 * [API를 사용 하 여](../../azure-monitor/app/api-custom-events-metrics.md) 사용자 고유의 이벤트 및 앱의 성능 및 사용량에 대해 자세한 보기에 대 한 메트릭을 보내도록 합니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.
+* [ASP.NET Core에서 종속성 주입](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)

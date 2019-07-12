@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564602"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839447"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +35,7 @@ ms.locfileid: "60564602"
 
 이 자습서에서는 데이터 파이프라인을 사용하여 첫 번째 Azure Data Factory를 빌드합니다. 이 파이프라인은 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 입력 데이터를 변환하고 출력 데이터를 생성합니다.  
 
-이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 사용하여 자습서를 수행할 수 있습니다. Azure Portal, Visual Studio, PowerShell, Resource Manager 템플릿, REST API. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
+이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 사용하여 자습서를 수행할 수 있습니다. Visual Studio, PowerShell, Resource Manager 템플릿, REST API입니다. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
 
 ## <a name="tutorial-overview"></a>자습서 개요
 이 자습서에서는 다음 단계를 수행합니다.
@@ -80,7 +79,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 위에 표시된 샘플 줄에서 첫 번째 줄(2016-01-01)은 월=1 폴더의 000000_0 파일에 기록됩니다. 마찬가지로 두 번째 줄은 월=2 폴더의 파일에 기록되고 세 번째 줄은 월=3 폴더의 파일에 기록됩니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 1. **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
@@ -88,18 +87,17 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 3. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)에 있는 Hive 쿼리 파일(**HQL**)을 다운로드하고 검토합니다. 이 쿼리는 출력 데이터를 생성하기 위해 입력 데이터를 변환합니다. 
 4. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)에 있는 샘플 입력 파일(**input.log**)을 다운로드하고 검토합니다.
 5. Azure Blob Storage에 **adfgetstarted**라는 Blob 컨테이너를 만듭니다. 
-6. **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용합니다. 
+6. **adfgetstarted** 컨테이너의 **script** 폴더에 **partitionweblogs.hql** 파일을 업로드합니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용합니다. 
 7. **adfgetstarted** 컨테이너의 **inputdata** 폴더에 **input.log** 파일을 업로드합니다. 
 
 필수 조건을 완료했으면 다음 도구/SDK 중 하나를 선택하여 자습서를 수행합니다. 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure Portal 및 Visual Studio는 데이터 팩터리를 빌드하는 GUI 방식을 제공합니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
+Visual Studio에는 데이터 팩터리를 빌드하는 GUI 방법을 제공 합니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
 
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

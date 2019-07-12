@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2468fc0cbdcee9088aa9acb387af396dd448ad0a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: HT
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701686"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839018"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -33,7 +33,7 @@ ms.locfileid: "67701686"
 
 온-프레미스 MySQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 MySQL 데이터 저장소로 데이터 이동이 아닌 MySQL 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 MySQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 게이트웨이는 MySQL 데이터베이스가 Azure IaaS 가상 머신 (VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -51,7 +51,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
 
 - 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다. 
-- 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+- 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -99,7 +99,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON 예제: MySQL에서 Azure Blob으로 데이터 복사
-다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 온-프레미스 MySQL 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제에서는 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 온-프레미스 MySQL 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -306,13 +306,13 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | bit |Decimal |
 | blob |Byte[] |
 | bool |Boolean |
-| char |String |
+| char |문자열 |
 | 날짜 |Datetime |
 | Datetime |Datetime |
 | Decimal |Decimal |
 | double precision |Double |
 | Double |Double |
-| enum |String |
+| enum |문자열 |
 | FLOAT |Single |
 | int unsigned |Int64 |
 | ssNoversion |Int32 |
@@ -328,7 +328,7 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | mediumtext |String |
 | numeric |Decimal |
 | REAL |Double |
-| set |문자열 |
+| set |String |
 | smallint unsigned |Int32 |
 | SMALLINT |Int16 |
 | text |문자열 |
@@ -337,8 +337,8 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |문자열 |
+| tinytext |문자열 |
+| varchar |String |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑

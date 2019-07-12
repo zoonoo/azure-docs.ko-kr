@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335433"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836676"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -35,7 +35,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 > [!TIP]
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
@@ -44,7 +44,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 
 파이프라인을 만드는 가장 쉬운 방법은 Azure Data Factory 복사 마법사를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하여 파이프라인을 만들 수도 있습니다. Azure Resource Manager 템플릿, .NET API 또는 REST API도 파이프라인을 만드는 데 사용할 수 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+Visual Studio, Azure PowerShell 또는 다른 도구를 사용 하 여 파이프라인을 만들 수도 있습니다. Azure Resource Manager 템플릿, .NET API 또는 REST API도 파이프라인을 만드는 데 사용할 수 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -60,14 +60,14 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 다음 표에 Amazon Redshift 연결된 서비스와 관련된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
 | **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
-| **암호** |사용자 계정의 암호입니다. |예 |
+| **username** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **password** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -75,7 +75,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -85,16 +85,16 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
-| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아닙니다. |
+| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
 | **s3LinkedServiceName** | 중간 저장소로 사용할 Amazon S3입니다. 연결된 서비스는 **AwsAccessKey** 형식의 Azure Data Factory 이름을 사용하여 지정됩니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 | **bucketName** | 중간 데이터를 저장하는 데 사용할 Amazon S3 버킷을 나타냅니다. 이 속성을 제공하지 않으면 복사 작업에서 자동으로 버킷을 생성합니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 
 또는 **typeProperties** 섹션의 다음 속성과 함께 **RelationalSource**(Amazon Redshift 포함) 형식도 사용할 수 있습니다. 이 원본 유형은 Redshift **UNLOAD** 명령을 지원하지 않습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | 아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
@@ -334,13 +334,13 @@ Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_
 | INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |단일 |
+| real |단일 |
 | double precision |Double |
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
 | DATE |DateTime |
-| TIMESTAMP |DateTime |
+| timestamp |DateTime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑

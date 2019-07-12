@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4029d7c454ed590fdf974771d5f55c52590c93
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409073"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839045"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -47,7 +47,7 @@ ms.locfileid: "65409073"
 
 또한 개발 환경에는 다음 사항도 필요합니다.
 
-* 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Windows 또는 Ubuntu를 실행하는 Mac 또는 PC
 * Feather HUZZAH ESP8266을 연결할 무선 네트워크
 * 구성 도구를 다운로드하기 위한 인터넷 연결
@@ -66,11 +66,7 @@ ms.locfileid: "65409073"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
@@ -144,7 +140,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 2. 애플리케이션 예제를 저장하려는 폴더로 이동합니다.
 
-3. 다음 명령 실행:
+3. 다음 명령을 실행합니다.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git

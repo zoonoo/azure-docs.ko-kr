@@ -2,8 +2,8 @@
 title: 추정기를 사용하여 ML 모델 학습
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스 Estimator 클래스를 사용하여 일반적인 Machine Learning 및 딥 러닝 모델의 단일 노드 분산 학습을 수행하는 방법을 알아봅니다.
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 85be0abb9437a648135fe852e357596c8ff91dc3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075025"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840106"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -37,7 +37,7 @@ Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training
 
 ### <a name="single-node-training"></a>단일 노드 학습
 
-scikit-learn 모델을 위해 Azure의 원격 계산에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. `compute_target` [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체와 `ds` [데이터 저장소](how-to-access-data.md) 개체는 이미 만들어져 있어야 합니다.
+scikit-learn 모델을 위해 Azure의 원격 계산에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -56,7 +56,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 이 코드 조각에서 `Estimator` 생성자에 지정한 매개 변수는 다음과 같습니다.
 
-매개 변수 | 설명
+매개 변수 | Description
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 머신에서 원격 컴퓨팅으로 복사됩니다. 
 `script_params`| 학습 스크립트에 명령줄 인수를 지정 하는 사전 `entry_script`, 형식의 < 명령줄 인수를 값 > 쌍입니다. Verbose 플래그를 지정 하려면 `script_params`를 사용 하 여 `<command-line argument, "">`입니다.
@@ -90,7 +90,7 @@ print(run.get_portal_url())
 
 다음 코드에서는 Keras 모델에 대한 분산 학습을 수행하는 방법을 보여 줍니다. 또한 기본 Azure Machine Learning 이미지를 사용하는 대신, 학습을 위해 Docker Hub `continuumio/miniconda`의 사용자 지정 Docker 이미지를 지정합니다.
 
-[계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`는 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
+[계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`은 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -107,7 +107,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | 설명 | 기본값
+매개 변수 | Description | 기본값
 --|--|--
 `custom_docker_base_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`

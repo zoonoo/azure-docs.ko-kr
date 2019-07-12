@@ -14,18 +14,17 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ad114ce3a40e11048d01c6768811089c43cdf1db
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487335"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839382"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -117,7 +116,6 @@ ms.locfileid: "60487335"
 필수 조건을 완료했습니다. 다음 방법 중 하나를 사용하여 데이터 팩터리를 만들 수 있습니다. 위쪽의 드롭다운 목록에 있는 옵션 또는 다음 링크 중 하나를 클릭하여 자습서를 수행합니다.     
 
 * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-* [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

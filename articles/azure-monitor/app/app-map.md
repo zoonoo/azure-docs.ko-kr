@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964032"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795670"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -82,7 +82,7 @@ ms.locfileid: "65964032"
 
 ![Analytics 환경 스크린샷](media/app-map/analytics.png)
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>,
 
 경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
 
@@ -119,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**활성 TelemetryConfiguration 이니셜라이저 로드**
+**ASP.NET 앱: 활성 TelemetryConfiguration 이니셜라이저 로드**
 
 In ApplicationInsights.config :
 
@@ -132,9 +132,6 @@ In ApplicationInsights.config :
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` ASP.NET Core 응용 프로그램에 적합 하지 않습니다.
 
 ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 코드에서 이니셜라이저를 인스턴스화하는:
 
@@ -149,15 +146,20 @@ ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 �
     }
 ```
 
+> [!NOTE]
+> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+
+**ASP.NET Core 앱: 이니셜라이저는 TelemetryConfiguration 로드 합니다.**
+
 에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js

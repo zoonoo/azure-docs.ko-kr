@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell 빠른 시작: 만들기, 로드 및 Azure Search REST Api-Azure Search를 사용 하 여 인덱스를 쿼리 합니다.'
 description: 인덱스 만들기, 데이터를 로드 및 PowerShell의를 사용 하 여 쿼리를 실행 하는 방법과 Invoke-restmethod 및 Azure Search REST API입니다.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485495"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840163"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST Api를 사용 하 여 PowerShell에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -26,11 +26,11 @@ ms.locfileid: "67485495"
 > * [포털](search-create-index-portal.md)
 > 
 
-이 문서 만들기, 로드 및 PowerShell을 사용 하 여 Azure Search 인덱스를 쿼리 하는 과정을 단계별로 안내 하며 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행 하는 방법에 설명 합니다. 또는 완성 된 스크립트를 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 합니다 [azure search-powershell 샘플](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) 리포지토리.
+이 문서 만들기, 로드 및 PowerShell을 사용 하 여 Azure Search 인덱스를 쿼리 하는 과정을 단계별로 안내 하며 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행 하는 방법에 설명 합니다. 또는 수 있습니다 [다운로드 하 고 Powershell 스크립트를 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) 같은 작업을 수행 하는 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 다음 [Azure Search에 등록](search-create-service-portal.md)하십시오.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에서 사용되는 서비스와 도구는 다음과 같습니다. 
 
@@ -64,7 +64,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 2. 만들기는 **$url** 서비스를 지정 하는 개체 컬렉션을 인덱싱합니다. 올바른 검색 서비스를 사용 하 여 서비스 이름 (YOUR-검색-서비스-이름)을 대체 합니다.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. 실행할 **Invoke-restmethod** GET 요청을 서비스에 보내고 연결을 확인 합니다. 추가 **Convertto-json** 서비스에서 다시 보낸 응답을 볼 수 있도록 합니다.
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>정리 
 
-더 이상 필요한 경우 인덱스를 삭제 해야 합니다. 무료 서비스는 세 가지 인덱스 제한 됩니다. 사용 하지 않는 적극적으로 다른 자습서를 단계별로 실행할 수 있도록 모든 인덱스를 삭제 하려고 할 수 있습니다.
+자신의 구독에서 작업할 때 것이 좋습니다는 프로젝트의 끝에 리소스를 계속 해야 하는지 여부를 식별 하려면 만든 합니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제 하거나 리소스의 전체 집합을 삭제 하려면 리소스 그룹을 삭제할 수 있습니다.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+찾아서 포털에서 리소스를 관리할 수 있습니다 사용 하는 **모든 리소스** 또는 **리소스 그룹** 왼쪽 탐색 창에서 링크 합니다.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+무료 서비스를 사용 하는 경우에 3 개의 인덱스, 인덱서 및 데이터 원본 제한 한다고를 해야 합니다. 제한 미만으로 유지 하려면 포털에서 개별 항목을 삭제할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

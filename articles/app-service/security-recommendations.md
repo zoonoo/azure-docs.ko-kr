@@ -8,12 +8,13 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
-ms.openlocfilehash: f50532a21d11d2f7142fa3ee7ed08f759df36d52
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.custom: security-recommendations
+ms.openlocfilehash: 53cd2b1dde1158a1c46f798e57911dad110dc87e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207542"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718258"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대 한 보안 권장 사항
 
@@ -21,13 +22,13 @@ ms.locfileid: "67207542"
 
 ## <a name="general"></a>일반
 
-| 권장 사항 | 설명 |
+| 권장 | 주석 |
 |-|-|----|
 | 최신 상태로 유지 | 지원 되는 플랫폼 프로그래밍 언어, 프로토콜 및 프레임 워크의 최신 버전을 사용 합니다. |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
-| 권장 사항 | 설명 |
+| 권장 | 주석 |
 |-|----|
 | 익명 액세스를 사용 하지 않도록 설정 | 익명 요청을 지 원하는 데 필요 하지 않은 경우 익명 액세스를 비활성화 합니다. Azure App Service 인증 옵션에 대 한 자세한 내용은 참조 하세요. [인증 및 Azure App Service에서 권한 부여](overview-authentication-authorization.md)합니다.|
 | 인증 필요 | 가능 하면 인증 및 권한 부여를 처리 하는 App Service 인증 모듈 코드를 작성 하는 대신 사용 합니다. 참조 [인증 및 Azure App Service에서 권한 부여](overview-authentication-authorization.md)합니다. |
@@ -36,7 +37,7 @@ ms.locfileid: "67207542"
 
 ## <a name="data-protection"></a>데이터 보호
 
-| 권장 사항 | 설명 |
+| 권장 | 주석 |
 |-|-|
 | HTTP에서 HTTPs로 리디렉션 | 기본적으로 클라이언트 둘 다 HTTP 또는 HTTPS를 사용 하 여 웹 앱에 연결할 수 있습니다. 암호화 및 인증 된 HTTPS는 보안 연결을 제공 하는 SSL/TLS 프로토콜을 사용 하기 때문에 HTTP에서 HTTPs로 리디렉션하는 것이 좋습니다. |
 | Azure 리소스에 대 한 통신을 암호화 | 앱에 연결 될 때 Azure 리소스와 같은 [SQL Database](https://azure.microsoft.com/services/sql-database/) 하거나 [Azure Storage](/azure/storage/), Azure에서 연결 유지 합니다. Azure에서 공유 네트워킹을 통해 연결 되 면 되므로 항상 모든 통신을 암호화 해야 합니다. |
@@ -46,7 +47,7 @@ ms.locfileid: "67207542"
 
 ## <a name="networking"></a>네트워킹
 
-| 권장 사항 | 설명 |
+| 권장 | 주석 |
 |-|-|
 | 정적 IP 제한을 사용 하 여 | Windows의 azure App Service를 사용 하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.  |
 | 격리 가격 책정 계층을 사용 하 여 | 격리 가격 책정 계층을 제외 하 고 모든 계층 공유 네트워크 인프라에 Azure App Service에서 앱을 실행합니다. 격리 된 계층을 사용 하면 전체 네트워크 격리 전용 내부에 앱을 실행 하 여 [App Service environment](environment/intro.md)합니다. App Service 환경은 [Azure Virtual Network](/azure/virtual-network/)의 사용자 인스턴스에서 실행됩니다.|
@@ -55,7 +56,7 @@ ms.locfileid: "67207542"
 
 ## <a name="monitoring"></a>모니터링
 
-| 권장 사항 | 설명 |
+| 권장 | 주석 |
 |-|-|
 |사용 하 여 Azure Security Center 표준 계층 | [Azure Security Center](../security-center/security-center-app-services.md) Azure App Service를 사용 하 여 고유 하 게 통합 됩니다. 평가 실행 하 고 보안 권장 사항을 제공할 수 있습니다. |
 

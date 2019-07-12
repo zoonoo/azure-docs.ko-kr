@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a798b766d09428e7ebebc04d969d63a542de3808
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507774"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835709"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 
+Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요. 
+## <a name="prerequisites"></a>전제 조건
+이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요.
 
 >[!NOTE]
 >Azure AD B2C 문서인 [사용자 지정 정책에서 UI 사용자 지정 구성](active-directory-b2c-ui-customization-custom.md)에서는 다음과 같은 기본 사항을 설명합니다.
@@ -35,11 +35,11 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 ## <a name="add-a-link-to-html5css-templates-to-your-user-journey"></a>HTML5/CSS 템플릿에 대한 링크를 사용자 경험에 추가
 
-사용자 지정 정책에서 콘텐츠 정의는 지정된 UI 단계(예: 로그인 또는 등록 페이지)에 사용되는 HTML5 페이지 URI를 정의합니다. 기본 정책에서는 HTML5 파일의 URI를 가리켜서(CSS에서) 기본 모양과 느낌을 정의합니다. 확장 정책에서 HTML5 파일에 대한 LoadUri를 재정의하여 모양과 느낌을 수정할 수 있습니다. 콘텐츠 정의에는 적절하게 HTML5/CSS 파일을 제작하여 정의된 외부 콘텐츠에 대한 URL이 포함됩니다. 
+사용자 지정 정책에서 콘텐츠 정의는 지정된 UI 단계(예: 로그인 또는 등록 페이지)에 사용되는 HTML5 페이지 URI를 정의합니다. 기본 정책에서는 HTML5 파일의 URI를 가리켜서(CSS에서) 기본 모양과 느낌을 정의합니다. 확장 정책에서 HTML5 파일에 대한 LoadUri를 재정의하여 모양과 느낌을 수정할 수 있습니다. 콘텐츠 정의에는 적절하게 HTML5/CSS 파일을 제작하여 정의된 외부 콘텐츠에 대한 URL이 포함됩니다.
 
 `ContentDefinitions` 섹션에는 일련의 `ContentDefinition` XML 요소가 포함됩니다. `ContentDefinition` 요소의 ID 특성은 콘텐츠 정의에 관련된 페이지의 형식을 지정합니다. 즉, 요소는 사용자 지정 HTML5/CSS 템플릿이 적용될 컨텍스트를 정의합니다. 다음 표에서는 IEF 엔진이 인식하는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 형식을 설명합니다.
 
-| 콘텐츠 정의 ID | 기본 HTML5 템플릿| 설명 | 
+| 콘텐츠 정의 ID | 기본 HTML5 템플릿| Description |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지**입니다. 이 페이지에는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자가 나열됩니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |
@@ -53,14 +53,14 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 | *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **통합 등록 또는 로그인 페이지**입니다. 이 페이지는 사용자 등록 및 로그인 프로세스를 처리합니다. 사용자는 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정을 사용할 수 있습니다.  |
 
 ## <a name="serving-dynamic-content"></a>동적 콘텐츠 제공
-[사용자 지정 정책에서 UI 사용자 지정 구성](active-directory-b2c-ui-customization-custom.md) 문서에서 Azure Blob Storage에 HTML5 파일을 업로드했습니다. 해당 HTML5 파일은 고정적이고 각 요청에 동일한 HTML 콘텐츠를 렌더링합니다. 
+[사용자 지정 정책에서 UI 사용자 지정 구성](active-directory-b2c-ui-customization-custom.md) 문서에서 Azure Blob Storage에 HTML5 파일을 업로드했습니다. 해당 HTML5 파일은 고정적이고 각 요청에 동일한 HTML 콘텐츠를 렌더링합니다.
 
-이 문서에서는 쿼리 문자열 매개 변수를 수락하고 적절하게 응답할 수 있는 ASP.Net 웹앱을 사용합니다. 
+이 문서에서는 쿼리 문자열 매개 변수를 수락하고 적절하게 응답할 수 있는 ASP.Net 웹앱을 사용합니다.
 
 이 연습에서는 다음을 수행합니다.
-* HTML5 템플릿을 호스팅하는 ASP.NET Core 웹 애플리케이션 만들기 
-* 사용자 지정 HTML5 템플릿 _unified.cshtml_ 추가 
-* Azure App Service에 웹앱 게시 
+* HTML5 템플릿을 호스팅하는 ASP.NET Core 웹 애플리케이션 만들기
+* 사용자 지정 HTML5 템플릿 _unified.cshtml_ 추가
+* Azure App Service에 웹앱 게시
 * 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 * HTML5 파일을 가리키도록 `LoadUri` 요소 재정의
 
@@ -89,7 +89,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 ### <a name="step-22-add-the-mvc-view"></a>2\.2단계: MVC 뷰 추가
 1. Views/Home 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 클릭합니다.
 
-    ![MVC 새 항목 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Visual Studio에서 새 항목 메뉴 항목 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. **새 항목 추가 - Contoso.AADB2C.UI** 창에서 **웹 > ASP.NET**을 선택합니다.
 
@@ -99,7 +99,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 5. **추가**를 선택합니다.
 
-    ![MVC 보기 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![강조 표시 하는 MVC 뷰 페이지를 사용 하 여 Visual Studio에서 새 항목 대화 상자 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. *unified.cshtml* 파일이 열려 있지 않으면 파일을 두 번 클릭하여 연 다음 파일 콘텐츠를 지웁니다.
 
@@ -127,7 +127,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2\.4단계: MVC 컨트롤러에 보기 추가
 
-1. **Controllers\HomeController.cs**를 열고 다음 메서드를 추가합니다. 
+1. **Controllers\HomeController.cs**를 열고 다음 메서드를 추가합니다.
 
     ```C
     public IActionResult unified()
@@ -136,9 +136,9 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
     }
     ```
     이 코드는 메서드가 *View* 템플릿 파일을 사용하여 브라우저에 응답을 렌더링하도록 지정합니다. *View* 템플릿 파일의 이름을 명시적으로 지정하지 않기 때문에 MVC는 */Views/Home* 폴더의 _unified.cshtml_ 보기 파일을 기본적으로 사용합니다.
-    
+
     _unified_ 메서드를 추가한 후 코드는 다음과 비슷해야 합니다.
-    
+
     ![컨트롤러를 변경하여 보기 렌더링](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-controller-view.png)
 
 2. 웹앱을 디버그하여 _unified_ 페이지(예: `http://localhost:<Port number>/Home/unified`)에 액세스할 수 있도록 합니다.
@@ -174,18 +174,18 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. **설정** 섹션에서 **API** 섹션 아래 **CORS**를 선택합니다.
 
-    ![CORS 설정 선택](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![Azure portal에서 App Service 메뉴에서 강조 표시 하는 CORS 메뉴 항목](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. **CORS** 창의 **허용된 원본** 상자에 다음 중 하나를 수행합니다.
 
     * JavaScript 호출을 허용할 URL을 입력합니다. URL을 입력할 때는 모두 소문자를 사용해야 합니다.
     * 별표( * )를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
 
-4. **저장**을 선택합니다.
+4.           **저장**을 선택합니다.
 
-    ![CORS 창](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![허용 된 원본에서 강조 표시 된 별표를 사용 하 여 CORS 설정 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
-    **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다. 
+    **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다.
 
 ## <a name="step-4-html5-template-validation"></a>4단계: HTML5 템플릿 유효성 검사
 HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefinition` 코드로 사용할 수 없습니다. `ContentDefinition`을 사용자 지정 정책에 추가하기 전에 다음을 확인하십시오.
@@ -193,7 +193,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 * 콘텐츠 서버가 CORS에 대해 사용하도록 설정되었습니다.
 
     >[!NOTE]
-    >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다. 
+    >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다.
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
 * 사용 중인 *절대 URL*와 같은 `https://yourdomain/content`, 모든 링크, CSS 콘텐츠 및 이미지에 대 한 합니다.
@@ -206,14 +206,14 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 
 3. 확장 파일(예: *TrustFrameworkExtensions.xml*)을 연 다음 `<BuildingBlocks>` 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 
-4. 복사한 `<ContentDefinitions>` 노드의 전체 콘텐츠를 `<BuildingBlocks>` 요소의 자식으로 붙여넣습니다. 
+4. 복사한 `<ContentDefinitions>` 노드의 전체 콘텐츠를 `<BuildingBlocks>` 요소의 자식으로 붙여넣습니다.
 
 5. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 `<ContentDefinition>` 노드를 검색합니다.
 
-6. `LoadUri` 값을 _~/tenant/default/unified_에서 _https://<app_name>.azurewebsites.net/home/unified_로 변경합니다.  
+6. `LoadUri` 값을 _~/tenant/default/unified_에서 _https://<app_name>.azurewebsites.net/home/unified_로 변경합니다.
     사용자 지정 정책이 다음과 비슷해야 합니다.
-    
-    ![콘텐츠 정의](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+
+    ![LoadUri 요소 강조 표시를 사용 하 여 예제 XML 코드 조각](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>6단계: 테넌트에 정책 업로드
 1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
@@ -234,20 +234,20 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     >[!NOTE]
     >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
-2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.  
+2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
     앞에서 만든 배경으로 사용자 지정 HTML5를 볼 수 있어야 합니다.
 
     ![등록 또는 로그인 정책](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
 ## <a name="step-8-add-dynamic-content"></a>8단계: 동적 콘텐츠 추가
-_campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 애플리케이션(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다. 
+_campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 애플리케이션(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다.
 
 ### <a name="step-81-add-a-content-definition-parameter"></a>8\.1단계: 콘텐츠 정의 매개 변수 추가
 
 다음을 수행하여 `ContentDefinitionParameters` 요소를 추가합니다.
 1. 정책의 *SignUpOrSignin* 파일(예: *SignUpOrSignin.xml*)을 엽니다.
 
-2. `<DefaultUserJourney>` 노드에 `UserJourneyBehaviors` 노드를 추가합니다.  
+2. `<DefaultUserJourney>` 노드에 `UserJourneyBehaviors` 노드를 추가합니다.
 
     ```XML
     <RelyingParty>
@@ -292,30 +292,30 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
 2. `background_background_image` ID를 사용하여 `<img>` 요소를 찾고 `src` 값을 `@ViewData["background"]`로 바꿉니다.
 
-    ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![src 값이 선택 된 img 요소 ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
 ### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: 변경 내용 업로드 및 정책 게시
 1. Azure App Service에 Visual Studio 프로젝트를 게시합니다.
 
 2. *SignUpOrSignin.xml* 정책을 Azure AD B2C에 업로드합니다.
 
-3. 업로드한 RP 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.  
+3. 업로드한 RP 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
     이전에 표시된 것과 동일한 배경 이미지가 나타납니다.
 
 4. 브라우저의 주소 표시줄에서 URL을 복사합니다.
 
 5. URI에 _campaignId_ 쿼리 문자열 매개 변수를 추가합니다. 예를 들어 다음 이미지와 같이 `&campaignId=hawaii`를 추가합니다.
 
-    ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![CampaignId 쿼리 문자열 매개 변수를 강조 표시 된 URI](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. **Enter**를 선택하여 하와이 배경 이미지를 표시합니다.
 
-    ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![하와이 이미지 사용자 지정 배경 사용 하 여 등록에서 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
-7. 값을 *도쿄*로 변경하고 **Enter**를 선택합니다.  
+7. 값을 *도쿄*로 변경하고 **Enter**를 선택합니다.
     브라우저에 도쿄 배경이 표시됩니다.
 
-    ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![도쿄 이미지 사용자 지정 배경 사용 하 여 등록에서 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## <a name="step-9-change-the-rest-of-the-user-journey"></a>9단계: 사용자 경험의 나머지 변경
 로그인 페이지에서 **지금 등록** 링크를 선택하면 브라우저는 정의한 이미지가 아닌 기본 배경 이미지를 표시합니다. 이 동작은 등록 또는 로그인 페이지만 변경했기 때문에 발생합니다. 나머지 자체 어설션 콘텐츠 정의를 변경하려면 다음을 수행하십시오.
@@ -329,13 +329,13 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     d. *selfasserted*를 **Home** 컨트롤러에 추가합니다.
 
-2. "4단계"로 돌아가서 다음을 수행합니다. 
+2. "4단계"로 돌아가서 다음을 수행합니다.
 
     a. 확장 정책에서 `Id="api.selfasserted"`, `Id="api.localaccountsignup"` 및 `Id="api.localaccountpasswordreset"`를 포함하는 `<ContentDefinition>` 노드를 찾습니다.
 
     b. `LoadUri` 특성을 *selfasserted* URI로 설정합니다.
 
-3. "8.2단계"로 돌아가서 쿼리 문자열 매개 변수를 수락하도록 코드를 변경합니다. 하지만 이번에는 *selfasserted* 함수로 변경합니다. 
+3. "8.2단계"로 돌아가서 쿼리 문자열 매개 변수를 수락하도록 코드를 변경합니다. 하지만 이번에는 *selfasserted* 함수로 변경합니다.
 
 4. *TrustFrameworkExtensions.xml* 정책을 업로드하고 유효성 검사를 통과하는지 확인합니다.
 
