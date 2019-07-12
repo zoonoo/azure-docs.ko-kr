@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: cf26455ce069294bd1c5a52306ed21019287a0df
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
-ms.translationtype: HT
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786278"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840392"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -233,46 +233,76 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 ## <a name="linux-dependencies"></a>Linux 종속성
 
-일반적으로 Linux에서 Storage 탐색기를 실행 하려면 다음 패키지가 필요 합니다.
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 런타임](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) 참고 합니다. Storage 탐색기 1.7.0 버전 및 이전.NET Core 2.0을 필요로 합니다. 최신 버전의.NET Core가 설치 되어 있는 경우 Storage 탐색기 (아래 참조)을 패치 해야 합니다. Storage 탐색기 1.8.0 또는 큰 다음 실행 하는 경우를.NET Core 2.2 사용할 수 있어야 합니다. 버전 2.2 이상 지금은 작업을 확인 하지 않았습니다.
-* `libgnome-keyring-common` 및 `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Storage 탐색기에서 제공 합니다. tar.gz 다운로드 Ubuntu 배포에만 지원 됩니다. 다른 배포 확인 되지 않은 및 대체 또는 추가 패키지가 필요할 수 있습니다.
+
+이러한 패키지는 Linux에서 Storage 탐색기에 대 한 가장 일반적인 요구 사항:
+
+* [.NET core 2.0 런타임](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` 또는 `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-배포에 따라 다른 있거나 설치 해야 하는 패키지가 더 이상 표시 합니다.
+> [!NOTE]
+> Storage 탐색기 1.7.0 버전 및 이전.NET Core 2.0을 필요로 합니다. 최신 버전의.NET Core가 설치 되어 있는 경우 해야 [Storage 탐색기를 패치](#patching-storage-explorer-for-newer-versions-of-net-core)합니다. Storage 탐색기 1.8.0 또는 큰 다음 실행 하는 경우를.NET Core 2.2 사용할 수 있어야 합니다. 버전 2.2 이상 지금은 작업을 확인 하지 않았습니다.
 
-Storage 탐색기는 Ubuntu 18.04, 14.04 및 16.04에 공식적으로 지원 됩니다. 클린 컴퓨터에 대 한 설치 단계는 다음과 같습니다.
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Storage 탐색기를 다운로드 합니다.
+2. 설치 합니다 [.NET Core 런타임](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)합니다.
+3. 다음 명령을 실행합니다.
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Storage 탐색기 다운로드
-2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt-get install libgconf-2-4`를 실행합니다.
-4. `sudo apt install libgnome-keyring-common libgnome-keyring-dev`를 실행합니다.
+1. Storage 탐색기를 다운로드 합니다.
+2. 설치 합니다 [.NET Core 런타임](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)합니다.
+3. 다음 명령을 실행합니다.
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Storage 탐색기 다운로드
-2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt install libgnome-keyring-dev`를 실행합니다.
+2. 설치 합니다 [.NET Core 런타임](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)합니다.
+3. 다음 명령을 실행합니다.
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Storage 탐색기 다운로드
-2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt install libgnome-keyring-dev`를 실행합니다.
+2. 설치 합니다 [.NET Core 런타임](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)합니다.
+3. 다음 명령을 실행합니다.
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage 탐색기 최신 버전의.NET Core에 대 한 패치
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage 탐색기 최신 버전의.NET Core에 대 한 패치 
-.NET core 2.0 설치 및 Storage 탐색기 1.7.0 버전을 실행 하는 보다 큰 또는 이전 버전이 있는 경우 다음 단계를 완료 하 여 Storage 탐색기를 패치 하는 가능성이 필요 합니다.
+Storage 탐색기 1.7.0, 또는 Storage 탐색기를 사용한.NET Core의 버전을 패치할 해야 할 수 있습니다.
+
 1. 1\.5.43 StreamJsonRpc의 버전을 다운로드 [nuget에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾아보십시오.
-2. 패키지를 다운로드 한 후 해당 파일 확장명을 변경 `.nupkg` 를 `.zip`
+2. 패키지를 다운로드 한 후 해당 파일 확장명을 변경 `.nupkg` 에 `.zip`입니다.
 3. 패키지를 압축을 풉니다.
-4. [https://resources.azure.com](`streamjsonrpc.1.5.43/lib/netstandard1.1/`) 으로 이동합니다.
+4. `streamjsonrpc.1.5.43/lib/netstandard1.1/` 폴더를 엽니다.
 5. 복사 `StreamJsonRpc.dll` Storage 탐색기 폴더 안에 다음 위치에 있습니다.
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>오픈의 탐색기에서 Azure portal에서 작동 하지 않습니다.
 

@@ -4,7 +4,7 @@ description: Azure의 SAP HANA (대규모 인스턴스)에서 HANA 쪽의 모니
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f25218156157f626b667c474de1674d1d8509a24
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61128972"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705822"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 
@@ -94,10 +94,10 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 [SAP 참고 사항 #2081065 - SAP HANA 네트워크 문제 해결](https://launchpad.support.sap.com/#/notes/2081065)을 참조하고 이 SAP 참고 사항에 있는 네트워크 문제 해결 단계를 수행합니다.
 
 1. 서버와 클라이언트 간의 왕복 시간을 분석합니다.
-  a. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  1\. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
   
 2. 노드 간 통신을 분석합니다.
-  a. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  1\. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
 
 3. Linux 명령 **ifconfig**를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
 4. Linux 명령 **tcpdump**를 실행합니다.
@@ -106,7 +106,7 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 
 참조 된 [SAP HANA 문제 해결: 네트워킹 성능 및 연결 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 자세한 문제 해결 단계에 대 한 사이트입니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>저장 공간
 
 최종 사용자 관점에서 응용 프로그램 (또는 시스템 전체의) 느리게 실행, 응답성이 뛰어난 아니거나 I/O 성능 문제가 있는 경우 응답을 중지 하도록 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 
