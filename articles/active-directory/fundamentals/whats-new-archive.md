@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68be46b406e7a5caaabbc0726a6aece0fd0423ce
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a6935d2a89968b55dec1626d23b3f290261cf66f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472179"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655436"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -55,13 +55,13 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 
 - **많은 사용자에 대한 단계별 접근 방식의 대규모 ImmutableID 업데이트**
   
-  예를 들어, 오랫동안 AD DS 포리스트 간 마이그레이션을 수행해야 합니다. 해결 방법: Azure AD Connect를 사용하여 **원본 앵커를 구성**하고 사용자가 마이그레이션한 대로 기존 ImmutableID 값을 Azure AD에서 새 포리스트에 있는 로컬 AD DS 사용자의 ms-DS-Consistency-Guid 특성으로 복사합니다. 자세한 내용은 [ms-DS-ConsistencyGuid를 sourceAnchor로 사용](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor)을 참조하세요.
+  예를 들어, 오랫동안 AD DS 포리스트 간 마이그레이션을 수행해야 합니다. 해결책: Azure AD Connect를 사용하여 **원본 앵커를 구성**하고 사용자가 마이그레이션한 대로 기존 ImmutableID 값을 Azure AD에서 새 포리스트에 있는 로컬 AD DS 사용자의 ms-DS-Consistency-Guid 특성으로 복사합니다. 자세한 내용은 [ms-DS-ConsistencyGuid를 sourceAnchor로 사용](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor)을 참조하세요.
 
 - **많은 사용자에 대한 동시 대규모 ImmutableID 업데이트**
 
-  예를 들어, Azure AD Connect를 구현하는 동안 실수가 있었기 때문에 이제 SourceAnchor 특성을 변경해야 합니다. 해결 방법: 테넌트 수준에서 DirSync를 사용하지 않도록 설정하고 잘못된 모든 ImmutableID 값을 지웁니다. 자세한 내용은 [Office 365에서 디렉터리 동기화 끄기](/office365/enterprise/turn-off-directory-synchronization)를 참조하세요.
+  예를 들어, Azure AD Connect를 구현하는 동안 실수가 있었기 때문에 이제 SourceAnchor 특성을 변경해야 합니다. 해결책: 테넌트 수준에서 DirSync를 사용하지 않도록 설정하고 잘못된 모든 ImmutableID 값을 지웁니다. 자세한 내용은 [Office 365에서 디렉터리 동기화 끄기](/office365/enterprise/turn-off-directory-synchronization)를 참조하세요.
 
-- **Azure AD에서 기존 사용자와 온-프레미스 사용자 다시 일치** 예를 들어 AD DS에서 다시 생성된 사용자가 기존 Azure AD 계정(분리된 개체)를 사용하여 다시 일치시키는 대신 Azure AD 계정에 중복을 생성합니다. 해결 방법: Azure Portal에서 Azure AD Connect Health를 사용하여 원본 앵커/ImmutableID를 다시 매핑합니다. 자세한 내용은 [분리된 개체 시나리오](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario)를 참조하세요.
+- **Azure AD에서 기존 사용자와 온-프레미스 사용자 다시 일치** 예를 들어 AD DS에서 다시 생성된 사용자가 기존 Azure AD 계정(분리된 개체)를 사용하여 다시 일치시키는 대신 Azure AD 계정에 중복을 생성합니다. 해결책: Azure Portal에서 Azure AD Connect Health를 사용하여 원본 앵커/ImmutableID를 다시 매핑합니다. 자세한 내용은 [분리된 개체 시나리오](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario)를 참조하세요.
 
 ### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>호환성이 손상되는 변경: Azure Monitor를 통한 감사 및 로그인 로그 스키마에 대한 업데이트
 
@@ -79,10 +79,10 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 
 |필드 이름|변경 내용|이전 값|새 값|
 |----------|------------|----------|----------|
-|Category|이전에는 **서비스 이름** 필드였습니다. 이제 **감사 범주** 필드입니다. **서비스 이름**이 **loggedByService** 필드로 이름이 변경되었습니다.|<ul><li>계정 프로비전</li><li>핵심 디렉터리</li><li>셀프 서비스 암호 재설정</li></ul>|<ul><li>사용자 관리</li><li>그룹 관리</li><li>앱 관리</li></ul>|
+|범주|이전에는 **서비스 이름** 필드였습니다. 이제 **감사 범주** 필드입니다. **서비스 이름**이 **loggedByService** 필드로 이름이 변경되었습니다.|<ul><li>계정 프로비전</li><li>핵심 디렉터리</li><li>셀프 서비스 암호 재설정</li></ul>|<ul><li>사용자 관리</li><li>그룹 관리</li><li>앱 관리</li></ul>|
 |targetResources|최상위 수준에 **TargetResourceType**을 포함합니다.|&nbsp;|<ul><li>정책</li><li>앱</li><li>사용자</li><li>그룹</li></ul>|
 |loggedByService|감사 로그를 생성한 서비스의 이름을 제공합니다.|Null|<ul><li>계정 프로비전</li><li>핵심 디렉터리</li><li>셀프 서비스 암호 재설정</li></ul>|
-|결과|감사 로그의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li></ul>|<ul><li>성공</li><li>실패</li></ul>|
+|결과|감사 로그의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>실패</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>로그인 스키마의 변경된 필드
 로그인 스키마에서 다음 필드가 변경됩니다.
@@ -90,8 +90,8 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 |필드 이름|변경 내용|이전 값|새 값|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|이전에는 **conditionalaccessPolicies** 필드였습니다. 이제 **appliedConditionalAccessPolicies** 필드입니다.|변경 내용 없음|변경 내용 없음|
-|conditionalAccessStatus|로그인 시 조건부 액세스 정책 상태의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>성공</li><li>실패</li><li>적용되지 않음</li><li>사용 안 함</li></ul>|
-|appliedConditionalAccessPolicies: 결과|로그인 시 개별 조건부 액세스 정책 상태의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>성공</li><li>실패</li><li>적용되지 않음</li><li>사용 안 함</li></ul>|
+|conditionalAccessStatus|로그인 시 조건부 액세스 정책 상태의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>실패</li><li>적용되지 않음</li><li>사용 안 함</li></ul>|
+|appliedConditionalAccessPolicies: 결과|로그인 시 개별 조건부 액세스 정책 상태의 결과를 제공합니다. 이전에는 열거형이었지만 이제 실제 값을 표시합니다.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>실패</li><li>적용되지 않음</li><li>사용 안 함</li></ul>|
 
 스키마에 대한 자세한 내용은 [Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)을 참조하세요.
 
@@ -100,7 +100,7 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 ### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>감독된 기계 학습 모델 및 위험 점수 엔진의 ID 보호 개선
 
 **유형:** 변경된 기능  
-**서비스 범주:** Identity Protection  
+**서비스 범주:** ID 보호  
 **제품 기능:** 위험 점수
 
 ID 보호 관련 사용자 및 로그인 위험 평가 엔진이 개선되어 사용자 위험 정확도 및 적용 범위를 향상하는 데 도움이 됩니다. 관리자는 사용자 위험 수준이 특정 검색의 위험 수준에 더 이상 직접 연결되지 않으며 위험한 로그인 이벤트 수와 수준이 증가함을 확인할 수도 있습니다.
@@ -121,7 +121,7 @@ ID 보호 관련 사용자 및 로그인 위험 평가 엔진이 개선되어 �
 
 - 기타 모바일 인증자 앱/하드웨어 토큰 코드
 
-- Email
+- EMail
 
 - 전화 통화
 
@@ -133,9 +133,9 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>새 Azure AD 클라우드 디바이스 관리자 역할(공개 미리 보기)
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 디바이스 등록 및 관리  
-**제품 기능:** 액세스 제어
+**제품 기능:** Access Control
 
 관리자는 클라우드 디바이스 관리자 작업을 수행할 새 클라우드 디바이스 관리자 역할에 사용자를 할당할 수 있습니다. 클라우드 디바이스 관리자 역할이 할당된 사용자는 Azure AD에서 디바이스를 사용/사용하지 않도록 설정하고, 삭제하고, Azure Portal에서 Windows 10 BitLocker 키(있는 경우)를 읽을 수 있습니다.
 
@@ -145,7 +145,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Azure AD의 새 작업 타임스탬프(공개 미리 보기)를 사용하여 디바이스 관리
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 디바이스 등록 및 관리  
 **제품 기능:** 디바이스 수명 주기 관리
 
@@ -157,7 +157,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>관리자는 사용자가 각 장치에서 사용 약관을 수락 하도록 요구할 수 있습니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
@@ -169,7 +169,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>관리자의 되풀이 일정에 따라 만료를 사용 하 여 사용 약관을 구성할 수 있습니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
@@ -182,7 +182,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>관리자는 각 사용자의 일정에 따라 만료 사용 약관을 구성할 수 있습니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
@@ -194,9 +194,9 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Azure Active Directory 역할에 대한 새 Azure AD PIM(Privileged Identity Management) 메일
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 Azure AD PIM(Privileged Identity Management)를 사용하는 고객은 이제 지난 7일간의 다음 정보를 포함하여 매주 요약 메일을 받을 수 있습니다.
 
@@ -228,7 +228,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 11월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -244,7 +244,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD 로그는 이제 Azure Log Analytics(공개 미리 보기)에서 사용됩니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -254,7 +254,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 10월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -268,7 +268,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services 이메일 알림
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Azure AD Domain Services  
 **제품 기능:** Azure AD Domain Services
 
@@ -300,7 +300,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 **유형:** 수정됨  
 **서비스 범주:** 그룹 관리  
-**제품 기능:** 협업
+**제품 기능:** 공동 작업
 
 이제 그룹의 소유자가 되지 않아도 특정 관리자 역할이 동적 구성원 규칙을 만들고 업데이트할 수 있도록 문제가 해결되었습니다.
 
@@ -318,7 +318,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>일부 타사 앱에 대한 간소화된 SSO(Single Sign-On) 구성 설정
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
@@ -336,7 +336,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - 데이터가 있는 위치 페이지
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 기타  
 **제품 기능:** GoLocal
 
@@ -348,7 +348,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>내 앱 액세스 패널에 사용할 수 있는 새 배포 계획
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO
 
@@ -361,7 +361,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Azure Portal의 [로그인 로그] 페이지에 있는 새로운 [문제 해결 및 지원] 탭
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -375,7 +375,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 **유형:** 변경된 기능  
 **서비스 범주:** 그룹 관리  
-**제품 기능:** 협업
+**제품 기능:** 공동 작업
 
 이 업데이트부터는 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기**를 클릭하고, 고유한 앱 ID를 입력하고, 사용자에 대한 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다.
 
@@ -395,7 +395,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 - Microsoft Stream
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -403,7 +403,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Windows 7/8/8.1 잠금 화면에서 셀프 서비스 암호 재설정에 대한 새로운 지원
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** SSPR  
 **제품 기능:** 사용자 인증
 
@@ -429,7 +429,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---september-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 9월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -443,7 +443,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="support-for-additional-claims-transformations-methods"></a>추가 클레임 변환 메서드 지원
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
@@ -511,9 +511,9 @@ Azure AD에 더 큰 IP 범위를 도입하려고 합니다. 따라서 방화벽,
  
 ---
 
-### <a name="converged-security-info-management-for-self-service-password-sspr-and-multi-factor-authentication-mfa"></a>SSPR(셀프 서비스 암호) 및 MFA(Multi-Factor Authentication)을 위한 수렴된 보안 정보 관리
+### <a name="converged-security-info-management-for-self-service-password-sspr-and-multi-factor-authentication-mfa"></a>SSPR(셀프 서비스 암호) 및 MFA(Multi-Factor Authentication)를 위한 융합형 보안 정보 관리
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** SSPR  
 **제품 기능:** 사용자 인증
  
@@ -525,9 +525,9 @@ Azure AD에 더 큰 IP 범위를 도입하려고 합니다. 따라서 방화벽,
 
 ---
 
-### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Azure AD 애플리케이션 프록시 앱의 새 HTTP 전용 쿠키 설정
+### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Azure AD 애플리케이션 프록시 앱에서 새로운 HTTP 전용 쿠키 설정
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** Access Control
 
@@ -539,11 +539,11 @@ HTTP 전용 쿠키 설정에 대한 자세한 내용은 [Azure AD 애플리케�
 
 ---
 
-### <a name="privileged-identity-management-pim-for-azure-resources-supports-management-group-resource-types"></a>Azure 리소스의 PIM(Privileged Identity Management)에서 관리 그룹 리소스 종류 지원
+### <a name="privileged-identity-management-pim-for-azure-resources-supports-management-group-resource-types"></a>Azure 리소스에 대한 PIM(Privileged Identity Management)은 관리 그룹 리소스 종류를 지원합니다.
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 이제 Just-In-Time 활성화 및 할당 설정을 구독, 리소스 그룹 및 리소스(예: VM, App Services 등)에 적용하듯이 관리 그룹 리소스 종류에 적용할 수 있습니다. 또한 관리 그룹에 대한 관리자 액세스를 제공하는 역할이 있는 사람은 PIM에서 해당 리소스를 검색하고 관리할 수 있습니다.
 
@@ -551,11 +551,11 @@ PIM 및 Azure 리소스에 대한 자세한 내용은 [Privileged Identity Manag
  
 ---
 
-### <a name="application-access-preview-provides-faster-access-to-the-azure-ad-portal"></a>응용 프로그램 액세스(미리 보기)에서 Azure AD 포털의 빠른 액세스 제공
+### <a name="application-access-preview-provides-faster-access-to-the-azure-ad-portal"></a>애플리케이션 액세스(미리 보기)를 사용하면 Azure AD 포털에 빠르게 액세스할 수 있습니다.
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 현재 PIM을 사용하여 역할을 활성화하는 경우 권한이 적용되려면 10분 넘게 걸릴 수 있습니다. 현재 미리 보기 상태인 애플리케이션 액세스를 사용하도록 선택하면 활성화 요청이 완료되자마자 관리자가 Azure AD 포털에 액세스할 수 있습니다.
 
@@ -563,9 +563,9 @@ PIM 및 Azure 리소스에 대한 자세한 내용은 [Privileged Identity Manag
  
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱 - 2018년 8월
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 8월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -577,7 +577,7 @@ PIM 및 Azure 리소스에 대한 자세한 내용은 [Privileged Identity Manag
 
 ---
 
-### <a name="native-tableau-support-is-now-available-in-azure-ad-application-proxy"></a>이제 Azure AD 애플리케이션 프록시에서 네이티브 Tableau 지원을 사용할 수 있습니다.
+### <a name="native-tableau-support-is-now-available-in-azure-ad-application-proxy"></a>이제 Azure AD 애플리케이션 프록시에 Native Tableau 지원이 제공됩니다.
 
 **유형:** 변경된 기능  
 **서비스 범주:** 앱 프록시  
@@ -589,9 +589,9 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ---
 
-### <a name="new-support-to-add-google-as-an-identity-provider-for-b2b-guest-users-in-azure-active-directory-preview"></a>Google을 Azure Active Directory(미리 보기)에서 B2B 게스트 사용자의 ID 공급자로 추가하기 위한 새로운 지원
+### <a name="new-support-to-add-google-as-an-identity-provider-for-b2b-guest-users-in-azure-active-directory-preview"></a>Azure Active Directory에서 Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가하도록 지원(미리 보기)
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
 
@@ -601,7 +601,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ---
 
-## <a name="july-2018"></a>2018년 7월
+## <a name="july-2018"></a>2018 년 7 월
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 메일 알림에 대한 개선
 
@@ -613,7 +613,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
  
 - Azure AD 액세스 검토
 - Azure AD Connect Health 
-- Azure AD Identity Protection 
+- Azure AD ID 보호 
 - Azure AD Privileged Identity Management
 - 엔터프라이즈 앱 인증서 만료 알림
 - 엔터프라이즈 앱 서비스 프로비저닝 알림
@@ -629,7 +629,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD 활동 로그는 이제 Azure Monitor를 통해 제공됩니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -647,7 +647,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서에 추가 하는 조건부 액세스 정보
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** ID 보안 및 보호
  
@@ -657,7 +657,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>로그인 활동 로그를 통해 레거시 인증 보기
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
@@ -667,7 +667,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 7월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -681,7 +681,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
  
 ### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>새 사용자 프로비전 SaaS 앱 통합 - 2018년 7월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** 타사 통합
  
@@ -699,7 +699,7 @@ Azure AD 갤러리에서 사용자 프로비전을 지원하는 모든 애플리
 
 ### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>동기화용 Connect Health - 분리되고 중복되는 특성 동기화 오류를 간단하게 해결할 수 있습니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** AD Connect  
 **제품 기능:** 모니터링 및 보고
  
@@ -779,7 +779,7 @@ TOU 최종 사용자 UI의 동의 문자열을 업데이트할 것입니다.
  
 ### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>셀프 서비스 암호 재설정 및 Multi-Factor Authentication을 위한 융합형 보안 정보
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** SSPR  
 **제품 기능:** 사용자 인증
 
@@ -831,7 +831,7 @@ TOU 최종 사용자 UI의 동의 문자열을 업데이트할 것입니다.
 
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>PCI DSS 준수를 위해 Azure AD 서비스에 연결하도록 TLS 설정 구성
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** N/A  
 **제품 기능:** 플랫폼
 
@@ -871,7 +871,7 @@ TLS(전송 계층 보안)는 통신하는 두 애플리케이션 간에 개인 �
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 6월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -885,8 +885,8 @@ TLS(전송 계층 보안)는 통신하는 두 애플리케이션 간에 개인 �
 
 ### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD 암호 보호가 공개 미리 보기로 제공됩니다.
 
-**유형:** 새 기능  
-**서비스 범주:** Identity Protection  
+**유형:** 새로운 기능  
+**서비스 범주:** ID 보호  
 **제품 기능:** 사용자 인증
 
 Azure AD 암호 보호를 사용하면 쉽게 추측되는 암호를 환경에서 제거하는 데 도움이 됩니다. 이러한 암호를 제거하면 암호 스프레이 유형의 공격으로 인해 손상될 위험을 줄일 수 있습니다.
@@ -903,7 +903,7 @@ Azure AD 암호 보호에 대한 자세한 내용은 [조직에서 잘못된 암
 
 ### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>새 "모든 게스트" 조건부 액세스 정책 템플릿 만들기 사용 약관 중에 생성
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
@@ -915,7 +915,7 @@ Azure AD 암호 보호에 대한 자세한 내용은 [조직에서 잘못된 암
 
 ### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>용어를 사용 하 여 생성 중에 만들어진 새 "custom" 조건부 액세스 정책 템플릿
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
@@ -927,7 +927,7 @@ Azure AD 암호 보호에 대한 자세한 내용은 [조직에서 잘못된 암
 
 ### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 배포에 대한 새롭고 포괄적인 지침
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 기타  
 **제품 기능:** ID 보안 및 보호
  
@@ -939,7 +939,7 @@ MFA 배포 가이드를 보려면 GitHub의 [Identity Deployment Guides](https:/
 
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD 위임된 앱 관리 역할이 공개 미리 보기 상태입니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** Access Control
 
@@ -985,7 +985,7 @@ Azure AD(Azure Active Directory)와 같은 서비스 제공으로 소프트웨�
 
 ### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>TOU의 관리 시나리오를 위한 Microsoft Graph API
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 개발자 환경
  
@@ -995,7 +995,7 @@ Azure AD 사용 약관의 관리 작업에 대 한 Microsoft Graph Api를 추가
 
 ### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Azure AD 다중 테넌트 엔드포인트를 Azure AD B2C의 ID 공급자로 추가
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
  
@@ -1005,7 +1005,7 @@ Azure AD 사용 약관의 관리 작업에 대 한 Microsoft Graph Api를 추가
 
 ### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>내 앱 로그인 확장 및 Azure AD 애플리케이션 프록시를 통해 내부 URL을 사용하여 어디서나 앱에 액세스
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO
  
@@ -1015,7 +1015,7 @@ Azure AD 사용 약관의 관리 작업에 대 한 Microsoft Graph Api를 추가
  
 ### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory - 유럽 고객을 위한 유럽의 데이터
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 기타  
 **제품 기능:** GoLocal
 
@@ -1025,7 +1025,7 @@ Azure AD 사용 약관의 관리 작업에 대 한 Microsoft Graph Api를 추가
  
 ### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>새 사용자 프로비저닝 SaaS 앱 통합 - 2018년 5월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** 타사 통합
  
@@ -1043,7 +1043,7 @@ Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용
  
 ### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>이제 그룹 및 앱 액세스에 대한 Azure AD 액세스 검토가 반복 검토 제공
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 액세스 검토  
 **제품 기능:** 거버넌스
  
@@ -1053,7 +1053,7 @@ Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용
 
 ### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>이제 Azure AD 활동 로그(로그인 및 감사)를 MS Graph를 통해 사용 가능
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
@@ -1063,7 +1063,7 @@ Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용
  
 ### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>B2B 상환 환경 및 조직 떠나기에 대한 개선
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
 
@@ -1077,7 +1077,7 @@ Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 5월
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -1093,7 +1093,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Azure Active Directory에 대한 새로운 단계별 배포 가이드
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 기타  
 **제품 기능:** 디렉터리
  
@@ -1105,7 +1105,7 @@ Azure Active Directory (Azure AD)를 배포, 포함 하 여 셀프 서비스 암
 
 ### <a name="enterprise-applications-search---load-more-apps"></a>Enterprise 애플리케이션 검색 - 앱 추가 로드
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
  
@@ -1149,7 +1149,7 @@ AADConnect의 5월 릴리스에는 PingFederate와의 통합, 중요 보안 업�
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C 액세스 토큰이 GA 상태입니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C 
 
@@ -1161,13 +1161,13 @@ AADConnect의 5월 릴리스에는 PingFederate와의 통합, 중요 보안 업�
 
 ### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>SAML 기반 애플리케이션에 대한 Single Sign-On 구성 테스트
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
 SAML 기반 SSO 애플리케이션을 구성하는 경우 구성 페이지에서 통합을 테스트할 수 있습니다. 로그인하는 동안 오류가 발생하면 테스트 환경에서 오류를 제공할 수 있으며 Azure AD는 특정 문제를 해결하는 해결 단계를 제공합니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 - [Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
@@ -1176,9 +1176,9 @@ SAML 기반 SSO 애플리케이션을 구성하는 경우 구성 페이지에서
  
 ### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD 사용 약관 이제는 사용자 당
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
  
 이제 관리자는 지정된 ToU를 선택하고 해당 ToU에 동의한 사용자 및 발생한 날짜/시간을 확인할 수 있습니다.
 
@@ -1188,7 +1188,7 @@ SAML 기반 SSO 애플리케이션을 구성하는 경우 구성 페이지에서
  
 ### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health: AD FS 엑스트라넷 잠금 보호를 위한 위험한 IP 
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 기타  
 **제품 기능:** 모니터링 및 보고
 
@@ -1204,7 +1204,7 @@ Connect Health는 이제 매시간 또는 매일 별로 실패한 U/P 로그인�
  
 ### <a name="easy-app-config-with-metadata-file-or-url"></a>메타데이터 파일 또는 URL을 사용한 간편한 앱 구성
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
@@ -1218,9 +1218,9 @@ Enterprise 애플리케이션 페이지에서 관리자는 SAML 메타데이터 
 
 ### <a name="azure-ad-terms-of-use-now-generally-available"></a>이제 Azure AD 사용 약관을 일반적으로 사용할 수 있습니다.
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
  
 
 일반 공급을 공개 미리 보기에서 azure AD 사용 약관을 옮겼습니다.
@@ -1231,7 +1231,7 @@ Enterprise 애플리케이션 페이지에서 관리자는 SAML 메타데이터 
 
 ### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
  
@@ -1248,7 +1248,7 @@ Enterprise 애플리케이션 페이지에서 관리자는 SAML 메타데이터 
  
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -1264,7 +1264,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여(공개 미리 보기)
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
 
@@ -1324,7 +1324,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
 
 일부 사용자에게 SAML 기반 Single Sign On에 대해 구성된 엔터프라이즈 애플리케이션에 대한 알림이 수신되지 않았습니다. 이 문제가 해결되었습니다. Azure AD는 7, 30 및 60일 후에 만료되는 인증서에 대한 알림을 보냅니다. 감사 로그에서 이 이벤트를 볼 수 있습니다. 
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Azure Active Directory 포털의 감사 활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
@@ -1333,7 +1333,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
  
 ### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Azure AD B2C의 Twitter 및 GitHub ID 공급자
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
  
@@ -1345,7 +1345,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
 
 ### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Intune Managed Browser를 사용 하 여 Azure를 사용 하 여 브라우저 액세스 제한 AD 응용 프로그램 기반 조건부 액세스 iOS 및 Android 용
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
  
@@ -1357,7 +1357,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
 
 [블로그 게시물](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/)에서 이에 대해 자세히 읽어보세요.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [응용 프로그램 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -1367,7 +1367,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
  
 ### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Powershell GA 모듈의 앱 프록시 Cmdlet
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** Access Control
  
@@ -1379,7 +1379,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
  
 ### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 네이티브 클라이언트는 비대화형 프로토콜을 사용하여 Seamless SSO에서 지원됨
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
@@ -1391,7 +1391,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
 
 ### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenant-endpoints"></a>애플리케이션이 Azure AD의 테넌트 엔드포인트로 로그인 요청을 전송할 경우 Seamless SSO를 사용하여 자동 로그온 환경을 사용할 수 있음
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
@@ -1403,7 +1403,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
  
 ### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Seamless SSO를 롤아웃하기 위해 사용자의 인트라넷 영역 설정에 이전의 두 URL 대신 하나의 Azure AD URL만 추가해야 함
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
@@ -1415,7 +1415,7 @@ Office 365 네이티브 클라이언트(버전 16.0.8730.xxxx 이상)를 사용�
  
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -1431,9 +1431,9 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="pim-for-azure-resources-is-generally-available"></a>Azure 리소스에 대한 PIM은 일반 공급됩니다.
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 디렉터리 역할에 대한 Azure AD Privileged Identity Management를 사용하는 경우, 이제 구독, 리소스 그룹, VIrtual Machines 등과 같은 Azure 리소스 역할 및 Azure Resource Manager에서 지원하는 기타 리소스에 대해 PIM의 시간 제한 액세스 및 할당 기능을 사용할 수 있습니다. Just-In-Time에 역할을 활성화할 경우 Multi-Factor Authentication을 적용하고 승인된 변경 기간에 맞춰 활성화를 예약합니다. 또한 이 릴리스에서는 업데이트 UI, 승인 워크플로 및 곧 만료되는 역할을 확장하고 만료된 역할을 갱신하는 기능을 비롯하여 공개 미리 보기 기간 동안 사용할 수 없는 개선 기능을 추가적으로 제공합니다.
 
@@ -1443,7 +1443,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>앱 토큰에 선택적 클레임 추가(공개 미리 보기)
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
@@ -1455,7 +1455,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD에서 보다 안전한 OAuth 흐름을 위해 PKCE를 지원함
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
@@ -1467,21 +1467,21 @@ Azure AD 설명서가 OAuth 2.0 권한 부여 코드 부여 흐름 동안 좀 �
  
 ### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Workday Get_Workers API에서 사용할 수 있는 모든 사용자 특성 값을 프로비전하도록 지원
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** 타사 통합
  
 Workday에서 Active Directory 및 Azure AD로의 인바운드 프로비전에 대한 공개 미리 보기는 이제 Workday Get_Workers API에서 사용할 수 있는 모든 특성 값을 추출하고 프로비전하는 기능을 지원합니다. 이를 통해 Workday 인바운드 프로비전 커넥터의 초기 버전에 제공된 특성 외에, 수백 개의 추가 표준 및 사용자 지정 특성이 추가적으로 지원됩니다.
 
-자세한 내용은 다음을 참조하세요. [Workday 사용자 특성 목록 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+참조 항목: [Workday 사용자 특성 목록 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
 
 ---
 
 ### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>그룹 멤버 자격을 동적에서 정적으로 또는 그 반대로 변경
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 그룹 관리  
-**제품 기능:** 협업
+**제품 기능:** 공동 작업
  
 그룹에서 멤버 자격을 관리하는 방식을 변경할 수 있습니다. 이것은 시스템에 동일한 그룹 이름과 ID를 유지하려는 경우에 유용하므로 그룹에 대한 기존 참조는 여전히 유효합니다. 새 그룹을 만들면 해당 참조를 업데이트해야 합니다.
 이 기능을 지원하도록 Azure AD 관리 센터가 업데이트되었습니다. 이제, 고객은 기존 그룹을 동적 멤버 자격에서 할당된 멤버 자격으로 또는 그 반대로 변환할 수 있습니다. 기존 PowerShell cmdlet도 계속 사용할 수 있습니다.
@@ -1533,7 +1533,7 @@ Workday에서 Active Directory 및 Azure AD로의 인바운드 프로비전에 �
 
 ### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>21Vianet(Azure China 21Vianet)에서 운영하는 Microsoft Azure의 로그인 및 감사 보고서에 대한 가용성
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Azure Stack  
 **제품 기능:** 모니터링 및 보고
 
@@ -1557,7 +1557,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 ### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>"보고서 구독자" 역할(관리자가 아닌 역할)을 사용하여 Azure AD 활동 보고서 보기
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -1569,7 +1569,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 ### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>EmployeeID 클레임을 사용자 특성 및 사용자 식별자로 사용할 수 있음
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
  
@@ -1581,7 +1581,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 ### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 와일드카드를 사용하여 간소화된 애플리케이션 관리
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** 사용자 인증
  
@@ -1593,7 +1593,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 ### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>애플리케이션 프록시 구성을 지원하는 새로운 cmdlet
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** 플랫폼
 
@@ -1623,7 +1623,7 @@ AzureAD PowerShell 미리 보기 모듈의 최신 릴리스에는 고객이 Powe
  
 ### <a name="new-cmdlets-to-support-configuration-of-groups"></a>그룹 구성을 지원하는 새로운 cmdlet
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** 플랫폼
 
@@ -1647,7 +1647,7 @@ AzureAD PowerShell 모듈의 최신 릴리스에는 Azure AD에서 그룹을 관
  
 ### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Azure AD Connect의 새 릴리스를 사용할 수 있음
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** AD Sync  
 **제품 기능:** 플랫폼
  
@@ -1727,7 +1727,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 **유형:** 변경된 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
 
 사용 약관이 표시되면 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 클릭할 수 있습니다. 이 링크를 클릭하면 디바이스에서 기본적으로 사용 약관이 열립니다. 문서의 글꼴 크기 또는 디바이스의 화면 크기에 관계없이 필요에 따라 문서를 확대/축소하고 읽을 수 있습니다. 
 
@@ -1737,7 +1737,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
  
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -1753,8 +1753,8 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
  
 ### <a name="sign-in-with-additional-risk-detected"></a>추가 위험이 있는 로그인이 감지됨
 
-**유형:** 새 기능  
-**서비스 범주:** Identity Protection  
+**유형:** 새로운 기능  
+**서비스 범주:** ID 보호  
 **제품 기능:** ID 보안 및 보호
 
 감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다.
@@ -1767,7 +1767,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
 
 ### <a name="hide-office-365-applications-from-end-users-access-panels"></a>최종 사용자의 액세스 패널에서 Office 365 애플리케이션 숨기기
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO
 
@@ -1779,7 +1779,7 @@ Azure AD Premium P1 버전에서 라이선스가 적용되지 않는 검색 항�
  
 ### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>앱의 URL을 통해 암호 SSO가 가능한 앱에 간편하게 로그인 
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO
 
@@ -1841,9 +1841,9 @@ MFA 구성 위치: **Azure Active Directory \> MFA 서버**
 
 ### <a name="terms-of-use-in-the-access-panel"></a>액세스 패널의 사용 약관
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
  
 이제 액세스 패널로 이동하면 이전에 수락한 사용 약관을 볼 수 있습니다.
 
@@ -1863,7 +1863,7 @@ MFA 구성 위치: **Azure Active Directory \> MFA 서버**
  
 ### <a name="new-azure-ad-sign-in-experience"></a>새 Azure AD 로그인 환경
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Azure AD  
 **제품 기능:** 사용자 인증
  
@@ -1875,7 +1875,7 @@ Azure AD와 Microsoft 계정 ID 시스템의 UI 모양과 느낌이 일관된 �
  
 ### <a name="fewer-sign-in-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-sign-in"></a>로그인 프롬프트 감소: Azure AD 로그인을 위한 새로운 "로그인 유지" 환경
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Azure AD  
 **제품 기능:** 사용자 인증
  
@@ -1889,9 +1889,9 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
 
 ### <a name="add-configuration-to-require-the-terms-of-use-to-be-expanded-prior-to-accepting"></a>동의하기 전에 사용 약관을 펼치도록 하는 구성 추가
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
  
 사용 약관을 수락하기 전에 사용 약관을 펼치도록 사용자에게 요구하는 옵션이 관리자에게 필요합니다.
 
@@ -1903,9 +1903,9 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
 
 ### <a name="scoped-activation-for-eligible-role-assignments"></a>적격 역할 할당에 대한 범위 지정 활성화
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 범위가 지정된 활성화를 사용하면 원래 할당 기본값보다 낮은 자율성을 적용하여 적절한 Azure 리소스 역할 할당을 활성화할 수 있습니다. 예를 들어, 테넌트의 구독 소유자로 할당되는 경우가 있습니다. 범위가 지정된 활성화를 사용하면 구독 내에 포함된 리소스 최대 5개에 대해 소유자 역할을 활성화할 수 있습니다(예: 리소스 그룹, 가상 머신). 활성화의 범위를 지정하면 중요한 Azure 리소스가 원치 않게 변경될 가능성을 줄일 수 있습니다.
 
@@ -1915,7 +1915,7 @@ Azure AD 로그인 페이지의 **로그인 상태 유지** 확인란을 사용�
  
 ### <a name="new-federated-apps-in-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리의 새로운 페더레이션된 앱
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -1932,8 +1932,8 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
 ### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Azure AD 디렉터리 역할에 대한 승인 워크플로
 
 **유형:** 변경된 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 Azure AD 디렉터리 역할의 승인 워크플로가 일반 공급됩니다.
 
@@ -1956,8 +1956,8 @@ Azure AD 디렉터리 역할의 승인 워크플로가 일반 공급됩니다.
 ### <a name="updates-to-azure-ad-privileged-identity-management-for-azure-rbac-preview"></a>Azure RBAC에 대한 Azure AD Privileged Identity Management 업데이트(미리 보기)
 
 **유형:** 변경된 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리
  
 Azure RBAC(Role-Based Access Control)에 대한 Azure AD PIM(Privileged Identity Management)의 공개 미리 보기 새로 고침으로 다음을 수행할 수 있습니다.
 
@@ -2014,7 +2014,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - Microsoft StaffHub
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -2023,9 +2023,9 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 ### <a name="terms-of-use-support-for-multiple-languages"></a>사용 약관을 여러 언어로 제공
 
-**유형:** 새 기능    
+**유형:** 새로운 기능    
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수
+**제품 기능:** 규정 준수
 
 이제 관리자가 여러 PDF 문서가 포함된 새로운 사용 약관을 작성할 수 있습니다. PDF 문서에는 문서에서 사용된 언어를 태그로 지정할 수 있습니다. 사용자 기본 설정에 따라 사용자에게 일치하는 언어로 된 PDF가 표시됩니다. 일치하는 언어가 없으면 기본 언어가 표시됩니다.
 
@@ -2033,7 +2033,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
  
 ### <a name="real-time-password-writeback-client-status"></a>실시간 비밀번호 쓰기 저장 클라이언트 상태
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 셀프 서비스 암호 재설정  
 **제품 기능:** 사용자 인증
 
@@ -2050,7 +2050,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 ### <a name="azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스 
  
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Azure AD  
 **제품 기능:** ID 보안 및 보호
 
@@ -2079,7 +2079,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 ### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Azure Portal에서 Azure AD 디바이스 관리
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 디바이스 등록 및 관리  
 **제품 기능:** ID 보안 및 보호
 
@@ -2096,7 +2096,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 ### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD 조건부 액세스에 대 한 장치 플랫폼으로 서 macOS 지원 
 
-**유형:** 새 기능    
+**유형:** 새로운 기능    
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호 
 
@@ -2106,16 +2106,16 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 - **macOS 디바이스가 Intune에 정의된 조직의 준수 정책을 준수하는지 확인합니다.** 이제 Azure Portal의 Intune에서 macOS 디바이스에 대한 준수 정책을 설정할 수 있습니다. 
 - **Azure AD에서 애플리케이션에 대한 액세스를 호환 가능한 macOS 장치로 제한합니다.** 별도 장치 플랫폼 옵션으로 macOS에 조건부 액세스 정책 작성 합니다. 이제 Azure에서 대상된 응용 프로그램 집합에 대해 macOS 전용 조건부 액세스 정책을 작성할 수 있습니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
-- [Intune을 사용하여 macOS 디바이스를 위한 디바이스 준수 정책 만들기](https://aka.ms/macoscompliancepolicy)
+- [Intune을 사용하여 macOS를 위한 디바이스 준수 정책 만들기](https://aka.ms/macoscompliancepolicy)
 - [Azure AD의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
 ### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication용 네트워크 정책 서버 확장 
 
-**유형:** 새 기능    
+**유형:** 새로운 기능    
 **서비스 범주:**  Multi-Factor Authentication  
 **제품 기능:** 사용자 인증
 
@@ -2129,7 +2129,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 
 ### <a name="restore-or-permanently-remove-deleted-users"></a>삭제된 사용자 복원 또는 영구 제거
 
-**유형:** 새 기능    
+**유형:** 새로운 기능    
 **서비스 범주:** 사용자 관리  
 **제품 기능:** 디렉터리 
 
@@ -2213,7 +2213,7 @@ Azure Portal은 다음을 제공합니다.
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO(Single sign-on)  
 
-Azure AD는 HTML 사용자 이름 및 암호 필드를 렌더링하는 애플리케이션의 자동 로그인 필드 검색을 지원합니다. 이 단계는 [애플리케이션에 대한 로그인 필드를 자동으로 캡처하는 방법](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)에 설명되어 있습니다. 이 기능은 [Azure Portal](https://aad.portal.azure.com)의 **엔터프라이즈 애플리케이션** 페이지에 *비갤러리* 애플리케이션을 추가하여 찾을 수 있습니다. 또한 이 새 애플리케이션의 **Single Sign-On** 모드를 **암호 기반 Single Sign-on**으로 구성하고 웹 URL을 입력한 다음, 페이지를 저장할 수 있습니다.
+Azure AD는 HTML 사용자 이름 및 암호 필드를 렌더링하는 애플리케이션의 자동 로그인 필드 검색을 지원합니다. 이 단계는 [애플리케이션에 대한 로그인 필드를 자동으로 캡처하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems#manually-capture-sign-in-fields-for-an-app)에 설명되어 있습니다. 이 기능은 [Azure Portal](https://aad.portal.azure.com)의 **엔터프라이즈 애플리케이션** 페이지에 *비갤러리* 애플리케이션을 추가하여 찾을 수 있습니다. 또한 이 새 애플리케이션의 **Single Sign-On** 모드를 **암호 기반 Single Sign-on**으로 구성하고 웹 URL을 입력한 다음, 페이지를 저장할 수 있습니다.
  
 서비스 문제로 인해 이 기능은 일시적으로 사용하지 않도록 설정되어 있었습니다. 이제 문제가 해결되어 자동 로그인 필드 검색을 다시 사용할 수 있습니다.
 
@@ -2221,7 +2221,7 @@ Azure AD는 HTML 사용자 이름 및 암호 필드를 렌더링하는 애플리
 
 ### <a name="new-multi-factor-authentication-features"></a>새로운 Multi-Factor Authentication 기능
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** Multi-Factor Authentication  
 **제품 기능:** ID 보안 및 보호  
 
@@ -2238,9 +2238,9 @@ MFA(Multi-Factor Authentication)는 조직을 보호하기 위한 필수적인 �
 
 ### <a name="terms-of-use"></a>사용 약관
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 사용 약관  
-**제품 기능:** 준수  
+**제품 기능:** 규정 준수  
 
 Azure AD 이용 약관을 사용하여 법률 요구 사항 또는 규정 준수 요구 사항에 대한 관련 면책 조항과 같은 정보를 사용자에게 제공할 수 있습니다.
 
@@ -2256,9 +2256,9 @@ Azure AD 이용 약관을 사용하여 법률 요구 사항 또는 규정 준수
 
 ### <a name="enhancements-to-privileged-identity-management"></a>Privileged Identity Management의 기능 개선
 
-**유형:** 새 기능  
-**서비스 범주:** 권한 있는 ID 관리  
-**제품 기능:** 권한 있는 ID 관리  
+**유형:** 새로운 기능  
+**서비스 범주:** 권위 있는 ID 관리  
+**제품 기능:** 권위 있는 ID 관리  
 
 이제 Azure AD Privileged Identity Management를 사용하여 조직에서 Azure Resources(미리 보기)에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다.
 
@@ -2274,9 +2274,9 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 ### <a name="access-reviews"></a>액세스 검토
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 액세스 검토  
-**제품 기능:** 준수  
+**제품 기능:** 규정 준수  
 
 조직은 액세스 검토(미리 보기)를 통해 그룹 멤버 자격을 효율적으로 관리하고 엔터프라이즈 애플리케이션에 액세스할 수 있습니다. 
 
@@ -2291,7 +2291,7 @@ Azure Portal에서 Azure RBAC 기능을 사용하는 모든 리소스는 Azure A
 
 ### <a name="hide-third-party-applications-from-my-apps-and-the-office-365-app-launcher"></a>내 앱 및 Office 365 앱 시작 관리자에서 타사 애플리케이션 숨기기
 
-**유형:** 새 기능  
+**유형:** 새로운 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO(Single sign-on)  
 

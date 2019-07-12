@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 89f821398f2bccf19a8be090de0e8788090670fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: edeb2a798031e34a8ee3f93fd104ebb221ce9c61
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080827"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593773"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob Storage의 만료 관리
 > [!div class="op_single_selector"]
@@ -69,21 +69,21 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
    해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 엔드포인트에 대한 모든 요청에 영향을 줍니다. 엔드포인트에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
-3. **저장**을 선택합니다.
+3.           **저장**을 선택합니다.
  
 **사용자 지정 캐싱 규칙을 사용하여 Blob 파일의 Cache-Control 헤더를 설정하려면:**
 
 1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
 
-     a. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/*`을 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
+     1\. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/*`을 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
 
-    B. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/blob1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
+    2\. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/blobcontainer1/blob1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
 
     첫 번째 사용자 지정 캐싱 규칙은 엔드포인트에서 지정한 원본 서버의 `/blobcontainer1`폴더 내 모든 Blob 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `blob1.txt` Blob 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
-2. **저장**을 선택합니다.
+2.           **저장**을 선택합니다.
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Cache-Control 헤더 설정
@@ -92,7 +92,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
 [Azure PowerShell](/powershell/azure/overview)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```powershell
 # Create a storage context
@@ -116,7 +116,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>.NET을 사용하여 Cache-Control 헤더 설정
 .NET 코드를 사용하여 Blob의 `Cache-Control` 헤더를 지정하려면 [.NET용 Azure Storage 클라이언트 라이브러리](../storage/blobs/storage-dotnet-how-to-use-blobs.md)를 사용하여 [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol) 속성을 설정합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```csharp
 class Program
@@ -152,7 +152,7 @@ class Program
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>다른 방법을 사용하여 Cache-Control 헤더 설정
 
 ### <a name="azure-storage-explorer"></a>Azure Storage Explorer
-[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
+[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
 
 Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려면
    1. Blob를 선택하고 바로 가기 메뉴에서 **속성**을 선택합니다. 

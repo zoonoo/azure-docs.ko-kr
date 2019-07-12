@@ -126,6 +126,8 @@
   items:
     - name: 작성자 템플릿
       href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: 공급자
+      href: networking-partners-msp.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 커뮤니티 템플릿

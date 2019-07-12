@@ -4,7 +4,7 @@ description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM�
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729820"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671710"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Linux VM에서 cloud-init를 사용하여 스왑 파일 구성
 이 문서에서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 다양한 Linux 배포에서 스왑 파일을 구성하는 방법을 보여 줍니다. 일반적으로 스왑 파일은 해당 파일이 필요한 배포에 따라 Linux 에이전트(WALA)에 의해 구성되었습니다.  이 문서는 cloud-init를 사용하여 프로비저닝 시간 동안 요청 시 스왑 파일을 빌드하는 프로세스를 간략하게 설명합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.

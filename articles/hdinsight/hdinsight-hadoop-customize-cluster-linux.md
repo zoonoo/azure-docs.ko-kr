@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433641"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703972"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 
@@ -20,7 +20,7 @@ Azure HDInsight는 사용자 지정 스크립트를 호출하여 클러스터를
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다. HDInsight 애플리케이션에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 도메인 조인 HDInsight 클러스터를 사용하는 경우 클러스터에서 스크립트 동작을 사용할 때 다음 두 가지 Apache Ambari 권한이 필요합니다.
 
@@ -173,12 +173,12 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
-    | 자산 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
     | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
-    | Head/Worker/ZooKeeper |스크립트가 실행되는 노드, 즉 **Head**, **Worker** 또는 **ZooKeeper**를 지정합니다. |
+    | Head/작업자/ZooKeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
 
     __이 스크립트 동작을 유지__ 항목을 사용하여 크기 조정 작업 시 스크립트가 적용되도록 합니다.
@@ -255,7 +255,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
-    | 자산 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
     | 이름 |스크립트 작업의 이름을 지정합니다. |
@@ -310,7 +310,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     이 명령에 대한 매개 변수를 생략하면 해당 매개 변수를 요구하는 메시지가 표시됩니다. `-u`를 사용하여 지정한 스크립트에서 매개 변수를 허용하는 경우 `-p` 매개 변수를 사용하여 지정할 수 있습니다.
 
-    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. 예: `-n headnode;workernode`
+    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. `-n headnode;workernode` )을 입력합니다.
 
     스크립트를 유지하려면 `--persistOnSuccess`를 추가합니다. 나중에 `azure hdinsight script-action persisted set`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -454,7 +454,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
     ![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-    이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
+    이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예를 참조하십시오.
 
     * **헤드 노드**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 

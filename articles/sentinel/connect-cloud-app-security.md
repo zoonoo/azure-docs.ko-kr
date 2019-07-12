@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: cd9e5e27-fdd4-4717-8924-be4c1c430f23
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a418bb318654752eaf48ffbdd05b80cabb487ece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e75c9003103e267e864a98c7ee5c1bef2176bae
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65207560"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612402"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
@@ -29,7 +30,7 @@ ms.locfileid: "65207560"
 
 로그를 스트리밍하려면 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) 번의 클릭으로 Azure Sentinel에 있습니다. 이 연결을 통해 Azure Sentinel에 Cloud App Security에서 경고를 스트리밍할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 
@@ -41,7 +42,7 @@ Cloud App Security 배포 되 고 데이터를 수집, 경고 데이터를 쉽�
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Cloud App Security** 바둑판식으로 배열 합니다.
 
-2. **Connect**를 클릭합니다.
+2. **연결**을 클릭합니다.
 
 3. Log Analytics에서 관련 스키마를 사용 하 여 Cloud App Security 경고, 검색 **SecurityAlert**합니다.
 

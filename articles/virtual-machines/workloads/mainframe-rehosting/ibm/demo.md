@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d527b08f3610531bef8e98a11998942411651d27
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925684"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621360"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>설정 하는 응용 프로그램 개발자가 제어 배포 (ADCD) IBM zD & T v1
 
@@ -21,13 +21,13 @@ Azure Virtual Machines (Vm)에 IBM Z 개발 및 테스트 환경 (zD & T) 환경
 
 이 문서에서는 in a zD Azure에서 T 환경을 ADCD 인스턴스를 설정 하는 방법을 보여 줍니다. ADCDs zD & T.에서 실행 되는 테스트 환경과 개발에 대 한 완전 한 Z 시리즈 운영 체제 구현 만들기
 
-ZD (& T), 같은 ADCDs IBM 고객 및 파트너 에게만 제공 되며 개발 및 테스트 목적으로 전용입니다. 프로덕션 환경에 사용할 수는 있습니다. 다양 한 IBM 설치 패키지를 통해 다운로드할 수 있는 [Passport 장점은](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) 하거나 [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd)합니다.
+ZD (& T), 같은 ADCDs IBM 고객 및 파트너 에게만 제공 되며 개발 및 테스트 목적으로 전용입니다. 프로덕션 환경에 사용할 수는 있습니다. 다양 한 IBM 설치 패키지를 통해 다운로드할 수 있는 [Passport 장점은](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) 하거나 [IBM PartnerWorld](https://www.ibm.com/partnerworld/public)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
-- 합니다 [zD & T 환경] [ ibm-install-z] 이전에 Azure에서 설정 합니다. 이 문서에서는 이전에 만든 동일한 Ubuntu 16.04 VM 이미지를 사용 한다고 가정 합니다.
+- 합니다 [zD & T 환경][ibm-install-z] 이전에 Azure에서 설정 합니다. 이 문서에서는 이전에 만든 동일한 Ubuntu 16.04 VM 이미지를 사용 한다고 가정 합니다.
 
 - IBM PartnerWorld 또는 Passport Advantage를 통해 ADCD 미디어에 액세스 합니다.
 
@@ -39,7 +39,7 @@ ZD (& T), 같은 ADCDs IBM 고객 및 파트너 에게만 제공 되며 개발 �
 
 ## <a name="download-the-installation-packages-from-passport-advantage"></a>Passport 장점은에서 설치 패키지 다운로드
 
-ADCD 미디어에 대 한 액세스가 필요 합니다. 다음 단계는 IBM 고객 및 Passport 활용을 사용할 수 있습니다를 가정 합니다. IBM 파트너가 사용할 수 있습니다 [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd)합니다.
+ADCD 미디어에 대 한 액세스가 필요 합니다. 다음 단계는 IBM 고객 및 Passport 활용을 사용할 수 있습니다를 가정 합니다. IBM 파트너가 사용할 수 있습니다 [IBM PartnerWorld](https://www.ibm.com/partnerworld/public)합니다.
 
 > [!NOTE]
 > 이 문서에서는 Azure portal에 액세스 하 고 IBM 미디어를 다운로드 하려면 Windows PC에 사용 되는 것을 가정 합니다. Mac 또는 Ubuntu desktop을 사용 하는 경우 명령 및 IBM 미디어를 얻는 프로세스는 약간 달라질 수 있습니다.
@@ -180,7 +180,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 다음 단계는 IBM �
 > [!NOTE]
 > 오류 라는 수신 되 면 필요가 없습니다 지역 필요 151 Gb 디스크 공간이 충분 합니다.
 
-축하합니다! 이제 Azure에서 IBM 메인프레임 환경을 실행 하는 있습니다.
+축하합니다. 이제 Azure에서 IBM 메인프레임 환경을 실행 하는 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

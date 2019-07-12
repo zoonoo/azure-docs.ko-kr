@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443251"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653274"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 보안 작업 및 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 컨트롤 소개 합니다. 보안 질문 및 개념의 Microsoft 구현 및 검증 단계 중 고려해 야 [수명 주기 SDL (Security Development)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 나와 있습니다. 활동 및 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 Azure 서비스를 정의 하는 데 목표가입니다.
@@ -88,7 +88,7 @@ Blacklisting 및 허용 목록 두 가지 일반 방법 입력된 구문 유효�
 
 무차별 대입 및 사전 기반 추측을 방어, 사용자가 만든 (예: 최소 12 자 및 영숫자 및 특수 문자 필요) 하는 복잡 한 암호를 확인 하는 강력한 암호 정책을 구현 해야 합니다.
 
-암호 정책을 만들고 적용 하는 id 프레임 워크를 사용할 수 있습니다. Azure AD B2C를 사용 하면 암호 관리를 사용 하 여 함으로써 [기본 제공 정책을](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy)를 [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), 등입니다.
+암호 정책을 만들고 적용 하는 id 프레임 워크를 사용할 수 있습니다. Azure AD B2C를 사용 하면 암호 관리를 사용 하 여 함으로써 [기본 제공 정책을](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow)를 [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), 등입니다.
 
 기본 계정에 대 한 공격을 방어 하려면 모든 키와 암호는 교체 될 수 및 생성 되거나 리소스를 설치한 후 대체 하는 확인 합니다.
 

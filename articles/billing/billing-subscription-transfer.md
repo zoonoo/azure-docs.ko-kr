@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff3c57c31526119ab81225a1c70b163173be937
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514431"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657922"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>다른 계정으로 Azure 구독의 청구 소유권 이전
 
@@ -38,7 +38,7 @@ ms.locfileid: "67514431"
 
 1. 선택 **구독** 왼쪽 창에서. 사용자 액세스에 따라 청구 범위를 선택한 다음 선택 해야 할 수 있습니다 **구독** 하거나 **Azure 구독**합니다.
 
-1. 선택 **다른 계정으로 전송** 전송 하려는 구독에 대 한 합니다. 
+1. 선택 **청구 소유권을 전송** 전송 하려는 구독에 대 한 합니다. 
 
    ![양도할 구독을 선택 합니다.](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "67514431"
 
    ![두 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 
-1. 성공! 구독이 이제 양도됩니다.
+1. 성공 구독이 이제 양도됩니다.
 
 ## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>다른 Azure AD 테 넌 트의 계정에 구독을 전송합니다.
 

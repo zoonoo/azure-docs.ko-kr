@@ -5,19 +5,19 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 2d547c73137605e4666499b568bdcebce394935a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481418"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595236"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (공개 미리 보기)를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -82,7 +82,7 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Activ
 
 ![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| 선택 | 설명 |
+| 선택 | Description |
 |----------|-------------|
 | **모든 그룹** | 보안 그룹 및 배포를 내보내는 나열 합니다.   사용자가 할당 하는 'wids' 클레임에 내보내지는 디렉터리 역할 및 역할 클레임에 내보내지는 사용자가 할당 하는 모든 응용 프로그램 역할에도 발생 합니다. |
 | **보안 그룹** | 사용자가 그룹 클레임에 속하는 보안 그룹을 내보냅니다. |
@@ -127,7 +127,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
    - "DistributionList"
    - "DirectoryRole"
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

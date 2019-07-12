@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244421"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672378"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
@@ -42,7 +42,7 @@ AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-
 
 1. 데이터 가져오기 마법사를 엽니다.
 
-   ![데이터 가져오기 마법사를 엽니다](media/search-get-started-portal/import-data-cmd2.png "데이터 가져오기 마법사를 열려면")
+   ![데이터 가져오기 마법사를 엽니다](media/search-get-started-portal/import-data-cmd.png "데이터 가져오기 마법사를 열려면")
 
 1. 데이터 원본을 선택 하 고 계속 **cognitive search 추가 (선택 사항)** 합니다. 이 마법사의 단계별 연습을 참조 하세요 [가져오기, 인덱스 및 포털 도구를 사용 하 여 쿼리](search-get-started-portal.md)합니다.
 

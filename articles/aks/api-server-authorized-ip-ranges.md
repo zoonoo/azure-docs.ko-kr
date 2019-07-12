@@ -2,17 +2,17 @@
 title: API 서버에 IP 범위 Azure Kubernetes Service (AKS)에서 권한이 부여
 description: Azure Kubernetes Service (AKS)에서 API 서버에 대 한 액세스에 대 한 IP 주소 범위를 사용 하 여 클러스터를 보호 하는 방법에 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: d425fc3e037b43321a278fb16781e86dfafef15c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441522"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616251"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>미리 보기-통해 API 서버에 대 한 보안 액세스 권한이 Azure Kubernetes Service (AKS)에서 IP 주소 범위
 
@@ -26,7 +26,7 @@ Kubernetes API 서버는 리소스 만들기 또는 노드 수를 조정 하려�
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 API 서버 권한이 부여 된 IP 범위를 만들면 새 AKS 클러스터에 대해서만 작동 합니다. 이 문서에서는 Azure CLI를 사용 하 여 AKS 클러스터를 만드는 방법을 보여 줍니다.
 

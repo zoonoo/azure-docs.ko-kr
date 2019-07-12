@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477874"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594284"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>(미리 보기)는 Azure 요새 호스트 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "67477874"
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 >
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 공개 미리 보기 Azure 공용 지역으로 제한 됩니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "67477874"
     * **서브넷**: 새 요새 호스트 리소스를 배포 하는 가상 네트워크의 서브넷입니다. 이름 값을 사용 하 여 서브넷을 만들어야 **AzureBastionSubnet**합니다. 이 값에는 Azure에는 배스 천 리소스를 배포 하는 서브넷을 알고 있습니다. 이 게이트웨이 서브넷을 다릅니다. 하나 이상의/27 또는 더 큰 서브넷을 사용 하는 것이 좋습니다 (/ 27, / 26, 및 등). 만들기는 **AzureBastionSubnet** 모든 네트워크 보안 그룹 없이 테이블 또는 위임 라우팅합니다.
     * **공용 IP 주소**: 공용 IP는 RDP/SSH (포트 443)을 통해 액세스 됩니다 배스 천 리소스입니다. 새 공용 IP를 만들거나 기존 계정을 사용 합니다. 공용 IP 주소를 만들면 배스 천 리소스와 동일한 지역에 있어야 합니다.
     * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
-    * **공용 IP 주소 SKU**: 기본적으로 미리 채워져 **표준**합니다.
+    * **공용 IP 주소 SKU**: 기본적으로 미리 채워져 **표준**합니다. Azure 배스 천 사용/표준 공용 IP SKU만 지원합니다.
     * **할당**: 기본적으로 미리 채워져 **정적**합니다.
 
 1. 설정을 지정 했으면 클릭 **검토 + 만들기**합니다. 이 값의 유효성을 검사 합니다. 유효성 검사에 통과 되 면 생성 프로세스를 시작할 수 있습니다.

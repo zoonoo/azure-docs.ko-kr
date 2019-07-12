@@ -4,7 +4,7 @@ description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446691"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710635"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
-## <a name="assumptions"></a>가정
+## <a name="assumptions"></a>Assumptions
 
 - 온-프레미스에서 Azure로 Oracle 데이터베이스 마이그레이션할 계획입니다.
 - 해야 합니다 [진단 팩](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) 마이그레이션하려는 Oracle 데이터베이스에 대 한
@@ -51,10 +51,10 @@ ms.locfileid: "67446691"
 > | **보안 그룹** |IP/포트 제한 도구 |[NSG(네트워크 보안 그룹)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **복원력** |MTBF(평균 고장 간격) |MTTR(평균 복구 시간)|
 > | **계획된 유지 보수** |패치/업그레이드|[가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)(Azure에서 관리되는 패치/업그레이드) |
-> | **리소스** |전용  |다른 클라이언트와 공유|
+> | **Resource** |전용  |다른 클라이언트와 공유|
 > | **지역** |데이터 센터 |[지역 쌍](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Storage** |SAN/실제 디스크 |[Azure 관리 저장소](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **규모** |수직적 확장 |수평적 확장|
+> | **저장소** |SAN/실제 디스크 |[Azure 관리 저장소](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **소수 자릿수** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항
@@ -92,7 +92,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 - 총 코어 수
 - CPU 클럭 속도
 - 전체 메모리(GB)
-- CPU 사용률
+- CPU 사용량
 - 최대 데이터 전송 속도
 - I/O 변경률(읽기/쓰기)
 - 다시 실행 로그 속도(MBPs)
@@ -226,7 +226,7 @@ Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 �
 - *프라이빗 네트워크*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
-## <a name="additional-reading"></a>추가 참조 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 - [Oracle ASM 구성](configure-oracle-asm.md)
 - [Oracle Data Guard 구성](configure-oracle-dataguard.md)

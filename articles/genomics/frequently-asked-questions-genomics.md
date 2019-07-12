@@ -9,33 +9,20 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792626"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672225"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
 이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
-## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Microsoft Genomics 서비스 GATK 4 프로모션이란?
-2019 년 6 월 30 일 때까지 Microsoft Genomics 서비스는 비용 없이 GATK4 사용 하 여 20 WGS 실행을 제공 합니다. 이 제안에 참여하려면 [여기](https://aka.ms/msgatk4)에 등록합니다. 
 
-### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Microsoft Genomics 서비스 GATK4 프로모션을 실행하는 동안 발생할 수 있는 일반적인 문제점은 무엇인가요?
-다음은 일반적인 오류 목록과 권장 해결 방법입니다.
-
-| **메시지**                                                                                                                                                                                    | **원인**                                                                                                    | **해결 방법**                                                                                                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics 를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 2019 년 6 월 30 일 평가판이 만료 되는 note 합니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
-| `gatk4-promo`를 사용해 주셔서 감사합니다. 평가판 기간이 종료되었습니다. [https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics](https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics ) 에 대한 자세한 내용은                  | GATK4 평가판이 해당 연도 말에 만료되었으며 `gatk4-promo` process_name을 호출하려고 합니다.  | process_name 매개 변수를 `gatk4-promo` 대신 `gatk4`로 전환합니다. 이는 공식 gatk4 버전이며, 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                         |
-| `gatk4-promo`를 사용해 주셔서 감사합니다. 할당된 모든 실행을 사용했습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics 를 참조하세요. | GATK4에 대해 20번의 프로모션 실행을 모두 성공적으로 제출했습니다.                               | process_name 인수를 `gatk4-promo` 대신 `gatk4`로 설정된 상태에서 실행되는 새 gatk4를 제출하세요. 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                                          |        
-
-
-## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>GATK4 프로모션에 등록하지 않고 Microsoft Genomics에서 GATK4 워크플로를 실행할 수 있나요?
-예, Microsoft Genomics 서비스의 config.txt 파일에서 process_name을 `gatk4`로 지정하세요. 일반 청구 요금으로 청구되며 20번의 무료 실행은 Microsoft Genomics 계정에 적용되지 않습니다.
-
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로 어떻게 실행 합니까?
+Microsoft Genomics 서비스를 config.txt 파일을 지정 하려면 process_name `gatk4`합니다. 참고 일반 청구 요금 청구는 있습니다.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?

@@ -4,7 +4,7 @@ description: Azure에서 HC 시리즈 VM 크기에 대 한 미리 보기 지원�
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809874"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797536"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
 
@@ -31,7 +31,7 @@ ms.locfileid: "66809874"
 
 VM에 0-1 pCores 및 24-25 권한을 부여 하지 않은 알지 못합니다. 따라서 22 개 코어를 고유 하 게 되었을 것 처럼 각 vNUMA 노출 합니다.
 
-Intel Xeon Platinum, Gold 및 Silver Cpu CPU 소켓 내 통신 및 외부 다 2D 메시 네트워크를 소개합니다. 최적의 성능 및 일관성에 대 한 프로세스를 고정 하는 것이 좋습니다. 기본 실리콘으로 노출 되기 때문에 HC 시리즈 Vm에서 작동 프로세스 고정-게스트 VM 하는 것입니다. Intel Xeon SP 아키텍처 방법은: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold 및 Silver Cpu CPU 소켓 내 통신 및 외부 다 2D 메시 네트워크를 소개합니다. 최적의 성능 및 일관성에 대 한 프로세스를 고정 하는 것이 좋습니다. 기본 실리콘으로 노출 되기 때문에 HC 시리즈 Vm에서 작동 프로세스 고정-게스트 VM 하는 것입니다. 자세한 내용은 참조 하세요 [Intel Xeon SP 아키텍처](https://bit.ly/2RCYkiE)합니다.
 
 다음 다이어그램 Azure 하이퍼바이저 및 HC 시리즈 VM에 대 한 예약 코어의 분리를 보여줍니다.
 

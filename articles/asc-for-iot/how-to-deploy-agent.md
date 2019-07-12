@@ -2,24 +2,25 @@
 title: 선택 하 고 IoT 에이전트 미리 보기에 대 한 Azure Security Center 배포 | Microsoft Docs
 description: 에 대 한 방법을 선택 하 고 IoT 장치에서 IoT 보안 에이전트에 대 한 Azure Security Center 배포에 대해 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c549e5ccbda9b364b3e7d20c9572eb777c32299e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200561"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616823"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>선택 하 고 IoT 장치의 보안 에이전트 배포
 
@@ -48,7 +49,7 @@ C 기반 보안 에이전트 낮은 메모리 점유율, 고 사용 가능한 �
 | --- | ----------- | --------- |
 | 공개 소스 | 사용할 수 있습니다 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 [Github](https://aka.ms/iot-security-github-cs) | 사용할 수 있습니다 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 [Github](https://aka.ms/iot-security-github-c) |
 | 개발 언어    | C | C# |
-| 지원 되는 Windows 플랫폼? | 아닙니다. | 예 |
+| 지원 되는 Windows 플랫폼? | 아니요 | 예 |
 | Windows 필수 구성 요소 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | 지원 되는 Linux 플랫폼? | 예, x64 및 x86 | 예, x64만 해당 |
 | Linux 필수 구성 요소 | libunwind8 libcurl3, uuid 런타임, auditd, audispd 플러그 인 | libunwind8 libcurl3, uuid 런타임, auditd, audispd 플러그 인, sudo, netstat, iptables |
@@ -80,20 +81,20 @@ C 기반 보안 에이전트 낮은 메모리 점유율, 고 사용 가능한 �
 에이전트 버전 모두 동일한 기능 집합을 제공 하 고 유사한 구성 옵션을 지원 합니다.
 참조 [보안 에이전트 비교](how-to-deploy-agent.md#understand-security-agent-options) 에 대해 자세히 알아보세요.
 
-## <a name="supported-platforms"></a>지원되는 플랫폼
+## <a name="supported-platforms"></a>지원 플랫폼
 
 다음은 현재 지원 되는 모든 플랫폼을 포함합니다.
 
 |ASC IoT 에이전트에 대 한 |운영 체제 |아키텍처 |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 16.04 |   X64|
+|C|Ubuntu 18.04 |   X64|
 |C|Debian 9 |   x64, x86|
-|C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
-|C#|Debian 9    |x64|
+|C#|Ubuntu 16.04    |X64|
+|C#|Ubuntu 18.04    |X64|
+|C#|Debian 9    |X64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core 빌드 17763 |x64|
+|C#|Windows 10 IoT Core 빌드 17763 |X64|
 
 ## <a name="next-steps"></a>다음 단계
 

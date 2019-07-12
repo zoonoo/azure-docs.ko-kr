@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963579"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807633"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -31,14 +31,11 @@ ms.locfileid: "65963579"
 Azure Active Directory 포털을 사용 하 여 보기 및 디렉터리에서에서 single sign-on에 대해 구성 된 모든 응용 프로그램을 관리 합니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다. 보기 및 엔터프라이즈 응용 프로그램을 관리 하려면 다음이 단계를 수행 합니다.
 
 1. 엽니다는 [Azure Active Directory 포털](https://aad.portal.azure.com)합니다.
-
 1. 선택 **엔터프라이즈 응용 프로그램** 왼쪽된 창에서. 갤러리에서 추가 된 앱을 비롯 한 모든 구성 된 앱의 목록이 표시 됩니다.
-
 1. 보고서를 확인 하 고 앱 설정을 관리할 수 있는 해당 리소스 창 로드 앱을 선택 합니다.
-
 1. 선택 **프로 비전** 선택한 앱에 대 한 설정을 프로 비전 하는 사용자 계정을 관리 합니다.
 
-   ![애플리케이션 리소스 창](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![관리 사용자 계정을 프로 비전 설정 화면을 프로 비전](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>프로비전 모드
 
@@ -68,17 +65,17 @@ Azure Active Directory 포털을 사용 하 여 보기 및 디렉터리에서에
 
 미리 구성 된 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 매핑 집합이 있습니다. 일부 앱은 그룹이나 연락처 같은 다른 유형의 개체를 관리합니다. 오른쪽으로 확인 하 고 사용자 지정할 수 있는 매핑 편집기를 열고 테이블의 매핑을 선택 합니다.
 
-![애플리케이션 리소스 창](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![특성 매핑 화면을 보여 줍니다.](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 지원되는 사용자 지정은 다음과 같습니다.
 
 * Azure AD 사용자 개체를 SaaS 앱의 사용자 개체로 매핑하는 것과 같이 특정 개체에 대한 매핑을 사용하거나 사용하지 않도록 설정합니다.
 * Azure AD 사용자 개체에서 앱의 사용자 개체로 흐르는 특성을 편집합니다. 특성 매핑에 대한 자세한 내용은 [특성 매핑 유형 이해하기](customize-application-attributes.md#understanding-attribute-mapping-types)를 참조하세요.
-* 대상된 응용 프로그램에서 실행 되는 Azure AD는 프로 비전 작업을 필터링 합니다. 완벽 하 게 개체를 동기화 하는 Azure AD 대신 실행할 작업을 제한할 수 있습니다. 
+* 대상된 응용 프로그램에서 실행 되는 Azure AD는 프로 비전 작업을 필터링 합니다. 완벽 하 게 개체를 동기화 하는 Azure AD 대신 실행할 작업을 제한할 수 있습니다.
 
   예를 들어 선택할 **업데이트** 및 Azure AD만 업데이트 기존 사용자 응용 프로그램의 계정도 지원 하지만 새로 만들지 않습니다. 선택할 **만들기** 및 Azure만 새 사용자 계정을 만들지만 기존 업데이트 되지 않습니다. 이 기능에는 관리자를 계정 만들기 위해 여러 매핑을 만들고 워크플로 업데이트할 수 있습니다.
 
-* 새 특성 매핑을 추가합니다. 선택 **새 매핑 추가** 맨 아래에 **특성 매핑** 창입니다. 입력 합니다 **특성 편집** 형성 하 고 선택 **확인** 목록에 새 매핑을 추가 하려면. 
+* 새 특성 매핑을 추가합니다. 선택 **새 매핑 추가** 맨 아래에 **특성 매핑** 창입니다. 입력 합니다 **특성 편집** 형성 하 고 선택 **확인** 목록에 새 매핑을 추가 하려면.
 
 ### <a name="settings"></a>설정
 

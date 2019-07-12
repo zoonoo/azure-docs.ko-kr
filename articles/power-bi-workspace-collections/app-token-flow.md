@@ -4,16 +4,16 @@ description: Power BI 작업 영역 컬렉션으로 인증 및 권한 부여.
 services: power-bi-workspace-collections
 author: rkarlin
 ms.author: rkarlin
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707114"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672498"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -92,7 +92,7 @@ Embed 토큰으로 사용하는 경우 액세스 권한을 제공하는 리소�
 
 Power BI 작업 영역 컬렉션에 사용 가능한 범위는 다음과 같습니다.
 
-|Scope|설명|
+|범위|Description|
 |---|---|
 |Dataset.Read|지정된 데이터 세트를 읽을 수 있는 사용 권한을 제공합니다.|
 |Dataset.Write|지정된 데이터 세트를 쓸 수 있는 사용 권한을 제공합니다.|
@@ -140,10 +140,10 @@ Body
 
 ### <a name="operations-and-scopes"></a>작업 및 범위
 
-|작업(Operation)|대상 리소스|토큰 사용 권한|
+|연산|대상 리소스|토큰 사용 권한|
 |---|---|---|
-|데이터 세트를 기반으로 새 메모리 내 보고서를 만듭니다.|데이터 세트|Dataset.Read|
-|데이터 세트를 기반으로 새 메모리 내 보고서를 만들고 보고서를 저장합니다.|데이터 세트|* Dataset.Read<br>* Workspace.Report.Create|
+|데이터 세트를 기반으로 새 메모리 내 보고서를 만듭니다.|데이터 집합|Dataset.Read|
+|데이터 세트를 기반으로 새 메모리 내 보고서를 만들고 보고서를 저장합니다.|데이터 집합|* Dataset.Read<br>* Workspace.Report.Create|
 |기존 메모리 내 보고서를 보고 탐색/편집합니다. Report.Read는 Dataset.Read를 의미합니다. Report.Read는 편집 내용 저장을 허용하지 않습니다.|보고서|Report.Read|
 |기존 보고서를 편집하고 저장합니다.|보고서|Report.ReadWrite|
 |보고서(다른 이름으로 저장)의 복사본을 저장합니다.|보고서|* Report.Read<br>* Workspace.Report.Copy|

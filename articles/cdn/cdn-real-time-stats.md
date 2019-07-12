@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334632"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593501"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 통계
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -84,7 +84,7 @@ HTTP 상태 코드의 목록은 그래프 바로 위에 표시됩니다. 이 목
 
 특정 상태 코드에 대해 기록된 데이터를 임시로 숨길 수 있습니다.  그래프 바로 아래 범례에서 숨길 상태 코드를 클릭합니다. 상태 코드는 그래프에서 즉시 숨겨집니다. 해당 상태 코드를 다시 클릭하면 해당 옵션이 다시 표시됩니다.
 
-## <a name="connections"></a>연결
+## <a name="connections"></a>Connections
 ![연결 그래프](./media/cdn-real-time-stats/cdn-connections.png)
 
 이 그래프는 에지 서버에 설정된 연결 수를 나타냅니다. CDN을 통과하는 자산에 대한 각 요청은 연결을 발생시킵니다.

@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f0d86a62c59df5bebd34137d0903fcaa7014573d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f745f92133f4f43cd2a65f2b69ded1eff9e8ed
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204267"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620625"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>데이터에서 Azure ATP Advanced Threat Protection ()에 연결
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204267"
 
 로그를 스트리밍하려면 [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 번의 클릭으로 Azure Sentinel에 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 - Azure atp 비공개 미리 보기 고객 이어야 합니다.
@@ -44,7 +45,7 @@ Azure ATP 배포 되 고 데이터를 수집, 의심 스러운 경고를 쉽게 
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure ATP** 바둑판식으로 배열 합니다.
 
-2. **Connect**를 클릭합니다.
+2. **연결**을 클릭합니다.
 
 6. Log Analytics에서 관련 스키마를 사용 하 여 Azure ATP 경고를 검색할 **SecurityAlert**합니다.
 

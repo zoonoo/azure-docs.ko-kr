@@ -4,19 +4,19 @@ description: Azure Virtual Machines에서 중첩된 가상화를 사용하는 �
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510052"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720219"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -120,6 +120,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>게스트 가상 컴퓨터 만들기
 
+>[!IMPORTANT] 
+>
+>Azure 게스트 에이전트는 중첩 된 Vm에서 지원 되지 않습니다 및 호스트와 중첩 된 Vm에서 문제가 발생할 수 있습니다. 중첩 된 Vm에 Azure 에이전트를 설치 하지 마세요 한 이미 Azure 게스트 에이전트가 설치 되어 있는 중첩 된 Vm을 만들기 위한 이미지를 사용 하지 마세요.
+
 1. Hyper-V 관리자를 열고 새 가상 머신을 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 머신을 구성합니다.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
@@ -145,7 +149,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 3. **DHCP 서버** 확인란을 선택하고 **기능 추가**를 클릭한 다음 마법사가 완료될 때까지 **다음**을 클릭합니다.
   
-4. **Install**을 클릭합니다.
+4. **설치**를 클릭합니다.
 
 #### <a name="configure-a-new-dhcp-scope"></a>새 DHCP 범위 구성
 
@@ -168,7 +172,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 2. 게스트 가상 머신을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
-3. 게스트 가상 머신에 로그온합니다.
+3. 게스트 가상 컴퓨터에 로그인 합니다.
 
 4. 게스트 가상 컴퓨터에서 네트워크 및 공유 센터를 엽니다.
 

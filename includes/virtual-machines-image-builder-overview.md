@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509881"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659862"
 ---
 조직이 클라우드로 마이그레이션하고 배포 일관성을 확인 수 있게 하는 표준화 된 가상 머신 (VM) 이미지입니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 됩니다. 시간, 인프라 및 설치 프로그램을 고유한 이미징 파이프라인을 설정 하려면 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 간단한 구성을 제공, 서비스에 제출 및 이미지를 작성 및 배포 합니다.
  
@@ -33,7 +33,7 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Window
 - VHD 형식의 이미지를 만듭니다.
  
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>영역
 Azure 이미지 작성기 서비스는 이러한 지역에서 미리 보기로 제공 됩니다. 이러한 지역 외부에서 이미지를 배포할 수 있습니다.
 - East US
 - 미국 동부 2
@@ -55,7 +55,7 @@ AIB RHEL ISO의 지원에 대 한 원본으로:
 - RHEL 7.4
 - RHEL 7.5
 
-테스트할 되지만, RHEL 7.6 지원 되지 않습니다.
+RHEL 7.6 Iso는 지원 되지 않지만 테스트 합니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -76,7 +76,7 @@ Azure 이미지 작성기는 Azure 리소스 공급자에서 액세스할 수 �
 1. 이미지 만들기의 일환으로, 이미지 작성기는 이미지를 배포 템플릿에 따라 그런 다음 삭제를 IT_의 추가 리소스\<DestinationResourceGroup > _\<TemplateName >에 대해 생성 된 리소스 그룹 프로세스입니다.
 
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 관리 되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포 하려면 Azure VM 이미지 작성기를 허용 하려면 "Azure 가상 머신 이미지 작성기" 서비스에 대 한 '참가자' 권한을 제공 해야 합니다 (앱 ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) 리소스 그룹입니다. 
 

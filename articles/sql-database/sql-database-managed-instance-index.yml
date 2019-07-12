@@ -105,7 +105,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
-              - href: sql-database-managed-instance-get-started
+              - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
           - title: 인스턴스 수정
             values:
@@ -141,7 +141,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa'
+              - href: /azure/sql-database/scripts/sql-managed-instance-restore-geo-backup
               - href: null
           - title: 공용 IP 끝점 집합
             values:
@@ -174,7 +174,7 @@ sections:
         className: cardsD
         items:
           - title: 블로그
-            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">중형</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">보통</a></p>'
           - title: 질문과 대답
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">스택 오버플로</a></p>'
           - title: 커뮤니티 채널

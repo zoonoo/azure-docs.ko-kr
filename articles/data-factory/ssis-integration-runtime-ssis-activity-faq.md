@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537643"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621849"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -57,11 +57,33 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 
 이전 버전의 SQL Server Management Studio (SSMS)의 알려진된 문제에이 오류가 발생할 수 있습니다. SSMS 배포를 위해 여기서는 컴퓨터에 설치 되어 있지 않은 사용자 지정 구성 요소 (예를 들어, 파트너 또는 SSIS Azure Feature Pack 구성 요소)를 포함 하는 패키지, SSMS 구성 요소를 제거 되며 오류가 발생 합니다. 업그레이드 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 고정 하는 문제가 있는 최신 버전으로 합니다.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>오류 메시지: "SSIS Executor 종료 코드:-1073741819."
+
+* 잠재적 원인 및 권장된 작업:
+  * 이 오류는 여러 Excel 원본 또는 대상에서 병렬 다중 스레드 실행 중일 때 Excel 원본 및 대상에 대 한 제한으로 인해 수 있습니다. 해결 방법으로이 제한을 변경 Excel 구성 요소를 순서 대로 실행 하거나 분리 하 여 서로 다른 패키지 및 "패키지 실행 태스크"를 통해 트리거 ExecuteOutOfProcess 속성을 True로 설정 하 여 할 수 있습니다.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>오류 메시지: "공간이 충분 한 디스크에"
 
 이 오류는 SSIS integration runtime 노드가는 로컬 디스크를 의미 합니다. 에 패키지 또는 사용자 지정 설치 디스크 공간을 많이 사용 하는지 여부를 확인 합니다.
 * 디스크에 패키지에서 사용 되는 경우 해당 인해 확보 될 패키지 실행이 완료 된 후입니다.
 * 디스크에 사용자 지정 설치 프로그램에서 사용 되는 경우 필요한 SSIS integration runtime을 중지 하려면 스크립트를 수정 하 고 합니다 integration runtime을 다시 시작. 따라서 사용자 지정 설치 SSIS 통합 런타임 노드로 복사 됩니다에 대 한 지정 된 전체 Azure blob 컨테이너는 해당 컨테이너에서 불필요 한 내용을 인지 확인 합니다.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>오류 메시지: "마스터에서 리소스를 검색 하지 못했습니다. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: 코드: 300004 합니다. 파일 설명: 로드 "*" 하지 못했습니다. "
+
+* 잠재적 원인 및 권장된 작업:
+  * SSIS 작업 패키지 (패키지 파일 또는 프로젝트 파일) 파일 시스템에서 실행 되는 프로젝트, 패키지 또는 구성 파일 SSIS 작업에서 제공한 패키지 액세스 자격 증명을 사용 하 여 액세스할 수 없는 경우이 오류가 발생 합니다.
+    * Azure 파일을 사용 하는 경우
+      * 파일 경로 시작 해야 \\ \\ \<저장소 계정 이름\>. file.core.windows.net\\\<파일 공유 경로\>
+      * 도메인 "Azure" 해야 합니다.
+      * 사용자 이름 이어야 합니다 \<저장소 계정 이름\>
+      * 암호는 해야 \<저장소 액세스 키\>
+    * 경우에 온-프레미스 파일을 사용 하 여 VNet, 패키지 액세스 자격 증명 및 권한을 AZURE-SSIS 통합 런타임을 온-프레미스 파일 공유에 액세스할 수 있도록 제대로 구성 하는 경우를 확인 하세요
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>오류 메시지: "파일 이름 '...' 에 지정 된 연결이 잘못 되었습니다. "
+
+* 잠재적 원인 및 권장된 작업:
+  * 잘못 된 파일 이름이 지정 된
+  * 연결 관리자에서 짧은 시간 대신 FQDN (정규화 된 도메인 이름)을 사용 하 고 있는지 확인
 
 ### <a name="error-message-cannot-open-file-"></a>오류 메시지: "파일 열 수 없습니다..."
 

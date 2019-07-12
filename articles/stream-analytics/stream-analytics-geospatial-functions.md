@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479986"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620924"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 
@@ -54,7 +54,7 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-자세한 내용은 [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) 참조를 참조하세요.
+자세한 내용은 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 참조를 참조하세요.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-자세한 내용은 [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) 참조를 참조하세요.
+자세한 내용은 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 참조를 참조하세요.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-자세한 내용은 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 참조를 참조하세요.
+자세한 내용은 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 참조를 참조하세요.
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-자세한 내용은 [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) 참조를 참조하세요.
+자세한 내용은 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 참조를 참조하세요.
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 함수는 두 다각형을 비교합니다. 다각형이 겹치면 이 함수는 1을 반환합니다. 다각형이 겹치지 않으면 이 함수는 0을 반환합니다. 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-자세한 내용은 [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) 참조를 참조하세요.
+자세한 내용은 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 참조를 참조하세요.
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 함수는 두 LineString을 비교합니다. LineString이 교차하면 이 함수는 1을 반환합니다. LineString이 교차하지 않으면 이 함수는 0을 반환합니다.
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-자세한 내용은 [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) 참조를 참조하세요.
+자세한 내용은 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 참조를 참조하세요.
 
 ## <a name="stwithin"></a>ST_WITHIN
 `ST_WITHIN` 함수는 점 또는 다각형이 다각형 내에 있는지 여부를 확인합니다. 다각형 안에 점 또는 다각형이 포함되어 있으면 이 함수는 1을 반환합니다. 점 또는 다각형이 선언된 다각형 내에 있지 않으면 이 함수는 0을 반환합니다.
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-자세한 내용은 [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) 참조를 참조하세요.
+자세한 내용은 [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) 참조를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

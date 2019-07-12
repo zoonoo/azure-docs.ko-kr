@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508352"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621020"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
@@ -44,7 +44,7 @@ ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [
 ### <a name="installation-instructions"></a>설치 지침
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
 
-|      |단계   | 메모   |
+|      |단계   | 참고   |
 | ---   | ---   |  ---      |
 | 1   | **저장소 컨테이너 만들기**   | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
 | 2   | **ASA Edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
@@ -81,7 +81,7 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 4. **IoT Edge 설정** 메뉴에서 저장소 컨테이너 정보를 설정합니다.
 
 5. 선택적 설정 지정
-    1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)에서 설명서를 참조할 수 있습니다.
+    1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)에서 설명서를 참조할 수 있습니다.
     2. **로캘**. 국제화 형식을 설정합니다.
 
 
@@ -120,7 +120,7 @@ IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.micro
 IoT Edge에서는 모듈 간에, 그리고 모듈과 IoT Hub 간에 선언적으로 경로를 지정하는 방법을 제공합니다. 전체 구문은 [여기](https://docs.microsoft.com/azure/iot-edge/module-composition)에 설명되어 있습니다.
 ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인트로 사용할 수 있습니다.  
 
-###### <a name="example"></a>예
+###### <a name="example"></a>예제
 
 ```json
 {

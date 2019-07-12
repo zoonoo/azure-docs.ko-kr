@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS)에서 여러 노드 풀을 사용 하 여
 description: Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리 하는 방법을 알아봅니다
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: iainfou
-ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: mlearned
+ms.openlocfilehash: 2c4a0f57edb49ca2b2bc13bd9240b01c2b0556d3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491535"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613973"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-만들기 및 Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀을 관리
 
@@ -26,7 +26,7 @@ Azure Kubernetes Service (AKS)를 동일한 구성의 노드는으로 그룹화 
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.61 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 

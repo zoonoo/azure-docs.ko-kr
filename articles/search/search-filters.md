@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b5d198506473c598f058c881f781a06e191df88
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062395"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653433"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 
@@ -97,7 +97,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>필터 사용 패턴
 
-다음 예제에서는 필터 시나리오에 대 한 몇 가지 사용 패턴을 보여 줍니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
+다음 예제에서는 필터 시나리오에 대 한 몇 가지 사용 패턴을 보여 줍니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples)를 참조하세요.
 
 + 독립 실행형 **$filter**는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 별표만, "모든 문서를 찾습니다."를 의미 합니다.
 
@@ -158,7 +158,7 @@ REST api에서는 필터링 가능 됩니다 *에서* 간단한 필드에 대해
 
 ### <a name="approaches-for-filtering-on-text"></a>텍스트 필터링 방법
 
-| 접근 방식 | 설명 | 사용 시기 |
+| 접근 방식 | Description | 사용 시기 |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | 문자열의 구분 기호로 분리 된 목록에 대 한 필드와 일치 하는 함수입니다. | 에 대 한 권장 [보안 필터](search-security-trimming-for-azure-search.md) 한 원시 텍스트 값이 많은 문자열 필드와 일치 해야 하는 필터입니다. 합니다 **search.in** 함수는 속도 위해 설계 되었습니다 및 명시적으로 사용 하 여 각 문자열에 대 한 필드를 비교 하는 보다 훨씬 빠릅니다 `eq` 고 `or`입니다. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 사용 하 여 **search.ismatch** (또는 점수 매기기 동등한 **search.ismatchscoring**) 하나의 요청에 여러 검색 필터 조합을 하려는 경우. 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
@@ -195,9 +195,9 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
+더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

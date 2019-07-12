@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785830"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606151"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>5-분류 샘플: 변동, 욕구를 및 상향 판매를 예측 합니다. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "65785830"
 
 ![실험 그래프](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "65785830"
 
     ![실험을 열으십시오](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>Data
+## <a name="data"></a>보기
 
 이 실험에 대 한 사용 데이터는 KDD Cup 2009에서입니다. 데이터 집합에 50,000 개 행과 230 기능 열입니다. 작업 변동, 욕구를 및 이러한 기능을 사용 하는 고객에 대 한 상향 판매를 예측 하는 것입니다. 데이터 및 작업에 대 한 자세한 내용은 참조는 [KDD 웹 사이트](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)합니다.
 
@@ -79,3 +79,4 @@ ms.locfileid: "65785830"
 - [2-회귀 샘플: 자동차 가격 예측 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [3-분류 샘플: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
 - [4-분류 샘플: (중요 한 비용) 신용 위험 예측](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [6-분류 샘플: 비행 지연을 예측합니다](ui-sample-classification-predict-flight-delay.md)

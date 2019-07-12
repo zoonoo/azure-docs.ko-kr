@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113480"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594952"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -81,7 +81,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
   * 사용자 및 그룹: 모든 사용자 포함, AppUsers, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: 모든 앱 포함
   * 조건: (없음)
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
 * 정책 2: MFA 또는 신뢰할 수 있는 디바이스가 필요한 AppUsers에 액세스 권한 부여
   * 사용자 및 그룹: AppUsers 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: 모든 앱 포함
@@ -117,13 +117,13 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 타사 MFA 공급자가 필요한 활성 정책에 대한 백업과 같이 도메인 조인이 제어로 필요한 정책을 사용 안 함 상태로 구성합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) 및 [Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들면 다음과 같습니다.
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
   * 정책에 대한 *레이블 번호*
-  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예를 들면 다음과 같습니다. **응급 상황에서 사용**
-  * 적용되는 *중단*. 예를 들면 다음과 같습니다. **MFA 중단 시**
+  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예를 들어: **응급 상황에서 사용**
+  * 적용되는 *중단*. 예를 들어: **MFA 중단 시**
   * 정책을 활성화해야 하는 순서를 나타내는 *시퀀스 번호*
   * 적용되는 *앱*
   * 적용할 *제어*
@@ -135,15 +135,15 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-다음 예제를 참조하세요. **예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
+다음 예제를 참조하세요. **예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
-**예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
+**예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
 
 * 정책 1: Exchange 및 SharePoint에 대한 도메인 조인 디바이스 필요
   * 이름: EM001 - 응급 상황에서 사용: MFA 중단[1/4] - Exchange SharePoint - 하이브리드 Azure AD 조인 필요
   * 사용자 및 그룹: ContingencyAccess 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
-  * 조건: 모두
+  * 조건: 임의의 값
   * 제어 권한 부여: 도메인 조인 필요
   * 상태: 사용 안 함
 * 정책 2: Windows 이외의 플랫폼 차단
@@ -151,21 +151,21 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
   * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
   * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, Windows 제외
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
   * 상태: 사용 안 함
 * 정책 3: CorpNetwork 이외의 네트워크 차단
   * 이름: EM003 - 응급 상황에서 사용: MFA 중단[3/4] - Exchange SharePoint - 회사 네트워크를 제외한 액세스 차단
   * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
   * 조건: 위치, 모든 위치 포함, CorpNetwork 제외
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
   * 상태: 사용 안 함
 * 정책 4: 명시적으로 EAS 차단
   * 이름: EM004 - 응급 상황에서 사용: MFA 중단[4/4] - Exchange - 모든 사용자에 대한 EAS 차단
   * 사용자 및 그룹: 모든 사용자 포함
   * 클라우드 앱: Exchange Online 포함
   * 조건: 클라이언트 앱: Exchange Active Sync
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
   * 상태: 사용 안 함
 
 활성화 순서:
@@ -186,14 +186,14 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
   * 사용자 및 그룹: 모든 사용자 포함, SalesAdmins 및 SalesforceContingency 제외
   * 클라우드 앱: Salesforce
   * 조건: 없음
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
   * 상태: 사용 안 함
 * 정책 2: 모바일 이외의 모든 플랫폼에서 판매 팀 차단(공격 노출 영역을 줄이기 위해)
   * 이름: EM002 - 응급 상황에서 사용: 디바이스 규정 준수 중단[2/2]- Salesforce - iOS 및 Android를 제외한 모든 플랫폼 차단
   * 사용자 및 그룹: SalesforceContingency 포함, SalesAdmins 제외
   * 클라우드 앱: Salesforce
   * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, iOS 및 Android 제외
-  * 제어 권한 부여: Block
+  * 제어 권한 부여: 블록
   * 상태: 사용 안 함
 
 활성화 순서:

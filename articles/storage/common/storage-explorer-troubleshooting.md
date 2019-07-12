@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: cf26455ce069294bd1c5a52306ed21019287a0df
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118694"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786278"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -59,7 +59,7 @@ Storage 탐색기 쉽게 수에 대 한 Azure 리소스에 연결 하는 데 필
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>내 관리자 로부터 필요 관리 계층 권한을 받을 수 없는 경우에 어떻게 합니까?
 
-이 이번에는 RBAC 관련 솔루션 아직 없습니다. 이 문제를 해결 하는 SAS URI를 요청할 수 있습니다 [리소스를 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)합니다.
+이 이번에는 RBAC 관련 솔루션 아직 없습니다. 이 문제를 해결 하는 SAS URI를 요청할 수 있습니다 [리소스를 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)합니다.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명된 인증서(및 유사 오류)
 
@@ -128,7 +128,7 @@ macOS 키 집합은 Storage Explorer의 인증 라이브러리에서 문제를 �
 3. "로그인" 키 집합을 선택합니다.
 4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
 
-    ![Image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Storage Explorer를 시작합니다.
 6. "서비스 허브가 키 집합에 액세스하려고 합니다" 같은 팝업 메시지가 나타납니다. 때 존재, Mac 관리자 계정의 암호를 입력 하며 클릭 **항상 허용** (또는 **허용** 하는 경우 **항상 허용** 사용할 수 없습니다).
@@ -247,20 +247,20 @@ Storage 탐색기는 Ubuntu 18.04, 14.04 및 16.04에 공식적으로 지원 됩
 
 1. Storage 탐색기 다운로드
 2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt-get install libgconf-2-4` 실행
-4. `sudo apt install libgnome-keyring-common libgnome-keyring-dev` 실행
+3. `sudo apt-get install libgconf-2-4`를 실행합니다.
+4. `sudo apt install libgnome-keyring-common libgnome-keyring-dev`를 실행합니다.
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Storage 탐색기 다운로드
 2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt install libgnome-keyring-dev` 실행
+3. `sudo apt install libgnome-keyring-dev`를 실행합니다.
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Storage 탐색기 다운로드
 2. .NET Core 런타임을 설치, 확인 된 가장 최신 버전은: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (최신 버전을 이미 설치한 경우 해야 Storage 탐색기를 패치, 아래 참조)
-3. `sudo apt install libgnome-keyring-dev` 실행
+3. `sudo apt install libgnome-keyring-dev`를 실행합니다.
 
 ---
 
@@ -269,7 +269,7 @@ Storage 탐색기는 Ubuntu 18.04, 14.04 및 16.04에 공식적으로 지원 됩
 1. 1\.5.43 StreamJsonRpc의 버전을 다운로드 [nuget에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾아보십시오.
 2. 패키지를 다운로드 한 후 해당 파일 확장명을 변경 `.nupkg` 를 `.zip`
 3. 패키지를 압축을 풉니다.
-4. `streamjsonrpc.1.5.43/lib/netstandard1.1/`으로 이동합니다.
+4. [https://resources.azure.com](`streamjsonrpc.1.5.43/lib/netstandard1.1/`) 으로 이동합니다.
 5. 복사 `StreamJsonRpc.dll` Storage 탐색기 폴더 안에 다음 위치에 있습니다.
     1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
     2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`

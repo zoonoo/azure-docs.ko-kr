@@ -8,25 +8,25 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258956"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653994"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
 이 문서에서는 클라우드 마켓플레이스 게시자로 등록을 다룹니다. 선택한 게시 옵션 및 Microsoft 파트너 네트워크의 현재 멤버 자격에 따라 다음 단계 중 일부가 필요하지 않을 수 있습니다. 등록되면 Azure Marketplace 또는 AppSource에 대한 마켓플레이스 제품을 만들 수 있습니다.
 
 
-|  | 등록 단계 | 기간 | 세부 정보 |  
+|  | 등록 단계 | Duration | 세부 정보 |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft 파트너 네트워크에 등록 | 15분 | [Microsoft 파트너 네트워크에 등록](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Microsoft 계정 만들기 <ul>(Azure Marketplace 거래 제품에 필요함, 다른 사용자에 대한 권장)</ul> | 15분 | [Microsoft ID 만들기](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 1 | Microsoft 파트너 네트워크에 등록 | 15분 | [Microsoft 파트너 네트워크에 등록](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 2 | Microsoft 계정 만들기 <ul>(Azure Marketplace 거래 제품에 필요함, 다른 사용자에 대한 권장)</ul> | 15분 | [Microsoft ID 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | 파트너 센터 계정 만들기 | 15분 | [파트너 센터 계정 만들기](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
-| 4 |  Cloud 파트너 포털에 로그인 | 1-3일 | [Cloud 파트너 포털에 로그인](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Microsoft 개발자 센터(개발자 센터)에 등록(Azure Marketplace 거래 제품용) | 5-10일 | [개발자 센터에 등록](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 4 |  Cloud 파트너 포털에 로그인 | 1-3일 | [Cloud 파트너 포털에 로그인](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
+| 5 | Microsoft 개발자 센터(개발자 센터)에 등록(Azure Marketplace 거래 제품용) | 5-10일 | [개발자 센터에 등록](/azure/marketplace/deprecated/register-dev-center) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft 파트너 네트워크에 등록  
@@ -50,9 +50,9 @@ Microsoft를 사용 하 여 티켓을 열어 [파트너 지원](https://partner.
 [! 중요] 업무용 이메일과 연결된 Microsoft 계정은 포털에 대한 액세스를 허용하지 않습니다.
 
 > [!Note]
-> Microsoft 계정이 이미 있는 경우 [마켓플레이스 계정을 관리하는 Microsoft ID를 만들기 위한 지침](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)을 검토하여 마켓플레이스 게시에 사용할 수 있는지 확인합니다. 
+> Microsoft 계정이 이미 있는 경우 [마켓플레이스 계정을 관리하는 Microsoft ID를 만들기 위한 지침](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-tenants)을 검토하여 마켓플레이스 게시에 사용할 수 있는지 확인합니다. 
 > 
-> Azure Active Directory 페더레이션된 회사 계정이 있는 사용자는 기존 Microsoft 계정을 만들거나 사용하도록 시도하기 전에 [이 문서](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)를 참조해야 합니다.
+> Azure Active Directory 페더레이션된 회사 계정이 있는 사용자는 기존 Microsoft 계정을 만들거나 사용하도록 시도하기 전에 [이 문서](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-users)를 참조해야 합니다.
 
 *   Microsoft 계정 만들기 또는 관리에 대한 도움말은 [Microsoft 계정 도움말 지원 페이지](https://support.microsoft.com/products/microsoft-account?category=manage-account)를 방문하세요.
 

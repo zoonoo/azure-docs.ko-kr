@@ -2,17 +2,17 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 클러스터 격리
 description: AKS(Azure Kubernetes Services)의 클러스터 격리에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465309"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614924"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -26,19 +26,19 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 
 ## <a name="design-clusters-for-multi-tenancy"></a>다중 테넌트용 클러스터 설계
 
-Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. Kubernetes의 [네임스페이스][k8s-namespaces]는 논리적 격리 경계를 만듭니다. 격리 및 다중 테넌트에 대한 추가 Kubernetes 기능 및 고려 사항에는 다음 영역이 포함됩니다.
+Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. A [Namespace][k8s-namespaces] Kubernetes에서 논리적으로 격리 경계를 만듭니다. 격리 및 다중 테넌트에 대한 추가 Kubernetes 기능 및 고려 사항에는 다음 영역이 포함됩니다.
 
-* **예약**에는 리소스 할당량 및 Pod 중단 예산과 같은 기본 기능 사용이 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 기본 스케줄러 기능 모범 사례][aks-best-practices-scheduler]를 참조하세요.
-  * 더 고급 스케줄러 기능에는 taint/toleration, 노드 선택기 및 노드/Pod 선호도 또는 선호도 방지가 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능 모범 사례][aks-best-practices-advanced-scheduler]를 참조하세요.
+* **예약**에는 리소스 할당량 및 Pod 중단 예산과 같은 기본 기능 사용이 포함됩니다. 이러한 기능에 대 한 자세한 내용은 참조 하세요. [AKS에 대 한 기본 스케줄러 기능에 대 한 유용한][aks-best-practices-scheduler]합니다.
+  * 더 고급 스케줄러 기능에는 taint/toleration, 노드 선택기 및 노드/Pod 선호도 또는 선호도 방지가 포함됩니다. 이러한 기능에 대 한 자세한 내용은 참조 하세요. [AKS에 고급 스케줄러 기능에 대 한 유용한][aks-best-practices-advanced-scheduler]합니다.
 * **네트워킹**에는 네트워크 정책을 사용하여 Pod 내/외부 트래픽 흐름을 제어하는 기능이 포함됩니다.
-* **인증 및 권한 부여**에는 Azure Key Vault에서 RBAC(역할 기반 액세스 제어) 및 Azure AD(Active Directory) 통합, Pod ID 및 비밀을 사용하는 기능이 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 인증 및 권한 부여 모범 사례][aks-best-practices-identity]를 참조하세요.
+* **인증 및 권한 부여**에는 Azure Key Vault에서 RBAC(역할 기반 액세스 제어) 및 Azure AD(Active Directory) 통합, Pod ID 및 비밀을 사용하는 기능이 포함됩니다. 이러한 기능에 대 한 자세한 내용은 참조 하세요. [인증 및 권한 부여 AKS에 대 한 유용한][aks-best-practices-identity]합니다.
 * **컨테이너**에는 취약성을 위한 Pod 보안 정책, Pod 보안 컨텍스트, 스캔 이미지 및 런타임이 포함됩니다. 또한 컨테이너 액세스를 기본 노드로 제한하는 App Armor 또는 Seccomp(Secure Computing) 사용이 포함됩니다.
 
 ## <a name="logically-isolate-clusters"></a>논리적으로 클러스터 격리
 
 **모범 사례 가이드** - 논리적 격리를 사용하여 팀 및 프로젝트를 분리합니다. 팀 또는 애플리케이션에 배포하는 물리적 AKS 클러스터 수를 최소화해 보세요.
 
-논리적 격리를 사용하면 여러 워크로드, 팀 또는 환경에 단일 AKS 클러스터를 사용할 수 있습니다. Kubernetes [네임스페이스][k8s-namespaces]는 워크로드 및 리소스의 논리적 격리 경계를 형성합니다.
+논리적 격리를 사용하면 여러 워크로드, 팀 또는 환경에 단일 AKS 클러스터를 사용할 수 있습니다. Kubernetes [네임 스페이스][k8s-namespaces] 워크 로드 및 리소스를 논리적으로 격리 경계를 형성 합니다.
 
 ![AKS에서 Kubernetes 클러스터의 논리적 격리](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 

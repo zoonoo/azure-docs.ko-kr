@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61070097"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593908"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Microsoft Azure CDN에서 에지 노드 성능 분석
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -84,7 +84,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
   * 운영 비용 절감
 * 더 많은 요청이 CDN에서 직접 제공되므로 데이터 배달 가속화가 향상됩니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | 캐시 효율성 |캐시에서 제공되고 전송된 데이터의 백분율을 나타냅니다. 이 메트릭은 요청된 콘텐츠의 캐시된 버전이 CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 직접 전달된 경우 측정됩니다. |
 | 적중률 |캐시에서 제공된 요청의 백분율을 나타냅니다. 이 메트릭은 요청된 콘텐츠의 캐시된 버전이 CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 직접 전달된 경우 측정됩니다. |
@@ -102,7 +102,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 > 
 > 
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | 평균 바이트 출력 |CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 제공된 각 요청에 대해 전송된 평균 바이트 수를 나타냅니다. |
 | No Cache 구성 바이트 비율 |CDN(에지 서버)에서 바이패스 캐시 기능으로 인해 캐시되지 않을 요청자(예: 웹 브라우저)로 제공된 트래픽의 백분율을 나타냅니다. |
@@ -117,7 +117,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | 필드 | 설명 |
 | --- | --- |
 | 전송 속도 |콘텐츠가 CDN에서 요청자로 전송된 평균 속도를 나타냅니다. |
-| 기간 |자산을 요청자(예: 웹 브라우저)에 전달하는 데 걸린 평균 시간(밀리초)을 나타냅니다. |
+| Duration |자산을 요청자(예: 웹 브라우저)에 전달하는 데 걸린 평균 시간(밀리초)을 나타냅니다. |
 | 압축된 요청률 |CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 압축된 형식으로 전달된 적중 항목의 백분율을 나타냅니다. |
 | 4xx 오류율 |4xx 상태 코드를 생성한 적중 항목의 백분율을 나타냅니다. |
 | 5xx 오류율 |5xx 상태 코드를 생성한 적중 항목의 백분율을 나타냅니다. |
@@ -126,7 +126,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 #### <a name="secure-traffic-metrics"></a>보안 트래픽 메트릭
 이러한 메트릭의 목적은 HTTPS 트래픽에 대한 CDN 성능을 추적하는 것입니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | 보안 캐시 효율성 |캐시에서 제공된 HTTPS 요청에 대해 전송된 데이터의 백분율을 나타냅니다. 이 메트릭은 요청된 콘텐츠의 캐시된 버전이 CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 HTTPS를 통해 직접 전달된 경우 측정됩니다. |
 | 보안 전송 속도 |콘텐츠가 CDN(에지 서버)에서 요청자(예: 웹 브라우저)로 HTTPS를 통해 전송된 평균 속도를 나타냅니다. |
@@ -183,7 +183,7 @@ CDN 활동에 대한 보고서를 생성하려면 에지 성능 분석 모듈에
 | 502 오류 |502 잘못된 게이트웨이 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다. 502 잘못된 게이트웨이 응답 코드는 서버와 HTTP 프록시 사이 HTTP 프로토콜 오류가 발생하는 경우 발생합니다. CDN의 경우 502 잘못된 게이트웨이 응답 코드는 일반적으로 고객 원본 서버가 에지 서버로 유효하지 않은 응답을 반환하는 경우 발생합니다. 구문 분석할 수 없거나 완료되지 않은 응답은 유효하지 않습니다. |
 | 5xx 오류 |500 범위의 응답 코드가 발생하는 상위 10개 요청을 확인할 수 있는 막대 그래프를 포함합니다.  이 보고서에서 제외되는 항목은 502 잘못된 게이트웨이 및 504 게이트웨이 시간 초과 응답 코드입니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)

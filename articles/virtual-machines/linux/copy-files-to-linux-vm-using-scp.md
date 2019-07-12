@@ -4,7 +4,7 @@ description: SCP 및 SSH 키 쌍을 사용하여 Azure에서 Linux VM 간에 안
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
 ms.subservice: disks
-ms.openlocfilehash: 7d5b2d2ee7e7320fb8bf91c8a62a0f46c403c977
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13a2c889ac648e2847d1cc58a60a7b1c0f1fc1e2
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328768"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671648"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>SCP를 사용하여 Linux VM 간에 파일 이동
 
@@ -51,7 +51,7 @@ scp azureuser@azurehost:directory/file targetfile
 
 SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트에서 인증을 처리하고 SSH와 함께 기본적으로 제공되는 암호화된 터널에서 파일을 이동합니다. SSH 인증에는 사용자 이름 및 암호를 사용할 수 있습니다. 그러나 SSH 공개 및 프라이빗 키 인증이 보안 모범 사례로 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사를 시작합니다. 적절히 구성된 `~/.ssh/config`와 SSH 공개 및 프라이빗 키를 사용하면 서버 이름(또는 IP 주소)만 사용해서 SCP 연결을 설정할 수 있습니다. SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 VM에 로그인하는 데 기본적으로 사용합니다.
 
-`~/.ssh/config`와 SSH 공개 및 개인 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+`~/.ssh/config`와 SSH 공개 및 프라이빗 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>파일을 Linux VM으로 SCP
 

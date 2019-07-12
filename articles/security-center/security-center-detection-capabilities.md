@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705894"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569362"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Security Center 감지 기능
 이 문서에서는 Microsoft Azure 리소스(Windows 및 Linux 둘 다)를 대상으로 하는 활성 위협을 식별하도록 하고, 신속하게 응답하기 위한 인사이트를 제공하는 Azure Security Center의 고급 탐지 기능을 설명합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "60705894"
 
 이에 대한 응답으로 조직은 종종 알려진 공격 서명을 검색하여 엔터프라이즈 경계 또는 엔드포인트 방어에 집중하는 다양한 지점 솔루션을 배포합니다. 이러한 솔루션은 보안 분석가에게 심사 및 조사를 요구하는 대용량의 낮은 신뢰 경고를 생성하는 경향이 있습니다. 대부분의 조직은 이러한 경고에 응답하는 데 필요한 시간 및 전문 지식이 부족하므로 많은 경고가 해결되지 않습니다.  한편, 공격자는 많은 서명 기반 방어를 무너뜨리고 [클라우드 환경에 적응](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)하기 위해 메서드를 발전시켜 왔습니다. 새로운 위협 요소를 보다 신속하게 식별하고 감지 및 대응을 신속하게 처리하기 위해 새로운 접근 방식이 필요합니다.
 
-## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Azure Security Center가 위협을 감지하고 대응하는 방법
+## Azure Security Center 감지 하 고 위협에 대응 하는 방법 <a name="asc-detects"></a>
 Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스에 존재하는 Microsoft의 글로벌 서비스에서 얻은 원격 분석의 포괄적인 집합에 액세스할 수 있습니다. 이 광범위하고 다양한 데이터 세트의 컬렉션을 통해 Microsoft는 온라인 서비스 뿐만 아니라 해당 온-프레미스 소비자 및 엔터프라이즈 제품에서도 새로운 공격 패턴 및 추세를 검색할 수 있습니다. 결과적으로 보안 센터는 공격자가 새롭고 더욱 정교한 악용을 릴리스하는 동안 신속하게 해당 감지 알고리즘을 업데이트할 수 있습니다. 이 방법을 통해 빠르게 움직이는 위협 환경을 지속적으로 관리할 수 있습니다.
 
 보안 센터 위협 감지는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 보안 정보를 자동으로 수집하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 보안 경고는 위협을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에서 우선 순위가 지정됩니다.
@@ -78,7 +78,7 @@ Azure Security Center는 위협 상황에서 변경 내용을 지속적으로 �
 
 이러한 결합된 노력은 즉시 활용할 수 있는 새롭고 향상된 감지에 누적됩니다. 수행해야 할 작업이 없습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 이 문서에서는 Azure Security Center 감지 기능을 작동하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)

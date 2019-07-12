@@ -2,17 +2,17 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 저장소
 description: 볼륨, 영구적 볼륨, 저장소 클래스 및 클레임을 포함하여 AKS(Azure Kubernetes Service)의 저장소에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466820"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615803"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
 
@@ -121,22 +121,22 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련된 모범 사례는 [AKS에서의 저장소 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
+관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 
-- [Azure Disks를 사용하여 정적 볼륨 만들기][aks-static-disks]
-- [Azure Files를 사용하여 정적 볼륨 만들기][aks-static-files]
-- [Azure Disks를 사용하여 동적 볼륨 만들기][aks-dynamic-disks]
-- [Azure Files를 사용하여 동적 볼륨 만들기][aks-dynamic-files]
+- [Azure 디스크를 사용 하 여 정적 볼륨 만들기][aks-static-disks]
+- [Azure Files를 사용 하 여 정적 볼륨 만들기][aks-static-files]
+- [Azure 디스크를 사용 하 여 동적 볼륨 만들기][aks-dynamic-disks]
+- [Azure Files를 사용 하 여 동적 볼륨 만들기][aks-dynamic-files]
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Kubernetes/AKS 클러스터 및 워크로드][aks-concepts-clusters-workloads]
-- [Kubernetes/AKS ID][aks-concepts-identity]
-- [Kubernetes/AKS 보안][aks-concepts-security]
-- [Kubernetes/AKS 가상 네트워크][aks-concepts-network]
-- [Kubernetes/AKS 크기 조정][aks-concepts-scale]
+- [Kubernetes AKS 클러스터 / 및 워크 로드][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS id][aks-concepts-identity]
+- [Kubernetes / AKS 보안][aks-concepts-security]
+- [Kubernetes / AKS 가상 네트워크][aks-concepts-network]
+- [Kubernetes AKS 소수][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

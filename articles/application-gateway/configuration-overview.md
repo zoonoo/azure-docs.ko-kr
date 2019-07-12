@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073973"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795914"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure Application Gateway 다양 한 시나리오에 대 한 다양 한 방법�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크와 전용된 서브넷
 
@@ -245,7 +245,7 @@ HTTP-HTTPS 리디렉션이 대 한 자세한 내용은 다음을 참조 하세�
 
 #### <a name="rewrite-the-http-header-setting"></a>HTTP 헤더 설정 다시 작성
 
-이 설정을 추가, 제거 하거나 HTTP 요청 및 응답 헤더를 요청 하는 동안 업데이트 및 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. PowerShell 통해이 기능에만 구성할 수 있습니다. Azure portal 및 CLI 지원은 아직 사용할 수 없습니다. 자세한 내용은 다음을 참조하세요.
+이 설정을 추가, 제거 하거나 HTTP 요청 및 응답 헤더를 요청 하는 동안 업데이트 및 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. PowerShell 통해이 기능에만 구성할 수 있습니다. Azure portal 및 CLI 지원은 아직 사용할 수 없습니다. 참조 항목:
 
  - [HTTP 헤더 개요를 다시 작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [HTTP 헤더 다시 쓰기를 구성 합니다.](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
@@ -297,6 +297,7 @@ Application Gateway는 라우팅 요청을 백 엔드 서버에 대 한 HTTP 및
   | /home/secondhome/          | /pathrule*      | /override/            | /override/home/secondhome/   |
   | /pathrule/home/            | /pathrule/home* | /override/            | /override/                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | /override/secondhome/        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>App service에 대해 사용
 

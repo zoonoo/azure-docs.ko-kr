@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797620"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707097"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -288,7 +288,7 @@ Raspberry Pi와 같이 제한된 디바이스를 사용하는 경우, 특히 이
 IoT Edge 런타임의 일부는 IoT Edge 허브는 기본적으로 성능에 최적화 된 하 고 많은 양의 메모리를 할당 하려고 합니다. 이 최적화는 제한된 에지 디바이스에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
-IoT Edge 허브에 대 한 환경 변수를 설정 **OptimizeForPerformance** 하 **false**합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+IoT Edge 허브에 대 한 환경 변수를 설정 **OptimizeForPerformance** 하 **false**합니다. 이때 다음과 같은 두 가지 방법을 사용할 수 있습니다.
 
 UI의 경우: 
 
@@ -296,7 +296,7 @@ UI의 경우:
 
 ![OptimizeForPerformance를 false로 설정](./media/troubleshoot/optimizeforperformance-false.png)
 
-**또는**
+**OR**
 
 배포 매니페스트의 경우:
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈에 대해 프로세스 확인을 적용합니다. 이 디먼은 모듈이 전송하는 모든 메시지가 해당 모듈의 기본 프로세스 ID에서 온 것인지 확인합니다. 메시지가 처음에 설정한 것과는 다른 프로세스 ID의 모듈에서 전송될 경우 404 오류 메시지가 표시되며 거부됩니다.
 
 ### <a name="resolution"></a>해결 방법
+1\.0.7 버전부터 모든 모듈 프로세스 연결할 권한이 있는지 합니다. 1\.0.7로 업그레이드할 수 없는 경우 다음 단계를 완료 합니다. 자세한 내용은 참조는 [1.0.7 릴리스 changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)합니다.
+
 사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. 예를 들어, 해야 `ENTRYPOINT` of `CMD` 이후 Docker 파일에서 명령을 `CMD` 모듈에 대 한 ID 및 반면 기본 프로그램을 실행 하는 bash 명령에 대 한 다른 프로세스 ID를 하나의 프로세스를 일으킵니다 `ENTRYPOINT` 이어질 수를 단일 프로세스 id입니다.
 
 
@@ -351,7 +353,7 @@ IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈�
 
 IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 반드시 적절 한 네트워크를 확인 하 고 통신을 클라우드로 보안 가장자리에 대 한 방화벽 규칙이 설정 합니다. 다음 표에서 때 사용할 수 지침으로 구성 방화벽 규칙 기본 서버에 대 한 Azure IoT Edge 런타임이 호스팅되는:
 
-|프로토콜|포트|수신|발신|지침|
+|프로토콜|포트|수신|나가는 포트|지침|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
@@ -368,7 +370,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 **옵션 1: 엔진 설정을 컨테이너에서 DNS 서버 설정**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용할 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 라는 파일을 만들고 `daemon.json` 사용 하려면 DNS 서버를 지정 합니다. 예를 들면 다음과 같습니다.
+엔진에서 시작 하는 모든 컨테이너 모듈에 적용할 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 라는 파일을 만들고 `daemon.json` 사용 하려면 DNS 서버를 지정 합니다. 예:
 
 ```
 {
@@ -396,7 +398,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 **옵션 2: 모듈에 대해 IoT Edge 배포에 DNS 서버 설정**
 
-각 모듈에 대 한 DNS 서버를 설정할 수 있습니다 *createOptions* IoT Edge 배포에서 합니다. 예를 들면 다음과 같습니다.
+각 모듈에 대 한 DNS 서버를 설정할 수 있습니다 *createOptions* IoT Edge 배포에서 합니다. 예를 들어:
 
 ```
 "createOptions": {

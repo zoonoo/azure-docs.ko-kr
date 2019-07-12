@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably;nicking
+ms.author: aelnably
+ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed659e95289665b6ce63ba6961e9f63650b4accf
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851368"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617540"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
 이 문서에서는 스냅샷에서 [Azure App Service](../app-service/overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅샷 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅샷 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅샷을 자동으로 저장합니다.
@@ -47,7 +48,7 @@ ms.locfileid: "60851368"
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. **복원** 페이지에서 복원할 스냅숏을 선택합니다.
+2. **복원** 페이지에서 복원할 스냅샷을 선택합니다.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    

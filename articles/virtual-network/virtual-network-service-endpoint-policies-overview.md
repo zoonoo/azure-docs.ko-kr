@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sumeet.mittal
-ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sumi
+ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61033903"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595377"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Virtual Network 서비스 엔드포인트 정책(미리 보기)
+# <a name="virtual-network-service-endpoint-policies-preview"></a>가상 네트웤 서비스 엔드포인트 정책(미리 보기)
 
 VNet(Virtual Network) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 특정 Azure 서비스 리소스만 서비스 엔드포인트에서 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스에 대한 가상 네트워크 트래픽의 상세 액세스 제어를 제공합니다.
 
@@ -33,7 +33,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
 
 ## <a name="key-benefits"></a>주요 이점
 
-Virtual Network 서비스 엔드포인트 정책은 다음과 같은 이점을 제공합니다.
+가상 네트워크 서비스 엔드포인트 정책은 다음과 같은 이점을 제공합니다.
 
 - __Azure Services에 대한 Virtual Network 트래픽의 보안 향상__
 
@@ -45,7 +45,7 @@ Virtual Network 서비스 엔드포인트 정책은 다음과 같은 이점을 �
 
    엔드포인트 정책은 서비스 엔드포인트를 통한 가상 네트워크로부터의 Azure 서비스 트래픽을 필터링하기 위해 수평적으로 확장 가능하며 가용성이 높은 솔루션을 제공합니다. 추가 오버헤드 없이 가상 네트워크에서 이 트래픽에 대한 중앙 네트워크 어플라이언스를 유지 관리할 수 있습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 - 가상 네트워크 트래픽을 특정 Azure 서비스 리소스로 제한하는 엔드포인트 정책을 구성할 수 있습니다. 미리 보기에서는 Azure Storage에 대 한 엔드포인트 정책을 지원합니다. 
 - 엔드포인트 정책은 가상 네트워크의 서브넷에 구성됩니다. 정책에 나열된 모든 Azure 서비스에 대해 정책을 적용하려면 서브넷에서 서비스 엔드포인트를 사용하도록 설정해야 합니다.

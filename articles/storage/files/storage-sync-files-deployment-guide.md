@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240089"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606117"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
-* Azure File Sync를 배포 하려는 동일한 지역에 Azure 파일 공유 합니다. 자세한 내용은 다음을 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* Azure File Sync를 배포 하려는 동일한 지역에 Azure 파일 공유 합니다. 참조 항목:
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
 * Azure 파일 동기화와 동기화할 Windows Server 또는 Windows Server 클러스터의 지원되는 인스턴스가 하나 이상 있어야 합니다. 지원되는 Windows Server 버전에 대한 자세한 내용은 [Windows Server와의 상호 운용성](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)을 참조하세요.
-* Az PowerShell 모듈을 PowerShell 5.1 또는 PowerShell 6 +를 사용 하 여 사용할 수 있습니다. 하지만 서버 등록 cmdlet을 등록 하는 Windows Server 인스턴스에서 항상 실행 해야 비 Windows 시스템을 비롯 한 모든 지원 되는 시스템에서 Azure File sync Az PowerShell 모듈을 사용할 수 있습니다. Windows Server 2012 R2에서 확인할 수 있습니다를 실행 하는 최소 PowerShell 5.1. \* 의 값을 확인 하 여 합니다 **PSVersion** 의 속성을 **$PSVersionTable** 개체:
+* Az PowerShell 모듈을 PowerShell 5.1 또는 PowerShell 6 +를 사용 하 여 사용할 수 있습니다. 하지만 서버 등록 cmdlet을 항상 실행 해야 Windows Server 인스턴스에서 있습니다 비 Windows 시스템을 포함 한 모든 지원 되는 시스템에서 Azure File sync Az PowerShell 모듈을 사용할 수 있습니다 (이렇게 하려면 직접 또는 PowerShell을 통해 등록 됩니다. 원격 서비스)입니다. Windows Server 2012 R2에서 확인할 수 있습니다를 실행 하는 최소 PowerShell 5.1. \* 의 값을 확인 하 여 합니다 **PSVersion** 의 속성을 **$PSVersionTable** 개체:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > PowerShell에서 직접 등록 하는 것이 아니라 서버 등록 UI를 사용 하려는 경우 PowerShell 5.1을 사용 해야 합니다.
 
 * PowerShell 5.1을 사용 하 여에서 확인을 선택한 경우 최소한.NET 4.7.2 설치 됩니다. 에 대해 자세히 알아보세요 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 시스템에 있습니다.
-* Az PowerShell 모듈을 여기의 지침에 따라 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다. 
-* Az.StorageSync 모듈을 현재 Az 모듈 독립적으로 설치 합니다.
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > .NET 4.7.2+를 설치 하는 Windows Server Core에서 사용 하 여 설치 해야 합니다 `quiet` 및 `norestart` 플래그 또는 설치 하지 못합니다. 예를 들어.NET 4.8를 설치 하는 경우 명령은 다음과 같이 보입니다.
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* Az PowerShell 모듈을 여기의 지침에 따라 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
+     
+    > [!Note]  
+    > 이제 Az.StorageSync 모듈 Az PowerShell 모듈을 설치할 때 자동으로 설치 되었습니다.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+> [!Note]  
+> Windows Server Core에서 Azure File Sync를 배포 하는 경우이 단계를 건너뛸 수 있습니다.
+
 1. [서버 관리자]를 엽니다.
 2. **로컬 서버**를 클릭합니다.  
     ![서버 관리자 UI 왼쪽에 있는 "로컬 서버"](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 Internet Explorer 보안 강화 구성을 해제하려면 관리자 권한 PowerShell 세션에서 다음 명령을 실행합니다.
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 바꿉니다 **< Az_Region >** 를 **< RG_Name >** , 및 **< my_storage_sync_service >** 고유한 값을 사용 하 여를 사용 하 여 다음 명령 수 만들기 및 배포를 저장소 동기화 서비스:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into

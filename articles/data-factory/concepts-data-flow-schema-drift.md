@@ -3,16 +3,15 @@ title: Azure Data Factory Mapping Data Flow 스키마 드리프트
 description: 스키마 드리프트를 사용하여 Azure Data Factory에서 복원력 있는 데이터 흐름 빌드
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262162"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722873"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mapping Data Flow 스키마 드리프트
 
@@ -34,7 +33,7 @@ ms.locfileid: "61262162"
 
 * 이 옵션을 선택하면 Data Flow가 실행될 때마다 원본에서 모든 수신 필드를 읽고 전체 흐름을 거쳐 싱크로 전달합니다.
 
-* 새 필드가 모두 선택되고 대상에 배치되도록 “자동 매핑”을 사용하여 싱크 변환의 새 필드를 모두 매핑해야 합니다.
+* "자동 매핑"를 사용 하 여 모든 새 필드가 선택 접속 가져오고 대상에 연결 되도록 싱크 변환에서 모든 새 필드를 매핑할 해야 합니다.
 
 <img src="media/data-flow/automap.png" width="400">
 

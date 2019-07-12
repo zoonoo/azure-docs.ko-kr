@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912239"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626146"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 6월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
@@ -91,7 +91,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>자동 통계 작업이 sys.dm_pdw_exec_requests에 나타남(동작 변경 내용)
 
-[통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)이 도입되면서, Azure SQL Data Warehouse는 쿼리 실행을 최적화하기 위해 통계를 생성합니다. 2018년 6월 릴리스에는 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 작업이 실행될 때마다 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 보기에 레코드를 추가하여 통계가 자동 생성되는 시점을 모니터링하는 기능이 추가되어 있습니다.
+[통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)이 도입되면서, Azure SQL Data Warehouse는 쿼리 실행을 최적화하기 위해 통계를 생성합니다. 2018년 6월 릴리스에는 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 작업이 실행될 때마다 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 보기에 레코드를 추가하여 통계가 자동 생성되는 시점을 모니터링하는 기능이 추가되어 있습니다.
 
 ```sql
 SELECT
@@ -111,10 +111,10 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>다음 단계
-SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse]에 대해 신속히 알아봅니다. Azure를 처음 사용하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
+이제 SQL Data Warehouse에 대해 다소 알고 자세히 배울 하는 방법을 신속 하 게 [SQL Data Warehouse 만들기][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] 새 용어를 발견 하면을 유용 하 게 합니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
 
 * [고객 성공 사례]
-* [블로그]
+* [Blogs]
 * [기능 요청]
 * [비디오]
 * [고객 자문 팀 블로그]
@@ -122,7 +122,7 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 * [Twitter]
 
 
-[블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse

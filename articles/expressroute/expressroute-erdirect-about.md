@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807472"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
-ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute Direct는 대규모로 활성/활성 연결을 지원하는 이중 100Gbps 연결을 제공합니다.
+ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute 직접 이중 100 Gbps 또는 확장에 대 한 활성/활성 연결을 지 원하는 10 g b p s 연결을 제공 합니다.
 
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
@@ -38,9 +38,9 @@ ExpressRoute Direct를 사용 하기 전에 먼저 구독을 등록 해야 합�
 
 | **서비스 공급자를 사용하는 ExpressRoute** | **ExpressRoute Direct** | 
 | --- | --- |
-| 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 100Gbps 인프라 및 모든 계층의 전체 관리 필요
+| 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 100 g b p s/10gbps 인프라 및 모든 계층의 전체 관리 필요
 | 이더넷 및 MPLS를 포함하는 수백 개의 공급자와 통합 | 규제 산업 및 대규모 데이터 수집에 대한 직접/전용 용량 |
-| 50Mbps - 10Gbps의 회로 SKU | 고객은 5Gbps, 10Gbps, 40Gbps, 100Gbps(총 200Gbps로 제한)와 같은 회로 SKU의 조합을 선택할 수 있습니다.
+| 50Mbps - 10Gbps의 회로 SKU | 고객은 다음 회로 100 Gbps ExpressRoute에서 Sku의 조합의 직접 선택할 수 있습니다. <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 요금 5gbps</li></ul> 고객은 다음 회로 10 Gbps ExpressRoute에서 Sku의 조합의 직접 선택할 수 있습니다.<ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
 | 단일 테넌트에 최적화됨 | 단일 테넌트/클라우드 서비스 공급자/여러 사업부에 최적화됨
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 회로
@@ -53,7 +53,28 @@ Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처�
 
 ## <a name="circuit-skus"></a>회로 SKU
 
-ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다. 실제 포트 쌍은 불과 **100Gbps**이며 5Gbps, 10Gbps, 40Gbps, 100Gbps의 대역폭(조합할 경우 최대 200Gbps)으로 여러 가상 회로를 포함할 수 있습니다. 
+ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. 100에서 ExpressRoute 회로 요금 10gbps ExpressRoute 직접 이제 기능도 **40gbps** 하 고 **100 Gbps** 회로 Sku. 실제 포트 쌍 **100 개 10 g b p s** 만 및 여러 가상 회로 포함할 수 있습니다. 회로 크기:
+
+| **100 Gbps ExpressRoute 직접** | **10gbps ExpressRoute 직접** | 
+| --- | --- |
+| **대역폭 구독**: 200 요금 5gbps | **대역폭 구독**: 20gbps |
+| <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 요금 5gbps</li></ul> | <ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
+
+## <a name="technical-requirements"></a>기술적인 요구 사항
+
+* Microsoft Enterprise Edge 라우터 (MSEE) 인터페이스:
+    * 이중 10 또는 100 기가 비트 이더넷 포트 라우터 쌍 간 에서만
+    * 단일 모드 LR 파이버 연결
+    * IPv4 및 IPv6
+    * IP MTU 1500 바이트
+
+* 스위치/라우터 계층 2/3 계층 연결:
+    * (Dot1Q) 1 802.1Q 태그 또는 두 개의 태그 (QinQ) 802.1Q 지원 해야 하며 캡슐화 태그
+    * Ethertype 0x8100 =
+    * Microsoft-지정 된 VLAN ID를 기준으로 외부 VLAN 태그 (STAG)를 추가 해야 *QinQ에만 해당*
+    * 포트 및 장치 당 여러 BGP 세션 (Vlan)을 지원 해야 합니다.
+    * IPv4 및 IPv6 연결 합니다. *IPv6에 대 한 추가 하위 인터페이스가 없는 만들어집니다. IPv6 주소를 기존 하위 인터페이스에 추가 됩니다*합니다. 
+    * 선택 사항: [양방향 전달 검색 (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) 기본적으로 모든 개인 피어 링 ExpressRoute 회로에 구성 된 지원
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

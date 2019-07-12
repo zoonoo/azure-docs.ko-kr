@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c4f9334a91e99c92e74af060d84308a8aaccc6e7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182178"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671271"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
@@ -82,7 +82,7 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>마이그레이션 중 플랫폼이 선택한 리소스 이름이 마음에 들지 않으면 어떻게 하나요? 
 
-클래식 배포 모델에서 명시적으로 이름을 입력한 모든 리소스는 마이그레이션 중 해당 이름이 보존됩니다. 새 리소스가 생성되는 경우도 있습니다. 예를 들어 모든 VM에 대해 네트워크 인터페이스가 생성됩니다. 현재는 마이그레이션 중 이와 같이 새로 생성된 리소스 이름을 제어하는 기능을 지원하지 않습니다. [Azure 사용자 의견 포럼](http://feedback.azure.com)에서 이 기능에 대한 투표를 실시하세요.
+클래식 배포 모델에서 명시적으로 이름을 입력한 모든 리소스는 마이그레이션 중 해당 이름이 보존됩니다. 새 리소스가 생성되는 경우도 있습니다. 예를 들어 모든 VM에 대해 네트워크 인터페이스가 생성됩니다. 현재는 마이그레이션 중 이와 같이 새로 생성된 리소스 이름을 제어하는 기능을 지원하지 않습니다. [Azure 사용자 의견 포럼](https://feedback.azure.com)에서 이 기능에 대한 투표를 실시하세요.
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>권한 부여 링크를 통해 구독에서 사용되는 ExpressRoute 회로를 마이그레이션할 수 있습니까? 
 

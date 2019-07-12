@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061602"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706223"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "67061602"
 
 - Android
 - iOS
-- 범용 Windows 플랫폼
+- 유니버설 Windows 플랫폼
 - Windows Phone
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -46,7 +46,7 @@ Azure Notification Hubs는 모바일 디바이스에 푸시 알림을 보내는 
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
-이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Node.js 애플리케이션을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
+이 자습서의 첫 번째 단계는 새로운 빈 Node.js 애플리케이션을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대 한 지침을 참조 하세요 [만들기 및 Azure 웹 사이트에 Node.js 응용 프로그램 배포][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] Windows PowerShell을 사용 하 여 또는 [WebMatrix 사용 하 여 웹 사이트] [webmatrix]합니다.
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Notification Hubs를 사용하도록 애플리케이션 구성
 
@@ -106,7 +106,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대한 자세한 내용은 **GCM 서버 구현** 문서의 [페이로드](https://developers.google.com/cloud-messaging/) 섹션을 참조하세요.
+페이로드 형식에 대 한 자세한 내용은 참조는 [페이로드 설명서](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)합니다.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 

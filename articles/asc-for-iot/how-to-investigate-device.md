@@ -2,24 +2,25 @@
 title: IoT 장치 조사 가이드 미리 보기에 대 한 azure Security Center | Microsoft Docs
 description: 이 방법 가이드 IoT 용 Azure Security Center를 사용 하 여 Log Analytics를 사용 하 여 의심 스러운 IoT 장치를 조사 하는 방법에 설명 합니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192649"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618116"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
@@ -45,7 +46,7 @@ IoT 서비스 경고 및 증명 정보에 대 한 azure Security Center (ASC) Io
 1. IoT Hub를 엽니다. 
 1. 아래 **보안**, 클릭 **개요**를 선택한 후 **설정**합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다. 
-1. **저장**을 클릭합니다. 
+1. **Save**을 클릭합니다. 
 
 구성이 완료되면 다음을 수행하여 Log Analytics 작업 영역에 저장된 데이터에 액세스합니다.
 

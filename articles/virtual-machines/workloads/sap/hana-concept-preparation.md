@@ -4,7 +4,7 @@ description: Azure(큰 인스턴스)의 SAP HANA에 대한 재해 복구 원칙 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb1ed063cb11a82d786badd3f63b2d4b6932ce13
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794706"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709723"
 ---
 # <a name="disaster-recovery-principles"></a>재해 복구 원칙
 
@@ -63,8 +63,8 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 
 다음 단계는 TST HANA 인스턴스를 실행하는 DR Azure 지역의 HANA 대규모 인스턴스 단위에 두 번째 SAP HANA 인스턴스를 설치하는 것입니다. 새로 설치된 SAP HANA 인스턴스는 SID가 동일해야 합니다. 생성된 사용자는 프로덕션 인스턴스와 UID 및 그룹 ID가 동일해야 합니다. 자세한 내용은 [백업 및 복원](hana-backup-restore.md)을 참조하세요. 설치가 성공하면 다음을 수행해야 합니다.
 
-- [백업 및 복원](hana-backup-restore.md)에 설명된 저장소 스냅숏 준비의 2단계를 실행합니다.
-- 이 단계를 실행하지 않은 경우 HANA 대규모 인스턴스 단위의 DR 단위에 대한 공개 키를 만듭니다. [백업 및 복원](hana-backup-restore.md)에 설명된 저장소 스냅숏 준비의 3단계를 참조하세요.
+- [백업 및 복원](hana-backup-restore.md)에 설명된 저장소 스냅샷 준비의 2단계를 실행합니다.
+- 이 단계를 실행하지 않은 경우 HANA 대규모 인스턴스 단위의 DR 단위에 대한 공개 키를 만듭니다. [백업 및 복원](hana-backup-restore.md)에 설명된 저장소 스냅샷 준비의 3단계를 참조하세요.
 - 새 HANA 인스턴스를 사용하여 *HANABackupCustomerDetails.txt*를 유지 관리하고 저장소에 대한 연결이 올바르게 작동하는지 테스트합니다.  
 - DR Azure 지역의 HANA 대규모 인스턴스 단위에 새로 설치된 SAP HANA 인스턴스를 중지합니다.
 - 이 PRD 볼륨을 분리하고 Azure Service Management의 SAP HANA에 문의하십시오. 저장소 복제 대상으로 작동하는 동안은 액세스할 수 없으므로 볼륨을 단위에 탑재된 상태로 유지할 수 없습니다.  
@@ -81,9 +81,9 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 - 트랜잭션 로그 백업 볼륨(스냅샷 형식 **logs**)의 경우 3분마다 재해 복구 사이트의 동일한 저장소 볼륨 대상에 복제되도록 설정합니다.
 
 복구 지점 목표를 최소화하려면 다음을 설정합니다.
-- **hana** 형식 스토리지 스냅숏(“7단계: 스냅샷 수행 참조”)을 30분~1시간마다 수행합니다.
+- **hana** 형식 스토리지 스냅샷("7단계: 스냅샷 수행 참조”)을 30분~1시간마다 수행합니다.
 - SAP HANA 트랜잭션 로그 백업을 5분마다 수행합니다.
-- **logs** 형식의 스토리지 스냅숏은 5~15분마다 수행됩니다. 이 간격 주기로 약 15-25분의 RPO를 설정합니다.
+- **logs** 형식의 스토리지 스냅샷은 5~15분마다 수행됩니다. 이 간격 주기로 약 15-25분의 RPO를 설정합니다.
 
 이 설정을 사용하면 트랜잭션 로그 백업의 시퀀스, 저장소 스냅샷 및 HANA 트랜잭션 로그 백업 볼륨 복제와 /hana/data, /hana/shared(/usr/sap 포함)가 다음 그래픽의 데이터와 같이 표시될 수 있습니다.
 

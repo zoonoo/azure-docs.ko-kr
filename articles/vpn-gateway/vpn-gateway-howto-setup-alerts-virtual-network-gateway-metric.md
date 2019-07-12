@@ -4,33 +4,33 @@ description: VPN Gateway 메트릭에 대해 경고를 구성 하는 단계
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509901"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605223"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN Gateway 메트릭에 대 한 경고 설정
 
 이 문서에서는 Azure VPN Gateway 메트릭에 대 한 경고를 설정 합니다. Azure Monitor는 Azure 리소스에 대 한 경고를 설정 하는 기능을 제공 합니다. "VPN" 형식의 가상 네트워크 게이트웨이에 대 한 경고를 설정할 수 있습니다.
 
 
-|**메트릭**   | **단위** | **세분성** | **설명** | 
+|**메트릭**   | **Unit** | **세분성** | **설명** | 
 |---       | ---        | ---       | ---            | ---       |
 |**AverageBandwidth**| 바이트/초  | 5분| 게이트웨이의 모든 사이트 간 연결의 결합 된 대역폭 사용률을 평균입니다.     |
 |**P2SBandwidth**| 바이트/초  | 1분  | 게이트웨이의 모든 지점-사이트 간 연결의 결합 된 대역폭 사용률을 평균입니다.    |
-|**P2SConnectionCount**| 카운트  | 1분  | 게이트웨이에 지점-사이트 간 연결의 수입니다.   |
+|**P2SConnectionCount**| 개수  | 1분  | 게이트웨이에 지점-사이트 간 연결의 수입니다.   |
 |**TunnelAverageBandwidth** | 바이트/초    | 5분  | 게이트웨이에서 터널의 평균 대역폭 사용률입니다. |
 |**TunnelEgressBytes** | 바이트 | 5분 | 게이트웨이에서 터널에서 나가는 트래픽을 합니다.   |
-|**TunnelEgressPackets** | 카운트 | 5분 | 게이트웨이에서 터널에서 나가는 패킷의 수입니다.   |
-|**TunnelEgressPacketDropTSMismatch** | 카운트 | 5분 | 나가는 패킷 수입니다. 트래픽 선택기 불일치를 야기 하는 터널에서 삭제 합니다. |
+|**TunnelEgressPackets** | 개수 | 5분 | 게이트웨이에서 터널에서 나가는 패킷의 수입니다.   |
+|**TunnelEgressPacketDropTSMismatch** | 개수 | 5분 | 나가는 패킷 수입니다. 트래픽 선택기 불일치를 야기 하는 터널에서 삭제 합니다. |
 |**TunnelIngressBytes** | 바이트 | 5분 | 게이트웨이에서 터널에서 들어오는 트래픽을 합니다.   |
-|**TunnelIngressPackets** | 카운트 | 5분 | 게이트웨이에서 터널에서 들어오는 패킷의 수입니다.   |
-|**TunnelIngressPacketDropTSMismatch** | 카운트 | 5분 | 트래픽 선택기 불일치를 야기 하는 터널에서 삭제 하는 들어오는 패킷의 수입니다. |
+|**TunnelIngressPackets** | 개수 | 5분 | 게이트웨이에서 터널에서 들어오는 패킷의 수입니다.   |
+|**TunnelIngressPacketDropTSMismatch** | 개수 | 5분 | 트래픽 선택기 불일치를 야기 하는 터널에서 삭제 하는 들어오는 패킷의 수입니다. |
 
 
 ## <a name="setup"></a>메트릭을 기반으로 Azure portal을 사용 하 여 Azure Monitor 경고 설정
@@ -40,7 +40,7 @@ ms.locfileid: "65509901"
 - **메트릭:** TunnelAverageBandwidth
 - **조건:** Bandwidth > 10 bytes/second
 - **Window:** 5분
-- **경고 작업:** Email
+- **경고 작업:** EMail
 
 
 

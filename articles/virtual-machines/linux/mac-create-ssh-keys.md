@@ -4,7 +4,7 @@ description: Azure에서 인증 프로세스의 보안을 개선하기 위해 Li
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c26d58b5b6d39f05a1b077f89627e2fdde3653c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614414"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671404"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH 공개-개인 키 쌍 만들기 및 사용
 
@@ -37,7 +37,7 @@ Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-`ssh-keygen` 명령을 사용하여 SSH 공용 및 개인 키 파일을 생성합니다. 기본적으로 이러한 파일은 ~/.ssh 디렉터리에 만들어집니다. 다른 위치와 선택적 암호(*암호*)를 지정하여 프라이빗 키 파일에 액세스 할 수 있습니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
+`ssh-keygen` 명령을 사용하여 SSH 공용 및 프라이빗 키 파일을 생성합니다. 기본적으로 이러한 파일은 ~/.ssh 디렉터리에 만들어집니다. 다른 위치와 선택적 암호(*암호*)를 지정하여 프라이빗 키 파일에 액세스 할 수 있습니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
 
 다음 명령은 RSA 암호화 및 2048 비트 길이를 사용하여 SSH 키 쌍을 만듭니다.
 
@@ -45,7 +45,7 @@ Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법
 ssh-keygen -t rsa -b 2048
 ```
 
-[Azure CLI](/cli/azure)를 사용하여 [az vm create](/cli/azure/vm#az-vm-create) 명령으로 VM을 만드는 경우 `--generate-ssh-keys` 옵션을 사용하여 SSH 공개 및 개인 키 파일을 선택적으로 생성할 수 있습니다. 키 파일은 `--ssh-dest-key-path` 옵션으로 달리 지정하지 않는 한 ~/.ssh 디렉터리에 저장됩니다. `--generate-ssh-keys` 옵션은 기존 키 파일을 덮어쓰지 않습니다. 그 대신 오류를 반환합니다. 다음 명령에서 *VMname*과 *RGname*을 자신의 값으로 바꿉니다.
+[Azure CLI](/cli/azure)를 사용하여 [az vm create](/cli/azure/vm#az-vm-create) 명령으로 VM을 만드는 경우 `--generate-ssh-keys` 옵션을 사용하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키 파일은 `--ssh-dest-key-path` 옵션으로 달리 지정하지 않는 한 ~/.ssh 디렉터리에 저장됩니다. `--generate-ssh-keys` 옵션은 기존 키 파일을 덮어쓰지 않습니다. 그 대신 오류를 반환합니다. 다음 명령에서 *VMname*과 *RGname*을 자신의 값으로 바꿉니다.
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 

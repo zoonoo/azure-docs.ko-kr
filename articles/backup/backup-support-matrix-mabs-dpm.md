@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204179"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594253"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM 백업 하기 위한 지원 매트릭스
 
@@ -53,9 +53,9 @@ DPM/MABS 및 Azure Backup을 사용 하 여 백업을 다음과 같이 작동 �
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-**시나리오** | **에이전트** | **위치**:
+**시나리오** | **에이전트** | **위치**
 --- | --- | ---
-**온-프레미스 머신/워크로드 백업**: | DPM/MABS 보호 에이전트를 백업 하려는 컴퓨터에서 실행 됩니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트입니다. | DPM/MABS를 온-프레미스 실행 되어야 합니다.
+**온-프레미스 머신/워크로드 백업**: | DPM/MABS 보호 에이전트를 백업 하려는 컴퓨터에서 실행 됩니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트입니다.<br/> 이 기능을 사용하도록 설정하는 데 필요한 Microsoft Azure Recovery Services 에이전트 또는 Azure Backup 에이전트의 최소 버전은 2.0.8719.0입니다.  | DPM/MABS를 온-프레미스 실행 되어야 합니다.
 **Azure VM/워크로드 백업** | 보호 된 컴퓨터에 DPM/MABS 보호 에이전트입니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트입니다. | DPM/MABS는 Azure VM에서 실행되어야 합니다.
 
 ## <a name="supported-deployments"></a>지원되는 배포
@@ -84,11 +84,11 @@ Azure Backup은 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 ## <a name="management-support"></a>관리 지원
 
-**문제** | **세부 정보**
+**문제점** | **세부 정보**
 --- | ---
 **설치** | DPM/MABS는 단일 용도의 컴퓨터에 설치 합니다.<br/><br/> 도메인 컨트롤러에, 응용 프로그램 서버 역할 설치를 사용 하 여 컴퓨터에서 Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어야 해야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
-**Storage** | 최신 백업 저장소 (MB) 이상 2016 DPM/MABS v2에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
+**저장소** | 최신 백업 저장소 (MB) 이상 2016 DPM/MABS v2에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> MABS 데이터베이스를 복원해야 하므로 백업이 필요합니다.
 
@@ -139,7 +139,7 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
 DPM/MABS에 백업 되는 데이터는 로컬 디스크 저장소에 저장 됩니다.
 
-**Storage** | **세부 정보**
+**저장소** | **세부 정보**
 --- | ---
 **MBS** | 최신 백업 저장소 (MB) 이상 2016 DPM/MABS v2에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
 **Azure VM의 MABS 스토리지** | 데이터는 DPM/MABS VM에 연결 되 고 DPM/MABS에서 관리 되는 Azure 디스크에 저장 됩니다. VM의 크기에 따라 DPM/MABS 저장소 풀에 사용할 수 있는 디스크 수가 제한 됩니다.<br/><br/> A2 VM: 4개의 디스크, A3 VM: 8개의 디스크, A4 VM: 16개의 디스크(디스크당 최대 1TB 크기) 사용할 수 있는 총 backup storage 풀을 결정 합니다.<br/><br/> 백업할 수 있는 데이터 양은 연결된 디스크의 수와 크기에 따라 달라집니다.
@@ -152,7 +152,7 @@ DPM 2016/MABS v2에서 (Windows Server 2016에서 실행) 및 최신 백업 저�
 - MBS 백업은 ReFS(Resilient File System) 디스크에 저장됩니다.
 - MBS는 더 빠른 백업 및 보다 효율적으로 저장소 공간 사용에 대 한 복제는 ReFS 블록을 사용 합니다.
 - 로컬 DPM/MABS 저장소 풀에 볼륨을 추가한 경우 드라이브 문자를 사용 하 여 구성할 수 있습니다. 그런 후 여러 다른 볼륨에 워크로드 스토리지를 구성할 수 있습니다.
-- DPM/MABS로 데이터를 백업하기 위해 보호 그룹을 만드는 경우 사용할 드라이브를 선택합니다. 예를 들어, SQL 또는 기타 높은 IOPS 워크 로드는 고성능 드라이브에 대 한 백업을 저장할 수도 있으며 더 낮은 성능 드라이브에 덜 빈번 하 게 백업 되는 워크 로드를 저장할 수 있습니다.
+- DPM/MABS로 데이터를 백업하기 위해 보호 그룹을 만드는 경우 사용할 드라이브를 선택합니다. 예를 들어, SQL 또는 다른 고성능 드라이브에 높은 IOPS 워크 로드에 대 한 백업을 저장할 수도 있으며 더 낮은 성능 드라이브에 덜 빈번 하 게 백업 되는 워크 로드를 저장할 수 있습니다.
 
 
 ## <a name="supported-backups-to-mabs"></a>MABS에 대해 지원되는 백업
@@ -206,7 +206,7 @@ DPM 2016/MABS v2에서 (Windows Server 2016에서 실행) 및 최신 백업 저�
 **VMware VM: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2에는 System Center 업데이트 롤업 1이 필요합니다. <br/><br/>온-프레미스 | Csv, NFS 및 SAN 저장소의 VMware Vm을 백업 합니다.<br/><br/> 전체 VM을 복구합니다.<br/><br/> Windows/Linux 백업<br/><br/> Windows VM에 대해서만 폴더/파일의 항목 수준 복구<br/><br/> VMware vApp은 지원되지 않습니다.<br/><br/> Linux VM에 대한 복구는 전체 컴퓨터에 해당합니다.
 
 
-- DPM/MABS와 동일한 도메인 또는 자식/신뢰할 수 있는 도메인에 DPM/MABS에서 백업 하는 클러스터 된 워크 로드 되도록 note 합니다.
+- DPM/MABS에서 백업 하는 클러스터 된 작업은 DPM/MABS와 동일한 도메인 또는 자식/신뢰할 수 있는 도메인에 있어야 합니다.
 - 신뢰할 수 없는 도메인 또는 작업 그룹의 데이터를 백업하려면 NTLM/인증서 인증을 사용할 수 있습니다.
 
 

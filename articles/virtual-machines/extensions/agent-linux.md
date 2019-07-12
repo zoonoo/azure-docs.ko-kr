@@ -4,7 +4,7 @@ description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머�
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800221"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706149"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -132,7 +132,7 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 * daemon: 플랫폼 상호 작용을 관리 하는 디먼으로 waagent를 실행 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
 * 시작: Waagent를 백그라운드 프로세스로 실행
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
 
     ```

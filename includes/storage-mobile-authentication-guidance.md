@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181882"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673431"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 애플리케이션 구성
 Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 가지 방법이 있습니다.
@@ -38,11 +38,11 @@ Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 �
 
 ### <a name="shared-access-signatures-sas"></a>공유 액세스 서명(SAS)
 모바일 애플리케이션에서 Azure Storage 서비스에 대해 클라이언트의 요청을 인증하는 데 권장되는 방법은 SAS(공유 액세스 서명)를 사용하는 것입니다. SAS를 사용하면 지정된 사용 권한 집합과 함께 지정된 기간 동안 리소스에 대한 클라이언트 액세스를 부여할 수 있습니다.
-저장소 계정 소유자는 모바일 클라이언트에서 사용할 SAS를 생성해야 합니다. SAS를 생성하려면 클라이언트로 배포되는 SAS를 생성하는 별도의 서비스를 작성할 수 있습니다. 테스트를 위해 [Microsoft Azure Storage Explorer](http://storageexplorer.com) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 SAS를 생성합니다. SAS를 만들 때, SAS가 유효한 시간 간격 및 SAS가 클라이언트에 부여하는 사용 권한을 지정할 수 있습니다.
+저장소 계정 소유자는 모바일 클라이언트에서 사용할 SAS를 생성해야 합니다. SAS를 생성하려면 클라이언트로 배포되는 SAS를 생성하는 별도의 서비스를 작성할 수 있습니다. 테스트를 위해 [Microsoft Azure Storage Explorer](https://storageexplorer.com) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 SAS를 생성합니다. SAS를 만들 때, SAS가 유효한 시간 간격 및 SAS가 클라이언트에 부여하는 사용 권한을 지정할 수 있습니다.
 
 다음 예제에서는 Microsoft Azure Storage Explorer를 사용하여 SAS를 생성하는 방법을 보여 줍니다.
 
-1. 아직 설치하지 않은 경우 [Microsoft Azure Storage Explorer를 설치](http://storageexplorer.com)
+1. 아직 설치하지 않은 경우 [Microsoft Azure Storage Explorer를 설치](https://storageexplorer.com)
 2. 구독에 연결합니다.
 3. Storage 계정에 클릭하고 왼쪽 아래에서 "동작" 탭을 클릭합니다. "공유 액세스 서명 가져오기"를 클릭하여 SAS에 대한 "연결 문자열"을 생성합니다.
 4. 다음은 Storage 계정의 Blob service에 대한 서비스, 컨테이너 및 개체 수준에서 읽기 및 쓰기 권한을 부여하는 SAS 연결 문자열 예제입니다.

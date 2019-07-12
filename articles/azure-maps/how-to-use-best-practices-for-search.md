@@ -1,18 +1,19 @@
 ---
 title: Azure Maps 검색 서비스를 사용 하 여 효율적으로 검색 하는 방법 | Microsoft Docs
 description: Azure Maps 검색 서비스를 사용 하 여 검색에 대 한 모범 사례를 사용 하는 방법 알아보기
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c4347eb0f89c17a285aaa4b51760300b9c89aa7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205618"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617873"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용 하는 모범 사례
 
@@ -24,7 +25,7 @@ Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) 특정 위�
 * 주소 검색 응답 구조를 읽기
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정 만들기 및 키 검색에 대한 자세한 내용은 [Azure Maps 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요.
 

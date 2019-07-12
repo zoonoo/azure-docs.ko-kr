@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864439"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621897"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -22,29 +22,29 @@ ms.locfileid: "65864439"
 
 ## <a name="introduction"></a>소개
 
-Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md) 문서에서는 IoT Hub를 만들고 그 안에 디바이스 ID를 프로비전하고 디바이스-클라우드 메시지를 보내는 디바이스 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. 합니다 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md) 빠른 시작에서는 IoT hub를 만들고 그 안에 장치 id를 프로 비전, 장치-클라우드 메시지를 보내는 장치 앱을 코딩 하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서는 빠른 시작 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 빌드됩니다. 다음 단계를 수행하는 방법이 나와 있습니다.
+이 자습서 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md)합니다. 다음 단계를 수행하는 방법이 나와 있습니다.
 
 * 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
 
 * 디바이스에서 클라우드-디바이스 메시지를 받습니다.
 
-* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서의 배달 승인을 요청 합니다 (*피드백*) IoT Hub에서 장치로 보낸 메시지에 대 한 합니다.
 
 클라우드-장치 메시지에 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)에서 찾아볼 수 있습니다.
 
 이 자습서 끝에 두 개의.NET 콘솔 앱을 실행할 수 있습니다.
 
-* **SimulatedDevice** - [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 앱의 수정 버전입니다. IoT Hub에 연결하고 클라우드-디바이스 메시지를 수신합니다.
+* **SimulatedDevice**에서 만든 앱의 수정된 된 버전 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md), IoT hub에 연결 하 고 클라우드-장치 메시지를 수신 합니다.
 
-* **SendCloudToDevice** - IoT Hub를 통해 디바이스 앱에 클라우드-디바이스 메시지를 보낸 다음 배달 승인을 수신합니다.
+* **SendCloudToDevice**, IoT Hub를 통해 장치 앱에 클라우드-장치 메시지를 전송 하며 해당 배달 승인을 받습니다.
 
 > [!NOTE]
 > IoT Hub는 [Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 통해 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.
-> 
+>
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -54,7 +54,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="receive-messages-in-the-device-app"></a>디바이스 앱에서 메시지 수신
 
-이 섹션에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 디바이스 앱을 수정하여 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
+이 섹션에서는에서 만든 장치 앱을 수정 하겠습니다 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md) 하 여 IoT hub 로부터 클라우드-장치 메시지를 수신 합니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
 
@@ -138,7 +138,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. **Program** 클래스에 다음 메서드를 추가합니다. 장치 이름을 사용한에서 장치를 정의할 때로 [IoT hub에 장치에서 원격 분석을 전송 하는 중... ](quickstart-send-telemetry-dotnet.md).
+6. **Program** 클래스에 다음 메서드를 추가합니다. 장치 이름을 설정에서 장치를 정의할 때 용도 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md)합니다.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    }
    ```
 
-   이 메서드는 새 클라우드-디바이스 메시지를 ID `myFirstDevice`를 사용하여 디바이스에 보냅니다. 이 매개 변수는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 사용한 값에서 수정한 경우에만 변경합니다.
+   이 메서드는 새 클라우드-디바이스 메시지를 ID `myFirstDevice`를 사용하여 디바이스에 보냅니다. 사용 되는 파일을 수정한 경우에이 매개 변수를 변경 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md)합니다.
 
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -171,7 +171,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="receive-delivery-feedback"></a>배달 피드백 받기
 
-각 클라우드-장치 메시지에 대해 배달(또는 만료) 승인을 IoT Hub에 요청할 수 있습니다. 이 옵션을 사용하면 솔루션 백 엔드에서 다시 시도 또는 보정 논리를 쉽게 알릴 수 있습니다. 클라우드-장치 피드백에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
+수는 요청 제공 (또는 만료) 승인을 IoT Hub에서 각 클라우드-장치 메시지에 대 한 합니다. 이 옵션을 사용하면 솔루션 백 엔드에서 다시 시도 또는 보정 논리를 쉽게 알릴 수 있습니다. 클라우드-장치 피드백에 대한 자세한 내용은 [IoT Hub를 통한 D2C 및 C2D](iot-hub-devguide-messaging.md)를 참조하세요.
 
 이 섹션에서는 **SendCloudToDevice** 앱을 수정하여 피드백을 요청하고 IoT Hub로부터 수신합니다.
 
@@ -217,7 +217,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    ![앱 메시지 수신](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
+> 간단히 하기 위해이 자습서에서는 재시도 정책을 구현 하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

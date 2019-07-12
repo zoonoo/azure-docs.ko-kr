@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479636"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807112"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>상태 모니터 v2 API: 사용-ApplicationInsightsMonitoring (v0.3.1 알파)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>상태 모니터 v2 API: 사용-ApplicationInsightsMonitoring (v0.4.0 알파)
 
 이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
@@ -93,9 +93,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 - **MachineFilter** 는 반드시 C# VM 이름 또는 컴퓨터 regex.
     - '. *'는 모두 일치
     - 'ComputerName' 지정 된 정확한 이름으로 컴퓨터만 일치 합니다.
-- **AppFilter** 는 반드시 C# VM 이름 또는 컴퓨터 regex.
+- **AppFilter** 는 반드시 C# regex IIS 사이트 이름입니다. 명령을 실행 하 여 서버에서 사이트의 목록을 가져올 수 있습니다 [get iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)합니다.
     - '. *'는 모두 일치
-    - 'ApplicationName' 정확 하 게 지정 된 이름의 IIS 앱만 일치 합니다.
+    - 'SiteName' 지정 된 정확한 이름이 사용 하 여 IIS 사이트에만 일치 합니다.
 - **InstrumentationKey** 이전 두 필터와 일치 하는 앱의 모니터링을 사용 하도록 설정 해야 합니다.
     - 모니터링을 제외 하는 규칙을 정의 하려는 경우에 null이 값을 둡니다.
 
@@ -120,7 +120,7 @@ HttpModule이 공유 구성에 삽입할 수 없습니다.
 ### <a name="-whatif"></a>-WhatIf 
 **일반적인 매개 변수입니다.** 이 스위치를 사용 하 여 테스트를 실제로 모니터링을 사용 하지 않고 입력된 매개 변수 유효성 검사 합니다.
 
-## <a name="output"></a>Output
+## <a name="output"></a>출력
 
 
 #### <a name="example-output-from-a-successful-enablement"></a>성공적인 사용의 예제 출력

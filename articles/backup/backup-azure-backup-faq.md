@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275556"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806961"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -51,37 +51,6 @@ ms.locfileid: "67275556"
 - Azure 파일 폴더를 백업하는 데 사용하는 에이전트의 경우 이 [FAQ](backup-azure-file-folder-backup-faq.md)를 읽어보세요.
 
 
-## <a name="vmware-and-hyper-v-backup"></a>VMware 및 Hyper-V 백업
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>VMware vCenter 서버를 Azure에 백업할 수 있나요?
-예. VMware vCenter Server 및 ESXi 호스트를 Azure에 백업하는 데 Azure Backup Server를 사용할 수 있습니다.
-
-- 지원되는 버전에 대해 [자세히 알아봅니다](backup-mabs-protection-matrix.md).
-- [다음 단계를 수행](backup-azure-backup-server-vmware.md)하여 VMware 서버를 백업합니다.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>온-프레미스 VMware/Hyper-V 클러스터 전체를 복구하려면 별도 라이선스가 필요하나요?
-VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
-
-- System Center 고객인 경우 System Center DPM(Data Protection Manager)을 사용하여 VMware VM을 보호합니다.
-- System Center 고객이 아닌 경우에는 Azure Backup Server(종량제)를 사용하여 VMware VM을 보호할 수 있습니다.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>DPM 및 Azure Backup 서버 백업
-
-### <a name="which-dpm-versions-are-supported"></a>어떤 DPM 버전이 지원되나요?
-지원되는 DPM 버전은 [지원 매트릭스](backup-azure-dpm-introduction.md#prerequisites-and-limitations)에 요약되어 있습니다. DPM 서버에서 최신 DPM 업데이트를 설치하고, [최신 버전](https://aka.ms/azurebackup_agent)의 Azure Backup 에이전트를 실행하는 것이 좋습니다.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>여러 자격 증명 모음에 서버를 등록할 수 있나요?
-아니요. DPM 또는 Azure Backup 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Azure Backup 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요? <br/>
-예.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Azure Stack에서 DPM을 사용하여 앱을 백업할 수 있나요?
-아니요. Azure Backup을 사용하여 Azure Stack을 보호할 수 있으며 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>내 파일 및 폴더를 보호하기 위해 Azure Backup 에이전트를 설치한 경우 Azure에 온-프레미스 워크로드를 백업하기 위해 System Center DPM을 설치할 수 있나요?
-예. 하지만 DPM을 먼저 설치한 후 Azure Backup 에이전트를 설치해야 합니다.  구성 요소를 이 순서대로 설치하면 Azure Backup 에이전트는 DPM과 함께 작동합니다. DPM을 설치하기 전에 Azure Backup 에이전트를 설치하는 것이 권장되지 않으며 지원되지 않습니다.
-
 ## <a name="general-backup"></a>일반 백업
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>백업 일정에 제한이 있나요?
@@ -118,7 +87,7 @@ Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux 및 32비트 운�
 크기 제한은 다음과 같습니다.
 
 OS/컴퓨터 | 데이터 원본의 크기 제한
---- | --- 
+--- | ---
 Windows 8 이상 | 54,400GB
 Windows 7 |1700GB
 Windows Server 2012 이상 | 54,400GB
@@ -185,7 +154,7 @@ Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있�
 - [백업 및 보존](./backup-overview.md#backup-and-retention)에 대해 자세히 알아보세요.
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Azure에 백업된 데이터를 몇 번이나 복구할 수 있나요?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>횟수 있나요 Azure에 백업 되는 데이터를 복구할 수 있습니까?
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요?

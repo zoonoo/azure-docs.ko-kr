@@ -2,15 +2,16 @@
 title: 마이크로 포커스 CICS BankDemo 마이크로 포커스 엔터프라이즈 개발자 4.0에서 Azure Virtual Machines에 대 한 설정
 description: Azure Virtual Machines Micro Focus Enterprise Server 및 엔터프라이즈 개발자를 사용 하는 방법을 알아봅니다 (Vm)에서 마이크로 포커스 BankDemo 응용 프로그램을 실행 합니다.
 author: sread
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304930"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621329"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 CICS BankDemo 설정
 
@@ -18,7 +19,7 @@ ms.locfileid: "66304930"
 
 CICs 고객 정보 제어 시스템에서 다양 한 온라인 메인프레임 응용 프로그램에서 사용 하는 트랜잭션 플랫폼을 나타냅니다. BankDemo 응용 프로그램이 엔터프라이즈 서버 및 엔터프라이즈 개발자의 작동 방식 및 관리 하 고 녹색 화면 터미널을 사용 하 여 전체 실제 응용 프로그램을 배포 하는 방법을 학습 하는 데 유용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 사용 하 여 VM [엔터프라이즈 개발자](set-up-micro-focus-azure.md)합니다. 엔터프라이즈 개발자는 전체 Enterprise Server 인스턴스의에 개발 및 테스트 목적에 염두에 두어야 합니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스.
 
@@ -181,7 +182,7 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
      ![지역-지역 이름을 정의 합니다. BANKDEMO](media/08-demo-cics.png)
 
-7. **Finish**를 클릭합니다.
+7. **마침**을 클릭합니다.
 
 ## <a name="create-xa-resource-definitions"></a>XA 리소스 정의 만들기
 
@@ -264,7 +265,7 @@ TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신
 ![메인프레임 표시 시작 화면](media/14-demo.png)
 ![메인프레임 표시-Rumba-하위 시스템 데모 화면](media/15-demo.png)
 
-축하합니다! 이제에서 실행 하는 CICS 응용 프로그램을 Azure Micro Focus Enterprise Server를 사용 하 여 합니다.
+축하합니다. 이제에서 실행 하는 CICS 응용 프로그램을 Azure Micro Focus Enterprise Server를 사용 하 여 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

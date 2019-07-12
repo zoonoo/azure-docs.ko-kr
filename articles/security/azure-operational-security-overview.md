@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586852"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653414"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -37,17 +37,17 @@ IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데�
 
 다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. Azure Monitor 로그도 명확 하 게 구분 데이터의 컬렉션 해당 데이터에 대해 수행 하는 작업에서 모든 작업은 모든 종류의 데이터를 사용할 수 있도록 합니다.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>자동화
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)은 클라우드 및 엔터프라이즈 환경에서 일반적으로 장기간 실행되고, 오류가 발생하기 쉬우며, 자주 반복되는 수동 작업을 자동화할 수 있는 방법을 제공합니다. 시간을 절약하고 일반 관리 작업의 안정성을 향상시키며, 이러한 작업을 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>백업
 
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. 
 
 Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계없이 모든 Azure Backup 구성 요소는 Azure에서 Azure Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 
 
-자세한 내용은 [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)를 참조하세요.
+자세한 내용은 [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)를 참조하세요.
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -117,7 +117,7 @@ Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주�
 
 진단 로그는 [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 

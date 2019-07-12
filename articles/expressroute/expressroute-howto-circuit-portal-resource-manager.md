@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366556"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657220"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 
@@ -21,13 +21,14 @@ ms.locfileid: "60366556"
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 * [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다.
@@ -84,19 +85,19 @@ ms.locfileid: "60366556"
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
 공급자 상태: 프로비전 안 됨<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ![프로비전 프로세스 시작](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
 공급자 상태: 프로비전<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 공급자 상태: 프로비전됨<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태를 주기적으로 확인
 
@@ -121,7 +122,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 ## <a name="modify"></a>ExpressRoute 회로 수정
 
-연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다. **구성** 페이지에서 대역폭, SKU, 요금 청구 모델을 수정하고 기존 작업을 허용할 수 있습니다. 제한 및 제한 사항에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요. 
+연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다. **구성** 페이지에서 대역폭, SKU, 요금 청구 모델을 수정하고 기존 작업을 허용할 수 있습니다. 제한 및 제한 사항에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
 가동 중지 시간 없이 다음 작업을 수행할 수 있습니다.
 
@@ -139,9 +140,9 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
   > [!IMPORTANT]
   > 기존 포트에 적절한 용량이 없는 경우 ExpressRoute 회로를 다시 만들어야 할 수 있습니다. 해당 위치에서 사용 가능한 추가 용량이 없는 경우 해당 회로를 업그레이드할 수 없습니다.
-  > 
+  >
   > 대역폭을 원활하게 업그레이드할 수 있지만 중단 없이 ExpressRoute 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 ExpressRoute 회로의 프로비전을 해제하고 새 ExpressRoute 회로를 다시 프로비전해야 합니다.
-  > 
+  >
   > 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 프리미엄 추가 기능 작업을 사용하지 않도록 설정할 수 없습니다.
 
 ExpressRoute 회로를 수정하려면 **구성**을 클릭합니다.

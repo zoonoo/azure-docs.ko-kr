@@ -15,17 +15,17 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591343"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604561"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure 빠른 시작 템플릿을 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
 이 문서에서는 Azure 빠른 시작 템플릿을 사용하여 Azure에서 SQL Server Virtual Machines에 대한 Always On 가용성 그룹 구성의 배포를 부분적으로 자동화하는 방법을 설명합니다. 이 프로세스에서 사용되는 두 개의 Azure 빠른 시작 템플릿이 있습니다. 
 
-   | Template | 설명 |
+   | 템플릿 | Description |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Windows 장애 조치(failover) 클러스터를 만들고 SQL Server VM을 연결합니다. |
    | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | 가용성 그룹 수신기를 만들고 내부 Load Balancer를 구성합니다. 이 템플릿은 Windows 장애 조치(failover) 클러스터가 **101-sql-vm-ag-setup** 템플릿으로 생성된 경우에만 사용할 수 있습니다. |
@@ -34,14 +34,14 @@ ms.locfileid: "60591343"
 가용성 그룹 만들기 및 내부 Load Balancer 만들기와 같은 가용성 그룹 구성의 기타 부분은 수동으로 수행해야 합니다. 이 문서에서는 자동 및 수동 단계의 시퀀스를 제공합니다.
  
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹의 설정을 자동화하려면 다음과 같은 필수 조건이 이미 있어야 합니다. 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- [SQL VM 리소스 공급자에 등록](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 하나 이상  
+- [SQL VM 리소스 공급자에 등록](virtual-machines-windows-sql-register-with-resource-provider.md)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 하나 이상  
 - (모든 엔터티에서 사용 되지 않음)는 두 사용 가능한 IP 주소, 내부 Load Balancer 및 가용성 그룹과 동일한 서브넷 내에서 가용성 그룹 수신기에 대 한 합니다. 기존 load balancer를 사용 하는 경우 사용 가능한 IP 주소가 하나만 필요 합니다.  
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 Azure 빠른 시작 템플릿을 사용 하 여 Always On 가용성 그룹을 구성 하는 데 필요한 권한은 다음 같습니다. 
 
 - 기존 도메인 사용자 계정 도메인의 컴퓨터 개체 만들기 ' 권한이 있는 합니다.  예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다. 
@@ -97,7 +97,7 @@ Always On 가용성 그룹 (AG) 수신기는 내부 Azure 부하 분산 장치 (
 
    | 설정 | 값 |
    | --- | --- |
-   | **Name** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
+   | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
    | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
    | **가상 네트워크** | SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** | SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
@@ -105,7 +105,7 @@ Always On 가용성 그룹 (AG) 수신기는 내부 Azure 부하 분산 장치 (
    | **개인 IP 주소** | 서브넷에서 사용 가능한 IP 주소를 지정합니다. |
    | **구독** |구독이 여러 개인 경우 이 필드가 나타날 수 있습니다. 이 리소스와 연결할 구독을 선택합니다. 일반적으로 가용성 그룹에 대한 모든 리소스와 동일한 구독입니다. |
    | **리소스 그룹** |SQL Server 인스턴스가 있는 리소스 그룹을 선택합니다. |
-   | **Location**: |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
+   | **위치** |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
    | &nbsp; | &nbsp; |
 
 6. **만들기**를 선택합니다. 
@@ -190,7 +190,7 @@ AG 수신기 Azure 빠른 시작 템플릿에 사용된 선택한 가용성 그�
 
     ![비어 있는 사용자 계정은 UPN 누락을 나타냅니다.](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. 사용자 이름과 일치하도록 **사용자 로그온 이름**을 입력하고 드롭다운에서 적절한 도메인을 선택합니다. 
+5. 입력 합니다 **사용자 로그온 이름** 사용자의 이름과 일치 하 여 적절 한 도메인 드롭다운 목록에서 선택 합니다. 
 6. **적용**을 선택하여 변경 내용을 저장한 다음, **확인**을 선택하여 대화 상자를 닫습니다. 
 
    이러한 변경 작업을 완료한 후 Azure 빠른 시작 템플릿을 다시 배포해 보세요. 

@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: vCPU 할당량
           href: quotas.md
+    - name: 보안 특성
+      href: virtual-machines-linux-security-attributes.md
 - name: 방법 가이드
   items:
     - name: VM 만들기

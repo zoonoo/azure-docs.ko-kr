@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services를 사용한 클라우드 업로드 및 스토리지 | Microsoft Docs
-description: 이 문서에서는 클라우드 업로드 및 스토리지 개념을 설명합니다.
+title: Azure Media Services 계정 사용 하 여 azure Storage 계정 | Microsoft Docs
+description: Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439117"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619291"
 ---
-# <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
+# <a name="azure-storage-accounts"></a>Azure Storage 계정
 
 Azure에서 미디어 콘텐츠 관리, 암호화, 인코딩, 분석 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다. 
 
@@ -44,7 +44,7 @@ Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 �
 
 미사용 자산을 보호하려면 저장소 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services v3에서 저장소 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v3|
+|암호화 옵션|Description|Media Services v3|
 |---|---|---|
 |Media Services 저장소 암호화| AES-256 암호화, Media Services에서 키 관리|지원되지 않음<sup>(1)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|
@@ -58,7 +58,7 @@ Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가
 
 다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다. 
 
-|문제|해결 방법|
+|문제점|솔루션|
 |---|---|
 |Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다. |
 |이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정이 최신 ARM(Azure Resources Manager) 기반 계정으로 변환되었으며 연결 끊김 상태가 됩니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다.|

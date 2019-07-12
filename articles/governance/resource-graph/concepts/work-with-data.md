@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274423"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786544"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -82,7 +82,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > [!IMPORTANT]
 > 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project**해야 합니다. 쿼리에서 누락 된 경우 응답에 포함 되지 않습니다 합니다 **$skipToken**합니다.
 
-예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resources/resources#next_page_query)를 참조하세요.
+예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resources/resources#next-page-query)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

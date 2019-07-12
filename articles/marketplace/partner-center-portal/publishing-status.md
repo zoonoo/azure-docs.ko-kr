@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474514"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653976"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상용 Marketplace 제품의 게시 상태를 확인 합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "66474514"
 
 이 단계에서는 잠재 고객 관리 시스템 제품 설치 프로그램에 제공 된 정보에 따라 리드를 받을 수 있는지 확인 합니다. 이 단계는 사용 하도록 설정 하는 잠재 고객 관리를 사용 하 여 제품에 적용할 수만 있습니다.
 
-## <a name="certification"></a>인증
+## <a name="certification"></a>Certification
 
 게시 하기 전에 파트너 센터에서 상용 Marketplace에 제출 하는 제품 인증 되어야 합니다. 엄격한 테스트를 자동화 된 일부 및 다른 사용자에 대해 확인을 포함 하 여 수동으로 진행 해야 하는 제품을 제출 합니다 [Azure Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/general-policies)합니다. 제출 표시 되어야 합니다 인증에 대 한 적합 한 게시 흐름의 다음 단계로 진행할를 제공 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "66474514"
 - 품질 스크린샷 및 비디오;을 함께 제공 되는 및
 - 제공 서비스는 Microsoft 플랫폼 및 도구를 활용 하는 방법을 설명 합니다.
 
-콘텐츠 유효성 검사 조건에 대 한에 자세한 합니다 [정책을 나열 하는 일반](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies)합니다.
+콘텐츠 유효성 검사 조건에 대 한에 자세한 합니다 [정책을 나열 하는 일반](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies)합니다.
 
 #### <a name="technical-validation"></a>기술 유효성 검사
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3e1f64aa00ea0d78eca8a994814a91600b91239f
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 9d25996db9c13a12781d369327f2b43a41fb4115
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190705"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786529"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -23,10 +23,10 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 다음 목록에서는 게시된 애플리케이션을 보여 줍니다.
 
-|애플리케이션 |클러스터 유형 | 설명 |
+|애플리케이션 |클러스터 유형 | Description |
 |---|---|---|
 |[AtScale 인텔리전스 플랫폼](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop은 |AtScale 쿼리에 수십억 이미, 소유 익숙하고 즐겨 사용 – Microsoft Excel, Powerbi, Tableau 소프트웨어에서 qlikview까지에서 BI 도구를 사용 하 여 대화형으로 데이터의 행 수를 확장 OLAP 서버로, HDInsight 클러스터를 설정 합니다. |
-|[HDInsight에 대 한 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. Requirements: 4 개의 영역 노드를 최소 D3 v2 합니다. |
+|[HDInsight에 대 한 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. 요구 사항: 4 개의 영역 노드를 최소 D3 v2 합니다. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop은 |Datameer의 셀프 서비스 확장성이 뛰어난 플랫폼 준비에 대 한 탐색 및 분석용 데이터 관리에 복잡 한 다중 원본 데이터는 엔터프라이즈급 규모에서 빠르고 스마트 하 게 정보를 제공 하는 중요 한 업무용으로 적합 정보로 전환 가속화 합니다. |
 |[HDInsight의 Dataiku DSS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS를 사용 하면 데이터 과학자와 데이터 분석가 엔터프라이즈 데이터 과학 플랫폼에서 공동 작업을 수행할 디자인 하 고 새 데이터 제품 및 서비스를 보다 효율적으로 실행 원시 데이터를 영향력이 강한 예측으로 설정 합니다. |
 |[WANdisco Fusion HDI 앱](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |데이터 분산된 환경에서 일관성을 유지 하는 것은 대규모 데이터 작업 문제입니다. WANdisco Fusion 엔터프라이즈급 소프트웨어 플랫폼을 모든 환경에서 구조화 되지 않은 데이터 일관성을 사용 하 여이 문제를 해결 합니다. |
@@ -38,13 +38,13 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[Azure HDInsight에 대 한 Presto 것임](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop은 |Presto 빠르고 확장성 있는 분산 된 SQL 쿼리 엔진이입니다. 스토리지 및 계산을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
 |[클라우드 HDInsight 용 StreamSets 데이터 수집기](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets 데이터 수집기는 데이터를 실시간으로 스트리밍하는 간단 하 고 강력한 엔진. 데이터 스트림에서 데이터를 경로 및 프로세스 데이터 수집기를 사용 합니다. 30 일 평가판 라이선스로 제공 됩니다. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |HDInsight에 대 한 Trifacta Wrangler Enterprise 기업 전체의 데이터에 대 한 모든 규모의 데이터 랭 글 링을 지원 합니다. Trifacta Azure에서 실행 하는 비용에 Trifacta 구독 비용 및 가상 컴퓨터에 대 한 Azure 인프라 비용의 조합입니다. |
-|[Unifi 데이터 플랫폼](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은을 원활 하 게 통합된 도구 제품군 인 셀프 서비스 데이터 궁극적인 목표는 비즈니스 사용자 데이터 문제를 해결 하는 드라이브 증분 수익, 비용 또는 운영 복잡성을 줄이고 하도록 설계 되었습니다. |
+|[Unifi 데이터 플랫폼](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은을 원활 하 게 통합된 도구 제품군 인 셀프 서비스 데이터 궁극적인 목표는 비즈니스 사용자 데이터 문제를 해결 하는 드라이브 증분 수익, 비용 또는 운영 복잡성을 줄이고 하도록 설계 되었습니다. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark 클러스터에 대 한 데이터 앱 하기가 너무 어려운 합니다. |
 |[워터 라인 AI 기반 데이터 카탈로그](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |워터 라인 카탈로그 정리 하며 비즈니스 용어를 사용 하 여 자동 태그 데이터를 AI를 사용 하 여 데이터를 제어 합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 기존 HDInsight 클러스터에 HDInsight 애플리케이션을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 애플리케이션도 설치할 수 있습니다.
 
 ## <a name="install-applications-to-existing-clusters"></a>기존 클러스터에 애플리케이션 설치
@@ -81,13 +81,13 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
     ![HDInsight 애플리케이션 설치 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 속성을 표시 하려면 설치 된 응용 프로그램 중 하나를 선택 합니다. 속성 목록:
 
-    |자산 | 설명 |
+    |속성 | 설명 |
     |---|---|
     |앱 이름 |애플리케이션 이름입니다. |
-    |상태 |응용 프로그램 상태입니다. |
+    |Status |응용 프로그램 상태입니다. |
     |웹 페이지 |에지 노드에 배포한 웹 애플리케이션의 URL입니다. 자격 증명은 클러스터에 대해 구성한 HTTP 사용자 자격 증명과 동일합니다. |
     |SSH 끝점 |SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
-    |설명 | 응용 프로그램 설명입니다. |
+    |Description | 응용 프로그램 설명입니다. |
 
 6. 애플리케이션을 삭제하려면 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **삭제**를 클릭합니다.
 

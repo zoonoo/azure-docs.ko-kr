@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332045"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695228"
 ---
 # <a name="vpn-gateways-overview"></a>VPN gateway 개요
 
@@ -43,8 +43,6 @@ VPN gateway에서 온-프레미스 사설 클라우드에 서비스를 사용할
 > 1078 바이트 이하로 TCP MSS 고정 해야 합니다. 또는 VPN 장치가 MSS 고정를 지원 하지 않는 경우 설정할 수 있습니다 또는 MTU 1118 바이트로 터널 인터페이스에서 대신 합니다. 
 
 ### <a name="cryptographic-parameters"></a>암호화 매개 변수
-
-사이트 간 VPN 연결을 보안 연결을 설정 하려면 다음 기본 암호화 매개 변수를 사용 합니다.  온-프레미스 VPN 장치에서 연결을 만들 때 매개 변수 일치 해야 합니다.
 
 사이트 간 VPN 연결을 보안 연결을 설정 하려면 다음 기본 암호화 매개 변수를 사용 합니다.  온-프레미스 VPN 장치에서 연결을 만들 때 온-프레미스 VPN gateway를 지 원하는 다음 매개 변수 중 하나를 사용 합니다.
 

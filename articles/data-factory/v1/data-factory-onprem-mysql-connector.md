@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 2468fc0cbdcee9088aa9acb387af396dd448ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823949"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701686"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -33,7 +33,7 @@ ms.locfileid: "60823949"
 
 온-프레미스 MySQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 MySQL 데이터 저장소로 데이터 이동이 아닌 MySQL 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 MySQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 게이트웨이는 MySQL 데이터베이스가 Azure IaaS 가상 머신 (VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -66,15 +66,15 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesMySql** |예 |
 | server |MySQL 서버의 이름입니다. |예 |
-| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
-| schema |데이터베이스에서 스키마의 이름입니다. |아닙니다. |
+| database |MySQL 데이터베이스의 이름입니다. |예 |
+| 스키마 |데이터베이스에서 스키마의 이름입니다. |아니요 |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
-| 사용자 이름 |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| 암호 |지정한 사용자 계정의 암호를 지정합니다. |예 |
+| userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -82,7 +82,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 데이터 세트(MySQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -93,7 +93,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 복사 작업의 원본이 **RelationalSource**(MySQL 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 자산 | 설명 | 허용되는 값 | 필수 |
+| 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -302,24 +302,24 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | MySQL 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
 | bigint unsigned |Decimal |
-| bigint |Int64 |
+| BIGINT |Int64 |
 | bit |Decimal |
-| Blob |Byte[] |
+| blob |Byte[] |
 | bool |Boolean |
 | char |String |
-| date |DateTime |
-| Datetime |DateTime |
-| decimal |Decimal |
+| 날짜 |Datetime |
+| Datetime |Datetime |
+| Decimal |Decimal |
 | double precision |Double |
 | Double |Double |
 | enum |String |
-| float |Single |
+| FLOAT |Single |
 | int unsigned |Int64 |
-| int |Int32 |
+| ssNoversion |Int32 |
 | integer unsigned |Int64 |
-| 정수 |Int32 |
+| integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |String |
+| long varchar |문자열 |
 | longblob |Byte[] |
 | longtext |String |
 | mediumblob |Byte[] |
@@ -327,18 +327,18 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | mediumint |Int32 |
 | mediumtext |String |
 | numeric |Decimal |
-| real |Double |
-| set |String |
+| REAL |Double |
+| set |문자열 |
 | smallint unsigned |Int32 |
-| smallint |Int16 |
-| text |String |
-| time |TimeSpan |
-| timestamp |DateTime |
+| SMALLINT |Int16 |
+| text |문자열 |
+| Time |TimeSpan |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |String |
-| varchar |String |
+| varchar |문자열 |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑

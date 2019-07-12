@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293027"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785539"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -44,12 +44,12 @@ ms.locfileid: "67293027"
    > 프록시 서비스 배포는 도메인 컨트롤러 수 아웃 바운드 인터넷에 직접 연결 하는 경우에 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다. 
    >
 * Azure AD 암호 보호 프록시 서비스를 설치할 모든 컴퓨터에 설치 하는.NET 4.7 있어야 합니다.
-  .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
+  .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
 * 모든 컴퓨터에 설치 된 유니버설 C 런타임 가져올 Azure AD 암호 보호 구성 요소를 설치 하는 도메인 컨트롤러를 포함 하 여 있어야 합니다. 런타임은 Windows Update에서 모든 업데이트가 있는지 확인 하 여 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows의 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)합니다.
 * 네트워크 연결이 존재 해야 각 도메인에 하나 이상의 도메인 컨트롤러와 하나 이상의 서버를 호스트 하는 암호 보호에 대 한 프록시 서비스입니다. 이 연결에 프록시 서비스에서 RPC 서버 포트와 RPC 끝점 매퍼 포트 135 액세스 하려면 도메인 컨트롤러를 허용 해야 합니다. 기본적으로 RPC 서버 포트를 RPC 동적 포트를 이지만 하도록 구성할 수 있습니다 [정적 포트를 사용 하 여](#static)입니다.
 * 프록시 서비스를 호스팅하는 모든 컴퓨터에 네트워크는 다음 끝점에 액세스할 수 있어야 합니다.
 
-    |**엔드포인트**|**목적**|
+    |**엔드포인트**|**용도**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
@@ -266,7 +266,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
    도메인 컨트롤러를 아직 되지 않은 컴퓨터에서 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스는 시작 및 실행 되지만 컴퓨터는 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 합니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들면 다음과 같습니다.
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

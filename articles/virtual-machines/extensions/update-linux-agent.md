@@ -4,7 +4,7 @@ description: Azure Linux VM의 Azure Linux 에이전트를 업데이트하는 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
-ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd02e414aeff26510981661f49cc914a5ea6592b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799752"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705863"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -79,13 +79,13 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ### <a name="restart-the-waagent-service"></a>waagent 서비스 다시 시작
 
-#### <a name="restart-agent-for-1404"></a>14\.04에 대한 에이전트 다시 시작
+#### <a name="restart-agent-for-1404"></a>14.04에 대한 에이전트 다시 시작
 
 ```bash
 initctl restart walinuxagent
 ```
 
-#### <a name="restart-agent-for-1604--1704"></a>16\.04 / 17.04에 대한 에이전트 다시 시작
+#### <a name="restart-agent-for-1604--1704"></a>16.04 / 17.04에 대한 에이전트 다시 시작
 
 ```bash
 systemctl restart walinuxagent.service
@@ -418,7 +418,7 @@ cd WALinuxAgent-2.2.14
 ### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux 에이전트를 설치합니다.
 
 #### <a name="for-version-22x-use"></a>버전 2.2.x의 경우 다음을 사용합니다.
-`setuptools` 패키지를 먼저 설치해야 할 수도 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 그런 후 다음을 실행합니다.
+`setuptools` 패키지를 먼저 설치해야 할 수도 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 다음을 실행합니다.
 
 ```bash
 sudo python setup.py install

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
-ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alkohli
+ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698410"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621630"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
 
@@ -61,10 +61,10 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
    | 키보드 항목 | 여기서 |
    | --- | --- |
    | 백스페이스 키 |Ctrl-? (127) |
-   | Home 및 End 키 |Standard |
+   | Home 및 End 키 |표준 |
    | 기능 키 및 키패드 |Esc[n~ |
    | 커서 키의 초기 상태 |정상 |
-   | 숫자 키패드의 초기 상태 |보통 |
+   | 숫자 키패드의 초기 상태 |일반 |
    | 추가 키보드 기능 사용 |Ctrl-Alt는 AltGr과 다름 |
    
     ![지원되는 Putty 설정](./media/storsimple-windows-powershell-administration/IC740877.png)

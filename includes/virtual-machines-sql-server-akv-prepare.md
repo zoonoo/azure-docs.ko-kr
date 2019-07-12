@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a6a53e6db883c63164a6367012faf32ed75519
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075991"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673434"
 ---
 ## <a name="prepare-for-akv-integration"></a>AKV 통합 준비
 Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가지 필수 조건이 있습니다. 
@@ -38,7 +38,7 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 
 우선, 구독에 AAD( [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) )가 있어야 합니다. 이렇게 하면 여러 이점이 있지만, 그 중에서도 특정 사용자 및 애플리케이션에 키 자격 증명 모음에 대한 권한을 부여할 수 있다는 이점이 있습니다.
 
-다음으로 AAD에 애플리케이션을 등록합니다. 이렇게 하면 VM에 필요한 Key Vault에 액세스할 수 있는 서비스 주체 계정이 제공됩니다. Azure Key Vault 문서의 다음이 단계를 찾을 수 있습니다 합니다 [Azure Active Directory를 사용 하 여 응용 프로그램을 등록](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) 하거나 섹션에서 스크린샷으로 단계를 볼 수는 **응용 프로그램 섹션에 대 한 id 가져오기**  의 [이 블로그 게시물](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx)합니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 다음 정보를 등록 과정에서 수집해야 합니다.
+다음으로 AAD에 애플리케이션을 등록합니다. 이렇게 하면 VM에 필요한 Key Vault에 액세스할 수 있는 서비스 주체 계정이 제공됩니다. Azure Key Vault 문서의 다음이 단계를 찾을 수 있습니다 합니다 [Azure Active Directory를 사용 하 여 응용 프로그램을 등록](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) 하거나 섹션에서 스크린샷으로 단계를 볼 수는 **응용 프로그램 섹션에 대 한 id 가져오기**  의 [이 블로그 게시물](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx)합니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 다음 정보를 등록 과정에서 수집해야 합니다.
 
 * 애플리케이션을 추가한 후 **등록된 앱** 블레이드에서 **애플리케이션 ID**를 찾습니다.
     애플리케이션 ID는 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$spName** (서비스 주체 이름) 매개 변수에 할당됩니다.

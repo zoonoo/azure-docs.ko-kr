@@ -4,15 +4,15 @@ description: Windows 가상 데스크톱 미리 보기 호스트 풀 FSLogix 프
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 692902c28b336dd46a7c6f00d5cf5a61ee9f7328
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925204"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619115"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>호스트 풀에 대한 사용자 프로필 공유 설정
 
@@ -62,9 +62,9 @@ FSLogix 소프트웨어를 사용 하 여 가상 컴퓨터를 구성 하려면 �
 6. 명명 된 키를 만듭니다 **프로필**합니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 
-| 이름                | Type               | 데이터/값                        |
+| 이름                | 형식               | 데이터/값                        |
 |---------------------|--------------------|-----------------------------------|
-| 사용             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유에 대 한 네트워크 경로"     |
 
 >[!IMPORTANT]

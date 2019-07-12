@@ -4,16 +4,19 @@ description: Micro Focus 개발을 사용 하 여 IBM z/OS 메인프레임 워�
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4bdcb14aa1b5aa1f757da7be4db7d93dd13ff0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304596"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620295"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Azure에서 Micro Focus Enterprise Server 4.0 및 엔터프라이즈 개발자 4.0 설치
 
@@ -25,7 +28,7 @@ Azure에서 일반적인 작업에는 개발 및 테스트 환경입니다. 따�
 
 Enterprise Server에 대 한 해당 개발 환경의 하거나 Microsoft Visual Studio 2017 이상에서 Visual Studio Community (무료 다운로드)를 실행 하는 엔터프라이즈 개발자는 Eclipse 또는 합니다. 이 문서에서는 Visual Studio 2017을 사용 하 여 또는 이상이 설치 되어 있는 Windows Server 2016 가상 컴퓨터를 사용 하 여 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성이 요소 확인 하십시오.
 

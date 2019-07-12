@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: HT
+ms.openlocfilehash: 98bd222212d616a5d2c608779c607bb431d184b9
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484595"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657319"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>만들기 및 Azure HDInsight에서 엔터프라이즈 보안 패키지 클러스터 구성
 
@@ -135,7 +135,7 @@ Azure HDInsight 용 엔터프라이즈 보안 패키지는 Azure에서 Apache Ha
 
         ![그룹](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image038.png)
 
-    1. 클릭 합니다 **디렉터리 역할** 선택한 섹션 **전역 관리자** 오른쪽에서입니다. **Ok**를 클릭합니다.
+    1. 클릭 합니다 **디렉터리 역할** 선택한 섹션 **전역 관리자** 오른쪽에서입니다. **확인**을 클릭합니다.
 
         ![디렉터리 역할](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image040.png)
 
@@ -302,16 +302,16 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. 아래 **설정을** 클릭 **인바운드 보안 규칙** > **추가**합니다.
     1. 에 **인바운드 보안 규칙 추가** 화면에서 다음 속성을 입력 하 고 클릭 **추가**:
 
-        | 자산 | Value |
+        | 속성 | 값 |
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | 대상 | Any |
+        | Destination | Any |
         | Destination port range | 636 |
-        | Protocol | Any |
+        | 프로토콜 | Any |
         | Action | Allow |
-        | 우선 순위 | <Desired Number> |
-        | Name | Port_LDAP_636 |
+        | Priority | \<원하는 수\> |
+        | 이름 | Port_LDAP_636 |
 
     ![인바운드 보안 규칙](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -345,7 +345,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 1. 에 사용자 지정 DNS를 설치 합니다 **HDIFabrikam AADDSVNET** 가상 네트워크.
     1. Azure portal로 이동 > **리소스 그룹** > **OnPremADVRG** > **HDIFabrikam AADDSVNET**  >   **DNS 서버**합니다.
     1. 선택 **사용자 지정** enter `10.0.0.4` 고 `10.0.0.5`입니다.
-    1. **저장**을 클릭합니다.
+    1. **Save**을 클릭합니다.
 
         ![사용자 지정 dns 설정을 저장 합니다.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image123.png)
 

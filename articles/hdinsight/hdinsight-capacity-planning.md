@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237147"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786508"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -43,7 +43,7 @@ Azure Storage 계정 또는 Azure Data Lake Storage에 해당하는 기본 스�
 
 데이터를 포함하는 스토리지 계정 또는 Data Lake Storage가 이미 있으며 이 스토리지를 클러스터의 기본 스토리지로 사용하려면 같은 위치에 클러스터를 배포해야 합니다.
 
-### <a name="storage-size"></a>스토리지 크기
+### <a name="storage-size"></a>저장소 크기
 
 HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Storage에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Storage는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
 
@@ -82,7 +82,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 클러스터 유형에 따라 작업자 노드 수를 늘리면 계산 용량(예: 추가 코어)이 더 추가되지만, 전체 클러스터가 처리되는 데이터의 메모리 내 저장소를 지원하는 데 필요한 총 메모리 양도 추가될 수 있습니다. VM 크기 및 유형을 선택하는 경우처럼 올바른 클러스터 크기 선택도 시뮬레이트된 워크로드 또는 카나리아 쿼리를 사용하여 실험적으로 진행됩니다.
 
-최대 부하 요구를 충족하도록 클러스터를 확장한 후 해당 추가 노드가 더 이상 필요하지 않을 때 축소할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
+최대 부하 요구를 충족하도록 클러스터를 확장한 후 해당 추가 노드가 더 이상 필요하지 않을 때 축소할 수 있습니다. 합니다 [자동 크기 조정 기능](hdinsight-autoscale-clusters.md) 를 사용 하면 자동으로 클러스터를 기반으로 하는 확장 메트릭 및 타이밍을 미리 결정 합니다. 클러스터를 수동으로 크기 조정에 대 한 자세한 내용은 참조 하세요. [확장 HDInsight 클러스터](hdinsight-scaling-best-practices.md)합니다.
 
 ### <a name="cluster-lifecycle"></a>클러스터 수명 주기
 

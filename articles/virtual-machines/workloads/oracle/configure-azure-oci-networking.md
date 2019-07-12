@@ -3,7 +3,7 @@ title: Oracle 클라우드 인프라를 사용 하 여 Azure ExpressRoute 연결
 description: 클라우드 간 Oracle 응용 프로그램 솔루션을 사용 하도록 설정 하려면 FastConnect 클라우드 인프라 OCI (Oracle)를 사용 하 여 Azure ExpressRoute 연결
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/24/2019
 ms.author: rogirdh
-ms.openlocfilehash: ce1f86f7594692c797aaca5008b211b96ba81fbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 671d7c8eb9f10e346b49056e1cc117c9882bb6e8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453152"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707654"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Oracle 클라우드 인프라와 Azure 간에 직접 상호 연결 설정  
 
@@ -32,7 +32,7 @@ ms.locfileid: "67453152"
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure와 OCI 사이의 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "67453152"
 
 네트워크 구성을 완료 했으면를 클릭 하 여 구성의 유효성을 확인할 수 있습니다 **ARP 레코드 가져오기** 하 고 **Get 경로 테이블** ExpressRoute 개인 피어 링 블레이드 아래에서 Azure portal
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>자동화
 
 Microsoft는 자동화 된 배포의 네트워크 상호 연결을 사용 하도록 Terraform 스크립트를 만들었습니다. Terraform 스크립트는 Azure 구독에 대 한 적절 한 권한이 필요 하므로 실행 하기 전에 Azure를 사용 하 여 인증 해야 합니다. 사용 하 여 인증을 수행할 수 있습니다는 [Azure Active Directory 서비스 주체](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 또는 Azure CLI를 사용 합니다. 자세한 내용은 참조는 [Terraform 설명서](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html)합니다.
 

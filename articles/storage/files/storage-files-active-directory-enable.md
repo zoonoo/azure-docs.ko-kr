@@ -1,18 +1,18 @@
 ---
 title: Azure Files용 SMB(미리 보기)를 통해 Azure Active Directory 인증 사용 - Azure Storage
-description: Azure AD(Active Directory) Domain Services를 사용하여 Azure Files용 SMB(서버 메시지 블록)(미리 보기)를 통해 ID 기반 인증을 사용하도록 설정하는 방법을 알아봅니다. 도메인 조인 Windows VM(가상 머신)은 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
+description: Azure AD(Active Directory) Domain Services를 사용하여 Azure Files용 SMB(서버 메시지 블록)(미리 보기)를 통해 ID 기반 인증을 사용하도록 설정하는 방법을 알아봅니다. 도메인 가입 Windows VM(가상 머신)은 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 07/05/2019
 ms.author: rogarana
-ms.openlocfilehash: 80d871bdc17c3f93e113b08201d6c53f29bfeff0
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: cd4c952caa336f2602d3c30e0db3e10ebee59cb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295609"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696118"
 ---
 # <a name="enable-azure-active-directory-domain-service-authentication-over-smb-for-azure-files-preview"></a>Azure Files (미리 보기)에 대 한 SMB를 통한 Azure Active Directory 도메인 서비스 인증을 사용 하도록 설정
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -22,20 +22,20 @@ Azure Files용 SMB를 통한 Azure AD 인증의 개요는 [Azure Files용 SMB(�
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>워크플로의 개요
-Azure Files용 SMB를 통해 Azure AD를 사용할 수 있도록 설정하기 전에 Azure AD 및 Azure Storage 환경이 적절하게 구성되어 있는지 확인합니다. [필수 구성 요소](#prerequisites)를 검토하여 필요한 모든 단계를 수행했는지 확인하는 것이 좋습니다. 
+Azure Files에 대 한 SMB를 통한 Azure AD DS 인증을 사용 하기 전에 확인 하는 Azure AD에 Azure Storage 환경을 올바르게 구성 되었습니다. [필수 구성 요소](#prerequisites)를 검토하여 필요한 모든 단계를 수행했는지 확인하는 것이 좋습니다. 
 
 그런 후에는 다음 단계를 수행하여 Azure AD 자격 증명을 사용한 Azure Files 리소스 액세스 권한을 부여합니다. 
 
-1. 저장소 계정에 대해 SMB를 통한 Azure AD 인증을 사용하도록 설정하여 연결된 Azure AD Domain Services 배포에 저장소 계정을 등록합니다.
+1. 연결된 된 Azure AD Domain Services 배포를 사용 하 여 저장소 계정을 등록 하 여 저장소 계정에 대 한 SMB를 통한 Azure AD DS 인증을 사용 합니다.
 2. Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유 액세스 권한을 할당합니다.
 3. 디렉터리와 파일에 대해 SMB를 통한 NTFS 권한을 구성합니다.
 4. 도메인 조인 VM에서 Azure 파일 공유를 탑재합니다.
 
-아래 다이어그램에는 Azure Files용 SMB를 통해 Azure AD 인증을 사용하도록 설정하는 엔드투엔드 워크플로가 나와 있습니다. 
+아래 다이어그램에서는 Azure Files에 대 한 SMB를 통한 Azure AD DS 인증을 사용 하는 것에 대 한 종단 간 워크플로 보여 줍니다. 
 
 ![Azure Files용 SMB를 통한 Azure AD 워크플로를 보여 주는 다이어그램](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>전제 조건 
 
 Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전에 다음 필수 조건을 완료했는지 확인합니다.
 
@@ -56,7 +56,7 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
     VM에서 Azure AD 자격 증명을 사용하여 파일 공유에 액세스하려면 VM을 Azure AD Domain Services에 도메인 조인해야 합니다. VM을 도메인 조인하는 방법에 대한 자세한 내용은 [Windows Server 가상 머신을 관리되는 도메인에 조인](../../active-directory-domain-services/join-windows-vm.md)을 참조하세요.
 
     > [!NOTE]
-    > Azure Files용 SMB를 통한 Azure AD 인증은 Windows 7 또는 Windows Server 2008 R2 이상의 OS 버전에서 실행 중인 Azure VM에서만 지원됩니다.
+    > Azure Files를 사용 하 여 SMB 통한 azure AD DS 인증 Windows 7 또는 Windows Server 2008 R2 이상의 OS 버전에서 실행 중인 Azure Vm 에서만 지원 됩니다.
 
 4.  **Azure 파일 공유를 선택하거나 만듭니다.**
 
@@ -67,15 +67,15 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
 
     VM 및 파일 공유가 적절하게 구성되었는지 확인하려면 저장소 계정 키를 사용하여 파일 공유를 탑재해 봅니다. 자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스](storage-how-to-use-files-windows.md)를 참조하세요.
 
-## <a name="enable-azure-ad-authentication-for-your-account"></a>사용자 계정에 Azure AD 인증 사용
+## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>계정에 대 한 Azure AD DS 인증을 사용 하도록 설정
 
-Azure Files용 SMB를 통해 Azure AD 인증을 사용하도록 설정하려는 경우 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 2018년 9월 24일 이후에 만든 저장소 계정에서 속성을 설정할 수 있습니다. 이 속성을 설정하면 연결된 Azure AD Domain Services 배포에 저장소 계정이 등록됩니다. 그러면 저장소 계정의 모든 신규 및 기존 파일 공유에 대해 SMB를 통한 Azure AD 인증이 사용하도록 설정됩니다. 
+Azure AD DS 인증 SMB를 통한 Azure files를 사용 하려면 설정할 수 있습니다 속성 2018 년 9 월 24 일 이후 생성 된 저장소 계정에 Azure portal, Azure PowerShell 또는 Azure CLI를 사용 하 여. 이 속성을 설정하면 연결된 Azure AD Domain Services 배포에 저장소 계정이 등록됩니다. SMB 통한 azure AD DS 인증은 저장소 계정에서 모든 신규 및 기존 파일 공유에 대해 설정 됩니다. 
 
-Azure AD Domain Services를 Azure AD 테넌트에 정상적으로 배포해야 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있습니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조하세요.
+Azure AD 테 넌 트 Azure AD Domain Services를 성공적으로 배포한 후에 SMB를 통한 Azure AD DS 인증을 사용할 수 있는 것을 염두에 두십시오. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조하세요.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-[Azure Portal](https://portal.azure.com)을 사용하여 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 다음 단계를 수행합니다.
+SMB를 사용 하 여 Azure AD DS 인증을 사용 하도록 설정 합니다 [Azure portal](https://portal.azure.com), 다음이 단계를 수행:
 
 1. Azure Portal에서 기존 저장소 계정으로 이동하거나 [저장소 계정을 만듭니다](../common/storage-quickstart-create-account.md).
 2. **설정** 섹션에서 **구성**을 선택합니다.
@@ -87,13 +87,13 @@ Azure AD Domain Services를 Azure AD 테넌트에 정상적으로 배포해야 S
   
 ### <a name="powershell"></a>PowerShell  
 
-Azure PowerShell에서 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 먼저 Azure AD를 지원하는 `Az.Storage` 모듈의 미리 보기 빌드를 설치합니다. PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요.
+에 Azure PowerShell을 사용 하 여 SMB를 통한 Azure AD DS 인증을 사용 합니다. 먼저, 최신 Az 모듈 (2.4 이상) 또는 Az.Storage 모듈 (1.5 이상)를 설치 합니다. PowerShell을 설치 하는 방법에 대 한 자세한 내용은 참조 하세요. [PowerShellGet 사용 하 여 Windows에서 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
 Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-다음으로, 새 스토리지 계정을 만든 다음, [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount)를 호출하고, **EnableAzureFilesAadIntegrationForSMB** 매개 변수를 **true**로 설정합니다. 아래 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
+다음으로 새 저장소를 만듭니다 계정에 다음 호출 [집합 AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 설정 된 **EnableAzureActiveDirectoryDomainServicesForFile** 매개 변수를 **true**. 아래 예제의 자리 표시자 값은 실제 값으로 바꾸세요. (이전 미리 보기 모듈을 사용 하는 기능에 대 한 매개 변수는 **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -102,8 +102,17 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
-    -EnableAzureFilesAadIntegrationForSMB $true
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
+기존 저장소 계정에서이 기능을 사용 하려면 다음 명령을 사용 합니다.
+
+```powershell
+# Update a storage account
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
+    -Name "<storage-account-name>" `
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
+```
+
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -122,98 +131,36 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 ## <a name="assign-access-permissions-to-an-identity"></a>ID에 액세스 권한 할당 
 
-Azure AD 자격 증명을 사용하여 Azure Files 리소스에 액세스하려는 경우 ID(사용자, 그룹 또는 서비스 주체)에 공유 수준에서 필요한 권한이 있어야 합니다. 이 섹션의 지침에서는 파일 공유에 대한 읽기, 쓰기 또는 삭제 권한을 ID에 할당하는 방법을 보여줍니다.
+Azure AD 자격 증명을 사용하여 Azure Files 리소스에 액세스하려는 경우 ID(사용자, 그룹 또는 서비스 주체)에 공유 수준에서 필요한 권한이 있어야 합니다. 이 프로세스는 파일 공유에 대한 특정 사용자의 액세스 권한 유형을 지정하는 Windows 공유 권한 지정 과정과 비슷합니다. 이 섹션의 지침에서는 파일 공유에 대한 읽기, 쓰기 또는 삭제 권한을 ID에 할당하는 방법을 보여줍니다.
+
+사용자에 게 공유 수준 권한 부여에 대 한 두 개의 Azure 기본 제공 역할을 도입 했습니다. 저장소 파일 데이터 SMB 공유 판독기 및 저장소 파일 데이터 SMB 공유 참가자입니다. 
+
+- **저장소 파일 데이터 SMB 공유 판독기** SMB를 통한 Azure Storage 파일 공유에 대 한 읽기 액세스 허용
+- **저장소 파일 데이터 SMB 공유 참가자** SMB를 통한 Azure Storage 파일 공유 읽기, 쓰기 및 삭제 액세스 허용
 
 > [!IMPORTANT]
 > ID에 역할을 할당하는 기능을 비롯하여 파일 공유에 대한 모든 관리 권한을 할당하려면 저장소 계정 키를 사용해야 합니다. Azure AD 자격 증명으로는 관리 권한이 지원되지 않습니다. 
 
-### <a name="define-a-custom-role"></a>사용자 지정 역할 정의
+공유 수준 권한 부여에 대 한 사용자의 Azure AD id에 기본 제공 역할을 할당할 Azure portal, PowerShell 또는 Azure CLI를 사용할 수 있습니다. 
 
-공유 수준 권한을 부여하려면 사용자 지정 RBAC 역할을 정의한 다음 특정 ID에 할당하고 범위를 특정 파일 공유로 지정합니다. 이 프로세스는 파일 공유에 대한 특정 사용자의 액세스 권한 유형을 지정하는 Windows 공유 권한 지정 과정과 비슷합니다.  
+#### <a name="azure-portal"></a>Azure Portal
+RBAC 역할을 Azure AD id를 할당할를 사용 하 여는 [Azure portal](https://portal.azure.com), 다음이 단계를 수행 합니다.
 
-다음 섹션에 나와 있는 템플릿은 파일 공유에 대한 읽기 또는 변경 권한을 제공합니다. 사용자 지정 역할을 정의하려면 JSON 파일을 만들고 적절한 템플릿을 해당 파일에 복사합니다. 사용자 지정 RBAC 역할을 정의하는 방법에 대한 자세한 내용은 [Azure의 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 참조하세요.
-
-**공유 수준 변경 권한을 위한 역할 정의**  
-다음 사용자 지정 역할 템플릿은 공유 수준 변경 권한을 제공하여 공유에 대한 읽기, 쓰기 및 삭제 권한을 ID에 부여합니다.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-**공유 수준 읽기 권한을 위한 역할 정의**  
-다음 사용자 지정 역할 템플릿은 공유 수준 읽기 권한을 제공하여 공유에 대한 읽기 권한을 ID에 부여합니다.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-### <a name="create-the-custom-role"></a>사용자 지정 역할 만들기
-
-사용자 지정 역할을 만들려면 PowerShell 또는 Azure CLI를 사용합니다. 
+1. Azure portal에서 파일 공유로 이동 하거나 [Azure Files에 파일 공유 만들기](storage-how-to-create-file-share.md)합니다.
+2. **Access Control(IAM)** 을 선택합니다.
+3. 선택 **역할 할당 추가**
+4. 에 **역할 할당 추가** 블레이드에서에서 적절 한 기본 제공 역할 (Storage 파일 데이터 SMB 공유 판독기, 저장소 파일 데이터 SMB 공유 참가자)를 선택 합니다 **역할** 드롭다운 목록입니다. 유지 된 **에 대 한 액세스 할당** 기본적으로: "Azure AD 사용자, 그룹 또는 서비스 주체" 이름 또는 전자 메일 주소로 대상 Azure AD id를 선택 합니다. 
+5. 마지막으로, 선택 **저장할** 역할 할당 작업을 완료 합니다.
 
 #### <a name="powershell"></a>PowerShell
 
-다음 PowerShell 명령은 샘플 템플릿 중 하나를 기반으로 사용자 지정 역할을 만듭니다.
-
-```powershell
-#Create a custom role based on the sample template above
-New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
-```
-
-#### <a name="cli"></a>CLI 
-
-다음 Azure CLI 명령은 샘플 템플릿 중 하나를 기반으로 사용자 지정 역할을 만듭니다.
-
-```azurecli-interactive
-#Create a custom role based on the sample templates above
-az role definition create --role-definition "<Custom-role-def-JSON-path>"
-```
-
-### <a name="assign-the-custom-role-to-the-target-identity"></a>대상 ID에 사용자 지정 역할 할당
-
-다음으로는 PowerShell 또는 Azure CLI를 사용하여 Azure AD ID에 사용자 지정 역할을 할당합니다. 
-
-#### <a name="powershell"></a>PowerShell
-
-다음 PowerShell 명령은 사용 가능한 사용자 지정 역할을 나열한 다음, 사용자 지정 역할을 로그인 이름을 기반으로 하는 Azure AD ID에 할당하는 방법을 보여줍니다. PowerShell을 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+다음 PowerShell 명령을 로그인 이름을 기반으로 하는 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. PowerShell을 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure PowerShell을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
 
 다음 샘플 스크립트를 실행할 때 대괄호를 포함한 자리 표시자 값을 사용자 고유의 값으로 변경해야 합니다.
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
@@ -222,15 +169,13 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-다음 CLI 2.0 명령은 사용 가능한 사용자 지정 역할을 나열한 다음, 사용자 지정 역할을 로그인 이름을 기반으로 하는 Azure AD ID에 할당하는 방법을 보여줍니다. Azure CLI를 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조하세요. 
+CLI 2.0 명령을 로그인 이름을 기반으로 하는 Azure AD id에 RBAC 역할을 할당 하는 방법을 보여 줍니다. Azure CLI를 사용하여 RBAC 역할을 할당하는 방법에 대한 자세한 내용은 [RBAC 및 Azure CLI를 사용하여 액세스 관리](../../role-based-access-control/role-assignments-cli.md)를 참조하세요. 
 
 다음 샘플 스크립트를 실행할 때 대괄호를 포함한 자리 표시자 값을 사용자 고유의 값으로 변경해야 합니다.
 
 ```azurecli-interactive
-#List the custom roles
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
-#Assign the custom role to the target identity
-az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
+az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## <a name="configure-ntfs-permissions-over-smb"></a>SMB를 통한 NTFS 권한 구성 

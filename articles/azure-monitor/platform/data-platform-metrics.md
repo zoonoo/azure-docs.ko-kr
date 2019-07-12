@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867976"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607036"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
@@ -58,7 +58,7 @@ Azure Monitor 메트릭에 의해 수집 된 데이터는 타임 스탬프 데�
 
 ### <a name="network-throughput"></a>네트워크 처리량
 
-| 타임 스탬프     | 메트릭 값 |
+| timestamp     | 메트릭 값 |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1,331.8Kbps |
 | 8/9/2017 8:15 | 1,141.4Kbps |
@@ -68,7 +68,7 @@ Azure Monitor 메트릭에 의해 수집 된 데이터는 타임 스탬프 데�
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>네트워크 처리량 +2 차원("IP" 및 "방향")
 
-| 타임 스탬프     | 차원 "IP"   | 차원 "방향" | 메트릭 값|
+| timestamp     | 차원 "IP"   | 차원 "방향" | 메트릭 값|
 | ------------- |:-----------------|:------------------- |:-----------|
 | 8/9/2017 8:14 | IP="192.168.5.2" | 방향="전송"    | 646.5Kbps |
 | 8/9/2017 8:14 | IP="192.168.5.2" | 방향="수신" | 420.1Kbps |

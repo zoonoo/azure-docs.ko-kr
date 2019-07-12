@@ -4,15 +4,15 @@ description: VPN 게이트웨이 진단 로그 이벤트에서 경고를 구성 
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202886"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607111"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "67202886"
 
 다음 로그를 Azure에서 사용할 수 있습니다.
 
-|***Name*** | ***설명*** |
+|***이름*** | ***설명*** |
 |---        | ---               |
 |GatewayDiagnosticLog | 게이트웨이 구성 이벤트, 기본 변경 및 유지 관리 이벤트에 대 한 진단 로그를 포함합니다. |
 |TunnelDiagnosticLog | 터널 상태 변경 이벤트를 포함합니다. 해당 하는 경우 터널 연결/연결 끊기 이벤트는 상태 변경에 대 한 요약 된 이유 |

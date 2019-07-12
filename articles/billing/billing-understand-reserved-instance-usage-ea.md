@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490392"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798149"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업 계약 예약 비용 및 사용량 가져오기
 
@@ -40,7 +40,7 @@ Marketplace 요금 사용 현황 데이터에 통합 됩니다. 첫 번째 사�
 
 두 데이터 집합의 비교:
 
-| Data | 실제 비용 데이터 집합 | 분할 상환된 비용 데이터 집합 |
+| 보기 | 실제 비용 데이터 집합 | 분할 상환된 비용 데이터 집합 |
 | --- | --- | --- |
 | 예약 구매 | 이 뷰에서 사용할 수 있습니다.<br><br>  이 데이터 필터 ChargeType에서 가져오려는 = &quot;구매&quot;합니다. <br><br> 예약에 대 한 요금은 알아야 ReservationID 또는 ReservationName를 참조 하십시오.  | 이 보기에는 적용 되지 않습니다. <br><br> 구매 비용 상환된 데이터에 제공 되지 않습니다. |
 | EffectivePrice | 값이 0 사용량 가져옵니다 예약 할인에 대 한 합니다. | 값은 사용량에 예약 할인에 대 한 예약 비용이 시간당으로 계산 됩니다. |
@@ -120,7 +120,7 @@ Azure portal로 이동 [Cost management + 청구](https://portal.azure.com/#blad
 
 - 리소스 (예: VM)
 - 리소스 그룹
-- 태그들
+- Tags
 - 구독
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>비용 청구에 대 한 혼합된 비율 가져오기
@@ -139,17 +139,17 @@ Amortized 비용 데이터를 가져오고 예약된 인스턴스에 대 한 데
 2. 예약 비용을 확인 합니다. 합계는 _비용_ 지불한 reserved instance의 통화 값을 검색할 값입니다. 예약의 사용 및 사용 하지 않는 비용을 포함합니다.
 3. 예약 비용이 예상된 절감 비율을 확인 하려면 종 량 제 비용 예상된을 뺍니다.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>예약 구매 및 Azure 비용 분석에서 상환
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>예약 구매 및 비용 분석에서 상환
 
-예약된 인스턴스 비용은 영어로 [미리 보기 모드를 분석 하는 Azure 비용](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis)합니다. 기본적으로 비용 데이터 보기 실제 비용입니다. 분할 상환된 비용으로 전환할 수 있습니다. 예제는 다음과 같습니다.
+예약 비용에 사용할 수 있습니다 [비용 분석](https://aka.ms/costanalysis)합니다. 기본적으로 비용 분석 보여 줍니다 **실제 비용**, 비용 청구서에 표시 될 방법 인 합니다. 전환할 세분화 및 혜택을 사용 하는 리소스와 관련 된 예약 구매를 보려면 **비용 상환**:
 
 ![비용 분석의 분할 상환된 비용을 선택 하는 위치를 보여 주는 예제](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-예약 또는 충전 상태 형식에 의해 사용자 요금을 보려면 필터를 적용 합니다. 예약 이름 예약 별로 비용을 보려면 그룹화 합니다.
+사용량, 구매 및 환불;의 중단을 보면 요금 유형별로 그룹화 또는 예약 및 주문형 비용에 대 한 분석에 대 한 예약 합니다. 실제 비용에서 볼 때 표시 됩니다만 예약 비용 구매 되지만 비용 분할 상환된 비용 보면는 benfit 하는 개별 리소스에 할당 해야 합니다. 새 나타납니다 **UnusedReservation** 분할 상환 비용을 확인 하는 경우 형식 요금이 부과 됩니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

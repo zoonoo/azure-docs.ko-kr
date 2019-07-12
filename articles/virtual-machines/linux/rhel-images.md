@@ -4,7 +4,7 @@ description: Microsoft Azure의 Red Hat Enterprise Linux 이미지에 알아봅�
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: b40f62a90dbe7c822b95476abe6ec25cf3fb21d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f7ae82b0376489e21b35e4e94dce32805bea69c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070023"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708376"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -105,13 +105,13 @@ RedHat:RHEL:7.4:7.4.2019041718
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | 이미지는 2019 년 4 월 게시 하 고 나중는 기본적으로 EUS 됩니다.|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 이미지는 2019 년 6 월을 게시 하 고 나중는 기본적으로 EUS 됩니다. |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 이미지는 2019 년 5 월 게시 하 고 나중는 기본적으로 EUS 됩니다.  |
-RHEL 8.0      |N/A                            | 없는 EUS 현재 사용 가능한 현재 이미지                 |
+RHEL 8.0      |해당 사항 없음                            | 없는 EUS 현재 사용 가능한 현재 이미지                 |
 
 
 ## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
 다음 제품은 SKU이며 현재 일반 용도로 사용할 수 있습니다.
 
-제안| SKU | 분할 | 프로비전 | 메모
+제안| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7 제품군 이미지입니다. <br> 기본적으로 EUS 리포지토리 연결 되지 않은 경우
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7 제품군 이미지입니다. <br> 기본적으로 EUS 리포지토리 연결 되지 않은 경우

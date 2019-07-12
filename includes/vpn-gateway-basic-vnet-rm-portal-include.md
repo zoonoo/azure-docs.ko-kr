@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182045"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673438"
 ---
 다음 단계에 따라 Resource Manager 배포 모델과 Azure Portal을 사용하여 VNet을 만들 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
@@ -22,7 +22,7 @@ ms.locfileid: "67182045"
 >
 >
 
-1. [Azure Portal](http://portal.azure.com)에 로그인하고, **리소스 만들기**를 선택합니다. **새로 만들기** 페이지가 열립니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, **리소스 만들기**를 선택합니다. **새로 만들기** 페이지가 열립니다.
 
 2. **Marketplace 검색** 필드에 *가상 네트워크*를 입력하고 반환된 목록에서 **가상 네트워크**를 선택합니다. **가상 네트워크** 페이지가 열립니다.
 

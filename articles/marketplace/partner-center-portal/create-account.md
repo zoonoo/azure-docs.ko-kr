@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0c78cbcc06de3a18f2127693a7c1b24c075e297
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f861a05bd369fb279ab82e230cad307a3569967e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806238"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619384"
 ---
 # <a name="how-to-create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 Marketplace 계정을 만드는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "65806238"
 
 계정 설치한 경우 합니다 [클라우드 파트너 포털 (CPP)](https://cloudpartner.azure.com) 파트너 센터를 통해 마이그레이션된, 새 계정을 만들 필요가 없습니다. 참조 [게시자 CPP에서 마이그레이션된](#publishers-migrated-from-cpp)합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 파트너 센터 계정을 만들려면 했는지 확인 합니다.
 

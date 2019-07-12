@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706598"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670887"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Zscaler One 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "64706598"
 >
 > 이 커넥터는 현재 미리 보기로 제공 됩니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [Microsoft Azure 미리 보기에 대 한 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명 된 시나리오에서는 있다고 가정 합니다.
 
@@ -121,7 +121,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Zscaler One�
 
     ![Zscaler One 알림 전자 메일](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. **저장**을 선택합니다.
+9.           **저장**을 선택합니다.
 
 10. 아래는 **매핑을** 섹션에서 **동기화 할 Azure Active Directory 사용자를 Zscaler One**합니다.
 
@@ -159,7 +159,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Zscaler One�
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

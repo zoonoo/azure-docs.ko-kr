@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591560"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607293"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -54,7 +54,7 @@ Azure Virtual Machines에서 PAYG(용량제 통화 요금) 또는 BYOL(사용자
 
 PAYG 라이선싱을 사용하면 Azure Virtual Machines에서 SQL Server의 FCI(장애 조치 클러스터 인스턴스)는 수동 노드를 포함한 모든 FCI의 노드에 대한 요금을 부과합니다. 자세한 내용은 [SQL Server Enterprise Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)을 참조하세요. 
 
-Software Assurance로 기업계약을 한 고객은 각 활성 노드에 대해 하나의 무료 수동 FCI 노드를 사용할 권리가 있습니다. Azure에서 이 이점을 활용하려면 BYOL VM 이미지를 사용한 다음, FCI의 활성 노드와 수동 노드 둘 다에 동일한 라이선스를 사용합니다. 자세한 내용은 [기업계약](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)을 참조하세요.
+Software Assurance로 기업계약을 한 고객은 각 활성 노드에 대해 하나의 무료 수동 FCI 노드를 사용할 권리가 있습니다. Azure에서 이 이점을 활용하려면 BYOL VM 이미지를 사용한 다음, FCI의 활성 노드와 수동 노드 둘 다에 동일한 라이선스를 사용합니다. 자세한 내용은 [기업계약](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)을 참조하세요.
 
 Azure Virtual Machines의 SQL Server에 대한 PAYG와 BYOL 라이선싱을 비교하려면 [SQL VM 시작](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)을 참조하세요.
 
@@ -64,7 +64,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 템플릿에서 Azure에 전체 솔루션을 만들 수 있습니다. 템플릿의 예제는 GitHub [Azure 빠른 시작 템플릿](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad)에서 사용 가능합니다. 이 예제는 특정 작업에 대해 설계되거나 테스트되지 않았습니다. 템플릿을 실행하여 도메인에 연결된 S2D 저장소를 사용하여 SQL Server FCI를 만들 수 있습니다. 템플릿을 평가하고 용도에 맞게 수정할 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 진행하기 전에 알아야 할 몇 가지 사항이 있으며 준비해야 할 몇 가지 사항이 있습니다.
 
@@ -116,7 +116,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
       - **이름**: 가용성 집합의 이름입니다.
       - **구독**: Azure 구독.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
-      - **Location**: 가상 머신을 만들 위치를 설정합니다.
+      - **위치**: 가상 머신을 만들 위치를 설정합니다.
       - **장애 도메인**: 기본값(3)을 사용하세요.
       - **업데이트 도메인**: 기본값(5)을 사용하세요.
    - **만들기**를 클릭하여 가용성 집합을 만듭니다.
@@ -175,7 +175,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
    각 가상 머신에서 Windows 방화벽의 다음 포트를 엽니다.
 
-   | 목적 | TCP 포트 | 메모
+   | 용도 | TCP 포트 | 참고
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.  
@@ -372,7 +372,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    - **구독**: Azure 구독.
    - **리소스 그룹**: 가상 머신과 동일한 리소스 그룹을 사용합니다.
-   - **Location**: 가상 머신과 동일한 Azure 위치를 사용합니다.
+   - **위치**: 가상 머신과 동일한 Azure 위치를 사용합니다.
    다음 그림을 참조하세요.
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -419,7 +419,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
    - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름을 사용합니다.
    - **상태 프로브**: 이전에 구성한 상태 프로브를 사용합니다.
-   - **세션 지속성**: 없음.
+   - **세션 지속성**: 없음
    - **유휴 제한 시간(분)** : 4.
    - **부동 IP(Direct Server Return)** : Enabled
 
@@ -491,7 +491,7 @@ Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음�
 - 클러스터형 MSDTC 리소스는 공유 저장소를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 저장소가 있더라도 사용 가능한 공유 저장소가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 [원격 데스크톱(Azure)을 사용하여 S2D 설치](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

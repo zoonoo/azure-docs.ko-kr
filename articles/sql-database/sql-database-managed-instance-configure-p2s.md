@@ -12,18 +12,18 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 9ca9506ad9ca826349b2815e504e9ba8bf976faa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e1287edbca6b603d103f11636959b6fe13e578
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702072"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798088"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성
 
 이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Database Managed Instance에 연결하는 방법을 보여줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../vpn-gateway/point-to-site-about.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작의 특징은 다음과 같습니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "60702072"
        certificateNamePrefix  = '<certificateNamePrefix>'
        }
 
-     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
+     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
      > [!IMPORTANT]
@@ -85,7 +85,7 @@ ms.locfileid: "60702072"
 1. 로 이동 **VPN** 에 **네트워크 및 인터넷** 온-프레미스 클라이언트 컴퓨터에서이 VNet에 연결 하려면 관리 되는 인스턴스 가상 네트워크를 선택 합니다. 다음 이미지에서 VNet 이름은 **MyNewVNet**입니다.
 
     ![VPN 연결](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. **연결**을 선택합니다.
+2.           **연결**을 선택합니다.
 3. 대화 상자에서 **연결**을 선택합니다.
 
     ![VPN 연결](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  

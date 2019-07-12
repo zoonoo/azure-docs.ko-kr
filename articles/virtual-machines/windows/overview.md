@@ -4,7 +4,7 @@ description: Azure에서 Windows 가상 머신 만들기 및 관리에 대해 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506836"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723044"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
@@ -48,7 +48,7 @@ Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 
 * 시작 이후의 VM 구성
 * VM에 필요한 관련 리소스
 
-### <a name="naming"></a>이름 지정
+### <a name="naming"></a>명명
 가상 머신에는 할당된 [이름](/azure/architecture/best-practices/naming-conventions)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
 
 Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 머신 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-generalized-managed.md) 이 이미지를 사용하여 가상 머신을 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 머신 이름을 동일하게 지정하는 것이 좋습니다.
@@ -58,9 +58,9 @@ Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](h
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 메서드 | Description |
 | --- | --- |
-| Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
+| Azure Portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
 | REST API |[위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions) 작업을 사용합니다. |
 | Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 작업을 사용합니다. |
@@ -80,9 +80,9 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 
 아래 표에서는 이미지에 대한 정보를 찾을 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 메서드 | Description |
 | --- | --- |
-| Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
+| Azure Portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
@@ -98,26 +98,26 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 * **구성 배포 및 관리** – [PowerShell DSC(필요한 상태 구성) 확장](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 구성과 환경을 관리하도록 VM에 DSC를 설정할 수 있습니다.
 * **진단 데이터 수집** – [Azure Diagnostics 확장](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하면 애플리케이션의 상태를 모니터링하는 데 사용할 수 있는 진단 데이터를 수집하도록 VM을 구성할 수 있습니다.
 
-### <a name="related-resources"></a>관련 리소스
+### <a name="related-resources"></a>관련 참고 자료
 이 표에 있는 리소스는 VM에서 사용하며, VM을 만들 때 이미 존재하거나 만들어야 합니다.
 
-| Resource | 필수 | 설명 |
+| 리소스 | 필수 | 설명 |
 | --- | --- | --- |
 | [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
 | [저장소 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
-| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아닙니다. |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
+| [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아니요 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
-| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아닙니다. |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
+| [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아니요 |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
 VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속해 있는 환경에 따라 달라집니다. 
 
 아래 표에서는 VM을 만들기 시작할 때 가져올 수 있는 정보를 제공합니다.
 
-| 방법 | 문서 |
+| 메서드 | 문서 |
 | --- | --- |
-| Azure portal |[포털에서 Windows를 실행하는 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure Portal |[포털에서 Windows를 실행하는 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 템플릿 |[리소스 관리자 템플릿을 사용하여 Windows 가상 머신 만들기](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 클라이언트 SDK |[C#를 사용하여 Azure 리소스 배포](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
@@ -129,12 +129,12 @@ VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속�
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>만든 VM을 관리하는 방법
 VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구로 관리하거나 REST API를 통해 직접 관리할 수 있습니다. 수행 가능한 몇 가지 일반 관리 작업으로 VM 관련 정보 가져오기, VM에 로그인, 가용성 관리 및 백업 만들기가 있습니다.
 
-### <a name="get-information-about-a-vm"></a>VM 관련 정보 가져오기
+### <a name="get-information-about-a-vm"></a>VM에 대한 정보 가져오기
 아래 표에서는 VM에 대한 정보를 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 | --- | --- |
-| Azure portal |허브 메뉴에서 **Virtual Machines**를 클릭하고 목록에서 VM을 선택합니다. VM에 대한 블레이드에서 개요 정보, 설정 값 및 모니터링 메트릭에 액세스할 수 있습니다. |
+| Azure Portal |허브 메뉴에서 **Virtual Machines**를 클릭하고 목록에서 VM을 선택합니다. VM에 대한 블레이드에서 개요 정보, 설정 값 및 모니터링 메트릭에 액세스할 수 있습니다. |
 | Azure PowerShell |PowerShell을 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell 을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 | REST API |[VM 가져오기 정보](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
 | 클라이언트 SDK |C#를 사용한 VM 관리에 대한 내용은 [Azure Resource Manager 및 C#를 사용하여 Azure Virtual Machines 관리](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
@@ -146,7 +146,7 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 ### <a name="manage-availability"></a>가용성 관리
 애플리케이션의 [높은 가용성을 보장](manage-availability.md)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
-99\.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ### <a name="back-up-the-vm"></a>VM 백업
 [Recovery Services 자격 증명 모음](../../backup/backup-introduction-to-azure-backup.md)은 Azure Backup 및 Azure Site Recovery 서비스 모두에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하면 [PowerShell을 통해 Resource Manager 배포 VM에 대한 백업을 배포하고 관리할 수 있습니다](../../backup/backup-azure-vms-automation.md). 

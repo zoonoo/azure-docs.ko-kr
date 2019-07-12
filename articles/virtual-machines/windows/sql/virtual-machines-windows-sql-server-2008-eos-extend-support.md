@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304215"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607129"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>SQL Server 2008 및 Azure 사용 하 여 SQL Server 2008 R2에 대 한 지원 확장
 
@@ -40,10 +40,10 @@ Marketplace를 통해 배포 된 이미지는 SQL IaaS 확장을 미리 설치 �
   > [!NOTE]
   > SQL server `Create` 하 고 `Manage` 블레이드에서 Azure portal에서 SQL Server 2008 r2 이미지를 사용 하 여 작동, 다음 기능은 _지원 되지 않습니다_: 자동 백업, Azure Key Vault 통합, R Services 및 저장소 구성 합니다.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 종 량 제 SQL Server 2008R2 배포 변환할 수 있습니다 [Azure 하이브리드 혜택 (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/)합니다.
 
-SQL VM을 사용 하 여 등록 해야 고객은 SA (Software Assurance) 기반 라이선스에 종 량 제를 변환할 [리소스 공급자](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)합니다. SQL VM 리소스 공급자에 등록 되 면 SQL 라이선스 유형을 AHB 및 종 량 제 간에 서로 바꿔 사용할 수 됩니다.
+SQL VM을 사용 하 여 등록 해야 고객은 SA (Software Assurance) 기반 라이선스에 종 량 제를 변환할 [리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)합니다. SQL VM 리소스 공급자에 등록 되 면 SQL 라이선스 유형을 AHB 및 종 량 제 간에 서로 바꿔 사용할 수 됩니다.
 
 Azure VM에서 자체 설치 된 SQL Server 2008 또는 SQL Server 2008 R2 인스턴스는 SQL 리소스 공급자를 등록 하 고 종 량 제의 라이선스 유형을 변환할 수 있습니다.
 
@@ -69,7 +69,7 @@ EOS SQL Server Azure VM에 대 한 재해 복구 솔루션은 다음과 같습�
 - **Azure Site Recovery**: 영역 및 Azure Site Recovery 복제를 통해 지역 간의 VM을 복제할 수 있습니다. SQL Server 재해 발생 시 복구를 보장 하기 위해 응용 프로그램 일치 스냅숏이 필요 합니다. Azure Site Recovery는 최소 1 시간 RPO 및 2 시간 + SQL Server 복구 시간 RTO EOS SQL Server DR에 대 한 제공합니다.
 
 ## <a name="security-patching"></a>보안 패치
-SQL Server Vm에 대 한 확장 된 보안 업데이트 Microsoft 업데이트 채널을 통해 제공 될 SQL을 사용 하 여 SQL Server VM을 등록 되 면 [리소스 공급자](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)합니다. 패치를 수동으로 또는 자동으로 다운로드할 수 있습니다.
+SQL Server Vm에 대 한 확장 된 보안 업데이트 Microsoft 업데이트 채널을 통해 제공 될 SQL을 사용 하 여 SQL Server VM을 등록 되 면 [리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)합니다. 패치를 수동으로 또는 자동으로 다운로드할 수 있습니다.
 
 **Automated patching**이 사용됩니다. Azure에서는 자동화된 패치를 통해 SQL Server와 운영 체제를 자동으로 패치합니다. SQL IaaS 확장을 설치 하는 경우 하루에 요일, 시간 및 유지 관리 기간에 대 한 기간을 지정할 수 있습니다. Azure에서 유지 관리 기간에 패치를 수행합니다. 유지 관리 기간 일정에서는 VM 로캘 시간을 사용합니다.  자세한 내용은 [Azure Virtual Machines에서 SQL Server의 자동화된 패치](virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
 

@@ -3,19 +3,19 @@ title: 기존 Azure SQL Data Warehouse를 Gen2로 마이그레이션 | Microsoft
 description: 기존 데이터 웨어하우스를 Gen2로 마이그레이션하기 위한 지침과 지역별 마이그레이션 일정입니다.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: e1327ded4b07f379f954ee5594b4eec2b7523ab4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444700"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621123"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
 
@@ -30,7 +30,7 @@ Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 
 
 \*은 해당 지역의 특정 일정을 현재 사용할 수 없음을 나타냅니다.
 
-| **지역** | **하위 Gen2 사용 가능** | **자동 업그레이드 시작** |
+| **Region** | **하위 Gen2 사용 가능** | **자동 업그레이드 시작** |
 |:--- |:--- |:--- |
 | 오스트레일리아 동부 |사용 가능 |2019 년 6 월 1 일 |
 | 오스트레일리아 남동부 |사용 가능 |2019년 5월 1일 |
@@ -55,7 +55,7 @@ Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 
 | 한국 중부 |사용 가능 |2019 년 6 월 1 일 |
 | 한국 남부 |사용 가능 |2019년 5월 1일 |
 | 미국 중북부 |사용 가능 |2019년 5월 1일 |
-| 유럽 북부 |사용 가능 |2019 년 6 월 1 일 |
+| 북유럽 |사용 가능 |2019 년 6 월 1 일 |
 | 미국 중남부 |사용 가능 |2019 년 6 월 1 일 |
 | 동남아시아 |사용 가능 |2019 년 6 월 1 일 |
 | 영국 남부 |2019 사용 가능 |2019 년 6 월 1 일 |

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787805"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605684"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>2-회귀 샘플: 가격을 예측 하 고 알고리즘 비교
 
@@ -27,7 +27,7 @@ machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 
 
 [![실험 그래프](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -96,3 +96,4 @@ machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 
 - [3-분류 샘플: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
 - [4-분류 샘플: (중요 한 비용) 신용 위험 예측](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [5-분류 샘플: 이탈 예측](ui-sample-classification-predict-churn.md)
+- [6-분류 샘플: 비행 지연을 예측합니다](ui-sample-classification-predict-flight-delay.md)

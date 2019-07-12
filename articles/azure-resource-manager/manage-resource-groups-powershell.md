@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5197358e3bd8a3052fbf71cafc2f1e3acda46b26
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296254"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721154"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -89,7 +89,7 @@ Azure Resource Manager 리소스의 삭제를 정렬 하는 방법에 대 한 �
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>다른 리소스 그룹 또는 구독으로 이동
 
-다른 리소스 그룹으로 그룹의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](./resource-group-move-resources.md#move-resources)을 참조하세요.
+다른 리소스 그룹으로 그룹의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](./resource-group-move-resources.md)을 참조하세요.
 
 ## <a name="lock-resource-groups"></a>잠금 리소스 그룹
 

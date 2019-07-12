@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84ad88ef738f798103a1d5bf8f9c8504433686a7
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236581"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653201"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 
@@ -23,7 +23,7 @@ Azure SQL Data Warehouse를 백업하고 복원하는 방법을 알아봅니다.
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>데이터 웨어하우스 스냅숏은 무엇입니까
 
-*데이터 웨어하우스 스냅숏*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅샷은 Azure 저장소에 있는 여러 파일로 구성됩니다. 스냅샷은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
+*데이터 웨어하우스 스냅샷*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅샷은 Azure 저장소에 있는 여러 파일로 구성됩니다. 스냅샷은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
 
 *데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다.  SQL Data Warehouse 복원 속도는 원본 및 대상 데이터 웨어하우스의 위치와 데이터베이스 크기에 따라 달라질 수 있습니다. 동일한 지역 내에서 평균적으로 복원에는 일반적으로 약 20분이 걸립니다. 
 
@@ -101,7 +101,7 @@ SQL Data Warehouse 가격 책정에 대 한 자세한 내용은 [SQL Data Wareho
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
 
-[데이터 웨어하우스](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)는 선택한 성능 수준에서 SQL Data Warehouse를 지원하는 모든 지역에 복원할 수 있습니다.
+[데이터 웨어하우스](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region-using-powershell)는 선택한 성능 수준에서 SQL Data Warehouse를 지원하는 모든 지역에 복원할 수 있습니다.
 
 > [!NOTE]
 > 지역 중복 복원을 수행하려면 이 기능에서 옵트아웃(opt out)하지 않아야 합니다.

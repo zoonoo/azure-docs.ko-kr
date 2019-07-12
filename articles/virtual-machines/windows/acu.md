@@ -4,7 +4,7 @@ description: Windows용 Azure 컴퓨팅 단위의 개념 개요. ACU에서는 Az
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: ae1d6ddfb96d65a730fd1008f44c663d3b447b17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03c3ffee2437ed0c84bc0ec7a0e58d4381407125
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036136"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721170"
 ---
 # <a name="azure-compute-unit-acu"></a>ACU(Azure 컴퓨팅 단위)
 
@@ -30,7 +30,7 @@ ms.locfileid: "61036136"
 다양한 크기에 대한 자세한 내용은 다음 링크를 참조하세요.
 - [범용](sizes-general.md)
 - [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)
-- [Compute에 최적화](sizes-compute.md)
+- [컴퓨팅 최적화](sizes-compute.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 계산](sizes-hpc.md)
 - [Storage에 최적화](sizes-storage.md)

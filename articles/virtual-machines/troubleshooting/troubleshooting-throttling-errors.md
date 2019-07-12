@@ -4,7 +4,7 @@ description: Azure Compute의 제한 오류, 다시 시도 및 백오프.
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9e0f2620bf6ff163207fc16ee24a327936ec4bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233771"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709191"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
@@ -32,7 +32,7 @@ Azure API 클라이언트에 제한 오류가 발생하면 HTTP 상태가 429 �
 
 ## <a name="call-rate-informational-response-headers"></a>호출 속도 정보 응답 헤더 
 
-| 헤더                            | 값 형식                           | 예                               | 설명                                                                                                                                                                                               |
+| 헤더                            | 값 형식                           | 예제                               | 설명                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 이 요청의 대상을 비롯한 리소스 버킷 또는 작업 그룹을 포함하는 제한 정책의 나머지 API 호출 수                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 호출 수는 해당 정책의 제한에 대한 이 HTTP 요청의 경우 "청구됨"으로 계산됩니다. 이 수는 가장 일반적으로 1입니다. 가상 머신 확장 집합 크기 조정의 경우와 같이 일괄 처리 요청은 여러 개수에 요금을 청구할 수 있습니다. |

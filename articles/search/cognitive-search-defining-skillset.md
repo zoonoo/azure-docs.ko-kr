@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540869"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672107"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
-인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술 집합을 사용할 수 있습니다 [기본 제공 기술을](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술 (참조 [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 자세한).
+인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술 집합을 사용할 수 있습니다 [기본 제공 기술을](cognitive-search-predefined-skills.md) 또는 사용자 정의 기술 (참조 [예제: Cognitive search에 대해 사용자 지정 기술을 만들어](cognitive-search-create-custom-skill-example.md) 자세한).
 
 이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술 집합은 Azure Search [인덱서](search-indexer-overview.md)에 첨부되어 있습니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
 
@@ -173,7 +173,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들면 다음과 같습니다.
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -237,7 +237,7 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>구조를 추가 합니다.
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 살펴보세요.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 참조하세요.
 
 *"4분기에 Microsoft는 작년에 사들인 소셜 네트워킹 회사 LinkedIn에서 11억 달러의 수익을 기록했습니다. 이 인수는 Microsoft가 LinkedIn 기능을 자사의 CRM 및 Office 기능과 결합할 수 있게 했습니다. 주주들은 지금까지의 진행 상황에 만족해 합니다.”*
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f559d2c2398998ba590419758de559f21d9b65f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 166b7727362549aaf054e3f0282c564eca687eb9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696936"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672872"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "64696936"
 > [!NOTE]
 > 이 자습서는 Azure AD 사용자 프로 비전 서비스를 기반으로 빌드되는 커넥터를 설명 합니다. 이 서비스의 용도, 작동 방법 및 자주 묻는 질문에 대 한 내용은 참조 하세요 [사용자 프로 비전 및 Azure Active Directory를 사용 하 여 소프트웨어-as a service (SaaS) 응용 프로그램에 프로 비전 해제 자동화](../manage-apps/user-provisioning.md)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명 된 시나리오에서는 있다고 가정 합니다.
 
@@ -104,7 +104,7 @@ Marketplace에서 Zendesk를 추가 하려면 다음이 단계를 수행 합니�
 
 5. 아래는 **관리자 자격 증명** 섹션에서 관리자 사용자 이름, 보안 토큰 및 Zendesk 계정의 도메인을 입력 합니다. 이러한 값의 예는 다음과 같습니다.
 
-   * 에 **관리자 사용자 이름** 상자에서 Zendesk 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예는 admin@contoso.com입니다.
+   * 에 **관리자 사용자 이름** 상자에서 Zendesk 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예제입니다. admin@contoso.com
 
    * 에 **비밀 토큰** 상자에서 6 단계에에서 설명 된 대로 비밀 토큰을 입력 합니다.
 
@@ -124,7 +124,7 @@ Marketplace에서 Zendesk를 추가 하려면 다음이 단계를 수행 합니�
 
     ![Zendesk 알림 전자 메일](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. **저장**을 선택합니다.
+9.           **저장**을 선택합니다.
 
 10. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Zendesk**(Azure Active Directory 사용자를 Zendesk에 동기화)를 선택합니다.
 
@@ -168,7 +168,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * 사용자 지정 역할을 사용자 또는 그룹에 할당할도 프로 비전 서비스는 Azure AD 자동 사용자 기본 역할 할당 **에이전트**합니다. 에이전트 에서만 사용자 지정 역할을 할당할 수 있습니다. 자세한 내용은 참조는 [Zendesk API 설명서](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests)합니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

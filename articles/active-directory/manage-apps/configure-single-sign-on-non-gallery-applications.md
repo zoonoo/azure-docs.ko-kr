@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550345"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807645"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 비 갤러리 응용 프로그램에서 single sign-on 구성
 
@@ -50,13 +50,14 @@ Microsoft id 플랫폼 응용 프로그램을 등록 하는 두 가지 메커니
 앱 통합 템플릿을 사용 하 여 목록에 없는 응용 프로그램에 연결 하려면 다음이 단계를 수행 합니다.
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 Microsoft id 플랫폼 관리자 계정을 사용 하 여 합니다.
-2. 선택 **엔터프라이즈 응용 프로그램** > **새 응용 프로그램**합니다.
-3. (선택 사항 이지만 권장 됨) 에 **갤러리에서 추가** 검색 상자에서 응용 프로그램의 표시 이름을 입력 합니다. 응용 프로그램 검색 결과에 나타나면 선택 하 고이 절차의 나머지를 건너뜁니다.
-4. 선택 **비 갤러리 응용 프로그램**합니다. 합니다 **사용자 고유의 응용 프로그램을 추가** 페이지가 나타납니다.
+1. 선택 **엔터프라이즈 응용 프로그램** > **새 응용 프로그램**합니다.
+1. (선택 사항 이지만 권장 됨) 에 **갤러리에서 추가** 검색 상자에서 응용 프로그램의 표시 이름을 입력 합니다. 응용 프로그램 검색 결과에 나타나면 선택 하 고이 절차의 나머지를 건너뜁니다.
+1. 선택 **비 갤러리 응용 프로그램**합니다. 합니다 **사용자 고유의 응용 프로그램을 추가** 페이지가 나타납니다.
 
-   ![애플리케이션 추가](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. 새 응용 프로그램에 대 한 표시 이름을 입력 합니다.
-6. **추가**를 선택합니다.
+   ![추가 사용자 고유의 응용 프로그램 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. 새 응용 프로그램에 대 한 표시 이름을 입력 합니다.
+1. **추가**를 선택합니다.
 
 이러한 방식으로 응용 프로그램을 추가 하 여 미리 통합 된 응용 프로그램에 대 한를 사용할 수 있는 유사한 환경을 제공 합니다. 먼저 선택 **Single sign on** 응용 프로그램의 사이드바에서. 다음 페이지 (**single sign-on 방법을 선택**) SSO를 구성 하는 것에 대 한 옵션을 제공 합니다.
 
@@ -64,7 +65,7 @@ Microsoft id 플랫폼 응용 프로그램을 등록 하는 두 가지 메커니
 - **암호 기반**
 - **연결됨**
 
-![Single Sign-On 방법 선택](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Select single sign-on 방법 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 이러한 옵션에 대 한 자세한 내용은이 문서의 다음 섹션을 참조 하세요.
 
@@ -72,7 +73,7 @@ Microsoft id 플랫폼 응용 프로그램을 등록 하는 두 가지 메커니
 
 선택 된 **SAML** 응용 프로그램에 SAML 기반 인증을 구성 하는 옵션입니다. (이 옵션이 필요는 응용 프로그램이 SAML 2.0을 지원 합니다.) 합니다 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지가 나타납니다.
 
-![Saml에서 single sign-on을 설정](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Single sign-on SAML 페이지를 사용 하 여 집합을 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 이 페이지에는 5 개의 다른 머리글에 있습니다.
 
@@ -90,7 +91,7 @@ Microsoft id 플랫폼 응용 프로그램을 등록 하는 두 가지 메커니
 
 Azure AD를 설정 하려면로 이동 합니다 **기본 SAML 구성** 제목과 선택 해당 **편집** 아이콘 (연필). 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
 
-![기본 SAML 구성](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![기본 SAML 구성 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 다음 두 필드를이 필요 합니다.
 
@@ -141,7 +142,7 @@ Azure AD를 설정 하려면로 이동 합니다 **기본 SAML 구성** 제목�
 
 - 로 이동 합니다 **사용자 특성 및 클레임** 제목과 선택 합니다 **편집** 아이콘. 합니다 **사용자 특성 및 클레임** 페이지가 나타납니다.
 
-![사용자 특성 및 클레임](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![사용자 특성 및 클레임 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 두 가지 이유로 SAML 토큰에서 발급 된 클레임을 편집 해야 합니다.
 
@@ -158,7 +159,7 @@ Azure AD에서 활성 주에서 직접 Base64 또는 원시 형식으로 인증�
 
 보거나, 만들거나, (활성 또는 비활성) 인증서를 다운로드로 이동 합니다 **SAML 서명 인증서** 머리글을 선택 합니다 **편집** 아이콘입니다. 합니다 **SAML 서명 인증서** 나타납니다.
 
-![SAML 서명 인증서](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![SAML 서명 인증서 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 인증서에 다음이 있는지 확인합니다.
 
@@ -182,13 +183,13 @@ SAML 기반 id 공급자로 Azure AD를 사용 하도록 응용 프로그램을 
 새 사용자 또는 그룹에 할당할 응용 프로그램:
 
 1. 응용 프로그램 보충 기사에서 선택 **사용자 및 그룹**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 현재 할당 된 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
-2. 선택 **사용자 추가**합니다. 합니다 **할당 추가** 페이지가 나타납니다.
-3. 선택 **사용자 및 그룹 (\<번호 > 선택한)** 합니다. 합니다 **사용자 및 그룹** 사용 가능한 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
-4. 형식 또는 스크롤 사용자 또는 목록에서 할당 하려는 그룹을 찾을 수 있습니다.
-5. 각 사용자 또는 그룹을 추가 하 고 다음을 선택 합니다 **선택** 단추입니다. 합니다 **사용자 및 그룹** 페이지 사라집니다.
-6. 에 **할당 추가** 페이지에서 **할당**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 페이지가 목록에 표시 된 추가 사용자에 게 표시 됩니다.
+1. 선택 **사용자 추가**합니다. 합니다 **할당 추가** 페이지가 나타납니다.
+1. 선택 **사용자 및 그룹 (\<번호 > 선택한)** 합니다. 합니다 **사용자 및 그룹** 사용 가능한 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
+1. 형식 또는 스크롤 사용자 또는 목록에서 할당 하려는 그룹을 찾을 수 있습니다.
+1. 각 사용자 또는 그룹을 추가 하 고 다음을 선택 합니다 **선택** 단추입니다. 합니다 **사용자 및 그룹** 페이지 사라집니다.
+1. 에 **할당 추가** 페이지에서 **할당**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 페이지가 목록에 표시 된 추가 사용자에 게 표시 됩니다.
 
-   ![응용 프로그램 사용자 및 그룹](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![응용 프로그램 사용자 및 그룹 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 이 목록에서 다음을 수행할 수 있습니다.
 
@@ -213,26 +214,29 @@ SAML 응용 프로그램을 테스트 하기 전에 있어야 이미 Azure AD �
 
 선택한 후 **암호 기반**, 응용 프로그램의 웹 기반 로그인 페이지의 URL을 입력 하 라는 메시지가 나타납니다.
 
-![암호 기반 Single Sign-On](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![로그온 URL을 입력 하려면 로그온 URL 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 다음이 단계를 수행 합니다.
 
 1. URL을 입력 합니다. 이 문자열에는 사용자 이름 입력된 필드를 포함 하는 페이지 여야 합니다.
-2. **저장**을 선택합니다. Azure AD는 사용자 이름 및 암호 입력에 대 한 로그인 페이지를 구문 분석 하려고 시도 합니다.
-3. Azure AD의 시도가 실패 하면 구문 분석 하는 경우 선택 **구성 \<응용 프로그램 이름 > 암호 Single sign-on 설정** 표시할 합니다 **sign on 구성** 페이지입니다. (시도가 성공 하면 무시할 수 있습니다이 절차의 나머지.)
-4. 선택 **로그인 필드 수동 검색**합니다. 로그인 필드 수동 검색 설명 하는 추가 지침이 표시 됩니다.
+1.           **저장**을 선택합니다. Azure AD는 사용자 이름 및 암호 입력에 대 한 로그인 페이지를 구문 분석 하려고 시도 합니다.
+1. Azure AD의 시도가 실패 하면 구문 분석 하는 경우 선택 **구성 \<응용 프로그램 이름 > 암호 Single sign-on 설정** 표시할 합니다 **sign on 구성** 페이지입니다. (시도가 성공 하면 무시할 수 있습니다이 절차의 나머지.)
+1. 선택 **로그인 필드 수동 검색**합니다. 로그인 필드 수동 검색 설명 하는 추가 지침이 표시 됩니다.
 
    ![암호 기반 single sign-on의 수동 구성](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. 선택 **로그인 필드 캡처**합니다. 메시지를 보여 주는 새 탭에는 캡처 상태 페이지가 열립니다 **메타 데이터 캡처가 현재 진행 중인**합니다.
-6. 경우는 **액세스 패널 확장 필요** 선택 상자는 새 탭에 표시 됩니다 **지금 설치** 설치 하는 **내 앱 보안 로그인 확장** 브라우저 확장 합니다. (브라우저 확장을 Microsoft Edge, Chrome 또는 Firefox 필요합니다.) 설치, 시작 및 확장을 사용 하도록 설정 및 캡처 상태 페이지를 새로 고칩니다.
+
+1. 선택 **로그인 필드 캡처**합니다. 메시지를 보여 주는 새 탭에는 캡처 상태 페이지가 열립니다 **메타 데이터 캡처가 현재 진행 중인**합니다.
+1. 경우는 **액세스 패널 확장 필요** 선택 상자는 새 탭에 표시 됩니다 **지금 설치** 설치 하는 **내 앱 보안 로그인 확장** 브라우저 확장 합니다. (브라우저 확장을 Microsoft Edge, Chrome 또는 Firefox 필요합니다.) 설치, 시작 및 확장을 사용 하도록 설정 및 캡처 상태 페이지를 새로 고칩니다.
 
    그런 다음 브라우저 확장을 입력 한 URL을 표시 하는 다른 탭을 엽니다.
-7. 입력 한 URL 사용 하 여 탭에서 로그인 프로세스를 진행 합니다. 사용자 이름 및 암호 필드를 입력 하 고 로그인을 시도 합니다. (필요가 올바른 암호를 제공 합니다.)
+
+1. 입력 한 URL 사용 하 여 탭에서 로그인 프로세스를 진행 합니다. 사용자 이름 및 암호 필드를 입력 하 고 로그인을 시도 합니다. (필요가 올바른 암호를 제공 합니다.)
 
    캡처된 로그인 필드를 저장 하 라는 메시지가 됩니다.
-8. **확인**을 선택합니다. 탭을 닫습니다, 메시지를 사용 하 여 캡처 상태 페이지를 업데이트 하는 브라우저 확장을 **응용 프로그램에 대 한 메타 데이터가 업데이트 된**, 및 해당 브라우저 탭도 닫습니다.
-9. Azure ad에서 **sign on 구성** 페이지에서 **앱에 성공적으로 로그인 적용할 수 있었으며,** .
-10. **확인**을 선택합니다.
+
+1.           **확인**을 선택합니다. 탭을 닫습니다, 메시지를 사용 하 여 캡처 상태 페이지를 업데이트 하는 브라우저 확장을 **응용 프로그램에 대 한 메타 데이터가 업데이트 된**, 및 해당 브라우저 탭도 닫습니다.
+1. Azure ad에서 **sign on 구성** 페이지에서 **앱에 성공적으로 로그인 적용할 수 있었으며,** .
+1.           **확인**을 선택합니다.
 
 로그인 페이지의 캡처를 후 사용자 및 그룹을 할당할 수 있습니다 및 일반 마찬가지로 자격 증명 정책을 설정할 수 있습니다 [암호 SSO 응용 프로그램](what-is-single-sign-on.md)합니다.
 

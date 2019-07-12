@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108477"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625542"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음 섹션을 효율적으로 배포 환경에 대해 설정 하는 요소를 계획 하는 키의 광범위 한 볼 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 구현 시작 하기 전에 다음 필수 조건을 충족 해야 합니다. 이러한 필수 구성이 요소를 포함 하 여이 환경을 설정에서 자세한 정보를 볼 수 있습니다 [자습서](application-proxy-add-on-premises-application.md)합니다.
 
@@ -70,7 +70,8 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 * **공용 인증서**: 사용자 지정 도메인 이름을 사용 하는 경우 신뢰할 수 있는 타사 인증 기관에서 발급 된 공용 인증서를 확보 해야 합니다. 조직 요구 사항에 따라 인증서를 가져오는 시간이 걸릴 수 있으며 최대한 빨리 프로세스를 시작 하는 것이 좋습니다. Azure 응용 프로그램 프록시는 표준 지원 [와일드 카드](application-proxy-wildcard.md), 또는 인증서 SAN 기반 합니다.
 
-* **도메인 요구 사항**: Kerberos 제한 위임 (KCD)을 사용 하 여 게시 된 응용 프로그램에서 single sign-on 커넥터 호스트는 게시 중인 응용 프로그램과 동일한 AD 도메인에 가입 해야 합니다. 항목에 대 한 자세한 내용은 참조 하세요. [single sign on에 대 한 KCD](application-proxy-configure-single-sign-on-with-kcd.md) 응용 프로그램 프록시를 사용 합니다. 커넥터 서비스 로컬 시스템 컨텍스트에서 실행 하 고 사용자 지정 id를 사용 하도록 구성 되지 해야 합니다.
+* **도메인 요구 사항**: Kerberos 제한 위임 (KCD)을 사용 하 여 게시 된 응용 프로그램에서 single sign-on 커넥터를 실행 하는 서버와 앱을 실행 하는 서버는 도메인에 가입 하 고 동일한 도메인 또는 신뢰 하는 도메인의 일부로 필요 합니다.
+항목에 대 한 자세한 내용은 참조 하세요. [single sign on에 대 한 KCD](application-proxy-configure-single-sign-on-with-kcd.md) 응용 프로그램 프록시를 사용 합니다. 커넥터 서비스 로컬 시스템 컨텍스트에서 실행 하 고 사용자 지정 id를 사용 하도록 구성 되지 해야 합니다.
 
 * **Url에 대 한 DNS 레코드**
 
@@ -92,8 +93,8 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 | 정보 유형| 수집할 정보 |
 |---|---|
-| 서비스 유형| 예를 들면 다음과 같습니다. SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
-| 애플리케이션 플랫폼 | 예를 들면 다음과 같습니다. Windows IIS, Apache Tomcat, Linux, NGINX를 |
+| 서비스 유형| 예를 들어: SharePoint, SAP, CRM, 사용자 지정 웹 응용 프로그램, API |
+| 애플리케이션 플랫폼 | 예를 들어: Windows IIS, Apache Tomcat, Linux, NGINX를 |
 | 도메인 멤버 자격| 웹 서버의 정규화 된 도메인 이름 (FQDN) |
 | 응용 프로그램 위치 | 인프라에서 웹 서버 또는 팜에 있는 위치 |
 | 내부 액세스 | 내부적으로 응용 프로그램에 액세스할 때 사용 되는 정확한 URL입니다. <br> 팜에 어떤 유형의 부하 분산 사용 중인지 여부? <br> 여부는 응용 프로그램 자체 이외의 원본에서 콘텐츠를 그립니다.<br> Websocket을 통해 응용 프로그램이 작동 하는 경우를 결정 합니다. |

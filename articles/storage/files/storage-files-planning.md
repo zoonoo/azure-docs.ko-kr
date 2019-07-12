@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564412"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827050"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -173,7 +173,7 @@ Azure Files premium 공유는 로컬 중복 저장소 (LRS)만 지원합니다.
 ### <a name="geo-redundant-storage"></a>지역 중복 저장소
 
 > [!Warning]  
-> Azure 파일 공유를 GRS 스토리지 계정의 클라우드 엔드포인트로 사용하는 경우 스토리지 계정 장애 조치(failover)를 시작하면 안 됩니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역의 손실의 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(Failover)를 트리거합니다.
+> Azure 파일 공유를 GRS 스토리지 계정의 클라우드 엔드포인트로 사용하는 경우 스토리지 계정 장애 조치(failover)를 시작하면 안 됩니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역이 손실되는 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(failover)를 트리거합니다.
 
 GRS(지역 중복 저장소)는 기본 지역에서 수백 마일 떨어진 보조 지역에 데이터를 복제하여 지정된 1년에 걸쳐 99.99999999999999%(16개의 9) 이상의 개체 내구성을 제공하도록 설계되었습니다. 스토리지 계정에서 GRS를 활성화하면 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해의 경우라도 데이터는 지속됩니다.
 
@@ -195,7 +195,7 @@ GRS가 활성화 된 저장소 계정에 대 한 모든 데이터는 먼저 로�
 
 이 섹션에서는 표준 파일 공유에만 적용 됩니다. 모든 프리미엄 파일 공유는 GA 제품으로 100tib 사용할 수 있습니다.
 
-### <a name="restrictions"></a>제한
+### <a name="restrictions"></a>Restrictions
 
 - (확장할 수 없습니다 기존 저장소 계정을) 새 범용 저장소 계정을 만드는 데 필요 합니다.
 - 더 큰 파일 공유 미리 보기 구독 수락 된 후 만든 새로운 storage 계정에 가능한 LRS에서 GRS 계정 변환 되지 않습니다.
@@ -204,16 +204,26 @@ GRS가 활성화 된 저장소 계정에 대 한 모든 데이터는 먼저 로�
 
 표준 파일 공유는 5tib까지 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 제한 옵션을 사용할 수, 해당 지역 다음 표에 나열 됩니다.
 
-|지역  |지원 되는 중복성  |기존 저장소 계정을 지원  |
+|Region  |지원 되는 중복성  |기존 저장소 계정을 지원  |
 |---------|---------|---------|
-|동남 아시아     |LRS|아닙니다.         |
-|서유럽     |LRS|아닙니다.         |
-|미국 서부 2     |LRS, ZRS|아닙니다.         |
+|동남 아시아     |LRS|아니요         |
+|서유럽     |LRS|아니요         |
+|미국 서부 2     |LRS, ZRS|아니요         |
 
+새 지역 및 기능 우선순위를 위해이 입력 하세요 [설문 조사](https://aka.ms/azurefilesatscalesurvey)합니다.
 
 ### <a name="steps-to-onboard"></a>온 보 딩 단계
 
-더 큰 파일 공유 미리 보기 구독에 등록 하려면 다음 PowerShell 명령을 실행 합니다.
+구독을 더 큰 파일 공유 미리 보기를 등록 하려면 Azure PowerShell을 사용 해야 합니다. 사용할 수 있습니다 [Azure Cloud Shell](https://shell.azure.com/) 하거나 설치를 [Azure PowerShell 모듈을 로컬](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) 다음 PowerShell 명령을 실행 하려면:
+
+먼저 미리 보기에 등록 하려면 구독 선택 되어 있는지 확인 합니다.
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+그런 다음 다음 명령을 사용 하 여 미리 보기에 등록 합니다.
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

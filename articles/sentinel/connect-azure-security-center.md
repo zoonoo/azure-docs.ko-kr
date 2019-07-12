@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f2f85f8b68efadf1dc0a35d1a8e6bda2655f53b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 697983000f84f9e4efe7e2c8ef9dbb2f636e0735
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65207291"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620568"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Azure Security Center에서 데이터 연결
 
@@ -31,7 +32,7 @@ ms.locfileid: "65207291"
 
 Azure Sentinel에서 경고를 연결할 수 있게 해 [Azure Security Center](../security-center/security-center-intro.md) Azure Sentinel에 스트리밍하 고 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Security Center에서 경고를 내보내려면 스트리밍할 수 있는 로그 구독 참가자 여야 합니다.
 
@@ -45,7 +46,7 @@ Azure Sentinel에서 경고를 연결할 수 있게 해 [Azure Security Center](
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Security Center** 바둑판식으로 배열 합니다.
 1. 오른쪽 클릭 **Connect** 옆에 있는 각 구독에 Azure Sentinel 스트리밍 하려는 경고가 포함 합니다. 각 구독은 Azure Sentinel에 경고를 스트림 하려면 Azure Security Center 표준 계층으로 업그레이드 해야 합니다.
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. Azure Security Center 경고에 대 한 Log Analytics에서 관련 스키마를 사용, 검색 **SecurityEvent**합니다.
 

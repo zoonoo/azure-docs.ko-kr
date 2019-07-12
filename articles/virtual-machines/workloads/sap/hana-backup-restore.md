@@ -4,7 +4,7 @@ description: Azure(큰 인스턴스)의 SAP HANA에서 HANA 백업 및 복원을
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e64c243e38c43c5eb543c3e2ec96d7cf8413cb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64987908"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709769"
 ---
-# <a name="backup-and-restore"></a>Backup 및 복원
+# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
 >[!IMPORTANT]
 >이 문서에서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체 하지 않습니다. SAP HANA 관리 및 작업, 특히 백업, 복원, 고가용성 및 재해 복구에 대 한 전문을 확실 하 게 이해 해야 하는 것이 예정입니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 나와 있습니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
@@ -120,7 +120,7 @@ HANA 큰 인스턴스를 사용 하 여 저장소 스냅숏을 설정 하려면 
 1. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0)의 스크립트 및 구성 파일을 SAP HANA 설치의 **hdbsql** 위치에 복사합니다.
 1. 적절한 고객 사양에 필요한 대로 *HANABackupDetails.txt* 파일을 수정합니다.
 
-[GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0)에서 최신 스냅숏 스크립트와 설명서를 다운로드하세요. 이전에 나열 된 단계를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
+[GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0)에서 최신 스냅샷 스크립트와 설명서를 다운로드하세요. 이전에 나열 된 단계를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
 
 ### <a name="consideration-for-mcod-scenarios"></a>MCOD 시나리오에 대한 고려 사항
 실행 하는 경우는 [MCOD 시나리오](https://launchpad.support.sap.com/#/notes/1681092) 하나의 HANA 큰 인스턴스 단위에 여러 SAP HANA 인스턴스를 사용 하 여 별도 저장소 볼륨이 각 SAP HANA 인스턴스에 대 한 프로 비전 해야 합니다. MDC 및 기타 고려 사항에 대 한 자세한 내용은 "기억해 야 할 중요 한"를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
@@ -287,7 +287,7 @@ SAP HANA 전체 로그 세그먼트를 자동으로 백업 하지만 확정 된 
 
 ### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>디스크 볼륨에서 스냅숏의 크기와 수를 모니터링 합니다.
 
-특정 저장소 볼륨에서 스냅샷의 개수 및 스냅샷의 저장소 사용을 모니터링할 수 있습니다. `ls` 명령은 스냅숏 디렉터리 또는 파일을 표시하지 않습니다. Linux OS 명령인 `du` 동일한 볼륨에 저장 하 고 있기 때문에 이러한 저장소 스냅숏에 대 한 세부 정보를 보여 줍니다. 명령을 사용 하 여 다음 옵션을 사용 하 여:
+특정 저장소 볼륨에서 스냅샷의 개수 및 스냅샷의 저장소 사용을 모니터링할 수 있습니다. `ls` 명령은 스냅샷 디렉터리 또는 파일을 표시하지 않습니다. Linux OS 명령인 `du` 동일한 볼륨에 저장 하 고 있기 때문에 이러한 저장소 스냅숏에 대 한 세부 정보를 보여 줍니다. 명령을 사용 하 여 다음 옵션을 사용 하 여:
 
 - `du –sh .snapshot`: 이 옵션은 스냅샷 디렉터리 내에서 모든 스냅샷을 제공합니다.
 - `du –sh --max-depth=1`: 이 옵션은 **.snapshot** 폴더에 저장된 모든 스냅샷 및 각 스냅샷의 크기를 나열합니다.

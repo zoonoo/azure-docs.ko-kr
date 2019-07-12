@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596616"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612600"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서에서는 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서의 코드를 기반으로 작성되었으며 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob Storage](../storage/index.yml)에 파일을 업로드하는 방법을 보여 줍니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+코드를 기반으로 한이 자습서는 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-node-node-c2d.md) 자습서를 사용 하는 방법을 보여는 [IoT Hub의 업로드 기능 파일](iot-hub-devguide-file-upload.md) 파일을 업로드할 [Azure blob 저장소](../storage/index.yml)합니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-- 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
-- 
-- IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
+* 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 
-[IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서는 IoT Hub의 기본 디바이스-클라우드 메시지 기능을 보여줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들면 다음과 같습니다.
+* IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-*  이미지가 포함된 대형 파일
-*  동영상
-*  자주 샘플링되는 진동 데이터
-*  특정 형태의 전처리 된 데이터입니다.
+합니다 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-node.md) 빠른 시작에서는 IoT Hub의 기본적인 장치-클라우드 메시징 기능을 보여줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
+
+* 이미지가 포함된 대형 파일
+* 비디오
+* 자주 샘플링되는 진동 데이터
+* 특정 형태의 전처리 된 데이터입니다.
 
 이러한 파일은 일반적으로 [Azure Data Factory](../data-factory/introduction.md) 또는 [Hadoop](../hdinsight/index.yml) 스택과 같은 도구를 사용하여 클라우드에서 배치 방식으로 처리됩니다. 디바이스에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
@@ -216,6 +216,8 @@ node SimulatedDevice.js
 
 이 자습서에서는 디바이스에서 파일 업로드를 단순화하기 위해 IoT Hub의 파일 업로드 기능을 사용하는 방법을 알아보았습니다. 다음 문서를 사용하여 IoT Hub 기능 및 시나리오를 계속 탐색할 수 있습니다.
 
-*  [프로그래밍 방식으로 IoT Hub 만들기](iot-hub-rm-template-powershell.md)
-*  [C SDK 소개](iot-hub-device-sdk-c-intro.md)
-*  [Azure IoT SDK](iot-hub-devguide-sdks.md)
+* [프로그래밍 방식으로 IoT Hub 만들기](iot-hub-rm-template-powershell.md)
+
+* [C SDK 소개](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)

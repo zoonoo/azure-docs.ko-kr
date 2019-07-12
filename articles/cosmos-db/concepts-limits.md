@@ -1,32 +1,32 @@
 ---
-title: Azure Cosmos DB의 한도
-description: 이 문서에는 Azure Cosmos DB에 대 한 제한을 설명합니다.
+title: Azure Cosmos DB 서비스 할당량
+description: Azure Cosmos DB 서비스 할당량 및 다른 리소스 형식에 기본 제한 합니다.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
-ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/10/2019
+ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561228"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797297"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB의 한도
+# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
-이 문서에서는 Azure Cosmos DB 서비스에 대 한 개요를 제공합니다.
+이 문서에서는 Azure Cosmos DB의 다른 리소스에 제공 되는 기본 할당량에 대 한 개요를 제공 합니다.
 
 ## <a name="storage-and-throughput"></a>저장소 및 처리량
 
 구독에서 Azure Cosmos 계정을 만든 후 하 여 계정에 데이터를 관리할 수 있습니다 [데이터베이스, 컨테이너 및 항목을 만드는](databases-containers-items.md)합니다. 컨테이너 수준 또는 측면의 데이터베이스 수준에서 처리량을 프로 비전 할 수 [요청 단위 (RU/s 또는 Ru)](request-units.md)합니다. 다음 표에서 저장소 및 컨테이너/데이터베이스 당 처리량 한도 나열합니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 컨테이너 당 최대 RUs ([전용된 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본적으로 1,000,000입니다. 증가 될 수 있습니다 [Azure 지원 티켓을 제출](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 통해 문의 하거나 [Cosmos DB 요청](mailto:askcosmosdb@microsoft.com) |
 | 데이터베이스당 최대 RUs ([공유 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본적으로 1,000,000입니다. 증가 될 수 있습니다 [Azure 지원 티켓을 제출](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 통해 문의 하거나 [Cosmos DB 요청](mailto:askcosmosdb@microsoft.com) |
 | 논리 파티션 키 당 최대 Ru | 10000 |
-| 모든 항목 (논리) 파티션 키 당 최대 저장소| 10 GB |
+| 모든 항목 (논리) 파티션 키 당 최대 저장소| 10GB |
 | 고유한 논리 파티션 키의 최대 수 | Unlimited |
 | 컨테이너 당 최대 저장소 | Unlimited |
 | 데이터베이스당 최대 저장소 | Unlimited |
@@ -42,7 +42,7 @@ Cosmos 컨테이너 (또는 공유 처리량 데이터베이스)에 최소 400 R
 
 컨테이너 또는 데이터베이스의 현재 및 최소 처리량은 Sdk 또는 Azure portal에서 검색할 수 있습니다. 자세한 내용은 [컨테이너 및 데이터베이스에 대 한 프로 비전 처리량](set-throughput.md)합니다. 요약 하자면, 최소 프로 비전 된 RU 제한이 다음과 같습니다. 
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 컨테이너 당 최소 RUs ([전용된 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 데이터베이스당 최소 RUs ([공유 처리량 프로 비전된 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
@@ -54,7 +54,7 @@ Cosmos DB는 컨테이너 또는 Sdk 또는 포털을 통해 데이터베이스 
 
 할 수 있습니다 [프로 비전 하 고 Azure Cosmos 계정 관리](how-to-manage-database-account.md) Azure portal, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 사용 합니다. 다음 표에 구독, 계정 및 작업 수가 별 한도가 있습니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 구독 당 최대 데이터베이스 계정 | 기본적으로 50입니다. 증가 될 수 있습니다 [Azure 지원 티켓을 제출](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 통해 문의 하거나 [Cosmos DB 요청](mailto:askcosmosdb@microsoft.com)|
 | 지역별 장애 조치의 최대 수 | 기본적으로 1 시간당 합니다. 증가 될 수 있습니다 [Azure 지원 티켓을 제출](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 통해 문의 하거나 [Cosmos DB 요청](mailto:askcosmosdb@microsoft.com)|
@@ -68,7 +68,7 @@ Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행 합니�
 
 Azure Cosmos 컨테이너를 사용 하는 API에 따라 두 컬렉션에 테이블을 나타내는 하거나 그래프 수 있습니다. 컨테이너 지원에 대 한 구성을 [고유 키 제약 조건이](unique-keys.md)를 [저장 프로시저, 트리거 및 Udf](stored-procedures-triggers-udfs.md), 및 [인덱싱 정책](how-to-manage-indexing-policy.md)합니다. 다음 표에서 컨테이너 내에서 구성에 특정 제한을 나열합니다. 
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 데이터베이스 또는 컨테이너 이름의 최대 길이 | 255 |
 | 컨테이너 당 최대 저장된 프로시저 | 100 <sup>*</sup>|
@@ -83,7 +83,7 @@ Azure Cosmos 컨테이너를 사용 하는 API에 따라 두 컬렉션에 테이
 
 사용할 API에 따라 Azure Cosmos 항목 행을 테이블 또는 노드 컬렉션의 문서 또는 그래프의 가장자리를 나타낼 수 있습니다. 다음 표에서 Cosmos DB에서 항목당 한도 보여 줍니다. 
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 항목의 최대 크기 | 2MB (JSON 표현의 길이 u t F-8) |
 | 파티션 키 값의 최대 길이 | 2048 바이트 |
@@ -101,7 +101,7 @@ Azure Cosmos 컨테이너를 사용 하는 API에 따라 두 컬렉션에 테이
 
 Cosmos DB는 지원 [CRUD 및 쿼리 작업](https://docs.microsoft.com/rest/api/cosmos-db/) 컨테이너, 항목 및 데이터베이스와 같은 리소스에 대 한 합니다.  
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 단일 작업 (예: 저장된 프로시저 실행 또는 단일 쿼리 페이지 검색)에 대 한 최대 실행 시간| 5초 |
 | 최대 요청 크기 (저장된 프로시저, CRUD)| 2MB |
@@ -111,7 +111,7 @@ Cosmos DB는 지원 [CRUD 및 쿼리 작업](https://docs.microsoft.com/rest/api
 
 Cosmos DB 권한 부여를 위해 HMAC를 사용합니다. 마스터 키를 사용할 수 있습니다 또는 [리소스 토큰](secure-access-to-data.md) 컨테이너 같은 리소스에 세분화 된 액세스 제어에 대 한 파티션 키 또는 항목입니다. 다음 표에서 Cosmos DB에서 권한 부여 토큰에 대 한 제한을 나열합니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 최대 마스터 토큰 만료 시간 | 15분  |
 | 최소 리소스 토큰 만료 시간 | 10 분  |
@@ -124,7 +124,7 @@ Cosmos DB는 쓰기 작업 동안 트리거의 실행을 지원 합니다. 서�
 
 Cosmos DB에서 지 원하는 항목을 사용 하 여 쿼리 [SQL](how-to-sql-query.md)합니다. 다음 표에서 절 이나 쿼리 길이 수를 기준으로 예를 들어 쿼리 문 제한 사항을 설명합니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | SQL 쿼리의 최대 길이| 256KB. <sup>*</sup>|
 | 쿼리당 최대 조인| 5 <sup>*</sup>|
@@ -142,7 +142,7 @@ Cosmos DB는 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 
 다음 표에서 MongoDB 기능 지원에 특정 제한을 나열합니다. MongoDB API는 SQL (코어) API에 대해 언급 된 기타 서비스 제한도 적용 됩니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 최대 MongoDB 쿼리 메모리 크기 | 40MB |
 | MongoDB 작업에 대 한 최대 실행 시간| 30초 |
@@ -151,14 +151,14 @@ Cosmos DB는 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 
 다음 표에서 대 한 제한 된 [무료로 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 평가판입니다.
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 평가판 기간 | 30 일 (수 임의의 횟수 만큼 갱신) |
 | (SQL, Gremlin Table API) 구독 당 최대 컨테이너 | 1 |
 | 구독 (MongoDB API) 당 최대 컨테이너 | 3 |
 | 컨테이너 당 최대 처리량 | 5,000 |
 | 공유 처리량 데이터베이스당 최대 처리량 | 20000 |
-| 계정당 최대 총 저장소 | 10 GB |
+| 계정당 최대 총 저장소 | 10GB |
 
 Try Cosmos DB는 미국 중부, 유럽 북부 및 동남 아시아 지역에서 글로벌 배포를 지원 합니다. Azure Cosmos DB 계정에 대 한 azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 플랜을 사용 하 여 구독자에 대 한 지원이 제공 됩니다.
 

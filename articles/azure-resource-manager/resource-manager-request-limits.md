@@ -4,19 +4,19 @@ description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399706"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705113"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
-각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
+각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 한도 보안 주체 (사용자 또는 응용 프로그램)에 범위를 요청 하 고 구독 ID 또는 id입니다. 테 넌 트 보안 주체 보다 좀 더에 요청이 들어 올, 구독 또는 테 넌 트 제한을 12,000 및 시간당 1,200 개 보다 큽니다.
 
 요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독의 리소스 그룹을 검색 하는 등, 구독 ID 전달을 포함 하는입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
 
@@ -31,7 +31,7 @@ Azure 리소스 그래프는 해당 작업에 대 한 요청 수를 제한합니
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 읽기 요청 나머지 읽기 요청 수에 대 한 헤더에서 값을 반환합니다. 나머지 쓰기 요청 수에 대 한 값을 포함 하는 요청을 작성 합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
 
-| 응답 헤더 | 설명 |
+| 응답 헤더 | Description |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기. 이 값은 읽기 작업에서 반환됩니다. |
 | x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기. 이 값은 쓰기 작업에서 반환됩니다. |

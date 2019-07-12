@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1983f0842f8c04d627e66727ddddf618969992d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303309"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595530"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 
@@ -116,7 +116,7 @@ Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동�
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE INDEX
+- CREATE  INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -248,9 +248,9 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 >
 >예를 들어 DW100에서 부여 가능한 최대 메모리는 400MB이고, 테이블 스키마 크기가 400MB의 요구 사항을 충족할 크기여야 합니다.
 
-### <a name="usage-example"></a>사용 예
+### <a name="usage-example"></a>사용 예제
 
-구문  
+구문:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
 1. @DWU: NULL 매개 변수를 제공하여 DW DB에서 현재 DWU를 추출하거나 지원되는 모든 DWU를 'DW100' 형식으로 제공

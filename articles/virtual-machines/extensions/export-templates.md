@@ -4,7 +4,7 @@ description: 가상 머신 확장을 포함하는 Resource Manager 템플릿을 
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
-ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58e72390e4cee04b31ed983fb5fcdf5657fcca45
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484051"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706001"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -34,7 +34,7 @@ Azure 리소스 그룹을 새 Resource Manager 템플릿으로 내보낸 후 다
 
 Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 있습니다.
 
-| 내선 번호 ||||
+| 확장명 ||||
 |---|---|---|---|
 | Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
 | Acronis Backup Linux | Docker 확장 | Puppet Agent |

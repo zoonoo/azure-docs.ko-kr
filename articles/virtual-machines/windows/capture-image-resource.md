@@ -4,7 +4,7 @@ description: Azure에서 일반화된 VM 또는 VHD의 관리 이미지를 만�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 3a6781387121a691c6599ffaeb5722ecc6e16132
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75f1d9b945eab49fb633f2cd3f99f498e686bfab
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704684"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719349"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -51,7 +51,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
    
 4. **종료 옵션**에서 **종료**를 선택합니다.
    
-5. **확인**을 선택합니다.
+5.           **확인**을 선택합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
 

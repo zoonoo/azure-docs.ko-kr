@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718902"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786554"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -108,7 +108,7 @@ Azure Monitor 로그 통합을 사용 하도록 설정 (몇 분 정도 걸릴 �
 
 합니다 **로그** 블레이드와 같은 다양 한 샘플 쿼리를 나열 합니다.
 
-| 쿼리 이름                      | 설명                                                               |
+| 쿼리 이름                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | 현재 컴퓨터 가용성    | 차트 1 시간 마다 로그를 전송 하는 컴퓨터 수                     |
 | 목록 하트 비트                 | 지난 1 시간에서 모든 컴퓨터 하트 비트를 나열 합니다.                           |
@@ -123,7 +123,7 @@ Azure Monitor 로그 통합을 사용 하도록 설정 (몇 분 정도 걸릴 �
 > [!NOTE] 
 > 클러스터 정확한 공급 요금을 확인 하기 전 적어도 24 시간 동안 실행 해야 하므로 24 시간 동안 가용성 율을 측정 합니다.
 
-클릭 하 여이 테이블에는 공유 대시보드에 고정할 수 있습니다 **Pin** 오른쪽 위 모퉁이에서. 쓰기 가능한 공유 대시보드가 만들어야 하는 방법을 볼 수 있습니다 여기서: [Azure portal에서 대시보드 만들기 및 공유](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control)합니다.
+클릭 하 여이 테이블에는 공유 대시보드에 고정할 수 있습니다 **Pin** 오른쪽 위 모퉁이에서. 쓰기 가능한 공유 대시보드가 만들어야 하는 방법을 볼 수 있습니다 여기서: [Azure portal에서 대시보드 만들기 및 공유](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)합니다.
 
 ### <a name="azure-monitor-alerts"></a>Azure Monitor 경고
 

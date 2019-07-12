@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f170d05c513e7f0cc638c5a35e2264f9e043cbcd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61450667"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603685"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA 보안 클라이언트 및 OPC UA 서버 응용 프로그램 
 OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 OPC UA 클라이언트가 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 하는 방법을 보여 줍니다.

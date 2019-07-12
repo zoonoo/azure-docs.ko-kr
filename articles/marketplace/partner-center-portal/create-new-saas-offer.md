@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514060"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701379"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -20,7 +20,7 @@ ms.locfileid: "67514060"
 
 ![파트너 센터에서 상용 Marketplace 대시보드](./media/new-offer-overview.png)
 
-선택 된 + **새...** 단추를 클릭 합니다 **Software-as-a-service** 메뉴 항목입니다. 
+선택 된 + **새 제품...** 단추를 클릭 합니다 **Software-as-a-service** 메뉴 항목입니다. 
 
 다른 제품 유형 중 하나를 선택 하면 리디렉션됩니다 이전의 [클라우드 파트너 포털](https://cloudpartner.azure.com/)합니다.  지금은 SaaS 제공 파트너 센터에 있는 상용 Marketplace 포털에서 제공 됩니다. 
 
@@ -31,13 +31,14 @@ ms.locfileid: "67514060"
 ![새 제품 대화 상자](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>제품 ID 및 이름
+## <a name="offer-id-and-alias"></a>제품 ID 및 별칭
 
-- **제품 ID**: 계정에 각 제품에 대 한 고유 식별자를 만듭니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (있는 경우)에 대 한 URL 주소에는 고객에 게 표시 됩니다. 제품 ID는 소문자, 영숫자 (밑줄, 하이픈 하며 공백이 없어야 포함) 여야 합니다. 이 50 자로 제한 됩니다 및 선택한 후에 업데이트할 수 없습니다 만듭니다.  
+- **제품 ID**: 계정에 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (있는 경우)에 대 한 URL 주소에는 고객에 게 표시 됩니다. 제품 ID는 소문자, 영숫자 (밑줄, 하이픈 하며 공백이 없어야 포함) 여야 합니다. 이 50 자로 제한 됩니다 및 선택한 후에 변경할 수 없습니다 *만들기*합니다.  
 예: 테스트-제품-1
 <br>URL을 생성 합니다. `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **제품 이름**: SaaS 응용 프로그램 제품을 게시, 광고 및 웹 사이트 전체에서 일관성의 공식 이름입니다.  이 이름은 상표 될 수 있습니다.  이름을 공백,이 모 지 있어야 (아닌 상표 또는 저작권 기호)을 제공 하며 50 자로 제한 해야 합니다.
+- **별칭 제공**: 파트너 센터 포털 내에서 제품을 참조 하는 데 사용 하는 이름입니다. 이 시장에서 사용 되지 않습니다 이름과 다릅니다 합니다 *제품 이름* 및 고객에 게 표시 될 다른 값입니다. 선택한 후이 값을 변경할 수 없습니다 *만들기*합니다.
+
 <br>예제: 테스트 제품 1&#8482;
 
 **만들기**를 선택합니다.  **개요를 제공** 이 제품에 대 한 페이지가 생성 됩니다.  
@@ -115,8 +116,8 @@ Marketplace 명단을 만들어 Microsoft 사용 하 여 비즈니스를 홍보 
 ##### <a name="get-it-now-free"></a>지금 가져오기 (무료)
 무료로 앱을 액세스할 수 있는 올바른 URL (http 또는 https로 시작)를 제공 하 여 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>평가판
-앱을 액세스할 수 있는 올바른 URL (http 또는 https로 시작)를 제공 하 여 무료 평가판으로 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>무료 평가판 (나열)
+앱을 액세스할 수 있는 올바른 URL (http 또는 https로 시작)를 제공 하 여 무료 평가판에 대 한 링크를 사용 하 여 고객에 게 제품을 나열 합니다.  예를 들어 `https://contoso.com/trial/saas-app`을 참조하십시오. 목록에 대 한 평가판 정보 관리 및 서비스에 의해 구성 된 만들어지고 수행가 구독에서 관리 하지 않는 Microsoft 제공 합니다.
 
 ##### <a name="contact-me"></a>연락처
 고객 관계 관리 (CRM) 시스템을 연결 하 여 고객 연락처 정보를 수집 합니다. 고객은 해당 정보를 공유 하는 권한에 대 한 라는 메시지가 나타납니다. 제품 이름, ID 및 제품을 찾을 수 있는 marketplace 소스와 함께 이러한 고객 세부 정보를 구성한 경우 CRM 시스템에 전송 됩니다. CRM을 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Connect 잠재 고객 관리](#connect-lead-management)합니다. 
@@ -169,12 +170,12 @@ Marketplace 명단을 만들어 Microsoft 사용 하 여 비즈니스를 홍보 
 
 해야 **저장할** 다음 섹션으로 이동 하기 전에!
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 합니다 **속성** 탭 요청 범주 및 마켓플레이스를, 제품 및 앱 버전을 지 원하는 법적 계약에 대 한 제품을 그룹화 하는 데 사용 되는 산업을 정의할 수 있습니다. 
 
 선택 **저장할** 이러한 필드를 완료 합니다. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>범주
 최소의 1 개 및 최대 3 개의 적절 한 marketplace 검색 영역으로 제품을 그룹화 하는 데 사용 되는 범주를 선택 합니다. 제품 제품 설명에서 이러한 범주를 지원 하는 방법을 살펴봅니다. 
 
 ### <a name="industry"></a>산업
@@ -204,6 +205,9 @@ AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 
 ## <a name="offer-listing"></a>제품 목록
 
 현재 나열 탭 표시 언어 (시장) 제품을 사용할 수 있는 제품을 영어 (미국) 사용할 수 있는 유일한 위치를입니다. 또한이 페이지는 언어별 목록 및 추가 된 날짜/시간의 상태를 표시 합니다. 각 언어에 대 한 marketplace 세부 정보 (이름, 설명, 검색어, 등 제공)를 정의 해야 시장 /입니다.
+
+> [!NOTE]
+> 제공 서비스 목록 (예: 제품 설명, 문서, 스크린샷, 사용 및 개인정보 처리 방침 약관) 콘텐츠는 영어로 구의 사용 하 여 시작 하는 제품 설명으로 "이 응용이 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다." 할 필요가 없습니다. 제공할 것도 한 *유용한 링크 URL* 콘텐츠를 나열 하는 제품에서 사용 하는 것 이외의 언어로 콘텐츠를 제공 합니다.
 
 ### <a name="offer-listings"></a>제품 목록
 
@@ -246,7 +250,7 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 - [Marketplace에 대 한 모범 사례 목록은 제공](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-## <a name="preview"></a>미리 보기
+## <a name="preview"></a>Preview
 
 합니다 **미리 보기** 탭을 사용 하면 제한 된 정의할 수 있습니다 **미리 보기 대상** marketplace 사람이 라이브 제품을 게시 하기 전에 제품을 릴리스 합니다.
 
@@ -268,9 +272,9 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 - **연결 웹 후크** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독에 잘못 된)를 완료 해야 연결 웹 후크를 제공할 수 있습니다. 가장 단순한 구성에 게시 되는 모든 이벤트에 대 한 수신 대기 하 고 다음 적절 하 게 처리 하는 HTTP 끝점 논리 앱은 현재 위치에서 웹 후크 시스템 없는 경우 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
-- **Azure AD 테 넌 트 ID** (필수): Azure portal 내에서는 위해서는 있습니다 [Azure AD (Active Directory) 앱 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 뒤에 인증 된 통신은 두 서비스 간의 연결 검증할 수 있도록 합니다. 찾을 수는 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory로 이동 및 선택 **속성**, 찾은 후에 대 한 합니다 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다.
+- **Azure AD 테 넌 트 ID** (필수): Azure portal 내에서는 위해서는 있습니다 [Azure AD (Active Directory) 앱 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 뒤에 인증 된 통신은 두 서비스 간의 연결 검증할 수 있도록 합니다. 찾을 수는 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), Azure Active Directory로 이동 및 선택 **속성**, 찾은 후에 대 한 합니다 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다.
 
-- **Azure AD 앱 ID** (필수): 해야 하면 [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) 및 인증 키입니다. 이러한 값을 얻으려면 Azure Active Directory로 이동 및 선택 **앱 등록**을 찾습니다 합니다 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 나열 합니다. 인증 키를 찾으려면에서로 이동 **설정을** 선택한 **키**합니다. 설명 및 기간과 다음에 숫자 값을 지정할 수 있도록 해야 합니다.
+- **Azure AD 앱 ID** (필수): 해야 하면 [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 및 인증 키입니다. 이러한 값을 얻으려면 Azure Active Directory로 이동 및 선택 **앱 등록**을 찾습니다 합니다 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 나열 합니다. 인증 키를 찾으려면에서로 이동 **설정을** 선택한 **키**합니다. 설명 및 기간과 다음에 숫자 값을 지정할 수 있도록 해야 합니다.
 
  Azure 응용 프로그램 ID는 게시자 ID에 연결 하 고 있으므로 응용 프로그램 ID가 동일한 모든 제품에서 사용 되는 해야 합니다.
 
@@ -306,6 +310,22 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 #### <a name="plan-pricing-and-availability"></a>계획 가격 책정 및 가용성
 
 합니다 **가격 책정 및 가용성** 탭을 사용 하면이 계획에서 사용할 수 있는 시장을 구성할 수 있습니다 원하는 수익 모델, 가격 및 청구 기간입니다. 또한 모든 사용자 또는 특정 고객 (개인 대상)에 계획을 표시할 것인지 지정할 수 있습니다.
+
+##### <a name="enabling-free-trials"></a>무료 평가판을 사용 하도록 설정
+
+상용 marketplace 통한 SaaS 제공 서비스를 사용 하면 Microsoft를 통해 판매 하는 경우 1 개월 무료 평가판 제공을 수 있습니다. 모든 청구 모델 및 데이터 통신된 계획을 제외 하 고 사용 약관에 무료 평가판 지원 됩니다. 이 옵션에는 고객이 1 개월 무료 액세스를 통해 항목에 대 한 낮은-장벽을 할 수 있습니다.  제품 내에서 계획에 대 한 무료 평가판을 사용 하도록 설정 하려는 경우 고객은 초기 1 개월 기간이 끝나기 전에 유료 구독으로 변환할 수 없습니다.  이 시간 동안 제품을 구입 하는 고객 평가판 활성화를 지원 되는 계획 중 하나를 사용해 하 고 서로 변환할 수 있습니다.  유료 구독으로 변환 기간 말에 자동으로 수행 됩니다.
+
+>[!Note]
+>평가판 없이 계획으로 변환 하는 고객이 선택한 경우 변환이 수행 됩니다 있지만 평가판 즉시 손실 됩니다.  또한 계획에 대 한 지불 고객 시작 되 면 로그온 할 수 더 이상 평가판 동일한 구독을 다시 평가판 지 SKU로 변환 될 경우에 합니다.
+
+무료 평가판을 구성 하려면 기능은 제품에서 각 계획에 대해 제공 됩니다. 단순히 각 제품에 대 한 가격 책정 및 가용성으로 이동 하 고 1 개월 평가판을 허용 하려면 확인 합니다.
+
+![1 개월 무료 평가판 확인란](./media/free-trial-enable.png)
+
+현재 참여 하 고 무료 평가판 구독 고객에 대 한 정보를 가져오려면, 새 API 속성을 사용 하 여 `isFreeTrial`는 true 또는 false로 표시 합니다. 참조 된 [SaaS 구독 API 가져오기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 자세한 내용은 합니다.
+
+>[!Note]
+>Marketplace 계량 서비스를 활용 하는 계획에 대 한 무료 평가판을 사용할 수 없습니다.
 
 #### <a name="markets"></a>시장
 
@@ -345,7 +365,7 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 선택한 대상에 특정 또는 모든 사용자에 게 표시 되도록 각 계획을 구성 하는 옵션이 있습니다. Azure AD 테 넌 트 Id를 사용 하 여이 제한 된 대상 그룹의 멤버 자격을 할당할 수 있습니다.
 
-#### <a name="privacy"></a>개인 정보 보호
+#### <a name="privacy"></a>개인 정보 취급 방침
 
 - **이 비공개 계획** (확인란 선택 사항)
 
@@ -355,7 +375,7 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 이 비공개 계획에 대 한 액세스를 갖게 되는 대상 그룹을 할당 합니다. 액세스 옵션을 사용 하 여 테 넌 트 Id를 사용 하 여 할당 된 각 테 넌 트 ID에 대 한 설명을 포함 하도록 할당 됩니다. 최대 10 명의 테 넌 트 Id 추가할 수 있습니다 또는 높은 고객 20,000.csv 스프레드시트 파일을 가져오는 경우 Id 테 넌 트입니다.
 
-테 넌 트에는 GUID (Globally Unique Identifier, 128 비트 정수 숫자 리소스를 식별 하는 데 사용)로 표현 하는 ID 사용 하 여 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테 넌 트를 확인 하려면 응용 프로그램을 관리 하는 데 사용할 계정 사용 하 여 Azure portal에 로그인 합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)합니다.
+테 넌 트에는 GUID (Globally Unique Identifier, 128 비트 정수 숫자 리소스를 식별 하는 데 사용)로 표현 하는 ID 사용 하 여 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 고유하며 다른 Azure AD 테넌트와 별개입니다. 테 넌 트를 확인 하려면 응용 프로그램을 관리 하는 데 사용할 계정 사용 하 여 Azure portal에 로그인 합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)합니다.
 
 개인 사용자를 정의 하려면 테 넌 트 Id를 사용 하는 SaaS 제품을 다른 제품 유형 (또한 Guid로 표현 됨)는 Azure 구독 Id를 사용할 수 있습니다.
 
@@ -434,13 +454,13 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 
 - **Azure 구독 ID** (Azure Resource Manager 및 논리 앱에 대 한 필수): 리소스 사용량 보고 및 청구에 대 한 Azure 계정 서비스에 대 한 액세스 권한을 부여 하려면 구독 ID를 입력 합니다. 고려 하는 것이 좋습니다 [별도 Azure 구독을 만드는](https://docs.microsoft.com/azure/billing/billing-create-subscription) 있습니다 아직 없는 경우 테스트 드라이브 사용 하도록 합니다. 에 로그인 하 여 Azure 구독 ID를 찾을 수 있습니다 합니다 [Azure portal](https://portal.azure.com/) 로 이동 하는 **구독** 왼쪽 메뉴의 탭 합니다. 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764ghty")이 표시 됩니다.
 
-- **Azure AD 테 넌 트 ID** (필수): Azure Active Directory (AD)를 입력 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id)합니다. 이 ID를 찾으려면에 로그인 하는 [Azure portal](https://portal.azure.com/), 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **속성** 를 찾은 후에 대 한를 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다. 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)합니다.
+- **Azure AD 테 넌 트 ID** (필수): Azure Active Directory (AD)를 입력 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)합니다. 이 ID를 찾으려면에 로그인 하는 [Azure portal](https://portal.azure.com/), 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **속성** 를 찾은 후에 대 한를 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다. 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)합니다.
 
 - **Azure AD 테 넌 트 이름** (동적 365에 대 한 필수): Azure Active Directory (AD) 이름을 입력 합니다. 이 이름을 찾으려면에 로그인 합니다 [Azure portal](https://portal.azure.com/), 오른쪽 위 모서리에서 테 넌 트 이름 계정 이름에 나열 됩니다.
 
-- **Azure AD 앱 ID** (필수): Azure Active Directory (AD)를 입력 [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)합니다. 이 ID를 찾으려면에 로그인 하는 [Azure portal](https://portal.azure.com/)고 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **앱 등록**, 찾아보십시오를 **응용 프로그램 ID** 수 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 나열 합니다.
+- **Azure AD 앱 ID** (필수): Azure Active Directory (AD)를 입력 [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)합니다. 이 ID를 찾으려면에 로그인 하는 [Azure portal](https://portal.azure.com/)고 왼쪽 메뉴에서 Active Directory 탭을 선택, 선택 **앱 등록**, 찾아보십시오를 **응용 프로그램 ID** 수 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 나열 합니다.
 
-- **Azure AD 앱 클라이언트 비밀** (필수): Azure AD 응용 프로그램에 입력 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)합니다. 이 값 찾기에 로그인 합니다 [Azure portal](https://portal.azure.com/)합니다. 선택 된 **Azure Active Directory** 선택 왼쪽된 메뉴의 탭 **앱 등록**, 테스트 드라이브 앱을 선택 합니다. 다음으로, 선택 **인증서 및 비밀**를 선택 **새 클라이언트 암호**대 한 설명을 입력 **안 함** 아래 **Expires**, 다음 선택할 **추가**합니다. 값을 복사 해야 합니다. (없는 페이지 외부로 탐색 값에 액세스할 수 없습니다. 그렇지 않으면이 작업을 수행 하기 전에.)
+- **Azure AD 앱 클라이언트 비밀** (필수): Azure AD 응용 프로그램에 입력 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)합니다. 이 값 찾기에 로그인 합니다 [Azure portal](https://portal.azure.com/)합니다. 선택 된 **Azure Active Directory** 선택 왼쪽된 메뉴의 탭 **앱 등록**, 테스트 드라이브 앱을 선택 합니다. 다음으로, 선택 **인증서 및 비밀**를 선택 **새 클라이언트 암호**대 한 설명을 입력 **안 함** 아래 **Expires**, 다음 선택할 **추가**합니다. 값을 복사 해야 합니다. (없는 페이지 외부로 탐색 값에 액세스할 수 없습니다. 그렇지 않으면이 작업을 수행 하기 전에.)
 
 해야 **저장할** 다음 섹션으로 이동 하기 전에!
 

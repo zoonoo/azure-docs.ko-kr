@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016385"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657985"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 표준 시간대
 
@@ -30,7 +30,9 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 
 ## <a name="supported-time-zones"></a>지원 되는 표준 시간대
 
-지원 되는 표준 시간대의 집합을 관리 되는 인스턴스의 기본 운영 체제에서 상속 됩니다. 새 표준 시간대 정의 가져오고 기존 변경 내용을 반영을 정기적으로 업데이트 됩니다. 
+지원 되는 표준 시간대의 집합을 관리 되는 인스턴스의 기본 운영 체제에서 상속 됩니다. 새 표준 시간대 정의 가져오고 기존 변경 내용을 반영을 정기적으로 업데이트 됩니다.
+
+[일광 절약 시간/표준 시간대 변경 정책](https://aka.ms/time) 2010 앞에서 기록 정확도 보장 합니다.
 
 지원 되는 표준 시간대 이름의 목록을 통해 노출 되는 [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 시스템 뷰.
 
@@ -43,7 +45,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Azure portal 통해 표준 시간대 설정
 
-새 인스턴스에 대 한 매개 변수를 입력 하면 지원 되는 표준 시간대의 목록에서 표준 시간대를 선택 합니다. 
+새 인스턴스에 대 한 매개 변수를 입력 하면 지원 되는 표준 시간대의 목록에서 표준 시간대를 선택 합니다.
   
 ![인스턴스를 만드는 동안 표준 시간대 설정](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 
-지정 시간 복원을 수행할 때에 복원 시간을 UTC 시간으로 해석 됩니다. 이 설정은 일광 절약 시간 및 해당 잠재적인 변경으로 인해 모호성을 방지할 수 있습니다.
+<del>지정 시간 복원을 수행할 때에 복원 시간을 UTC 시간으로 해석 됩니다. 이 설정은 일광 절약 시간 및 해당 잠재적인 변경으로 인해 모호성을 방지할 수 있습니다.<del>
+
+ >[!WARNING]
+  > 현재 동작에 따라 위의 문을 아니며 시간으로 복원 하는 자동 데이터베이스 백업을에서 원본 관리 되는 인스턴스의 표준 시간대에 따라 해석 됩니다. 지점 지정 된 시간 UTC 시간으로 해석 하도록이 동작을 수정 노력 합니다. 참조 [알려진 문제](sql-database-managed-instance-timezone.md#known-issues) 대 한 자세한 내용은 합니다.
 
 ### <a name="auto-failover-groups"></a>자동 장애 조치 그룹
 
@@ -95,6 +100,21 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 
 - 기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 없습니다.
 - SQL Server 에이전트 작업에서 시작 하는 외부 프로세스 인스턴스의 표준 시간대를 관찰 하지 않습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+지정 시간 복원 (PITR) 작업이 수행 되 면를 복원 하는 시간 PITR에 대 한 포털 페이지 시간이 UTC로 해석 되는 제안 하는 경우에 관리 되는 인스턴스에 자동 데이터베이스 백업을 사용을 설정 하는 표준 시간대에 따라 해석 됩니다.
+
+예제:
+
+예를 들어 여기서 자동 백업을에서 해당 인스턴스 (UTC-5) 동부 표준시 표준 시간대 설정을 있습니다.
+지정 시간 복원에 대 한 포털 페이지를 복원 하려면 선택 하는 시간을 UTC 시간을 제안 합니다.
+
+![포털을 사용 하는 현지 시간을 사용 하 여 PITR](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+그러나를 복원 하는 시간은 실제로 동부 표준시로 해석 됩니다 하 고이 특정 예제의 데이터베이스 9 시 동부 표준시, 및 UTC 시간이 아닌 상태로 복원 됩니다.
+
+UTC 시간에 특정 시점으로 특정 시점 복원을 수행 하려는 경우 먼저 원본 인스턴스의 표준 시간대의 해당 시간을 계산 하 고 포털 또는 PowerShell/CLI 스크립트에서 해당 시간을 사용 합니다.
 
 ## <a name="list-of-supported-time-zones"></a>지원 되는 표준 시간대의 목록
 
@@ -133,7 +153,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 | 태평양 SA 표준시 | (UTC-04:00) 산티아고 |
 | 뉴펀들랜드 표준시 | (UTC-03:30) 뉴펀들랜드 |
 | 토칸칭스 표준시 | (UTC-03:00) 아라구아이나 |
-| E. 남아메리카 표준시 | (UTC-03:00) 브라질리아 |
+| 5\. 남아메리카 표준시 | (UTC-03:00) 브라질리아 |
 | SA 동부 표준시 | (UTC-03:00) 카옌, 포르탈레자 |
 | 아르헨티나 표준 시간 | (UTC-03:00) 부에노스아이레스 |
 | 그린란드 표준시 | (UTC-03:00) 그린란드 |
@@ -159,7 +179,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 | GTB 표준시 | (UTC+02:00) 아테네, 부쿠레슈티 |
 | 중동 표준시 | (UTC+02:00) 베이루트 |
 | 이집트 표준시 | (UTC+02:00) 카이로 |
-| E. 유럽 표준시 | (UTC+02:00) 키시나우 |
+| 5\. 유럽 표준시 | (UTC+02:00) 키시나우 |
 | 시리아 표준시 | (UTC+02:00) 다마스쿠스 |
 | 팔레스타인 표준시 | (UTC+02:00) 가자, 헤브론 |
 | 남아프리카 표준시 | (UTC+02:00) 하라레, 프리토리아 |
@@ -174,7 +194,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 | 아랍 표준시 | (UTC+03:00) 쿠웨이트, 리야드 |
 | 벨라루스 표준시 | (UTC+03:00) 민스크 |
 | 러시아 표준시 | (UTC + 03시) 모스크바, 상트페테르부르크 |
-| E. 아프리카 표준시 | (UTC+03:00) 나이로비 |
+| 5\. 아프리카 표준시 | (UTC+03:00) 나이로비 |
 | 이란 표준시 | (UTC+03:30) 테헤란 |
 | 아랍 표준시 | (UTC+04:00) 아부다비, 무스카트 |
 | 아스트라한 표준시 | (UTC+04:00) 아스트라칸, 울랴노프스크 |
@@ -216,7 +236,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 | 야쿠츠크 표준시 | (UTC+09:00) 야쿠츠크 |
 | 중부 오스트레일리아 표준시 | (UTC+09:30) 애들레이드 |
 | 오스트레일리아 중부 표준시 | (UTC+09:30) 다윈 |
-| E. 오스트레일리아 표준시 | (UTC+10:00) 브리즈번 |
+| 5\. 오스트레일리아 표준시 | (UTC+10:00) 브리즈번 |
 | 오스트레일리아 동부 표준시 | (UTC+10:00) 캔버라, 멜버른, 시드니 |
 | 서 태평양 표준시 | (UTC+10:00) 괌, 포트모르즈비 |
 | 태즈메이니아 표준시 | (UTC+10:00) 호바트 |
@@ -239,7 +259,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 | 사모아 표준시 | (UTC+13:00) 사모아 |
 | 라인 제도 표준시 | (UTC+14:00) 키리티마티 섬 |
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고자료 
 
 - [CURRENT_TIMEZONE (Transact SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

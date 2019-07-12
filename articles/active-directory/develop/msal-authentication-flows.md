@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273107"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807203"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -166,7 +166,7 @@ IWA는.NET Framework,.NET Core 및 유니버설 Windows 플랫폼 플랫폼용�
 
 IWA는 multi-factor authentication을 바이패스 하지 않습니다. 다단계 인증으로 구성 된 경우 multi-factor authentication 챌린지 필요한 경우 IWA 실패할 수 있습니다. Multi-factor authentication 사용자가 개입을 해야 합니다.
 
-Id 공급자 수행할 2 단계 인증을 요청 하는 경우를 제어 하지 않습니다. 테 넌 트 관리자는 다음 작업을 수행 하지 않습니다. 일반적으로 2 단계 인증이 필요 다른 국가에서 로그인 할 때, 경우 연결 되지 않은 VPN을 통해 회사 네트워크 및 VPN을 통해 연결 되어 있을 때 더욱 그렇습니다. Azure AD는 AI를 사용 하 여 계속 해 서 2 단계 인증이 필요한 경우에 대해 알아봅니다. IWA 못하면 있습니다 해야 대체 사용자 프롬프트 (https://aka.ms/msal-net-interactive) 합니다.
+Id 공급자 수행할 2 단계 인증을 요청 하는 경우를 제어 하지 않습니다. 테 넌 트 관리자는 다음 작업을 수행 하지 않습니다. 일반적으로 2 단계 인증이 필요 다른 국가에서 로그인 할 때, 경우 연결 되지 않은 VPN을 통해 회사 네트워크 및 VPN을 통해 연결 되어 있을 때 더욱 그렇습니다. Azure AD는 AI를 사용 하 여 계속 해 서 2 단계 인증이 필요한 경우에 대해 알아봅니다. IWA 못하면 있습니다 해야 대체 [대화형 사용자 프롬프트] (#interactive).
 
 다음 중 하나 여야 합니다 공용 클라이언트 응용 프로그램을 생성할 때 전달 된 인증 기관:
 - 테 넌 트 (양식의 `https://login.microsoftonline.com/{tenant}/` 여기서 `tenant` 테 넌 트와 연결 된 도메인 또는 테 넌 트 ID를 나타내는 guid)입니다.

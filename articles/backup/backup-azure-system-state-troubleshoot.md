@@ -8,13 +8,13 @@ keywords: 백업으로 하는 방법 백업 시스템 상태
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: srinathv
+ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165124"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705007"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -112,7 +112,7 @@ Windows Server 백업 상태 확인을 위해 수행 된 아래:
     -   실행 `Get-WBJob` 오류로 반환 하지 상승 된 PowerShell 및 있는지 확인 합니다.
 
     > [!WARNING]
-    > Get-WBJob: ' Get-WBJob' 용어는 cmdlet, 함수, 스크립트 파일 또는 실행 프로그램의 이름으로 인식 되지 않습니다. 이름의 철자를 확인하거나 경로가 포함되어 있으면 경로가 올바른지 확인하고 다시 시도합니다.
+    > Get-WBJob: ' Get-WBJob' 용어는 cmdlet, 함수, 스크립트 파일 또는 실행 프로그램의 이름으로 인식 되지 않습니다. 경로가 올바른지 확인한 다음 다시 시도하세요.
 
     -   이 오류로 인해 실패 한 후 다시 설치 필수 구성 요소를 1 단계에서 설명한 것 처럼 서버 컴퓨터에서 Windows Server Backup 기능 합니다.
 

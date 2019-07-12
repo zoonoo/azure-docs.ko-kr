@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787811"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606156"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>4-분류 샘플: (중요 한 비용) 신용 위험 예측
 
@@ -29,7 +29,7 @@ machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 
 
 [![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -37,7 +37,7 @@ machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 
 
     ![실험을 열으십시오](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Data
+## <a name="data"></a>보기
 
 독일 신용 카드 데이터 집합에서는 UC Irvine 리포지토리에서 사용합니다. 이 데이터 집합에는 20 기능 및 1 개 레이블 1,000 샘플이 들어 있습니다. 각 샘플 사람을 나타냅니다. 20 개의 기능이 숫자와 범주 기능을 포함 합니다. 참조 된 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) 데이터 집합에 대 한 자세한 내용은 합니다. 마지막 열은 레이블 신용 위험을 나타내는 고 두 개의 가능한 값: 높은 신용 위험 2 및 신용 위험이 낮은 = = 1입니다.
 
@@ -164,3 +164,4 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 - [2-회귀 샘플: 자동차 가격 예측 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [3-분류 샘플: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
 - [5-분류 샘플: 이탈 예측](ui-sample-classification-predict-churn.md)
+- [6-분류 샘플: 비행 지연을 예측합니다](ui-sample-classification-predict-flight-delay.md)

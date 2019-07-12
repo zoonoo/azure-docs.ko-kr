@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147718"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696200"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
@@ -52,9 +52,9 @@ ms.locfileid: "67147718"
 
 | 역할 | 단일 및 풀링된 데이터베이스 | 인스턴스 데이터베이스 |
 | :----| :------------- | :--------------- |
-| **게시자** | 아닙니다. | 예 | 
-| **배포자** | 아닙니다. | 예|
-| **끌어오기 구독자** | 아닙니다. | 예|
+| **게시자** | 아니요 | 예 | 
+| **배포자** | 아니요 | 예|
+| **끌어오기 구독자** | 아니요 | 예|
 | **밀어넣기 구독자**| 예 | 예|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -68,10 +68,10 @@ ms.locfileid: "67147718"
 | :----| :------------- | :--------------- |
 | [**표준 트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
 | [**스냅샷**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
-| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아닙니다. | 아닙니다.|
-| [**피어-투-피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아닙니다. | 아닙니다.|
-| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아닙니다. | 예|
-| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아닙니다. | 아닙니다.|
+| [**병합 복제**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 아니요 | 아니요|
+| [**피어-투-피어**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 아니요 | 아니요|
+| [**양방향**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 아니요 | 예|
+| [**업데이트할 수 있는 구독**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 아니요 | 아니요|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -139,17 +139,17 @@ ms.locfileid: "67147718"
 
 ## <a name="next-steps"></a>다음 단계
 
-1. [Managed Instance에 대해 트랜잭션 복제 구성](replication-with-sql-database-managed-instance.md)합니다. 
+1. [두 개의 관리 되는 인스턴스 간에 복제를 구성할](replication-with-sql-database-managed-instance.md)합니다. 
 1. [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 1. 구독자로 Azure SQL Database 서버 이름(예: `N'azuresqldbdns.database.windows.net`) 및 대상 데이터베이스로 Azure SQL Database 이름(예: **Adventureworks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription). )
 
 
 
-## <a name="see-also"></a>관련 항목  
+## <a name="see-also"></a>참고 항목  
 
 - [SQL Database로 복제](replication-to-sql-database.md)
 - [Managed Instance로 복제](replication-with-sql-database-managed-instance.md)
-- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

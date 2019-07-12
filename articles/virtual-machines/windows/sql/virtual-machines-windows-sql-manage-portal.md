@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082717"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607218"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>Azure portal을 사용 하 여 Azure에서 SQL Server Vm 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "67082717"
 ## <a name="remarks"></a>설명
 
 - 합니다 **SQL 가상 머신** 리소스는 보기 및 SQL Server Vm을 관리 하는 것이 좋습니다. 하지만, 현재는 **SQL 가상 머신** 리소스 관리를 지원 하지 않습니다 [남았는지 지원 종료](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm입니다. EOS SQL Server Vm에 대 한 설정을 관리 하려면 사용 되지 않는 사용 [SQL Server 구성 탭](#access-sql-server-configuration-tab) 대신 합니다. 
-- 합니다 **SQL 가상 머신** 리소스를만 사용할 수 있는 SQL Server vm [SQL VM 리소스 공급자를 사용 하 여 등록](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider)합니다. 
+- 합니다 **SQL 가상 머신** 리소스를만 사용할 수 있는 SQL Server vm [SQL VM 리소스 공급자를 사용 하 여 등록](virtual-machines-windows-sql-register-with-resource-provider.md)합니다. 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>SQL 가상 머신 리소스 액세스
@@ -60,7 +60,7 @@ SQL Server VM을 선택 하면 열립니다는 **SQL 가상 머신** 리소스:
   > 합니다 **SQL 가상 머신** 리소스 전용된 SQL Server 설정입니다. VM의 이름을 선택 합니다 **가상 머신** 특정 VM에는 SQL Server에만 국한 되지 않고는 설정으로 이동 하는 필드입니다. 
 
 ## <a name="access-sql-server-configuration-tab"></a>액세스 SQL Server 구성 탭
-SQL Server 구성 탭에 더 이상 사용 되지 않습니다. 이때 관리에 대 한 유일한 방법 이기 [남았는지 지원 종료](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm 및 되지 않은 SQL Server Vm [SQL VM 리소스 공급자를 사용 하 여 등록](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider)합니다.
+SQL Server 구성 탭에 더 이상 사용 되지 않습니다. 이때 관리에 대 한 유일한 방법 이기 [남았는지 지원 종료](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm 및 되지 않은 SQL Server Vm [SQL VM 리소스 공급자를 사용 하 여 등록](virtual-machines-windows-sql-register-with-resource-provider.md)합니다.
 
 사용 되지 않는 SQL server 구성 탭에 액세스 하려면로 이동 해야 합니다 **가상 머신** 리소스입니다. 이렇게 하려면 다음을 수행합니다.
 

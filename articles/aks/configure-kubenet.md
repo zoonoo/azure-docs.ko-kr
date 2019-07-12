@@ -2,18 +2,18 @@
 title: AKS(Azure Kubernetes Service)에서 kubenet 네트워킹 구성
 description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배포하도록 AKS(Azure Kubernetes Service)에서 kubenet(기본) 네트워크를 구성하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441964"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615755"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "67441964"
 > [!WARNING]
 > (현재 AKS에서 미리 보기)는에서 Windows Server 노드 풀을 사용 하려면 Azure CNI 사용 해야 합니다. 네트워크 모델로 kubenet 사용 Windows Server 컨테이너에 대해 사용할 수 없는 경우
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.65 필요 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 참조 해야 하는 경우 [Azure CLI 설치][install-azure-cli]합니다.
 

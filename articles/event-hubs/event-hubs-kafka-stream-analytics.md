@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748142"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626181"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "60748142"
 이벤트 허브에서 노출한 Kafka 엔드포인트를 사용하는 경우 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행할 필요가 없습니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다. 이상 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -144,7 +144,7 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
     2. Azure **구독**을 선택합니다.
     3. 이전에 만든 **이벤트 허브 네임스페이스**를 선택합니다. 
     4. **이벤트 허브**에 대해 **테스트**를 선택합니다. 
-    5. **저장**을 선택합니다. 
+    5.           **저장**을 선택합니다. 
 
         ![이벤트 허브 입력 구성](./media/event-hubs-kafka-stream-analytics/event-hub-input-configuration.png)
 
@@ -157,20 +157,20 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
     2. Azure **구독**을 선택합니다. 
     3. **Azure Storage 계정**을 선택합니다. 
     4. Stream Analytics 쿼리에서 출력 데이터를 저장하는 **컨테이너에 대한 이름**을 입력합니다.
-    5. **저장**을 선택합니다.
+    5.           **저장**을 선택합니다.
 
         ![Blob Storage 출력 구성](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
  
 
 ### <a name="define-a-query"></a>쿼리 정의
-들어오는 데이터 스트림을 읽을 Stream Analytics 작업을 설정한 후에 할 일은 데이터를 실시간으로 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://msdn.microsoft.com/library/dn834998.aspx)를 사용하여 변환 쿼리를 정의합니다. 이 연습에서는 변환을 수행하지 않고 데이터를 통해 전달되는 쿼리를 정의합니다.
+들어오는 데이터 스트림을 읽을 Stream Analytics 작업을 설정한 후에 할 일은 데이터를 실시간으로 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용하여 변환 쿼리를 정의합니다. 이 연습에서는 변환을 수행하지 않고 데이터를 통해 전달되는 쿼리를 정의합니다.
 
 1. **쿼리**를 선택합니다.
 2. 쿼리 창에서 `[YourOutputAlias]`를 앞에서 만든 출력 별칭으로 바꿉니다.
 3. `[YourInputAlias]`를 앞에서 만든 입력 별칭으로 바꿉니다. 
 4. 도구 모음에서 **저장**을 선택합니다. 
 
-    ![쿼리](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행

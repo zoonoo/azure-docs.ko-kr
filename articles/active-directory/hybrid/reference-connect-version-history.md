@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109168"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654051"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -50,8 +50,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 가져와야 할이 문제를 해결 하는 **AdSync** 모듈과 다음 실행은`Set-ADSyncDirSyncConfiguration` Azure AD Connect 서버에서 powershell cmdlet.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자 모드에서 Powershell 열기
->2. `Import-Module "ADSync"` 실행
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` 실행
+>2. `Import-Module "ADSync"`를 실행합니다.
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`를 실행합니다.
  
 
 
@@ -408,18 +408,18 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | 이름                          | Access               | 적용 대상
+형식     | 이름                          | 액세스               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
-허용    | SYSTEM                        | 모든 권한         | 이 개체  |
-허용    | Enterprise Admins             | 모든 권한         | 이 개체  |
-허용    | Domain Admins                 | 모든 권한         | 이 개체  |
-허용    | 관리자                | 모든 권한         | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
-허용    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
-허용    | 인증된 사용자           | 내용 보기        | 이 개체  |
-허용    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
-허용    | 인증된 사용자           | 읽기 권한     | 이 개체  |
+Allow    | 시스템                        | 모든 권한         | 이 개체  |
+Allow    | Enterprise Admins             | 모든 권한         | 이 개체  |
+Allow    | Domain Admins                 | 모든 권한         | 이 개체  |
+Allow    | Administrators                | 모든 권한         | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
+Allow    | 엔터프라이즈 도메인 컨트롤러 | 읽기 권한     | 이 개체  |
+Allow    | 인증된 사용자           | 내용 보기        | 이 개체  |
+Allow    | 인증된 사용자           | 모든 속성 읽기  | 이 개체  |
+Allow    | 인증된 사용자           | 읽기 권한     | 이 개체  |
 
 AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978)를 실행할 수 있습니다. 이 PowerShell 스크립트는 위에서 언급한 사용 권한을 AD DS 계정에 할당합니다.
 
@@ -433,7 +433,7 @@ PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azur
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+위치 
 
 **$ObjectDN** = 사용 권한을 강화해야 하는 Active Directory 계정입니다.
 
@@ -752,7 +752,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|선택|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|위치|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
@@ -889,7 +889,7 @@ Azure AD Connect 동기화
 * Azure AD 테넌트에는 테넌트에 대해 암호 동기화 기능을 사용할지 여부를 나타내는 서비스 구성이 있습니다. 이전에는 활성화된 스테이징 서비스가 있을 경우 Azure AD Connect에서 서비스 구성을 잘못 구성하기 쉽습니다. 이제 Azure AD Connect는 서비스 구성을 오직 활성 Azure AD Connect 서버와 일치하게 유지하려고 합니다.
 * Azure AD Connect 마법사는 이제 온-프레미스 AD에서 AD 휴지통이 사용되지 않는 경우 경고를 감지하고 반환합니다.
 * 이전에는 일괄 처리의 전체 개체 크기가 특정 임계값을 초과할 경우 Azure AD로 내보내기의 시간이 초과되고 내보내기에 실패합니다. 이제 동기화 서비스는 문제가 발생한 경우 별도의 더 작은 일괄 처리로 개체를 다시 보내려고 재시도합니다.
-* 동기화 서비스 키 관리 애플리케이션이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
+* 동기화 서비스 키 관리 애플리케이션이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
 * 이전에는 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 이제 이 프로세스는 더 이상 필요하지 않습니다.
 
 데스크톱 SSO
@@ -986,7 +986,7 @@ AD FS 관리
 * 커넥터 공간에 있는 개체가 동시에 하나의 조인 규칙의 범위를 벗어나게 되고 다른 규칙의 범위에 포함되는 경우 조인 규칙이 다시 평가되지 않는 문제가 해결되었습니다. 이런 상황은 조인 조건이 서로 배타적인 조인 규칙이 둘 이상인 경우 발생할 수 있습니다.
 * 조인 규칙을 포함하지 않는 인바운드 동기화 규칙(Azure AD의)이 조인 규칙을 포함하는 규칙보다 낮은 우선 순위 값을 갖는 경우 처리되지 않는 문제가 해결되었습니다.
 
-**향상된 기능:**
+**향상된 기능**
 
 * Windows Server 2016 Standard 이상에 Azure AD Connect를 설치할 수 있도록 지원이 추가되었습니다.
 * Azure AD Connect에 대한 원격 데이터베이스로 SQL Server 2016을 사용하는 데 대한 지원이 추가되었습니다.
@@ -1005,7 +1005,7 @@ AD FS 관리
 * Azure AD Connect 마법사는 서버가 준비 모드에 있을 때 실제 암호 동기화 및 비밀번호 쓰기 저장 구성을 표시하지 않습니다. 항상 비활성화로 표시합니다.
 * 서버가 준비 모드에 있을 때 암호 동기화 및 비밀번호 쓰기 저장에 대한 구성 변경 내용은 Azure AD Connect 마법사에서 유지되지 않습니다.
 
-**향상된 기능:**
+**향상된 기능**
 
 * 새 동기화 주기를 성공적으로 시작할 수 있는지 여부를 표시하도록 Start-ADSyncSyncCycle cmdlet이 업데이트되었습니다.
 * 현재 진행 중인 동기화 주기 및 작업을 종료하는 Stop-ADSyncSyncCycle cmdlet이 추가되었습니다.
@@ -1213,7 +1213,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 ## <a name="104850222"></a>1.0.485.0222
 릴리스 날짜: 2015년 2월
 
-**향상된 기능:**
+**향상된 기능**
 
 * 가져오기 성능이 향상되었습니다.
 

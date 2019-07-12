@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762483"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621470"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
@@ -25,11 +25,11 @@ ms.locfileid: "60762483"
     - **쿼리** 탭에서 **테스트**를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
     - 또한 Visual Studio용 Stream Analytics 도구를 사용하여 [실시간 입력에 대해 직접 쿼리를 테스트](stream-analytics-live-data-local-testing.md)할 수도 있습니다.
 
-2.  [**Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
+2.  [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
 
 3.  다음과 같은 공통 문제를 제거합니다.
-    - 쿼리의 [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
-    - [**캐스트**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics)를 대신 사용하세요.
+    - 쿼리의 [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
+    - [**캐스트**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)를 대신 사용하세요.
     - 창 함수를 사용하는 경우 전체 창 기간을 기다려서 쿼리의 출력을 확인합니다.
     - 작업 시작 시간 전에 이벤트에 대한 타임스탬프가 있으므로 이벤트가 손실됩니다.
 
@@ -99,5 +99,5 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -15,19 +15,19 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782960"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807744"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거
 
-Azure Active Directory 애플리케이션 프록시에서는 장치에 커넥터를 설치해야 합니다. 즉 장치에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다. 
-
+Azure Active Directory 애플리케이션 프록시에서는 장치에 커넥터를 설치해야 합니다. 즉 장치에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다.
 
 ## <a name="where-is-the-personal-data"></a>개인 데이터의 위치
+
 애플리케이션 프록시는 다음 로그 유형에 개인 데이터를 쓸 수 있습니다.
 
 - 커넥터 이벤트 로그
@@ -52,36 +52,33 @@ Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [�
 
 ### <a name="view-or-export-specific-data"></a>특정 데이터 보기 또는 내보내기
 
-특정 데이터를 보거나 내보내려면 각각의 커넥터 이벤트 로그에서 관련 항목을 검색합니다. 로그는 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`에 있습니다. 
+특정 데이터를 보거나 내보내려면 각각의 커넥터 이벤트 로그에서 관련 항목을 검색합니다. 로그는 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`에 있습니다.
 
 로그는 텍스트 파일이므로 [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr)을 사용하여 사용자와 관련한 텍스트 항목을 검색할 수 있습니다.  
 
-개인 데이터를 찾으려면 UserID에 대 한 로그 파일을 검색합니다. 
+개인 데이터를 찾으려면 UserID에 대 한 로그 파일을 검색합니다.
 
 Kerberos 제한 위임을 사용하는 애플리케이션이 기록한 개인 데이터를 찾으려면 다음 사용자 이름 형식의 구성 요소를 검색합니다.
 
 - 온-프레미스 사용자 계정 이름
 - UPN(사용자 계정 이름)의 사용자 이름 부분
 - 온-프레미스 사용자 계정 이름의 사용자 이름 부분
-- 온-프레미스 SAM(보안 계정 관리자) 계정 이름 
-
+- 온-프레미스 SAM(보안 계정 관리자) 계정 이름
 
 ### <a name="delete-specific-data"></a>특정 데이터 삭제
 
 특정 데이터를 삭제하려면
 
 1. Microsoft Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작하여 새 로그 파일을 생성합니다. 새 로그 파일이 있으면 기존 로그 파일을 삭제하거나 수정할 수 있습니다. 
-2. 앞서 설명한 [특정 데이터 보기 또는 내보내기](#view-or-export-specific-data) 프로세스에 따라 삭제해야 하는 정보를 찾습니다. 모든 커넥터 로그를 검색합니다.
-3. 관련 로그 파일을 삭제하거나, 개인 데이터가 포함된 필드를 선별적으로 삭제합니다. 이전 로그 파일이 더 이상 필요하지 않으면 모두 삭제할 수도 있습니다.
+1. 앞서 설명한 [특정 데이터 보기 또는 내보내기](#view-or-export-specific-data) 프로세스에 따라 삭제해야 하는 정보를 찾습니다. 모든 커넥터 로그를 검색합니다.
+1. 관련 로그 파일을 삭제하거나, 개인 데이터가 포함된 필드를 선별적으로 삭제합니다. 이전 로그 파일이 더 이상 필요하지 않으면 모두 삭제할 수도 있습니다.
 
 ### <a name="turn-off-connector-logs"></a>커넥터 로그 해제
 
-커넥터 로그가 개인 데이터를 포함하지 않게 하는 한 가지 옵션은 로그 생성을 끄는 것입니다. 커넥터 로그 생성을 중지하려면 `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`에서 다음의 강조 표시된 부분을 제거합니다. 
+커넥터 로그가 개인 데이터를 포함하지 않게 하는 한 가지 옵션은 로그 생성을 끄는 것입니다. 커넥터 로그 생성을 중지하려면 `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`에서 다음의 강조 표시된 부분을 제거합니다.
 
-![구성](./media/application-proxy-remove-personal-data/01.png)
-
+![제거할 강조 표시 된 코드를 사용 하 여 코드 조각을 보여 줍니다.](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 애플리케이션 프록시에 대한 개요는 [온-프레미스 애플리케이션에 보안 원격 액세스를 제공하는 방법](application-proxy.md)을 참조하세요.
-

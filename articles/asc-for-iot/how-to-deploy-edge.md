@@ -2,24 +2,25 @@
 title: IoT Edge 모듈에 대 한 Azure Security Center 배포 | Microsoft Docs
 description: IoT Edge의 IoT 보안 에이전트에 대 한 Azure 보안 센터를 배포 하는 방법에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49ed4c6515f8fb63c3331b05e1bb29b13985e6b3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254303"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618332"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치의 보안 모듈을 배포 합니다.
 
@@ -37,7 +38,7 @@ ms.locfileid: "66254303"
 
 IoT Edge에 대 한 IoT 보안 모듈에 대 한를 ASC를 배포 하려면 다음 단계를 사용 합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - IoT Hub에서 장치 인지 확인 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)합니다.
 
@@ -103,7 +104,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
       }
       ```
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 1. 선택한 탭의 아래쪽으로 스크롤하여 **고급 Edge 런타임 설정 구성**합니다.
    
    >[!Note]
@@ -130,7 +131,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
     }
     ```
       
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
    
 1. **다음**을 클릭합니다.
 

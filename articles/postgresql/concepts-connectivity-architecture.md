@@ -3,15 +3,15 @@ title: Azure Database for PostgreSQL에에서 연결 아키텍처
 description: Azure Database for PostgreSQL 서버에 대 한 연결 아키텍처를 설명합니다.
 author: kummanish
 ms.author: manishku
-ms.service: PostgreSQL
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 73c23c471cb12ca3a3a7df4380779b464b8d86d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d91458c555c819c4bcf97215a712719ebc5eb71
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735738"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588951"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에에서 연결 아키텍처
 클라이언트 내부 및 외부 Azure에서에서 Azure Database for PostgreSQL 데이터베이스 인스턴스를 트래픽이 이동 되는 방법을이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처에도 설명 합니다.
@@ -51,7 +51,7 @@ PostgreSQL 용 Azure Database에 연결 서버에는 클러스터의 물리적 �
 | 한국 중부 | 52.231.32.42 | |
 | 한국 남부 | 52.231.200.86 |  |
 | 미국 중북부 | 23.98.55.75 | 23.96.178.199 |
-| 유럽 북부 | 191.235.193.75 | 40.113.93.91 |
+| 북유럽 | 191.235.193.75 | 40.113.93.91 |
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
 | 영국 남부 | 51.140.184.11 | |

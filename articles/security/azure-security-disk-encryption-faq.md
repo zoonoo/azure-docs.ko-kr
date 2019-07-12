@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294922"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653395"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -33,6 +33,10 @@ Azure Disk Encryption을 사용한 VM 디스크 암호화에 대한 요금은 �
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 
 시작하려면 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 읽어보세요.
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>어떤 VM 크기 및 운영 체제는 Azure Disk Encryption을 지원 하나요?
+
+[Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites.md) 목록 문서 합니다 [VM 크기](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) 및 [VM 운영 체제](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) Azure 디스크 암호화를 지 합니다.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 

@@ -2,24 +2,25 @@
 title: IoT 에이전트 미리 보기에 대 한 Azure Security Center 구성 | Microsoft Docs
 description: IoT 용 Azure Security center 사용에 대 한 에이전트를 구성 하는 방법에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198450"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618271"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
@@ -95,7 +96,7 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
     }, 
     ```
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ### <a name="using-a-default-value"></a>기본값을 사용 하 여
 
@@ -107,7 +108,7 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
 
 기본값은 적절 한 스키마에서 사용할 수 있습니다 [Github](https://aka.ms/iot-security-module-default)합니다.
 
-| 이름| 상태 | 유효한 값| 기본값| 설명 |
+| 이름| Status | 유효한 값| 기본값| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|필수: false |유효한 값:  ISO 8601 형식으로 기간 |기본값: PT7M |최대 시간 우선 순위가 높은 메시지 보다 먼저 전송 됩니다.|
 |lowPriorityMessageFrequency |필수: false|유효한 값:  ISO 8601 형식으로 기간 |기본값: PT5H |최대 시간 우선 순위가 낮은 메시지 보다 먼저 전송 됩니다.| 
@@ -120,18 +121,18 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
 
 |이벤트 이름| PropertyName | 기본값| 스냅숏 이벤트| 세부 정보 상태  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|진단 이벤트|eventPriorityDiagnostic| 꺼짐| False| 에이전트 관련 진단 이벤트입니다. 이 이벤트를 사용 하 여 자세한 정보 로깅에 대 한 합니다.| 
-|구성 오류 |eventPriorityConfigurationError |낮음 |False |에이전트는 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
+|진단 이벤트|eventPriorityDiagnostic| 끄기| 거짓| 에이전트 관련 진단 이벤트입니다. 이 이벤트를 사용 하 여 자세한 정보 로깅에 대 한 합니다.| 
+|구성 오류 |eventPriorityConfigurationError |낮음 |거짓 |에이전트는 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
 |삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |True|에이전트 관련 이벤트 통계. |
 |메시지 통계|eventPriorityMessageStatistics |낮음 |True |에이전트 관련 메시지 통계입니다. |
 |연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |True |스냅숏의 모든 하드웨어 장치에 연결 합니다.|
 |수신 대기 포트|eventPriorityListeningPorts |높음 |True |장치에서 열려 있는 모든 수신 포트의 스냅숏.|
-|프로세스 만들기 |eventPriorityProcessCreate |낮음 |False |감사 프로세스는 장치에서 생성 합니다.|
-|프로세스 종료|eventPriorityProcessTerminate |낮음 |False |감사는 장치에서 종료를 처리합니다.| 
+|프로세스 만들기 |eventPriorityProcessCreate |낮음 |거짓 |감사 프로세스는 장치에서 생성 합니다.|
+|프로세스 종료|eventPriorityProcessTerminate |낮음 |거짓 |감사는 장치에서 종료를 처리합니다.| 
 |시스템 정보 |eventPrioritySystemInformation |낮음 |True |스냅숏으로 시스템 정보 (예: OS 또는 CPU)입니다.| 
 |로컬 사용자| eventPriorityLocalUsers |높음 |True|시스템 내에서 등록 된 로컬 사용자는 스냅숏. |
-|로그인|  eventPriorityLogin |높음|False|장치 (로컬 및 원격 로그인)에 로그인 이벤트를 감사 합니다.|
-|연결 만들기 |eventPriorityConnectionCreate|낮음|False|장치에서 만들어지고 TCP 연결을 감사 합니다. |
+|로그인|  eventPriorityLogin |높음|거짓|장치 (로컬 및 원격 로그인)에 로그인 이벤트를 감사 합니다.|
+|연결 만들기 |eventPriorityConnectionCreate|낮음|거짓|장치에서 만들어지고 TCP 연결을 감사 합니다. |
 |방화벽 구성| eventPriorityFirewallConfiguration|낮음|True|장치 방화벽 구성 (방화벽 규칙)의 스냅숏. |
 |OS 기준| eventPriorityOSBaseline| 낮음|True|장치 OS 기준의 스냅숏을 확인 합니다.|
  

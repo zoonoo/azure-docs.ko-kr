@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272956"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612659"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인 한 후 앱 페이지에 오류 메시지를 표시
 
@@ -62,7 +62,7 @@ Azure AD 응답에서 전송 되는 Azure AD 구성의 특성을 추가 하려�
 
    1. **특성 추가**를 선택합니다. 입력를 **이름**를 선택 합니다 **값** 드롭 다운 목록에서.
 
-   1.  **저장**을 선택합니다. 테이블에 새 특성이 표시 됩니다.
+   1.            **저장**을 선택합니다. 테이블에 새 특성이 표시 됩니다.
 
 9. 구성을 저장합니다.
 
@@ -99,7 +99,7 @@ Azure AD 응답에서 전송 되는 Azure AD 구성의 특성을 추가 하려�
 
 ## <a name="change-the-nameid-format"></a>NameID 형식 변경
 
-응용 프로그램에 대해 다른 형식이 필요로 하는 경우는 **NameID** (사용자 식별자) 특성을 참조 하십시오 [편집용 nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) NameID 형식을 변경 하려면.
+응용 프로그램에 대해 다른 형식이 필요로 하는 경우는 **NameID** (사용자 식별자) 특성을 참조 하십시오 [편집용 nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) NameID 형식을 변경 하려면.
 
 Azure AD에 대 한 형식을 선택 합니다 **NameID** 선택한 값 또는 SAML AuthRequest에서 응용 프로그램에서 요청 하는 형식에 따라 특성 (사용자 식별자)입니다. 자세한 내용은의 "NameIDPolicy" 섹션을 참조 하세요 [Single sign-on SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)합니다.
 

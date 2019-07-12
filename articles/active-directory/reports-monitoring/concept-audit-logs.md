@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441134"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827904"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -79,9 +79,9 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
 - 서비스
-- Category
-- 작업
-- 상태
+- 범주
+- 활동
+- Status
 - 대상
 - 초기자(작업자)
 - 날짜 범위
@@ -99,7 +99,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 조건부 액세스
 - 핵심 디렉터리
 - 권한 관리
-- Identity Protection
+- ID 보호
 - 사용자 초대
 - PIM
 - 셀프 서비스 그룹 관리
@@ -111,9 +111,9 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 모두
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- 권한 부여
-- 연락처
+- 인증
+- Authorization
+- Contact
 - 디바이스
 - DeviceConfiguration
 - DirectoryManagement
@@ -132,7 +132,7 @@ Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes
 합니다 **상태** 필터 필터링 할 수는 감사 작업의 상태를 기반으로 합니다. 상태는 다음 중 하나일 수 있습니다.
 
 - 모두
-- 성공
+- Success
 - 실패
 
 합니다 **대상** 필터를 사용 하면 이름 또는 사용자 계정 이름 (UPN)을 특정 대상에 대 한 검색할 수 있습니다. 대상 이름 및 UPN 대/소문자 구분 됩니다. 
@@ -140,7 +140,7 @@ Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes
 합니다 **실행자** 필터를 사용 하면 행위자의 이름 또는 범용 계정 이름 (UPN)를 정의할 수 있습니다. 이름 및 UPN 대/소문자 구분 됩니다.
 
 합니다 **날짜 범위** 필터링 하면 반환된 된 데이터에 대 한 시간 범위를 정의 합니다.  
-가능한 값은 다음과 같습니다.
+가능한 값은
 
 - 1개월
 - 7 일

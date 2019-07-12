@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: v-wingf-msft
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67cfe5a26740837508ea3a3e76295a896c3cc107
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730593"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670917"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "64730593"
 > [!NOTE]
 > 이 자습서는 Azure AD 사용자 프로 비전 서비스를 기반으로 빌드되는 커넥터를 설명 합니다. 이 서비스의 용도, 작동 방법 및 자주 묻는 질문에 대 한 내용은 참조 하세요 [사용자 프로 비전 및 Azure Active Directory를 사용 하 여 소프트웨어-as a service (SaaS) 응용 프로그램에 프로 비전 해제 자동화](../manage-apps/user-provisioning.md)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명 된 시나리오에서는 있다고 가정 합니다.
 
@@ -104,7 +104,7 @@ Marketplace에서 Samanage를 추가 하려면 다음이 단계를 수행 합니
 
 5. 아래는 **관리자 자격 증명** 섹션에서 관리자 사용자 이름 및 Samanage 계정의 관리자 암호를 입력 합니다. 이러한 값의 예는 다음과 같습니다.
 
-   * 에 **관리자 사용자 이름** 상자에서 Samanage 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예는 admin@contoso.com입니다.
+   * 에 **관리자 사용자 이름** 상자에서 Samanage 테 넌 트에서 관리자 계정의 사용자 이름을 입력 합니다. 예제입니다. admin@contoso.com
 
    * 에 **관리자 암호** 상자에서 관리자 사용자 이름에 해당 하는 관리자 계정의 암호를 입력 합니다.
 
@@ -116,7 +116,7 @@ Marketplace에서 Samanage를 추가 하려면 다음이 단계를 수행 합니
 
     ![Samanage 알림 전자 메일](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
-8. **저장**을 선택합니다.
+8.           **저장**을 선택합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 Samanage에 동기화**를 선택합니다.
 
@@ -161,7 +161,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 - {"displayName": "역할"을 (를) 이며, 여기서 역할은 기본 값입니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

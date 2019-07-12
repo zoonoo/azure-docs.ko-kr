@@ -3,17 +3,17 @@ title: 빠른 시작-사설 클라우드에서 VMware VM 만들기
 description: CloudSimple 사설 클라우드를 만드는 방법 및 VMware VM을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/03/19
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 217154578ad11755cd658ff3b106cfbe266277ab
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154625"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595695"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에 VMware 가상 머신 만들기
 
@@ -115,7 +115,7 @@ CloudSimple 할당 username 사용 하 여 기본 vCenter 사용자 계정은 **
 
 응용 프로그램 및 사설 클라우드 환경에서 실행 중인 워크 로드에는 이름 확인 및 조회 및 IP 주소 할당에 DHCP 서비스를 필요 합니다. 적절 한 DHCP 및 DNS 인프라를 이러한 서비스를 제공 해야 합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하는 vCenter의 가상 컴퓨터를 구성할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * 구성 된 VLAN 사용 하 여 분산된 포트 그룹
 
@@ -152,7 +152,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하면 방화벽 테이�
 5. 원하는 경우 유휴 시간 제한을 변경 하려면 슬라이더를 사용 합니다.
 6. 공용 IP 주소를 할당 하려는 로컬 IP 주소를 입력 합니다.
 7. 원하는 경우에 연결 된 DNS 이름을 입력 합니다.
-8. **Done**을 클릭합니다.
+8. **완료**를 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 
@@ -160,7 +160,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하면 방화벽 테이�
 
 이 IP 주소를 매핑할 수 해야 하는 가상 컴퓨터 위에 지정 된 로컬 주소를 사용 하 여 구성 해야 합니다. IP 주소를 구성 하는 절차는 가상 머신 운영 체제와 관련이 있습니다. 가상 머신 운영 체제에서 올바른 프로시저에 대 한 설명서를 참조 하세요.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 예를 들어, Ubuntu 16.04에 대 한 세부 정보 같습니다.
 
@@ -219,7 +219,7 @@ netstat -an | grep 80
 python2.7 -m SimpleHTTPServer 80
 ```
 
-또는
+로 구분하거나 여러
 
 ```
 python3 -m http.server 80

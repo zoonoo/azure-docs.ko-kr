@@ -7,13 +7,13 @@ ms.service: storage
 ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 65ef586d74297e692160dc075dead2f0b1d973b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 4445a8566c04d30cfb8743cbd33623f2e23f0dde
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116964"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595391"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 Azure Storage에 온-프레미스 HDFS 저장소에서 데이터를 마이그레이션하려면
 
@@ -27,7 +27,7 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터를 Azure Storage (blob sto
 > * Microsoft로 장치를 제공 합니다.
 > * Data Lake 저장소 Gen2 데이터를 이동 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
@@ -75,7 +75,7 @@ Data Box 장치에 REST Api의 Blob/개체 저장소를 통해 데이터를 복�
 
     이러한 파일이 존재 하는 경우를 확인 하려면 다음 명령을 사용 하 여: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`합니다. 대체는 `<hadoop_install_dir>` 자리 표시자를 Hadoop을 설치한 디렉터리의 경로입니다. 정규화 된 경로 사용 해야 합니다.
 
-    예제:
+    예를 들면 다음과 같습니다.
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536832"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595155"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "67536832"
 
 **표 2: v1.0 및 v2.0 선택적 클레임 집합**
 
-| 이름                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
+| 이름                       |  Description   | 토큰 형식 | 사용자 유형 | 참고  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
@@ -83,7 +83,7 @@ ms.locfileid: "67536832"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 이름                            | 설명                                | 메모 |
+| JWT 클레임     | 이름                            | Description                                | 참고 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -101,10 +101,10 @@ ms.locfileid: "67536832"
 
 **표 4: 선택적 클레임 구성을 위한 값**
 
-| 속성 이름  | 추가 속성 이름 | 설명 |
+| 속성 이름  | 추가 속성 이름 | Description |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | SAML 및 JWT 응답과 v1.0 및 v2.0 토큰 모두에 사용할 수 있습니다. |
-|                | `include_externally_authenticated_upn`  | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들면 `foo_hometenant.com#EXT#@resourcetenant.com` |             
 |                | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점 외에는 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |
 
 #### <a name="additional-properties-example"></a>추가 속성 예제
@@ -168,7 +168,7 @@ ms.locfileid: "67536832"
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name        | 형식                       | 설명                                           |
+| 이름        | 형식                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -185,7 +185,7 @@ ms.locfileid: "67536832"
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
-| `essential`            | Edm.Boolean             | 이 값이 True이면 클라이언트가 지정한 클레임은 최종 사용자가 요청된 특정 태스크에 대한 원활한 권한 부여 환경을 보장하는 데 필요합니다. 기본값은 False입니다.                                                                                                             |
+| `essential`            | Edm.Boolean             | 이 값이 True이면 클라이언트가 지정한 클레임은 최종 사용자가 요청된 특정 태스크에 대한 원활한 권한 부여 환경을 보장하는 데 필요합니다. 기본값은 false입니다.                                                                                                             |
 | `additionalProperties` | 컬렉션(Edm.String) | 클레임의 추가 속성입니다. 속성이 이 컬렉션에 있으면 name 속성에 지정된 선택적 클레임의 동작을 수정합니다.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>디렉터리 확장에 대 한 선택적 클레임 구성
 
@@ -193,7 +193,7 @@ ms.locfileid: "67536832"
 
 > [!Note]
 > - 디렉터리 스키마 확장을 Azure AD 전용 기능을 되므로 사용자 지정 확장 및 MSA 사용자를 앱에 로그인 응용 프로그램 매니페스트 요청 하는 경우, 이러한 확장이 반환 되지 않습니다.
-> - Azure AD의 선택적 클레임이 Azure AD 확장만 사용 했으며 Microsoft Graph 디렉터리 확장을 사용 하 여 작업 작동 하지 않습니다. 두 Api에 필요 합니다 `Directory.ReadWriteAll` 사용 권한은 관리자가 승인할 수만 있습니다.
+> - Azure AD의 선택적 클레임이 Azure AD 확장만 사용 했으며 Microsoft Graph 디렉터리 확장을 사용 하 여 작동 하지 않습니다. 두 Api에 필요 합니다 `Directory.ReadWriteAll` 사용 권한은 관리자가 승인할 수만 있습니다.
 
 ### <a name="directory-extension-formatting"></a>서식 지정 하는 디렉터리 확장
 
@@ -224,7 +224,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    - "DistributionList"
    - "DirectoryRole"
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -268,7 +268,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    > [!NOTE]
    > "Emit_as_roles"을 사용 하는 경우 사용자가 할당 되는 모든 응용 프로그램 역할 구성 역할 클레임에 표시 되지 않습니다
 
-**예제:** 그룹 dnsDomainName\sAMAccountName 형태로 OAuth 액세스 토큰에서 그룹 이름으로 내보내기
+**예:** 그룹 dnsDomainName\sAMAccountName 형태로 OAuth 액세스 토큰에서 그룹 이름으로 내보내기
 
 ```json
 "optionalClaims": {

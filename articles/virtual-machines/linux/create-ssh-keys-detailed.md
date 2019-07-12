@@ -4,7 +4,7 @@ description: Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만�
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 3784dd701b3ac44971e134f1b160fcfe2de2d9b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1859cdfaead27fda1956b553ebea06374c9cdc6a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328700"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668074"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 
@@ -38,13 +38,13 @@ SSH 프라이빗 키에는 해당 키를 보호할 매우 안전한 암호가 �
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 키 용도 및 이점
 
-공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 개인 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. 따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 `sshd_config` 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
+공개 키를 지정하여 Azure VM을 만들 경우 Azure는 VM에서 공개 키(`.pub` 형식의)를 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys`의 SSH 키는 SSH 연결에서 일치하는 해당 프라이빗 키를 입력하라는 챌린지를 클라이언트에 표시하는 데 사용됩니다. 인증에 SSH 키를 사용하는 Azure Linux VM에서 Azure는 암호 로그인을 허용하지 않고 SSH 키만 허용하도록 SSHD 서버를 구성합니다. 따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 `sshd_config` 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
 
 SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증을 사용할 수 있습니다. VM이 인터넷에 노출되지 않는 경우에는 암호만 사용 하는 것으로도 충분할 수 있습니다. 그렇지만 지속적으로 각 Linux VM에 대한 암호를 관리하고, 최소 암호 길이, 정기 업데이트 등 정상적 암호 정책 및 사례들을 유지 관리해야 합니다. SSH 키를 사용하면 여러 VM에 대한 개별적인 자격 증명 관리의 복잡성을 줄입니다.
 
 ## <a name="generate-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 키 생성하기
 
-키를 만들려면 기본 설정 명령은 `ssh-keygen`로서 Azure Cloud Shell, macOS 또는 Linux 호스트, [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about) 및 기타 도구에서 OpenSSH 유틸리티를 사용할 수 있습니다. `ssh-keygen`은 일련의 사항을 질문한 다음, 개인 키와 일치하는 공개 키를 작성합니다. 
+키를 만들려면 기본 설정 명령은 `ssh-keygen`로서 Azure Cloud Shell, macOS 또는 Linux 호스트, [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about) 및 기타 도구에서 OpenSSH 유틸리티를 사용할 수 있습니다. `ssh-keygen`은 일련의 사항을 질문한 다음, 프라이빗 키와 일치하는 공개 키를 작성합니다. 
 
 SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
 
@@ -78,9 +78,9 @@ ssh-keygen \
 
 `-C "azureuser@myserver"` = 쉽게 식별할 수 있도록 공개 키 파일의 끝에 추가된 주석 일반적으로 이메일 주소는 주석으로 사용되지만 인프라에 가장 적합한 것을 사용합니다.
 
-`-f ~/.ssh/mykeys/myprivatekey` = 기본 이름을 사용하지 않으려는 경우 개인 키 파일의 파일이름입니다. `.pub`에 추가된 해당 공개 키 파일은 동일한 디렉터리에 생성됩니다. 디렉터리가 있어야 합니다.
+`-f ~/.ssh/mykeys/myprivatekey` = 기본 이름을 사용하지 않으려는 경우 프라이빗 키 파일의 파일이름입니다. `.pub`에 추가된 해당 공개 키 파일은 동일한 디렉터리에 생성됩니다. 디렉터리가 있어야 합니다.
 
-`-N mypassphrase` = 개인 키 파일에 액세스하는 데 사용된 추가 암호입니다. 
+`-N mypassphrase` = 프라이빗 키 파일에 액세스하는 데 사용된 추가 암호입니다. 
 
 ### <a name="example-of-ssh-keygen"></a>ssh-keygen 예제
 
@@ -112,7 +112,7 @@ The keys randomart image is:
 
 `Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): ~/.ssh/id_rsa`
 
-이 문서에 대한 키 쌍 이름. `id_rsa`라는 키 쌍을 기본값으로 가지고 일부 도구는 `id_rsa` 개인 키 파일 이름을 예상하므로 하나 있는 것이 좋습니다. 디렉터리 `~/.ssh/` 은 SSH 키 쌍 및 SSH 구성 파일에 대한 기본 위치입니다. 전체 경로를 지정하지 않으면 `ssh-keygen`에서 `~/.ssh` 기본 디렉터리가 아니라 현재 작업 디렉터리에 키를 만듭니다.
+이 문서에 대한 키 쌍 이름. `id_rsa`라는 키 쌍을 기본값으로 가지고 일부 도구는 `id_rsa` 프라이빗 키 파일 이름을 예상하므로 하나 있는 것이 좋습니다. 디렉터리 `~/.ssh/` 은 SSH 키 쌍 및 SSH 구성 파일에 대한 기본 위치입니다. 전체 경로를 지정하지 않으면 `ssh-keygen`에서 `~/.ssh` 기본 디렉터리가 아니라 현재 작업 디렉터리에 키를 만듭니다.
 
 #### <a name="list-of-the-ssh-directory"></a>`~/.ssh` 디렉터리의 목록
 

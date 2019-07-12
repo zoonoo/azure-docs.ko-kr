@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c828f616d0be1611770c8673f9884e0ee50dba19
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449825"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625586"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -43,7 +43,7 @@ Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expr
 
 Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
-## <a name="proxy"></a>프록시
+## <a name="proxy"></a>Proxy (프록시)
 Azure 파일 동기화는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
 **앱별 프록시 설정**을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 4.0.1.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
@@ -93,7 +93,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용 현황 |
+| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용법 |
 |---------|----------------|---------------|------------------------------|
 | **Azure 리소스 관리자** | https://management.azure.com | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
 | **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
@@ -109,35 +109,35 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저장소) 저장소 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 저장소로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure 파일 동기화의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이것을 "쌍을 이루는 지역"이라고 부릅니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
-| 클라우드  | 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
+| 클라우드  | Region | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
 |--------|--------|----------------------|---------------|---------------|
-| 공용 |오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://tm-kailani-aue.one.microsoft.com |
-| 공용 |오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com |
-| 공용 | 브라질 남부 | https://brazilsouth01.afs.azure.net | 미국 중남부 | https://tm-brazilsouth01.afs.azure.net |
-| 공용 | 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com |
-| 공용 | 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com |
-| 공용 | 중앙 인도 | https://kailani-cin.one.microsoft.com | 인도 남부 | https://tm-kailani-cin.one.microsoft.com |
-| 공용 | 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com |
-| 공용 | 동아시아 | https://kailani11.one.microsoft.com | 동남아시아 | https://tm-kailani11.one.microsoft.com |
-| 공용 | East US | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com |
-| 공용 | 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com |
-| 공용 | 일본 동부 | https://japaneast01.afs.azure.net | 일본 서부 | https://tm-japaneast01.afs.azure.net |
-| 공용 | 일본 서부 | https://japanwest01.afs.azure.net | 일본 동부 | https://tm-japanwest01.afs.azure.net |
-| 공용 | 한국 중부 | https://koreacentral01.afs.azure.net/ | 한국 남부 | https://tm-koreacentral01.afs.azure.net/ |
-| 공용 | 한국 남부 | https://koreasouth01.afs.azure.net/ | 한국 중부 | https://tm-koreasouth01.afs.azure.net/ |
-| 공용 | 미국 중북부 | https://northcentralus01.afs.azure.net | 미국 중남부 | https://tm-northcentralus01.afs.azure.net |
-| 공용 | 유럽 북부 | https://kailani7.one.microsoft.com | 서유럽 | https://tm-kailani7.one.microsoft.com |
-| 공용 | 미국 중남부 | https://southcentralus01.afs.azure.net | 미국 중북부 | https://tm-southcentralus01.afs.azure.net |
-| 공용 | 인도 남부 | https://kailani-sin.one.microsoft.com | 중앙 인도 | https://tm-kailani-sin.one.microsoft.com |
-| 공용 | 동남아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com |
-| 공용 | 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com |
-| 공용 | 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com |
-| 공용 | 미국 중서부 | https://westcentralus01.afs.azure.net | 미국 서부 2 | https://tm-westcentralus01.afs.azure.net |
-| 공용 | 서유럽 | https://kailani6.one.microsoft.com | 유럽 북부 | https://tm-kailani6.one.microsoft.com |
-| 공용 | 미국 서부 | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
-| 공용 | 미국 서부 2 | https://westus201.afs.azure.net | 미국 중서부 | https://tm-westus201.afs.azure.net |
-| 정부 | 미국 정부 애리조나 | https://usgovarizona01.afs.azure.us | 미국 정부 텍사스 | https://tm-usgovarizona01.afs.azure.us |
-| 정부 | 미국 정부 텍사스 | https://usgovtexas01.afs.azure.us | 미국 정부 애리조나 | https://tm-usgovtexas01.afs.azure.us |
+| Public |오스트레일리아 동부 | https:\//kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https:\//tm-kailani-aue.one.microsoft.com |
+| Public |오스트레일리아 남동부 | https:\//kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https:\//tm-kailani-aus.one.microsoft.com |
+| Public | 브라질 남부 | https:\//brazilsouth01.afs.azure.net | 미국 중남부 | https:\//tm-brazilsouth01.afs.azure.net |
+| Public | 캐나다 중부 | https:\//kailani-cac.one.microsoft.com | 캐나다 동부 | https:\//tm-kailani-cac.one.microsoft.com |
+| Public | 캐나다 동부 | https:\//kailani-cae.one.microsoft.com | 캐나다 중부 | https:\//tm-kailani.cae.one.microsoft.com |
+| Public | 인도 중부 | https:\//kailani-cin.one.microsoft.com | 인도 남부 | https:\//tm-kailani-cin.one.microsoft.com |
+| Public | 미국 중부 | https:\//kailani-cus.one.microsoft.com | 미국 동부 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Public | 동아시아 | https:\//kailani11.one.microsoft.com | 동남아시아 | https:\//tm-kailani11.one.microsoft.com |
+| Public | East US | https:\//kailani1.one.microsoft.com | 미국 서부 | https:\//tm-kailani1.one.microsoft.com |
+| Public | 미국 동부 2 | https:\//kailani-ess.one.microsoft.com | 미국 중부 | https:\//tm-kailani-ess.one.microsoft.com |
+| Public | 일본 동부 | https:\//japaneast01.afs.azure.net | 일본 서부 | https:\//tm-japaneast01.afs.azure.net |
+| Public | 일본 서부 | https:\//japanwest01.afs.azure.net | 일본 동부 | https:\//tm-japanwest01.afs.azure.net |
+| Public | 한국 중부 | https:\//koreacentral01.afs.azure.net/ | 한국 남부 | https:\//tm-koreacentral01.afs.azure.net/ |
+| Public | 한국 남부 | https:\//koreasouth01.afs.azure.net/ | 한국 중부 | https:\//tm-koreasouth01.afs.azure.net/ |
+| Public | 미국 중북부 | https:\//northcentralus01.afs.azure.net | 미국 중남부 | https:\//tm-northcentralus01.afs.azure.net |
+| Public | 북유럽 | https:\//kailani7.one.microsoft.com | 서유럽 | https:\//tm-kailani7.one.microsoft.com |
+| Public | 미국 중남부 | https:\//southcentralus01.afs.azure.net | 미국 중북부 | https:\//tm-southcentralus01.afs.azure.net |
+| Public | 인도 남부 | https:\//kailani-sin.one.microsoft.com | 인도 중부 | https:\//tm-kailani-sin.one.microsoft.com |
+| Public | 동남아시아 | https:\//kailani10.one.microsoft.com | 동아시아 | https:\//tm-kailani10.one.microsoft.com |
+| Public | 영국 남부 | https:\//kailani-uks.one.microsoft.com | 영국 서부 | https:\//tm-kailani-uks.one.microsoft.com |
+| Public | 영국 서부 | https:\//kailani-ukw.one.microsoft.com | 영국 남부 | https:\//tm-kailani-ukw.one.microsoft.com |
+| Public | 미국 중서부 | https:\//westcentralus01.afs.azure.net | 미국 서부 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Public | 서유럽 | https:\//kailani6.one.microsoft.com | 북유럽 | https:\//tm-kailani6.one.microsoft.com |
+| Public | 미국 서부 | https:\//kailani.one.microsoft.com | East US | https:\//tm-kailani.one.microsoft.com |
+| Public | 미국 서부 2 | https:\//westus201.afs.azure.net | 미국 중서부 | https:\//tm-westus201.afs.azure.net |
+| 정부 | 미국 정부 애리조나 | https:\//usgovarizona01.afs.azure.us | 미국 정부 텍사스 | https:\//tm-usgovarizona01.afs.azure.us |
+| 정부 | 미국 정부 텍사스 | https:\//usgovtexas01.afs.azure.us | 미국 정부 애리조나 | https:\//tm-usgovtexas01.afs.azure.us |
 
 - LRS(로컬 중복 저장소) 또는 ZRS(영역 중복 저장소) 저장소 계정을 사용하는 경우 "기본 엔드포인트 URL" 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
 
@@ -145,9 +145,9 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저�
 
 **예제:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 서비스에 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
-> - https://kailani.one.microsoft.com (기본 엔드포인트: 미국 서부)
-> - https://kailani1.one.microsoft.com (쌍을 이루는 장애 조치(failover) 지역: 미국 동부)
-> - https://tm-kailani.one.microsoft.com (주 지역의 검색 URL)
+> - https:\//kailani.one.microsoft.com (기본 끝점: 미국 서부)
+> - https:\//kailani1.one.microsoft.com (쌍을 이루는 장애 조치 지역: 미국 동부)
+> - https:\//tm-kailani.one.microsoft.com (검색 URL은 주 지역의)
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한
 이 문서의 앞부분에 나오는 목록에는 Azure 파일 동기화가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 아웃바운드 트래픽을 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.

@@ -6,28 +6,28 @@ author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jnoller
-ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.author: jenoller
+ms.openlocfilehash: e42e017730ebee6b9b0f06f700a33e499d7eba51
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693394"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615704"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
 
-Azure Kubernetes Service (AKS)를 사용 합니다 [CoreDNS] [ coredns] 클러스터 DNS 관리 및 모든 해상도 대 한 프로젝트 *1.12.x* 및 더 높은 클러스터. 이전에 kube-dns 프로젝트 사용 되었습니다. 이 kube-dns 프로젝트는 이제 사용 되지 않습니다. CoreDNS 사용자 지정 및 Kubernetes에 대 한 자세한 내용은 참조는 [업스트림 공식 설명서][corednsk8s]합니다.
+Azure Kubernetes Service (AKS)를 사용 합니다 [CoreDNS][coredns] 클러스터 DNS 관리 및 모든 해상도 대 한 프로젝트 *1.12.x* 및 더 높은 클러스터. 이전에 kube-dns 프로젝트 사용 되었습니다. 이 kube-dns 프로젝트는 이제 사용 되지 않습니다. CoreDNS 사용자 지정 및 Kubernetes에 대 한 자세한 내용은 참조는 [업스트림 공식 설명서][corednsk8s]합니다.
 
 AKS 관리 되는 서비스 이므로 CoreDNS에 대 한 기본 구성을 수정할 수 없습니다 (한 *CoreFile*). Kubernetes를 사용 하는 대신 *ConfigMap* 기본 설정을 재정의할 수 있습니다. AKS CoreDNS ConfigMaps 기본값을 보려면 사용 하 여는 `kubectl get configmaps coredns -o yaml` 명령입니다.
 
 이 문서에서는 AKS에서 CoreDNS의 기본 사용자 지정 옵션에 대 한 ConfigMaps를 사용 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> `kube-dns` 제공 되는 다른 [사용자 지정 옵션] [ kubednsblog] Kubernetes 구성 맵을 통해. CoreDNS 됩니다 **되지** kube-dns를 사용 하 여 이전 버전과 호환입니다. 이전에 사용한 사용자 지정 CoreDNS 사용에 대 한 업데이트 되어야 합니다.
+> `kube-dns` 제공 되는 다른 [사용자 지정 옵션][kubednsblog] Kubernetes 구성 맵을 통해. CoreDNS 됩니다 **되지** kube-dns를 사용 하 여 이전 버전과 호환입니다. 이전에 사용한 사용자 지정 CoreDNS 사용에 대 한 업데이트 되어야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에 필요한 경우 AKS 빠른 시작을 참조 하세요 [Azure CLI를 사용 하 여][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]합니다.
 
 ## <a name="what-is-supportedunsupported"></a>지원/지원 되지 않는 새로운 기능
 
@@ -53,19 +53,19 @@ data:
     }
 ```
 
-사용 하 여 ConfigMap 만듭니다는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정:
+ConfigMap 하 여 만들기는 [kubectl configmap을 적용][kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다.
 
 ```console
 kubectl apply -f corednsms.json
 ```
 
-사용자 지정 항목 적용 되었는지 확인 하려면 사용 합니다 [kubectl get configmaps] [ kubectl-get] 지정에 *coredns-사용자 지정* ConfigMap:
+사용자 지정 항목 적용 되었는지 확인 하려면 사용 합니다 [kubectl get configmaps][kubectl-get] 지정 하 *coredns-사용자 지정* ConfigMap:
 
 ```
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-이제 CoreDNS ConfigMap을 다시 로드를 강제 합니다. [kubectl 삭제 pod] [ kubectl delete] 명령을 삭제 되지 않으며 가동 중지 시간이 발생 하지 않습니다. `kube-dns` pod 삭제 되 고 Kubernetes 스케줄러에서 다음 다시 만듭니다. 이러한 새 pod 변경 된 TTL 값을 포함합니다.
+이제 CoreDNS ConfigMap을 다시 로드를 강제 합니다. 합니다 [kubectl pod를 삭제][kubectl delete] 명령을 삭제 되지 않으며 가동 중지 시간이 발생 하지 않습니다. `kube-dns` pod 삭제 되 고 Kubernetes 스케줄러에서 다음 다시 만듭니다. 이러한 새 pod 변경 된 TTL 값을 포함합니다.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
@@ -91,7 +91,7 @@ data:
     }
 ```
 
-이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
+이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
 kubectl apply -f corednsms.json
@@ -119,7 +119,7 @@ data:
     }
 ```
 
-이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
+이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
 kubectl apply -f corednsms.json
@@ -151,7 +151,7 @@ data:
 
 ```
 
-이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
+이전 예제에서와 같이 사용 하 여 ConfigMap을 만들 합니다 [kubectl 적용 configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
 kubectl apply -f corednsms.json
@@ -160,7 +160,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 ## <a name="hosts-plugin"></a>호스트 플러그 인
 
-모든 기본 제공 플러그 인 지원 되는 CoreDNS 즉 [호스트] [ coredns hosts] 플러그 인은도 사용자 지정할 수 있습니다.
+모든 기본 제공 플러그 인 지원 되는 CoreDNS 즉 [호스트][coredns hosts] 플러그 인은도 사용자 지정할 수 있습니다.
 
 ```yaml
 apiVersion: v1

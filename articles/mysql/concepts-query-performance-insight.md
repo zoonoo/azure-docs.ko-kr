@@ -3,15 +3,15 @@ title: Azure Database for MySQL에서에서 query Performance Insight
 description: 이 문서에서는 MySQL 용 Azure Database에서 Query Performance Insight 기능 설명
 author: ajlam
 ms.author: andrela
-ms.service: MySQL
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461751"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589066"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL에서에서 query Performance Insight
 
@@ -34,11 +34,11 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 - 쿼리에 대 한 대기 특성 이해
 - 리소스 대기 및 리소스 경합 존재 하는 위치에 대 한 추세 이해
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 **소유자** 하거나 **참가자** Query Performance Insight에서 쿼리 텍스트를 보려면 필요한 사용 권한. ** 판독기** 차트 및 테이블을 볼 수는 있지만 텍스트를 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 함수에 대 한 Query Performance Insight를 데이터에 존재 해야 합니다는 [쿼리 저장소](concepts-query-store.md)합니다.
 

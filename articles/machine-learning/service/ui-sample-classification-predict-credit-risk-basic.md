@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789411"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605768"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>3-분류 샘플: 신용 위험 예측
 
@@ -27,7 +27,7 @@ ms.locfileid: "65789411"
 
 ![실험 그래프](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "65789411"
 
 [4-분류 샘플: 신용 위험 예측 (비용/소문자 구분)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) 이 실험으로 동일한 문제를 해결 하는 고급 실험을 제공 합니다. 수행 하는 방법을 보여 줍니다 _중요 한 비용_ 사용 하 여 분류를 **Python 스크립트 실행** 모듈 및 두 가지 이진 분류 알고리즘의 성능 비교 합니다. 분류 실험을 빌드하는 방법에 대 한 자세한 않으려면를 참조 하십시오.
 
-## <a name="data"></a>Data
+## <a name="data"></a>보기
 
 독일 신용 카드 데이터 집합에서는 UC Irvine 리포지토리에서 사용합니다.
 데이터 집합에는 20 기능 및 1 개 레이블 1,000 샘플이 들어 있습니다. 각 샘플 사람을 나타냅니다. 숫자와 범주 기능을 포함 하는 기능입니다. 참조 된 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) 범주 기능의 의미에 대 한 합니다. 마지막 열은 레이블 신용 위험을 나타내는 고 두 개의 가능한 값: 높은 신용 위험 2 및 신용 위험이 낮은 = = 1입니다.
@@ -78,3 +78,4 @@ ms.locfileid: "65789411"
 - [2-회귀 샘플: 자동차 가격 예측 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [4-분류 샘플: (중요 한 비용) 신용 위험 예측](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [5-분류 샘플: 이탈 예측](ui-sample-classification-predict-churn.md)
+- [6-분류 샘플: 비행 지연을 예측합니다](ui-sample-classification-predict-flight-delay.md)

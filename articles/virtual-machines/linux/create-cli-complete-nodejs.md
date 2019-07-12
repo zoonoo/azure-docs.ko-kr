@@ -4,7 +4,7 @@ description: Azure 클래식 CLI를 사용하여 저장소, Linux VM, 가상 네
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328717"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668020"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
@@ -285,7 +285,7 @@ Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있�
 azure group create --name myResourceGroup --location westeurope
 ```
 
-출력
+출력:
 
 ```azurecli                        
 info:    Executing command group create
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ info:    storage account create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -372,7 +372,7 @@ export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring
 azure storage container list
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ json 옵션 `azure group show` 및 `jq`를 사용하여 리소스를 빌드하�
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ info:    network vnet subnet create command OK
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ info:    network public-ip create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -598,7 +598,7 @@ azure group show myResourceGroup --json | jq '.'
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -689,7 +689,7 @@ info:    network lb address-pool create command OK
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -774,7 +774,7 @@ azure network lb rule create --resource-group myResourceGroup \
   --backend-address-pool-name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb rule create
@@ -805,7 +805,7 @@ azure network lb probe create --resource-group myResourceGroup \
   --interval 15 --count 4
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb probe create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -969,7 +969,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network nic create
@@ -1002,7 +1002,7 @@ info:    network nic create command OK
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ info:    vm create command OK
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-출력
+출력:
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1212,7 +1212,7 @@ azure vm create \
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm show

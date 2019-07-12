@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514455"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705088"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문
 
@@ -88,9 +88,19 @@ MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/File
 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다.
 - 캐시 폴더 볼륨에 백업 데이터의 총 크기의 5 ~ 10% 이상에 해당 하는 사용 가능한 공간이 있어야 합니다.
 - 볼륨에 여유 공간이 5% 미만인 경우 볼륨 크기를 늘리거나 캐시 폴더를 충분 한 공간이 있는 볼륨으로 이동 합니다.
-- Windows 시스템 상태를 백업 하는 경우 캐시 폴더를 포함 하는 볼륨의 사용 가능한 공간을 추가 30 ~ 35 GB 필요
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS 에이전트에 대 한 캐시 위치를 변경 하려면 어떻게 해야 합니까?
+- Windows 시스템 상태를 백업 하는 경우에 캐시 폴더를 포함 하는 볼륨의 사용 가능한 공간을 추가 30 ~ 35 GB 해야 합니다.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>스크래치 폴더가 유효 하 고 액세스할 수 있는지 확인 하려면 어떻게 하나요?
+
+1. 스크래치 폴더가 기본적으로 위치는 `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. 해야 스크래치 폴더 위치의 경로 아래에 표시 된 레지스트리 키 항목의 값과 일치 합니다.
+
+  | 레지스트리 경로 | 레지스트리 키 | 값 |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS 에이전트에 대 한 캐시 위치를 변경 하려면 어떻게 해야 합니까?
 
 1. Backup 엔진을 중지 하려면 명령 프롬프트에서이 명령을 실행 합니다.
 

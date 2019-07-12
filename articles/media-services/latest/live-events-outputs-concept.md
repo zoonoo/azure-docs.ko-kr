@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296200"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605646"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -102,14 +102,14 @@ Live encoding을 사용 하는 경우 30 프레임/H.264/AVC 비디오 코덱 �
     
     |언어|베 니 티 URL을 사용 하도록 설정|액세스 토큰 설정|
     |---|---|---|
-    |REST (영문)|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |REST(영문)|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
     |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *액세스 토큰* -베 니 티 모드를 사용 하는 경우 설정한 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
+* *액세스 토큰* -베 니 티 모드를 사용 하는 경우 설정한 유효한 GUID 문자열입니다. `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )을 입력합니다.
 * *스트림 이름을* -특정 연결에 대 한 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하면 라이브 인코더에 의해 추가 됩니다. 예를 들어 연결을 설명 하는 이름을 사용 하는 라이브 인코더를 구성할 수 있습니다. "video1_audio1", "video2_audio1", "스트림" 합니다.
 
 #### <a name="non-vanity-url"></a>비베니티 URL
@@ -142,7 +142,7 @@ Live encoding을 사용 하는 경우 30 프레임/H.264/AVC 비디오 코덱 �
 
 ## <a name="live-event-preview-url"></a>라이브 이벤트 미리 보기 URL
 
-**라이브 이벤트**가 기여 피드를 수신하기 시작하면 미리 보기 엔드포인트를 사용하여 추가 게시 전에 라이브 스트림을 수신하고 있음을 미리 보고 확인할 수 있습니다. 라이브 스트림을 하나 이상의 (미리 만든)을 통해 배달에 사용할 수 있도록 라이브 이벤트를 사용 하 여 미리 보기 스트림은 좋은 인지를 확인 한 후 **스트리밍 끝점**합니다. 이를 수행하려면 **라이브 이벤트**에 새 [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만듭니다. 
+라이브 이벤트 시작 기여 피드를 수신 되 면 미리 보고 게시 추가 하기 전에 라이브 스트림을 받고 있는지 확인 하는 미리 보기 끝점을 사용할 수 있습니다. 미리 보기 스트림은 좋은 인지를 확인 한 후에 라이브 스트림을 사용 가능 끝점을 통해 하나 이상의 (미리 생성 된) 스트리밍 배달에 대 한 라이브 이벤트를 사용할 수 있습니다. 이렇게 하려면 새로 만든 [Live 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 라이브 이벤트에 대 한 합니다. 
 
 > [!IMPORTANT]
 > 계속하기 전에 비디오가 미리 보기 URL로 전달되고 있는지 확인합니다.
@@ -158,11 +158,11 @@ Live encoding을 사용 하는 경우 30 프레임/H.264/AVC 비디오 코덱 �
 > [!NOTE]
 > 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다. 라이브 출력을 삭제해도 기본 자산과 자산의 콘텐츠는 삭제되지 않습니다. 
 
-**라이브 이벤트**와 **라이브 출력** 간의 관계는 기존 TV 방송과 비슷하므로 채널(**라이브 이벤트**)은 일정한 비디오 스트림을 나타내고 녹음/녹화(**라이브 출력**)는 특정 시간 세그먼트의 범위로 지정됩니다(예: 오후 6시 30분부터 오후 7시까지의 저녁 뉴스). DVR(디지털 비디오 녹화기)을 사용하여 TV를 녹화할 수 있으며, 이와 동등한 라이브 이벤트의 기능은 **ArchiveWindowLength** 속성을 통해 관리됩니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
+관계는 **라이브 이벤트** 및 해당 **Live 출력** 비슷합니다 브로드캐스트, 기존의 텔레비전 채널 (라이브 이벤트)을 나타내는 상수 비디오 및 녹음/녹화 (라이브 스트림을 차게 되 출력)은 특정 시간 세그먼트 (예를 들어 저녁 뉴스에서 오후 6:30에 오후 7 시)에 범위가 지정 됩니다. 디지털 비디오 레코더 (DVR)을 사용 하 여 텔레비전을 기록할 수 있습니다 – 라이브 이벤트에 해당 하는 기능을 통해 관리 되는 **archiveWindowLength** 속성입니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
 
-**라이브 출력** 개체는 테이프 레코더처럼 라이브 스트림을 포착하고 Media Services 계정의 자산에 기록합니다. 기록된 콘텐츠는 계정에 연결된 Azure Storage 계정뿐 아니라 자산 리소스에서 정의한 컨테이너에서도 유지됩니다. **라이브 출력**을 사용하면 보관 기록에 보관되는 스트림의 양(예: 클라우드 DVR의 용량), 시청자가 라이브 스트림을 보기 시작할 수 있는지 여부 등의 나가는 라이브 스트림의 일부 속성을 제어할 수 있습니다. 디스크의 보관은 **라이브 출력**의 **archiveWindowLength** 속성에 지정된 양의 콘텐츠만 보유하는 순환식 보관 “기간”입니다. 이 기간을 벗어나는 콘텐츠는 스토리지 컨테이너에서 자동으로 삭제되며 복구할 수 없습니다. **라이브 이벤트**에서 보관 기간 및 설정이 서로 다른 여러 개의 **라이브 출력**(최대 3개)을 만들 수 있습니다.  
+라이브 출력 개체를 catch 하는 테이프 레코더 및 라이브 스트림 Media Services 계정에 자산으로 레코드를 비슷합니다. 기록된 콘텐츠는 계정에 연결된 Azure Storage 계정뿐 아니라 자산 리소스에서 정의한 컨테이너에서도 유지됩니다. 또한 라이브 출력을 사용 하면 나가는 라이브 스트림 보관 기록 (예: 클라우드 DVR 용량)에 보관 된 스트림의 양을 여부 라이브 스트림을 시청 뷰어를 시작할 수 등의 일부 속성을 제어할 수 있습니다. 디스크에 보관은 순환 아카이브로 "창"만 보유 하는 라이브 출력의 archiveWindowLength 속성에 지정 된 콘텐츠의 크기입니다. 이 기간을 벗어나는 콘텐츠는 스토리지 컨테이너에서 자동으로 삭제되며 복구할 수 없습니다. 다른 보관 길이 및 설정을 사용 하 여 라이브 이벤트에 여러 라이브 출력 (최대 3 개의 최대)을 만들 수 있습니다.  
 
-**스트리밍 로케이터**를 사용하여 **라이브 출력**의 **자산**을 게시한 경우 스트리밍 로케이터의 만료 또는 삭제 중 어느 것이 먼저 발생할 때까지 **라이브 이벤트**(DVR 기간까지)를 계속 시청할 수 있습니다.
+라이브 출력을 게시 한 경우 **Asset** 사용 하 여를 **스트리밍 로케이터**, DVR 창 길이) (최대 라이브 이벤트 스트리밍 로케이터 만료 되거나 삭제 될 때까지 볼 수 있는 계속 먼저 도달 합니다.
 
 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조하세요.
 

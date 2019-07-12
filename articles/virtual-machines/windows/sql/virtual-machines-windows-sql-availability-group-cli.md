@@ -14,21 +14,21 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518974"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607146"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure SQL VM CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
 이 문서에서는 사용 하는 방법을 설명 [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/) Windows 장애 조치 클러스터 (WSFC) 배포 및 SQL Server Vm 클러스터를 추가할 뿐만 내부 Load Balancer 및 Always On 가용성 그룹에 대 한 수신기를 만듭니다.  Always On 가용성 그룹의 실제 배포도 이루어집니다 수동으로 SQL Server Management Studio (SSMS)를 통해. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Azure SQL VM CLI를 사용 하 여 Always On 가용성 그룹의 설치를 자동화 하려면 다음 필수 구성 요소를 이미 있어야 할: 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- 하나 이상의 도메인에 가입 된 [Vm에 Azure 실행 중인 SQL Server 2016 (이상) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 에 *동일한 가용성 집합 또는 다른 가용성 영역* 된 [등록 SQL VM 리소스 공급자를 사용 하 여](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)입니다.  
+- 하나 이상의 도메인에 가입 된 [Vm에 Azure 실행 중인 SQL Server 2016 (이상) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 에 *동일한 가용성 집합 또는 다른 가용성 영역* 된 [등록 SQL VM 리소스 공급자를 사용 하 여](virtual-machines-windows-sql-register-with-resource-provider.md)입니다.  
 - [Azure CLI](/cli/azure/install-azure-cli). 
 - (모든 엔터티에서 사용 되지 않음)는 두 사용 가능한 IP 주소, 내부 Load Balancer 및 가용성 그룹과 동일한 서브넷 내에서 가용성 그룹 수신기에 대 한 합니다. 기존 부하 분산 장치를 사용 중 하나만 사용할 수 있는 IP 주소는 가용성 그룹 수신기에 필요 합니다. 
 
@@ -125,7 +125,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
    1. 리소스 그룹으로 이동 합니다 [Azure portal](https://portal.azure.com)합니다. 
    1. VNet 리소스를 선택 합니다. 
    1. 선택 **속성** 에 **설정** 창입니다. 
-   1. VNet에 대 한 리소스 ID를 식별 하 고 추가 `/subnets/<subnetname>`서브넷 리소스 ID를 만들려면의 끝에 예를 들면 다음과 같습니다.
+   1. VNet에 대 한 리소스 ID를 식별 하 고 추가 `/subnets/<subnetname>`서브넷 리소스 ID를 만들려면의 끝에 예를 들어:
         - 내 vNet 리소스 ID는: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - 내 서브넷 이름이 `default`합니다.
         - 따라서 서브넷 리소스 ID는 있습니다. `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

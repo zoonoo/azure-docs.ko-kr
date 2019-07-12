@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147077"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805717"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>로그를 사용 하 여 Azure Data Box 디스크의 유효성 검사 문제를 해결 하려면
 
@@ -90,8 +90,8 @@ ms.locfileid: "67147077"
 | `InvalidBlobNameFormat` | 파일 경로 Azure Blob 명명 규칙에 따라 클라우드에서 유효한 blob 경로에 매핑되지 않습니다.|준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요. |
 | `InvalidFileNameFormat` | 파일 경로 Azure 파일 명명 규칙에 따라 클라우드에서 올바른 파일 경로에 매핑되지 않습니다. |준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요. |
 | `InvalidDiskNameFormat` | 파일 경로 Azure Managed Disk 명명 규칙에 따라 클라우드에서 올바른 디스크 이름으로 매핑되지 않습니다. |준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요.       |
-| `NotPartOfFileShare` | 업로드 경로가 올바르지 않습니다.으로 파일을 업로드 하지 못했습니다. Azure Files의 폴더에 파일을 업로드 합니다.   | 오류에서 파일을 제거 하 고 precreated 폴더에 해당 파일을 업로드 합니다. 유효성 검사 다시 시도 하세요. |
-| `NonVhdFileNotSupportedForManagedDisk` | 관리 디스크로 아닌 VHD 파일을 업로드할 수 없습니다. |이 지원 되지 않으므로 아닌 VHD 파일을 제거 합니다. 유효성 검사 다시 시도 하세요. |
+| `NotPartOfFileShare` | 업로드 파일의 경로를 잘못 되었습니다. Azure Files의 폴더에 파일을 업로드 합니다.   | 오류에서 파일을 제거 하 고 precreated 폴더에 해당 파일을 업로드 합니다. 유효성 검사 다시 시도 하세요. |
+| `NonVhdFileNotSupportedForManagedDisk` | 관리 디스크로 아닌 VHD 파일을 업로드할 수 없습니다. |비-VHD 파일을 제거 `ManagedDisk` 이러한 폴더는 지원 되지 않습니다 또는 이러한 파일을 이동할는 `PageBlob` 폴더입니다. 유효성 검사 다시 시도 하세요. |
 
 
 ## <a name="next-steps"></a>다음 단계

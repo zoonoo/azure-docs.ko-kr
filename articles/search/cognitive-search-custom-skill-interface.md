@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021927"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668869"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>인식 검색 파이프라인에 사용자 지정 기술을 추가하는 방법
 
 Azure Search의 [인식 검색 인덱싱 파이프라인](cognitive-search-concept-intro.md)은 [미리 정의된 기술](cognitive-search-predefined-skills.md)뿐 아니라 사용자가 개인적으로 만들어서 파이프라인에 추가하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)을 통해 조립할 수 있습니다. 이 문서에서는 인식 검색 파이프라인에 포함될 수 있도록 하는 인터페이스를 노출하는 사용자 지정 기술을 만드는 방법을 알아봅니다. 
 
-사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제는 [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조하세요.
+사용자 지정 기술을 작성하면 콘텐츠에 고유한 변환을 삽입할 수 있습니다. 사용자 지정 기술은 독립적으로 실행되며 필요한 보강 단계를 적용합니다. 예를 들어, 필드별 사용자 지정 엔터티를 정의하거나, 사용자 지정 분류 모델을 작성하여 비즈니스 및 재무 계약과 문서를 구별하거나, 음성 인식 기술을 추가하여 관련 콘텐츠에 대해 오디오 파일을 더 자세히 조사할 수 있습니다. 단계별 예제를 참조 하세요. [예제: Cognitive search에 대해 사용자 지정 기술을 만들어](cognitive-search-create-custom-skill-example.md)합니다.
 
  필요한 사용자 지정 기능이 무엇이든 관계없이, 사용자 지정 기술을 보강 파이프라인의 나머지 부분에 연결하기 위한 간단하고 명확한 인터페이스가 있습니다. [기능](cognitive-search-defining-skillset.md)에 포함하기 위한 유일한 요구 사항은 기능 전체에서 사용할 수 있는 방식으로 입력을 수락하고 출력을 내보내는 것뿐입니다. 이 문서에서는 보강 파이프라인에 필요한 입력 및 출력 형식을 중심으로 설명합니다.
 
@@ -156,7 +156,7 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [예제: Translator Text API에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예제: Cognitive search에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

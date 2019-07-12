@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델을 사용하여 특수한 관리 디
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: d9390323a5a1af7a5b8ef1a3d0b5f87c27a42c7c
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "64726259"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718819"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "64726259"
 여러 옵션이 있습니다.
 * [기존 관리 디스크 사용](#option-1-use-an-existing-disk). 이 옵션은 올바르게 작동하지 않는 VM이 있는 경우에 유용합니다. VM을 삭제한 다음, 관리 디스크를 다시 사용하여 새 VM을 만들 수 있습니다. 
 * [VHD 업로드](#option-2-upload-a-specialized-vhd) 
-* [스냅숏을 사용하여 기존 Azure VM 복사](#option-3-copy-an-existing-azure-vm)
+* [스냅샷을 사용하여 기존 Azure VM 복사](#option-3-copy-an-existing-azure-vm)
 
 Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-specialized-portal.md) 수도 있습니다.
 
@@ -209,7 +209,7 @@ $snapShot = New-AzSnapshot `
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅숏에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅샷에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 

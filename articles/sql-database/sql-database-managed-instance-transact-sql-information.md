@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070347"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723249"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -47,7 +47,7 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - 합니다 [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) 절을 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) 문
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>백업
 
 사용자가 전체 데이터베이스를 만들 수 있도록 관리 되는 인스턴스는 자동 백업, `COPY_ONLY` 백업 합니다. 차등, 로그 및 파일 스냅숏 백업은 지원 되지 않습니다.
 
@@ -93,7 +93,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - 새로운 구문 `TO URL` Azure Blob 저장소 컨테이너의 URL을 지정 하 여 제공 됩니다 여기서는 `.xel` 파일 배치 됩니다.
 - 구문을 `TO FILE` 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 지원 되지 않습니다.
 
-자세한 내용은 다음을 참조하세요. 
+참조 항목: 
 
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -186,7 +186,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - [서비스 마스터 키 백업](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) (SQL Database 서비스에서 관리 되는) 지원 되지 않습니다.
 - [서비스 마스터 키 복원](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) (SQL Database 서비스에서 관리 되는) 지원 되지 않습니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="buffer-pool-extension"></a>버퍼 풀 확장
 
@@ -278,11 +278,11 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 - SQL Server 에이전트를 설정 하거나 해제 현재 지원 되지 않습니다에서 관리 되는 인스턴스. SQL 에이전트는 항상 실행되고 있습니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. 프로시저 `sp_set_agent_properties` 관리 되는 인스턴스에서 지원 되지 않습니다. 
-- 교육
+- 에서
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅샷
+    - 스냅숏
     - 배포자
   - SSIS 작업 단계는 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
@@ -293,18 +293,18 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
   - SQL Server Analysis Services가 지원 되지 않습니다.
 - 알림은 부분적으로 지원됩니다.
 - 데이터베이스 메일 프로필을 구성 하는 필요 하지만 전자 메일 알림을 지원 됩니다. SQL Server 에이전트에는 하나의 데이터베이스 메일 프로필을 사용할 수 있으며 호출 해야 `AzureManagedInstance_dbmail_profile`합니다. 
-  - 호출기는 지원되지 않습니다. 
+  - 호출기는 지원되지 않습니다.
   - NetSend는 지원되지 않습니다.
   - 경고가 아직 지원 되지 않습니다.
-  - 프록시 지원 되지 않습니다. 
+  - 프록시 지원 되지 않습니다.
 - EventLog는 지원 되지 않습니다.
 
-다음 기능은 현재 지원 되지 않습니다 하지만 나중에 사용할:
+다음 SQL 에이전트 기능에는 현재 다음이 지원 되지 않습니다.
 
 - 프록시
 - 유휴 CPU 대 한 작업 예약
 - 사용 하도록 설정 하거나 에이전트를 사용 하지 않도록 설정
-- 경고
+- ,
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)를 참조하세요.
 
@@ -390,7 +390,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - 인스턴스 간 쓰기 트랜잭션은 지원되지 않습니다.
 - `sp_dropserver`는 연결된 서버를 삭제하는 데 지원됩니다. [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)를 참조하세요.
 - `OPENROWSET` 만 SQL Server 인스턴스에서 쿼리를 실행 하는 함수를 사용할 수 있습니다. 관리 되는 온-프레미스, 수 또는 virtual machines입니다. [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
-- `OPENDATASOURCE` 만 SQL Server 인스턴스에서 쿼리를 실행 하는 함수를 사용할 수 있습니다. 관리 되는 온-프레미스, 수 또는 virtual machines입니다. 만 `SQLNCLI`, `SQLNCLI11`, 및 `SQLOLEDB` 값 공급자로 지원 됩니다. 예는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
+- `OPENDATASOURCE` 만 SQL Server 인스턴스에서 쿼리를 실행 하는 함수를 사용할 수 있습니다. 관리 되는 온-프레미스, 수 또는 virtual machines입니다. 만 `SQLNCLI`, `SQLNCLI11`, 및 `SQLOLEDB` 값 공급자로 지원 됩니다. 예제입니다. `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee` [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
 
 ### <a name="polybase"></a>PolyBase
 
@@ -398,7 +398,13 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 
 ### <a name="replication"></a>복제
 
-복제는 Managed Instance의 공개 미리 보기에 사용할 수 있습니다. 복제에 대 한 정보를 참조 하세요 [SQL Server 복제](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)합니다.
+[트랜잭션 복제](sql-database-managed-instance-transactional-replication.md) 몇 가지 제약 조건 사용 하 여 관리 되는 인스턴스에서 공개 미리 보기로 제공 됩니다.
+- 관리 되는 인스턴스에서 모든 유형의 복제 참가자 (게시자, 배포자, 구독자 끌어오기 및 밀어넣기 구독자)를 지정할 수 있지만 서로 다른 인스턴스에서 게시자 및 배포자를 배치할 수 없습니다.
+- 트랜잭션, 스냅숏 및 양방향 복제 유형이 지원 됩니다. 병합 복제, 피어 투 피어 복제 및 업데이트할 수 있는 구독 지원 되지 않습니다.
+- 관리 되는 인스턴스는 최신 버전의 SQL Server를 사용 하 여 통신할 수 있습니다. 지원 되는 버전을 참조 하세요 [여기](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)합니다.
+- 트랜잭션 복제에 일부 [추가 네트워킹 요구 사항](sql-database-managed-instance-transactional-replication.md#requirements)합니다.
+
+복제를 구성 하는 방법에 대 한 내용은 [복제 자습서](replication-with-sql-database-managed-instance.md)합니다.
 
 ### <a name="restore-statement"></a>RESTORE 문 
 
@@ -411,7 +417,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - 지원 되지 않는 구문을 사용 하십시오.
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- 원본: 
+- 출처: 
   - `FROM URL` (Azure Blob storage)에 지원 되는 옵션입니다.
   - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
@@ -459,7 +465,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 
 ## <a name="Environment"></a>환경 제약 조건
 
-### <a name="subnet"></a>서브넷
+### <a name="subnet"></a>Subnet
 - 관리 되는 인스턴스에 대 한 예약 된 서브넷에서 다른 리소스 (예: 가상 머신)을 배치할 수 없습니다. 이러한 리소스는 다른 사용자에 배치할 서브넷입니다.
 - 서브넷의 사용 가능한 충분 한 수 있어야 합니다. [IP 주소](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 최소 16 이며 서브넷에서 IP 주소를 최소한 32가 권장 됩니다.
 - [서비스 끝점을 관리 되는 인스턴스의 서브넷과 연결할 수 없습니다](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션은 사용 되지 않음을 확인 합니다.
@@ -486,7 +492,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 
 ### <a name="tempdb-size"></a>TEMPDB 크기
 
-최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 없습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb`합니다. `tempdb` 인스턴스 시작 또는 장애 조치 및 모든 변경에서 만든 빈 데이터베이스를 다시 생성 항상 됩니다 `tempdb` 유지 되지 것입니다. 
+최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 로그 파일 크기는 모두 범용 및 중요 비즈니스용 계층에서 120 GB로 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 없습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb` 아니면 120GB 이상의 로그를 생성 합니다. `tempdb` 인스턴스 시작 시 빈 데이터베이스 또는 장애 조치 및 모든 변경에서 만든 다시 생성은 항상 `tempdb` 유지 되지 것입니다. 
 
 ### <a name="cant-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
 
@@ -585,6 +591,11 @@ using (var scope = new TransactionScope())
 실행할 수 없습니다 `BACKUP DATABASE ... WITH COPY_ONLY` 서비스 관리 투명 한 데이터 암호화 (TDE) 암호화 된 데이터베이스입니다. 서비스 관리 TDE 백업을 내부 TDE 키를 사용 하 여 암호화 되도록 합니다. 백업을 복원할 수 없습니다 있도록 키를 내보낼 수 없습니다.
 
 **해결 방법:** 자동 백업 및 지정 시간 복원을 사용 하거나 사용 하 여 [고객 관리 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) 대신 합니다. 데이터베이스에서 암호화를 비활성화할 수도 있습니다.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>특정 시점 복원 원본 인스턴스에서 설정 하는 표준 시간대 시간을 따르므로
+
+현재 지정 시간 복원으로 복원 하는 원본 인스턴스의 표준 시간대를 다음으로 대신 다음 UTC 시간을 해석 합니다.
+확인할 [알려진 문제 관리 되는 인스턴스 시간대](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) 대 한 자세한 내용은 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

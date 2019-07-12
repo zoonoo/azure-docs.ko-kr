@@ -1,7 +1,7 @@
 ---
 title: 'Python 빠른 시작: 만들기, 로드 및 Azure Search REST Api-Azure Search를 사용 하 여 인덱스를 쿼리 합니다.'
 description: 인덱스 만들기, 데이터를 로드, Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 쿼리를 실행 하는 방법을 설명 합니다.
-ms.date: 06/20/2019
+ms.date: 07/09/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: MT
+ms.openlocfilehash: 39ff269c582a2d981d8fb30e09a550813a262eca
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485468"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798742"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter notebook을 사용 하 여 Python에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "67485468"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에서 사용되는 서비스와 도구는 다음과 같습니다. 
 
@@ -295,26 +295,13 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>정리 
+## <a name="clean-up"></a>정리
 
-더 이상 필요한 경우 인덱스를 삭제 해야 합니다. 무료 서비스는 세 가지 인덱스 제한 됩니다. 다른 자습서에 대 한 공간을 확보 하는 데 적극적으로 사용 하지 않는 모든 인덱스를 삭제 해야 합니다.
+자신의 구독에서 작업할 때 것이 좋습니다는 프로젝트의 끝에 리소스를 계속 해야 하는지 여부를 식별 하려면 만든 합니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제 하거나 리소스의 전체 집합을 삭제 하려면 리소스 그룹을 삭제할 수 있습니다.
 
-개체를 삭제 하는 가장 쉬운 방법은 포털을 통해 이지만 구문을 동일한 결과가 Python 빠른 시작 이므로:
+찾아서 포털에서 리소스를 관리할 수 있습니다 사용 하는 **모든 리소스** 또는 **리소스 그룹** 왼쪽 탐색 창에서 링크 합니다.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-기존 인덱스의 목록을 요청 하 여 인덱스 삭제를 확인할 수 있습니다. 호텔-빠른 시작 사라집니다 인 성공 요청을 알 수 있습니다.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+무료 서비스를 사용 하는 경우에 3 개의 인덱스, 인덱서 및 데이터 원본 제한 한다고를 해야 합니다. 제한 미만으로 유지 하려면 포털에서 개별 항목을 삭제할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

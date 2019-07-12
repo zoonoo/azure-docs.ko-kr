@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477266"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658149"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -37,7 +37,7 @@ ms.locfileid: "61477266"
 
 ## <a id="images"></a>이미지
 
-1. **사용 가능한 SQL Server 가상 머신 갤러리 이미지는 무엇인가요?**
+1. **사용 가능한 SQL Server 가상 머신 갤러리 이미지는 무엇인가요?** 
 
    Azure는 모든 Windows 및 Linux용 버전의 SQL Server의 지원되는 모든 주요 릴리스에서 가상 머신 이미지를 유지 관리합니다. 자세한 내용은 [Windows VM 이미지](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) 및 [Linux VM 이미지](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) 전체 목록을 참조하세요.
 
@@ -73,12 +73,11 @@ ms.locfileid: "61477266"
 
    가장 먼저 SQL Server 인스턴스를 사용하여 Azure 가상 머신을 만듭니다. 그런 다음 온-프레미스 데이터베이스를 해당 인스턴스로 마이그레이션합니다. 데이터 마이그레이션 전략에 대해서는 [Azure VM의 SQL Server로 SQL Server 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
    그런 경우 두 가지 방법이 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 따라서, BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
-
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
@@ -133,7 +132,7 @@ ms.locfileid: "61477266"
 
    예, 그러나 몇 가지 고려 사항이 있습니다. 이전 응답에서 설명한 것 처럼, 기능이 의존 하는 합니다 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)합니다.  또한 IaaS 확장을 제거 하지 않고 기본 인스턴스를 제거 하는 경우 계속 해 서 해당 찾습니다 확장과 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
-      SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
+      SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)도 제거합니다.
 
@@ -147,9 +146,10 @@ ms.locfileid: "61477266"
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 
-1. **Azure VM에서 SQL Server의 새 버전/버전으로 변경 하는 방법**
+1. **Azure VM에서 SQL Server의 다른 버전/버전으로 변경 하는 방법**
 
-   Software Assurance 고객은 수행의 전체 설치 미디어를 사용 하 여 볼륨 라이선스 포털에서 Azure VM에서 실행 되는 SQL Server의 업그레이드 수 있습니다. 그러나 현재에 SQL Server 인스턴스의 버전을 변경할 수 없습니다. 원하는 SQL Server 버전에서 새 Azure 가상 컴퓨터를 만들고 다음 표준을 사용 하 여 새 서버로 데이터베이스를 마이그레이션합니다 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)합니다.
+   고객은 해당 원하는 버전 또는 에디션의 SQL Server를 포함 하는 설치 미디어를 사용 하 여 해당 버전의 SQL Server를 변경할 수 있습니다. 버전 변경 된 후 Azure portal을 사용 하 여 VM에 대 한 청구를 정확 하 게 반영 하도록 VM의 edition 속성을 수정 합니다. 자세한 내용은 [버전의 SQL Server VM 변경](virtual-machines-windows-sql-change-edition.md)합니다. 
+
 
 1. **업데이트와 서비스 팩은 SQL Server VM에 어떻게 적용됩니까?**
 
@@ -170,7 +170,7 @@ ms.locfileid: "61477266"
 
 1. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
 
-    [Microsoft SQL Server Data Tools - Visual Studio 2013용 Business Intelligence](https://www.microsoft.com/en-us/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하세요.
+    [Microsoft SQL Server Data Tools - Visual Studio 2013용 Business Intelligence](https://www.microsoft.com/download/details.aspx?id=42313)에서 SQL Data Tools를 다운로드하고 설치하세요.
 
 1. **SQL Server Vm에서 지원 되는 MSDTC를 사용 하 여 분산된 트랜잭션을?합니다**
    

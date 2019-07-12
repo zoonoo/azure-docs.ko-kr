@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e8e6276a38f06b5c6ebb24c89f3733b9fd7220f7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303702"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612837"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 Stream Azure 진단 로그
 
@@ -58,7 +58,7 @@ Azure Monitor는 Azure 리소스에서 생성 된 원시 로그 데이터에 대
 
    ![진단 설정 추가 - 기존 설정](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 작업 영역에 스트리밍됩니다. 이벤트는 내보내집니다 하는 경우 Log Analytics에서 표시 되 면 사이의 최대 15 분 있을 수 있습니다.
 
@@ -99,6 +99,30 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Azure Monitor 포털에서 로그 블레이드에서 AzureDiagnostics 테이블 아래에 로그 관리 솔루션의 일부로 진단 로그를 쿼리할 수 있습니다. 이 밖에도 [Azure 리소스에 대 한 몇 가지 모니터링 솔루션](../../azure-monitor/insights/solutions.md) 로그 데이터를 Azure Monitor로 전송 하는 즉각적인 통찰 얻기를 설치할 수 있습니다.
 
+### <a name="examples"></a>예
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
 ## <a name="azure-diagnostics-vs-resource-specific"></a>Azure 진단 및 리소스별  
 Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고유한 데이터 작업 영역에 표시 되는:  
 - **Azure 진단** -대부분의 Azure 서비스에서 현재 사용 되는 일반적인 방법입니다. 이 모드에서는 모든 진단 설정의 데이터를 지정된 된 작업 영역을 가리키는 모든 결국에 _AzureDiagnostics_ 테이블입니다. 
@@ -109,7 +133,7 @@ Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고�
 
     AzureDiagnostics 테이블은 몇 가지 샘플 데이터를 사용 하 여 다음과 같이 표시 됩니다.  
 
-    | ResourceProvider | Category | A | b | C | D | E | F | G | H | I |
+    | ResourceProvider | 범주 | 변수를 잠그기 위한 | B | C | D | E | F | G | H | I |
     | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
     | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
     | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
@@ -124,7 +148,7 @@ Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고�
     위의 예제에서 만들어지는 세 테이블에 따라서: 
     - 테이블 _AuditLogs_ 다음과 같습니다.
 
-        | ResourceProvider | Category | A | b | C |
+        | ResourceProvider | 범주 | 변수를 잠그기 위한 | B | C |
         | -- | -- | -- | -- | -- |
         | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
         | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
@@ -132,7 +156,7 @@ Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고�
 
     - 테이블 _ErrorLogs_ 다음과 같습니다.  
 
-        | ResourceProvider | Category | D | E | F |
+        | ResourceProvider | 범주 | D | E | F |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
         | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
@@ -140,7 +164,7 @@ Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고�
 
     - 테이블 _DataFlowLogs_ 다음과 같습니다.  
 
-        | ResourceProvider | Category | G | H | I |
+        | ResourceProvider | 범주 | G | H | I |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
         | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
@@ -163,7 +187,7 @@ Log Analytics 대상 Azure 진단 구성에서 활성화 되 면 두 가지 고�
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>알려진 제한: AzureDiagnostics 열 제한
 500 개 이상의 열을가지고 있지 않은 경우 지정된 된 Azure 로그 테이블의 명시적 제한은.입니다. 에 도달 하면 수집 시 처음 500 개 외부 열을 사용 하 여 데이터를 포함 하는 행이 삭제 됩니다. AzureDiagnostics 테이블 되도록이 제한의 영향을 특히 취약 되었습니다. 일반적으로 동일한 작업 영역으로 전송 되는 다양 한 데이터 원본 동일한 작업 영역으로 전송 되기 때문에 두 개 이상의 자세한 데이터 원본에 발생 합니다. 
 
-#### <a name="azure-data-factory"></a>Azure Data Factory  
+#### <a name="azure-data-factory"></a>Azure 데이터 팩터리  
 Azure Data Factory는 매우 자세한 로그를 집합으로 인해이 제한에 의해 영향을 받지 특히 알고 있는 리소스입니다. 특히는 특정 리소스에 적용 하기 전에 구성 된 모든 진단 설정 모드는 사용 하도록 설정 하거나 명시적으로 역방향 호환성을 위해 리소스 특정 모드를 사용 하도록 선택 했습니다.  
 - *파이프라인의 모든 활동에 대해 정의 된 사용자 매개 변수에*: 모든 작업에 대 한 모든 사용자 고유 하 게 명명 된 매개 변수에 대해 만든 새 열이 됩니다. 
 - *작업 입력 및 출력*: 작업-이러한 다르며의 자세한 특성으로 인해 많은 수의 열을 생성 합니다. 

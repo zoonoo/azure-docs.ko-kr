@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66233833"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595423"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse 워크 로드 중요도
 
@@ -39,7 +39,7 @@ ms.locfileid: "66233833"
 
 읽기 및 쓰기에 대한 잠금 액세스는 자연스런 경합의 한 영역입니다.  [파티션 전환을](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) 같은 활동은 상승된 잠금이 필요합니다.  워크로드 중요도가 없으면, SQL Data Warehouse는 처리량에 대해 최적화합니다.  처리량을 최적화하는 것은, 실행 및 대기 중인 요청이 동일한 잠금이 필요하고 리소스를 사용할 수 있을 때, 대기 요청은 먼저 요청 큐에 도착한 높은 잠금 요구 요청을 무시할 수 있다는 것을 의미합니다.  워크로드 중요도는 높은 잠금을 사용하는 요청에 적용됩니다. 높은 중요도를 가진 요청은 낮은 중요도를 가진 요청보다 먼저 실행됩니다.
 
-다음 예제를 살펴보세요.
+다음 예제를 참조하세요.
 
 Q1은 실행 중이며 SalesFact에서 데이터를 조회합니다.
 Q2는 Q1이 완료될 때까지 대기 큐에 대기됩니다.  오전 9시에 전송되어 SalesFact에 새 데이터를 파티션 전환하려고 합니다.

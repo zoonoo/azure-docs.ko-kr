@@ -1,21 +1,20 @@
 ---
-title: TensorBoard 및 Azure Machine Learning 서비스를 사용 하 여 실험을 시각화
+title: TensorBoard로 실험 시각화
+titleSuffix: Azure Machine Learning service
 description: 실험 실행 기록 시각화에 TensorBoard를 시작 하 고 하이퍼 매개 변수 조정 및 재 학습에 대 한 잠재적인 영역을 식별 합니다.
 services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: article
 author: maxluk
 ms.author: maxluk
-ms.reviewer: nibaccam
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: babd4cdf8b7ed9e04b4bd975d840688b27439c4f
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: fde2b6d1d298e89227951c376d584452fbff2679
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560848"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707058"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>실험 실행 및 TensorBoard 및 Azure Machine Learning을 사용 하 여 메트릭 시각화
 
@@ -28,7 +27,7 @@ Azure Machine Learning 실험을 사용 하 여 TensorBoard를 시작 하는 방
 
 + TensorBoard 읽은 파일을 같은 Scikit-학습 또는 Azure Machine Learning 실험과 같은 출력 고유 하 게 하지 하는 실험에 대 한 사용 [는 `export_to_tensorboard()` 메서드](#export) TensorBoard 로그로 실행된 기록을 내보내고 시작 여기에서 TensorBoard 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * TensorBoard 및 보기 실행 내역을 실험을 시작 하려면 실험을 이전에 메트릭 및 성능 추적에 로깅을 사용 하도록 설정 해야 합니다.  
 

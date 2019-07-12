@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433426"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620685"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽 (미리 보기)를 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -54,13 +54,13 @@ Azure 방화벽을 사용 하 여 기존에 HDInsight에서의 송신을 잠그�
 
 1. 입력을 **이름**, **우선 순위**, 클릭 **허용** 에서 **작업** 드롭다운 메뉴에서 다음 규칙은 에입력**FQDN 태그 섹션** :
 
-   | **Name** | **소스 주소** | **FQDN 태그** | **참고 사항** |
+   | **이름** | **소스 주소** | **FQDN 태그** | **참고** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight 및 WindowsUpdate | HDI 서비스에 필요한 |
 
 1. 다음 규칙을 추가 합니다 **대상 Fqdn 섹션** :
 
-   | **Name** | **소스 주소** | **Protocol:Port** | **대상 FQDN** | **참고 사항** |
+   | **이름** | **소스 주소** | **Protocol:Port** | **대상 FQDN** | **참고** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 활동 수 |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 클러스터는 WASB에서 지 원하는, 하는 경우 WASB에 대 한 규칙을 추가 합니다. 만 https를 사용 하도록 연결 했는지 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 저장소 계정에서 사용 하도록 설정 됩니다. |
@@ -78,16 +78,16 @@ HDInsight 클러스터를 올바르게 구성 하도록 네트워크 규칙을 �
 1. 에 **네트워크 규칙 컬렉션을 추가** 화면에서 입력을 **이름**, **우선 순위**, 클릭 **허용** 에서 **작업** 드롭다운 메뉴입니다.
 1. 다음 규칙을 만들 합니다 **IP 주소** 섹션:
 
-   | **Name** | **프로토콜** | **소스 주소** | **대상 주소** | **대상 포트** | **참고 사항** |
+   | **이름** | **프로토콜** | **소스 주소** | **대상 주소** | **대상 포트** | **참고** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 시간 서비스 |
-   | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 엔터프라이즈 보안 패키지 (ESP)를 사용 하는 경우 다음 ESP 클러스터에 대 한 AAD DS와의 통신을 허용 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 포털에서 AAD DS 섹션에서 도메인 컨트롤러의 IP 주소를 찾을 수 있습니다. | 
+   | Rule_2 | 임의의 값 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 엔터프라이즈 보안 패키지 (ESP)를 사용 하는 경우 다음 ESP 클러스터에 대 한 AAD DS와의 통신을 허용 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 포털에서 AAD DS 섹션에서 도메인 컨트롤러의 IP 주소를 찾을 수 있습니다. | 
    | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 네트워크 규칙을 ADLS Gen1 Gen2와 SNI 문제를 해결 하려면 IP 주소 섹션에서 추가할 수 있습니다. 이 옵션은 대량의 데이터 로드에 대 한 높은 비용이 발생 시킬 수 있는 방화벽에 트래픽이 라우팅되 하지만 트래픽이 기록 되 고 방화벽 로그에서 감사 됩니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. 와 같은 powershell 명령을 사용할 수 있습니다 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` IP 주소에 FQDN을 확인할 수 있습니다.|
    | Rule_4 | TCP | * | * | `12000` | (선택 사항) Log Analytics를 사용 하는 경우 Log Analytics 작업 영역을 사용 하 여 통신할 수 있도록 IP 주소 섹션에서 네트워크 규칙을 만듭니다. |
 
 1. 다음 규칙을 만들 합니다 **서비스 태그** 섹션:
 
-   | **Name** | **프로토콜** | **소스 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
+   | **이름** | **프로토콜** | **소스 주소** | **서비스 태그** | **대상 포트** | **참고** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_7 | TCP | * | SQL | `1433` | SQL을 사용 하면 로그인 하 고 SQL 트래픽 감사 방화벽을 바이패스 하는 HDInsight 서브넷의 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
 
@@ -112,14 +112,14 @@ HDInsight 클러스터를 올바르게 구성 하도록 네트워크 규칙을 �
 1. 클릭 **경로** 아래에서 **설정**합니다.
 1. 클릭 **추가** 아래 표의 IP 주소에 대 한 경로 만들어야 합니다.
 
-| 경로 이름 | 주소 접두사 | 다음 홉 형식 | 다음 홉 주소 |
+| 경로 이름 | 주소 접두사 | 다음 홉 유형 | 다음 홉 주소 |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | 인터넷 | 해당 없음 |
-| 23.99.5.239 | 23.99.5.239/32 | 인터넷 | 해당 없음 |
-| 168.61.48.131 | 168.61.48.131/32 | 인터넷 | 해당 없음 |
-| 138.91.141.162 | 138.91.141.162/32 | 인터넷 | 해당 없음 |
-| 13.67.223.215 | 13.67.223.215/32 | 인터넷 | 해당 없음 |
-| 40.86.83.253 | 40.86.83.253/32 | 인터넷 | 해당 없음 |
+| 168.61.49.99 | 168.61.49.99/32 | 인터넷 | NA |
+| 23.99.5.239 | 23.99.5.239/32 | 인터넷 | NA |
+| 168.61.48.131 | 168.61.48.131/32 | 인터넷 | NA |
+| 138.91.141.162 | 138.91.141.162/32 | 인터넷 | NA |
+| 13.67.223.215 | 13.67.223.215/32 | 인터넷 | NA |
+| 40.86.83.253 | 40.86.83.253/32 | 인터넷 | NA |
 | 0.0.0.0 | 0.0.0.0/0 | 가상 어플라이언스 | 10.1.1.4 |
 
 경로 테이블 구성을 완료 합니다.

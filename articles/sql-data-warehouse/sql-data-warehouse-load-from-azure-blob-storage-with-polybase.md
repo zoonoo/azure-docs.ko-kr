@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244472"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595512"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 Contoso 소매 데이터 로드
 
@@ -27,8 +27,8 @@ ms.locfileid: "66244472"
 2. 공용 데이터를 데이터베이스에 로드
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
-이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로비전한 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse를 만들고 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]을 확인합니다.
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로 비전 하는 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse를 만들고 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]합니다.
 
 ## <a name="1-configure-the-data-source"></a>1. 데이터 원본 구성
 PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL Data Warehouse에 저장됩니다. 데이터는 외부적으로 저장 됩니다.
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. 데이터 형식 구성
-데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음 [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 명령을 실행하여 텍스트 파일에서 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
+데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음을 실행 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 텍스트 파일에서 데이터의 형식을 지정 하는 명령입니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 데이터를 새 테이블에 로드합니다.
-데이터 웨어하우스 테이블에 Azure blob storage에서 데이터를 로드 하려면 [CREATE TABLE AS SELECT (TRANSACT-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS 사용하여 로드한 후 사용자가 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블로 데이터를 로드 하려면 테이블당 [CTAS][CTAS] 문 하나를 사용합니다. 
+데이터 웨어하우스 테이블에 Azure blob storage에서 데이터를 로드 하려면 사용 합니다 [CREATE TABLE AS SELECT (TRANSACT-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] 테이블당 문입니다. 
  
 CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [Columnstore 인덱스 관리][manage columnstore indexes] 문서를 참조하세요.
+Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [columnstore 인덱스 관리][manage columnstore indexes] 문서를 참조하세요.
 
 ## <a name="6-optimize-statistics"></a>6. 통계를 최적화합니다.
 로드 직후 단일 열 통계를 작성하는 것이 좋습니다. 쿼리 조건자에 특정 열이 사용되지 않을 것을 알고 있는 경우, 해당 열에서 통계 생성을 건너뛸 수 있습니다. 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는데 시간이 오래 걸릴 수 있습니다. 
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계][statisticsstatistics] 문서의 저장 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계][statistics] 문서의 저장 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 

@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: 16ad2a93c9ff035166a738edba40c99075a6e7ba
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501884"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671473"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -51,7 +51,7 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>위치
 
 위치는 사용자 지정 이미지 만들어지는 지역입니다. 이미지 작성기 미리 보기의 경우에 다음 지역만 지원 됩니다.
 
@@ -76,7 +76,7 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
 
 자세한 내용은 [리소스 종속성을 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)합니다.
 
-## <a name="identity"></a>ID
+## <a name="identity"></a>클레임
 기본적으로 이미지 작성기 지원 스크립트를 사용 하 여 또는 GitHub와 Azure storage와 같은 여러 위치에서 파일을 복사 합니다. 이 사용 하려면 공개적으로 액세스 가능한 같아야 합니다.
 
 또한 id ' Storage Blob 데이터 판독기 ' 최소 Azure 저장소 계정에 부여 된으로 Azure Storage에 이미지 작성기 액세스할 수 있도록 Azure User-Assigned 관리 Id가 정의 사용할 수 있습니다. 즉, 설치 SAS 토큰 또는 외부에서 액세스할 수 있는 저장소 blob을 만들 필요가 없습니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155144"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724113"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -44,7 +44,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 일반적으로 Azure VM 정품 인증 문제는 Windows VM이 적절한 KMS 클라이언트 설정 키를 사용하여 구성되어 있지 않거나 Windows VM에 Azure KMS 서비스(kms.core.windows.net, 포트 1688)에 대한 연결 문제가 있는 경우에 발생합니다. 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 >[!NOTE]
 >사이트 간 VPN 및 강제 터널링을 사용하는 경우 [강제 터널링을 사용하여 KMS 정품 인증을 활성화하도록 Azure 사용자 지정 경로 사용](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)을 참조하세요. 
@@ -84,7 +84,6 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 3. VM이 올바른 Azure KMS 서버를 사용하도록 구성되어 있는지 확인합니다. 이렇게 하려면 다음 명령을 실행합니다.
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -93,29 +92,26 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 
 4. KMS 서버에 연결한 Psping을 사용하여 확인합니다. Pstools.zip 다운로드를 추출한 폴더로 전환하고 다음을 실행합니다.
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    출력의 끝에서 두 번째 줄에 전송 = 4, 수신 = 4, 손실 = 0(0% 손실)이 표시되어야 합니다.
 
    손실이 0(영)보다 큰 경우 VM은 KMS 서버에 연결되어 있지 않습니다. 이 경우에 VM이 가상 네트워크에 있고 사용자 지정 DNS 서버를 지정하면 해당 DNS 서버가 kms.core.windows.net을 확인할 수 있어야 합니다. 또는 DNS 서버가 kms.core.windows.net을 확인할 수 있도록 변경합니다.
 
    모든 DNS 서버를 가상 네트워크에서 제거하면 VM은 Azure의 내부 DNS 서비스를 사용할 수 있습니다. 이 서비스는 kms.core.windows.net을 확인할 수 있습니다.
   
-또한 게스트 방화벽이 정품 인증 시도를 차단하는 방식으로 구성되어 있는지 확인합니다.
+    또한 VM의 방화벽에서 포트 1688 사용 하 여 KMS 끝점에 아웃 바운드 네트워크 트래픽을 차단 되지 않는 해야 합니다.
 
-1. kms.core.windows.net에 성공적으로 연결되었는지 확인한 후에 해당 관리자 권한 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다. 이 명령은 여러 번 활성화되도록 시도합니다.
+5. kms.core.windows.net에 성공적으로 연결되었는지 확인한 후에 해당 관리자 권한 Windows PowerShell 프롬프트에서 다음 명령을 실행합니다. 이 명령은 여러 번 활성화되도록 시도합니다.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-성공적으로 활성화되면 다음과 같은 정보를 반환합니다.
-
-**Windows(R), ServerDatacenter 버전 활성화(12345678-1234-1234-1234-12345678) … 제품을 성공적으로 활성화했습니다.**
+    성공적으로 활성화되면 다음과 같은 정보를 반환합니다.
+    
+    **Windows (r), ServerDatacenter 버전 (12345678-1234-1234-1234-12345678)를 활성화 하는 중...  제품을 성공적으로 활성화 합니다.**
 
 ## <a name="faq"></a>FAQ 
 

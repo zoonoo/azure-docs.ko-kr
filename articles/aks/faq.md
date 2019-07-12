@@ -2,18 +2,18 @@
 title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: Azure Kubernetes Service (AKS)에 대 한 일반적인 질문 중 일부에 대 한 답변을 찾습니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560439"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672770"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -62,30 +62,28 @@ Kured 사용에 대 한 자세한 내용은 참조 하세요. [AKS의 노드에 
 각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다.
 
 1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes 서비스 리소스만을 포함합니다. AKS 리소스 공급자는 자동으로 배포 하는 동안 두 번째 리소스 그룹을 만듭니다. 두 번째 리소스 그룹의 예로 *MC_myResourceGroup_myAKSCluster_eastus*합니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
-1. 두 번째 리소스 그룹을 같은 *MC_myResourceGroup_myAKSCluster_eastus*, 모든 클러스터와 연결 된 인프라 리소스를 포함 합니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 저장소가 포함됩니다. 이 리소스 그룹의 목적은 리소스 정리를 간소화 하는 것입니다.
+1. 이라는 두 번째 리소스 그룹을 *노드 리소스 그룹*, 모든 클러스터와 연결 된 인프라 리소스를 포함 합니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 저장소가 포함됩니다. 기본적으로 노드 리소스 그룹 이름이 같은 *MC_myResourceGroup_myAKSCluster_eastus*합니다. AKS를 자동으로 삭제 노드 리소스는 클러스터가 삭제 될 때마다 클러스터의 수명 주기를 공유 하는 리소스에 사용 해야 하도록 합니다.
 
-저장소 계정 또는 예약 된 공용 IP 주소와 같은 AKS 클러스터를 사용 하는 리소스를 만드는 경우 자동으로 생성 된 리소스 그룹에 배치 합니다.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS 노드 리소스 그룹에 대 한 직접 이름을 제공할 수 있습니까?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>나만의 AKS 인프라 리소스 그룹의 이름을 제공할 수 있습니까?
-
-예. 기본적으로 AKS 리소스 공급자를 자동으로 보조 리소스 그룹을 만듭니다 (같은 *MC_myResourceGroup_myAKSCluster_eastus*) 배포 하는 동안. 회사 정책을 준수 하는 관리 되는이 클러스터에 대 한 고유한 이름을 제공할 수 있습니다 (*MC_* ) 리소스 그룹입니다.
+예. 기본적으로 AKS 노드 리소스 그룹 이름을 *MC_clustername_resourcegroupname_location*, 하지만 고유한 이름을 제공할 수 있습니다.
 
 고유한 리소스 그룹 이름을 지정 하려면 다음을 설치 합니다 [aks 미리 보기][aks-preview-cli] Azure CLI 확장 버전 *평면이 0.3.2* 이상. 사용 하 여 AKS 클러스터를 만들 때 합니다 [az aks 만들기][az-aks-create] 명령에 사용 하 여는 *-노드 리소스 그룹* 매개 변수 리소스 그룹의 이름을 지정 합니다. 경우 있습니다 [Azure Resource Manager 템플릿을 사용 하 여][aks-rm-template] AKS 클러스터를 배포 하려면 리소스 그룹 이름을 사용 하 여 정의할 수 있습니다 합니다 *nodeResourceGroup* 속성입니다.
 
 * 보조 리소스 그룹 사용자의 구독에서 Azure 리소스 공급자에 의해 자동으로 만들어집니다.
 * 클러스터를 만들려는 경우에 사용자 지정 리소스 그룹 이름을 지정할 수 있습니다.
 
-사용 하 여 작업할 때 합니다 *MC_* 수 있음을 명심 리소스 그룹:
+노드 리소스 그룹을 사용 하 여 작업할 때 유의 수 없습니다.
 
-* 에 대 한 기존 리소스 그룹을 지정 합니다 *MC_* 그룹입니다.
-* 다른 구독을 지정 합니다 *MC_* 리소스 그룹입니다.
-* 변경 된 *MC_* 클러스터가 만들어진 후 리소스 그룹 이름입니다.
-* 내에서 관리 되는 리소스의 이름을 지정 합니다 *MC_* 리소스 그룹입니다.
-* 수정 하거나 태그 내에서 관리 되는 리소스를 삭제 합니다 *MC_* 리소스 그룹입니다. (다음 섹션에서 추가 정보 참조).
+* 노드 리소스 그룹에 대 한 기존 리소스 그룹을 지정 합니다.
+* 노드 리소스 그룹에 대 한 다른 구독을 지정 합니다.
+* 클러스터를 만든 후 노드 리소스 그룹 이름을 변경 합니다.
+* 노드 리소스 그룹 내에서 관리 되는 리소스에 대 한 이름을 지정 합니다.
+* 수정 하거나 노드 리소스 그룹 내에서 관리 되는 리소스의 태그를 삭제 합니다. (다음 섹션에서 추가 정보 참조).
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>태그 및 MC_ 리소스 그룹에 AKS 리소스의 다른 속성을 수정할 수 있나요?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>태그 및 노드 리소스 그룹에 AKS 리소스의 다른 속성을 수정할 수 있나요?
 
-수정 하거나 Azure에서 만든 태그 및 기타 리소스 속성을 삭제 하는 경우는 *MC_* 리소스 그룹을 크기 조정 및 오류 업그레이드와 같은 예기치 않은 결과 얻을 수 있습니다. AKS를 사용 하면 생성 및 사용자 지정 태그를 수정할 수 있습니다. 만들거나 예를 들어 사용자 지정 태그를 수정 하려면, 비즈니스 단위 또는 비용 센터를 할당할 수도 있습니다. 아래에 있는 리소스를 수정 하 여 합니다 *MC_* AKS 클러스터에서 서비스 수준 목표 (SLO) 중단 합니다. 자세한 내용은 참조 하세요. [AKS는 제공 서비스 수준 계약?](#does-aks-offer-a-service-level-agreement)
+를 수정 하거나 Azure에서 만든 태그 및 기타 리소스 속성 노드 리소스 그룹을 삭제 하는 경우에 크기 조정 및 오류 업그레이드와 같은 예기치 않은 결과 얻을 수 있습니다. AKS를 사용 하면 생성 및 사용자 지정 태그를 수정할 수 있습니다. 만들거나 예를 들어 사용자 지정 태그를 수정 하려면, 비즈니스 단위 또는 비용 센터를 할당할 수도 있습니다. AKS 클러스터에서 노드 리소스 그룹 아래에 있는 리소스를 수정 하 여 서비스 수준 목표 (SLO) 중단할 수 있습니다. 자세한 내용은 참조 하세요. [AKS는 제공 서비스 수준 계약?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS가 지원하는 Kubernetes 허용 컨트롤러는 무엇인가요? 허용 컨트롤러를 추가하거나 제거할 수 있나요?
 
@@ -122,7 +120,7 @@ AKS는 Azure Key Vault를 사용 하 여 현재 고유 하 게 통합 되지 않
 
 AKS에서 설정할 수 있습니다는 `maxPods` Azure CLI 및 Azure Resource Manager 템플릿을 사용 하 여 클러스터를 만들 때 값입니다. 그러나 Kubenet와 Azure CNI 모두 필요는 *최소값* (생성 시 유효성 검사):
 
-| 네트워킹 | 최소 | 최대 |
+| 네트워킹 | 최소 | 최대값 |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |

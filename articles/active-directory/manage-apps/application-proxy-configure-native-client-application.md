@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825496"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702417"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 응용 프로그램 프록시 응용 프로그램과 상호 작용을 사용 하는 방법
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 �
 
 네이티브 클라이언트 응용 프로그램을 지원 하려면 응용 프로그램 프록시는 헤더에 전송 되는 Azure AD에서 발급 한 토큰을 허용 합니다. 응용 프로그램 프록시 서비스는 사용자에 대 한 인증을 수행합니다. 이 솔루션 인증에 대 한 응용 프로그램 토큰을 사용 하지 않습니다.
 
-![최종 사용자, Azure Active Directory 및 게시된 애플리케이션 간의 관계](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![최종 사용자가 Azure AD 간의 관계 및 응용 프로그램 게시](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
 네이티브 응용 프로그램을 게시 하려면 인증을 처리 하 고 다양 한 클라이언트 환경을 지 원하는 Azure AD 인증 라이브러리를 사용 합니다. 애플리케이션 프록시는 [Web API 시나리오에 대한 네이티브 애플리케이션](../develop/native-app.md)에 맞습니다.
 
@@ -44,18 +44,21 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 �
 이제 다음과 같이 Azure AD에서 응용 프로그램을 등록 해야 합니다.
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/)합니다. 합니다 **대시보드** 에 대 한 합니다 **Azure Active Directory 관리 센터** 나타납니다.
-2. 선택 보충에서 **Azure Active Directory**합니다. 합니다 **Azure Active Directory** 개요 페이지가 나타납니다.
-3. Azure AD 개요 사이드바에서 선택 **앱 등록**합니다. 모든 앱 등록의 목록이 표시 됩니다.
-4. **새 등록**을 선택합니다. 합니다 **응용 프로그램을 등록** 페이지가 나타납니다.
+1. 선택 보충에서 **Azure Active Directory**합니다. 합니다 **Azure Active Directory** 개요 페이지가 나타납니다.
+1. Azure AD 개요 사이드바에서 선택 **앱 등록**합니다. 모든 앱 등록의 목록이 표시 됩니다.
+1. **새 등록**을 선택합니다. 합니다 **응용 프로그램을 등록** 페이지가 나타납니다.
 
-   ![새 앱 등록 만들기](./media/application-proxy-configure-native-client-application/create.png)
-5. 에 **이름을** 응용 프로그램에 대 한 사용자 측 표시 이름을 지정 제목입니다.
-6. 아래는 **지원 되는 계정 유형** 다음이 지침에 따라 액세스 수준을 선택한 제목:
+   ![Azure portal에서 새 앱 등록 만들기](./media/application-proxy-configure-native-client-application/create.png)
+
+1. 에 **이름을** 응용 프로그램에 대 한 사용자 측 표시 이름을 지정 제목입니다.
+1. 아래는 **지원 되는 계정 유형** 다음이 지침에 따라 액세스 수준을 선택한 제목:
+
    - 내부 조직에 있는 계정만 대상으로 선택 **만이 조직 디렉터리의 계정**합니다.
    - 비즈니스 또는 교육용 고객을 대상으로 선택 **모든 조직 디렉터리의 계정**합니다.
    - 광범위 한 Microsoft id 집합을 대상으로 선택 **계정이 모든 조직 디렉터리에 개인 Microsoft 계정**합니다.
-7. 에 **리디렉션 URI** 을 선택 **공용 클라이언트 (모바일 및 데스크톱)** , 응용 프로그램의 리디렉션 URI를 입력 합니다.
-8. 선택 하 여 읽어 합니다 **Microsoft 플랫폼 정책을**를 선택한 후 **등록**합니다. 새 응용 프로그램 등록에 대 한 개요 페이지 생성 되어 표시 됩니다.
+
+1. 에 **리디렉션 URI** 을 선택 **공용 클라이언트 (모바일 및 데스크톱)** , 응용 프로그램의 리디렉션 URI를 입력 합니다.
+1. 선택 하 여 읽어 합니다 **Microsoft 플랫폼 정책을**를 선택한 후 **등록**합니다. 새 응용 프로그램 등록에 대 한 개요 페이지 생성 되어 표시 됩니다.
 
 새 응용 프로그램 등록을 만드는 방법은 자세한 [Azure Active Directory와 응용 프로그램 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)합니다.
 
@@ -64,11 +67,11 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 �
 네이티브 응용 프로그램을 등록 했으므로 지정할 수 있습니다 액세스 다른 응용 프로그램에 디렉터리에이 경우 프록시 응용 프로그램에 액세스 합니다. 네이티브 응용 프로그램 프록시 응용 프로그램에 노출 될 수 있도록 합니다.
 
 1. 새 응용 프로그램 등록 페이지의 세로 막대를 선택 **API 사용 권한**합니다. 합니다 **API 사용 권한** 페이지에 새 응용 프로그램 등록이 나타납니다.
-2. **사용 권한 추가**를 선택합니다. 합니다 **API 요청 권한을** 페이지가 나타납니다.
-3. 아래는 **API 선택** 설정 선택 **내 조직에서 사용 하는 Api**합니다. Api를 노출 하는 디렉터리에 응용 프로그램이 포함 된 목록이 나타납니다.
-4. 프록시 응용 프로그램에서 게시를 찾으려면 검색 상자에 스크롤 입력 [1 단계: 프록시 응용 프로그램을 게시](#step-1-publish-your-proxy-application), 한 다음 프록시 응용 프로그램을 선택 합니다.
-5. 에 **사용 권한 유형을 응용 프로그램에 필요한?** 사용 권한 유형을 선택 제목입니다. 네이티브 응용 프로그램에 로그인 한 사용자로 응용 프로그램 프록시 API에 액세스 해야 하는 경우 선택할 **위임 된 권한**합니다. 백그라운드 서비스 또는 디먼에서 로그인 한 사용자 없이 다른 여러 가지 기본 응용 프로그램을 실행 하는 경우 선택할 **응용 프로그램 사용 권한**합니다.
-6. 에 **권한을 선택** 머리글을 원하는 권한을 선택 및 선택 **권한을 추가**합니다. **API 사용 권한** 페이지에 이제 네이티브 응용 프로그램 프록시 추가한 응용 프로그램 및 사용 권한 API를 표시 합니다.
+1. **사용 권한 추가**를 선택합니다. 합니다 **API 요청 권한을** 페이지가 나타납니다.
+1. 아래는 **API 선택** 설정 선택 **내 조직에서 사용 하는 Api**합니다. Api를 노출 하는 디렉터리에 응용 프로그램이 포함 된 목록이 나타납니다.
+1. 프록시 응용 프로그램에서 게시를 찾으려면 검색 상자에 스크롤 입력 [1 단계: 프록시 응용 프로그램을 게시](#step-1-publish-your-proxy-application), 한 다음 프록시 응용 프로그램을 선택 합니다.
+1. 에 **사용 권한 유형을 응용 프로그램에 필요한?** 사용 권한 유형을 선택 제목입니다. 네이티브 응용 프로그램에 로그인 한 사용자로 응용 프로그램 프록시 API에 액세스 해야 하는 경우 선택할 **위임 된 권한**합니다. 백그라운드 서비스 또는 디먼에서 로그인 한 사용자 없이 다른 여러 가지 기본 응용 프로그램을 실행 하는 경우 선택할 **응용 프로그램 사용 권한**합니다.
+1. 에 **권한을 선택** 머리글을 원하는 권한을 선택 및 선택 **권한을 추가**합니다. **API 사용 권한** 페이지에 이제 네이티브 응용 프로그램 프록시 추가한 응용 프로그램 및 사용 권한 API를 표시 합니다.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>4단계: Active Directory 인증 라이브러리 편집
 

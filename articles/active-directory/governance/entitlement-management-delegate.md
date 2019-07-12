@@ -3,8 +3,8 @@ title: Azure AD 권한 관리 (미리 보기)-Azure Active Directory에서에서
 description: Azure Active Directory 권한 관리에는 작업 대리자를 할당할 수 있습니다 역할에 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191500"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798631"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)에서 작업을 위임
 
@@ -38,13 +38,13 @@ ms.locfileid: "67191500"
 
 권한 관리의 작업 위임 하는 방법을 이해 하는 예제를 고려해 야 할 수 있습니다. 조직에는 다음 5 명의 사용자를 가정 합니다.
 
-| 사용자 | department | 메모 |
+| 사용자 | Department | 참고 |
 | --- | --- | --- |
 | Alice | IT | 전역 관리자 |
 | Bob | 연구 | Bob은 연구 그룹의 소유자 |
 | Carole | 연구 |  |
-| Dave | Marketing |  |
-| Elisa | Marketing | Elisa는 마케팅 응용 프로그램의 소유자 이기도 |
+| Dave | 마케팅 |  |
+| Elisa | 마케팅 | Elisa는 마케팅 응용 프로그램의 소유자 이기도 |
 
 연구 및 마케팅 부서의 사용자에 대 한 권한 관리를 사용 하려고 합니다. Alice가 아직 권한 관리를 사용 하도록 다른 부서에 대 한 준비 되지 않았습니다. Alice가 작업을 조사 및 마케팅 부서의 위임할 수 있습니다 하는 한 가지 방법은 다음과 같습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "67191500"
 
 권한 관리에는 권한 관리와 관련 된 다음 역할이 있습니다.
 
-| 역할 | 설명 |
+| 역할 | Description |
 | --- | --- |
 | 카탈로그를 만든 | 카탈로그 만들기 및 관리 합니다. 일반적으로 IT 관리자는 전역 관리자 또는 리소스의 컬렉션에 대 한 리소스 소유자는 아닙니다. 카탈로그를 자동으로 생성 하는 사용자는 카탈로그의 첫 번째 카탈로그 소유자 되며 추가 카탈로그 소유자를 추가할 수 있습니다. |
 | 카탈로그 소유자 | 편집 하 고 기존 카탈로그를 관리 합니다. IT 관리자가 일반적으로 리소스 소유자 또는 카탈로그 소유자가 지정한 사용자입니다. |
@@ -77,14 +77,14 @@ ms.locfileid: "67191500"
 
 다음 표에서 이러한 역할을 수행할 수 있는 작업을 나열 합니다.
 
-| Task | 카탈로그를 만든 | 카탈로그 소유자 | 패키지 관리자 액세스 | 승인자 |
+| 태스크 | 카탈로그를 만든 | 카탈로그 소유자 | 패키지 관리자 액세스 | 승인자 |
 | --- | :---: | :---: | :---: | :---: |
 | [새 카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
 | [리소스를 카탈로그에 추가](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
 | [카탈로그를 편집 합니다.](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [카탈로그를 삭제 합니다.](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [카탈로그 소유자 또는 액세스 패키지 관리자를 카탈로그에 추가](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [액세스 패키지의 리소스 역할 관리](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [액세스 패키지를 요청할 수 있는 사용자 지정](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [직접 액세스 패키지에 사용자 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -104,8 +104,8 @@ ms.locfileid: "67191500"
 
 | Azure AD 디렉터리 역할 | 권한 관리 역할 | 보안 그룹을 추가할 수 있습니다. | Office 365 그룹을 추가할 수 있습니다. | 앱을 추가할 수 있습니다. | SharePoint Online 사이트를 추가할 수 있습니다. |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
@@ -130,7 +130,7 @@ ms.locfileid: "67191500"
 
 1. **선택**을 클릭합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>카탈로그 소유자 또는 액세스 패키지 관리자를 추가 합니다.
 

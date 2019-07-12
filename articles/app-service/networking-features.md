@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: db29d0761084e32d601dc9c6d94082cd09bc5d18
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338487"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655457"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -223,7 +223,7 @@ ASE 격리 및 전용 앱 호스팅에 대 한 모범 사례를 제공 하지만
 다른 프런트 엔드 앱 및 해당 서브넷을 사용 하 여 API 앱에서 서비스 끝점에서 VNet 통합을 사용 하 여 동일한 API 앱을 사용 하는 여러 프런트 엔드 앱을 사용할 수 있습니다.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

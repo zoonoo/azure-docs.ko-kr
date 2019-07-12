@@ -4,18 +4,18 @@ description: Azure REST API를 사용하여 가상 머신에 대한 사용률 �
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773267"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667449"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
 
@@ -31,14 +31,14 @@ REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor R
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>헤더 요청
+### <a name="request-headers"></a>요청 헤더
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|설명|  
+|요청 헤더|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
+|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|  
+|*Authorization:*|필수 요소. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
@@ -49,7 +49,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | vmname | Azure Virtual Machine의 이름입니다. |
 | metricnames | 쉼표로 구분된 유효한 [Load Balancer 메트릭](/azure/load-balancer/load-balancer-standard-diagnostics) 목록입니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2018-01-01`을 다룹니다.  |
-| timespan | 반환된 메트릭의 시간 범위를 정의하는 `startDateTime_ISO/endDateTime_ISO` 형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
+| TimeSpan | 반환된 메트릭의 시간 범위를 정의하는 `startDateTime_ISO/endDateTime_ISO` 형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>요청 본문

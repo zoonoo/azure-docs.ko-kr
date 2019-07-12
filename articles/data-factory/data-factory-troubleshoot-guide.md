@@ -5,17 +5,16 @@ services: data-factory
 author: abnarain
 manager: craigg
 ms.service: data-factory
-ms.topic: troubleshoot
-ms.subservice: troubleshoot
+ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 8d6ab565098e1ea40ede5c650f05e670a1edc7f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d220730bb2e93e32d00e56ed98f4962ad89eda5a
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452684"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626322"
 ---
 # <a name="troubleshooting-azure-data-factory"></a>Azure 데이터 팩터리 문제 해결
 이 문서에서는 일반적인 문제 해결 질문을 나열 합니다.
@@ -44,7 +43,7 @@ ms.locfileid: "67452684"
 | 3202           | 요청 개체를 구문 분석 하지 못했습니다. 예상된 'key' 및 'value' JSON 지도 필드 base_parameters에 대 한 설정 되었습니다 ' 키: "..." ' 사용합니다. | 오류를 작성 합니다. 매개 변수에 대해 제공 된 값         | 파이프라인 json를 검사 하 고 Notebook baseParameters의 모든 매개 변수에 비어 있지 않은 값이 지정 되어 있는지 확인 합니다. |
 | 3202           | 사용자: SimpleUserContext {userId =..., 이름 =user@company.com, orgId =...} 클러스터에 액세스 권한이 없습니다. | 액세스 토큰을 생성 하는 사용자가 연결된 된 서비스에 지정 된 Databricks 클러스터에 액세스할 수 없습니다. | 작업 영역에서 사용자에 필요한 권한이 있는지 확인 합니다.   |
 | 3203           | 클러스터가 종료 상태를 수신 작업에 사용할 수 없습니다. 클러스터를 수정 하거나 나중에 다시 시도 하세요. | 클러스터 종료 되었습니다.    대화형 클러스터에 대 한 경합 수 있습니다. | 이 문제를 방지 하는 가장 좋은 방법은 작업 클러스터를 사용 하는 것입니다.             |
-| 3204           | 작업 실행이 실패 했습니다. 작업 관련 메시지에 예기치 않은 클러스터 상태에서 오류 메시지를 개수에 관계 없이 있을 수 있습니다.  가장 일반적인 오류 메시지를 전혀 않습니다. | N/A                                                          | N/A                                                          |
+| 3204           | 작업 실행이 실패 했습니다. 작업 관련 메시지에 예기치 않은 클러스터 상태에서 오류 메시지를 개수에 관계 없이 있을 수 있습니다.  가장 일반적인 오류 메시지를 전혀 않습니다. | 해당 사항 없음                                                          | 해당 사항 없음                                                          |
 
 
 
@@ -72,7 +71,7 @@ ms.locfileid: "67452684"
 
 
 ## <a name="custom-azure-batch"></a>사용자 지정 (Azure Batch)
-| 오류 코드 | 오류 메시지                                                | 설명                                                  | 가능한 수정 / 권장 작업                           |
+| 오류 코드 | 오류 메시지                                                | Description                                                  | 가능한 수정 / 권장 작업                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2500         | 예기치 않은 예외를 적중 횟수 및 실행에 실패 했습니다.             | 명령 또는 오류 코드를 반환 하는 프로그램을 시작할 수 없습니다. | 실행 파일이 있는지 확인 합니다. 프로그램 시작 하는 경우에 stdout.txt 및 stderr.txt 저장소 계정에 업로드를 확인 합니다. 디버깅에 대 한 코드에서 복사 로그를 내보내는 것이 좋습니다. |
 | 2501         | 사용자 일괄 처리 계정에 액세스할 수 있습니다 일괄 처리 계정 설정을 확인 하세요. | 잘못 된 일괄 처리 액세스 키 또는 풀 이름이 제공 되었습니다.            | 풀 이름 및 연결된 된 서비스에서 일괄 처리 액세스 키를 확인 해야 합니다. |
@@ -81,18 +80,18 @@ ms.locfileid: "67452684"
 | 2505         | 계정 키 자격 증명을 사용 하지 않는 한 공유 액세스 서명을 만들 수 없습니다. | 사용자 지정 활동 액세스 키를 사용 하는 저장소 계정을 지원 합니다. | 설명을 참조 하세요.                                            |
 | 2507         | 폴더 경로가 존재 하지 않거나 비어:...            | 지정된 된 경로에 저장소 계정에 파일이 없습니다.       | FolderPath는 실행 하려는 실행 파일을 포함 해야 합니다. |
 | 2508         | 리소스 폴더에 있는 중복 파일이 있습니다.               | FolderPath의 다른 하위 폴더에 이름이 같은 여러 파일이 있습니다. | FolderPath에서 폴더 구조를 평면화 하는 사용자 지정 활동입니다.  파일 압축 및 압축을 풉니다 Azure Batch에는 압축 풀기 명령을 사용 하 여 예를 들어 폴더 구조를 유지 해야 하는 경우: powershell.exe-nologo-noprofile-명령은 "& {Add-type-를 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory ($zipFile, $folder); }" ;   $folder\yourProgram.exe |
-| 2509         | 일괄 처리 url... 잘못 된 경우 해당 Uri 형식 이어야 합니다.         | 일괄 처리 Url 유사 해야 합니다. https://mybatchaccount.eastus.batch.azure.com | 설명을 참조 하세요.                                            |
+| 2509         | 일괄 처리 url... 잘못 된 경우 해당 Uri 형식 이어야 합니다.         | 일괄 처리 Url을 https로 비슷해야:\//mybatchaccount.eastus.batch.azure.com | 설명을 참조 하세요.                                            |
 | 2510         | 요청을 보내는 동안 오류가 발생 했습니다.               | 일괄 처리 URL 올바르지 않습니다.                                         | 일괄 처리 URL을 확인 합니다.                                            |
 
 ## <a name="hdinsight-spark-hive-mapreduce-pig-hadoop-streaming"></a>HDInsight (Spark, Hive, MapReduce, Pig, Hadoop 스트리밍)
 
-| 오류 코드 | 오류 메시지                                                | 설명                                                  | 가능한 수정 / 권장 작업                           |
+| 오류 코드 | 오류 메시지                                                | Description                                                  | 가능한 수정 / 권장 작업                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2300,   2310 | Hadoop 작업 제출 하지 못했습니다. 오류: 원격 이름을 확인할 수 없습니다. <br/><br/>클러스터를 찾을 수 없습니다. | 제공 된 클러스터 URI 올바르지 않습니다.                              | 클러스터 삭제 되지 않은, 하 고 제공 된 URI가 올바른지 확인 하십시오. 모든 브라우저에서 URI를 열고 Ambari UI를 표시 합니다. 클러스터가 vNet에 다음 URI는 개인 URI 있어야 하 고 동일한 vNet의 일부인 VM에서 여는 것이 좋습니다. 에 대 한 자세한 내용은 [가상 네트워크에 HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services)합니다. |
 | 2,300         | Hadoop 작업 제출 하지 못했습니다. 작업:..., 클러스터:... /입니다. 오류: 작업이 취소 되었습니다. | 작업 제출 시간이 초과 되었습니다.                         | 일반적인 HDInsight 연결 문제 또는 네트워크 연결 문제가 수 있습니다. 먼저 HDInsight Ambari UI는 모든 브라우저를 통해 사용할 수 있습니다 하 고 자격 증명 여전히 유효한 지 확인 합니다. 이렇게 하려면 V m/컴퓨터에서 자체 호스팅된 IR.를 사용 하는 경우 자체 호스팅된 IR 설치 되어 있는 있는지 확인 ADF에서 작업을 다시 전송 시도 합니다. 그래도 실패할 경우 지원에 대 한 ADF 팀에 문의 합니다. |
 | 2,300         | 권한 없음:   Ambari 사용자 이름 또는 암호가 올바르지 않습니다.  <br/><br/>권한 없음:   Ambari에서 사용자 관리를 잠그기   <br/><br/>403 -   Forbidden: 액세스가 거부 되었습니다. | 제공 된 자격 증명은 HDInsight에 대 한 잘못 된 또는 만료 됨 | 수정 하 고 연결 된 서비스를 다시 배포 하세요. 자격 증명을 올바르게 작동 하는지 HDInsight에서 먼저 모든 브라우저에서 클러스터 URI를 열고 로그인 하려고 합니다. 작동 하지 않는 경우 Azure Portal에서 다시 설정할 수 있습니다. |
 | 2300,   2310 | 502-웹 서버가 게이트웨이 또는 프록시 서버를 작동 하는 동안 잘못 된 응답을 수신       <br/>잘못된 게이트웨이 | HDInsight에서 오류 발생                               | 이 오류는 HDInsight 클러스터에서 제공 됩니다. 참조할 [HDInsight 문제 해결사](https://hdinsight.github.io/ambari/ambari-ui-502-error.html) 일반적인 오류가 발생 합니다.    <br/>Spark 클러스터에 대 한 것도 원인이로 인해 [이](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)합니다. <br/><br/>[추가 링크](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502) |
-| 2,300         | Hadoop 작업 제출 하지 못했습니다. 작업:..., 클러스터:... 오류: {\"오류\":\"templeton 서비스 제출 작업 요청을 너무 많이 사용 중 이므로 그대로 제출 작업 요청을 처리할 수 없습니다. 작업을 다시 시도 하기 전에 잠시 기다리세요. 동시 요청을 구성 하려면 구성 templeton.parallellism.job.submit를 참조 하십시오. \  <br/><br/>Hadoop 작업 제출 하지 못했습니다. 작업: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, 클러스터: https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/ 합니다.   오류: {\"오류\":\"java.io.IOException: org.apache.hadoop.yarn.exceptions.YarnException: Application_1561147195099_3730 YARN에 제출 하지 못했습니다: org.apache.hadoop.security.AccessControlException: 큐 root.joblauncher 이미 500 응용 프로그램에 응용 프로그램의 전송을 허용할 수 없습니다: application_1561147195099_3730\ | 너무 많은 작업이 동시에 HDInsight에 전송 되 | HDI에 전송 되는 동시 작업 수를 제한 하는 것이 좋습니다. 동일한 활동에 의해 전송 되는 경우 ADF 작업 동시성을 참조 하십시오. 트리거를 변경 하 여 동시 파이프라인 실행 시간에 걸쳐 분산 됩니다. 또한 오류 알 수 있듯이 "templeton.parallellism.job.submit"를 조정 하기 위해 HDInsight 문서를 참조 하십시오. |
+| 2,300         | Hadoop 작업 제출 하지 못했습니다. 작업:..., 클러스터:... 오류: {\"오류\":\"templeton 서비스 제출 작업 요청을 너무 많이 사용 중 이므로 그대로 제출 작업 요청을 처리할 수 없습니다. 작업을 다시 시도 하기 전에 잠시 기다리세요. 동시 요청을 구성 하려면 구성 templeton.parallellism.job.submit를 참조 하십시오. \  <br/><br/>Hadoop 작업 제출 하지 못했습니다. 작업: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, 클러스터: https:\/abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net//입니다.   오류: {\"오류\":\"java.io.IOException: org.apache.hadoop.yarn.exceptions.YarnException: Application_1561147195099_3730 YARN에 제출 하지 못했습니다: org.apache.hadoop.security.AccessControlException: 큐 root.joblauncher 이미 500 응용 프로그램에 응용 프로그램의 전송을 허용할 수 없습니다: application_1561147195099_3730\ | 너무 많은 작업이 동시에 HDInsight에 전송 되 | HDI에 전송 되는 동시 작업 수를 제한 하는 것이 좋습니다. 동일한 활동에 의해 전송 되는 경우 ADF 작업 동시성을 참조 하십시오. 트리거를 변경 하 여 동시 파이프라인 실행 시간에 걸쳐 분산 됩니다. 또한 오류 알 수 있듯이 "templeton.parallellism.job.submit"를 조정 하기 위해 HDInsight 문서를 참조 하십시오. |
 | 2303,   2347 | '5' 종료 코드로 Hadoop 작업이 실패 했습니다. 참조 'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' 대 한 자세한 내용은 합니다.  <br/><br/>오류 코드 'UserErrorHiveOdbcCommandExecutionFailure'를 사용 하 여 hive 실행 하지 못했습니다.   참조 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' 대 한 자세한 내용은 | HDInsight에서에 작업이 제출 된 및 HDInsight에 실패 한 | 작업이는 성공적으로 제출 HDInsight를 되었습니다. 클러스터에서 실패 합니다. 하세요 HDInsight Ambari ui에서 작업을 엽니다 및, 로그 또는 오류 메시지 지적으로 저장소에서 파일을 엽니다. 오류의 세부 정보는 해당 파일에 있게 됩니다. |
 | 2328         | 요청을 처리 하는 동안 내부 서버 오류가 발생 했습니다. 요청을 다시 시도 하거나 지원에 문의 하세요. | 주문형 HDInsight에서 발생합니다.                              | 이 오류는 HDInsight 프로 비전이 실패 하는 경우 HDInsight 서비스에서 제공 됩니다. HDInsight 팀에 문의 하 고에서 필요 시 클러스터 이름을 제공 하세요. |
 | 2310         | java.lang.NullPointerException                               | Spark 클러스터에 작업을 전송 하는 동안 오류가 발생 했습니다.      | 이 예외 HDInsight에서 가져오고 실제 문제를 숨기면 됩니다.   HDInsight 팀 지원에 문의 하 고 클러스터 이름 및 시간 범위를 실행 하는 활동을 제공 하세요. |
@@ -102,7 +101,7 @@ ms.locfileid: "67452684"
 
 ## <a name="web-activity"></a>웹 작업
 
-| 오류 코드 | 오류 메시지                                                | 설명                                                  | 가능한 수정 / 권장 작업                           |
+| 오류 코드 | 오류 메시지                                                | Description                                                  | 가능한 수정 / 권장 작업                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2108         | 잘못 된 HttpMethod: '... '입니다.                                    | 즉, 작업 페이로드에 지정 된 Http 메서드는 웹 작업에서 지원 되지 않습니다. | 지원 되는 Http 메서드는 다음과 같습니다. <br/>PUT, POST, GET, 삭제 |
 | 2108         | 잘못 된 서버 오류 500                                     | 끝점에서 내부 오류                               | URL (Fiddler/Postman) 기능을 확인 합니다. [Fiddler를 사용 하 여 HTTP 세션을 만드는 방법](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
@@ -154,7 +153,7 @@ Fiddler에 자세한 내용은 [여기](https://docs.telerik.com/fiddler/Configu
 
 문제 해결 방법을 찾는 데 도움이 필요한 경우 다음과 같은 리소스를 사용해 보세요.
 
-*  [블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blogs](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

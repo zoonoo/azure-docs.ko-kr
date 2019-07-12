@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 67e4bb2d0f308a3f20f0a29ec8b1f2a0d46fc082
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e329c8efd9b0e89f5f5eae41952cda9a45a95969
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204350"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620663"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Azure 활동 로그에서 데이터 연결
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204350"
 로그를 스트리밍하려면 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md) 번의 클릭으로 Azure Sentinel에 있습니다. 활동 로그는 Azure에서 발생 하는 구독 수준 이벤트에 대 한 정보를 제공 하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 활동 로그를 통해 확인할 수 있습니다는 ' 무엇을, 누가, 언제 ' 대 한 모든 쓰기 작업 (PUT, POST, DELETE) 구독의 리소스에서 수행 합니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기 (GET) 작업 또는 클래식을 사용 하는 리소스에 대 한 작업이 없는 / "RDFE" 모델입니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 
@@ -41,7 +42,7 @@ ms.locfileid: "65204350"
 
 2. Azure 활동 로그 창에서 Azure Sentinel를 스트리밍 하려는 구독을 선택 합니다. 
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. Log Analytics에서 관련 스키마를 사용 하 여 Azure 활동 경고에 대 한를 검색 **AzureActivity**합니다.
 

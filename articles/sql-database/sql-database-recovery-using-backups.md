@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232651"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706985"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -77,7 +77,7 @@ ms.locfileid: "65232651"
 
 - **데이터베이스 교체**
 
-  원본 데이터베이스에 대 한 대체로 복원된 된 데이터베이스는 사용 하는 경우 orinal 데이터베이스의 계산 크기 및 서비스 계층을 지정 해야 합니다. 다음 원래 데이터베이스 이름을 변경 하 고 사용 하 여 원래 이름이 복원된 된 데이터베이스를 부여할 수 있습니다 합니다 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 명령을 합니다.
+  원본 데이터베이스에 대 한 대체로 복원된 된 데이터베이스는 사용 하는 경우 원본 데이터베이스의 계산 크기 및 서비스 계층을 지정 해야 합니다. 다음 원래 데이터베이스 이름을 변경 하 고 사용 하 여 원래 이름이 복원된 된 데이터베이스를 부여할 수 있습니다 합니다 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 명령을 합니다.
 
 - **데이터 복구**
 
@@ -124,7 +124,7 @@ Azure portal을 사용 하 여 삭제 된 데이터베이스를 복구 하려면
 지역 보조 복제본에 대한 지정 시간 복원은 현재 지원되지 않습니다. 주 데이터베이스에서만 지정 시간 복원을 수행할 수 있습니다. 지역 복원 기능을 사용하여 가동 중단에서 복구하는 방법에 대한 자세한 내용은 [가동 중단에서 복구](sql-database-disaster-recovery.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 지리적 복원은 SQL Database에서 사용할 수 있는 가장 기본적인 재해 복구 솔루션입니다. RPO를 사용 하 여 백업을 지역 복제를 자동으로 생성에 의존 하므로 = 1 시간 및 12 시간 최대 예상된 복구 시간입니다. 대상 지역 용량 수요의 증가 선명 하 게 될 가능성이 있으므로 국가별 ourage 후 데이터베이스를 복원 하려면 있는지는 보장 하지 않습니다. 비 비즈니스 중요 한 응용 프로그램의 상대적으로 작은 데이터베이스를 사용 하는 경우 지리적 복원은 적절 한 재해 복구 솔루션입니다. Busniess 중요 한 응용 프로그램의 많은 데이터베이스를 사용 하 고 비즈니스 연속성을 보장 해야 하는 경우 사용할지 [자동 장애 조치 그룹](sql-database-auto-failover-group.md)합니다. 용량 항상 및를 훨씬 더 낮은 RPO와 RTO를 제공 합니다. 비즈니스 연속성 선택에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+> 지리적 복원은 SQL Database에서 사용할 수 있는 가장 기본적인 재해 복구 솔루션입니다. RPO를 사용 하 여 백업을 지역 복제를 자동으로 생성에 의존 하므로 = 1 시간 및 12 시간 최대 예상된 복구 시간입니다. 대상 지역 용량 수요의 증가 선명 하 게 될 가능성이 있으므로 국가별 ourage 후 데이터베이스를 복원 하려면 있는지는 보장 하지 않습니다. 비 비즈니스 중요 한 응용 프로그램의 상대적으로 작은 데이터베이스를 사용 하는 경우 지리적 복원은 적절 한 재해 복구 솔루션입니다. 비즈니스 중요 한 응용 프로그램의 많은 데이터베이스를 사용 하 고 비즈니스 연속성을 보장 해야 하는 경우 사용할지 [자동 장애 조치 그룹](sql-database-auto-failover-group.md)합니다. 용량 항상 및를 훨씬 더 낮은 RPO와 RTO를 제공 합니다. 비즈니스 연속성 선택에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure Portal을 사용한 지역 복원
 
@@ -141,7 +141,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 - 독립 실행형 또는 풀링된 데이터베이스를 복원 하려면 참조 [복원 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)합니다.
 
@@ -157,7 +157,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 - 관리 되는 인스턴스로 데이터베이스를 복원 하려면 참조 [복원 AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)합니다.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 데이터베이스를 인스턴스를 가져옵니다. |
@@ -167,7 +167,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 REST API를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면:
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [REST(createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |데이터베이스를 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/operations) |복원 작업 동안 상태를 반환합니다. |

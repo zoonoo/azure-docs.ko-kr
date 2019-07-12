@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482154"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702700"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>사용 권한 및 동의에 Microsoft id 플랫폼 끝점
 
@@ -53,7 +53,7 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 이러한 유형의 사용 권한을 정의하면 리소스가 해당 데이터 및 API 기능이 공개되는 방식을 세밀하게 제어할 수 있습니다. 타사 앱은 사용자 및 관리자에게 이러한 사용 권한을 요청할 수 있고, 요청을 받은 사용자 또는 관리자가 요청을 승인해야만 앱이 사용자 대신 데이터에 액세스하거나 작업을 수행할 수 있습니다. 리소스 기능을 더 작은 사용 권한 집합으로 나누면 기능을 수행하는 데 필요한 특정 권한만 요청하도록 타사 앱을 빌드할 수 있습니다. 사용자와 관리자가 정확 하 게 데이터를 앱에 액세스 권한을 알 수 및 악의적인 의도로 동작 하지 않으면 해당 점을 더 확신할 수 있습니다. 개발자는 항상 최소 권한의 개념에 따라 애플리케이션이 작동하는 데 필요한 사용 권한만 요청해야 합니다.
 
-OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다. 또한 라고도 *권한을*합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
+OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다. 이러한도 자주 라고 *권한을*합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
 
 * `Calendars.Read`를 사용하여 사용자의 일정 읽기
 * `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
@@ -89,7 +89,7 @@ OpenID Connect의 Microsoft id 플랫폼 구현을 특정 리소스에 적용 �
 
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email` 전자 메일 주소는 대/소문자 형태를 사용자 계정과 연결 된 경우에 클레임은 토큰에 포함 되어 있습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
-### <a name="profile"></a>profiles
+### <a name="profile"></a>profile
 
 `profile` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 사용자에 대한 상당한 양의 정보에 액세스할 수 있도록 해줍니다. 정보에 액세스할 수를 포함 하지만 사용자의 지정 된 이름, 성, 기본 사용자 이름 및 개체 ID에 국한 되지 않습니다. 특정 사용자에 대한 id_token 매개 변수에서 사용할 수 있는 프로필 클레임의 전체 목록은 [`id_tokens` 참조](id-tokens.md)를 참조하세요.
 
@@ -167,7 +167,8 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>응용 프로그램에 대 한 정적으로 요청 된 사용 권한 목록을 구성 하려면
 
 1. 응용 프로그램으로 이동 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 경험, 또는 [앱 만들기](quickstart-register-app.md) 아직 없는 경우.
-2. **Microsoft Graph 사용 권한** 섹션으로 이동하여 앱에 필요한 사용 권한을 추가합니다.
+2. 찾을 합니다 **API 사용 권한** 섹션 및 API 사용 권한에서 사용 권한을 추가 클릭 합니다.
+3. 선택 **Microsoft Graph** 사용 가능한 Api 목록에서 다음 앱에 필요한 사용 권한을 추가 합니다.
 3. 앱 등록을 **저장**합니다.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>권장: 앱에 사용자 로그인
@@ -197,7 +198,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `common`으로 일반 참조될 수 있습니다. |
 | `client_id` | 필수 | 합니다 **(클라이언트) 응용 프로그램 ID** 는 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경을 앱에 할당 합니다. |
@@ -214,7 +215,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -228,7 +229,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -279,11 +280,11 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대 한 �
 
 사용자(또는 테넌트 관리자)가 클라이언트에 Microsoft Graph에 대한 권한 `mail.read` 및 `user.read`를 부여했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 요청한 경우, Microsoft Graph에 대해 클라이언트 애플리케이션이 등록한 권한의 동의 여부에 관계없이 동의 프롬프트가 표시되지 않습니다. 범위 `mail.read` 및 `user.read`를 포함하는 토큰이 반환됩니다.
 
-#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>예 2: 사용자가 클라이언트와 리소스 간에 사용 권한을 부여하지 않음
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>예제 2: 사용자가 클라이언트와 리소스 간에 사용 권한을 부여하지 않음
 
 클라이언트와 Microsoft Graph 간에 사용자 동의가 없습니다. 클라이언트는 `user.read` 및 `contacts.read` 권한 뿐만 아니라 Azure Key Vault 범위 `https://vault.azure.net/user_impersonation`에도 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`에 대한 토큰을 요청하면 `user.read`, `contacts.read` 및 Key Vault `user_impersonation` 범위에 대한 동의 화면이 표시됩니다. 반환된 토큰에는 `user.read` 및 `contacts.read` 범위만 있습니다.
 
-#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>예 3: 사용자가 동의했으며 클라이언트가 추가 범위를 요청함
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>예제 3: 사용자가 동의했으며 클라이언트가 추가 범위를 요청함
 
 사용자는 클라이언트에 대한 `mail.read`에 이미 동의했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 사용하여 토큰을 요청하고 `prompt=consent`를 통해 동의를 요청하면 사용자에게 애플리케이션에서 등록한 모든 권한에 대해서만 동의 화면이 표시됩니다. 즉, `contacts.read`는 동의 화면에 표시되지만 `mail.read`는 표시되지 않습니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
 

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768061"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593916"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN을 통해 동적 사이트 가속
 
@@ -147,7 +147,7 @@ CDN을 사용하면 원본에 직접 연결된 사용자와 비교하여 원본 
 --- | ---  
 JPEG 압축 | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
-## <a name="caching"></a>구성
+## <a name="caching"></a>캐싱
 
 DSA를 사용하면 원본이 응답에서 `Cache-Control` 또는 `Expires` 헤더를 포함하는 경우에도 캐싱이 CDN에서 기본적으로 해제됩니다. DSA는 각 클라이언트에 고유하기 때문에 캐시되지 않아야 하는 동적 자산에 일반적으로 사용됩니다. 캐싱은 이 동작을 손상시킬 수 있습니다.
 

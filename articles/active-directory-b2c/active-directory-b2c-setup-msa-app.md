@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055106"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654224"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
 ## <a name="create-a-microsoft-account-application"></a>Microsoft 계정 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Microsoft 계정을 [ID 공급자](active-directory-b2c-reference-oidc.md)로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Microsoft 계정이 없는 경우 [https://www.live.com/](https://www.live.com/)에서 얻을 수 있습니다.
+Microsoft 계정으로 사용 하는 [id 공급자](active-directory-b2c-reference-oidc.md) Azure Active Directory (Azure AD) b2c에서 Azure AD 테 넌 트에서 응용 프로그램을 생성 해야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다. Microsoft 계정에 아직 없는 경우에 하나씩를 얻을 수 있습니다 [ https://www.live.com/ ](https://www.live.com/)합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 선택 **모든 서비스** Azure portal 및 다음에 대 한 검색 및 선택의 왼쪽 위 구석에 **앱 등록**합니다.
-1. 선택 **새 등록**
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
+1. **새 등록**을 선택합니다.
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들어 *MSAapp1* 등을 입력합니다.
 1. 아래 **지원 되는 계정 유형**를 선택 **모든 조직 디렉터리에 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com) 계정을**합니다. 이 옵션에는 Microsoft id의 광범위 한 집합을 대상 으로합니다.
 

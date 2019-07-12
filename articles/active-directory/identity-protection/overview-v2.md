@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108894"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673014"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>갱신된 Azure Active Directory ID 보호 소개
 
@@ -67,7 +67,7 @@ Azure AD ID 보호에서 검색하는 위험 이벤트는 다음과 같습니다
 
  
 
-| 위험 이벤트 유형 | 설명 | 검색 유형 |
+| 위험 이벤트 유형 | Description | 검색 유형 |
 | ---             | ---         | ---            |
 | 비정상적 이동 | 사용자의 최근 로그인을 기준으로 비정상적인 위치에서 로그인 | 오프라인 |
 | 익명 IP 주소 | 익명 IP 주소에서 로그인(예: Tor 브라우저, 익명성 도구 VPN) | 실시간 |
@@ -119,7 +119,7 @@ ID 보호는 다음의 두 가지 위험 유형을 기준으로 합니다.
 
 ## <a name="how-identity-protection-detects-risk"></a>ID 보호에서 위험을 검색하는 방식  
 
-Azure AD에서는 기계 학습 기능을 통해 비정상적인 활동과 의심스러운 활동을 검색합니다. 이때 로그인 중에 실시간으로 검색된 위험 징후와, 사용자 및 사용자의 로그인 활동과 관련된 징후(실시간 아님)를 모두 사용합니다. 사용자가 인증을 할 때마다 ID 보호는 이 데이터를 사용하여 실시간 로그인 위험을 계산하고 사용자 연결의 전반적인 사용자 위험 수준을 확인합니다. ID 보호에서는 ID 보호 사용자 위험 및 로그인 위험 정책을 구성하여 이렇게 검색된 위험과 관련한 조치를 자동으로 취할 수 있습니다.  
+Azure AD에서는 기계 학습 기능을 통해 비정상적인 활동과 의심스러운 활동을 검색합니다. 이때 로그인 중에 실시간으로 검색된 위험 징후와, 사용자 및 사용자의 로그인 활동과 관련된 징후(실시간 아님)를 모두 사용합니다. Id 보호를 실시간 로그인 위험을 계산이 데이터를 사용 하 여, 각 사용자에 대 한 전체 사용자 위험 수준을 결정 하는 데 뿐만 아니라 사용자를 인증할 때마다 합니다. ID 보호에서는 ID 보호 사용자 위험 및 로그인 위험 정책을 구성하여 이렇게 검색된 위험과 관련한 조치를 자동으로 취할 수 있습니다.  
 
  
 
@@ -203,7 +203,7 @@ ID 보호에서는 배포 전반에 걸쳐 관리 활동을 균형 있게 수행
 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
  
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 >[!NOTE]
 > 갱신된 ID 보호의 공개 미리 보기 기간 동안에는 Azure AD Premium P2 고객만 위험한 사용자 보고서 및 위험한 로그인 보고서에 액세스할 수 있습니다.
@@ -212,11 +212,11 @@ ID 보호에서는 배포 전반에 걸쳐 관리 활동을 균형 있게 수행
 
 | 기능 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 사용자 위험 정책 | 예 | 아니오 | 아닙니다. |
-| 로그인 위험 정책 | 예 | 아니오 | 아닙니다. |
+| 사용자 위험 정책 | 예 | 아니오 | 아니요 |
+| 로그인 위험 정책 | 예 | 아니오 | 아니요 |
 | 위험한 사용자 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 위험한 로그인 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| MFA 등록 정책 | 예 | 아니오 | 아닙니다. |
+| MFA 등록 정책 | 예 | 아니오 | 아니요 |
 
 
 

@@ -4,17 +4,17 @@ description: 이 가이드는 CEO, CIO, CISO, CIA(Chief Identity Architects), �
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449262"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786689"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -94,7 +94,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 조직에서 원하는 경우, Azure AD Premium P2가 있으면 손실된 자격 증명 보고서 등의 Azure AD ID 보호 보고서에서 ID의 정보를 사용할 수 있습니다. Windows Hello 비즈니스에 [암호 해시 동기화를 사용 하는 경우 특정 요구 사항](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)합니다. [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) 암호 해시 동기화를 관리 되는 도메인에서 자신의 회사 자격 증명을 사용 하 여 사용자를 프로 비전 해야 합니다.
 
-    Azure AD 다단계 인증을 사용 해야 하는 암호 해시 동기화를 사용 하 여 다단계 인증을 필요로 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다.
+    Azure AD 다단계 인증을 사용 해야 하는 암호 해시 동기화를 사용 하 여 다단계 인증을 필요로 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다.
 
 > [!NOTE]
 > Azure AD 조건부 액세스 필요 [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스.
@@ -118,7 +118,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 로그인 시 통과 인증이 온-프레미스 계정 정책을 적용합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 사용자의 허용된 로그온 시간을 벗어난 상태인 경우 액세스가 거부됩니다. 
 
-    통과 인증을 사용 하 여 다단계 인증 해야 Azure Multi-factor Authentication (MFA)을 사용 해야 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
+    통과 인증을 사용 하 여 다단계 인증 해야 Azure Multi-factor Authentication (MFA)을 사용 해야 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
 * **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다. 
 

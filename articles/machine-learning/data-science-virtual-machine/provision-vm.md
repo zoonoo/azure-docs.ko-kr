@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235094"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626390"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -61,15 +61,15 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
 
 DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. VM에 포함된 Azure SDK를 통해 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
-이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
+이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
 
 ### <a name="other-dsvm-versions"></a>다른 DSVM 버전
 
 * [Ubuntu](dsvm-ubuntu-intro.md) 이미지. DSVM과 비슷한 많은 도구와 몇 가지 추가 딥 러닝 프레임워크가 있습니다.
 * [Linux CentOS](linux-dsvm-intro.md) 이미지.
-* Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
+* Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판](https://azure.com/free)을 참조하세요.
 
@@ -182,7 +182,7 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 * 바탕 화면 바로 가기를 사용하면 Azure SDK 설명서로 이동합니다.
 * **AzCopy**를 사용하여 Azure Storage 계정 간에 데이터를 복사합니다. 사용법을 보려면 명령 프롬프트에서 **Azcopy**를 입력합니다.
-* **Azure Storage 탐색기**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage Explorer**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
+* **Azure Storage Explorer**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage Explorer**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
 * **Adlcopy**는 데이터를 Azure Data Lake로 복사합니다. 사용법을 보려면 명령 프롬프트에서 **adlcopy**를 입력합니다.
 * **dtui**는 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB 간에 데이터를 복사합니다. 명령 프롬프트에서 **dtui**를 입력합니다.
 * **Azure Data Factory Integration Runtime**은 온-프레미스 데이터 원본과 클라우드 간에 데이터를 복사합니다. Azure Data Factory와 같은 도구 내에서 사용합니다.
@@ -230,5 +230,5 @@ Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있�
 * [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 제공되는 [빠른 시작 및 자습서](../service/index.yml)를 사용해 보세요.
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 파일 탐색기에서 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동합니다.  
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
-* [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.
 * Azure에서 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.cortanaintelligence.com)를 방문합니다. 또한 가상 머신의 **시작** 메뉴 및 바탕 화면에는 이 갤러리에 대한 아이콘도 제공됩니다.

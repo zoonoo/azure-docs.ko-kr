@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: da59e9bb5cfffea734cb1dc4725cef9ea6296aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a63914116f5ef9922ac05745764e0ad505dc3c91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872924"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593961"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN를 사용한 중국 콘텐츠 전송
 
@@ -40,7 +40,7 @@ Azure CDN 글로벌 및 Azure CDN 중국은 다음의 특징이 있습니다.
 
      - 네 가지 가격 책정 계층: Microsoft 표준, Verizon 표준, Verizon premium 및 Akamai 표준의
 
-     - [설명서](https://docs.microsoft.com/azure/cdn/)
+     - [문서](https://docs.microsoft.com/azure/cdn/)
 
 - Azure CDN 중국:
 
@@ -50,7 +50,7 @@ Azure CDN 글로벌 및 Azure CDN 중국은 다음의 특징이 있습니다.
 
      - 두 가지 가격 책정 계층: Standard 및 premium
 
-     - [설명서](https://docs.azure.cn/en-us/cdn/)
+     - [문서](https://docs.azure.cn/en-us/cdn/)
  
 
 ## <a name="next-steps"></a>다음 단계

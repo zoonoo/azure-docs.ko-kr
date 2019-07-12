@@ -3,18 +3,17 @@ title: Azure Automation에서 모듈을 관리
 description: 이 문서에서는 Azure Automation에서 모듈을 관리 하는 방법 설명
 services: automation
 ms.service: automation
-ms.subservice: shared-resources
 author: bobbytreed
 ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 69817d1412aa13d0e7983aa3ad27c15e59185432
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cd085164fc9804e0c1c822df1c72d3ef94093a07
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478164"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672794"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈을 관리
 
@@ -35,7 +34,7 @@ Azure Automation은 PowerShell 기반 runbook에서 사용할 자동화 계정�
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure portal에서 Automation 계정으로 이동 및 선택 **모듈** 아래에서 **공유 리소스**합니다. 클릭 **+ 모듈 추가**합니다. 선택는 **.zip** 모듈 및 클릭을 포함 하는 파일 **확인** 가져오기 프로세스를 시작 합니다.
 
@@ -55,7 +54,7 @@ PowerShell 갤러리에서 모듈을 가져오려면,로 이동 https://www.powe
 
 모듈에 문제가 있는 경우 모듈의 이전 버전으로 롤백하려면 필요한 Automation 계정에서 삭제할 수 있습니다. 원래 버전을 삭제할 수 없습니다는 [모듈을 기본](#default-modules) Automation 계정을 만들 때 가져온입니다. 삭제 하려는 모듈 중 하나의 최신 버전 인지 합니다 [모듈을 기본](#default-modules) 설치 하는 롤백 Automation 계정으로 설치 된 버전으로 합니다. 그렇지 않은 경우 모든 모듈을 Automation 계정에서 삭제 하면 제거 됩니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure portal에서 Automation 계정으로 이동 및 선택 **모듈** 아래에서 **공유 리소스**합니다. 제거 하려는 모듈을 선택 합니다. 에 **모듈** 페이지에서 clcick **삭제**합니다. 이 모듈을 사용 하면 중 하나인 경우는 [모듈을 기본](#default-modules) Automation 계정이 만들어질 때 제공 된 버전으로 롤백할 수 됩니다.
 
@@ -71,7 +70,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 다음은 내부에서 cmdlet의 목록을 `Orchestrator.AssetManagement.Cmdlets` 모든 Automation 계정으로 가져온 모듈입니다. 이러한 cmdlet runbook 및 DSC 구성에 액세스할 수 있으며 Automation 계정 내 자산을 사용 하 여 상호 작용할 수 있도록 합니다. 내부 cmdlet은 암호를 검색할 수 있도록 또한에서 암호화 **변수** 값을 **자격 증명**, 및 암호화 **연결** 필드입니다. Azure PowerShell cmdlet에서 이러한 비밀을 검색 하지 못합니다. 이러한 cmdlet에 암시적으로 사용 하는 경우 Azure를 연결할 수 필요 하지 않습니다. 실행 계정을 사용 하 여 Azure에 인증 해야 하는 등의 연결을 해야 하는 시나리오에 유용 합니다.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -230,7 +229,7 @@ Azure Automation에서 사용할 PowerShell 모듈을 작성 하는 경우에 �
 
 다음 표에서 Automation 계정을 만들 때 기본적으로 가져온 모듈을 보여 줍니다. 아래에 나열 된 모듈에는 최신 버전을 가져올 수 있지만 그 중 최신 버전을 삭제 하는 경우에 원래 버전 Automation 계정에서 제거할 수 없습니다.
 
-|모듈 이름|Version|
+|모듈 이름|버전|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |

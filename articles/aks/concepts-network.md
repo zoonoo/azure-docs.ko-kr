@@ -2,17 +2,17 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 네트워킹
 description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: afb7acda67eb5818ace8169dc4e98fb86bdbeaa7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442014"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615887"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -20,7 +20,7 @@ ms.locfileid: "67442014"
 
 이 문서에서는 AKS에서 네트워킹을 애플리케이션에 제공하는 핵심 개념을 소개합니다.
 
-- [서비스](#services)
+- [Services](#services)
 - [Azure 가상 네트워크](#azure-virtual-networks)
 - [수신 컨트롤러](#ingress-controllers)
 - [네트워크 정책](#network-policies)
@@ -33,7 +33,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 또한 Azure 플랫폼은 AKS 클러스터에 대한 가상 네트워킹 간소화에도 도움이 됩니다. Kubernetes 부하 분산 장치를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어지고 구성됩니다. Pod에 네트워크 포트를 열면 해당 Azure 네트워크 보안 그룹 규칙이 구성됩니다. HTTP 애플리케이션 라우팅의 경우 새 수신 경로가 구성될 때 Azure에서 *외부 DNS*를 구성할 수도 있습니다.
 
-## <a name="services"></a>Services
+## <a name="services"></a>서비스
 
 애플리케이션 워크로드에 대한 네트워크 구성을 간소화하기 위해 Kubernetes는 *Service*를 사용하여 일련의 Pod를 논리적으로 그룹화하고 네트워크 연결을 제공합니다. 사용할 수 있는 Service 유형은 다음과 같습니다.
 
@@ -115,7 +115,7 @@ Kubenet와 Azure CNI AKS 클러스터에 대 한 네트워크 연결을 제공�
 * 자동으로 Azure 플랫폼 만들고 AKS 클러스터를 만들 때 가상 네트워크 리소스를 구성할 수 있습니다.
 * 수동으로 만들고 및 가상 네트워크 리소스를 구성 하 AKS 클러스터를 만들 때 해당 리소스에 연결 합니다.
 
-Kubenet와 Azure CNI 사용 하 여 서비스 끝점 또는 Udr과 같은 기능을 지원 하지만 합니다 [AKS에 대 한 지원 정책][support-policies] 가능 내용을 정의 합니다. 예를 들면 다음과 같습니다.
+Kubenet와 Azure CNI 사용 하 여 서비스 끝점 또는 Udr과 같은 기능을 지원 하지만 합니다 [AKS에 대 한 지원 정책][support-policies] 가능 내용을 정의 합니다. 예를 들어:
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만들어야 하는 경우 사용자 고유의 Udr 또는 서비스 끝점을 구성 하는 경우를 지원 됩니다.
 * Azure 플랫폼에서 자동으로 AKS 클러스터에 대 한 가상 네트워크 리소스를 만들 경우 사용자 고유의 Udr 또는 서비스 끝점을 구성 하려면 이러한 AKS-관리 되는 리소스를 수동으로 변경 하려면 지원 되지 않습니다.

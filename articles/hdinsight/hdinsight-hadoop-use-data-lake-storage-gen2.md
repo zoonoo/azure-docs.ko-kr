@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd639ae7e05309ab4528eb460ce38550db4cffe1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427395"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670770"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -55,7 +55,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. 있는지 확�
     
     ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-1. **저장**을 선택합니다. 선택한 사용자 할당 id는 이제 선택한 역할 아래에 나열 됩니다.
+1.           **저장**을 선택합니다. 선택한 사용자 할당 id는 이제 선택한 역할 아래에 나열 됩니다.
 1. 이 초기 설정이 완료되면 포털을 통해 클러스터를 만들 수 있습니다. 클러스터가 스토리지 계정과 동일한 Azure 영역에 있어야 합니다. 클러스터 만들기 메뉴의 **스토리지** 섹션에서 다음 옵션을 선택합니다.
         
     * 에 대 한 **기본 저장소 유형**를 선택 **Azure Data Lake 저장소 Gen2**합니다.
@@ -72,31 +72,40 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. 있는지 확�
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Azure CLI를 통해 Data Lake 저장소 Gen2를 사용 하 여 클러스터 만들기
 
-할 수 있습니다 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)합니다. 서식 파일을 사용 하기 전에 문자열을 바꾸기 `<SUBSCRIPTION_ID>` 실제 Azure 구독 ID를 사용 하 여 또한 문자열을 바꿀 `<PASSWORD>` 모두 클러스터에 로그인을 사용 하는 암호 및 SSH 암호를 설정 하려면 선택한 암호를 사용 하 여 합니다.
+할 수 있습니다 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)합니다. 템플릿 및 Azure CLI 코드는 아래를 사용 하기 전에 올바른 값을 사용 하 여 다음 자리 표시자를 바꿉니다.
+
+| 자리표시자 | 설명 |
+|---|---|
+| `<SUBSCRIPTION_ID>` | Azure 구독의 ID |
+| `<RESOURCEGROUPNAME>` | 만든 새 클러스터 및 저장소 계정을 만들려는 리소스 그룹입니다. |
+| `<MANAGEDIDENTITYNAME>` | Azure Data Lake 저장소 Gen2 계정의 사용 권한을 지정 될 관리 되는 id의 이름입니다. |
+| `<STORAGEACCOUNTNAME>` | 새 Azure Data Lake 저장소 Gen2 계정을 생성 됩니다. |
+| `<CLUSTERNAME>` | HDInsight 클러스터의 이름입니다. |
+| `<PASSWORD>` | Ambari 대시보드의 뿐만 아니라 SSH를 사용 하 여 클러스터에 로그인에 대해 선택한 암호입니다. |
 
 아래 코드 조각에는 다음 초기 단계를 수행합니다.
 
 1. Azure 계정에 로그인 합니다.
 1. 만들기 작업은 수행 되어야 하는 활성 구독을 설정 합니다.
-1. 라는 새 배포 작업에 대 한 새 리소스 그룹을 만듭니다 `hdinsight-deployment-rg`합니다.
-1. 명명 된 사용자 할당 관리 되는 id를 만드는 `test-hdinsight-msi`합니다.
+1. 새 배포 작업에 대 한 새 리소스 그룹을 만듭니다. 
+1. 사용자 할당 관리 되는 id를 만듭니다.
 1. Data Lake 저장소 Gen2에 기능을 사용 하는 Azure cli 확장을 추가 합니다.
-1. 라는 새 Data Lake 저장소 Gen2 계정을 만듭니다 `hdinsightadlsgen2`를 사용 하 여는 `--hierarchical-namespace true` 플래그입니다.
+1. 사용 하 여 새 Data Lake 저장소 Gen2 계정을 만듭니다는 `--hierarchical-namespace true` 플래그입니다. 
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location eastus
+az group create --name <RESOURCEGROUPNAME> --location eastus
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -107,7 +116,7 @@ az storage account create --name hdinsightadlsgen2 \
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```

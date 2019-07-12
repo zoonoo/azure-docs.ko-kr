@@ -3,17 +3,17 @@ title: CloudSimple 서비스에 대 한 보안
 description: CloudSimple 서비스 보안에 대 한 공유 책임 모델을 설명합니다.
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 4/27/19
+ms.date: 04/27/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: db093f6aef4f1bdb28a96bf89b3013d359a7b796
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 325915aae43c905236910382f650730a6daa127a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154106"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595333"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple 보안 개요
 

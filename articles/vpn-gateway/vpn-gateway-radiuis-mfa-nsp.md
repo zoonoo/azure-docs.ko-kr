@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458127"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666210"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
 
 이 문서에서는 NPS(네트워크 정책 서버)를 Azure VPN Gateway RADIUS 인증과 통합하여 지점과 사이트 간 VPN 연결에 MFA(Multi-Factor Authentication)를 제공하는 방법을 설명합니다. 
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어야 하며 이는 온-프레미스 또는 클라우드 환경에서 동기화되어야 합니다. 또한 사용자가 MFA에 대한 자동 등록 프로세스를 이미 완료해 놓아야 합니다.  자세한 내용은 [2단계 인증에 내 계정 설정](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 
@@ -52,18 +52,18 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2단계 Azure MFA용 NPS 구성
 
 1. NPS 서버에서 [Azure MFA용 NPS 확장을 설치](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension)합니다.
-2. NSP 콘솔을 열고 **RADUIS 클라이언트**를 마우스 오른쪽 단추로 클릭한 후 **새로 만들기**를 선택합니다. 다음 설정을 지정하여 RADUIS 클라이언트를 만듭니다.
+2. NPS 콘솔을 열고 마우스 오른쪽 단추로 **RADIUS 클라이언트**를 선택한 후 **새로 만들기**합니다. 다음 설정을 지정 하 여 RADIUS 클라이언트를 만듭니다.
 
     - **친숙한 이름**: 이름을 입력합니다.
     - **주소(IP 또는 DNS)** : 1단계에서 만든 게이트웨이 서브넷을 입력합니다.
     - **공유 비밀**: 비밀 키를 입력하고 나중에 사용할 수 있도록 기억합니다.
 
-      ![RADUIS 클라이언트 설정에 대한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![RADIUS 클라이언트 설정에 대 한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  **고급** 탭에서 공급업체 이름을 **RADIUS 표준**으로 설정하고 **추가 옵션** 확인란이 선택되지 않았는지 확인합니다.
 
-    ![RADUIS 클라이언트 고급 설정에 대한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![RADIUS 클라이언트에 대 한 고급 설정에 대 한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. **정책** > **네트워크 정책**으로 이동하고 **Microsoft 라우팅 및 원격 액세스 서버에 연결** 정책을 두 번 클릭하여 **액세스 권한 부여**를 선택한 다음 **확인**을 클릭합니다.
 

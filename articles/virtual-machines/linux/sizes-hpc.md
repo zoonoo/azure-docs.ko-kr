@@ -4,7 +4,7 @@ description: Azure의 Linux 고성능 컴퓨팅 가상 머신에 사용할 수 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 847f25d9be1a8654bbc0435d7874acb0ff793304
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069992"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695594"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>고성능 계산 가상 머신 크기
 
@@ -56,7 +56,15 @@ Azure Marketplace에 RDMA 연결을 지 원하는 많은 Linux 배포판:
   "typeHandlerVersion": "1.0",
   } 
   ```
- 
+  
+  다음 명령은 기존 VM 확장 집합의 모든 RDMA 지원 Vm에서 최신 버전 1.0 InfiniBandDriverLinux 확장 설치 *myVMSS* 이라는 리소스 그룹에 배포 된 *myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
   > [!NOTE]
   > CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일에서 사용할 수 없습니다. 즉 Linux RDMA 드라이버가 RPM 패키지로 배포 되 고 커널이 업데이트 되는 경우 드라이버 업데이트가 작동 하지 않을 수 있습니다.
   >
@@ -83,6 +91,8 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 * **가상 머신 확장 집합** -가상 머신 확장 집합을 단일 배치 그룹으로 배포를 제한 하는 것을 확인 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 
 
+* **가상 머신 간에 MPI** -MPI 통신 virtual machines (Vm) 사이 필요한 경우 Vm은 동일한 가용성 집합 또는 확인 가상 머신을 동일한 경우 확장 집합입니다.
+
 * **Azure CycleCloud** - [Azure CycleCloud](/azure/cyclecloud/)에서 HPC 클러스터를 만들어서 Linux 노드에서 MPI 작업을 실행합니다.
 
 * **Azure Batch** - [Azure Batch](/azure/batch/) 풀을 만들어서 Linux 계산 노드에서 MPI 워크로드를 실행합니다. 자세한 내용은 [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](../../batch/batch-pool-compute-intensive-sizes.md)을 참조하세요. 또한 Batch에서 컨테이너 기반 워크로드를 실행하는 방법은 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 프로젝트를 참조하세요.
@@ -99,7 +109,7 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 ## <a name="other-sizes"></a>기타 크기
 - [범용](sizes-general.md)
-- [Compute에 최적화](sizes-compute.md)
+- [컴퓨팅 최적화](sizes-compute.md)
 - [메모리에 최적화](sizes-memory.md)
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
@@ -108,4 +118,4 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 ## <a name="next-steps"></a>다음 단계
 
 - 설정, 최적화 및 크기를 조정 하는 방법에 자세히 알아보려면 [HPC 워크 로드](../workloads/hpc/configure.md) Azure에서.
-- [ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+- [ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

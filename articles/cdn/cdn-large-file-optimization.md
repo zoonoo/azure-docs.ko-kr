@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
-ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636754"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593778"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -104,7 +104,7 @@ CDN 엔드포인트를 만든 후에 특정 기준과 일치하는 모든 파일
 
 CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이 최적화는 바이트 범위 요청을 지원하기 위해 원본 서버 기능에 의존합니다. 즉, 원본 서버가 바이트 범위 요청을 지원하지 않으면 이 최적화가 수행되지 않습니다.
 
-### <a name="caching"></a>구성
+### <a name="caching"></a>캐싱
 대용량 파일 최적화는 일반 웹 배달과 다른 기본 caching-expiration(캐싱 만료) 시간을 사용합니다. HTTP 응답 코드에 따라 양수 캐싱과 음수 캐싱을 구분합니다. 원본 서버에서 응답의 cache-control 또는 expires 헤더를 통해 만료 시간을 지정하면 CDN에서 해당 값을 사용합니다. 원본 서버에서 지정하지 않고 파일이 이 최적화 형식에 대한 파일 형식 및 파일 크기 조건과 일치하면 CDN에서 대용량 파일 최적화에 대한 기본값을 사용합니다. 그러지 않으면 CDN에서 일반 웹 배달에 대한 기본값을 사용합니다.
 
 

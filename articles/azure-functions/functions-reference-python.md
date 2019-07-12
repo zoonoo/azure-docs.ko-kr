@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14594e95efe94fe38502dc6269627158c42a04be
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342002"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622365"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -165,7 +165,7 @@ def main(req: func.HttpRequest,
 함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 기준으로 Azure Blob 저장소에서 항목을 검색할를 _ID_ 경로 url로 사용할 수 있게 `obj` 함수 본문의 합니다.  여기서 저장소 계정 연결 문자열에 위치한 지정 `AzureWebJobsStorage` 는 함수 앱에서 사용 하는 동일한 저장소 계정입니다.
 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>출력
 
 출력은 반환 값 및 출력 매개 변수 둘 다로 표현될 수 있습니다. 출력이 하나만 있는 경우 반환 값을 사용하는 것이 좋습니다. 다중 출력의 경우 출력 매개 변수를 사용해야 합니다.
 
@@ -227,7 +227,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 방법                 | 설명                                |
+| 메서드                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_message_)**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | logging.**error(_message_)**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -257,11 +257,11 @@ def main():
     some_blocking_socket_io()
 ```
 
-## <a name="context"></a>Context
+## <a name="context"></a>컨텍스트
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 서명에 `context` 인수를 포함합니다. 
 
-예를 들면 다음과 같습니다.
+예:
 
 ```python
 import azure.functions
@@ -336,28 +336,66 @@ func azure functionapp publish <app name> --build-native-deps
 
 ## <a name="unit-testing"></a>단위 테스트
 
-표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같은 Python으로 작성 된 함수를 테스트할 수 있습니다. 대부분의 바인딩에 대 한 적절 한 클래스의 인스턴스를 만들어 입력된 모의 개체를 만들 수 있기를 `azure.functions` 패키지 있습니다.
+표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같은 Python으로 작성 된 함수를 테스트할 수 있습니다. 대부분의 바인딩에 대 한 적절 한 클래스의 인스턴스를 만들어 입력된 모의 개체를 만들 수 있기를 `azure.functions` 패키지 있습니다. 있으므로 [ `azure.functions` ](https://pypi.org/project/azure-functions/) 패키지를 즉시 사용할 수 없는, 통해를 설치 해야 하 `requirements.txt` 파일에 설명 된 대로 [Python 버전 및 패키지 관리](#python-version-and-package-management) 위의 섹션.
 
 예를 들어, 다음은 모의 테스트는 HTTP 트리거 함수입니다.
 
-```python
-# myapp/__init__.py
-import azure.functions as func
-import logging
-
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
-    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
+```json
+{
+  "scriptFile": "httpfunc.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
 ```
 
 ```python
-# myapp/test_func.py
+# myapp/httpfunc.py
+import azure.functions as func
+import logging
+
+def my_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+```python
+# myapp/test_httpfunc.py
 import unittest
 
 import azure.functions as func
-from . import my_function
+from httpfunc import my_function
 
 
 class TestFunction(unittest.TestCase):
@@ -366,7 +404,7 @@ class TestFunction(unittest.TestCase):
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function',
+            url='/api/HttpTrigger',
             params={'name': 'Test'})
 
         # Call the function.
@@ -375,7 +413,7 @@ class TestFunction(unittest.TestCase):
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            'Hello, Test!',
+            b'Hello Test',
         )
 ```
 
@@ -420,7 +458,7 @@ class TestFunction(unittest.TestCase):
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)

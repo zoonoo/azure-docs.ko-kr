@@ -2,17 +2,17 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 스토리지
 description: AKS(Azure Kubernetes Services)의 스토리지, 데이터 암호화 및 백업에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: iainfou
-ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447154"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614586"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -38,7 +38,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 애
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | 공유 구성       | Azure 파일   | 예 | 예 | 예 | 예 |
 | 구조화된 앱 데이터        | Azure 디스크   | 예 | 아니오  | 아니요  | 예 |
-| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse (미리 보기)][blobfuse] | 예 | 예 | 예 | 아닙니다. |
+| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse (미리 보기)][blobfuse] | 예 | 예 | 예 | 아니요 |
 
 AKS에서 볼륨용으로 제공되는 두 가지 기본 유형의 스토리지는 Azure 디스크 또는 Azure 파일에서 지원됩니다. 보안을 강화하기 위해 두 가지 유형의 스토리지는 미사용 데이터를 암호화하는 Azure SSE(스토리지 서비스 암호화)를 기본적으로 사용합니다. 현재 AKS 노드 수준에서 Azure Disk Encryption을 사용하여 디스크를 암호화할 수 없습니다.
 

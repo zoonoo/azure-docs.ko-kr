@@ -10,102 +10,103 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 07/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6567d7f2ebaab5bd7b5bc8fb7b5a62970f169161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ec202ba6126b150fb78c76591682f163018661
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476164"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604554"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
-[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 애플리케이션의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Azure DevOps Services 빌드 시스템](https://docs.microsoft.com/azure/devops/pipelines/tasks/)에서 자동으로 만들 수 있습니다. PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
+에 대 한 주석 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 차트 배포한 새 빌드가 또는 기타 중요 한 이벤트를 표시 합니다. 주석을 사용 하면 쉽게 변경 내용을 응용 프로그램의 성능에 영향을 주지가 있는지 여부를 볼 수 있습니다. 자동으로 생성 합니다 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/tasks/) 빌드 시스템입니다. PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../azure-monitor/app/usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 환경에 대해 자세히 알아보려면 [이 문서](../../azure-monitor/platform/metrics-charts.md)를 참조하세요.
+> 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../azure-monitor/app/usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 경험에 대 한 자세한 내용은 참조 하세요 [Azure 메트릭 탐색기의 고급 기능](../../azure-monitor/platform/metrics-charts.md)합니다.
 
 ![주석 예제](./media/annotations/0-example.png)
 
-## <a name="release-annotations-with-azure-devops-services-build"></a>Azure DevOps Services 빌드를 사용한 릴리스 주석
+## <a name="release-annotations-with-azure-pipelines-build"></a>Azure 파이프라인 빌드를 사용한 릴리스 주석
 
-릴리스 주석은 Azure DevOps Services의 클라우드 기반 Azure Pipelines 서비스 기능입니다.
+릴리스 주석은 Azure DevOps의 클라우드 기반 Azure 파이프라인 서비스의 기능입니다.
 
 ### <a name="install-the-annotations-extension-one-time"></a>주석 확장 설치(한 번)
-릴리스 주석을 만들려면 Visual Studio Marketplace에서 사용 가능한 여러 Azure DevOps Services 확장 중 하나를 설치해야 합니다.
+릴리스 주석을 만들려면 수, Visual Studio Marketplace에서 사용할 수 있는 여러 Azure DevOps 확장 기능 중 하나를 설치 해야 합니다.
 
-1. [Azure DevOps Services](https://azure.microsoft.com/services/devops/) 프로젝트에 로그인합니다.
-2. Visual Studio Marketplace의 [릴리스 주석 확장을 가져와서](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) Azure DevOps Services 조직에 추가합니다.
-
-![Azure DevOps 조직을 선택 하 고 설치 합니다.](./media/annotations/1-install.png)
-
-Azure DevOps Services 조직에 대해 이 작업을 한 번만 수행하면 됩니다. 이제 조직의 모든 프로젝트에 대해 릴리스 주석을 구성할 수 있습니다.
+1. 에 로그인 하 여 [Azure DevOps](https://azure.microsoft.com/services/devops/) 프로젝트입니다.
+   
+1. Visual Studio Marketplace에서 [릴리스 주석 확장](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) 페이지, Azure DevOps 조직을 선택 하 고, 선택한 **설치** Azure DevOps 조직에 확장을 추가 합니다.
+   
+   ![Azure DevOps 조직을 선택 하 고 설치를 선택 합니다.](./media/annotations/1-install.png)
+   
+Azure DevOps 조직에 한 번씩 확장을 설치 해야 합니다. 이제 조직에서 모든 프로젝트에 대 한 릴리스 주석을 구성할 수 있습니다.
 
 ### <a name="configure-release-annotations"></a>릴리스 주석 구성
 
-각 Azure DevOps Services 릴리스 템플릿에 대한 별도의 API 키를 가져와야 합니다.
+Azure 파이프라인 릴리스 템플릿의 마다 별도 API 키를 만듭니다.
 
-1. 에 로그인 합니다 [Microsoft Azure 포털](https://portal.azure.com) 응용 프로그램을 모니터링 하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](../../azure-monitor/app/app-insights-overview.md).)
-2. 엽니다는 **API 액세스** 탭 및 복사 합니다 **Application Insights ID**합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 응용 프로그램을 모니터링 하는 Application Insights 리소스를 엽니다. 계정이 없는 경우 또는 [새 Application Insights 리소스 만들기](../../azure-monitor/app/app-insights-overview.md)합니다.
    
-    ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 애플리케이션 ID를 복사합니다.](./media/annotations/2-app-id.png)
-
-4. 별도의 브라우저 창에서, Azure DevOps Services에서 배포를 관리하는 릴리스 템플릿을 열거나 만듭니다.
+1. 엽니다는 **API 액세스** 탭 및 복사 합니다 **Application Insights ID**합니다.
    
-    작업을 추가하고 메뉴에서 Application Insights 릴리스 주석 작업을 선택합니다.
+   ![API 액세스에서 id입니다. 응용 프로그램을 복사](./media/annotations/2-app-id.png)
 
-   ![추가 작업에 더하기 기호를 클릭 하 고 Application Insights 릴리스 주석을 선택 합니다. Application Insights ID를 붙여 넣습니다.](./media/annotations/3-add-task.png)
-
-    붙여넣기 합니다 **응용 프로그램 ID** API 액세스 탭에서 복사 합니다.
+1. 별도 브라우저 창에서 열거나 Azure 파이프라인 배포를 관리 하는 릴리스 템플릿을 만듭니다.
    
-    ![Application Insights ID를 붙여 넣습니다.](./media/annotations/4-paste-app-id.png)
-
-5. Azure 창으로 돌아가 새 API 키를 만들어 복사합니다.
+1. 선택 **추가 작업**를 선택한 후는 **Application Insights 릴리스 주석을** 메뉴에서 작업 합니다.
    
-    ![Azure 창의 API 액세스 탭에서 API 키 만들기를 클릭 합니다.](./media/annotations/5-create-api-key.png)
-
-    ![API 만들기 키 탭에서 메모를 제공할 주석 쓰기를 확인 하 고 키 생성을 클릭 합니다. 새 키를 복사합니다.](./media/annotations/6-create-api-key.png)
-
-6. 릴리스 템플릿의 구성 탭을 엽니다.
+   ![작업 추가 선택 하 고 Application Insights 릴리스 주석을 선택 합니다.](./media/annotations/3-add-task.png)
    
-    `ApiKey`에 대한 변수 정의를 만듭니다.
+1. 아래 **응용 프로그램 ID**에서 복사한 Application Insights ID를 붙여 넣습니다 합니다 **API 액세스** 탭 합니다.
    
-    ApiKey 변수 정의에 API 키를 붙여넣습니다.
+   ![Application Insights ID를 붙여 넣습니다.](./media/annotations/4-paste-app-id.png)
    
-    ![Azure DevOps 서비스 창에서 변수 탭을 선택 하 고 추가 클릭 합니다. ApiKey에 대 한 값으로 이름을 설정 하면 생성 된 키를 붙여 넣고 잠금 아이콘을 클릭.](./media/annotations/7-paste-api-key.png)
-1. 마지막으로 릴리스 파이프라인을 **저장**합니다.
+1. Application Insights 년대에서 **API 액세스** 창에서 **API 키 만들기**합니다. 
+   
+   ![API 액세스 탭에서 API 키 만들기를 선택 합니다.](./media/annotations/5-create-api-key.png)
+   
+1. 에 **API 키 만들기** 창에서 설명 입력 선택 **주석을 작성**를 선택한 후 **키 생성**. 새 키를 복사합니다.
+   
+   ![API 만들기 키 창에서 설명을 입력 주석 쓰기 선택한 다음 키 생성을 선택 합니다.](./media/annotations/6-create-api-key.png)
+   
+1. 릴리스 템플릿 창에서에 **변수** 탭을 선택 **추가** 새 API 키에 대 한 변수 정의 만듭니다.
 
+1. 아래 **이름**, 입력 `ApiKey`, 아래에서 **값**에서 복사한 API 키를 붙여넣습니다 합니다 **API 액세스** 탭 합니다.
+   
+   ![Azure DevOps 변수 탭에서 추가, ApiKey 변수 이름을 선택 하 고 값에서 API 키를 붙여넣습니다.](./media/annotations/7-paste-api-key.png)
+   
+1. 선택 **저장할** 템플릿을 저장 하 여 주 릴리스 템플릿 창에서.
 
 ## <a name="view-annotations"></a>주석 보기
-이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전송됩니다. 주석은 메트릭 탐색기의 차트에 표시됩니다.
+이제 릴리스 템플릿을 사용 하 여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전달 됩니다. 차트에 표시 된 주석을 **메트릭 탐색기**합니다.
 
-파이프라인, 환경 및 릴리스를 요청자, 소스 제어 분기를 릴리스 하는 방법에 대 한 주석 마커 (밝은 회색 화살표) 세부 정보를 열려면 클릭 합니다.
+주석 마커 (밝은 회색 화살표)을 요청자, 소스 제어 분기, 릴리스 파이프라인 및 환경 등 릴리스에 대 한 세부 정보를 열려면 선택 합니다.
 
-![릴리스 주석 마커를 클릭합니다.](./media/annotations/8-release.png)
+![릴리스 주석 마커를 선택 합니다.](./media/annotations/8-release.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>PowerShell에서 사용자 지정 주석 만들기
-Azure DevOps Services를 사용하지 않고 원하는 모든 프로세스에서 주석을 만들 수도 있습니다. 
+사용할 수는 [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) Azure DevOps를 사용 하지 않고 원하는 모든 프로세스에서 주석을 작성 하는 GitHub에서 PowerShell 스크립트입니다. 
 
+1. 로컬 복사본 [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)합니다.
+   
+1. 이전 절차에서 단계를 사용 하 여 Application Insights에서 API 키를 만들고 Application Insights ID를 가져옵니다 **API 액세스** 탭 합니다.
+   
+1. 다음 코드에서는 값을 사용 하 여 꺾쇠 괄호가 자리 표시자를 대체를 사용 하 여 PowerShell 스크립트를 호출 합니다. `-releaseProperties` 는 선택 사항입니다. 
+   
+   ```powershell
+   
+        .\CreateReleaseAnnotation.ps1 `
+         -applicationId "<applicationId>" `
+         -apiKey "<apiKey>" `
+         -releaseName "<releaseName>" `
+         -releaseProperties @{
+             "ReleaseDescription"="<a description>";
+             "TriggerBy"="<Your name>" }
+   ```
 
-1. [GitHub에서 Powershell 스크립트](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)의 로컬 복사본을 만듭니다.
-
-2. 응용 프로그램 ID를 가져오고 API 액세스 탭에서 API 키를 만듭니다.
-
-3. 다음과 같은 스크립트를 호출합니다.
-
-```PS
-
-     .\CreateReleaseAnnotation.ps1 `
-      -applicationId "<applicationId>" `
-      -apiKey "<apiKey>" `
-      -releaseName "<myReleaseName>" `
-      -releaseProperties @{
-          "ReleaseDescription"="a description";
-          "TriggerBy"="My Name" }
-```
-
-과거에 대한 주석을 만드는 등 이 스크립트를 쉽게 수정할 수 있습니다.
+예를 들어 이전에 대 한 주석을 만드는 스크립트를 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

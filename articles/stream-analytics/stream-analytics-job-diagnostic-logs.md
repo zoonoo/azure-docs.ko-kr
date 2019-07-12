@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329990"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620967"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -64,7 +64,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
     ![진단 로그에 대한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정**에서 **이름**을 만들고 **Log Analytics에 보내기** 옆에 있는 상자를 선택합니다. 그런 다음, 기존 **Log Analytics 작업 영역**을 추가하거나 새 작업 영역을 만듭니다. **로그** 아래에서 **실행** 및 **작성** 상자를 선택하고 **메트릭** 아래에서 **AllMetrics** 상자를 선택합니다. **저장**을 클릭합니다. 추가 비용을 방지 하기 위해 Stream Analytics 작업과 동일한 Azure 지역에서 Log Analytics 작업 영역을 사용 하는 것이 좋습니다.
+2.  **진단 설정**에서 **이름**을 만들고 **Log Analytics에 보내기** 옆에 있는 상자를 선택합니다. 그런 다음, 기존 **Log Analytics 작업 영역**을 추가하거나 새 작업 영역을 만듭니다. **로그** 아래에서 **실행** 및 **작성** 상자를 선택하고 **메트릭** 아래에서 **AllMetrics** 상자를 선택합니다. **Save**을 클릭합니다. 추가 비용을 방지 하기 위해 Stream Analytics 작업과 동일한 Azure 지역에서 Log Analytics 작업 영역을 사용 하는 것이 좋습니다.
 
     ![진단 로그 설정](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -99,14 +99,14 @@ Azure Stream Analytics는 두 가지 범주의 진단 로그를 캡처합니다.
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-Name | 설명
+이름 | Description
 ------- | -------
-time | 로그의 타임스탬프(UTC)입니다.
-ResourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+Time | 로그의 타임스탬프(UTC)입니다.
+resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | 로그 범주로, **실행** 또는 **작성** 중 하나입니다.
 operationName | 기록된 작업의 이름 예: **이벤트 전송: mysqloutput에 대한 SQL 출력 쓰기 실패**.
-status | 작업의 상태입니다. 예: **실패** 또는 **성공**.
-level | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
+상태 | 작업의 상태입니다. 예: **실패** 또는 **성공**.
+수준(level) | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
 properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩니다. 자세한 내용은 이 문서의 다음 섹션을 참조하세요.
 
 ### <a name="execution-log-properties-schema"></a>실행 로그 속성 스키마
@@ -119,10 +119,10 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 이름 | 설명
 ------- | -------
-source | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
-Message | 오류와 연결된 메시지
-Type | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
-Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
+Source | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
+메시지 | 오류와 연결된 메시지
+형식 | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+보기 | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
 
@@ -138,11 +138,11 @@ Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포�
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-Name | 설명
+이름 | 설명
 -------- | --------
-오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
-Message| 로그 메시지
-Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+Error | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
+메시지| 로그 메시지
+형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -150,5 +150,5 @@ Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: 
 * [Stream Analytics 소개](stream-analytics-introduction.md)
 * [Stream Analytics 시작](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics 작업 크기 조정](stream-analytics-scale-jobs.md)
-* [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 데이터 오류](https://docs.microsoft.com/azure/stream-analytics/data-errors)

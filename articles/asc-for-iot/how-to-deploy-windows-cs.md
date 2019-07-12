@@ -2,24 +2,25 @@
 title: Azure Security Center의 미리 보기 IoT 에이전트용 Windows 설치 | Microsoft Docs
 description: 32 비트 또는 64 비트 Windows 장치에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 64fc576885bb9d9c3c46aafd808db65d2f8ff77f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22faa6ea02a1a3d093aee1dec84ca1680da54d2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200600"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616757"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>IoT 용 Azure Security Center는 배포 C#-Windows에 대 한 보안 에이전트 기반
 
@@ -36,7 +37,7 @@ ms.locfileid: "65200600"
 > * 에이전트 제거
 > * 문제 해결 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 다른 플랫폼과 에이전트 종류는 [적합한 보안 에이전트 선택](how-to-deploy-agent.md)을 참조하세요.
 
@@ -61,7 +62,7 @@ ms.locfileid: "65200600"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    예를 들면 다음과 같습니다.
+    예를 들어:
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -125,7 +126,7 @@ ms.locfileid: "65200600"
      Restart-Service "ASC IoT Agent"
      ```
      
-   또는
+   로 구분하거나 여러
 
     **CMD**
      ```

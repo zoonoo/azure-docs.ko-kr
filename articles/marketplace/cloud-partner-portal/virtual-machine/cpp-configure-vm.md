@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938424"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654027"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
@@ -66,7 +66,7 @@ Windows OS 디스크는 [sysprep 도구](https://docs.microsoft.com/windows-hard
 > [!WARNING]
 >  업데이트가 자동으로 실행될 수 있으므로 sysprep을 실행한 후에는 배포될 때까지 VM을 해제해야 합니다.  이렇게 종료하면 이후 업데이트에서 VHD OS 또는 설치된 서비스에 대한 인스턴스 관련 변경이 수행되지 않습니다.
 
-Sysprep을 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [VHD를 일반화 하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Sysprep을 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [VHD를 일반화 하는 단계](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 

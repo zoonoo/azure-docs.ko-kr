@@ -4,7 +4,7 @@ description: 지원 되는 구성 및 Microsoft Azure에서 Oracle 가상 머신
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70e87a38373688c1b364a079cd07934309662e3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074223"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707426"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 이미지 및 Microsoft Azure에 배포
 
@@ -101,7 +101,7 @@ HA 및 DR 솔루션이 Azure에서 설계를 가져야 하는 것 외에도 데�
 
 * **클러스터링은 Enterprise Edition에서만 지원됩니다.** WebLogic Server Enterprise Edition을 사용할 때만 WebLogic 클러스터링을 사용하도록 허가됩니다. WebLogic Server Standard Edition으로 클러스터링을 사용하지 마십시오.
 * **UDP 멀티 캐스트는 지원되지 않습니다.** Azure는 UDP 유니캐스트를 지원하지만 멀티 캐스팅 및 브로드캐스팅은 지원하지 않습니다. WebLogic 서버는 Azure UDP 유니캐스 기능에 의존할 수 있습니다. UDP 유니캐스트에 의존 하는 최상의 결과 WebLogic 클러스터 크기를 정적 또는 유지 관리 되는 서버 수가 10 개를 사용 하 여 유지 되도록 하는 것이 좋습니다.
-* **WebLogic Server는 T3 액세스(예: Enterprise JavaBeans를 사용할 때)에 대해 공용 및 개인 포트가 동일한 것으로 예상합니다.** 서비스 계층 (EJB) 응용 프로그램 이라는 가상 네트워크에 둘 이상의 Vm으로 구성 된 WebLogic Server 클러스터에서 실행 되 고 있는 다중 계층 시나리오를 고려해 보겠습니다 *SLWLS*합니다. 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도 하는 간단한 Java 프로그램을 실행 동일한 가상 네트워크에서 다른 서브넷에 있습니다. 부하 분산 서비스 계층에 필요한 이기 때문에 WebLogic Server 클러스터의 가상 컴퓨터에 대해 생성 될 공용 부하 분산 된 끝점이 필요 합니다. 지정한 프라이빗 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
+* **WebLogic Server는 T3 액세스(예: Enterprise JavaBeans를 사용할 때)에 대해 공용 및 프라이빗 포트가 동일한 것으로 예상합니다.** 서비스 계층 (EJB) 응용 프로그램 이라는 가상 네트워크에 둘 이상의 Vm으로 구성 된 WebLogic Server 클러스터에서 실행 되 고 있는 다중 계층 시나리오를 고려해 보겠습니다 *SLWLS*합니다. 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도 하는 간단한 Java 프로그램을 실행 동일한 가상 네트워크에서 다른 서브넷에 있습니다. 부하 분산 서비스 계층에 필요한 이기 때문에 WebLogic Server 클러스터의 가상 컴퓨터에 대해 생성 될 공용 부하 분산 된 끝점이 필요 합니다. 지정한 프라이빗 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
 
        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 

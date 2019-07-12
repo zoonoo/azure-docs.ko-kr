@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MariaDB의 모니터링
 description: 이 문서에서는 CPU, 스토리지, 연결 통계를 포함하여 Azure Database for MariaDB에 대해 모니터링 및 경고를 제공하기 위한 메트릭을 설명합니다.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065739"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612521"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MariaDB는 서버의 동작에 대한 인사이트를 제공하는 다양한 메트릭을 제공합니다.
@@ -26,17 +26,17 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 
 |메트릭|메트릭 표시 이름|단위|설명|
 |---|---|---|---|
-|cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
-|memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
-|io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율|
-|storage_percent|저장소 비율|백분율|서버의 최대값을 초과하여 사용된 저장소의 비율|
+|cpu_percent|CPU 백분율|Percent|사용 중인 CPU의 비율|
+|memory_percent|메모리 백분율|Percent|사용 중인 메모리의 비율|
+|io_consumption_percent|IO 백분율|Percent|사용 중인 IO의 비율|
+|storage_percent|저장소 비율|Percent|서버의 최대값을 초과하여 사용된 저장소의 비율|
 |storage_used|저장소 사용됨|바이트|사용 중인 저장소의 양 서비스에서 사용되는 저장소에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
-|serverlog_storage_percent|서버 로그 저장소 비율|백분율|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
+|serverlog_storage_percent|서버 로그 저장소 비율|Percent|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
 |serverlog_storage_percent|사용된 서버 로그 저장소|바이트|서버 로그 저장소에서 사용된 크기입니다.|
 |serverlog_storage_limit|서버 로그 저장소 제한|바이트|이 서버에 대한 서버 로그 저장소의 최대 크기입니다.|
 |storage_limit|저장소 제한|바이트|이 서버의 최대 저장소|
-|active_connections|활성 연결 수|카운트|서버에 대한 활성 연결 수|
-|connections_failed|실패한 연결|카운트|서버에 대해 실패한 연결 수|
+|active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
+|connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 

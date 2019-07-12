@@ -3,21 +3,20 @@ title: 템플릿을 사용하여 Azure Firewall 배포
 description: 템플릿을 사용하여 Azure Firewall 배포
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115696"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657086"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
 
-[AzureFirewall 샌드박스 설정 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)은 방화벽을 사용하여 테스트 네트워크 환경을 만듭니다. 네트워크에는 다음 세 개의 서브넷이 있는 하나의 VNet(가상 네트워크)이 포함됩니다. *AzureFirewallSubnet*, *ServersSubnet* 및 *JumpboxSubnet*. *ServersSubnet* 및 *JumpboxSubnet* 서브넷에는 각각 하나의 2개 코어 Windows Server 가상 머신이 있습니다.
+[AzureFirewall 샌드박스 설정 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)은 방화벽을 사용하여 테스트 네트워크 환경을 만듭니다. 네트워크에는 다음 세 개의 서브넷이 있는 하나의 VNet(가상 네트워크)이 포함됩니다. *AzureFirewallSubnet*, *ServersSubnet* 및 *JumpboxSubnet*. *ServersSubnet* 및 *JumpboxSubnet* 서브넷에는 각각 하나의 2개 코어 Windows Server 가상 머신이 있습니다.
 
 방화벽은 *AzureFirewallSubnet* 서브넷에 있으며, *www.microsoft.com*에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션이 포함됩니다.
 
@@ -34,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **템플릿을 사용하여 Azure Firewall을 설치 및 배포하려면**
 
-1. [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)에서 템플릿에 액세스합니다.
+1. [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)에서 템플릿에 액세스합니다.
    
 1. 소개 부분을 읽어보고 배포할 준비가 되면 **Azure에 배포**를 선택합니다.
    

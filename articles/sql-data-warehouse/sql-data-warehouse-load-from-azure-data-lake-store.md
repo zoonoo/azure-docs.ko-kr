@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c69382ee0bec5586fc247cd0e568f5f48f0eda08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244497"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588596"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse로 데이터 로드
 Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다. Data Lake Storage에 저장 된 데이터에서 임시 쿼리를 실행할 수 있습니다, 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
@@ -23,11 +23,11 @@ Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 Po
 > [!div class="checklist"]
 > * 데이터 레이크 저장소에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
 > * 데이터 레이크 저장소 디렉터리에 연결 합니다.
-> * Azure SQL Data Warehouse에 데이터를 로드합니다.
+> * Azure SQL Data Warehouse에 데이터 로드
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 이 자습서를 실행하려면 다음이 필요합니다.

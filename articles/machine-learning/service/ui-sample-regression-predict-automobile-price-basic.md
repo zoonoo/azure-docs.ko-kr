@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787854"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606127"
 ---
 # <a name="sample-1---regression-predict-price"></a>1-회귀 샘플: 가격 예측
 
@@ -34,7 +34,7 @@ Machine learning 회귀 모델의 시각적 인터페이스를 사용 하 여 �
 
 ![실험 그래프](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -88,3 +88,4 @@ Machine learning 회귀 모델의 시각적 인터페이스를 사용 하 여 �
 - [3-분류 샘플: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
 - [4-분류 샘플: (중요 한 비용) 신용 위험 예측](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [5-분류 샘플: 이탈 예측](ui-sample-classification-predict-churn.md)
+- [6-분류 샘플: 비행 지연을 예측합니다](ui-sample-classification-predict-flight-delay.md)

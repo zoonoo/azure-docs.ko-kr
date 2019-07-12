@@ -2,18 +2,18 @@
 title: Power BI 작업 영역 컬렉션 FAQ
 description: Power BI 작업 영역 컬렉션에 관련된 질문과 대답입니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701578"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672413"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 작업 영역 컬렉션 FAQ
 
@@ -98,7 +98,7 @@ Power BI 작업 영역 컬렉션 모델에는 Azure AD 테넌트의 고객이 �
 
 지금 무료로 시작할 수 있습니다. Azure 구독이 있는 경우 이제 Azure Portal에서 직접 Power BI 작업 영역 컬렉션을 프로비전할 수 있습니다. [무료 Azure 계정](https://azure.microsoft.com/free/)을 만들 수도 있습니다. Power BI 작업 영역 컬렉션 서비스를 프로비전하면 직접 Power BI REST API를 쉽게 사용하거나 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472)에서 사용할 수 있는 개발자 SDK를 사용할 수 있습니다. 개발자 SDK를 활용하는 방법에 대한 샘플을 제공합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [Microsoft Power BI 작업 영역 컬렉션이란?](what-are-power-bi-workspace-collections.md)
 [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)

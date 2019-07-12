@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435752"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696087"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "67435752"
 
 ## <a name="storage-account-support"></a>저장소 계정 지원
 
-수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+범용 v2를 사용 하 여 수명 주기 관리 정책 수 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정. Azure portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격
 
@@ -39,7 +39,7 @@ ms.locfileid: "67435752"
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-모든 글로벌 Azure 지역에서 수명 주기 관리 기능을 사용할 수 있는 경우
+모든 글로벌 Azure 및 Azure Government 지역에서 수명 주기 관리 기능을 사용할 수 있는 경우
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거
 
@@ -55,7 +55,7 @@ ms.locfileid: "67435752"
 > [!NOTE]
 > 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 필요한 바이패스 됩니다: `Logging,  Metrics,  AzureServices`합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -191,15 +191,15 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책 규칙의 컬렉션인:
 
-| 매개 변수 이름 | 매개 변수 형식 | 메모 |
+| 매개 변수 이름 | 매개 변수 유형 | 참고 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책 규칙을 하나 이상 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내에 있는 각 규칙에는 여러 매개 변수:
 
-| 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
+| 매개 변수 이름 | 매개 변수 유형 | 참고 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | String |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
+| `name`         | 문자열 |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
 | `enabled`      | Boolean | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | 거짓 | 
 | `type`         | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True |
 | `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
@@ -251,10 +251,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 필터는 다음과 같습니다.
 
-| 필터 이름 | 필터 형식 | 메모 | 필수 |
+| 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예. |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob를 일치 시킬 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙은 prefixMatch는 `container1/foo`합니다. | PrefixMatch를 정의 하지 않으면 규칙 저장소 계정 내 모든 blob에 적용 됩니다.  | 아닙니다. |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예 |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 아래 모든 blob를 일치 시킬 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙은 prefixMatch는 `container1/foo`합니다. | PrefixMatch를 정의 하지 않으면 규칙 저장소 계정 내 모든 blob에 적용 됩니다.  | 아니요 |
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -262,11 +262,11 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 수명 주기 관리 계층화 및 삭제의 blob 및 blob 스냅숏 삭제를 지원합니다. Blob 또는 Blob 스냅샷에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
 
-| 액션(Action)        | 기본 Blob                                   | 스냅샷      |
+| 작업        | 기본 Blob                                   | 스냅숏      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
-| delete        | 지원됨                                   | 지원됨     |
+| 삭제        | 지원됨                                   | 지원됨     |
 
 >[!NOTE]
 >동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.

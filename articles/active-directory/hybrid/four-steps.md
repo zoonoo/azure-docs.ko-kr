@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b5e8ab63c1784ff073c7ba38cd4a6319db43c5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452736"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655937"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 강력한 id 기반의 네 단계
 
@@ -147,7 +147,7 @@ MFA [로그인 보고서](https://docs.microsoft.com/azure/active-directory/auth
 
 ### <a name="self-service-app-management"></a>셀프 서비스 앱 관리
 
-사용 하도록 설정 해야 사용자가 액세스 패널에서 응용 프로그램을 셀프 검색할 수, 전에 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) 사용자가 셀프 검색 하 고 요청 하도록 허용 하려는 모든 응용 프로그램에 액세스 합니다. 셀프 서비스 응용 프로그램 액세스에는 자체 응용 프로그램을 검색 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인 하도록 허용 하는 사용자를 허용 하는 좋은 방법입니다. 비즈니스 그룹이 해당 사용자에 게 할당 하는 자격 증명을 관리 하도록 할 수 있습니다 [응용 프로그램에서 Single Sign 암호](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-the-application-for-password-single-sign-on) 자신의 액세스 패널에서 바로.
+사용 하도록 설정 해야 사용자가 액세스 패널에서 응용 프로그램을 셀프 검색할 수, 전에 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) 사용자가 셀프 검색 하 고 요청 하도록 허용 하려는 모든 응용 프로그램에 액세스 합니다. 셀프 서비스 응용 프로그램 액세스에는 자체 응용 프로그램을 검색 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인 하도록 허용 하는 사용자를 허용 하는 좋은 방법입니다. 비즈니스 그룹이 해당 사용자에 게 할당 하는 자격 증명을 관리 하도록 할 수 있습니다 [응용 프로그램에서 Single Sign 암호](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) 자신의 액세스 패널에서 바로.
 
 ### <a name="self-service-group-management"></a>셀프 서비스 그룹 관리
 

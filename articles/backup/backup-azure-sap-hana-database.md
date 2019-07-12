@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481135"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656655"
 ---
 # <a name="back-up-an-sap-hana-database"></a>SAP HANA 데이터베이스 백업
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481135"
 
 **지원** | **세부 정보**
 --- | ---
-**지원되는 지역** | 오스트레일리아 동남부, 오스트레일리아 동부 <br> 브라질 남부 <br> 캐나다 중부, 캐나다 동부 <br> 동남 아시아에서 동아시아 <br> 미국 동부, 미국 동부 2, 미국 중서부, 미국 서 부, 미국 서 부 2, 미국 중 북부, 미국 중부, 미국 중남부<br> 인도 중부, 인도 남부 <br> 일본 동부, 일본 서부<br> 한국 중부, 한국 남부 <br> 북유럽, 서유럽 <br> 영국 남부, 영국 서 부
+**지원되는 지역** | 오스트레일리아 동남부, 오스트레일리아 동부 <br> 브라질 남부 <br> 캐나다 중부, 캐나다 동부 <br> 동남 아시아에서 동아시아 <br> 미국 동부, 미국 동부 2, 미국 중서부, 미국 서 부, 미국 서 부 2, 미국 중 북부, 미국 중부, 미국 중남부<br> 인도 중부, 인도 남부 <br> 일본 동부, 일본 서부<br> 한국 중부, 한국 남부 <br> 북유럽, 서유럽 <br> 영국 남부, 영국 서 부
 **지원 되는 VM 운영 체제** | SLES 12 SP2 또는 SP3를 사용 하 여 합니다.
 **지원 되는 HANA 버전** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
@@ -41,11 +41,11 @@ ms.locfileid: "67481135"
   - 새 정책을 만들려면 클릭에 자격 증명 모음에서 **정책을** > **Backup 정책** >  **+ 추가** > **에서 SAP HANA Azure VM**, 정책 설정을 지정 합니다.
   - 데이터베이스를 실행 하는 VM의 속성에 다른 정책을 할당 하려면 현재 정책 이름을 클릭 합니다. 그런 다음 합니다 **백업 정책** 페이지는 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 백업을 구성 하기 전에 다음을 수행 해야 합니다.
 
-1. VM에서 공식 Microsoft 설치는 SAP HANA 데이터베이스를 실행 중인 [.NET Core 런타임 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) 패키지 있습니다. 다음 사항에 유의하세요.
+1. VM에서 공식 Microsoft 설치는 SAP HANA 데이터베이스를 실행 중인 [.NET Core 런타임 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) 패키지 있습니다. 다음 사항에 유의합니다.
     - 해야 합니다 **dotnet 런타임 2.1** 패키지 합니다. 필요가 **aspnetcore 런타임 2.1**합니다.
     - 없으면 VM 인터넷 액세스, 미러 또는 dotnet 런타임 2.1 (및 모든 종속 Rpm) 피드 Microsoft 패키지에서 지정 된 오프 라인-캐시 제공 페이지에 있습니다.
     - 패키지 설치 하는 동안 옵션을 지정 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 지정할 **솔루션 2**합니다.
@@ -164,7 +164,7 @@ ms.locfileid: "67481135"
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **Backup 항목**, SAP HANA 데이터베이스를 실행 하는 VM을 선택 하 고 클릭 **지금 Backup**합니다.
-3. **지금 Backup**, 달력 컨트롤을 사용 하 여 복구 지점을 유지 되어야 하는 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
+3. **지금 Backup**, 달력 컨트롤을 사용 하 여 복구 지점을 유지 되어야 하는 마지막 날을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드에서 작업 진행 상태를 모니터링할 수 있습니다 > **백업 작업** > 진행에서 합니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 시간이 걸릴 수 있습니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure backup 사용 하도록 설정 된 데이터베이스에서 SAP HANA Studio 백업 실행

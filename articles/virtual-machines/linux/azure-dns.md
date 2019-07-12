@@ -4,7 +4,7 @@ description: Azure IaaS의 Linux 가상 머신에 대한 이름 확인 시나리
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9ff8ca8ce35c8698fc67fa8588eed4228230068
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127092"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668488"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
@@ -37,7 +37,7 @@ Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대
 | 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
 | Azure의 역할 인스턴스 또는 가상 머신에서 온-프레미스 컴퓨터와 서비스 이름 확인 |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인 |해당하는 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달합니다. 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server) |해당 없음 |
+| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server) |n/a |
 
 ## <a name="name-resolution-that-azure-provides"></a>Azure에서 제공하는 이름 확인
 Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크에 있는 가상 머신 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. Azure Resource Manager 기반의 가상 네트워크에서 DNS 접미사는 가상 네트워크에서 일관적이며 FQDN이 필요하지 않습니다. DNS 이름은 NIC(네트워크 인터페이스 카드)와 가상 머신에 모두 할당할 수 있습니다. Azure에서 제공하는 이름 확인은 별도로 구성할 필요가 없지만, 앞의 표에 나온 바와 같이 모든 배포 서비스에 적합한 것은 아닙니다.

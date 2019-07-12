@@ -4,7 +4,7 @@ description: Azure(대규모 인스턴스)에서 SAP HANA의 작업 모델입니
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da033232209c304e82f3fbe7dac164bd7222f557
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477892"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707366"
 ---
 # <a name="operations-model-and-responsibilities"></a>작업 모델 및 책임
 
@@ -58,7 +58,7 @@ HANA 대규모 인스턴스의 기본 인프라는 OS 볼륨의 백업 및 복�
 
 **미들웨어**: 주로 SAP HANA 인스턴스입니다. 관리, 작업 및 모니터링은 사용자의 책임입니다. 제공된 기능을 사용하여 백업/복원 및 재해 복구 용도로 저장소 스냅샷을 사용할 수 있습니다. 이러한 기능은 인프라에 의해 제공됩니다. 이러한 기능을 사용하여 고가용성 또는 재해 복구를 설계하고, 이를 활용하며, 모니터링하여 저장소 스냅샷이 성공적으로 실행되었는지 여부를 확인해야 합니다.
 
-**Data**: SAP HANA에서 관리하는 데이터와 볼륨 또는 파일 공유에 있는 백업 파일과 같은 기타 데이터입니다. 사용 가능한 디스크 공간 모니터링 및 볼륨의 콘텐츠 관리는 사용자의 책임입니다. 또한 디스크 볼륨 및 저장소 스냅샷의 성공적인 백업 실행도 모니터링해야 합니다. 재해 복구 사이트에 대한 데이터 복제를 성공적으로 실행하는 것은 Microsoft의 책임입니다.
+**데이터**: SAP HANA에서 관리하는 데이터와 볼륨 또는 파일 공유에 있는 백업 파일과 같은 기타 데이터입니다. 사용 가능한 디스크 공간 모니터링 및 볼륨의 콘텐츠 관리는 사용자의 책임입니다. 또한 디스크 볼륨 및 저장소 스냅샷의 성공적인 백업 실행도 모니터링해야 합니다. 재해 복구 사이트에 대한 데이터 복제를 성공적으로 실행하는 것은 Microsoft의 책임입니다.
 
 **애플리케이션:** SAP 애플리케이션 인스턴스이거나, 비 SAP 애플리케이션의 경우 해당 애플리케이션의 애플리케이션 레이어입니다. 해당 애플리케이션의 배포, 관리, 운영 및 모니터링은 사용자의 책임입니다. 가상 네트워크 내에서 CPU 리소스 사용, 메모리 사용, Azure Storage 사용 및 네트워크 대역폭 사용에 대한 용량 계획을 담당합니다. 또한 가상 네트워크에서 SAP HANA on Azure(대규모 인스턴스)에 이르는 리소스 사용에 대한 용량 계획도 담당합니다.
 

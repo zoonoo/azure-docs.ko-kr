@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441625"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827787"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
@@ -40,6 +40,7 @@ ms.locfileid: "67441625"
 이 문서에서는 템플릿에서 수행할 수 있는 몇 가지 구성을 보여 주는 템플릿 샘플을 제공합니다.
 
 ## <a name="api-versions"></a>API 버전
+
 다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
 | 리소스 | 리소스 종류 | API 버전 |
@@ -47,19 +48,11 @@ ms.locfileid: "67441625"
 | 작업 영역   | workspaces    | 2017-03-15-preview |
 | 검색      | savedSearches | 2015-03-20 |
 | 데이터 원본 | datasources   | 2015-11-01-preview |
-| 해결 방법    | solutions     | 2015-11-01-preview |
+| 솔루션    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
-다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다.  
 
-다음 매개 변수는 기본값을 설정합니다.
-
-* 위치 - 기본값은 미국 동부
-* SKU - 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값
-
-> [!NOTE]
->새 2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성할 때 유효한 유일한 Log Analytics 가격 책정 계층은 **PerGB2018**입니다.  
->일부 구독이 [2018년 4월 이전 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model)인 경우 **독립 실행형** 가격 책정 계층을 지정할 수 있으며, 이 방법은 2018년 4월 이전 가격 책정 모델의 구독과 새 가격 책정의 구독 둘 다에서 성공합니다. 새 가격 책정 모델을 도입한 구독의 작업 영역에서는 가격 책정 계층이 **PerGB2018**로 설정됩니다. 
+다음 예제에서는 로컬 컴퓨터에서 템플릿을 사용하여 작업 영역을 만듭니다. JSON 템플릿 이름 및 새 작업 영역에 (다른 작업 영역 등의 매개 변수 가격 책정 계층 및 보존에 대 한 기본 값 사용)의 위치에만 필요 하도록 구성 됩니다.  
 
 ### <a name="create-and-deploy-template"></a>템플릿 만들기 및 배포
 
@@ -79,26 +72,35 @@ ms.locfileid: "67441625"
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ ms.locfileid: "67441625"
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ ms.locfileid: "67441625"
        ]
     }
     ```
-2. 요구 사항을 충족하도록 템플릿을 편집합니다.  지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
+
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
-4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용하여 작업 영역을 만듭니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. 명령의 일부로 작업 영역 이름 및 위치를 지정 하는 작업 영역을 만들려면 PowerShell 또는 명령줄을 사용 합니다.
 
    * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * 명령줄의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.<br><br> ![배포가 완료되었을 때 결과 예](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 구성
+
 다음 템플릿 샘플에서는 다음 작업의 방법을 보여 줍니다.
 
 1. 작업 영역에 솔루션 추가
@@ -161,19 +162,21 @@ ms.locfileid: "67441625"
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ ms.locfileid: "67441625"
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ ms.locfileid: "67441625"
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ ms.locfileid: "67441625"
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ ms.locfileid: "67441625"
 
 ```
 ### <a name="deploying-the-sample-template"></a>샘플 템플릿 배포
+
 샘플 템플릿을 배포하려면
 
 1. 연결된 샘플을 파일(예: `azuredeploy.json`)에 저장합니다. 
@@ -510,17 +544,20 @@ ms.locfileid: "67441625"
 3. PowerShell 또는 명령줄을 사용하여 템플릿을 배포합니다.
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>명령 줄
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Resource Manager 템플릿 예
+
 Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 위한 여러 템플릿이 포함되어 있습니다.
 
 * [Log Analytics VM 확장을 사용하여 Windows를 실행하는 가상 컴퓨터 배포](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 
 * [기존 저장소 계정을 Log Analytics에 추가](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Resource Manager 템플릿을 사용하여 Azure VM에 Windows 에이전트 배포](../../virtual-machines/extensions/oms-windows.md).
+
 * [Resource Manager 템플릿을 사용하여 Azure VM에 Linux 에이전트 배포](../../virtual-machines/extensions/oms-linux.md).

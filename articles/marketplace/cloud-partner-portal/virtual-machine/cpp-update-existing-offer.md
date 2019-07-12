@@ -6,13 +6,13 @@ author: v-miclar
 ms.service: marketplace
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: Ankit.Sud
-ms.openlocfilehash: 4a75d706d55512201786b2b74376047ff75380a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: ansud
+ms.openlocfilehash: e6099caf949d93abf8c665f61cd9b91d545dd0f4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938126"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612549"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketplace에서 기존 VM 제안 업데이트
 
@@ -128,7 +128,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 4.  1x1 GUI에서 가격 책정을 설정한 경우 UI에서 직접 가격을 변경할 수 있습니다. 스프레드시트 가져오기/내보내기를 통해 가격 책정을 설정하는 경우 가져오기/내보내기 기능을 통해서만 가격을 낮출 수 있습니다.
 
-3.  **저장**을 클릭합니다.
+3.  **Save**을 클릭합니다.
 
 4.  **게시**를 클릭하여 변경 내용을 게시하는 워크플로를 시작합니다.
 

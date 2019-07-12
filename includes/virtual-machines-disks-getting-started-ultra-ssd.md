@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133171"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712589"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>사용 하도록 설정 하 고 Azure ultra Ssd (미리 보기) 배포
 
@@ -33,7 +33,7 @@ CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].loc
 
 유지 된 **영역** 값 가용성 영역을 나타내므로 및 울트라 SSD를 배포 하기 위해 필요 합니다.
 
-|ResourceType  |이름  |Location  |영역  |제한  |기능  |값  |
+|ResourceType  |이름  |위치  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Ultra Ssd를 사용 하려면 ultra Ssd를 사용 하 여 수 있는 VM을 만�
 바꾸거나 설정 합니다 **$vmname**, **$rgname**를 **$diskname**를 **$location**를 **$password**, **$user** 고유한 값을 사용 하 여 변수입니다. 설정할 **$zone** 가용성 영역에서 가져온의 값에는 [이 문서의 시작](#determine-your-availability-zone)합니다. Ultra 설정 된 VM을 만드는 다음 CLI 명령을 실행 합니다.
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>CLI를 사용 하 여 ultra SSD 만들기
