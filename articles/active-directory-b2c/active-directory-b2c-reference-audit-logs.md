@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205358"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835404"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -31,26 +31,26 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 작업 개요
 감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
 
-|활동 유형 |설명  |
+|활동 유형 |Description  |
 |---------|---------|
-|권한 부여 |B2C 리소스에 액세스하는 사용자(예: B2C 정책 목록에 액세스하는 관리자)에 대한 권한 부여와 관련된 활동         |
-|디렉터리 |관리자가 Azure Portal을 사용하여 로그인할 때 검색되는 디렉터리 특성과 관련된 활동 |
+|Authorization |B2C 리소스에 액세스하는 사용자(예: B2C 정책 목록에 액세스하는 관리자)에 대한 권한 부여와 관련된 활동         |
+|디렉터리 |관리자가 Azure portal을 사용 하 여 로그인 할 때 검색 하는 디렉터리 특성에 관련 된 활동 |
 |애플리케이션 | B2C 애플리케이션에 대한 CRUD 작업 |
-|키 |B2C 키 컨테이너에 저장된 키에 대한 CRUD 작업 |
+|Key |B2C 키 컨테이너에 저장된 키에 대한 CRUD 작업 |
 |리소스 |B2C 리소스에 대한 CRUD 작업(예: 정책 및 ID 공급자)
-|Authentication |사용자 자격 증명 및 토큰 발행에 대한 유효성 검사|
+|인증 |사용자 자격 증명 및 토큰 발행에 대한 유효성 검사|
 
 > [!NOTE]
 > 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.
 
 ## <a name="example-activity"></a>예제 활동
-아래 예제는 사용자가 외부 ID 공급 기업으로 로그인할 때 캡처된 데이터를 보여줍니다. ![감사 로그 - 예제](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+아래 예제는 사용자가 외부 ID 공급 기업으로 로그인할 때 캡처된 데이터를 보여줍니다. ![Azure portal에서 감사 로그 활동 세부 정보 페이지의 예](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 작업 세부 정보 창에는 다음 관련 정보를 포함 합니다.
 
-|Section|필드|설명|
+|섹션|필드|Description|
 |-------|-----|-----------|
-| 작업 | 이름 | 활동 발생 합니다. 예를 들어, "id_token 발급 응용 프로그램에" (하는 마지막 실제 사용자 로그인)입니다. |
+| 활동 | 이름 | 활동 발생 합니다. 예를 들어, "id_token 발급 응용 프로그램에" (하는 마지막 실제 사용자 로그인)입니다. |
 | 초기자(작업자) | ObjectId | 합니다 **개체 ID** 에 로그인 한 사용자가 B2C 응용 프로그램 (이 식별자는 Azure 포털에서 표시 되지 않지만 예를 들어 Graph API를 통해 액세스할 수 있는 것). |
 | 초기자(작업자) | Spn | **응용 프로그램 ID** 사용자가 로그인 하는 B2C 응용 프로그램입니다. |
 | 대상 | ObjectId | 합니다 **개체 ID** 사용자가 로그인 하는 중입니다. |
@@ -58,20 +58,20 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 | 추가 세부 정보 | PolicyId | 합니다 **정책 ID** 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책). |
 | 추가 세부 정보 | ApplicationId | **응용 프로그램 ID** 사용자가 로그인 하는 B2C 응용 프로그램입니다. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal을 통해 감사 로그 액세스
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure portal을 통해 감사 로그에 액세스
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. B2C 디렉터리에 있는지 확인합니다.
 2. 왼쪽의 즐겨찾기 막대에서 **Azure Active Directory**를 클릭합니다.
-    
-    ![감사 로그 - AAD 단추](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![포털 왼쪽 메뉴에서 강조 표시 하는 azure Active Directory 단추](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. **활동** 아래에서 **감사 로그**를 클릭합니다.
 
-    ![감사 로그 - 로그 섹션](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![감사 로그 단추 메뉴의 활동 섹션에서 강조 표시](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. **범주** 드롭 상자에서 **B2C**를 선택합니다.
 3. **적용**을 클릭합니다.
 
-    ![감사 로그 - 범주](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![범주 및 [적용] 단추 강조 표시 된 감사 로그 필터](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 최근 7일 동안 기록된 활동 목록이 표시됩니다.
 - **활동 리소스 종류** 드롭다운을 사용하여 위에 요약된 활동 유형별로 필터링합니다.
@@ -85,7 +85,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD 보고 API를 통해 감사 로그 액세스
 감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 Azure AD 보고 API를 인증하려면 먼저 애플리케이션을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.
 
 ### <a name="accessing-the-api"></a>API에 액세스
