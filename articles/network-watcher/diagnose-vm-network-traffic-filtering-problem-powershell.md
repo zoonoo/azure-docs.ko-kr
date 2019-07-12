@@ -142,7 +142,7 @@ Get-AzEffectiveNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-반환된 출력은 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 www.bing.com에 대한 아웃바운드 액세스를 허용한 **AllowInternetOutbound** 규칙에 대한 다음 텍스트를 포함합니다.
+반환된 출력은 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 www.bing.com 에 대한 아웃바운드 액세스를 허용한 **AllowInternetOutbound** 규칙에 대한 다음 텍스트를 포함합니다.
 
 ```powershell
 {

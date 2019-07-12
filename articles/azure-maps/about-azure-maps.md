@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 5f41263113568cf9f3771119135be8db37119181
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807500"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442953"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
-Azure Maps는 최신 매핑 데이터를 사용하여 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하는 지리 공간적 서비스 컬렉션입니다. Azure Maps는 여러 스타일과 위성 이미지에서 **지도** 렌더링, 전 세계의 주소, 장소 및 관심 지점 **검색**, 지점 간, 다지점, 다지점 최적화, 등시선, 상용 자동차, 교통 영향 및 매트릭스 경로 **라우팅**, 최적의 교통 흐름 및 사고 확인, 대체 교통 수단 및 실시간 데이터를 활용하는 노선 계획을 위해 대중 교통, 자전거 공유, 스쿠터 공유, 자동차 공유 정보를 요청하는 **Mobility** 서비스, **지리적 위치**를 통한 사용자 위치 설정, **표준 시간대**로 위치 변환, 위치에서 시간 가져오기 등을 수행하는 REST API로 구성됩니다. 또한 Azure Maps는 **지오펜싱**, Azure에서 위치 정보를 호스팅하는 지도 **데이터** 스토리지 및 지리 공간적 분석을 통해 위치 인텔리전스를 제공하는 **Spatial Operations** 서비스를 제공합니다. Azure Maps 서비스는 REST API로 직접 사용할 수도 있고 강력한 **Web SDK** 또는 **Android SDK**를 통해 사용할 수도 있습니다. 개발자는 Azure 클라우드 내에서 이러한 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. 지금 바로 [Azure Maps 체험 계정](https://azure.microsoft.com/services/azure-maps/)에 가입하여 개발을 시작하세요!
+Azure Maps는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. Azure Maps는 다음을 제공합니다.
+
+* 맵을 여러 스타일과 위성 이미지로 렌더링하기 위한 REST API.
+* 전 세계의 주소, 장소 및 관심 지점을 검색.
+* 지점 간 라우팅, 다중 지점, 다중 지점 최적화, 등시선, 상용차, 교통 영향 및 매트릭스 라우팅, 교통 흐름 및 사고 표시.
+* 대중교통 및 대체 교통수단(자전거 공유, 스쿠터 공유 및 자동차 공유)을 요청하고 실시간으로 경로를 계획하기 위한 Mobility Service. 
+* 지리적 위치를 통한 사용자 위치 설정 및 위치를 표준 시간대로 전환. 
+* 위치 정보가 Azure에서 호스팅되는 지오펜싱 및 지도 데이터 스토리지를 위한 서비스. 
+* 지리 공간 분석을 통한 위치 인텔리전스. 
+
+REST API 외에도 웹 SDK 또는 Android SDK를 통해 Azure Maps 서비스를 이용할 수 있습니다. 이러한 도구는 개발자들이 위치 정보를 Azure 솔루션으로 통합하는 솔루션을 신속하게 개발하고 확장하는 데 유용합니다. 
+
+지금 바로 [Azure Maps 계정](https://azure.microsoft.com/services/azure-maps/) 체험판에 가입하여 개발을 시작할 수 있습니다.
 
 다음 비디오는 Azure Maps를 자세히 설명합니다.
 
@@ -30,15 +42,15 @@ Azure Maps는 최신 매핑 데이터를 사용하여 웹 및 모바일 애플�
 
 ### <a name="web-sdk"></a>웹 SDK
 
-Azure Maps 웹 SDK를 사용하면 웹 또는 모바일 애플리케이션에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 SDK에서 개발합니다.
+Azure Maps 웹 SDK를 사용하면 웹 또는 모바일 애플리케이션에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 고성능의 큰 데이터 세트를 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 SDK에서 개발합니다.
 
-![Azure Maps 웹 SDK](media/about-azure-maps/Introduction_WebMapControl.png)
+![채우기 변경의 맵 예제](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
-Azure Maps Android SDK를 사용하여 강력한 모바일 매핑 애플리케이션을 만들 수 있습니다. 
+Azure Maps Android SDK를 사용하여 모바일 매핑 애플리케이션을 만듭니다. 
 
-![Azure Maps Android SDK](media/about-azure-maps/AndroidSDK.png)
+![모바일 디바이스의 맵 예제](media/about-azure-maps/AndroidSDK.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 
@@ -46,46 +58,68 @@ Azure Maps는 Azure 애플리케이션에 지리적 컨텍스트를 제공할 �
 
 ### <a name="data-service"></a>Data Service
 
-데이터는 지도에 필수적이며, 고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 빛나는 강력한 새 시나리오를 만들 수 있습니다. Data Service를 사용하면 공간 작업 또는 이미지 합성에 사용할 지리 공간적 데이터를 업로드하고 저장하여 대기 시간을 줄이고, 생산성을 높이고, 애플리케이션 내에서 새 시나리오를 사용할 수 있습니다. 이 서비스에 대한 자세한 내용은 [Data Service API](https://docs.microsoft.com/rest/api/maps/data) 페이지를 방문하세요.
+데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service API 설명서](https://docs.microsoft.com/rest/api/maps/data)를 참조하세요.
 
-### <a name="mobility-service"></a>Mobility Service
+### <a name="mobility-service"></a>모바일 서비스
 
-Azure Maps Mobility Service는 정류장, 노선 정보 및 이동 시간 추정을 포함하여 인근 대중 교통 서비스에 대한 실시간 위치 인텔리전스를 제공합니다. 이 서비스를 통해 특정 위치 주변의 특정 대중 교통 정류장, 공유 자전거/스쿠터/자동차와 같은 특정 개체 형식을 검색하여 개체 세부 정보가 포함된 교통 개체 세트를 반환할 수 있습니다. 이 서비스를 통해 개발자는 기본 정보와 노선 기하 도형, 정류장 목록, 예정 및 실시간 교통 도착 시간 및 서비스 경고와 같은 추가 세부 정보가 포함된 교통 노선 세부 정보를 요청할 수도 있습니다. 사용자는 거치장 정보를 요청하여 가장 가까운 거치장에 남아 있는 사용 가능한 공유 자전거의 수를 요청할 수도 있습니다. 또한 Mobility Service는 사용 가능한 자동차 공유 차량을 검색하여 향후 가용성 및 현재 연료 수준과 같은 세부 정보를 반환할 수 있습니다.
-Azure Maps Mobility Service를 통해 실시간 주행 계획을 수립하고, 가능한 최적의 경로 옵션을 반환하고, 대도시권(도시) 내에서 사용 가능한 도보, 자전거 및 대중 교통을 포함한 등 다양한 주행 모드를 제공할 수 있습니다. 또한 개발자는 경로 기하 도형 및 자세한 여정과 같은 추가 정보를 사용하여 자세한 교통 주행 일정을 요청할 수 있습니다.
+Azure Maps Mobility Service를 사용하면 실시간 여행 계획이 가능합니다. 가능한 최선의 경로 옵션을 반환하고 다양한 여행 모드를 제공합니다. 지하철(도시) 지역의 경우, 이러한 모드에는 걷기, 자전거 타기 및 대중 교통 수단이 포함될 수 있습니다. 개발자는 선 기하학, 정지 목록, 예약 및 실시간 도착, 서비스 알림과 같은 교통 여행 일정 세부 정보를 요청할 수 있습니다.
 
-서비스와 다양한 기능에 대한 자세한 내용은 [API 설명서](https://docs.microsoft.com/rest/api/maps/mobility)를 참조하세요.
+또한 서비스를 통해 주변에서 공유 자전거, 스쿠터 또는 자동차와 같이 특정한 물체 유형을 검색할 수 있습니다. 사용자는 가장 가까운 선착장에 몇 대의 공유 자전거가 남아 있는지 요청할 수 있습니다. 사용 가능한 자동차 공유 차량을 검색하고 향후 이용 가능성과 현재의 연료 수준과 같은 세부 정보도 찾을 수 있습니다.
+
+서비스에 대해 자세히 알아보려면 [Mobility API 설명서](https://docs.microsoft.com/rest/api/maps/mobility)를 참조하세요.
 
 ### <a name="render-service"></a>Render Service
 
-Render Service는 개발자가 매핑을 중심으로 웹 및 모바일 애플리케이션을 만들 수 있도록 설계되었습니다. 이 서비스는 19단계 확대/축소 수준에서 사용할 수 있는 고품질 래스터 그래픽 이미지 또는 모든 것을 사용자 지정할 수 있는 벡터 형식 맵 이미지를 사용합니다.
+Render Service는 개발자가 매핑을 중심으로 웹 및 모바일 애플리케이션을 만드는 데 도움을 줍니다. 이 서비스는 19단계 확대/축소 수준에서 사용할 수 있는 고품질 래스터 그래픽 이미지 또는 모든 것을 사용자 지정할 수 있는 벡터 형식 맵 이미지를 사용합니다.
 
-![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
+![Render Service의 맵 예제](media/about-azure-maps/Introduction_Map.png)
 
-Render Service는 현재 개발자가 위성 이미지를 사용하여 작업할 수 있도록 미리 보기 API를 제공합니다. 자세한 내용은 [Azure Maps Render API](https://docs.microsoft.com/rest/api/maps/render)를 참조하세요.
+Render Service는 현재 개발자가 위성 이미지를 사용하여 작업할 수 있도록 미리 보기 API를 제공합니다. 자세한 내용은 [Render API 설명서](https://docs.microsoft.com/rest/api/maps/render)를 읽어보세요.
 
 ### <a name="route-service"></a>Route Service
 
 Route Service는 여러 운송 모드의 실제 인프라 및 방향에 대한 강력한 기하 도형 계산을 포함합니다. 이 서비스는 개발자가 다양한 이동 모드(예: 자동차, 트럭, 자전거 또는 도보)에서 방향을 계산할 수 있도록 합니다. 또한 교통 상황, 무게 제한 또는 위해 물질 운송 등의 입력도 고려할 수 있습니다.
 
-![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
+![Route Service의 맵 예제](media/about-azure-maps/Introduction_Route.png)
 
-Route Service는 현재 여러 경로 요청의 일괄 처리, 이동 시간과 출발지와 도착지 집합 간 거리의 행렬, 시간 또는 연료 요구 사항에 따라 이동할 수 있는 경로 또는 거리 찾기와 같은 고급 기능의 미리 보기를 제공합니다. 라우팅 기능에 대한 자세한 내용은 [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route)를 참조하세요.
+Route Service는 다음과 같은 고급 기능의 미리 보기를 제공합니다. 
+
+* 여러 경로 요청의 일괄 처리.
+* 원본과 대상 세트 간 여행 시간 및 거리의 매트릭스.
+* 시간 또는 연료 요구 사항에 기반한 사용자가 여행할 수 있는 경로 또는 거리 찾기. 
+
+라우팅 기능에 대한 자세한 내용은 [Route API 설명서](https://docs.microsoft.com/rest/api/maps/route)를 읽어보세요.
 
 ### <a name="search-service"></a>Search 서비스
 
-Search Service는 개발자가 주소, 위치, 비즈니스 목록을 이름 또는 범주와 기타 지리 정보 기준으로 검색할 수 있도록 설계되었습니다. 또한 Search Service는 위도 및 경도를 기반으로 주소 및 교차로를 [역방향으로 지오코딩](https://en.wikipedia.org/wiki/Reverse_geocoding)할 수 있습니다.
+Search Service는 개발자가 주소, 장소, 비즈니스 목록을 이름이나 범주 및 기타 지리 정보 기준으로 검색하는 데 유용합니다. Search Service는 위도 및 경도를 기반으로 주소 및 교차로를 [역방향으로 지오코딩](https://en.wikipedia.org/wiki/Reverse_geocoding)할 수 있습니다.
 
-![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
+![맵에서 검색 예제](media/about-azure-maps/Introduction_Search.png)
 
-Search Service는 경로에 따른 검색, 더 넓은 영역 내 검색, 검색 요청의 그룹 일괄 처리 및 위치 지점 대신 더 큰 영역 검색과 같은 고급 기능도 제공합니다. 일괄 처리 및 영역 검색에 대한 API는 현재 미리 보기에 있습니다. 검색 기능에 대한 자세한 내용은 [Azure Maps Search API](https://docs.microsoft.com/rest/api/maps/search) 페이지를 참조하세요.
+또한 Search Service는 다음과 같은 고급 기능을 제공합니다.
 
-### <a name="spatial-operations"></a>Spatial Operations
+* 경로에 따른 검색.
+* 더 넓은 영역 내에서 검색.
+* 검색 요청의 그룹 일괄 처리.
+* 위치 지점 대신 더 큰 영역 검색. 
 
-Azure Maps Spatial Operations는 위치 정보를 가져와서 즉시 분석하여 고객에게 시간과 공간에서 진행 중인 이벤트를 알리고, 실시간에 가까운 분석 및 이벤트에 대한 예측 모델링을 가능하게 합니다. 이 서비스를 사용하면 Azure Maps 고객은 기본적으로 일반적인 지리 공간적 수학 계산 라이브러리를 통해 가장 가까운 지점, 대권 거리 및 버퍼와 같은 서비스를 포함하여 해당 위치 인텔리전스를 향상시킬 수 있습니다. 서비스와 다양한 기능에 대한 자세한 내용은 [API 설명서](https://docs.microsoft.com/rest/api/maps/spatial)를 참조하세요.
+일괄 처리 및 영역 검색에 대한 API는 현재 미리 보기에 있습니다. 검색 기능에 대한 자세한 내용은 [Search API 설명서](https://docs.microsoft.com/rest/api/maps/search)를 읽어보세요.
+
+### <a name="spatial-operations-service"></a>Spatial Operations Service
+
+Azure Maps Spatial Operations Service는 위치 정보를 사용하고 즉석에서 분석하여 고객들에게 시간 및 공간에서 발생하고 있는 실시간 이벤트를 알리는 데 유용합니다. 이벤트를 거의 실시간으로 분석하고 예측 모델링을 수행할 수 있습니다. 
+
+서비스를 통해 고객은 가장 가까운 지점, 대권 거리 및 버퍼와 같은 일반적인 지리 공간적 수학 계산의 라이브러리를 통해 해당 위치 인텔리전스를 향상시킬 수 있습니다. 서비스와 다양한 기능에 대해 자세히 알아보려면 [Spatial Operations API 설명서](https://docs.microsoft.com/rest/api/maps/spatial)를 읽어보세요.
 
 ### <a name="time-zone-service"></a>Time Zone Service
 
-Time Zone Service를 사용하면 위도-경도 쌍 또는 [IANA ID](https://www.iana.org/)를 사용하여 현재, 과거 및 미래의 표준 시간대 정보를 쿼리할 수 있습니다. 또한 Time Zone 서비스는 Microsoft Windows 표준 시간대 ID를 IANA 표준 시간대로 변환하고, 표준 시간대 오프셋을 UTC로 페치하여 해당 표준 시간대의 현재 시간을 가져올 수 있습니다. Time Zone Service에 대한 쿼리의 일반적인 JSON 응답은 다음 샘플과 같습니다.
+Time Zone Service를 사용하면 위도/경도 쌍 또는 [IANA ID](https://www.iana.org/)를 사용하여 현재, 과거 및 미래의 표준 시간대 정보를 쿼리할 수 있습니다. Time Zone Service를 통해 다음을 수행할 수 있습니다.
+
+* Microsoft Windows 표준 시간대 ID를 IANA 표준 시간대로 변환.
+* 표준 시간대 오프셋을 UTC로 페치.
+* 현재 시간을 표준 시간대로 가져오기. 
+
+Time Zone Service에 대한 쿼리의 일반적인 JSON 응답은 다음 샘플과 같습니다.
 
 ```JSON
 {
@@ -105,34 +139,34 @@ Time Zone Service를 사용하면 위도-경도 쌍 또는 [IANA ID](https://www
 }
 ```
 
-이 서비스에 대한 자세한 내용은 [Azure Maps Timezone API](https://docs.microsoft.com/rest/api/maps/timezone) 페이지를 방문하세요.
+이 서비스에 대한 자세한 내용은 [Time Zone API 설명서](https://docs.microsoft.com/rest/api/maps/timezone)를 읽어보세요.
 
 ### <a name="traffic-service"></a>Traffic Service
 
-Traffic Service는 개발자가 트래픽을 요구하는 웹 및 모바일 애플리케이션을 만들 수 있도록 설계된 웹 서비스 제품군입니다. 이 서비스는 다음 두 가지 데이터 형식을 제공합니다.
+Traffic Service는 개발자가 교통 정보를 요구하는 웹 및 모바일 애플리케이션을 만드는 데 사용할 수 있는 웹 서비스 제품군입니다. 이 서비스는 다음 두 가지 데이터 형식을 제공합니다.
 
-* Traffic Flow - 네트워크의 모든 주요 도로에 대해 실시간으로 관찰된 속도와 여행 시간 정보
-* Traffic Incidents - 도로 네트워크와 관련된 교통 혼잡 및 사고에 대한 최신 보기.
+* 교통 흐름: 네트워크의 모든 주요 도로에 대해 실시간으로 관찰된 속도와 여행 시간.
+* 교통 사고: 도로 네트워크와 관련된 교통 혼잡 및 사고에 대한 최신 보기.
 
-![Azure Maps 트래픽](media/about-azure-maps/Introduction_Traffic.png)
+![교통 정보를 사용한 맵의 예제](media/about-azure-maps/Introduction_Traffic.png)
 
-자세한 내용은 [Azure Maps Traffic API](https://docs.microsoft.com/rest/api/maps/traffic) 페이지를 방문하세요.
+자세한 내용은 [Traffic API 설명서](https://docs.microsoft.com/rest/api/maps/traffic)를 참조하세요.
 
-### <a name="ip-to-location"></a>IP to Location
+### <a name="ip-to-location-service"></a>IP to Location Service
 
-IP to Location 서비스를 사용하여 제공된 IP 주소의 검색된 두 글자 국가 번호를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정 애플리케이션 콘텐츠를 제공하여 사용자 환경을 조정하고 개선하는 데 도움을 줄 수 있습니다.
+IP to Location Service를 사용하여 IP 주소의 검색된 두 글자 국가 번호를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정된 애플리케이션 콘텐츠를 제공하여 사용자 환경을 조정하고 개선하는 데 도움을 줄 수 있습니다.
 
-IP to Location 서비스용 REST API에 대한 정보는 [Azure Maps Geolocation API](https://docs.microsoft.com/rest/api/maps/geolocation) 페이지를 참조하세요.
+IP to Location Service에 대한 REST API에 대해 자세히 알아보려면 [Azure Maps Geolocation API 설명서](https://docs.microsoft.com/rest/api/maps/geolocation)를 읽어보세요.
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 지원할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
+Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 개발하는 데 유용할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
 
 또한 Azure Maps는 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control)을 제공합니다.
 
 ## <a name="usage"></a>사용 현황
 
-Maps 서비스에 액세스하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
+Azure Maps 서비스에 액세스하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure Maps 계정을 만들어야 합니다.
 
 Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 생성된 두 개의 키가 함께 제공됩니다. 하나의 키를 사용하고 Azure Maps 서비스에 대한 요청을 만들어 이러한 위치 기능을 애플리케이션에 통합하는 작업을 시작합니다.
 
@@ -147,16 +181,16 @@ Azure Maps API는 현재 다음 지역을 제외한 모든 국가/지역에서 �
 * 파키스탄
 * 대한민국
 
-현재 IP 주소의 위치가 위의 지원되지 않는 국가/지역 중 하나에 포함되지 않는지 확인합니다.
+현재 IP 주소의 위치가 지원되지 않는 국가/지역 중 하나에 포함되지 않는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Maps의 새로운 기능에 대한 자세한 내용:
-
-> [!div class="nextstepaction"]
-> [경로 행렬, 등시성, IP 조회 등](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
-Azure Maps를 보여주는 샘플 앱을 사용해 보세요.
+Azure Maps를 보여주는 샘플 앱을 사용해보세요.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 웹앱 만들기](quick-demo-map-app.md)
+
+Azure Maps에서 데이터를 최신 상태로 유지하세요. 
+
+> [!div class="nextstepaction"]
+> [Azure Maps 블로그](https://azure.microsoft.com/blog/topics/azure-maps/)
