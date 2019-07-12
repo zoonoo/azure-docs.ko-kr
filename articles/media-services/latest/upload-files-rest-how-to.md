@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466802"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703873"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
 Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 자산의 컨테이너에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
-이 문서에서는 REST를 사용하여 로컬 파일을 업로드하는 방법을 보여 줍니다.
+이 문서에서는 REST를 사용 하 여 로컬 파일을 업로드 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 

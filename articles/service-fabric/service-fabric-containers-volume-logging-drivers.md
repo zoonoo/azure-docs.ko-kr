@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870879"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617630"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 애플리케이션에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
@@ -28,7 +28,7 @@ Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](
 > Azure Files 볼륨 플러그 인 6.4.571.9590 버전은이 문서를 사용 하 여 사용할 수 있는 미리 보기 릴리스입니다. 미리 보기 릴리스로 프로덕션 환경에서 사용할 수 있도록 지원하지 **않습니다**.
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다. Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
 
 * Azure Files 볼륨 플러그 인은 Service Fabric 버전 6.2 이상에서만 작동합니다.

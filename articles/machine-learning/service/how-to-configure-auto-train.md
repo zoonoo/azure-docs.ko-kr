@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202971"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797640"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>자동화 된 기계 학습 실험에서 Python 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "67202971"
 
 실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다.
 
-자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. DNN 알고리즘은 학습 중 사용 가능한 이지만 자동화 된 ML DNN 모델을 작성 하지 않습니다.
+자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. 
 
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
@@ -73,7 +73,7 @@ automl_config = AutoMLConfig(task="classification")
 * Numpy 배열 X(기능) 및 y(대상 변수 또는 레이블이라고도 함)로 읽을 수 있습니다.
 * pandas 데이터 프레임
 
-예제:
+예를 들면 다음과 같습니다.
 
 *   numpy 배열
 
@@ -125,7 +125,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 스크립트는 다음을 반환할 수 있습니다.
 
-키 | 형식 | 상호 배타적 관계    | 설명
+Key | 형식 | 상호 배타적 관계    | Description
 ---|---|---|---
 X | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |  학습할 모든 기능입니다.
 y | pandas 데이터 프레임 또는 numpy 배열 |   label   | 학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.
@@ -134,7 +134,7 @@ y_valid |   pandas 데이터 프레임 또는 numpy 배열 | data_train, label |
 sample_weight | pandas 데이터 프레임 또는 numpy 배열 |   data_train, label, columns| _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다.
 sample_weight_valid | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |    _선택 사항_ 각 유효성 검사 샘플에 대한 가중치입니다. 지정하지 않으면 sample_weight가 학습과 유효성 검사 간에 분할됩니다.
 data_train |    pandas 데이터 프레임 |  X, y, X_valid, y_valid |    학습할 모든 데이터(기능 + 레이블)입니다.
-label | 문자열  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
+label | string  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
 열 | 문자열 배열  ||  _선택 사항_ 기능에 사용할 열의 허용 목록입니다.
 cv_splits_indices   | 정수 배열 ||  _선택 사항_ 교차 유효성 검사를 위해 데이터를 분할할 인덱스 목록입니다.
 
@@ -312,7 +312,7 @@ best_run, fitted_model = automl_run.get_output()
 
 전처리의 목록을 보려면 및 [자동화 기능 엔지니어링](concept-automated-ml.md#preprocess) 이런 경우 전처리 = True입니다.
 
-다음 예를 살펴보세요.
+다음 예제를 고려해 보세요.
 + 입력된 기능 4 가지가 있습니다. (숫자)는 B (숫자) (숫자) C, D (DateTime)
 + 모든 고유 값을 사용 하 여 ID 열 이므로 숫자 기능 C를 삭제할
 + 숫자 기능 A와 B 값이 누락 및 따라서 평균으로 귀속 됩니다.
@@ -346,7 +346,7 @@ best_run, fitted_model = automl_run.get_output()
   >[!Note]
   >작업에 대 한 'timeseriestransformer' 사용 'datatransformer' '회귀' 또는 '분류' 작업에 대 한 '예측', 사용 =.
 
-  출력
+  출력:
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',
@@ -370,7 +370,7 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   위치:
+   각 항목이 나타내는 의미는 다음과 같습니다.
 
    |출력|정의|
    |----|--------|

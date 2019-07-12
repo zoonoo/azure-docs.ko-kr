@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182184"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671419"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -45,7 +45,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com)은 애플리케이션 배달 및 배포 프로세스를 처리하는 엔터프라이즈 지원 자동화 플랫폼입니다. 에이전트가 대상 컴퓨터에 설치되어 Puppet Master에서 Azure 인프라 및 VM에 대해 원하는 구성을 정의하는 매니페스트를 실행할 수 있게 합니다. Puppet은 Jenkins 및 GitHub와 같은 다른 솔루션과 통합되어 향상된 DevOps 워크플로를 구현할 수 있습니다. 자세한 내용은 [Puppet 작동 방법(영문)](https://puppet.com/product/how-puppet-works)을 참조하세요.
+[Puppet](https://www.puppet.com)은 애플리케이션 배달 및 배포 프로세스를 처리하는 엔터프라이즈 지원 자동화 플랫폼입니다. 에이전트가 대상 컴퓨터에 설치되어 Puppet Master에서 Azure 인프라 및 VM에 대해 원하는 구성을 정의하는 매니페스트를 실행할 수 있게 합니다. Puppet은 Jenkins 및 GitHub와 같은 다른 솔루션과 통합되어 향상된 DevOps 워크플로를 구현할 수 있습니다. 자세한 내용은 [Puppet 작동 방법(영문)](https://puppet.com/products/how-puppet-works)을 참조하세요.
 
 다음 작업을 수행하는 방법을 배워 보십시오.
 
@@ -53,7 +53,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일의 형식을 제대로 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
+[Cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일의 형식을 제대로 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
 
 Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 

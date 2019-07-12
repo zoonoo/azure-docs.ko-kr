@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707142"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706201"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -86,7 +86,7 @@ Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 �
 
 ## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
-[Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
+참조 [Service Bus를 사용한 성능 향상에 대 한 유용한][Best practices for performance improvements using Service Bus] -이 문서에서는 메시지를 교환할 때 성능을 최적화 하는 방법을 설명 합니다.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>엔터티를 만들기 전에 무엇을 알아야 하나요?
 큐 및 토픽에서 다음 속성을 변경할 수 없습니다. 엔터티를 프로비전할 때 이러한 제한 사항을 고려하세요. 새 대체 엔터티를 만들지 않은 경우 이러한 속성을 수정할 수 없기 때문입니다.
@@ -114,14 +114,14 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 
 ## <a name="quotas"></a>할당량
 
-Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조하세요.
+Service Bus 제한 및 할당량 목록은 참조 합니다 [Service Bus 할당량 개요][Quotas overview]합니다.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus는 사용 할당량이 있나요?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 한도보다 많이 필요한 경우 이러한 한도를 적절하게 조정하기 위해 고객 서비스에 언제든지 문의할 수 있습니다. Service Bus의 경우 집계 사용 할당량은 매월 5십억 개의 메시지입니다.
 
 Microsoft는 지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 이메일 알림이 전송되고 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
-Azure에서 다른 서비스와 마찬가지로 Service Bus는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. [Service Bus 할당량 개요][Quotas overview]에서 이러한 할당량에 대한 자세한 정보를 확인할 수 있습니다.
+Azure에서 다른 서비스와 마찬가지로 Service Bus는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. 이러한 할당량에 대 한 자세한 내용을 볼 수 있습니다 합니다 [Service Bus 할당량 개요][Quotas overview]합니다.
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>1MB를 초과하는 메시지 크기를 처리하는 방법
 Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리케이션이 최대 256KB(표준 계층) 또는 1MB(프리미엄 계층) 크기의 메시지를 보낼 수 있습니다. 1MB보다 큰 크기의 메시지를 처리하는 경우 [이 블로그 게시물](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern)에 설명된 클레임 검사 패턴을 사용합니다.
@@ -131,10 +131,10 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists` 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
-가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조하세요.
+가능한 Service Bus 예외의 목록은 참조 하세요 [예외 개요][Exceptions overview]합니다.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
+공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java 및 C에서 직접 서명을 생성 하는 방법에 대 한 자세한\#를 참조 합니다 [공유 액세스 서명을][Shared Access Signatures] 문서.
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?
@@ -143,7 +143,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 
 #### <a name="portal"></a>포털
 
-Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/resource-group-move-resources.md#use-portal)에 있는 지침을 따르세요. 
+Azure Portal을 사용하여 Service Bus 네임스페이스를 다른 구독으로 마이그레이션하려면 [여기](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)에 있는 지침을 따르세요. 
 
 #### <a name="powershell"></a>PowerShell
 

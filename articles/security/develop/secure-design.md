@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144439"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653293"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 보안 작업 및 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 컨트롤 소개 합니다. 보안 질문 요구 하는 동안 고려할 및 Microsoft의 단계를 디자인 하는 개념와 리소스를 교육 [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 나와 있습니다. 활동 및 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 Azure 서비스를 정의 하는 데 목표가입니다.
@@ -39,7 +39,7 @@ Azure에서 보안 모범 사례를 사용 하 여 개발자에 게 사용할 �
 
   - [Sdk 및 도구](https://docs.microsoft.com/azure/index#pivot=sdkstools) Azure에서 사용할 수 있는 도구를 설명 합니다.
 
-  - [Azure DevOps 서비스](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) 개발 공동 작업 도구를 제공 합니다. 고성능 파이프라인, 무료 Git 리포지토리, 구성 가능한 Kanban 보드 및 광범위 한 자동화 되 고 클라우드 기반 부하 테스트 도구에 포함 됩니다.
+  - [Azure DevOps 서비스](https://docs.microsoft.com/azure/devops/) 개발 공동 작업 도구를 제공 합니다. 고성능 파이프라인, 무료 Git 리포지토리, 구성 가능한 Kanban 보드 및 광범위 한 자동화 되 고 클라우드 기반 부하 테스트 도구에 포함 됩니다.
     합니다 [DevOps 리소스 센터](https://docs.microsoft.com/azure/devops/learn/) DevOps 사례, Git 버전 제어, agile 방법, Microsoft의 DevOps 협력 하는 방법 및 사용자 고유의 DevOps 진행 하는 방법을 평가할 수 있습니다 학습 리소스를 결합 합니다.
 
   - [상위 5 개 보안 항목 프로덕션에 푸시하기 전에 고려해 야 할](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) Azure에서 웹 응용 프로그램을 보호 하 고 가장 일반적이 고 위험한 웹 응용 프로그램 공격에 대 한 앱을 보호 하는 방법을 보여 줍니다.
@@ -152,12 +152,12 @@ Azure 웹 사이트와 웹 응용 프로그램을 호스트 하는 데 사용할
 
 | 위협 | 보안 속성 | Azure 플랫폼의 잠재적인 문제 완화 |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 스푸핑               | Authentication        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
+| 스푸핑               | 인증        | [HTTPS 연결이 필요](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio)합니다. |
 | 변조              | 무결성             | SSL/TLS 인증서의 유효성을 검사 합니다. SSL/TLS를 사용 하는 응용 프로그램에 연결 하는 엔터티의 X.509 인증서를 완전히 확인 해야 합니다. Azure Key Vault 인증서를 사용 하 여 [x509 관리 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)합니다. |
 | 거부            | 거부 없음       | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | 중요 한 데이터 암호화 [미사용](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) 하 고 [전송에서](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit)합니다. |
 | 서비스 거부      | 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps)응용 프로그램 설계 모범 사례와 결합, DDoS 공격 으로부터 방어를 제공 합니다.|
-| 권한 상승 | 권한 부여         | Azure Active Directory를 사용 하 여 <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)합니다.|
+| 권한 상승 | Authorization         | Azure Active Directory를 사용 하 여 <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)합니다.|
 
 ### <a name="reduce-your-attack-surface"></a>사용자의 공격 취약 영역 축소
 
@@ -304,7 +304,7 @@ Key vault를 *비밀 저장소*: 중앙 집중화 된 클라우드 서비스 응
 
 [로그](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) 보안 조사에 대 한 보안 문제 및 문제에 대 한 적절 한 시기에 알고 있어야 하는 사람들을 확인 하는 문제에 대 한 경고를 트리거합니다. 모든 구성 요소에 감사 및 로깅을 사용하도록 설정합니다. 감사 로그는 사용자 컨텍스트를 캡처 하 고 모든 중요 한 이벤트를 식별 해야 합니다.
 
-사이트에 사용자가 제출 하는 중요 한 데이터를 기록 하지 확인 합니다. 다음은 민감한 데이터의 예입니다.
+사이트에 사용자가 제출 하는 중요 한 데이터를 기록 하지 확인 합니다. 중요한 데이터의 예는 다음과 같습니다.
 
 - 사용자 자격 증명
 - 사회 보장 번호 또는 기타 식별 정보

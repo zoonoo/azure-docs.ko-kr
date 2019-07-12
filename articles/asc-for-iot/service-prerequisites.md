@@ -2,24 +2,25 @@
 title: IoT 필수 구성 요소 미리 보기에 대 한 azure Security Center | Microsoft Docs
 description: IoT 서비스 필수 구성 요소에 대 한 Azure Security Center를 사용 하 여 시작 하는 데 필요한 모든 세부 정보입니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 198459887ff19b16e897b2a8dde55bca1217c8ac
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192599"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616442"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>IoT 필수 구성 요소에 대 한 azure Security Center
 

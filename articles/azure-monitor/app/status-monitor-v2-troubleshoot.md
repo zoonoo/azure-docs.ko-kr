@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f2115ee14b58030f695c9410870615f03d353cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df59766ce38ac81568570cd6544ee28808ff8249
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734957"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807021"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>상태 문제 해결 모니터링 v2
 
@@ -98,15 +98,16 @@ Enable 명령을 실행 한 후 다음이 단계를 완료 합니다.
 명령을 실행 하 여 `Get-Command -Module Az.ApplicationMonitor` 사용할 수 있는 명령을 가져옵니다.
 
 ```
-Command type     Name                                               Version    Source
+CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Disable-ApplicationInsightsMonitoring              0.2.1      Az.ApplicationMonitor
-Cmdlet          Disable-InstrumentationEngine                      0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-ApplicationInsightsMonitoring               0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-InstrumentationEngine                       0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.2.1      Az.ApplicationMonitor
-Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
+Cmdlet          Disable-ApplicationInsightsMonitoring              0.4.0      Az.ApplicationMonitor
+Cmdlet          Disable-InstrumentationEngine                      0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-ApplicationInsightsMonitoring               0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-InstrumentationEngine                       0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.4.0      Az.ApplicationMonitor
+Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>상태 모니터 v2 모듈의 현재 버전 확인

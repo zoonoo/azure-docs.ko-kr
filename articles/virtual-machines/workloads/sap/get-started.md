@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058708"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805823"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 호스트 하 고 SAP 워크 로드 시나리오를 실행 합니다.
 
@@ -36,10 +36,12 @@ SAP HANA에 대 한 Azure의 고유성 떨어져 있는 Azure를 설정 하는 �
 
 ## <a name="latest-changes"></a>최신 변경 내용
 
+- 에 대 한 새 가이드의 릴리스 [Red Hat Enterprise Server에서 IBM Db2 HADR](high-availability-guide-rhel-ibm-db2-luw.md)
+- 릴리스의 [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 고가용성](high-availability-guide-rhel-netapp-files.md)
 - HANA 대규모 인스턴스용 ExpressRoute 빠른 경로 및 글로벌 환경 소개 [SAP HANA (큰 인스턴스) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) 및 관련 문서
 - 릴리스의 [Azure HANA Large Instances는 Azure portal을 통해 제어](hana-li-portal.md)
 - 릴리스의 [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](high-availability-guide-suse-netapp-files.md)
-- 하는 바를 확실히 **Linux OS 매개 변수 net.ipv4.tcp_timestamps** 부하 분산 장치를 Azure와 함께에서 설정
+
 
 
 
@@ -77,7 +79,7 @@ Azure의 HANA에 대 한 내용은 다음 문서 및 해당 subarticles를 참�
 - [Azure 가상 머신에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
 - [Azure virtual machines에서 SAP HANA backup 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [파일 수준의 SAP HANA Azure Backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [저장소 스냅숏에 기반한 SAP HANA 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [저장소 스냅샷에 기반한 SAP HANA 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
  
 

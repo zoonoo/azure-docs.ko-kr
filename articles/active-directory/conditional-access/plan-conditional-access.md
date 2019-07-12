@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509440"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655494"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
@@ -162,7 +162,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 |---|---|---|---|
 |[직장이 아닐 때 MFA 요구](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장에서 ‘앱’에 로그인함 |사용자에게 MFA에 대한 메시지가 표시되지 않음| |
 |[직장이 아닐 때 MFA 요구](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|권한 있는 사용자가 신뢰할 수 있는 위치/직장이 아닌 곳에서 ‘앱’에 로그인함 |사용자에게 MFA에 대한 메시지가 표시되고 성공적으로 로그인할 수 있음| |
-|[MFA 요구(관리자의 경우)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|전역 관리자가 ‘앱’에 로그인함 |관리자에게 MFA에 대한 메시지가 표시됨| |
+|[MFA 요구(관리자의 경우)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|전역 관리자가 ‘앱’에 로그인함 |관리자에게 MFA에 대한 메시지가 표시됨| |
 |[위험한 로그인](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|사용자가 [Tor 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)를 사용하여 ‘앱’에 로그인함 |관리자에게 MFA에 대한 메시지가 표시됨| |
 |[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 있는 디바이스에서 로그인하려고 시도함|액세스 권한 부여됨| |
 |[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 없는 디바이스에서 로그인하려고 시도함|액세스 차단됨| |

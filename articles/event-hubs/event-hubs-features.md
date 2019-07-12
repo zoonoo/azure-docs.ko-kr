@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275434"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827719"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -66,30 +66,8 @@ Event Hubs는 *게시자 정책*을 통한 이벤트 게시자에 대한 세부�
 [Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하면 Event Hubs의 스트리밍 데이터를 자동으로 캡처하고 선택한 Blob Storage 계정 또는 Azure Data Lake 서비스 계정에 저장할 수 있습니다. Azure Portal에서 캡처를 사용하도록 설정하고 캡처를 수행할 최소 크기와 기간을 지정할 수 있습니다. Event Hubs 캡처를 사용하여 자신의 Azure Blob Storage 계정 및 컨테이너 또는 Azure Data Lake 서비스 계정을 지정합니다. 이 중 하나는 캡처된 데이터를 저장하는 데 사용됩니다. 캡처된 데이터는 Apache Avro 형식으로 기록됩니다.
 
 ## <a name="partitions"></a>파티션
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Event Hubs는 각 소비자만이 특정 하위 집합, 파티션 또는 메시지 스트림을 읽는 파티션된 소비자 패턴을 통해 메시지 스트리밍을 제공합니다. 이 패턴은 이벤트 처리를 위한 가로 눈금을 사용하며 큐 및 항목에 사용할 수 없는 기타 스트림 중심 기능을 제공합니다.
-
-파티션은 Event Hub에서 보유하는 순서가 지정된 이벤트 시퀀스입니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 파티션을 "커밋 로그"로 생각할 수 있습니다.
-
-![Event Hubs](./media/event-hubs-features/partition.png)
-
-Event Hubs는 Event Hub의 모든 파티션에 적용되도록 구성된 보존 시간에 대한 데이터를 유지합니다. 시간 단위로 이벤트가 만료됩니다. 명시적으로 삭제할 수 없습니다. 파티션은 독립적이며 자체 데이터 시퀀스를 포함하기 때문에 종종 다른 속도로 증가합니다.
-
-![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
-
-파티션 수는 만들 때 지정되며 2와 32 사이여야 합니다. 파티션 수는 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. Event Hubs 팀에 문의하여 32개를 초과하는 파티션 수를 늘릴 수 있습니다.
-
-파티션은 식별 가능하고 직접 보낼 수 있지만 파티션으로 직접 보내는 방법은 권장하지 않습니다. 대신에 도입 된 더 높은 수준의 구문을 사용할 수 있습니다 합니다 [이벤트 게시자](#event-publishers) 및 용량 섹션입니다. 
-
-파티션은 이벤트 본문, 사용자 정의 속성 모음 및 파티션의 오프셋과 스트림 시퀀스의 번호와 같은 메타데이터를 포함하는 이벤트 데이터 시퀀스로 채워집니다.
-
-파티션 및 가용성과 안정성 간의 균형에 대한 자세한 내용은 [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md#partition-key) 및 [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md) 문서를 참조하세요.
-
-### <a name="partition-key"></a>파티션 키
-
-[파티션 키](event-hubs-programming-guide.md#partition-key)를 사용하여 들어오는 이벤트 데이터를 데이터 구성을 위한 특정 파티션에 매핑할 수 있습니다. 파티션 키는 Event Hub로 전달된 발신자가 제공하는 값입니다. 이 키는 파티션 할당을 만드는 정적 해싱 기능을 통해 처리됩니다. 이벤트를 게시할 때 파티션 키를 지정하지 않으면 라운드 로빈 할당이 사용됩니다.
-
-이벤트 게시자는 이벤트를 게시하는 파티션이 아니라 파티션 키만 인식합니다. 이렇게 키와 파티션을 분리하면 발신자가 다운스트림 처리에 대해 너무 많이 알 필요가 없습니다. 장치 단위 또는 사용자 공유 ID는 좋은 파티션 키가 되지만 지리와 같은 다른 특성은 단일 파티션으로 관련 이벤트를 그룹화하는 데도 사용할 수 있습니다.
 
 ## <a name="sas-tokens"></a>SAS 토큰
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bb6cd43c77c31874115250d13f8d4067b3db7b36
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448543"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804982"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -54,21 +54,22 @@ Blob 업로드 하는 동안 문제가 발생 하면 (예: 정전) 예기치 않
 
 이 문서에서는 IoT Edge 장치에서 blob service를 실행 하는 IoT Edge 컨테이너에서 Azure Blob Storage와 관련 된 개념을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure IoT Edge 장치:
+Azure IoT Edge 디바이스:
 
 - 으로 사용할 수 있습니다 개발 컴퓨터 또는 가상 컴퓨터는 IoT Edge 장치에 대 한 빠른 시작의 단계에 따라 [Linux](quickstart-linux.md) 하거나 [Windows 장치](quickstart.md)합니다.
 
 - IoT Edge 모듈의 Azure Blob Storage는 다음 디바이스 구성을 지원합니다.
 
-  | 운영 체제 | 아키텍처 |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian-stretch | ARM32 |
+  | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian-stretch | 아니요 | 예 | 아니요 |  
+  | Ubuntu Server 16.04 | 예 | 아니요 | 예 |
+  | Ubuntu Server 18.04 | 예 | 아니요 | 예 |
+  | Windows 10 IoT Enterprise 17763 빌드 | 예 | 아니오 | 아니요 |
+  | Windows Server 2019, 17763 빌드 | 예 | 아니오 | 아니요 |
+  
 
 클라우드 리소스:
 
@@ -126,7 +127,7 @@ Azure Blob Storage 설명서는 여러 언어에서 빠른 시작 샘플 코드�
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Java](../storage/blobs/storage-quickstart-blobs-java.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 로컬 저장소에 연결
 
@@ -154,7 +155,7 @@ Blob 저장소 IoT Edge의 동일한 Azure Storage Sdk를 사용 하 여 모듈�
 
 일부 Azure Blob Storage 작업에서는 IoT Edge의 Azure Blob Storage에서 지원 되므로이 섹션에서는 각각의 상태를 나열 합니다.
 
-### <a name="account"></a>계좌
+### <a name="account"></a>계정
 
 지원됨:
 

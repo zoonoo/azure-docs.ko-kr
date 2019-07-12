@@ -6,15 +6,15 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 5378a49ba5a4f3770ec9d9b3f723c063b4ef1a61
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399265"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806429"
 ---
-# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
+# <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Power BI에서 SQL 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다.
 
@@ -22,7 +22,7 @@ Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 
@@ -84,4 +84,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="next-steps"></a>다음 단계
 
-[Power BI에서 가져온된 쿼리를 사용 하 여 데이터 시각화](power-bi-connector.md)
+[Power BI에 대 한 Azure 데이터 탐색기 커넥터를 사용 하 여 데이터 시각화](power-bi-connector.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d31a6ee13965aa326ab8a71b5b5435025bc26057
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329643"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705736"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -130,8 +130,9 @@ $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-weba
 * TiP 규칙은 복제되지 않습니다.
 * 데이터베이스 내용이 복제되지 않습니다.
 * 다른 배율 단위로 복제하는 경우 아웃바운드 IP 주소가 변경됩니다.
+* Linux 앱에 사용할 수 없음
 
-### <a name="references"></a>참조
+### <a name="references"></a>참조 항목
 * [App Service 복제](app-service-web-app-cloning.md)
 * [Azure App Service에서 앱 백업](manage-backup.md)
 * [Azure Traffic Manager에 대한 Azure 리소스 관리자 지원 미리 보기](../traffic-manager/traffic-manager-powershell-arm.md)

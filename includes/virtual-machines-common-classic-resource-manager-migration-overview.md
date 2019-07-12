@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182177"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671313"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 
@@ -29,7 +29,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 * Virtual Machines
 * 가용성 집합
 * Virtual Machines가 있는 Cloud Services
-* 저장소 계정
+* Storage 계정
 * Virtual Network
 * VPN Gateway
 * ExpressRoute 게이트웨이 _(Virtual Network 전용으로 동일한 구독 내)_
@@ -102,7 +102,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 ### <a name="unsupported-features"></a>지원되지 않는 기능
 현재 지원되지 않는 기능은 다음과 같습니다. 이러한 설정을 제거하고 VM을 마이그레이션한 다음 Resource Manager 배포 모델에서 설정을 다시 사용하도록 지정할 수 있습니다(선택 사항).
 
-| 리소스 공급자 | 기능 | 권장 사항 |
+| 리소스 공급자 | 기능 | 권장 |
 | --- | --- | --- |
 | 컴퓨팅 | 연결되지 않은 가상 컴퓨터 디스크 | 이들 디스크 뒤에 있는 VHD Blob은 Storage 계정을 마이그레이션할 때 마이그레이션됩니다. |
 | 컴퓨팅 | 가상 머신 이미지 | 이들 디스크 뒤에 있는 VHD Blob은 Storage 계정을 마이그레이션할 때 마이그레이션됩니다. |
@@ -113,13 +113,13 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성
 현재 지원되지 않는 구성은 다음과 같습니다.
 
-| 서비스 | 구성 | 권장 사항 |
+| 서비스 | Configuration | 권장 |
 | --- | --- | --- |
-| Resource Manager |역할 기반 Access Control (RBAC) 클래식 리소스에 대 한 |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
+| 리소스 관리자 |역할 기반 Access Control (RBAC) 클래식 리소스에 대 한 |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
 | 컴퓨팅 |VM과 연결된 여러 서브넷 |한 서브넷만 참조하도록 서브넷 구성을 업데이트합니다. 이를 위해 VM에서 보조 NIC(다른 서브넷 의미)를 제거하고 마이그레이션이 완료되면 다시 연결해야 할 수 있습니다. |
 | 컴퓨팅 |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 머신 |VM을 삭제할 수 있습니다(선택 사항). |
 | 컴퓨팅 |경고, 자동 크기 조정 정책이 있는 가상 머신 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |
-| 컴퓨팅 |XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) |이 기능은 지원되지 않습니다. 마이그레이션을 계속하려면 가상 머신에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다. |
+| 컴퓨팅 |XML VM 확장(BGInfo 1.*, Visual Studio 디버거, 웹 배포 및 원격 디버깅) |이는 지원되지 않습니다. 마이그레이션을 계속하려면 가상 머신에서 이러한 확장을 제거하는 것이 좋습니다. 그러지 않으면 마이그레이션 프로세스 중에 자동으로 삭제됩니다. |
 | 컴퓨팅 |Premium Storage를 사용한 부팅 진단 |마이그레이션을 계속하기 전에 VM에 대한 부팅 진단 기능을 비활성화합니다. 마이그레이션이 완료된 후에 Resource Manager 스택에서 부팅 진단을 재활성화할 수 있습니다. 또한 스크린샷 및 직렬 로그에 대해 사용되는 blob은 그러한 blob에 대해 요금이 부과되지 않도록 삭제해야 합니다. |
 | 컴퓨팅 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다. |
 | 컴퓨팅 | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |

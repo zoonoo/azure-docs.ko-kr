@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 1bfc0be81d42e922c47755543fb65aa413ec73a9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6fbd20c201e1b141b7276e3283599b00cdefd118
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478759"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795294"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Azure REST API에 사용자 지정 작업 추가
 
@@ -132,7 +132,7 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 action | *예* | 정의 된 동작의 이름을 합니다 **ResourceProvider**합니다.
 id | *예* | 리소스 ID를 **ResourceProvider**합니다.
@@ -186,7 +186,7 @@ Azure Resource Manager 템플릿 샘플:
 }
 ```
 
-매개 변수 | 필수 | 설명
+매개 변수 | 필수 | Description
 ---|---|---
 resourceIdentifier | *예* | 리소스 ID를 **ResourceProvider**합니다.
 apiVersion | *예* | 리소스 런타임 API 버전입니다. 항상 "2018-09-01-미리 보기" 이어야 합니다.
@@ -195,5 +195,6 @@ functionValues | *no* | 요청 본문에 전송 합니다 **끝점**합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 사용자 지정 리소스 공급자에 대 한 개요](./custom-providers-overview.md)
-- [자습서: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [빠른 시작: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [자습서: Azure에서 사용자 지정 작업 및 리소스 만들기](./tutorial-custom-providers-101.md)
 - [방법: Azure REST API에 사용자 지정 리소스 추가](./custom-providers-resources-endpoint-how-to.md)

@@ -7,13 +7,13 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: geetha
-ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: geg
+ms.openlocfilehash: 63c492f502634c6c60a6f9ec0f0d7003e56ac0a2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127897"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705012"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup을 사용하여 암호화된 VM의 Key Vault 키 및 암호 복원
 
@@ -21,7 +21,7 @@ ms.locfileid: "66127897"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **암호화된 VM 백업** - 암호화된 Azure VM은 Azure Backup을 사용하여 백업됩니다. 암호화된 Azure VM을 백업하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 Azure VM의 백업 및 복원 관리](backup-azure-vms-automation.md) 문서를 참조하세요.
 * **Azure Key Vault 구성** – 키 및 암호를 복원해야 하는 Key Vault가 이미 있는지 확인합니다. Key Vault 관리에 대한 자세한 내용은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md) 문서를 참조하세요.

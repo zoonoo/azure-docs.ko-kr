@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070419"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827072"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리형 인스턴스로 마이그레이션
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure 데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+
+> [!NOTE]
+> 이동 하려는 빠르게 시작 하 고 관리 되는 인스턴스를 시도 하려는 경우 [빠른 시작 가이드](/sql-database-managed-instance-quickstart-guide.md) 이 페이지를 대신 합니다. 
 
 높은 수준에서 데이터베이스 마이그레이션 프로세스는 다음과 같습니다.
 
 ![마이그레이션 프로세스](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [관리되는 인스턴스 호환성 평가](#assess-managed-instance-compatibility)
-- [앱 연결 옵션 선택](sql-database-managed-instance-connect-app.md)
-- [최적 크기의 관리되는 인스턴스에 배포](#deploy-to-an-optimally-sized-managed-instance)
-- [마이그레이션 방법 선택 및 마이그레이션](#select-migration-method-and-migrate)
-- [애플리케이션 모니터링](#monitor-applications)
+- [관리 되는 인스턴스 호환성 평가](#assess-managed-instance-compatibility) 마이그레이션을 방해할 수 있는 차단 문제가 발생 하지는 확인 해야 합니다.
+  - 이 단계는 또한 복사본을 만들기 전에만 [성능 기준선](#create-performance-baseline) 원본 SQL Server 인스턴스에서 리소스 사용량을 확인 하 합니다. O 하려는 경우이 단계는 필요 합니다. 올바른 크기의 관리 되는 인스턴스를 배포 하 고 마이그레이션 후 성능 영향을 받지 않습니다 확인 합니다.
+- [앱 연결 옵션을 선택 합니다.](sql-database-managed-instance-connect-app.md)
+- [최적 크기의 관리 되는 인스턴스에 배포](#deploy-to-an-optimally-sized-managed-instance) 기술 특성 (Vcore 수, 메모리의 양) 및 관리 되는 인스턴스의 성능 계층 (업무용, 범용)을 선택할가 있습니다.
+- [마이그레이션 방법 선택 및 마이그레이션](#select-migration-method-and-migrate) 오프 라인 마이그레이션 (기본 백업/복원, 데이터베이스 importe 내보낼) 또는 온라인 마이그레이션 (데이터 마이그레이션 서비스, 트랜잭션 복제)를 사용 하 여 데이터베이스를 마이그레이션하면 됩니다.
+- [응용 프로그램 모니터링](#monitor-applications) 예상 성능 되도록 합니다.
 
 > [!NOTE]
 > 개별 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
@@ -42,7 +46,7 @@ ms.locfileid: "67070419"
 
 [DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 관리형 인스턴스를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 관리형 인스턴스를 통해 제거되었으므로 관리되는 인스턴스에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 글로벌 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 관리되는 인스턴스에서 사용할 수 있습니다.
 
-관리되는 인스턴스 배포 옵션에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+관리되는 인스턴스 배포 옵션에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 다음은 몇 가지 예입니다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스해야 하는 경우(예: SQL Server가 있는 동일한 가상 머신에 타사 또는 사용자 지정 에이전트를 설치하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원되지 않는 기능에 대한 엄격한 종속성이 있는 경우
@@ -58,7 +62,11 @@ ms.locfileid: "67070419"
 
 ### <a name="create-performance-baseline"></a>성능 기준 만들기
 
-관리 되는 인스턴스에서 원래 SQL Server에서 실행 중인 워크 로드를 사용 하 여 워크 로드의 성능을 비교 하는 경우 비교에 사용할 수 있는 성능 기준선을 만드는 해야 합니다. SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 같습니다. 
+관리 되는 인스턴스에서 원래 SQL Server에서 실행 중인 워크 로드를 사용 하 여 워크 로드의 성능을 비교 하는 경우 비교에 사용할 수 있는 성능 기준선을 만드는 해야 합니다. 
+
+성능 기준선 평균/최대 CPU 사용량, 평균/최대 디스크 IO 대기 시간, 처리량와 같은 매개 변수 집합이 IOPS, 평균/최대 페이지 수명 예상 평균 tempdb의 최대 크기입니다. 측정 하 고 이러한 매개 변수에 대 한 기준선 값을 기록 하는 일을 해야 하므로 마이그레이션 후 유사 하거나 더 나은 매개 변수가 하려고 합니다. 시스템 매개 변수 외에도 사용자 워크 로드 및 측정값 최소/평균/최대 기간, 선택한 쿼리에 대 한 CPU 사용량의에서 대표 쿼리 또는 가장 중요 한 쿼리 집합을 선택 해야 합니다. 이러한 값은 원본 SQL Server에서 관리 되는 인스턴스에서 원래 값을 실행 하는 워크 로드의 성능을 비교할 수 있습니다.
+
+SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 같습니다. 
 - [SQL Server 인스턴스에서 CPU 사용량 모니터링](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) 기록 평균 및 최대 CPU 사용량입니다.
 - [SQL Server 인스턴스에서 메모리 사용량을 모니터링](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) 버퍼 풀과 같은 다른 구성 요소에서 사용 되는 메모리의 양을 결정 및 계획 캐시, 열-저장소 풀 [in-memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)등입니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 최대 값을 찾아야 합니다.
 - 디스크 IO 사용량을 사용 하 여 원본 SQL Server 인스턴스 모니터링 [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 보기 또는 [성능 카운터](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)합니다.
@@ -72,9 +80,10 @@ ms.locfileid: "67070419"
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 
 관리되는 인스턴스는 클라우드로 이동할 온-프레미스 워크로드에 맞게 조정됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [새 구매 모델](sql-database-service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리되는 인스턴스에 대한 구매 모델은 가상 코어 수 또는 "vCore 수"를 기반으로 하며, 추가 스토리지 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다. 다음은 적절 한 서비스 계층 및 특성을 선택할 수 있는 몇 가지 일반적인 지침에 대 한 설명입니다.
-- [SQL Server 인스턴스에서 CPU 사용량 모니터링](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) 및 검사는 얼마나 (동적 관리 뷰, SQL Server Management Studio 또는 다른 모니터링 도구를 사용 하 여) 현재 사용 되는 전원 계산 합니다. CPU 특성에 맞게 크기를 조정 해야 할 수 있는 포함 하는 SQL server에서 사용 하 고 있는 코어 수와 일치 하는 관리 되는 인스턴스를 프로 비전 할 수 있습니다 [관리 되는 인스턴스를 설치한 VM 특성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)합니다.
-- SQL Server 인스턴스에서 사용 가능한 메모리 양을 확인 하 고 선택 [일치 하는 메모리가 있는 서비스 계층](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)합니다. 확인 하려면 SQL Server 인스턴스 페이지 수명 예상 측정 유용 [메모리를 추가 해야](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)합니다.
-- 범용 및 중요 비즈니스용 서비스 계층 중에서 선택할 파일 하위 시스템의 IO 대기 시간을 측정 합니다.
+- SQL Server에서 사용 하 고 있는 코어 수와 일치 하는 관리 되는 인스턴스를 프로 비전 할 수는 CPU 사용량 기준에 따라 해당 CPU 특징이 포함 해야 할 수에 맞게 크기가 조정 될 [VM 특성은 관리 되는 인스턴스가 있는 설치](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)합니다.
+- 초기 메모리 사용량을 기준으로 선택할 [일치 하는 메모리가 있는 서비스 계층](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)합니다. 일치 하는 메모리 (예를 들어 5.1 GB/vCore Gen5에서)에 vcore 크기를 사용 하 여 관리 되는 인스턴스를 선택 해야 하므로 메모리의 양은 직접 선택할 수 없습니다. 
+- 기반 IO 기준 파일 하위 시스템의 대기 시간 (대기 시간이 5ms 보다 큰) 범용 및 중요 비즈니스용 서비스 계층 간의 선택 (대기 시간이 3 밀리초 미만).
+- 초기 처리량에 따라 데이터의 크기를 미리 할당 또는 로그 파일을 하는 IO 성능이 필요 합니다.
 
 계산을 선택할 수 있습니다 및 저장소 리소스 배포 시 시간 및 사용 하 여 응용 프로그램에 대 한 가동 중지 시간을 도입 하지 않고 나중에 변경 된 [Azure portal](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ SAS 자격 증명을 사용하여 데이터베이스 백업을 관리되는 인�
 매개 변수의 변경 하거나 필요에 맞는 워크 로드 성능에 도달할 때까지 최적의 구성을 수렴 서비스 계층을 업그레이드 합니다.
 
 ### <a name="monitor-performance"></a>성능 모니터링
+
+관리 되는 인스턴스는 다양 한 모니터링 및 문제 해결을 위한 고급 도구를 제공 하 고 인스턴스 성능을 모니터링 하 고 사용 해야 합니다. 일부 매개 변수는 프로그램을 모니터링 해야는:
+- 결정할 인스턴스에서 CPU 사용량은 프로 비전 vcore는 워크 로드에 대 한 올바른 일치를 수행 합니다.
+- 확인 하려면 관리 되는 인스턴스 페이지 수명 예상 [메모리가 해야](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)합니다.
+- 대기 작업 통계와 같은 `INSTANCE_LOG_GOVERNOR` 또는 `PAGEIOLATCH` 할 저장소 IO 문제, 특히 더 나은 IO 성능을 얻기 위해 파일을 미리 할당 해야 하는 일반적인 용도 계층에서 차례로 설명 합니다.
+
+## <a name="leverage-advanced-paas-features"></a>고급 PaaS 기능 활용
 
 완전히 관리 되는 플랫폼에는 워크 로드 성능을 일치 하는 하면 SQL Server 워크 로드 성능을 확인 하 고 SQL Database 서비스의 일부로 자동으로 제공 되는 이점을 활용 합니다. 
 

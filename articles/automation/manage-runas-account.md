@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478560"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798504"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -45,7 +45,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 실행 계정을 만들거나 업데이트하려면 특정 권한이 있어야 합니다. Azure Active Directory의 전역 관리자 및 구독에 소유자는 모든 작업을 완료 수 있습니다. 업무가 구분되어 있는 경우를 위해 다음 표에 작업, 해당 cmdlet 및 필요한 권한의 목록이 나와 있습니다.
 
-|Task|Cmdlet  |최소 권한  |권한을 설정하는 위치|
+|태스크|Cmdlet  |최소 권한  |권한을 설정하는 위치|
 |---|---------|---------|---|
 |Azure AD 애플리케이션 만들기|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 애플리케이션 개발자 역할<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure Active Directory > 앱 등록 |
 |애플리케이션에 자격 증명을 추가합니다.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 애플리케이션 관리자 또는 글로벌 관리자<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure Active Directory > 앱 등록|
@@ -75,7 +75,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 ## <a name="create-run-as-account-using-powershell"></a>PowerShell을 사용하여 실행 계정 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 다음 목록에서는 PowerShell에서 실행 계정을 만들기 위한 요구 사항을 제공합니다.
 
@@ -104,7 +104,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 1. 컴퓨터에 다음 스크립트를 저장합니다. 이 예에서는 이를 *New-RunAsAccount.ps1*이라는 파일 이름으로 저장합니다.
 
-   이 스크립트는 여러 Azure Resource Manager cmdlet을 사용하여 리소스를 만듭니다. 다음 표에는 cmdlet 및 필요한 권한이 나와 있습니다.
+   이 스크립트는 여러 Azure Resource Manager cmdlet을 사용하여 리소스를 만듭니다. 위의 [권한을](#permissions) 표에서 cmdlet 및 필요한 권한을 보여 줍니다.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 ## <a name="limiting-run-as-account-permissions"></a>실행 계정 권한 제한
 
-Azure Automation의 리소스에 대한 자동화의 대상 지정을 제어하기 위해 실행 계정에는 기본적으로 구독에 대한 참가자 권한이 부여됩니다. RunAs 서비스 주체가 수행할 수 있는 작업을 제한해야 하는 경우, 해당 계정을 참가자 역할에서 구독으로 제거하고 지정하려는 리소스 그룹에 참가자로 추가할 수 있습니다.
+Azure에서 리소스에 대 한 자동화의 대상 지정을 제어 하기 위해 실행할 수 있습니다 합니다 [업데이트 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) 기존 실행 계정 서비스 주체를 변경 하려면 PowerShell 갤러리의 스크립트 만들고 사용자 지정 역할 정의 사용 합니다. 이 역할은 권한이 제외한 모든 리소스 [Key Vault](https://docs.microsoft.com/azure/key-vault/)합니다. 
 
-Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 선택합니다. **액세스 제어(IAM)** , **역할 할당** 탭을 차례로 선택합니다. Azure Automation의 서비스 주체(예: \<AutomationAccountName\>_고유 식별자)를 검색합니다. 계정을 선택하고 **제거**를 클릭하여 구독에서 제거합니다.
+> [!IMPORTANT]
+> 실행 한 후의 `Update-AutomationRunAsAccountRoleAssignments.ps1` 스크립트, runbook 실행 계정을 사용 하 여 key Vault에 액세스 하는 더 이상 작동 합니다. Azure key Vault에 대 한 호출에 대 한 계정에서 runbook을 검토 해야 합니다.
+>
+> 해야 하는 Azure Automation runbook에서 key Vault에 액세스할 수 있도록 [RunAs 계정을 KeyVault의 사용 권한을 추가](#add-permissions-to-key-vault)합니다.
 
-![구독 참가자](media/manage-runas-account/automation-account-remove-subscription.png)
+RunAs 서비스 주체가 수행할 수 있는 더 제한 해야 하는 경우에 다른 리소스 형식을 추가할 수 있습니다는 `NotActions` 사용자 지정 역할 정의 합니다. 다음 예제에 대 한 액세스를 제한 `Microsoft.Compute`합니다. 이를 추가 하는 경우는 **NotActions** 역할 정의의이 역할 됩니다 모든 계산 리소스에 액세스할 수 있습니다. 역할 정의 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 역할 정의 이해할](../role-based-access-control/role-definitions.md)합니다.
 
-리소스 그룹에 서비스 주체를 추가하려면 Azure Portal에서 리소스 그룹을 선택하고 **액세스 제어(IAM)** 를 선택합니다. **역할 할당 추가**를 선택하면 **역할 할당 추가** 페이지가 열립니다. **역할**에 **참가자**를 선택합니다. **선택** 텍스트 상자에 실행 계정에 대한 서비스 주체의 이름을 입력하고 목록에서 선택합니다. **저장**을 클릭하여 변경 내용을 저장합니다. Azure Automation 실행 서비스 주체 액세스 권한을 부여할 리소스 그룹에 대해 이 단계를 수행합니다.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+실행 계정에서 사용 하는 서비스 주체 인지를 확인 하는 **참가자** 또는 사용자 지정 역할 정의 Automation 계정으로 이동한 후 아래 **계정 설정**선택, **으로 실행 계정** > **Azure 실행 계정**합니다. 아래 **역할** 사용 되는 역할 정의 찾을 수 있습니다. 
+
+[![](media/manage-runas-account/verify-role.png "실행 계정 역할 확인")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+여러 구독 또는 Automation 계정에 대 한 Automation 실행 계정으로 사용 되는 역할 정의 확인 하려면 사용할 수 있습니다 합니다 [검사 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) PowerShell 갤러리의 스크립트입니다.
+
+### <a name="add-permissions-to-key-vault"></a>Key Vault에 권한 추가
+
+Azure Key Vault를 관리 하는 자동화를 허용 하려는 실행 계정 서비스 주체 사용자 지정 역할 정의 사용 하는 경우이 동작을 허용 하려면 추가 단계를 수행 해야 합니다.
+
+* Key Vault에 권한 부여
+* 액세스 정책 설정
+
+사용할 수는 [확장 AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) keyvault에 계정으로 실행 권한 부여를 방문 하는 PowerShell 갤러리에서 스크립트 [key vault에 대 한 응용 프로그램 액세스를 부여 합니다. ](../key-vault/key-vault-group-permissions-for-apps.md) settings 권한과 KeyVault에 대 한 자세한 내용은 합니다.
 
 ## <a name="misconfiguration"></a>잘못된 구성
 

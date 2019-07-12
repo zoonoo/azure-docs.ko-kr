@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275474"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603620"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 서버 리스 (미리 보기)
 
@@ -166,7 +166,7 @@ Autoresume autopause 하지 않는 데이터베이스를 대기 시간은 일반
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
    |최소 vcore 수|최대 vCore 수를 초과하지 않는 {0.5, 1, 2, 4}개 중 하나|0.5개 vCore|
-   |자동 일시 중지 지연|최소: 360분(6시간)<br>최대: 10,080분(7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|360분|
+   |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10,080분(7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|60분|
 
 > [!NOTE]
 > T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
@@ -255,7 +255,7 @@ Set-AzSqlDatabase
 
 서버 리스 데이터베이스의 응용 프로그램 패키지와 사용자 풀의 리소스 사용량을 모니터링 하는 것에 대 한 메트릭은 다음 표에 나열 됩니다.
 
-|엔터티|메트릭|설명|Units|
+|엔터티|메트릭|Description|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|

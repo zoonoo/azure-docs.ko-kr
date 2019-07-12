@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481481"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724004"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -53,10 +53,11 @@ Azure AD 용 PingAccess를 사용 하 여 인증에 대 한 헤더를 사용 하
 응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시 된 응용 프로그램에 지시 하는 Windows Server 서비스. 자세한 설치 지침은 참조 [자습서: Azure Active Directory에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 합니다.](application-proxy-add-on-premises-application.md)합니다.
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 응용 프로그램 관리자입니다. 합니다 **Azure Active Directory 관리 센터** 페이지가 나타납니다.
-2. 선택 **Azure Active Directory** > **응용 프로그램 프록시** > **커넥터 서비스 다운로드**합니다. 합니다 **응용 프로그램 프록시 커넥터 다운로드** 페이지가 나타납니다.
+1. 선택 **Azure Active Directory** > **응용 프로그램 프록시** > **커넥터 서비스 다운로드**합니다. 합니다 **응용 프로그램 프록시 커넥터 다운로드** 페이지가 나타납니다.
 
    ![응용 프로그램 프록시 커넥터 다운로드](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. 설치 지침을 따릅니다.
+
+1. 설치 지침을 따릅니다.
 
 커넥터를 다운로드 해야 자동으로 응용 프로그램 프록시 사용 디렉터리에 대 한 있지만 그렇지 않은 경우 선택할 수 있습니다 **응용 프로그램 프록시 사용**합니다.
 
@@ -112,7 +113,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
    ![헤더 기반 로그온 화면 및 PingAccess를 보여 줍니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
 
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 해야 리디렉션 URL이 외부 URL로 설정 합니다.
 
@@ -181,7 +182,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 1. 애플리케이션을 선택합니다.
 1. 세로 막대에서 합니다 **앱 등록** 응용 프로그램 페이지를 선택 **매니페스트**합니다. 응용 프로그램의 등록을 위한 매니페스트 JSON 코드가 표시 됩니다.
 1. 검색 된 `acceptMappedClaims` 필드 및 값으로 변경 `True`합니다.
-1. **저장**을 선택합니다.
+1.           **저장**을 선택합니다.
 
 ### <a name="use-of-optional-claims-optional"></a>(선택 사항) 선택적 클레임의 사용
 
@@ -205,7 +206,7 @@ PingAccess를 사용 하는 access_token에 전자 메일 주소를 포함 하�
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>클레임 매핑 정책의 (선택 사항) 사용
 
-[클레임 매핑 정책 (미리 보기)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) AzureAD에 존재 하지 않는 특성에 대 한 합니다. 클레임 매핑을 사용 하면 ADFS 또는 사용자 개체에 의해 백업 되는 추가 사용자 지정 클레임을 추가 하 여 클라우드로 기존 온-프레미스 앱을 마이그레이션할 수 있습니다.
+[클레임 매핑 정책 (미리 보기)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) AzureAD에 존재 하지 않는 특성에 대 한 합니다. 클레임 매핑을 사용 하면 ADFS 또는 사용자 개체에 의해 백업 되는 추가 사용자 지정 클레임을 추가 하 여 클라우드로 기존 온-프레미스 앱을 마이그레이션할 수 있습니다.
 
 응용 프로그램 사용자 지정 클레임을 사용 하 여 추가 필드가 포함 되도록 해야 하면 수도 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)합니다.
 

@@ -5,7 +5,7 @@ keywords: ssh 연결 거부, ssh 오류, azure ssh, SSH 연결 실패
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 190aab1f321aa9014eea95a63d525b394288b03b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61405257"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709266"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 이 문서는 Linux VM(가상 머신)에 연결하려고 할 때 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제로 인해 발생하는 문제를 찾고 수정하도록 돕습니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -206,7 +206,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />VM 다시 시작
 SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 계산 문제를 해결할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택한 다음, **다시 시작**을 선택합니다.
 
 ![Azure Portal에서 VM 다시 시작](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -233,7 +233,7 @@ Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제�
 >
 >
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Azure Portal을 사용하여 VM을 다시 배포하려면 VM을 선택하고 **지원 + 문제 해결** 섹션까지 아래로 스크롤합니다. 다음 예제와 같이 **다시 배포**를 선택합니다.
 
 ![Azure Portal에서 VM 다시 배포](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -269,7 +269,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 * VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br>
      VM을 선택하고 **설정** > **상태 확인**까지 아래로 스크롤합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.
 * 애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 * 클래식 배포 모델을 사용하여 만든 가상 머신의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](../linux/classic/reset-access-classic.md)을 참조하세요.

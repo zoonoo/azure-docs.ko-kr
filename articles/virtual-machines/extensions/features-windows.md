@@ -4,7 +4,7 @@ description: 확장이 제공하거나 개선하는 기능별로 그룹화하여
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd64b54b1a30080d7942a754bc0c0c72c59f88
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160264"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705980"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -43,7 +43,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](custom-script-windows.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -141,7 +141,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzVMExtension 참조](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)를 참조하세요.
 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -418,11 +418,11 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. **제거**를 선택합니다.
 
 ## <a name="common-vm-extensions-reference"></a>일반 VM 확장 참조
-| 확장 이름 | 설명 | 자세한 정보 |
+| 확장 이름 | Description | 자세한 정보 |
 | --- | --- | --- |
 | Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](custom-script-windows.md) |
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](dsc-overview.md) |
-| Azure Diagnostics 확장 |Azure Diagnostics 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure Diagnostics 확장 |Azure Diagnostics 관리 |[Azure Diagnostics 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>다음 단계

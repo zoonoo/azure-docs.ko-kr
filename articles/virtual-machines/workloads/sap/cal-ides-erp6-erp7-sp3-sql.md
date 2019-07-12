@@ -4,7 +4,7 @@ description: Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b2b3d46d0352f72b1ffb513a96c1ab5dc25ad54
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836588"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707492"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES 시스템을 배포하는 방법을 설명합니다. 스크린샷은 단계별 프로세스를 보여 줍니다. 다른 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -44,7 +44,7 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     b. Azure 구독을 입력합니다. SAP CAL 계정은 하나의 구독에만 할당될 수 있습니다. 둘 이상의 구독이 필요한 경우 다른 SAP CAL 계정을 만들어야 합니다.
     
-    다. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
+    c. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
 
    > [!NOTE]
    >  다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.

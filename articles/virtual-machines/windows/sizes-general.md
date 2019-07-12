@@ -4,7 +4,7 @@ description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 543629e8b14039ce6e9a229d7bd5be05ade4d3ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe43e7cafd2077e0ab67e44ad9564801fb04e061
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513829"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710321"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -30,7 +30,7 @@ ms.locfileid: "64513829"
 
 
 ## <a name="other-sizes"></a>기타 크기
-- [Compute에 최적화](sizes-compute.md)
+- [컴퓨팅 최적화](sizes-compute.md)
 - [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)
 - [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
@@ -38,5 +38,5 @@ ms.locfileid: "64513829"
 - [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
-[ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+[ACU(Azure 컴퓨팅 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 

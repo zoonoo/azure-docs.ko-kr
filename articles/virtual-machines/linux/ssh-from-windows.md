@@ -4,7 +4,7 @@ description: Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure�
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd5eeb3bc3864dc0203c558228dce2f54dbaa79d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473712"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708813"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -110,7 +110,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 ### <a name="connect-with-putty"></a>PuTTY로 연결
 
-[PuTTY 다운로드 패키지](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 설치하고 이전에 PuTTY 개인 키(.ppk 파일)를 생성한 경우 PuTTY로 Linux VM에 연결할 수 있습니다.
+[PuTTY 다운로드 패키지](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 설치하고 이전에 PuTTY 프라이빗 키(.ppk 파일)를 생성한 경우 PuTTY로 Linux VM에 연결할 수 있습니다.
 
 1. PuTTY를 시작합니다.
 

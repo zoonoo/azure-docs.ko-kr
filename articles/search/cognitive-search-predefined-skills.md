@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7925f3aef4123fddd3a96c6e62971b881ae4cbc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9dfa6af4fb13018051c06783e5ae2bc3f49c0da
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021870"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672102"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>콘텐츠 보강을 위해 미리 정의된 기술(Azure Search)
 
@@ -31,7 +31,7 @@ ms.locfileid: "65021870"
 
 여러 기술은 사용하거나 생성하는 대상에 유연성이 있습니다. 일반적으로 대부분의 기술은 미리 학습된 모델을 기반으로 하므로 고유한 학습 데이터를 사용하여 모델을 학습할 수 없습니다. 다음 표에서는 Microsoft에서 제공하는 기술을 열거하고 설명합니다. 
 
-| 기술 | 설명 |
+| 기술 | Description |
 |-------|-------------|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | 이 기술은 미리 학습된 모델을 통해 용어 배치, 언어 규칙, 다른 용어에 대한 근접성 및 원본 데이터 내에서 용어가 비정상적인 정도에 따라 중요한 문구를 검색합니다. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | 이 기술은 미리 학습된 모델을 통해 사용된 언어를 검색합니다(문서당 하나의 언어 ID). 동일한 텍스트 세그먼트 내에서 여러 언어가 사용되는 경우 주로 사용된 언어의 LCID가 출력됩니다.|
@@ -45,9 +45,9 @@ ms.locfileid: "65021870"
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 사용자 지정 Web API에 대한 HTTP 호출을 만들어 인식 검색 파이프라인의 확장을 허용합니다. |
 
 
-[사용자 지정 기술](cognitive-search-custom-skill-web-api.md)을 만드는 방법에 대한 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md) 및 [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조하세요.
+만들기에 대 한 지침은 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)를 참조 하십시오 [사용자 지정 인터페이스를 정의 하는 방법](cognitive-search-custom-skill-interface.md) 및 [예제: Cognitive search에 대해 사용자 지정 기술을 만들어](cognitive-search-create-custom-skill-example.md)합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)

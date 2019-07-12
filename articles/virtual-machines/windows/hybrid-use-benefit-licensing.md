@@ -4,7 +4,7 @@ description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windo
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 739c867171d7b59a68f7e4d11bbf50a189568ce7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681277"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722756"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
@@ -74,7 +74,7 @@ az vm create \
     --license-type Windows_Server
 ```
 
-### <a name="template"></a>Template
+### <a name="template"></a>템플릿
 Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있음
 ```json
 "properties": {
@@ -130,7 +130,7 @@ PowerShell 또는 Resource Manager 템플릿 또는 포털을 통해 VM을 배�
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-출력
+출력:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus

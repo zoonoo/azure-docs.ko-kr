@@ -4,7 +4,7 @@ description: 리소스 관리자 모델을 사용하여 만든 Windows 가상 �
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 7961656e0f295b3e1a9264d839da94de25a224a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 69c79db937d70bcc8ae834bf0bdf8f1930bed3c9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550310"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722749"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows Virtual Machines에 대한 자주 묻는 질문과 대답
 이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Windows 가상 머신에 대한 일부 일반적인 질문을 해결합니다. 이 항목의 Linux 버전을 참조 하세요 [질문을 Linux Virtual Machines에 대 한 질문과](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.

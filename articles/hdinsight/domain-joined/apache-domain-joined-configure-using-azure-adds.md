@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81f14fa54303911a34b334f41b5f7f6b0f9f394b
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126225"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720617"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -34,6 +34,8 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/create-instance.md)를 참조하세요. 
 
 Azure AD-DS를 사용하도록 설정하는 경우 모든 사용자 및 개체는 기본적으로 AAD(Azure Active Directory)에서 Azure AD-DS로 동기화를 시작합니다. 동기화 작업의 길이는 Azure AD의 개체 수에 따라 달라집니다. 수십만 개의 개체에 대한 동기화는 며칠이 걸릴 수 있습니다. 
+
+Azure AD DS를 사용 하는 도메인 이름은 39 자 여야 합니다 또는 less, HDInsight를 사용 하 여 작동 하도록 합니다.
 
 HDInsight 클러스터에 액세스 해야 하는 그룹에만 동기화 하도록 선택할 수 있습니다. 특정 그룹만 동기화하는 이 옵션은 *범위가 지정된 동기화*라고 합니다. 지침은 [Azure AD부터 관리 도메인까지로 범위가 지정된 동기화 구성](../../active-directory-domain-services/scoped-synchronization.md)을 참조하세요.
 
@@ -112,11 +114,11 @@ ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공
 
 다음 스크린샷에서는 Azure Portal의 성공적인 구성을 보여줍니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)을 선택합니다.
 
 만든 관리 ID는 새 클러스터를 만들 때 사용자 할당 관리 ID 드롭다운에서 선택할 수 있습니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

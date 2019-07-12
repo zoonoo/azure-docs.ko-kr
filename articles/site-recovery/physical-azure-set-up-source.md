@@ -6,20 +6,20 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/0/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508772"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589051"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
 - [Azure Portal](https://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음

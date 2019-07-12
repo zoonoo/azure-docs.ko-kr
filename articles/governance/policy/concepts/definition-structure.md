@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428752"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718191"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -25,7 +25,7 @@ ms.locfileid: "67428752"
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
 - 모드
-- 매개 변수
+- parameters
 - 표시 이름
 - description
 - 정책 규칙
@@ -70,7 +70,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>모드
 
 **모드** 되는 Azure 리소스 관리자 속성 또는 속성에 리소스 공급자 정책을 대상으로 하는 경우에 따라 구성 합니다.
 
@@ -105,7 +105,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
 - **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
-- `type`: 매개 변수가 **문자열** 또는 **배열**인지를 확인합니다.
+- `type`: 매개 변수 인지 여부를 확인 한 **문자열**, **배열**, **개체**, **부울**, **정수**, **부동 소수점**, 또는 **datetime**합니다.
 - `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
@@ -390,7 +390,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 수정 된 정책 규칙을 사용 하 여 `if()` 길이 확인 **이름** 가져오려고 시도 하기 전에 `substring()` 세 대 보다 적은 문자가 포함 된 값입니다. 하는 경우 **이름을** 너무 짧습니다., "abc로 시작 되지 않음" 값이 대신 반환 하 고 비교할 **abc**합니다. 시작 되지 않도록 하는 짧은 이름 사용 하 여 리소스 **abc** 정책 규칙을 여전히 실패 하지만 더 이상 평가 하는 동안 오류가 발생 합니다.
 
-### <a name="effect"></a>결과
+### <a name="effect"></a>영향
 
 Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 
@@ -510,7 +510,7 @@ Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들면 다음과 같습니다.
+사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

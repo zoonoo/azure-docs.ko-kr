@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076232"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621833"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
-이 자습서에서는 Azure Stream Analytics를 사용하는 방법에 대한 엔드투엔드 일러스트레이션을 제공합니다. 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 Azure Stream Analytics를 사용하는 방법에 대한 엔드투엔드 일러스트레이션을 제공합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다. 
 
 * 스트리밍 이벤트를 Azure Event Hubs의 인스턴스로 전환합니다. 이 자습서에서는 휴대폰 메타데이터 레코드 스트림을 시뮬레이트하는 앱을 사용합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "67076232"
 
 통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사에서는 고객에게 사기성 호출을 알리거나 고객이 특정 번호에 대한 서비스를 종료할 수 있도록 실시간으로 사기성 호출을 감지하려고 합니다. SIM 사기의 한 유형으로, 지리적으로 다른 위치에서 동일한 ID로 동시에 여러 호출을 이루어지는 경우가 있습니다. 이러한 유형의 사기 행위를 감지 하려면 회사 들어오는 전화 레코드를 검토 하 고 특정 패턴을 조사 해야-이 경우 다른 국가/지역에서 같은 시간대에 대 한 호출에 대 한 합니다. 이 범주에 속하는 모든 전화 레코드는 후속 분석을 위해 저장소에 기록됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에서는 샘플 전화 통화 메타데이터를 생성하는 클라이언트 앱을 사용하여 전화 통화 데이터를 시뮬레이션합니다. 앱에서 생성하는 일부 레코드는 사기성 호출과 유사합니다. 
 
@@ -207,7 +207,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 
 여기서 작성한 쿼리는 화면에 변환된 데이터를 표시하기만 합니다. 이후 섹션에서는 출력 싱크 및 변환된 데이터를 해당 싱크에 기록하는 쿼리를 구성합니다.
 
-이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/dn834998.aspx)를 참조하세요.
+이 언어에 대한 자세한 내용은 [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 참조하세요.
 
 ### <a name="get-sample-data-for-testing-queries"></a>쿼리를 테스트하기 위한 샘플 데이터 가져오기
 
@@ -289,11 +289,11 @@ TelcoGenerator 앱은 호출 레코드를 이벤트 허브로 보내고 Stream A
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    이 쿼리에서는 `FROM` 절에 `Timestamp By` 키워드를 사용하여 연속 창을 정의하는 데 사용할 입력 스트림의 타임스탬프 필드를 지정합니다. 이 경우 창은 각 레코드의 `CallRecTime` 필드에 따라 데이터를 세그먼트로 나눕니다. (이 필드를 지정하지 않으면 창 작업에서 각 이벤트가 이벤트 허브에 도착한 시간을 사용합니다.) [Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 “도착 시간과 애플리케이션 시간”을 참조하세요. 
+    이 쿼리에서는 `FROM` 절에 `Timestamp By` 키워드를 사용하여 연속 창을 정의하는 데 사용할 입력 스트림의 타임스탬프 필드를 지정합니다. 이 경우 창은 각 레코드의 `CallRecTime` 필드에 따라 데이터를 세그먼트로 나눕니다. (이 필드를 지정하지 않으면 창 작업에서 각 이벤트가 이벤트 허브에 도착한 시간을 사용합니다.) [Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)에서 “도착 시간과 애플리케이션 시간”을 참조하세요. 
 
     프로젝션에는 각 창의 끝에 대한 타임스탬프를 반환하는 `System.Timestamp`가 포함됩니다. 
 
-    연속 창을 사용할 것인지를 지정 하려면 사용 합니다 [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) 함수는 `GROUP BY` 절. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서는 연속 창 이루어져 있습니다 5 초 간격으로 5 초 분량의 호출에 대 한 국가/지역별 수를 발생할 수 있습니다.
+    연속 창을 사용할 것인지를 지정 하려면 사용 합니다 [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) 함수는 `GROUP BY` 절. 함수에서 시간 단위(마이크로초에서 하루까지) 및 창 크기(단위 수)를 지정합니다. 이 예제에서는 연속 창 이루어져 있습니다 5 초 간격으로 5 초 분량의 호출에 대 한 국가/지역별 수를 발생할 수 있습니다.
 
 2. **테스트**를 다시 클릭합니다. 결과에서 **WindowEnd** 아래 타임스탬프가 5초 단위로 증가하는 것을 알 수 있습니다.
 
@@ -365,7 +365,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. **저장**을 클릭합니다. 
+5. **Save**을 클릭합니다. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Streaming Analytics 작업 시작
@@ -417,6 +417,6 @@ Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표
 일반적인 Stream Analytics에 대한 자세한 내용은 다음 문서를 살펴보세요.
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

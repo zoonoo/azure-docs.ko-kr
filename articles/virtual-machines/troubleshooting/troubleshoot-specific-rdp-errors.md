@@ -5,7 +5,7 @@ keywords: 원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea8a2fa3a37815f3a7a48078e408e6607dc37eb4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318700"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709291"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
 Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할 때 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다. RDP를 사용하여 VM에 연결하는 데 문제가 있지만 특정 오류 메시지가 발생하지 않는다면 [원격 데스크톱에 대한 자세한 문제 해결 가이드](troubleshoot-rdp-connection.md)를 참조하세요.

@@ -4,7 +4,7 @@ description: Azure(대규모 인스턴스)의 SAP HANA에 대한 SKU입니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 043ecdcb83d2ee39e3373f029c00c6237f87601c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794015"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709701"
 ---
 # <a name="available-skus-for-hli"></a>HLI에 사용 가능한 SKU
 
@@ -27,7 +27,7 @@ SAP HANA on Azure(대규모 인스턴스) 서비스는 미국 서부, 미국 동
 
 [HANA 대규모 인스턴스의 SAP HANA 인증 SKU](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)는 다음과 유사합니다.
 
-| SAP 솔루션 | CPU | 메모리 | Storage | 가용성 |
+| SAP 솔루션 | CPU | 메모리 | 저장 공간 | 가용성 |
 | --- | --- | --- | --- | --- |
 | OLAP에 대해 최적화됨: SAP BW, BW/4HANA<br /> 또는 SAP HANA(일반 OLAP 워크로드용) | Azure S72에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 36 CPU 코어 및 72 CPU 스레드 |  768 GB |  3 TB | 더 이상 제공되지 않음 |
 | --- | Azure S144에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 72 CPU 코어 및 144 CPU 스레드 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
@@ -50,12 +50,12 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 
 많은 경우 이러한 고객 특정 서버 구성에는 SAP 인증 서버 단위보다 더 많은 메모리가 따릅니다. SAP 작업 시 고객은 SAP 지원을 받을 수 있고 고객 특정 규모 서버 구성에 대해 확인할 수 있습니다. Azure에서는 다음 HANA 대규모 인스턴스 표준 SKU를 사용할 수 있고 이러한 TDIv5 고객 특정 규모 프로젝트의 Microsoft 가격 목록이 제공됩니다.
 
-| SKU|CPU | 메모리 | Storage | 가용성 |
+| SKU|CPU | 메모리 | 저장 공간 | 가용성 |
 | ---| --- | --- | --- | --- |
 | S96 | Azure의 SAP HANA S96<br /> – 2개 Intel® Xeon® Processor E7-8890 v4,<br /> 48개 CPU 코어 및 96개 CPU 스레드 |  768 GB |  3 TB | 사용 가능 |
 
 
-| 메모리 확장이 가능한 <br /> 원래의 SKU | CPU | 메모리 | Storage | 가용성 |
+| 메모리 확장이 가능한 <br /> 원래의 SKU | CPU | 메모리 | 저장 공간 | 가용성 |
 | --- | --- | --- | --- | --- |
 | S192m 확장 가능 | Azure S192xm에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드 |  6.0 TB |  16 TB | 사용 가능 |
 | S384xm 확장 가능 | Azure S384xxm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |

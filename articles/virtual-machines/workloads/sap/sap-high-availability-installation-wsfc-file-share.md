@@ -4,7 +4,7 @@ description: SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0efb1ec30430a69563c61de667ad2568f2679a1b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357703"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708969"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -200,13 +200,13 @@ ms.locfileid: "66357703"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 WSFC(Windows Server 장애 조치(failover) 클러스터) 및 스케일 아웃 파일 서버를 사용하여 Azure에 고가용성 SAP 시스템을 설치하고 구성하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
 * [아키텍처 가이드: 파일 공유를 사용 하 여 SAP ASCS/SCS 인스턴스에 Windows 장애 조치 클러스터에서 클러스터][sap-high-availability-guide-wsfc-file-share]
 
-* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 Azure 인프라의 SAP 고가용성 준비][sap-high-availability-infrastructure-wsfc-file-share]
+* [SAP ASCS/SCS 인스턴스의 Windows 장애 조치 클러스터 및 파일 공유를 사용 하 여 Azure 인프라 SAP 고가용성 준비][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [Azure Vm에서 SAP NetWeaver에 대 한 고가용성][high-availability-guide]
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
 
-[클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]에 설명된 대로 SAP ASCS/SCS 클러스터 네트워크 이름(예: **pr1-ascs [10.0.6.7]** )을 만듭니다.
+SAP ASCS/SCS 클러스터 네트워크 이름을 만듭니다 (예를 들어 **pr1-ascs [10.0.6.7]** )에 설명 된 대로 [클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]합니다.
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>클러스터에 ASCS/SCS 및 ERS 인스턴스 설치
@@ -304,7 +304,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="add-a-probe-port"></a>프로브 포트 추가
 
-PowerShell을 사용하여 SAP 클러스터 리소스인 SAP-SID-IP 프로브 포트를 구성합니다. [이 문서][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]에 설명된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서 이 구성을 실행합니다.
+PowerShell을 사용하여 SAP 클러스터 리소스인 SAP-SID-IP 프로브 포트를 구성합니다. 설명 된 대로 SAP ASCS/SCS 클러스터 노드 중 하나에서이 구성을 실행 [이 문서의][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]합니다.
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>두 번째 ASCS/SCS 클러스터 노드 ASCS/SCS 인스턴스 설치
 
@@ -324,7 +324,7 @@ SAP ASCS/SCS 인스턴스 프로필에 매개 변수를 업데이트 \<SID >_ASC
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-SAP ASCS/SCS 인스턴스를 다시 시작 합니다. 설정 `KeepAlive` 지침에 따라 두 SAP ASCS/SCS 클러스터 노드에서 매개 변수 [SAP ASCS/SCS 인스턴스의 클러스터 노드에 레지스트리 항목 집합][high-availability-guide]합니다. 
+SAP ASCS/SCS 인스턴스를 다시 시작 합니다. 설정할 `KeepAlive` 지침에 따라 두 SAP ASCS/SCS 클러스터 노드에서 매개 변수 [SAP ASCS/SCS 인스턴스의 클러스터 노드에 레지스트리 항목을 설정][high-availability-guide]합니다. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 
@@ -335,10 +335,10 @@ SAP ASCS/SCS 인스턴스를 다시 시작 합니다. 설정 `KeepAlive` 지침�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 디스크 없이 장애 조치(Failover) 클러스터에 ASCS/SCS 인스턴스 설치 - HA 파일 공유에 대한 공식 SAP 지침][sap-official-ha-file-share-document]
+* [고가용성 파일 공유에 대 한 공식 SAP 지침 공유 디스크 없이 장애 조치 클러스터에 ASCS/SCS 인스턴스를 설치 합니다.][sap-official-ha-file-share-document]
 
-* [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
+* [Windows Server 2016의에서 저장소 공간 다이렉트][s2d-in-win-2016]
 
-* [애플리케이션 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [스케일 아웃 파일 서버에 대 한 응용 프로그램 데이터 개요][sofs-overview]
 
-* [Windows Server 2016 저장소의 새로운 기능][new-in-win-2016-storage]
+* [Windows Server 2016에서 저장소의 새로운 기능][new-in-win-2016-storage]

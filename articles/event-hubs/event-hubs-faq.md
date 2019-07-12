@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476124"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797007"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -83,7 +83,7 @@ Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 �
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
 
 네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
 

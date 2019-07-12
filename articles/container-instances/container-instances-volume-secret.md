@@ -7,25 +7,25 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2be640c8c7773ebd1fb5c83e67e3f0762d011e85
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563089"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657587"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container Instances에서 비밀 볼륨 탑재
 
 *비밀* 볼륨을 사용하여 중요한 정보를 컨테이너 그룹의 컨테이너에 제공할 수 있습니다. *비밀* 볼륨은 컨테이너 그룹의 컨테이너가 액세스할 수 있는 볼륨 내 파일에 비밀을 저장합니다. *비밀* 볼륨에 비밀을 저장하면 SSH 키 또는 데이터베이스 자격 증명 같은 중요한 데이터가 애플리케이션 코드에 추가되는 일을 방지할 수 있습니다.
 
-모든 *비밀* 볼륨은 [tmpfs][tmpfs], RAM 지원 파일 시스템에 의해 지원되며 비휘발성 저장소에는 해당 콘텐츠를 쓸 수 없습니다.
+모든 *비밀* 볼륨에 의해 지원 됩니다 [tmpfs][tmpfs], RAM 지원 파일 시스템; 내용도 비휘발성 저장소에 기록 되지 않습니다.
 
 > [!NOTE]
-> *비밀* 볼륨은 현재 Linux 컨테이너로 제한됩니다. [환경 변수 설정](container-instances-environment-variables.md)에서 Windows 및 Linux 컨테이너 모두에 대한 안전한 환경 변수를 전달하는 방법을 알아봅니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
+> *비밀* 볼륨은 현재 Linux 컨테이너로 제한됩니다. [환경 변수 설정](container-instances-environment-variables.md)에서 Windows 및 Linux 컨테이너 모두에 대한 안전한 환경 변수를 전달하는 방법을 알아봅니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 노력 하, 하는 동안에에서 현재 플랫폼의 차이점을 찾을 수 있습니다 합니다 [개요](container-instances-overview.md#linux-and-windows-containers)합니다.
 
 ## <a name="mount-secret-volume---azure-cli"></a>비밀 볼륨 탑재 - Azure CLI
 
-Azure CLI를 사용하여 하나 이상의 비밀이 포함된 컨테이너를 배포하려면 [az container create][az-container-create] 명령에 `--secrets` 및 `--secrets-mount-path` 매개 변수를 포함해야 합니다. 이 예제에서는 `/mnt/secrets`에서 두 비밀 "mysecret1" 및 "mysecret2"로 구성된 *비밀* 볼륨을 탑재합니다.
+Azure CLI를 사용 하 여 하나 이상의 암호를 사용 하 여 컨테이너를 배포 하려면 포함는 `--secrets` 및 `--secrets-mount-path` 에서 매개 변수를 [az 컨테이너 만들기][az-container-create] 명령입니다. 이 예제에서는 `/mnt/secrets`에서 두 비밀 "mysecret1" 및 "mysecret2"로 구성된 *비밀* 볼륨을 탑재합니다.
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +36,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-다음 [az container exec][az-container-exec] 출력은 실행 중인 컨테이너에서 셸을 열고, 비밀 볼륨 내 파일을 나열하고, 해당 콘텐츠를 표시합니다.
+다음 [az container exec][az-container-exec] 출력 표시는 실행 중인 컨테이너에서 셸을 열고 비밀 볼륨 내의 파일을 나열 차례로 해당 콘텐츠를 표시 합니다.
 
 ```console
 $ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -60,7 +60,7 @@ YAML 템플릿을 사용하여 배포하는 경우 비밀 값은 템플릿에서
 다음 YAML 템플릿은 `/mnt/secrets`에서 *비밀* 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2018-10-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +88,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-YAML 템플릿을 사용하여 배포하려면 위의 YAML을 `deploy-aci.yaml` 파일에 저장한 다음, `--file` 매개 변수를 사용하여 [az container create][az-container-create] 명령을 실행해야 합니다.
+YAML 템플릿을 사용 하 여를 배포 하려면 위의 YAML 라는 파일에 저장 `deploy-aci.yaml`를 실행 합니다 [az 컨테이너 만들기][az-container-create] 명령과 `--file` 매개 변수:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -108,7 +108,7 @@ CLI 및 YAML 배포 외에도, Azure [Resource Manager 템플릿](/azure/templat
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Resource Manager 템플릿을 사용하여 배포하려면 위의 JSON을 `deploy-aci.json` 파일에 저장한 다음, `--template-file` 매개 변수를 사용하여 [az group deployment create][az-group-deployment-create] 명령을 실행해야 합니다.
+Resource Manager 템플릿을 사용 하 여를 배포 하려면 위의 JSON 라는 파일에 저장 `deploy-aci.json`를 실행 합니다 [az 그룹 배포 만들기][az-group-deployment-create] 명령과 `--template-file` 매개 변수:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

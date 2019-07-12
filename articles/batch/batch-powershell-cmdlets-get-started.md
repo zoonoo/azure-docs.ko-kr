@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a98a98eea1b5c2824c1c54169c5c71456f3a2a64
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118887"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704780"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -30,7 +30,7 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 이 문서는 Az Batch 1.0.0의 cmdlet를 기반으로 합니다. 서비스 업데이트 및 향상을 최대한 활용하기 위해서 Azure PowerShell 모듈을 자주 업데이트하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure PowerShell 모듈을 설치하고 구성합니다](/powershell/azure/overview). 시험판 모듈처럼 특정 Azure Batch 모듈을 설치하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)를 참조하세요.
 
@@ -50,13 +50,13 @@ Batch cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure Batch cmdlet 참
 
 ### <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예를 들면 다음과 같습니다.
+**New-AzBatchAccount**는 지정된 리소스 그룹에서 Batch 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 실행하여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예를 들면 다음과 같습니다.
+그런 다음, 새 리소스 그룹에 Batch 계정을 만듭니다. <*account_name*>의 계정 이름과 리소스 그룹의 위치 및 이름을 지정합니다. Batch 계정을 만드는 데 다소 시간이 걸릴 수 있습니다. 예를 들어:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Batch 계정 삭제
 
-**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예를 들면 다음과 같습니다.
+**Remove-AzBatchAccount**는 배치 계정을 삭제합니다. 예:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -125,12 +125,12 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>Batch 풀 만들기
 
-Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열된 지원되는 Linux 또는 Windows VM 이미지 중 하나를 지정하거나 미리 준비한 사용자 지정 이미지를 제공할 수 있습니다.
+Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정할 지원 되는 Linux 중 하나를 지정 하거나 또는 Windows VM 이미지에 나열 된 경우는 [Azure Virtual Machines Marketplace][vm_marketplace], 또는 사용자가 준비한 사용자 지정 이미지를 제공 합니다.
 
 **New-AzBatchPool**을 실행하는 경우 PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 
@@ -175,7 +175,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount 매개 변수 사용
 
-기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예를 들면 다음과 같습니다.
+기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예를 들어:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

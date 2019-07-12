@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074637"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785470"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>웹 Api를 호출 하는 웹 앱에 web API 호출
 
@@ -28,7 +28,18 @@ ms.locfileid: "65074637"
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-다음은 작업의 간소화 된 코드는 `HomeController`합니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. 이 시간 코드는 REST API로 Microsoft Graph를 호출 하는 방법을 보여 주는 추가 되었습니다.
+다음은 작업의 간소화 된 코드는 `HomeController`합니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. 이 시간 코드는 REST API로 Microsoft Graph를 호출 하는 방법을 보여 주는 추가 되었습니다. Graph API에 대 한 URL에서 제공 되는 `appsettings.json` 라는 변수에서 읽고 파일 `webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

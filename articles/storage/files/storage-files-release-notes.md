@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ba7b8ae5c7e68c22b83583de6cd0b84f621d4b25
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449966"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786660"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,7 +23,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="supported-versions"></a>지원되는 버전
 다음 버전은 Azure 파일 동기화 에이전트에 대해 지원됩니다.
 
-| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
+| Milestone | 에이전트 버전 번호 | 릴리스 날짜 | Status |
 |----|----------------------|--------------|------------------|
 | V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | [플 라이팅](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | 2019 년 6 월 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨(권장 버전) |
@@ -40,7 +40,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 2018년 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 2018년 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 사항 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -62,7 +62,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     - 이 릴리스에서 안정성 및 성능 향상을 여러 가지가 있습니다. 그 중 일부를 대상으로 하 개선 더 효율적으로 계층화 하는 클라우드 및 Azure File Sync는 전체 작업으로 이러한 상황에서는 대역폭 일정 집합을 제한 해야 하는 경우.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -159,7 +159,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 기타 안정성 향상에 대 한 클라우드 계층화 및 동기화
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -256,7 +256,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
     - 동기화는 대규모 파일의 전송이 중단될 경우 재전송하지 않고 데이터 전송을 다시 시작합니다. 
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -339,7 +339,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 다음 릴리스 정보는 2018년 11월 13일 릴리스된 Azure 파일 동기화 에이전트의 버전 4.0.1.0에 대한 것입니다.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
@@ -415,7 +415,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 다음 릴리스 정보는 2018년 7월 19일 릴리스된 Azure 파일 동기화 에이전트의 버전 3.1.0.0에 대한 것입니다.
 
 ### <a name="evaluation-tool"></a>평가 도구
-Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) 섹션을 참조하세요. 
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
 Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.

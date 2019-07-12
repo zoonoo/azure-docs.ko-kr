@@ -6,12 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 4c6ccce493ffb25d7a2237e0d98a2b71b35c92c1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410239"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620984"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>배포 하 고 Azure PowerShell을 사용 하 여 Azure 방화벽 구성
 
@@ -46,7 +47,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 절차는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
@@ -168,7 +169,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
 
-응용 프로그램 규칙은 www.google.com에 대 한 아웃 바운드 액세스를 허용 합니다.
+응용 프로그램 규칙은 www.google.com 에 대 한 아웃 바운드 액세스를 허용 합니다.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
@@ -231,7 +232,7 @@ $NIC | Set-AzNetworkInterface
 
    두 명령 모두 방화벽을 통해 DNS 쿼리를 가져오고 있는지를 보여 주는 응답을 반환 해야 합니다.
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령을 실행 합니다.
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -241,7 +242,7 @@ $NIC | Set-AzNetworkInterface
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
+   www.google.com 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 

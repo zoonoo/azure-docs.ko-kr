@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397820"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705691"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
@@ -39,12 +39,14 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 
 1. 이전에 만든 애플리케이션 ID에 대한 [Key Vault에서 액세스 정책](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)을 만듭니다. 이 정책에 대한 “가져오기” 비밀 권한을 사용하도록 설정합니다. "권한 있는 애플리케이션" 또는 `applicationId` 설정은 관리 ID와 호환되지 않으므로 구성하지 마세요.
 
+    액세스 권한을 부여 하는 응용 프로그램에 키 자격 증명 모음에서 id는 일회성 작업 및 모든 Azure 구독에 대 한 동일한 상태로 유지 됩니다. 원하는 만큼 많은 인증서를 배포 하 고 사용할 수 있습니다. 
+
 ## <a name="reference-syntax"></a>참조 구문
 
 Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여기서 `{referenceString}`은 다음 옵션 중 하나로 대체됩니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
+> | 참조 문자열                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931 ).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |

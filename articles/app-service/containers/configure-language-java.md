@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509654"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786303"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -133,7 +133,7 @@ App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리�
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
-JAR 응용 프로그램을 배포 하는 경우 그 이름은 *app.jar* 기본 제공 이미지를 앱에 올바르게 식별할 수 있도록 합니다. (Maven 플러그 인은 자동으로 변경 합니다.) 경우 원하지 않는에 JAR을 바꾸려면 *app.jar*, JAR를 실행 하려면 명령 사용 하 여 셸 스크립트를 업로드할 수 있습니다. 이 스크립트에 전체 경로 붙여 합니다 [시작 파일](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) 포털의 구성 섹션에서 텍스트 상자에 붙여넣습니다.
+JAR 응용 프로그램을 배포 하는 경우 그 이름은 *app.jar* 기본 제공 이미지를 앱에 올바르게 식별할 수 있도록 합니다. (Maven 플러그 인은 자동으로 변경 합니다.) 경우 원하지 않는에 JAR을 바꾸려면 *app.jar*, JAR를 실행 하려면 명령 사용 하 여 셸 스크립트를 업로드할 수 있습니다. 이 스크립트에 전체 경로 붙여 합니다 [시작 파일](app-service-linux-faq.md#built-in-images) 포털의 구성 섹션에서 텍스트 상자에 붙여넣습니다.
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 
@@ -170,6 +170,10 @@ Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.en
 ### <a name="adjust-startup-timeout"></a>시작 시간 제한을 조정합니다
 
 Java 응용 프로그램 특히 큰 경우에 시작 시간 제한을 늘려야 합니다. 이렇게 하려면 응용 프로그램 설정 만들기 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 서비스 시간 초과 전까지 대기 해야 하는 시간 (초) 수로 설정 합니다. 최대값은 `1800` 시간 (초)입니다.
+
+### <a name="pre-compile-jsp-files"></a>JSP 파일을 미리 컴파일
+
+Tomcat 응용 프로그램의 성능 향상을 위해 App Service에 배포 하기 전에 JSP 파일을 컴파일할 수 있습니다. 사용할 수는 [Maven 플러그 인](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) Apache 선회 비행 1, 또는이 사용 하 여 제공한 [Ant 빌드 파일](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation)합니다.
 
 ## <a name="secure-applications"></a>보안 애플리케이션
 
@@ -267,7 +271,7 @@ Spring 또는 Tomcat 구성 파일에서 이러한 암호를 삽입, 환경 변�
 
 기본적으로 App Service는 이라는 이름으로 JAR 응용 프로그램 *app.jar*합니다. 이 이름에 해당 하는 경우 자동으로 실행 됩니다. Maven 사용자에 게는 JAR 이름을 포함 하 여 설정할 수 있습니다 `<finalName>app</finalName>` 에 `<build>` 섹션에 *pom.xml*합니다. [Gradle에서 동일 하 게 수행할 수 있습니다](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 설정 하 여는 `archiveFileName` 속성입니다.
 
-JAR에 대 한 다른 이름을 사용 하려는 경우 제공 해야 합니다 [시작 명령](app-service-linux-faq.md#built-in-images) JAR 파일을 실행 하는 합니다. 예: `java -jar my-jar-app.jar`. 구성 포털의 시작 명령에 대 한 값을 설정할 수 있습니다 > 일반 설정 또는 이름이 응용 프로그램 설정을 `STARTUP_COMMAND`합니다.
+JAR에 대 한 다른 이름을 사용 하려는 경우 제공 해야 합니다 [시작 명령](app-service-linux-faq.md#built-in-images) JAR 파일을 실행 하는 합니다. `java -jar my-jar-app.jar` )을 입력합니다. 구성 포털의 시작 명령에 대 한 값을 설정할 수 있습니다 > 일반 설정 또는 이름이 응용 프로그램 설정을 `STARTUP_COMMAND`합니다.
 
 ### <a name="server-port"></a>서버 포트
 
@@ -280,7 +284,7 @@ App Service Linux 응용 프로그램으로 포트 80에서 수신 대기 해야
 - [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
 - [Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
-## <a name="data-sources"></a>데이터 원본
+## <a name="data-sources"></a>데이터 소스
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -598,7 +602,7 @@ FTP를 사용 하 여 시작 스크립트에서 App Service 인스턴스의 위�
 
 App Service는 다음 작업을 다시 시작 되 면 다음에 시작 스크립트를 실행 하 고 필요한 구성 단계를 수행 합니다. 이 구성을 올바르게 수행을 테스트 하려면 SSH를 사용 하 여 App Service에 액세스할 수 있으며 다음 시작 스크립트를 직접 실행할 Bash 프롬프트에서 키를 누릅니다. 또한 App Service 로그를 검사할 수 있습니다. 이러한 옵션에 대 한 자세한 내용은 참조 하세요. [로깅 및 앱 디버깅](#logging-and-debugging-apps)합니다.
 
-다음으로 앱에 대 한 WildFly 구성을 업데이트 및 다시 배포 해야 합니다. 다음 단계를 사용하세요.
+다음으로 앱에 대 한 WildFly 구성을 업데이트 및 다시 배포 해야 합니다. 다음 단계를 사용합니다.
 
 1. 엽니다는 *src/main/resources/META-INF/persistence.xml* 앱과 찾기에 대 한 파일을 `<jta-data-source>` 요소. 다음과 같이 해당 내용을 바꿉니다.
 

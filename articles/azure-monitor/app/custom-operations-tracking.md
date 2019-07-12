@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900892"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798339"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -51,7 +51,10 @@ Application Insights 웹 SDK는 IIS 파이프라인과 모든 ASP.NET Core 애�
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -170,7 +173,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>프로세스
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -207,27 +210,14 @@ public async Task Process(BrokeredMessage message)
 다음 예제에서는 [Azure Storage 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 작업을 추적하고 생산자, 소비자 및 Azure Storage 간의 원격 분석 상관 관계를 지정하는 방법을 보여 줍니다. 
 
 Storage 큐에는 HTTP API가 있습니다. 큐에 대한 모든 호출은 HTTP 요청에 대한 Application Insights 종속성 수집기에서 추적됩니다.
-`applicationInsights.config`에 `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer`가 있는지 확인합니다. 없는 경우 [Azure Application Insights SDK에서 필터링 및 전처리](../../azure-monitor/app/api-filtering-sampling.md)에서 설명한 대로 프로그래밍 방식으로 추가합니다.
-
-Application Insights를 수동으로 구성하는 경우 다음과 비슷하게 `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`을 만들고 초기화해야 합니다.
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+참조할 수 있습니다, 다른 유형의 응용 프로그램을 사용 하 여 ASP.NET 및 ASP.NET Core 응용 프로그램을 기본적으로 구성 된 [콘솔 응용 프로그램 설명서](../../azure-monitor/app/console.md)
 
 또한 Application Insights 작업 ID와 Storage 요청 ID 사이의 상관 관계를 지정할 수도 있습니다. Storage 요청 클라이언트와 서버 요청 ID를 설정하고 가져 오는 방법에 대한 자세한 내용은 [Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)을 참조하세요.
 
 #### <a name="enqueue"></a>큐에 넣기
 Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Application Insights에서 자동으로 추적됩니다. 대부분의 경우 이 계측으로 충분합니다. 그러나 생산자 추적과 소비자 쪽 추적 사이의 상관 관계를 지정하려면 상관 관계에 대한 HTTP 프로토콜에서 수행하는 것과 비슷한 일부 상관 관계 컨텍스트를 전달해야 합니다. 
 
-이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 수행할 수 있습니다.
+이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 할 수 있습니다.
 
  - **상관 관계 지정 재시도(있는 경우)** : 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
  - **상관 관계 지정 스토리지 로그(필요한 경우)** : Application Insights 원격 분석과 상관 관계가 지정됩니다.
@@ -335,7 +325,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>프로세스
 
 다음 예제에서 들어오는 메시지는 들어오는 HTTP 요청과 비슷한 방식으로 추적됩니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ef40ce0987d44c968b120d7d4b142cc95d7eaf30
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294844"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672293"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -48,10 +48,14 @@ Azure Disk Encryption은 프리미엄 저장소를 사용 하 여 Vm에 대 한 
 
 ### <a name="windows"></a>Windows
 
-- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core 및 Windows Server 2016 Server core.
-Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows Server 2008 R2 x64 기반 시스템 (KB2901983) 용 Microsoft.NET Framework 4.5.2 선택적 업데이트를 사용 하 여 Windows 업데이트에서 설치 하세요.
-- Windows Server 2012 R2 Core 및 Windows Server 2016 Core bdehdcfg 구성 요소는 VM에 설치 되 면 Azure Disk Encryption에서 지원 됩니다.
-- Windows 클라이언트 버전: Windows 8 클라이언트 및 Windows 10 클라이언트
+- Windows 클라이언트: Windows 8 이상입니다.
+- Windows Server: Windows Server 2008 R2 이상.  
+ 
+> [!NOTE]
+> 암호화에 대 한 설치할.NET Framework 4.5를 필요로 하는 Windows Server 2008 R2 Windows Server 2008 R2 x64 기반 시스템용 Microsoft.NET Framework 4.5.2 선택적 업데이트를 사용 하 여 Windows 업데이트에서 설치 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+>  
+> Windows Server 2012 R2 Core 및 Windows Server 2016 Core에는 암호화에 대 한 VM에 설치할 bdehdcfg 구성 요소에 필요 합니다.
+
 
 ### <a name="linux"></a>Linux 
 
@@ -61,7 +65,7 @@ Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정
 
 Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
 
-| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
+| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
@@ -110,7 +114,7 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 
 
 **그룹 정책:**
- - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
+ - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
 
 -  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [사용자 저장소 구성의 BitLocker 복구 정보 허용 256 비트 복구 키->](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
 
@@ -292,7 +296,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

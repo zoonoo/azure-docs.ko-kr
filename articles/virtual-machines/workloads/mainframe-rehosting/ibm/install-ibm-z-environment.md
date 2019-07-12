@@ -4,16 +4,19 @@ description: 서비스 (IaaS)로 Azure 가상 머신 (VM) 인프라에서 IBM Z 
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad02ec75dab4cb6971d0467899d80f5f745fd94b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859344"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621307"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD T 개발/테스트 환경 설치
 
@@ -35,7 +38,7 @@ ZD (& T)의 모든 버전 Linux 시스템의 Windows 서버가 아닌 경우 x86
 
 이 문서에서는 Z 개발 및 Azure에서 테스트 환경 (zD & T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 Azure에서 Z 기반 환경을 만들고 관리 하려면 zD & T Enterprise Edition 웹 서버를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > IBM zD & T Enterprise 개발/테스트 환경 에서만 설치할 수 있습니다 —*되지* 프로덕션 환경입니다.

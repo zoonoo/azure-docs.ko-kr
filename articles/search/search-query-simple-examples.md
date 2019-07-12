@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485369"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653519"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"단순" 검색 구문을 사용 하 여 Azure Search의 쿼리 예제
 
@@ -101,7 +101,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
-## <a name="example-2-look-up-by-id"></a>예 2: ID별 조회
+## <a name="example-2-look-up-by-id"></a>예제 2: ID별 조회
 
 이 예제는 약간 특이하지만, 검색 동작을 평가할 때 결과에 포함되거나 제외된 이유를 이해하기 위해 특정 문서 전체를 확인하려고 할 수 있습니다. 단일 문서 전체를 반환하려면 [조회 작업](https://docs.microsoft.com/rest/api/searchservice/lookup-document)을 사용하여 문서 ID를 전달합니다.
 
@@ -117,9 +117,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>예 3: 쿼리 필터링
+## <a name="example-3-filter-queries"></a>예제 3: 쿼리 필터링
 
-[구문 필터링](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
+[구문 필터링](https://docs.microsoft.com/azure/search/search-query-odata-filter)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-함수에 대한 자세한 내용은 ["필터 예제"의 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
+함수에 대한 자세한 내용은 ["필터 예제"의 search.ismatch](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples)를 참조하세요.
 
 ## <a name="example-4-range-filters"></a>예제 4: 범위 필터
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>예제 5: 지리적 검색
 
-샘플 인덱스에는 위도 및 경도 좌표를 사용한 geo_location 필드가 포함됩니다. 이 예제에서는 시작 지점의 원주 내에서 사용자가 지정하는 임의의 거리(킬로미터 단위)에 문서를 필터링하는 [geo.distance 함수](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 사용합니다. 쿼리 노출 영역을 줄이거나 확장하려면 쿼리(4)에서 마지막 값을 조정할 수 있습니다.
+샘플 인덱스에는 위도 및 경도 좌표를 사용한 geo_location 필드가 포함됩니다. 이 예제에서는 시작 지점의 원주 내에서 사용자가 지정하는 임의의 거리(킬로미터 단위)에 문서를 필터링하는 [geo.distance 함수](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples)를 사용합니다. 쿼리 노출 영역을 줄이거나 확장하려면 쿼리(4)에서 마지막 값을 조정할 수 있습니다.
 
 다음 예제는 가독성을 위해 POST 형식으로 돼 있습니다.
 

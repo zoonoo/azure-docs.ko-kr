@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1baf4af41fd5dcb6723b6ee2827ae91b43b072d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780956"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807712"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
 
@@ -57,27 +57,21 @@ Azure AD는 다음과 같은 두 가지 서명 알고리즘 또는 SAML 응답�
 1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 계정에 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 1. 응용 프로그램을 선택 합니다. 응용 프로그램에 대 한 개요 페이지에 표시 됩니다.
 
-   ![응용 프로그램 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
+   ![예제: 응용 프로그램 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
 
 옵션에 해당 응용 프로그램에 SAML 토큰 서명 인증서를 다음으로 변경 합니다.
 
 1. 응용 프로그램 개요 페이지의 왼쪽된 창에서 선택 **Single sign on**합니다.
+1. 경우는 **구성에서 Single Sign-on SAML-미리 보기를 사용 하 여 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
+1. 경우는 **단일 로그온 방법 선택** 페이지가 표시 되지 않습니다, 선택 **single sign-on 모드를 변경** 해당 페이지를 표시 합니다.
+1. 에 **단일 로그온 방법 선택** 페이지에서 선택 **SAML** 사용 가능한 경우. (경우 **SAML** 되지 사용 가능한 응용 프로그램 및 지원 하지 않습니다 SAML, 나머지가 절차 및 문서를 무시할 수 있습니다.)
+1. 에 **구성에서 Single Sign-on SAML-미리 보기를 사용 하 여 설정** 페이지에서 **SAML 서명 인증서** 제목과 선택는 **편집** 아이콘 (연필). 합니다 **SAML 서명 인증서** 페이지가 나타납니다.
 
-2. 경우는 **구성에서 Single Sign-on SAML-미리 보기를 사용 하 여 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
+   ![예제: SAML 서명 인증서 페이지](./media/certificate-signing-options/saml-signing-page.png)
 
-3. 경우는 **단일 로그온 방법 선택** 페이지가 표시 되지 않습니다, 선택 **single sign-on 모드를 변경** 해당 페이지를 표시 합니다.
-
-4. 에 **단일 로그온 방법 선택** 페이지에서 선택 **SAML** 사용 가능한 경우. (경우 **SAML** 되지 사용 가능한 응용 프로그램 및 지원 하지 않습니다 SAML, 나머지가 절차 및 문서를 무시할 수 있습니다.)
-
-5. 에 **구성에서 Single Sign-on SAML-미리 보기를 사용 하 여 설정** 페이지에서 **SAML 서명 인증서** 제목과 선택는 **편집** 아이콘 (연필). 합니다 **SAML 서명 인증서** 페이지가 나타납니다.
-
-   ![SAML 서명 페이지](./media/certificate-signing-options/saml-signing-page.png)
-
-6. 에 **서명 옵션** 드롭 다운 목록에서 선택 **Sign SAML 응답**를 **SAML 어설션 서명**, 또는 **Sign SAML 응답 및 어설션**합니다. 이러한 옵션의 설명이이 문서의 앞부분에 표시 된 [인증서 서명 옵션](#certificate-signing-options)합니다.
-
-7. 에 **서명 알고리즘** 드롭 다운 목록에서 선택 **SHA-1(secure** 또는 **SHA-256**합니다. 이러한 옵션의 설명이이 문서의 앞부분에 표시 된 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션입니다.
-
-8. 선택 사항에 만족을 하면 선택 **저장** 새 SAML 서명 인증서 설정을 적용 합니다. 그렇지 않은 경우 선택 합니다 **X** 변경 내용을 취소 하려면.
+1. 에 **서명 옵션** 드롭 다운 목록에서 선택 **Sign SAML 응답**를 **SAML 어설션 서명**, 또는 **Sign SAML 응답 및 어설션**합니다. 이러한 옵션의 설명이이 문서의 앞부분에 표시 된 [인증서 서명 옵션](#certificate-signing-options)합니다.
+1. 에 **서명 알고리즘** 드롭 다운 목록에서 선택 **SHA-1(secure** 또는 **SHA-256**합니다. 이러한 옵션의 설명이이 문서의 앞부분에 표시 된 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션입니다.
+1. 선택 사항에 만족을 하면 선택 **저장** 새 SAML 서명 인증서 설정을 적용 합니다. 그렇지 않은 경우 선택 합니다 **X** 변경 내용을 취소 하려면.
 
 ## <a name="next-steps"></a>다음 단계
 

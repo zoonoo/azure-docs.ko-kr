@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566216"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796093"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -209,11 +209,16 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 1. 대체 `{KeyVaultCertificateSecretIdentifier}` 인증서 식별자를 사용 하 여이 연결 문자열에서:
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-예를 들어 키 자격 증명 모음 "myKeyVault" 호출한 'myCert' 라는 인증서를 생성 하 고 인증서 식별자를 표시 됩니다 `https://myKeyVault.vault.azure.net/secrets/myCert`, 연결 문자열 및 `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`합니다.
+    예를 들어 키 자격 증명 모음 "myKeyVault" 호출한를 'myCert' 라는 인증서를 만든 경우 인증서 식별자를 것입니다.
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## <a name="connection-string-support"></a>연결 문자열 지원
 
@@ -223,7 +228,7 @@ RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertifi
 
 다음과 같은 옵션이 지원됩니다.
 
-| 연결 문자열 옵션 | 시나리오 | 설명|
+| 연결 문자열 옵션 | 시나리오 | 주석|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | AzureServiceTokenProvider는 AzureCli를 사용하여 토큰을 가져옵니다. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | AzureServiceTokenProvider는 Visual Studio를 사용하여 토큰을 가져옵니다. |

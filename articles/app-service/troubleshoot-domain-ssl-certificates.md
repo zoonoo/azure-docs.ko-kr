@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136186"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718275"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -45,7 +45,7 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 여러 앱에서 동일한 IP 주소에 대한 IP 기반 SSL 바인딩이 여러 개 있는 경우 이 문제가 발생할 수 있습니다. 예를 들어 앱 A는 IP 기반 SSL과 기존 인증서를 사용합니다. 앱 B는 동일한 IP 주소에 IP 기반 SSL과 새 인증서를 사용합니다. 앱 SSL 바인딩을 새 인증서로 업데이트하면 또 다른 앱에 동일한 IP 주소가 사용되므로 이 오류와 함께 작업이 실패합니다. 
 
-#### <a name="solution"></a>해결 방법 
+#### <a name="solution"></a>솔루션 
 
 이 문제를 해결하려면 다음 방법 중 하나를 사용합니다.
 
@@ -64,7 +64,7 @@ SSL 바인딩을 추가하면 다음과 같은 오류 메시지가 나타납니�
 
 다른 앱에서 인증서를 사용하는 경우 이 문제가 발생할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 앱에서 해당 인증서에 대한 SSL 바인딩을 제거합니다. 그 후 인증서를 삭제해 봅니다. 여전히 인증서를 삭제할 수 없으면 인터넷 브라우저 캐시를 지우고, 새 브라우저 창에서 Azure Portal을 다시 엽니다. 그 후 인증서를 삭제해 봅니다.
 
@@ -135,7 +135,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 
 앱에 새 호스트 이름을 추가하여 하위 도메인을 할당할 수 없습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 - 구독 관리자에게 문의하여 앱에 호스트 이름을 추가할 권한을 갖고 있는지 확인합니다.
 - 더 많은 하위 도메인이 필요한 경우 도메인 호스팅을 Azure 도메인 이름 서비스 (DNS)를 변경 하는 것이 좋습니다. Azure DNS를 사용하여 앱에 호스트 이름 500개를 추가할 수 있습니다. 자세한 내용은 [하위 도메인 추가](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)를 참조하세요.
@@ -154,7 +154,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 - TTL(Time to Live)이 만료되지 않았습니다. 도메인의 DNS 구성을 검사하여 TTL 값을 확인한 다음, 기간이 만료될 때까지 기다립니다.
 - DNS 구성이 올바르지 않습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 - 이 문제가 스스로 해결될 때까지 48시간 동안 기다립니다.
 - DNS 구성에서 TTL 설정을 변경할 수 있는 경우 값을 5분으로 변경하고 문제가 해결되는지 확인합니다.
 - [WhatsmyDNS.net](https://www.whatsmydns.net/)을 사용하여 도메인이 앱의 IP 주소를 가리키는지 확인합니다. 가리키지 않으면 A 레코드를 앱의 올바른 IP 주소로 구성합니다.
@@ -167,7 +167,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 #### <a name="cause"></a>원인 
 구독 소유자가 실수로 도메인을 삭제했을 가능성이 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 도메인이 7일 이내에 삭제된 경우 도메인에서 아직 삭제 프로세스가 시작되지 않았습니다. 이 경우 동일한 구독에서 Azure Portal을 통해 동일한 도메인을 다시 구입할 수 있습니다. (검색 상자에 도메인 이름을 정확하게 입력해야 합니다.) 이 도메인에 대한 요금이 다시 청구되지 않습니다. 도메인 전 7 일 넘게 삭제 된 경우에 문의 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 도메인 복원에 대 한 도움말입니다.
 
 ## <a name="domain-problems"></a>도메인 문제
@@ -178,7 +178,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 
 잘못된 도메인에 대한 App Service 인증서를 구입했습니다. 올바른 도메인을 사용하도록 인증서를 업데이트할 수 없습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 해당 인증서를 삭제하고 새 인증서를 구입합니다.
 
@@ -193,7 +193,7 @@ App Service 인증서가 갱신되었지만 App Service 인증서를 사용하�
 #### <a name="cause"></a>원인 
 Azure App Service는 8시간마다 백그라운드 작업을 실행하고 변경 사항이 있는 경우 인증서 리소스를 동기화합니다. 인증서를 회전하거나 업데이트해도 애플리케이션이 새로 업데이트된 인증서가 아닌 기존 인증서를 검색하는 경우가 가끔 있습니다. 인증서 리소스를 동기화하는 작업이 아직 실행되지 않았기 때문입니다. 
  
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 인증서를 강제로 동기화하면 됩니다.
 
@@ -206,7 +206,7 @@ Azure App Service는 8시간마다 백그라운드 작업을 실행하고 변경
 #### <a name="symptom"></a>증상 
 App Service 인증서에서 도메인 확인을 거쳐야만 인증서를 사용할 수 있습니다. **확인**을 선택하면 프로세스가 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 TXT 레코드를 추가하여 수동으로 도메인을 확인합니다.
  
 1.  도메인 이름을 호스트하는 DNS(도메인 이름 서비스) 공급자로 이동합니다.
@@ -269,7 +269,7 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
 
     |레코드 유형|호스트|대상|
     |------|------|-----|
-    |A|@|앱의 IP 주소|
+    |변수를 잠그기 위한|@|앱의 IP 주소|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
@@ -325,7 +325,6 @@ App Service 웹 앱이 없는 경우에 도메인을 관리할 수 있습니다.
 
 **또는 이동할 수 있나요 사용자 지정 도메인을 사용 하 여 웹 앱을 다른 구독에 App Service Environment v1에서 V2로?**
 
-예, 구독에서 웹 앱을 이동할 수 있습니다. 지침을 따르세요 [Azure에서 리소스를 이동 하는 방법을](../azure-resource-manager/resource-group-move-resources.md)합니다. 웹 앱을 이동 하는 데는 몇 가지 제한이 있습니다. 자세한 내용은 [App Service 리소스를 이동 하는 것에 대 한 제한 사항](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-)합니다.
+예, 구독에서 웹 앱을 이동할 수 있습니다. 지침을 따르세요 [Azure에서 리소스를 이동 하는 방법을](../azure-resource-manager/resource-group-move-resources.md)합니다. 웹 앱을 이동 하는 데는 몇 가지 제한이 있습니다. 자세한 내용은 [App Service 리소스를 이동 하는 것에 대 한 제한 사항](../azure-resource-manager/move-limitations/app-service-move-limitations.md)합니다.
 
 웹 앱으로 변경한 후 사용자 지정 도메인 설정 내에 있는 도메인의 호스트 이름 바인딩을 동일 해야 합니다. 추가 단계 없이 호스트 이름 바인딩을 구성 해야 합니다.

@@ -9,12 +9,12 @@ ms.date: 04/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fe142439dc80af660d286e5913fee13d4de8e86
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147305"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625654"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하려면 Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행합니다
 
@@ -26,7 +26,7 @@ Blob 및 큐 데이터 역할 기반 액세스 제어 (RBAC)를 통해 Azure AD 
 
 확장은 컨테이너 및 큐 작업에 지원 됩니다. 어떤 작업을 호출할 수 있는 로그인 Azure CLI 또는 PowerShell을 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 컨테이너 또는 큐에 대한 권한은 RBAC(역할 기반 액세스 제어)를 통해 할당됩니다. 예를 들어, 할당 된 경우는 **Blob 데이터 판독기** 역할을 컨테이너 또는 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. 지정 된 경우는 **Blob 데이터 기여자** 역할을 읽기, 쓰기 또는 컨테이너, 큐 또는 포함 된 데이터를 삭제 하는 스크립트 명령을 실행할 수 있습니다. 
 
-컨테이너 또는 큐를 대상으로 하는 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [REST 작업 호출을 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)을 참조하세요.  
+컨테이너 또는 큐에서 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 참조 하세요 [OAuth 토큰을 사용 하 여 저장소 작업을 호출할](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens)합니다.  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 CLI 명령을 호출 합니다.
 

@@ -65,6 +65,8 @@
               href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
             - name: SQL Database
               href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+            - name: Azure Databricks
+              href: billing-prepay-databricks-reserved-capacity.md
             - name: Azure 소프트웨어 플랜
               href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
         - name: 할인 적용 방식
@@ -77,6 +79,8 @@
               href: billing-understand-reservation-charges.md
             - name: SQL Data Warehouse
               href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+            - name: Azure Databricks
+              href: billing-reservation-discount-databricks.md
             - name: Azure 소프트웨어 플랜
               href: billing-understand-suse-reservation-charges.md
         - name: 소프트웨어 비용 미포함

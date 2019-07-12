@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 5f351dd7fddb4c15b28954eccf8ada3bfc14dbca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447647"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594373"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -76,12 +76,12 @@ ms.locfileid: "67447647"
 
 ## <a name="essentials-fields"></a>'Essentials' 필드
 
-| 필드 | 설명|
+| 필드 | Description|
 |:---|:---|
 | alertId | 경고 인스턴스를 고유 하 게 식별 하는 GUID입니다. |
 | alertRule | 경고 인스턴스를 생성 하는 경고 규칙의 이름입니다. |
-| 심각도 | 경고의 심각도입니다. 가능한 값: Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | 경고 규칙 정의한 신호를 식별 합니다. 가능한 값: 메트릭, 로그, 활동 로그 |
+| Severity | 경고의 심각도입니다. 가능한 값은 다음과 같습니다. Sev0, Sev1, Sev2, Sev3, Sev4 |
+| signalType | 경고 규칙 정의한 신호를 식별 합니다. 가능한 값은 다음과 같습니다. 메트릭, 로그, 활동 로그 |
 | monitorCondition | 경고가 발생할 때 경고의 모니터 조건이 '발생 한'으로 설정 됩니다. 경고 발생의 원인이 된 기본 조건을 지워질 때 모니터 조건이 '해결'로 설정 됩니다.   |
 | monitoringService | 모니터링 서비스 또는 솔루션은 경고를 생성 합니다. 경고 컨텍스트에 대 한 필드는 모니터링 서비스에 의해 지정 됩니다. |
 | alertTargetIds | 경고의 ARM Id 모든 영향을 받는 대상 목록입니다. 로그 경고는 Log Analytics 작업 영역 또는 Application Insights 인스턴스 정의 해당 작업 영역/응용 프로그램입니다. |

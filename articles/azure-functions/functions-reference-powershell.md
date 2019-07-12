@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442174"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706410"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure PowerShell 함수 개발자 가이드
 
@@ -81,11 +82,11 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 자산   | Description                                     | Type     |
+| 속성   | Description                                     | 형식     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | 시기, utc에서는 함수가 트리거되는        | DateTime |
-| MethodName | 트리거된 함수 이름     | 문자열   |
-| RandGuid   | 함수 실행이 고유 guid | 문자열   |
+| MethodName | 트리거된 함수 이름     | string   |
+| RandGuid   | 함수 실행이 고유 guid | string   |
 
 모든 트리거 형식은 다양 한 메타 데이터입니다. 예를 들어를 `$TriggerMetadata` 에 대 한 `QueueTrigger` 포함 합니다 `InsertionTime`, `Id`, `DequeueCount`, 무엇 보다도 합니다. 큐 트리거 메타 데이터에 대 한 자세한 내용은 이동 합니다 [큐 트리거에 대 한 공식 설명서](functions-bindings-storage-queue.md#trigger---message-metadata)합니다. 설명서를 확인 합니다 [트리거](functions-triggers-bindings.md) 트리거 메타 데이터 내에서 무엇이 참조를 사용 하는 합니다.
 
@@ -133,11 +134,11 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은 호출에 대 한 올바른 매개 변수 `Push-OutputBinding`:
 
-| 이름 | Type | Position | 설명 |
+| 이름 | 형식 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 출력 바인딩의 사용할 값을 설정 하려면 ByValue 파이프라인에서 허용 되는 합니다. |
-| **`-Clobber`** | SwitchParameter | named | (선택 사항) 지정 하면 지정 된 출력 바인딩에 대 한 설정 값을 강제로 수행 합니다. | 
+| **`-Clobber`** | SwitchParameter | 명명됨 | (선택 사항) 지정 하면 지정 된 출력 바인딩에 대 한 설정 값을 강제로 수행 합니다. | 
 
 다음 일반 매개 변수 에서도 지원 됩니다. 
 * `Verbose`
@@ -240,8 +241,8 @@ MyQueue                        myData
 
 | 로깅 수준 함수 | 로깅 cmdlet |
 | ------------- | -------------- |
-| 오류 | **`Write-Error`** |
-| Warning | **`Write-Warning`**  | 
+| Error | **`Write-Error`** |
+| 경고 | **`Write-Warning`**  | 
 | 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | 쓸 _정보_ 수준 로깅. |
 | 디버그 | **`Write-Debug`** |
 | 추적 | **`Write-Progress`** <br /> **`Write-Verbose`** |
@@ -283,9 +284,9 @@ Azure Functions를 사용 하면 쉽게 컨트롤 방식으로 함수 로그를 
 모든 트리거 및 바인딩 코드에 몇 가지 실제 데이터 형식으로 표현 됩니다.
 
 * 해시 테이블
-* 문자열
+* string
 * byte[]
-* int
+* ssNoversion
 * double
 * HttpRequestContext
 * HttpResponseContext
@@ -302,14 +303,14 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 요청 개체는 유형이 `HttpRequestContext`, 다음 속성이 있는:
 
-| 자산  | Description                                                    | Type                      |
+| 속성  | Description                                                    | 형식                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | object |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | 개체(object) |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | Dictionary < 문자열, 문자열 ><sup>*</sup> |
-| **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
+| **`Method`** | 요청의 HTTP 메서드입니다.                                | string                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | Dictionary < 문자열, 문자열 ><sup>*</sup> |
 | **`Query`** | 쿼리 매개 변수를 포함하는 개체입니다.                  | Dictionary < 문자열, 문자열 ><sup>*</sup> |
-| **`Url`** | 요청의 URL입니다.                                        | 문자열                    |
+| **`Url`** | 요청의 URL입니다.                                        | string                    |
 
 <sup>*</sup> 모든 `Dictionary<string,string>` 키는 대/소문자 구분 합니다.
 
@@ -317,10 +318,10 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 유형이 `HttpResponseContext`, 다음 속성이 있는:
 
-| 자산      | Description                                                 | Type                      |
+| 속성      | Description                                                 | 형식                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
-| **`ContentType`** | 응답에 대 한 내용 유형을 설정 하는 것에 대 한 짧은 손 모양입니다. | 문자열                    |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체(object)                    |
+| **`ContentType`** | 응답에 대 한 내용 유형을 설정 하는 것에 대 한 짧은 손 모양입니다. | string                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 이나 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
 
@@ -602,7 +603,7 @@ Azure Functions를 개발 하는 경우는 [서버 리스 호스팅 모델](func
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490141"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797014"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -25,34 +25,43 @@ Cost Management는 모든 사용량 및 예약 등 EA (기업 계약) 계정에 
 
 ## <a name="supported-microsoft-azure-offers"></a>지원 되는 Microsoft Azure 제품
 
-현재 지원 되는 다음 정보를 보여 줍니다 [Microsoft Azure 행사](https://azure.microsoft.com/support/legal/offer-details/) Azure Cost Management를 통해. Azure 제품에 대 한 서명 된 계약에 있는 Azure 구독 유형을 결정 합니다.
+Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)음 다음과 같습니다. Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다. 데이터를 시작 하는 Cost Management에서 사용할 수는 **에서 사용 가능한 데이터가** 날짜입니다. 구독 제품 변경 되 면 비용 제품 변경 날짜 전에 사용할 수 없습니다. 
 
-| Category  | **제품 이름** | **ID 할당** | **제품 번호** |
+| **범주**  | **제품 이름** | **ID 할당** | **제품 번호** | **사용할 수 있는 데이터** |
+| --- | --- | --- | --- | --- |
+| **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014 년 5 월<sup>1</sup> |
+| **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 년 5 월<sup>1</sup> |
+| **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 년 5 월<sup>1</sup> |
+| **Microsoft 고객 계약** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | 해당 사항 없음 | Mar 2019<sup>3</sup> |
+| **Microsoft 고객 계약** | [Microsoft Azure 개발/테스트 계획](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | 해당 사항 없음 | Mar 2019<sup>3</sup> |
+| **MSDN(Microsoft Developer Network)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [무료 평가판](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | [학생용 azure](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2018 년 10 월 2 일<sup>2</sup> |
+| **종량제** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018 년 10 월 2 일<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018 년 10 월 2 일<sup>2</sup> |
+
+_<sup>**1** </sup> 2014 년 5 월 전에 데이터에 대 한 방문을 [Azure Enterprise portal](https://ea.azure.com)합니다._
+
+_<sup>**2** </sup> 2018 년 10 월 2 일 전에 데이터에 대 한 방문을 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다._
+
+_<sup>**3** </sup> Microsoft 고객 계약 2019 년 3 월에서에서 시작 하 고이 시점 전에 모든 기록 데이터가 없습니다._
+
+_<sup>**4** </sup> 신용 기반 및 사전 지불 구독에 대 한 기록 데이터 청구서와 일치 하지 않을 수 있습니다. 참조 [기록 데이터는 청구서를 일치 하지 않을 수](#historical-data-might-not-match-invoice) 아래._
+
+다음 표에서 아직 지원 되지 않는 제품을 보여 줍니다.
+
+| 범주  | **제품 이름** | **ID 할당** | **제품 번호** |
 | --- | --- | --- | --- |
-| **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
-| **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft 고객 계약** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
-| **Microsoft 고객 계약** | [Microsoft Azure 개발/테스트 계획](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
-| **MSDN(Microsoft Developer Network)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
-| **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
-| **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
-| **종량제** | [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **종량제** | [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
-| **종량제** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **종량제** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **종량제** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
-
-다음 표에서 Cost Management에서 지원 되지 않는 Azure 제품을 보여 줍니다.
-
-| Category  | **제품 이름** | **ID 할당** | **제품 번호** |
-| --- | --- | --- | --- |
+| **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -65,8 +74,6 @@ Cost Management는 모든 사용량 및 예약 등 EA (기업 계약) 계정에 
 | **지원 플랜** | Azure Government 표준 지원   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
 | **지원 플랜** | Azure Government Pro-Direct 지원 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **지원 플랜** | Azure Government 개발자 지원  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
-
-종 량 제를 사용 하 여 고객의 경우 MSDN 및 Visual Studio 제품 범주, 데이터는 2018 년 10 월 02를에서 시작 하는 Cost Management에서 사용할 수 있습니다. 2018 년 10 월 02 하기 전에 구독에 대 한 데이터에 액세스 하려면 사용할 수 있습니다 합니다 [Azure 계정 센터](https://account.azure.com/subscriptions) CSV 파일의 세부 정보 사용 현황을 다운로드 하거나 사용할 수 있습니다 합니다 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)합니다.
 
 ## <a name="determine-your-offer-type"></a>제안 유형을 결정 합니다.
 구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 클릭합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
@@ -81,23 +88,24 @@ Cost Management는 모든 사용량 및 예약 등 EA (기업 계약) 계정에 
 
 | **포함됨** | **포함되지 않음** |
 | --- | --- |
-| Azure 서비스 사용량<sup>1</sup> | 예약 구매 - 자세한 내용은 [Azure 예약 자동화용 API](../billing/billing-reservation-apis.md)를 참조하세요. |
-| 사용량을 제공 하는 marketplace<sup>2</sup> | Marketplace 구매 - 자세한 내용은 [타사 서비스 요금](../billing/billing-understand-your-azure-marketplace-charges.md)을 참조하세요. |
-|   | 지원 요금 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
-|   | 세금 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
-|   | 크레딧 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
+| Azure 서비스 사용<sup>5</sup>        | 지원 요금 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
+| 사용량을 제공 하는 marketplace<sup>6</sup> | 세금 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
+| Marketplace 구매 제품<sup>6</sup>      | 크레딧 - 자세한 내용은 [청구서 용어 설명](../billing/billing-understand-your-invoice.md)을 참조하세요. |
+| 예약 구매가<sup>7</sup>      |  |
 
-<sup>1</sup> Azure 서비스 사용량은 예약 및 협상 가격을 기준으로 합니다.
+_<sup>**5** </sup> azure 서비스 사용량 예약을 기반으로 및 가격을 협상 합니다._
 
-<sup>2</sup> 사용량을 제공 하는 marketplace를 사용할 수 없으며 종 량 제, MSDN, Visual Studio는 현재 제공 합니다.
+_<sup>**6** </sup> marketplace 사용 및 구입을 사용할 수 없으며 종 량 제, MSDN, Visual Studio는이 이번에 제공 합니다._
 
-**Metadata**
+_<sup>**7** </sup> 예약 구매는이 이번에만 EA (기업 계약) 계정만 사용할 수 있습니다._
+
+**메타데이터**
 
 | **포함됨** | **포함되지 않음** |
 | --- | --- |
-| 리소스 태그<sup>3</sup> | 리소스 그룹 태그 |
+| 리소스 태그<sup>8</sup> | 리소스 그룹 태그 |
 
-<sup>3</sup> 리소스 태그 사용은 각 서비스에서 내보낼 때 적용 되 고 기존 사용량에 소급 해 서 사용할 수 없습니다.
+_<sup>**8** </sup> 리소스 태그 사용은 각 서비스에서 내보낼 때 적용 되 고 기존 사용량에 소급 해 서 사용할 수 없습니다._
 
 ## <a name="rated-usage-data-refresh-schedule"></a>평가된 사용량 데이터 새로 고침 일정
 
@@ -131,21 +139,13 @@ Cost Management에서 발생한 사용량 데이터의 사용 가능 여부는 �
 
 사전 지불 및 크레딧 기반 제품에 대 한 기록 데이터는 청구서를 일치 하지 않을 수 있습니다. 일부 Azure 종 량 제, MSDN 및 Visual Studio가 Azure 크레딧 및 고급 지불 적용할 있습니다 청구서를 제공 합니다. 그러나 Cost Management에서 표시 되는 기록 데이터에 예상된 된 사용량 요금은 기반으로 합니다. 비용된 관리 기록 데이터는 지불 및 크레딧 포함 되지 않습니다. 결과적으로, 다음 제품에 대 한 표시 되는 기록 데이터 청구서를 사용 하 여 정확히 일치 하지 않을 수 있습니다.
 
--   MS-AZR-0029P
--   MS-AZR-0064P
--   MS-AZR-0170P
--   MS-AZR-0062P
--   MS-AZR-0123P
--   MS-AZR-0129P
--   MS-AZR-0044P
--   MS-AZR-0128P
--   MS-AZR-0120P
--   MS-AZR-0125P
--   MS-AZR-0059P
--   MS-AZR-0063P
--   MS-AZR-0060P
--   MS-AZR-0111P
+- (-0170 Ms-azr) 학생용 azure
+- Azure in Open (-0111 Ms-azr)
+- Azure Pass (AZR-0120 P, MS-AZR-0123 P, MS-AZR-0125 P, MS--0128 P, MS-AZR-0129 Ms-azr)
+- 무료 평가판 (-0044 Ms-azr)
+- MSDN (MS-AZR-0062P)
+- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - Cost Management에 대한 첫 번째 빠른 시작을 아직 완료하지 않은 경우 [비용 분석 시작](quick-acm-cost-analysis.md)을 참조하세요.

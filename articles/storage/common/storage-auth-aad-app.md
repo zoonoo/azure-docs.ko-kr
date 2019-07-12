@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341627"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723213"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Blob 및 큐에 대 한 액세스를 위해 응용 프로그램에서 Azure Active Directory를 사용 하 여 인증
 
@@ -49,16 +49,16 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 다음으로, Azure Storage Api를 호출 하 여 응용 프로그램 사용 권한을 부여 합니다. 이 단계에서는 응용 프로그램을 Azure AD 사용 하 여 Azure Storage에 요청 권한을 부여 합니다.
 
 1. 에 **개요** 선택 등록 된 응용 프로그램에 대 한 페이지 **API 사용 권한 보기**합니다.
-1. 에 **API 사용 권한** 섹션에서 **권한을 추가** 선택한 **내 조직에서 사용 하는 Api**합니다.
-1. 아래는 **내 조직에서 사용 하는 Api** 섹션, "Azure Storage"에 대 한 검색 및 선택 **Azure Storage** 표시 하도록 결과 목록에서를 **API 요청 권한을** 창입니다.
+1. 에 **API 사용 권한** 섹션에서 **권한을 추가** 선택한 **Microsoft Api**합니다.
+1. 선택 **Azure Storage** 표시할 결과 목록에서를 **API 요청 권한을** 창입니다.
+1. 아래 **사용 권한 유형을 응용 프로그램에 필요한?** , 사용 가능한 사용 권한 유형이 관찰 **위임 된 권한**. 이 옵션은를 기본으로 선택 됩니다.
+1. 에 **권한을 선택** 섹션 합니다 **요청 API 사용 권한** 창 옆의 확인란을 선택 **user_impersonation**, 클릭 **추가 사용 권한**합니다.
 
     ![저장소에 대 한 표시 권한을 스크린 샷](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. 아래 **사용 권한 유형을 응용 프로그램에 필요한?** , 사용 가능한 사용 권한 유형이 관찰 **위임 된 권한**. 이 옵션은를 기본으로 선택 됩니다.
-1. 에 **권한을 선택** 섹션 합니다 **요청 API 사용 권한** 창 옆의 확인란을 선택 **user_impersonation**, 클릭 **추가 사용 권한**합니다.
-1. 합니다 **API 사용 권한** 창 이제 Azure AD 응용 프로그램에 Microsoft Graph 및 Azure Storage에 대 한 액세스를 보여 줍니다. 먼저 Azure AD를 사용 하 여 앱을 등록할 권한이 자동으로 Microsoft Graph에 부여 됩니다.
+**API 사용 권한** 창 이제에 따르면에 등록 된 Azure AD 응용 프로그램에는 Microsoft Graph 및 Azure Storage에 대 한 액세스 권한이 있습니다. 먼저 Azure AD를 사용 하 여 앱을 등록할 권한이 자동으로 Microsoft Graph에 부여 됩니다.
 
-    ![스크린샷 앱 사용 권한 등록](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![스크린샷 앱 사용 권한 등록](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
@@ -275,7 +275,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>암시적 허용 흐름을 사용 하도록 설정
 
-샘플을 실행 하려면 앱 등록에 대 한 암시적 허용 흐름을 구성 해야 합니다. 다음 단계를 수행하세요.
+샘플을 실행 하려면 앱 등록에 대 한 암시적 허용 흐름을 구성 해야 합니다. 다음 단계를 수행하십시오.
 
 1. Azure portal에서 앱 등록으로 이동 합니다.
 1. 관리 섹션에서 선택 합니다 **인증** 설정 합니다.

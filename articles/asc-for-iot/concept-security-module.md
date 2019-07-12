@@ -2,24 +2,25 @@
 title: IoT 보안 모듈에 대 한 Azure Security Center 미리 보기를 쌍 이해 | Microsoft Docs
 description: 보안 모듈 쌍 및 IoT에 대 한 Azure Security Center에서 사용 하는 방법의 개념에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: de0f21fbd847ff801308523f48e9d0c8a91880fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198369"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618302"
 ---
 # <a name="security-module"></a>보안 모듈
 
@@ -46,7 +47,7 @@ ASC IoT에 대 한 서비스에서 각 장치에 대 한 보안 모듈 쌍을 �
 참조 [만들기 보안 모듈 쌍](quickstart-create-security-twin.md) 하 고 [보안 에이전트 구성](how-to-agent-configuration.md) 만드는 방법에 알아보려면 사용자 지정 및 쌍을 구성 합니다. 참조 [이해 모듈 트윈스](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) IoT Hub의 모듈 쌍의 개념에 자세히 알아보려면 합니다. 
  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 - [ASC IoT 미리 보기](overview.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)
 - [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md)

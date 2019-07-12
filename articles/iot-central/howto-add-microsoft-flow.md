@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235817"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797716"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
@@ -28,10 +28,11 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애
 
 IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 종량제 애플리케이션
-- Microsoft 개인 또는 회사나 학교 계정을 사용하여 Flow에 로그인합니다([Microsoft Flow에 대한 자세한 정보](https://aka.ms/microsoftflowplans)).
+- Microsoft Flow 사용 하려면 Microsoft 개인 또는 회사 또는 학교 계정 ([Microsoft Flow 계획에 자세히 알아보려면](https://aka.ms/microsoftflowplans))
+- Azure IoT Central 커넥터를 사용 하는 회사 또는 학교 계정
 
 ## <a name="trigger-a-workflow"></a>워크플로 트리거
 
@@ -45,7 +46,12 @@ IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스�
 
     ![사용 가능한 Microsoft Flow 템플릿](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. 선택한 템플릿에 있는 커넥터에 로그인 하 라는 메시지가 표시 됩니다. 커넥터에 로그인 되 면 워크플로 작성 하는 디자이너에서 이동 합니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
+1. 선택한 템플릿에 있는 커넥터에 로그인 하 라는 메시지가 표시 됩니다. 
+
+    > [!NOTE]
+    > Azure IoT Central 커넥터를 사용 하려면 Azure Active Directory 계정 (회사 또는 학교 계정)를 사용 하 여 로그인 해야 합니다. 와 같은 개인 계정 abc@outlook.com 또는 abc@live.com Azure IoT Central 커넥터에서 지원 되지 않습니다.
+
+    커넥터에 로그인 한 후 워크플로 작성 하는 디자이너에서 이동 합니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
 
 1. 새 동작을 추가할 작업에 전달 된 정보를 사용자 지정 하 여 워크플로 사용자 지정할 수 있습니다. 작업은이 예에서 **알림-모바일 알림 보내기**합니다. 알림에 디바이스 이름 및 타임스탬프와 같은 중요한 정보를 전달하여 IoT Central 규칙에서 *동적 콘텐츠*를 포함할 수 있습니다.
 

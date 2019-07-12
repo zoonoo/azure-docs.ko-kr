@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153963"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621969"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
@@ -111,7 +111,7 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 
 ### <a name="anomalous-access-pattern-alerts"></a>비정상적인 액세스 패턴 경고
 
-* **비정상적인 위치에서 액세스**: 저장소 계정에 대 한 액세스 패턴이 변경 될 때이 경고가 트리거됩니다. 사용자가 평소와 다른 지리적 위치에서 저장소 계정에 액세스하는 경우를 예로 들 수 있습니다.
+* **비정상적인 위치에서 액세스**: 이 경고는 비정상적인 지리적 위치에서 사용자가 저장소 계정에 액세스 하는 경우에 트리거됩니다.
 가능한 원인:
    * 공격자가 저장소 계정 액세스
    * 합법적인 사용자가 새 위치에서 저장소 계정에 액세스
@@ -120,10 +120,16 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
    * 공격자가 새 응용 프로그램을 사용 하 여 저장소 계정에 액세스 합니다.
    * 합법적인 사용자 하는 데 새 응용 프로그램/브라우저 저장소 계정에 액세스 합니다.
 
-* **익명 액세스**: 이 경고는 저장소 계정에 대 한 액세스 패턴이 변경 중임을 나타냅니다. 이 계정이 되었습니다. 예를 들어,이 계정에 최근 액세스 패턴에 비해 예상 되지 않는 (즉, 모든 인증 없이) 익명으로 액세스 합니다.
+* **익명 액세스**: 이 경고는이 계정의 되었음을 나타냅니다이 계정에 최근 액세스 패턴에 비해 예상 되지 않는 (즉, 모든 인증 없이) 익명으로 액세스 합니다.
 가능한 원인:
    * 공격자는 컨테이너에 대 한 공용 읽기 액세스를 악용에 있습니다.
    * 올바른 사용자 또는 응용 프로그램을 컨테이너에 대 한 공용 읽기 액세스를 사용 했습니다.
+
+* **Tor 변칙**: 이 경고는 활성 끝내기 노드의 Tor (익명화 프록시) 라고 하는 IP 주소에서이 계정을 성공적으로 액세스 된 것을 나타냅니다. 이 경고의 심각도 (있는 경우)를 사용 하는, 인증 유형으로 간주 되며 여부의 첫 번째 경우 이러한 액세스 합니다.
+가능한 원인:
+   * 공격자가 Tor를 사용 하 여 저장소 계정에 액세스 합니다.
+   * 합법적인 사용자가 Tor를 사용 하 여 저장소 계정에 액세스 합니다.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>비정상적인 추출/업로드 경고
 

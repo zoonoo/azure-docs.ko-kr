@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480313"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805916"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
 이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서에 나온 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 를 사용하여 Windows 클라이언트 환경의 필수 구성 요소가 올바른지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 오류 5 발생
 
 파일 공유를 탑재하려고 하면 다음 오류가 표시될 수 있습니다.
@@ -108,7 +108,6 @@ IT 부서 또는 포트 445 아웃 바운드를 열려는 ISP와 작동 [Azure I
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4-REST API를 사용 하 여 Storage 탐색기/Powershell 같은 도구 기반
 Azure Files는 SMB 외에도 REST도 지원 합니다. REST 액세스 포트 443 (표준 tcp)을 통해 작동합니다. 풍부한 UI 경험을 사용 하도록 설정 하는 REST API를 사용 하 여 작성 된 다양 한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 그 중 하나입니다. [다운로드 및 설치 하는 Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) Azure Files에서 지원 하 여 파일 공유에 연결 합니다. 사용할 수도 있습니다 [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) 는 REST API를 사용자도 합니다.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>원인 2: NTLMv1이 사용하도록 설정됨
 
 클라이언트에서 NTLMv1 통신이 사용될 경우 시스템 오류 53 또는 시스템 오류 87이 발생할 수 있습니다. Azure Files는 NTLMv2 인증만 지원합니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 
@@ -132,9 +131,16 @@ Azure Files는 SMB 외에도 REST도 지원 합니다. REST 액세스 포트 443
 
 파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하는 경우 오류 1816이 발생합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 사용 합니다 [Get AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
+
+파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 닫으려면 다음을 사용 합니다 [닫기를 AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
+
+> [!Note]  
+> Get-AzStorageFileHandle 및 닫기 AzStorageFileHandle cmdlet Az PowerShell 모듈 버전 2.4 이상에 포함 됩니다. 최신 Az PowerShell 모듈을 설치 하려면 [Azure PowerShell 모듈을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
 
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>오류 "권한 부여 실패"는 포털에서 Azure 파일 공유로 이동 하는 경우
@@ -155,6 +161,23 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
 가상 네트워크 및 방화벽 규칙이 스토리지 계정에 제대로 구성되어 있는지 확인합니다. 가상 네트워크 또는 방화벽 규칙에서 문제가 발생하는지 테스트하려면 일시적으로 스토리지 계정의 설정을 **모든 네트워크에서 액세스 허용**으로 변경합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 참조하세요.
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>파일 또는 Azure 파일 공유에 디렉터리를 삭제할 수 없습니다.
+
+### <a name="cause"></a>원인
+이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있으면 발생 합니다. 
+
+### <a name="solution"></a>솔루션
+
+SMB 클라이언트는 열려 있는 모든 핸들 닫았는지 하 고 문제가 계속 발생 하는 경우 다음을 수행 합니다.
+
+- 사용 된 [Get AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) 열린 핸들을 보려면 PowerShell cmdlet.
+
+- 사용 된 [닫기 AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet를 열린 핸들을 닫습니다. 
+
+> [!Note]  
+> Get-AzStorageFileHandle 및 닫기 AzStorageFileHandle cmdlet Az PowerShell 모듈 버전 2.4 이상에 포함 됩니다. 최신 Az PowerShell 모듈을 설치 하려면 [Azure PowerShell 모듈을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Windows에서 Azure Files와 서로 파일을 복사하는 속도 느림
@@ -183,7 +206,7 @@ Windows 8.1 또는 Windows Server 2012 R2를 실행 중인 클라이언트에서
 > 2015년 12월부터 Azure Marketplace의 Windows Server 2012 R2 이미지에는 핫픽스 KB3114025가 기본적으로 설치되어 있습니다.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>**내 컴퓨터**에 드라이브 문자를 포함한 폴더가 없습니다.
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>"내 컴퓨터" 또는 "이 PC" 드라이브 문자를 사용 하 여 폴더 없음
 
 net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하는 경우 공유가 누락될 수 있습니다.
 
@@ -191,7 +214,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx)에 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -201,7 +224,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -222,7 +245,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 해결 방법 중 하나를 사용합니다.
 
@@ -263,7 +286,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -280,7 +303,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD Domain Service)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)가 생성되지 않은 스토리지 계정에 [Azure Files에 대한 AAD(Azure Active Directory) 인증을 사용하도록 설정](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)하려고 할 때 발생합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 

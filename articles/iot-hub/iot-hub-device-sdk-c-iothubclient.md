@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400697"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797863"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
@@ -74,7 +74,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 마찬가지로 **IoTHubClient\_SetMessageCallback**을 사용하여 메시지에 대한 콜백 함수를 등록하면 사용자는 SDK를 통해, 메시지를 수신할 때 백그라운드 스레드가 메인 스레드와 별개로 콜백 함수를 호출하도록 합니다.
 
-**LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제에 이 내용이 나와 있습니다.
+**LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제를 통해 볼 수 있습니다.
 
 SDK에 포함된 **iothub\_client\_sample\_http** 애플리케이션은 하위 수준 API를 보여줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
 
@@ -255,7 +255,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 ## <a name="configuration-options"></a>구성 옵션
 
-지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예를 살펴보세요.
+지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예제를 고려해 보세요.
 
 ```C
 unsigned int timeout = 30000;
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 일반적으로 사용되는 몇 가지 옵션이 있습니다.
 
-* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. 참고로 **SetBatching** 옵션은 HTTPS 프로토콜에만 적용되며 MQTT 또는 AMQP 프로토콜에는 적용되지 않습니다.
+* **SetBatching**(bool) – **true**이면 IoT Hub로 전송된 데이터가 일괄 처리로 전송됩니다. **false**이면 메시지가 개별적으로 전송됩니다. 기본값은 **false**입니다. AMQP를 통해 일괄 처리 D2C 메시지 시스템 속성을 추가할 뿐 아니라 AMQP WS, 지원 됩니다.
 
 * **Timeout** (unsigned int) – 이 값은 밀리초 단위로 표시됩니다. HTTPS 요청을 전송하고 응답을 수신하는 경우 이 시간보다 오래 걸리면 연결이 시간 초과됩니다.
 

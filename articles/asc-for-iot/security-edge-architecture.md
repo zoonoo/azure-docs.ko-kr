@@ -2,24 +2,25 @@
 title: IoT Edge에 대 한 IoT 보안 모듈에 대 한 Azure Security Center 이해 | Microsoft Docs
 description: IoT Edge에 대 한 아키텍처와 IoT 보안 모듈에 대 한 Azure Security Center의 기능을 이해 합니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 847d6238bd42dc7da723dcc9acd47ed09c16dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4581f66a3401764237621bee86228aac724ec0af
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200593"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616450"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 보안 모듈
 

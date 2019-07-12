@@ -4,7 +4,7 @@ description: 데이터베이스에 클라우드 인프라 OCI (Oracle)를 사용
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fcdd46ea60ea53088ffacd7d13693b16a208d527
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446675"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707464"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Microsoft Azure 및 Oracle 클라우드 인프라 (미리 보기)를 통합 하는 oracle 응용 프로그램 솔루션
 
@@ -67,7 +67,7 @@ ExpressRoute 및 FastConnect 사용 고객 피어 링 수 있습니다 OCI에서
 
 또한 설정할 수 있습니다 [보안 목록](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) OCI 가상 클라우드 네트워크 및 보안 규칙 (Azure에 연결 [네트워크 보안 그룹](../../../virtual-network/security-overview.md)). 가상 네트워크의 컴퓨터 간의 트래픽 흐름을 제어 하려면 이러한 규칙을 사용 합니다. 컴퓨터 수준에서 서브넷 수준에서 뿐만 아니라 가상 네트워크 수준에서 네트워크 보안 규칙을 추가할 수 있습니다.
  
-## <a name="identity"></a>ID
+## <a name="identity"></a>클레임
 
 Id는 Microsoft와 Oracle 간의 파트너 관계의 핵심 요소 중 하나입니다. 많은 작업을 통합 하 저희 [Oracle Id 클라우드 서비스](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) 사용 하 여 [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD는 Microsoft의 클라우드 기반 id 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 다양 한 리소스에 액세스할 수 있습니다. Azure AD 사용자 및 해당 권한을 관리할 수도 있습니다.
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544349"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797933"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>AD FS 및 게스트 사용자 (미리 보기)에 대 한 타사 공급자를 사용 하 여 직접 페더레이션
 |     |
@@ -31,7 +31,7 @@ ms.locfileid: "67544349"
 > 직접 페더레이션 게스트 사용자를 테 넌 트 컨텍스트가 포함 된 링크를 사용 하 여 로그인 해야 합니다 (예를 들어 `https://myapps.microsoft.com/?tenantid=<tenant id>` 나 `https://portal.azure.com/<tenant id>`, 또는 확인된 된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자가 현재 컨텍스트가 없습니다. 테 넌 트에 있는 공용 끝점을 사용 하 여 로그인 할지 않습니다. 예를 들어,를 사용 하 여 `https://myapps.microsoft.com`, `https://portal.azure.com`, 또는 `https://teams.microsoft.com` 오류가 발생 합니다.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>직접 페더레이션을 사용 하 여 게스트 사용자를 인증 하는 경우
-조직과 직접 페더레이션을 설정 하면 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자 인증 됩니다. 직접 페더레이션 설정에서 초대를 이미 사용 하셨습니다 게스트 사용자에 대 한 인증 방법을 변경 되지 않는지 확인 하는 것이 반드시 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+조직과 직접 페더레이션을 설정 하면 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자 인증 됩니다. 직접 페더레이션 설정에서 초대를 이미 사용 하셨습니다 게스트 사용자에 대 한 인증 방법을 변경 되지 않는지 확인 하는 것이 반드시 합니다. 다음은 몇 가지 예입니다.
  - 게스트 사용자 초대를 하 고 이후에 조직과 직접 페더레이션을 설정할 수를 이미 사용 하셨습니다, 하는 경우 이러한 게스트 사용자 직접 페더레이션을 설정 하기 전에 사용 되는 동일한 인증 방법을 사용 하려면 계속 됩니다.
  - 게스트 사용자 초대를 이미 사용한 직접으로 직접 페더레이션을 사용 하도록 계속 파트너 조직과 직접 페더레이션을 설정 하 고 게스트 사용자를 초대 하 고 나중에 파트너 조직의 Azure AD로 이동 하는 다음을 하는 경우 테 넌 트의 페더레이션 정책이 있습니다.
  - 파트너 조직과 직접 페더레이션을 삭제 하면 현재 직접 페더레이션을 사용 하 여 모든 게스트 사용자 로그인 수 없습니다.
@@ -62,7 +62,7 @@ ms.locfileid: "67544349"
 ### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
 Id 공급자 설정에서 메타 데이터 URL을 지정 하면 만료 되 면 Azure AD 서명 인증서를 갱신 자동으로 됩니다. 그러나 인증서가 만료 시간 전에 어떤 이유로 회전 또는 메타 데이터 URL을 제공 하지 않으면 Azure AD 없게 됩니다 갱신 합니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.
 ## <a name="frequently-asked-questions"></a>질문과 대답
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>관리 되지 않는 (전자 메일 확인) 테 넌와 직접 페더레이션의 설정할 수 있나요? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>관리 되지 않는 (전자 메일 확인) 테 넌 존재 하는 도메인을 사용 하 여 직접 페더레이션의 설정할 수 있나요? 
 예. 도메인 확인 되지 않은 및 테 넌 트 수행 하지 않은 경우는 [관리자 인수](../users-groups-roles/domains-admin-takeover.md), 직접 페더레이션을 설정할 수 있습니다. 관리 되지 않는 또는 전자 메일 확인 테 넌 트 사용자 B2B 초대를 교환 하거나 현재 존재 하지 않는 도메인을 사용 하 여 Azure AD의 셀프 서비스 등록을 수행 하는 경우에 생성 됩니다. 이러한 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있습니다. DNS 확인 된 도메인을 Azure portal 또는 PowerShell을 통해 직접 페더레이션 설정 하려고 하면 오류가 표시 됩니다.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>직접 페더레이션 및 전자 메일 (일회성 암호) 인증 모두에 설정 된 경우 메서드는 우선?
 직접 페더레이션 파트너 조직과 설정 된 경우 우선 해당 조직의 새 게스트 사용자에 게 전자 메일 (일회성 암호) 인증 합니다. 게스트 사용자의 직접 페더레이션을 설정 하기 전에 (일회성 암호) 인증을 사용 하 여 초대에 사용한 경우 (일회성 암호) 인증을 사용 하도록 계속 됩니다. 
@@ -90,7 +90,7 @@ IdP에서 SAML 2.0 응답에 대 한 필수 속성:
 |특성  |값  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|대상     |`urn:federation:MicrosoftOnline`         |
+|대상 사용자     |`urn:federation:MicrosoftOnline`         |
 |발급자     |예를 들어 파트너 IdP의 URI 발급자 `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
@@ -116,7 +116,7 @@ IdP에서 Ws-fed 메시지에 필요한 특성:
 |특성  |값  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|대상     |`urn:federation:MicrosoftOnline`         |
+|대상 사용자     |`urn:federation:MicrosoftOnline`         |
 |발급자     |예를 들어 파트너 IdP의 URI 발급자 `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 IdP에서 발급 한 Ws-fed 토큰에 대 한 필수 클레임:
@@ -130,7 +130,7 @@ IdP에서 발급 한 Ws-fed 토큰에 대 한 필수 클레임:
 다음으로, Azure AD에서 1 단계에서 구성 하는 id 공급자를 사용 하 여 페더레이션을 구성 합니다. Azure AD 포털 또는 PowerShell 중 하나를 사용할 수 있습니다. 직접 페더레이션의 정책을 적용 하기 전에 5-10 분 정도 걸릴 수 있습니다. 이 시간 동안 직접 페더레이션 도메인에 대 한 초대를 교환 하는 하지 마세요. 다음과 같은 특성이 필요합니다.
 - 발급자 IdP 파트너의 URI
 - 파트너 (https만 지원 됨)는 IdP의 수동 인증 끝점
-- 인증서
+- Certificate
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Azure AD 포털의 직접 페더레이션을 구성 하려면
 
@@ -149,16 +149,16 @@ IdP에서 발급 한 Ws-fed 토큰에 대 한 필수 클레임:
    - 파트너 IdP의 도메인 이름
    - 파트너 IdP 엔터티 ID
    - 파트너 IdP의 수동 요청자 끝점
-   - 인증서
+   - Certificate
    > [!NOTE]
    > 메타 데이터 URL은 강력한 권장 되지만 선택 사항입니다. 메타 데이터 URL을 제공 하는 경우 만료 되 면 Azure AD 서명 인증서를 갱신 자동으로 수 있습니다. 인증서가 만료 시간 전에 어떤 이유로 회전 또는 메타 데이터 URL을 제공 하지 않는 경우 Azure AD 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.
 
-7. **저장**을 선택합니다. 
+7.           **저장**을 선택합니다. 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용 하 여 Azure AD에서 직접 페더레이션을 구성 하려면
 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (게스트 사용자를 추가 하기 위한 빠른 시작 섹션을 포함 하는 자세한 단계에 필요한 경우 [최신 AzureADPreview module 설치](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
-2. 다음 명령 실행: 
+2. 다음 명령을 실행합니다. 
    ```powershell
    Connect-AzureAD
    ```
@@ -187,7 +187,7 @@ IdP에서 발급 한 Ws-fed 토큰에 대 한 필수 클레임:
 3. 선택 **Id 공급자**
 4. 아래 **id 공급자 SAML/Ws-fed**, 공급자를 선택 합니다.
 5. Id 공급자 세부 정보 창에서 값을 업데이트 합니다.
-6. **저장**을 선택합니다.
+6.           **저장**을 선택합니다.
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>직접 페더레이션을 제거 하려면 어떻게 해야 하나요?
@@ -201,7 +201,7 @@ IdP에서 발급 한 Ws-fed 토큰에 대 한 필수 클레임:
 
 PowerShell를 사용 하 여 id 공급자와의 직접 페더레이션을 제거 합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. 다음 명령 실행: 
+2. 다음 명령을 실행합니다. 
    ```powershell
    Connect-AzureAD
    ```

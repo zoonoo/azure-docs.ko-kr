@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850774"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724084"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Azure 계정의 프로필 정보 변경
 
@@ -60,7 +60,7 @@ Microsoft는 사용자의 프로필, 계정 관리자가 서비스 관련 알림
 - 서비스 알림
 - 보안 경고
 - 청구 목적으로
-- 지원
+- Support(지원)
 - 마케팅 통신
 - Azure 사용량에 따라, 모범 사례 권장 사항
 
@@ -87,10 +87,16 @@ Microsoft는 사용자의 프로필, 계정 관리자가 서비스 관련 알림
 1. 로 이동 합니다 [요청 양식](https://account.microsoft.com/profile/permissions-link-request) 프로필 전자 메일 주소를 사용 하 여 요청을 제출 합니다. 기본 설정을 업데이트 하는 전자 메일로 링크를 받게 됩니다.
 2. 여는 링크를 선택 합니다 **통신 사용 권한을 관리할** 페이지입니다. 이 페이지는 전자 메일 주소를 옵트인 하는 마케팅 통신 형식을 보여 줍니다. 선택 및 선택 하려는 항목 지우기 **저장할**합니다.
 
-
 ![통신 사용 권한 관리에 대 한 페이지의 예](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 마케팅 통신을 옵트아웃 하는 경우 알림 서비스 계정에 따라 계속 나타납니다.
+
+## <a name="change-the-subscription-name"></a>구독 이름 변경
+
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com)를 선택 **구독** 왼쪽된 창에서 구독 이름을 변경 하려면을 선택 합니다.
+1. 선택 **개요**를 선택한 후 **이름 바꾸기** 명령 모음에서.
+    ![Azure 구독 이름 바꾸기의 예제](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. 이름을 변경한 후 선택할 **저장할**합니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

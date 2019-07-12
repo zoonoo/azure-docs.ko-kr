@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071325"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812902"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>지 속성 함수 패턴 및 기술 개념 (Azure Functions)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>패턴 #6: Aggregator (미리 보기)
+### <a name="aggregator"></a>패턴 #6: Aggregator (미리 보기)
 
 여섯 번째 패턴은을 주소 지정이 가능한 단일 시간 동안의 이벤트 데이터를 집계 하는 방법에 대 한 *엔터티*합니다. 이 패턴에서 집계 되는 데이터를 여러 원본에서 가져올 수 있습니다, 일괄 처리로 전달 될 수 있습니다 또는 장기-기간 동안에 분산 될 수 있습니다. 수집기 도착 하 고 집계 된 데이터를 쿼리할 해야 외부 클라이언트 이벤트 데이터에서 작업을 수행 해야 합니다.
 
@@ -385,27 +385,46 @@ module.exports = async function (context) {
 사용 하는 [지속형 엔터티 함수](durable-functions-preview.md#entity-functions),이 패턴을 쉽게 단일 함수로 구현할 수 있습니다.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+또한.NET 클래스로 영구 엔터티를 모델링할 수 있습니다. 이 기능은 작업 목록이 크면 및 정적 대부분 경우에 유용할 수 있습니다. 다음 예제는 해당 구현의 `Counter` .NET 클래스 및 메서드를 사용 하 여 엔터티.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-마찬가지로, 클라이언트 상태에서 메서드를 사용 하는 엔터티 함수를 쿼리할 수는 `orchestrationClient` 바인딩.
+동적으로 생성 된 프록시 형식이 안전한 방식으로 엔터티를 신호 처리를 위해 사용할 수 있습니다. 신호 하는 것 외에도 클라이언트에서 메서드를 사용 하 여 엔터티 함수의 상태에 대 한 쿼리도 하는 `orchestrationClient` 바인딩.
 
 > [!NOTE]
 > 엔터티 함수 현재에 제공 되는 [영 속 Functions 2.0 미리 보기](durable-functions-preview.md)합니다.

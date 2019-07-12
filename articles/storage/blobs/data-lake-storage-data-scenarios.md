@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939303"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723244"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -39,8 +39,8 @@ Data Lake Storage Gen2 계정은 계층 구조 네임스페이스가 있는 스�
 
 |도구 | 지침 |
 |---|--|
-|Azure Storage Explorer | [Storage 탐색기를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [AzCopyV10을 사용하여 Blob 컨테이너 또는 파일 공유 만들기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Azure Storage Explorer | [Storage Explorer를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [AzCopyV10을 사용하여 Blob 컨테이너 또는 파일 공유 만들기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |HDInsight가 포함된 HDFS(Hadoop File System) CLI(명령줄 인터페이스) |[HDInsight가 포함된 HDFS를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Azure Databricks Notebook의 코드|[스토리지 계정 파일 시스템 만들기(Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [파일 시스템을 만들고 탑재(Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
@@ -54,11 +54,11 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 
 * 다음 역할 중 하나를 사용자, 그룹, 사용자 관리형 ID 또는 서비스 주체에 할당합니다.
 
-  [Storage Blob 데이터 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [Storage Blob 데이터 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
-  [Storage Blob 데이터 소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [Storage Blob 데이터 소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * SAS(공유 액세스 서명) 토큰을 사용합니다.
 
@@ -69,15 +69,15 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 |도구 | 액세스 권한을 부여하려면 | 지침 |
 |---|--|---|
 |Storage Explorer| 사용자 및 그룹에 역할 할당 | [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
-|AzCopy| 사용자 및 그룹에 역할 할당 <br>**or**<br> SAS 토큰 사용| [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[간편하게 Azure Storage 탐색기를 사용하여 Azure Storage에서 파일을 다운로드하는 SAS 만들기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
+|AzCopy| 사용자 및 그룹에 역할 할당 <br>**또는**<br> SAS 토큰 사용| [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[간편하게 Azure Storage Explorer를 사용하여 Azure Storage에서 파일을 다운로드하는 SAS 만들기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Data Factory| 사용자 할당 관리형 ID에 역할 할당<br>**or**<br> 서비스 주체에 역할 할당<br>**or**<br> 스토리지 계정 키 사용 | [연결된 서비스 속성](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
+|Azure 데이터 팩터리| 사용자 할당 관리형 ID에 역할 할당<br>**또는**<br> 서비스 주체에 역할 할당<br>**또는**<br> 스토리지 계정 키 사용 | [연결된 서비스 속성](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| 서비스 주체에 역할 할당 | [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 특정 파일 및 폴더에 대한 액세스 권한을 부여하려면 다음 문서를 참조하세요.
 
-* [Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+* [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
 * [파일 및 디렉터리에 대한 액세스 제어 목록](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
@@ -97,7 +97,7 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 
 | 데이터 원본 | 로컬 컴퓨터를 사용하여 |
 | --- | --- |
-| 수집 |[Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy 도구](../common/storage-use-azcopy-v10.md)|
+| 로컬 컴퓨터 |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy 도구](../common/storage-use-azcopy-v10.md)|
 | Azure Storage Blob |[Azure 데이터 팩터리](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy 도구](../common/storage-use-azcopy-v10.md)<br><br>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-storage-use-distcp.md)|
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
@@ -118,7 +118,7 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 
 |도구 | 지침 |
 |---|--|
-|Azure Data Factory | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 애플리케이션을 사용하여 업로드)
 
@@ -128,7 +128,7 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 
 |도구 | 지침 |
 |---|--|
-|Azure Data Factory | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
 웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/애플리케이션을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 애플리케이션의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 애플리케이션 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
 
@@ -142,7 +142,7 @@ Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방
 |---|--|
 |Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy 도구 | [AzCopy를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Azure Data Factory를 사용 하 여 Azure Data Lake 저장소 Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Azure 데이터 팩터리 | [Azure Data Factory를 사용 하 여 Azure Data Lake 저장소 Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
 
@@ -195,5 +195,5 @@ Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 
 
 |도구 | 지침 |
 |---|--|
-|Azure Data Factory | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCop | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

@@ -3,17 +3,17 @@ title: Azure Backup 에이전트 문제 해결
 description: Azure Backup 에이전트의 설치 및 등록 문제 해결
 services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b175efad081b8382d80be8427aa074920fd3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434018"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705050"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결
 
@@ -46,7 +46,7 @@ ms.locfileid: "67434018"
 | 원인 | 권장 작업 |
 | ---     | ---    |
 | **자격 증명 모음 자격 증명에는 유효 하지 않습니다.** <br/> <br/> 자격 증명 모음 자격 증명 파일이 손상 되었을 수 있습니다 또는 만료 된 것 같습니다. (예를 들어 수 다운로드 된 경우 48 시간 이상 시간 이전에 등록 합니다.)| Azure portal에서 Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 합니다. (의 6 단계를 참조 합니다 [MARS 에이전트 다운로드](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) 섹션입니다.) 그런 다음 적절 하 게 다음이 단계를 수행 합니다. <ul><li> 이미 설치를 했으므로 MARS를 등록 하는 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 선택한 **서버 등록** 에 **작업** 새 등록을 완료 하는 창 자격 증명입니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 하십시오.</ul> **참고**: 여러 자격 증명 모음 자격 증명 파일을 다운로드 한 경우 다음 48 최신 파일만 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
-| **프록시 서버/방화벽이 등록 차단** <br/>또는 <br/>**인터넷 연결 되지 않은** <br/><br/> 컴퓨터 또는 프록시 서버는 인터넷 연결이 제한 된 필요한 Url에 대 한 액세스를 보장 하지 않습니다 하 고 등록이 실패 합니다.| 다음이 단계를 수행 합니다.<br/> <ul><li> 시스템이 인터넷에 연결 하도록 IT 팀과 함께 작동 합니다.<li> 프록시 서버에 없는 경우 에이전트를 등록할 때 프록시 옵션을 선택 하지 않으면 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)합니다.<li> 방화벽/프록시 서버에 이러한 Url을 확인 하려면 네트워킹 팀에서 작업 하 고 IP 주소에 액세스 합니다.<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 하십시오.
+| **프록시 서버/방화벽이 등록 차단** <br/>로 구분하거나 여러 <br/>**인터넷 연결 되지 않은** <br/><br/> 컴퓨터 또는 프록시 서버는 인터넷 연결이 제한 된 필요한 Url에 대 한 액세스를 보장 하지 않습니다 하 고 등록이 실패 합니다.| 다음이 단계를 수행 합니다.<br/> <ul><li> 시스템이 인터넷에 연결 하도록 IT 팀과 함께 작동 합니다.<li> 프록시 서버에 없는 경우 에이전트를 등록할 때 프록시 옵션을 선택 하지 않으면 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)합니다.<li> 방화벽/프록시 서버에 이러한 Url을 확인 하려면 네트워킹 팀에서 작업 하 고 IP 주소에 액세스 합니다.<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 하십시오.
 | **바이러스 백신 소프트웨어가 등록 차단** | 서버에 설치 된 바이러스 백신 소프트웨어를 사용 하는 경우 이러한 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ui> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다. <li> C:\Program Files\Microsoft Azure Recovery Services Agent\Bin에 bin 폴더입니다.
 
 ### <a name="additional-recommendations"></a>추가 권장 사항
@@ -68,34 +68,34 @@ ms.locfileid: "67434018"
 
 ## <a name="unable-to-download-vault-credential-file"></a>자격 증명 모음 파일을 다운로드할 수 없음
 
-| 오류   | 권장 작업 |
+| Error   | 권장 작업 |
 | ---     | ---    |
 |자격 증명 모음 파일을 다운로드하지 못했습니다. (ID: 403) | <ul><li> 다른 브라우저를 사용 하 여 자격 증명 모음 자격 증명을 다운로드 하거나 다음이 단계를 수행 합니다. <ul><li> Internet Explorer를 시작 합니다. F12 키를 선택 합니다. </li><li> 로 이동 합니다 **네트워크** 탭 하 고 캐시 및 쿠키를 지웁니다. </li> <li> 페이지를 새로 고칩니다.<br></li></ul> <li> 사용 안 함/만료 된 구독 인지 확인 합니다.<br></li> <li> 모든 방화벽 규칙은 다운로드를 차단 하는 경우를 확인 합니다. <br></li> <li> Vault (자격 증명 모음 당 50 컴퓨터)에 대 한도 소진 하지 않은 것을 확인 합니다.<br></li>  <li> 사용자에 자격 증명 모음 자격 증명을 다운로드 하 고 자격 증명 모음에 서버를 등록 하는 데 필요한 Azure Backup 사용 권한을 확인 합니다. 참조 [Azure Backup 복구 지점 관리에 관한 Access Control](backup-rbac-rs-vault.md)합니다.</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다.
 
-| 오류  | 가능한 원인 | 권장 작업 |
+| Error  | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
-| <br /><ul><li>Microsoft Azure 복구 서비스 에이전트를 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인 하 고 인터넷에 연결할 수 있는지 확인 합니다.<li>(407) 프록시 인증이 필요 합니다. |프록시 연결을 차단 합니다. |  <ul><li>Internet Explorer로 이동 **도구가** > **인터넷 옵션** > **Security** > **인터넷**. 선택 **사용자 지정 수준** 까지 아래로 스크롤하여 합니다 **파일 다운로드** 섹션입니다. **사용**을 선택합니다.<p>추가할 수도 있습니다 [Url 및 IP 주소](backup-configure-vault.md#verify-internet-access) Internet Explorer에서 신뢰할 수 있는 사이트로 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<li> 컴퓨터에서 인터넷을 제한 한 경우 방화벽 설정을 컴퓨터 또는 프록시에이 허용 하는지 확인 [Url 및 IP 주소](backup-configure-vault.md#verify-internet-access)합니다. <li>서버에 설치 된 바이러스 백신 소프트웨어를 사용 하는 경우 이러한 파일을 바이러스 백신 검사에서 제외 합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치 된 모든.NET Framework 버전에 대 한 CSC.exe 있습니다. 영향을 받는 서버의 모든 버전의.NET Framework에 대 한 CSC.exe 파일을 제외 합니다. <li>스크래치 폴더 또는 캐시 위치입니다. <br>스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다.<li>C:\Program Files\Microsoft Azure Recovery Services Agent\Bin에 bin 폴더입니다.
+| <br /><ul><li>Microsoft Azure 복구 서비스 에이전트를 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인 하 고 인터넷에 연결할 수 있는지 확인 합니다.<li>(407) 프록시 인증 필요. |프록시 연결을 차단 합니다. |  <ul><li>Internet Explorer로 이동 **도구가** > **인터넷 옵션** > **Security** > **인터넷**. 선택 **사용자 지정 수준** 까지 아래로 스크롤하여 합니다 **파일 다운로드** 섹션입니다. **사용**을 선택합니다.<p>추가할 수도 있습니다 [Url 및 IP 주소](backup-configure-vault.md#verify-internet-access) Internet Explorer에서 신뢰할 수 있는 사이트로 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<li> 컴퓨터에서 인터넷을 제한 한 경우 방화벽 설정을 컴퓨터 또는 프록시에이 허용 하는지 확인 [Url 및 IP 주소](backup-configure-vault.md#verify-internet-access)합니다. <li>서버에 설치 된 바이러스 백신 소프트웨어를 사용 하는 경우 이러한 파일을 바이러스 백신 검사에서 제외 합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치 된 모든.NET Framework 버전에 대 한 CSC.exe 있습니다. 영향을 받는 서버의 모든 버전의.NET Framework에 대 한 CSC.exe 파일을 제외 합니다. <li>스크래치 폴더 또는 캐시 위치입니다. <br>스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다.<li>C:\Program Files\Microsoft Azure Recovery Services Agent\Bin에 bin 폴더입니다.
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>안전한 백업을 위한 암호화 키를 설정하지 못했습니다.
 
-| 오류 | 가능한 원인 | 권장 작업 |
+| Error | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
 | <br />안전한 백업을 위한 암호화 키를 설정하지 못했습니다. 정품 인증을 완전히 성공 하지 못했지만 하지만 암호화 암호가 다음 파일에 저장 되었습니다. |<li>서버가 다른 자격 증명 모음에 이미 등록되어 있습니다.<li>구성하는 동안 암호가 손상되었습니다.| 자격 증명 모음에서 서버의 등록을 취소 하 고 새 암호를 다시 등록 합니다.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>정품 인증이 완료되지 않았습니다.
 
-| 오류  | 가능한 원인 | 권장 작업 |
+| Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 작업을 잠시 후에 다시 시도하세요. 문제가 계속되면 Microsoft 지원에 문의하세요.     | <li> 충분 한 공간이 없는 볼륨에 스크래치 폴더가 있는 합니다. <li> 스크래치 폴더가 올바르게 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>로 업그레이드 합니다 [최신](https://aka.ms/azurebackup_agent) 의 MARS 에이전트입니다.<li>백업 데이터의 총 크기의 10% 5% 사이는 사용 가능한 공간이 볼륨에 스크래치 폴더 또는 캐시 위치를 이동 합니다. 캐시 위치를 올바르게 이동 하려면의 단계를 참조 [파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)합니다.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다*합니다.        |
+|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 작업을 잠시 후에 다시 시도하세요. 문제가 계속되면 Microsoft 지원에 문의하세요.     | <li> 충분 한 공간이 없는 볼륨에 스크래치 폴더가 있는 합니다. <li> 스크래치 폴더가 올바르게 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>로 업그레이드 합니다 [최신](https://aka.ms/azurebackup_agent) 의 MARS 에이전트입니다.<li>백업 데이터의 총 크기의 10% 5% 사이는 사용 가능한 공간이 볼륨에 스크래치 폴더 또는 캐시 위치를 이동 합니다. 캐시 위치를 올바르게 이동 하려면의 단계를 참조 [파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)합니다.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다*합니다.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>암호화 암호가 올바르게 구성되지 않았습니다.
 
-| 오류  | 가능한 원인 | 권장 작업 |
+| Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-| <br />34506 오류입니다. 이 컴퓨터에 저장 된 암호화의 암호가 제대로 구성 되지 않았습니다.    | <li> 충분 한 공간이 없는 볼륨에 스크래치 폴더가 있는 합니다. <li> 스크래치 폴더가 올바르게 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>백업 데이터의 총 크기의 10% 5% 사이는 사용 가능한 공간이 볼륨에 스크래치 폴더 또는 캐시 위치를 이동 합니다. 캐시 위치를 올바르게 이동 하려면의 단계를 참조 [파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)합니다.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다*합니다.         |
+| <br />34506 오류입니다. 이 컴퓨터에 저장 된 암호화의 암호가 제대로 구성 되지 않았습니다.    | <li> 충분 한 공간이 없는 볼륨에 스크래치 폴더가 있는 합니다. <li> 스크래치 폴더가 올바르게 이동 되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>백업 데이터의 총 크기의 10% 5% 사이는 사용 가능한 공간이 볼륨에 스크래치 폴더 또는 캐시 위치를 이동 합니다. 캐시 위치를 올바르게 이동 하려면의 단계를 참조 [파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)합니다.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로 대 한 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다*합니다.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>백업 일정에 따라 실행 안 함
@@ -165,7 +165,7 @@ ms.locfileid: "67434018"
 
 복구가 계속 실패 하는 경우에 서버 또는 클라이언트 다시 시작 합니다. 를 다시 시작 하거나 복구가 계속 실패 하면 서버를 다시 시작한 후에 시도 하지 않으려면 [다른 컴퓨터에서 복구](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계

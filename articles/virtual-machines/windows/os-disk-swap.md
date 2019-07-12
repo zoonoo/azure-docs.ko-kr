@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 Azure Virtual Machine에서 사용하는
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: be00f8338430452faa8bd5a20d9e2ddfcbb9d09d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae3979f7ceae4a854df00b39d9c2b9673f65f987
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701292"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720123"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 사용하는 OS 디스크를 변경합니다.
 

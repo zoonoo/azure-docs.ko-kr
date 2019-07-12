@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475952"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796077"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Azure 사용자 지정 리소스 공급자 개요
 
@@ -54,11 +54,11 @@ Azure 사용자 지정 리소스 공급자는 Azure와 끝점 간의 계약을 �
 }
 ```
 
-자산 | 필수 | 설명
+속성 | 필수 | 설명
 ---|---|---
 name | *예* | 끝점 정의의 이름입니다. Azure에서 API 통해이 이름을 노출 하는 ' /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
 routingType | *no* | 계약 유형을 사용 하 여 결정 합니다 **끝점**합니다. 지정 하지 않으면 "프록시" 초기화 됩니다.
-endpoint | *예* | 요청을 라우팅하는 끝점입니다. 이 요청의 부작용 뿐만 아니라 응답 처리할 수 있습니다.
+엔드포인트(endpoint) | *예* | 요청을 라우팅하는 끝점입니다. 이 요청의 부작용 뿐만 아니라 응답 처리할 수 있습니다.
 
 ### <a name="building-custom-resources"></a>사용자 지정 리소스 작성
 
@@ -83,12 +83,12 @@ endpoint | *예* | 요청을 라우팅하는 끝점입니다. 이 요청의 부�
 
 위의 샘플에 대 한 Azure에 추가 되는 Api:
 
-HttpMethod | URI 예제 | 설명
+HttpMethod | URI 예제 | Description
 ---|---|---
 PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | 새 리소스를 만드는 Azure REST API 호출입니다.
 DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | 기존 리소스를 삭제 하려면 Azure REST API 호출입니다.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | 기존 리소스를 검색할 Azure REST API 호출입니다.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | 기존 리소스의 목록을 검색 하려면 Azure REST API 호출입니다.
+가져오기 | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | 기존 리소스를 검색할 Azure REST API 호출입니다.
+가져오기 | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | 기존 리소스의 목록을 검색 하려면 Azure REST API 호출입니다.
 
 ### <a name="building-custom-actions"></a>빌드 사용자 지정 작업
 
@@ -115,7 +115,7 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 HttpMethod | URI 예제 | 설명
 ---|---|---
-POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | 액션을 활성화할 Azure REST API 호출입니다.
+올리기 | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | 액션을 활성화할 Azure REST API 호출입니다.
 
 ## <a name="looking-for-help"></a>도움말
 
@@ -125,6 +125,7 @@ Azure 사용자 지정 리소스 공급자 개발에 대 한 질문이 있으면
 
 이 문서에서는 사용자 지정 공급자에 대해 알아보았습니다. 사용자 지정 공급자를 만들려면 다음 문서를 이동 합니다.
 
-- [자습서: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [빠른 시작: Azure 사용자 지정 리소스 공급자를 만들고 사용자 지정 리소스를 배포 합니다.](./create-custom-provider.md)
+- [자습서: Azure에서 사용자 지정 작업 및 리소스 만들기](./tutorial-custom-providers-101.md)
 - [방법: Azure REST API에 사용자 지정 작업 추가](./custom-providers-action-endpoint-how-to.md)
 - [방법: Azure REST API에 사용자 지정 리소스 추가](./custom-providers-resources-endpoint-how-to.md)

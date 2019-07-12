@@ -132,6 +132,8 @@
       href: backup-recovery.md
     - name: 인프라 예제
       href: infrastructure-example.md
+    - name: 보안 특성
+      href: virtual-machines-windows-security-attributes.md
 - name: 방법 가이드
   items:
     - name: VM 만들기

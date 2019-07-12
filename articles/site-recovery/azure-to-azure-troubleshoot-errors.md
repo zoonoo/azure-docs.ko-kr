@@ -2,18 +2,18 @@
 title: Azure Site Recovery의 Azure 간 복제 문제 및 오류 해결 | Microsoft Docs
 description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 오류 및 문제 해결
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796421"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798575"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -156,7 +156,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151195). </br>
 - **가능한 원인** </br>
-  - DNS를 확인할 수 없어 사이트 복구 엔드포인트에 대한 연결을 설정할 수 없습니다.
+  - DNS 확인 오류로 인해 Site Recovery 끝점에 연결할 수 없습니다.
   - 가상 머신을 장애 조치(failover)했지만 DR 지역에서 DNS 서버에 도달할 수 없는 경우 재보호 기간에 자주 발생합니다.
 
 - **해결 방법**
@@ -175,7 +175,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
       - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
 
 > [!NOTE]
-> 가상 컴퓨터 보호 되는 경우 **표준** 을 내부 부하 분산 장치, 즉 O365 Ip에 액세스할 수 없습니다 기본적으로 login.micorsoftonline.com입니다. 되도록 변경 하거나 **기본적인** 내부 부하 분산 장치 유형 또는에 설명 된 대로 아웃 바운드 액세스를 만들기는 [문서](https://aka.ms/lboutboundrulescli)합니다.
+> 가상 컴퓨터 보호 되는 경우 **표준** 을 내부 부하 분산 장치, 즉 O365 Ip에 액세스할 수 없습니다 기본적으로 login.microsoftonline.com입니다. 되도록 변경 하거나 **기본적인** 내부 부하 분산 장치 유형 또는에 설명 된 대로 아웃 바운드 액세스를 만들기는 [문서](https://aka.ms/lboutboundrulescli)합니다.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
 - **가능한 원인** </br>
@@ -187,23 +187,23 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽은 온-프레미스 프록시 서버 (151072)를 통해 A2A 복제가 실패 했습니다.
 - **가능한 원인** </br>
-  - 사용자 지정 프록시 설정이 유효하지 않으며 ASR Mobility Service 에이전트가 IE에서 프록시 설정을 자동으로 검색하지 않았습니다.
+  - 사용자 지정 프록시 설정이 올바르지 않습니다 및 Azure Site Recovery 모바일 서비스 에이전트 검색 하지 못했습니다 자동-IE에서 프록시 설정
 
 
 - **해결 방법**
   1. Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
-  2. ASR Mobility Service에 대해서만 프록시를 설정하려는 경우 다음 위치에 있는 ProxyInfo.conf에서 프록시 세부 정보를 제공할 수 있습니다.</br>
+  2. Azure Site Recovery 모바일 서비스에 대해서만 프록시를 설정 하려는 경우 위치한 ProxyInfo.conf 프록시 세부 정보를 제공할 수 있습니다.</br>
      - ***Linux***에서 ``/usr/local/InMage/config/``
      - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
   3. ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
-  4. ASR Mobility Service 에이전트는 ***인증되지 않은 프록시***만 지원합니다.
+  4. Azure Site Recovery 모바일 서비스 에이전트 지원 ***인증 되지 않은 프록시***합니다.
 
 
 ### <a name="fix-the-problem"></a>문제 해결
-[필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)의 단계에 따릅니다.
+수 있도록 [필요한 Url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)의 단계를 수행 합니다 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)합니다.
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>컴퓨터에서 디스크를 찾을 수 없음(오류 코드 150039)
 
@@ -232,17 +232,42 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. 경고를 해제 합니다. 복제 된 항목으로 이동 > VM > 개요 섹션에서 해제 경고를 클릭 합니다.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>"복제 사용"에서 선택할 Azure VM 또는 리소스 그룹을 확인할 수 없습니다.
 
- **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
-Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소스가 되는 규약 해야 동일한 위치에 있습니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다. 대 안으로, Recovery services 자격 증명 대신 VM에서 복제를 사용할 수 있습니다. Sourece VM으로 이동 > 속성 > 재해 복구 및 복제를 사용 하도록 설정 합니다.
 
-**원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
-제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>(오류 코드 150225) 정보를 사용 하 여 완료 하는 자격 증명 모음에서 가상 컴퓨터를 제거 합니다.
+가상 컴퓨터를 보호 하는 동시에 Azure Site Recovery는 원본 가상 컴퓨터의 일부 링크를 만듭니다. 보호를 제거 하거나 복제를 사용 하지 않도록 설정 하는 경우 Azure Site Recovery는 정리 작업의 일부로 이러한 링크를 제거 합니다. 가상 컴퓨터에 리소스 잠금을 경우 정보를 사용 하 여 작업이 완료를 가져옵니다. 가상 머신을 Recovery services 자격 증명 모음에서 제거 되었지만 오래 된 링크 중 일부를 정리할 수 없습니다 원본 컴퓨터에서 알려 줍니다.
 
- **원인 3: 부실 구성** <br>
-복제를 사용하려는 VM이 보이지 않는 경우 Azure VM에 남아 있는 부실한 Site Recovery 구성이 그 원인일 수 있습니다. 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
+이 가상 컴퓨터를 나중에 다시 보호 하기 위해 의도 하지 않은 경우이 경고를 무시할 수 있습니다. 그러나 나중에이 가상 컴퓨터를 보호 해야 할 경우 다음 정리 해야 링크 아래 단계에 설명 된 대로 합니다. 
 
+**이렇게 하지 않으면 새로 한 후:**
+
+1.  Recovery services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하는 동안 가상 머신 나열 되지 않습니다. 
+2.  통해 VM을 보호 하려고 하면 **가상 머신 > 설정 > 재해 복구** 오류로 인해 실패 하는 것이 것 "*VM에서기존부실리소스링크인해복제를사용할수없습니다*".
+
+
+### <a name="fix-the-problem"></a>문제 해결
+
+>[!NOTE]
+>
+>Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
+>
+
+1. VM 또는 VM에서 잠금을 제거 리소스 그룹입니다. 예: VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
+3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
+5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오. 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>(오류 코드 150226) VM에서 기존 부실 리소스 링크 인해 복제를 사용할 수 없습니다.
+
+**원인: 가상 컴퓨터에 이전 Site Recovery 보호를 유지 하는 오래 된 구성**
+
+다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
+
+- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 다음 복제를 사용 하지 않도록 설정 되었지만 **원본 VM 리소스 잠금을 했습니다**합니다.
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음이 포함된 리소스 그룹을 삭제했습니다.
 
@@ -250,9 +275,52 @@ Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소�
 
 >[!NOTE]
 >
->아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다.
+>Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
 
-[부실 ASR 구성 스크립트를 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
+
+1. VM 또는 VM에서 잠금을 제거 리소스 그룹에 있는 경우. *예:* VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 스크립트 다운로드 [오래 된 Azure Site Recovery 구성 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
+3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
+5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오.  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>"복제 사용"에서 선택할 Azure VM 또는 리소스 그룹을 확인할 수 없습니다.
+
+ **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음**
+ 
+Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소스가 되는 규약 해야 동일한 위치에 있습니다. 경우 하지 않은 경우 다음 있습니다 없게 보호의 시간 동안 가상 머신 또는 리소스 그룹을 찾으려고 합니다. 
+
+**해결 방법으로**, Recovery services 자격 증명 대신 VM에서 복제를 설정할 수 있습니다. 원본 VM으로 이동 > 속성 > 재해 복구 및 복제를 사용 하도록 설정 합니다.
+
+**원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음**
+
+제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
+
+ **원인 3: 부실 구성**
+ 
+복제를 사용하려는 VM이 보이지 않는 경우 Azure VM에 남아 있는 부실한 Site Recovery 구성이 그 원인일 수 있습니다. 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
+
+- Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
+- Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음이 포함된 리소스 그룹을 삭제했습니다.
+
+- Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하 고 복제를 사용 하지 않도록 설정 했지만 원본 VM 리소스 잠금.
+
+### <a name="fix-the-problem"></a>문제 해결
+
+> [!NOTE]
+>
+> 아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다. Azure Site Recovery는 원본 가상 컴퓨터를 삭제 또는 아래 단계를 수행 하는 동안에 전혀 영향 하지 않습니다.
+>
+
+1. VM 또는 VM에서 잠금을 제거 리소스 그룹에 있는 경우. *예:* VM 아래 "MoveDemo" 이름이 삭제 해야 하는 리소스 잠금.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 스크립트 다운로드 [부실 구성을 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)합니다.
+3. 스크립트 실행 *Cleanup-stale-asr-config-Azure-VM.ps1*합니다.
+4. 구독 ID, VM 리소스 그룹 및 VM 이름을 매개 변수로 제공 합니다.
+5. Azure 자격 증명을 묻는 메시지가 제공 하는 스크립트가 오류 없이 실행 되는 확인 하십시오.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음
  **원인 1:  가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
@@ -311,7 +379,7 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(오류 코드 151126)
 
 **가능한 원인:** </br>
-GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들면 다음과 같습니다. </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들어: </br>
 
 
 - 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
@@ -327,7 +395,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예를 들면 다음과 같습니다.<br>
+1. 명령을 실행 하 여 장치의 UUID를 찾으려면 "blkid \<장치 이름 >"입니다. 예를 들어:<br>
    ```
    blkid /dev/sda1
    ```<br>
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 

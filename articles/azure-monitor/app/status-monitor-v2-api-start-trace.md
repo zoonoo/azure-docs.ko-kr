@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 186324e6a93f90fd04323074e5dc883e3e271725
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b6787134707273a76290adb723a9bc9012252ebd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478993"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807050"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v031-alpha"></a>상태 모니터 v2 API: 시작-ApplicationInsightsMonitoringTrace (v0.3.1 알파)
+# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v040-alpha"></a>상태 모니터 v2 API: 시작-ApplicationInsightsMonitoringTrace (v0.4.0 알파)
 
 이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "67478993"
 
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>출력
 
 
 ### <a name="example-of-application-startup-logs"></a>응용 프로그램 시작 작업 로그의 예

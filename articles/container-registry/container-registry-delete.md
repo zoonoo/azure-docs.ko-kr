@@ -7,127 +7,26 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c603afa61499a615a0882cef06f14fd3d080a9ef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295139"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797757"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Azure Container Registry에서 컨테이너 이미지 삭제
 
 Azure Container Registry의 크기를 유지하려면 오래된 이미지 데이터를 주기적으로 삭제해야 합니다. 프로덕션 환경에 배포되는 일부 컨테이너 이미지에는 장기 저장소가 필요할 수 있지만 다른 이미지는 일반적으로 좀 더 빠르게 삭제해도 됩니다. 예를 들어, 자동화된 빌드 및 테스트 시나리오에서 레지스트리는 절대 배포되지 않는 이미지로 빠르게 채워진 후, 빌드 및 테스트 단계가 완료되는 즉시 제거될 수 있습니다.
 
-여러 가지 방법으로 이미지 데이터를 삭제할 수 있으므로 각 삭제 작업이 저장소 사용량에 미치는 영향을 이해해야 합니다. 이 문서는 먼저 Docker 레지스트리 및 컨테이너 이미지의 구성 요소를 소개한 후 이미지 데이터를 삭제하는 여러 가지 방법을 설명합니다. 샘플 스크립트는 삭제 작업을 자동화 하기 위해 제공 됩니다.
-
-## <a name="registry"></a>레지스트리
-
-컨테이너 *레지스트리*는 컨테이너 이미지를 저장하고 배포하는 서비스입니다. Docker 허브는 공용 Docker 컨테이너 레지스트리이지만 Azure Container Registry는 Azure의 프라이빗 Docker 컨테이너 레지스트리입니다.
-
-## <a name="repository"></a>리포지토리
-
-컨테이너 레지스트리는 이름은 같지만 태그는 다른 컨테이너 이미지의 컬렉션인 *리포지토리*를 관리합니다. 예를 들어, 다음 3개의 이미지가 "helloworld acr" 리포지토리에 있습니다.
-
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
-
-리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스 예를 들어 정방향 슬래시로 구분 리포지토리 이름을 사용 하 여 이미지를 그룹화를 수 있습니다.
-
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
-
-## <a name="components-of-an-image"></a>이미지의 구성 요소
-
-레지스트리 내의 컨테이너 이미지는 하나 이상의 태그와 연결되고, 하나 이상의 계층을 가지고, 매니페스트로 식별됩니다. 이러한 구성 요소가 서로 관련되는 방식을 이해하면 레지스트리에서 공간을 확보하는 최상의 방법을 결정하는 데 도움이 될 수 있습니다.
-
-### <a name="tag"></a>태그
-
-이미지의 *태그*는 해당 버전을 지정합니다. 리포지토리 내의 단일 이미지에 하나 이상의 태그를 할당할 수 있으며 "태그를 지정하지 않을" 수도 있습니다. 즉, 레지스트리에서 이미지의 데이터 (레이어) 유지 하는 동안 이미지에서 모든 태그를 삭제할 수 있습니다.
-
-리포지토리(또는 리포지토리 및 네임스페이스)와 태그는 이미지의 이름을 정의합니다. 밀어넣기 및 끌어오기 작업에서 해당 이름을 지정하여 이미지를 밀어넣고 끌어올 수 있습니다.
-
-Azure Container Registry 같은 프라이빗 레지스트리에서 이미지 이름에는 레지스트리 호스트의 정규화된 이름도 포함됩니다. ACR 이미지 레지스트리 호스트가 형식에서 *acrname.azurecr.io* (모두 소문자). 예를 들어, 이전 섹션에서 "marketing" 네임 스페이스의 첫 번째 이미지의 전체 이름을 다음과 같습니다.
-
-```
-myregistry.azurecr.io/marketing/campaign10-18/web:v2
-```
-
-이미지 태그 지정 모범 사례에 대한 논의는 [Docker 태그 지정: Docker 이미지 태그 지정 및 버전 관리에 대 한 유용한][tagging-best-practices] MSDN 블로그 게시물.
-
-### <a name="layer"></a>계층
-
-이미지는 각각이 Dockerfile에서 이미지를 정의하는 줄에 해당하는 하나 이상의 *계층*으로 구성됩니다. 레지스트리의 이미지는 공용 계층을 공유하므로 저장소 효율성이 높아집니다. 예를 들어, 다른 리포지토리에 있는 여러 이미지가 동일한 Alpine Linux 기본 계층을 공유할 수 있지만 해당 계층의 복사본 하나만 레지스트리에 저장됩니다.
-
-계층 공유는 여러 개의 이미지가 공통 계층을 공유하는 방식으로 노드에 대한 계층 분산을 최적화합니다. 예를 들어, 노드에 이미 있는 이미지가 맨 아래에 Alpine Linux 계층을 포함하는 경우 이후에 같은 계층을 참조하는 다른 이미지를 끌어올 경우 해당 계층이 노드로 전송되지 않습니다. 대신, 노드에 이미 존재하는 계층을 참조합니다.
-
-### <a name="manifest"></a>매니페스트
-
-컨테이너 레지스트리로 끌어온 각 컨테이너 이미지는 *매니페스트*와 연결됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 사용 하 여 리포지토리에 대 한 매니페스트를 나열할 수 있습니다 [az acr 리포지토리 표시 매니페스트][az-acr-repository-show-manifests]:
-
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>
-```
-
-예를 들어, "acr-helloworld" 리포지토리에 대한 매니페스트 다이제스트를 나열하려면 다음과 같이 입력합니다.
-
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
-[
-  {
-    "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
-    "tags": [
-      "latest",
-      "v3"
-    ],
-    "timestamp": "2018-07-12T15:52:00.2075864Z"
-  },
-  {
-    "digest": "sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57",
-    "tags": [
-      "v2"
-    ],
-    "timestamp": "2018-07-12T15:50:53.5372468Z"
-  },
-  {
-    "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
-    "tags": [
-      "v1"
-    ],
-    "timestamp": "2018-07-11T21:38:35.9170967Z"
-  }
-]
-```
-
-### <a name="manifest-digest"></a>매니페스트 다이제스트
-
-매니페스트는 고유한 SHA-256 해시 또는 *매니페스트 다이제스트*에 의해 식별됩니다. 태그 지정 여부에 관계없이 각 이미지는 해당 다이제스트로 식별됩니다. 다이제스트 값은 이미지의 계층 데이터가 다른 이미지의 계층 데이터와 동일하더라도 고유합니다. 이 메커니즘에 따르면 동일하게 태그가 지정된 이미지를 레지스트리에 반복적으로 밀어넣을 수 있습니다. 예를 들어, 각 이미지는 고유한 다이제스트로 식별되므로 `myimage:latest`(을)를 레지스트리에 오류 없이 반복적으로 밀어넣을 수 있습니다.
-
-끌어오기 작업에서 해당 다이제스트를 지정하여 레지스트리에서 이미지를 끌어올 수 있습니다. 일부 시스템은 다이제스트별로 끌어오도록 구성이 가능합니다. 동일하게 태그가 지정된 이미지를 나중에 레지스트리로 밀어넣더라도 해당 이미지 버전 끌어오기가 보장되기 때문입니다.
-
-예를 들어, 매니페스트 다이제스트에 따라 "acr-helloworld" 리포지토리에서 이미지를 끌어오려면 다음과 같이 입력합니다.
-
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
-
-> [!IMPORTANT]
-> 동일한 태그가 지정된 이미지를 수정 후 반복적으로 밀어넣을 경우 태그가 지정되지 않은 이미지는 별도로 분리되어 생성될 수 있지만 이 이미지는 여전히 레지스트리에서 공간을 차지합니다. 태그가 지정되지 않은 이미지는 태그를 기준으로 이미지를 나열하거나 표시할 경우 Azure CLI 또는 Azure Portal에 표시되지 않습니다. 그러나 해당 계층은 여전히 존재하며 레지스트리에서 공간을 차지합니다. 이 문서의 [태그가 지정되지 않은 이미지 삭제](#delete-untagged-images) 섹션에서는 태그가 지정되지 않은 이미지에서 사용되는 공간을 사용 가능하게 해제하는 방법을 설명합니다.
-
-## <a name="delete-image-data"></a>이미지 데이터 삭제
-
-다음과 같은 여러 가지 방법으로 컨테이너 레지스트리에서 이미지 데이터를 삭제할 수 있습니다.
+여러 가지 방법으로 이미지 데이터를 삭제할 수 있으므로 각 삭제 작업이 저장소 사용량에 미치는 영향을 이해해야 합니다. 이 문서에서는 이미지 데이터를 삭제 하는 여러 가지 방법을 설명 합니다.
 
 * [리포지토리](#delete-repository) 삭제: 리포지토리 내의 모든 이미지 및 모든 고유한 계층을 삭제합니다.
 * [태그](#delete-by-tag)에 따라 삭제: 이미지, 태그, 이미지에서 참조하는 모든 고유한 계층과 이미지에 연결된 다른 모든 태그를 삭제합니다.
 * [매니페스트 다이제스트](#delete-by-manifest-digest)에 따라 삭제: 이미지, 이미지에서 참조하는 모든 고유한 계층 및 이미지에 연결된 모든 태그를 삭제합니다.
+
+샘플 스크립트는 삭제 작업을 자동화 하기 위해 제공 됩니다.
+
+이러한 개념 소개를 참조 하세요 [레지스트리, 리포지토리 및 이미지에 대 한](container-registry-concepts.md)합니다.
 
 ## <a name="delete-repository"></a>리포지토리 삭제
 
@@ -154,13 +53,13 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> *태그에 따라* 삭제하는 방식을 태그 삭제(태그 해제)와 혼동하면 안 됩니다. Azure CLI 명령 사용 하 여 태그를 삭제할 수 있습니다 [az acr 리포지토리 해제][az-acr-repository-untag]합니다. 때문에 이미지를 해제 하는 경우 공백이 해제 됩니다 해당 [매니페스트](#manifest) 계층 데이터 레지스트리에 유지 됩니다. 태그 참조 자체만 삭제됩니다.
+> *태그에 따라* 삭제하는 방식을 태그 삭제(태그 해제)와 혼동하면 안 됩니다. Azure CLI 명령 사용 하 여 태그를 삭제할 수 있습니다 [az acr 리포지토리 해제][az-acr-repository-untag]합니다. 때문에 이미지를 해제 하는 경우 공백이 해제 됩니다 해당 [매니페스트](container-registry-concepts.md#manifest) 계층 데이터 레지스트리에 유지 됩니다. 태그 참조 자체만 삭제됩니다.
 
 ## <a name="delete-by-manifest-digest"></a>매니페스트 다이제스트에 따라 삭제
 
-[매니페스트 다이제스트](#manifest-digest)는 하나 이상의 태그와 연결되거나 어떤 태그와도 연결되지 않을 수 있습니다. 다이제스트에 따라 삭제하면 이미지에 고유한 모든 계층에 대한 계층 데이터와 마찬가지로 매니페스트에서 참조되는 모든 태그가 삭제됩니다. 공유 계층 데이터는 삭제되지 않습니다.
+[매니페스트 다이제스트](container-registry-concepts.md#manifest-digest)는 하나 이상의 태그와 연결되거나 어떤 태그와도 연결되지 않을 수 있습니다. 다이제스트에 따라 삭제하면 이미지에 고유한 모든 계층에 대한 계층 데이터와 마찬가지로 매니페스트에서 참조되는 모든 태그가 삭제됩니다. 공유 계층 데이터는 삭제되지 않습니다.
 
-다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 예를 들면 다음과 같습니다.
+다이제스트에 따라 삭제하려면 먼저 삭제하려는 이미지를 포함하는 리포지토리의 매니페스트 다이제스트를 나열합니다. 예:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -248,7 +147,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>태그가 지정되지 않은 이미지 삭제
 
-[매니페스트 다이제스트](#manifest-digest) 섹션에 설명된 것처럼 기존 태그를 사용하여 수정된 이미지를 밀어넣으면 이전에 밀어넣은 이미지가 **태그 해제**되어 분리된(또는 "현수") 이미지가 됩니다. 이전에 밀어넣은 이미지 매니페스트와 해당 계층 데이터는 레지스트리에 유지됩니다. 다음과 같은 이벤트 시퀀스를 고려해 보세요.
+[매니페스트 다이제스트](container-registry-concepts.md#manifest-digest) 섹션에 설명된 것처럼 기존 태그를 사용하여 수정된 이미지를 밀어넣으면 이전에 밀어넣은 이미지가 **태그 해제**되어 분리된(또는 "현 수") 이미지가 됩니다. 이전에 밀어넣은 이미지 매니페스트와 해당 계층 데이터는 레지스트리에 유지됩니다. 다음과 같은 이벤트 시퀀스를 고려해 보세요.
 
 1. 태그 **latest**를 사용하여 *acr helloworld* 이미지를 밀어넣습니다. `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. 리포지토리 *acr-helloworld*에 대한 매니페스트를 확인합니다.

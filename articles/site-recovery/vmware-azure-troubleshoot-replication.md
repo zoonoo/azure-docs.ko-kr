@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491681"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805972"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -133,7 +133,63 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>오류 ID 78144-지난 'XXX' 분 동안에서 VM에 대 한 사용 가능한 앱 일치 복구 지점 없음
 
+가장 일반적인 문제 중 일부는 다음과 같습니다.
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: 에서 알려진 문제 SQL server 2008/2008 R2 
+**해결 방법** : 2008/2008 R2 SQL server 사용 하 여 알려진된 문제가 없습니다. 이 기술 자료 문서를 참조 하십시오 [Azure Site Recovery Agent 또는 다른 구성 요소가 아닌 VSS 백업 SQL Server 2008 R2를 호스팅하는 서버에 대 한 실패](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>원인 2: 모든 버전의 AUTO_CLOSE Db를 사용 하 여 SQL Server 인스턴스를 호스팅하는 서버에서 azure Site Recovery 작업 실패 
+**해결 방법** : 기술 자료를 참조 하세요. [문서](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017 알려진된 문제
+**해결 방법** : 기술 자료를 참조 하세요. [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>VSS 인해 자세한 원인은 관련 문제:
+
+추가로 문제를 해결 하려면 실패에 대 한 정확한 오류 코드를 가져올 원본 컴퓨터의 파일을 확인 합니다.
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+파일에서 오류를 찾으려면 어떻게 하나요?
+편집기에서 vacp.log 파일을 열어 "vacpError" 문자열을 검색 합니다.
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+위의 예에서 **2147754994** 는 아래와 같이 오류에 대 한 알려 주는 오류 코드
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되지 않음-오류 2147221164 
+
+*해결 방법*: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 해당 작업에 대 한 VSS 공급자를 설치 합니다. 이 VSS 공급자 서비스로 설치 됩니다. VSS 공급자를 설치 되지 않은 경우 응용 프로그램 일관성 스냅숏 만들기 실패 0x80040154 오류 id를 사용 하 여 "클래스가 등록 되지 않았습니다." 합니다. </br>
+참조 [VSS 기록기 설치 문제 해결에 대 한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용 하는 사용 안 함-오류 2147943458
+
+**해결 방법**: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 해당 작업에 대 한 VSS 공급자를 설치 합니다. 이 VSS 공급자 서비스로 설치 됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 "지정한 서비스 비활성화 되 고 started(0x80070422) 일 수 없습니다." 오류 id를 사용 하 여 응용 프로그램 일관성 스냅숏 만들기 실패 합니다. </br>
+
+- VSS를 사용 하지 않도록 설정 하는 경우
+    - VSS 공급자 서비스의 시작 유형이 설정 되어 있는지 확인 **자동**합니다.
+    - 다음 서비스를 다시 시작 합니다.
+        - VSS 서비스
+        - Azure Site Recovery VSS 공급자
+        - VDS 서비스
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS 공급자 NOT_REGISTERED-2147754756 오류
+
+**해결 방법**: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. Azure Site Recovery VSS 공급자를 설치 하는 경우를 확인 합니다. </br>
+
+- 다음 명령을 사용 하 여 공급자 설치를 다시 시도 합니다.
+- 기존 공급자를 제거 합니다. C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- 다시 설치 합니다. C:\Program 파일 (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+VSS 공급자 서비스의 시작 유형이 설정 되어 있는지 확인 **자동**합니다.
+    - 다음 서비스를 다시 시작 합니다.
+        - VSS 서비스
+        - Azure Site Recovery VSS 공급자
+        - VDS 서비스
 
 ## <a name="next-steps"></a>다음 단계
 

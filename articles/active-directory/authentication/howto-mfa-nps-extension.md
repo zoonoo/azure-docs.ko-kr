@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560753"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798204"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +43,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -76,14 +76,14 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 합니다.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 또한 다음 Url에 연결 해야 완료를 [제공된 된 PowerShell 스크립트를 사용 하 여 어댑터의 설치](#run-the-powershell-script)
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -221,7 +221,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| 키 | 값 | Default |
+| Key | 값 | 기본값 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -230,6 +230,14 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 사용자가 등록 중이지만 Azure MFA에 아직 등록되지 않은 상태에서 이 키를 만들고 FALSE로 설정하도록 선택할 수 있습니다. 그렇지만 키를 설정하면 MFA에 등록되지 않은 사용자가 로그인할 수 있으므로 프로덕션 환경으로 이동하기 전에 이 키를 제거해야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
+
+### <a name="nps-extension-health-check-script"></a>NPS 확장 상태 확인 스크립트
+
+다음 스크립트는 NPS 확장 문제를 해결할 때 기본 상태 확인 단계를 수행 하려면 TechNet 갤러리에서 사용할 수 있습니다.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>클라이언트 인증서가 예상대로 설치되었는지 어떻게 확인합니까?
 

@@ -2,29 +2,29 @@
 title: AKS(Azure Kubernetes Service)에서 여러 Pod용 정적 볼륨 만들기
 description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 Azure Files가 포함된 볼륨을 수동으로 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ad80b738058b4048fa1a51144a37eb4f62b538c0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072068"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616035"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files 공유를 사용하여 수동으로 볼륨을 만들고 사용합니다.
 
-컨테이너 기반 애플리케이션은 종종 외부 데이터 볼륨의 데이터를 액세스하고 유지해야 합니다. 여러 Pod에서 동일한 저장소 볼륨에 동시에 액세스해야 하는 경우 Azure Files에서 [SMB(서버 메시지 블록) 프로토콜][ smb-overview]을 사용하여 연결할 수 있습니다. 이 문서에서는 Azure Files 공유를 수동으로 만들고 AKS의 Pod에 첨부하는 방법을 보여 줍니다.
+컨테이너 기반 애플리케이션은 종종 외부 데이터 볼륨의 데이터를 액세스하고 유지해야 합니다. 여러 pod를 동일한 저장소 볼륨에 대 한 동시 액세스에 필요한 경우 사용 하 여 연결 하려면 Azure Files를 사용할 수 있습니다 합니다 [서버 메시지 블록 (SMB) 프로토콜][smb-overview]합니다. 이 문서에서는 Azure Files 공유를 수동으로 만들고 AKS의 Pod에 첨부하는 방법을 보여 줍니다.
 
 Kubernetes 볼륨에 대 한 자세한 내용은 참조 하세요. [AKS에서 응용 프로그램에 대 한 저장소 옵션][concepts-storage]합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에 필요한 경우 AKS 빠른 시작을 참조 하세요 [Azure CLI를 사용 하 여][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]합니다.
 
-또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 참조 해야 하는 경우 [Azure CLI 설치][install-azure-cli]합니다.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
@@ -61,7 +61,7 @@ echo Storage account key: $STORAGE_KEY
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes 비밀 만들기
 
-이전 단계에서 작성된 파일 공유에 액세스하려면 Kubernetes에 자격 증명이 필요합니다. 자격 증명은 [Kubernetes 비밀][kubernetes-secret]에 저장됩니다. Kubernetes 비밀은 Kubernetes Pod를 만들 때 참조됩니다.
+이전 단계에서 작성된 파일 공유에 액세스하려면 Kubernetes에 자격 증명이 필요합니다. 이러한 자격 증명에 저장 되는 [Kubernetes 비밀][kubernetes-secret], Kubernetes pod를 만들 때 참조 되는 합니다.
 
 `kubectl create secret` 명령을 사용하여 비밀을 작성하세요. 다음 예제는 *azure-secret*이라는 공유를 만들고 이전 단계에서 *azurestorageaccountname* 및 *azurestorageaccountkey*를 생성합니다. 기존 Azure Storage 계정을 사용하려면 계정 이름과 키를 입력합니다.
 
@@ -137,7 +137,7 @@ Volumes:
 
 다음 표에 설명된 대로 Kubernetes 버전마다 기본 *fileMode* 및 *dirMode* 값이 다릅니다.
 
-| version | 값 |
+| version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
@@ -168,13 +168,13 @@ spec:
   - gid=1000
 ```
 
-버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대한 자세한 내용은 [보안 컨텍스트 구성][kubernetes-security-context]을 참조하세요.
+버전 1.8.0 - 1.8.4의 클러스터를 사용하는 경우 *runAsUser* 값을 *0*으로 설정하여 보안 컨텍스트를 지정할 수 있습니다. Pod 보안 컨텍스트에 대 한 자세한 내용은 참조 하세요. [보안 컨텍스트 구성][kubernetes-security-context]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
 
-Azure Files와 상호 작용하는 AKS 클러스터에 대한 자세한 내용은 [Azure Files에 대한 Kubernetes 플러그 인][kubernetes-files]을 참조하세요.
+Azure Files를 사용 하 여 AKS 클러스터에 대 한 자세한 내용은 상호 작용에 대 한 참조를 [Azure Files 용 Kubernetes 플러그 인][kubernetes-files]합니다.
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

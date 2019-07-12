@@ -11,37 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 940163d01e562d5a7d9107e8d893ba981fa0f84a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147295"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795935"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
-이 문서에서는 Azure App Service 가상 네트워크 통합 기능이 및 앱 설정 하는 방법을 설명 합니다 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)합니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다.  
+이 문서에서는 Azure App Service 가상 네트워크 통합 기능이 및 앱 설정 하는 방법을 설명 합니다 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)합니다. [Azure Virtual Network][VNETOverview] (Vnet)를 사용 하면 비 인터넷 라우팅 가능 네트워크에 다양 한 Azure 리소스를 배치 합니다.  
 
-Azure App Service에는 두 가지 형태가 있습니다. 
+Azure App Service에는 두 가지 변형이 있습니다. 
 
 1. 격리 계층을 제외한 모든 범위의 요금제를 지원하는 다중 테넌트 시스템
 2. 서비스 환경 (ASE (App)를 VNet에 배포 하 고 가격 계획 앱 격리를 지 원하는
 
-이 문서는 다중 테 넌 트 App Service에서에서 사용 하는 두 개의 VNet 통합 기능을 통해 전달 됩니다. 앱이 [App Service Environment][ASEintro]에 있는 경우 이미 VNet에 있으므로 VNet 통합 기능을 사용하여 동일한 VNet의 리소스에 연결할 필요가 없습니다. 모든 App Service 네트워킹 기능에 대 한 내용은 읽기 [App Service 네트워킹 기능](networking-features.md)
+이 문서는 다중 테 넌 트 App Service에서에서 사용 하는 두 개의 VNet 통합 기능을 통해 전달 됩니다. 앱의 경우 [App Service Environment][ASEintro]를 VNet에 이미 하 고 동일한 VNet에서 리소스를 연결할 VNet 통합 기능을 사용 하 여 필요 하지 않습니다. 모든 App Service 네트워킹 기능에 대 한 내용은 읽기 [App Service 네트워킹 기능](networking-features.md)
 
 두 가지 방법으로 VNet 통합 기능
 
 1. 버전에는 동일한 지역 내의 Vnet와 통합할 수 있습니다. 이 형식의 기능에 동일한 지역의 VNet의 서브넷에 필요합니다. 이 기능 미리 보기 상태에서 이지만 아래 나와 있는 몇 가지 주의 사용 하 여 Windows 앱에 대 한 프로덕션 워크 로드에 대 한 지원 됩니다.
-2. 다른 버전에는 다른 지역의 vnet 또는 클래식 Vnet을 사용 하 여 통합할 수 있습니다. 이 버전의 기능을 VNet에 가상 네트워크 게이트웨이 배포에 필요합니다. 지점 대 사이트간 VPN 기반 기능입니다.
+2. 다른 버전에는 다른 지역의 vnet 또는 클래식 Vnet을 사용 하 여 통합할 수 있습니다. 이 버전의 기능을 VNet에 가상 네트워크 게이트웨이 배포에 필요합니다. 이 지점-사이트 간 VPN 기반 기능 및 Windows 앱 에서만 지원 됩니다.
 
 앱만 한 번에 한 가지 형태의 VNet 통합 기능을 사용할 수입니다. 다음 질문을 사용 해야 하는 기능입니다. 다양 한 작업 중 하나를 사용할 수 있습니다. 지우기 차별화 요소가 있지만 다음과 같습니다.
 
-| 문제  | 해결 방법 | 
+| 문제점  | 솔루션 | 
 |----------|----------|
 | 동일한 지역에는 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12 192.168.0.0/16)에 연결. | 지역 VNet 통합 |
-| 클래식 VNet 또는 다른 지역의 VNet을 연결. | 게이트웨이 필요 VNet 통합 |
+| 클래식 VNet 또는 다른 지역의 VNet에서 리소스를 연결. | 게이트웨이 필요 VNet 통합 |
 | RFC 1918 끝점에서 ExpressRoute에 연결. | 지역 VNet 통합 |
 | 서비스 끝점을 통해 리소스를 연결 | 지역 VNet 통합 |
 
@@ -78,12 +78,14 @@ VNet 통합 앱과 동일한 지역에 있는 Vnet을 사용 하는 경우에 �
 * 전역 피어 링 연결을 통해 리소스에 연결할 수 없습니다
 * VNet에 앱에서 들어오는 트래픽을 경로 설정할 수 없습니다.
 * 이 기능은 PremiumV2 App Service 계획을 지 원하는 새로운 App Service 배율 단위에서 사용할 수만 있습니다.
+* 하나의 App Service 계획에서 통합 서브넷 에서만 사용할 수 있습니다.
 * App Service Environment에 있는 격리 된 계획 앱에서 기능을 사용할 수 없습니다.
-* 기능에는 Resource Manager VNet에 최소한 32 주소와 서브넷을 사용 하지 않는 필요합니다.
+* 기능을 / 27 주소 32 개 이상인 Resource Manager VNet에는 사용 되지 않는 서브넷을 사용.
 * 앱과 VNet은 동일한 지역에 있어야 합니다.
-* 각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 서브넷 크기는 할당 후에 변경할 수 없으므로 최대 규모 크기를 처리할 수 있는 서브넷을 사용합니다. 32개의 주소를 사용하는 /27은 20개의 인스턴스로 확장된 App Service 계획을 수용할 수 있는 권장 크기입니다.
 * VNet은 통합된 앱을 사용하여 삭제할 수 없습니다. 통합을 먼저 제거 해야 합니다. 
 * App Service 계획 당 하나의 지역 VNet 통합을 사용할 수 있습니다. 동일한 App Service 계획에 여러 개의 앱에는 동일한 VNet에 사용할 수 있습니다. 
+
+각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 앱을 5 개의 인스턴스를 조정 하는 경우 5 개의 주소를 사용 합니다. 할당 후 서브넷 크기를 변경할 수 없으므로, 앱 도달할 수 모든 규모에 맞게 충분히 큰 서브넷을 사용 해야 합니다. / 27 주소 32 개를 사용 하 여 권장된 크기는 20 개의 인스턴스로 확장 하는 프리미엄 App Service 계획을 수용할 수 있도록 것입니다.
 
 또한 Linux 용 미리 보기 기능이입니다. 동일한 지역에 Resource Manager VNet을 사용 하 여 VNet 통합 기능을 사용 합니다.
 
@@ -101,11 +103,15 @@ VNet 통합 앱과 동일한 지역에 있는 Vnet을 사용 하는 경우에 �
 
 VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그러면 웹앱이 다시 시작됩니다. 
 
-새 VNet 통합 기능을 사용하면 서비스 엔드포인트를 사용할 수 있습니다.  앱에서 서비스 엔드 포인트를 사용하려면 새 VNet 통합을 사용하여 선택한 VNet에 연결한 다음, 통합에 사용한 서브넷에서 서비스 엔드포인트를 구성합니다. 
 
 #### <a name="web-app-for-containers"></a>Web App for Containers
 
 Linux의 App Service를 사용 하 여 기본 제공 이미지를 사용 하 여 지역 VNet 통합 기능의 추가 변경 없이 작동 합니다. 컨테이너용 웹 앱을 사용 하는 경우 VNet 통합을 사용 하려면 docker 이미지를 수정 해야 합니다. Docker 이미지에 하드 코드 된 포트 번호를 사용 하는 대신 주 웹 서버의 수신 대기 포트와 포트 환경 변수를 사용 합니다. PORT 환경 변수가 컨테이너 시작 시간에 App Service 플랫폼에서 자동으로 설정 됩니다.
+
+### <a name="service-endpoints"></a>서비스 엔드포인트
+
+새 VNet 통합 기능을 사용하면 서비스 엔드포인트를 사용할 수 있습니다.  앱에서 서비스 엔드 포인트를 사용하려면 새 VNet 통합을 사용하여 선택한 VNet에 연결한 다음, 통합에 사용한 서브넷에서 서비스 엔드포인트를 구성합니다. 
+
 
 ### <a name="how-vnet-integration-works"></a>VNet 통합의 작동 방식
 
@@ -113,7 +119,7 @@ App Service에서 앱은 작업자 역할에서 호스팅됩니다. 기본 및 �
 
 ![VNet 통합](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
-VNet 통합을 사용 하는 경우 앱은 여전히 정상적으로 동일한 채널을 통해 인터넷에 아웃 바운드 호출 게 합니다. 앱 속성 포털에 나열 된 아웃 바운드 주소는 여전히 앱에서 사용 하는 주소입니다. 앱에 대 한 변경 내용 이란 서비스 끝점에 대 한 호출은 서비스를 보호 하거나 RFC 1918 주소는 VNet으로 이동 합니다. 
+VNet 통합을 사용 하는 경우 앱은 여전히 정상적으로 동일한 채널을 통해 인터넷에 아웃 바운드 호출 게 합니다. 앱 속성 포털에 나열 된 아웃 바운드 주소는 여전히 앱에서 사용 하는 주소입니다. RFC 1918 주소 또는 서비스를 보호 하는 서비스 끝점에 대 한 호출 앱에 대 한 변경 내용 이란, VNet으로 이동 합니다. 
 
 작업자 당 하나의 가상 인터페이스 기능을 지원합니다.  작업자 당 하나의 가상 인터페이스는 App Service 계획 당 하나의 지역 VNet 통합을 의미합니다. 동일한 App Service 계획에서 앱을 모두 동일한 VNet 통합을 사용할 수 있지만 추가 VNet을 연결 하는 앱에 필요한 경우 다른 App Service 계획 만들기 해야 합니다. 사용 하는 가상 인터페이스에 직접 액세스할 수 있는 고객은 리소스가 아닙니다.
 
@@ -149,11 +155,11 @@ VNet 통합을 사용 하는 경우 앱은 여전히 정상적으로 동일한 �
 지점 및 사이트 간 주소로 구성된 게이트웨이가 이미 있는 경우 앱에서 VNet 통합을 구성하는 단계로 건너뛸 수 있습니다.  
 게이트웨이를 만들려면,
 
-1. VNet에 [게이트웨이 서브넷을 만듭니다][creategatewaysubnet].  
+1. [게이트웨이 서브넷을 만드는][creategatewaysubnet] VNet에 있습니다.  
 
-1. [VPN 게이트웨이를 만듭니다][creategateway]. 경로 기반 VPN 종류를 선택합니다.
+1. [VPN gateway 만들기][creategateway]합니다. 경로 기반 VPN 종류를 선택합니다.
 
-1. [지점 및 사이트 간 주소를 설정합니다][setp2saddresses]. 게이트웨이가 기본 SKU에 없으면 지점 및 사이트 간 구성에서 IKEV2를 사용하지 않도록 설정해야 하며 SSTP를 선택해야 합니다. 주소 공간은 RFC 1918 주소 블록, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16에 있어야 합니다.
+1. [사이트 주소 지점으로][setp2saddresses]합니다. 게이트웨이가 기본 SKU에 없으면 지점 및 사이트 간 구성에서 IKEV2를 사용하지 않도록 설정해야 하며 SSTP를 선택해야 합니다. 주소 공간은 RFC 1918 주소 블록, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16에 있어야 합니다.
 
 도 게이트웨이를 만드는 앱 서비스 VNet 통합을 사용 하 여 사용, 인증서를 업로드할 필요가 없습니다. 게이트웨이를 만드는 데 30분이 걸릴 수 있습니다. 게이트웨이가 프로비전될 때까지는 VNet과 앱을 통합할 수 없습니다. 
 
@@ -217,7 +223,7 @@ ASP VNet 통합 UI에는 ASP의 앱에서 사용하는 모든 VNet이 표시됩�
 VNet 및 온-프레미스에 연결할 지역 VNet 통합 기능에 필요한 추가 구성은 없습니다. 온-프레미스에 VNet을 연결 해야 하는 단순히 ExpressRoute 또는 사이트 간 VPN을 사용 합니다. 
 
 > [!NOTE]
-> 게이트웨이 VNet 통합 기능은 ExpressRoute 게이트웨이가 있는 VNet을 사용 하 여 앱을 통합 하지 필요 합니다. ExpressRoute 게이트웨이가 [동시 사용 모드][VPNERCoex]로 구성되어 있더라도 VNet 통합은 작동하지 않습니다. ExpressRoute 연결을 통해 리소스에 액세스 하는 경우 지역 VNet 통합 기능을 사용할 수 있습니다 또는 [App Service Environment][ASE], VNet에서 실행 되는 합니다. 
+> 게이트웨이 VNet 통합 기능은 ExpressRoute 게이트웨이가 있는 VNet을 사용 하 여 앱을 통합 하지 필요 합니다. ExpressRoute 게이트웨이가에 구성 된 경우에 [동시 사용 모드][VPNERCoex] the VNet Integration doesn't work. If you need to access resources through an ExpressRoute connection, then you can use the regional VNet Integration feature or an [App Service Environment][ASE], VNet에서 실행 되는 합니다. 
 > 
 > 
 
@@ -236,15 +242,15 @@ VNet 및 온-프레미스에 연결할 지역 VNet 통합 기능에 필요한 �
 
 게이트웨이 필요 VNet 통합 기능의 사용과 관련 된 요금은 3 가지가 있습니다.
 
-* ASP 가격 책정 계층 요금-앱 Standard, Premium 또는 PremiumV2 App Service 계획에 포함 되도록 해야 합니다. 해당 비용에 대한 자세한 내용은 [App Service 가격][ASPricing]을 참조하세요. 
-* 데이터 전송 비용이 들지-여기 VNet이 동일한 데이터 센터에 있는 경우에 데이터 송신에 대 한 청구를 됩니다. 이러한 요금은 [데이터 전송 가격 정보][DataPricing]에서 설명하고 있습니다. 
-* VPN Gateway 비용-여기에는 VNet 게이트웨이에 지점-사이트 간 VPN에 필요한 비용이 듭니다. 자세한 내용은 [VPN Gateway 가격 페이지][VNETPricing]에 있습니다.
+* ASP 가격 책정 계층 요금-앱 Standard, Premium 또는 PremiumV2 App Service 계획에 포함 되도록 해야 합니다. 해당 비용에 대한 자세한 내용은 [App Service 가격 책정][ASPricing]합니다. 
+* 데이터 전송 비용이 들지-여기 VNet이 동일한 데이터 센터에 있는 경우에 데이터 송신에 대 한 청구를 됩니다. 에 설명 되는 요금이 [데이터 전송 가격 정보][DataPricing]합니다. 
+* VPN Gateway 비용-여기에는 VNet 게이트웨이에 지점-사이트 간 VPN에 필요한 비용이 듭니다. 세부 정보에는 [VPN Gateway 가격 책정][VNETPricing] 페이지입니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결
 기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. 이것은 [sitename].scm.azurewebsites.net으로 이동하는 것과 마찬가지입니다. 해당 콘솔이 열리면 [디버그] 콘솔 탭으로 이동합니다. Azure 포털에 호스트되는 콘솔로 이동하려면 앱에서 도구 -> 콘솔로 이동합니다. 
 
-#### <a name="tools"></a>도구
+#### <a name="tools"></a>Tools
 **ping**, **nslookup** 및 **tracert** 도구는 보안 제약 조건으로 인해 콘솔을 통해 작동되지 않습니다. 공백을 채우기 위해 별도의 두 가지 도구가 추가되었습니다. DNS 기능을 테스트하기 위해 nameresolver.exe라는 도구가 추가되었습니다. 구문은 다음과 같습니다.
 
     nameresolver.exe hostname [optional: DNS Server]

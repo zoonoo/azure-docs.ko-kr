@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341441"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807310"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>만들기 및 활성 지역 복제를 사용 합니다.
 
@@ -43,7 +43,6 @@ ms.locfileid: "67341441"
 - [Transact-SQL: 단일 데이터베이스 또는 탄력적 풀](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: 단일 데이터베이스](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
 활성 지역 복제는 스냅샷 격리를 사용하여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제하는 SQL Server의 [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 기술을 활용합니다. 자동 장애 조치 그룹은 활성 지역 복제를 기반으로 하는 그룹 의미 체계를 제공하지만 동일한 비동기 복제 메커니즘이 사용됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 지역 간 중복을 사용하면 자연 재해, 인간의 치명적인 실수 또는 악의적 행위로 인해 데이터 센터의 일부 또는 전체가 영구적으로 손실되더라도 애플리케이션을 빠르게 복구할 수 있습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
 
@@ -83,12 +82,12 @@ ms.locfileid: "67341441"
 
 - **계획된 장애 조치**
 
-  계획된 장애 조치(failover)는 보조 역할이 주 역할로 전환되기 전에 주 데이터베이스와 보조 데이터베이스 간에 전체 동기화를 수행합니다. 이렇게 하면 데이터 손실이 발생하지 않습니다. 계획된 장애 조치(failover)는 (a) 데이터 손실이 허용되지 않을 때 프로덕션에서 DR 드릴 수행, (b) 데이터베이스를 다른 지역에 재배치, (c) 중단이 완화(장애 복구(failback))된 후 데이터베이스를 주 지역으로 반환 시나리오에서 사용됩니다.
+  전체 동기화가 완료 된 후 장애 조치 스위치 기본 및 보조 데이터베이스의 역할을 계획 합니다. 온라인 작업 데이터 손실이 초래 하지 않는 경우 작업의 시간이 동기화 되어야 하는 주 데이터베이스의 트랜잭션 로그의 크기에 따라 달라 집니다. 계획 된 장애 조치는 다음과 같은 시나리오를 위해 설계 되었습니다. (a) DR을 수행 하려면 드릴 프로덕션 환경에서 데이터 손실이 허용; 없는 경우 (다른 지역; 데이터베이스의 위치를 변경 하려면 다음을 수행 합니다 b) 및 (c) 중단 된 후 주 지역으로 데이터베이스를 되돌릴 완화 (장애 복구용).
 
 - **계획되지 않은 장애 조치**
 
-  계획되지 않은 장애 조치 또는 강제 장애 조치(failover)는 주 데이터베이스와의 동기화 없이 보조 역할을 주 역할로 즉시 전환합니다. 이 작업으로 인해 데이터가 손실됩니다. 계획되지 않은 장애 조치(failover)는 주 데이터베이스에 액세스할 수 없는 중단 중에 복구 방법으로 사용됩니다. 원래 주 데이터베이스가 다시 온라인 상태가 되면 동기화 없이 자동으로 다시 연결되고 새 보조 데이터베이스가 됩니다.
-
+  계획되지 않은 장애 조치 또는 강제 장애 조치(failover)는 주 데이터베이스와의 동기화 없이 보조 역할을 주 역할로 즉시 전환합니다. 주 복제본에 커밋 되었지만 보조 복제본에 복제 되지 않은 모든 트랜잭션이 손실 됩니다. 이 작업 주 액세스할 수 있지만 데이터베이스 가용성을 신속 하 게 복원 해야 하는 경우 작동 중단 동안 복구 방법으로 설계 되었습니다. 원래 주 서버가 다시 온라인 상태가 되는 경우 자동으로 다시 연결 하 고 새 보조 합니다. 장애 조치 전에 동기화 되지 않은 모든 트랜잭션은 백업 파일에 보존 됩니다 있지만 충돌을 방지 하려면 새 주 데이터베이스와 동기화 되지 않습니다. 이러한 트랜잭션을 주 데이터베이스의 최신 버전을 사용 하 여 수동으로 병합 해야 합니다.
+ 
 - **여러 읽기 가능 보조 데이터베이스**
 
   주 데이터베이스마다 최대 4개의 보조 데이터베이스를 만들 수 있습니다. 보조 데이터베이스가 하나밖에 없는 경우 새 보조 데이터베이스를 만들 때까지 애플리케이션이 더 높은 위험에 노출됩니다. 보조 데이터베이스가 여러 개 있는 경우 보조 데이터베이스 중 하나가 실패하더라도 애플리케이션이 계속해서 보호됩니다. 추가 보조 데이터베이스를 사용하여 읽기 전용 워크로드를 확장할 수도 있습니다.
@@ -105,21 +104,26 @@ ms.locfileid: "67341441"
 
   보조 데이터베이스는 애플리케이션 또는 사용자에 의해 언제든지 주 데이터베이스 역할로 전환될 수 있습니다. 실제로 가동이 중단되면 보조 데이터베이스를 즉시 주 데이터베이스로 승격하는 "계획되지 않음" 옵션을 사용해야 합니다. 중지된 주 데이터베이스가 복구되어 작동 가능한 상태가 되면 시스템에서는 복구된 주 데이터베이스를 자동으로 보조 데이터베이스로 표시하고 새로운 주 데이터베이스와 함께 최신 상태로 전환합니다. 주 데이터베이스가 가장 최근의 변경 사항을 보조 데이터베이스로 복제하기 전에 중단될 경우 비동기 복제의 특성상 계획되지 않은 장애 조치(failover)가 진행되는 동안 소량의 데이터가 손실될 수 있습니다. 보조 데이터베이스가 여러 개 있는 주 데이터베이스가 중단되면 시스템에서 사용자의 개입 없이 자동으로 복제 관계를 다시 구성하고 남아 있는 보조 데이터베이스를 새로 승격되는 주 데이터베이스에 연결합니다. 장애 조치(failover)를 일으킨 작동 중단 상황이 완화된 후에는 애플리케이션을 주 지역으로 반환하는 것이 바람직할 수 있습니다. 장애 조치(failover)를 수행하려면 “계획됨” 옵션을 사용하여 명령을 호출해야 합니다.
 
-- **자격 증명 및 방화벽 규칙의 동기화 유지**
+## <a name="preparing-secondary-database-for-failover"></a>장애 조치에 대 한 보조 데이터베이스 준비
 
-사용 하는 것이 좋습니다 [데이터베이스 수준 방화벽 규칙 IP](sql-database-firewall-configure.md) 모든 보조 데이터베이스에는 주 데이터베이스와 동일한 IP 방화벽 규칙을 확인 하기 위해 데이터베이스를 사용 하 여 이러한 규칙을 복제할 수 있도록 지리적으로 복제 된 데이터베이스에 대 한 합니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
+응용 프로그램 장애 조치 후에 새 주 복제본을 액세스할 즉시 수 있도록 보조 서버 및 데이터베이스에 대 한 인증 요구 사항을 제대로 구성 되어를 확인 합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요. 장애 조치 후 준수를 보장 하기 위해 보조 데이터베이스에서 백업 보존 정책의 주의 철자와 일치 하는지 확인 합니다. 이러한 데이터베이스의 일부가 아닌 설정과 복제 되지 않습니다. 기본적으로 보조 7 일의 기본 PITR 보존 기간으로 구성 됩니다. 자세한 내용은 [SQL Database 자동화된 백업](sql-database-automated-backups.md)을 참조하세요.
 
 ## <a name="configuring-secondary-database"></a>보조 데이터베이스 구성
 
-동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 주 데이터베이스는 많은 쓰기 작업에 발생 하는 경우 낮은 계산 크기를 사용 하 여 보조를 유지할 것 못할 수 있습니다. 보조에서 잠재적인 비 가용성으로 다시 실행 지연 하면 결과적으로 및 장애 조치 후 후속 데이터 손실의 위험에 노출 합니다. 따라서 게시된 RPO = 5초를 보증할 수 없습니다. 또한 발생할 오류 또는 주 데이터베이스의 다른 워크 로드의 상태일 합니다. 
-
-불균형 보조 구성의 다른 결과 장애 조치 후 새 주 복제본의 부족 하 여 계산 용량으로 인해 응용 프로그램의 성능이 저하 됩니다. 더 높은 계산을 불가능 가동 중단이 완화 될 때까지 필요한 수준으로 업그레이드 하는 데 필요한 것입니다. 
-
-> [!NOTE]
-> 현재 주 데이터베이스의 업그레이드는 오프 라인 보조 데이터베이스가 있는 경우 가능한 수 없습니다. 
+동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 컴퓨팅 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 주 데이터베이스는 많은 쓰기 작업에 발생 하는 경우 낮은 계산 크기를 사용 하 여 보조를 유지할 것 못할 수 있습니다. 다시 실행 지연 보조 및 잠재적인 수 없는 경우에 발생 합니다. 주 데이터베이스보다 성능이 낮은 보조 데이터베이스는 강제 장애 조치(failover)가 필요한 경우 큰 데이터 손실의 위험을 일으킵니다. 이러한 위험을 완화 하려면 유효한 활성 지역 복제 주 데이터베이스의 로그 속도 해당 보조 복제본을 최신 상태로 유지할 수 있도록 제한 됩니다. 불균형 보조 구성의 다른 결과 장애 조치 후 새 주 복제본의 부족 하 여 계산 용량으로 인해 응용 프로그램의 성능이 저하 됩니다. 더 높은 계산을 불가능 가동 중단이 완화 될 때까지 필요한 수준으로 업그레이드 하는 데 필요한 것입니다. 
 
 
-컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
+> [!IMPORTANT]
+> 게시 된 RPO = 보조 데이터베이스는 주 데이터베이스와 같은 계산 크기를 사용 하 여 구성 하지 않는 한 5 초를 보장할 수 없습니다. 
+
+
+컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 상태에서으로 보고 되는 제한 합니다 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 하 고 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰. 
+
+SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>동기화를 유지 하도록 자격 증명 및 방화벽 규칙
+
+사용 하는 것이 좋습니다 [데이터베이스 수준 방화벽 규칙 IP](sql-database-firewall-configure.md) 모든 보조 데이터베이스에는 주 데이터베이스와 동일한 IP 방화벽 규칙을 확인 하기 위해 데이터베이스를 사용 하 여 이러한 규칙을 복제할 수 있도록 지리적으로 복제 된 데이터베이스에 대 한 합니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>업그레이드 또는 주 데이터베이스를 다운 그레이드
 
@@ -143,12 +147,12 @@ ms.locfileid: "67341441"
 
 ## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 모니터링
 
-RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열의 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 주 데이터베이스에서. 주 복제본에서 커밋 및 보조 복제본에서 지속형 트랜잭션 간의 초 지연 보여 줍니다. 예: 1 초 지연의 값을 사용 하는 경우 주 지금은 가동 중단의 영향을 받는 장애 조치를 시작 하 고 가장 최근의 전환의 1 초 저장 되지 것입니다 하는 경우 의미 합니다. 
+RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열의 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 주 데이터베이스에서. 주 복제본에서 커밋 및 보조 복제본에서 지속형 트랜잭션 간의 초 지연 보여 줍니다. 예를 들어 1 초 지연의 값을 사용 하는 경우 주 지금은 가동 중단의 영향을 받는 장애 조치를 시작 하 고 가장 최근의 전환의 1 초 저장 되지 것입니다 하는 경우 의미 합니다. 
 
 즉, 보조 데이터베이스에서 읽을 수 있는 보조 데이터베이스에 적용 된 주 데이터베이스에서 변경 내용에 대해 지연 시간을 측정 하려면 비교 *last_commit* 주 복제본에서 동일한 값을 사용 하 여 보조 데이터베이스 시간 데이터베이스입니다.
 
 > [!NOTE]
-> 때로는 *replication_lag_sec* 주 데이터베이스에 주 데이터베이스는 현재 얼마나 보조가 알지 즉 NULL 값이 있습니다.   프로세스 다시 시작 해야 된 후 일반적으로 발생이 일시적인 현상일 수 있습니다. 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다.는 *replication_lag_sec* 오랜 시간에 대 한 NULL을 반환 합니다. 보조 데이터베이스 영구 연결 오류로 인해 주 데이터베이스와 통신할 수 없습니다를 나타냅니다. 도 간의 차이 일으킬 수 있는 조건이 있습니다 *last_commit* 커질 주 데이터베이스 및 보조 복제본에서 시간입니다. 예: 커밋 후 오랜 기간 동안 변경 하지 않고 주 복제본에서 설정 되는 경우 차이점 0를 빠르게 반환 하기 전에 큰 값까지 이동 합니다. 이러한 두 값 간의 차이 오랜 시간 동안 큰 유지 되 면 오류 조건을 고려 합니다.
+> 때로는 *replication_lag_sec* 주 데이터베이스에 주 데이터베이스는 현재 얼마나 보조가 알지 즉 NULL 값이 있습니다.   프로세스 다시 시작 해야 된 후 일반적으로 발생이 일시적인 현상일 수 있습니다. 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다.는 *replication_lag_sec* 오랜 시간에 대 한 NULL을 반환 합니다. 보조 데이터베이스 영구 연결 오류로 인해 주 데이터베이스와 통신할 수 없습니다를 나타냅니다. 도 간의 차이 일으킬 수 있는 조건이 있습니다 *last_commit* 커질 주 데이터베이스 및 보조 복제본에서 시간입니다. 예를 들어 커밋 후 오랜 기간 동안 변경 하지 않고 주 복제본에서 설정 되는 경우 차이점 0를 빠르게 반환 하기 전에 큰 값까지 이동 합니다. 이러한 두 값 간의 차이 오랜 시간 동안 큰 유지 되 면 오류 조건을 고려 합니다.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
@@ -175,9 +179,9 @@ RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
@@ -191,7 +195,7 @@ RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열�
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |
@@ -206,7 +210,7 @@ RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열�
 
 - 샘플 스크립트에 대해서는 다음을 참조하세요.
   - [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [활성 지역 복제를 사용하여 풀된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database는 자동 장애 조치(failover) 그룹도 지원합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 사용을 참조하세요.
 - 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)을 참조하세요.

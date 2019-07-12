@@ -4,7 +4,7 @@ description: Azure의 SAP HANA(대규모 인스턴스)를 사용하도록 필수
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05bd09d3ab05f3ce426126e5629523fba087dad9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477300"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707303"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA(대규모 인스턴스) 배포 
 

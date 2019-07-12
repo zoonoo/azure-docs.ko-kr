@@ -4,7 +4,7 @@ description: 2 세대 Vm에 대 한 Azure 지원 개요
 services: virtual-machines-windows
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: d8991a6e3137953aae18b91f9cc19e81f0440c75
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151208"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722720"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 개의 Vm (미리 보기)을 생성에 대 한 지원
 
@@ -41,7 +41,7 @@ ms.locfileid: "67151208"
 * [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 고 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#gs-series)
+* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 고 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Mv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 

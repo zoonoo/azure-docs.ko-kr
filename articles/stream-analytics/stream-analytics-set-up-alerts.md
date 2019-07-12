@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0fd489d856a16953a5a450a347c9737fe440ad28
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329870"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621769"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 
@@ -60,10 +60,10 @@ Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용
 
 |메트릭|조건|시간 집계|임계값|정정 작업|
 |-|-|-|-|-|
-|SU% 사용률|다음보다 큼|최대|80|SU% 사용률이 증가하는 여러 요인이 있습니다. 쿼리 병렬화로 크기 조정하거나 스트리밍 단위 수를 늘릴 수 있습니다. 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
-|런타임 오류|다음보다 큼|합계|0|작업 또는 진단 로그를 검토하고 입력, 쿼리 또는 출력을 적절히 변경합니다.|
-|워터마크 지연|다음보다 큼|최대|마지막 15분 동안 이 메트릭의 평균 값이 지연 도착 허용 시간(초)보다 큰 경우. 지연 도착 허용 시간을 수정하지 않은 경우, 기본값은 5초로 설정됩니다.|SU 수를 늘리거나 쿼리를 병렬 처리하세요. SU에 대한 자세한 내용은 [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)을 참조하세요. 쿼리 병렬 처리에 대한 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
-|입력 역직렬화 오류|다음보다 큼|합계|0|작업 또는 진단 로그를 검토하고 입력을 적절히 변경합니다. 진단 로그에 대한 자세한 내용은 [진단 로그를 사용하여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조하세요.|
+|SU% 사용률|보다 큼|최대값|80|SU% 사용률이 증가하는 여러 요인이 있습니다. 쿼리 병렬화로 크기 조정하거나 스트리밍 단위 수를 늘릴 수 있습니다. 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
+|런타임 오류|보다 큼|Total|0|작업 또는 진단 로그를 검토하고 입력, 쿼리 또는 출력을 적절히 변경합니다.|
+|워터마크 지연|보다 큼|최대값|마지막 15분 동안 이 메트릭의 평균 값이 지연 도착 허용 시간(초)보다 큰 경우. 지연 도착 허용 시간을 수정하지 않은 경우, 기본값은 5초로 설정됩니다.|SU 수를 늘리거나 쿼리를 병렬 처리하세요. SU에 대한 자세한 내용은 [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)을 참조하세요. 쿼리 병렬 처리에 대한 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
+|입력 역직렬화 오류|보다 큼|Total|0|작업 또는 진단 로그를 검토하고 입력을 적절히 변경합니다. 진단 로그에 대한 자세한 내용은 [진단 로그를 사용하여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조하세요.|
 
 ## <a name="get-help"></a>도움말 보기
 
@@ -75,6 +75,6 @@ Azure Portal에서 경고를 구성에 대한 자세한 내용은 [경고 알림
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

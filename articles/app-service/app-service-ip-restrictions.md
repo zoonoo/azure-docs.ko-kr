@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3c547fbc09aeb034df5b7ed579639e1ff4bc0b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069428"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705795"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 #
 
@@ -98,7 +98,7 @@ App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한 �
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>액세스 제한 규칙의 프로그래밍 방식으로 조작 ##
 
-현재 CLI 또는 PowerShell 없습니다 새 액세스 제한 기능이 있지만 Resource Manager에서 앱 구성에서 PUT 작업을 사용 하 여 값을 수동으로 설정할 수 있습니다. 예를 들어, resources.azure.com을 사용하고, ipSecurityRestrictions 블록을 편집하여 필요한 JSON을 추가할 수 있습니다.
+현재 CLI 또는 PowerShell 없습니다 새 액세스 제한 기능이 있지만 값을 사용 하 여 수동으로 설정할 수 있습니다는 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) Resource Manager에서 앱 구성에서 PUT 작업 합니다. 예를 들어, resources.azure.com을 사용하고, ipSecurityRestrictions 블록을 편집하여 필요한 JSON을 추가할 수 있습니다.
 
 Resource Manager에서 이 정보는 다음 위치에 제공됩니다.
 
@@ -106,15 +106,19 @@ management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그�
 
 앞의 예제에 대한 JSON 구문은 다음과 같습니다.
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>함수 앱 IP 제한
 

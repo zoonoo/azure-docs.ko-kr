@@ -4,7 +4,7 @@ description: Azure 플랫폼의 SAP에 대한 현재 구성 및 인증의 업데
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e64e2386611060b1393a330695a4729fe9490e54
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797454"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709974"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
@@ -55,7 +55,7 @@ Microsoft Azure는 다음과 같은 SAP 제품에서 인증되었고 Microsoft�
 | --- | --- | --- | --- |
 | SAP Business Suite 소프트웨어 | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
-| SAP BusinessObjects BI | Windows |N/A |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
+| SAP BusinessObjects BI | Windows |해당 사항 없음 |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle(Windows 및 Oracle Linux만 해당), DB2, SAP ASE |A5 ~ A11, D11 ~ D14, DS11 ~ DS14, DS11_v2 ~ DS15_v2, GS1 ~ GS5, D2s_v3 ~ D64s_v3, E2s_v3 ~ E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure에서 지원되는 다른 SAP 워크로드

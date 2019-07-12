@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540278"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807245"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 
@@ -50,25 +50,25 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
 
 *단일 테넌트 애플리케이션*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
 
-[Azure AD B2B 공동 작업](../b2b/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)을 참조하세요.
+[Azure AD B2B 협업](../b2b/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)을 참조하세요.
 
 단일 테넌트 애플리케이션은 *연락처* 환경을 활성화할 수 있지만 AppSource가 권장하는 단일 클릭/평가판 체험을 활성화하려는 경우 애플리케이션에서 다중 테넌트를 대신 활성화합니다.
 
 ## <a name="appsource-trial-experiences"></a>AppSource 평가판 체험
 
-### <a name="free-trial-customer-led-trial-experience"></a>평가판(고객 주도 평가판 체험) 
+### <a name="free-trial-customer-led-trial-experience"></a>평가판(고객 주도 평가판 체험)
 
-고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 아래는 이 체험이 표시되는 방식의 그림입니다.<br/><br/>
+고객 주도 평가판은 애플리케이션에 대한 단일 클릭 액세스를 제공하므로 AppSource에서 권장하는 체험입니다. 다음 예제에서는이 환경의 모양을 보여 줍니다.
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>‘평가판’ 옵션을 선택합니다.</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource는 웹 사이트의 URL로 사용자를 리디렉션합니다.</li><li>웹 사이트는 <i>Single Sign-On</i> 프로세스를 자동으로 시작합니다(페이지 로드에서).</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>사용자는 Microsoft 로그인 페이지로 리디렉션됩니다.</li><li>사용자는 로그인하기 위해 자격 증명을 제공합니다.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>‘평가판’ 옵션을 선택합니다.</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource는 웹 사이트의 URL로 사용자를 리디렉션합니다.</li><li>웹 사이트는 <i>Single Sign-On</i> 프로세스를 자동으로 시작합니다(페이지 로드에서).</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>사용자는 Microsoft 로그인 페이지로 리디렉션됩니다.</li><li>사용자는 로그인하기 위해 자격 증명을 제공합니다.</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'연락처' 옵션을 선택합니다.</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>연락처 정보로 양식을 작성합니다.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>사용자는 AppSource 웹 사이트에서 애플리케이션을 찾습니다.</li><li>'연락처' 옵션을 선택합니다.</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>연락처 정보로 양식을 작성합니다.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>사용자 정보를 수신합니다.</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>환경을 설정합니다.</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>평가판 정보로 사용자에게 연락합니다.</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>사용자는 애플리케이션에 액세스하고 Single Sign-On 프로세스를 완료합니다.</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>사용자는 애플리케이션에 액세스하고 Single Sign-On 프로세스를 완료합니다.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>사용자는 애플리케이션에 대한 동의를 제공합니다.</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>로그인을 완료하고 사용자는 웹 사이트로 다시 리디렉션됩니다.</li><li>사용자는 평가판을 시작합니다.</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
 ### <a name="more-information"></a>자세한 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
- 
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD 로그인을 지원하는 애플리케이션 구축에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)를 참조하세요.
 - AppSource에 SaaS 애플리케이션을 나열하는 방법에 대한 내용은 [AppSource 파트너 정보](https://appsource.microsoft.com/partners)를 참조하세요.
 
-
 ## <a name="get-support"></a>지원 받기
 
-Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)를 사용합니다. 
+Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)를 사용합니다.
 
 먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문이나 의견이 [`[azure-active-directory]` 및 `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)로 태그가 지정되어 있는지 확인합니다.
 
@@ -131,6 +130,5 @@ Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

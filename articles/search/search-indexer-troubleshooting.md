@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147540"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653412"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 
@@ -45,7 +45,7 @@ FQDN을 ping 하 여 검색 서비스의 IP 주소를 확인할 수 있습니다
 
 #### <a name="indexing-isnt-enabled"></a>인덱싱을 사용하도록 설정하지 않았습니다.
 
-Azure Search는 Cosmos DB 인덱싱에 대한 암시적 종속성을 갖습니다. Cosmos DB에서 자동 인덱싱을 해제하면 Azure Search는 성공 상태를 반환하지만 컨테이너 내용을 인덱스하는 데 실패합니다. 설정을 확인하고 인덱싱을 설정하는 방법에 대한 지침은 [Azure Cosmos DB에서 인덱싱 관리](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal)를 참조하세요.
+Azure Search는 Cosmos DB 인덱싱에 대한 암시적 종속성을 갖습니다. Cosmos DB에서 자동 인덱싱을 해제하면 Azure Search는 성공 상태를 반환하지만 컨테이너 내용을 인덱스하는 데 실패합니다. 설정을 확인하고 인덱싱을 설정하는 방법에 대한 지침은 [Azure Cosmos DB에서 인덱싱 관리](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal)를 참조하세요.
 
 ## <a name="document-processing-errors"></a>문서 처리 오류
 

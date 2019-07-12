@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466736"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655698"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 통해 사용량 및 비용 관리
 
@@ -87,7 +87,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
    - 신호 이름: 사용자 지정 로그 검색
    - 검색 쿼리: 작업 | 세부 정보에 'OverQuota'가 있는 경우
    - 기준: 결과의 수
-   - 조건: 초과
+   - 조건: 보다 큼
    - 임계값: 0
    - 기간: 5분
    - 빈도: 5분
@@ -140,7 +140,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 
 데이터 수집이 중지 되는 경우 OperationStatus가 **경고**합니다. 데이터 수집이 시작 되는 경우 OperationStatus가 **Succeeded**합니다. 다음 표에서 데이터 수집을 중지하는 이유 및 데이터 수집을 다시 시작하는 권장되는 작업을 설명합니다.  
 
-|수집 중지 이유| 해결 방법| 
+|수집 중지 이유| 솔루션| 
 |-----------------------|---------|
 |레거시 무료 가격 책정 계층의 일일 한도에 도달함 |수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는 유료 가격 책정 계층으로 변경합니다.|
 |작업 영역의 일일 상한에 도달함|수집이 자동으로 다시 시작될 때까지 대기하거나, 최대 일일 데이터 볼륨 관리의 설명처럼 일일 데이터 볼륨 한도를 늘립니다. 일일 상한 다시 설정 시간이 **데이터 볼륨 관리** 페이지에 표시됩니다. |
@@ -413,7 +413,7 @@ union withsource = $table Usage
 
 ## <a name="limits-summary"></a>제한 요약
 
-Log Analytics 가격 책정 계층에 종속 중 일부는 몇 가지 추가 Log Analytics 제한이 있습니다. 이러한 설명 되어 있습니다 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits)합니다.
+Log Analytics 가격 책정 계층에 종속 중 일부는 몇 가지 추가 Log Analytics 제한이 있습니다. 이러한 설명 되어 있습니다 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

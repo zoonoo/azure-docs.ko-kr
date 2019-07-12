@@ -4,7 +4,7 @@ description: Microsoft Azure의 주문형 Red Hat Enterprise Linux 인스턴스�
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 4315a849f3f117633f5f6a9d93c995ece9f527a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2add03d68b00fb18fb4323a6acd04480b3770c1c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076996"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708412"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.

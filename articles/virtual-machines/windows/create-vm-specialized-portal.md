@@ -4,7 +4,7 @@ description: Azure Portal의 VHD에서 새 Windows VM을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cadd4b16ab111f46e49429c6d99e0e692325b3b1
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61402307"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718946"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VHD에서 VM 만들기
 
@@ -54,8 +54,8 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 12. 디스크에 사용할 **이름**을 입력합니다.
 13. 디스크에 대한 **리소스 그룹**을 선택합니다. 기존 리소스 그룹을 사용하거나 새로 만들 수 있습니다. 이 선택 항목은 디스크에서 VM을 만드는 경우의 리소스 그룹으로 사용됩니다.
 14. **계정 유형**의 경우 **표준(HDD)** 또는 **프리미엄(SSD)** 저장소를 선택합니다.
-15. **원본 유형**에서 **스냅숏**을 선택했는지 확인합니다.
-16. **원본 스냅숏** 드롭다운 목록에서 사용할 스냅숏을 선택합니다.
+15. **원본 유형**에서 **스냅샷**을 선택했는지 확인합니다.
+16. **원본 스냅샷** 드롭다운 목록에서 사용할 스냅샷을 선택합니다.
 17. 필요에 따라 기타 조정을 수행한 다음, **만들기**를 선택하여 디스크를 만듭니다.
 
 ## <a name="create-a-vm-from-a-disk"></a>디스크에서 VM 만들기

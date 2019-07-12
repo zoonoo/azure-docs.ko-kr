@@ -2,24 +2,25 @@
 title: IoT 미리 보기에 대 한 Azure Security Center에 대 한 인증 방법을 | Microsoft Docs
 description: IoT 서비스에 대 한 Azure Security Center를 사용 하는 경우 사용 가능한 다른 인증 방법에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198378"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618349"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법 
 
@@ -61,7 +62,7 @@ ms.locfileid: "65198378"
 이러한 인수는 다음 표에 나와 있습니다.
 
 
-|매개 변수|설명|옵션|
+|매개 변수|Description|변수|
 |---------|---------------|---------------|
 |**identity**|인증 모드| **모듈** 또는 **장치**|
 |**type**|인증 유형|**SymmetricKey** 또는 **SelfSignedCertificate**|
@@ -111,7 +112,7 @@ ms.locfileid: "65198378"
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 - [보안 에이전트 개요](security-agent-architecture.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)
 - [원시 보안 데이터에 액세스](how-to-security-data-access.md)

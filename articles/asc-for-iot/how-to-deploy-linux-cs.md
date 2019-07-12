@@ -2,24 +2,25 @@
 title: 설치 하 여 Linux 배포 가이드 C# IoT 미리 보기에 대 한 Azure Security Center의 에이전트 | Microsoft Docs
 description: 32 비트 및 64 비트 Linux에서 IoT 에이전트에 대 한 Azure Security Center를 설치 하는 방법에 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5623b9870788edfb3b96ef248154e8b9f60b4593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 808ff912a997a4c09a22048ada7546daab895701
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198424"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618257"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>IoT 용 Azure Security Center를 배포할 C#-Linux에 대 한 보안 에이전트 기반
 
@@ -36,7 +37,7 @@ ms.locfileid: "65198424"
 > * 에이전트 제거
 > * 문제 해결 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 다른 플랫폼 및 에이전트 버전에 대 한 참조 [적합 한 보안 에이전트 선택](how-to-deploy-agent.md)합니다.
 

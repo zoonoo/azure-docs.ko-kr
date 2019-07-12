@@ -4,7 +4,7 @@ description: Azure Windows VM의 SAC에서 CMD 및 PowerShell 명령을 사용�
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306886"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710603"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
@@ -71,13 +71,13 @@ SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편�
 ### <a name="start-service"></a>서비스 시작
 `net start termservice`
 
-또는
+로 구분하거나 여러
 
 `sc start termservice`
 ### <a name="stop-service"></a>서비스 중지
 `net stop termservice`
 
-또는
+로 구분하거나 여러
 
 `sc stop termservice`
 ## <a name="manage-networking-features"></a>네트워킹 기능 관리
@@ -211,11 +211,11 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="show-os-version"></a>OS 버전 표시
 `ver`
 
-또는 
+로 구분하거나 여러 
 
 `wmic os get caption,version,buildnumber /format:list`
 
-또는 
+로 구분하거나 여러 
 
 `systeminfo  find /i "os name"`
 
@@ -223,7 +223,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="view-os-install-date"></a>OS 설치 날짜 보기
 `systeminfo | find /i "original"`
 
-또는 
+로 구분하거나 여러 
 
 `wmic os get installdate`
 ### <a name="view-last-boot-time"></a>마지막 부팅 시간 보기
@@ -231,7 +231,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ### <a name="view-time-zone"></a>표준 시간대 보기
 `systeminfo | find /i "time zone"`
 
-또는
+로 구분하거나 여러
 
 `wmic timezone get caption,standardname /format:list`
 ### <a name="restart-windows"></a>Windows 다시 시작
@@ -296,7 +296,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="show-nic-properties"></a>NIC 속성 표시
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
-또는 
+로 구분하거나 여러 
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
@@ -306,7 +306,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="enable-nic"></a>NIC 사용
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
-또는
+로 구분하거나 여러
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
@@ -320,7 +320,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
-또는
+로 구분하거나 여러
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
@@ -328,7 +328,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="port-ping"></a>포트 Ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
-또는
+로 구분하거나 여러
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
@@ -336,7 +336,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="test-dns-name-resolution"></a>DNS 이름 확인 테스트
 `resolve-dnsname bing.com` 
 
-또는 
+로 구분하거나 여러 
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
@@ -346,7 +346,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="show-windows-firewall-rule-by-port"></a>포트로 Windows 방화벽 규칙 표시
 `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
 
-또는
+로 구분하거나 여러
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
@@ -361,7 +361,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="verify-user-account-is-enabled"></a>사용자 계정이 사용하도록 설정되어 있는지 확인
 `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
 
-또는 
+로 구분하거나 여러 
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
@@ -375,7 +375,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 ### <a name="view-user-account-properties"></a>사용자 계정 속성 보기
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
-또는 
+로 구분하거나 여러 
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 

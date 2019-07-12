@@ -4,7 +4,7 @@ description: Azure 가상 머신에 영향을 주는 Azure 서비스 중단 발�
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f071e1ae97228a16799d391e226ba44b99f6096e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478847"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721177"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Azure VM에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
@@ -44,7 +44,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 
 > [!NOTE]
-> 이 프로세스는 사용자가 제어할 수 없으며 지역 전체 서비스 중단에 대해서만 발생합니다. 이 때문에 가장 높은 수준의 가용성을 달성하기 위해 다른 애플리케이션별 백업 전략에 의존해야 합니다. 자세한 내용은 [재해 복구를 위한 데이터 전략](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery)의 섹션을 참조하세요.
+> 이 프로세스는 사용자가 제어할 수 없으며 지역 전체 서비스 중단에 대해서만 발생합니다. 이 때문에 가장 높은 수준의 가용성을 달성하기 위해 다른 애플리케이션별 백업 전략에 의존해야 합니다. 자세한 내용은 [재해 복구를 위한 데이터 전략](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)의 섹션을 참조하세요.
 >
 >
 

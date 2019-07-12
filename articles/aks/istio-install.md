@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465704"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625988"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -36,7 +36,7 @@ ms.locfileid: "67465704"
 > * 추가 항목 액세스
 > * AKS에서 Istio를 제거 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에 설명 된 단계 가정 AKS 클러스터를 만든 (Kubernetes `1.11` 이상에서 RBAC를 사용 하 여 사용 하도록 설정 하 고) 설정 하 고는 `kubectl` 클러스터와 연결 합니다. 이러한 항목 중 하나를 사용 하 여 도움이 필요한 경우 다음 참조를 [AKS 빠른 시작][aks-quickstart]합니다.
 
@@ -152,14 +152,19 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 ### <a name="windows"></a>Windows
 
-Istio를 설치 하려면 `istioctl` 클라이언트에서 이진을 **Powershell**-Windows 기반으로 셸에서 다음 명령을 사용 합니다. 다음이 명령을 복사 합니다 `istioctl` Istio 폴더에 이진 클라이언트 통해 영구적으로 사용할 수 있도록 프로그램 `PATH`합니다. 다음이 명령을 실행 하려면 상승 된 (관리자) 권한이 필요 하지 않습니다.
+Istio를 설치 하려면 `istioctl` 클라이언트에서 이진을 **Powershell**-Windows 기반으로 셸에서 다음 명령을 사용 합니다. 다음이 명령을 복사 합니다 `istioctl` Istio 폴더에 이진 클라이언트 다음 사용할 수 있도록 즉시 (현재 shell)에서 모두 및 영구적으로 (셸 다시 시작)를 통해에 `PATH`. 다음이 명령을 실행 하려면 상승 된 (관리자) 권한이 필요 하지 않습니다 하 고 셸을 다시 시작 필요가 없습니다.
 
 ```powershell
+# Copy istioctl.exe to C:\Istio
 cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Istio\", "User")
+
+# Add C:\Istio to PATH. 
+# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
+$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
+[environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
 
 이제 다음 섹션으로 이동할 [AKS에 Istio CRDs 설치](#install-the-istio-crds-on-aks)합니다.

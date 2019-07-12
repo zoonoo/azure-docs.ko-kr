@@ -45,7 +45,7 @@
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
-        - name: Template
+        - name: 템플릿
           href: tutorial-install-apps-template.md
     - name: 5 - 확장 집합 자동 크기 조정
       items:
@@ -53,7 +53,7 @@
           href: tutorial-autoscale-cli.md
         - name: Azure PowerShell
           href: tutorial-autoscale-powershell.md
-        - name: Template
+        - name: 템플릿
           href: tutorial-autoscale-template.md
 - name: 샘플
   items:
@@ -156,6 +156,8 @@
           maintainContext: true
     - name: 확장 집합 FAQ
       href: virtual-machine-scale-sets-faq.md
+    - name: 보안 특성
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: 방법
   items:
     - name: 계획 및 디자인

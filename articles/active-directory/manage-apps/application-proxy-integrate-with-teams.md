@@ -16,19 +16,18 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e9b043b27f624a3d9f38fb2299f9e49f0ffedda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783429"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807769"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 애플리케이션에 액세스
 
-Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 온-프레미스 애플리케이션에 Single Sign-On을 제공합니다. Microsoft Teams를 사용하면 한 곳에서 효율적으로 공동 작업을 수행할 수 있습니다. 이 두 가지를 통합하면 사용자가 어떤 상황에서도 팀 동료와 협력하여 생산성을 높일 수 있습니다. 
+Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 온-프레미스 애플리케이션에 Single Sign-On을 제공합니다. Microsoft Teams를 사용하면 한 곳에서 효율적으로 공동 작업을 수행할 수 있습니다. 이 두 가지를 통합하면 사용자가 어떤 상황에서도 팀 동료와 협력하여 생산성을 높일 수 있습니다.
 
 사용자가 [탭을 사용](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US)하여 해당 Teams 채널에 클라우드 앱을 추가할 수 있으나 온-프레미스에 호스트되는 SharePoint 사이트 또는 계획 도구에서는 어떻게 될까요? 애플리케이션 프록시는 솔루션입니다. 원격으로 앱에 액세스하는 데 항상 사용하는 것과 동일한 외부 URL을 사용하여 애플리케이션 프록시를 통해 게시된 앱을 해당 채널에 추가할 수 있습니다. 애플리케이션 프록시는 Azure Active Directory를 통해 인증하므로 사용자에게 Single Sign-On 환경이 제공됩니다.
-
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>애플리케이션 프록시 커넥터 설치 및 앱 게시
 
@@ -42,19 +41,19 @@ Azure Active Directory 애플리케이션 프록시는 장소에 관계없이 �
 
 1. 이 앱을 추가하려는Teams 채널로 이동하여 탭을 추가할 **+** 를 선택합니다.
 
-   ![탭 추가 선택](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![선택 + Teams에서 탭을 추가 하려면](./media/application-proxy-integrate-with-teams/add-tab.png)
 
-2. 탭 옵션에서 **웹 사이트**를 선택합니다.
+1. 탭 옵션에서 **웹 사이트**를 선택합니다.
 
-   ![웹 사이트 추가](./media/application-proxy-integrate-with-teams/website.png)
+   ![추가 탭 화면에서 웹 사이트를 선택 합니다.](./media/application-proxy-integrate-with-teams/website.png)
 
-3. 탭 이름을 지정하고 URL을 애플리케이션 프록시 외부 URL로 설정합니다. 
+1. 탭 이름을 지정하고 URL을 애플리케이션 프록시 외부 URL로 설정합니다.
 
-   ![탭 이름 및 URL 구성](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![탭 이름 지정 및 외부 URL 추가](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
-팀의 한 멤버가 탭을 추가하면 채널의 모든 사용자에게 표시됩니다. 앱에 대한 액세스 권한이 있는 모든 사용자에게는 Microsoft Teams에 사용하는 자격 증명으로 Single Sign-On 액세스가 제공됩니다. 앱에 대한 액세스 권한이 없는 사용자는 Teams에서 탭을 볼 수 있지만 온-프레미스 앱 및 Azure Portal 게시 버전 앱에 대한 권한이 부여될 때까지 액세스가 차단됩니다. 
+팀의 한 멤버가 탭을 추가하면 채널의 모든 사용자에게 표시됩니다. 앱에 대한 액세스 권한이 있는 모든 사용자에게는 Microsoft Teams에 사용하는 자격 증명으로 Single Sign-On 액세스가 제공됩니다. 앱에 대한 액세스 권한이 없는 사용자는 Teams에서 탭을 볼 수 있지만 온-프레미스 앱 및 Azure Portal 게시 버전 앱에 대한 권한이 부여될 때까지 액세스가 차단됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 애플리케이션 프록시를 통해 [온-프레미스 SharePoint 사이트를 게시](application-proxy-integrate-with-sharepoint-server.md)하는 방법을 알아보세요.
-- 앱에서 외부 URL에 대해 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하도록 구성합니다. 
+- 앱에서 외부 URL에 대해 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하도록 구성합니다.
