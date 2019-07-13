@@ -84,7 +84,7 @@ ms.locfileid: "58882058"
     GO
     ```
 
-    이 예제는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
+    다음 예제에서는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
 
     ```sql
     USE master
@@ -122,7 +122,7 @@ ms.locfileid: "58882058"
 - 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
-`sysadmin` 서버 역할에 로그인을 추가하려면:
+`sysadmin` 서버 역할에 로그인을 추가하려면
 
 1. 관리되는 인스턴스에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
@@ -154,7 +154,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     자세한 내용은 다음 문서를 참조하세요. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)
+     자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md) 문서를 참조하세요.
 
 1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 MFA(Multi-Factor Authentication) 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 
@@ -190,11 +190,11 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
         GO
         ```
 
-1. Azure AD의 그룹에 대한 관리되는 인스턴스 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 관리되는 인스턴스에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
+1. Azure AD의 그룹에 대한 관리되는 인스턴스 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 관리되는 인스턴스에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_ 이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
 
 1. SQL Server Management Studio에서 새 쿼리 창을 엽니다.
 
-    이 예에서는 Azure AD에 _mygroup_이라는 그룹이 있다고 가정합니다. 다음 명령을 실행합니다.
+    이 예에서는 Azure AD에 _mygroup_ 이라는 그룹이 있다고 가정합니다. 다음 명령을 실행합니다.
 
     ```sql
     USE master
@@ -249,7 +249,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. 그룹인 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만드는 것도 지원됩니다.
 
-    다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
+    다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_ 에 대한 로그인을 만듭니다.
 
     ```sql
     USE MyMITestDB
@@ -304,7 +304,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
+    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_ 에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
 
     ```sql
     USE MyMITestDB
@@ -403,7 +403,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     );
     ```
 
-1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2**에 사용자 _mygroup_을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_에 부여합니다.
+1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2**에 사용자 _mygroup_ 을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_ 에 부여합니다.
 
     ```sql
     USE MyMITestDB2
@@ -414,7 +414,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     GO
     ```
 
-1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_ 의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
 
     ```sql
     USE MyMITestDB
