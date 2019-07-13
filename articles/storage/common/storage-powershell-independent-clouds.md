@@ -98,7 +98,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 |속성 이름|값|
 |----|----|
-| 이름 | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |
