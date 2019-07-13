@@ -45,7 +45,8 @@
 - name: 방법 가이드
   items:
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: 개념
   items:
     - name: 엔터티 검색

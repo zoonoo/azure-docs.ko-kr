@@ -51,7 +51,8 @@
     - name: 페이지 소식
       href: paging-news.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: API v5에서 v7로 업그레이드
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Visual Studio 작업
