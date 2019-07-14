@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797533"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540292"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>자습서: Azure 스토리지 큐 작업
 
@@ -227,6 +227,14 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
    ```
 
 2. 파일을 저장합니다.
+
+메시지는 UTF-8 인코딩을 사용하는 XML 요청에 포함될 수 있는 형식이어야 하며, 크기는 최대 64KB까지 가능합니다. 메시지에 이진 데이터가 포함되어 있으면 메시지를 Base64로 인코딩하는 것이 좋습니다.
+
+기본적으로 메시지의 TTL(Time-To-Live)은 7일로 설정됩니다. 메시지 TTL(Time-To-Live)에 임의 양수를 지정할 수 있습니다. 만기되지 않는 메시지를 추가하려면 **AddMessageAsync** 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>큐에서 메시지 제거
 

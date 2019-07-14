@@ -1,5 +1,5 @@
 ---
-title: .NET을 사용하여 Media Services로 비디오 분석 - Azure | Microsoft Docs
+title: Azure Media Services로 비디오 분석 | Microsoft Docs
 description: Azure Media Services를 사용하여 비디오를 분석하려면 이 자습서의 단계를 따르십시오.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415637"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273881"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3에서 비디오 분석
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
+
+> [!NOTE]
+> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하더라도 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
 
 이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그런 다음, 일반적인 불만 사항 목록 및 불만의 출처 및 기타 유용한 정보와 같은 비즈니스에 대한 인사이트를 파악할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
-
+ 
 > [!div class="checklist"]
 > * 토픽에 설명된 샘플 앱 다운로드
 > * 지정된 비디오를 분석하는 코드 검사

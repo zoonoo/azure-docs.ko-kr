@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808781"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485925"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -54,7 +54,7 @@ Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행
 * Windows 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
 > [!TIP]
-> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
+> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
 
 ## <a name="create-a-module-project"></a>모듈 프로젝트 만들기
 
@@ -295,7 +295,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**이며, Windows 모듈을 빌드해야 하므로 확장은 **Windows.Amd64**가 됩니다. 
 

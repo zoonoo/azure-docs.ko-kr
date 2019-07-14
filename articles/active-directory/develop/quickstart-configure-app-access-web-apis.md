@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545810"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482693"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
@@ -77,7 +77,7 @@ ms.locfileid: "65545810"
    1. 빌드하는 애플리케이션 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택합니다.
    1. 애플리케이션의 리디렉션 URI를 입력합니다.
       * 웹 애플리케이션의 경우 애플리케이션의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 머신에서 실행 중인 웹 애플리케이션의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-      * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: https://MyFirstApp).
+      * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: https://MyFirstApp ).
 
 1. 공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI에서 선택하려면 다음 단계를 따릅니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "65545810"
 
 ## <a name="add-permissions-to-access-web-apis"></a>웹 API 액세스 권한 추가
 
-[![API 권한 추가](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+[![API 사용 권한을 추가할 수 있는 화면 표시](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 클라이언트에서 리소스 API에 액세스하는 권한을 추가하려면
 

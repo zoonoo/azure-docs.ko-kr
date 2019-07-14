@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: caf82fdab8a841e5c49616a40216a788d877a81b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955612"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501961"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -233,7 +233,7 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http:\//www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

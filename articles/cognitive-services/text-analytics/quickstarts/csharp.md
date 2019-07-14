@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: assafi
-ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82297842a56930cec2b4de90998b4ffb904543bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297813"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446979"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>빠른 시작: .NET SDK 및 C#을 사용하여 Text Analytics 서비스 호출
 <a name="HOLTop"></a>
@@ -31,6 +31,7 @@ ms.locfileid: "66297813"
 
 * [Visual Studio 2017 이상]의 모든 버전
 * Text Analytics [.NET용 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 가입하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 필요합니다.

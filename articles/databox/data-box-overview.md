@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603469"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551516"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -116,6 +116,9 @@ Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/�
     - 유럽 연합 - 유럽 서부 및 유럽 북부.
     - 영국 - 영국 남부 및 영국 서부.
     - 프랑스 - 프랑스 중부 및 프랑스 남부.
+    - 일본 - 일본 동부 및 일본 서부.
+    - 오스트레일리아 - 오스트레일리아 동부 및 오스트레일리아 남동부.
+    - 캐나다 - 캐나다 동부 및 캐나다 중부
 
 - **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.  
 

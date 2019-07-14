@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd4b6dd31d620603b765fd33494f399f97915af3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7702fd220c2100b8e03ac0491e4b3365525a7de5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784928"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540737"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -60,7 +60,7 @@ ms.locfileid: "65784928"
 > 1. **리디렉션 URI** 섹션에서 **URI 추가**를 선택합니다.  **urn:ietf:wg:oauth:2.0:oob**를 입력합니다.
 > 1. **저장**을 선택합니다.
 
-> [!div renderon="portal" class="sxs-lookup alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
 > 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 **urn:ietf:wg:oauth:2.0:oob**로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -82,6 +82,9 @@ ms.locfileid: "65784928"
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.    
 
 > [!div renderon="docs"]
 > 위치:

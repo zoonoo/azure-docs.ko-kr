@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2753daf225016d3bd8e07383193a1260b40a36d5
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564978"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>자습서: EBSCO와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ EBSCO를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 EBSCO에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -113,7 +113,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![이미지](common/both-preintegrated-signon.png)
 
-    **로그인 URL** 텍스트 상자에서 `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [EBSCO 클라이언트 지원 팀](mailto:sso@ebsco.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -133,7 +133,7 @@ EBSCO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 7. 위에서 언급한 특성 외에도, SAML 응답을 통해 몇 가지 특성이 추가로 EBSCO 애플리케이션에 전달되어야 합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |    
     | FirstName   | user.givenname |
     | LastName   | user.surname |

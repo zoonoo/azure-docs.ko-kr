@@ -4,20 +4,20 @@ description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493365"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449227"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
-이 빠른 시작은 Stream Analytics 작업 만들기를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 실시간 스트리밍 데이터를 읽고 온도가 27보다 높은 메시지를 필터링하는 Stream Analytics 작업을 정의합니다. Stream Analytics 작업은 IoT Hub 디바이스에서 데이터를 읽고, 데이터를 변환하고, 데이터를 BLOB 스토리지의 컨테이너에 다시 씁니다. 이 빠른 시작에서 사용된 입력 데이터는 Raspberry Pi 온라인 시뮬레이터로 생성됩니다. 
+이 빠른 시작은 Stream Analytics 작업 만들기를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 실시간 스트리밍 데이터를 읽고 온도가 27보다 높은 메시지를 필터링하는 Stream Analytics 작업을 정의합니다. Stream Analytics 작업은 IoT Hub에서 데이터를 읽고, 데이터를 변환하고, 데이터를 BLOB 스토리지의 컨테이너에 다시 씁니다. 이 빠른 시작에서 사용된 입력 데이터는 Raspberry Pi 온라인 시뮬레이터로 생성됩니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -27,7 +27,7 @@ ms.locfileid: "66493365"
 
 ## <a name="prepare-the-input-data"></a>입력 데이터 준비
 
-Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구성될 데이터를 준비해야 합니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 완료합니다.
+Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 합니다. 실시간 센서 데이터가 IoT Hub로 수집되고 나중에 작업 입력으로 구성됩니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 완료합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -179,7 +179,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, Stream Analytics 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 만든 리소스의 이름을 선택합니다.  
 

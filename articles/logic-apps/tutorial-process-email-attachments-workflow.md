@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414562"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312656"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -46,7 +46,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
   이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 
   다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
-* [체험판 Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 저장소 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
+* [체험판 Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 저장소 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 
@@ -129,7 +129,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 4. 연결 정보를 확인한 다음, **연결**을 선택합니다.
 
-   Storage 탐색기에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)**>**스토리지 계정** 아래에 스토리지 계정이 표시됩니다.
+   Storage Explorer에서 연결을 만들고, 탐색기 창의 **(Local and Attached)(로컬 및 첨부)** >**스토리지 계정** 아래에 스토리지 계정이 표시됩니다.
 
 5. **스토리지 계정** 아래에서 Blob 스토리지 컨테이너를 찾으려면 스토리지 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다.
 
@@ -145,7 +145,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    | 설정 | 값 | 설명 |
    | ------- | ----- | ----------- |
-   | **앱 이름** | CleanTextFunctionApp | 전역적으로 고유하고 설명이 포함된 함수 앱 이름 |
+   | **앱 이름** | <*function-app-name*> | 함수 앱은 설명적이며 전역적으로 고유한 이름(이 예에서는 "CleanTextFunctionApp")이므로 다른 이름(예: "MyCleanTextFunctionApp")을 제공합니다. |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 | 
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. | 
@@ -168,7 +168,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    함수 앱을 만들려면 [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용할 수도 있습니다.
 
-2. **Function App** 아래에서 **CleanTextFunctionApp**을 확장하고 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
+2. **Function App** 아래에서 함수 앱(이 예에서는 "CleanTextFunctionApp")을 확장하고 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
 
    ![새 함수 만들기](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    }
    ```
 
-6. 완료하면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표(**<**) 아이콘 아래에서 **테스트**를 선택합니다.
+6. 완료하면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표( **<** ) 아이콘 아래에서 **테스트**를 선택합니다.
 
    !["테스트" 창을 엽니다.](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -260,7 +260,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 디자이너의 검색 상자에서 필터로 "새 이메일이 도착하는 경우"를 입력합니다. 이메일 공급자에 대해 **새 이메일이 도착하는 경우 - <*your-email-provider*>** 트리거를 선택합니다.
 
-   예: 
+   예:
 
    ![이메일 공급자에 대해 "새 이메일이 도착하는 경우" 트리거 선택](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    !["조건" 선택](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다. 
-   조건의 제목 표시줄에서 **줄임표**(**...** ) 단추 > **이름 바꾸기**를 선택합니다.
+   조건의 제목 표시줄에서 **줄임표**( **...** ) 단추 > **이름 바꾸기**를 선택합니다.
 
       ![조건 이름 바꾸기](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    !["Azure 함수 선택" 작업 선택](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. 이전에 만든 **CleanTextFunctionApp** 함수 앱을 선택합니다.
+3. 이전에 만든 함수 앱(이 예에서는 "CleanTextFunctionApp")을 선택합니다.
 
    ![Azure 함수 앱 선택](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -493,9 +493,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 3. 논리 앱이 이메일을 올바른 저장소 컨테이너에 저장했는지 확인합니다.
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
-   **스토리지 계정**>**attachmentstorageacct (외부)**> 
-   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **(로컬 또는 연결된)** > 
+   **스토리지 계정**>**attachmentstorageacct (외부)** > 
+   **Blob 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일의 **첨부 파일** 컨테이너를 선택합니다.
 
@@ -580,9 +580,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 3. 논리 앱이 이메일과 첨부 파일을 올바른 저장소 컨테이너에 저장했는지 확인합니다. 
 
-   1. Storage 탐색기에서 **(로컬 또는 연결된)**> 
-   **스토리지 계정**>**attachmentstorageacct (외부)**> 
-   **BLOB 컨테이너**>**첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **(로컬 또는 연결된)** > 
+   **스토리지 계정**>**attachmentstorageacct (외부)** > 
+   **Blob 컨테이너**>**첨부 파일**을 확장합니다.
 
    2. 이메일 및 첨부 파일용 **첨부 파일** 컨테이너를 확인합니다.
 
@@ -626,7 +626,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    ||||
 
    > [!NOTE]
-   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다. 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표(**...**)를 선택하고, **삭제**를 선택합니다.
+   > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다. 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다. 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택하고, **삭제**를 선택합니다.
 
 6. 논리 앱을 저장합니다.
 

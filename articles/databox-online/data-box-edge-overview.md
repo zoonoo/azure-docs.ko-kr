@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544571"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484749"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge란? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge는 네트워크 데이터 전송 기능이 포함된 AI 지�
     - 클라우드에서 심층 분석에 필요한 데이터의 하위 집합을 만들어 전송
     - IoT 이벤트 분석 및 대응 
 
-- **유추 Azure Machine Learning** - Data Box Edge를 사용하면 ML(Machine Learning) 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 전체 데이터 집합이 전송됩니다.
+- **유추 Azure Machine Learning** - Data Box Edge를 사용하면 ML(Machine Learning) 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 전체 데이터 집합이 전송될 수 있습니다. Databox Edge 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Databox Edge에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
 
 - **네트워크를 통해 Azure로 데이터 전송** - Data Box Edge를 사용하면 Azure로 데이터를 쉽고 빠르게 전송하여 추가 계산 및 분석을 수행하거나 데이터를 보관할 수 있습니다. 
 
@@ -55,7 +55,7 @@ Data Box Edge의 기능은 다음과 같습니다.
 |기능 |설명  |
 |---------|---------|
 |고성능     | 고도로 최적화된 완전 자동 데이터 전송 기능과 대역폭이 제공됩니다.|
-|지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Edge 시스템 요구 사항](https://aka.ms/dbe-docs)을 방문하세요.|
+|지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Edge 시스템 요구 사항](data-box-edge-system-requirements.md)을 방문하세요.|
 |컴퓨팅       |데이터를 분석, 처리, 필터링할 수 있습니다.|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다.|
 |빠른 액세스     | 가장 최근에 사용한 파일에 빠르게 액세스할 수 있도록 디바이스에 로컬 캐시가 생성됩니다.|
@@ -75,13 +75,13 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 디�
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    자세한 내용은 [Data Box Edge 서비스를 사용하여 Data Box Edge 디바이스 관리](https://aka.ms/dbe-docs)로 이동하세요.
+    자세한 내용은 [Data Box Edge 디바이스에 대한 주문 만들기](data-box-edge-deploy-prep.md#create-a-new-resource)를 참조하세요.
 
 * **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Edge 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 문의하세요.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 Data Box 관리](https://aka.ms/dbe-docs)로 이동하세요.
+    웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 Data Box 관리](data-box-edge-manage-access-power-connectivity-mode.md)로 이동하세요.
 
 
 ## <a name="region-availability"></a>지역 가용성

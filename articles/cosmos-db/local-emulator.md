@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953966"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331767"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -413,6 +413,57 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Mac 또는 Linux에서 실행<a id="mac"></a>
+
+현재 Cosmos Emulator는 Windows에서만 실행할 수 있습니다. Mac 또는 Linux를 실행 중인 사용자는 Parallels 또는 VirtualBox 등 하이퍼바이저가 호스트된 Windows 가상 머신에서 에뮬레이터를 실행할 수 있습니다. 이 기능을 사용하도록 설정하는 단계는 다음과 같습니다.
+
+Windows VM 내에서 아래 명령을 실행하고 IPv4 주소를 기록해 둡니다.
+
+```cmd
+ipconfig.exe
+```
+
+애플리케이션 내에서 DocumentClient 개체의 URI를 변경하여 `ipconfig.exe`가 반환하는 IPv4 주소를 사용해야 합니다. 다음은 DocumentClient 개체를 생성할 때 CA 유효성 검사를 해결하는 단계입니다. 이 경우 ServerCertificateCustomValidationCallback에 대해 자체적으로 구현하는 DocumentClient 생성자에 HttpClientHandler를 제공해야 합니다.
+
+다음은 코드 예입니다.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+마지막으로 Windows VM 내에서 다음 옵션을 사용하여 명령줄에서 Cosmos Emulator를 시작합니다.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너에 대해 실행한 작업의 RU(요청 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416043"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163831"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -302,3 +302,4 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 * [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)
+* [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 244a4ebe20863945bfc3b6236e70e786387c8909
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116661"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509137"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67116661"
 
     1. **새 네임스페이스 만들기**에 이름을 입력합니다. 네임스페이스에는 하나 이상의 허브가 포함되어 있습니다.
 
-    1. **위치** 드롭다운 목록 상자에서 값을 선택합니다. 이 값은 알림 허브를 만들려는 위치를 지정합니다.
+    1. **위치** 드롭다운 목록 상자에서 값을 선택합니다. 이 값은 허브를 만들려는 위치를 지정합니다.
 
     1. **리소스 그룹**에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹의 이름을 만듭니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67116661"
 
         ![Azure Portal - 알림 허브 속성 설정](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. **알림**(벨 아이콘)을 선택하고, **리소스로 이동**을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 알림 허브를 선택할 수도 있습니다.
+1. **알림**(벨 아이콘)을 선택하고, **리소스로 이동**을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
       ![[Azure Portal] - [알림] -> [리소스로 이동]](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 

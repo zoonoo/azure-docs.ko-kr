@@ -7,22 +7,22 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339090"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338623"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>빠른 시작: Python을 사용하여 텍스트 음성 변환
 
 이 빠른 시작에서는 Python 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드의 요청 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 구조화되어 있으므로 응답의 음성 및 언어를 선택할 수 있습니다.
 
-이 빠른 시작에서는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 음성 서비스 리소스를 사용 하 여 합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는 Speech Service 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](get-started.md)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,14 +30,16 @@ ms.locfileid: "58339090"
 
 * Python 2.7.x 또는 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* 음성 서비스에 대 한 Azure 구독 키
+* Speech Service에 대한 Azure 구독 키
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
 즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `tts.py`라는 파일의 프로젝트에 복사합니다.
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -51,8 +53,10 @@ from xml.etree import ElementTree
 다음 몇 개 섹션에서는 권한 부여를 처리하고, Text-to-Speech API를 호출하고, 응답의 유효성을 검사하는 메서드를 만듭니다. 먼저 이 샘플이 Python 2.7.x 및 3.x에서 작동하는지 확인하는 일부 코드를 추가하겠습니다.
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 그런 다음, 클래스를 만들겠습니다. 여기에 토큰 교환 및 Text-to-Speech API 호출을 위한 메서드를 넣습니다.
@@ -70,9 +74,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>액세스 토큰 가져오기
 
-Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 액세스 토큰 사용에 대 한 음성 서비스 구독 키를 교환 하는이 샘플은 `issueToken` 끝점입니다.
+Text-to-Speech REST API에는 인증을 위한 액세스 토큰이 필요합니다. 액세스 토큰을 가져오려면 교환이 필요합니다. 이 샘플에서는 `issueToken` 엔드포인트를 사용하여 액세스 토큰의 Speech Service 구독 키를 교환합니다.
 
-이 샘플 음성 서비스 구독의 미국 서 부 지역에 있다고 가정 합니다. 다른 지역을 사용하는 경우 `fetch_token_url` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
+이 샘플에서는 Speech Service 구독이 미국 서부 지역에 있다고 가정합니다. 다른 지역을 사용하는 경우 `fetch_token_url` 값을 업데이트합니다. 전체 목록은 [지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)을 참조하세요.
 
 이 코드를 `TextToSpeech` 클래스에 복사합니다.
 
@@ -91,7 +95,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>요청을 작성하고 응답을 저장합니다.
 
-여기서 요청을 작성하고 음성 응답을 저장하게 됩니다. 먼저 `base_url` 및 `path`를 설정해야 합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `base_url`을 업데이트해야 합니다. 자세한 내용은 [Speech Services 영역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)합니다.
+여기서 요청을 작성하고 음성 응답을 저장하게 됩니다. 먼저 `base_url` 및 `path`를 설정해야 합니다. 이 샘플에서는 사용자가 미국 서부 엔드포인트를 사용하고 있다고 가정합니다. 리소스가 다른 지역에 등록된 경우에는 `base_url`을 업데이트해야 합니다. 자세한 내용은 [Speech Service 지역](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)을 참조하세요.
 
 그런 다음, 요청에 필요한 헤더를 추가해야 합니다. Azure Portal에 있는 리소스 이름을 사용하여 `User-Agent`를 업데이트하고 `X-Microsoft-OutputFormat`을 선호하는 오디오 출력으로 설정해야 합니다. 출력 형식의 전체 목록은 [오디오 출력](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)을 참조하세요.
 
@@ -120,7 +124,8 @@ def save_audio(self):
     xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
-    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.set(
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -128,9 +133,11 @@ def save_audio(self):
     if response.status_code == 200:
         with open('sample-' + self.timestr + '.wav', 'wb') as audio:
             audio.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nYour TTS is ready for playback.\n")
     else:
-        print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
+        print("\nStatus code: " + str(response.status_code) +
+              "\nSomething went wrong. Check your subscription key and headers.\n")
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합

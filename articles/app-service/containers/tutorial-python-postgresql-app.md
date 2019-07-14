@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4b2304e170f9ddc14a5c1fa71a8822d083955106
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678924"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341532"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 앱 빌드
 
@@ -286,7 +286,8 @@ python manage.py runserver
 Django가 들어오는 요청에서 `HTTP_HOST` 헤더의 유효성을 검사합니다. Django 앱을 App Service에서 작동하도록 하려면 허용된 호스트에 앱의 정규화된 도메인 이름을 추가해야 합니다. _azuresite/settings.py_를 열고 `ALLOWED_HOSTS` 설정을 찾습니다. 줄을 다음으로 변경합니다.
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
+                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 다음으로 Django는 [프로덕션 환경에서 정적 파일 제공](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/)을 지원하지 않으므로 이 작업을 수동으로 활성화해야 합니다. 이 자습서의 경우 [WhiteNoise](https://whitenoise.evans.io/en/stable/)를 사용합니다. WhiteNoise 패키지는 _requirements.txt_에 이미 포함되어 있습니다. Django를 사용하려면 구성하기만 하면 됩니다. 

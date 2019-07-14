@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - Apache Phoenix'
-description: HDInsight에서 Apache Phoenix를 사용하는 방법을 알아봅니다. 또한 컴퓨터에 SQLLine을 설치 및 설정하여 HDInsight의 HBase 클러스터에 연결하는 방법도 알아봅니다.
+description: 이 빠른 시작에서는 HDInsight에서 Apache Phoenix를 사용하는 방법을 알아봅니다. 또한 컴퓨터에 SQLLine을 설치 및 설정하여 HDInsight의 HBase 클러스터에 연결하는 방법도 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 20af6d32d03ae5d4fe37b1a37198ef1f2c50ec95
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596192"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137413"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>빠른 시작: Apache Phoenix를 사용하여 Azure HDInsight에서 Apache HBase 쿼리
 
@@ -126,10 +126,3 @@ SSH를 사용하여 HBase 클러스터에 연결한 다음, Apache Phoenix를 �
 
 > [!div class="nextstepaction"]
 > [HDInsight의 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-
-## <a name="see-also"></a>참고 항목
-
-* [SQLLine 설명서](http://sqlline.sourceforge.net/#manual).
-* [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html).
-* [15분 내의 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
-* [HDInsight HBase 개요](./apache-hbase-overview.md)

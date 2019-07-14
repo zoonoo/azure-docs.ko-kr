@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu;
 ms.custom: seodec18
-ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8180ddeceb0dcace61b5c3de7e5a45ab75042419
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780341"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448395"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -33,12 +33,12 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 | 언어 | 지원되는 버전 |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14(모두 JRE 8 실행) |
-| PHP | 5.6, 7.0, 7.2 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>배포
 
@@ -77,12 +77,7 @@ Linux의 App Service는 [무료, 기본, 표준 및 프리미엄](https://azure.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
-컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
-
-![로깅 사용][2]
-
-설정은 즉시 적용됩니다. App Service는 설정 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
+애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다. 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **App Service 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다. 설정은 즉시 적용됩니다. App Service는 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
 
 **고급 도구**의 **개발 도구** 메뉴에서 SCM 사이트에 액세스할 수 있습니다.
 

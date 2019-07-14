@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 060492d2ed551ed0e90aaf3c1a373572c0c0ab73
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b8e208c8e5f1136ef5029e03b59a2f09e113dc3f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096355"
 ---
 # <a name="tutorial-integrate-neogov-with-azure-active-directory"></a>자습서: Azure Active Directory와 NEOGOV 통합
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도, NEOGOV 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. [사용자 특성] 대화 상자의 [사용자 클레임] 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | -------|--------- |
     | mail | user.mail |
 

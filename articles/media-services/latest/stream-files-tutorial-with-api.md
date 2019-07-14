@@ -1,6 +1,6 @@
 ---
-title: .NET을 사용하여 Azure Media Services v3로 업로드, 인코딩 및 스트리밍 | Microsoft Docs
-description: 이 자습서의 단계에 따라 .NET을 사용하여 Media Services v3로 파일을 업로드하고, 비디오를 인코딩하고, 콘텐츠를 스트리밍할 수 있습니다.
+title: Azure Media Services v3로 업로드, 인코딩 및 스트리밍 | Microsoft Docs
+description: 이 자습서의 단계에 따라 Media Services v3로 파일을 업로드하고, 비디오를 인코딩하고, 콘텐츠를 스트리밍할 수 있습니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149155"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273251"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>자습서: .NET을 사용하여 비디오 업로드, 인코딩 및 스트리밍
+# <a name="tutorial-upload-encode-and-stream-videos"></a>자습서: 비디오 업로드, 인코딩 및 스트리밍
+
+> [!NOTE]
+> 이 자습서에서 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예제를 사용하더라도 일반적인 단계는 [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)에 대해 동일합니다.
 
 Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요. 이 자습서는 로컬 비디오 파일을 업로드하고 업로드된 파일을 인코딩합니다. 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 자세한 내용은 [HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)를 참조하세요.
 

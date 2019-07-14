@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891568"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509039"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스에서 세션 위험이 감지되면 액세스 차단  
 
@@ -33,11 +33,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
 - **Azure AD Premium P2 버전에 대한 액세스** - 조건부 액세스가 Azure AD Premium P1 기능이지만 이 빠른 시작 시나리오에 Identity Protection이 필요하기 때문에 P2 버전이 필요합니다.
-
 - **Identity Protection** - 이 빠른 시작의 시나리오에서는 Identity Protection을 사용하도록 설정해야 합니다. Identity Protection을 사용하도록 설정하는 방법을 모르면 [Azure Active Directory Identity Protection 활성화](../identity-protection/enable.md)를 참조하세요.
-
-- **Tor 브라우저** - [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)는 온라인 개인 정보를 유지할 수 있도록 설계되었습니다. Identity Protection은 Tor 브라우저에서의 로그인을 보통 위험 수준인 **익명 IP 주소에서의 로그인**으로 감지합니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](../reports-monitoring/concept-risk-events.md)를 참조하세요.  
-
+- **Tor 브라우저** - [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)는 온라인 개인 정보를 유지할 수 있도록 설계되었습니다. Identity Protection은 Tor 브라우저에서의 로그인을 보통 위험 수준인 익명 IP 주소에서의 로그인으로 감지합니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](../reports-monitoring/concept-risk-events.md)를 참조하세요.  
 - **Alain Charon이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)를 참조하세요.
 
 ## <a name="test-your-sign-in"></a>로그인 테스트
@@ -67,7 +64,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **조건부 액세스 정책을 구성하려면:**
 
 1. [Azure Portal](https://portal.azure.com)에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-
 1. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
@@ -78,11 +74,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **조건부 액세스** 페이지에서 위쪽의 도구 모음에서 **추가**를 클릭합니다.
 
-   ![Name](./media/app-sign-in-risk/108.png)
+   ![이름](./media/app-sign-in-risk/108.png)
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **중간 위험 수준에 대한 액세스 차단**을 입력합니다.
 
-   ![Name](./media/app-sign-in-risk/104.png)
+   ![이름](./media/app-sign-in-risk/104.png)
 
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -93,13 +89,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![조건부 액세스](./media/app-sign-in-risk/107.png)
 
    1. **사용자 및 그룹 선택**을 클릭한 다음, **사용자 및 그룹**을 선택합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **선택** 페이지에서 **Alain Charon**을 선택한 다음, **선택**을 클릭합니다.
-
    1. **사용자 및 그룹** 페이지에서 **완료**를 클릭합니다.
-
 1. **클라우드 앱**을 클릭합니다.
 
    ![클라우드 앱](./media/app-sign-in-risk/08.png)
@@ -109,9 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![조건부 액세스](./media/app-sign-in-risk/109.png)
 
    1. **모든 클라우드 앱**을 클릭합니다.
-
    1. **Done**을 클릭합니다.
-
 1. **조건**을 클릭합니다.
 
    ![액세스 제어](./media/app-sign-in-risk/19.png)
@@ -121,15 +111,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![로그인 위험 수준](./media/app-sign-in-risk/21.png)
 
    1. **로그인 위험**을 클릭합니다.
-
    1. **구성**으로 **예**를 클릭합니다.
-
    1. 로그인 위험 수준으로 **보통**을 선택합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **조건** 페이지에서 **완료**를 클릭합니다.
-
 1. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
 
    ![액세스 제어](./media/app-sign-in-risk/10.png)
@@ -139,9 +124,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![조건부 액세스](./media/app-sign-in-risk/105.png)
 
    1. **액세스 차단**을 선택합니다.
-
    1. **선택**을 클릭합니다.
-
 1. **정책 사용** 섹션에서 **켬**을 클릭합니다.
 
    ![정책 설정](./media/app-sign-in-risk/18.png)
@@ -172,7 +155,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **What If**를 클릭합니다.
 
-## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책 테스트
+## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책을 테스트합니다.
 
 이전 섹션에서는 시뮬레이션된 로그인을 평가하는 방법을 배웠습니다. 시뮬레이션 외에도, 조건부 액세스 정책이 예상대로 작동하는지 테스트해야 합니다.
 
@@ -185,7 +168,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 테스트 사용자, Tor 브라우저 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
 - Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-a-user)를 참조하세요.
-
 - 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
 
    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)

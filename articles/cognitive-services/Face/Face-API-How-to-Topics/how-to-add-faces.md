@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 83aef90702e4a4cc4fd9bdfda486841f9b2a63a4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0415dcae08c188c1758150c4b8b0df4dee014ce6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124490"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448595"
 ---
 # <a name="add-faces-to-a-persongroup"></a>PersonGroup에 얼굴 추가
 
@@ -60,10 +60,12 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>2단계: API 호출 권한 부여
 
-클라이언트 라이브러리를 사용하는 경우 구독 키를 FaceServiceClient 클래스의 생성자에 전달해야 합니다. 예: 
+클라이언트 라이브러리를 사용하는 경우 구독 키를 **FaceClient** 클래스의 생성자에 전달해야 합니다. 예:
 
 ```csharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
+private readonly IFaceClient faceClient = new FaceClient(
+    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
 
 구독 키를 가져오려면 Azure Portal에서 Azure Marketplace로 이동합니다. 자세한 내용은 [구독](https://www.microsoft.com/cognitive-services/sign-up)을 참조하세요.
@@ -77,7 +79,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
+await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
 ## <a name="step-4-create-the-persons-for-the-persongroup"></a>4단계: PersonGroup에 대한 사람 만들기
@@ -91,7 +93,7 @@ Parallel.For(0, PersonCount, async i =>
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceServiceClient.CreatePersonAsync(personGroupId, personName);
+    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
 });
 ```
 
@@ -112,7 +114,7 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceServiceClient.AddPersonFaceAsync(personGroupId, personId, stream);
+            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
         }
     }
 });

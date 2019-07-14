@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70a862f51f9e15b8eb26e2ac12b046b76b9a7402
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549836"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514322"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-python.md)
 
@@ -41,23 +41,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 메모장을 시작합니다. 다음 텍스트를 복사하여 **input.txt** 파일로 디스크에 저장합니다.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
-2.  [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2tutorial** 컨테이너와 컨테이너에 **input** 폴더를 만듭니다. 그런 다음 **input.txt** 파일을 **input** 폴더에 업로드합니다.
+2.  [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2tutorial** 컨테이너와 컨테이너에 **input** 폴더를 만듭니다. 그런 다음 **input.txt** 파일을 **input** 폴더에 업로드합니다.
 
 ## <a name="install-the-python-package"></a>Python 패키지 설치
 
 1. 관리자 권한으로 터미널 또는 명령 프롬프트를 엽니다. 
 2. 먼저, Azure 관리 리소스에 대한 Python 패키지를 설치합니다.
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. 데이터 팩터리를 위한 Python 패키지를 설치하려면 다음 명령을 실행합니다.
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -374,7 +374,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))

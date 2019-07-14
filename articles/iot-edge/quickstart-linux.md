@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573965"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537559"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -58,12 +58,11 @@ IoT Edge 장치:
 * IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용해야 합니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 구성 요소가 미리 설치되어 있습니다. 다음 명령을 사용하여 이 가상 머신을 만듭니다.
 
    ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다.
-
-   이 시점에서 `MarketplacePurchaseEligibilityFailed` 오류가 발생할 수 있습니다. 이 경우 [Ubuntu의 Azure IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu)로 이동하고 `Get It Now`를 클릭하여 사용 약관에 동의해야 합니다. 명령을 다시 시도하기 전에 로그인하고 사용 약관에 동의합니다.
 
    새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결할 것입니다.
 

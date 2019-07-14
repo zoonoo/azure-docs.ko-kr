@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803009"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536816"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
 
@@ -37,7 +37,7 @@ ms.locfileid: "58803009"
 
 2. **Analysis Services**에서 필수 필드를 입력한 다음, **만들기**를 누릅니다.
    
-   * **서버 이름**: 서버를 참조하는 데 사용되는 고유한 이름을 입력합니다.
+   * **서버 이름**: 서버를 참조하는 데 사용되는 고유한 이름을 입력합니다. 서버 이름은 소문자로 시작하고 3~128자의 소문자 및 숫자를 포함해야 합니다. 공백 및 특수 문자는 허용되지 않습니다.
    * **구독**: 이 서버와 연결할 구독을 선택합니다.
    * **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 리소스 그룹은 Azure 리소스 컬렉션을 관리할 수 있도록 디자인되었습니다. 자세한 내용은 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 참조하세요.
    * **위치**: 이 Azure 데이터 센터 위치는 서버를 호스트합니다. 가장 큰 사용자 기반에 가장 가까운 위치를 선택합니다.

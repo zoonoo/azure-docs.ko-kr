@@ -1,21 +1,24 @@
 ---
 title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
 description: Azure Cosmos DB의 애플리케이션에서 다중 마스터를 구성하는 방법을 알아봅니다.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/02/2019
+ms.author: mjbrown
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244757"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538077"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
 
-애플리케이션에서 다중 마스터 기능을 사용하려면 Azure Cosmos DB에서 다중 지역 쓰기를 사용하도록 설정하고 멀티호밍 기능을 구성해야 합니다. 멀티호밍을 구성하려면 애플리케이션을 배포할 지역을 설정합니다.
+사용할 수 있는 여러 쓰기 지역으로 계정이 만들어지면 DocumentClient의 ConnectionPolicy에 대한 애플리케이션에서 두 가지를 변경하여 Azure Cosmos DB에서 다중 마스터 및 다중 호밍 기능을 사용하도록 설정해야 합니다. ConnectionPolicy 내에서 UseMultipleWriteLocations를 true로 설정하고 애플리케이션이 배포되는 지역 이름을 SetCurrentLocation으로 전달합니다. 이를 통해 전달된 위치에서 지역 근접도에 따라 PreferredLocations 속성이 채워집니다. 나중에 계정에 새 지역이 추가되는 경우 애플리케이션은 업데이트되거나 다시 배포될 필요 없이 가까운 지역을 자동으로 탐지하고 자동 호밍되어 지역 이벤트가 발생합니다.
+
+> [!TIP]
+> 처음에 다중 마스터를 구성하지 않고 만들어진 Cosmos 계정은 제로 다운 타임을 사용하여 마이그레이션될 수 있습니다. 자세한 내용은 [다중 쓰기 지역 구성](how-to-manage-database-account.md#configure-multiple-write-regions)을 참조하세요.
 
 ## <a id="netv2"></a>.NET SDK v2
 

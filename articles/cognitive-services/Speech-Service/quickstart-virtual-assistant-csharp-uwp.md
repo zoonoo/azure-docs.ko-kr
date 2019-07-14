@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954785"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467048"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
 
-빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md), [텍스트 음성 변환](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
 
 이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
@@ -32,14 +32,11 @@ ms.locfileid: "65954785"
 이 빠른 시작에는 다음이 필요합니다.
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 * 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
 
     > [!NOTE]
-    > 미리 보기로 제공되는 Direct Line Speech 채널은 현재 **westus2** Azure 지역만 지원합니다.
-
-    > [!NOTE]
-    > [Speech Service 평가판 사용해 보기](get-started.md)에 설명된 표준 가격 계층의 30일 평가판은 **westus**(**westus2** 아님)로 제한되며, 따라서 Direct Line Speech와 호환되지 않습니다. 무료 및 표준 계층 **westus2** 구독은 호환됩니다.
+    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠른 시작
 
@@ -63,7 +60,7 @@ ms.locfileid: "65954785"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -111,7 +108,7 @@ ms.locfileid: "65954785"
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +227,7 @@ ms.locfileid: "65954785"
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +240,31 @@ ms.locfileid: "65954785"
     }
     ```
 
-1. 다음으로, 구독 정보를 사용하여 `SpeechBotConnector`를 만듭니다. 다음을 `InitializeBotConnector`의 메서드 본문에 추가하고, `YourChannelSecret`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [Azure 지역](regions.md) 값으로 바꿉니다.
+1. 다음으로, 구독 정보를 사용하여 `DialogServiceConnector`를 만듭니다. 다음을 `InitializeDialogServiceConnector`의 메서드 본문에 추가하고, `YourChannelSecret`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [Azure 지역](regions.md) 값으로 바꿉니다.
 
     > [!NOTE]
-    > 미리 보기로 제공되는 Direct Line Speech 채널은 현재 **westus2** Azure 지역만 지원합니다.
+    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
     > [!NOTE]
     > 봇을 구성하고 채널 비밀을 검색하는 방법은 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)에 대한 Bot Framework 설명서를 참조하세요.
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector`는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 이러한 이벤트에 대한 처리기를 추가하고, `InitializeBotConnector`의 메서드 본문 끝에 다음을 추가합니다.
+1. `DialogServiceConnector`는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 이러한 이벤트에 대한 처리기를 추가하고, `InitializeDialogServiceConnector`의 메서드 본문 끝에 다음을 추가합니다.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +274,7 @@ ms.locfileid: "65954785"
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +283,47 @@ ms.locfileid: "65954785"
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. 구성을 설정하고 이벤트 처리기를 등록한 후에는 `SpeechBotConnector`가 수신 대기하기만 하면 됩니다. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음을 추가합니다.
+1. 구성을 설정하고 이벤트 처리기를 등록한 후에는 `DialogServiceConnector`가 수신 대기하기만 하면 됩니다. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음을 추가합니다.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -359,10 +356,12 @@ ms.locfileid: "65954785"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub에서 C# 샘플 살펴보기](https://aka.ms/csspeech/samples)
+> [기본 봇 생성 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>참고 항목
 
-- [음성 번역](how-to-translate-speech-csharp.md)
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [음성 우선 가상 도우미 정보](voice-first-virtual-assistants.md)
+- [무료로 Speech Service 구독 키 받기](get-started.md)
+- [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)
+- [봇에 Direct Line Speech 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [GitHub에서 C# 샘플 살펴보기](https://aka.ms/csspeech/samples)

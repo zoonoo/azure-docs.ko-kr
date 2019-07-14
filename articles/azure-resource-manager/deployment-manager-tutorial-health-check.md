@@ -4,21 +4,16 @@ description: Azure Deployment Manager에서 Resource Manager 템플릿을 사용
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479169"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442591"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -41,7 +36,10 @@ ms.locfileid: "66479169"
 > * 롤아웃 배포 확인
 > * 리소스 정리
 
-Azure Deployment Manager REST API 참조는 [여기](https://docs.microsoft.com/rest/api/deploymentmanager/)서 찾을 수 있습니다.
+추가 리소스:
+
+- [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -59,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 두 파일은 Azure Function 배포에 사용됩니다. 자습서를 진행하기 위해 두 파일을 다운로드할 필요는 없습니다.
 
 * [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.
-* Azure Function 소스 코드의 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
+* Azure Function 소스 코드의 [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
 
 Azure 함수를 배포하려면 **사용해보기**를 선택하여 Azure Cloud Shell을 열고, 다음 스크립트를 셸 창에 붙여넣습니다.  코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 

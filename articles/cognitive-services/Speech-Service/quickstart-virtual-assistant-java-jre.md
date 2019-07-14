@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f2cf65f9ee920b50af6242cee6b53cd07e53f0bc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465675"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467029"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>빠른 시작: Speech SDK Java를 사용하여 음성 우선 가상 도우미 만들기
 
@@ -30,14 +30,11 @@ ms.locfileid: "65465675"
 * 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 * Bot Framework 버전 4.2 이상을 사용하여 만든 미리 구성된 봇. 봇은 음성 입력을 수신할 수 있도록 새로운 "Direct Line Speech" 채널을 구독해야 합니다.
 
     > [!NOTE]
-    > 미리 보기로 제공되는 Direct Line Speech 채널은 현재 **westus2** Azure 지역만 지원합니다.
-
-    > [!NOTE]
-    > [Speech Service 평가판 사용해 보기](get-started.md)에 설명된 표준 가격 계층의 30일 평가판은 **westus**(**westus2** 아님)로 제한되며, 따라서 Direct Line Speech와 호환되지 않습니다. 무료 및 표준 계층 **westus2** 구독은 호환됩니다.
+    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#Voice-first virtual assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
 Ubuntu 16.04/18.04를 실행하는 경우 Eclipse를 시작하기 전에 다음과 같은 종속 요소가 설치되어 있는지 확인합니다.
 
@@ -82,8 +79,8 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -142,62 +139,59 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
     }
     ```
 
-1. **main** 메서드에서는 먼저 `BotConnectorConfig`를 구성하고 `SpeechBotConnector` 인스턴스를 만드는 데 사용할 것입니다. 이렇게 하면 Direct Line Speech 채널에 연결되어 봇과 상호 작용하게 됩니다. `AudioConfig` 인스턴스는 오디오 입력의 소스를 지정할 때도 사용됩니다. 이 예제에서는 `AudioConfig.fromDefaultMicrophoneInput()`을 통해 기본 마이크를 사용합니다.
+1. **main** 메서드에서는 먼저 `DialogServiceConfig`를 구성하고 `DialogServiceConnector` 인스턴스를 만드는 데 사용할 것입니다. 이렇게 하면 Direct Line Speech 채널에 연결되어 봇과 상호 작용하게 됩니다. `AudioConfig` 인스턴스는 오디오 입력의 소스를 지정할 때도 사용됩니다. 이 예제에서는 `AudioConfig.fromDefaultMicrophoneInput()`을 통해 기본 마이크를 사용합니다.
 
     * `YourSubscriptionKey` 문자열을 해당 구독 키로 바꿉니다. 구독 키는 [여기](get-started.md)서 얻을 수 있습니다.
     * `YourServiceRegion` 문자열을 구독과 연결된 [Azure 지역](regions.md)으로 바꿉니다.
     * `YourChannelSecret` 문자열을 Direct Line Speech 비밀로 바꿉니다.
 
     > [!NOTE]
-    > 미리 보기로 제공되는 Direct Line Speech 채널은 현재 **westus2** Azure 지역만 지원합니다.
-
-    > [!NOTE]
-    > [Speech Service 평가판 사용해 보기](get-started.md)에 설명된 표준 가격 계층의 30일 평가판은 **westus**(**westus2** 아님)로 제한되며, 따라서 Direct Line Speech와 호환되지 않습니다. 무료 및 표준 계층 **westus2** 구독은 호환됩니다.
+    > Direct Line Speech(미리 보기)는 현재 Speech Services 지역의 하위 집합에서 사용할 수 있습니다. [음성 우선 가상 도우미에 대한 지원되는 지역 목록](regions.md#voice-first-virtual-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
-    final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
-    final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
+    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a SpeechjBotConnector instance
-    final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
+    // Create a DialogServiceConnector instance
+    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector`는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 그 후에는 다음 이벤트 수신기를 추가합니다.
+1. `DialogServiceConnector`는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 그 후에는 다음 이벤트 수신기를 추가합니다.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.canceled.addEventListener((o, canceledEventArgs) -> {
+    connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        botConnector.disconnectAsync();
+        connector.disconnectAsync();
     });
 
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-    botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
+    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
             if (activityEventArgs.hasAudio()) {
@@ -206,15 +200,15 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
         });
     ```
 
-1. `connectAsync()` 메서드를 호출하여 `SpeechBotConnector`를 Direct Line Speech에 연결합니다. 봇을 테스트하려면 `listenOnceAsync` 메서드를 호출하여 마이크로 오디오 입력을 보내면 됩니다. `sendActivityAsync` 메서드를 사용하여 사용자 지정 작업을 직렬화된 문자열로 보낼 수도 있습니다. 이러한 사용자 지정 작업은 봇이 대화에 사용할 추가 데이터를 제공할 수 있습니다.
+1. `connectAsync()` 메서드를 호출하여 `DialogServiceConnector`를 Direct Line Speech에 연결합니다. 봇을 테스트하려면 `listenOnceAsync` 메서드를 호출하여 마이크로 오디오 입력을 보내면 됩니다. `sendActivityAsync` 메서드를 사용하여 사용자 지정 작업을 직렬화된 문자열로 보낼 수도 있습니다. 이러한 사용자 지정 작업은 봇이 대화에 사용할 추가 데이터를 제공할 수 있습니다.
 
     ```java
-    botConnector.connectAsync();
+    connector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
-    botConnector.listenOnceAsync();
+    connector.listenOnceAsync();
 
-    // botConnector.sendActivityAsync(...)
+    // connector.sendActivityAsync(...)
     ```
 
 1. 변경 내용을 `Main` 파일에 저장합니다.
@@ -479,10 +473,12 @@ F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
 오디오 파일에서 음성을 읽는 방법 등의 추가 샘플은 GitHub에서 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Java 샘플 살펴보기](https://aka.ms/csspeech/samples)
+> [기본 봇 생성 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>참고 항목
 
-- [빠른 시작: 음성 변환, Java(Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [음성 우선 가상 도우미 정보](voice-first-virtual-assistants.md)
+- [무료로 Speech Service 구독 키 받기](get-started.md)
+- [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)
+- [봇에 Direct Line Speech 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [GitHub에서 Java 샘플 살펴보기](https://aka.ms/csspeech/samples)

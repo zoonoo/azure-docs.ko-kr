@@ -2,20 +2,20 @@
 title: Azure Active Directory란? - Azure Active Directory | Microsoft Docs
 description: 용어, 사용 가능한 라이선스, 자세한 정보를 제공하는 링크가 포함된 관련 기능 목록을 포함하여 Azure Active Directory에 대한 개요 및 개념 정보를 제공합니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470349"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440543"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -48,7 +48,7 @@ Azure AD 구현을 향상하기 위해 Azure Active Directory Basic, Premium P1 
 >
 >Azure Active Directory Premium P1, Premium P2 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. Azure AD 가격 책정에 대한 자세한 내용은 [Azure Active Directory 포럼](https://azure.microsoft.com/support/community/?product=active-directory)에 문의하세요.
 
-- **Azure Active Directory Free.** Azure, Office 365 및 여러 인기 SaaS 앱에 사용자 및 그룹 관리, 온-프레미스 디렉터리 동기화, 기본 보고서 및 Single Sign-On을 제공합니다.
+- **Azure Active Directory Free.** Azure, Office 365 및 여러 인기 SaaS 앱에 사용자 및 그룹 관리, 온-프레미스 디렉터리 동기화, 기본 보고서, 클라우드 사용자를 위한 셀프 서비스 암호 변경 및 Single Sign-On을 제공합니다.
 
 - **Azure Active Directory Basic.** Basic은 Free 기능 외에도 클라우드 중심 앱 액세스, 그룹 기반 액세스 관리, 클라우드 앱을 위한 셀프 서비스 암호 재설정 및 Azure AD를 사용하여 온-프레미스 웹앱을 게시할 수 있는 Azure AD 애플리케이션 프록시를 제공합니다.
 
@@ -66,12 +66,14 @@ Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 �
 
 |용어 또는 개념|설명|
 |---------------|-----------|
+|ID| 인증을 받을 수 있는 대상입니다. ID는 사용자 이름과 암호를 사용하는 사용자일 수 있습니다. ID에는 비밀 키나 인증서를 통해 인증을 필요로 할 수 있는 다른 서버나 애플리케이션도 포함됩니다.|
+|계좌| 연결된 데이터가 있는 ID입니다. ID가 없는 계정은 있을 수 없습니다.|
+|Azure AD 계정| Azure AD 또는 Office 365 같은 다른 Microsoft 클라우드 서비스를 통해 만들어진 ID입니다. ID는 Azure AD에 저장되고 조직의 클라우드 서비스 구독에 액세스할 수 있습니다. 이 계정을 회사 또는 학교 계정이라고도 합니다.|
 |Azure 구독| Azure 클라우드 서비스 요금을 지불하는 데 사용됩니다. 여러 구독을 한 신용 카드에 연결할 수 있습니다.|
 |Azure 테넌트| 조직이 Microsoft Azure, Microsoft Intune 또는 Office 365 같은 Microsoft 클라우드 서비스 구독에 등록할 때 자동으로 생성되는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 한 Azure 테넌트는 단일 조직을 나타냅니다.|
 |단일 테넌트| 전용 환경의 다른 서비스에 액세스하는 Azure 테넌트는 단일 테넌트로 간주됩니다.|
 |다중 테넌트| 여러 조직에서 공유하는 환경의 다른 서비스에 액세스하는 Azure 테넌트는 다중 테넌트로 간주됩니다.|
 |Azure AD Directory|Azure 테넌트마다 신뢰할 수 있는 전용 Azure AD 디렉터리가 있습니다. Azure AD 디렉터리는 테넌트의 사용자, 그룹 및 앱을 포함하며 테넌트 리소스에 대한 ID 및 액세스 관리를 수행하는 데 사용됩니다.|
-|Azure AD 계정 | Azure AD 또는 Office 365 같은 다른 Microsoft 클라우드 서비스를 통해 만들어진 ID입니다. ID는 Azure AD에 저장되고 조직의 클라우드 서비스 구독에 액세스할 수 있습니다. 이 계정을 회사 또는 학교 계정이라고도 합니다.|
 |사용자 지정 도메인|모든 새 Azure AD 디렉터리는 domainname.onmicrosoft.com이라는 초기 도메인 이름으로 제공됩니다. 이 초기 이름 외에도, 고객이 비즈니스를 수행하는 데 사용되고 사용자가 조직 리소스에 액세스하는 데 사용되는 이름을 포함하는 조직의 도메인 이름을 목록에 추가할 수 있습니다. 사용자 지정 도메인 이름을 추가하면 alain@contoso.com처럼 사용자에게 친숙한 사용자 이름을 만들 수 있습니다.|
 |계정 관리자|이 클래식 구독 관리자 역할은 개념적으로 구독의 청구 소유자입니다. 이 역할은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 액세스할 수 있으며 계정의 모든 구독을 관리할 수 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC(역할 기반 액세스 제어) 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|
 |서비스 관리자|이 클래식 구독 관리자 역할은 액세스를 포함하여 모든 Azure 리소스를 관리할 수 있습니다. 이 역할은 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.|

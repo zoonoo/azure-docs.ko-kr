@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 06/11/2019
 ms.author: edjez
-ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 2f2e3d01b02f7c06d69a09374528475301952179
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478637"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055500"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>빠른 시작: C#을 사용하여 콘텐츠 개인 설정 
 
@@ -54,6 +54,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Visual Studio에서 새로운 Visual C# 콘솔 앱을 만듭니다.
 1. Personalizer 클라이언트 라이브러리 NuGet 패키지를 설치합니다. 메뉴에서 **도구**, **Nuget 패키지 관리자**, **솔루션에 대한 NuGet 패키지 관리**를 차례로 선택합니다.
+1. **시험판 포함**을 선택합니다.
 1. **찾아보기** 탭을 선택하고, **검색** 상자에 `Microsoft.Azure.CognitiveServices.Personalizer`을 입력합니다.
 1. **Microsoft.Azure.CognitiveServices.Personalizer**가 표시되면 이를 선택합니다.
 1. 프로젝트 이름 옆에 있는 확인란을 선택하고 **설치**를 선택합니다.

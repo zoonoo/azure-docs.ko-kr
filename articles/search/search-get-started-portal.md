@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Portal에서 인덱스 만들기, 로드 및 쿼리 - Azure Search'
-description: Azure Portal에서 기본 제공 샘플 데이터와 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 만들고 쿼리합니다.
+title: '빠른 시작: Azure Portal을 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 만들고 로드하고 쿼리합니다.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606453"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485643"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -34,7 +34,7 @@ Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 �
 > * 기존 인덱스 및 이를 수정하기 위한 옵션 보기
 > * **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 살펴보기
 
-도구가 너무 제한적인 경우 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman 또는 Fiddler](search-fiddler.md)를 사용할 수 있습니다.
+도구가 너무 제한적인 경우 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman 또는 Fiddler](search-get-started-postman.md)를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 시작하는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
 
@@ -274,4 +274,4 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 * [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [REST API를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Postman 또는 Fiddler 및 Azure Search REST API를 사용하여 인덱스 만들기](search-fiddler.md)
+* [Postman 또는 Fiddler 및 Azure Search REST API를 사용하여 인덱스 만들기](search-get-started-postman.md)

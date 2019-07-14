@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b92700caab27b527ae58cc0c7e8deca89c4d43f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 4396af1b96cbf13d59e9562d6d85f875ae6c4af7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66727929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080154"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
 
@@ -57,7 +57,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-다음으로 [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Key Vault를 만듭니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 `mykeyvault`를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+다음으로 [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Key Vault를 만듭니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 `mykeyvault`를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -68,16 +68,16 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>인증서 생성 및 Key Vault에 저장
-프로덕션 사용을 위해 [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서의 다음 예제는 [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy)에서 기본 인증서 정책을 사용하는 자체 서명된 인증서를 [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate)를 사용하여 생성하는 방법을 보여 줍니다. 
+프로덕션 사용을 위해 [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서의 다음 예제는 [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy)에서 기본 인증서 정책을 사용하는 자체 서명된 인증서를 [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate)를 사용하여 생성하는 방법을 보여 줍니다. 
 
 ```azurepowershell-interactive
-$policy = New-AzureKeyVaultCertificatePolicy `
+$policy = New-AzKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
     -IssuerName Self `
     -ValidityInMonths 12
 
-Add-AzureKeyVaultCertificate `
+Add-AzKeyVaultCertificate `
     -VaultName $keyvaultName `
     -Name "mycert" `
     -CertificatePolicy $policy 
@@ -121,10 +121,10 @@ VM을 만드는 데 몇 분 정도 걸립니다. 마지막 단계는 [Set-AzVmEx
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Key Vault에서 VM에 인증서 추가
-Key Vault에서 VM으로 인증서를 추가하려면 [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret)을 사용하여 인증서의 ID를 가져옵니다. [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret)을 사용하여 VM에 인증서를 추가합니다.
+Key Vault에서 VM으로 인증서를 추가하려면 [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret)을 사용하여 인증서의 ID를 가져옵니다. [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret)을 사용하여 VM에 인증서를 추가합니다.
 
 ```azurepowershell-interactive
-$certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
+$certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId

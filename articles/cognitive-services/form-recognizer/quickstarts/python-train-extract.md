@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b9985bfa15cf300f82a0d24400ed1167a2d3f135
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475246"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537572"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -30,30 +30,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
-Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가지 링크와 리소스가 포함된 환영 이메일을 받을 수 있습니다. 해당 메시지의 “Azure Portal” 링크를 사용하여 Azure Portal을 열고 Form Recognizer 리소스를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
-
-|    |    |
-|--|--|
-| **Name** | 리소스에 대한 설명이 포함된 이름입니다. 설명이 포함된 이름(예: *MyNameFormRecognizer*)을 사용하는 것이 좋습니다. |
-| **구독** | 액세스 권한이 부여된 Azure 구독을 선택합니다. |
-| **위치**: | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
-| **가격 책정 계층** | 리소스 비용은 선택한 가격 책정 계층과 사용량에 따라 달라집니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
-| **리소스 그룹** | 리소스가 포함될 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
-
-> [!IMPORTANT]
-> 일반적으로 Azure Portal에서 Cognitive Service 리소스를 만들 때는 다중 서비스 구독 키(여러 Cognitive Service에서 사용) 또는 단일 서비스 구독 키(특정 Cognitive Service에서만 사용)를 만들 수 있는 옵션이 제공됩니다. 그러나 Form Recognizer는 미리 보기 릴리스이므로 다중 서비스 구독에 포함되지 않으며 환영 이메일에 제공된 링크를 사용하지 않으면 단일 서비스 구독을 만들 수 없습니다.
-
-Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 그런 다음, **키** 탭을 선택하여 구독 키를 봅니다. 두 키 중 하나에서 리소스에 대한 앱 액세스 권한을 부여합니다. **키 1**의 값을 복사합니다. 다음 섹션에서 사용하게 됩니다.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="train-a-form-recognizer-model"></a>Form Recognizer 모델 학습
 
-먼저 Azure Storage Blob의 학습 데이터 세트가 필요합니다. 주 입력 데이터와 동일한 형식/구조의 샘플 양식(PDF 문서 및/또는 이미지)이 5개 이상 있어야 합니다. 또는 두 개의 채워진 양식이 있는 단일 빈 양식을 사용할 수 있습니다. 빈 양식의 파일 이름에 "empty"라는 단어가 포함되어야 합니다.
+먼저 Azure Storage Blob 컨테니어의 학습 데이터 세트가 필요합니다. 주 입력 데이터와 동일한 형식/구조의 채워진 양식(PDF 문서 및/또는 이미지)이 5개 이상 있어야 합니다. 또는 두 개의 채워진 양식이 있는 단일 빈 양식을 사용할 수 있습니다. 빈 양식의 파일 이름에 "empty"라는 단어가 포함되어야 합니다. 학습 데이터를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 집합 빌드](../build-training-data-set.md)를 참조하세요.
 
-Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델을 학습하려면 뒤에 나오는 python 코드를 실행하여 **Train** API를 호출합니다. 코드를 실행하기 전에 다음과 같이 변경합니다.
+Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델을 학습하려면 다음 python 코드를 실행하여 **Train** API를 호출합니다. 코드를 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>` 값을 구독 키가 제공된 Azure 지역의 Form Recognizer 리소스에 대한 엔드포인트 URL로 바꿉니다.
-1. `<SAS URL>`을 학습 데이터 위치에 대한 Azure Blob Storage 컨테이너 SAS(공유 액세스 서명) URL로 바꿉니다.  
 1. `<Subscription key>`를 이전 단계에서 복사한 구독 키로 바꿉니다.
+1. `<SAS URL>`을 Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL로 바꿉니다. SAS를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -127,9 +115,9 @@ Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델�
 다음으로, 문서를 분석하여 키-값 쌍 및 테이블을 추출합니다. 뒤에 나오는 Python 스크립트를 실행하여 **모델 - 분석** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
-1. `<File Path>`를 데이터를 추출하는 형식의 위치에 대한 파일 경로 또는 URL로 바꿉니다.
+1. `<path to your form>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다.
 1. `<modelID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
-1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 pdf, image/jpeg, image/png입니다.
+1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`입니다.
 1. `<subscription key>`를 구독 키로 바꿉니다.
 
     ```python
@@ -138,11 +126,11 @@ Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델�
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 

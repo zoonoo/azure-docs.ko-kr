@@ -3,19 +3,19 @@ title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, Go - Transl
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 56e67389c59cda70ebcc7705e279b84fcf11cf9d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: bc92fb078c46c877f3b99389b1d14ad0f93e63b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514134"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445218"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>빠른 시작: Go를 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -138,6 +138,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>응답 처리 및 인쇄
 

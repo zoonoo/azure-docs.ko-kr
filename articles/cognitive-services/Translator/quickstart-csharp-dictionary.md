@@ -3,19 +3,19 @@ title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, C# - Transl
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 .NET Core 및 Translator Text API를 사용하여 용어의 대체 번역과 대체 번역의 사용 예제를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a937ac1039d7a7552290257f42dd4bc45c8f0605
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 0c8fb4eb50b5824126d2be2160dd341ed60955af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514978"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448191"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>빠른 시작: C#을 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -89,6 +89,8 @@ System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
+
+
 ## <a name="instantiate-the-client-and-make-a-request"></a>클라이언트를 인스턴스화하고 요청 수행
 
 이러한 줄은 `HttpClient` 및 `HttpRequestMessage`를 인스턴스화합니다.
@@ -143,6 +145,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 

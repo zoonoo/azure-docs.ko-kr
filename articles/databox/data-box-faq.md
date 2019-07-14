@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236288"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561405"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -53,7 +53,7 @@ a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다.
 a.  Data Box를 사용할 수 있는 국가/지역에 대한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Data Box에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box는 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
+a. Data Box는 미국, 서유럽, 북유럽, 프랑스, 영국, 일본, 오스트레일리아 및 캐나다 내의 모든 지역에서 지원됩니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Data Box에 문제가 발생하면 어디로 연락해야 하나요?
 a. Data Box에 문제가 발생하면 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Data Box에 여러 개의 저장소 계정을 사용할 수 있나요?
-a.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래식 또는 Blob Storage 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. GA 릴리스 중에는 Azure 공용 클라우드에서 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국의 모든 지역의 저장소 계정이 지원됩니다.
+a.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래식 또는 Blob Storage 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. 
 
 
 ## <a name="ship-device"></a>디바이스 배송

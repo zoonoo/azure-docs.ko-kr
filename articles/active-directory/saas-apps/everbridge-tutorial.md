@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231457"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Azure AD와 Everbridge를 통합하는 경우 다음을 수행할 수 있습니�
 
 * Everbridge에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Everbridge에 자동으로 로그인할 수 있도록 합니다. 이 액세스 제어를 SSO(Single Sign-On)라고 합니다.
-* Azure Portal을 사용하여 단일 중앙 위치에서 계정을 관리합니다.
+* Azure Portal을 사용하여 중앙의 한 위치에서 계정을 관리합니다.
 Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -97,7 +97,7 @@ Everbridge에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집**을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 

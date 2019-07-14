@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872992"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513448"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
@@ -48,7 +48,9 @@ ms.locfileid: "65872992"
 
 다음 예제는 Python3용 *pip3*을 통해 상승된 관리자 권한을 가지고 실행한 Visual Studio 2019 개발자 명령 프롬프트를 사용하여 Windows 10에 redis-py 패키지를 설치합니다.
 
+```python
     pip3 install redis
+```
 
 ![redis-py 설치](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -67,6 +69,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> Redis 버전이 3.0 이상인 경우 SSL 인증서 확인이 적용됩니다. Redis에 연결할 때 ssl_ca_certs를 명시적으로 설정해야 합니다. RH Linux의 경우 ssl_ca_certs는 "/etc/pki/tls/certs/ca-bundle.crt" 인증서 모듈에 있습니다.
+
 ## <a name="create-a-python-script"></a>Python 스크립트 만들기
 
 *PythonApplication1.py*라는 새 스크립트 텍스트 파일을 만듭니다.
@@ -79,7 +84,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -91,7 +97,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```

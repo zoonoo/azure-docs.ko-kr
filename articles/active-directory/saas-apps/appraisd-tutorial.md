@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee7e58aa6298977b279d0d538fefb24da657388
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357012"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561194"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>자습서: Azure Active Directory와 Appraisd 통합
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 자습서 뒷부분에서 설명하는 Appraisd SSO 구성 페이지에서 실제 로그온 URL 및 릴레이 상태 값을 확인합니다.
 
-1. Appraisd 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는  **nameidentifier** 가  **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Appraisd 애플리케이션에서는 **nameidentifier** 가 **user.mail**과 매핑되므로 특성 매핑을 변경하기 위해 **편집** 아이콘을 클릭하여 특성 매핑을 편집해야 합니다.
+1. Appraisd 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Appraisd 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 

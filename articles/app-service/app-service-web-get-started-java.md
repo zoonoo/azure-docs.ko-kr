@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jasonfreeberg
 ms.custom: mvc
-ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd11b5334fbffc28aa6869c9f37b2b9909692d56
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393227"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154793"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>빠른 시작: App Service에서 Java 앱 만들기
 
@@ -66,7 +66,7 @@ code pom.xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
+        <version>1.6.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -105,9 +105,9 @@ code pom.xml
 | Placeholder | 설명 |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | 앱을 배포하려는 구독의 고유 ID입니다. 기본 구독의 ID는 `az account show` 명령을 사용하여 Cloud Shell 또는 CLI에서 찾을 수 있습니다. 사용 가능한 모든 구독에 대해 `az account list` 명령을 사용합니다.|
-| `RESOURCEGROUP_NAME` | 앱을 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. 이 값을 고유한 새 리소스 그룹(예: *TestResources*)으로 업데이트합니다. 이 리소스 그룹 이름을 사용하여 이후 섹션에서 모든 Azure 리소스를 정리합니다. |
+| `RESOURCEGROUP_NAME` | 앱을 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. 이 값을 고유한 새 리소스 그룹(예: *myResourceGroup*)으로 업데이트합니다. 이 리소스 그룹 이름을 사용하여 이후 섹션에서 모든 Azure 리소스를 정리합니다. |
 | `WEBAPP_NAME` | 앱 이름은 Azure(WEBAPP_NAME.azurewebsites.net)에 배포할 때 앱에 대한 호스트 이름의 일부가 됩니다. 이 값을 Java 앱을 호스팅할 새 App Service 앱의 고유 이름(예: *contoso*)으로 업데이트합니다. |
-| `REGION` | 앱이 호스팅되는 Azure 지역입니다(예: `westus2`). `az account list-locations` 명령을 사용하여 Cloud Shell 또는 CLI에서 지역 목록을 가져올 수 있습니다. |
+| `REGION` | 앱이 호스팅되는 Azure 지역입니다(예: *westus2*). `az account list-locations` 명령을 사용하여 Cloud Shell 또는 CLI에서 지역 목록을 가져올 수 있습니다. |
 
 ## <a name="deploy-the-app"></a>앱 배포
 

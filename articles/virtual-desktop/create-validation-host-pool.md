@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070653"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -71,7 +71,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-유효성 검사 호스트 풀을 만들었으므로 이제 RemoteApps로 유효성 검사 호스트 풀을 선택적으로 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대한 자세한 내용은 앱 그룹 관리 자습서를 참조하세요.
+이제 유효성 검사 호스트 풀을 만들었으며 Microsoft Virtual Desktop 리소스를 관리하기 위한 관리 도구를 배포하고 연결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [앱 그룹 관리 자습서](./manage-app-groups.md)
+> [관리 도구 자습서 배포](./manage-resources-using-ui.md)

@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행 '
-description: Azure HDInsight의 Spark 클러스터에서 데이터를 로드하고 대화형 쿼리를 실행하는 방법을 알아봅니다.
+description: 자습서 - Azure HDInsight의 Spark 클러스터에서 데이터를 로드하고 대화형 쿼리를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 05/16/2019
-ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e4ed8bb2631b4dc2f760dc4d92247377db591160
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909219"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295699"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -47,7 +47,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 응용 프로그램은 Azure Storage, Azure Data Lake Storage 같은 원격 스토리지의 파일 또는 폴더에서, Hive 테이블에서 또는 Spark에서 지원하는 Cosmos DB, Azure SQL DB, DW 등의 기타 데이터 원본에서 직접 데이터 프레임을 만들 수 있습니다. 다음 스크린샷에서는 이 자습서에 사용되는 HVAC.csv 파일의 스냅샷을 보여줍니다. csv 파일에는 모든 HDInsight Spark 클러스터가 함께 제공됩니다. 이 데이터는 건물의 온도 변화를 캡처합니다.
     
-![대화형 Spark SQL 쿼리용 데이터의 스냅숏](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅숏")
+![대화형 Spark SQL 쿼리용 데이터의 스냅샷](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅샷")
 
 1. Jupyter Notebook의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 

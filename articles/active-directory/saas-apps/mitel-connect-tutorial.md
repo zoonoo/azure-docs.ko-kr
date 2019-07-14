@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 611867cf5606d5a1078706e1c0f67f673a7fa500
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: aa3548a71e403728cbec4b8df2b0dce1cf6abde7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254539"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>자습서: Mitel MiCloud Connect와 Azure Active Directory 통합
 
@@ -210,7 +210,7 @@ Mitel 계정 포털에 사용자를 추가하는 방법에 대한 자세한 내�
 * **비즈니스 이메일 주소:** `brittasimon@<yourcompanydomain>.<extension>`   
 (예: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **사용자 이름:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **사용자 이름:** `brittasimon@<yourcompanydomain>.<extension>`  
 (예: [brittasimon@contoso.com](mailto:brittasimon@contoso.com). 사용자의 사용자 이름은 일반적으로 사용자의 비즈니스 이메일 주소와 동일합니다.)
 
 **참고:** 사용자의 MiCloud Connect 사용자 이름은 Azure에서 사용자의 이메일 주소와 동일해야 합니다.

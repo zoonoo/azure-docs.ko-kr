@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870024"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443196"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>함수에 Azure Storage 큐 바인딩 추가
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
 Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 함수에 Azure 서비스 및 기타 리소스를 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩*은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. 트리거는 특수한 형식의 입력 바인딩입니다. 한 함수는 하나의 트리거만 가질 수 있지만, 입력 및 출력 바인딩은 여러 개 가질 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
@@ -32,7 +32,7 @@ Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 �
 
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 
-이전의 빠른 시작 문서에서는 Azure에서 Storage 계정과 함께 함수 앱을 만들었습니다. 이 계정의 연결 문자열은 Azure의 앱 설정에 안전하게 저장됩니다. 이 문서에서는 같은 계정의 Storage 큐에 메시지를 작성합니다. 함수를 로컬로 실행할 때 Storage 계정에 연결하려면 앱 설정을 local.settings.json 파일에 다운로드해야 합니다. 다음 Azure Functions Core Tools 명령을 실행하여 설정을 local.settings.json에 다운로드하고, `<APP_NAME>`을 이전 문서의 함수 앱 이름으로 바꿉니다.
+이전의 빠른 시작 문서에서는 Azure에서 필수 Storage 계정과 함께 함수 앱을 만들었습니다. 이 계정의 연결 문자열은 Azure의 앱 설정에 안전하게 저장됩니다. 이 문서에서는 같은 계정의 Storage 큐에 메시지를 작성합니다. 함수를 로컬로 실행할 때 Storage 계정에 연결하려면 앱 설정을 local.settings.json 파일에 다운로드해야 합니다. 다음 Azure Functions Core Tools 명령을 실행하여 설정을 local.settings.json에 다운로드하고, `<APP_NAME>`을 이전 문서의 함수 앱 이름으로 바꿉니다.
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Azure 계정에 로그인해야 할 수도 있습니다.
 > local.settings.json 파일은 비밀을 포함하고 있으므로 절대 게시되지 않으며, 소스 제어에서 제외되어야 합니다.
 
 Storage 계정 연결 문자열인 `AzureWebJobsStorage` 값이 필요합니다. 이 연결을 사용하여 출력 바인딩이 예상대로 작동하는지 확인합니다.
+
+## <a name="enable-extension-bundles"></a>확장 번들 사용
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+이제 프로젝트에 Storage 출력 바인딩을 추가할 수 있습니다.
 
 ## <a name="add-an-output-binding"></a>출력 바인딩 추가
 
@@ -59,7 +65,7 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 | **`queueName`** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. 바인딩을 처음 사용할 때 *queueName*이 없으면 바인딩이 알아서 만듭니다. |
 | **`connection`** | `AzureWebJobsStorage` | Storage 계정의 연결 문자열이 포함된 앱 설정의 이름입니다. `AzureWebJobsStorage` 설정은 함수 앱을 사용하여 만든 Storage 계정의 연결 문자열을 포함합니다. |
 
-이제 아래의 예제와 같은 function.json 파일을 확인할 수 있습니다.
+function.json 파일은 이제 다음과 비슷할 것입니다.
 
 ```json
 {
@@ -117,8 +123,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> 이전 문서에서 host.json 파일에 확장 번들을 사용하도록 설정했기 때문에 시작하는 동안 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 자동으로 다운로드 및 설치되었습니다.
+> 이전 문서에서 host.json 파일에 확장 번들을 사용하도록 설정했기 때문에 시작하는 동안 다른 Microsoft 바인딩 확장과 함께 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 자동으로 다운로드 및 설치되었습니다.
 
 런타임 출력에서 `HttpTrigger` 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다. 브라우저에 이전 문서와 똑같은 응답이 표시됩니다.
 
