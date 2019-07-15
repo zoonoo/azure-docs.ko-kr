@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383410"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274159"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Bing News Search API를 사용하여 뉴스 검색
 
@@ -51,7 +51,7 @@ Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 �
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-아래에서는 이전 쿼리에 대한 응답을 보여 줍니다. Bing search API에 대한 [요구 사항 사용 및 표시](../useanddisplayrequirements.md)의 일부로 응답에 제공된 순서대로 각 뉴스 기사를 표시해야 합니다. 기사에 클러스터형 기사가 포함된 경우 관련 기사가 있음을 나타내야 하며 요청에 따라 해당 기사를 표시해야 합니다.
+다음 JSON 샘플에서는 이전 쿼리에 대한 응답을 보여 줍니다. Bing search API에 대한 [요구 사항 사용 및 표시](../useanddisplayrequirements.md)의 일부로 응답에 제공된 순서대로 각 뉴스 기사를 표시해야 합니다. 기사에 클러스터형 기사가 포함된 경우 관련 기사가 있음을 나타내야 하며 요청에 따라 해당 기사를 표시해야 합니다.
 
 ```json
 {
@@ -107,7 +107,7 @@ Bing이 뉴스 기사의 범주를 확인할 수 있으면 기사에 `category` 
 
 ## <a name="get-todays-top-news"></a>오늘의 주요 뉴스 가져오기
 
-오늘의 주요 뉴스 기사를 가져오려면 일반 뉴스를 가져올 때와 동일한 요청을 만들되, `q`를 설정하지 말고 그대로 둡니다.
+오늘의 주요 뉴스 기사를 가져오려면 `q` 매개 변수는 설정하지 않은 상태로 이전과 동일한 일반 뉴스 요청을 보내면 됩니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-주요 뉴스 가져오기에 대한 응답은 일반 뉴스 가져오기와 거의 동일합니다. 그러나 정해진 수의 결과가 있기 때문에 `news` 응답에 `totalEstimatedMatches` 필드가 포함되지 않습니다. 주요 뉴스 기사의 수는 뉴스 주기에 따라 달라질 수 있습니다. `provider`를 사용하여 기사의 특성을 확인합니다.
+주요 뉴스 가져오기에 대한 응답은 일반 뉴스 가져오기에 대한 응답과 거의 동일합니다. 그러나 정해진 수의 결과가 있기 때문에 `news` 응답에 `totalEstimatedMatches` 필드가 포함되지 않습니다. 주요 뉴스 기사의 수는 뉴스 주기에 따라 달라질 수 있습니다. `provider` 필드를 사용하여 기사의 특성을 확인합니다.
 
 ## <a name="get-news-by-category"></a>범주별 뉴스 가져오기
 

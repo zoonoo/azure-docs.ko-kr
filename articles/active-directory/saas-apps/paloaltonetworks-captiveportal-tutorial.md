@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>자습서: Palo Alto Networks Captive Portal과 Azure Active Directory 통합
 
@@ -78,12 +78,12 @@ Palo Alto Networks Captive Portal에서는 다음 시나리오를 지원합니�
 
 Palo Alto Networks Captive Portal에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 작업을 완료합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)**: 사용자가 이 기능을 사용하도록 설정합니다.
-2. **[Palo Alto Networks Captive Portal Single Sign-On 구성](#configure-palo-alto-networks-captive-portal-single-sign-on)**: 애플리케이션에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)**: *Britta Simon* 사용자로 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)**: Britta Simon이 Azure AD Single Sign-On을 사용하도록 설정합니다.
+1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** : 사용자가 이 기능을 사용하도록 설정합니다.
+2. **[Palo Alto Networks Captive Portal Single Sign-On 구성](#configure-palo-alto-networks-captive-portal-single-sign-on)** : 애플리케이션에서 Single Sign-On 설정을 구성합니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** : *Britta Simon* 사용자로 Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** : Britta Simon이 Azure AD Single Sign-On을 사용하도록 설정합니다.
 5. **Palo Alto Networks Captive Portal 테스트 사용자 만들기**: Azure AD 사용자에게 연결된 Palo Alto Networks Captive Portal에서 해당하는 *Britta Simon* 사용자를 만듭니다.
-6. **[Single Sign-On 테스트](#test-single-sign-on)**: 구성이 작동하는지 확인합니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** : 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -207,5 +207,5 @@ Palo Alto Networks Captive Portal은 Windows VM의 방화벽 뒤에서 설치됩
 
 - [Azure Active Directory와 SaaS 앱 통합에 대한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Azure Active Directory의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 

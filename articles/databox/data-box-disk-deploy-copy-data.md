@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925159"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147523"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -250,6 +250,8 @@ ms.locfileid: "64925159"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+분할 복사 도구를 사용할 때 오류가 표시되면 [분할 복사 도구 오류 문제 해결](data-box-disk-troubleshoot-data-copy.md) 방법을 참조하세요.
+
 데이터 복사가 완료되면 데이터 유효성을 검사할 수 있습니다. 분할 복사 도구를 사용한 경우 유효성 검사를 건너뛰고(분할 복사 도구도 유효성 검사를 수행하므로) 다음 자습서로 이동합니다.
 
 
@@ -270,6 +272,8 @@ ms.locfileid: "64925159"
     > - 작은 파일(KB 이하)이 포함된 대형 데이터 세트를 처리하는 경우 옵션 1을 사용합니다. 체크섬 생성에 시간이 오래 걸릴 수 있고 성능이 매우 느려질 수 있으므로 이 옵션은 파일의 유효성만 검사합니다.
 
 3. 여러 디스크를 사용하는 경우 각 디스크에 대해 명령을 실행합니다.
+
+유효성 검사 중 오류가 표시되면 [유효성 검사 오류 문제 해결](data-box-disk-troubleshoot.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

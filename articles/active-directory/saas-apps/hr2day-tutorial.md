@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898291"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [HR2day by Merces 클라이언트 지원 팀](mailto:servicedesk@merces.nl)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. HR2day by Merces 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+5. HR2day by Merces 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -121,7 +121,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name |  원본 특성 |
+    | 이름 |  원본 특성 |
     | ---------- | ----------- |
     | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
     | | |
@@ -218,7 +218,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="create-hr2day-by-merces-test-user"></a>HR2day by Merces 테스트 사용자 만들기
 
-이 섹션에서는 HR2day by Merces에서 Britta Simon이라는 사용자를 만듭니다.  [HR2day by Merces 지원 팀](mailto:servicedesk@merces.nl)과 협력하여 HR2day by Merces 플랫폼에 사용자를 추가하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 HR2day by Merces에서 Britta Simon이라는 사용자를 만듭니다. [HR2day by Merces 지원 팀](mailto:servicedesk@merces.nl)과 협력하여 HR2day by Merces 플랫폼에 사용자를 추가하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 > [!NOTE]
 > 사용자를 수동으로 생성해야 하는 경우 [HR2day by Merces 클라이언트 지원 팀](mailto:servicedesk@merces.nl)에 문의하세요.

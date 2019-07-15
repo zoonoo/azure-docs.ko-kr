@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure HDInsight에서 Apache Hive 쿼리 실행 - Apache Zeppelin'
-description: Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 keywords: hdinsight,hadoop,hive,대화형 쿼리,LLAP
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801028"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056690"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 
@@ -83,12 +83,3 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
 
 > [!div class="nextstepaction"]
 > [Azure HDInsight에 연결하고 Visual Studio용 Data Lake Tools를 사용하여 Apache Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>참고 항목
-
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Apache Hive 데이터 시각화](./apache-hadoop-connect-hive-power-bi-directquery.md)
-* [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
-* [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-power-query.md)
-* [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)
-* [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)

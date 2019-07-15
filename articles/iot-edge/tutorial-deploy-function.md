@@ -4,23 +4,24 @@ description: 이 자습서에서는 Azure 함수를 IoT Edge 모듈로 개발한
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239647"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433048"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 디바이스에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 디바이스에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Visual Studio Code를 사용하여 Azure 함수를 만듭니다.
 > * VS Code 및 Docker를 사용하여 Docker 이미지를 만들어 컨테이너 레지스트리에 게시합니다.
 > * IoT Edge 디바이스에 컨테이너 레지스트리의 모듈을 배포합니다.
@@ -136,14 +137,14 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고 **CSharpFunction**에 코드를 추가하여 보고된 컴퓨터 온도가 허용 가능한 임계값 이하인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-이 섹션에서는 컨테이너 레지스트리의 자격 증명을 두 번 입력합니다. 첫 번째는 Visual Studio Code가 레지스트리에 이미지를 푸시할 수 있도록 개발 머신에서 로컬로 로그인할 때입니다. 두 번째는 레지스트리에서 이미지를 풀하는 권한을 IoT Edge 디바이스에 제공하는 IoT Edge 솔루션의 **.env** 파일입니다. 
+이 섹션에서는 Visual Studio Code가 이미지를 레지스트리에 푸시할 수 있도록 개발 머신에서 로컬로 로그인하여 두 번째로 컨테이너 레지스트리에 대한 자격 증명을 제공합니다(첫 번째는 IoT Edge 솔루션의 **.env** 파일에 있음).
 
 1. **보기** > **터미널**을 차례로 선택하여 VS Code 통합 터미널을 엽니다. 
 
 2. 통합 터미널에 다음 명령을 입력하여 컨테이너 레지스트리에 로그인합니다. 앞에서 복사한 Azure 컨테이너 레지스트리의 사용자 이름 및 로그인 서버를 사용합니다.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    암호를 묻는 경우 컨테이너 레지스트리의 암호를 붙여넣고 **Enter** 키를 누릅니다.
+    암호를 묻는 메시지가 표시되면 컨테이너 레지스트리의 암호를 붙여넣고(터미널 창에 표시되지 않음) **Enter** 키를 누릅니다.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162071"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274389"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -71,7 +71,7 @@ Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 �
 - `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
 - `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
 
-자세한 내용은 [Resource Manager 요청 제한](../../azure-resource-manager/resource-manager-request-limits.md)을 참조하세요.
+자세한 내용은 [제한된 요청에 대한 지침](./concepts/guidance-for-throttled-requests.md)을 참조하세요.
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 

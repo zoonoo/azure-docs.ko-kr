@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736329"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330831"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure Front Door Service란?
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -60,6 +60,13 @@ Front Door를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름
 Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 응용 프로그램 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악성 봇 트래픽을 차단하는 등급 제한 규칙을 만들 수 있습니다. 
 
 Front Door 플랫폼 자체는 [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
+
+## <a name="url-redirection"></a>URL 리디렉션
+업계에 강력한 푸시를 통해 보안 통신만 지원하도록 하기 위해 웹 애플리케이션의 모든 HTTP 트래픽을 HTTPS로 자동으로 리디렉션할 예정입니다. 이는 사용자와 애플리케이션 간의 모든 통신이 암호화된 경로에서 발생하도록 합니다. 
+
+이전에는 애플리케이션 소유자가 전용 서비스를 만들어 이 요구 사항을 처리했으며 유일한 목적은 HTTP에서 수신하는 요청을 HTTPS로 리디렉션하는 것이었습니다. Azure Front Door Service는 HTTP에서 HTTPS로 트래픽을 리디렉션하는 기능을 지원합니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다. Azure Front Door Service에서 URL 리디렉션은 HTTP에서 HTTPS로 리디렉션뿐만 아니라 다른 호스트 이름으로 리디렉션, 다른 경로로 리디렉션 또는 URL의 새 쿼리 문자열로 리디렉션으로도 제한됩니다.
+
+자세한 내용은 Azure Front Door Service를 사용한 [트래픽 리디렉션](front-door-url-redirect.md)을 참조하세요.
 
 ## <a name="url-rewrite"></a>URL 다시 쓰기
 Front Door는 백 엔드에 전달할 요청을 생성할 때 사용할 선택적 사용자 지정 전달 경로를 구성할 수 있게 하여 [URL 재작성](front-door-url-rewrite.md)을 지원합니다. Front Door는 백 엔드에 요청을 전달할 때 전송할 호스트 헤더를 추가로 구성할 수 있게 해줍니다.

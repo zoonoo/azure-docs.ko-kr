@@ -1,17 +1,18 @@
 ---
-title: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성 - Azure
-description: Enterprise Security Package를 사용하여 Azure HDInsight에서 HBase용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
+title: 자습서 - Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성 - Azure
+description: 자습서 - Enterprise Security Package를 사용하여 Azure HDInsight에서 HBase용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926088"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274403"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
@@ -159,7 +160,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    kinit sales_user1
    ```
 
-2. hbase 셸을 열고 `Customers` 테이블을 검사합니다.
+2. HBase 셸을 열고 `Customers` 테이블을 검사합니다.
 
    ```hbaseshell
    hbase shell
@@ -201,7 +202,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    kinit marketing_user1
    ```
 
-2. hbase 셸을 열고 `Customers` 테이블을 검사합니다.
+2. HBase 셸을 열고 `Customers` 테이블을 검사합니다.
 
     ```hbaseshell
     hbase shell

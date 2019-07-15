@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7be055588b58d20464639169ac8012c378900ff1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 625fcda4b612fdeda940f9219238ac79354dd056
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444660"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>명령줄에서 첫 번째 함수 만들기
 
@@ -27,13 +27,13 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 샘플을 실행하기 전에 다음이 있어야 합니다.
+이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
 
 + [Azure CLI]( /cli/azure/install-azure-cli)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 
-+ 활성 Azure 구독.
++ 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -65,7 +65,7 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 cd MyFunctionProj
 ```
 
-## <a name="reference-bindings"></a>바인딩 참조
+## <a name="enable-extension-bundles"></a>확장 번들 사용
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

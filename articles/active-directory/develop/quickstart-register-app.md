@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482584"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655490"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -50,7 +50,7 @@ ms.locfileid: "67482584"
        - 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
        - 공용 클라이언트 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `myapp://auth`).
 
-     웹 애플리케이션 또는 네이티브 애플리케이션에 대한 구체적인 예제를 원하는 경우 [빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)을 확인합니다.
+     웹 애플리케이션 또는 네이티브 애플리케이션에 대한 구체적인 예제를 원하는 경우 [빠른 시작](https://docs.microsoft.com/azure/active-directory/develop)을 확인합니다.
 
 1. 작업을 마쳤으면 **등록**을 선택합니다.
 
@@ -67,6 +67,6 @@ Azure AD가 앱에 고유한 애플리케이션(클라이언트) ID를 할당하
     - [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
     - [웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
     - [애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
-- [빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)을 선택하여 신속하게 앱을 빌드하고 토큰 가져오기, 토큰 새로 고치기, 사용자 로그인, 사용자 정보 표시 등의 기능을 추가합니다.
+- [빠른 시작](https://docs.microsoft.com/azure/active-directory/develop)을 선택하여 신속하게 앱을 빌드하고 토큰 가져오기, 토큰 새로 고치기, 사용자 로그인, 사용자 정보 표시 등의 기능을 추가합니다.
 - 등록된 애플리케이션을 나타내는 두 개의 Azure AD 개체와 개체 간의 관계에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 - 앱을 개발할 때 사용해야 하는 브랜딩 지침에 대한 자세한 내용은 [애플리케이션에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 참조하세요.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760aef6931cdd283382d72ae6de5e0865c95284c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a772dfb1fb30e9de93afa91bd0485147029d88e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>자습서: Qumu Cloud와 Azure Active Directory 통합
 
@@ -127,7 +127,7 @@ Qumu Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 7. 위에서 언급한 특성 외에도, Qumu Cloud 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |    
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4 | user.surname |

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393522"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274137"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>자습서: .NET Core 앱에서 기능 플래그 사용
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
 .NET Core 기능 관리 라이브러리는 .NET 또는 ASP.NET Core 애플리케이션에서 기능 플래그를 구현할 수 있도록 자연스러운 지원을 제공합니다. 이러한 라이브러리를 사용하면 기능 플래그를 코드에 선언적으로 추가할 수 있으므로 모든 `if` 문을 수동으로 작성할 필요가 없습니다.
 
@@ -109,7 +109,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>컨트롤러 작업
 
-MVC 컨트롤러에서 `Feature` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on*으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
+MVC 컨트롤러에서 `FeatureGate` 특성을 사용하여 전체 컨트롤러 클래스를 사용할 것인지 아니면 특정 작업을 사용할 것인지 제어합니다. 다음 `HomeController` 컨트롤러는 `FeatureA`가 *on*으로 설정되어야만 컨트롤러 클래스에 포함된 작업을 실행할 수 있습니다.
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 다음 `Index` 작업은 `FeatureA`가 *on*으로 설정되어야만 실행할 수 있습니다.
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ MVC 보기에서 `<feature>` 태그를 사용하여 기능 플래그의 사용 �
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+요구 사항이 충족되지 않을 경우 대체 콘텐츠를 표시하려면 `negate` 특성을 사용할 수 있습니다.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+목록의 임의 기능 또는 모든 기능을 사용할 수 있는 경우 기능 `<feature>` 태그를 사용하여 콘텐츠를 표시할 수도 있습니다.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

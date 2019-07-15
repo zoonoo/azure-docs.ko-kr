@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939661"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147482"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -123,7 +123,9 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     ```  
 8. 디스크가 잠금 해제되면 디스크의 콘텐츠를 볼 수 있습니다.    
 
-    ![Data Box Disk 콘텐츠](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Data Box Disk 콘텐츠](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+디스크를 잠금 해제하는 동안 문제가 발생하면 [잠금 해제 문제 해결](data-box-disk-troubleshoot-unlock.md)을 참조하세요. 
 
 ## <a name="unlock-disks-on-linux-client"></a>Linux 클라이언트에서 디스크 잠금 해제
 
@@ -253,6 +255,9 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 8. 디스크가 잠금 해제되면 탑재 지점으로 이동하여 디스크의 콘텐츠를 볼 수 있습니다. 이제 데이터를 *BlockBlob* 또는 *PageBlob* 폴더로 복사할 준비가 되었습니다. 
 
     ![Data Box Disk 콘텐츠](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+디스크를 잠금 해제하는 동안 문제가 발생하면 [잠금 해제 문제 해결](data-box-disk-troubleshoot-unlock.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e7c1ce6ab217149acd3aed9e5268b70fbd664df
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1c409c58e023c1919cf7b59794ebd21d90e82541
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>자습서: Qualtrics와 Azure Active Directory 통합
 

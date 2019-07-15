@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496562"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444573"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
@@ -32,11 +32,11 @@ ms.locfileid: "66496562"
 
 + [Python 3.6](https://www.python.org/downloads/)을 설치합니다.
 
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.1071 이상을 설치합니다.
 
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.x 이상을 설치합니다.
 
-+ 활성 Azure 구독.
++ 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,18 +44,18 @@ ms.locfileid: "66496562"
 
 Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.env`라는 가상 환경을 만들고 활성화합니다.
 
-### <a name="bash-or-a-terminal-window"></a>Bash 또는 터미널 창:
+### <a name="bash"></a>Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell 또는 Windows 명령 프롬프트:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 나머지 명령은 가상 환경 내에서 실행됩니다.
@@ -66,7 +66,7 @@ Functions 프로젝트는 Azure의 함수 앱에 해당합니다. 동일한 로�
 
 가상 환경에서 다음 명령을 실행하고, 작업자 런타임으로 **python**을 선택합니다.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ _MyFunctionProj_ 라는 폴더가 만들어지며, 이 폴더에는 다음과 �
 
 다음과 같이 새 MyFunctionProj 폴더로 이동합니다.
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 다음으로, 확장 번들을 사용하도록 host.json 파일을 업데이트합니다.  
 
-## <a name="reference-bindings"></a>바인딩 참조
-
-확장 번들을 사용하면 향후 쉽게 바인딩 확장을 추가할 수 있습니다. 또한 .NET Core 2.x SDK를 설치할 필요가 없습니다. 확장 번들을 사용하려면 Core Tools 2.6.1071 이상 버전이 필요합니다. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-이제 프로젝트에 함수를 추가할 수 있습니다.
-
 ## <a name="create-a-function"></a>함수 만들기
 
 프로젝트에 함수를 추가하려면 다음 명령을 실행합니다.
 
-```command
+```console
 func new
 ```
 

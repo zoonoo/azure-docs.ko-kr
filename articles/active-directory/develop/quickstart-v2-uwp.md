@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7702fd220c2100b8e03ac0491e4b3365525a7de5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 84da3ca512af30ad3b5d4fbc1182f5195366e1ae
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540737"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565443"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -82,7 +82,7 @@ ms.locfileid: "67540737"
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.    
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427814"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508665"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>자습서: Azure Data Box Heavy 반송 및 Azure에 대한 데이터 업로드 확인(미리 보기)
 
@@ -43,11 +43,11 @@ ms.locfileid: "66427814"
 ## <a name="ship-data-box-heavy-back"></a>Data Box Heavy 반송
 
 1. 디바이스의 전원이 꺼져 있고 모든 케이블이 분리되었는지 확인합니다. 디바이스 뒷면에서 액세스할 수 있는 트레이에 4개의 전원 코드를 스풀링하고 안전하게 고정합니다.
-2. 디바이스를 미국 또는 유럽에서 발송하는 경우 배송 업체는 FedEx입니다.
+2. 디바이스는 미국의 FedEx 및 유럽의 DHL을 통해 LTL 화물로 배송됩니다.
 
-    1. 배송 픽업을 예약하려면 배송 업체의 현지 번호로 전화합니다.
-    2. [Data Box Operations](mailto:DataBoxOps@microsoft.com)에 연락하여 픽업에 관해 알려주고 반송용 배송 레이블을 받습니다.
-    3. 배송 레이블은 디바이스 전면의 투명한 화면에 표시되어야 합니다.
+    1. [Data Box 운영 부서](mailto:DataBoxOps@microsoft.com)에 연락하여 픽업 관련 사항을 알려주고 반송 레이블을 받습니다.
+    2. 배송 픽업을 예약하려면 배송 업체의 현지 번호로 전화합니다.
+    3. 배송품 외부에 배송 레이블이 잘 표시되어 있는지 확인합니다.
     4. 이전 배송의 이전 배송 레이블을 디바이스에서 제거합니다.
 3. 운송업체에서 Data Box Heavy를 픽업하고 나면 포털의 주문 상태가 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
 

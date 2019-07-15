@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: a42cfe1374f3defdf6ed8acc828e6c7e446588bc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540704"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595135"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -96,7 +96,7 @@ ms.locfileid: "67540704"
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [새 클라이언트 비밀 생성]()
     
-    > [!div renderon="portal"]
+    > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
     > > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
     

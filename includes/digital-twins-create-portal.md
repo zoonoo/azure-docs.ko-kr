@@ -5,19 +5,19 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/17/2018
+ms.date: 6/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9771e312269eb78e0dc4535a61e9287b5b169d7c
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153731"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459043"
 ---
 1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **digital twins**를 검색하여 **Digital Twins(미리 보기)** 를 선택합니다. **만들기**를 선택하여 배포 프로세스를 시작합니다.
+1. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **digital twins**를 검색하여 **Digital Twins**를 선택합니다. **만들기**를 선택하여 배포 프로세스를 시작합니다.
 
    ![새 Digital Twins 인스턴스를 만들기 위한 선택 항목](./media/create-digital-twins-portal/create-digital-twins.png)
 

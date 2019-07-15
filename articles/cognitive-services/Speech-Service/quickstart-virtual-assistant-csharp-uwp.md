@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467048"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604970"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
 
@@ -81,7 +80,7 @@ ms.locfileid: "67467048"
     </Page>
     ```
 
-1. `MainPage.xaml.cs` 코드 숨김 원본 파일을 엽니다. `MainPage.xaml` 아래에 그룹화되어 있습니다. 내용을 아래 코드로 바꿉니다. 이 샘플에서 다루는 내용은 다음과 같습니다. 
+1. `MainPage.xaml.cs` 코드 숨김 원본 파일을 엽니다. `MainPage.xaml` 아래에 그룹화되어 있습니다. 내용을 아래 코드로 바꿉니다. 이 샘플에서 다루는 내용은 다음과 같습니다.
 
     * Speech 및 Speech.Dialog 네임스페이스에 대한 using 문
     * 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현

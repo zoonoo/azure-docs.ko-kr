@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: feebca23e38596cff67e07f64e7acf1f7b6252e9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 98c37d4a39235e5ed1a82df72886d196cbf19e49
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467297"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605034"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Swift로 음성 인식
 
@@ -86,4 +86,3 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 
 > [!div class="nextstepaction"]
 > [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
-

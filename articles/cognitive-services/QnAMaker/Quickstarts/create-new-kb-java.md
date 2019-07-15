@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 85d5fa1cc036737497e276413985e0828e3b51f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c6fddec80da1baa852a2f3712a94b785d775919e
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788713"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151038"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 만들기
 
@@ -100,7 +100,7 @@ Post 메서드를 호출하여 KB를 만드는 다음 메서드를 추가합니�
 ```
 
 ## <a name="add-a-main-method"></a>main 메서드 추가
-main 메서드는 KB를 만든 후 상태를 폴링합니다. _create_ **Operation ID**는 POST 응답 헤더 필드 **Location**에 반환된 후 GET 요청의 경로로 사용됩니다. **`while` 루프는 완료되지 않으면 상태를 재시도합니다.
+main 메서드는 KB를 만든 후 상태를 폴링합니다. POST 응답 헤더 필드 중 **Location**에 작업 ID가 반환되며, GET 요청 시 경로의 일부에 사용됩니다. `while` 루프는 완료되지 않으면 상태를 재시도합니다.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

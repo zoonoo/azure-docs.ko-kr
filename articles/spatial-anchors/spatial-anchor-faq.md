@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304179"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273304"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 
 **Q: 적절한 제한 한도가 있나요?**
- 
+
 **A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrs@microsoft.com). 이 미리 보기 단계에서는 계층화 및 가격 책정 구조를 아직 발표하지 않았지만 곧 발표할 것입니다.
 
 **Q: Azure Spatial Anchors를 사용할 수 있는 지역은 어떻게 되나요?**
@@ -125,3 +125,7 @@ GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 **Q: Xamarin을 사용할 수 있나요?**
 
 **A:** 예. Xamarin SDK가 제공되지 않지만, 개발자는 Azure Spatial Anchors API와 통합하여 Xamarin 앱에서 Azure Spatial Anchors를 사용할 수 있습니다.
+
+**Q: Azure Spatial Anchors는 어떤 포트 및 프로토콜을 사용하나요?**
+
+**A:** Azure Spatial Anchors는 암호화된 프로토콜을 사용하여 TCP 포트 443을 통해 통신합니다. 포트 443을 통해 HTTPS를 사용하여 통신하는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 인증에 사용합니다.

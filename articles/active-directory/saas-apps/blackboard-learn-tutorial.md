@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60aacc3d4d5743187ec826fb9f544488171b1285
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26d32c0ed471170dac3fa791ef5a77feef67b051
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>자습서: Blackboard Learn과 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 이미지와 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다. 여기서는 Userprincipalname을 고유한 사용자 특성으로 매핑했지만 조직의 사용자를 고유하게 식별하고 Blackboard Learn 사용자 이름 필드에 매핑하는 적합한 값에 매핑할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c0d595bcd96bb38021a2128138f7ee49f9b8354
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>자습서: Bime와 Azure Active Directory 통합
 

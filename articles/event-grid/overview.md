@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: bfc8b62c61e2b9d01ffa0c582468b6236c92cccc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077150"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -56,6 +56,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
+* [Service Bus](event-handlers.md#service-bus-queue-preview)(미리 보기)
 * [웹후크](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>개념

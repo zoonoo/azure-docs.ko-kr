@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069295"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
 
@@ -42,10 +42,10 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
     ![Azure Portal을 사용하여 Azure 저장소 계정 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 다음 정보를 입력합니다.
 
-    |Name|값|
+    |이름|값|
     |----|----|
     |**리소스 그룹**|**새로 만들기**를 선택하고, 원하는 리소스 그룹 이름을 지정합니다. 스크린샷에서 리소스 그룹 이름은 *mystorage1016rg*입니다. 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 리소스 그룹을 사용하면 Azure 리소스를 쉽게 관리할 수 있습니다. |
-    |**Name**|스토리지 계정에 고유한 이름을 지정합니다. 스토리지 계정 이름은 Azure 전체에서 고유해야 하며 소문자와 숫자만 포함해야 합니다. 이름은 3에서 24자 사이여야 합니다. "스토리지 계정 이름 'mystorage1016'이 이미 사용되었습니다."라는 오류 메시지가 표시되면 **&lt;내 이름>스토리지&lt;MMDD 형식의 오늘 날짜>**(예: **johndolestorage1016**)를 사용해 보십시오. 자세한 내용은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)을 참조하세요.|
+    |**Name**|스토리지 계정에 고유한 이름을 지정합니다. 스토리지 계정 이름은 Azure 전체에서 고유해야 하며 소문자와 숫자만 포함해야 합니다. 이름은 3에서 24자 사이여야 합니다. "스토리지 계정 이름 'mystorage1016'이 이미 사용되었습니다."라는 오류 메시지가 표시되면 **&lt;내 이름>스토리지&lt;MMDD 형식의 오늘 날짜>** (예: **johndolestorage1016**)를 사용해 보십시오. 자세한 내용은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)을 참조하세요.|
 
     나머지 속성에는 기본값을 사용할 수 있습니다.
 
@@ -64,7 +64,7 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
     매개 변수 6개가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 저장소 계정에 사용하도록 템플릿을 편집합니다.
 
     템플릿에는 Azure 리소스 하나가 정의되어 있습니다. 유형은 `Microsoft.Storage/storageAccounts`입니다. 리소스가 정의되는 방법 및 정의 구조를 살펴보세요.
-6. 화면 맨 위에서 **다운로드**를 선택하세요. 
+6. 화면 맨 위에서 **다운로드**를 선택하세요.
 7. 다운로드한 zip 파일을 열어서 **template.json**을 사용자의 컴퓨터에 저장합니다. 다음 섹션에서는 템플릿 배포 도구를 사용하여 템플릿을 편집합니다.
 8. **매개 변수** 탭을 선택하여 매개 변수에 대해 입력한 값을 확인합니다. 이러한 값을 적어 두면, 다음 섹션에서 템플릿을 배포할 때 필요합니다.
 
@@ -75,6 +75,9 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
 ## <a name="edit-and-deploy-the-template"></a>템플릿 편집 및 배포
 
 Azure Portal은 기본적인 템플릿 편집 작업에 사용할 수 있습니다. 이 빠른 시작에서는 *템플릿 배포*라고 하는 포털 도구를 사용합니다. 하나의 인터페이스 - Azure Portal을 사용하여 전체 자습서를 완료할 수 있도록 이 자습서에서는 *템플릿 배포*가 사용됩니다. 더 복잡한 템플릿을 편집하려면 더 다양한 편집 기능을 제공하는 [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)를 사용하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> 템플릿 배포는 간단한 템플릿을 테스트하기 위한 인터페이스를 제공합니다. 프로덕션 환경에서는 이 기능을 사용하지 않는 것이 좋습니다. 대신 Azure Storage 계정 또는 GitHub와 같은 소스 코드 리포지토리에 템플릿을 저장합니다.
 
 Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 존재하는 스토리지 계정 이름을 입력한 경우 배포에 실패할 수 있습니다. 이 문제를 방지하기 위해 템플릿 함수 호출 `uniquestring()`을 사용하도록 템플릿을 수정하여 고유한 스토리지 계정 이름을 생성합니다.
 
@@ -153,7 +156,7 @@ Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 �
 8. **저장**을 선택합니다.
 9. 다음 값을 입력합니다.
 
-    |Name|값|
+    |이름|값|
     |----|----|
     |**리소스 그룹**|마지막 섹션에서 만든 리소스 그룹 이름을 선택합니다. |
     |**위치**:|스토리지 계정의 위치를 선택합니다. 예: **미국 중부** |
