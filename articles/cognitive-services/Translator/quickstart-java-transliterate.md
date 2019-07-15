@@ -3,19 +3,19 @@ title: '빠른 시작: 텍스트 스크립트 변환, Java - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 이 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 353d5950372fe9a1255bf2b17dea4f8148d3ee6e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 599ff4d2e888e6495044bb2161bc11813064399b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514778"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445068"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 텍스트 음역
 
@@ -108,6 +108,7 @@ public class Transliterate {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>클라이언트 만들기 및 요청 빌드
 

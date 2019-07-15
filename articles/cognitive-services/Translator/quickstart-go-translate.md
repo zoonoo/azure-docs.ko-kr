@@ -3,19 +3,19 @@ title: '빠른 시작: 텍스트 번역, Go - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 10분 이내에 텍스트를 한 언어에서 다른 언어로 번역합니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: cf0a7598d7af583e3339c511556a121523d12a7a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: e23ff7c38d5f2410c3fd0569cd0fda0ba92cf607
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514881"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445198"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 문자열 번역
 
@@ -138,6 +138,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>응답 처리 및 인쇄
 

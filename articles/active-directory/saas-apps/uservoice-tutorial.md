@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905639"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>자습서: UserVoice와 Azure Active Directory 통합
 

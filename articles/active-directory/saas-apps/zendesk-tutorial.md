@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11370e651c338de3d139a4bb70c9658090052469
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c4d161295f236c711e8efbe23deb3c8ba5cad985
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
 

@@ -3,19 +3,19 @@ title: '빠른 시작: 텍스트 언어 감지, Python - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 제공된 텍스트의 언어를 식별하는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 7ca4d4afe2120df4e8c2516276216deca2b22316
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 4bf24582bed7d80616d040f807c603567476f33c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514748"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444951"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 언어 감지
 
@@ -36,7 +36,10 @@ ms.locfileid: "66514748"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -89,6 +92,8 @@ headers = {
 }
 ```
 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="create-a-request-to-detect-text-language"></a>텍스트 언어를 감지하는 요청 만들기
 
 언어를 감지하려는 문자열 정의:
@@ -112,7 +117,8 @@ response = request.json()
 마지막 단계는 결과를 인쇄하는 것입니다. 이 코드 조각은 키를 정렬하고 들여쓰기를 설정하며 항목 및 키 구분 기호를 선언하여 결과를 꾸밉니다.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합

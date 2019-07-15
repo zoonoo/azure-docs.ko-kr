@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4abffc36695b5399eec28d74b9aa5eccb9841821
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>자습서: Azure Active Directory와 FreshGrade 통합
 

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417953"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304056"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어를 감지하는 방법
 
@@ -79,7 +79,7 @@ API의 [언어 감지](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
-요청을 받으면 분석이 수행됩니다. 서비스에서는 분당 최대 100개의 요청을 허용합니다. 각 요청은 최대 1MB가 될 수 있습니다.
+요청을 받으면 분석이 수행됩니다. 분당 및 초당 보낼 수 있는 요청의 크기와 수에 대한 내용은 개요의 [데이터 제한](../overview.md#data-limits) 섹션을 참조하세요.
 
 상태 비저장 서비스임에 유의하세요. 계정에는 아무 데이터도 저장되지 않습니다. 결과는 응답으로 즉시 반환됩니다.
 

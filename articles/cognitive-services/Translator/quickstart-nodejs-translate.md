@@ -3,19 +3,19 @@ title: '빠른 시작: 텍스트 음역, Node.js - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js와 함께 Translator Text API를 사용하여 텍스트를 한 언어에서 다른 언어로 번역합니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 7c4ec0304211d4ce311d3db2275b065219f37f0f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 2a314a7a12635319bb2f688a2aa12d78e9f360af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514759"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444982"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js 사용 문자열 번역
 
@@ -91,9 +91,11 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>인증
+요청을 인증하는 가장 쉬운 방법은 구독 키에서 `Ocp-Apim-Subscription-Key` 헤더로 전달하는 것이며, 이 샘플에서 이 방법을 사용할 것입니다. 대안으로, 액세스 토큰에 구독 키를 대체하고 `Authorization` 헤더로서 액세스 토큰을 전달하여 요청의 유효성을 검사할 수 있습니다. 
 
-요청을 인증하는 가장 쉬운 방법은 구독 키에서 `Ocp-Apim-Subscription-Key` 헤더로 전달하는 것이며, 이 샘플에서 이 방법을 사용할 것입니다. 대안으로, 액세스 토큰에 구독 키를 대체하고 `Authorization` 헤더로서 액세스 토큰을 전달하여 요청의 유효성을 검사할 수 있습니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)을 참조하세요.
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 헤더에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. 
+
+자세한 내용은 [인증](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)을 참조하세요.
 
 ## <a name="make-the-request-and-print-the-response"></a>요청 만들기 및 응답 출력
 

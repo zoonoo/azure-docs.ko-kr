@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065555"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "65921356"
 
 * [Visual Studio Code](https://code.visualstudio.com/download)를 설치합니다.
 
-* [최신 Azure Functions 도구](../functions-develop-vs.md#check-your-tools-version)가 있어야 합니다.
+* 최신 버전의 [Azure Functions Core Tools](../functions-run-local.md)가 있는지 확인합니다.
 
 * Windows 컴퓨터에서 [Azure Storage 에뮬레이터](../../storage/common/storage-use-emulator.md)가 설치 및 실행되고 있는지 확인합니다. Mac 또는 Linux 컴퓨터에서는 실제 Azure Storage 계정을 사용해야 합니다.
 
@@ -48,69 +48,61 @@ ms.locfileid: "65921356"
 
 1. 함수 앱의 루트 디렉터리에서 `npm install durable-functions`를 실행하여 `durable-functions` npm 패키지를 설치합니다.
 
-## <a name="create-a-starter-function"></a>시작 함수 만들기
+## <a name="creating-your-functions"></a>함수 만들기
+
+이제 Durable Functions를 시작하는 데 필요한 세 가지 함수(HTTP 스타터, 오케스트레이터, 작업 함수)를 만듭니다. HTTP 스타터는 전체 솔루션을 시작하고, 오케스트레이터는 다양한 작업 함수로 작업을 디스패치합니다.
+
+### <a name="http-starter"></a>HTTP 스타터
 
 먼저, 지속성 함수 오케스트레이션을 시작하는 HTTP 트리거 함수를 만듭니다.
 
-1. **Azure: Functions**에서 함수 만들기 아이콘을 선택합니다.
+1. *Azure: Functions*에서 **함수 만들기** 아이콘을 선택합니다.
 
     ![함수 만들기](./media/quickstart-js-vscode/create-function.png)
 
-2. 함수 앱 프로젝트를 사용하여 폴더를 선택하고 **HTTP 트리거** 함수 템플릿을 선택합니다.
+2. 함수 앱 프로젝트를 사용하여 폴더를 선택하고 **Durable Functions HTTP 스타터** 함수 템플릿을 선택합니다.
 
-    ![HTTP 트리거 템플릿 선택](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![HTTP 스타터 템플릿 선택](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 함수 이름에 `HttpStart`를 입력하고 Enter 키를 누른 다음, **익명** 인증을 선택합니다.
+3. 기본 이름을 `DurableFunctionsHttpStart`로 그대로 두고 ****Enter** 키를 누른 다음, **익명** 인증을 선택합니다.
 
     ![익명 인증 선택](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    HTTP 트리거 함수에 대한 템플릿을 사용하여 선택한 언어로 함수가 만들어집니다.
-
-4. index.js를 아래 JavaScript로 바꿉니다.
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. function.json을 아래 JSON으로 바꿉니다.
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 이제 지속성 함수에 진입점이 생성되었습니다. 오케스트레이터를 추가해 보겠습니다.
 
-## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
+### <a name="orchestrator"></a>오케스트레이터
 
-다음으로, 오케스트레이터가 될 다른 함수를 만듭니다. 편의를 위해 HTTP 트리거 함수 템플릿을 사용합니다. 함수 코드 자체는 오케스트레이터 코드에 의해 대체됩니다.
+이제 작업 함수를 조정하기 위해 오케스트레이터를 만듭니다.
 
-1. HTTP 트리거 템플릿을 사용하여 두 번째 함수를 만들려면 이전 섹션의 단계를 반복합니다. 이번에는 함수의 이름을 `OrchestratorFunction`이라고 지정합니다.
+1. *Azure: Functions*에서 **함수 만들기** 아이콘을 선택합니다.
 
-2. 새 함수에 대한 index.js 파일을 열고 콘텐츠를 다음 코드로 바꿉니다.
+    ![함수 만들기](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. 함수 앱 프로젝트를 사용하여 폴더를 선택하고 **Durable Functions 오케스트레이터** 함수 템플릿을 선택합니다. 이름을 기본값 "DurableFunctionsOrchestrator"로 그대로 두기
 
-3. function.json 파일을 열고 다음 JSON으로 바꿉니다.
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![오케스트레이터 템플릿 선택](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 작업 함수를 조정하기 위해 오케스트레이터를 추가했습니다. 참조된 작업 함수를 지금 추가하겠습니다.
 
-## <a name="create-an-activity-function"></a>작업 함수 만들기
+### <a name="activity"></a>작업
 
-1. HTTP 트리거 템플릿을 사용하여 세 번째 함수를 만들려면 이전 섹션의 단계를 반복합니다. 단, 이번에는 함수의 이름을 `E1_SayHello`라고 지정합니다.
+이제 실제로 솔루션의 작업을 수행하는 작업 함수를 만듭니다.
 
-2. 새 함수에 대한 index.js 파일을 열고 콘텐츠를 다음 코드로 바꿉니다.
+1. *Azure: Functions*에서 **함수 만들기** 아이콘을 선택합니다.
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![함수 만들기](./media/quickstart-js-vscode/create-function.png)
 
-3. function.json을 아래 JSON으로 바꿉니다.
+2. 함수 앱 프로젝트를 사용하여 폴더를 선택하고 **Durable Functions 작업** 함수 템플릿을 선택합니다. 이름을 기본값 "Hello"로 그대로 둡니다.
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![작업 템플릿 선택](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 이제 오케스트레이션을 시작하고 작업 함수를 함께 연결하는 데 필요한 모든 구성 요소를 추가했습니다.
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 
-Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio Code에서 처음으로 함수를 시작할 때 이러한 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
+Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio Code에서 처음으로 함수를 시작할 때 이러한 도구를 설치하도록 요구하는 메시지가 표시됩니다.
 
-1. Windows 컴퓨터에서 Azure Storage 에뮬레이터를 시작하고 local.settings.json의 **AzureWebJobsStorage** 속성이 `UseDevelopmentStorage=true`로 설정되어 있는지 확인합니다. 
+1. Windows 컴퓨터에서 Azure Storage 에뮬레이터를 시작하고 *local.settings.json*의 **AzureWebJobsStorage** 속성이 `UseDevelopmentStorage=true`로 설정되어 있는지 확인합니다.
 
     Storage Emulator 5.8은 local.settings.json의 **AzureWebJobsSecretStorageType** 속성이 `files`로 설정되었는지 확인합니다. Mac 또는 Linux 컴퓨터에서는 **AzureWebJobsStorage** 속성을 기존 Azure Storage 계정의 연결 문자열로 설정해야 합니다. 스토리지 계정은 이 문서의 뒷부분에서 만듭니다.
 
@@ -123,7 +115,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
     ![Azure 로컬 출력](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. `{functionName}`을 `OrchestratorFunction`로 바꿉니다.
+4. `{functionName}`을 `DurableFunctionsOrchestrator`로 바꿉니다.
 
 5. [Postman](https://www.getpostman.com/) 또는 [cURL](https://curl.haxx.se/)과 같은 도구를 사용하여 HTTP POST 요청을 URL 엔드포인트로 보냅니다.
 

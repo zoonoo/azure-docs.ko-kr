@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>자습서: Azure Active Directory와 LockPath Keylight 통합
 
@@ -172,11 +172,11 @@ LockPath Keylight에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
     j. **Auto-provision security config**(자동 프로비전 보안 구성)에 **Standard User Configuration**(표준 사용자 구성)을 선택합니다.
 
-    k. **Email attribute**(이메일 특성) 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    k. **Email attribute**(이메일 특성) 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
-    l. **First name attribute**(이름 특성) 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
+    l. **First name attribute**(이름 특성) 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
 
-    m. **Last name attribute**(성 특성) 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
+    m. **Last name attribute**(성 특성) 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
 
     n. **저장**을 클릭합니다.
 

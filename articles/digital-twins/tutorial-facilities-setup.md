@@ -2,22 +2,22 @@
 title: '자습서: Azure Digital Twins 배포 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins 인스턴스를 배포하고 공간 리소스를 구성하는 방법을 알아봅니다.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537460"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484682"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 배포 및 공간 그래프 구성
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 미리 보기 배포 및 공간 그래프 구성
 
-Azure Digital Twins를 사용하여 사람, 장소 및 디바이스를 일관적인 공간 시스템에 결합할 수 있습니다. 이 자습서 시리즈는 Azure Digital Twins를 사용하여 온도 및 공기질이 최적 조건인 방 점유를 검색하는 방법을 보여줍니다. 
+Azure Digital Twins 미리 보기를 사용하여 사람, 장소 및 디바이스를 일관된 공간 시스템에 결합할 수 있습니다. 이 자습서 시리즈는 Azure Digital Twins를 사용하여 온도 및 공기질이 최적 조건인 방 점유를 검색하는 방법을 보여줍니다. 
 
 이러한 자습서에서는 사무실 건물의 시나리오를 빌드하는 .NET 콘솔 애플리케이션을 설명합니다. 건물에는 여러 층이 있고 각 층에는 방이 있습니다. 방에는 동작, 주변 온도 및 공기질을 감지하는 센서가 부착된 디바이스가 있습니다. 
 

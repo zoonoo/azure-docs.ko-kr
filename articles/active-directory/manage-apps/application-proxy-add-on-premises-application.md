@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 11bb99ada76131000f49be5a1216a1bb71fbb88a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108721"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -87,7 +87,7 @@ TLS 1.2를 사용하도록 설정하려면:
 
 방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 80 및 443 포트를 엽니다.
 
-애플리케이션 프록시를 이미 사용 중인 경우 이전 버전의 커넥터가 설치되었을 수 있습니다. 이 자습서에 따라 최신 버전의 커넥터를 설치합니다. 1.5.132.0 이전 버전에는 다음 포트가 열려있어야 합니다. 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
+애플리케이션 프록시를 이미 사용 중인 경우 이전 버전의 커넥터가 설치되었을 수 있습니다. 이 자습서에 따라 최신 버전의 커넥터를 설치합니다. 1\.5.132.0 이전 버전에는 다음 포트가 열려있어야 합니다. 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
 
 ### <a name="allow-access-to-urls"></a>URL에 대한 액세스 허용
 

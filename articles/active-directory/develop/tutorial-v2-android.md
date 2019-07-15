@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962141"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550582"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Android 앱에서 사용자 로그인 및 Microsoft Graph 호출
 
@@ -281,7 +281,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 
 MSAL은 토큰을 가져오기 위한 두 가지 기본 메서드 `acquireTokenSilentAsync` 및 `acquireToken`을 공개합니다.  
 
-`acquireTokenSilentAsync`는 계정이 있는 경우 사용자 개입 없이 사용자를 로그인하고 토큰을 가져옵니다. 이것이 성공하면 MSAL이 앱에 토큰을 전달하고, 실패하면 `MsalUiRequiredException`을 생성합니다.  이 예외가 생성되거나 사용자에게 대화형 로그인 환경을 제공하려는 경우(자격 증명, mfa 또는 기타 조건부 액세스 정책이 필요할 수도 있고 필요하지 않을 수도 있음) `acquireToken`을 사용하면 됩니다.  
+`acquireTokenSilentAsync`는 계정이 있는 경우 사용자 개입 없이 사용자를 로그인하고 토큰을 가져옵니다. 이것이 성공하면 MSAL이 앱에 토큰을 전달하고, 실패하면 `MsalUiRequiredException`을 생성합니다.  이 예외가 생성되거나 사용자에게 대화형 로그인 환경을 제공하려는 경우(자격 증명, mfa 또는 기타 조건부 액세스 정책이 필요할 수도 있고 필요하지 않을 수도 있음) `acquireToken`을 사용할 수 있습니다.  
 
 `acquireToken`은 사용자를 로그인하고 토큰을 가져오려고 시도할 때 항상 UI를 표시합니다. 하지만 브라우저의 세션 쿠키 또는 Microsoft Authenticator의 계정을 사용하여 대화형 SSO 환경을 제공할 수도 있습니다. 
 
@@ -465,7 +465,7 @@ private void onSignOutClicked() {
 
 | 헤더 키    | 값                 |
 | ------------- | --------------------- |
-| 권한 부여 | 전달자 <access-token> |
+| 권한 부여 | 전달자 \<access-token> |
 
 코드에서 이렇게 하려면 다음 두 메서드를 앱에 추가하여 그래프를 호출하고 UI를 업데이트합니다. 
 

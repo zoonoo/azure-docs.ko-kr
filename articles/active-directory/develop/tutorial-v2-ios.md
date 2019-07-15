@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780da9359aaf645abc9b685fa9d90bbea9199759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962170"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550570"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>iOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -382,7 +382,7 @@ MSAL은 토큰을 가져오기 위한 두 가지 기본 메서드 `acquireTokenS
 
 | 헤더 키    | 값                 |
 | ------------- | --------------------- |
-| 권한 부여 | 전달자 <access-token> |
+| 권한 부여 | 전달자 \<access-token> |
 
 다음 줄을 `ViewController.swift`에 추가합니다.
 

@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: C# SDK를 사용하여 Bing Custom Search 엔드포인트 호출 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Custom Search SDK C# 콘솔 애플리케이션을 설치합니다.
+description: C#용 Bing Custom Search SDK를 사용하여 사용자 지정 검색 인스턴스를 검색합니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 09/06/2018
+ms.date: 06/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9e13edce77819d5ef8cfc3b6becff9fb82224a83
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595953"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206170"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>빠른 시작: C# SDK를 사용하여 Bing Custom Search 엔드포인트 호출 
 
@@ -27,7 +27,7 @@ ms.locfileid: "65595953"
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
-- [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) 패키지 설치. 
+- [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet 패키지. 
     - Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 메뉴에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지를 설치합니다. NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설치됩니다.
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427949"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271714"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>자습서: Azure Data Box Heavy 케이블 장착 및 연결 설정(미리 보기)
 
@@ -79,7 +79,7 @@ ms.locfileid: "66427949"
 다음 단계에 따라 디바이스의 노드 중 하나에 네트워크 케이블을 연결합니다.
 
 1. CAT 6 RJ-45 네트워크 케이블(그림의 파란색 케이블)을 사용하여 호스트 컴퓨터를 1Gbps 관리 포트에 연결합니다.
-2. Twinax QSFP+ 동 케이블(그림의 검은색 케이블)을 사용하여 데이터용 40Gbps(1Gbps 초과 권장) 네트워크 인터페이스를 하나 이상 연결합니다. 10Gbps 스위치를 사용하는 경우, QSFP+ ~ SFP+ 어댑터(QSA 어댑터)와 Twinax SFP+ 동 케이블을 사용하여 데이터용 40Gbps 네트워크 인터페이스를 연결합니다.
+2. QSFP+ 케이블(광섬유 또는 구리)을 사용하여 데이터용 40Gbps(1Gbps 이상 추천) 네트워크 인터페이스를 하나 이상 연결합니다. 10Gbps 스위치를 사용하는 경우 QSFP+ ~ SFP+ 어댑터(QSA 어댑터)가 있는 케이블을 사용하여 데이터용 40Gbps 네트워크 인터페이스를 연결합니다.
 
     ![케이블이 연결된 Data Box Heavy 포트](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

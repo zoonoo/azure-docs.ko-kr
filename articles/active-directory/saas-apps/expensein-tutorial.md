@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102849"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>자습서: ExpenseIn과 Azure Active Directory 연결
 
@@ -57,15 +57,15 @@ ExpenseIn의 Azure AD 통합을 구성하려면 갤러리의 ExpenseIn을 관리
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-**B. Simon**이라는 테스트 사용자를 사용하여 ExpenseIn에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 ExpenseIn의 관련 사용자 간에 링크 관계를 설정해야 합니다.
+**B.Simon**이라는 테스트 사용자를 사용하여 ExpenseIn에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 ExpenseIn의 관련 사용자 간에 링크 관계를 설정해야 합니다.
 
 ExpenseIn에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
 2. **[ExpenseIn 구성](#configure-expensein)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B. Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[ExpenseIn 테스트 사용자 만들기](#create-expensein-test-user)** - B. Simon의 Azure AD 표현과 연결된 사용자를 ExpenseIn에 만듭니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B.Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[ExpenseIn 테스트 사용자 만들기](#create-expensein-test-user)** - B.Simon의 Azure AD 표현과 연결된 사용자를 ExpenseIn에 만듭니다.
 6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -101,41 +101,51 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-expensein"></a>ExpenseIn 구성
 
-1. 다른 웹 브라우저 창에서 ExpenseIn에 관리자로 로그인합니다.
+1. ExpenseIn 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. 페이지 위쪽의 **관리자**를 클릭한 후 **Single Sign-On**으로 이동하고 **공급자 추가**를 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **ExpenseIn 설정**을 클릭하면 ExpenseIn 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 ExpenseIn에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. ExpenseIn을 수동으로 설정하려면 새 웹 브라우저 창을 열고 ExpenseIn 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+4. 페이지 위쪽의 **관리자**를 클릭한 후 **Single Sign-On**으로 이동하고 **공급자 추가**를 클릭합니다.
 
      ![ExpenseIn 구성](./media/expenseIn-tutorial/config01.png)
 
-3. **새 ID 공급자** 팝업에서 다음 단계를 수행합니다.
+5. **새 ID 공급자** 팝업에서 다음 단계를 수행합니다.
 
     ![ExpenseIn 구성](./media/expenseIn-tutorial/config02.png)
 
     a. **공급자 이름** 텍스트 상자에서 ex:Azure와 같은 이름을 입력합니다.
 
-    b. Azure Portal에서 복사한 **로그인 URL** 값을 **대상 URL** 텍스트 상자에 붙여넣습니다.
+    b. **공급 기업 로그온 시작 허용**으로 **예**를 선택합니다.
 
-    다. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+    다. Azure Portal에서 복사한 **로그인 URL** 값을 **대상 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. 메모장에서 인증서(Base64)를 열고 내용을 복사한 다음, **인증서** 텍스트 상자에 붙여넣습니다.
+    d. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
-    e. **만들기**를 클릭합니다.
+    e. 메모장에서 인증서(Base64)를 열고 내용을 복사한 다음, **인증서** 텍스트 상자에 붙여넣습니다.
+
+    f. **만들기**를 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-이 섹션에서는 Azure Portal에서 B. Simon이라는 테스트 사용자를 만듭니다.
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `B. Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B. Simon에게 ExpenseIn에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 ExpenseIn에 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **ExpenseIn**을 선택합니다.
@@ -147,7 +157,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B. Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -171,7 +181,7 @@ Azure AD 사용자가 ExpenseIn에 로그인할 수 있도록 하려면 ExpenseI
 
     b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    다. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: `B. Simon@contoso.com`)을 입력합니다.
+    다. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: `B.Simon@contoso.com`)을 입력합니다.
 
     d. **만들기**를 클릭합니다.
 

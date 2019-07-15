@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>자습서: Opal과 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ Opal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 6. 위에서 언급한 특성 외에도, Opal 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | firstname           | user.givenname |
     | lastname        | user.surname |
@@ -177,7 +177,7 @@ Opal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

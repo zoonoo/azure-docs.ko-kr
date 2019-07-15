@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 837ba4043fe27c15f75c4d401878dfdb3328b82f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>자습서: Versal과 Azure Active Directory 통합
 

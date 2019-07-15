@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9aabdba16b334aa957e1e8109d1e16d22e01dc7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 4de1ae135df4cd070fe9c6ee322e304caa1e17c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101905"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>자습서: Freedcamp와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 Freedcamp의 Azure AD 통합을 구성하려면 갤러리의 Freedcamp를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 탐색 창에서 **Active Directory** 서비스를 선택합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Freedcamp**를 입력합니다.

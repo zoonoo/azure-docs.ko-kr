@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88cee825f132054eb1228e8930f82199c7f1812f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 13f68a4cfeb1d46137f671e97df491b54afc03e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905437"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>자습서: Useall과 Azure Active Directory 통합
 

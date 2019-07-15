@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 뉴스 검색 수행 - Java용 Bing News Search SDK'
+title: '빠른 시작: Java용 Bing News Search SDK를 사용하여 뉴스 검색 수행'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Java용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b128f43637649f4faf104a81940f2937c2354bc6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d84b47feb91a9165a4bc03b20b0b7d079aa8f6ae
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799721"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203361"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>빠른 시작: Java용 Bing News Search SDK로 뉴스 검색
 

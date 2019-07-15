@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262179"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331432"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 .NET용 CI/CD 파이프라인 만들기
 
@@ -44,51 +44,45 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
-1. .NET 샘플 애플리케이션을 선택합니다. .NET 샘플에는 오픈 소스 ASP.NET 프레임워크 또는 플랫폼 간 .NET Core 프레임워크 중 하나의 선택이 포함됩니다.
+1. **.NET** 샘플 애플리케이션을 선택합니다. .NET 샘플에는 오픈 소스 ASP.NET 프레임워크 또는 플랫폼 간 .NET Core 프레임워크 중 하나의 선택이 포함됩니다.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. .NET Core 애플리케이션 프레임워크를 선택합니다.  
-    이 샘플은 ASP.NET Core MVC 애플리케이션입니다.
+2. 이 샘플은 ASP.NET Core MVC 애플리케이션입니다. **.NET Core** 애플리케이션 프레임워크를 선택한 다음, **다음**을 선택합니다.    
     
-2. **다음**을 선택합니다.  
-    Windows의 웹앱은 기본 배포 대상입니다.  필요에 따라 Web App on Linux 또는 Web App for Containers를 선택할 수 있습니다.  이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다.  
-    
-3. 기본 서비스에서 나간 후 **다음**을 선택합니다.
+3. 배포 대상으로 **Windows 웹앱**을 선택한 다음, **다음**을 선택합니다. 필요에 따라 배포에 대해 다른 Azure 서비스를 선택할 수 있습니다. 이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps 및 Azure 구독 구성 
 
-1. 새 무료 Azure DevOps 조직을 만들거나 기존 조직을 선택합니다.
+1. **프로젝트 이름**을 입력합니다.
 
-    a. 프로젝트의 이름을 선택합니다. 
+2. 새 무료 **Azure DevOps 조직**을 만들거나 드롭다운에서 기존 조직을 선택합니다.
 
-    b. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 선택한 후 **완료**를 선택합니다.  
-    잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
-    
+3. **Azure 구독**을 선택하고, **웹앱**에 대한 이름을 입력하거나 기본값을 선택한 다음, **완료**를 선택합니다. 잠시 후에 DevOps Projects 배포 개요가 Azure Portal에 표시됩니다. 
 
-2. 대시보드의 오른쪽에서 **찾아보기**를 선택하여 실행 중인 애플리케이션을 봅니다.
+4. **리소스로 이동**을 선택하여 DevOps Project 대시보드를 확인합니다. 오른쪽 위 모서리에서 빠른 액세스를 위해 **프로젝트**를 대시보드에 고정합니다. 샘플 앱은 **Azure DevOps 조직**의 리포지토리에서 설정됩니다. 빌드가 실행되고, 앱이 Azure에 배포됩니다.
 
-    ![대시보드 보기](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다. Azure 리소스의 오른쪽에서 **찾아보기**를 선택하여 실행 중인 앱을 확인합니다.
+
+   ![대시보드 보기](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
- DevOps Projects는 Azure Repos 또는 GitHub에 Git 리포지토리를 만들었습니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
+DevOps Projects는 Azure Repos 또는 GitHub에 Git 리포지토리를 만들었습니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps Projects 대시보드 왼쪽에서 **마스터** 분기에 대한 링크를 선택합니다.  
-이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
+1. DevOps Projects 대시보드 왼쪽에서 **마스터** 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
-1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제**를 선택합니다.  
-즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다.  다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
+2. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 **마스터** 분기에 만들고 커밋할 수 있습니다. 리포지토리 페이지의 오른쪽 위에서 **복제**를 선택하여 즐겨찾는 IDE에 Git 리포지토리를 복제할 수도 있습니다. 
 
-1. 브라우저의 왼쪽에서 **Views/Home/index.cshtml** 파일로 이동합니다.
+3. 왼쪽에서 애플리케이션 파일 구조를 **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**로 이동합니다.
 
-1. **편집**을 선택하고 h2 제목을 변경합니다. 예를 들어 **Azure DevOps Projects를 사용하여 바로 시작하기**를 입력하거나 일부 다른 내용을 변경합니다.
+4. **편집**을 선택하고 h2 제목을 변경합니다. 예를 들어 **Azure DevOps Projects를 사용하여 바로 시작하기**를 입력하거나 일부 다른 내용을 변경합니다.
 
-    ![코드 편집](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![코드 편집](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. **커밋**을 선택하고 변경 내용을 저장합니다.
+5. **커밋**을 선택하여 의견을 남기고 **커밋**을 다시 선택합니다.
 
-1. 브라우저에서 Azure DevOps 프로젝트 대시보드로 이동합니다.  이제 빌드가 진행되고 있음을 확인해야 합니다. 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
+6. 브라우저에서 Azure DevOps 프로젝트 대시보드로 이동합니다.  이제 빌드가 진행되고 있음을 확인해야 합니다. 변경한 내용은 자동으로 빌드되며 CI/CD 파이프라인을 통해 배포됩니다.
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 

@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825006"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550462"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션에 대한 SAML 기반 Single Sign-On 구성
 
@@ -138,7 +138,7 @@ Azure AD에서는 인증서를 사용하여 애플리케이션에 보내는 SAML
 
 이제 거의 완료되었습니다.  마지막 단계로, Azure AD를 SAML ID 공급자로 사용하도록 애플리케이션을 설정해야 합니다. 
 
-1. **설정<applicationName>** 섹션까지 아래로 스크롤합니다. 이 자습서에서 이 섹션은 **GitHub-test 설정**이라고 합니다. 
+1. **\<applicationName> 설정** 섹션까지 아래로 스크롤합니다. 이 자습서에서 이 섹션은 **GitHub-test 설정**이라고 합니다. 
 2. 이 섹션에서 각 행의 값을 복사합니다. 그런 다음, **기본 SAML 구성** 섹션의 해당 행에 각 값을 붙여넣습니다. 예를 들어 **GitHub-test 설정** 섹션에서 **로그인 URL** 값을 복사하여 **기본 SAML 구성** 섹션의 **로그온 URL** 필드 등에 붙여넣습니다.
 3. 모든 값을 해당 필드에 붙여넣은 다음, **저장**을 선택합니다.
 
@@ -147,7 +147,7 @@ Azure AD에서는 인증서를 사용하여 애플리케이션에 보내는 SAML
 설정을 테스트할 준비가 되었습니다.  
 
 1. 애플리케이션의 Single Sign-On 설정을 엽니다. 
-2. **<applicationName>을(를) 사용하여 Single Sign-On 유효성 검사** 섹션으로 스크롤합니다. 이 자습서에서 이 섹션은 **GitHub-test 설정**이라고 합니다.
+2. **\<applicationName>을 사용하여 Single Sign-On 유효성 검사** 섹션으로 스크롤합니다. 이 자습서에서 이 섹션은 **GitHub-test 설정**이라고 합니다.
 3. **테스트**를 선택합니다. 테스트 옵션이 표시됩니다.
 4. **현재 사용자로 로그인**을 선택합니다. 이 테스트를 통해 관리자인 사용자에 대해 Single Sign-On이 작동하는지를 먼저 확인할 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 883620d6aa25f71a454c7add6d60e38b4974facf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>자습서: Velpic SAML과 Azure Active Directory 통합
 

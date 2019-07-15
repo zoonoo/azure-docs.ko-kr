@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011302"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304028"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정을 감지하는 방법
 
@@ -79,7 +79,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`)를 포함해야 합니다.
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
@@ -90,14 +90,14 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
-요청을 받으면 분석이 수행됩니다. 서비스에서는 분당 최대 100개의 요청을 허용합니다. 각 요청은 최대 1MB가 될 수 있습니다.
+요청을 받으면 분석이 수행됩니다. 분당 및 초당 보낼 수 있는 요청의 크기와 수에 대한 내용은 개요의 [데이터 제한](../overview.md#data-limits) 섹션을 참조하세요.
 
 상태 비저장 서비스임에 유의하세요. 계정에는 아무 데이터도 저장되지 않습니다. 결과는 응답으로 즉시 반환됩니다.
 
 
 ## <a name="step-3-view-results"></a>3단계: 결과 보기
 
-감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하여 0에서 1 사이의 점수를 할당합니다. 0.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
+감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하여 0에서 1 사이의 점수를 할당합니다. 0\.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0\.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81351fc13ddf36d8aeb4fa5cecab10daf152406f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdb6e034005902d478b94a12e2cbe44a00228735
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870919"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>자습서: Microsoft Azure용 클라우드 관리 포털과 Azure Active Directory 통합
 
@@ -125,7 +125,7 @@ Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 �
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
     | `https://<subdomain>.newsignature.com` |
-    | `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+    | `https://<subdomain>.newsignature.com/<instancename>` |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Microsoft Azure용 클라우드 관리 포털 클라이언트 지원 팀](mailto:jczernuszka@newsignature.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -16,21 +16,21 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545605"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484508"
 ---
-# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 프라이빗 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
+# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
-[App Service](app-service-linux-intro.md)는 Linux에서 PHP 7.0 및 Node.js 4.5와 같은 특정 버전을 지원하는 기본 제공 Docker 이미지를 제공합니다. App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 App Service에서 사용자 지정 이미지를 빌드하고 실행하는 방법을 알아봅니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
+[App Service](app-service-linux-intro.md)는 Linux에서 PHP 7.3 및 Node.js 10.14와 같은 특정 버전을 지원하는 기본 제공 Docker 이미지를 제공합니다. App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 App Service에서 사용자 지정 이미지를 빌드하고 실행하는 방법을 알아봅니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 프라이빗 컨테이너 레지스트리에 사용자 지정 이미지 배포
+> * 개인 컨테이너 레지스트리에 사용자 지정 이미지 배포
 > * App Service에서 사용자 지정 이미지 실행
 > * 환경 변수 구성
 > * 이미지 업데이트 및 다시 배포
@@ -121,7 +121,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 ### <a name="sign-in-to-azure-container-registry"></a>Azure Container Registry에 로그인
 
-이미지를 레지스트리로 푸시하려면 프라이빗 레지스트리를 사용하여 인증해야 합니다. Cloud Shell에서 [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) 명령을 사용하여 만든 레지스트리에서 자격 증명을 검색합니다.
+이미지를 레지스트리로 푸시하려면 개인 레지스트리를 사용하여 인증해야 합니다. Cloud Shell에서 [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) 명령을 사용하여 만든 레지스트리에서 자격 증명을 검색합니다.
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -211,7 +211,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="configure-registry-credentials-in-web-app"></a>웹앱에서 레지스트리 자격 증명 구성
 
-App Service에서 프라이빗 이미지를 끌어오려면 레지스트리와 이미지에 대한 정보가 필요합니다. Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 제공합니다. *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ 및 _\<password>_ 를 바꿉니다.
+App Service에서 개인 이미지를 끌어오려면 레지스트리와 이미지에 대한 정보가 필요합니다. Cloud Shell에서 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 명령을 제공합니다. *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ 및 _\<password>_ 를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -278,7 +278,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     > [!NOTE]
     > 이 구성을 사용하면 컨테이너에 대한 외부 연결이 허용되지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 Azure 계정으로 인증됩니다.
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18)에서 [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository)를 */etc/ssh/* 디렉터리에 복사합니다.
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18)은 리포지토리의[sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -337,7 +337,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 프라이빗 컨테이너 레지스트리에 사용자 지정 이미지 배포
+> * 개인 컨테이너 레지스트리에 사용자 지정 이미지 배포
 > * App Service에서 사용자 지정 이미지 실행
 > * 환경 변수 구성
 > * 이미지 업데이트 및 다시 배포

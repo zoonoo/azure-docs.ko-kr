@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441477"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>자습서: Braze와 Azure Active Directory 연결
 
@@ -32,7 +32,7 @@ Braze를 Azure AD와 연결하면 다음과 같은 이점을 누릴 수 있습�
 * 사용자가 해당 Azure AD 계정으로 Braze에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -106,7 +106,7 @@ Braze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Braze 도메인 및 URL Single Sign-On 정보](common/both-replyurl.png)
 
-    **회신 URL** 텍스트 상자에 `https://<SUBDOMAIN>.braze.com/auth/saml/callback ` 패턴을 사용하여 URL을 입력합니다.
+    **회신 URL** 텍스트 상자에 `https://<SUBDOMAIN>.braze.com/auth/saml/callback` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -123,7 +123,7 @@ Braze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | -----| --------------- |
     | 이메일 | user.userprincipalname |
     | first_name| user.givenname|

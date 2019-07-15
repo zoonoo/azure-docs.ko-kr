@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae1578a04bf6a94aeb5a7a3b64ac3ae722fe9ac
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 219af24aceea9291e34a9854d230b5dc6bd85fdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>자습서: 15Five와 Azure Active Directory 통합
 

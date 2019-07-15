@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090144"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>자습서: Spotinst와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Spotinst 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
-    **로그온 URL** 텍스트 상자에 `https://console.spotinst.com` URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 `https://console.spotinst.com/auth/saml` URL을 입력합니다.
 
     > [!NOTE]
     > 릴레이 상태 값은 실제 값이 아닙니다. 이 릴레이 상태 값은 자습서 뒷부분에서 설명하는 실제 릴레이 상태 값으로 업데이트하게 됩니다.

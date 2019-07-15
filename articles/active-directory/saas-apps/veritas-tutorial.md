@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43094cabab3cfc93e0dffa59a15867d01b036d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>자습서: Veritas Enterprise Vault.cloud SSO와 Azure Active Directory 통합
 

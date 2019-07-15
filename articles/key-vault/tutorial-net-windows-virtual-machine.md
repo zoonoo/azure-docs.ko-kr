@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4ae02a494949e92ad8e59cd35e46b6ce246ae7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115014"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>자습서: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -53,7 +53,11 @@ Azure 서비스(예: Azure Virtual Machines, Azure App Service 또는 Azure Func
 
 다음으로, 액세스 토큰을 가져오기 위해 코드는 Azure 리소스에 사용할 수 있는 로컬 메타데이터 서비스를 호출합니다. Azure Key Vault 서비스를 인증하기 위해 코드는 로컬 MSI 엔드포인트에서 가져오는 액세스 토큰을 사용합니다. 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="create-resources-and-assign-permissions"></a>리소스 만들기 및 권한 할당
+
+코딩을 시작하기 전에 몇 가지 리소스를 만들고, 키 자격 증명 모음에 비밀을 배치하고, 사용 권한을 할당해야 합니다.
+
+### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 
@@ -61,13 +65,11 @@ Azure CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
-
-그런 후, 리소스 그룹 이름을 선택하고 자리 표시자를 입력합니다. 다음 예제에서는 미국 서부 위치에 리소스 그룹을 만듭니다.
+이 예제에서는 리소스 그룹을 미국 서부 위치에 만듭니다.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -76,9 +78,9 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 이 자습서 전체에서 새로 만든 리소스 그룹을 사용합니다.
 
-## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>키 자격 증명 모음을 만들고 비밀을 사용하여 채우기
 
-이전 단계에서 만든 리소스 그룹에 Key Vault를 만들려면 다음 정보를 지정합니다.
+다음 정보로 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 제공하여 리소스 그룹에 키 자격 증명 모음을 만듭니다.
 
 * Key Vault 이름: 숫자(0-9), 문자(a-z, A-Z) 및 하이픈(-)만 포함할 수 있는 3~24자 문자열입니다.
 * 리소스 그룹 이름
@@ -89,9 +91,8 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 ```
 이 시점에서 Azure 계정은 이 새 Key Vault에서 작업을 수행할 권한이 있는 유일한 계정입니다.
 
-## <a name="add-a-secret-to-the-key-vault"></a>키 자격 증명 모음에 비밀 추가
+이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용하여 키 자격 증명 모음에 비밀을 추가합니다.
 
-이 작업을 설명하기 위한 비밀을 추가하고 있습니다. 이러한 비밀은 안전하게 유지하면서 애플리케이션에서 사용할 수 있도록 해야 하는 기타 정보 또는 SQL 연결 문자열일 수 있습니다.
 
 Key Vault에 **AppSecret**라는 비밀을 만들려면 다음 명령을 입력합니다.
 
@@ -101,15 +102,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 이 비밀에는 값 **MySecret**이 저장됩니다.
 
-## <a name="create-a-virtual-machine"></a>가상 머신 만들기
-다음 방법 중 하나를 사용하여 가상 머신을 만들 수 있습니다.
+### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+다음 방법 중 하나를 사용하여 가상 머신을 만듭니다.
 
 * [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Azure 포털](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
-이 단계에서는 Azure CLI에서 다음 명령을 실행하여 가상 머신에 시스템 할당 ID를 만들 것입니다.
+### <a name="assign-an-identity-to-the-vm"></a>VM에 ID 할당
+[az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 명령으로 가상 머신에 대한 시스템 할당 ID를 만듭니다.
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -124,31 +125,47 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
-이제 다음 명령을 실행하여 이전에 만든 ID 사용 권한을 Key Vault에 할당할 수 있습니다.
+### <a name="assign-permissions-to-the-vm-identity"></a>VM ID에 사용 권한을 할당합니다.
+[az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령으로 키 자격 증명 모음에 이전에 만든 ID 사용 권한을 할당합니다.
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>가상 머신에 로그온
+### <a name="sign-in-to-the-virtual-machine"></a>가상 머신에 로그인
 
-가상 머신에 로그온하려면 [Windows를 실행하는 Azure Virtual Machine에 연결 및 로그온](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)의 지침을 따르세요.
+가상 머신에 로그인하려면 [Windows를 실행하는 Azure 가상 머신에 연결 및 로그인](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)의 지침을 따르세요.
 
-## <a name="install-net-core"></a>.NET Core 설치
+## <a name="set-up-the-console-app"></a>콘솔 앱 설정
+
+`dotnet` 명령을 사용하여 콘솔 앱을 만들고 필요한 패키지를 설치합니다.
+
+### <a name="install-net-core"></a>.NET Core 설치
 
 .NET Core를 설치하려면 [.NET 다운로드](https://www.microsoft.com/net/download) 페이지로 이동합니다.
 
-## <a name="create-and-run-a-sample-net-app"></a>샘플 .NET 앱 만들기 및 실행
+### <a name="create-and-run-a-sample-net-app"></a>샘플 .NET 앱 만들기 및 실행
 
 명령 프롬프트를 엽니다.
 
 다음 명령을 실행하여 "Hello World"를 콘솔에 출력할 수 있습니다.
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
+```
+
+### <a name="install-the-packages"></a>패키지 설치
+
+ 콘솔 창에서 이 빠른 시작에 필요한 .NET 패키지를 설치합니다.
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
 ```
 
 ## <a name="edit-the-console-app"></a>콘솔 앱 편집

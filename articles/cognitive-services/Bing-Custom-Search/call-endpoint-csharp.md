@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: maheshb
-ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 87c6744dd9ee0a921a422320563f10acff9ed875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595814"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206229"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>빠른 시작: C#을 사용하여 Bing Custom Search 엔드포인트 호출 
 
@@ -25,9 +25,9 @@ ms.locfileid: "65595814"
 
 - Bing Custom Search 인스턴스 [빠른 시작: 처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)에서 자세한 내용을 참조하세요.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전
+- [Visual Studio 2019 이상](https://www.visualstudio.com/downloads/)의 모든 버전
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
-- [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) 패키지 설치. 
+- [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet 페키지. 
     - Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 메뉴에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지를 설치합니다. NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설치됩니다.
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -104,7 +104,7 @@ ms.locfileid: "65595814"
     ```
    ## <a name="process-and-view-the-results"></a>결과 처리 및 보기
 
-1. 응답 개체를 반복하여 해당 이름, URL 및 웹 페이지가 마지막으로 크롤링된 날짜를 포함하는 각 검색 결과에 대한 정보를 표시합니다.
+3. 응답 개체를 반복하여 해당 이름, URL 및 웹 페이지가 마지막으로 크롤링된 날짜를 포함하는 각 검색 결과에 대한 정보를 표시합니다.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

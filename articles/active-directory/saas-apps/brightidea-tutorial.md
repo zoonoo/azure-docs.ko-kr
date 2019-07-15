@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fa15a91a6b82a8858bf46a08e8a9dbe11a51d8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>자습서: Brightidea와 Azure Active Directory 통합
 

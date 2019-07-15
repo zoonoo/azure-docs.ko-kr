@@ -14,13 +14,30 @@ metadata:
   ms.date: 11/22/2017
   ms.author: raynew
 abstract:
-  description: 'Azure Migrate는 Azure로의 마이그레이션을 위해 온-프레미스 컴퓨터의 적합성을 검색 및 평가하고, 실행 중인 Azure VM을 위한 크기 조정 및 비용 예상안을 제공합니다.'
+  description: 'Azure Migrate를 사용하면 Azure 클라우드로 쉽게 마이그레이션할 수 있습니다. Azure Migrate는 온-프레미스 워크로드와 클라우드 VM의 검색, 평가 및 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐 아니라 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.'
 sections:
   - title: 단계별 자습서
     items:
       - type: paragraph
-        text: Azure로의 마이그레이션을 위해 VMware VM을 평가하는 방법에 대해 알아봅니다.
+        text: VMware VM을 평가하고 Azure로 마이그레이션하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">평가 후 Azure로 마이그레이션할 VMware VM 준비</a>
+          - html: <a href="tutorial-assess-vmware">Azure로 마이그레이션할 VMware VM 평가</a>
+          - html: <a href="tutorial-migrate-vmware">에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure로 마이그레이션</a>
+          - html: <a href="tutorial-migrate-vmware-agent">에이전트 기반 마이그레이션을 사용하여 VMware VM을 Azure로 마이그레이션</a>
+      - type: paragraph
+        text: Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">평가 후 Azure로 마이그레이션할 Hyper-V VM 준비</a>
+          - html: <a href="tutorial-assess-hyper-v">Azure로 마이그레이션할 Hyper-V VM 평가</a>
+          - html: <a href="tutorial-migrate-hyper-v">Hyper-V VM을 Azure로 마이그레이션</a>
+      - type: paragraph
+        text: '물리적 서버, 가상화된 머신 및 클라우드 VM을 Azure로 마이그레이션하는 방법을 알아봅니다.'
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial-assessment-vmware">온-프레미스 VMware VM 검색 및 평가</a>
+          - html: <a href="tutorial-migrate-physical-virtual-machines">물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션</a>

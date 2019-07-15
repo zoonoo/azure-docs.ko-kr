@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 441c9345f92974c387429baac768dbccb03fc995
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>자습서: Azure Active Directory와 10,000ft Plans 통합
 

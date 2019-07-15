@@ -29,6 +29,8 @@
   items:
     - name: ASP.NET Core에서 동적 구성을 사용하도록 설정
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: .NET Core 앱에서 동적 구성을 사용하도록 설정
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: .NET Core 앱에서 기능 플래그 사용
       href: use-feature-flags-dotnet-core.md
     - name: 기능 플래그 관리

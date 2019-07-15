@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 06/25/2019
+ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873023"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445516"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "64873023"
 
 * Storm 솔루션(토폴로지) 빌드 및 배포 방법 이해. 특히, [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하는 토폴로지에 대한 기본 지식이 필요합니다. 자세한 내용은 [Java에서 Apache Storm 토폴로지 만들기](./storm/apache-storm-develop-java-topology.md) 문서를 참조하세요.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 \- HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -629,15 +629,9 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]  
-> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
-> 
-> HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 [Apache Storm](https://storm.apache.org/) 토폴로지를 사용하여 HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 읽고 쓰는 방법을 알아보았습니다. 또한 HDInsight에서 사용되는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 호환 스토리지에 데이터를 저장하는 방법도 배웠습니다.
 
-HDInsight의 Kafka 사용에 대한 자세한 내용은 [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
-
-Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md)

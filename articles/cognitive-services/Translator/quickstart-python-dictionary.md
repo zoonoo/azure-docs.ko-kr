@@ -3,19 +3,19 @@ title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, Python - Tr
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 지정된 텍스트에 대한 대체 번역 및 사용 예제를 찾는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 019e1d382ca3fed4789d7b8c1498b795e1e3e92d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515092"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444945"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>빠른 시작: Python을 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -36,7 +36,10 @@ ms.locfileid: "66515092"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -74,7 +77,7 @@ Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습�
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -91,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>대체 번역을 찾는 요청 만들기
 
@@ -115,7 +120,8 @@ response = request.json()
 마지막 단계는 결과를 인쇄하는 것입니다. 이 코드 조각은 키를 정렬하고 들여쓰기를 설정하며 항목 및 키 구분 기호를 선언하여 결과를 꾸밉니다.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합

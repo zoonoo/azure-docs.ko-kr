@@ -4,25 +4,22 @@ description: Azure Deployment Manager에서 Resource Manager 템플릿을 사용
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238861"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205715"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
-[Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 애플리케이션을 배포하는 방법에 대해 알아봅니다. Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
+[Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 애플리케이션을 배포하는 방법에 대해 알아봅니다. 보다 빠른 방법을 원하는 경우 [Azure Deployment Manager 빠른 시작](https://github.com/Azure-Samples/adm-quickstart)이 구독에 필요한 구성을 만들고 아티팩트를 사용자 지정하여 여러 지역에 애플리케이션을 배포합니다. 빠른 시작은 이 자습서에서와 동일한 작업을 수행합니다.
+
+Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
 * **토폴로지 템플릿**: 응용 프로그램을 구성하는 Azure 리소스와 이러한 리소스를 배포할 위치를 설명합니다.
 * **롤아웃 템플릿**: 애플리케이션을 배포할 때 수행하는 단계를 설명합니다.
@@ -44,7 +41,10 @@ ms.locfileid: "66238861"
 > * 최신 버전 배포
 > * 리소스 정리
 
-Azure Deployment Manager REST API 참조는 [여기](https://docs.microsoft.com/rest/api/deploymentmanager/)서 찾을 수 있습니다.
+추가 리소스:
+
+* [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -130,7 +130,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
     </html>
     ```
 
-    이 html에서는 위치와 버전 정보를 보여 줍니다. 1.0.0.1 폴더의 이진 파일에서 "Version 1.0.0.1"을 표시합니다. 서비스가 배포되면 이러한 페이지를 찾아볼 수 있습니다.
+    이 html에서는 위치와 버전 정보를 보여 줍니다. 1\.0.0.1 폴더의 이진 파일에서 "Version 1.0.0.1"을 표시합니다. 서비스가 배포되면 이러한 페이지를 찾아볼 수 있습니다.
 5. 다른 아티팩트 파일을 확인합니다. 그러면 시나리오를 더 잘 이해할 수 있습니다.
 
 템플릿 아티팩트는 서비스 토폴로지 템플릿에서 사용되며, 이진 아티팩트는 롤아웃 템플릿에서 사용됩니다. 토폴로지 템플릿과 롤아웃 템플릿은 모두 Resource Manager를 템플릿 및 배포에 사용되는 이진 아티팩트로 가리키는 데 사용되는 리소스인 아티팩트 소스 Azure 리소스를 정의합니다. 자습서를 간소화하기 위해 하나의 저장소 계정을 사용하여 템플릿 아티팩트와 이진 아티팩트를 모두 저장합니다. 두 아티팩트 소스는 모두 동일한 저장소 계정을 가리킵니다.

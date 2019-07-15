@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e2326a14c2f1215960d496dfab4c7f6832da2a3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d9fc2cb6e3aa23ffef03dc129f1f8cea520d1025
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>자습서: Cobalt와 Azure Active Directory 통합
 
@@ -117,7 +117,7 @@ Cobalt에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 6. 위에서 언급한 특성 외에도, Cobalt 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 사용자 특성 대화 상자의 사용자 클레임 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------- |
     | Mail | user.mail |
     | Othermail | user.othermail |

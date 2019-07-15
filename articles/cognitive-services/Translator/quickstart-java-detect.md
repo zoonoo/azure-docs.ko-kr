@@ -3,19 +3,19 @@ title: '빠른 시작: 텍스트 언어 감지, Java - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 및 Translator Text REST API를 사용하여 제공된 텍스트의 언어를 검색하는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: f2d5a9d5564b6136601a003e01a3c58cac5a74e3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: bbab179d5c70274ea5c6ae4120384dd168247298
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514862"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445155"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 텍스트 언어 검색
 
@@ -108,6 +108,8 @@ public class Detect {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
 ```
+
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>클라이언트 만들기 및 요청 빌드
 

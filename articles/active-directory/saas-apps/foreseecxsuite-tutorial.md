@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988039"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **로그온 URL** 텍스트 상자에 `https://cxsuite.foresee.com/` URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 https:\//www.okta.com/saml2/service-provider/<UniqueID> 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 https:\//www.okta.com/saml2/service-provider/\<UniqueID> 패턴을 사용하여 URL을 입력합니다.
 
     > [!Note]
     > **식별자** 값이 자동으로 채워지지 않으면 위의 패턴에 따라 수동으로 값을 채웁니다. 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 얻으려면 [ForeSee CX Suite 고객 지원 팀](mailto:support@foresee.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

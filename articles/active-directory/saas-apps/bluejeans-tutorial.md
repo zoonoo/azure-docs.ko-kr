@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0308fbb103fb06bd2dffe0a442346a3fc4f7db62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>자습서: BlueJeans와 Azure Active Directory 통합
 

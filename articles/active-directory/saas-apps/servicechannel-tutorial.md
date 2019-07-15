@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce9573f78b6e8a9db65f35b7fc7711a8d3534508
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cedf625beabfb12a459a7fd7c2120250e267772c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory 통합
 
@@ -125,7 +125,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 6. 위에 추가하여 JIT(Just-In-Time) 사용자 프로비저닝을 활성화하려는 경우 아래와 같이 다음 클레임을 추가해야 합니다. **역할** 클레임은 사용자의 역할을 포함하는 **user.assignedroles**에 매핑되어야 합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name   |  원본 특성 |
+    | 이름   |  원본 특성 |
     | ------ | --- |
     | 역할   | user.assignedroles |
 
