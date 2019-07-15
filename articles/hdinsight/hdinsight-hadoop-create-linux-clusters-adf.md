@@ -189,9 +189,9 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     |자산  |값  |
     |---------|---------|
-    |이름 | 데이터 팩터리의 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다.|
-    |구독 | Azure 구독을 선택합니다. |
-    |리소스 그룹 | **기존 항목 사용**을 선택하고 PowerShell 스크립트를 사용하여 만든 리소스 그룹을 선택합니다. |
+    |Name | 데이터 팩터리의 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다.|
+    |Subscription | Azure 구독을 선택합니다. |
+    |Resource group | **기존 항목 사용**을 선택하고 PowerShell 스크립트를 사용하여 만든 리소스 그룹을 선택합니다. |
     |버전 | **V2**로 둡니다. |
     |위치 | 이 위치는 이전에 리소스 그룹을 만드는 동안 지정한 위치로 자동으로 설정됩니다. 이 자습서에서 위치는 **미국 동부**로 설정됩니다. |
 
@@ -230,7 +230,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     |자산 |값 |
     |---|---|
-    |이름 |`HDIStorageLinkedService`을 입력합니다.|
+    |Name |`HDIStorageLinkedService`을 입력합니다.|
     |Azure 구독 |드롭다운 목록에서 구독을 선택합니다.|
     |Storage 계정 이름 |PowerShell 스크립트의 일부로 만든 Azure Storage 계정을 선택합니다.|
 
@@ -252,7 +252,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     | 자산 | 값 |
     | --- | --- |
-    | 이름 | `HDInsightLinkedService`을 입력합니다.|
+    | Name | `HDInsightLinkedService`을 입력합니다.|
     | Type | **주문형 HDInsight**를 선택합니다. |
     | Azure Storage 연결된 서비스 | `HDIStorageLinkedService`를 선택합니다. |
     | 클러스터 유형 | **hadoop**을 선택합니다. |
@@ -260,7 +260,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     | 서비스 주체 ID | 필수 구성의 일부로 만든 Azure Active Directory 서비스 주체의 애플리케이션 ID를 제공합니다. |
     | 서비스 주체 키 | Azure Active Directory 서비스 주체에 대한 인증 키를 제공합니다. |
     | 클러스터 이름 접두사 | 데이터 팩터리에 의해 만들어진 모든 클러스터 유형에 접두사로 추가될 값을 제공합니다. |
-    |구독 |드롭다운 목록에서 구독을 선택합니다.|
+    |Subscription |드롭다운 목록에서 구독을 선택합니다.|
     | 리소스 그룹 선택 | 이전에 사용했던 PowerShell 스크립트의 일부로 만든 리소스 그룹을 선택합니다.|
     |지역 선택 | 드롭다운 목록에서 지역을 선택합니다.|
     | OS 유형/클러스터 SSH 사용자 이름 | SSH 사용자 이름(일반적으로 `sshuser`)을 입력합니다. |
