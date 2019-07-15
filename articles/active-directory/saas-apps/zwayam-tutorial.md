@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 3d2c046fe5250ed2df275b94792caa45aa56d672
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c36749c40f3ce2e1d5478b3d9ab5eb2637a3c63b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>자습서: Zwayam과 Azure Active Directory 통합
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | Name | 원본 특성 | 네임스페이스 |
+    | 이름 | 원본 특성 | 네임스페이스 |
     | ---------------| --------------- | --------- |  
     | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

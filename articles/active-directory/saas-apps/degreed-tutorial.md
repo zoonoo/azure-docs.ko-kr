@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b58a315cc2eed91162f19edd5c175d71cc7c4f3c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>자습서: Degreed와 Azure Active Directory 통합
 

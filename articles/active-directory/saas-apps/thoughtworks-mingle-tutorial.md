@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>자습서: Thoughtworks Mingle과 Azure Active Directory 통합
 

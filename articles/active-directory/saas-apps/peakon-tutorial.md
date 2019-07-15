@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>자습서: Peakon과 Azure Active Directory 통합
 

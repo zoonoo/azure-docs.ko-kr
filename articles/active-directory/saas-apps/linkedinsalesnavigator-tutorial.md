@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a216e720523767f428036290aea7151c2dca34
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38ce83df4d4de6d7816ee969a4fee153ad5457d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>자습서: LinkedIn Sales Navigator와 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하려면 다음
 
 7. 위에서 언급한 특성 외에도, LinkedIn Sales Navigator 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 사용자 클레임 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | --- | --- |
     | 이메일| user.mail |
     | department| user.department |

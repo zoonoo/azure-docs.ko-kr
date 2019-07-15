@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>자습서: TalentLMS와 Azure Active Directory 통합
 
@@ -121,7 +121,7 @@ TalentLMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![지문 값 복사](common/copy-thumbprint.png)
 
-7.  **설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+7. **설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 46f775f08837b49c274bd7e8989be97e98ef2ee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>자습서: Nomadesk와 Azure Active Directory 통합
 

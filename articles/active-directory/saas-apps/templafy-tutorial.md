@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>자습서: Templafy와 Azure Active Directory 연결
 
@@ -118,7 +118,7 @@ Templafy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name | 원본 특성| 네임스페이스  |
+    | 이름 | 원본 특성| 네임스페이스  |
     | ---------------| --------------- | --------- |
     | givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|

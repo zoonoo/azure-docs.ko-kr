@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4b41098a3b374506e655bf90f972b57195e0958
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>자습서: QuickHelp와 Azure Active Directory 통합
 

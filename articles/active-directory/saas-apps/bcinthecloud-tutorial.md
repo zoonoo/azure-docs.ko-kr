@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412e4c482f72872c0783f5390f86acf669e9137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 097569c6ec43d6d45e89ff3a32fe907861eedc81
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>자습서: BC in the Cloud와 Azure Active Directory 통합
 

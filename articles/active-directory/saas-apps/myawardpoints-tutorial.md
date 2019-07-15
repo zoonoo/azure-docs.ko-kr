@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: bfb858930bef87239021d049b59c282197bb49ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32095f76dbcdf2afd716daab096b9dd8d18d1bb9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>자습서: My Award Points Top Sub/Top Team과 Azure Active Directory 통합
 
@@ -76,7 +76,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 My Award Points Top Sub/
 My Award Points Top Sub/Top Team에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2.  **Single Sign-On 구성** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **Single Sign-On 구성** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **My Award Points Top Sub/Top Team 사용자 만들기** - Azure AD 표현과 연결된 My Award Points Top Sub/Top Team에 Britta Simon이라는 사용자가 있습니다.

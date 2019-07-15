@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eac9938fdbb138dd10f794a4dff9ba34a11e1d41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1a4e116d167b3e05c1cad27952b6774de529136c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65861889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102626"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서: FilesAnywhere과 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 
 
 7. 위에서 언급한 특성 외에도, FilesAnywhere 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 

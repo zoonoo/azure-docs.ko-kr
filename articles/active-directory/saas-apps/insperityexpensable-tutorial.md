@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100137"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>자습서: Insperity ExpensAble과 Azure Active Directory 통합
 
@@ -108,7 +108,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
     **로그인 URL** 텍스트 상자에서 `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Insperity ExpensAble 클라이언트 지원 팀](http://expensable.com/support/support-overview)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Insperity ExpensAble 클라이언트 지원 팀](https://www.insperity.com/products/expense-management/support/express/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -126,7 +126,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Insperity ExpensAble Single Sign-On 구성
 
-**Insperity ExpensAble** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Insperity ExpensAble 지원 팀](http://expensable.com/support/support-overview)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Insperity ExpensAble** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Insperity ExpensAble 지원 팀](https://www.insperity.com/products/expense-management/support/express/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -181,7 +181,7 @@ Insperity ExpensAble에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 ### <a name="create-insperity-expensable-test-user"></a>Insperity ExpensAble 테스트 사용자 만들기
 
-이 섹션에서는 Insperity ExpensAble에서 Britta Simon이라는 사용자를 만듭니다. Insperity ExpensAble 플랫폼에서 사용자를 추가하려면  [Insperity ExpensAble 지원 팀](http://expensable.com/support/support-overview)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Insperity ExpensAble에서 Britta Simon이라는 사용자를 만듭니다. Insperity ExpensAble 플랫폼에서 사용자를 추가하려면  [Insperity ExpensAble 지원 팀](https://www.insperity.com/products/expense-management/support/express/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

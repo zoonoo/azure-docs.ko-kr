@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c41da4417d230b49927ff203efce2b9f4ec0b6b6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>자습서: M-Files와 Azure Active Directory 통합
 

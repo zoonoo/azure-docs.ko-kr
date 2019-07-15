@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bafad5d28ef25f7f7bebe3899f288d0dfa72acb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>자습서: SmartDraw와 Azure Active Directory 통합
 
@@ -116,13 +116,13 @@ SmartDraw에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL로 로그온 URL 값을 업데이트하게 됩니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. SmartDraw 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+6. SmartDraw 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
 7. 위에서 언급한 특성 외에도, SmartDraw 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -175,13 +175,13 @@ SmartDraw에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     a. **도메인(예: acme.com)** 텍스트 상자에 도메인을 입력합니다.
 
-    b. 인스턴스의 **SP에서 시작한 로그인 URL**을 복사한 후 Azure Portal의  **기본 SAML 구성**에 있는 로그온 URL 텍스트 상자에 붙여넣습니다.
+    b. 인스턴스의 **SP에서 시작한 로그인 URL**을 복사한 후 Azure Portal의 **기본 SAML 구성**에 있는 로그온 URL 텍스트 상자에 붙여넣습니다.
     
     다. **SmartDraw 액세스를 허용하는 보안 그룹** 텍스트 상자에 **모든 사용자**를 입력합니다.
 
     d. **SAML 발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
-    e. 메모장에서, Azure Portal에서 다운로드한 메타데이터 XML 파일을 열고 해당 콘텐츠를 복사한 다음,  **SAML 메타데이터** 상자에 붙여넣습니다.
+    e. 메모장에서, Azure Portal에서 다운로드한 메타데이터 XML 파일을 열고 해당 콘텐츠를 복사한 다음, **SAML 메타데이터** 상자에 붙여넣습니다.
 
     f. **구성 저장**을 클릭합니다. 
 
@@ -203,7 +203,7 @@ SmartDraw에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

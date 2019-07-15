@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ TOPdesk - Secure를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 * 사용자가 해당 Azure AD 계정으로 TOPdesk - Secure에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -180,11 +180,11 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     b. 인증서 파일을 업로드하려면 **인증서(RSA)** 에서 **찾아보기**를 클릭합니다.
 
-    다. **개인 키(RSA, PKCS8, DER)** 의 경우 사용자 고유의 개인 키를 업로드하거나 [TOPdesk- 보안 클라이언트 지원 팀](https://www.topdesk.com/us/support)에 문의하여 개인 키를 받을 수 있습니다.
+    다. **프라이빗 키(RSA, PKCS8, DER)** 의 경우 사용자 고유의 프라이빗 키를 업로드하거나 [TOPdesk- 보안 클라이언트 지원 팀](https://www.topdesk.com/us/support)에 문의하여 프라이빗 키를 받을 수 있습니다.
 
     d. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
 
-    e. **사용자 이름 특성** 텍스트 상자에서 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    e. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
     f. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
 

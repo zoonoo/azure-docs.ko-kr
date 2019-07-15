@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>자습서: Trisotech Digital Enterprise Server와 Azure Active Directory 통합
 
@@ -142,7 +142,7 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-on을 구성하�
 
     d. 페이지 맨 아래에 있는 **저장**
 
-    e. **Allowed Domains (empty means everyone)**(허용된 도메인(빈 경우 모두를 의미)) 텍스트 상자에 도메인 이름을 입력하면, 허용된 도메인과 일치하는 사용자에게 라이선스가 자동으로 할당됩니다.
+    e. **Allowed Domains (empty means everyone)** (허용된 도메인(빈 경우 모두를 의미)) 텍스트 상자에 도메인 이름을 입력하면, 허용된 도메인과 일치하는 사용자에게 라이선스가 자동으로 할당됩니다.
 
     f. 페이지 맨 아래에 있는 **저장**
 

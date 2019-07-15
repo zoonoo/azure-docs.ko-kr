@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f742def0441b5ae18ad9da3a8ac9d280de8f824
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce766da0521b787edec020d7dfc3de2a2d83b19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ SignalFx에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | ------------------- | -------------------- |
     | User.FirstName     | user.givenname |
     | User.email          | user.mail |

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>자습서: Supermood와 Azure Active Directory 통합
 
@@ -123,7 +123,7 @@ Supermood에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| ------|
     | firstname | user.givenname |
     | Lastname | user.surname |

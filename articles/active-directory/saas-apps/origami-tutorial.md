@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>자습서: Origami와 Azure Active Directory 통합
 
@@ -164,7 +164,7 @@ Origami에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

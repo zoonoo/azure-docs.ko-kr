@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 8dead16c60a26e2fc53953ed65337195c3b2aa67
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 4dfed25e61183f828bf421cecfc13001289915fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>자습서: webMethods Integration Suite와 Azure Active Directory 통합
 

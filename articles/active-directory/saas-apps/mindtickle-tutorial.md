@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c38ccf8e1c2bee9695e629a2fc5e8e7b60c64a2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a02ef6da245db4fca19c2e20390cdad8718b301
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>자습서: MindTickle과 Azure Active Directory 통합
 

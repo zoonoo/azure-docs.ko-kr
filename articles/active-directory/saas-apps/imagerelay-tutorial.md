@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2d41af8fa04b03ab8d18277d377f3700575cd1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 37b7fe05f306f08d83de0832c5b1dd814f5560ed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>자습서: Image Relay와 Azure Active Directory 통합
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>자습서: Pingboard와 Azure Active Directory 통합
 
@@ -224,7 +224,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다.
 
-    b. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    b. **이메일** 텍스트 상자에서 **brittasimon@contoso.com** 과 같은 사용자의 이메일 주소를 입력합니다.
 
     다. **직함** 텍스트 상자에 Britta Simon의 직함을 입력합니다.
 

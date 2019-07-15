@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9fb661e0b43e71cf9543e9b7042155763d1aa1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e84ec2d8895cf0cdaf933d6446b361a3e606feb5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>자습서: Litmos와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Litmos를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 Litmos에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -174,7 +174,7 @@ Litmos에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![SAML 2.0 섹션][24]
 
-5. **The SAML endpoint for litmos is:**(litmos에 대한 SAML 엔드포인트:) 아래의 값을 복사하여 Azure Portal에서 **Litmos 도메인 및 URL**에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
+5. **The SAML endpoint for litmos is:** (litmos에 대한 SAML 엔드포인트:) 아래의 값을 복사하여 Azure Portal에서 **Litmos 도메인 및 URL**에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
     ![SAML 엔드포인트][26]
 

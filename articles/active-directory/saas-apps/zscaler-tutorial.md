@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 631f65ff042c2f1d241626d5f480eae9a8b216a9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 750a403340e5bdbfbce1d566d2d1d6e6ba84fcf2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler"></a>자습서: Azure Active Directory와 Zscaler 통합
 
@@ -118,7 +118,7 @@ Zscaler에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 6. 위에서 언급한 특성 외에도, Zscaler 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | Name | 원본 특성 |
+    | 이름 | 원본 특성 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 

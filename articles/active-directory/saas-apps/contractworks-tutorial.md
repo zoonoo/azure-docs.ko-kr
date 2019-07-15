@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bd9efbd3f0d445174f6db4395cbeee789313f6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>자습서: ContractWorks와 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |

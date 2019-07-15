@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a250b8deba3d12b968c593ddec7ad9f052ae7d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8968ec9edd5b1f732bf9d4721bdc4e9bcaf5fa17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>자습서: Real Links와 Azure Active Directory 연결
 

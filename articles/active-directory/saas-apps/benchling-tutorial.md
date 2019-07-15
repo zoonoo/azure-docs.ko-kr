@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9b3725f217ef261df7bc8d9821edf972bfe58806
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57d234578f1ecdd020e5f147a8614b715f954c3b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benchling"></a>자습서: Benchling과 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ Benchling에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. 위에서 언급한 특성 외에도, Benchling 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |

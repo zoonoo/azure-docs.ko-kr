@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd936c823501dfe53dd81ba64b56bfb491fc85e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>자습서: Birst Agile Business Analytics와 Azure Active Directory 통합
 
@@ -74,7 +74,7 @@ Birst Agile Business Analytics의 Azure AD 통합을 구성하려면 갤러리�
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Birst Agile Business Analytics의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
- Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Birst Agile Business Analytics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Birst Agile Business Analytics Single Sign-On 구성](#configure-birst-agile-business-analytics-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.

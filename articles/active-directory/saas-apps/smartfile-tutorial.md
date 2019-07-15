@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 507a5d7209c2ae873bbfc2d9f5f5fa1c8fa17758
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4b1acecf15ca13b52ea5e087176ceeb92f7494b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>자습서: SmartFile과 Azure Active Directory 통합
 

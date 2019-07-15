@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8652073eb3d7d154958566b68fb6e27c35d8da30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>자습서: XaitPorter와 Azure Active Directory 통합
 

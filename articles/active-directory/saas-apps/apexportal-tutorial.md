@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5021425341ed1fcc6d184a4ce072fadfdd39e24
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859088"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>자습서: Apex Portal과 Azure Active Directory 통합
 
@@ -120,7 +120,7 @@ Apex Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | -------- | --------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |

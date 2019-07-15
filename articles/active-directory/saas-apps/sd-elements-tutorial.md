@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>자습서: SD Elements와 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ SD Elements에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | --- | --- |
     | 이메일 |user.mail |
     | firstname |user.givenname |
@@ -196,7 +196,7 @@ SD Elements에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -249,7 +249,7 @@ SD Elements에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![SD Elements 테스트 사용자 만들기](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. **메일** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    a. **메일** 텍스트 상자에 **brittasimon@contoso.com** 과 같은 사용자의 메일 주소를 입력합니다.
 
     b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

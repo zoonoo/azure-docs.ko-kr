@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5524c59537f1657fddd626bd4c019f4f65b8390d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 39f62b82ed2716099a63e363c87fbac65d02ffb0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>자습서: Azure Active Directory와 Workpath 통합
 
@@ -126,7 +126,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. 위에서 언급한 특성 외에도, Workpath 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ------------------- | -------------------- |    
     | first_name | user.givenname |
     | last_name | user.surname |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f22f70c587556793c2b02fc79fa6175584b0c5cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>자습서: Moxtra와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Moxtra에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 6. 위에서 언급한 특성 외에도, Moxtra 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ------------------- | -------------------- |    
     | firstname | user.givenname |
     | lastname | user.surname |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 66fb18542fe35c586af11139dff3cd5dfb7bde73
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1316e3274b851c41af21b94847ed16491310e908
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>자습서: Trakopolis와 Azure Active Directory 통합
 

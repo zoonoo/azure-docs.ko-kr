@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 468d55b2b96979658bc8f3e226da36dc4af1c174
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>자습서: LogicMonitor와 Azure Active Directory 통합
 

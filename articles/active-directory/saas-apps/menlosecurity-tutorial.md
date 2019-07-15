@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: c2964169996aa3b2ac18c9c2accf358b7213c1c1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8297b16ba5efa371adc4d9a20428f88a48545440
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>자습서: Menlo Security와 Azure Active Directory 통합
 
@@ -141,7 +141,7 @@ Menlo Security에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     d. **SAML 2.0 Endpoint**(SAML 2.0 엔드포인트): Azure Portal에서 복사한 **로그인 URL**을 붙여넣습니다.
 
-    e. **서비스 식별자(발급자)**: Azure Portal에서 복사한 **Azure AD 식별자**를 붙여넣습니다.
+    e. **서비스 식별자(발급자)** : Azure Portal에서 복사한 **Azure AD 식별자**를 붙여넣습니다.
 
     f. **X.509 Certificate**(X.509 인증서): Azure Portal에서 다운로드한 **인증서(Base64)** 를 메모장에서 열어서 이 상자에 붙여넣습니다.
 

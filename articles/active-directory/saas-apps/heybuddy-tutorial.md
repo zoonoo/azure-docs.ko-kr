@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a29d20c434a7306b016fe9a549415242f5977a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>자습서: HeyBuddy와 Azure Active Directory 통합
 
@@ -122,7 +122,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위에서 언급한 특성 외에도, HeyBuddy 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | -------- | --------- |
     | 역할  | user.assignedroles |
     | | |

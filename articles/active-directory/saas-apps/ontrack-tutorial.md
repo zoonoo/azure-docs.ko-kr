@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1da9ec6098864d4f17ac668db6411c1dd0e3afe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>자습서: OnTrack과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ OnTrack과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 해당 Azure AD 계정으로 OnTrack에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -126,13 +126,13 @@ OnTrack에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 6. 위에서 언급한 특성 외에도, OnTrack 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | -------------- | ----------------|    
     | 사용자-역할      | "42F432" |
     | Hyperion-코드  | "12345" |
 
     > [!NOTE]
-    > **사용자-역할** 및 **Hyperion-코드** 특성이 각각 Autonation 사용자 역할과 Dealer 코드에 매핑됩니다.  이러한 값은 예제에 불과하므로 통합에 맞게 코드를 수정합니다. 이 값은 [Autonation 지원](mailto:CustomerService@insigniagroup.com)에 문의할 수 있습니다.
+    > **사용자-역할** 및 **Hyperion-코드** 특성이 각각 Autonation 사용자 역할과 Dealer 코드에 매핑됩니다. 이러한 값은 예제에 불과하므로 통합에 맞게 코드를 수정합니다. 이 값은 [Autonation 지원](mailto:CustomerService@insigniagroup.com)에 문의할 수 있습니다.
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -188,7 +188,7 @@ OnTrack에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

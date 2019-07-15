@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 86354caced6ab46a1847bca994f4dd3eb7f279cc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f52b0c8de3bcc89bd7051a896d3ed15e856e7e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>자습서: smartvid.io와 Azure Active Directory 통합
 

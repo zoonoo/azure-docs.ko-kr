@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e19489e216533ad6f0fb505b772ccecb04276109
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>자습서: Azure Active Directory와 Appinux 통합
 
