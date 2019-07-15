@@ -67,7 +67,7 @@ ms.locfileid: "67447764"
 
 - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
 - [Resource Manager와 PowerShell 템플릿](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
+- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/)
 - [Resource Manager 템플릿](sql-database-single-database-get-started-template.md)
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>최소 가동 중지 시간으로 관리되는 인스턴스로 마이그레이션

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052140"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -139,7 +139,7 @@ cmdlet:
 
 * Active Directory PowerShell 모듈 및 Azure AD DS(Azure Active Directory Domain Services) 도구를 사용합니다. 이러한 도구는 도메인 컨트롤러에서 실행되는 Active Directory Web Services를 사용합니다. Active Directory Web Services는 Windows Server 2008 R2 이상을 실행하는 도메인 컨트롤러에서 지원됩니다.
 * MSOnline PowerShell 모듈 버전 1.1.166.0에서만 지원됩니다. 이 모듈을 다운로드하려면 이 [링크](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)를 사용합니다.
-* Azure AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다. **기능** > **원격 서버 관리 도구** > **역할 관리 도구** 아래에서 서버 관리자를 통해 Azure AD DS 도구를 설치할 수 있습니다.
+* Azure AD DS 도구가 설치되지 않은 경우 `Initialize-ADSyncDomainJoinedComputerSync`에 실패합니다. **기능** > **원격 서버 관리 도구** > **역할 관리 도구** 아래에서 서버 관리자를 통해 AD DS 도구를 설치할 수 있습니다.
 
 Windows Server 2008 이하 버전을 실행하는 도메인 컨트롤러의 경우 다음 스크립트를 사용하여 서비스 연결점을 만듭니다. 다중 포리스트 구성에서는 다음 스크립트를 사용하여 컴퓨터가 있는 각 포리스트에 서비스 연결점을 만듭니다.
 

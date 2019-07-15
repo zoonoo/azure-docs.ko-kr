@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8074919a61ed4f2e3d0b127c13e733b0c485bf62
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>자습서: Predictix Price Reporting과 Azure Active Directory 통합
 
@@ -146,7 +146,7 @@ Predictix Price Reporting 쪽에서 Single Sign-On을 구성하려면 Azure Port
 
     ![모든 사용자 선택](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -174,7 +174,7 @@ Predictix Price Reporting 쪽에서 Single Sign-On을 구성하려면 Azure Port
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 

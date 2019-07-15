@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d2f854c869ead8016a5437a4e40339d9455c9ad7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b6fd17d2f8577532778733866260f43e9ac7685
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>자습서: RolePoint와 Azure Active Directory 통합
 
@@ -142,7 +142,7 @@ RolePoint 쪽에서 Single Sign-On을 설정하려면 [RolePoint 지원 팀](mai
 
     ![모든 사용자 선택](common/users.png)
 
-2. 창 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 창 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>자습서: SAP Fiori 와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ SAP Fiori를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자는 자신의 Azure AD 계정으로 SAP Fiori에 자동으로 로그인(Single Sign-on)할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS(Software as a Service) 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -56,7 +56,7 @@ SAP Fiori를 Azure AD와 통합하려면 관리형 SaaS 앱 목록에 SAP Fiori�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory**를 선택합니다.
 
     ![Azure Active Directory 옵션](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ SAP Fiori에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 | --- | --- |
 | **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** | 사용자가 이 기능을 사용하도록 설정합니다. |
 | **[SAP Fiori Single Sign-On 구성](#configure-sap-fiori-single-sign-on)** | 애플리케이션에서 Single Sign-On 설정을 구성합니다. |
-| **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** | Britta Simon 사용자에 대해 Azure AD Single Sign-On을 테스트합니다. |
+| **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** | Britta Simon이라는 사용자에 대한 Azure AD Single Sign-On을 테스트합니다. |
 | **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** | Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다. |
 | **[SAP Fiori 테스트 사용자 만들기](#create-an-sap-fiori-test-user)** | Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SAP Fiori에 만듭니다. |
 | **[Single Sign-On 테스트](#test-single-sign-on)** | 구성이 작동하는지 확인합니다. |
@@ -314,7 +314,7 @@ SAP Fiori에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     1. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    1. **사용자 이름** 상자에서 **brittasimon\@\<your-company-domain>.\<extension>** 을 입력합니다. 예: **brittasimon\@contoso.com**
+    1. **사용자 이름** 상자에서 **brittasimon\@\<your-company-domain>.\<extension>** 을 입력합니다. 예를 들어 **brittasimon\@contoso.com**입니다.
 
     1. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -344,7 +344,7 @@ SAP Fiori에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **사용자 및 그룹** 창의 사용자 목록에서 **Britta Simon**을 선택합니다. **선택**을 선택합니다.
 
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에게 적합한 역할을 선택합니다. **선택**을 선택합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 창의 목록에서 사용자에 대한 적절한 역할을 선택합니다. **선택**을 선택합니다.
 
 1. **할당 추가** 창에서 **할당**을 선택합니다.
 
@@ -372,6 +372,6 @@ SAP Fiori에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 자세한 내용은 다음 문서를 검토하세요.
 
-- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 앱과 Azure Active Directory를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729953"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108145"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory의 애플리케이션 관리
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)는 사용자의 클라우드 및 온-프레미�
 -   **비 갤러리 애플리케이션** – 사용자 고유의 애플리케이션을 구현하세요! Azure AD에 추가하여 다른 앱에 대한 Single Sign-On을 지원합니다. 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하고 SAML 또는 OpenID Connect 프로토콜을 지원하거나 SCIM을 지원하는 애플리케이션을 통합할 수 있습니다. 자세한 내용은 [비 갤러리 앱에 대한 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)을 참조하세요.
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>조건부 액세스 정책을 사용하여 위험 관리
-Azure AD SSO(Single Sign-On)를 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 보안 기능에는 클라우드 규모 ID 보호, 위험 기반 액세스 제어, 기본 다단계 인증 및 조건부 액세스 정책이 포함됩니다. 이러한 기능을 사용하면 응용 프로그램 또는 높은 수준의 보안이 필요한 그룹을 기반으로 제어 정책을 세분화할 수 있습니다.
+Azure AD SSO(Single Sign-On)를 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)와 연결하면 애플리케이션 액세스에 대한 높은 수준의 보안이 제공됩니다. 보안 기능에는 클라우드 규모 ID 보호, 위험 기반 액세스 제어, 기본 다단계 인증 및 조건부 액세스 정책이 포함됩니다. 이러한 기능을 사용하면 애플리케이션 또는 높은 수준의 보안이 필요한 그룹을 기반으로 제어 정책을 세분화할 수 있습니다.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Single Sign-On으로 생산성 개선
 응용 프로그램 및 Office 365에서 SSO(Single Sign-On)를 사용하도록 설정하면 로그인 프롬프트가 감소하거나 제거되어 기존 사용자를 위한 우수한 환경이 제공됩니다. 사용자 환경은 더 응집력이 있는 것으로 느껴지고 여러 프롬프트가 없거나 여러 암호를 관리할 필요가 없어 덜 산만합니다. 비즈니스 그룹은 셀프 서비스 및 동적 멤버 자격을 통해 액세스를 관리하고 승인할 수 있습니다. 비즈니스에서 적합한 사용자가 애플리케이션에 대한 액세스를 관리하도록 하면 ID 시스템의 보안이 향상됩니다.

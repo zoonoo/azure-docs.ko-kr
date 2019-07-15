@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 271161dd29bc1b31989775f3223bc30840346aed
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c5bcd0401e1806b958ad47297dccfe26093cf461
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>자습서: Hornbill과 Azure Active Directory 통합
 

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051245"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Python)으로 읽습니다.
 
@@ -53,7 +53,7 @@ python3 --version
 az extension add --name azure-cli-iot-ext
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip에서 샘플 Python 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 에서 샘플 Python 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -112,6 +112,13 @@ https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip에�
     다음 스크린샷에서는 시뮬레이션된 장치 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
     ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-python/SimulatedDevice.png)
+    
+### <a name="to-avoid-the-import-iothubclient-error"></a>iothub_client 가져오기 오류를 방지하려면
+Python용 Azure IoT SDK의 현재 버전은 [C SDK](https://github.com/azure/azure-iot-sdk-c)에 대한 래퍼입니다. 이 버전은 [Boost](https://www.boost.org/) 라이브러리를 사용하여 생성됩니다. 따라서 몇 가지 중요한 제한 사항과 함께 제공됩니다. 자세한 내용은 [여기](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)를 참조하세요.
+
+1. 올바른 [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues) 버전이 있는지 확인합니다. 이 샘플의 경우 특정 버전만 제대로 작동합니다. 
+2. 올바른 버전의 C++ 런타임 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)가 있는지 확인합니다. (최신 버전 권장).
+3. Iothub 클라이언트를 설치했는지 확인합니다. `pip install azure-iothub-device-client`.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 195e7bf21fe1f6017705883f2ec692c182f15375
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>자습서: Pega Systems와 Azure Active Directory 통합
 
@@ -34,7 +34,7 @@ ms.locfileid: "65560604"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -93,7 +93,7 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Single Sign-On 선택](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 방법 선택](common/select-saml-option.png)
 
@@ -220,11 +220,11 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
-2. 화면의 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -252,7 +252,7 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 
@@ -260,9 +260,9 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![사용자 추가 선택](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
-6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
+6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
 

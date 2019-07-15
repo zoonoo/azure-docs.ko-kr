@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2109c3f67a666d0c379cc188c07968c8b31d6a1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 591d8d28be5fc9322de8cf4886dc5924f53b1deb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103777"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>자습서: Dropbox for Business와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "65989661"
 * 사용자가 해당 Azure AD 계정으로 Dropbox for Business에 자동으로 로그온되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

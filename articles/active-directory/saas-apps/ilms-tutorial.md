@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee12bfc8a79b6abcfdf2978d4e640c34f801e346
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7b2e012a4ce8ac4a9a5afb895d545beb0a0b8946
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100627"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>자습서: Azure Active Directory와 iLMS 통합
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도, iLMS 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | --------|------------- |
     | division | user.department |
     | region | user.state |

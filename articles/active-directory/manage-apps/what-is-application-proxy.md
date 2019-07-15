@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66403a18be8337939d457c061b07de948c3e34e8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108170"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 
@@ -183,7 +183,7 @@ Azure AD 애플리케이션 프록시는 클라우드 기반 애플리케이션 
 지금까지는 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션을 외부에 게시하는 동시에 모든 클라우드 및 온-프레미스 앱에 대한 Single Sign-On이 가능하도록 설정하는 방법에 중점을 두었습니다. 하지만 앱 프록시에 대해 언급할 만한 다른 사용 사례가 있습니다. 다음과 같습니다.
 
 * **REST API를 안전하게 게시**. 온-프레미스에서 실행되거나 클라우드의 가상 머신에서 호스팅되는 비즈니스 논리 또는 API가 있는 경우, 애플리케이션 프록시가 API 액세스를 위한 공용 엔드포인트를 제공합니다. API 엔드포인트에 액세스할 수 있으면 수신 포트 없이도 인증 및 권한 부여를 제어할 수 있습니다. Azure AD Premium 기능을 통해 Intune을 사용한 데스크톱, iOS, MAC 및 Android 디바이스에 대한 다단계 인증 및 디바이스 기반 조건부 액세스와 같은 추가 보안 기능이 제공됩니다. 자세한 내용은 [네이티브 클라이언트 애플리케이션이 프록시 애플리케이션과 상호 작용하도록 설정하는 방법](application-proxy-configure-native-client-application.md) 및 [Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)를 참조하세요.
-* **RDS** **(원격 데스크톱 서비스)** . 표준 RDS 배포에는 열린 인바운드 연결이 필요합니다. 하지만 [애플리케이션 프록시가 포함된 RDS 배포](application-proxy-integrate-with-remote-desktop-services.md)에는 커넥터 서비스를 실행하는 서버의 영구적인 아웃바운드 연결이 있습니다. 이렇게 하면 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공할 수 있습니다. 또한 RDS에 대한 조건부 액세스 제어 및 2단계 인증 세트가 제한적으로 제공되어 배포의 공격 노출 영역을 줄일 수 있습니다.
+* **RDS** **(원격 데스크톱 서비스)** . 표준 RDS 배포에는 열린 인바운드 연결이 필요합니다. 하지만 [애플리케이션 프록시가 포함된 RDS 배포](application-proxy-integrate-with-remote-desktop-services.md)에는 커넥터 서비스를 실행하는 서버의 영구적인 아웃바운드 연결이 있습니다. 이렇게 하면 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공할 수 있습니다. 또한 RDS에 대한 조건부 액세스 제어 및 2단계 인증 세트가 제한적으로 제공되어 배포의 공격 표면을 줄일 수 있습니다.
 * **WebSocket을 사용하여 연결하는 애플리케이션 게시**. [Qlik Sense](application-proxy-qlik.md) 지원은 공개 미리 보기 상태이며 앞으로 다른 앱으로도 확장될 예정입니다.
 * **네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정**. Azure AD 애플리케이션 프록시를 사용하여 웹 애플리케이션을 게시할 수 있지만 ADAL(Azure AD 인증 라이브러리)로 구성된 [네이티브 클라이언트 애플리케이션](application-proxy-configure-native-client-application.md)을 게시하는 데 사용할 수도 있습니다. 네이티브 클라이언트 애플리케이션은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다.
 

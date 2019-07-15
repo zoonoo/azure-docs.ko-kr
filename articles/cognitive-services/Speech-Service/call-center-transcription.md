@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d844f4d2ad77f5b7cc53275a24167e5f2e71b78
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064106"
 ---
 # <a name="speech-services-for-telephony-data"></a>전화 통신 데이터용 Speech Services
 
@@ -34,7 +34,7 @@ Azure Speech Services가 제공하는 일부 기술과 관련 기능을 살펴�
 
 ## <a name="azure-technology-for-call-centers"></a>Azure의 콜 센터용 기술
 
-Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용하는 경우 기본 목적은 고객 환경을 개선하는 것입니다. 이와 관련하여 세 가지 분명한 영역이 존재합니다. 
+Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용하는 경우 기본 목적은 고객 환경을 개선하는 것입니다. 이와 관련하여 세 가지 분명한 영역이 존재합니다.
 
 * 통화 후 분석, 즉 통화 기록에 대한 일괄 처리 
 * 통화가 이루어질 때 다양한 인사이트를 추출하기 위한 오디오 신호의 실시간 분석 처리(감정이 두드러진 사용 사례인 경우), 그리고
@@ -62,8 +62,7 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 ### <a name="text-to-speech"></a>텍스트에서 음성 변환
 [텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론 이 모든 과정은 빠르게 이루어져야 합니다. - 따라서 이 시스템이 성공하려면 대기 시간이 중요한 구성 요소입니다. 
 
-당사의 엔드투엔드 대기 시간은 
-[음성 텍스트 변환](speech-to-text.md), [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [텍스트 음성 변환](text-to-speech.md)과 같은 여러 가지 관련 기술을 고려할 때 아주 낮습니다. 
+당사의 엔드투엔드 대기 시간은 [음성 텍스트 변환](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [텍스트 음성 변환](text-to-speech.md)과 같은 여러 가지 관련 기술을 고려할 때 아주 낮습니다. 
 
 당사의 새 음성도 사람의 음성과 구분할 수 없습니다. 출력 음성을 사용하여 봇에 대해 자체의 고유한 개성을 부여할 수 있습니다.
 
@@ -80,10 +79,10 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 대량의 오디오를 전사하기 위해 당사는 [Batch Transcription API](batch-transcription.md)를 개발했습니다. Batch Transcription API는 대량의 오디오 데이터를 비동기 방식으로 전사하기 위해 개발되었습니다. 콜 센터 데이터의 전사에 관한 당사의 솔루션은 다음과 같은 핵심 요소를 기반으로 합니다.
 
 * **정확도**: 4세대 통합 모델을 통해 탁월한 전사 품질을 제공합니다.
-* **대기 시간**: 당사는 대량 전사를 수행할 때 신속한 전사가 필요하다는 것을 이해하고 있습니다. [Batch Transcription API](batch-transcription.md)를 통해 시작된 전사 작업은 즉시 큐에 저장되며 작업이 실행된 후 실시간 전사보다 더 빠르게 수행됩니다.
+* **대기 시간**: 당사는 대량 전사를 수행할 때 신속한 전사가 필요하다는 것을 이해하고 있습니다. [Batch Transcription API](batch-transcription.md)를 통해 시작된 전사 작업은 즉시 큐에 저장되며 작업이 실행되기 시작한 후 실시간 전사보다 더 빠르게 수행됩니다.
 * **보안**: 당사는 통화가 민감한 데이터를 포함할 수 있다는 것을 이해하고 있습니다. 나머지 요소에서는 보안이 매우 높은 우선 순위 중 하나가 되도록 했습니다. 당사의 서비스는 ISO, SOC, HIPAA, PCI 인증을 획득했습니다.
 
-콜 센터는 매일 대량의 오디오 데이터를 생성합니다. 전화 통신 데이터를 Azure Storage와 같은 중앙 위치에 저장하는 업무의 경우 [Batch Transcription API]((batch-transcription.md)를 사용하여 비동기 방식으로 전사를 요청하고 수신할 수 있습니다.
+콜 센터는 매일 대량의 오디오 데이터를 생성합니다. 전화 통신 데이터를 Azure Storage와 같은 중앙 위치에 저장하는 업무의 경우 [Batch Transcription API](batch-transcription.md)를 사용하여 비동기 방식으로 전사를 요청하고 수신할 수 있습니다.
 
 일반적인 솔루션은 다음과 같은 서비스를 사용합니다.
 
@@ -99,7 +98,7 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 
 일부 비즈니스는 대화 내용을 실시간으로 전사해야 합니다. 실시간 전사를 사용하면 키워드 식별, 대화와 관련된 콘텐츠와 리소스 검색 트리거, 감정을 모니터링하기 위한 접근성 개선 또는 원어민 화자가 아닌 고객과 상담원에 대한 번역 제공을 수행할 수 있습니다.
 
-실시간 전사가 필요한 시나리오의 경우 [Speech SDK](speech-sdk.md) 사용을 권장합니다. 현재 음성 텍스트 변환은 [20가지가 넘는 언어](language-support.md)로 사용할 수 있으며, C++, C#, Java, Python, Node.js 및 Javascript의 SDK를 사용할 수 있습니다. 샘플은 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)에서 각 언어로 사용할 수 있습니다. 최신 뉴스 및 업데이트는 [릴리스 정보](releasenotes.md)를 참조하세요.
+실시간 전사가 필요한 시나리오의 경우 [Speech SDK](speech-sdk.md) 사용을 권장합니다. 현재 음성 텍스트 변환은 [20가지가 넘는 언어](language-support.md)로 사용할 수 있으며, C++, C#, Java, Python, Node.js, Objective-C 및 JavaScript의 SDK를 사용할 수 있습니다. 샘플은 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)에서 각 언어로 사용할 수 있습니다. 최신 뉴스 및 업데이트는 [릴리스 정보](releasenotes.md)를 참조하세요.
 
 내부적으로는 위의 기술을 사용하여 Microsoft 고객 통화를 발생 당시에 실시간으로 분석하고 있습니다.
 
@@ -111,7 +110,7 @@ Speech Services는 [Speech SDK](speech-sdk.md) 또는 [REST API](rest-apis.md)�
 
 여러 IVR 또는 전화 통신 서비스 제품(예: Genesys 또는 AudioCodes)은Azure Services에 대한 인바운드 및 아웃바운드 오디오 통과를 지원하기 위해 이용할 수 있는 통합 기능을 제공합니다. 기본적으로 사용자 지정 Azure 서비스는 전화 통화 세션(예: 통화 시작 또는 통화 종료)을 정의하고 WebSocket API를 표시하여 Speech Services에 사용되는 인바운드 스트림 오디오를 수신하기 위한 구체적 인터페이스를 제공합니다. 대화 전사 또는 Bot Framework와 연결과 같은 아웃바운드 응답은 Microsoft의 텍스트 음성 변환 서비스와 동기화하고 재생을 위해 IVR로 돌아갈 수 있습니다.
 
-또 다른 시나리오는 Direct SIP 통합입니다. Azure 서비스는 SIP Server에 연결하므로 음성 텍스트 변환 및 텍스트 음성 변환 단계에 사용되는 인바운드 스트림 및 아웃바운드 스트림을 가져옵니다. SIP 서버에 연결하려면 Ozieki SDK와 같은 상용 소프트웨어 제품 또는 이 유형의 오디오 통화 시나리오를 지원하기 위한 [팀 통화 및 회의 API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta)(현재 베타판)를 사용할 수 있습니다.
+또 다른 시나리오는 Direct SIP 통합입니다. Azure 서비스는 SIP Server에 연결하므로 음성 텍스트 변환 및 텍스트 음성 변환 단계에 사용되는 인바운드 스트림 및 아웃바운드 스트림을 가져옵니다. SIP 서버에 연결하려면 Ozeki SDK와 같은 상용 소프트웨어 제품 또는 이 유형의 오디오 통화 시나리오를 지원하기 위한 [팀 통화 및 회의 API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta)(현재 베타판)를 사용할 수 있습니다.
 
 ## <a name="customize-existing-experiences"></a>기존 환경 사용자 지정
 

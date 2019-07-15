@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>자습서: Percolate와 Azure Active Directory 통합
 
@@ -34,7 +34,7 @@ ms.locfileid: "65560557"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +57,7 @@ Percolate의 Azure AD 통합을 구성하려면 갤러리의 Percolate를 관리
 
     ![Azure Active Directory 선택](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 차례로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -154,11 +154,11 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
-2. 화면의 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -168,7 +168,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     1. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    1. **사용자 이름** 상자에서 **BrittaSimon@\<yourcompanydomain>.\<extension>** 을 입력합니다. (예: BrittaSimon@contoso.com)
+    1. **사용자 이름** 상자에 **BrittaSimon@\<yourcompanydomain>.\<extension>** 을 입력합니다. (예: BrittaSimon@contoso.com)
 
     1. **암호 표시**를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -186,7 +186,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 
@@ -196,7 +196,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 
-6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
+6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
 

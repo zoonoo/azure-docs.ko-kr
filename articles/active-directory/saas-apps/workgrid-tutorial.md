@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e979410405aa9914b496b80d2ac783a67b480a7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0ff4250244fcd91c74771aba305b1643926b0732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workgrid"></a>자습서: Workgrid와 Azure Active Directory 통합
 

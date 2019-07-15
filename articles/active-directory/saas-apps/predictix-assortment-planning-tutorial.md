@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c14362a220cc60b0b8956ca41950faecd0563b3e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>자습서: Predictix Assortment Planning과 Azure Active Directory 통합
 
@@ -56,7 +56,7 @@ Azure AD로 Predictix Assortment Planning 통합을 설정하려면 갤러리의
 
     ![Azure Active Directory 선택](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -131,7 +131,7 @@ Predictix Assortment Planning에서 Azure AD Single Sign-On을 구성하려면 �
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-    1. **로그인 URL**:
+    1. **로그인 URL**
 
     1. **Azure AD 식별자**
 
@@ -149,7 +149,7 @@ Predictix Assortment Planning 쪽에서 Single Sign-On을 구성하려면 Azure 
 
     ![모든 사용자 선택](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 다음과 같이 화면의 위쪽에서 **새 사용자**를 선택합니다.
 
     ![새 사용자 선택](common/new-user.png)
 
@@ -177,7 +177,7 @@ Predictix Assortment Planning 쪽에서 Single Sign-On을 구성하려면 Azure 
 
     ![애플리케이션 목록](common/all-applications.png)
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 및 그룹 선택](common/users-groups-blade.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18bf494ceb212de07b3e7ee1e0fa0e4de89cb07f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94e65bc271cddb548e891deb1174891d8f30fa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059025"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>고가용성 가상 머신 간에 트래픽 부하 분산
 
@@ -31,7 +31,7 @@ ms.locfileid: "55976762"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -68,6 +68,16 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 가상 머신을 만듭니다. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
+
+사용자 고유의 관리되는 사용자 지정 이미지를 사용하여 VM을 만들 수도 있습니다. VM 구성에서 `Set-AzVMSourceImage`의 경우 `-PublisherName`, `-Offer`, `-Skus` 및 `-Version` 대신 `-Id` 및 `-VM` 매개 변수를 사용합니다.
+
+예를 들어 VM 구성을 만드는 방법은 다음과 같습니다.
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
 
 ## <a name="next-steps"></a>다음 단계
 
