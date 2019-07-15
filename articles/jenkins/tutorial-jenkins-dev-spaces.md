@@ -6,13 +6,13 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/19
-ms.openlocfilehash: 49d4e56dabf046675970c65f2be71cea5094e9ef
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 06/18/2019
+ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550868"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785662"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -63,7 +63,7 @@ Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필�
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. AKS 클러스터를 만듭니다. [Dev Spaces를 지원하는 Azure 지역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에 AKS 클러스터를 만듭니다.
+2. AKS 클러스터를 만듭니다. [Dev Spaces를 지원하는 Azure 지역](../dev-spaces/about.md#supported-regions-and-configurations)에 AKS 클러스터를 만듭니다.
 
     ```bash
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
@@ -155,13 +155,13 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 
     1. 디렉터리를 `dev-spaces/samples/java/getting-started/mywebapi`로 변경합니다.
 
-    2. 실행
+    2. 다음을 실행합니다.
 
         ```bash
         azds prep
         ```
 
-    3. 실행
+    3. 다음을 실행합니다.
 
         ```bash
         azds up -d

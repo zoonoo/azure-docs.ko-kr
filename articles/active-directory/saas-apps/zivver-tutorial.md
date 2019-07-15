@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 51db52d5a5bfef6ef5a34fa9a0877516d5786236
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>자습서: ZIVVER과 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ ZIVVER에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 6. 위에서 언급한 특성 외에도, ZIVVER 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 네임스페이스 | 원본 특성|
+    | 이름 | 네임스페이스 | 원본 특성|
     | ---------------| --------------- |
     | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 

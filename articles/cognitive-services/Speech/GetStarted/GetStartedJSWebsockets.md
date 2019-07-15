@@ -42,7 +42,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 
 ### <a name="open-the-sample-directly"></a>샘플 직접 열기
 
-위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
+위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>로컬 복사본에서 샘플 열기
 

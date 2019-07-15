@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509145"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653878"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
 
@@ -88,7 +88,26 @@ ms.locfileid: "67509145"
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. Android Studio의 메뉴에서 **도구**를 선택하고, **SDK Manager**를 선택합니다. 
+2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택합니다. 그런 다음 **패키지 세부 정보 표시**를 선택합니다. 
+
+    ![Android SDK Manager - 대상 버전 선택](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. **Google API**를 선택합니다(아직 설치되지 않은 경우).
+
+    ![Android SDK Manager - Google API 선택](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. **SDK 도구** 탭으로 전환합니다. Google Play 서비스를 아직 설치하지 않은 경우 다음 이미지처럼 **Google Play 서비스**를 선택합니다. 그런 다음 **적용**을 선택하여 설치합니다. 이후 단계에서 사용할 수 있도록 SDK 경로를 기록해 둡니다.
+
+    ![Android SDK Manager - Google Play 서비스 선택](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. **변경 확인** 대화 상자가 나타나면 **확인**을 선택합니다. 구성 요소 설치 관리자가 요청된 구성 요소를 설치합니다. 구성 요소가 설치되면 **완료**를 선택합니다.
+4. **확인**을 선택하여 **새 프로젝트 설정** 대화 상자를 닫습니다.  
+5. 도구 모음에서 **지금 동기화** 아이콘을 선택합니다.
+1. AndroidManifest.xml 파일을 연 다음 *application* 태그에 다음 태그를 추가합니다.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Azure Notification Hubs 라이브러리 추가
 
@@ -354,7 +373,6 @@ ms.locfileid: "67509145"
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ ms.locfileid: "67509145"
 이 자습서에서는 Firebase Cloud Messaging을 사용하여 서비스에 등록된 모든 Android 디바이스로 알림을 브로드캐스트했습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[자습서: 특정 Android 디바이스에 푸시 알림](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[자습서: 특정 Android 디바이스에 푸시 알림](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

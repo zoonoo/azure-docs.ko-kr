@@ -5,16 +5,16 @@ description: Form Recognizer를 사용하여 양식 및 테이블 데이터를 �
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: a17e47fb059c23ab2e6eb69f3cfe6f2f8d0e51b2
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502904"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592611"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 

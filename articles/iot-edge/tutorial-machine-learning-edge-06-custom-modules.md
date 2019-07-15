@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155515"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603653"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -245,7 +245,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 3. 다음으로, rulClassifier 모듈의 메시지 경로를 turbofanRouter 모듈에 추가합니다.
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
 #### <a name="outputs"></a>outputs
@@ -255,7 +255,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 1. Program.cs는 모듈 클라이언트를 사용하여 다음 경로를 통해 메시지를 RUL 분류자에 보내는 SendMessageToClassifier() 메서드를 정의합니다.
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub()는 모듈 클라이언트를 사용하여 다음 경로를 통해 디바이스의 RUL 데이터만 IoT Hub에 보냅니다.
@@ -314,7 +314,7 @@ Avro 기록기 모듈에는 솔루션에서 메시지를 저장하고 파일을 
 
 ### <a name="create-module-and-copy-files"></a>모듈 만들기 및 파일 복사
 
-1. 명령 팔레트에서 **Python: 인터프리터 선택**을 검색하고 선택합니다.
+1. 명령 팔레트에서 **Python: 인터프리터 선택**을 입력합니다.
 
 1. C:\\Python37에 있는 인터프리터를 선택합니다.
 
