@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064106"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603299"
 ---
 # <a name="speech-services-for-telephony-data"></a>전화 통신 데이터용 Speech Services
 
@@ -36,7 +36,7 @@ Azure Speech Services가 제공하는 일부 기술과 관련 기능을 살펴�
 
 Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용하는 경우 기본 목적은 고객 환경을 개선하는 것입니다. 이와 관련하여 세 가지 분명한 영역이 존재합니다.
 
-* 통화 후 분석, 즉 통화 기록에 대한 일괄 처리 
+* 통화 후 분석, 즉 통화 기록에 대한 일괄 처리
 * 통화가 이루어질 때 다양한 인사이트를 추출하기 위한 오디오 신호의 실시간 분석 처리(감정이 두드러진 사용 사례인 경우), 그리고
 * 가상 도우미(봇) - 고객의 문제를 상담원의 참여 없이 해결하려는 경우 고객과 봇 간의 대화 추진 또는 상담원을 돕기 위한 AI 프로토콜 적용
 
@@ -44,25 +44,25 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 
 ## <a name="speech-analytics-technology-components"></a>Speech Analytics 기술 구성 요소
 
-통화 후 영역 또는 실시간 영역과 상관없이 Azure는 고객 환경을 개선하는 높은 완성도의 기술 세트 및 최신 기술 세트를 제공합니다. 
+통화 후 영역 또는 실시간 영역과 상관없이 Azure는 고객 환경을 개선하는 높은 완성도의 기술 세트 및 최신 기술 세트를 제공합니다.
 
-### <a name="speech-to-text-stt"></a>STT(음성 텍스트 변환) 
+### <a name="speech-to-text-stt"></a>STT(음성 텍스트 변환)
 
 [음성 텍스트 변환](speech-to-text.md)은 콜 센터 솔루션의 기능 다음에 가장 많이 사용하는 기술입니다. 많은 다운스트림 분석 프로세스는 전사된 텍스트를 기반으로 수행되므로 WER(단어 오류율)이 매우 중요합니다. 콜 센터 전사의 핵심 과제 중 하나는 콜 센터에서 흔히 발생하는 소음(예 - 배경에서 말하는 다른 상담원), 매우 다양한 언어 로캘과 방언 및 실제 전화 신호의 낮은 품질입니다. WER은 음향 모델과 언어 모델이 지정된 로캘에 대해 잘 학습된 정도와 밀접한 상관성이 있으므로 모델을 로캘에 맞게 사용자 지정할 수 있는 것이 중요합니다. 당사의 최신 통합 버전 4.x 모델은 전사 정확도와 대기 시간 둘 다에 대한 솔루션입니다. 수만 시간의 음향 데이터 및 수십억 가지 어휘 정보를 사용하여 학습되는 통합 모델은 콜 센터 데이터를 전사하는 기능이 시장에서 가장 정확한 모델입니다.
 
-### <a name="sentiment"></a>데이터
+### <a name="sentiment"></a>감정
 고객의 환경이 좋은지 여부를 측정하는 것은 콜 센터 영역에 적용할 때 음성 분석의 매우 중요한 영역 중 하나입니다. 당사의 [일괄 처리 전사 API](batch-transcription.md)는 발화별로 감정 분석을 제공합니다. 통화 음성 텍스트의 일부로 얻은 값 세트를 집계하여 상담원과 고객 모두에 대한 통화의 감정을 결정할 수 있습니다.
 
 ### <a name="silence-non-talk"></a>무음(말하지 않음)
 지원 통화의 35%가 말하지 않는 시간(일명 무음)이 되는 것이 보통입니다. 무음이 발생하는 시나리오로 고객과의 이전 사례 기록을 조회하는 상담원, 고객의 데스크톱에 액세스하여 기능을 수행할 수 있게 해주는 도구를 사용하는 상담원, 통화가 전환되기를 기다리며 앉아 있는 고객이 있습니다. 해당 유형의 시나리오에서 발생하는 여러 가지 중요한 고객 민감도가 있으므로 통화에서 무음이 발생하는 시기와 통화에서 해당 무음이 발생하는 위치를 측정할 수 있는 것이 매우 중요합니다.
 
-### <a name="translation"></a>Translation
+### <a name="translation"></a>이동
 일부 기업은 제공 관리자가 전 세계의 고객 환경을 파악할 수 있도록 외국어 지원 통화 내용에서 번역한 음성 텍스 제공을 실험하고 있습니다. 당사의 [번역](translation.md) 기능은 탁월합니다. 당사는 수많은 로캘에서 오디오를 오디오로 또는 오디오를 텍스트로 번역할 수 있습니다.
 
 ### <a name="text-to-speech"></a>텍스트에서 음성 변환
-[텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론 이 모든 과정은 빠르게 이루어져야 합니다. - 따라서 이 시스템이 성공하려면 대기 시간이 중요한 구성 요소입니다. 
+[텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론 이 모든 과정은 빠르게 이루어져야 합니다. - 따라서 이 시스템이 성공하려면 대기 시간이 중요한 구성 요소입니다.
 
-당사의 엔드투엔드 대기 시간은 [음성 텍스트 변환](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [텍스트 음성 변환](text-to-speech.md)과 같은 여러 가지 관련 기술을 고려할 때 아주 낮습니다. 
+당사의 엔드투엔드 대기 시간은 [음성 텍스트 변환](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [텍스트 음성 변환](text-to-speech.md)과 같은 여러 가지 관련 기술을 고려할 때 아주 낮습니다.
 
 당사의 새 음성도 사람의 음성과 구분할 수 없습니다. 출력 음성을 사용하여 봇에 대해 자체의 고유한 개성을 부여할 수 있습니다.
 
@@ -116,11 +116,11 @@ Speech Services는 [Speech SDK](speech-sdk.md) 또는 [REST API](rest-apis.md)�
 
 Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또는 환경에 대한 경험을 추가로 사용자 지정하고 조정하려고 할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성한 후 실시간으로 또는 일괄 처리 모드로 Azure Speech Services와 함께 사용할 수 있습니다.
 
-| Speech Service | 모델 | 설명 |
+| Speech Service | Model | Description |
 |----------------|-------|-------------|
 | 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
-| | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
-| | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
+| | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 기록를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
+| | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 간단한 .txt 파일인 발음 파일만 있으면 시작 가능합니다. |
 | 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |
 
 ## <a name="sample-code"></a>샘플 코드
@@ -135,7 +135,7 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
 * [REST API: 일괄 처리 기록 및 사용자 지정](https://westus.cris.ai/swagger/ui/index)
 
