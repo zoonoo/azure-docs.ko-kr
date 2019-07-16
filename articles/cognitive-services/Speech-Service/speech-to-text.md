@@ -1,7 +1,7 @@
 ---
-title: 음성-텍스트 Azure 음성 서비스를 사용 하 여
+title: Azure 음성 서비스를 사용하는 음성-텍스트
 titleSuffix: Azure Cognitive Services
-description: 를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.
+description: 음성-텍스트라고도 하는 Azure 음성 서비스의 음성-텍스트는 응용 프로그램, 도구, 장치가 명령 입력으로 소비, 표시 및 조치를 취할 수 있는 텍스트로 오디오 스트림을 실시간으로 기록해 줍니다. 이 서비스는 Microsoft Cortana 및 Office 제품에서 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -19,7 +19,7 @@ ms.locfileid: "67606242"
 ---
 # <a name="what-is-speech-to-text"></a>음성-텍스트 란?
 
-를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.  사용 가능한 음성-텍스트 언어의 전체 목록을 참조 하세요 [지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)합니다.
+음성-텍스트라고도 하는 Azure 음성 서비스의 음성-텍스트는 응용 프로그램, 도구, 장치가 명령 입력으로 소비, 표시 및 조치를 취할 수 있는 텍스트로 오디오 스트림을 실시간으로 기록해 줍니다. 이 서비스는 Microsoft Cortana 및 Office 제품에서 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다.  사용 가능한 음성-텍스트 언어의 전체 목록에 대해서는 [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)를 참조합니다.
 
 기본적으로 음성-텍스트를 범용 언어 모델을 사용합니다. 이 Microsoft 소유의 데이터를 사용 하 여 학습 된 모델과 클라우드에 배포 됩니다. 적합 한 대화형 및 받아쓰기 시나리오입니다. 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다.
 
