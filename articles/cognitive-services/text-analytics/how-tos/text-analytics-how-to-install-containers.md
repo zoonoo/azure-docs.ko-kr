@@ -161,7 +161,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="billing"></a>결제
 
-청구 정보를 Azure 사용 하 여 Text Analytics 컨테이너 송신을 _Cognitive Services_ Azure 계정에는 리소스입니다. 
+Text Analytics 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를 사용하여 청구 정보를 Azure로 전송합니다. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
