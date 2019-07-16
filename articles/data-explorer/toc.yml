@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: 클러스터 상태 확인
           href: check-cluster-health.md
+        - name: 클러스터 VM SKU 선택
+          href: manage-cluster-choose-sku.md
         - name: 클러스터 수평적 크기 조정 관리
           href: manage-cluster-horizontal-scaling.md
         - name: 클러스터 수직적 크기 조정 관리

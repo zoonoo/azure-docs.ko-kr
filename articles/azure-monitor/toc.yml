@@ -278,10 +278,12 @@
               href: platform/data-sources-custom-logs.md
             - name: 사용자 지정 필드
               href: platform/custom-fields.md
-        - name: 응용 프로그램 구성
+        - name: 애플리케이션 구성
           items:
-            - name: Azure 앱
+            - name: Azure 호스팅 앱
               items:
+                - name: Azure VM 및 Azure 가상 머신 확장 집합
+                  href: app/azure-vm-vmss-apps.md
                 - name: Azure App Service
                   href: app/azure-web-apps.md
                 - name: Azure Cloud Services
@@ -709,8 +711,8 @@
               href: platform/metrics-getting-started.md
             - name: 메트릭 탐색기의 고급 기능
               href: platform/metrics-charts.md
-            - name: 메트릭 차트의 예
-              href: platform/metric-chart-samples.md
+            - name: 로그 기반 메트릭
+              href: platform/app-insights-metrics.md
             - name: 메트릭 차트 문제 해결
               href: platform/metrics-troubleshoot.md
         - name: 로그

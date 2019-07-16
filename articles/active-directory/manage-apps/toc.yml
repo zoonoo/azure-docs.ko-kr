@@ -61,7 +61,7 @@
           href: plan-sso-deployment.md
     - name: 한 번 클릭 SSO
       items:
-        - name: 한 번 클릭 SSO란?
+        - name: 한 번 클릭 SSO 구성
           href: one-click-sso-tutorial.md
     - name: 사용자 및 그룹 프로비전
       items:
