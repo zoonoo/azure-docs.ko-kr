@@ -261,7 +261,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
 예기치 않은 결과가 표시되면(아마도 그럴 것입니다!) 각 셀이 필요에 따라 "코드" 또는 "Markdown"으로 설정되었는지 확인합니다. 예를 들어 "잘못된 구문" 오류는 코드 셀에 Markdown을 입력한 경우에 주로 발생합니다.
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     ## Import packages and prepare the dataset
@@ -284,7 +284,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     > [!Note]
     > 이 코드에서 "numpy.dtype 크기가 변경되었습니다" 오류가 발생할 수 있습니다. 이 경고는 무시해도 됩니다.
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     Next, split the dataset into a Training set (2/3rds) and Test set (1/3rd). We don't need to do any feature scaling because there is only one column of independent variables, and packages typically do scaling for you.
@@ -298,7 +298,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Fit the data to the training set
@@ -319,7 +319,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     regressor.fit(X_train, y_train)   # Provide training data so the machine can learn to predict using a learned model.
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     ## Predict the results
@@ -338,7 +338,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     print(y_pred)
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     It's interesting to think that all the "predictions" we use in daily life, like weather forecasts, are just regression models of some sort working with various data sets. Those models are much more complicated than what's shown here, but the idea is the same.
@@ -350,7 +350,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     The challenge is determining what data to actually use. For example, with weather, how far back in time do you go? How have weather patterns been changing decade by decade? In any case, something like weather predictions will be doing things hour by hour, day by day, for things like temperature, precipitation, winds, cloud cover, etc. Radar and other observations are of course fed into the model and the predictions are reduced to mathematics.
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Visualize the results
@@ -375,7 +375,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     ![matplotlib 코드의 플롯 출력](media/tutorial/tutorial-plot-output.png)
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Closing comments
@@ -423,7 +423,7 @@ Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Vis
 
 - [샘플 Notebook 살펴보기](azure-notebooks-samples.md)
 
-방법 문서:
+방법 문서는 다음과 같습니다.
 
 - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
 - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
