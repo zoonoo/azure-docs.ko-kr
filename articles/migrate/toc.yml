@@ -54,34 +54,32 @@
       href: migrate-replication-appliance.md
     - name: 평가 모범 사례
       href: best-practices-assessment.md
-    - name: 평가 계산
+    - name: 평가 개요
       href: concepts-assessment-calculation.md
     - name: 종속성 시각화
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: 마이그레이션 예제-Contoso 시리즈
-      href: contoso-migration-overview.md
-    - name: VMware 평가/마이그레이션(에이전트 없는)용 어플라이언스 배포
+    - name: 이전 버전을 사용하여 작업
+      href: migrate-v1.md
+    - name: VMware 어플라이언스 배포
       href: how-to-set-up-appliance-vmware.md
-    - name: Hyper-V 평가/마이그레이션용 어플라이언스 배포
+    - name: Hyper-V 어플라이언스 배포
       href: how-to-set-up-appliance-hyper-v.md
-    - name: 처음으로 평가/마이그레이션 도구에 추가
+    - name: 처음 도구 추가
       href: how-to-add-tool-first-time.md
     - name: 평가 도구 추가
       href: how-to-assess.md
-    - name: 마이그레이션 도구 추가
-      href: how-to-migrate.md
     - name: 평가할 컴퓨터 그룹화
-      items:
-        - name: 그룹 만들기
-          href: how-to-create-a-group.md
-        - name: 컴퓨터 종속성을 사용하여 컴퓨터 그룹화
-          href: how-to-create-group-machine-dependencies.md
-        - name: 그룹 종속성을 사용하여 그룹 상세 검색
-          href: how-to-create-group-dependencies.md
+      href: how-to-create-a-group.md
+    - name: 종속성 시각화를 사용하여 컴퓨터 그룹화
+      href: how-to-create-group-machine-dependencies.md
+    - name: 평가 만들기
+      href: how-to-create-assessment.md
     - name: 평가 사용자 지정
       href: how-to-modify-assessment.md
+    - name: 마이그레이션 도구 추가
+      href: how-to-migrate.md
     - name: 규모 평가 및 마이그레이션
       items:
         - name: 다수의 VMware VM 평가
@@ -90,6 +88,10 @@
           href: scale-hyper-v-assessment.md
         - name: 많은 수의 VM의 마이그레이션 자동화
           href: how-to-migrate-at-scale.md
+    - name: 마이그레이션 예제-Contoso 시리즈
+      href: contoso-migration-overview.md
+- name: 문제 해결
+  items:
     - name: Azure Migrate 문제 해결
       href: troubleshooting-general.md
 - name: 리소스
