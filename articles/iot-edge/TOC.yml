@@ -137,10 +137,14 @@
           href: how-to-update-iot-edge.md
     - name: DPS와 함께 큐 자동 프로비전
       items:
-        - name: Linux
-          href: how-to-auto-provision-simulated-device-linux.md
-        - name: Windows
-          href: how-to-auto-provision-simulated-device-windows.md
+        - name: 대칭 키 증명
+          href: how-to-auto-provision-symmetric-keys.md
+        - name: TPM 증명
+          items:
+            - name: Linux
+              href: how-to-auto-provision-simulated-device-linux.md
+            - name: Windows
+              href: how-to-auto-provision-simulated-device-windows.md
     - name: 사용자 지정 모듈 개발 및 디버그
       items:
         - name: Visual Studio 2019
