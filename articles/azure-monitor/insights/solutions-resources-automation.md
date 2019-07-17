@@ -242,7 +242,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 자산 | 설명 |
 |:--- |:--- |
-| schedule name |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
+| schedule name |일정의 이름을 포함하는 단일 **name** 엔터티입니다. |
 | runbook name  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
@@ -272,7 +272,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
 | type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| 값 | 변수의 값입니다. |
+| value | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  
@@ -283,8 +283,8 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 |:--|:--|:--|:--|
 | string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
-| 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
-| Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
+| datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>모듈
 관리 솔루션은 Automation 계정에서 항상 사용할 수 있으므로 Runbook에서 사용하는 [전역 모듈](../../automation/automation-integration-modules.md)을 정의할 필요가 없습니다.  Runbook에서 사용하는 다른 모듈에 대한 리소스를 포함해야 합니다.
