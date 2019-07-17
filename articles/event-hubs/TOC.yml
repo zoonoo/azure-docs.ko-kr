@@ -59,6 +59,8 @@
   items:
     - name: Event Hubs 용어
       href: event-hubs-features.md
+    - name: 이벤트 프로세서 호스트
+      href: event-hubs-event-processor-host.md
     - name: 가용성 및 일관성
       href: event-hubs-availability-and-consistency.md
     - name: 확장성
@@ -90,8 +92,6 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: 프로그래밍 가이드
           href: event-hubs-programming-guide.md
-        - name: 이벤트 프로세서 호스트를 사용하여 이벤트 수신
-          href: event-hubs-event-processor-host.md
     - name: 데이터 처리
       items:
         - name: Azure Stream Analytics를 사용하여 데이터 처리

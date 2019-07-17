@@ -33,6 +33,12 @@
       href: how-to-delete-invitation.md
     - name: 공유 구독 철회
       href: how-to-revoke-share-subscription.md
+- name: 참고 자료
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datashare
+    - name: REST API
+      href: /rest/api/datashare
 - name: 리소스
   items:
     - name: 블로그
