@@ -2,18 +2,18 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304433"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614190"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -70,7 +70,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Pod 자동 크기 조정
 
-Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 CPU 사용률 또는 다른 선택 메트릭에 따라 배포에서 Pod 수를 조정할 수 있게 해줍니다. [메트릭 서버][metrics-server]는 Kubernetes에 리소스 사용률을 제공하는 데 사용되며, AKS 클러스터 버전 1.10 이상에서 자동으로 배포됩니다. AKS 클러스터 버전을 확인하려면 다음 예제처럼 [az aks show][az-aks-show] 명령을 사용합니다.
+Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원합니다. to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server]는 Kubernetes에 리소스 사용률을 제공하는 데 사용되며, AKS 클러스터 버전 1.10 이상에서 자동으로 배포됩니다. AKS 클러스터 버전을 확인하려면 다음 예제처럼 [az aks show][az-aks-show] 명령을 사용합니다.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion

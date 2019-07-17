@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 65a873744a55539be220560d8d8d062a4d5adaa7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4e91cffbc08b145e77141e6f09bbc57651b94149
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445170"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704504"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 텍스트 음역
 
 이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
 
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+
+>[!TIP]
+> 모든 코드를 한 번에 보려면 이 샘플의 소스 코드를 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -140,7 +143,7 @@ if err != nil {
 }
 ```
 
-Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>응답 처리 및 인쇄
 
@@ -180,10 +183,10 @@ go run transliterate-text.go
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub의 [Go용 Azure SDK](https://github.com/Azure/azure-sdk-for-go)에서 Cognitive Services API용 Go 패키지를 살펴봅니다.
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Go 패키지 살펴보기](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

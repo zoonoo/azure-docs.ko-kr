@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f2de205b6237d3af434700c47056ce52b89a53b4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b6c932d6c6f3f8ce5d75f87ab86ae6bf38b0b03a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447305"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705616"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Go 및 Translator Text REST API를 사용하여 지원되는 언어의 목록을 반환하는 GET 요청을 만드는 방법을 알아봅니다.
+
+>[!TIP]
+> 모든 코드를 한 번에 보려면 이 샘플의 소스 코드를 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -108,7 +111,7 @@ if err != nil {
 }
 ```
 
-Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>응답 처리 및 인쇄
 
@@ -227,10 +230,10 @@ go run get-languages.go
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub의 [Go용 Azure SDK](https://github.com/Azure/azure-sdk-for-go)에서 Cognitive Services API용 Go 패키지를 살펴봅니다.
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Go 패키지 살펴보기](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7ad03d06325f45aacd53817d92202b07de7c26e9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 941478e8d09ea0a06139ba4ddf3ac14e5b52b9d6
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011166"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606028"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 C#을 사용하여 로컬 이미지 분석
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>빠른 시작: Computer Vision REST API 및 C#을 사용하여 로컬 이미지 분석
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 시각적 기능을 추출하기 위해 로컬로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징 정보를 추출할 수 있습니다.
 
@@ -64,7 +64,7 @@ namespace CSHttpClientSample
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the "westus" region.
+        // Free trial subscription keys are generated in the "westcentralus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -246,10 +246,6 @@ namespace CSHttpClientSample
     }
 }
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 Visual Studio 솔루션을 삭제합니다. 이렇게 하려면 파일 탐색기를 열고, Visual Studio 솔루션을 만든 폴더로 이동한 후, 폴더를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

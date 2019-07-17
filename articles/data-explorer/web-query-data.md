@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Azure Data Explorer에서 데이터 쿼리'
-description: 이 빠른 시작에서는 Azure 데이터 탐색기에서 데이터를 쿼리하고 공유하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Data Explorer Web UI에서 데이터 쿼리'
+description: 이 빠른 시작에서는 Azure Data Explorer Web UI에서 데이터를 쿼리하고 공유하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050563"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797183"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>빠른 시작: Azure Data Explorer에서 데이터 쿼리
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>빠른 시작: Azure Data Explorer Web UI에서 데이터 쿼리
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 쿼리를 실행하고 공유할 수 있는 웹 애플리케이션이 제공됩니다. 이 애플리케이션은 Azure Portal에서 그리고 독립 실행형 웹 애플리케이션으로 사용할 수 있습니다. 이 문서에서는 독립 실행형 버전을 사용합니다. 이 버전의 경우 여러 클러스터에 연결하고 쿼리에 대한 딥 링크를 공유할 수 있습니다.
 
@@ -191,5 +191,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
+[Azure 데이터 탐색기용 쿼리 작성](write-queries.md)

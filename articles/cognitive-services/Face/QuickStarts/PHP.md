@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2ed1a20bf47771d927c0d58730fa0eb4471572af
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490449"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603382"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지
 
@@ -43,7 +43,7 @@ ms.locfileid: "59490449"
 
 ## <a name="write-the-php-script"></a>PHP 스크립트 작성
 
-문서의 `body` 요소 내에 다음 코드를 추가합니다. 그러면 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창으로 구성된 기본 사용자 인터페이스가 설정됩니다.
+문서의 `body` 요소 내에 다음 코드를 추가합니다. 이 코드는 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창이 있는 기본 사용자 인터페이스를 설정합니다.
 
 ```php
 <?php

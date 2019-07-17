@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 테이블 API에 대 한 작업을 가져옵니다.
-description: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 테이블 API에 대 한 작업을 가져옵니다.
+title: Azure PowerShell 스크립트 - Table API용 Azure Cosmos DB 작업 나열 및 가져오기
+description: Azure PowerShell 스크립트 - Table API용 Azure Cosmos DB 작업 나열 및 가져오기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 320d2ff57275648657a15f843a2f32dcb6722bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 28394d1a5cb09caca243ad9f3a584aa2e55f8fe9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247051"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603791"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>목록 및 Azure Cosmos DB Table API에 대 한 테이블 가져오기
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB - Table API용 테이블 나열 및 가져오기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

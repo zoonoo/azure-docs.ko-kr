@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751904"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625357"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 애플리케이션을 등록 및 구성하고, Micr
 
 ### <a name="app-registration-experience"></a>앱 등록 환경
 
-Azure Portal **[앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)** 환경은 Microsoft ID 플랫폼과 통합한 모든 애플리케이션을 관리할 수 있는 단일 포털 환경입니다. 지금까지 애플리케이션 등록 포털을 사용해 오신 경우 먼저 Azure Portal 앱 등록 환경부터 시작해보세요.
+Azure Portal **[앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)** 환경은 Microsoft ID 플랫폼과 통합한 모든 애플리케이션을 관리할 수 있는 단일 포털 환경입니다. 지금까지 애플리케이션 등록 포털을 사용해 본 적이 있는 경우 대신 Azure Portal 앱 등록 환경을 사용해 보세요.
 
 Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플리케이션을 B2C 테넌트에 등록해야 합니다. 이 환경은 Azure Portal의 일부이기도 합니다.
 

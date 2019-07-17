@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB SQL API (코어)에 대 한 프로 비전 된 처리량 (RU/s) 가져오기
-description: Azure PowerShell 스크립트-Azure Cosmos DB SQL API (코어)에 대 한 프로 비전 된 처리량 (RU/s) 가져오기
+title: Azure PowerShell 스크립트 - SQL(Core)용 Azure Cosmos DB 프로비저닝된 처리량 가져오기(RU/s) API
+description: Azure PowerShell 스크립트 - SQL(Core)용 Azure Cosmos DB 프로비저닝된 처리량 가져오기(RU/s) API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: f70229e22ae0ef5d761ef456e880f0e96c42643e
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 75a8ebbb04fd3cbad9f0a1a3f302b40439adbbcc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566792"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602127"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB SQL API (코어)에 대 한 데이터베이스 또는 컨테이너에 대 한 프로 비전된 된 처리량 (RU/s) 가져오기
+# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 프로비저닝된 처리량 가져오기(RU/s)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

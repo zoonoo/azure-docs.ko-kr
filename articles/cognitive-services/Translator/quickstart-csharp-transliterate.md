@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
 ms.author: swmachan
-ms.openlocfilehash: f09f9081dd535762afd2e26e5e86476eb06f5133
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c36830709c59632945a8c11e8a7113dcd5dc7e7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445248"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704558"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 음역
 
@@ -158,7 +158,7 @@ foreach (TransliterationResult o in deserializedOutput)
 }
 ```
 
-Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
@@ -214,10 +214,10 @@ Transliterated to latn script: Kon\'nichiwa
 
 ## <a name="next-steps"></a>다음 단계
 
-번역 및 언어 식별을 포함하여 이 빠른 시작과 다른 빠른 시작의 샘플 코드 그리고 GitHub의 다른 샘플 Translator Text 프로젝트를 살펴봅니다.
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [GitHub에서 C# 예제 살펴보기](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
-description: Azure Monitor 로그로 컨테이너 출력(STDOUT 및 STDERR)을 전송하는 방법을 알아봅니다.
+description: Azure 컨테이너 인스턴스에서 Azure Monitor 로그로 로그를 전송하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879716"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722628"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
 
 Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-Azure Monitor 로그로 컨테이너 인스턴스 데이터를 전송하려면 Azure CLI(또는 Cloud Shell) 및 YAML 파일을 사용하여 컨테이너 그룹을 만들어야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
+Azure Monitor 로그로 컨테이너 인스턴스 데이터를 전송하려면 컨테이너 그룹을 만들 때 Log Analytics 작업 영역 ID와 작업 영역 키를 지정해야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,7 +36,7 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 로그 분석 작업 영역 ID 및 기본 키를 가져오려면:
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **설정** 아래에서 **진단 설정** 선택
+1. **설정** 아래에서 **고급 설정** 선택
 1. **연결된 원본** > **Windows 서버**(또는 **Linux 서버** - 둘 다 ID와 키는 동일함) 선택
 1. 다음을 기록해 둡니다.
    * **작업 영역 ID**
@@ -66,7 +66,7 @@ az container create \
 YAML을 사용하여 컨테이너 그룹을 배포하려는 경우 이 메서드를 사용합니다. 다음 YAML은 단일 컨테이너로 컨테이너 그룹을 만듭니다. 새 파일에 YAML을 복사한 다음, `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꿉니다. 파일을 **deploy-aci.yaml**로 저장합니다.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -90,7 +90,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-그리고 다음 명령을 실행하여 컨테이너 그룹을 배포합니다. `myResourceGroup`은 구독의 리소스 그룹으로 바꿉니다(또는 먼저 "myResourceGroup"이라는 리소스 그룹 만들기).
+다음으로, 다음 명령을 실행하여 컨테이너 그룹을 배포합니다. `myResourceGroup`은 구독의 리소스 그룹으로 바꿉니다(또는 먼저 "myResourceGroup"이라는 리소스 그룹 만들기).
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -100,12 +100,14 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Azure Monitor 로그에서 로그 보기
 
-컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 컨테이너 그룹 로그를 보려면 Log Analytics 작업 영역을 연 후 다음을 수행합니다.
+컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
 
-1. **OMS 작업 영역** 개요에서 **로그 검색**을 선택합니다. OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
-1. **시도해 볼 쿼리가 몇 가지 더 있습니다**에서 **수집된 모든 데이터** 링크를 선택합니다.
+1. Azure Portal에서 Log Analytics 작업 영역으로 이동
+1. **일반** 아래에서 **로그** 선택  
+1. 다음 쿼리 입력: `search *`
+1. **실행**을 선택합니다.
 
-`search *` 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목은 "목록" 보기에 표시됩니다. 로그 항목을 간략한 형식으로 보려면 **표**를 선택합니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.
+`search *` 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목이 **테이블** 형식으로 표시됩니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.
 
 ![Azure Portal의 로그 검색 결과][log-search-01]
 

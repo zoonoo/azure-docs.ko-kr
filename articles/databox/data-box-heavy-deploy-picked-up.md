@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 84db33e4c7ac612353c590ac9d2904ac3bc48d38
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508665"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592385"
 ---
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>자습서: Azure Data Box Heavy 반송 및 Azure에 대한 데이터 업로드 확인(미리 보기)
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Heavy 반송 및 Azure에 대한 데이터 업로드 확인
 
 
 이 자습서에서는 Azure Data Box Heavy를 반송하고 Azure에 업로드된 데이터를 확인하는 방법을 설명합니다.

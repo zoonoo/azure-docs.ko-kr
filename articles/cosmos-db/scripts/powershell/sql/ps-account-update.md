@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos 계정 업데이트
-description: Azure PowerShell 스크립트 샘플-추가 영역을 사용 하 여 Azure Cosmos 계정 업데이트
+title: Azure PowerShell 스크립트 - Azure Cosmos 계정 업데이트
+description: Azure PowerShell 스크립트 샘플 - 추가된 지역으로 Azure Cosmos 계정 업데이트
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65078282"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602277"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Azure Cosmos 계정을 업데이트 하 고 PowerShell을 사용 하 여 하위 지역을 추가합니다
+# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Azure Cosmos 계정을 업데이트하고 PowerShell을 사용하여 지역 추가
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

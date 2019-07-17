@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8453a3592c1822489a3724dacdf8f0ff5e8492f1
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427917"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592406"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>자습서: Azure Data Box Heavy 주문(미리 보기)
+# <a name="tutorial-order-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy 주문
 
 
 Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 솔루션입니다. Microsoft에서 제공한 770TB(대략적인 사용 가능한 용량) 스토리지 디바이스에 데이터를 전송한 다음, 디바이스를 다시 제공합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다.
@@ -36,7 +36,7 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 
 시작하기 전에 다음 사항을 확인합니다.
 
-- 디바이스가 표준 출입구 및 통로를 통과하기에 맞는 크기인지 여부 단, 디바이스가 모든 통로를 통과하기에 맞는 크기인지 확인합니다. 디바이스 치수: 너비: 26” 길이: 48” 높이: 28”
+- 디바이스가 표준 출입구 및 통로를 통과하기에 맞는 크기인지 여부 단, 디바이스가 모든 통로를 통과하기에 맞는 크기인지 확인합니다. 디바이스 치수: 너비: 26", 길이: 48", 높이: 28”
 - 지층 이외의 층에 설치된 경우 엘리베이터 또는 경사로를 통해 디바이스에 접근해야 합니다. 디바이스 중량은 대략 500lb(약 227kg)입니다.
 - 사용 가능한 네트워크 연결에 근접한 데이터 센터에 이 공간을 차지하는 디바이스를 수용할 수 있는 평평한 부분이 있어야 합니다.
 

@@ -1,20 +1,21 @@
 ---
-title: '자습서: 몰입형 판독기(Node.js) 시작'
+title: '자습서: Node.js를 사용하여 몰입형 판독기 시작'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 몰입형 판독기를 시작하는 Node.js 애플리케이션을 만듭니다.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444072"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718384"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 

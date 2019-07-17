@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cdc605c059857c826056fece782bbb9a9c86a15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275857"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718488"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>자습서: Azure Active Directory와 monday.com 통합
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. 서비스 공급자 메타데이터 파일이 있고 **IDP 시작 모드**를 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. 서비스 공급자 메타데이터 파일이 있고 **IDP 시작 모드**를 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     1. **메타데이터 파일 업로드**를 선택합니다.
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
        > [!Note]
        > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 수동으로 값을 입력합니다. **식별자** 및 **회신 URL**은 동일하며 값의 패턴은 다음과 같습니다. `https://<your-domain>.monday.com/saml/saml_callback`
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<your-domain>.monday.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -100,7 +100,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 특성 창](common/edit-attribute.png)
 
-6. 위에서 언급한 특성 외에도, monday.com 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
+1. 위에서 언급한 특성 외에도, monday.com 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
     | 이름 | 원본 특성|
     | ---------------| --------------- |
@@ -109,10 +109,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | LastName | user.surname |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
-
-    ![이미지](./media/mondaycom-tutorial/attribute01.png)
-
-    ![이미지](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
@@ -136,17 +132,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-mondaycom"></a>monday.com 구성
 
-1. 다른 웹 브라우저 창에서 monday.com에 관리자로 로그인합니다.
+1. monday.com 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. 페이지 오른쪽 위 모서리의 **프로필**로 이동하여 **관리자**를 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
 
-     ![monday.com 구성](./media/mondaycom-tutorial/configuration01.png)
+1. 브라우저에 확장을 추가한 후 **monday.com 설정**을 클릭하면 monday.com 애플리케이션으로 이동합니다. 여기서 관리자 자격 증명을 입력하여 monday.com에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
 
-3. **보안**을 선택하고 SAML 옆에 있는 **열기**를 클릭해야 합니다.
+    ![구성 설정](common/setup-sso.png)
+
+1. monday.com을 수동으로 설정하려면 새 웹 브라우저 창을 열고 monday.com에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+1. 페이지 오른쪽 위 모서리의 **프로필**로 이동하여 **관리자**를 클릭합니다.
+
+    ![monday.com 구성](./media/mondaycom-tutorial/configuration01.png)
+
+1. **보안**을 선택하고 SAML 옆에 있는 **열기**를 클릭해야 합니다.
 
     ![monday.com 구성](./media/mondaycom-tutorial/configuration02.png)
 
-4. IDP에서 아래 세부 정보를 입력합니다.
+1. IDP에서 아래 세부 정보를 입력합니다.
 
     ![monday.com 구성](./media/mondaycom-tutorial/configuration03.png)
 

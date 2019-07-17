@@ -2,20 +2,20 @@
 title: Azure Kubernetes Service 소개
 description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073826"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615170"
 ---
-# <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
+# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지 관리합니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
 
@@ -23,7 +23,7 @@ Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 �
 
 Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
-시작하려면 [Azure Portal][aks-portal]이나 [Azure CLI][aks-cli]를 사용하여 AKS 빠른 시작을 완료합니다.
+시작하려면 [Azure Portal][aks-portal] or [with the Azure CLI][aks-cli]에서 AKS 빠른 시작을 완료합니다.
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
@@ -57,7 +57,7 @@ AKS 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및
 
 Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 애플리케이션의 중단을 최소화합니다.
 
-수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]을 참조하세요. 업그레이드하는 방법에 대한 단계는 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
+수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade]을 참조하세요.
 
 ### <a name="gpu-enabled-nodes"></a>GPU 사용 노드
 
@@ -71,7 +71,7 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
-[Azure Disks][azure-disk] 또는 [Azure Files][azure-files]를 사용하여 동적 영구 볼륨을 시작합니다.
+[Azure Disks][azure-disk] or [Azure Files][azure-files]를 사용하여 동적 영구 볼륨을 시작합니다.
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 

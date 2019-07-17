@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271714"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592366"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>자습서: Azure Data Box Heavy 케이블 장착 및 연결 설정(미리 보기)
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy에 케이블 연결
 
 
 이 자습서에서는 Azure Data Box Heavy에 케이블을 장착하고, 연결을 설정하고, 전원을 켜는 방법을 설명합니다.

@@ -3,15 +3,15 @@ title: Azure Cosmos Emulator로 로컬에서 개발
 description: Azure Cosmos Emulator를 사용하면 Azure 구독을 구입하지 않고도 로컬에서 무료로 애플리케이션을 개발하고 테스트할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: deborahc
-ms.author: dech
-ms.date: 06/21/2019
-ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+author: markjbrown
+ms.author: mjbrown
+ms.date: 07/09/2019
+ms.openlocfilehash: 9649c53f9fc11795449afd78b12fda691239bb18
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331767"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797320"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -232,7 +232,7 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 
 ### <a name="command-line-syntax"></a>명령줄 구문
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
+    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
 옵션 목록을 보려면 명령 프롬프트에 `CosmosDB.Emulator.exe /?` 을(를) 입력합니다.
 
@@ -244,18 +244,19 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 | Shutdown| Azure Cosmos Emulator를 종료합니다.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스할 수 있는 경로 |
 |포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |CosmosDB.Emulator.exe /Port=\<port\> | \<포트\>: 단일 포트 번호 |
-| MongoPort | MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: 단일 포트 번호|
-| CassandraPort | Cassandra 엔드포인트에 사용할 포트 번호를 지정합니다. 기본값은 10350입니다. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: 단일 포트 번호 |
 | ComputePort | Compute Interop 게이트웨이 서비스에 사용하도록 지정된 포트 번호입니다. 게이트웨이의 HTTP 엔드포인트 프로브 포트는 ComputePort + 79로 계산됩니다. 따라서 ComputePort 및 ComputePort + 79가 열리고 사용할 수 있어야 합니다. 기본값은 8900, 8979입니다. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: 단일 포트 번호 |
+| EnableMongoDbEndpoint | MongoDB API 사용 | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
+| MongoPort | MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: 단일 포트 번호|
 | EnableCassandraEndpoint | Cassandra API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | Cassandra 엔드포인트에 사용할 포트 번호를 지정합니다. 기본값은 10350입니다. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: 단일 포트 번호 |
 | EnableGremlinEndpoint | Gremlin API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Gremlin 엔드포인트에 사용할 포트 번호입니다. 기본값은 8901입니다. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<포트\>: 단일 포트 번호 |
+|EnableTableEndpoint | Azure Table API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Azure 테이블 엔드포인트에 사용할 포트 번호입니다. 기본값은 8902입니다. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<포트\>: 단일 포트 번호|
 | KeyFile | 지정된 파일에서 권한 부여 키를 읽어옵니다. keyfile을 생성하려면 /GenKeyFile 옵션을 사용합니다. | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: 파일의 경로 |
 | ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: 파일 경로  |
 | StartTraces  |  디버그 추적 로그 수집을 시작합니다. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | 디버그 추적 로그 수집을 중지합니다. | CosmosDB.Emulator.exe /StopTraces  | |
-|EnableTableEndpoint | Azure Table API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | 기본적으로 에뮬레이터는 인증서의 SAN에 에뮬레이터 호스트의 도메인 이름, 로컬 IPv4 주소, 'localhost' 및 '127.0.0.1'이 포함되어 있지 않으면 자체 서명된 SSL 인증서를 다시 생성합니다. 이 옵션을 사용하면 시작할 때 에뮬레이터가 실패합니다. 그러면 /GenCert 옵션을 사용하여 자체 서명된 SSL 인증서를 새로 만들고 설치해야 합니다. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | 자체 서명된 SSL 인증서를 새로 생성하고 설치합니다. 선택적으로 네트워크를 통해 에뮬레이터에 액세스하기 위해 쉼표로 구분된 추가 DNS 이름 목록을 포함합니다. | CosmosDB.Emulator.exe /GenCert[ \<comma-separated list of additional dns-names\>] | |
 | DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개 포트 목록 |
@@ -276,11 +277,11 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 
 기본적으로 고정 크기 컨테이너를 25개까지 만들거나(Azure Cosmos DB SDK를 통해서만 지원됨) Azure Cosmos Emulator를 사용하여 무제한 컨테이너 5개를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 고정 크기 컨테이너나 50개의 무제한 컨테이너를 만들거나 250개의 고정 크기 컨테이너를 초과하지 않는 범위에서 두 가지 조합을 만들 수 있습니다(무제한 컨테이너 1개 = 고정 크기 컨테이너 5개). 단, 200개를 초과하는 고정 크기 컨테이너로 실행되도록 에뮬레이터를 설정하는 것은 권장하지 않습니다. 디스크 IO 작업에 추가되는 오버헤드로 인해, 엔드포인트 API를 사용할 때 예기치 않은 시간 초과가 발생합니다.
 
-
 현재 파티션 수가 초과된 후에 컨테이너를 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
 "Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. (죄송합니다. 현재 이 지역에서 많은 수요가 발생하고 있으며 지금은 귀하의 요청을 수행할 수 없습니다.) We work continuously to bring more and more capacity online, and encourage you to try again. (당사는 온라인 용량을 늘리기 위해 지속적으로 노력하고 있습니다. 다시 시도해 주십시오.)
-Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. (언제든, 어떤 이유로든 이메일을 보내주십시오.) ActivityId: 12345678-1234-1234-1234-123456789abc"
+Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. (언제든, 어떤 이유로든 이메일을 보내주십시오.)
+ActivityId: 12345678-1234-1234-1234-123456789abc"
 
 Azure Cosmos Emulator에서 사용 가능한 컨테이너 수를 변경하려면 다음 단계를 수행합니다.
 

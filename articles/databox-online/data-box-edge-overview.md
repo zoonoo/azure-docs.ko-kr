@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484749"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701470"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge란? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge는 네트워크 데이터 전송 기능이 포함된 AI 지�
     - 클라우드에서 심층 분석에 필요한 데이터의 하위 집합을 만들어 전송
     - IoT 이벤트 분석 및 대응 
 
-- **유추 Azure Machine Learning** - Data Box Edge를 사용하면 ML(Machine Learning) 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 전체 데이터 집합이 전송될 수 있습니다. Databox Edge 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Databox Edge에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
+- **유추 Azure Machine Learning** - Data Box Edge를 사용하면 ML(Machine Learning) 모델을 실행하여 결과를 빠르게 생성한 다음 클라우드로 데이터를 전송하기 전에 해당 결과와 관련한 조치를 취할 수 있습니다. ML 모델을 계속 다시 학습시키고 개선할 수 있도록 전체 데이터 집합이 전송될 수 있습니다. Data Box Edge 디바이스에서 Azure ML 하드웨어 가속 모델을 사용하는 방법에 대한 자세한 내용은 [Data Box Edge에서 Azure ML 하드웨어 가속 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)를 참조하세요.
 
 - **네트워크를 통해 Azure로 데이터 전송** - Data Box Edge를 사용하면 Azure로 데이터를 쉽고 빠르게 전송하여 추가 계산 및 분석을 수행하거나 데이터를 보관할 수 있습니다. 
 
@@ -88,16 +88,9 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 디�
 
 데이터를 전송하는 Data Box Edge 물리적 디바이스, Azure 리소스 및 대상 저장소 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
-- **리소스 가용성** - 이 릴리스의 경우 다음 지역에서 Data Box Edge 리소스를 사용할 수 있습니다.
-    - **미국** - 미국 동부
-    - **유럽 연합** - 유럽 서부
-    - **아시아 태평양** - 동남 아시아
+- **리소스 가용성** - Data Box Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동합니다. Data Box Edge는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
     
-    Data Box Edge는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
-    
-- **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다. 
-
-    성능을 최적화하려면 저장소 계정이 Data Box 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
+- **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Data Box Edge 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

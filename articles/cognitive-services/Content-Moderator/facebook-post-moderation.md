@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233824"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603509"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -48,11 +48,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="configure-image-moderation-workflow"></a>이미지 중재 워크플로 구성
 
-[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 참조하여 사용자 지정 이미지 워크플로를 만드세요. 이렇게 하면 Content Moderator에서 Facebook의 이미지를 자동으로 확인하고 일부를 검토 도구로 보낼 수 있습니다. 워크플로 **이름**을 기록해 둡니다.
+[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 참조하여 사용자 지정 이미지 워크플로를 만드세요. Content Moderator는 이 워크플로를 사용하여 Facebook의 이미지를 자동으로 확인하고 일부를 검토 도구로 보냅니다. 워크플로 **이름**을 기록해 둡니다.
 
 ## <a name="configure-text-moderation-workflow"></a>텍스트 중재 워크플로 구성
 
-[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 다시 참조하세요. 이번에는 사용자 지정 텍스트 워크플로를 만듭니다. 이 경우 Content Moderator에서 텍스트 콘텐츠를 자동으로 확인할 수 있습니다. 워크플로 **이름**을 기록해 둡니다.
+[워크플로 정의, 테스트 및 사용](review-tool-user-guide/workflows.md) 가이드를 다시 참조하세요. 이번에는 사용자 지정 텍스트 워크플로를 만듭니다. Content Moderator는 이 워크플로를 사용하여 텍스트 콘텐츠를 자동으로 확인합니다. 워크플로 **이름**을 기록해 둡니다.
 
 ![텍스트 워크플로 구성](images/text-workflow-configure.PNG)
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 따릅니다.
 
-1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure Function App을 만듭니다.
+1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
 1. 새로 만든 함수 앱으로 이동합니다.
 1. App 내에서 **플랫폼 기능** 탭으로 이동한 후 **구성**을 선택합니다. 다음 페이지의 **애플리케이션 설정** 섹션에서 **새 애플리케이션 설정**을 선택하여 다음 키/값 쌍을 추가합니다.
     
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
     | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |
     | fb:VerificationToken | Facebook 피드 이벤트 구독에 사용되는 사용자가 만든 비밀 토큰 |
-    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 가져옵니다. |
+    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 이 토큰을 가져옵니다. |
 
     페이지 위쪽에 있는 **저장** 단추를 클릭합니다.
 

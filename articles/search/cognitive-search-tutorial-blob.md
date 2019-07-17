@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485773"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669098"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -488,4 +488,4 @@ Content-Type: application/json
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예제: Cognitive Search에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

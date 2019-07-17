@@ -4,21 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399215"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707195"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>빠른 시작: Azure Dev Spaces(Visual Studio)를 사용하여 Kubernetes에서 .NET Core로 개발
 
@@ -96,7 +95,7 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 위의 예제에서 공용 URL은 http://webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 
-이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*][ingress-update]에서 수신 값을 업데이트할 수 있습니다.
+이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*에서 수신 값][ingress-update]을 업데이트할 수 있습니다.
 
 ## <a name="update-code"></a>코드 업데이트
 

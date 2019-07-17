@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb01269d21d3b036dfff84faef1903dc082dc6f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e31f30373349d4048f9021ab8eee7f39dcf5cd57
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445032"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705518"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js를 사용하는 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 지원되는 언어의 목록을 반환하는 GET 요청을 만드는 방법을 알아봅니다.
+
+>[!TIP]
+> 모든 코드를 한꺼번에 볼 수 있도록 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)에 이 샘플의 소스 코드가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,7 +67,7 @@ let options = {
 };
 ```
 
-Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>요청 만들기 및 응답 출력
 
@@ -185,8 +188,10 @@ node get-languages.js
 
 ## <a name="next-steps"></a>다음 단계
 
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+
 > [!div class="nextstepaction"]
-> [GitHub에서 Node.js 예제 살펴보기](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

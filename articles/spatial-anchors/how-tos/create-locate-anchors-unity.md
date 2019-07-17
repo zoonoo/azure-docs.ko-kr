@@ -1,21 +1,21 @@
 ---
-title: 만들기 및 Azure 공간 앵커를 사용 하 여 Unity에서 앵커를 찾는 방법 | Microsoft Docs
-description: 만들기 및 찾는 방법의 자세한 설명은 Azure 공간 앵커를 사용 하 여 Unity에 고정 합니다.
+title: Unity에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법 | Microsoft Docs
+description: Unity에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5dc86aff7324b79f2c1b7a14b349337fc26a1901
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 5a66746aa20e8397a4383b19cb0896faac8946d8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244308"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671987"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>만들기 및 Azure 공간 앵커를 사용 하 여 Unity에서 앵커를 찾는 방법
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Unity에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,16 +25,16 @@ ms.locfileid: "66244308"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 가지 다양한 개발 환경을 지원합니다. 이 문서에서는 Azure 공간 앵커 SDK Unity 사용 하는 방법에 자세히 알아봅니다.
+Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 가지 다양한 개발 환경을 지원합니다. 이 문서에서는 다음을 수행하기 위해 Unity에서 Azure Spatial Anchors SDK를 사용하는 방법을 자세히 알아보겠습니다.
 
-- 올바르게 설정 하 고 Azure 공간 앵커 세션을 관리 합니다.
-- 페이지를 만들고 로컬 앵커에 속성을 설정 합니다.
-- 클라우드로 업로드 합니다.
-- 찾아서 클라우드 공간 앵커를 삭제 합니다.
+- Azure Spatial Anchors 세션을 올바르게 설정하고 관리합니다.
+- 로컬 앵커에 속성을 만들고 설정합니다.
+- 클라우드에 업로드합니다.
+- 클라우드 공간 앵커를 찾아 삭제합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 가이드를 완료 하려면 했는지 확인 합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
@@ -43,7 +43,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-에 대 한 자세한 정보는 [CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) 클래스입니다.
+[CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) 클래스에 대해 자세히 알아봅니다.
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -53,7 +53,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-에 대 한 자세한 정보는 [SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) 클래스입니다.
+[SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) 클래스에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -67,7 +67,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-에 대 한 자세한 정보는 [TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) 위임 합니다.
+[TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -117,7 +117,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-에 대 한 자세한 정보는 [시작](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) 메서드.
+[Start](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
 #if UNITY_IOS
@@ -137,7 +137,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-에 대 한 자세한 정보는 [ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) 메서드.
+[ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
 #if UNITY_ANDROID
@@ -161,7 +161,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-에 대 한 자세한 정보는 [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) 위임 합니다.
+[SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
@@ -175,7 +175,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-에 대 한 자세한 정보는 [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) 클래스입니다.
+[CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) 클래스에 대해 자세히 알아봅니다.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -225,7 +225,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-에 대 한 자세한 정보는 [GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) 메서드.
+[GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
@@ -235,7 +235,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-에 대 한 자세한 정보는 [AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) 속성입니다.
+[AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) 속성에 대해 자세히 알아봅니다.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -246,7 +246,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-에 대 한 자세한 정보는 [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) 메서드.
+[UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -256,7 +256,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-에 대 한 자세한 정보는 [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) 메서드.
+[GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -269,7 +269,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-에 대 한 자세한 정보는 [만료](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) 속성입니다.
+[Expiration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) 속성에 대해 자세히 알아봅니다.
 
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
@@ -277,7 +277,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-에 대 한 자세한 정보는 [CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) 메서드.
+[CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -287,7 +287,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-에 대 한 자세한 정보는 [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) 위임 합니다.
+[AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -316,7 +316,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-에 대 한 자세한 정보는 [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) 메서드.
+[DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
@@ -325,7 +325,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-에 대 한 자세한 정보는 [중지](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) 메서드.
+[Stop](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.Stop();
@@ -333,7 +333,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-에 대 한 자세한 정보는 [재설정](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) 메서드.
+[Reset](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.Reset();
@@ -341,7 +341,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
 
-에 대 한 자세한 정보는 [Dispose](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) 메서드.
+[Dispose](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) 메서드에 대해 자세히 알아봅니다.
 
 ```csharp
     this.cloudSession.Dispose();

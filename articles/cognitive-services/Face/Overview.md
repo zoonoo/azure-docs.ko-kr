@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905679"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606904"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
@@ -59,11 +59,11 @@ Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹�
 
 Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는 데 사용됩니다. 이 기능은 사진 관리 소프트웨어에서 이미지 태그를 자동으로 지정하는 데 유용할 수 있습니다. 데이터베이스는 미리 만들고 시간이 지남에 따라 편집할 수 있습니다.
 
-다음 이미지에서는 "myfriends"라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
+다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
 
 ![서로 다른 사람에 대한 3개의 열 및 각 열에 3개의 얼굴 이미지 행이 있는 그리드](./Images/person.group.clare.jpg)
 
-데이터베이스가 만들어지고 학습되면 새로 감지된 얼굴이 있는 그룹에 대해 식별을 수행할 수 있습니다. 얼굴이 그룹의 사람으로 식별되면 해당 사람 개체가 반환됩니다.
+데이터베이스를 만들고 학습한 후에 새로 감지된 얼굴이 있는 그룹에 대해 식별을 수행할 수 있습니다. 얼굴이 그룹의 사람으로 식별되면 해당 사람 개체가 반환됩니다.
 
 사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
 

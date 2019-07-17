@@ -1,26 +1,27 @@
 ---
-title: '빠른 시작: 몰입형 판독기를 시작하는 웹앱 만들기(C#)'
+title: '빠른 시작: C#을 사용하여 몰입형 리더를 시작하는 웹앱 만들기'
 titlesuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 판독기 기능을 추가합니다.
+description: 이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 리더 API 기능을 추가합니다.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311800"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718424"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>빠른 시작: 몰입형 판독기를 시작하는 웹앱 만들기(C#)
 
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
-이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 판독기 SDK를 사용하여 몰입형 판독기를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp)에서 확인할 수 있습니다.
+이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 판독기 SDK를 사용하여 몰입형 판독기를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp)에서 확인할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

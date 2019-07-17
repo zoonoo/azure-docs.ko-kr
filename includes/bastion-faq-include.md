@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191142"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608272"
 ---
 ### <a name="preview"></a>공개 미리 보기에 참여하려면 어떻게 할까요?
 
@@ -55,4 +55,8 @@ Azure Portal에서 Azure 가상 머신에 RDP/SSH로 액세스할 때 RDP 또는
 
 ### <a name="previewbill"></a>가격 책정 - 이 미리 보기에 참여하면 요금이 청구되나요?
 
-공개 미리 보기 기간에 부분적으로만 요금이 청구됩니다. 단, 배포를 사용하는 연결된 SLA는 없습니다. 자세한 내용은 [가격 책정 페이지](https://aka.ms/BastionHostPricing)를 참조하세요.
+공개 미리 보기 기간에 부분적으로만 요금이 청구됩니다. 단, 배포에 연결된 SLA는 없습니다. 자세한 내용은 [가격 책정 페이지](https://aka.ms/BastionHostPricing)를 참조하세요.
+
+### <a name="previewbill"></a>왜 Bastion 세션이 시작하기 전에 "세션이 만료되었습니다." 오류 메시지를 받나요?
+
+세션은 Azure Portal에서만 시작되어야 합니다. Azure Portal에 로그인하고 세션을 다시 시작합니다. 다른 브라우저 세션이나 탭에서 URL로 직접 이동하는 경우 이 오류가 예상됩니다. 세션이 더 안전한지 Azure Portal을 통해서만 세션에 액세스할 수 있는지 확인하도록 돕습니다.

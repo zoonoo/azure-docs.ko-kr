@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB 가져오기 처리량 (RU/s) Table API에 대 한
-description: Azure PowerShell 스크립트-Azure Cosmos DB 가져오기 처리량 (RU/s) Table API에 대 한
+title: Azure PowerShell 스크립트 - Table API용 Azure Cosmos DB 처리량 가져오기(RU/s)
+description: Azure PowerShell 스크립트 - Table API용 Azure Cosmos DB 처리량 가져오기(RU/s)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 41bc70bc391214ce831f600bc4fbdc7fad944094
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: d34a9e679ee6c1b65111817197a98555be13cf1d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566779"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601953"
 ---
-# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB Table API에 대 한 테이블에 대 한 처리량 (RU/s) 가져오기
+# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Azure Cosmos DB - Table API용 테이블에 대한 처리량 가져오기(RU/s)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 351b0ffbd6941a6211ab12aeb45313b4d672817b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 231f2f42c1c23019d86c049aa9e5bc00f94cdd91
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245205"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566271"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 
@@ -21,6 +21,7 @@ ms.locfileid: "66245205"
 |---|---|
 |[계정, 데이터베이스 및 컬렉션 만들기](scripts/powershell/mongodb/ps-mongodb-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 |[데이터베이스 또는 컬렉션 나열 또는 가져오기](scripts/powershell/mongodb/ps-mongodb-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션을 나열하거나 가져옵니다. |
+|[RU/s 가져오기](scripts/powershell/mongodb/ps-mongodb-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션에 대한 RU/s를 가져옵니다. |
 |[RU/s 업데이트](scripts/powershell/mongodb/ps-mongodb-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션에 대한 RU/s를 업데이트합니다. |
 |[지역 추가](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정을 가져오고 위치 목록에 하위 지역을 추가합니다. |
 |[장애 조치(failover) 우선 순위 변경](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 수동 장애 조치(failover) 트리거를 사용하여 Azure Cosmos 계정의 장애 조치(failover) 우선 순위를 변경합니다. |

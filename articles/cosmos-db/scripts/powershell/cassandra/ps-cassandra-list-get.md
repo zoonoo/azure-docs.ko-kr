@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 Cassandra API에 대 한 작업을 가져옵니다.
-description: Azure PowerShell 스크립트-Azure Cosmos DB 목록 및 Cassandra API에 대 한 작업을 가져옵니다.
+title: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 작업 나열 및 가져오기
+description: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 작업 나열 및 가져오기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e275f0e1ca90a1d9385784bebcef9c70ffe6cdcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247261"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604007"
 ---
-# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>목록 및 보내주세요를 가져오고 Azure Cosmos DB Cassandra API에 대 한 테이블
+# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스, 테이블 나열 및 가져오기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

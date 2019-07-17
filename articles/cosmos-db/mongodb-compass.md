@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451674"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665926"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>Compass를 사용하여 Cosmos DB 계정에 연결합니다.
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결 
 
 이 자습서에서는 Cosmos DB에서 데이터를 저장 및/또는 관리할 때 [MongoDB Compass](https://www.mongodb.com/products/compass)를 사용하는 방법을 보여 줍니다. 이 연습에서는 MongoDB용 Azure Cosmos DB API를 사용합니다. 사용 방법을 잘 모르는 사용자에게 Compass는 MongoDB용 GUI입니다. 일반적으로 데이터 관리와 함께 데이터를 시각화하고 임시 쿼리를 실행하는 데 사용됩니다. 
 

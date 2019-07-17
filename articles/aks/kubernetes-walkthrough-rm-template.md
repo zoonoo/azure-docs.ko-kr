@@ -2,18 +2,18 @@
 title: 빠른 시작 - AKS(Azure Kubernetes Service) 클러스터 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 신속하고 만들고 AKS(Azure Kubernetes Service)에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 524eb97a2c865a14800cf503edd7f506151521bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920202"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615378"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -35,7 +35,7 @@ Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 
 
 ### <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-AKS 노드에 액세스하려면, SSH 키 쌍을 사용하여 연결합니다. `ssh-keygen` 명령을 사용하여 SSH 공용 및 개인 키 파일을 생성합니다. 기본적으로 이러한 파일은 *~/.ssh* 디렉터리에 만들어집니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
+AKS 노드에 액세스하려면, SSH 키 쌍을 사용하여 연결합니다. `ssh-keygen` 명령을 사용하여 SSH 공용 및 프라이빗 키 파일을 생성합니다. 기본적으로 이러한 파일은 *~/.ssh* 디렉터리에 만들어집니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
 
 다음 명령은 RSA 암호화 및 2048 비트 길이를 사용하여 SSH 키 쌍을 만듭니다.
 
@@ -47,7 +47,7 @@ SSH 생성에 대한 자세한 내용은 [Azure에서 인증용 SSH 키 생성 �
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 주체를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 명령을 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다. 기본적으로 이 서비스 주체는 1년 동안 유효합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -127,7 +127,7 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트에는 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함됩니다. 또한 - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service]가 만들어집니다(Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스).
 
 > [!TIP]
 > 이 빠른 시작에서는 애플리케이션 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다. 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다.
@@ -238,7 +238,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: eddad0efae0a6de691cc55020c0e01742960cb18
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9408e1b30dc183784f427c61138a0a46e49bc36a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444889"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704371"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문장 길이 확인
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 문장 길이(문자 수)를 확인하는 방법을 알아봅니다.
 
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+
+>[!TIP]
+> 모든 코드를 한꺼번에 볼 수 있도록 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)에 이 샘플의 소스 코드가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -95,7 +98,7 @@ headers = {
 }
 ```
 
-Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-determine-sentence-length"></a>문장 길이를 확인하는 요청 만들기
 
@@ -154,8 +157,10 @@ python sentence-length.py
 
 ## <a name="next-steps"></a>다음 단계
 
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+
 > [!div class="nextstepaction"]
-> [GitHub에서 Python 예제 살펴보기](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

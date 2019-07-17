@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB 가져오기 처리량 (RU/s) Cassandra API에 대 한
-description: Azure PowerShell 스크립트-Azure Cosmos DB 가져오기 처리량 (RU/s) Cassandra API에 대 한
+title: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 처리량 가져오기(RU/s)
+description: Azure PowerShell 스크립트 - Cassandra API용 Azure Cosmos DB 처리량 가져오기(RU/s)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: a4871f56aa3d479342ca1bd25e521d2760451d98
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 4aed55a0c3ae969cf9148e5bf8d6a70a3151f695
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566935"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603980"
 ---
-# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB Cassandra API에 대 한 키 스페이스 또는 테이블에 대 한 처리량 (RU/s) 가져오기
+# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 처리량 가져오기(RU/s)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB Cassandra API keyspace 및 테이블 만들기
-description: Azure PowerShell 스크립트-Azure Cosmos DB Cassandra API keyspace 및 테이블 만들기
+title: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API 키스페이스 및 테이블 만들기
+description: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API 키스페이스 및 테이블 만들기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: ab654699fb040b5e3f966b3514f97436c27ca6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 1427640519936bab907c7159b4e88e723bac57fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247021"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602572"
 ---
-# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB Cassandra API에 대 한 키 스페이스 및 테이블 만들기
+# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 및 테이블 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

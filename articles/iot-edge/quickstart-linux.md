@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 IoT Edge 디바이스를 만든 다음, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537559"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798648"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -55,11 +55,11 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
 IoT Edge 장치:
 
-* IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용해야 합니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 구성 요소가 미리 설치되어 있습니다. 다음 명령을 사용하여 이 가상 머신을 만듭니다.
+* IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용해야 합니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 구성 요소가 미리 설치되어 있습니다. 사용 약관에 동의하고 다음 명령을 사용하여 이 가상 머신을 만듭니다.
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
    새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다.

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448222"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657937"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -62,7 +62,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 1. Visual Studio를 엽니다. 그런 다음, **파일 > 새로 만들기 > 프로젝트**를 차례로 선택합니다.
 2. 왼쪽 패널에서 **Visual C#** 을 찾아서 선택합니다. 그런 다음, 가운데 패널에서 **WPF 앱(.NET Framework)** 을 선택합니다.
    ![Visual Studio에서 WPF 앱 만들기](media/create-wpf-project-visual-studio.png)
-3. 프로젝트의 이름을 지정하고, 프레임워크 버전을 **.NET Framework 4.5.2 이상**으로 설정한 다음, **확인**을 클릭합니다.
+3. 프로젝트 `MSTranslatorTextDemo`의 이름을 지정하고, 프레임워크 버전을 **.NET Framework 4.5.2 이상**으로 설정한 다음, **확인**을 클릭합니다.
 4. 프로젝트가 만들어졌습니다. 두 개의 탭, `MainWindow.xaml` 및 `MainWindow.xaml.cs`가 열려 있습니다. 이 자습서에서는 이 두 파일에 코드를 추가합니다. 첫 번째 탭은 앱의 사용자 인터페이스에 대한 것이며, 두 번째 탭은 Translator Text 및 Bing Spell Check 호출에 대한 것입니다.
    ![환경 검토](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {

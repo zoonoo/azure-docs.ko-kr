@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos 계정의 장애 조치 우선 순위 변경
-description: Azure PowerShell 스크립트 샘플-Azure Cosmos 계정의 장애 조치 우선 순위 변경
+title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 장애 조치 우선 순위 변경
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 장애 조치(failover) 우선 순위 변경
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 785ca8941c24014fd00d8135b66cefccd99d2951
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
-ms.translationtype: MT
+ms.openlocfilehash: 0aea4e8e01b5f65be0d0ca4bb08082e058cba311
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561211"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603971"
 ---
-# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos 계정의 장애 조치 우선 순위를 변경 합니다.
+# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 장애 조치 우선 순위 변경
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure 리소스**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 리소스에 대 한 작업을 호출합니다. |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 리소스에서 작업을 호출합니다. |
 |**Azure 리소스 그룹**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||

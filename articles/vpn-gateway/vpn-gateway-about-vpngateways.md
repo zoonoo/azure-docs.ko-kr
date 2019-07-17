@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480042"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798988"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -51,7 +51,7 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 
 ## <a name="gwsku"></a>게이트웨이 SKU
 
-가상 네트워크 게이트웨이를 만들 때는 사용하려는 게이트웨이 SKU를 지정합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 지원되는 기능, 프로덕션 및 개발-테스트, 구성 단계를 포함한 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+가상 네트워크 게이트웨이를 만들 때는 사용하려는 게이트웨이 SKU를 지정합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 지원되는 기능, 프로덕션 및 개발-테스트, 구성 단계를 포함한 게이트웨이 SKU에 대한 자세한 내용은 [VPN Gateway 설정 - 게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 문서를 참조하세요. 레거시 SKU 정보는 [레거시 SKU를 사용하여 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요.
 
 ### <a name="benchmark"></a>터널, 연결 및 처리량별 게이트웨이 SKU
 

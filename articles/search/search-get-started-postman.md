@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b3c5c08e9862d59481573b501045466d6d691a77
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ee3c4da96629910801413cbbad69963defb87dfe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485556"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798789"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Postman에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ [Postman 데스크톱 앱](https://www.getpostman.com/) 또는 [Telerik Fiddler](https://www.telerik.com/fiddler)는 요청을 Azure Search에 보내는 데 사용됩니다.
++ [Postman 데스크톱 앱](https://www.getpostman.com/)은 요청을 Azure Search에 보내는 데 사용됩니다.
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
@@ -240,7 +240,11 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 ## <a name="clean-up"></a>정리
 
-검색 서비스가 더 이상 필요하지 않은 경우 가장 빠른 서비스 릴리스 방법은 Azure Search 서비스를 포함하는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 영구적으로 삭제하면 해당 그룹의 모든 항목(서비스 및 저장된 모든 콘텐츠 포함)이 삭제됩니다. 포털에서 리소스 그룹 이름은 각 서비스의 개요 페이지에 있습니다.
+본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기에서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 **모든 리소스** 또는 **리소스 그룹** 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
+
+무료 서비스를 사용하는 경우 3개의 인덱스, 인덱서 및 데이터 소스로 제한됩니다. 포털에서 개별 항목을 삭제하여 제한 이하로 유지할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

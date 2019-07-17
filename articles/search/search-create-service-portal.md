@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485631"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706807"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
-Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어를 통해 단독으로 실행할 수도 있습니다.
+Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만, 단독 실행형 구성 요소로 사용하거나 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 통합할 수 있습니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다.
 
@@ -73,10 +73,10 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
 다른 Azure 서비스(Azure Storage, Azure Cosmos DB, Azure SQL Database)에서 제공하는 데이터를 인덱싱하는 경우 대역폭 요금이 발생하지 않도록 Azure Search 서비스를 동일한 지역에 만드는 것이 좋습니다. 서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 없습니다.
 
-Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. 서비스의 공동 위치는 AI 강화를 위한 요구 사항입니다.
+Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
 
 > [!Note]
-> 인도 중부에서는 현재 새로운 서비스를 사용할 수 없습니다. 인도 중부에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 이 지역에 대한 제한은 일시적이며 더 이상 적용되지 않으면 이 참고 사항이 삭제됩니다.
+> 인도 중부에서는 현재 새로운 서비스를 사용할 수 없습니다. 인도 중부에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 이 지역에 대한 제한은 일시적이며 새로운 서비스로만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
 
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 
@@ -88,27 +88,29 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 
 ## <a name="create-your-service"></a>서비스 만들기
 
-로그인할 때마다 손쉽게 액세스할 수 있도록 서비스를 대시보드에 고정합니다.
+서비스를 만드는 데 필요한 입력을 입력합니다. 
 
-![대시보드에 고정](./media/search-create-service-portal/new-service3.png "편리한 액세스를 위해 리소스를 대시보드에 고정")
+![서비스 검토 및 만들기](./media/search-create-service-portal/new-service3.png "서비스 검토 및 만들기")
+
+서비스가 몇 분 이내에 배포되며, 이를 통해 Azure 알림을 통해 모니터링할 수 있습니다. 향후 쉽게 액세스할 수 있도록 서비스를 대시보드에 고정하는 것을 고려하세요.
+
+![서비스 모니터링 및 고정](./media/search-create-service-portal/monitor-notifications.png "서비스 모니터링 및 고정")
 
 ## <a name="get-a-key-and-url-endpoint"></a>키 및 URL 엔드포인트 가져오기
 
-거의 예외 없이, 새 서비스를 사용하려면 URL 엔드포인트와 권한 부여 api-key 키를 제공해야 합니다. 빠른 시작, [Azure Search REST API 살펴보기(Postman)](search-get-started-postman.md) 및 [.NET에서 Azure Search 사용 방법](search-howto-dotnet-sdk.md)과 같은 자습서, 샘플 및 사용자 지정 코드 모두에서 특정 리소스에서 실행할 엔드포인트와 키가 필요합니다.
+포털을 사용하지 않는 경우 새 서비스에 액세스하려면 URL 엔드포인트와 인증 api-key 키를 제공해야 합니다.
 
 1. 서비스 개요 페이지의 오른쪽에서 URL 엔드포인트를 찾아 복사합니다.
 
-   ![URL 엔드포인트가 있는 서비스 개요 페이지](./media/search-create-service-portal/url-endpoint.png "URL 엔드포인트 및 기타 서비스 정보")
-
 2. 왼쪽 탐색 창에서 **키**를 선택한 다음, 관리 키 중 하나(둘 다 동일)를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다.
 
-   ![기본 및 보조 키가 표시된 키 페이지](./media/search-create-service-portal/admin-api-keys.png "권한 부여를 위한 관리 api-keys")
+   ![URL 엔드포인트가 있는 서비스 개요 페이지](./media/search-create-service-portal/get-url-key.png "URL 엔드포인트 및 기타 서비스 정보")
 
-엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Search 리소스에 이미 연결되어 있습니다. 포털 자습서는 [자습서: Azure Search에서 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)로 시작합니다.
+엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Search 리소스에 이미 연결되어 있습니다. 포털 연습의 경우 [빠른 시작: 포털에서 Azure Search 인덱스 만들기](search-get-started-portal.md)로 시작하세요.
 
 ## <a name="scale-your-service"></a>서비스 확장
 
-서비스를 만드는 데 몇 분 정도 걸릴 수 있습니다(15분 이상 계층에 따라). 서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Search 서비스에 대한 표준 계층을 선택했기 때문에 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
+서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Search 서비스에 대한 표준 계층을 선택한 경우 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
 
 ***파티션***을 사용하면 서비스를 저장하고 더 많은 문서를 통해 검색할 수 있습니다.
 
@@ -126,7 +128,7 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 ![용량 추가](./media/search-create-service-portal/settings-scale.png "복제본과 파티션을 통해 용량 추가")
 
 > [!Note]
-> 각 계층에는 단일 서비스에서 허용하는 총 검색 단위 수(복제본 * 파티션 = 총 검색 단위)에 여러 [제한](search-limits-quotas-capacity.md)이 있습니다.
+> 파티션별 스토리지 및 속도는 더 높은 계층에서 증가합니다. 자세한 내용은 [할당량 및 제한 사항](search-limits-quotas-capacity.md)을 참조하세요.
 
 ## <a name="when-to-add-a-second-service"></a>두 번째 서비스를 추가하는 경우
 
@@ -148,4 +150,4 @@ Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Service
 Azure Search 서비스를 프로비전하면 포털에서 첫 번째 인덱스를 계속 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 포털에서 데이터 가져오기, 인덱싱 및 쿼리 실행](search-get-started-portal.md)
+> [빠른 시작: 포털에서 Azure Search 인덱스 만들기](search-get-started-portal.md)

@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB (코어) SQL API 데이터베이스 및 컨테이너 만들기
-description: Azure PowerShell 스크립트-Azure Cosmos DB (코어) SQL API 데이터베이스 및 컨테이너 만들기
+title: Azure PowerShell 스크립트 - Azure Cosmos DB SQL(Core) API 데이터베이스 및 컨테이너 만들기
+description: Azure PowerShell 스크립트 - Azure Cosmos DB SQL(Core) API 데이터베이스 및 컨테이너 만들기
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1b8680471f7626cc084eda004323b44c93e770d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b8b8b30f178ba068bc800103f16adde43cf5dcb1
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247381"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602212"
 ---
-# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB SQL API (코어)에 대 한 데이터베이스 및 컨테이너 만들기
+# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API에 대한 데이터베이스 및 컨테이너 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
-ms.openlocfilehash: a5cbd2036f92c27709d92d0cf415cc9837645fb8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 07/09/2019
+ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485615"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798764"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#으로 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
-+ 샘플 인덱스 및 문서가 이 항목에 제공되며, 빠른 시작을 위한 [Visual Studio 솔루션](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart)에도 제공됩니다.
++ 샘플 인덱스 및 문서가 이 항목에 제공되며, 빠른 시작을 위한 [Visual Studio 솔루션](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart)에도 제공됩니다.
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
@@ -550,13 +550,11 @@ Azure Search에서 문서는 인덱싱에 대한 입력인 동시에 쿼리의 �
 
 ## <a name="clean-up"></a>정리
 
-인덱스 작업이 완료되고 해당 인덱스를 삭제하려면 `SearchServiceClient`에서 `Indexes.Delete` 메서드를 호출합니다.
+본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+왼쪽 탐색 창의 **모든 리소스** 또는 **리소스 그룹** 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
-검색 서비스 작업을 완료했으면 리소스를 Azure Portal에서 삭제할 수 있습니다.
+무료 서비스를 사용하는 경우 인덱스, 인덱서, 데이터 원본 세 개로 제한됩니다. 포털에서 개별 항목을 삭제하여 제한 이하로 유지할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

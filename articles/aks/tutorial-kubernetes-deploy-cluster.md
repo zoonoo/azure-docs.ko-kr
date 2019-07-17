@@ -2,18 +2,18 @@
 title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 AKS 클러스터를 만들고 kubectl을 사용하여 Kubernetes 마스터 노드에 연결합니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 020b5935595506732c1c1425179741c45f8326d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 27ec77e15d1289742fa40320631684d37c9660a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304465"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614264"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -128,7 +128,7 @@ aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-그 다음 자습서를 계속 진행하여 클러스터에 응용 프로그램을 배포하는 방법을 알아보세요.
+그 다음 자습서를 계속 진행하여 클러스터에 애플리케이션을 배포하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 애플리케이션 배포][aks-tutorial-deploy-app]

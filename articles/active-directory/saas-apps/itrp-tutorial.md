@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099591"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
 
@@ -153,9 +153,9 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     1. **사용**을 선택합니다.
 
-    1. Azure Portal에서 복사한 **로그아웃 URL**을  **Remote logout URL**(원격 로그아웃 URL) 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그아웃 URL**을 **원격 로그아웃 URL** 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 **로그인 URL**을  **SAML SSO URL** 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그인 URL**을 **SAML SSO URL** 상자에 붙여넣습니다.
 
     1. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 상자에 붙여넣습니다.
 

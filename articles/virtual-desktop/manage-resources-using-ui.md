@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304519"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620449"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>자습서: 관리 도구 배포
 
@@ -57,8 +57,8 @@ Azure Resource Manager 템플릿을 배포한 후에는 관리 UI를 시작하�
 ### <a name="guidance-for-template-parameters"></a>템플릿 매개 변수에 대한 지침
 도구를 구성하는 매개 변수를 입력하는 방법은 다음과 같습니다.
 
-- RD broker URL:  <https://rdbroker.wvd.microsoft.com/>
-- 리소스 URL:  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- RD broker URL:  https:\//rdbroker.wvd.microsoft.com/
+- 리소스 URL:  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - MFA가 해제된 AAD 자격 증명을 사용하여 Azure에 로그인합니다. [Azure Resource Manager 템플릿을 실행하기 위해 필요한 것](#what-you-need-to-run-the-azure-resource-manager-template)을 참조하세요.
 - 관리 도구의 Azure Active Directory에 등록할 고유한 애플리케이션 이름(예: Apr3UX)을 사용합니다.
 

@@ -2,18 +2,18 @@
 title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: be4d3fd298a7c08aa640585beb741bad18a840ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305283"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614335"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
@@ -21,7 +21,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 > [!div class="checklist"]
 > * Kubernetes 매니페스트 파일 업데이트
-> * Kubernetes에서 응용 프로그램 실행
+> * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
 추가 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
@@ -72,7 +72,7 @@ containers:
 
 ## <a name="deploy-the-application"></a>애플리케이션 배포
 
-응용 프로그램을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
+애플리케이션을 배포하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다. 다음 예제처럼 샘플 매니페스트 파일을 지정합니다.
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -93,7 +93,7 @@ service "azure-vote-front" created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -126,7 +126,7 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 > * Kubernetes에서 응용 프로그램 실행
 > * 애플리케이션 테스트
 
-그 다음 자습서로 이동하여 Kubernetes 응용 프로그램 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
+그 다음 자습서로 이동하여 Kubernetes 애플리케이션 및 기본 Kubernetes 인프라 규모를 조정하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 애플리케이션 및 인프라 크기 조정][aks-tutorial-scale]

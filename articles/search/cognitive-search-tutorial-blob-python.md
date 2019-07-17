@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 7f8ac2b7973ddd21f16f2914b01618b2b005cd13
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b1166e0acdbc9371b1c7ca2361fc6ebb7479b6a7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485799"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672079"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -508,4 +508,4 @@ pprint(json.dumps(r.json(), indent=1))
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6722fa103b3d48a8ca8ff4b96c9d179a4f743608
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 18a00c2aebd05d2ed2da54e436d245c70bf25051
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996852"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604468"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 C#을 사용하여 인쇄된 텍스트 추출(OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>빠른 시작: Computer Vision REST API 및 C#을 사용하여 인쇄된 텍스트(OCR) 추출
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 기능을 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -247,10 +247,6 @@ namespace CSHttpClientSample
     ]
 }
 ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 Visual Studio 솔루션을 삭제합니다. 이렇게 하려면 파일 탐색기를 열고, Visual Studio 솔루션을 만든 폴더로 이동한 후, 폴더를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

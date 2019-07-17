@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d814a943bc8dc789abe84b33583714beb998c0ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688848"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607009"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -65,7 +65,7 @@ Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거�
 
 ## <a name="the-review-tool"></a>검토 도구
 
-Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 다양한 Content Moderator 리소스에 대해 간단한 프런트 엔드도 제공합니다.
+Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 다양한 Content Moderator 리소스에 대한 사용자 친화적인 프런트 엔드도 제공합니다.
 
 ![Content Moderator 사용자 검토 도구 홈 페이지](images/homepage.PNG)
 
