@@ -190,11 +190,11 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
         GO
         ```
 
-1. Azure AD의 그룹에 대한 관리되는 인스턴스 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 관리되는 인스턴스에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_ 이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
+1. Azure AD의 그룹에 대한 관리되는 인스턴스 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 관리되는 인스턴스에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
 
 1. SQL Server Management Studio에서 새 쿼리 창을 엽니다.
 
-    이 예에서는 Azure AD에 _mygroup_ 이라는 그룹이 있다고 가정합니다. 다음 명령을 실행합니다.
+    이 예에서는 Azure AD에 _mygroup_이라는 그룹이 있다고 가정합니다. 다음 명령을 실행합니다.
 
     ```sql
     USE master
@@ -249,7 +249,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. 그룹인 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만드는 것도 지원됩니다.
 
-    다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_ 에 대한 로그인을 만듭니다.
+     다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
 
     ```sql
     USE MyMITestDB
@@ -304,7 +304,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_ 에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
+    다음 예제에서는 사용자 bob@aadsqlmi.net 및 그룹 _mygroup_에 **MyMITestDB** 데이터베이스에 대한 `db_datareader` 권한을 제공합니다.
 
     ```sql
     USE MyMITestDB
@@ -403,7 +403,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     );
     ```
 
-1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2**에 사용자 _mygroup_ 을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_ 에 부여합니다.
+1. 새 쿼리 창에서 다음 명령을 실행하여 새 데이터베이스 **MyMITestDB2**에 사용자 _mygroup_을 만들고, 해당 데이터베이스에 대한 SELECT 권한을 _mygroup_에 부여합니다.
 
     ```sql
     USE MyMITestDB2
@@ -414,7 +414,7 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
     GO
     ```
 
-1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_ 의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
 
     ```sql
     USE MyMITestDB
