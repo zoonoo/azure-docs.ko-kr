@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66137921"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705832"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>CORS 구성
 
-이 단계는 인증 및 권한 부여와 관련이 없습니다. 그러나 나중에 브라우저에서 Angular.js 앱의 도메인 간 API 호출을 허용하기 위해 [프런트 엔드 브라우저 코드에서 백 엔드 API를 호출](#call-api-securely-from-browser-code)하는 데 필요합니다. Linux의 App Service에는 [대응되는 Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality)와 달리 기본 제공 CORS 기능이 없으므로 백 엔드 앱을 위해 수동으로 추가해야 합니다.
+이 단계는 인증 및 권한 부여와 관련이 없습니다. 그러나 나중에 브라우저에서 Angular.js 앱의 도메인 간 API 호출을 허용하기 위해 [프런트 엔드 브라우저 코드에서 백 엔드 API를 호출](#call-api-securely-from-browser-code)하는 데 필요합니다. Linux의 App Service는 이제 [해당 Windows 대응](../app-service-web-tutorial-rest-api.md#add-cors-functionality)과 같은 CORS 기능을 지원합니다.
 
 로컬 리포지토리에서 _Startup.cs_ 파일을 엽니다. `ConfigureServices(IServiceCollection services)` 메서드에서 다음 코드 줄을 추가합니다.
 
@@ -289,7 +289,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/add-api-access-front-end.png)
 
-**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
+**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택** 을 클릭합니다.
 
 **[ _&lt;AD\_application\_name>에 액세스_]** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 

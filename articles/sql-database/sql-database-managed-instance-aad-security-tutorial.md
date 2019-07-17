@@ -84,7 +84,7 @@ ms.locfileid: "58882058"
     GO
     ```
 
-    이 예제는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
+    다음 예제에서는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
 
     ```sql
     USE master
@@ -122,7 +122,7 @@ ms.locfileid: "58882058"
 - 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
-`sysadmin` 서버 역할에 로그인을 추가하려면:
+`sysadmin` 서버 역할에 로그인을 추가하려면
 
 1. 관리되는 인스턴스에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
