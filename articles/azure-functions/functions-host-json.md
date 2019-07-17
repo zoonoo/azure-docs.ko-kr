@@ -209,7 +209,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
-|console|해당 없음| [콘솔](#console) 로깅 설정입니다. |
+|console|해당 없음| [console](#console) 로깅 설정입니다. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 
 ## <a name="console"></a>console
