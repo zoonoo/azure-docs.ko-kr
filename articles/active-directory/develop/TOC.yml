@@ -81,8 +81,8 @@
       href: sample-v2-code.md
     - name: 개념
       items:
-        - name: 애플리케이션 형식
-          href: v2-app-types.md
+        - name: 인증 흐름 및 앱 시나리오
+          href: authentication-flows-app-scenarios.md
         - name: 애플리케이션 시나리오
           items:
             - name: 로그인 대상 그룹
@@ -227,6 +227,8 @@
                   href: msal-client-application-configuration.md
                 - name: 애플리케이션 초기화(.NET)
                   href: msal-net-initializing-client-applications.md
+                - name: 클라이언트 어설션(.NET)
+                  href: msal-net-client-assertions.md
                 - name: 애플리케이션 초기화(JS)
                   href: msal-js-initializing-client-applications.md
             - name: 오류 및 예외 처리
@@ -267,10 +269,12 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: 알려진 문제 - Safari
                       href: msal-js-known-issues-safari-browser.md
-        - name: 인증
+        - name: 인증 프로토콜
           items:
             - name: 인증 기본 사항
               href: authentication-scenarios.md
+            - name: 애플리케이션 형식 및 OAuth2.0
+              href: v2-app-types.md
             - name: OAuth 2.0 및 OpenID Connect 프로토콜
               href: active-directory-v2-protocols.md
             - name: OpenID Connect

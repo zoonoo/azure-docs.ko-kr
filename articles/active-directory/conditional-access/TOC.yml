@@ -68,6 +68,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration.md
+    - name: 문제 해결
+      items:
+        - name: What If 도구를 사용하여 문제 해결
+          href: troubleshoot-conditional-access-what-if.md
 - name: 참고 자료
   items:
     - name: 기술 참조

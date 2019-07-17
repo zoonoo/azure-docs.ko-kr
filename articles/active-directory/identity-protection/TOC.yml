@@ -17,6 +17,8 @@
       href: notifications.md
     - name: 로그인 환경이란?
       href: flows.md
+    - name: ID 보호 및 B2B 사용자
+      href: concept-identity-protection-b2b.md
 - name: 방법 가이드
   expanded: true
   items:

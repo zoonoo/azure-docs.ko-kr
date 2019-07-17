@@ -94,10 +94,12 @@
           href: stream-analytics-clean-up-your-job.md
         - name: 안정성을 위해 작업 페어링
           href: stream-analytics-job-reliability.md
-        - name: 관리 ID를 사용하여 인증
+        - name: 관리 ID로 인증 - ADLS Gen 1 출력
           href: stream-analytics-managed-identities-adls.md
         - name: SQL 참조 데이터 사용
           href: sql-reference-data.md
+        - name: 관리 ID로 인증 - Blob 출력
+          href: blob-output-managed-identity.md
     - name: 솔루션 빌드
       items:
         - name: Twitter 감정 분석
