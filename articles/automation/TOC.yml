@@ -292,6 +292,8 @@
       displayName: 'module, import'
 - name: 구성 요소 간 시나리오
   items:
+    - name: SendGrid로 Runbook에서 이메일 보내기
+      href: automation-send-email.md
     - name: Runbook 갤러리
       href: automation-runbook-gallery.md
     - name: 메트릭 경고로 Runbook 모니터링

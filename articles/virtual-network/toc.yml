@@ -91,7 +91,7 @@
           href: virtual-network-tcpip-performance-tuning.md
     - name: 배포
       items:
-        - name: Azure VNET의 IPv6
+        - name: VNet 용 IPv6 - 기본 Load Balancer
           items:
             - name: Azure PowerShell
               href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
@@ -99,6 +99,14 @@
               href: virtual-network-ipv4-ipv6-dual-stack-cli.md
             - name: Resource Manager 템플릿
               href: ipv6-configure-template-json.md
+        - name: VNet 용 IPv6 - 표준 Load Balancer
+          items:
+            - name: Azure PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            - name: Azure CLI
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+            - name: Resource Manager 템플릿
+              href: ipv6-configure-standard-load-balancer-template-json.md
         - name: 네트워크 보안 그룹
           items:
             - name: Azure PowerShell

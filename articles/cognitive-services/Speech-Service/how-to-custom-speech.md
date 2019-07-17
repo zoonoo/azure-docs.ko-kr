@@ -43,10 +43,10 @@ ms.locfileid: "67603166"
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
-사용자 지정 음성 포털을 사용하여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요합니다. 표준 음성 서비스 구독을 만들려면 이러한 지침을 따릅니다. [음성 구독 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)합니다.
+사용자 지정 음성 포털을 사용하여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요합니다. 표준 음성 서비스 구독을 만들려면 다음 지침을 따릅니다: [음성 구독 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
-> 표준 (S0) 구독을 만드는 해야 합니다 (F0) 무료 평가판 구독은 지원 되지 않습니다.
+> 표준(S0) 구독을 만들어야 합니다. 무료 평가판(F0) 구독은 지원되지 않습니다.
 
 Azure 계정 및 음성 서비스 구독을 만든 후에는 사용자 지정 음성 포털에 로그인하여 구독을 연결해야 합니다.
 

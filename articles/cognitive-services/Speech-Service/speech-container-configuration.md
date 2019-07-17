@@ -36,7 +36,7 @@ ms.locfileid: "67072431"
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **음성의** 리소스 관리 아래에 있는 **키**
+* Azure Portal: Azure Portal: **키** 아래에 있는 **음성** 리소스 관리
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 

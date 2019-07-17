@@ -208,6 +208,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
     - name: SAP 재해 복구를 위한 Azure Site Recovery
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
+    - name: SAP 애플리케이션 네트워크 대기 시간을 최소화하는 Azure Proximity Placement Group
+      href: sap-proximity-placement-scenarios.md
 - name: AAD SAP ID 통합 및 Single-Sign-On
   items:
     - name: SAP 클라우드와 통합

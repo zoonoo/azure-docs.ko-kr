@@ -63,7 +63,7 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
 
-\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열 된 모든 지원 되는 엔터티 형식의 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어 에서만 사용할 수 있습니다.
+\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열된 모든 지원되는 엔터티 유형은 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어에서만 사용할 수 있습니다.
 
 
 
