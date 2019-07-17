@@ -35,7 +35,7 @@ ms.locfileid: "66751730"
     ![로그인 프롬프트의 새 Microsoft 계정 만들기 명령](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 받으세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
+    > 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 만드세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
 
 1. 메시지가 표시되면 암호를 입력합니다.
 
