@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66148096"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -101,7 +101,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
     ![관리 그룹 세부 정보 스크린샷](./media/security-center-management-groups/management-group-details.PNG)
  
-1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
+1. **액세스 제어(IAM)** , **역할 할당**을 차례로 클릭합니다.
 
 1. **역할 할당 추가**를 클릭합니다.
 

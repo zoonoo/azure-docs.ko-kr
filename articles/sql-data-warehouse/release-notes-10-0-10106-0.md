@@ -4,28 +4,57 @@ description: Azure SQL Data Warehouse에 대한 릴리스 정보입니다.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/10/2019
+ms.subservice: ''
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917237"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798725"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
 이 문서에는 [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)의 최신 릴리스에 포함된 새로운 기능과 향상된 기능이 요약되어 있습니다. 이 문서는 또한 직접 릴리스 관련 아니지만 동일한 시간 프레임에 게시 하는 중요 한 콘텐츠 업데이트를 나열 합니다. 향상 된 다른 Azure 서비스를 참조 하세요 [서비스 업데이트](https://azure.microsoft.com/updates)합니다.
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Azure SQL Data Warehouse 버전 확인
+
+새로운 기능은 모든 지역에 롤아웃 되는 대로 인스턴스 및 기능 가용성에 대 한 최신 Azure SQL DW 릴리스 배포 된 버전을 확인 합니다. Azure SQL DW 버전을 확인 하려면 SQL Server Management Studio (SSMS)를 통해 데이터 웨어하우스에 연결 하 고 실행 `SELECT @@VERSION AS 'SQL Data Warehouse';` Azure SQL DW의 현재 버전을 반환 합니다.
+
+예제 출력:
+
+![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
+
+릴리스는 것인지 확인 된 날짜를 사용 하 여 Azure SQL DW에 적용 되었습니다.
+
+## <a name="july-2019"></a>2019 년 7 월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**구체화 된 뷰 (미리 보기)**|구체화 된 뷰는 뷰 정의 쿼리에서 반환 되는 데이터를 유지 하 고 기본 테이블의 데이터가 변경 될 때 자동으로 업데이트 됩니다. 간단한 유지 관리 작업을 제공 하는 동안 복잡 한 쿼리 (일반적으로 조인 및 집계를 사용 하 여 쿼리)의 성능이 향상 됩니다. 참조 항목: </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;TRANSACT-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;TRANSACT-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Azure SQL Data Warehouse에서 지원 되는 T-SQL 문](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|DBCC 명령이 추가 이전에 발표 된 결과 관리 하려면 캐시를 설정 합니다. 참조 항목: </br> - [DBCC DROPRESULTSETCACHE &#40;TRANSACT-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;TRANSACT-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 새 result_set_cache 열도 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) 표시 결과 사용 하는 쿼리를 실행된 하는 경우 캐시를 설정 하 합니다.|
+|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|새 열, column_store_order_ordinal를 추가할 [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) 순서가 지정 된 클러스터형된 columnstore 인덱스의 열 순서를 식별 하 합니다.|
+
+## <a name="may-2019"></a>2019년 5월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**동적 데이터 마스킹 (미리 보기)**|DDM(동적 데이터 마스킹)은 정의한 마스킹 규칙을 기반으로 쿼리 결과에서 데이터 웨어하우스 내의 중요한 데이터를 즉석에서 난독 처리함으로써 이 중요 데이터에 대한 무단 액세스를 방지합니다. 자세한 내용은 [SQL Database 동적 데이터 마스킹](/azure/sql-database/sql-database-dynamic-data-masking-get-started)합니다.|
+|**워크 로드 중요도 이제 일반 공급**|워크로드 관리 분류 및 중요도는 쿼리 실행 순서에 영향을 미치는 기능을 제공합니다. 워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/> -[워크 로드 관리 개념](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON 함수**|이제 비즈니스 분석가 쿼리하고 다음 새 JSON 함수를 사용 하 여 Azure Data Warehouse의 JSON 데이터로 서식이 지정 된 문서를 조작 하는 데 친숙 한 T-SQL 언어를 사용할 수 있습니다.:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱 비즈니스 분석가 용 이해에 시간을 줄이고 사용자가 보고 하는 동안 즉시 쿼리 응답 시간을 사용 하도록 설정 합니다. 참조 항목:</br> - [ALTER DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 옵션 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [집합 결과 집합 캐싱 (Transact SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (TRANSACT-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (TRANSACT-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|Columnstore는 대량의 데이터를 저장하고 효율적으로 쿼리할 수 있게 하는 주요 요소입니다. 테이블별로 들어오는 데이터를 행 그룹으로 나누며, 각 행 그룹 열은 디스크의 세그먼트를 형성합니다.  순서가 지정된 클러스터형 columnstore 인덱스는 효율적인 세그먼트 제거를 가능하게 하여 쿼리 실행을 추가로 최적화합니다.   참조 항목:</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest)합니다.|
+
 ## <a name="march-2019"></a>2019 년 3 월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**Gen2 미리 보기에 사용할 수 있는 워크 로드 중요도**|워크 로드 중요도 데이터 엔지니어 중요도 사용 하 여 요청을 분류 하는 기능을 제공 합니다. 높은 중요도 사용 하 여 요청에는 Sla를 충족 하는 데 도움이 되는 리소스에 빠르게 액세스할을 보장 됩니다.  워크 로드 중요도 더 적은 리소스를 사용 하 여 공유 환경에서 Sla를 충족 하기 위해 높은 비즈니스 값 작업을 허용 합니다.<br/><br/>워크 로드 관리 분류 및 중요도 미리 보기는 2019 년 4 월 9 일 이상 릴리스 날짜를 사용 하 여 빌드입니다. 사용자는 워크로드 관리 테스트를 위해 이 날짜 이전에는 빌드를 사용하지 않는 것이 좋습니다. 실행 빌드 수 있는 워크 로드 관리 인지를 확인 하려면 `select @@version` SQL Data Warehouse 인스턴스에 연결 합니다.</br></br>워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/>[워크 로드 관리 개념](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**데이터 검색 및 분류**|이제 Azure SQL Data Warehouse에서 데이터 검색 및 분류를 공개 미리 보기로 사용할 수 있습니다. 중요 한 데이터 및 고객의 개인 정보를 보호 하는 것이 반드시 합니다. 비즈니스 및 고객 데이터 자산이 증가 함에 따라 검색, 분류 및 데이터를 보호 하는 것이 어려워집니다. Azure SQL Data Warehouse를 사용 하 여 고유 하 게 도입 하는 데이터 검색 및 분류 기능 보다 관리가 용이한 데이터 보호를 확인 하는 데 도움이 됩니다. 이 기능의 전체적인 이점은 다음과 같습니다.<br/>&bull; &nbsp; 모임 데이터 프라이버시 표준 및 규정 준수 요구 사항<br/>&bull; &nbsp; 에 대 한 액세스를 제한 하 고 데이터의 보안을 강화 웨어하우스에 매우 중요 한 데이터가 들어 있는입니다.<br/>&bull; &nbsp; 모니터링 및 중요 한 데이터에 대 한 비정상적인 액세스 경고 합니다.<br/>&bull; &nbsp; Azure portal에서는 중앙 대시보드에 중요 한 데이터 시각화. </br></br>데이터 검색 및 분류는 모든 Azure 지역에서 Azure SQL Data Warehouse에 대 한 사용 가능한 취약점 평가 및 위협 검색을 포함 하 여 고급 데이터 보안의 일부입니다. 데이터 검색 및 분류 하는 방법에 대 한 자세한 내용은 참조는 [블로그 게시물](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) 및 온라인 [설명서](/azure/sql-database/sql-database-data-discovery-and-classification)합니다.|
 |**그룹 롤업**|Azure Data Warehouse에서 지원 되는 GROUP BY 옵션 롤업 됩니다.   GROUP BY ROLLUP 열 식의 각 조합에 대 한 그룹을 만듭니다. GROUP BY도 "롤업" 결과 부분합 및 총합계를 합니다. GROUP BY 함수는 오른쪽에서 왼쪽으로 집계를 만드는 그룹과 줄입니다 열 식의 수를 줄이거나에서 처리 합니다.  열 순서는 ROLLUP 출력에 영향을 줍니다 및 결과 집합의 행 수에 영향을 줄 수 있습니다.<br/><br/>GROUP BY ROLLUP에 대 한 자세한 내용은 참조 하세요. [GROUP BY (TRANSACT-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**DWU 사용 됨 및 CPU 포털 메트릭에 대 한 정확성 향상된**|SQL Data Warehouse에는 Azure portal에서 메트릭 정확도 크게 향상 됩니다.  이 릴리스에서 모든 계산 노드에서 워크 로드를 올바르게 반영 하기 위해 CPU 및 DWU에 사용 되는 메트릭 정의 대 한 수정은 포함 되어 있습니다. 이 문제가 해결 되기 전에 메트릭 값 dereported 되기 때문입니다. 사용 되는 DWU 증가 및 Azure portal에서 CPU 메트릭을 볼 수 있어야 합니다. |

@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: 엔터티 확인자
       href: tutorials/09-entity-resolvers.md
+    - name: 열거형 엔터티
+      href: tutorials/tutorial-enum-set-entity.md
     - name: 대체 입력
       href: tutorials/10-alternative-inputs.md
     - name: 로그 대화 상자

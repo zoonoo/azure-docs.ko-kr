@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254752"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 볼륨 관리
@@ -34,4 +34,4 @@ ms.locfileid: "60254752"
 ## <a name="next-steps"></a>다음 단계 
 
 * [가상 머신에 대한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [스냅숏 관리](azure-netapp-files-manage-snapshots.md)
+* [스냅샷 관리](azure-netapp-files-manage-snapshots.md)

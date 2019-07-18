@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245693"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
@@ -71,7 +71,7 @@ Azure AD Connect는 설정이 수정되는 모든 작업 도중에 **%ProgramDat
 ![기존 Azure AD 신뢰 백업에 대한 메시지를 보여주는 Azure AD Connect 페이지](./media/how-to-connect-azure-ad-trust/backup2.png)
 
 > [!NOTE]
-> 1.1.873.0 버전 이전에는 백업이 발급 변환 규칙으로만 구성되었고, 마법사 추적 로그 파일에 백업되었습니다.
+> 1\.1.873.0 버전 이전에는 백업이 발급 변환 규칙으로만 구성되었고, 마법사 추적 로그 파일에 백업되었습니다.
 
 ## <a name="issuance-transform-rules-set-by-azure-ad-connect"></a>Azure AD Connect에서 설정하는 발급 변환 규칙
 

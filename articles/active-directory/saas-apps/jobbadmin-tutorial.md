@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f80c48d1fb9cb32fc438eea3c29fc281ac8d65a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>자습서: Jobbadmin과 Azure Active Directory 통합
 

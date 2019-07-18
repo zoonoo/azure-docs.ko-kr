@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127415"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 랩 또는 VM 삭제
@@ -43,7 +43,7 @@ ms.locfileid: "62127415"
     ![Confirm](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. 작업 상태를 보려면 **알림** 아이콘(벨)을 선택합니다. 
 
-    ![공지](media/devtest-lab-delete-lab-vm/delete-status.png)
+    ![알림](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>랩에서 VM 삭제

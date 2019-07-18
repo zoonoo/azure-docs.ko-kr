@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715663"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626412"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -88,7 +88,7 @@ Azure Event Hub는 매우 일반적으로, CSV 또는 JSON 형식 중 하나로 
 
 이 문서는 데이터를 수집하는 방법을 설명하지 않지만 이벤트 허브 API를 사용하여 Azure 이벤트 허브에 이벤트 또는 데이터를 손쉽게 보낼 수 있습니다.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Azure Stream Analytics 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
 
 항공 솔루션 템플릿에 대한 예측 유지 관리의 경우 Azure Stream Analytics 쿼리는 각각 Azure Event Hub 서비스에서 이벤트를 소비하고 4개의 고유 위치에 출력을 갖는 4개의 하위 쿼리로 구성됩니다. 이러한 출력은 세 개의 Power BI 데이터 세트 및 하나의 Azure Storage 위치로 구성됩니다.
@@ -103,7 +103,7 @@ Azure Stream Analytics 쿼리는 다음으로 찾을 수 있습니다.
   * 쿼리 자체를 보려면 ***쿼리***
   * 다른 출력을 보려면 ***출력***
 
-Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 에서 찾을 수 있습니다.
+Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analytics 쿼리 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 에서 찾을 수 있습니다.
 
 이 솔루션에서 쿼리는 이 솔루션 템플릿의 일부로 제공되는 Power BI 대시보드에 들어오는 데이터 스트림에 대한 거의 실시간 분석 정보로 세 개의 데이터 세트를 출력합니다. 들어오는 데이터 형식에 대한 암시적 지식이 있기 때문에 이러한 쿼리는 데이터 형식에 기반하여 변경되어야 합니다.
 
@@ -116,7 +116,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 이 섹션에서는 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인 및 작업](../../data-factory/concepts-pipelines-activities.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
 
-![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
+![Azure 데이터 팩터리](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
 이 팩터리의 두 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 maintenancesascript\\\\script\\\\hive\\\\(또는 https://[Your solution name].blob.core.windows.net/maintenancesascript)입니다.
 
@@ -174,7 +174,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 솔루션 템플릿 다이어그램의 **'Azure SQL Database'** 가 녹색으로 바뀌면 클릭한 다음, **'열기'** 를 클릭합니다.
    * Azure 포털 페이지를 표시하는 새로운 브라우저 탭/창이 표시됩니다. 왼쪽 패널에서 **'리소스 그룹'** 을 클릭합니다.
    * 솔루션 배포에 사용 중인 구독을 선택한 다음 **'YourSolutionName\_ResourceGroup'** 을 선택합니다.
-   * 새 팝업 패널에서 ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름(예: **'pmaintenancedb'**)은 이 아이콘 옆에 있으며, **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSolutionName.database.windows.net**과 비슷합니다.
+   * 새 팝업 패널에서 ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름(예: **'pmaintenancedb'** )은 이 아이콘 옆에 있으며, **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSolutionName.database.windows.net**과 비슷합니다.
    * 데이터베이스 **사용자 이름** 및 **암호**는 솔루션 배포 중 이전에 기록된 사용자 이름 및 암호와 동일합니다.
 2. Power BI 데스크톱을 사용하여 콜드 경로 보고서 파일의 데이터 원본을 업데이트합니다.
    
@@ -212,7 +212,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 분석 대시보드](../../stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
    * ASA 쿼리에는 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력(**aircraftmonitor**)을 추가하는 경우 **출력 별칭**, **데이터 세트 이름** 및 **테이블 이름**이 동일(**aircraftmonitor**)한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour**에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
-2.  [Power BI 온라인](https://www.powerbi.com)
+2. [Power BI 온라인](https://www.powerbi.com)
    
    * 내 작업 영역의 왼쪽 패널에 있는 데이터 세트 섹션에는 ***데이터 세트*** 이름이 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**로 표시되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour**는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
    * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.

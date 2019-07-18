@@ -62,7 +62,7 @@
         - name: 디바이스 설정 사용
           href: howto-use-device-sets.md
         - name: 버전 디바이스 템플릿
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: 모니터링 및 분석
       items:
         - name: 원격 분석 규칙 만들기
@@ -89,6 +89,10 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Blob Storage 살펴보기
               href: howto-export-data-blob-storage.md
+        - name: 사용자 지정 규칙 만들기
+          href: howto-create-custom-rules.md
+        - name: 사용자 지정 분석 만들기
+          href: howto-create-custom-analytics.md
         - name: Power BI에서 데이터 시각화
           href: howto-connect-powerbi.md
         - name: 다른 IoT 클라우드 연결
@@ -99,6 +103,14 @@
           href: howto-administer.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
+        - name: 애플리케이션 대시보드 구성
+          href: howto-configure-homepage.md
+        - name: 대시보드 타일 사용
+          href: howto-use-tiles.md
+        - name: 애플리케이션 UI 사용자 지정
+          href: howto-customize-ui.md
+        - name: 애플리케이션 템플릿 사용
+          href: howto-use-app-templates.md
         - name: Azure Portal에서 관리
           href: howto-manage-iot-central-from-portal.md
         - name: Azure CLI에서 관리
@@ -106,9 +118,7 @@
         - name: Azure PowerShell에서 관리
           href: howto-manage-iot-central-from-powershell.md
         - name: CSP가 애플리케이션을 만들고 관리할 때
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: 애플리케이션 대시보드 구성
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: 개인 설정
       items:
         - name: 개인 대시보드 만들기
@@ -137,11 +147,11 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
-        - name: IoT 장치 SDK
+        - name: IoT 디바이스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:

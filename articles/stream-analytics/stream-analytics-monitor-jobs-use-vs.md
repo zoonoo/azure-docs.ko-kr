@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479439"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Visual Studio를 사용하여 Stream Analytics 작업 모니터링 및 관리
@@ -22,7 +22,7 @@ ms.locfileid: "61479439"
 
 ## <a name="job-summary"></a>작업 요약
 
-**작업 요약** 및 **작업 메트릭**은 작업의 빠른 스냅숏을 제공합니다. 작업의 상태 및 이벤트 정보를 한눈에 확인할 수 있습니다.
+**작업 요약** 및 **작업 메트릭**은 작업의 빠른 스냅샷을 제공합니다. 작업의 상태 및 이벤트 정보를 한눈에 확인할 수 있습니다.
 
 <img src="./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png" alt="Stream Analytics job summary and job metrics" width="300px"/> 
 

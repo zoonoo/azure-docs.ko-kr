@@ -24,12 +24,12 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 
 [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기가 설치되어 있는지 확인합니다.
 
-Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing)를 설치하세요.
+Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools(v2)](https://github.com/Azure/azure-functions-core-tools#installing)를 설치하세요.
 
 > [!NOTE]
 > Java에서 SignalR Service 바인딩을 사용하려면 Azure Functions Core Tools 버전 2.4.419 이상(호스트 버전 2.0.12332)을 사용하고 있는지 확인합니다.
 
-확장을 설치하려면 현재 Azure Functions Core Tools에는 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure Function 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
+확장을 설치하려면 현재 Azure Functions Core Tools에는 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다. 그러나 JavaScript Azure 함수 앱을 빌드하는 데는 .NET에 대한 지식이 필요하지 않습니다.
 
 Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 
@@ -46,7 +46,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-## <a name="configure-and-run-the-azure-function-app"></a>Azure Function 앱을 구성하고 실행합니다.
+## <a name="configure-and-run-the-azure-function-app"></a>Azure 함수 앱을 구성하고 실행합니다.
 
 1. Azure Portal이 열리는 브라우저에서, 포털의 맨 위에 있는 검색 상자에서 해당 이름을 검색하여 이전에 배포한 SignalR Service 인스턴스를 성공적으로 만들었는지 확인합니다. 인스턴스를 선택하여 엽니다.
 
@@ -69,13 +69,13 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **sendMessage** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
-1. 터미널에서 *src/chat/java* 폴더에 있는지 확인합니다. Function App을 빌드합니다.
+1. 터미널에서 *src/chat/java* 폴더에 있는지 확인합니다. 함수 앱을 빌드합니다.
 
     ```bash
     mvn clean package
     ```
 
-1. Function App을 로컬로 실행합니다.
+1. 함수 앱을 로컬로 실행합니다.
 
     ```bash
     mvn azure-functions:run

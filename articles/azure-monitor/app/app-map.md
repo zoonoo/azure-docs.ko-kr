@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693188"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795670"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -68,11 +68,11 @@ ms.locfileid: "60693188"
 
 ### <a name="go-to-details"></a>세부 정보로 이동
 
-**세부 정보로 이동**을 선택하여 호출 스택 수준으로 수행된 보기를 제공할 수 있는 엔드 투 엔드 트랜잭션 환경을 탐색합니다.
+선택 **세부 정보로** 호출 스택 수준까지 뷰를 제공할 수 있는 종단 간 트랜잭션 경험을 소개 합니다.
 
 ![세부 정보로 이동 단추 스크린샷](media/app-map/go-to-details.png)
 
-![종단 간 트랜잭션 세부 정보 스크린샷](media/app-map/end-to-end-transaction.png)
+![엔드투엔드 트랜잭션 세부 정보 스크린샷](media/app-map/end-to-end-transaction.png)
 
 ### <a name="view-in-analytics"></a>Analytics에서 보기
 
@@ -82,7 +82,7 @@ ms.locfileid: "60693188"
 
 ![Analytics 환경 스크린샷](media/app-map/analytics.png)
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>,
 
 경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
 
@@ -94,7 +94,9 @@ ms.locfileid: "60693188"
 
 응용 프로그램 맵을 사용 하는 **클라우드 역할 이름** 맵에서 구성 요소를 식별 하는 속성입니다. Application Insights SDK 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다. 예를 들어, SDK 클라우드 역할 이름 속성에는 웹 사이트 이름 또는 서비스 역할 이름을 추가 합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름 재정의 및 Application Map에 표시 되는 내용 변경:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**아래와 같이 사용자 지정 TelemetryInitializer를 작성 합니다.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -110,16 +112,16 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
 
-**이니셜라이저 로드**
+**ASP.NET 앱: 활성 TelemetryConfiguration 이니셜라이저 로드**
 
-ApplicationInsights.config에서:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,7 @@ ApplicationInsights.config에서:
     </ApplicationInsights>
 ```
 
-또는 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
+ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 코드에서 이니셜라이저를 인스턴스화하는:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -142,6 +144,22 @@ ApplicationInsights.config에서:
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
     }
+```
+
+> [!NOTE]
+> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+
+**ASP.NET Core 앱: 이니셜라이저는 TelemetryConfiguration 로드 합니다.**
+
+에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js
@@ -165,7 +183,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 

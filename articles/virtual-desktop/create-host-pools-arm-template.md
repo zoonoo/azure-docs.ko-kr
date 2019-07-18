@@ -4,15 +4,15 @@ description: Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 �
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: b1c7d1fe561ebc11f88644a5bf2fd8bda1c9a6c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdc61aede6e650bce62768b7a97f8640affd594f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924989"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620480"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 호스트 풀 만들기
 
@@ -42,7 +42,7 @@ Enterprise 구독에 배포 하는 경우 아래로 스크롤하여 선택 **Azu
 
 1. 아래로 스크롤하여 마우스 오른쪽 단추로 클릭 **Azure에 배포**을 선택한 후 **복사 링크 위치**합니다.
 2. 메모장과 같은 텍스트 편집기를 열고 링크를 붙여 넣습니다.
-3. 바로 뒤 "https://portal.azure.com/" 해시 태그 (#) 하기 전에 다음을 입력 하 고는 at 기호 (@) 뒤에 테 넌 트 도메인 이름입니다. 다음은 사용 해야 하는 형식의 예: https://portal.azure.com/@Contoso.onmicrosoft.com#create/합니다.
+3. 바로 뒤 "https://portal.azure.com/ " 해시 태그 (#) 하기 전에 다음을 입력 하 고는 at 기호 (@) 뒤에 테 넌 트 도메인 이름입니다. 다음은 사용 해야 하는 형식의 예: https://portal.azure.com/@Contoso.onmicrosoft.com#create/ 합니다.
 4. Azure portal에 클라우드 솔루션 공급자 구독 관리자/참가자 권한 가진 사용자로 로그인 합니다.
 5. 주소 표시줄에 텍스트 편집기에 복사한 링크를 붙여 넣습니다.
 
@@ -58,12 +58,6 @@ GitHub의 Azure Resource Manager 템플릿을 완료 된 후 가상 머신에서
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-다음으로이 cmdlet 사용 하 여 Azure Resource Manager 템플릿에 지정 된 테 넌 트 그룹에 컨텍스트를 설정:
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
 ```
 
 그런 다음이 cmdlet 사용 하 여 데스크톱 응용 프로그램 그룹에 사용자를 추가 합니다.

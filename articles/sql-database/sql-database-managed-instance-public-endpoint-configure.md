@@ -10,19 +10,19 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65465126"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스에 공용 끝점을 구성 합니다.
 
 에 대 한 공용 끝점을 [관리 되는 인스턴스](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) 외부에서 관리 되는 인스턴스에 대 한 데이터 액세스를 사용 하도록 설정 합니다 [가상 네트워크](../virtual-network/virtual-networks-overview.md)합니다. Power BI, Azure App Service 또는 온-프레미스 네트워크와 같은 다중 테 넌 트 Azure 서비스에서 관리 되는 인스턴스를 액세스할 수 있습니다. 공용 끝점에서 관리 되는 인스턴스를 사용 하 여 VPN 처리량 문제를 방지 하는 데 도움이 되는 VPN을 사용할 필요가 없습니다.
 
-이 문서에서는 알아봅니다 방법:
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > - Azure portal에서 관리 되는 인스턴스에 대 한 공용 끝점을 사용 하도록 설정
@@ -101,7 +101,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**대상 포트 범위**     |3342         |관리 되는 인스턴스 공용 TDS 끝점 인 3342에 범위 대상 포트 |
     |**프로토콜**     |TCP         |인스턴스는 TCP 프로토콜을 관리 되는 tds |
     |**작업**     |허용         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽을 허용 합니다. |
-    |**우선 순위**     |1300         |이 규칙 보다 높은 우선 순위 인지 확인 합니다 **deny_all_inbound** 규칙 |
+    |**Priority**     |1300         |이 규칙 보다 높은 우선 순위 인지 확인 합니다 **deny_all_inbound** 규칙 |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

@@ -1,9 +1,8 @@
 ---
 title: Azure Cloud Services 정의 LoadBalancerProbe 스키마 | Microsoft Docs
 ms.custom: ''
-origin.date: 04/14/2015
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 04/14/2015
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613870"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services 정의 LoadBalancerProbe 스키마
@@ -62,7 +61,7 @@ Azure Load Balancer는 들어오는 트래픽을 역할 인스턴스로 라우�
 
 |특성|Type|설명|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | 필수 사항입니다. 부하 분산 장치 프로브의 이름입니다. 고유한 이름이어야 합니다.|
+| `name`              | `string` | 필수 사항입니다. 부하 분산 장치 프로브의 이름입니다. 이름은 고유 해야 합니다.|
 | `protocol`          | `string` | 필수 사항입니다. 끝점의 프로토콜을 지정합니다. 가능한 값은 `http` 또는 `tcp`입니다. `tcp`가 지정된 경우 프로브가 성공하려면 수신된 ACK가 필요합니다. `http`가 지정된 경우 프로브가 성공하려면 지정한 URI로부터의 200 OK 응답이 필요합니다.|
 | `path`              | `string` | VM에서 상태를 요청하는 데 사용되는 URI입니다. `protocol`이 `http`로 설정된 경우 `path`가 필요합니다. 그렇지 않은 경우 허용되지 않습니다.<br /><br /> 기본값은 없습니다.|
 | `port`              | `integer` | 선택 사항입니다. 프로브 통신을 위한 포트입니다. 이는 동일한 포트가 프로브에 사용되므로 모든 엔드포인트에서 선택 사항입니다. 검색을 위해 다른 포트를 구성할 수도 있습니다. 가능한 값 범위는 1에서 65535 사이입니다.<br /><br /> 기본값은 엔드포인트에 의해 설정됩니다.|

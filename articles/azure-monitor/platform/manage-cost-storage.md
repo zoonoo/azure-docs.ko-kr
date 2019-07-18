@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e0b9faeb796653abb4c061884ab2fbb78e867e71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918994"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655698"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 통해 사용량 및 비용 관리
 
@@ -59,6 +59,9 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
 일일 한도에 도달하면 하루의 나머지 시간 동안 청구 가능한 데이터 형식의 수집을 중지합니다. 선택된 Log Analytics 작업 영역에 대한 페이지의 상단에 경고 배너가 표시되고 작업 이벤트가 **LogManagement** 범주 아래의 *작업* 테이블로 전송됩니다. *일일 한도 아래 정의된 재설정 시간이* 로 설정된 후 데이터 수집이 다시 시작합니다. 일일 데이터 한도에 도달했을 때 알려주도록 구성된 이 작업 이벤트를 기반으로 경고 규칙을 정의하는 것이 좋습니다. 
 
+> [!NOTE]
+> 일일 한도 Azure Security Center에서 데이터 수집을 중지 하지 않습니다.
+
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 
 데이터 수집 추세 및 정의할 일일 볼륨 한도를 이해하려면 [Log Analytics 사용량 및 예상 비용](usage-estimated-costs.md)을 검토합니다. 한도에 도달한 후에는 리소스를 모니터링할 수 없으므로 신중하게 고려해야 합니다. 
@@ -84,7 +87,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
    - 신호 이름: 사용자 지정 로그 검색
    - 검색 쿼리: 작업 | 세부 정보에 'OverQuota'가 있는 경우
    - 기준: 결과의 수
-   - 조건: 초과
+   - 조건: 보다 큼
    - 임계값: 0
    - 기간: 5분
    - 빈도: 5분
@@ -102,13 +105,17 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 3. 창에서 슬라이더를 이동하여 일 수를 늘리거나 줄인 다음, **확인**을 클릭합니다.  *무료* 계층에서 작업 중인 경우 데이터 보존 기간을 수정할 수 없으며 이 설정을 제어하기 위해 유료 계층으로 업그레이드해야 합니다.
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+보존 일 수도 있습니다 [ARM을 통해 설정](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 사용 하는 `dataRetention` 매개 변수입니다. 또한 30 일 데이터 보존을 설정 하는 경우 사용 하 여 오래 된 데이터의 즉시 제거를 트리거할 수 있습니다는 `immediatePurgeDataOn30Days` 준수와 관련 된 시나리오에 유용할 수 있는 매개 변수입니다. 이 기능은 ARM 통해서만 노출 됩니다. 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
-2018년 7월 1일 이전에 기업계약을 체결했거나, 구독에서 Log Analytics 작업 영역을 이미 만든 고객은 여전히 *무료* 요금제에 액세스할 수 있습니다. 구독이 기존 EA 등록에 연결되지 않은 경우에는 2018년 4월 2일 이후 새 구독에서 작업 영역을 만들 때 *무료* 계층을 사용할 수 없습니다.  데이터는 7 일 동안 보존에 대 한 제한 된 *무료* 계층입니다.  레거시 *독립 실행형* 하거나 *노드당* 계층 뿐만 아니라 현재 2018 단일 가격 책정 계층에 수집 된 데이터는 지난 31 일 동안 사용할 수 있습니다. ‘무료’ 계층은 일일 수집 제한이 500MB입니다. 허용되는 양이 계속 초과될 경우 이 제한을 초과해서 데이터를 수집하도록 작업 영역을 다른 플랜으로 변경할 수 있습니다. 
+2018 년 4 월 2 일 이전에 Log Analytics 작업 영역 또는 Application Insights 리소스를 사용 했던 또는 2019 년 2 월 1 일 전에 시작 된 기업 계약에 연결 된 구독을 레거시 가격 책정 계층에 액세스할 수 있도록 계속 됩니다. **사용 가능한**, **(GB 당) 독립 실행형** 하 고 **노드당 (OMS)** 합니다.  무료 가격 책정 계층에서에서 작업 영역에는 일일 데이터 수집 (Azure Security Center에서 수집 된 보안 데이터 형식) 제외 500MB로 제한 해야 하 고 데이터 보존 기간은 7 일로 제한 합니다. 무료 가격 책정 계층은 평가 목적 으로만 제공 합니다. 독립 실행형 클러스터 또는 노드당 가격 책정 계층에서 작업 영역 사용자 구성 가능한 보존 최대 2 년의 경우 2016 년 4 월 전에 만든 작업 영역에는 원래 또한 액세스할 **표준** 하 고 **Premium** 가격 책정 계층입니다. 가격 계층 제한의 자세한 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)합니다.
 
 > [!NOTE]
 > System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
+
+Log Analytics의 가장 이른 도입자 원래 가격 책정 계층에 액세스할 수도 **표준** 하 고 **Premium**는 각각 30 ~ 365 일의 데이터 보존 해결 합니다. 
 
 ## <a name="changing-pricing-tier"></a>가격 책정 계층 변경
 
@@ -121,21 +128,19 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
     ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-구독 모니터링을 변경 해야 하는 현재 가격 책정 계층을 작업 영역을 이동 하려는 경우 [Azure Monitor에서 가격 책정 모델](usage-estimated-costs.md#moving-to-the-new-pricing-model) 있으며 해당 구독에서 모든 작업 영역 가격 책정 계층이 변경 됩니다.
-
-> [!NOTE]
-> 가격 책정 계층을 설정 하는 방법을 자세히 알아볼 수 있습니다 때 [는 Azure Resource Manager 템플릿을 사용 하 여](template-workspace-configuration.md#create-a-log-analytics-workspace) 작업 영역을 만들고 Azure Resource Manager 템플릿 배포 여부에 관계 없이 성공 한다는 사실을 확인 하는 구독이 기존 또는 새 가격 책정 모델입니다. 
-
+할 수도 있습니다 [ARM 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 사용 하는 `ServiceTier` 매개 변수입니다. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 
 레거시 무료 가격 책정 계층을 사용 중이고 하루에 500MB 이상의 데이터를 보낸 경우 남은 날 동안 데이터 수집이 중지됩니다. 일일 한도에 도달하는 것은 Log Analytics가 데이터 수집을 중지하고 데이터가 사라진 것처럼 표시되는 일반적인 이유입니다.  Log Analytics는 데이터 수집을 시작하고 중지할 때 Operation 형식의 이벤트를 만듭니다. 일일 한도에 도달하고 데이터 누락이 있는지 확인하려면 검색에서 다음 쿼리를 실행합니다. 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 데이터 수집이 중지 되는 경우 OperationStatus가 **경고**합니다. 데이터 수집이 시작 되는 경우 OperationStatus가 **Succeeded**합니다. 다음 표에서 데이터 수집을 중지하는 이유 및 데이터 수집을 다시 시작하는 권장되는 작업을 설명합니다.  
 
-|수집 중지 이유| 해결 방법| 
+|수집 중지 이유| 솔루션| 
 |-----------------------|---------|
 |레거시 무료 가격 책정 계층의 일일 한도에 도달함 |수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는 유료 가격 책정 계층으로 변경합니다.|
 |작업 영역의 일일 상한에 도달함|수집이 자동으로 다시 시작될 때까지 대기하거나, 최대 일일 데이터 볼륨 관리의 설명처럼 일일 데이터 볼륨 한도를 늘립니다. 일일 상한 다시 설정 시간이 **데이터 볼륨 관리** 페이지에 표시됩니다. |
@@ -151,44 +156,65 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 
 ## <a name="understanding-nodes-sending-data"></a>데이터를 전송 하는 노드 이해
 
-지난달에 매일 데이터를 보고한 컴퓨터(노드)의 수를 파악하려면 다음을 사용합니다.
+지난 달에 매일 하트 비트를 보고 하는 컴퓨터의 수를 이해 하기 위해 사용 하 여
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
-전송 하는 컴퓨터의 목록을 가져오려면 **청구 데이터 형식** (일부 데이터 형식은 무료)를 활용 합니다 `_IsBillable` [속성](log-standard-properties.md#_isbillable):
+작업 영역을 레거시 노드당 가격 책정 계층에에서 있으면 노드로 청구 하는 컴퓨터의 목록을 가져오려면을 보내는 노드를 찾습니다 **데이터 형식 청구** (일부 데이터 형식은 무료). 이 작업을 수행 하려면 사용 합니다 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 정규화 된 도메인 이름의 맨 왼쪽에 있는 필드를 사용 하 고 합니다. 이 청구 데이터를 사용 하 여 컴퓨터의 목록을 반환합니다.
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
-여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 이 쿼리는 사용 현황 데이터 형식 사용 하 여 컴퓨터 정보를 쿼리 하는 이전 방식으로 대체 합니다.  
+표시 되는 청구 가능한 노드 수는 다음과 같은 작업으로 예상할 수 있습니다. 
 
-시간당 전송 하는 컴퓨터 수가 청구 데이터 형식 (하는 Log Analytics는 레거시 노드당 가격 책정 계층에 대 한 청구 가능한 노드를 계산 하는 방법)를 반환 하려면이 확장할 수 있습니다.
-
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)
+```
+
+> [!NOTE]
+> 여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 이 쿼리는 사용 현황 데이터 형식 사용 하 여 컴퓨터 정보를 쿼리 하는 이전 방식으로 대체 합니다.  
+
+어떤 실제로 청구처 보다 정확 하 게 계산 시간당 청구 데이터 형식을 전송 하는 컴퓨터의 수를 가져오는 것입니다. (레거시 노드당 가격 책정 계층에서 작업 영역에 대 한 Log Analytics를 계산 하는 시간 단위로 요금이 부과 하는 데 필요한 노드 수.) 
+
+```kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>이해 수집 된 데이터 볼륨
 
 **사용량 및 예상 비용** 페이지에서 *솔루션당 데이터 수집* 차트는 전송된 총 데이터 양과 각 솔루션이 전송하는 데이터 양을 보여 줍니다. 이를 통해 전체 데이터 사용량(또는 특정 솔루션에 의한 사용량)이 증가하는지, 고정적인지, 감소하는지 여부의 추세를 판단할 수 있습니다. 이를 생성하는 데 사용되는 쿼리는 다음과 같습니다.
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 여기서 “where IsBillable = true” 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 
 
 데이터 추세를 보다 자세히 조사하여 특정 데이터 형식을 발견할 수 있습니다(예: IIS 로그로 인한 데이터를 연구하려는 경우).
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
@@ -197,24 +223,19 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 합니다 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 수집 된 데이터 요금이 발생 하는지 여부를 지정 합니다.
 
-컴퓨터당 수집된 이벤트 **수**를 보려면 다음을 사용합니다.
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-컴퓨터당 청구 가능한 이벤트 수를 보려면 다음을 사용합니다. 
+개수를 보려는 **청구 가능한** 컴퓨터 단위로 수집 된 이벤트 사용 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 특정 컴퓨터로 데이터를 전송하는 청구 가능 데이터 형식 수를 확인하려면 다음을 사용합니다.
@@ -389,6 +410,11 @@ union withsource = $table Usage
 기존 또는 새 [작업 그룹](action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 경고를 수신하는 경우 사용량이 예상보다 더 높은 원인을 해결하려면 다음 섹션의 단계를 사용합니다.
+
+## <a name="limits-summary"></a>제한 요약
+
+Log Analytics 가격 책정 계층에 종속 중 일부는 몇 가지 추가 Log Analytics 제한이 있습니다. 이러한 설명 되어 있습니다 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

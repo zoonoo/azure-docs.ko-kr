@@ -4,10 +4,11 @@ description: 이 문서에서는 Azure Sentinel hunting 기능을 사용 하는 
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714872"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620736"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>끊임없이 연구 하 고 Azure Sentinel 미리 보기에서 사용 하 여 위협
 

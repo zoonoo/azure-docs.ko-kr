@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696654"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190540"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 
@@ -59,8 +59,8 @@ W=12주(84일), M=12개월(365일), Y=10년(3650일), WeekOfYear=15(4월 15일 �
 
 위의 정책을 수정 하 고 백업 복사본의 W = 0 (주별 백업 없음), 빈도 집합으로 변경 됩니다는 강조 표시 된 날짜까지 위의 표에 나와 있습니다. 이러한 백업을 유지하는 데 필요한 스토리지 용량은 적절하게 줄어듭니다. 
 
-> [!NOTE]
-> Azure SQL Database에서 개별 LTR 백업을 타이밍 제어 됩니다. 수동으로 LTR 백업 하거나 백업 생성의 타이밍을 제어할 수 없습니다.
+> [!IMPORTANT]
+> Azure SQL Database에서 개별 LTR 백업을 타이밍 제어 됩니다. 수동으로 LTR 백업 하거나 백업 생성의 타이밍을 제어할 수 없습니다. LTR 정책을 구성한 후 첫 번째 LTR 백업에 사용 가능한 백업 목록을 표시 됩니다 전 최대 7 일 걸릴 수 있습니다.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>지역 복제 및 장기 백업 보존

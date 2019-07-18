@@ -2,18 +2,18 @@
 title: Azure Power BI 작업 영역 컬렉션에 보고서 포함 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션에 있는 보고서를 애플리케이션에 포함하는 방법을 알아봅니다.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4e125e57c290688d5a65f6d70143100cbd3462cb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724608"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669059"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에 보고서 포함
 
@@ -109,7 +109,7 @@ Embed 토큰으로 사용하는 경우 액세스 권한을 제공하는 리소�
 
 ## <a name="embed-using-javascript"></a>JavaScript를 사용하여 포함
 
-액세스 토큰 및 보고서 ID를 설정한 후 JavaScript를 사용하여 보고서를 포함할 수 있습니다. 이렇게 하려면 NuGet [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)를 설치해야 합니다. embedUrl는 https://embedded.powerbi.com/appTokenReportEmbed일 뿐입니다.
+액세스 토큰 및 보고서 ID를 설정한 후 JavaScript를 사용하여 보고서를 포함할 수 있습니다. 이렇게 하려면 NuGet [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)를 설치해야 합니다. embedUrl는 https://embedded.powerbi.com/appTokenReportEmbed 일 뿐입니다.
 
 > [!NOTE]
 > [ 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)을 사용하여 기능을 테스트할 수 있습니다. 또한 사용할 수 있는 다양한 작업에 대한 코드 예제도 제공됩니다.
@@ -143,7 +143,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 보고서는 컨테이너의 크기에 따라 자동으로 포함됩니다. 포함된 항목의 기본 크기를 재정의하려면 CSS 클래스 특성 또는 너비 및 높이에 대한 인라인 스타일을 추가하기만 하면 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [샘플 시작](get-started-sample.md)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  

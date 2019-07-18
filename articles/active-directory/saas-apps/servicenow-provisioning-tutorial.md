@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869845"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
@@ -83,7 +83,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     b. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
-    다. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
+    c. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
 
 1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 ServiceNow 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 

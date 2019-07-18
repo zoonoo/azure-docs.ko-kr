@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65914714"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "60776638"
 
 ## <a name="old-and-new-alerting-capabilities"></a>이전 및 새 경고 기능
 
-이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다. 경고
+이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다.
 
 Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 볼 수 있습니다. 경고 화면의 **클래식 경고 보기** 단추를 누르면 이 화면을 표시할 수 있습니다. 
 
@@ -69,7 +69,7 @@ Azure는 다음 용어를 사용하여 클래식 경고와 그 기능을 설명�
 * **작업** - 알림 수신자에게 보내는 특정 호출(예: 주소로 이메일 보내기 또는 웹후크 URL에 게시). 알림은 보통 여러 작업을 트리거할 수 있습니다.
 
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Azure Monitor 클래식 경고에서 알림을 받는 방법
-지금까지 다양한 서비스의 Azure 경고는 자체 기본 제공 알림 방법을 사용했습니다.  
+지금까지 다양한 서비스의 Azure 경고는 자체 기본 제공 알림 방법을 사용했습니다. 
 
 Azure Monitor에서 *작업 그룹*이라는 재사용 가능한 알림 그룹화를 만듭니다. 작업 그룹은 알림에 대한 받는 사람 집합을 지정합니다. 언제든지 작업 그룹을 참조하는 경고가 활성화되면 모든 받는 사람은 해당 알림을 받습니다. 작업 그룹을 통해 여러 경고 개체에서 수신자 그룹(예: 당직 엔지니어 목록)을 재사용할 수 있습니다. 작업 그룹은 메일 주소, SMS 번호 및 다양한 다른 작업 외에도 webhook URL 게시를 통한 알림도 지원합니다.  자세한 내용은 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 참조하세요. 
 

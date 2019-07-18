@@ -12,10 +12,10 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56c45bf6db79ded64574a44399712951e82c1c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303590"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>분석용 저장소 환경에 데이터 로드
@@ -26,7 +26,7 @@ ms.locfileid: "60303590"
 
 * [Azure Blob Storage](move-azure-blob.md) 간 수집
 * [Azure VM의 SQL Server](move-sql-server-virtual-machine.md)로 수집
-* [Azure SQL Database](move-sql-azure.md)로 수집
+* [Azure SQL 데이터베이스](move-sql-azure.md)로 수집
 * [Hive 테이블](move-hive-tables.md)로 수집
 * [SQL 분할된 테이블](parallel-load-sql-partitioned-tables.md)로 수집
 * [온-프레미스 SQL Server](move-sql-azure-adf.md)에서 수집

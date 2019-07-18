@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f6fc66187d961dc93089a9f81f6de4d67fe41
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 600b6db1eb3d3b422d62e49c5bc816a1a56370f9
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075942"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798520"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데스크톱 앱
 
@@ -38,20 +38,20 @@ ms.locfileid: "65075942"
 
 ### <a name="exclusively-by-code"></a>코드에서 단독으로
 
-다음 코드는 공용 클라이언트 응용 프로그램을 회사 및 학교 계정 또는 개인 Microsoft 계정이 Microsoft Azure 공용 클라우드, 사용자 로그인을 인스턴스화합니다.
+다음 코드는 공용 클라이언트 응용 프로그램을 회사 및 학교 계정 또는 개인 Microsoft 계정을 사용 하 여 Microsoft Azure 공용 클라우드, 사용자 로그인을 인스턴스화합니다.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-사용 하려는 위에 표시 된 것 처럼 대화형 인증을 사용 하려면는 `.WithRedirectUri` 한정자:
+사용 하려는 하려는 경우 대화형 인증 또는 장치 코드 흐름을 사용 하 여 위의 예제와 같이는 `.WithRedirectUri` 한정자:
 
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithDefaultRedirectUri()
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>구성 파일을 사용 하 여
@@ -61,7 +61,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithDefaultRedirectUri()
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>더 상세 구성
@@ -71,6 +72,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithDefaultRedirectUri()
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -98,8 +100,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법을 자세히 알아보려면:
 
-- 사용할 수 있는 모든 한정자의 목록은 `PublicClientApplicationBuilder`, 참조 설명서를 참조 [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- 에 표시 된 모든 옵션의 설명은 `PublicClientApplicationOptions` 참조 [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), 참조 설명서에서
+- 사용할 수 있는 모든 한정자의 목록은 `PublicClientApplicationBuilder`, 참조 설명서를 참조 [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- 에 표시 된 모든 옵션의 설명은 `PublicClientApplicationOptions` 참조 [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), 참조 설명서에서
 
 ## <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하 여 전체 예제
 
@@ -167,6 +169,7 @@ public class SampleConfiguration
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithDefaultRedirectUri()
            .Build();
 ```
 

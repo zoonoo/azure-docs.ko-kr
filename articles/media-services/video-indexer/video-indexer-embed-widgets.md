@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560422"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488676"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -31,6 +32,8 @@ ms.locfileid: "60560422"
 |이름|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** 위젯 URL 매개 변수는 버전 2에서에서 지원 되지 않습니다. |
+|locale|간단한 언어 코드|Insights 언어를 제어합니다. 기본값은 `en`입니다. 예: `language=de`|
+|탭|기본 선택한 탭|기본적으로 렌더링 되는 insights 탭을 제어 합니다. `tab=timeline` 타임 라인 탭이 선택 된 정보를 렌더링 합니다.|
 
 ### <a name="player-widget"></a>플레이어 위젯
 
@@ -38,12 +41,12 @@ ms.locfileid: "60560422"
 
 |이름|정의|설명|
 |---|---|---|
-|t|시작 시간(초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: t=60|
-|captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: captions=en-US|
-|showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: showCaptions=true|
-|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|
-|autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: autoplay=false|
-|언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: language=de-DE|
+|t|시작에서 시간 (초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: `t=60`.|
+|captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: `captions=en-US`.|
+|showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: `showCaptions=true`.|
+|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: `type=audio`.|
+|autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: `autoplay=false`.|
+|언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>공용 콘텐츠 포함
 
@@ -61,7 +64,10 @@ ms.locfileid: "60560422"
 
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
-## <a name="embedding-private-content"></a>개인 콘텐츠 포함
+> [!NOTE]
+> 비디오 Url을 공유 하는 문제가 있으면 링크에 'location' 매개 변수를 추가 하십시오. 매개 변수 설정 해야 합니다 [Video Indexer 존재 하는 Azure 지역](regions.md)합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
 **공용** 비디오에 대해서만 포함 팝업에서 포함 코드(이전 섹션 참조)를 가져올 수 있습니다. 
 

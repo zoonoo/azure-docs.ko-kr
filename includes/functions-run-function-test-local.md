@@ -10,11 +10,11 @@ ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987985"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181977"
 ---
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 

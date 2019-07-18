@@ -4,7 +4,7 @@ description: SAP HANA on Azure (큰 인스턴스)에서 SAP HANA를 설치 하�
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbbfad7f9fa1c5515b187114277f054f7c5ea84b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202952"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709575"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -141,7 +141,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>저장 공간
 
 Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SAP 권장 지침에 따라 Azure의 SAP HANA 서비스 관리를 통해 구성됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
@@ -149,7 +149,7 @@ Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SA
 
 저장소 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
-| 스토리지 사용량 | 탑재 이름 | 볼륨 이름 | 
+| 저장소 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
 | HANA data | /hana/data/SID/mnt0000\<m> | 저장소 IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA log | /hana/log/SID/mnt0000\<m> | 저장소 IP:/hana_log_SID_mnt00001_tenant_vol |
@@ -165,7 +165,7 @@ HANA usr/sap는 동일한 볼륨을 공유합니다. 탑재 지점의 명명법�
 
 스케일 아웃 환경에서는 데이터, 로그 및 로그 백업 볼륨이 공유되고 스케일 아웃 구성의 각 노드에 연결됩니다. 여러 SAP 인스턴스로 이루어진 구성에서는 다른 볼륨 세트가 만들어져 HANA 대규모 인스턴스 단위에 연결됩니다. 시나리오에 대한 저장소 레이아웃 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-HANA 대규모 인스턴스 단위를 살펴보면 단위에서 HANA/data의 디스크 볼륨이 상당히 크고 HANA/log/backup 볼륨이 있다는 것을 발견합니다. HANA/data를 크게 만든 이유는 고객에게 제공되는 저장소 스냅숏이 동일한 디스크 볼륨을 사용하기 때문입니다. 저장소 스냅숏을 더 많이 수행할수록 할당된 저장소 볼륨에서 더 많은 공간이 스냅숏에 사용됩니다. 
+HANA 대규모 인스턴스 단위를 살펴보면 단위에서 HANA/data의 디스크 볼륨이 상당히 크고 HANA/log/backup 볼륨이 있다는 것을 발견합니다. HANA/data를 크게 만든 이유는 고객에게 제공되는 저장소 스냅샷이 동일한 디스크 볼륨을 사용하기 때문입니다. 저장소 스냅샷을 더 많이 수행할수록 할당된 저장소 볼륨에서 더 많은 공간이 스냅샷에 사용됩니다. 
 
 HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지 않습니다. HANA 트랜잭션 로그 백업용 백업 볼륨으로 사용되도록 크기가 설정되었습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 

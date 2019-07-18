@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487215"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
@@ -55,7 +55,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 ## <a name="solution-overview"></a>솔루션 개요
 이 간단한 사용 사례는 Azure 데이터 팩터리를 사용하여 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법의 예로 사용할 수 있습니다.
 
-![종단 간 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+![엔드투엔드 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 
 이 그림은 배포된 후 Azure 포털에서 데이터 파이프라인을 표시하는 방법을 보여줍니다.
 

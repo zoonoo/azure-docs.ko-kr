@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d04f31ef20135271e4adb1551246d351bfab7b1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883987"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>자습서: Fuse와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Fuse에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     ![Fuse 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://<tenant name>.fusionuniversal.com/` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://{tenantname}.fuseuniversal.com/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Fuse 클라이언트 지원 팀](mailto:support@fusion-universal.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

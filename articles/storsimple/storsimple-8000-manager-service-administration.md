@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723309"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리
@@ -70,7 +70,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 | 볼륨 추가</br>볼륨 수정</br>볼륨을 오프라인으로 전환</br>볼륨 삭제</br>볼륨 모니터링 |[볼륨 관리](storsimple-8000-manage-volumes-u2.md) |
 | 디바이스 설정 수정</br>시간 설정 수정</br>DNS.md 설정 수정</br>네트워크 인터페이스 구성 |[StorSimple 디바이스에 대한 디바이스 구성 수정](storsimple-8000-modify-device-config.md) |
 | 웹 프록시 설정 보기 |[디바이스에 대한 웹 프록시 구성](storsimple-8000-configure-web-proxy.md) |
-| 디바이스 관리자 암호 수정</br>StorSimple 스냅숏 관리자 암호 수정 |[StorSimple 암호 변경](storsimple-8000-change-passwords.md) |
+| 디바이스 관리자 암호 수정</br>StorSimple 스냅샷 관리자 암호 수정 |[StorSimple 암호 변경](storsimple-8000-change-passwords.md) |
 | 원격 관리 구성 |[StorSimple 디바이스에 원격으로 연결](storsimple-8000-remote-connect.md) |
 | 경고 설정 구성 |[StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md) |
 | StorSimple 디바이스에 대한 CHAP 구성 |[StorSimple 디바이스에 대한 CHAP 구성](storsimple-configure-chap.md) |

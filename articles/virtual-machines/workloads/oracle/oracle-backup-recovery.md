@@ -4,7 +4,7 @@ description: Azure 환경에서 Oracle Database 12c 데이터베이스를 백업
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60567084"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707711"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
 
@@ -30,7 +30,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-### <a name="step-1-prerequisites"></a>1단계: 필수 조건
+### <a name="step-1-prerequisites"></a>1단계: 전제 조건
 
 *   백업 및 복구 프로세스를 수행하려면 먼저 Oracle Database 12c의 인스턴스가 설치되어 있는 Linux VM을 만들어야 합니다. VM을 만드는 데 사용하는 Marketplace 이미지는 *Oracle:Oracle-Database-Ee:12.1.0.2:latest*라고 합니다.
 
@@ -135,11 +135,11 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 ### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux Vm의 응용 프로그램 일치 백업
 
-애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅숏(사전 스냅숏 및 사후 스냅숏) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
+애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅샷(사전 스냅샷 및 사후 스냅샷) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
 
 1. JSON 파일을 다운로드합니다.
 
-    https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
+    [https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig ) 에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
 
     ```azurecli
     {
@@ -170,7 +170,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 4. JSON 파일을 편집합니다.
 
-    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들면 다음과 같습니다.
+    `PreScriptLocation` 및 `PostScriptlocation` 매개 변수를 포함하도록 VMSnapshotScriptPluginConfig.json 파일을 편집합니다. 예를 들어:
 
     ```azurecli
     {
@@ -303,7 +303,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     ![Recovery Services 자격 증명 모음 myVault 세부 정보 페이지](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표(**...**) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
+9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표( **...** ) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 지금 Backup 명령](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -472,7 +472,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
     ![VM 복구 페이지](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  **myvm1** 블레이드의 줄임표(**...**) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
+4.  **myvm1** 블레이드의 줄임표( **...** ) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
 
     ![VM 복원 명령](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -503,7 +503,7 @@ VM을 복원한 후에 공용 IP 주소를 설정합니다.
 
     ![공용 IP 주소의 목록](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**의 경우 **기존 항목 사용**을 선택합니다. 그런 다음에 **만들기**를 클릭합니다.
+2.  **공용 IP 주소** 블레이드에서 **추가**를 클릭합니다. **공용 IP 주소 만들기** 블레이드에서 **이름**에 공용 IP 이름을 선택합니다. **리소스 그룹**의 경우 **기존 항목 사용**을 선택합니다. 그런 다음 **만들기**를 클릭합니다.
 
     ![IP 주소 만들기](./media/oracle-backup-recovery/create_ip_01.png)
 

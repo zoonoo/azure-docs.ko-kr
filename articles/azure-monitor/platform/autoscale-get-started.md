@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60788595"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
@@ -46,13 +46,13 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
   ![새 웹앱에 대한 크기 조정 설정][5]
 1. 크기 조정 설정의 이름을 입력하고 **규칙 추가**를 클릭합니다. 오른쪽에 컨텍스트 창으로 열리는 크기 조정 규칙 옵션을 확인합니다. 이 규칙은 기본적으로 리소스의 CPU 백분율이 70%를 초과하면 인스턴스 수를 하나씩 늘리도록 옵션을 설정합니다. 규칙을 기본값으로 유지하고 **추가**를 클릭합니다.
   ![웹앱에 대한 크기 조정 설정 만들기][6]
-1. 이제 첫 번째 크기 조정 규칙을 만들었습니다. UX에 권장 모범 사례와 "하나 이상의 규모 감축 규칙이 있는 것이 좋습니다."라는 메시지가 표시됩니다. 이렇게 하려면 다음을 수행합니다.
+1. 이제 첫 번째 크기 조정 규칙을 만들었습니다. UX에 권장 모범 사례와 "하나 이상의 규모 감축 규칙이 있는 것이 좋습니다."라는 메시지가 표시됩니다. 이를 수행하려면:
 
     a. **규칙 추가**를 클릭합니다.
 
     b. **연산자**를 **보다 작음**으로 설정합니다.
 
-    다. **임계값**을 **20**으로 설정합니다.
+    c. **임계값**을 **20**으로 설정합니다.
 
     d. **작업**을 **다음을 기준으로 개수 줄이기**로 설정합니다.
 
@@ -133,3 +133,4 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 [12]: ./media/autoscale-get-started/scale-definition-json.png
 [13]: ./media/autoscale-get-started/disable-autoscale.png
 [14]: ./media/autoscale-get-started/set-manualscale.png
+

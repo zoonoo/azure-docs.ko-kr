@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 11977a5aa36b023e468ce6a54862b5138995c417
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64513528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66003103"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-messaging"></a>Azure Service Bus 메시징에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure Service Bus 메시징에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Service Bus 메시징에 기본 제공 되는 일반적인 보안 특성을 설명 합니다.
+이 문서에서는 Azure Service Bus 메시징에 기본 제공 보안 특성을 설명 합니다.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

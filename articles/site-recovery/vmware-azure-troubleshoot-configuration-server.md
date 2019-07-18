@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725570"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
@@ -50,7 +50,7 @@ ms.locfileid: "60725570"
 
 7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다:는 합니다. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
     b. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
-    다. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
+    c. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
     d. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>설치 실패: 계정을 로드하지 못함

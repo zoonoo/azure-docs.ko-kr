@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124716"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399590"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -68,7 +68,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> \- 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
 **Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다. 
 
 
@@ -215,7 +215,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 5. **앱 일치 스냅숏 빈도**에서 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
 
     - 앱 일치 스냅숏은 VM 내에서 앱 데이터의 시간에서 스냅숏입니다.
-    - VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
+    - VSS(볼륨 섀도 복사본 서비스)는 스냅샷을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
 6. **확인**을 선택하여 정책을 만듭니다.
 
 
@@ -322,16 +322,16 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
 
 1. VHD를 다운로드할 수 있도록 Azure VM을 종료합니다. 
-2. VHD 다운로드를 시작하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치합니다.
+2. VHD 다운로드를 시작하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 설치합니다.
 3. Azure Portal에서 VM으로 이동합니다(VM 이름 사용).
 4. **디스크**에서 디스크 이름을 클릭하고 설정을 수집합니다.
 
-    - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
+    - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd 를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
         - Storage 계정: 502055westcentralus
         - 컨테이너: wahv9b8d2ceb284fb59287
         - VHD 이름: copied-3676553984.vhd
 
-5. 이제 Azure Storage 탐색기를 사용하여 VHD를 다운로드합니다.
+5. 이제 Azure Storage Explorer를 사용하여 VHD를 다운로드합니다.
 6. [이러한 단계](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm)를 사용하여 VHD를 Azure Stack으로 업로드합니다.
 7. 기존 VM 또는 새 VM에서 업로드한 VHD를 연결합니다.
 8. OS 디스크가 올바른지 확인하고 VM을 시작합니다.

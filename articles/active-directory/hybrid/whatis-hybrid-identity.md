@@ -1,6 +1,6 @@
 ---
-title: Active Directory와 Azure Active Directory 연결 | Microsoft Docs
-description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure 및 SaaS 애플리케이션에 대한 공통 ID를 제공할 수 있습니다.
+title: Azure Active Directory에 대한 하이브리드 ID란?
+description: 하이브리드 ID는 온-프레미스와 클라우드 모두에서 인증 및 권한 부여에 사용되는 공통 사용자 ID입니다.
 keywords: Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, active directory 설치
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881807"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896823"
 ---
-# <a name="what-is-hybrid-identity"></a>하이브리드 ID란?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Azure Active Directory에 대한 하이브리드 ID란?
 
-오늘날의 비즈니스와 기업에서는 온-프레미스와 클라우드 애플리케이션이 점점 더 많이 혼합되고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 이 요구 사항은 도전적인 시나리오가 되었습니다. 
+오늘날의 비즈니스와 기업에서는 온-프레미스와 클라우드 애플리케이션이 점점 더 많이 혼합되고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 온-프레미스와 클라우드의 사용자를 관리하는 일은 까다롭습니다. 
 
 Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 걸쳐 있습니다.  이러한 솔루션은 위치에 관계없이 모든 리소스에 대한 인증 및 권한 부여에 사용할 일반적인 사용자 ID를 만듭니다. 이를 **하이브리드 ID**라고 합니다.
 
-하이브리드 ID를 얻으려면 시나리오에 따라 세 가지 인증 방법 중 하나를 사용할 수 있습니다.   세 가지 방법은 다음과 같습니다. 
+Azure AD에 대한 하이브리드 ID와 하이브리드 ID 관리를 사용하면 이러한 시나리오가 지원됩니다.
+
+Azure AD에서 하이브리드 ID를 구현하려면 시나리오에 따라 세 가지 인증 방법 중 하나를 사용하면 됩니다.   세 가지 방법은 다음과 같습니다. 
 
 - **[PHS(암호 해시 동기화)](whatis-phs.md)**  
 - **[PTA(통과 인증)](how-to-connect-pta.md)**  
@@ -60,6 +62,10 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 
 >  
 > <sup>4</sup> AD FS는 엔터프라이즈 PKI와 통합되어 인증서를 사용한 로그인을 허용할 수 있습니다. 이러한 인증서는 MDM 또는 GPO와 같은 신뢰할 수 있는 프로비전 채널이나 스마트 카드 인증서(PIV/CAC 카드 포함) 또는 비즈니스용 Hello(cert-trust)를 통해 배포되는 소프트 인증서일 수 있습니다. 스마트 카드 인증 지원에 대한 자세한 내용은 [이 블로그](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)를 참조하세요. 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect 사용을 위한 라이선스 요구 사항
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>다음 단계 
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66430785"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -42,11 +42,12 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
     - RBAC를 사용 하 여 역할 할당 된 사용자에 대 한 액세스를 잃게 됩니다.
     - 서비스 관리자 및 공동 관리자에 액세스할 수 없게 됩니다.
     - 모든 주요 자격 증명 모음에 있는 경우 이러한에서는 액세스할 수 없게 및 연결 후 수정 해야 합니다.
+    - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 모든 관리 되는 id를 설정한 경우 다시 사용 하도록 설정 하거나 연결 후 다시
     - 연결 후 다시 등록 해야는 등록 된 Azure Stack에 있는 경우
 
 1. 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
     - 에 [소유자](../../role-based-access-control/built-in-roles.md#owner) 구독에 대 한 역할 할당 합니다. 소유자 역할을 할당 하는 방법에 대 한 정보를 참조 하세요 [RBAC 및 Azure portal을 사용 하 여 Azure 리소스에 대 한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)합니다.
-    - 구독과 연결되어 있는 현재 디렉터리 및 이후 구독을 연결하려는 새 디렉터리에 모두 포함되어 있는 계정. 다른 디렉터리에 대한 액세스 권한을 얻는 방법에 대한 자세한 내용은 [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](../b2b/add-users-administrator.md)을 참조하세요.
+    - 구독과 연결되어 있는 현재 디렉터리 및 이후 구독을 연결하려는 새 디렉터리에 모두 포함되어 있는 계정. 다른 디렉터리에 대한 액세스 권한을 얻는 방법에 대한 자세한 내용은 [Azure Active Directory 관리자가 B2B 협업 사용자를 추가하는 방법](../b2b/add-users-administrator.md)을 참조하세요.
 
 1. Azure CSP(클라우드 서비스 공급자) 구독(MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft 내부 구독(MS-AZR-0015P) 또는 Microsoft Imagine 구독(MS-AZR-0144P)을 사용하고 있지 않은지 확인합니다.
     
@@ -64,8 +65,8 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
     구독의 디렉터리가 변경되며 성공 메시지가 표시됩니다.
 
-    ![디렉터리 변경에 대 한 성공 메시지](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. 사용 된 **디렉터리 전환기** 새 디렉터리로 이동 합니다. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.
+    ![디렉터리 변경에 대 한 성공 메시지](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. 사용 된 **디렉터리 전환기** 새 디렉터리로 이동 합니다. 모든 항목이 제대로 표시 되는 데 몇 시간이 걸릴 수 있습니다. 경우 오랜 시간이 걸리는 것 했는지 확인 합니다 **전역 구독 필터** 이동된 구독에 대 한 되도록 하지 숨겨져 있습니다.
 
     ![샘플 정보를 사용 하 여 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
@@ -76,7 +77,9 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
 1. 키 자격 증명 모음 테 넌 트 ID를 변경 해야 모든 키 자격 증명 모음에 있는 경우 자세한 내용은 [구독 이동 후 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/key-vault-subscription-move-fix.md)합니다.
 
-2. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)합니다.
+2. 리소스에 대 한 관리 되는 시스템 할당 Id를 사용한 경우 이러한 다시 활성화 해야 있습니다. 관리 되는 사용자 할당 Id를 사용 하는 경우 다시 만들어야 이러한 합니다. 를 다시 사용 하도록 설정 하거나 관리 되는 Id를 다시 만드는 후 해당 id에 할당 된 권한을 다시 설정 해야 합니다. 자세한 내용은 참조 [Azure 리소스에 대 한 관리 되는 id 란?](../managed-identities-azure-resources/overview.md)합니다.
+
+3. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)합니다.
 
 
 

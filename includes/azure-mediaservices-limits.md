@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150320"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182584"
 ---
 >[!NOTE]
 >고정 되지 않는 리소스에 대 한 할당량 증가 요청 하려면 지원 티켓을 엽니다. 더 높은 한도 가져오려고 시도할 때 추가 Azure Media Services 계정을 만들지 마세요.
 
-| 리소스 | 기본 제한 | 
+| Resource | 기본 제한 | 
 | --- | --- | 
 | 단일 구독의 azure Media Services 계정 | 25(고정) |
 | 미디어 예약 단위 Media Services 계정당 |25(S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -25,8 +25,8 @@ ms.locfileid: "65150320"
 | 작업당 자산 | 100 |
 | 한번에 자산과 연결된 고유 로케이터 | 5<sup>4</sup> |
 | Media Services 계정당 라이브 채널 |5|
-| 채널당 중지 상태인 프로그램  |50|
-| 채널당 실행 상태인 프로그램  |3|
+| 채널당 중지 상태인 프로그램 |50|
+| 채널당 실행 상태인 프로그램 |3|
 | 스트리밍 끝점은 중지 하거나 Media Services 계정당 실행|2|
 | 스트리밍 엔드포인트당 스트리밍 단위 |10 |
 | Storage 계정 | 1,000<sup>5</sup>(고정) |

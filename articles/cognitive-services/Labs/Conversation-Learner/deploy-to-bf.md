@@ -3,19 +3,19 @@ title: Conversation Learner 봇을 배포하는 방법 - Microsoft Cognitive Ser
 titleSuffix: Azure
 description: Conversation Learner 봇을 배포하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66385312"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Conversation Learner 봇을 배포하는 방법
 
@@ -98,7 +98,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 다음은 Azure에 Conversation Learner 봇을 배포하기 위한 단계별 지침입니다.  이러한 지침에서는 Azure DevOps Services, GitHub, BitBucket 또는 OneDrive와 같은 클라우드 기반 원본에서 봇 원본을 사용할 수 있다고 가정하고 지속적인 배포에 맞게 봇을 구성합니다.
 
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 2. 새로운 “웹앱 봇” 리소스를 만듭니다. 
 
@@ -115,7 +115,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
        환경 변수 | 값
        --- | --- 
-       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/ "
        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 애플리케이션 ID GUID
        LUIS_AUTHORING_KEY               | 이 모델에 대한 LUIS 작성 키
        LUIS_SUBSCRIPTION_KEY            | 필수 변수는 아니지만 작성 할당량이 소진되지 않도록 하려면 게시된 봇에 사용하는 것이 좋습니다.

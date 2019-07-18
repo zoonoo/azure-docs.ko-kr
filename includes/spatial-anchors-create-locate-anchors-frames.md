@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 10eb16dc1757255c77ed8967dc132f42660e070f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232554"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181906"
 ---
 ## <a name="provide-frames-to-the-session"></a>프레임 세션을 제공 합니다.
 

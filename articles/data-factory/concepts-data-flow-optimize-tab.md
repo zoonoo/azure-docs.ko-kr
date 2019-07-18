@@ -1,20 +1,19 @@
 ---
 title: Azure Data Factory Mapping Data Flow 최적화 탭
-description: 최적화 탭 파티션 설정을 사용하여 Azure Data Factory Mapping Data Flow 최적화
+description: Azure 데이터 팩터리 매핑 데이터 흐름 최적화 탭을 사용 하 여 파티션 설정을 사용 하 여 최적화
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262291"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190654"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapping Data Flow 변환 최적화 탭
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>흐름 변환을 최적화 데이터 매핑 탭
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,8 +45,13 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속�
 
 ### <a name="fixed-range"></a>고정 범위
 
-분할된 데이터 열의 값에 대해 고정 범위를 제공하는 식을 작성해야 합니다. 파티션 기울이기를 방지하기 위해 이 옵션을 사용하기 전에 데이터를 잘 파악해야 합니다. 식에 대해 입력한 값이 파티션 함수의 일부로 사용됩니다. 물리적 파티션 수를 설정할 수 있습니다.
+분할된 데이터 열의 값에 대해 고정 범위를 제공하는 식을 작성해야 합니다. 파티션 기울이기를 방지하기 위해 이 옵션을 사용하기 전에 데이터를 잘 파악해야 합니다. 식에 대해 입력 하는 값은 파티션 함수의 일부로 사용 됩니다. 물리적 파티션 수를 설정할 수 있습니다.
 
 ### <a name="key"></a>키
 
 데이터의 카디널리티를 잘 알고 있는 경우 키 분할은 좋은 파티션 전략이 될 수 있습니다. 키 분할은 열의 각 고유 값에 대한 파티션을 만듭니다. 숫자가 데이터의 고유 값을 기반으로 하기 때문에 파티션 수를 설정할 수 없습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[매핑 데이터 흐름 성능 가이드](concepts-data-flow-performance.md)
+[데이터 흐름 모니터링](concepts-data-flow-monitoring.md)

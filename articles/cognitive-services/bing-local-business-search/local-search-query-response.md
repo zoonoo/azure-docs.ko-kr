@@ -3,18 +3,18 @@ title: Bing Local Business Search API 쿼리 및 응답 보내기 및 사용 | M
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Local Business Search API를 통해 검색 쿼리를 보내고 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh; v-gedod
-ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 06/26/2018
+ms.author: rosh
+ms.openlocfilehash: cf622f658208ab85fe0a0670a0e034bd58a5047d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779796"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849931"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "57779796"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들면 다음과 같습니다.
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들어:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -37,6 +37,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## <a name="using-responses"></a>응답 사용
 
 Bing Local Business Search API의 JSON 응답에는 `SearchResponse` 개체가 포함됩니다. API는 관련 검색 결과를 `places` 필드에 반환합니다. 결과가 없는 경우 `places` 필드는 응답에 포함되지 않습니다.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {
@@ -58,10 +60,10 @@ API에서 반환된 JSON 결과는 다음 특성을 포함합니다.
 * entityPresentationInfo
 * 지역
 * id
-* 이름
+* name
 * routeablePoint
 * telephone
-* URL
+* url
 
 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 일반적인 내용은 [Bing Local Search API v7](local-search-reference.md) 참조를 확인하세요.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363552"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
@@ -102,13 +102,13 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * VM은 다른 작업을 수행하며 모두 Site Recovery 보호가 설정되어 있습니다.
 * 클러스터 노드에 대한 저장소는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
 * 각 클러스터는 서버의 각각 1Gbps인 네트워크 카드(NIC)가 4개 있습니다.
-* 네트워크 카드 중 2개는 iSCSI 개인 네트워크에 연결되며 다른 2개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
+* 네트워크 카드 중 2개는 iSCSI 프라이빗 네트워크에 연결되며 다른 2개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
 
 ![기본 하드웨어 요구 사항](./media/hyper-v-vmm-performance-results/IC744922.png)
 
 | 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 클러스터의 Hyper-V 서버:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25는 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25는 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>보조 사이트
@@ -120,7 +120,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 | 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 클러스터의 Hyper-V 서버:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
+| 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |

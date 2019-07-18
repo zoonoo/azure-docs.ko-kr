@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935752"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
@@ -169,7 +169,7 @@ ms.locfileid: "64935752"
 | SG         | 싱가포르            | SGD               |
 | SK         | 슬로바키아             | EUR               |
 | SI         | 슬로베니아             | EUR               |
-| ZA         | 남아프리카         | ZAR               |
+| ZA         | 남아프리카 공화국         | ZAR               |
 | ES         | 스페인                | EUR               |
 | LK         | 스리랑카            | USD               |
 | SE         | 스웨덴               | SEK               |
@@ -180,7 +180,7 @@ ms.locfileid: "64935752"
 | TN         | 튀니지              | TND               |
 | TR         | 터키               | TRY               |
 | UA         | 우크라이나              | UAH               |
-| AE         | 아랍에미리트 | EUR               |
+| AE         | 아랍 에미리트 연합국 | EUR               |
 | GB         | 영국       | GBP               |
 | US         | 미국        | USD               |
 | UY         | 우루과이              | UYU               |

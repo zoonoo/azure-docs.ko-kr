@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/05/2018
 ms.author: alkohli
 ms.openlocfilehash: a4adef26153870dbce4c24303a403c69285f7252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754639"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182644"
 ---
 다음은 가상 디바이스의 로컬 웹 UI에 대해 지원되는 브라우저 목록입니다.
 

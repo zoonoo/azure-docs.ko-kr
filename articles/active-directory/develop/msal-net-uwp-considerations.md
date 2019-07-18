@@ -4,7 +4,7 @@ description: .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb8076df5482c91942349e0a052794f3fe945a5f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 83fb999b0cf66cfd8d96e82d23ed43626352a8aa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65544129"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>MSAL.NET 사용 하 여 유니버설 Windows 플랫폼 관련 고려 사항
 Xamarin ios, MSAL.NET을 사용 하는 경우 계정에 수행 해야 하는 몇 가지 고려 사항이 있습니다.
@@ -34,7 +34,7 @@ WinRT 플랫폼에서 `PublicClientApplication` 는 다음 부울 속성이 ``Us
 > 이 속성을 true로 설정 응용 프로그램 개발자가 응용 프로그램에서 통합 Windows 인증 (IWA)을 설정 있는지 가정 합니다. 이 방법을 사용 합니다.
 > - 에 ``Package.appxmanifest`` UWP 응용 프로그램에 대 한에 **기능** 탭에서 다음 기능을 사용 하도록 설정:
 >   - 엔터프라이즈 인증
->   - 개인 네트워크(클라이언트 및 서버)
+>   - 프라이빗 네트워크(클라이언트 및 서버)
 >   - 공유 사용자 인증서
 
 IWA 엔터프라이즈 인증 또는 공유 사용자 인증서 기능을 요청 하는 응용 프로그램을 Windows 스토어에 허용할 확인 높은 수준이 필요 하기 때문에 기본으로 사용 되지 않습니다 하 고 모든 개발자가 높을수록 수행 하려고 합니다. 인증 수준입니다. 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594932"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결
@@ -73,9 +73,9 @@ VM에서 FIPS(Federal Information Processing Standard) 호환 알고리즘 연�
 
 ## <a name="before-you-troubleshoot"></a>해결하기 전에
 
-### <a name="create-a-backup-snapshot"></a>백업 스냅숏 만들기
+### <a name="create-a-backup-snapshot"></a>백업 스냅샷 만들기
 
-백업 스냅숏을 만들려면 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
+백업 스냅샷을 만들려면 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
 
 ### <a name="connect-to-the-vm-remotely"></a>원격으로 VM에 연결
 

@@ -16,11 +16,11 @@ ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158038"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
@@ -68,7 +68,7 @@ Service Fabric 분석 솔루션에 액세스하려면 [Azure Portal](https://por
 
 ![Service Fabric 솔루션](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
-다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅숏 보기를 제공합니다.
+다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅샷 보기를 제공합니다.
 
 ![Service Fabric 솔루션](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 

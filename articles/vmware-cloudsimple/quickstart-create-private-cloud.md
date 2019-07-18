@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577662"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476022"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "64577662"
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-private-cloud"></a>사설 클라우드 만들기
+## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 
 1. **모든 서비스**를 선택합니다.
 2. 검색할 **CloudSimple 서비스**합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "64577662"
 
 5. CloudSimple 포털에서 사설 클라우드 이름과
 6. 선택 된 **위치** 사설 클라우드
-7. 선택 합니다 **노드 형식** azure 구입 합니다.  선택할 수 있습니다 합니다 [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)합니다. 후자는 최대 계산 및 메모리 용량을 포함합니다.
+7. 선택 된 **노드 유형** Azure에서 프로 비전 합니다.  선택할 수 있습니다 합니다 [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)합니다. 후자는 최대 계산 및 메모리 용량을 포함합니다.
 8. 지정 된 **노드 수**입니다.  사설 클라우드를 만드는 데 필요한 최소 3 개 노드
 
     ![기본 정보-사설 클라우드 만들기](media/create-private-cloud-basic-info.png)
@@ -135,7 +135,7 @@ VLAN/서브넷이 생성 됩니다.  이제 사설 클라우드 vCenter에서 �
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>환경의 Azure virtual network에 연결
 
-CloudSimple 사설 클라우드를 위한 ExpressRoute 회로 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 단계에 따라 전체에 대 한 내용은 연결 설정 [ExpressRoute를 사용 하 여 Azure 가상 네트워크 연결](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple 사설 클라우드를 위한 ExpressRoute 회로 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 단계에 따라 전체에 대 한 내용은 연결 설정 [ExpressRoute를 사용 하 여 Azure 가상 네트워크 연결](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>VCenter에 로그인
 
@@ -187,7 +187,10 @@ CloudSimple 포털에서 정규화 된 도메인 이름 (FQDN) 및 NSX 관리자
 
     ![NSX 관리자 FQDN을 찾으려면](media/private-cloud-nsx-manager-fqdn.png)
 
-암호를 변경 하려면의 지침을 따릅니다 [NSX Manager 설치](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html)합니다.
+암호를 변경 하려면의 지침을 따릅니다 [사용자의 암호를 관리할](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html)합니다.
+
+> [!WARNING]
+> 기본적으로 NSX 관리자 암호를 90 일 후 만료 됩니다.
 
 ## <a name="create-a-port-group"></a>포트 그룹 만들기
 

@@ -3,25 +3,25 @@ title: SAML에서 single sign-on Azure Active Directory 응용 프로그램 프�
 description: 온-프레미스에 대 한 single sign on 제공 하는 방법은 응용 프로그램이 SAML 인증을 사용 하 여 보안이 유지 되는 응용 프로그램 프록시를 통해 게시 합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.author: celested
+ms.date: 05/20/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66393039"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML에서 single sign-on 응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한
 
@@ -50,13 +50,14 @@ SAML 토큰 암호화 기능을 사용 하 여 응용 프로그램 프록시를 
 1. 선택 **SAML** single sign-on 방법으로 합니다.
 1. 에 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지에서 편집를 **기본 SAML 구성** 데이터의 단계를 수행 하 고 [Enter 기본 SAML 구성](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML 기반을 구성 하려면 응용 프로그램에 대 한 인증입니다.
 
-   * 있는지 확인 합니다 **회신 URL** 일치 하거나 아래의 경로 **외부 URL** 응용 프로그램 프록시를 통해 게시 된 온-프레미스 응용 프로그램에 대 한 합니다. 다른 응용 프로그램에 필요한 경우 **회신 URL** 으로 SAML 구성 추가 **첫 번째** URL 목록에 유지 합니다 **외부 URL** 추가 URL을으로 첫 번째 후 정렬 합니다.
-   * 지정 되어 있는지 확인 합니다도 올바른 **회신 URL** 또는 인증 토큰을 받기 위해 사용할 Assertion Consumer Service URL입니다.
+   * 있는지 확인 합니다 **회신 URL** 일치 하는 **외부 URL** 게시 응용 프로그램 프록시를 통해 또는 아래에 있는 경로 온-프레미스 응용 프로그램에 대 한를 **외부 URL**.
+   * 응용 프로그램에 다른 필요한 위치를 IDP에서 시작한 흐름에 대 한 **회신 URL** 으로 SAML 구성 추가 **추가** 표시 옆에 있는 확인란 확인 하 고 목록에서 URL로 지정 합니다 주 **회신 URL**합니다.
+   * SP에서 시작 된 흐름에 대 한 백 엔드 응용 프로그램이 올바른 지정 하는지 확인 합니다 **회신 URL** 또는 인증 토큰을 받기 위해 사용할 Assertion Consumer Service URL입니다.
 
      ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > 백 엔드 응용 프로그램에서 예상 하는 경우는 **회신 URL** 내부 URL 되도록 사용자 장치에서 My Apps 보안 로그인 확장을 설치 해야 합니다. 이 확장은 적절 한 응용 프로그램 프록시 서비스를 자동으로 리디렉션됩니다. 확장을 설치 하려면 [My Apps 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)합니다.
+    > 백 엔드 응용 프로그램에서 예상 하는 경우는 **회신 URL** 사용 하 여 내부 URL 일을 해야 [사용자 지정 도메인](application-proxy-configure-custom-domain.md) 내부 및 외부 URL 일치 또는 내 앱 보안 로그인 확장 설치 사용자의 장치입니다. 이 확장은 적절 한 응용 프로그램 프록시 서비스를 자동으로 리디렉션됩니다. 확장을 설치 하려면 [My Apps 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)합니다.
 
 ## <a name="test-your-app"></a>앱 테스트
 

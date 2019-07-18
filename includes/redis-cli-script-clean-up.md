@@ -2,15 +2,14 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/25/2018
-ms.author: v-junlch
+ms.date: 11/09/2018
+ms.author: wesmc
 ms.openlocfilehash: e5166934c4f7e1ecc917d2a5afcbb26ea9a637a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607734"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182007"
 ---
 ## <a name="clean-up-deployment"></a>배포 정리 
 
@@ -19,5 +18,3 @@ ms.locfileid: "60607734"
 ```azurecli
 az group delete --name contosoGroup
 ```
-
-<!-- ms.date: 12/25/2018 -->

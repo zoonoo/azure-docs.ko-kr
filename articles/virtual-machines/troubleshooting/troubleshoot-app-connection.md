@@ -4,7 +4,7 @@ description: 이러한 자세한 문제 해결 단계를 사용하여 Azure의 �
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 애플리케이션을 시작할 수 없음, 프로그램이 열리지 않음, 수신 포트가 차단됨, 프로그램을 시작할 수 없음, 수신 포트 차단됨
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922247"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710517"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
 
@@ -86,7 +86,7 @@ Azure 가상 머신에서 실행되는 애플리케이션의 액세스 문제 �
 Windows 및 Linux 기반 가상 머신 둘 다에서 **netstat -a** 명령을 사용하여 활성 수신 포트를 표시합니다. 애플리케이션이 수신해야 할 예상되는 포트에 대한 출력을 검토하세요. 애플리케이션을 다시 시작하거나 필요에 따라 예상되는 포트를 사용하도록 구성하여 다시 로컬로 애플리케이션에 액세스해 보세요.
 
 ## <a id="step2"></a>2단계: 동일한 가상 네트워크의 다른 VM에서 응용 프로그램 액세스
-VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP 주소를 사용하여 다른 VM이지만 동일한 가상 네트워크에서 애플리케이션에 액세스합니다. 클래식 배포 모델을 사용하여 만든 가상 머신의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
+VM의 호스트 이름 또는 Azure 할당 공용, 프라이빗 또는 공급자 IP 주소를 사용하여 다른 VM이지만 동일한 가상 네트워크에서 애플리케이션에 액세스합니다. 클래식 배포 모델을 사용하여 만든 가상 머신의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
 
 ![다른 VM에서 애플리케이션 시작](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
@@ -116,12 +116,12 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 
 * 클래식 배포 모델을 사용하여 만든 VM
   
-  * VM의 엔드포인트 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호를 허용하는지 확인합니다.
+  * VM의 엔드포인트 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 엔드포인트의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 차단하지 않는지 확인합니다.
   * 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](../windows/classic/setup-endpoints.md)을 참조하세요.
 * Resource Manager 배포 모델을 사용하여 만든 VM
   
-  * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호를 허용하는지 확인합니다.
+  * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 네트워크 보안 그룹이 인바운드 요청 및 아웃바운드 요청 트래픽을 허용하는지 확인합니다.
   * 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../../virtual-network/security-overview.md)을 참조하세요.
 
@@ -141,7 +141,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 
 자세한 내용은 [Azure 네트워크 모니터링 개요](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 참조하세요. 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)

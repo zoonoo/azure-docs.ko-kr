@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311218"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190156"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -47,7 +47,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 -  *메타데이터*: 큐, 토픽 및 구독과 같은 엔터티 및 네임스페이스와 연결된 서비스의 해당 속성입니다. 엔터티 및 해당 설정만이 자동으로 복제됩니다. 메시지는 복제되지 않습니다.
 
--  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다.
+-  *장애 조치(failover)* : 보조 네임스페이스를 활성화하는 프로세스입니다.
 
 ## <a name="setup"></a>설정
 
@@ -62,6 +62,17 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 2. *기본 네임스페이스가 프로비전된 위치와 다른 지역*에 ***보조*** Service Bus 프리미엄 네임스페이스를 프로비전합니다. 이렇게 하면 서로 다른 데이터 센터 지역 간에 오류를 격리할 수 있습니다.
 
 3. 기본 네임스페이스와 보조 네임스페이스 간에 페어링을 만들어 ***별칭***을 가져옵니다.
+
+    >[!NOTE] 
+    > 있다면 [Azure Service Bus 프리미엄 Azure Service Bus 표준 네임 스페이스 마이그레이션](service-bus-migrate-standard-premium.md), 재해 복구를 만들려면 기존 별칭 (즉, Service Bus 표준 네임 스페이스 연결 문자열)를 사용 해야 합니다 통해 구성 합니다 **PS/CLI** 또는 **REST API**합니다.
+    >
+    >
+    > 자체 Azure Service Bus 표준 네임 스페이스 연결 문자열/DNS 이름 마이그레이션 중에 Azure Service Bus 프리미엄 네임 스페이스에 대 한 별칭을 됩니다 때문입니다.
+    >
+    > 클라이언트 응용 프로그램 재해 복구 연결 된 경우 설치 프리미엄 네임 스페이스에 연결 하려면이 별칭 (즉, Azure Service Bus 표준 네임 스페이스 연결 문자열)를 이용해 야 합니다.
+    >
+    > 포털을 사용 하 여 재해 복구 구성을 설정 하는 경우 포털에서이 주의 추상화 됩니다.
+
 
 4. 3단계에서 가져온 ***별칭***을 사용하여 클라이언트 애플리케이션을 Geo-DR(지리적 재해 복구) 사용 기본 네임스페이스에 연결합니다. 처음에는 별칭에서 기본 네임스페이스를 가리킵니다.
 
@@ -120,7 +131,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 2. 데이터가 복제되지 않으면 현재 활성 세션이 복제되지 않습니다. 또한 중복 검색 및 예약된 메시지가 작동하지 않을 수 있습니다. 새 세션, 새 예약된 메시지 및 새 중복이 작동합니다. 
 
-3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)을 수행해야 합니다.
+3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)을 수행해야 합니다.
 
 4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다. 구독 및 규칙은 엔터티로 계산합니다.
 

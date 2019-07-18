@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업 사용자를 정보 근로자로 추가 - Azure Active Directory | Microsoft Docs
-description: B2B 공동 작업을 사용하여 액세스를 위해 정보 근로자와 앱 소유자가 게스트 사용자를 Azure AD에 추가 | Microsoft Docs
+title: B2B 협업 사용자를 정보 근로자로 추가 - Azure Active Directory | Microsoft Docs
+description: B2B 협업을 사용하여 액세스를 위해 정보 근로자와 앱 소유자가 게스트 사용자를 Azure AD에 추가 | Microsoft Docs
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65812545"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 
@@ -35,7 +35,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 앱이 셀프 서비스로 구성되면 애플리케이션 소유자는 자신의 액세스 패널을 사용하여 게스트 사용자를 공유하려는 앱에 초대할 수 있습니다. 게스트 사용자는 Azure AD에 반드시 미리 추가할 필요는 없습니다. 
 
 1. `https://myapps.microsoft.com`으로 이동하여 액세스 패널을 엽니다.
-2. 앱을 가리키도록 줄임표(**...**)를 선택한 다음, **앱 관리**를 선택합니다.
+2. 앱을 가리키도록 줄임표( **...** )를 선택한 다음, **앱 관리**를 선택합니다.
  
    ![Salesforce 앱에 대 한 관리 응용 프로그램 하위 메뉴를 보여 주는 스크린샷](media/add-users-iw/access-panel-manage-app.png)
  
@@ -115,7 +115,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
+Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 - [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](add-users-administrator.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074353"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -33,10 +33,10 @@ ms.locfileid: "65136480"
 
 ## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>인증 기관에서 발급한 Service Fabric 인증서 만들기
 
-Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 개인 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
+Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 프라이빗 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
 
 - 자체 서명된 인증서를 만들어 공개-개인 키 쌍을 만들고 이를 인증서와 연결합니다. 인증서는 자체 키에 의해 서명됩니다. 
-- 새 인증서를 수동으로 만들어 공개-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 개인 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
+- 새 인증서를 수동으로 만들어 공개-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 프라이빗 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
 
 자세한 내용은 [Azure Key Vault 인증서를 만드는 방법](https://docs.microsoft.com/azure/key-vault/create-certificate)을 검토하세요.
 
@@ -201,6 +201,20 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Windows 보안 기준
+[알려진 및 초기 계획을 직접 만드는 대신 Microsoft 보안 기준, 예: 검증 광범위 하 게 되는 업계 표준 구성을 구현 하는 것이 좋습니다](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 가상 컴퓨터에 이러한 프로 비전을 위한 옵션 확장 집합은 때문에 프로덕션 소프트웨어를 실행 하는 이러한 온라인으로 Vm을 구성 하려면 Azure Desired State Configuration (DSC) 확장 처리기를 사용 하는 것입니다.
+
+## <a name="azure-firewall"></a>Azure Firewall
+[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 고가용성 및 무제한 클라우드 확장성을 사용 하 여 서비스 as 완벽 하 게 상태 저장 방화벽입니다. ](https://docs.microsoft.com/azure/firewall/overview);이 통해 정규화 된 도메인 이름 (FQDN)이 와일드 카드를 포함 하 여 지정 된 목록에 아웃 바운드 HTTP/S 트래픽을 제한 하는 기능입니다. 이 기능에는 SSL 종료가 필요하지 않습니다. 해당을 활용 하는 것이 좋습니다 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 끝점 방화벽을 통해 전달 될 수 있습니다 Windows 업데이트 및 Microsoft Windows Update로 네트워크 트래픽을 사용 하도록 설정 합니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls 리소스 템플릿 정의 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적으로 적용 하는 방화벽 규칙 클러스터 가상 네트워크에 대해 다음을 허용 하는 것:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+이러한 방화벽 규칙에 허용 된 아웃 바운드 네트워크 보안 그룹을 포함 하는 service Fabric 및 저장소, 가상 네트워크에서 허용 된 대상으로 보완 합니다.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -235,6 +249,18 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 
 > [!NOTE]
 > Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어 방지 설명서를 참조하세요. Linux에서는 Windows Defender가 지원되지 않습니다.
+
+## <a name="platform-isolation"></a>플랫폼 격리
+기본적으로 Service Fabric 응용 프로그램에는 다양 한 형태로 매니페스트 자체 Service Fabric 런타임 자체에 대 한 액세스 부여 됩니다. [환경 변수](service-fabric-environment-variables-reference.md) 응용 프로그램에 해당 하는 호스트의 파일 경로 가리키는 및 Fabric 파일, 응용 프로그램별 요청 및 클라이언트를 허용 하는 프로세스 간 통신 끝점 Fabric 응용 프로그램이 자신을 인증 하는 데 필요한 인증서입니다. 대비 하 여 서비스를 자체 호스팅하는 신뢰할 수 없는 코드를 명시적으로 필요한 경우를 제외 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 런타임에 대 한 액세스는 응용 프로그램 매니페스트의 정책 섹션에서 다음과 같은 선언을 사용 하 여 제거 됩니다. 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>다음 단계
 

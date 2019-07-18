@@ -1,319 +1,267 @@
 ---
 title: V10 AzCopy를 사용 하 여 Azure Storage에 데이터를 이동 또는 복사 | Microsoft Docs
-description: 이동 하거나 blob에서 data lake 및 파일 콘텐츠에서 데이터를 복사 하려면 AzCopy 명령줄 유틸리티를 사용 합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
+description: AzCopy는, 또는 저장소 계정 간에 데이터를 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드, 저장소 계정에 연결한 후 다음 파일을 전송 합니다.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 05/14/2019
 ms.author: normesta
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149030"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565792"
 ---
-# <a name="transfer-data-with-azcopy-v10"></a>AzCopy v10을 사용하여 데이터 전송
+# <a name="get-started-with-azcopy"></a>AzCopy 시작
 
-AzCopy는 Microsoft Azure Blob 및 File storage 간에 데이터를 복사 하기 위한 명령줄 유틸리티입니다. 신뢰할 수 있는 데이터에 대 한 새로운 아키텍처를 전송 및 AzCopy는 다시 디자인 된 명령줄 인터페이스를 제공 합니다. AzCopy를 사용 하 여 파일 시스템 및 저장소 계정 간에 또는 storage 계정 간에 데이터를 복사할 수 있습니다.
+AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 AzCopy를 다운로드, 저장소 계정에 연결한 후 다음 파일을 전송 합니다.
 
-## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10의 새로운 기능
-
-- Azure Blob storage로 또는 그 반대로 파일 시스템을 동기화합니다. `azcopy sync <source> <destination>`를 사용합니다. 증분 복사 시나리오에 적합합니다.
-- Azure Data Lake Storage Gen2 API를 지원합니다. 사용 하 여 `myaccount.dfs.core.windows.net` Data Lake 저장소 Gen2 Api를 호출 하는 URI로 합니다.
-- 계정 전체를 다른 계정으로 복사하는 기능을 지원합니다(Blob 서비스만 해당).
-- Amazon 웹 서비스 S3 버킷에서 데이터 복사를 지원 합니다.
-- 새로운 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) Api 계정에 복사를 지원 하도록 합니다. 데이터 전송이 빠르고 이므로 클라이언트에 전송에는 필요 하지 않습니다.입니다.
-- 나열 하거나 지정된 된 경로에서 파일 및 blob을 제거 합니다.
-- 경로 및--제외 플래그의 와일드 카드 패턴을 지원합니다.
-- 모든 AzCopy 인스턴스를 사용 하 여 작업 순서와 관련 된 로그 파일을 만듭니다. 보기 및 이전 작업을 다시 시작 하 고 실패 한 작업을 다시 시작할 수 있습니다. AzCopy는 전송 실패 후 자동으로 전송을 다시 시도합니다.
-- 기능 일반 성능 향상입니다.
-
-## <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
-
-### <a name="latest-production-version-v10"></a>최신 프로덕션 버전이 (v10)
-
-최신 버전의 AzCopy 다운로드 합니다.
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
-
-### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>테이블 저장소 서비스 (v7.3)를 지 원하는 최신 AzCopy
-
-[Microsoft Azure Table Storage 서비스와 데이터 복사를 지원하는 AzCopy v7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
-
-## <a name="post-installation-steps"></a>설치 후 단계
-
-AzCopy 설치가 필요 하지 않습니다. 선호 하는 명령줄 응용 프로그램을 열고 폴더를 찾은 위치 `azcopy.exe` 위치한 합니다. 필요한 경우에 사용 편의성을 위해 시스템 경로 AzCopy 폴더 위치를 추가할 수 있습니다.
-
-## <a name="authentication-options"></a>인증 옵션
-
-AzCopy는 Azure Storage를 사용 하 여 인증 하는 경우 다음 옵션을 지원 합니다.
-- **Azure Active Directory** (지원 **Blob 및 Data Lake 저장소 Gen2 서비스**). 사용 하 여 ```.\azcopy login``` Azure Active Directory에 로그인 합니다.  사용자에 게 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory 인증을 사용 하 여 Blob storage에 쓸 수 있습니다. Azure 리소스에 대 한 관리 되는 id 통해 인증을 사용 하 여 `azcopy login --identity`입니다.
-- **공유 액세스 서명 토큰 [Blob 및 파일 서비스에 대 한 지원 되는]** 합니다. 공유 액세스 서명 (SAS) 토큰을 사용 하려면 명령줄에서 blob 경로에 추가 합니다. Azure portal 사용 하 여 SAS 토큰을 생성할 수 있습니다 [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), 또는 기타 도구를 선택 합니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
-
-## <a name="getting-started"></a>시작
-
-> [!TIP]
-> **그래픽 사용자 인터페이스를 선호 하십니까?**
+> [!NOTE]
+> AzCopy **V10** AzCopy의 현재 지원 되는 버전입니다.
 >
-> [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/), Azure Storage 데이터 관리를 간소화 하는 데스크톱 클라이언트를 이제 가속화와 Azure Storage에서 데이터 전송에 AzCopy를 사용 합니다.
->
-> Storage 탐색기에서 AzCopy를 사용 하도록 설정 합니다 **미리 보기** 메뉴.
-> ![Azure Storage 탐색기에서 전송 엔진으로 AzCopy를 사용 하도록 설정](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+> AzCopy를 사용 해야 하는 경우 **v8.1**를 참조 합니다 [이전 버전의 AzCopy 사용 하 여](#previous-version) 이 문서의 섹션입니다.
 
-AzCopy v10 자체 문서화 된 구문이 있습니다. Azure Active Directory에 로그인 하는 경우 일반 구문은 다음과 같습니다.
+<a id="download-and-install-azcopy" />
 
-```azcopy
-.\azcopy <command> <arguments> --<flag-name>=<flag-value>
+## <a name="download-azcopy"></a>AzCopy 다운로드
 
-# Examples if you have logged into the Azure Active Directory:
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
+먼저, 컴퓨터에 디렉터리를 AzCopy V10 실행 파일을 다운로드 합니다. 
 
-# Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
-```
+- [Windows](https://aka.ms/downloadazcopy-v10-windows)(zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux)(tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
 
-다음과 같은 방법으로 사용 가능한 명령 목록을 가져올 수 있습니다.
+> [!NOTE]
+> 데이터를 복사 하려는 경우에 [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) 서비스를 설치 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)합니다.
 
-```azcopy
-.\azcopy --help
-# To use the alias instead
-.\azcopy -h
-```
+## <a name="run-azcopy"></a>AzCopy를 실행 합니다.
 
-도움말 페이지 및 특정 명령에 대 한 예제를 보려면 다음 명령을 실행 합니다.
+편의 위해 쉽게 사용할 수 있도록 시스템 경로 AzCopy 실행 파일의 디렉터리 위치를 추가 하는 것이 좋습니다. 이런 방식으로 입력할 수 있습니다 `azcopy` 시스템에서 모든 디렉터리에서.
 
-```azcopy
-.\azcopy <cmd> --help
-# Example:
-.\azcopy cp -h
-```
+입력 하 여 AzCopy 실행 파일의 위치로 디렉터리를 변경 해야 AzCopy 디렉터리 경로를 추가 하지 않으려는 경우 `azcopy` 또는 `.\azcopy` Windows PowerShell 명령 프롬프트에서.
 
-## <a name="create-a-blob-container-or-file-share"></a>Blob 컨테이너 또는 파일 공유 만들기 
+명령 목록을 보려면 `azcopy -h` 한 다음 ENTER 키를 누릅니다.
 
-**Blob 컨테이너 만들기**
+특정 명령에 대 한 자세한 포함 된 명령의 이름입니다 (예: `azcopy list -h`).
 
-```azcopy
-.\azcopy make "https://account.blob.core.windows.net/container-name"
-```
-
-**파일 공유 만들기**
-
-```azcopy
-.\azcopy make "https://account.file.core.windows.net/share-name"
-```
-
-**Azure Data Lake 저장소 Gen2를 사용 하 여 blob 컨테이너 만들기**
-
-Blob 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하는 경우 파일을 업로드 하는 것에 대 한 새 blob 컨테이너를 만들려면 다음 명령을 사용할 수 있습니다.
-
-```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
-```
-
-## <a name="copy-data-to-azure-storage"></a>Azure Storage에 데이터 복사
-
-복사 명령을 사용하여 원본에서 대상으로 데이터를 전송합니다. 소스 또는 대상에는 a: 수 있습니다.
-- 로컬 파일 시스템
-- Azure Blob/가상 디렉터리/컨테이너 URI
-- Azure 파일/디렉터리/파일 공유 URI
-- Azure Data Lake Storage Gen2 파일 시스템/디렉터리/파일 URI
-
-```azcopy
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using the alias instead 
-.\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
-```
-
-폴더 아래에 있는 모든 파일을 업로드 하는 명령을 `C:\local\path` 컨테이너에 재귀적으로 `mycontainer1`만들기, `path` 컨테이너의 디렉터리입니다. 때 `--put-md5` 플래그가 제공 된, 계산 하 고 각 파일의 md5 해시를 저장 하는 AzCopy `Content-md5` 나중에 사용할 해당 blob의 속성입니다.
-
-```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
-```
-
-다음 명령은 `C:\local\path` 폴더의 모든 파일을 `mycontainer1` 컨테이너에 업로드합니다(하위 디렉터리로 반복하지 않고).
-
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
-```
-
-더 많은 예제를 찾으려면 다음 명령을 사용 합니다.
-
-```azcopy
-.\azcopy cp -h
-```
-
-## <a name="copy-blob-data-between-two-storage-accounts"></a>두 저장소 계정 간에 Blob 데이터를 복사 합니다.
-
-사용 하 여 두 개의 저장소 계정 간에 데이터를 복사 합니다 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API를 클라이언트 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. AzCopy는 단순히 복사 작업을 오케스트레이션 하는 동안 데이터가 두 Azure 저장소 서버를 직접 복사 됩니다. 이 옵션은 현재 Blob 저장소에 사용할 수만 있습니다.
-
-모든 두 저장소 계정 간에 Blob 데이터를 복사 하려면 다음 명령을 사용 합니다.
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
-```
-
-Blob 컨테이너에 다른 Blob 컨테이너를 복사 하려면 다음 명령을 사용 합니다.
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
-```
-
-## <a name="copy-a-vhd-image-to-a-storage-account"></a>VHD 이미지를 저장소 계정에 복사
-
-기본적으로 AzCopy는 블록 blob으로 데이터를 업로드합니다. 플래그를 사용 하는 추가 Blob 또는 페이지 Blob 파일을 업로드할 `--blob-type=[BlockBlob|PageBlob|AppendBlob]`합니다.
-
-```azcopy
-.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
-```
-
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>동기화: 증분 복사 및 삭제(Blob 스토리지만)
-
-동기화 명령 파일 이름을 비교 대상에서 디렉터리로 원본 디렉터리의 콘텐츠를 동기화 및 타임 스탬프를 마지막으로 수정 합니다. 원본에 존재 하지 않는 경우이 작업 대상 파일의 선택적 삭제를 포함 하면는 `--delete-destination=prompt|true` 플래그가 제공 된 합니다. 기본적으로 delete 동작을 사용 하는 사용할 수 없습니다. 
+![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 > [!NOTE] 
-> 사용 된 `--delete-destination` 주의 해 서 플래그입니다. 사용 하도록 설정 합니다 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 삭제 동작 계정의 실수로 인 한 삭제를 방지 하려면 동기화를 활성화 하기 전에 기능입니다. 
->
-> 때 `--delete-destination` 로 설정 된 true, AzCopy는 파일을 삭제 사용자에 게 프롬프트 없이 대상에서 원본에 존재 하지 않습니다. 확인에 대 한 자격 증명을 입력 하려는 경우 사용할 `--delete-destination=prompt`합니다.
+> Azure Storage 계정의 소유자는 데이터에 액세스 권한은 자동으로 할당 되지 있습니다. AzCopy를 사용 하 여 의미 있는 모든 작업을 수행 하려면, 저장소 서비스에 권한 부여 자격 증명 제공할 방법을 결정 해야 합니다. 
 
-로컬 파일 시스템을 저장소 계정과 동기화하려면 다음 명령을 사용합니다.
+## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명 제공할 방법 선택
 
-```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
-```
+Azure AD (Active Directory)를 사용 하거나 공유 액세스 서명 (SAS) 토큰을 사용 하 여 권한 부여 자격 증명을 제공할 수 있습니다.
 
-로컬 파일 시스템으로 blob 컨테이너를 동기화 할 수도 있습니다.
+이 테이블을 가이드로 사용 합니다.
 
-```azcopy
-# The SAS token isn't required for Azure Active Directory authentication.
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
-```
+| 저장소 유형 | 권한 부여의 현재 지원 되는 메서드 |
+|--|--|
+|**Blob Storage** | Azure AD & SAS |
+|**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
+|**File Storage** | SAS만 |
 
-이 명령은 마지막으로 수정 된 타임 스탬프에 따라 대상에 소스를 증분 방식으로 동기화 합니다. 을 추가 하거나 원본 파일을 삭제 하는 경우 AzCopy는 대상에 동일한 수행 합니다. 삭제 하기 전에 AzCopy 것인지 묻습니다.
+### <a name="option-1-use-azure-ad"></a>옵션 1: Azure AD를 사용 합니다.
 
-## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Amazon Web Services (AWS) S3에서 데이터 복사
+Azure AD를 사용 하 여 각 명령에 SAS 토큰을 추가할 필요 없이 한 번 자격 증명을 제공할 수 있습니다.  
 
-AWS S3 버킷을 사용 하 여 인증 하려면 다음 환경 변수를 설정 합니다.
+해야 하는 권한 부여 수준을 기반으로 파일 업로드 또는 다운로드만 것인지 합니다.
 
-```
-# For Windows:
-set AWS_ACCESS_KEY_ID=<your AWS access key>
-set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-# For Linux:
-export AWS_ACCESS_KEY_ID=<your AWS access key>
-export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-# For MacOS
-export AWS_ACCESS_KEY_ID=<your AWS access key>
-export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
-```
+파일을 다운로드 하려는 경우 확인 합니다 [Storage Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 사용자 id 또는 서비스 주체에 할당 된 합니다. 
 
-버킷에 Blob 컨테이너를 복사 하려면 다음 명령을 실행 합니다.
+> [!NOTE]
+> 사용자 id 및 서비스 주체는 각 유형의 *보안 주체*용어 사용 되므로 *보안 주체* 이 문서의 나머지 부분에 대 한 합니다.
 
-```
-.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
-```
+파일 업로드 하려는 경우에 이러한 역할 중 하나 보안 주체에 할당 되었는지 확인 한 다음:
 
-AzCopy를 사용 하 여 AWS S3에서 데이터를 복사 하는 방법은 페이지를 참조 하세요 [여기](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3)합니다.
+- [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob 데이터 소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-## <a name="advanced-configuration"></a>고급 구성
+이러한 범위에 있는 id에 이러한 역할을 할당할 수 있습니다.
 
-### <a name="configure-proxy-settings"></a>프록시 설정 구성
+- 컨테이너 (파일 시스템)
+- Storage 계정
+- 리소스 그룹
+- 구독
 
-AzCopy v10에 대 한 프록시 설정을 구성 하려면 다음 명령을 사용 하 여 환경 변수 https_proxy를 설정 합니다.
+참조를 확인 하 고 역할을 할당 하는 방법을 알아보려면 [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
-```cmd
-# For Windows:
-set https_proxy=<proxy IP>:<proxy port>
-# For Linux:
-export https_proxy=<proxy IP>:<proxy port>
-# For MacOS
-export https_proxy=<proxy IP>:<proxy port>
-```
+> [!NOTE] 
+> RBAC 역할 할당이 전파 하는 데 최대 5 분을 사용할 수 있는 점을 염두에 두십시오.
 
-### <a name="optimize-throughput"></a>처리량 최적화
+보안 주체에 대상 컨테이너 또는 디렉터리의 액세스 제어 목록 (ACL)에 추가 되 면 보안 주체에 할당 된 이러한 역할 중 하나를 사용할 필요가 없습니다. ACL을 보안 주체에 대 한 대상 디렉터리에 쓰기 및 컨테이너와 각 부모 디렉터리에 대 한 실행 해야 합니다.
 
-AZCOPY_CONCURRENCY_VALUE 동시 요청 수를 구성 하 고 처리량 성능 및 리소스 사용량을 제어 하는 환경 변수를 설정 합니다. 이 값은 기본적으로 300으로 설정됩니다. 값을 줄이면 AzCopy v10에서 사용하는 대역폭 및 CPU가 제한됩니다.
+자세한 내용은 참조 하세요 [Azure Data Lake 저장소 Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)입니다.
 
-```cmd
-# For Windows:
-set AZCOPY_CONCURRENCY_VALUE=<value>
-# For Linux:
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# For MacOS
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank then the default value is currently in use
-```
+#### <a name="authenticate-a-user-identity"></a>사용자 id를 인증 합니다.
 
-### <a name="change-the-location-of-the-log-files"></a>로그 파일의 위치 변경
-
-필요에 따라 또는 OS 디스크가 채워지는 것을 방지하기 위해 로그 파일의 위치를 변경할 수 있습니다.
-
-```cmd
-# For Windows:
-set AZCOPY_LOG_LOCATION=<value>
-# For Linux:
-export AZCOPY_LOG_LOCATION=<value>
-# For MacOS
-export AZCOPY_LOG_LOCATION=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank, then the default value is currently in use
-```
-### <a name="change-the-default-log-level"></a>기본 로그 수준 변경 
-
-기본적으로 AzCopy 로그 수준이 정보에 설정 됩니다. 디스크 공간 절약을 위해 로그의 세부 정보 표시를 줄이려는 경우 ``--log-level`` 옵션을 사용하여 설정을 덮어씁니다. 사용 가능한 로그 수준은 다음과 같습니다. 디버그, 정보, 경고, 오류, 서둘러, 및 치명적입니다.
-
-### <a name="review-the-logs-for-errors"></a>오류에 대한 로그 검토
-
-다음 명령은 04dc9ca9-158f-7945-5933-564021086c79 로그에서 상태가 UPLOADFAILED인 모든 오류를 가져옵니다.
+사용자 id에 필요한 권한 수준을 부여 된를 확인 한 후 명령 프롬프트를 열고, 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
 
 ```azcopy
-cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
+azcopy login
 ```
-## <a name="troubleshooting"></a>문제 해결
 
-AzCopy 로그 파일 및 모든 작업에 대 한 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 로그에는 실패 상태(UPLOADFAILED, COPYFAILED 및 DOWNLOADFAILED), 전체 경로, 실패 이유가 포함됩니다. 작업 로그 및 플랜 파일은 Windows의 %USERPROFILE\\.azcopy 폴더 또는 Mac 및 Linux의 $HOME\\.azcopy 폴더에 있습니다.
-
-> [!IMPORTANT]
-> Microsoft 지원 (또는 제 3 자에 관련 된 문제 해결)에 요청을 제출 하는 경우 실행 하려는 명령의 교정된 버전을 공유 합니다. 그러면 SAS가 모든 사용자와 실수로 공유 되지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
-
-### <a name="view-and-resume-jobs"></a>작업 보기 및 다시 시작
-
-각 전송 작업은 AzCopy 작업을 만듭니다. 작업의 기록을 보려면 다음 명령을 사용 합니다.
+둘 이상의 조직에 속하는 경우 저장소 계정이 속해 있는 조직의 테 넌 트 ID를 포함 합니다.
 
 ```azcopy
-.\azcopy jobs list
+azcopy login --tenant-id=<tenant-id>
 ```
 
-작업 상태를 보려면 다음 명령을 사용합니다.
+대체는 `<tenant-id>` 저장소 계정이 속해 있는 조직의 테 넌 트 ID 사용 하 여 자리 표시자입니다. 테 넌 트 ID를 찾으려면 선택 **Azure Active Directory > 속성 > 디렉터리 ID** Azure portal에서 합니다.
+
+이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
+
+![컨테이너 만들기](media/storage-use-azcopy-v10/azcopy-login.png)
+
+로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 로그인에 성공하면 브라우저 창을 닫고 AzCopy를 사용할 수 있습니다.
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>서비스 주체 인증
+
+사용자 개입 없이 실행 되는 스크립트 내에서 AzCopy를 사용 하려는 경우 유용한 옵션입니다. 
+
+해당 스크립트를 실행 하기 전에 로그인에 대화형으로 최소 한 번 이상 서비스 주체의 자격 증명을 사용 하 여 AzCopy를 제공할 수 있도록 해야 합니다.  스크립트는 중요 한 정보를 제공 하지 않아도 되도록 해당 자격 증명을 안전 하 고 암호화 된 파일에 저장 됩니다.
+
+클라이언트 암호를 사용 하 여 또는 서비스 주체의 앱 등록을 사용 하 여 연결 된 인증서의 암호를 사용 하 여 계정에 서명할 수 있습니다. 
+
+서비스 주체 만들기에 대 한 자세한 내용은를 참조 하세요. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+
+참조에 대해 자세히 알아보려면 서비스 주체 일반적 [응용 프로그램 및 Azure Active Directory에서 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>클라이언트 암호를 사용 하 여
+
+설정 하 여 시작 된 `AZCOPY_SPA_CLIENT_SECRET` 환경 변수 서비스 주체의 클라이언트 암호를 앱 등록의 합니다. 
+
+> [!NOTE]
+> 이 값을 설정할 환경 및 명령 프롬프트에서 운영 체제의 변수 설정 해야 합니다. 이런 방식으로 값은 현재 세션에만 사용할 수 있습니다.
+
+이 예제에서는 PowerShell에서이 수행할 수는 방법을 보여 줍니다.
 
 ```azcopy
-.\azcopy jobs show <job-id>
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
-전송을 상태별로 필터링하려면 다음 명령을 사용합니다.
+> [!NOTE]
+> 이 예제에 표시 된 대로 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 클라이언트 비밀 콘솔의 명령 기록에 나타나지 않습니다. 
+
+다음으로, 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
 
 ```azcopy
-.\azcopy jobs show <job-id> --with-status=Failed
+azcopy login --service-principal --application-id <application-id>
 ```
 
-다음 명령을 사용 하 여 실패/취소 작업을 다시 시작 합니다. 이 명령은 보안상의 이유로 영구 아니므로 SAS 토큰과 함께 해당 id를 사용 합니다.
+대체는 `<application-id>` 서비스 주체의 응용 프로그램 ID 사용 하 여 자리 표시자의 앱 등록 합니다.
+
+##### <a name="using-a-certificate"></a>인증서 사용
+
+권한 부여에 대 한 사용자 고유의 자격 증명을 사용 하려는 경우 앱 등록 인증서를 업로드할 수 있으며 다음 로그인에 해당 인증서를 사용할 수 있습니다.
+
+인증서를 업로드 하 여 앱 등록을 하는 것 외에도 컴퓨터 또는 AzCopy를 실행 하는 VM에 저장 된 인증서의 복사본이 해야 있습니다. 인증서의이 복사본에 있어야 합니다. PFX 또는 합니다. PEM 서식을 지정 하 고 개인 키를 포함 해야 합니다. 개인 키에는 암호 보호를 사용 해야 합니다. Windows를 사용 하는 인증서를 인증서 저장소에만 존재 하는 경우 해당 인증서 (개인 키 포함)를 PFX 파일로 내보내려면 있는지 확인 합니다. 지침은 [Export-pfxcertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+다음으로 설정 된 `AZCOPY_SPA_CERT_PASSWORD` 인증서 암호 환경 변수입니다.
+
+> [!NOTE]
+> 이 값을 설정할 환경 및 명령 프롬프트에서 운영 체제의 변수 설정 해야 합니다. 이런 방식으로 값은 현재 세션에만 사용할 수 있습니다.
+
+이 예제에서는 PowerShell에서이 수행할 수는 방법을 보여 줍니다.
 
 ```azcopy
-.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
-.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 ```
+
+다음으로, 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+대체는 `<path-to-certificate-file>` 인증서 파일의 상대 또는 정규화 된 경로 사용 하 여 자리 표시자입니다. AzCopy는 경로이 인증서를 저장 하지만 해당 인증서 장소에 보관 해야 합니다는 인증서의 복사본을 저장 하지 않습니다.
+
+> [!NOTE]
+> 이 예제에 표시 된 대로 프롬프트를 사용 하는 것이 좋습니다. 이런 방식으로 암호 콘솔의 명령 기록에 나타나지 않습니다. 
+
+### <a name="option-2-use-a-sas-token"></a>옵션 2: SAS 토큰 사용
+
+AzCopy 명령에서는 SAS 토큰을 사용 하는 각 원본 또는 대상 URL에 추가할 수 있습니다.
+
+이 예제에서는 명령을 재귀적으로 blob 컨테이너에 로컬 디렉터리에서 데이터를 복사합니다. 가상의 SAS 토큰의 끝에 추가 되는 컨테이너 url입니다.
+
+```azcopy
+azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+```
+
+SAS 토큰 및 구입 하는 방법에 대 한 자세한 내용은 참조 하세요 [공유 액세스 서명 (SAS) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)합니다.
+
+## <a name="transfer-files"></a>파일 전송
+
+사용자 본인을 인증 하거나 SAS 토큰을 후 파일 전송을 시작할 수 있습니다.
+
+예제 명령은 찾기 위해 이러한 문서 중 하나를 참조 하세요.
+
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
+
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+
+- [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
+
+- [AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터를 전송 합니다.](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
+## <a name="use-azcopy-in-a-script"></a>AzCopy를 사용 하 여 스크립트에서
+
+해당 스크립트를 실행 하기 전에 로그인에 대화형으로 최소 한 번 이상 서비스 주체의 자격 증명을 사용 하 여 AzCopy를 제공할 수 있도록 해야 합니다.  스크립트는 중요 한 정보를 제공 하지 않아도 되도록 해당 자격 증명을 안전 하 고 암호화 된 파일에 저장 됩니다. 예제를 보려면 합니다 [서비스 주체 인증](#service-principal) 이 문서의 섹션입니다.
+
+AzCopy 시간별 [다운로드 링크](#download-and-install-azcopy) 새 버전의 AzCopy 가리키게 됩니다. 스크립트 AzCopy를 다운로드, 최신 버전의 AzCopy 스크립트 종속 된 기능을 수정 하는 경우 작업 스크립트를 중지할 수 있습니다. 
+
+이러한 문제를 방지 하려면 현재 버전의 AzCopy에 정적 (변경 되지 않은)에 대 한 링크를 가져옵니다. 이런 방식으로 스크립트 다운로드 정확히 동일한 버전의 AzCopy 실행 되는 각 시간입니다.
+
+링크를 가져오려면이 명령을 실행 합니다.
+
+| 운영 체제  | 명령 |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> Linux의 경우 `--strip-components=1` 에 `tar` 명령은 버전 이름을 포함 하 고 대신 현재 폴더에 직접 이진 파일을 추출 하는 최상위 폴더를 제거 합니다. 이렇게 하면 새 버전의 업데이트 스크립트 `azcopy` 만 업데이트 하 여는 `wget` URL입니다.
+
+URL이 명령의 출력에 표시 됩니다. 다음 스크립트는 URL을 사용 하 여 AzCopy를 다운로드할 수 있습니다.
+
+| 운영 체제  | 명령 |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
+
+## <a name="use-azcopy-in-storage-explorer"></a>AzCopy를 사용 하 여 Storage 탐색기에서
+
+AzCopy의 성능 이점을 활용 하 여 파일을 사용 하 여 상호 작용 하도록 명령줄 보다는 Storage 탐색기를 사용 하려는 경우, Storage 탐색기에서 AzCopy를 사용 합니다. 
+
+Storage 탐색기에서 선택 **미리 보기**->**향상 된 Blob 업로드 및 다운로드에 사용 하 여 AzCopy**합니다.
+
+![Azure Storage 탐색기에서 전송 엔진으로 AzCopy를 사용 하도록 설정](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+
+> [!NOTE]
+> 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하는 경우이 설정을 사용 하도록 설정 필요가 없습니다. 계층적 네임 스페이스를 포함 하는 저장소 계정에서 Storage 탐색기 자동으로 사용 하 여 AzCopy 때문입니다.  
+
+저장소 탐색기 계정 키를 사용 하 여 작업을 수행 하므로 저장소 탐색기에 로그인 한 후 추가 권한 부여 자격 증명을 제공할 필요가 없습니다.
+
+<a id="previous-version" />
+
+## <a name="use-the-previous-version-of-azcopy"></a>이전 버전의 AzCopy 사용 합니다.
+
+이전 버전의 AzCopy (AzCopy v8.1)를 사용 하는 경우 다음 링크 중 하나를 참조 하세요.
+
+- [(V8) Windows에서 AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
+- [(V8) Linux에서 AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>구성, 최적화 및 AzCopy 문제 해결
+
+참조 [구성 최적화 및 AzCopy 문제 해결](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-질문, 문제 또는 일반적인 피드백 경우 제출해 [GitHub에서](https://github.com/Azure/azure-storage-azcopy)합니다.
-
-
+질문, 문제 또는 일반적인 피드백 경우 제출해 [GitHub에서](https://github.com/Azure/azure-storage-azcopy) 페이지입니다.

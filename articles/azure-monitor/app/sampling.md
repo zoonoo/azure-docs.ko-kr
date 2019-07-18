@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4da91150999864c64ead28b74242e85d23a51ead
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653814"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310442"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -53,7 +53,7 @@ ms.locfileid: "60653814"
 
 적응 샘플링은 Application Insights SDK ASP.NET v 2.0.0-beta3 이상에서는 Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1에 사용할 수 있는 이상에서는 기본적으로 사용 됩니다.
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨의 트래픽 지정 된 최대 속도로 내로 유지 하도록 자동으로 조정 됩니다 및 설정을 통해 제어 됩니다 `MaxTelemetryItemsPerSecond`합니다. 항목 볼륨은 아래와 샘플링 하지 낮은 사용량으로 인 한 또는 디버깅할 때와 같은 응용 프로그램 원격 분석의 양이 생성 `MaxTelemetryItemsPerSecond`합니다. 원격 분석 증가 된 볼륨으로 샘플링 주기는 대상 볼륨을 달성 하도록 조정 됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨의 트래픽 지정 된 최대 속도로 내로 유지 하도록 자동으로 조정 됩니다 및 설정을 통해 제어 됩니다 `MaxTelemetryItemsPerSecond`합니다. 볼륨은 아래와 샘플링 프로세서에서 항목을 삭제 하지 않습니다 낮은 사용량으로 인 한 또는 디버깅할 때와 같은 응용 프로그램 원격 분석의 양이 생성 하는 경우 `MaxTelemetryItemsPerSecond`합니다. 원격 분석 증가 된 볼륨으로 샘플링 주기는 대상 볼륨을 달성 하도록 조정 됩니다.
 
 목표량을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "60653814"
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 적응 샘플링 구성
 
-[에 대해 알아봅니다](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) 적응 샘플링에 대 한 ASP.NET Core 응용 프로그램을 구성 하는 방법에 대 한 합니다. 
+[에 대해 알아봅니다](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 방법에 대 한 합니다. 
 
 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)의 `AdaptiveSamplingTelemetryProcessor` 노드에서 여러 매개 변수를 조정할 수 있습니다. 표시된 수치는 기본값입니다.
 
@@ -174,11 +174,9 @@ public void ConfigureServices(IServiceCollection services)
 > 이 메서드를 사용하여 샘플링을 구성하는 경우 AddApplicationInsightsTelemetry()와 함께 aiOptions.EnableAdaptiveSampling = false; 설정을 사용하십시오.
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-
-    var builder = configuration .TelemetryProcessorChainBuilder;
+    var builder = configuration.TelemetryProcessorChainBuilder;
     // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
     // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
@@ -315,7 +313,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
                     <Add name = "SamplingPercentage" value = "50" />
                 </Processor>
             </BuiltInProcessors>
-        <TelemetryProcessors/>
+        </TelemetryProcessors>
     ```
 
 3. 프로세서 태그 “FixedRateSamplingTelemetryProcessor” 내부에 다음 태그를 사용하여 샘플링에서 특정 유형의 원격 분석을 포함하거나 제외할 수 있습니다.
@@ -529,3 +527,4 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 ## <a name="next-steps"></a>다음 단계
 
 * [필터링](../../azure-monitor/app/api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
+* Developer Network 문서를 읽어보세요 [Application Insights로 원격 분석을 최적화](https://msdn.microsoft.com/magazine/mt808502.aspx)합니다.

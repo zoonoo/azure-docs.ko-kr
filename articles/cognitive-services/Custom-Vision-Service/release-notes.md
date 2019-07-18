@@ -9,20 +9,38 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787944"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
+
+## <a name="may-2-2019-and-may-10-2019"></a>2019 년 5 월 2 일 및 2019 년 5 월 10 일
+
+- 버그 수정 및 백 엔드 기능 향상
+
+## <a name="may-23-2019"></a>2019 년 5 월 23 일
+
+- 향상 된 포털 UX 환경을 쉽게 Azure 디렉터리를 선택 하 여 Azure 구독에 관련이 있습니다.
+
+## <a name="april-18-2019"></a>2019 년 4 월 18 일 
+
+- 비전 AI 개발 키트에 대 한 개체 검색 내보내기 추가 합니다.
+- 프로젝트 검색을 포함 하 여 UI 조정 합니다.
+
+## <a name="april-3-2019"></a>2019 년 4 월 3 일
+
+- 경계 상자를 200 이미지당 개수의 한도 증가합니다. 
+- 버그 수정, TensorFlow 모델에 대 한 상당한 성능 업데이트를 포함 하 여 내보냅니다. 
 
 ## <a name="march-26-2019"></a>2019년 3월 26일
 
 - Custom Vision Service에는 Azure에서 일반 공급 않았으면!
 - 새 machine learning 특히 까다로운 데이터 집합 및 세분화 된 분류에서 성능 향상된을 위해 백 엔드를 사용 하 여 추가 고급 교육 기능입니다. 고급 교육을 통해 교육 및 사용자 지정 비전에 대 한 계산 시간 예산은 최적의 교육 및 보강 설정을 식별 갔다가 지정할 수 있습니다. 빠른 반복에 대 한 기존 빠른 학습을 사용 하 여 계속 수 있습니다.
-- 3.0에 도입 된 Api입니다. 2019 년 10 월 1 일에서 이전 버전 3.0 Api의 향후 사용 중단을 발표 했습니다. 에 대 한 빠른 시작 설명서를 참조 하세요 [.NET](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial)를 [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial)를 [노드](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial)를 [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), 또는 [이동](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) 예 시작 하는 방법입니다.
+- 3\.0에 도입 된 Api입니다. 2019 년 10 월 1 일에서 이전 버전 3.0 Api의 향후 사용 중단을 발표 했습니다. 에 대 한 빠른 시작 설명서를 참조 하세요 [.NET](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial)를 [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial)를 [노드](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial)를 [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), 또는 [이동](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) 예 시작 하는 방법입니다.
 - "3.0에 사용 하 여 게시/게시 해제" 반복 기본 대체 Api.
 - 새 모델 내보내기 대상은 추가 되었습니다. Dockerfile 내보내기 Raspberry Pi 3에 대 한 ARM 지원 하도록 업그레이드 되었습니다. 내보내기 지원이 추가 되었습니다 합니다 [비전 AI 개발 키트.](https://visionaidevkit.com/)합니다.
 - S0 계층에 대 한 500 프로젝트 마다 태그가 증가 제한입니다. S0 계층에 대 한 100,000 프로젝트별으로 이미지의 한도가 증가 합니다.
@@ -75,7 +93,7 @@ ms.locfileid: "59785728"
 ## <a name="may-7-2018"></a>2018년 5월 7일
 
 - 제한된 평가판 프로젝트에 대한 미리 보기 개체 감지 기능이 도입되었습니다.
-- 2.0 API로 업그레이드
+- 2\.0 API로 업그레이드
 - S0 계층이 태그 250개 이미지 50,000까지 확장되었습니다.
 - 이미지 분류 프로젝트용 기계 학습 파이프 라인의 백 엔드가 크게 개선되었습니다. 2018년 4월 27일 이후에 학습된 프로젝트에는 이 업데이트가 도움이 됩니다.
 - Windows ML에서 사용할 수 있도록 ONNX에 모델 내보내기가 추가되었습니다.

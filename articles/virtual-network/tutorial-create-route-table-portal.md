@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 검색 결과에 **myRouteTablePublic**이 표시되면 선택합니다.
 
-1. **myRouteTablePublic**의 **설정** 아래에서 **경로** > **+ 추가**를 선택합니다.
+1. **myRouteTablePublic**의 **설정** 아래에서 **경로** >  **+ 추가**를 선택합니다.
 
     ![경로 추가](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -111,7 +111,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.
 
-1. **myVirtualNetwork**의 **설정** 아래에서 **서브넷** > **+ 서브넷**을 차례로 선택합니다.
+1. **myVirtualNetwork**의 **설정** 아래에서 **서브넷** >  **+ 서브넷**을 차례로 선택합니다.
 
     ![서브넷 추가](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -224,9 +224,9 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
 
     ![IP 전달을 사용하도록 설정](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
 
-## <a name="create-public-and-private-virtual-machines"></a>공용 및 개인 가상 머신 만들기
+## <a name="create-public-and-private-virtual-machines"></a>공용 및 프라이빗 가상 머신 만들기
 
-가상 네트워크에 공용 VM 및 개인 VM을 만듭니다. 나중에 Azure에서 *공용* 서브넷 트래픽을 NVA를 통해 *사설* 서브넷으로 라우팅하는지 확인하기 위해 이러한 VM을 사용합니다.
+가상 네트워크에 공용 VM 및 프라이빗 VM을 만듭니다. 나중에 Azure에서 *공용* 서브넷 트래픽을 NVA를 통해 *프라이빗* 서브넷으로 라우팅하는지 확인하기 위해 이러한 VM을 사용합니다.
 
 [NVA 만들기](#create-an-nva)의 1-12 단계를 수행합니다. 대부분의 동일한 설정을 사용합니다. 서로 달라야 하는 값은 다음과 같습니다.
 
@@ -265,15 +265,15 @@ Azure가 *myVmPublic* VM을 만드는 동안 *myVmPrivate* VM을 만들 수 있�
 
 1. **연결**을 선택하여 *myVmPrivate* VM에 대한 원격 데스크톱 연결을 만듭니다.
 
-1. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜(*.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. 다운로드한 *.rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 
-    1. 개인 VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
+    1. 프라이빗 VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
 
-    1. 개인 VM 자격 증명을 사용하려면 **기타 선택 사항** > **다른 계정 사용**을 차례로 선택해야 할 수도 있습니다.
+    1. 프라이빗 VM 자격 증명을 사용하려면 **기타 선택 사항** > **다른 계정 사용**을 차례로 선택해야 할 수도 있습니다.
 
 1. **확인**을 선택합니다.
 
@@ -311,7 +311,7 @@ Azure를 사용하여 VM의 네트워크 인터페이스에 대한 [IP 전달을
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. *myVmNva* VM을 다시 시작합니다. 작업 표시줄에서 **시작 단추** > **전원 단추**, **기타(계획됨)** > **계속**을 차례로 선택합니다.
+1. *myVmNva* VM을 다시 시작합니다. 작업 표시줄에서 **시작 단추** > **전원 단추**, **기타(계획됨)**  > **계속**을 차례로 선택합니다.
 
     그러면 원격 데스크톱 세션의 연결도 끊어집니다.
 
@@ -350,7 +350,7 @@ Azure를 사용하여 VM의 네트워크 인터페이스에 대한 [IP 전달을
     Trace complete.
     ```
 
-    첫 번째 홉이 10.0.2.4에 있음을 알 수 있습니다. NVA의 사설 IP 주소입니다. 두 번째 홉은 *myVmPrivate* VM의 사설 IP 주소인 10.0.1.4에 있습니다. 이전에 경로를 *myRouteTablePublic* 경로 테이블에 추가하여 *공용* 서브넷에 연결했습니다. 이에 따라 Azure에서 NVA를 통해 트래픽을 보냈지만, *사설* 서브넷으로는 직접 보내지 않았습니다.
+    첫 번째 홉이 10.0.2.4에 있음을 알 수 있습니다. NVA의 개인 IP 주소입니다. 두 번째 홉은 *myVmPrivate* VM의 개인 IP 주소입니다. 10.0.1.4에 있습니다. 이전에 경로를 *myRouteTablePublic* 경로 테이블에 추가하여 *공용* 서브넷에 연결했습니다. 이에 따라 Azure에서 NVA를 통해 트래픽을 보냈지만, *프라이빗* 서브넷으로는 직접 보내지 않았습니다.
 
 1. *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다. 그러면 *myVmPrivate* VM에 연결된 상태가 유지됩니다.
 
@@ -389,7 +389,7 @@ Azure를 사용하여 VM의 네트워크 인터페이스에 대한 [IP 전달을
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 개인 서브넷으로 트래픽을 라우팅하는 간단한 NVA를 만들었습니다. 이제 이러한 작업을 수행하는 방법을 알아보았으므로 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 미리 구성된 여러 NVA를 배포할 수 있습니다. 이러한 NVA는 유용한 많은 네트워크 기능을 수행합니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md) 및 [경로 테이블 관리](manage-route-table.md)를 참조하세요.
+이 자습서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 프라이빗 서브넷으로 트래픽을 라우팅하는 간단한 NVA를 만들었습니다. 이제 이러한 작업을 수행하는 방법을 알아보았으므로 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 미리 구성된 여러 NVA를 배포할 수 있습니다. 이러한 NVA는 유용한 많은 네트워크 기능을 수행합니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md) 및 [경로 테이블 관리](manage-route-table.md)를 참조하세요.
 
 가상 네트워크 내에 많은 Azure 리소스를 배포할 수 있지만, Azure에서는 일부 PaaS 서비스에 대한 리소스를 가상 네트워크에 배포할 수 없습니다. 일부 Azure PaaS 서비스의 리소스에 대한 액세스를 제한할 수 있습니다. 그러나 이 제한은 가상 네트워크 서브넷의 트래픽일 뿐입니다. Azure PaaS 리소스에 대한 네트워크 액세스를 제한하는 방법에 대해 알아보려면 다음 자습서를 계속 진행합니다.
 

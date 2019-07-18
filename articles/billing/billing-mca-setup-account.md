@@ -1,8 +1,6 @@
 ---
-title: Microsoft 고객 계약-Azure에 대 한 대금 청구 계정 설정 | Microsoft Docs
+title: Microsoft 고객 계약-Azure에 대 한 대금 청구 계정 설정
 description: Microsoft 고객 계약에 대 한 대금 청구 계정 설정 방법에 알아봅니다.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919161"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490688"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정 설정
 
-경우에 Enterprise Agreement 등록 만료 되었거나 곧 만료 등록을 갱신 하는 Microsoft 고객 계약에 서명할 수 있습니다. 갱신에는 다음 단계가 포함 됩니다.
+경우에 Enterprise Agreement 등록 만료 되었거나 곧 만료 등록을 갱신 하는 Microsoft 고객 계약에 서명할 수 있습니다. 이 문서는 설치 후 기존 청구 금액에 변경 내용을 설명 하 고 새 청구 계정 설정 안내. 갱신에는 다음 단계가 포함 됩니다.
 
 1. 새 Microsoft 고객에 동의 합니다. Microsoft 필드 담당자 세부 정보를 이해 하 고 새 계약에 동의 하에 작동 합니다.
 2. 새 Microsoft 고객 계약에 대해 만든 새 청구 계정 설정 합니다.
-
-이 문서는 설치 후 기존 청구 금액에 변경 내용을 설명 하 고 새 청구 계정 설정 안내.
 
 청구 계정을 설정 하는 새 계정에 기업 계약 등록에서 Azure 구독의 청구를 전환할 해야 있습니다. 설치를 구독에서 실행 되는 Azure 서비스에 영향을 주지 않습니다. 그러나 구독에 대 한 청구를 관리 하려는 방식으로 변경 됩니다.
 
@@ -45,7 +41,7 @@ ms.locfileid: "64919161"
 - **청구 계층으로 변경 내용을 이해합니다**
   - 새 계정 대금 청구 하는 기업 계약 등록 보다 다르게 구성 됩니다. [새 계정에 청구 계층으로 변경 내용을 이해](#understand-changes-to-your-billing-hierarchy)합니다.
 - **대금 청구 관리자의 액세스 변경 내용을 이해합니다**
-  - 기업 계약 등록의 관리자가 새 계정에 청구 범위에 대 한 액세스를 가져옵니다. [에 대 한 액세스 변경 내용을 이해](#understand-changes-to-your-billing-administrators-access)합니다.
+  - 기업 계약 등록의 관리자가 새 계정에 청구 범위에 대 한 액세스를 가져옵니다. [에 대 한 액세스 변경 내용을 이해](#changes-to-billing-administrator-access)합니다.
 - **새 계정으로 대체 되는 뷰 기업 계약 기능**
   - 새 계정에는 기능으로 대체 되는 Enterprise Agreement 등록 중 보기 기능입니다.
 - **가장 일반적인 질문에 답변 보기**
@@ -55,7 +51,7 @@ ms.locfileid: "64919161"
 
 설치를 완료 하려면 다음 액세스를 해야 합니다.
 
-- Microsoft 고객 계약에 서명한 경우 생성 된 청구 프로필의 소유자입니다. 청구 프로필에 대 한 자세한 내용은 참조 하세요 [청구 프로필을 이해](billing-mca-overview.md#understand-billing-profiles)합니다.
+- Microsoft 고객 계약에 서명한 경우 생성 된 청구 프로필의 소유자입니다. 청구 프로필에 대 한 자세한 내용은 참조 하세요 [청구 프로필을 이해](billing-mca-overview.md#billing-profiles)합니다.
 
 - 엔터프라이즈 관리자가 갱신 되는 등록 합니다.
 
@@ -81,18 +77,18 @@ ms.locfileid: "64919161"
 
 사용자 조직에 청구 프로필에 소유자로 추가 되는 Microsoft 고객 계약을 서명 합니다. 사용자는 설치를 완료할 수 있도록 소유자로 추가 하도록 요청 합니다.  <!-- Todo Are there any next steps -->
 
-## <a name="understand-changes-to-your-billing-hierarchy"></a>청구 계층 구조의 변경 내용 이해
+## <a name="understand-changes-to-your-billing-hierarchy"></a>청구 계층으로 변경 내용을 이해합니다
 
 새 청구 계정 청구 강화 및 비용 관리 기능을 제공 하는 동안 조직에 대 한 청구를 간소화 합니다. 다음 다이어그램은 새 청구 계정에 청구 구성 되는 방식을 설명 합니다.
 
 ![Ea-mca-post-전환-계층의 이미지](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. 대금 청구 계정을 사용 하 여 Microsoft 고객 계약에 대 한 청구를 관리 합니다. 대금 청구 계정에 대 한 자세한 내용은 참조 하세요 [대금 청구 계정 이해](billing-mca-overview.md#understand-billing-account)합니다.
-2. 청구 프로필을 사용 하 여 기업 계약 등록 하 여 조직에 대 한 청구를 관리 합니다. 엔터프라이즈 관리자를 사용 하면 청구 프로필의 소유자로 합니다. 청구 프로필에 대 한 자세한 내용은 참조 하세요 [청구 프로필을 이해](billing-mca-overview.md#understand-billing-profiles)합니다.
-3. 요구 사항에 따라, 기업 계약 등록 학부에 유사한 비용을 구성 하는 송장 섹션을 사용 합니다. 부서 송장 섹션 되며 각 청구서 섹션의 소유자로 부서 관리자. 송장 섹션에 대 한 자세한 내용은 참조 하세요 [청구서 구역 이해](billing-mca-overview.md#understand-invoice-sections)합니다.
+1. 대금 청구 계정을 사용 하 여 Microsoft 고객 계약에 대 한 청구를 관리 합니다. 대금 청구 계정에 대 한 자세한 내용은 참조 하세요 [대금 청구 계정 이해](billing-mca-overview.md#your-billing-account)합니다.
+2. 청구 프로필을 사용 하 여 기업 계약 등록 하 여 조직에 대 한 청구를 관리 합니다. 엔터프라이즈 관리자를 사용 하면 청구 프로필의 소유자로 합니다. 청구 프로필에 대 한 자세한 내용은 참조 하세요 [청구 프로필을 이해](billing-mca-overview.md#billing-profiles)합니다.
+3. 요구 사항에 따라, 기업 계약 등록 학부에 유사한 비용을 구성 하는 송장 섹션을 사용 합니다. 부서 송장 섹션 되며 각 청구서 섹션의 소유자로 부서 관리자. 송장 섹션에 대 한 자세한 내용은 참조 하세요 [청구서 구역 이해](billing-mca-overview.md#invoice-sections)합니다.
 4. 기업 계약에서 생성 된 계정은 새 청구 계정에 지원 되지 않습니다. 계정의 구독 부서에 대 한 해당 청구서 섹션에 속합니다. 계정 소유자를 만들고 해당 청구서 섹션에 대 한 구독을 관리할 수 있습니다.
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>대금 청구 관리자의 액세스 변경 내용을 이해합니다
+## <a name="changes-to-billing-administrator-access"></a>관리자 액세스 대금 청구 변경 내용
 
 해당 액세스에 따라 기업 계약 등록에 대 한 대금 청구 관리자는 새 계정에 청구 범위에 대 한 액세스를 가져옵니다. 다음 표에서 설치 하는 동안 액세스 변경:
 
@@ -110,7 +106,7 @@ Azure Active Directory 테 넌 트 Microsoft 고객 계약을 서명 하는 동�
 
 사용자를 초대 하는 경우 게스트 사용자로 테 넌 트에 추가 됩니다 않으며 대금 청구 계정에 대 한 액세스를 가져옵니다. 사용자를 초대 하려면 테 넌 트에 대 한 게스트 액세스 설정 해야 합니다. 자세한 내용은 [Azure Active Directory에서 게스트 액세스를 제어](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)입니다. 게스트 액세스를 해제 하는 경우를 켜라는 테 넌 트의 전역 관리자에 게 문의 합니다. <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>새 청구 계정으로 대체 하는 기능
+## <a name="view-replaced-features"></a>대체 뷰 기능
 
 다음 기업 계약의 기능 Microsoft 고객 계약에 대 한 대금 청구 계정에 새 기능으로 바뀝니다.
 
@@ -197,7 +193,7 @@ Azure portal 통해 기업 계약 등록에서 전환 하기 전에 요금과 �
 
    ![전환 상태를 보여 주는 스크린샷](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>청구의 유효성을 검사 계정이 제대로 설정
+## <a name="validate-billing-account-set-up"></a>대금 청구 계정 설정의 유효성을 검사합니다
 
  새 대금 청구 계정을 제대로 설정 되었는지 확인 하려면 다음을 확인 합니다.
 
@@ -205,7 +201,7 @@ Azure portal 통해 기업 계약 등록에서 전환 하기 전에 요금과 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 **비용 관리 + 청구**합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,7 +217,7 @@ Azure portal 통해 기업 계약 등록에서 전환 하기 전에 요금과 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 **비용 관리 + 청구**합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -231,7 +227,7 @@ Azure portal 통해 기업 계약 등록에서 전환 하기 전에 요금과 �
 
 4. 선택 **All products** 왼쪽에서 합니다.
 
-5. 검색 **예약 된**합니다.
+5. 검색할 **예약 된**합니다.
 
     ![구독 post 전환 목록을 보여 주는 스크린샷](./media/billing-mca-setup-account/billing-mca-azure-reservations-post-transition.png)
 
@@ -241,7 +237,7 @@ Azure 예약 새 청구 계정에 기업 계약 등록에서 이동 된 모든 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 **비용 관리 + 청구**합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +253,7 @@ Azure 예약 새 청구 계정에 기업 계약 등록에서 이동 된 모든 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**에서 검색합니다.
+2. 검색할 **비용 관리 + 청구**합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 
@@ -271,7 +267,7 @@ Azure 예약 새 청구 계정에 기업 계약 등록에서 이동 된 모든 �
 
 엔터프라이즈 관리자 및 부서 관리자 계정 소유자는 부서에서 Azure 구독 작성자도 표시 되는 동안 송장 섹션 소유자 또는 송장 섹션 판독기로 나열 됩니다. 기업 계약 등록의 모든 부서에 대 한 액세스를 확인 하려면 모든 송장 섹션의 단계를 반복 합니다. 모든 부서에 속하지 않았던 계정 소유자는 청구서 섹션에서 권한을 얻을 **기본 송장 섹션**합니다. 모든 관리자에 대 한 액세스를 사용할 수 없는 경우 액세스 제공할 수 있습니다 하는 Azure 포털에서. 자세한 내용은 [Azure portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

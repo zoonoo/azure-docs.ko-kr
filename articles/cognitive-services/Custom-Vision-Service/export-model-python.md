@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ba8cf3392ac2bd3d371e5e1910c6671feba9dedf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350457"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606876"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
 
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="deal-with-images-with-a-dimension-1600"></a>1600보다 큰 차원으로 이미지 처리
+### <a name="handle-images-with-a-dimension-1600"></a>1600보다 큰 차원으로 이미지 처리
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -130,6 +130,7 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image

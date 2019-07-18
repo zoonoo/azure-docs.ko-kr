@@ -3,25 +3,25 @@ title: Azure AD 앱 프록시를 사용하여 원격 데스크톱 게시 | Micro
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.author: celested
+ms.date: 05/23/2019
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108456"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -29,7 +29,7 @@ ms.locfileid: "60440704"
 
 이 문서의 대상은 다음과 같습니다.
 - 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공하려고 하는 현재 애플리케이션 프록시 고객.
-- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오에서는 RDS에 대한 제한된 2단계 확인 및 조건부 액세스 제어 집합을 제공합니다.
+- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오는 rds.에 제한 된 집합만 2 단계 인증 및 조건부 액세스 제어 제공
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>애플리케이션 프록시를 표준 RDS 배포에 맞추는 방법
 
@@ -58,6 +58,8 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 - Internet Explorer에서 RDS ActiveX 추가 기능을 사용하도록 설정합니다.
 
+- Azure AD 사전 인증 흐름에 대 한 사용자만 연결할 수 있습니다에 게시 된 리소스를 **RemoteApp 및 데스크톱** 창입니다. 사용자가 데스크톱을 연결할 수 없습니다는 **원격 PC에 연결** 창입니다.
+
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 애플리케이션 프록시 시나리오 배포
 
 환경에 대해 RDS 및 Azure AD 애플리케이션 프록시를 설정한 후 두 가지 솔루션을 결합하는 단계를 따릅니다. 이러한 단계에서는 두 개의 웹 연결 RDS 엔드포인트(RD 웹 및 RD 게이트웨이)를 애플리케이션으로 게시하고 나서 애플리케이션 프록시를 통과하도록 RDS의 트래픽을 전달하는 작업을 안내합니다.
@@ -71,8 +73,9 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    - URL 헤더 변환: 아닙니다.
 2. 게시된 RD 애플리케이션에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
-4. **Azure Active Directory** > **앱 등록** > *애플리케이션* > **설정**으로 이동합니다.
-5. **속성**을 선택하고, RD 웹 엔드포인트(예: `https://\<rdhost\>.com/RDWeb`)를 가리키도록 **홈페이지 URL** 필드를 업데이트합니다.
+4. 선택 **Azure Active Directory**를 차례로 **앱 등록**합니다. 목록에서 앱을 선택 합니다.
+5. 아래 **관리**를 선택 **브랜드**합니다.
+6. 업데이트를 **홈 페이지 URL** RD 웹 끝점을 가리키도록 필드 (같은 `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>애플리케이션 프록시에 대한 직접 RDS 트래픽
 
@@ -126,7 +129,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 | 사전 인증    | Internet Explorer + RDS ActiveX 추가 기능을 사용하는 Windows 7/10 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
 
-사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 Single Sign-On, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
+사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용 하 여 온-프레미스 리소스에 대 한 single sign-on, 조건부 액세스 및 2 단계 확인 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
 통과 인증을 사용하려면 이 문서에 나열된 단계를 두 번만 수정하면 됩니다.
 1. [RD 호스트 엔드포인트 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.

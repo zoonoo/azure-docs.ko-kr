@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad7aedf90ead4b21bab661bdaf85316cd648fd75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>자습서: HighGear와 Azure Active Directory 통합
 
@@ -149,7 +149,7 @@ Single Sign-On을 위해 HighGear를 구성하려면 HighGear 시스템에 로�
 
 ![Single Sign-On 설정 메뉴 항목](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-1. **ID 공급 기업 이름**에서 로그인 페이지의 HighGear Single Sign-On 단추에 표시되는 간단한 설명을 입력합니다. 예를 들면 다음과 같습니다. Azure AD
+1. **ID 공급 기업 이름**에서 로그인 페이지의 HighGear Single Sign-On 단추에 표시되는 간단한 설명을 입력합니다. 예:  Azure AD
 
 2. HighGear의 **SSO(Single Sign-On) URL** 필드에서 Azure의 **HighGear 설정** 섹션에 있는 **로그인 URL** 필드의 값을 붙여넣습니다.
 
@@ -229,7 +229,7 @@ Single Sign-On 구성을 테스트하기 위해 HighGear 테스트 사용자를 
     창이 오른쪽으로 슬라이드 아웃되면 새 사용자에 대한 정보를 입력할 수 있습니다.  
     ![새 연락처 양식](media/highgear-tutorial/new-contact-form.png)
 
-3. **이름** 필드에서 컨테이너의 이름을 입력합니다. 예를 들면 다음과 같습니다. Britta Simon
+3. **이름** 필드에서 컨테이너의 이름을 입력합니다. 예:  Britta Simon
 
 4. **기타 옵션** 메뉴를 클릭하고 **계정 정보** 메뉴 항목을 선택합니다.
 

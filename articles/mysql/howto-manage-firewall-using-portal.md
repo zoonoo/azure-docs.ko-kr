@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458880"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 지정된 된 IP 주소 또는 IP 주소에서 MySQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 
 
-Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
+Virtual Network (VNet) 규칙은 서버에 대한 액세스를 보호하는 데도 사용할 수 있습니다. [Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리하기](howto-manage-vnet-using-portal.md)에 대해 자세히 알아보세요.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -24,7 +24,7 @@ Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면
 
    ![Azure Portal - 보안 연결 클릭](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. 도구 모음에서 **내 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
+2. 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 사용자 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
 
    ![Azure Portal - 내 IP 추가 클릭](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -43,7 +43,7 @@ Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면
    ![Azure Portal - 저장 클릭](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
 ## <a name="connecting-from-azure"></a>Azure에서 연결
-Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 예를 들어 Azure Web Apps 애플리케이션 또는 Azure VM에서 실행되는 애플리케이션을 호스팅하거나 Azure Data Factory 데이터 관리 게이트웨이에서 연결하는 경우가 있습니다. 이러한 연결을 사용하도록 설정하려면 리소스가 방화벽 규칙에 대해 동일한 VNet(Virtual Network) 또는 리소스 그룹에 있을 필요가 없습니다. Azure의 애플리케이션이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 이러한 유형의 연결을 사용하도록 설정하는 몇 가지 방법이 있습니다. 0.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 또는 포털의 **연결 보안** 창에서 **Azure 서비스 방문 허용** 옵션을 **설정**으로 지정하고 **저장**을 누릅니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
+Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 예를 들어 Azure Web Apps 애플리케이션 또는 Azure VM에서 실행되는 애플리케이션을 호스팅하거나 Azure Data Factory 데이터 관리 게이트웨이에서 연결하는 경우가 있습니다. 이러한 연결을 사용하도록 설정하려면 리소스가 방화벽 규칙에 대해 동일한 VNet(Virtual Network) 또는 리소스 그룹에 있을 필요가 없습니다. Azure의 애플리케이션이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 이러한 유형의 연결을 사용하도록 설정하는 몇 가지 방법이 있습니다. 0\.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 또는 포털의 **연결 보안** 창에서 **Azure 서비스 방문 허용** 옵션을 **설정**으로 지정하고 **저장**을 누릅니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
@@ -51,7 +51,7 @@ Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 �
 
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 통해 기존 서버 수준 방화벽 규칙 관리
 방화벽 규칙을 관리하는 단계를 반복합니다.
-* 현재 컴퓨터를 추가하려면 **+ 내 IP 추가**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+* 현재 컴퓨터를 추가하려면 **+ 클라이언트 IP 추가**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 추가 IP 주소를 추가하려면 **규칙 이름**, **시작 IP** 및 **끝 IP**를 입력합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 수정하려면 규칙의 필드 중 하나를 클릭한 후 수정합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
@@ -59,5 +59,5 @@ Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 �
 
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리](howto-manage-firewall-using-cli.md)하도록 스크립팅할 수 있습니다.
-- 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
+- [Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리하기](howto-manage-vnet-using-portal.md)를 통해 서버에 대한 액세스 보안을 더욱 강화합니다.
 - Azure Database for MySQL 서버를 연결에 대 한 도움말을 참조 하세요 [MySQL 용 Azure Database에 대 한 연결 라이브러리](./concepts-connection-libraries.md)합니다.

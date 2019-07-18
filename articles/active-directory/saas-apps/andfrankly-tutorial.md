@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9190d288902a100313150688a767ecb452191447
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3f4359570cdf701b11ee468b43068f6a1ead429
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>자습서: &frankly와 Azure Active Directory 통합
 

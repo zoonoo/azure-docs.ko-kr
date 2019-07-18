@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145100"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443228"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -23,7 +23,7 @@ ms.locfileid: "65145100"
 
 ## <a name="blob-storage-apis"></a>Blob Storage API
 
-Blob 저장소 Api는 Blob Storage Api를 Azure Data Lake Gen2 Api를 사용 하 여 상호 운용 가능한 아직 때문에 발생 하는 의도 하지 않은 데이터 액세스 문제를 방지 하기 위해 비활성화 됩니다.
+Blob 저장소 Api는 Blob Storage Api를 Azure Data Lake Gen2 Api를 사용 하 여 상호 운용 가능한 아직 때문에 발생할 수 있는 기능 작동 문제를 방지 하기 위해 비활성화 됩니다.
 
 ### <a name="what-to-do-with-existing-tools-applications-and-services"></a>기존 도구, 응용 프로그램 및 서비스를 사용 하 여 수행할 작업
 

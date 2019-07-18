@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: Blueprints
       href: blueprints/overview.md
-- name: 구현
-  expanded: true
+- name: 클라우드 채택 프레임워크
   items:
-    - name: 엔터프라이즈 클라우드 채택
-      items:
-        - name: 클라우드 리소스 거버넌스란?
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Azure에서 리소스 액세스 거버넌스
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: 단일 팀을 위한 거버넌스 디자인
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: 여러 팀을 위한 거버넌스 디자인
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Azure Enterprise Scaffold
-      items:
-        - name: 규범적 구독 거버넌스
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: Azure Enterprise Scaffold 구현
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: 개요
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: 거버넌스 개요
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: 리소스
   items:
     - name: Azure 로드맵

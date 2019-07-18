@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078217"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
-[Apache Storm](https://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 여기에서 단어 개수 응용 프로그램을 구현 하는 Storm 토폴로지를 만들 있습니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 사용 하 여 토폴로지를 정의 하는 방법을 차례로 합니다 [Apache Storm Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) 프레임 워크입니다.
+[Apache Storm](https://storm.apache.org/)에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅니다. 여기에서 단어 개수 응용 프로그램을 구현 하는 Storm 토폴로지를 만들 있습니다. [Apache Maven](https://maven.apache.org/)을 사용하여 프로젝트를 빌드하고 패키징합니다. 사용 하 여 토폴로지를 정의 하는 방법을 차례로 합니다 [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) 프레임 워크입니다.
 
 이 문서의 단계를 완료한 후에 HDInsight에서 Apache Storm에 토폴로지를 배포할 수 있습니다.
 
@@ -621,7 +621,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 ## <a name="convert-the-topology-to-flux"></a>토폴로지를 Flux로 변환
 
-[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html)는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html)는 Storm 0.10.0 이상에서 사용할 수 있는 새로운 프레임워크로서 구성을 구현과 분리할 수 있습니다. 구성 요소가 여전히 Java로 정의되지만 토폴로지는 YAML 파일을 사용하여 정의됩니다. 프로젝트를 통해 기본 토폴로지 정의를 패키지하거나 토폴로지를 제출할 때 독립 실행형 파일을 사용할 수 있습니다. Storm에 토폴로지를 제출할 때 환경 변수 또는 구성 파일을 사용하여 YAML 토폴로지 정의에서 값을 채울 수 있습니다.
 
 YAML 파일은 토폴로지 및 구성 요소 간 데이터 흐름에 사용할 구성 요소를 정의합니다. jar 파일의 일부로 YAML 파일을 포함하거나 외부 YAML 파일을 사용할 수 있습니다.
 
@@ -796,7 +796,7 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
       parallelism: 1  
     ```  
 
-    다. 파일로 저장 `newtopology.yaml`합니다.
+    c. 파일로 저장 `newtopology.yaml`합니다.
 
 3. 토폴로지를 실행 하려면 다음 명령을 입력 합니다.
 

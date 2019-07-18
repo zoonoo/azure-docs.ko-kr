@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570479"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798204"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +43,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -76,8 +76,8 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 합니다.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 또한 다음 Url에 연결 해야 완료를 [제공된 된 PowerShell 스크립트를 사용 하 여 어댑터의 설치](#run-the-powershell-script)
 
@@ -121,9 +121,14 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
    - **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
-2. 클라이언트 애플리케이션(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
-NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
+      > [!NOTE]
+      > NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
+      >
+      > 또한 VPN 클라이언트 UX에 입력 필드를 지원 하 고 있습니다-네트워크 액세스 정책을 구성한 경우 인증 성공할 수 있지만 네트워크 정책에 구성 RADIUS 특성을 하나도 적용할 모두 네트워크 액세스 장치 같은 RRAS 서버와 VPN 클라이언트입니다. 결과적으로, VPN 클라이언트에 액세스할 수 없는 이하의 원하는 보다 많은 액세스 권한이 있을 수 있습니다.
+      >
+
+2. 클라이언트 애플리케이션(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
 
 Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정](howto-mfa-mfasettings.md#verification-methods)할 수 있습니다.
 
@@ -132,11 +137,10 @@ Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정]
 NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 수행해야 하는 사용자를 MFA에 등록해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
-1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 
-2. 지시에 따라 확인 방법을 설정합니다.
-3. 조건부 액세스 정책을 만들거나 [사용자 상태를 변경](howto-mfa-userstates.md)하여 테스트 계정에 대한 2단계 인증을 요구합니다. 
 
-사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
+1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다.
+2. 지시에 따라 확인 방법을 설정합니다.
+3. [조건부 액세스 정책을 만들려면](howto-mfa-getstarted.md#create-conditional-access-policy) 테스트 계정에 대 한 다단계 인증을 요구 하도록 합니다.
 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -164,7 +168,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 - 자체 서명된 인증서를 만듭니다.
 - 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 - 로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
-- 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+- 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
 - NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에 확장을 설치하는 경우 각각 자체 인증서가 있어야 합니다.
@@ -189,6 +193,14 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 > [!NOTE]
 > PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
 
+### <a name="certificate-rollover"></a>인증서 롤오버
+
+릴리스를 사용 하 여 여러 인증서를 읽는 NPS 확장의 1.0.1.32 이제 지원 됩니다. 이 기능은 해당 만료 전에 롤링 인증서 업데이트를 용이 하 게 하는 데 도움이 됩니다. 1\.0.1.32 버전으로 업그레이드 해야 조직 NPS 확장의 이전 버전을 실행 하는 경우 이상.
+
+만든 인증서는 `AzureMfaNpsExtnConfigSetup.ps1` 스크립트는 2 년 동안 유효 합니다. IT 조직은 만료에 대 한 인증서를 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인 로컬 컴퓨터 인증서 저장소에 배치 됩니다 및 발급 된 테 넌 트 ID를 제공 하는 스크립트입니다.
+
+인증서 만료 날짜가 도달 하는 경우를 대체할 새 인증서를 만들어야 합니다.  이 프로세스를 실행 하 여 수행 된 `AzureMfaNpsExtnConfigSetup.ps1` 다시 및 메시지가 표시 되 면 동일한 테 넌 트 ID를 유지 합니다. 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
+
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
 이 섹션에는 성공적인 NPS 확장 배포를 위한 디자인 고려 사항 및 제안 사항이 포함되어 있습니다.
@@ -209,7 +221,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| 키 | 값 | Default |
+| Key | 값 | 기본값 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -219,13 +231,21 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
+### <a name="nps-extension-health-check-script"></a>NPS 확장 상태 확인 스크립트
+
+다음 스크립트는 NPS 확장 문제를 해결할 때 기본 상태 확인 단계를 수행 하려면 TechNet 갤러리에서 사용할 수 있습니다.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
+
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>클라이언트 인증서가 예상대로 설치되었는지 어떻게 확인합니까?
 
-설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 개인 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
+설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 프라이빗 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
 
 생성 한 자체 서명 된 인증서를 *AzureMfaNpsExtnConfigSetup.ps1* 스크립트는 유효 기간이 2 년의 수도 있습니다. 인증서가 설치를 확인 하는 경우 인증서가 만료 되지 않았는지 확인 해야 합니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>내 클라이언트 인증서가 Azure Active Directory에 있는 내 테넌트와 연결되어 있는지 어떻게 확인할 수 있습니까?
 
@@ -237,7 +257,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
-이 명령은 PowerShell 세션에서 NPS 확장의 인스턴스와 테넌트를 연결하는 인증서를 모든 출력합니다. 클라이언트 인증서를 개인 키 없이 "Base-64 encoded X.509(.cer)" 파일로 내보내 인증서를 찾고 PowerShell의 목록과 비교합니다.
+이 명령은 PowerShell 세션에서 NPS 확장의 인스턴스와 테넌트를 연결하는 인증서를 모든 출력합니다. 클라이언트 인증서를 프라이빗 키 없이 "Base-64 encoded X.509(.cer)" 파일로 내보내 인증서를 찾고 PowerShell의 목록과 비교합니다.
 
 다음 명령을 "C:" 드라이브에 .cer 형식의 "npscertificate" 파일을 만듭니다.
 
@@ -251,13 +271,13 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 명령이 둘 이상의 인증서를 반환하면 사람이 읽을 수 있는 형식의 Valid-From(유효 기간 시작) 및 Valid-Until(유효 기간) 타임스탬프를 사용하여 확실한 부적격 항목을 필터링할 수 있습니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>로그인할 수 없는 이유
 
 암호가 만료되지 않았는지 확인합니다. NPS 확장은 로그인 워크플로의 일환으로 암호 변경을 지원하지 않습니다. 조직의 IT 담당자에 문의 합니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>내 요청이 ADAL 토큰 오류로 인해 실패하는 이유는 무엇입니까?
 
@@ -266,21 +286,21 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/ 에 액세스할 수 있는지 확인합니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>사용자를 찾을 수 없다고 하는 HTTP 로그 오류로 인해 인증이 실패하는 이유는 무엇입니까?
 
 AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Active Directory 모두에 있는지 확인합니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
-NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
+NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 에 액세스할 수 있는지 확인합니다.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>인증 작동 하지 않는 이유를 유효한 인증서가 있는 불구 하 고 있습니까?
 
@@ -291,6 +311,10 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
+
+### <a name="additional-troubleshooting"></a>추가적인 문제 해결
+
+이 문서에서 추가 문제 해결 지침 및 가능한 솔루션을 찾을 수 있습니다 [Azure Multi-factor Authentication 용 NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,15 +4,15 @@ description: Windows 가상 데스크톱 테 넌 트 환경을 설정 하는 동
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 8e344d6908ba19f8e2294c7777b9c1016eafaf52
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b349d7f384c801e95d745f7a18535f9f5d13cf86
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927644"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605205"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -24,12 +24,12 @@ Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사
 
 ## <a name="escalation-tracks"></a>에스컬레이션 추적
 
-다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정 하는 경우 발생할 수 있습니다 문제 식별 및 해결 합니다.
+다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정 하는 경우 발생할 수 있습니다 문제 식별 및 해결 합니다. 테 넌 트의 설정 하 고, 사용 하 여 새로운 [진단 서비스](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) 일반적인 시나리오에 대 한 문제를 식별 합니다.
 
 >[!NOTE]
 >Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사례를 접수하지 않습니다. Windows 가상 데스크톱 지원, 참조 될 때마다 현재 기술 커뮤니티 포럼으로 이동 합니다. 방문 합니다 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 제품 팀과 활발 한 커뮤니티 멤버를 사용 하 여 문제를 설명 합니다. 지원 문제를 해결 해야 할 경우 작업 ID와 포함 하기 위한 대략적인 시간 프레임 문제가 발생 한 경우.
 
-| **문제**                                                            | **제안 된 솔루션**  |
+| **문제점**                                                            | **제안 된 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | 테 넌 트 만들기                                                    | Azure는 가동 중단의 경우에 문의 [Azure 지원](https://azure.microsoft.com/support/options/)연락이 고, 그렇지 않으면 **원격 데스크톱 서비스/Windows 가상 데스크톱 지원**합니다.|
 | Azure portal에서 액세스 Marketplace 템플릿       | Azure는 가동 중단의 경우에 문의 [Azure 지원](https://azure.microsoft.com/support/options/)합니다. <br> <br> Azure Marketplace의 Windows 가상 데스크톱 템플릿 자유롭게 사용할 수 있습니다.|

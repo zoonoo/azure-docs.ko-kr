@@ -7,17 +7,17 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 721179e12ed7f21312fe848a6bef1a8e19bc8083
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 04/30/2019
+ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65230985"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
-Ansible 프로 비전 및 Azure 리소스 구성에서 사용할 모듈의 제품군이 포함 됩니다. 이러한 리소스는 virtual machines 포함, 확장 집합, 네트워킹 서비스 및 컨테이너 서비스입니다. 이 문서에서는 Azure 및 제공 하는 Ansible 버전에 대 한 다양 한 Ansible 모듈을 나열 합니다.
+Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모음이 포함되어 있습니다. 이러한 리소스에는 가상 머신포함, 확장 집합, 네트워킹 서비스 및 컨테이너 서비스가 포함됩니다. 이 문서에서는 Azure 및 제공 하는 Ansible 버전에 대 한 다양 한 Ansible 모듈을 나열 합니다.
 
 ## <a name="ansible-modules-for-azure"></a>Azure용 Ansible 모듈
 
@@ -27,7 +27,7 @@ Ansible 프로 비전 및 Azure 리소스 구성에서 사용할 모듈의 제�
 
 | Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 역할 | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
-| **Compute**                    |           |                          |                          |                            |           |           |
+| **계산**                    |           |                          |                          |                            |           |           |
 | azure_rm_availabilityset                    | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_availabilityset_facts              | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_deployment                         | 예          | 예                         | 예          | 예          | 예          | 예          |

@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851378"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Azure Active Directory 로그인을 사용하도록 App Service 앱 구성
@@ -79,7 +79,7 @@ ms.locfileid: "60851378"
 1. **Azure Portal**에서 [Azure Portal]로 이동합니다.
 2. 왼쪽 탐색 영역에서 **앱 등록**을 선택합니다. 위쪽의 **새 앱 등록**을 클릭합니다.
 4. **만들기** 페이지에서 앱 등록의 **이름**을 입력합니다. **애플리케이션 유형**에서 **네이티브**를 선택합니다.
-5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 */.auth/login/done* 엔드포인트를 입력합니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다. Windows 애플리케이션을 만드는 경우 URI로 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
+5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 */.auth/login/done* 엔드포인트를 입력합니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다. Windows 애플리케이션을 만드는 경우 URI로 [패키지 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
 5. **만들기**를 클릭합니다.
 6. 앱 등록이 추가되면 선택하여 엽니다. **애플리케이션 ID**를 찾아 해당 값을 적어둡니다.
 7. **모든 설정** > **필요한 권한** > **추가** > **API 선택**을 클릭합니다.

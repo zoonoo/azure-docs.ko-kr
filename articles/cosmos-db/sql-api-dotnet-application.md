@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15cf3b1316cc35e22538ca353302c4a82d2d418b
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121743"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979029"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 애플리케이션 개발
 
@@ -25,7 +25,7 @@ ms.locfileid: "58121743"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
+Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 엔드투엔드 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
 
 ![이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.
 
-2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 애플리케이션**을 선택합니다.
+2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#** , **웹**을 확장한 후 **ASP.NET 웹 애플리케이션**을 선택합니다.
 
       ![ASP.NET 웹 애플리케이션 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
@@ -179,9 +179,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
     ![뷰 추가 명령이 강조 표시된 Visual Studio에서 만든 항목 폴더를 보여 주는 솔루션 탐색기의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
    
-   * **뷰 이름** 상자에 ***인덱스***를 입력합니다.
-   * **템플릿** 상자에서 ***목록***을 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
+   * **뷰 이름** 상자에 ***Index***를 입력합니다.
+   * **템플릿** 상자에서 ***List***를 선택합니다.
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
      
    ![뷰 추가 대화 상자를 보여주는 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
@@ -195,7 +195,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Create***를 입력합니다.
    * **템플릿** 상자에서 ***Create***를 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
    
@@ -207,7 +207,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Edit***를 입력합니다.
    * **템플릿** 상자에서 ***Edit***를 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
 
@@ -357,13 +357,13 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 이때 오류 없이 솔루션을 작성할 수 있어야 합니다.
 
-지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰로 이동합니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작이지만 여기서는 사용하지 않습니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
+지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **Index** 뷰로 이동합니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작이지만 여기서는 사용하지 않습니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
 
 ***App\_Start\RouteConfig.cs***를 열고 "defaults:"로 시작하는 줄을 찾은 후 다음과 같이 변경합니다.
 
         defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
-이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **홈** 대신 **항목**을 컨트롤러로 사용하고 사용자 **인덱스**를 뷰로 사용하라고 지시합니다.
+이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **Home** 대신 **Item**을 컨트롤러로 사용하고 사용자 **Index**를 뷰로 사용하라고 지시합니다.
 
 이제 애플리케이션을 실행하면 애플리케이션에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **Views**\\**Item**\\**Index** 뷰로 반환합니다. 
 
@@ -392,7 +392,7 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
             return View();
         }
    
-    이제 **만들기** 뷰의 제출을 수락하는 코드를 이 컨트롤러에 더 추가해야 합니다.
+    이제 **Create** 뷰의 제출을 수락하는 코드를 이 컨트롤러에 더 추가해야 합니다.
 3. 이 컨트롤러에 대한 폼 POST의 처리 방법을 ASP.NET MVC에 알리는 다음 코드 블록을 ItemController.cs 클래스에 추가합니다.
    
         [HttpPost]
@@ -447,7 +447,7 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
             }
         }
    
-    이러한 메서드 중 첫 번째 메서드인 **GetItem**은 Azure Cosmos DB에서 항목을 가져오며, 이 항목이 다시 **ItemController** 및 **편집** 뷰로 전달됩니다.
+    이러한 메서드 중 첫 번째 메서드인 **GetItem**은 Azure Cosmos DB에서 항목을 가져오며, 이 항목이 다시 **ItemController** 및 **Edit** 뷰로 전달됩니다.
    
     방금 추가한 메서드 중 두 번째 메서드는 Cosmos DB의 **문서**를 **ItemController**에서 전달된 **문서** 버전으로 바꿉니다.
 2. **ItemController** 클래스에 다음을 추가합니다.
@@ -483,9 +483,9 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
             return View(item);
         }
    
-    첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 Azure Cosmos DB에서 [**문서**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
+    첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 Azure Cosmos DB에서 [**문서**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **Edit** 뷰에 전달합니다.
    
-    그런 다음 **편집** 뷰는 **IndexController**에 Http Post를 수행합니다. 
+    그런 다음 **Edit** 뷰는 **IndexController**에 Http Post를 수행합니다. 
    
     추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 Azure Cosmos DB에 전달하는 작업을 처리합니다.
 

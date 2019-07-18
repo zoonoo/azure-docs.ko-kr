@@ -14,10 +14,10 @@ ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60373089"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
@@ -116,7 +116,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 
-성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](../../azure-monitor/app/profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
+성능 조사 환경을 사용하여 웹앱에서 성능이 느린 작업을 검토합니다. 느린 특정 작업을 신속하게 선택하고 [프로파일러](../../azure-monitor/app/profiler.md)를 사용하여 코드에 대한 작업 속도를 저하시키는 근본 원인을 파악할 수 있습니다. 선택한 작업이 표시된 새 기간 분포를 사용하면 해당 환경이 얼마나 고객에게 나쁜지를 빠르게 즉시 가늠할 수 있습니다. 느린 작업마다 영향을 받은 사용자 상호 작용의 상태를 확인할 수 있습니다. 다음 예제에서는 고객/세부 정보 가져오기 작업에 대한 환경을 자세히 살펴보겠습니다. 기간 분포에서 세 가지 스파이크가 있음을 알 수 있습니다. 맨 왼쪽 스파이크는 약 400ms이며 뛰어난 응답 환경을 나타냅니다. 중간 스파이크는 약 1.2s이며 보통의 환경을 나타냅니다. 3\.6s에서 99번째 백분위수 환경을 나타내는 마지막 작은 스파이크는 고객 불만족으로 이어질 가능성이 높습니다. 그러한 환경은 동일한 작업에 대해 탁월한 환경보다 10배 더 느립니다. 
 
 ![고객/세부 정보 가져오기 세 가지 기간 스파이크](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 

@@ -142,6 +142,8 @@
           href: concepts-data-flow-column-pattern.md
         - name: 데이터 흐름 모니터링
           href: concepts-data-flow-monitoring.md
+        - name: 데이터 흐름 성능
+          href: concepts-data-flow-performance.md
         - name: 이동 노드
           href: concepts-data-flow-move-nodes.md
         - name: 최적화 탭
@@ -180,7 +182,7 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB SQL API
           href: connector-azure-cosmos-db.md
-        - name: Azure Cosmos DB MongDB API
+        - name: Azure Cosmos DB의 API for MongoDB
           href: connector-azure-cosmos-db-mongodb-api.md
         - name: Azure Data Explorer
           href: connector-azure-data-explorer.md
@@ -318,6 +320,8 @@
           href: connector-sap-ecc.md
         - name: SAP HANA
           href: connector-sap-hana.md
+        - name: SAP 테이블
+          href: connector-sap-table.md
         - name: ServiceNow
           href: connector-servicenow.md
         - name: SFTP
@@ -482,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수
           href: control-flow-system-variables.md
+        - name: 데이터 흐름 매개 변수
+          href: parameters-data-flow.md
     - name: 보안
       items:
         - name: 데이터 이동 보안 고려 사항
@@ -512,7 +518,7 @@
       items:
         - name: Azure 통합 런타임
           href: create-azure-integration-runtime.md
-        - name: 자체 호스팅된 통합 런타임
+        - name: 자체 호스팅 통합 런타임
           href: create-self-hosted-integration-runtime.md
         - name: Azure SSIS 통합 런타임
           href: create-azure-ssis-integration-runtime.md
@@ -558,12 +564,22 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: LastModifiedDate로 새 파일 복사
           href: solution-template-copy-new-files-lastmodifieddate.md
-        - name: 컨트롤 테이블을 사용하여 대량 복사
+        - name: 데이터베이스에서 대량 복사
           href: solution-template-bulk-copy-with-control-table.md
-        - name: 컨트롤 테이블을 사용하여 델타 복사
+        - name: 데이터베이스에서 델타 복사
           href: solution-template-delta-copy-with-control-table.md
+        - name: 파일 이동
+          href: solution-template-move-files.md
         - name: Databricks를 사용하여 데이터 변환
           href: solution-template-databricks-notebook.md
+    - name: 문제 해결 가이드
+      items:
+        - name: 작업 문제 해결
+          href: data-factory-troubleshoot-guide.md
+        - name: AZURE-SSIS IR 관리 문제 해결
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Azure-SSIS IR의 패키지 실행 문제 해결
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: 참고 자료
   items:
     - name: .NET

@@ -4,7 +4,7 @@ description: .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60b3b2fa2cdb7808e45f9142f1c1a351f470af50
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158837"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154429"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET을 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
@@ -62,12 +62,12 @@ ASP.NET Core 응용 프로그램 구성에 설명 되어는 *appsettings.json* �
 }
 ```
 
-MSAL.NET v3.x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다. 앱 구성에 관련 된 클래스에는 `Microsoft.Identity.Client.AppConfig` 네임 스페이스입니다.
+MSAL.NET v3.x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다.
 
-구성 하 고 응용 프로그램을 인스턴스화할 하려는 클래스에서 선언 해야 하는 `ConfidentialClientApplicationOptions` 개체입니다.  (Appconfig.json 파일 포함) 원본에서 읽은 구성이 응용 프로그램 옵션의 인스턴스에 바인딩하십시오.
+구성 하 고 응용 프로그램을 인스턴스화할 하려는 클래스에서 선언 해야 하는 `ConfidentialClientApplicationOptions` 개체입니다.  응용 프로그램 옵션을 사용 하 여 인스턴스의 appconfig.json 파일 등 원본에서 읽은 구성이 바인딩할 합니다 `IConfigurationRoot.Bind()` 메서드에서 [Microsoft.Extensions.Configuration.Binder nuget 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();

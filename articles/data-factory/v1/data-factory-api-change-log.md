@@ -15,17 +15,17 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567251"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
 > 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 
 
-이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다.  [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
+이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
 ## <a name="version-4110"></a>버전 4.11.0
 기능 추가 사항:
@@ -40,7 +40,7 @@ ms.locfileid: "60567251"
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
   * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
-## <a name="version-4100"></a>4.10.0 버전
+## <a name="version-4100"></a>4\.10.0 버전
 * 다음 선택적 속성이 TextFormat에 추가되었습니다.
   * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
   * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
@@ -140,7 +140,7 @@ ms.locfileid: "60567251"
 ### <a name="breaking-changes"></a>주요 변경 내용
 다음 클래스의 이름이 변경되었습니다. 새 이름은 4.0.0 릴리스 전의 클래스 원래 이름이었습니다.
 
-| 4.0.0의 이름 | 4.0.1의 이름 |
+| 4\.0.0의 이름 | 4\.0.1의 이름 |
 |:--- |:--- |
 | AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx) |
 | AzureSqlDataset |[AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx) |

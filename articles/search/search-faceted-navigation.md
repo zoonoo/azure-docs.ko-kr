@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023950"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165963"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
 
- ![Azure Search 작업 포털 데모][1]
+ ![Azure Search 구직 포털 데모](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search 구직 포털 데모")
 
 패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯을 검색 인덱스를 탐색 하기 위한 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
 
@@ -68,10 +68,10 @@ Azure Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 
 관련 없는 적중 항목을 필터링하는 기능으로 이해되는 정밀도는 다음 두 식 중 하나 또는 둘 다를 통해 실현됩니다.
 
 -   **search=**  
-     이 매개 변수의 값은 검색 식을 구성합니다. 단일 텍스트 조각 또는 여러 항 및 연산자를 포함하는 복잡한 검색 식일 수 있습니다. 서버의 경우 검색 식은 인덱스의 검색 가능한 필드에서 일치하는 용어를 쿼리하고 순위대로 결과를 반환하는 전체 텍스트 검색에 사용됩니다. `search`를 null로 설정한 경우 쿼리는 전체 인덱스에서 실행됩니다(즉, `search=*`). 이 경우 쿼리의 다른 요소(예: `$filter` 또는 점수 매기기 프로필)는 반환되는 문서(`($filter`) 및 반환 순서(`scoringProfile` 또는 `$orderby`)에 영향을 주는 주요 요소입니다.
+    이 매개 변수의 값은 검색 식을 구성합니다. 단일 텍스트 조각 또는 여러 항 및 연산자를 포함하는 복잡한 검색 식일 수 있습니다. 서버의 경우 검색 식은 인덱스의 검색 가능한 필드에서 일치하는 용어를 쿼리하고 순위대로 결과를 반환하는 전체 텍스트 검색에 사용됩니다. `search`를 null로 설정한 경우 쿼리는 전체 인덱스에서 실행됩니다(즉, `search=*`). 이 경우 쿼리의 다른 요소(예: `$filter` 또는 점수 매기기 프로필)는 반환되는 문서(`($filter`) 및 반환 순서(`scoringProfile` 또는 `$orderby`)에 영향을 주는 주요 요소입니다.
 
 -   **$filter=**  
-     필터는 특정 문서 특성 값을 기반으로 검색 결과의 크기를 제한하는 강력한 메커니즘입니다. `$filter` 가 먼저 평가된 후 사용 가능한 값과 각 값의 해당 개수를 생성하는 패싯 논리가 평가됩니다.
+    필터는 특정 문서 특성 값을 기반으로 검색 결과의 크기를 제한하는 강력한 메커니즘입니다. `$filter` 가 먼저 평가된 후 사용 가능한 값과 각 값의 해당 개수를 생성하는 패싯 논리가 평가됩니다.
 
 복잡한 검색 식은 쿼리 성능을 저하시킵니다. 되도록이면 효과적으로 작성된 필터 식을 사용하여 정밀도를 높이고 쿼리 성능을 향상시키세요.
 
@@ -270,11 +270,11 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 ### <a name="filtering-tips"></a>필터링 팁
 **필터로 검색 정확도 향상**
 
- 필터를 사용합니다. 검색 식에만 의존할 경우 형태소 분석으로 인해 해당 필드에 정확한 패싯 값이 없는 문서가 반환될 수 있습니다.
+필터를 사용합니다. 검색 식에만 의존할 경우 형태소 분석으로 인해 해당 필드에 정확한 패싯 값이 없는 문서가 반환될 수 있습니다.
 
 **필터로 검색 성능 향상**
 
- 필터는 검색 후보 문서 집합의 범위를 좁히고 순위에서 제외합니다. 대량의 문서 집합이 있는 경우 엄선된 패싯 드릴다운을 사용하면 때로는 성능을 크게 향상시킬 수 있습니다.
+필터는 검색 후보 문서 집합의 범위를 좁히고 순위에서 제외합니다. 대량의 문서 집합이 있는 경우 엄선된 패싯 드릴다운을 사용하면 때로는 성능을 크게 향상시킬 수 있습니다.
   
 **패싯 필드만 필터링**
 
@@ -305,11 +305,11 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 > 두 가지 이상의 형식이 있을 때 `count`를 설명하면 혼동을 일으킬 수 있습니다. 다음 표에서는 Azure Search API, 샘플 코드 및 설명서에서 용어가 사용되는 방식에 대한 간략한 요약을 제공합니다. 
 
 * `@colorFacet.count`<br/>
-   프레젠테이션 코드에는 패싯 결과 수를 표시하는 데 사용되는 count 매개 변수가 패싯에 표시됩니다. 패싯 결과에서 count는 패싯 용어 또는 범위와 일치하는 문서 수를 나타냅니다.
+  프레젠테이션 코드에는 패싯 결과 수를 표시하는 데 사용되는 count 매개 변수가 패싯에 표시됩니다. 패싯 결과에서 count는 패싯 용어 또는 범위와 일치하는 문서 수를 나타냅니다.
 * `&facet=City,count:12`<br/>
-   패싯 쿼리에서는 count를 값으로 설정할 수 있습니다.  기본값은 10이지만 더 높거나 낮은 값으로 설정할 수 있습니다. `count:12` 를 설정하면 문서 수에 따라 패싯 결과에서 상위 12개의 일치하는 항목을 가져옵니다.
+  패싯 쿼리에서는 count를 값으로 설정할 수 있습니다.  기본값은 10이지만 더 높거나 낮은 값으로 설정할 수 있습니다. `count:12` 를 설정하면 문서 수에 따라 패싯 결과에서 상위 12개의 일치하는 항목을 가져옵니다.
 * "`@odata.count`"<br/>
-   쿼리 응답에서 이 값은 검색 결과의 일치하는 항목 수를 나타냅니다. 검색 용어와 일치하지만 패싯 값이 일치하지 않는 항목이 존재하기 때문에 이는 평균적으로 모든 패싯 결과의 합계보다 큽니다.
+  쿼리 응답에서 이 값은 검색 결과의 일치하는 항목 수를 나타냅니다. 검색 용어와 일치하지만 패싯 값이 일치하지 않는 항목이 존재하기 때문에 이는 평균적으로 모든 패싯 결과의 합계보다 큽니다.
 
 **패싯 결과의 개수 가져오기**
 
@@ -339,9 +339,9 @@ Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 �
 10달러 단위로 증분되는 가격 패싯을 설정하려면 다음과 같이 지정합니다. `&facet=price,interval:10`
 
 **방법 2: 값 목록 사용**  
- 숫자 데이터의 경우 값 목록을 사용할 수 있습니다.  다음과 같이 렌더링된 `listPrice`의 패싯 범위를 가정해 보겠습니다.
+숫자 데이터의 경우 값 목록을 사용할 수 있습니다.  다음과 같이 렌더링된 `listPrice`의 패싯 범위를 가정해 보겠습니다.
 
-  ![샘플 값 목록][5]
+  ![샘플 값 목록](media/search-faceted-navigation/Facet-5-Prices.PNG "샘플 값 목록")
 
 이전 스크린샷과 같은 패싯 범위를 지정하려면 값 목록을 사용합니다.
 
@@ -352,7 +352,7 @@ Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 �
 ### <a name="build-a-filter-for-a-range"></a>범위에 대한 필터 작성
 사용자가 선택한 범위에 따라 문서를 필터링하려면 범위의 엔드포인트를 정의하는 두 부분으로 구성된 식에서 `"ge"` 및 `"lt"` 필터 연산자를 사용하면 됩니다. 예를 들어 `listPrice` 필드의 범위를 10-25로 선택하면 필터는 `$filter=listPrice ge 10 and listPrice lt 25`가 됩니다. 샘플 코드의 필터 식에서는 **priceFrom** 및 **priceTo** 매개 변수를 사용하여 엔드포인트를 설정합니다. 
 
-  ![값 범위 쿼리][6]
+  ![값의 범위에 대 한 쿼리](media/search-faceted-navigation/Facet-6-buildfilter.PNG "값의 범위에 대 한 쿼리")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
    
    검색 결과와 함께 패싯 탐색 구조도 반환됩니다. 검색 결과 페이지의 패싯 탐색 구조에 각 패싯 결과의 개수가 포함됩니다. 패싯을 선택하지 않았으므로 일치하는 모든 결과가 반환됩니다.
    
-   ![패싯을 선택하기 전의 검색 결과][11]
+   ![패싯을 선택 하기 전의 검색 결과](media/search-faceted-navigation/faceted-search-before-facets.png "패싯을 선택 하기 전의 검색 결과")
 
 4. 직함, 위치 또는 최소 급여를 클릭합니다. 패싯은 초기 검색 시 null이었지만 값을 취하는 순간 더 이상 일치하지 않는 항목이 검색 결과에서 잘립니다.
    
-   ![패싯을 선택한 후의 검색 결과][12]
+   ![패싯을 선택한 후 검색 결과](media/search-faceted-navigation/faceted-search-after-facets.png "패싯을 선택한 후 검색 결과")
 
 5. 다른 쿼리 동작을 시도할 수 있도록 패싯 쿼리를 지우려면 선택한 패싯 뒤에 있는 `[X]`를 클릭하여 패싯을 지웁니다.
    
@@ -400,42 +400,6 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
 
-* [패싯 검색을 위한 디자인](http://www.uie.com/articles/faceted_search/)
 * [디자인 패턴: 패싯 탐색](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [패싯 검색 – 1 부를 구현 하는 경우 프런트 엔드 문제](https://articles.uie.com/faceted_search2/)
 

@@ -37,9 +37,15 @@
       href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
     - name: 아티팩트 보호
       href: resource-manager-tutorial-secure-artifacts.md
+    - name: Azure Pipelines를 사용한 연속 통합
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
     - name: 안전한 배포 사례 사용
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: 배포 관리자에서 상태 검사 사용
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: 템플릿 배포 문제 해결
       href: resource-manager-tutorial-troubleshoot.md
 - name: 샘플
@@ -51,7 +57,7 @@
 - name: 개념
   items:
     - name: 템플릿 파일 구조
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: 템플릿 모범 사례
       href: template-best-practices.md
@@ -62,6 +68,9 @@
     - name: 배포 관리자
       displayName: adm
       href: deployment-manager-overview.md
+    - name: 배포 관리자 상태 검사
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: 배포 모드
       href: deployment-modes.md
     - name: 리소스 삭제
@@ -115,9 +124,34 @@
               href: resource-manager-powershell-sas-token.md
         - name: 여러 리소스 그룹 또는 구독에 배포
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Azure DevOps Services를 사용하여 지속적인 통합
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: 파이프라인이 있는 VS 프로젝트
+          href: vs-resource-groups-project-devops-pipelines.md
+    - name: 템플릿 내보내기
+      href: export-template-portal.md
+    - name: 이동
+      items:
+        - name: 리소스 이동
+          href: resource-group-move-resources.md
+        - name: 리소스 지원
+          href: move-support-resources.md
+        - name: 이동 문제 해결
+          href: troubleshoot-move.md
+        - name: 서비스 지침 이동
+          items:
+            - name: App Service
+              href: ./move-limitations/app-service-move-limitations.md
+            - name: Azure DevOps
+              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+            - name: 클래식 배포
+              href: ./move-limitations/classic-model-move-limitations.md
+            - name: Recovery Services
+              href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Virtual Machines
+              href: ./move-limitations/virtual-machines-move-limitations.md
+            - name: Virtual Network
+              href: ./move-limitations/virtual-network-move-limitations.md
     - name: 관리
       items:
         - name: 리소스 그룹 관리
@@ -142,8 +176,6 @@
             - name: Azure PowerShell 사용
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: 리소스 이동
-          href: resource-group-move-resources.md
         - name: 리소스 정리
           displayName: tags
           href: resource-group-using-tags.md
@@ -157,7 +189,7 @@
           href: grant-access-to-create-subscription.md
         - name: 테넌트에서 인증
           href: authenticate-multi-tenant.md
-    - name: 배포 감사
+    - name: 변경 내용 감사
       items:
         - name: 활동 로그 보기
           href: resource-group-audit.md
@@ -200,7 +232,7 @@
 - name: 참고 자료
   items:
     - name: 템플릿 참조
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: 템플릿 함수
       items:
         - name: 모든 함수
@@ -223,8 +255,6 @@
       items:
         - name: 전체 모드 삭제
           href: complete-mode-deletion.md
-        - name: 이동 지원
-          href: move-support-resources.md
         - name: 태그 지원
           href: tag-support.md
     - name: 서비스별 리소스 공급자
@@ -239,7 +269,7 @@
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python

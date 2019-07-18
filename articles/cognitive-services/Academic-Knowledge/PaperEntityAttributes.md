@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875748"
 ---
 # <a name="paper-entity"></a>Paper 엔터티
@@ -22,7 +22,7 @@ ms.locfileid: "64875748"
 <sub> *아래 특성은 Paper 엔터티에 한정됩니다. (Ty = '0') </sub>
 
 
-이름    |설명                                        |Type       | 작업
+Name    |설명                                        |Type       | 작업
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                                          |Int64      |같음
 Ti      |논문 제목                                        |String     |Equals,<br/>StartsWith
@@ -38,9 +38,9 @@ AA.AfId |작성자 소속 조직 ID                              |Int64      |�
 AA.S    |논문의 작성자 순서                         |Int32      |같음
 F.FN    |연구 분야 이름                                |String     |Equals,<br/>StartsWith
 F.FId   |연구 분야 ID                                  |Int64      |같음
-J.JN    |저널 이름                                       |String     |Equals,<br/>StartsWith
+J.JN    |저널 이름                                       |문자열     |Equals,<br/>StartsWith
 J.JId   |저널 ID                                         |Int64      |같음
-C.CN    |컨퍼런스 시리즈 이름                             |String     |Equals,<br/>StartsWith
+C.CN    |컨퍼런스 시리즈 이름                             |문자열     |Equals,<br/>StartsWith
 C.CId   |컨퍼런스 시리즈 ID                               |Int64      |같음
 RId     |참조된 논문 ID                              |Int64[]    |같음
 W       |논문 제목 및 요약의 단어                |문자열[]   |같음

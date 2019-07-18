@@ -1,26 +1,25 @@
 ---
-title: Azure HDInsight의 HBase란?
+title: Azure HDInsight에서 Apache HBase란?
 description: Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/22/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: e48a0c69dc04325c3f3c2ff7b73a26c6366816c9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114437"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137453"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>HDInsight의 Apache HBase: Apache Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase란
+
 [Apache HBase](https://hbase.apache.org/)는 [Apache Hadoop](https://hadoop.apache.org/)을 기반으로 하고 [Google BigTable](https://cloud.google.com/bigtable/) 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.
 
 사용자 관점에서 볼 때 HBase는 데이터베이스와 유사합니다. 데이터는 테이블의 행과 열에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. Hadoop 에코시스템의 분산 애플리케이션이 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase를 구현하는 방법
 
@@ -51,12 +50,7 @@ HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하�
     HBase를 데이터 저장소로 사용하여 HBase 위에서 애플리케이션을 실행할 수 있습니다. 예를 들어 Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji, Titan 등이 있습니다. 애플리케이션이 HBase와 통합될 수도 있습니다. [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/), [Apache Drill](https://drill.apache.org/) 등을 예로 들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [HDInsight에서 Hadoop을 통해 Apache HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)
 * [Azure Virtual Network에 HDInsight 클러스터 만들기](./apache-hbase-provision-vnet.md)
 * [HDInsight에서 Apache HBase 복제 구성](apache-hbase-replication.md)
-* [Apache Maven을 사용하여 HDInsight(Hadoop)에서 Apache HBase를 사용하는 Java 애플리케이션 빌드](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>참고 항목
-* [Apache HBase](https://hbase.apache.org/)
-* [Apache HBase Reference Guide](https://hbase.apache.org/book.html)(Apache HBase 참조 설명서)
-* [Bigtable: 구조화된 데이터의 분산 저장소 시스템](https://research.google.com/archive/bigtable.html)

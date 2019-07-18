@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 03/21/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320151"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182023"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -40,5 +39,5 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
 
     * 클라이언트 인증서:
 
-      * 개인 키를 만들 때에는 길이를 4096으로 지정합니다.
+      * 프라이빗 키를 만들 때에는 길이를 4096으로 지정합니다.
       * 인증서를 만들 때에는 *-extensions* 매개 변수에 대해 *usr_cert*를 지정합니다.

@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 TTL(Time to Live)을 구성하고 관리하�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003520"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797745"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
@@ -35,6 +35,11 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
    * **저장**을 클릭하여 변경 내용을 저장합니다.
 
    ![Azure Portal에서 TTL(Time to Live) 구성](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- DefaultTimeToLive가 Null인 경우 TTL(Time to Live)이 꺼짐
+- DefaultTimeToLive가 -1인 경우 TTL(Time to Live) 설정이 켜짐(기본값 없음)
+- DefaultTimeToLive가 다른 Int 값(0 제외)을 가진 경우 TTL(Time to Live) 설정이 켜짐
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 

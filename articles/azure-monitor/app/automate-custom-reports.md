@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067651"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -78,21 +78,24 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 예약된 다이제스트 보고서
 
-1. Azure Portal에서 **리소스 만들기** > **Compute** > **Function App**을 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **Compute** > **함수 앱**을 선택합니다.
 
-   ![Azure Resource Function App 만들기 스크린샷](./media/automate-custom-reports/function-app-01.png)
+   ![Azure Resource 함수 앱 만들기 스크린샷](./media/automate-custom-reports/function-app-01.png)
 
-2. 앱에 대한 적절한 정보를 입력하고 _만들기_를 선택합니다. (Application Insights를 사용하여 새 Function App을 모니터링하려는 경우에만 Application Insights _On_이 필요합니다.)
+2. 앱에 대한 적절한 정보를 입력하고 _만들기_를 선택합니다. (Application Insights를 사용하여 새 함수 앱을 모니터링하려는 경우에만 Application Insights _On_이 필요합니다.)
 
-   ![Azure Resource Function App 설정 만들기 스크린샷](./media/automate-custom-reports/function-app-02.png)
+   ![Azure Resource 함수 앱 설정 만들기 스크린샷](./media/automate-custom-reports/function-app-02.png)
 
-3. 새 Function App에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
+3. 새 함수 앱에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
 
 4. **새 함수**를 선택합니다.
 
    ![새 함수 만들기 스크린샷](./media/automate-custom-reports/function-app-03.png)
 
 5. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
+
+     > [!NOTE]
+     > 함수 앱은 기본적으로 런타임 버전을 사용 하 여 생성 됩니다 2.x입니다. 수행 해야 합니다 [Azure Functions 런타임 버전을 대상](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) Application Insights를 사용 하는 1.x 다이제스트 서식 파일을 예약 합니다.
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 
@@ -123,9 +126,9 @@ availabilityResults
 
 10. **SendGridAPI 키 앱 설정** 아래에서 **SendGridAPI**에 대한 새로 만든 앱 설정을 선택합니다.
 
-     ![Function App 실행 스크린샷](./media/automate-custom-reports/function-app-010.png)
+     ![함수 앱 실행 스크린샷](./media/automate-custom-reports/function-app-010.png)
 
-11. Function App을 실행하고 테스트합니다.
+11. 함수 앱을 실행하고 테스트합니다.
 
      ![테스트 스크린샷](./media/automate-custom-reports/function-app-11.png)
 
@@ -153,7 +156,7 @@ availabilityResults
 
    ![모든 권한 스크린샷](./media/automate-custom-reports/function-app-16.png)
 
-5. 전체 키를 복사합니다. 이 값은 SendGridAPI에 대한 값으로 Function App 설정에서 필요한 값입니다.
+5. 전체 키를 복사합니다. 이 값은 SendGridAPI에 대한 값으로 함수 앱 설정에서 필요한 값입니다.
 
    ![API 키 복사 스크린샷](./media/automate-custom-reports/function-app-17.png)
 

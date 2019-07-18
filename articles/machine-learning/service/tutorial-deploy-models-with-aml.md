@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/29/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133096"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515574"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "58133096"
 Container Instances는 워크플로를 테스트 및 이해하기 위한 훌륭한 솔루션입니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.8에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 [개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어봅니다.  

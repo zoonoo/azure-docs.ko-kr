@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65950107"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>데이터 과학 팀 프로젝트의 그룹 관리자 작업
 
-이 토픽에서는 그룹 관리자가 자신의 데이터 과학 조직을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 TDSP([Team Data Science Process](overview.md))를 표준화하는 공동 작업 그룹 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
+이 항목에서는 윤곽선 그룹 관리자는 작업에는 데이터 과학 조직의 인원이 완료 해야 합니다. 목표는 TDSP([Team Data Science Process](overview.md))를 표준화하는 공동 작업 그룹 환경을 구축하는 것입니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
 **그룹 관리자**는 기업 내 전체 데이터 과학 단위의 관리자입니다. 한 데이터 과학 단위에 여러 팀이 있을 수 있고, 각 팀은 고유한 비즈니스 수직 시장에서 여러 데이터 과학 프로젝트를 진행할 수 있습니다. 그룹 관리자는 서로게이트에게 작업을 위임할 수 있지만 역할에 연결된 작업은 동일합니다. 다음 다이어그램에 나와 있는 것처럼 6개의 주요 작업이 있습니다.
 
@@ -85,7 +85,7 @@ Microsoft 계정이 없는 경우 **지금 등록**을 클릭하여 Microsoft �
 
 다음 값을 사용하여 **계정 만들기** 마법사에서 만들려는 Azure DevOps Services에 대한 정보를 입력합니다.
 
-- **서버 URL**: *mysamplegroup*을 해당 ‘서버 이름’으로 바꿉니다. 서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다.
+- **서버 URL**: *mysamplegroup*을 해당 ‘서버 이름’으로 바꿉니다.  서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다.
 - **코드 관리 앱:** **_Git_** 을 선택합니다.
 - **프로젝트 이름:** *GroupCommon*을 입력합니다.
 - **다음을 사용하여 작업 구성:** *Agile*을 선택합니다.

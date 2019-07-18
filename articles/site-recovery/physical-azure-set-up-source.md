@@ -6,25 +6,25 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123917"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589051"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
 - [Azure Portal](https://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
 - 구성 서버를 설치할 물리적 컴퓨터
-- 구성 서버를 설치하는 컴퓨터에서 TLS 1.0을 사용하지 않도록 설정 한 경우 TLs 1.2를 사용하도록 설정하고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치되어 있는지(강력한 암호화를 사용하지 않도록 설정하여) 확인합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- 구성 서버를 설치 하는 컴퓨터에서 TLS 1.0을 사용 하지 않도록 설정 했으므로, 있는지는 TLs 1.2 사용 하 고 (강력한 암호화를 통해 사용 하도록 설정) 컴퓨터에.NET Framework 버전 4.6 이상이 설치 되어 있는지 확인 합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
 다음 테이블에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.

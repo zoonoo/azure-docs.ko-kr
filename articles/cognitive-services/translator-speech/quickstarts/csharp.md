@@ -3,20 +3,20 @@ title: '빠른 시작: Translator Speech API C#'
 titlesuffix: Azure Cognitive Services
 description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.date: 04/26/2019
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5cca3d5d02f9618e99f122bf3fc2a7d2874e1cdf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673890"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444518"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>빠른 시작: C#을 사용하여 Translator Speech API
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ ms.locfileid: "56673890"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다. Mac OS 또는 Linux를 사용하는 경우 대체로 텍스트 편집기 [Visual Studio Code](https://code.visualstudio.com/Download)도 사용할 수 있습니다.
+Windows에서 이 코드를 실행하려면 [Visual Studio 2019](https://www.visualstudio.com/downloads/)가 필요합니다. 체험 Community Edition을 사용해도 됩니다. Mac OS 또는 Linux를 사용하는 경우 대체로 텍스트 편집기 [Visual Studio Code](https://code.visualstudio.com/Download)도 사용할 수 있습니다.
 
 아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다.
 

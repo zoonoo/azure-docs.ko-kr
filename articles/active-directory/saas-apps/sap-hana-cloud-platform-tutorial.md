@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
 
@@ -152,7 +152,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 ### <a name="configure-sap-cloud-platform-single-sign-on"></a>SAP Cloud Platform Single Sign-On 구성
 
-1. 다른 웹 브라우저 창의 `https://account.<landscape host>.ondemand.com/cockpit`(예: https://account.hanatrial.ondemand.com/cockpit))에 있는 SAP Cloud Platform Cockpit에 로그인합니다.
+1. 다른 웹 브라우저 창의 `https://account.<landscape host>.ondemand.com/cockpit`(예: https://account.hanatrial.ondemand.com/cockpit) )에 있는 SAP Cloud Platform Cockpit에 로그인합니다.
 
 2. **신뢰** 탭을 클릭합니다.
    

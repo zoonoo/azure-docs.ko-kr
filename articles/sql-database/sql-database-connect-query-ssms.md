@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359988"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147750"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
@@ -26,7 +26,7 @@ ms.locfileid: "59359988"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
+Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
 
   || 단일 데이터베이스 | Managed Instance |
   |:--- |:--- |:---|
@@ -37,7 +37,6 @@ ms.locfileid: "59359988"
   |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
   |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
   |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
-  |||
 
   > [!IMPORTANT]
   > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
@@ -87,7 +86,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 5. 데이터베이스의 개체를 보려면 **데이터베이스**를 확장한 다음, **mySampleDatabase**를 확장합니다.
 
-   ![데이터베이스 개체 보기](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase 개체](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>쿼리 데이터
 
@@ -106,7 +105,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 3. 도구 모음에서 **실행**을 선택하여 `Product` 및 `ProductCategory` 테이블에서 데이터를 검색합니다.
 
-    ![두 테이블에서 데이터를 검색하는 쿼리](./media/sql-database-connect-query-ssms/query2.png)
+    ![Product 및 ProductCategory 테이블에서 데이터를 검색하는 쿼리](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>데이터 삽입
 
@@ -146,7 +145,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 2. **실행**을 선택합니다. 다음과 같은 결과가 나타납니다.
 
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![Product 테이블 쿼리 결과](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>데이터 업데이트
 

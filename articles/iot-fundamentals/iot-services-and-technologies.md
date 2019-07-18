@@ -28,7 +28,7 @@ Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록
 
 ## <a name="solutions"></a>솔루션
 
-솔루션 가속기 및 SaaS 제품을 사용하여 빠르게 시작합니다. 원격 모니터링, 예측 유지 관리, 연결된 팩터리 등의 일반적인 IoT 시나리오를 지원하는 미리 구성된 솔루션 중에서 선택하여 완전히 사용자 지정 가능한 솔루션을 만들어 보세요. 또는 클라우드 솔루션에 대한 전문 지식이 없어도 강력한 IoT 시나리오를 지원할 수 있는 완전히 관리되는 통합형 솔루션인 Azure IoT Central을 사용하세요.
+솔루션 가속기 및 SaaS 제품을 사용하여 빠르게 시작합니다. 원격 모니터링, 예측 유지 관리, 연결된 팩터리 등의 일반적인 IoT 시나리오를 지원하는 미리 구성된 솔루션 중에서 선택하여 완전히 사용자 지정 가능한 솔루션을 만들어 보세요. 또는 클라우드 솔루션에 대한 전문 지식이 없어도 강력한 IoT 시나리오를 지원할 수 있는 완전히 관리되는 엔드투엔드 솔루션인 Azure IoT Central을 사용하세요.
 
 ### <a name="azure-iot-solution-accelerators-paas"></a>Azure IoT 솔루션 가속기(PaaS)
 
@@ -67,7 +67,7 @@ Azure IoT Central은 최소의 IoT 경험만 있으면 빠르게 시작할 수 �
 * 디바이스 명령 및 제어
 * 디바이스 보안 강화
 
-Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용할 필요가 없습니다. Azure IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
+Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 엔드투엔드 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용할 필요가 없습니다. Azure IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
 
 |                        | Azure IoT 솔루션 가속기 | Azure IoT Central |
 | ---------------------- | --------- | ----------- |

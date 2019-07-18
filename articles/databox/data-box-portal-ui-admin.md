@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903649"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147906"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
 
@@ -105,7 +105,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 문서�
 
 ## <a name="edit-notification-details"></a>알림 세부 정보 편집
 
-주문 상태 전자 메일을 수신하도록 할 사용자를 변경해야 할 수 있습니다. 예를 들어 사용자는 디스크가 배달되거나 선택되면 알림을 받아야 합니다. 다른 사용자는 원본에서 삭제하기 전에 데이터가 Azure 저장소 계정에 있는 것을 확인할 수 있도록 데이터 복사가 완료되면 알림을 받아야 할 수 있습니다. 이러한 경우에 알림 세부 정보를 편집할 수 있습니다.
+주문 상태 전자 메일을 수신하도록 할 사용자를 변경해야 할 수 있습니다. 예를 들어 사용자는 디스크가 배달되거나 선택되면 알림을 받아야 합니다. 다른 사용자는 원본에서 삭제하기 전에 데이터가 Azure 스토리지 계정에 있는 것을 확인할 수 있도록 데이터 복사가 완료되면 알림을 받아야 할 수 있습니다. 이러한 경우에 알림 세부 정보를 편집할 수 있습니다.
 
 알림 세부 정보를 편집하려면 다음 단계를 수행합니다.
 
@@ -129,7 +129,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 문서�
 |수신됨     | Azure 데이터 센터에서 디스크를 받았습니다. 데이터 복사가 곧 시작됩니다.        |
 |데이터가 복사됨     |데이터 복사가 진행 중입니다.<br> 데이터 복사가 완료될 때까지 기다립니다.         |
 |Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
-|오류와 함께 완료됨| 데이터 복사가 완료되었지만 오류가 발생했습니다. <br> **개요**에 제공된 경로를 사용하여 복사 로그를 검토합니다. 자세한 내용은 [진단 로그 다운로드](data-box-disk-troubleshoot.md#download-diagnostic-logs)로 이동합니다.   |
+|오류와 함께 완료됨| 데이터 복사가 완료되었지만 오류가 발생했습니다. <br> **개요**에 제공된 경로를 사용하여 업로드에 대한 오류 로그를 검토합니다. 자세한 내용은 [업로드 오류 로그 다운로드](data-box-disk-troubleshoot-upload.md#download-logs)를 참조하세요.   |
 |Canceled            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다.     |
 
 

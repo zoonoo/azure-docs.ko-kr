@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/14/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 567a220ce9adcb3cca9c70cef6a7058a85789eb7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861761"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790046"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
@@ -36,7 +36,7 @@ Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -98,7 +98,7 @@ var searchResult = new SearchResult()
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>요청에 이미지 인사이트 토큰 사용
 
-`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 예를 들면 다음과 같습니다.
+`POST`의 결과와 함께 반환된 `ImageInsightsToken`을 사용하려면 `GET` 요청에 추가하면 됩니다. 예: 
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2

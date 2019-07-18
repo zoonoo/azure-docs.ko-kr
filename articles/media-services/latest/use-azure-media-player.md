@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926522"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840150"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 ### <a name="start-using"></a>사용 시작
 
-[Azure Media Player 데모 페이지](https://aka.ms/amp)를 사용하여 Azure Media Services 샘플 또는 고유한 스트림을 재생할 수 있습니다.  
+[Azure Media Player 데모 페이지](http://aka.ms/azuremediaplayer)를 사용하여 Azure Media Services 샘플 또는 고유한 스트림을 재생할 수 있습니다.  
 
 새 비디오를 재생하려면 다른 URL을 붙여넣고 **업데이트** 키를 누릅니다.
 
@@ -40,7 +40,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>비디오 스트림의 진단 모니터링
 
-[Azure Media Player 데모 페이지](https://aka.ms/amp)를 사용하여 비디오 스트림의 진단을 모니터링할 수 있습니다. 
+[Azure Media Player 데모 페이지](http://aka.ms/azuremediaplayer)를 사용하여 비디오 스트림의 진단을 모니터링할 수 있습니다. 
 
 ![Azure Media Player 진단](./media/azure-media-player/diagnostics.png)
 

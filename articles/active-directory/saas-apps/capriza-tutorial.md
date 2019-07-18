@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d5c79709344d8a110495b16afdc61a5ff1f68cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 80cf7706e5ecb7c4bb1f18462a9476226d5d2f0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>자습서: Capriza Platform과 Azure Active Directory 통합
 

@@ -34,6 +34,10 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: 관리
       items:
+        - name: Azure Portal 사용
+          href: virtual-machines-windows-sql-manage-portal.md
+        - name: SQL 2008 및 R2에 대한 지원 확장
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: VM에 연결
           href: virtual-machines-windows-sql-connect.md
         - name: 저장소 구성
@@ -54,8 +58,12 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Azure PowerShell 사용
           href: virtual-machines-windows-ps-sql-create.md
+    - name: 리소스 공급자 등록
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: SQL VM의 라이선스 모델 변경
       href: virtual-machines-windows-sql-ahb.md
+    - name: SQL Server 버전 변경
+      href: virtual-machines-windows-sql-change-edition.md
     - name: 마이그레이션
       items:
         - name: SQL Server 데이터베이스 마이그레이션

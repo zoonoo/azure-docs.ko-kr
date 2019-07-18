@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420313"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
@@ -55,13 +55,13 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 > [!NOTE]
 > Azure Relay의 하이브리드 연결은 BizTalk Services의 이전 하이브리드 연결 기능을 대체합니다. BizTalk Services의 하이브리드 연결 기능은 Azure Service Bus WCF Relay를 기반으로 합니다. Azure Relay의 하이브리드 연결 기능은 기존 WCF Relay 기능을 보완합니다. 이러한 두 가지 서비스 기능(WCF Relay 및 하이브리드 연결)은 Azure Relay 서비스에 함께 있습니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
 
-## <a name="wcf-relay"></a>WCF Relay
+## <a name="wcf-relay"></a>WCF 릴레이
 WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](relay-wcf-dotnet-get-started.md)을 참조하세요.
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결 및 WCF Relay
+## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
 
-|  | WCF Relay | 하이브리드 연결 |
+|  | WCF 릴레이 | 하이브리드 연결 |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |

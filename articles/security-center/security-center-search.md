@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574149"
 ---
 # <a name="azure-security-center-search"></a>Azure Security Center 검색
+
+> [!NOTE]
+> Security Center의 검색 대시보드는 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_search)합니다.
+
 Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-analytics/log-analytics-log-searches.md) 검색 하 여 보안 데이터를 분석 합니다. Azure Monitor 로그 신속 하 게 검색 하 고 데이터를 통합 하는 쿼리 언어를 포함 합니다. Security Center에서 Azure Monitor 로그 검색 쿼리를 생성 하 고 수집 된 데이터 분석을 활용할 수 있습니다.
 
 검색은 Security Center의 무료 계층과 표준 계층에서 모두 사용 가능합니다.  로그 검색에서 사용 가능한 데이터는 작업 영역에 적용되는 계층 수준에 따라 달라집니다.  자세한 내용은 Security Center [가격 책정 페이지](../security-center/security-center-pricing.md)를 참조하세요.
@@ -45,7 +49,7 @@ Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-
 
    SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-   결과에는 로그온에 실패한 모든 계정(이벤트 4625)이 표시됩니다.
+   결과 (이벤트 4625) 로그인 하지 못한 모든 계정을 보여 줍니다.
 
    ![검색 결과][3]
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882020"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607521"
 ---
 # <a name="create-human-reviews-rest"></a>사용자 검토 (REST) 만들기
 
@@ -186,7 +186,7 @@ ms.locfileid: "58882020"
 
 응답에 다음 필드를 기록해 둡니다.
 
-- **status**
+- **상태**
 - **reviewerResultTags**: 태그는 사용자 검토 팀에서 수동으로 추가 된 경우이 표시 됩니다 (표시 합니다 **createdBy** 필드).
 - **메타데이터**: 사용자 검토 팀 사항 변경 하기 전에 검토에 처음 추가 된 태그를 보여 줍니다.
 

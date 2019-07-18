@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66000190"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Azure Key Vault에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-key-vault"></a>Azure Key Vault에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Key Vault에 내장 된 일반 보안 특성을 설명 합니다. 
+이 문서에서는 Azure Key Vault에 기본 제공 보안 특성을 설명 합니다. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "64691819"
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
 
-## <a name="network-segmentation"></a>네트워크 분할
+## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|

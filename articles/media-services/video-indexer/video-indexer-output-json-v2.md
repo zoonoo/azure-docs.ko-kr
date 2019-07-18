@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799076"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API에 의해 생성 된 비디오 인덱서 출력 검토
 
@@ -40,7 +41,7 @@ ms.locfileid: "60560051"
 |description|재생 목록의 설명입니다.|
 |userName|재생 목록을 만든 사용자의 이름입니다.|
 |created|재생 목록을 만든 시간입니다.|
-|privacyMode|재생 목록의 개인 정보 모드(Private(개인)/Public(공용))입니다.|
+|privacyMode|재생 목록의 개인 모드(프라이빗/공용)입니다.|
 |state|재생 목록의 상태(uploaded(업로드됨), processing(처리 중), processed(처리됨), failed(실패), quarantined(격리됨))입니다.|
 |isOwned|현재 사용자가 재생 목록을 만들었는지 여부를 나타냅니다.|
 |isEditable|현재 사용자에게 재생 목록을 편집할 수 있는 권한이 있는지 여부를 나타냅니다.|
@@ -623,7 +624,7 @@ id|블록의 ID입니다.|
 
 visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐츠가 있는 것으로 확인된 시간 범위가 포함됩니다. visualContentModeration이 비어있는 경우에는 식별된 성인 콘텐츠가 없는 것입니다.
 
-성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 비공개 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
+성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
 
 |이름|설명|
 |---|---|

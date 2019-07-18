@@ -1,22 +1,21 @@
 ---
-title: 워크로드 분석 - Azure SQL Data Warehouse | Microsoft Docs
+title: Azure SQL Data Warehouse의 워크 로드 분석 | Microsoft Docs
 description: Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-origin.date: 03/13/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: workload-management
+ms.date: 03/13/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54652ba573fb2ec2d064b7a85ad5728b73e71db3
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679105"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588743"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
 
@@ -24,7 +23,7 @@ Azure SQL Data Warehouse에서 워크로드를 분석하기 위한 기술입니�
 
 ## <a name="resource-classes"></a>리소스 클래스
 
-SQL Data Warehouse는 쿼리에 시스템 리소스를 할당하기 위해 리소스 클래스를 제공합니다. 리소스 클래스에 대한 자세한 내용은, [리소스 클래스 및 워크로드 관리](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 쿼리에 할당된 리소스 클래스가 현재 사용할 수 있는 것보다 더 많은 리소스가 필요한 경우 대기합니다.
+SQL Data Warehouse는 쿼리에 시스템 리소스를 할당하기 위해 리소스 클래스를 제공합니다.  리소스 클래스에 대한 자세한 내용은,[리소스 클래스 및 워크 로드 관리](resource-classes-for-workload-management.md)를 참조하세요.  쿼리는 쿼리에 할당된 리소스 클래스가 현재 사용할 수 있는 것보다 더 많은 리소스가 필요한 경우 대기합니다.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>큐에 대기 중인 쿼리 검색 및 다른 DMV
 
@@ -68,7 +67,7 @@ SQL Data Warehouse에 다음과 같은 대기 형식이 있습니다.
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 있는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내부에 있는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.
 * **DmsConcurrencyResourceType**: 데이터 이동 작업으로 인해 발생하는 대기
-* **BackupConcurrencyResourceType**:이 대기는 데이터베이스가 백업 중임을 나타냅니다. 이 리소스 유형의 최대 값은 1입니다. 여러 개의 백업이 동시에 요청된 경우 다른 백업은 큐에 저장됩니다. 일반적으로 연속 스냅숏 간의 최소 시간은 10분이 좋습니다.
+* **BackupConcurrencyResourceType**: 데이터베이스를 백업 중임을 나타내는 대기 이 리소스 유형에 대한 최대값은 1입니다. 여러 개의 백업이 동시에 요청된 경우 다른 백업은 큐에 저장됩니다. 일반적으로 연속 스냅숏 간의 최소 시간은 10분이 좋습니다. 
 
 `sys.dm_pdw_waits` DMV는 요청이 대기 중인 리소스를 알아내는 데 사용할 수 있습니다.
 

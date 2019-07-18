@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 9ee7422b372993d60c629524eb036b9678e5776c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074652"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182385"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>암호 또는 인증서 등록
 
@@ -29,7 +29,7 @@ ms.locfileid: "65074652"
 
 클라이언트 자격 증명의 관리를 진행 합니다 **인증서 및 비밀** 응용 프로그램에 대 한 페이지:
 
-![Image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
 
 - 응용 프로그램 암호 (또한 명명 된 클라이언트 암호)는 기밀 클라이언트 응용 프로그램 등록 시 Azure AD를 통해 생성 됩니다. 선택 하면 발생 하는이 세대 **새 클라이언트 암호**합니다. 이 시점에서 복사 해야 합니다 암호 문자열 사용에 대 한 클립보드에 앱을 선택 하기 전에 **저장할**합니다. 이 문자열은 더 이상 표시 되지 않습니다.
 - 사용 하 여 응용 프로그램 등록 인증서가 업로드 되는 **인증서 업로드** 단추

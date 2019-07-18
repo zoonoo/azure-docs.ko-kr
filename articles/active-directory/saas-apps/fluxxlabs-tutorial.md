@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e1951a65c48c32f2ce4af722400d03c20dfa684b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e624520a9d1f39bc8115ac72e9df0398065928f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>자습서: Fluxx Labs와 Azure Active Directory 통합
 
@@ -160,7 +160,7 @@ Fluxx Labs에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     d. Azure Portal에서 입력한 **회신 URL** 값을 **Assertion Consumer Service URL(Single Sign-On URL)** 텍스트 상자에 입력합니다.
 
-    e. Azure Portal에서 입력한 **식별자** 값을 **Audience(SP Entity ID)**(대상 그룹(SP 엔터티 ID)) 텍스트 상자에 입력합니다.
+    e. Azure Portal에서 입력한 **식별자** 값을 **Audience(SP Entity ID)** (대상 그룹(SP 엔터티 ID)) 텍스트 상자에 입력합니다.
 
     f. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 SSO 대상 URL** 텍스트 상자에 붙여넣습니다.
 

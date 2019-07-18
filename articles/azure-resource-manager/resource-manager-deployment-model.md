@@ -1,24 +1,17 @@
 ---
 title: Resource Manager 및 클래식 배포 | Microsoft Docs
 description: 리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 773d369f23154a510624169b9329555a1f865320
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269266"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206304"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -95,7 +88,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 * 가상 머신은 네트워크 리소스 공급자(필수)에서 정의된 특정 NIC 및 Compute 리소스 공급자(선택 사항)에서 정의된 가용성 집합을 참조합니다.
 * NIC는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 NSG(네트워크 보안 그룹)(선택)를 참조합니다.
 * 가상 네트워크의 서브넷은 NSG(선택)를 참조합니다.
-* 부하 분산 장치 인스턴스는 가상 머신의 NIC(선택)를 포함하는 IP 주소의 백 엔드 풀을 참조하며, 로드 분산 장치 공용 또는 개인 IP 주소(선택)를 참조합니다.
+* 부하 분산 장치 인스턴스는 가상 머신의 NIC(선택)를 포함하는 IP 주소의 백 엔드 풀을 참조하며, 로드 분산 장치 공용 또는 개인 IP 주소(선택 사항)를 참조합니다.
 
 클래식 배포를 위한 구성 요소 및 해당 관계는 다음과 같습니다.
 

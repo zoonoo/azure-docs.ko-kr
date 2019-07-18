@@ -58,7 +58,7 @@ IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신
 
 ## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
-IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션을 구축할 수 있습니다. 예를 들어 이에 해당하는 서비스는 다음과 같습니다.
+IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔루션을 빌드할 수 있습니다. 예를 들어 이에 해당하는 서비스는 다음과 같습니다.
 
 * [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/)를 사용하여 비즈니스에서 안정적이고, 확장 가능하며, 안전한 방식으로 중요한 이벤트에 빠르게 대응할 수 있습니다.
 
@@ -88,7 +88,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 * C
 * C#
-* 자바
+* Java
 * Python
 * Node.js
 
@@ -118,6 +118,6 @@ Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한�
 
 ## <a name="next-steps"></a>다음 단계
 
-종단 간 IoT 솔루션을 사용해 보려면 다음 IoT Hub 빠른 시작을 확인해 보세요.
+엔드투엔드 IoT 솔루션을 사용해 보려면 다음 IoT Hub 빠른 시작을 확인해 보세요.
 
 * [빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)

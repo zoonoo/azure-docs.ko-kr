@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483298"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621049"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
 
@@ -53,12 +53,12 @@ ms.locfileid: "61483298"
     7. **진단 정보 공유**를 선택합니다.
     8. **다음**을 클릭합니다.
 
-       ![문제](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
+       ![문제점](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
 4. **새 지원 요청**에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보**에서 다음 단계를 수행합니다.
 
    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-   2. 연락처 정보에 이름, 전자 메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
+   2. 연락처 정보, 이름, 전자 메일, 선택적 연락처, 국가/지역을 제공 합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
    3. **만들기**를 클릭합니다.
    
        ![연락처 정보](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

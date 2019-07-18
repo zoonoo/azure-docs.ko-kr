@@ -13,15 +13,15 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014933"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836308"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-introduction.md)
 > * [버전 2(현재 버전)](../introduction.md)
 
@@ -67,7 +67,7 @@ Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반�
 
 Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파이프라인에서 복사 작업을 사용하여 온-프레미스 및 클라우드 원본 데이터 저장소에서 클라우드의 중앙 데이터 저장소로 데이터를 이동할 수 있습니다. 
 
-예를 들어, Azure Data Lake Store에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또는 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob 저장소에서 데이터를 수집하고 나중에 변환합니다.
+예를 들어, Azure Data Lake Store에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또는 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob Storage에서 데이터를 수집하고 나중에 변환합니다.
 
 ### <a name="transform-and-enrich"></a>변환 및 보강
 데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 또는 Machine Learning과 같은 컴퓨팅 서비스를 사용하여 이를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다. 
@@ -113,7 +113,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 연결된 서비스는 데이터 팩터리 내에서 두 가지 이유로 사용됩니다.
 
-* 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 저장소 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
+* 온-프레미스 SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob Storage 계정을 포함하지만 여기에 국한되지 않는 *데이터 스토리지*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
 
 * 활동의 실행을 호스팅할 수 있는 *계산 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
 
@@ -133,7 +133,6 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지
 ## <a name="get-started-with-creating-a-pipeline"></a>파이프라인 만들기 시작
 이러한 도구 또는 API 중 하나를 사용하여 Azure Data Factory에서 데이터 파이프라인을 만들 수 있습니다. 
 
-- Azure Portal
 - Visual Studio
 - PowerShell
 - .NET API
@@ -144,6 +143,6 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. [지
 
 | 자습서 | 설명 |
 | --- | --- |
-| [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Blob 저장소에서 SQL 데이터베이스로 데이터를 이동하는 파이프라인을 포함한 데이터 팩터리를 만듭니다. |
+| [두 클라우드 데이터 저장소 간의 데이터 이동](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Blob Storage에서 SQL 데이터베이스로 데이터를 이동하는 파이프라인을 포함한 데이터 팩터리를 만듭니다. |
 | [Hadoop 클러스터를 사용하여 데이터 변환](data-factory-build-your-first-pipeline.md) |Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데이터 파이프라인으로 첫 번째 Azure 데이터 팩터리를 구축합니다. |
 | [데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) |온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인이 포함된 데이터 팩터리를 구축합니다. 자습서의 일부로 컴퓨터에 데이터 관리 게이트웨이를 설치하고 구성합니다. |

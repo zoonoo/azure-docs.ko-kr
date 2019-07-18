@@ -3,8 +3,8 @@ title: Azure Active Directory 애플리케이션 갤러리에 애플리케이션
 description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5ec950a91f3ed0099873e40c7235a9d59f0cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300134"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482960"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -117,21 +117,21 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
 
 고객을 클릭 하 여 응용 프로그램을 나열 요청을 제출할 수 있습니다 **고객이 응용 프로그램 요청** -> **새 요청을 제출**합니다.
 
-![고객 요청 된 앱 타일](./media/howto-app-gallery-listing/customer-submit-request.png)
+![고객 요청을 보여 줍니다 앱 타일](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 고객의 흐름에 요청 된 응용 프로그램-다음과 같습니다.
 
-![고객 요청 앱 흐름](./media/howto-app-gallery-listing/customer-request.png)
+![고객을 보여 줍니다 앱 흐름 요청](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>타임라인
 
 갤러리에서 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 7~10일입니다.
 
-   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline.png)
+   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임 라인](./media/howto-app-gallery-listing/timeline.png)
 
 갤러리에서 OpenID Connect 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
-   ![SAML 애플리케이션을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/timeline2.png)
+   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임 라인](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>에스컬레이션
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056039"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -27,6 +27,9 @@ ms.locfileid: "60358652"
 사용자 포털 관리자는 새 사용자를 추가하고 기존 사용자를 업데이트하기 위한 권한이 설정되고 부여될 수 있습니다.
 
 사용자 환경에 따라 Azure Multi-factor Authentication 서버와 동일한 서버 또는 다른 인터넷 연결 서버에서 사용자 포털을 배포하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
 
 ![MFA 서버 사용자 포털 로그인 페이지](./media/howto-mfaserver-deploy-userportal/portal.png)
 
@@ -66,7 +69,7 @@ Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 �
    > [!NOTE]
    > 이 SSL 인증서는 일반적으로 공개적으로 서명된 SSL 인증서입니다.
 
-4. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+4. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth) )로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
 ![MFA 서버 사용자 포털 설치](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,7 +108,7 @@ Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을
     * **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** 값을 찾아서 이 자리 표시자 URL을 2단계에서 설치한 웹 서비스 SDK URL로 변경합니다.
     * Web.Config 파일을 저장하고 메모장을 닫습니다.
 
-6. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth))로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
+6. 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://mfa.contoso.com/MultiFactorAuth) )로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
 IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
@@ -131,13 +134,13 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 |:--- |:--- |
 | User Portal URL(사용자 포털 URL) | 포털이 호스트되는 URL을 입력합니다. |
 | Primary authentication(기본 인증) | 포털에 로그인할 때 사용할 인증 형식을 지정합니다. Windows, Radius 또는 LDAP 인증 중 하나입니다. |
-| 사용자가 로그인할 수 있도록 허용 | 사용자 포털의 로그인 페이지에서 사용자 이름 및 암호를 입력할 수 있습니다. 이 옵션을 선택하지 않으면 상자는 회색으로 표시됩니다. |
-| 사용자 등록 허용 | 사용자가 설치 화면에서 전화 번호와 같은 추가 정보를 입력하여 Multi-Factor Authentication에 등록할 수 있습니다. 백업 휴대폰 프롬프트를 통해 보조 전화 번호를 지정할 수 있습니다. 타사 OATH 토큰 프롬프트를 통해 타사 OATH 토큰을 지정할 수 있습니다. |
-| 사용자가 일회성 바이패스를 시작할 수 있도록 허용 | 일회성 바이패스를 시작할 수 있습니다. 사용자가 이 옵션을 설정하면 다음번에 로그인할 때 적용됩니다. 바이패스(초) 프롬프트의 상자에서 기본값 300초를 변경할 수 있습니다. 변경하지 않으면 일회성 바이패스는 300초가 지나면 만료됩니다. |
-| 사용자가 방법을 선택할 수 있도록 허용 | 사용자가 자신의 기본 연락 방법을 지정할 수 있습니다. 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰 옵션 중 방법을 선택할 수 있습니다. |
-| 사용자가 언어를 선택할 수 있도록 허용 | 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰에 사용되는 언어를 변경할 수 있습니다. |
+| Allow users to log in(로그인 허용) | 사용자 포털의 로그인 페이지에서 사용자 이름 및 암호를 입력할 수 있습니다. 이 옵션을 선택하지 않으면 상자는 회색으로 표시됩니다. |
+| Allow user enrollment(등록 허용) | 사용자가 설치 화면에서 전화 번호와 같은 추가 정보를 입력하여 Multi-Factor Authentication에 등록할 수 있습니다. 백업 휴대폰 프롬프트를 통해 보조 전화 번호를 지정할 수 있습니다. 타사 OATH 토큰 프롬프트를 통해 타사 OATH 토큰을 지정할 수 있습니다. |
+| Allow users to initiate One-Time Bypass(일회성 바이패스 시작 허용) | 일회성 바이패스를 시작할 수 있습니다. 사용자가 이 옵션을 설정하면 다음번에 로그인할 때 적용됩니다. 바이패스(초) 프롬프트의 상자에서 기본값 300초를 변경할 수 있습니다. 변경하지 않으면 일회성 바이패스는 300초가 지나면 만료됩니다. |
+| Allow users to select method(방법 선택 허용) | 사용자가 자신의 기본 연락 방법을 지정할 수 있습니다. 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰 옵션 중 방법을 선택할 수 있습니다. |
+| Allow users to select language(언어 선택 허용) | 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰에 사용되는 언어를 변경할 수 있습니다. |
 | Allow users to activate mobile app(모바일 앱 활성화 허용) | 서버에서 사용되는 모바일 앱 활성화 프로세스를 완료하기 위한 활성화 코드를 생성할 수 있습니다.  앱을 활성화할 수 있는 디바이스 수를 1부터 10 사이로 설정할 수도 있습니다. |
-| 대체 방식으로 보안 질문 사용 | 2단계 검증에 실패한 경우 보안 질문을 허용합니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다. |
+| Use security questions for fallback(대체 방법으로 보안 질문 사용) | 2단계 검증에 실패한 경우 보안 질문을 허용합니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다. |
 | Allow users to associate third-party OATH token(타사 OATH 토큰 연결 허용) | 타사 OATH 토큰을 지정할 수 있습니다. |
 | Use OATH token for fallback(대체 방법으로 OATH 토큰 사용) | 2단계 검증이 실패한 경우 OATH 토큰을 사용할 수 있도록 합니다. 세션 제한 시간(분)을 지정할 수도 있습니다. |
 | 로깅 사용 | 사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\Program Files\Multi-Factor Authentication Server\Logs에 있습니다. |

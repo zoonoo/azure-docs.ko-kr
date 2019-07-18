@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805349"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442217"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -26,7 +26,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
-1. Visual Studio 2017에서 프로젝트를 엽니다.
+1. Visual Studio 2019에서 프로젝트를 엽니다.
 2. 프로젝트 메뉴에서 **Application Insights 구성**을 선택합니다. Visual Studio는 애플리케이션에 Application Insights SDK를 추가합니다.
 
     > [!IMPORTANT]
@@ -63,13 +63,13 @@ Application Insights는 실행 중인 위치에 관계 없이 애플리케이션
 
 1. 솔루션 탐색기에서 **연결된 서비스** 폴더(구름과 플러그 모양의 아이콘)를 확장한 후 **Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/4overview.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/04-overview.png)
 
 2. **애플리케이션 맵**을 클릭하여 애플리케이션 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/5appmap.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/05-appmap.png)
 
-3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-analytics-icon.png) **Analytics에서 보기**를 클릭합니다. 그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-viewinlogs-icon.png) **Logs(Analytics)에서 보기**를 클릭합니다. 그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Logs(Analytics)** 가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
     ![분석](media/quick-monitor-portal/6viewanalytics.png)
 

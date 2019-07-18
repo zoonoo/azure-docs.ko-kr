@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dd5dc53311c8611a4ca4d174401bba797fe5c4b1
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3893b79cee96c3928897f64f3601ebe4c490ebdd
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505888"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182311"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 

@@ -46,6 +46,8 @@
           href: 'https://docs.microsoft.com/rest/api/consumption'
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.consumption/budgets
+        - name: Cost Management REST API 샘플
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
     - name: 리소스
       items:
         - name: Microsoft Learn을 통해 기술 쌓기

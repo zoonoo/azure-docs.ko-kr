@@ -1,23 +1,23 @@
 ---
-title: SQL Data Warehouse 워크로드 중요도 (미리 보기) | Microsoft Docs
+title: Azure SQL Data Warehouse 워크 로드 중요도 | Microsoft Docs
 description: Azure SQL Data Warehouse의 쿼리에 대한 중요도를 설정하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2a78f342d7e4b14700224bb63598f41ca95322a5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154147"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595423"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse 워크 로드 중요도
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse 워크 로드 중요도
 
 이 문서에서는 워크로드 중요도가 SQL Data Warehouse 요청에 대한 실행 순서에 영향을 줄 수 있는 방법을 설명합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "65154147"
 
 읽기 및 쓰기에 대한 잠금 액세스는 자연스런 경합의 한 영역입니다.  [파티션 전환을](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) 같은 활동은 상승된 잠금이 필요합니다.  워크로드 중요도가 없으면, SQL Data Warehouse는 처리량에 대해 최적화합니다.  처리량을 최적화하는 것은, 실행 및 대기 중인 요청이 동일한 잠금이 필요하고 리소스를 사용할 수 있을 때, 대기 요청은 먼저 요청 큐에 도착한 높은 잠금 요구 요청을 무시할 수 있다는 것을 의미합니다.  워크로드 중요도는 높은 잠금을 사용하는 요청에 적용됩니다. 높은 중요도를 가진 요청은 낮은 중요도를 가진 요청보다 먼저 실행됩니다.
 
-다음 예제를 살펴보세요.
+다음 예제를 참조하세요.
 
 Q1은 실행 중이며 SalesFact에서 데이터를 조회합니다.
 Q2는 Q1이 완료될 때까지 대기 큐에 대기됩니다.  오전 9시에 전송되어 SalesFact에 새 데이터를 파티션 전환하려고 합니다.
@@ -61,4 +61,8 @@ Q5가 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크 로드 분류에 대 한 자세한 내용은 참조 하세요. [SQL 데이터 웨어하우스 워크 로드 분류](sql-data-warehouse-workload-classification.md)합니다.  워크 로드 분류자를 만드는 방법에는 빠른 시작을 참조 하세요 [워크 로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+- 분류자를 만드는 방법에 대 한 자세한 내용은 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  
+- SQL Data Warehouse 워크 로드 분류에 대 한 자세한 내용은 참조 하세요. [워크 로드 분류](sql-data-warehouse-workload-classification.md)합니다.  
+- 빠른 시작을 참조 하세요 [워크 로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 작업 분류자를 만드는 방법에 대 한 합니다.
+- [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

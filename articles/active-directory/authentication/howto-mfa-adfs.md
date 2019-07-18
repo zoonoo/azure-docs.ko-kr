@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113468"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -86,10 +86,10 @@ ms.locfileid: "60415340"
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 차례로 선택합니다.
-3. **조건부 액세스 - 명명된 위치** 블레이드에서 **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
+2. 선택 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**합니다.
+3. **조건부 액세스-명명 된 위치** 블레이드에서 **구성 MFA 신뢰할 수 있는 Ip**
 
-   ![Azure AD 조건부 - 액세스 명명된 위치 - MFA 신뢰할 수 있는 IP 구성](./media/howto-mfa-adfs/trustedip6.png)
+   ![명명 된 위치를 azure AD 조건부 액세스 구성 MFA 신뢰할 수 있는 Ip](./media/howto-mfa-adfs/trustedip6.png)
 
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
 5. **저장**을 클릭합니다.

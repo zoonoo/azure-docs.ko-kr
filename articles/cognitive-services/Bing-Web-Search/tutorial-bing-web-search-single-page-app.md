@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6c28b02d68239bac658954caf447b6ff738c1b65
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881251"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390038"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -80,7 +80,7 @@ npm install
 
 ## <a name="query-options"></a>쿼리 옵션
 
-HTML 양식에는 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)의 쿼리 매개 변수에 매핑되는 옵션이 포함됩니다. 이 표에서는 사용자가 샘플 앱을 사용하여 검색 결과를 필터링하는 방법을 구분합니다.
+HTML 양식에는 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)의 쿼리 매개 변수에 매핑되는 옵션이 포함됩니다. 이 표에서는 사용자가 샘플 앱을 사용하여 검색 결과를 필터링하는 방법을 구분합니다.
 
 | 매개 변수 | 설명 |
 |-----------|-------------|
@@ -93,7 +93,7 @@ HTML 양식에는 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/c
 | `offset` | 숨겨진 필드입니다. 요청의 첫 번째 검색 결과에 대한 오프셋으로, 페이징에 사용됩니다. 각각의 새 요청을 사용하여 `0`으로 재설정됩니다. |
 
 > [!NOTE]
-> Bing Web Search API는 검색 결과를 구체화하는 데 도움이 되는 추가 쿼리 매개 변수를 제공합니다. 이 샘플에는 몇 가지만 사용됩니다. 사용 가능한 매개 변수의 전체 목록은 [Bing Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)를 참조하세요.
+> Bing Web Search API는 검색 결과를 구체화하는 데 도움이 되는 추가 쿼리 매개 변수를 제공합니다. 이 샘플에는 몇 가지만 사용됩니다. 사용 가능한 매개 변수의 전체 목록은 [Bing Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)를 참조하세요.
 
 `bingSearchOptions()` 함수는 Bing Search API에 필요한 형식과 일치하도록 이러한 옵션을 변환합니다.
 

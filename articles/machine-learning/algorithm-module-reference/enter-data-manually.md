@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ee15b6fb7160ece907d55e790b0ae38ee458ab96
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028607"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 모듈 입력
@@ -31,7 +31,7 @@ ms.locfileid: "65028607"
   
 - 데이터 집합에 삽입할 열 이름 목록을 입력 합니다.
 
-## <a name="enter-data-manually"></a>데이터를 수동으로 입력 
+## <a name="enter-data-manually"></a>수동으로 데이터 입력 
   
 1.  추가 된 [수동으로 데이터 입력](./enter-data-manually.md) 모듈을 실험 합니다. 이 모듈에서 찾을 수 있습니다 합니다 **데이터 입력 및 출력** Azure Machine Learning의 범주입니다. 
   

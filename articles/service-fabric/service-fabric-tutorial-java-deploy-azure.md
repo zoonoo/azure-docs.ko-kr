@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: aa7f77299750a969bf936a3ed9b6ae76653a90c4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306791"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -60,7 +60,7 @@ ms.locfileid: "59526693"
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Azure 계정에 로그인합니다.
+2. Azure 계정에 로그인
 
     ```bash
     az login
@@ -208,7 +208,7 @@ ms.locfileid: "59526693"
     </Certificates>
     ```
 
-2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
+2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 프라이빗 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 프라이빗 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
     openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

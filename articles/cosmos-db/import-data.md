@@ -4,14 +4,14 @@ description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구�
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 792dca41a052930bf2c853846cdd0c09661c5cd3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315813"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954507"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -85,6 +85,19 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 JSON 파일 원본 가져오기 옵션을 사용하면 단일 문서 JSON 파일이나 각각 JSON 문서 배열을 포함하는 JSON 파일을 하나 이상 가져올 수 있습니다. 가져올 JSON 파일을 포함하는 폴더를 추가하면, 하위 폴더에서 재귀적으로 파일을 검색하는 옵션도 있습니다.
 
 ![JSON 파일 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구](./media/import-data/jsonsource.png)
+
+연결 문자열은 다음 형식입니다.
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>`는 엔드포인트 URI입니다. Azure Portal에서 이 값을 가져올 수 있습니다. Azure Cosmos 계정으로 이동합니다. **개요** 창을 열고 **URI** 값을 복사합니다.
+* `<AccountKey>`는 "암호" 또는 **기본 키**입니다. Azure Portal에서 이 값을 가져올 수 있습니다. Azure Cosmos 계정으로 이동합니다. **연결 문자열** 또는 **키** 창을 열고 "암호" 또는 **기본 키** 값을 복사합니다.
+* `<CosmosDB Database>`는 CosmosDB 데이터베이스 이름입니다.
+
+예제: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Verify 명령을 사용하여 연결 문자열 필드에 지정된 Cosmos DB 계정에 액세스할 수 있는지 확인합니다.
 
 JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 

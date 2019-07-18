@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a54892c1d6e05e27e349e519d41ebd937ff64c7
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61400117"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509208"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-odata-connector.md)
 > * [현재 버전](connector-odata.md)
 
@@ -48,11 +48,11 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **형식** 속성은 **OData**로 설정해야 합니다. |예 |
-| URL | OData 서비스의 루트 URL입니다. |예 |
+| type | **형식** 속성은 **OData**로 설정해야 합니다. |예 |
+| url | OData 서비스의 루트 URL입니다. |예 |
 | authenticationType | OData 원본에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 사용자 기반 OAuth는 지원되지 않습니다. | 예 |
 | userName | Basic 또는 Windows 인증을 사용할 경우 **userName**을 지정합니다. | 아닙니다. |
-| 암호 | **userName**에 지정한 사용자 계정의 **password**를 지정합니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아닙니다. |
+| password | **userName**에 지정한 사용자 계정의 **password**를 지정합니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아닙니다. |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 아닙니다. |
 | aadServicePrincipalCredentialType | 서비스 주체 인증에 사용할 자격 증명 유형을 지정합니다. 허용되는 값은 `ServicePrincipalKey` 또는 `ServicePrincipalCert`입니다. | 아닙니다. |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
@@ -60,7 +60,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalEmbeddedCertPassword | 인증서가 암호로 보호되는 경우 인증서의 암호를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다.  | 아닙니다.|
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 아닙니다. |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스를 지정합니다.| 아닙니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 선택할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아닙니다. |
 
 **예제 1: 익명 인증 사용**
 
@@ -197,8 +197,8 @@ OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type** 속성을 **ODataResource**로 설정해야 합니다. | 예 |
-| 경로 | OData 리소스에 대한 경로입니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **ODataResource**로 설정해야 합니다. | 예 |
+| path | OData 리소스에 대한 경로입니다. | 예 |
 
 **예제**
 
@@ -232,8 +232,8 @@ OData에서 데이터를 복사하려면 복사 작업의 **source** 형식을 *
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
+| type | 복사 작업 원본의 **type** 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"$select=Name,Description&$top=5"`.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
 
 **예제**
 
@@ -257,7 +257,7 @@ OData에서 데이터를 복사하려면 복사 작업의 **source** 형식을 *
         "typeProperties": {
             "source": {
                 "type": "RelationalSource",
-                "query": "?$select=Name,Description&$top=5"
+                "query": "$select=Name,Description&$top=5"
             },
             "sink": {
                 "type": "<sink type>"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 294146446ac45594ba8f25e8b17534e5922ebec9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c6863987771d6ca4f18451846d5506796d605565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>자습서: Merchlogix와 Azure Active Directory 통합
 

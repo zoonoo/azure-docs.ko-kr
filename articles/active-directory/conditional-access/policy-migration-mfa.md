@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795052"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509461"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Azure Portal에서 다단계 인증이 필요한 클래식 정책 마이그레이션
 
@@ -76,42 +76,32 @@ ms.locfileid: "59795052"
 
    1. 클래식 정책에서 모든 사용자를 선택한 경우 **모든 사용자**를 클릭합니다. 
 
-   ![조건부 액세스](./media/policy-migration/35.png)
+      ![조건부 액세스](./media/policy-migration/35.png)
 
    1. 클래식 정책에서 그룹을 선택한 경우 **사용자 및 그룹 선택**을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다.
 
-   ![조건부 액세스](./media/policy-migration/36.png)
+      ![조건부 액세스](./media/policy-migration/36.png)
 
    1. 제외된 그룹이 있는 경우 **제외** 탭을 클릭한 다음 필요한 사용자 및 그룹을 선택합니다. 
 
-   ![조건부 액세스](./media/policy-migration/37.png)
+      ![조건부 액세스](./media/policy-migration/37.png)
 
 1. **새로 만들기** 페이지에서 **클라우드 앱** 페이지를 열려면 **할당** 섹션에서 **클라우드 앱**을 클릭합니다.
-
 1. **클라우드 앱** 페이지에서 다음 단계를 수행합니다.
-
-   ![조건부 액세스](./media/policy-migration/08.png)
-
    1. **앱 선택**을 클릭합니다.
-
    1. **선택**을 클릭합니다.
-
    1. **선택** 페이지에서 클라우드 앱을 선택한 다음 **선택**을 클릭합니다.
-
    1. **클라우드 앱** 페이지에서 **완료**를 클릭합니다.
-
 1. **다단계 인증 필요**를 선택한 경우:
 
    ![조건부 액세스](./media/policy-migration/26.png)
 
    1. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
 
-   ![조건부 액세스](./media/policy-migration/27.png)
+      ![조건부 액세스](./media/policy-migration/27.png)
 
    1. **허용** 페이지에서 **액세스 허용**을 클릭하고 **다단계 인증 필요**를 클릭합니다.
-
    1. **선택**을 클릭합니다.
-
 1. **설정**을 클릭하여 정책을 사용하도록 설정합니다.
 
    ![조건부 액세스](./media/policy-migration/30.png)
@@ -126,4 +116,4 @@ ms.locfileid: "59795052"
 
 - 클래식 정책 마이그레이션에 대한 자세한 내용은 [Azure Portal에서 클래식 정책 마이그레이션](policy-migration.md)을 참조하세요.
 - 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요.
+- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 Azure Active Directory의 [조건부 액세스 모범 사례](best-practices.md)를 참조하세요.

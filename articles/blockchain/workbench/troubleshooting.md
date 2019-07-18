@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65510084"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 문제 해결
 
@@ -68,7 +68,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | \Details\Blockchain | 블록체인에 대한 자세한 로그 |
 | \Details\Workbench | 블록체인에 대한 자세한 로그 |
 
-요약 파일에는 애플리케이션의 전반적인 상태와 애플리케이션의 상태에 대한 스냅숏을 제공합니다. 요약에서는 실행하는 서비스에 대한 권장되는 작업, 강조 표시된 최상위 오류 및 메타데이터를 제공합니다.
+요약 파일에는 애플리케이션의 전반적인 상태와 애플리케이션의 상태에 대한 스냅샷을 제공합니다. 요약에서는 실행하는 서비스에 대한 권장되는 작업, 강조 표시된 최상위 오류 및 메타데이터를 제공합니다.
 
 **메트릭** 폴더는 시간에 따라 다양한 시스템 구성 요소의 메트릭을 포함합니다. 예를 들어 출력 파일 `\Details\Workbench\apiMetrics.txt`는 다양한 응답 코드 및 컬렉션 기간 동안 응답 시간의 요약을 포함합니다. **세부 정보** 폴더는 워크벤치 또는 기본 블록체인 네트워크의 특정 문제 해결을 위한 자세한 로그를 포함합니다. 예를 들어 `\Details\Workbench\Exceptions.csv`는 시스템에서 발생한 가장 최근 예외의 목록을 포함합니다. 이는 스마트 계약의 오류를 해결하거나 블록체인과 상호 작용하는 데 유용합니다. 
 

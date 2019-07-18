@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610718"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **웹 애플리케이션** | <ul><li>[CSP(콘텐츠 보안 정책)를 구현하고 인라인 JavaScript를 사용하지 않도록 설정](#csp-js)</li><li>[브라우저의 XSS 필터를 사용하도록 설정](#xss-filter)</li><li>[ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정](#trace-deploy)</li><li>[신뢰할 수 있는 원본에서만 타사 JavaScript에 액세스](#js-trusted)</li><li>[인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인](#ui-defenses)</li><li>[ASP.NET 웹 애플리케이션에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-aspnet)</li><li>[ASP.NET 페이지에서 ValidateRequest 특성을 사용하도록 설정](#validate-aspnet)</li><li>[로컬로 호스팅되는 최신 버전의 JavaScript 라이브러리 사용](#local-js)</li><li>[자동 MIME 스니핑을 사용하지 않도록 설정](#mime-sniff)</li><li>[지문 인식을 방지하기 위해 Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거](#standard-finger)</li></ul> |
-| **데이터베이스** | <ul><li>[데이터베이스 엔진 액세스를 위한 Windows 방화벽 구성](#firewall-db)</li></ul> |
+| **데이터베이스** | <ul><li>[데이터베이스 엔진 액세스에 대한 Windows 방화벽 구성](#firewall-db)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-api)</li><li>[중요한 데이터가 포함된 Web API 구성 파일의 섹션 암호화](#config-sensitive)</li></ul> |
 | **IoT 디바이스** | <ul><li>[모든 관리 인터페이스를 강력한 자격 증명으로 보호하는지 확인](#admin-strong)</li><li>[디바이스에서 알 수 없는 코드를 실행할 수 없는지 확인](#unknown-exe)</li><li>[bit-locker를 사용하여 OS 및 IoT 디바이스의 추가 파티션 암호화](#partition-iot)</li><li>[디바이스에서 최소 서비스/기능만 사용하도록 설정되어 있는지 확인](#min-enable)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[bit-locker를 사용하여 OS 및 IoT 필드 게이트웨이의 추가 파티션 암호화](#field-bit-locker)</li><li>[설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인](#default-change)</li></ul> |
@@ -143,7 +143,7 @@ X-FRAME-OPTIONS 헤더는 IIS web.config를 통해 설정할 수 있습니다. �
 | **적용 가능한 기술** | 웹 양식, MVC5 |
 | **특성**              | N/A  |
 | **참조**              | N/A  |
-| **단계** | <p>브라우저 보안은 웹 페이지에서 다른 도메인으로 AJAX 요청을 수행하지 못하도록 방지합니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다. CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다.</p><p>CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다. 근본적으로 CORS를 사용하도록 설정하면 몇 가지 HTTP 응답 헤더(Access-Control-*)를 웹 애플리케이션에 추가할 수 있습니다. 이는 몇 가지 방법으로 수행할 수 있습니다.</p>|
+| **단계** | <p>브라우저의 보안 기능은 웹 페이지에서 다른 도메인으로 AJAX 요청을 전송하는 것을 막습니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다. CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다.</p><p>CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다. 근본적으로 CORS를 사용하도록 설정하면 몇 가지 HTTP 응답 헤더(Access-Control-*)를 웹 애플리케이션에 추가할 수 있습니다. 이는 몇 가지 방법으로 수행할 수 있습니다.</p>|
 
 ### <a name="example"></a>예
 Web.config에 액세스할 수 있는 경우 다음 코드를 통해 CORS를 추가할 수 있습니다. 
@@ -298,7 +298,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **적용 가능한 기술** | MVC 5 |
 | **특성**              | N/A  |
 | **참조**              | [ASP.NET Web API 2에서 원본 간 요청 사용](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)(영문), [ASP.NET Web API - ASP.NET Web API 2에서 CORS 지원](https://msdn.microsoft.com/magazine/dn532203.aspx)(영문) |
-| **단계** | <p>브라우저 보안은 웹 페이지에서 다른 도메인으로 AJAX 요청을 수행하지 못하도록 방지합니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다.</p><p>CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다. CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다.</p>|
+| **단계** | <p>브라우저의 보안 기능은 웹 페이지에서 다른 도메인으로 AJAX 요청을 전송하는 것을 막습니다. 이렇게 제한하는 것을 동일 원본 정책이라고 하며, 악성 사이트에서 다른 사이트의 중요한 데이터를 읽을 수 없도록 합니다. 그러나 때로는 다른 사이트에서 사용할 수 있는 API를 안전하게 노출해야 할 수도 있습니다. CORS(원본 간 리소스 공유)는 서버에서 동일 원본 정책을 완화할 수 있게 하는 W3C 표준입니다.</p><p>CORS를 사용하면 서버에서 명시적으로 일부 원본 간 요청을 허용하는 한편 다른 요청은 거부할 수 있습니다. CORS는 JSONP와 같은 이전 기술보다 더 안전하고 유연합니다.</p>|
 
 ### <a name="example"></a>예
 App_Start/WebApiConfig.cs에서 WebApiConfig.Register 메서드에 다음 코드를 추가합니다. 
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 **방법 2** MVC에서 CORS를 사용하도록 설정: 개발자가 MVC를 사용하여 작업별, 컨트롤러별로 특정 CORS를 적용하거나 모든 컨트롤러에 대해 전역적으로 CORS를 적용할 수 있습니다.
 
 ### <a name="example"></a>예
-작업별: 특정 작업에 대해 CORS 정책을 지정하려면 해당 작업에 [EnableCors] 특성을 추가합니다. 정책 이름을 지정합니다. 
+작업별: 특정 작업에 대해 CORS 정책을 지정하려면 해당 작업에 [EnableCors] 특성을 추가합니다. 이때 정책 이름을 전달합니다. 
 ```csharp
 public class HomeController : Controller
 {

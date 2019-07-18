@@ -7,17 +7,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.openlocfilehash: 688b87fcc0ec18e0bf5924470d521c44229ae421
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/13/2019
+ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682882"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448650"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
-이 자습서에서는 HDInsight Spark 클러스터와 함께 제공되는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행합니다.
+이 문서를 사용 하 여 [Jupyter Notebook](https://jupyter.org/) Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 하려면 HDInsight Spark 클러스터와 함께 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

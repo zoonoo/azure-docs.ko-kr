@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2f382c31c6bfb6ab71afd495c4c3f702715633c0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d81b01992bd3bdd49a48a873281d1be1e795497a
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661891"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556011"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI 및 Azure Portal을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -136,7 +136,7 @@ az servicebus queue create --name $sbQueueName \
 
 3. **메시지 라우팅**을 선택합니다. **메시지 라우팅** 창에서 +**추가**를 선택합니다. **경로 추가** 창에서 다음 그림에 표시된 대로 엔드포인트 필드 옆에 있는 +**추가**를 클릭하여 지원되는 엔드포인트를 표시합니다.
 
-   ![경로 대한 엔드포인트 추가 시작](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![경로에 대한 엔드포인트 추가 시작](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
 4. **Blob Storage**를 선택합니다. **스토리지 엔드포인트 추가** 창이 보입니다.
 
@@ -144,7 +144,7 @@ az servicebus queue create --name $sbQueueName \
 
 5. 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **ContosoStorageEndpoint**를 사용합니다.
 
-6. **컨테이너 선택** 선택합니다. 이렇게 하면 저장소 계정 목록으로 이동합니다. 준비 단계에서 설정한 계정을 선택합니다. 이 자습서에서는 **contosostorage**를 사용합니다. 해당 저장소 계정의 컨테이너 목록을 보여줍니다. 준비 단계에서 설정한 컨테이너를 **선택**합니다. 이 자습서에서는 **contosoresults**를 사용합니다. **스토리지 엔드포인트 추가** 창으로 돌아가서 선택한 사항을 확인합니다.
+6. **컨테이너 선택**을 선택합니다. 이렇게 하면 저장소 계정 목록으로 이동합니다. 준비 단계에서 설정한 계정을 선택합니다. 이 자습서에서는 **contosostorage**를 사용합니다. 해당 저장소 계정의 컨테이너 목록을 보여줍니다. 준비 단계에서 설정한 컨테이너를 **선택**합니다. 이 자습서에서는 **contosoresults**를 사용합니다. **스토리지 엔드포인트 추가** 창으로 돌아가서 선택한 사항을 확인합니다.
 
 7. 인코딩을 AVRO 또는 JSON으로 설정합니다. 이 자습서의 목적을 위해, 나머지 필드에는 기본값을 사용합니다. 선택한 지역에 JSON 인코딩이 지원되지 않으면, 이 필드가 회색으로 표시됩니다.
 
@@ -220,11 +220,11 @@ az servicebus queue create --name $sbQueueName \
 
 ## <a name="create-a-simulated-device"></a>시뮬레이션된 디바이스 만들기
 
-[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스가 설정되고 메시지 경로가 구성되었으면, 다음 자습서로 진행하여 IoT 허브에 메시지를 보내서, 다른 대상으로 라우팅되는 것을 확인하는 방법을 살펴보세요. 
+리소스가 설정되고 메시지 경로가 구성되었으면 다음 자습서로 진행하여, IoT 허브에 메시지를 보낸 후 다른 대상으로 라우팅되는 과정을 확인하는 방법을 살펴보세요. 
 
 > [!div class="nextstepaction"]
 > [2부 - 메시지 라우팅 결과 보기](tutorial-routing-view-message-routing-results.md)

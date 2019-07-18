@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847986"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383047"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
@@ -50,5 +50,5 @@ Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석�
 
 * [Python 빠른 시작](quickstarts/python.md)을 사용하여 Bing Web Search API를 처음 호출합니다.  
 * [단일 페이지 웹앱을 빌드](tutorial-bing-web-search-single-page-app.md)합니다.
-* [Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 설명서를 검토합니다.  
+* [Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 설명서를 검토합니다.  
 * Bing Web Search에 대한 [사용 및 표시 요구 사항](UseAndDisplayRequirements.md)에 대해 자세히 알아봅니다.  

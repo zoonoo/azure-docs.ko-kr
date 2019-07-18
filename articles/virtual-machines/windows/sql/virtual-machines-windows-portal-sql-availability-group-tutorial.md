@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593792"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>자습서: 수동으로 Azure VM에서 Always On 가용성 그룹 구성
@@ -75,7 +75,7 @@ ms.locfileid: "60593792"
 
    | 페이지 | 설정 |
    | --- | --- |
-   | 시작하기 전에 |기본값 사용 |
+   | 시작하기 전 주의 사항 |기본값 사용 |
    | 서버 선택 |첫 번째 SQL Server 이름을 **서버 이름 입력**에 입력하고 **추가**를 클릭합니다. |
    | 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.** 를 선택합니다. |
    | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1**)을 **클러스터 이름**에 입력합니다.|
@@ -299,7 +299,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\\**입니다. **다음**을 클릭합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\\** 입니다. **다음**을 클릭합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -402,7 +402,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
    | 설정 | 설명 | 예
    | --- | --- |---
-   | **Name** | Text | SQLAlwaysOnEndPointProbe |
+   | **Name** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
    | **포트** | 사용하지 않는 모든 포트 | 59999 |
    | **간격**  | 프로브 시도 간격(초) |5 |
@@ -418,7 +418,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
    | 설정 | 설명 | 예
    | --- | --- |---
-   | **Name** | Text | SQLAlwaysOnEndPointListener |
+   | **Name** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
    | **프로토콜** | TCP 선택 |TCP |
    | **포트** | 가용성 그룹 수신기용 포트 사용 | 1433 |
@@ -426,7 +426,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
    | **프로브** |프로브에 대해 지정한 이름 | SQLAlwaysOnEndPointProbe |
    | **세션 지속성** | 드롭다운 목록 | **없음** |
    | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
-   | **부동 IP(Direct Server Return)** | |Enabled |
+   | **부동 IP(Direct Server Return)** | |사용 |
 
    > [!WARNING]
    > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.
@@ -445,7 +445,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
    | 설정 | 설명 | 예
    | --- | --- |---
-   | **Name** | Text | WSFCEndPointProbe |
+   | **Name** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
    | **포트** | 사용하지 않는 모든 포트 | 58888 |
    | **간격**  | 프로브 시도 간격(초) |5 |
@@ -459,7 +459,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
    | 설정 | 설명 | 예
    | --- | --- |---
-   | **Name** | Text | WSFCEndPoint |
+   | **Name** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |
    | **프로토콜** | TCP 선택 |TCP |
    | **포트** | 클러스터 IP 주소에 대한 포트를 사용합니다. 수신기 프로브 포트에 사용되지 않는 사용 가능한 포트입니다. | 58888 |
@@ -467,7 +467,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
    | **프로브** |프로브에 대해 지정한 이름 | WSFCEndPointProbe |
    | **세션 지속성** | 드롭다운 목록 | **없음** |
    | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
-   | **부동 IP(Direct Server Return)** | |Enabled |
+   | **부동 IP(Direct Server Return)** | |사용 |
 
    > [!WARNING]
    > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66135210"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway 상태 모니터링 개요
 

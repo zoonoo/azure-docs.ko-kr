@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702235"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484191"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -27,7 +27,7 @@ HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight에서 Hadoop 클러스터를**입니다. 참조 [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)합니다.
+* **HDInsight에서 Hadoop 클러스터를**입니다. [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * 합니다 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터 기본 저장소에 대 한 합니다. Wasb 하는 것: / / Azure storage의 경우 abfs: / / Azure Data Lake 저장소 Gen2 또는 adl: / / Azure Data Lake 저장소 Gen1에 대 한 합니다. URI wasbs 것에 대해 Azure Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우: / / 또는 abfss: / / 각각도 참조 하세요 [보안 전송](../../storage/common/storage-require-secure-transfer.md)합니다.
 * **저장소 구성에 대 한 변경 되었을 수 있습니다.**  참조 [저장소 구성](#storage-configuration) 저장소 계정 종류를 사용 하는 경우 `BlobStorage`합니다.
@@ -161,9 +161,6 @@ while True:
     ```
 
 ### <a name="upload-file-powershell"></a>업로드 (PowerShell)
-
-> [!IMPORTANT]  
-> 경우에 이러한 PowerShell 스크립트 작동 하지 것입니다 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 사용 가능 합니다.  셸 명령을 사용 하거나 보안 전송이 사용 하지 않도록 설정 합니다.
 
 PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리에는 확인 `hiveudf.py` 위치한 합니다.  다음 PowerShell 스크립트를 사용 하 여 사용 하는 Hive 쿼리를 실행 합니다 `hiveudf.py` 스크립트:
 
@@ -433,9 +430,6 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
 
 ### <a name="upload-file-powershell"></a>업로드 (PowerShell)
-
-> [!IMPORTANT]  
-> 경우에 이러한 PowerShell 스크립트 작동 하지 것입니다 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 사용 가능 합니다.  셸 명령을 사용 하거나 보안 전송이 사용 하지 않도록 설정 합니다.
 
 PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리에는 확인 `pigudf.py` 위치한 합니다.  다음 PowerShell 스크립트를 사용 하 여 사용 하는 Hive 쿼리를 실행 합니다 `pigudf.py` 스크립트:
 

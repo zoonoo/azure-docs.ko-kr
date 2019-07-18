@@ -3,7 +3,7 @@ title: 위협 인텔리전스 데이터 Azure Sentinel 미리 보기에 연결 |
 description: Azure Sentinel를 위협 인텔리전스 데이터를 연결 하는 방법에 알아봅니다.
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65233755"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자에서 데이터 연결 
 

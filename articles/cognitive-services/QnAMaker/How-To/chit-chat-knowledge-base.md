@@ -3,20 +3,20 @@ title: QnA Maker 기술 자료에 잡담 추가
 titleSuffix: Azure Cognitive Services
 description: KB를 만들 때 봇에 사적인 잡담을 추가하면 실제로 대화하는 것 같은 느낌이 들고 몰입도가 높아집니다. QnA Maker를 사용하면 미리 채워진 최고의 잡담 집합을 KB로 손쉽게 추가할 수 있습니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: tulasim
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 60a17859fd74b1972e0905a830ba984838a94ffd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447505"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -24,17 +24,19 @@ ms.locfileid: "65153702"
 
 이 데이터 집합에 Witty, Professional 및 친숙 한 등의 여러 가상 사용자의 음성을 chit 채팅의 약 100 개의 시나리오가 있습니다. 봇의 음성과 가장 유사한 가상 사용자를 선택하세요. QnA Maker는 사용자 쿼리가 지정되면 알려진 잡담 QnA 중 가장 가까운 QnA와 이를 매칭합니다.  
 
-다양 한 적응력의 몇 가지 예는 다음과 같습니다. 개성의 세부 정보와 함께 모든 성격 데이터 집합을 볼 수 있습니다 [여기](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)합니다.
+다양 한 적응력의 몇 가지 예는 다음과 같습니다. 모든 개인 정보를 볼 수 있습니다 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) 를 개성의 세부 정보와 함께 합니다.
+
+사용자 쿼리에 대 한 `When is your birthday?`, 각 성격에 스타일이 적용 된 응답:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|사용자 쿼리|전문가|친숙 한|Witty|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|개인 정보|예|
+|--|--|
+|전문가|Age 나에 게 실제로 적용 되지 않습니다.|
+|친숙한|Age를 포함 하지 않습니다.|
+|Witty|저는 age 없음이라고 합니다.|
+|신경쓰지|Age가 없습니다.|
+|열광|저는 나 않도록 봇의 경우입니다.|
+||
 
 > [!NOTE]
 > 잡담 지원은 현재 영어로만 제공됩니다. 

@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 UserJourneys 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09435b09811ef31057f4dc257fc55fa72909d83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512023"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -23,7 +23,7 @@ ms.locfileid: "64714913"
 
 사용자 경험은 명시적 경로를 지정합니다. 이 경로를 통해 정책은 신뢰 당사자 애플리케이션이 사용자에 대해 원하는 클레임을 가져오도록 허용합니다. 이러한 경로를 통해 사용자를 가져와서 신뢰 당사자에게 표시할 클레임을 검색합니다. 즉, 사용자 경험은 Azure AD B2C ID 경험 프레임워크가 요청을 처리할 때 최종 사용자에게 적용되는 비즈니스 논리를 정의합니다.
 
-이러한 사용자 경험은 관심 커뮤니티의 다양한 신뢰 당사자 요구를 충족하는 데 사용할 수 있는 템플릿으로 간주할 수 있습니다. 사용자 경험을 활용하면 정책의 신뢰 당사자 부분을 원활하게 정의할 수 있습니다. 정책 하나가 여러 사용자 경험을 정의할 수 있습니다. 각 사용자 경험은 오케스트레이션 단계 시퀀스입니다.
+이러한 사용자 경험 관심 커뮤니티의 다양 한 신뢰 당사자의 핵심 요구를 충족 하기 위해 사용할 수 있는 템플릿을으로 간주할 수 있습니다. 사용자 경험 정책의 신뢰 당사자 파트의 정의 지원합니다. 정책 하나가 여러 사용자 경험을 정의할 수 있습니다. 각 사용자 경험은 오케스트레이션 단계 시퀀스입니다.
 
 정책에서 지원하는 사용자 경험을 정의하기 위해 **UserJourneys** 요소가 정책 파일의 최상위 요소 아래에 추가됩니다. 
 
@@ -49,7 +49,7 @@ ms.locfileid: "64714913"
 
 사용자 경험은 트랜잭션을 정상적으로 수행하려면 따라야 하는 오케스트레이션 시퀀스로 표시됩니다. 한 단계라도 실패하면 트랜잭션은 실패합니다. 이러한 오케스트레이션 단계는 정책 파일에서 허용되는 클레임 공급자와 구성 요소를 모두 참조합니다. 사용자 경험을 표시하거나 렌더링해야 하는 모든 오케스트레이션 단계에는 해당하는 콘텐츠 정의 식별자에 대한 참조도 포함됩니다.
 
-오케스트레이션 단계 조건부로 실행할 수 있습니다, 오케스트레이션 단계 요소에 정의 된 사전 조건에 따라 합니다. 예를 들어 특정 클레임이 있는 경우에 클레임 같으면 또는 지정된 된 값 필요가 오케스트레이션 단계를 수행 하려면 확인할 수 있습니다. 
+오케스트레이션 단계 요소에 정의 된 사전 조건에 따라 오케스트레이션 단계를 조건부로 실행할 수 있습니다. 예를 들어, 특정 클레임이 있는 경우에 클레임 같으면 또는 지정된 된 값 필요가 오케스트레이션 단계를 수행 하려면 확인할 수 있습니다. 
 
 오케스트레이션 단계의 정렬된 목록을 지정하기 위해 **OrchestrationSteps** 요소가 정책의 일부로 추가됩니다. 이 요소는 필수 요소입니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "64714913"
 | --------- | -------- | ----------- |
 | `Order` | 예 | 오케스트레이션 단계의 순서입니다. | 
 | `Type` | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> | 
-| ContentDefinitionReferenceId | 아닙니다. | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 오케스트레이션 단계의 유형이 `ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp` 중 하나인 경우가 여기에 해당합니다. 이러한 경우 Azure AD B2C는 기술 프로필을 사용하지 않고 ID 공급자 선택 항목을 표시해야 합니다. | 
+| ContentDefinitionReferenceId | 아닙니다. | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 두 가지 예제가-오케스트레이션 단계의 유형을 다음 중 하나인 경우: `ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp`, Azure AD B2C id 공급자 선택 기술 프로필을 사용 하지 않고도 표시 해야 합니다. | 
 | CpimIssuerTechnicalProfileReferenceId | 아닙니다. | 오케스트레이션 단계의 유형이 `SendClaims`입니다. 이 속성은 신뢰 당사자용 토큰을 발급하는 클레임 공급자의 기술 프로필 식별자를 정의합니다.  해당 식별자가 없으면 신뢰 당사자 토큰이 생성되지 않습니다. |
 
 
@@ -88,7 +88,7 @@ ms.locfileid: "64714913"
 
 #### <a name="precondition"></a>Precondition
 
-**Precondition** 요소에 포함되는 특성은 다음과 같습니다.
+합니다 **전제 조건** 요소에는 다음 특성을 포함 합니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
@@ -121,7 +121,7 @@ ms.locfileid: "64714913"
 </OrchestrationStep>
 ```
 
-다음 Preconditions는 사용자가 소셜 계정을 사용하여 로그인했는지를 확인합니다. 이를 위해 디렉터리에서 사용자 계정 찾기를 시도합니다. 사용자가 로컬 계정을 사용하여 로그인하거나 등록을 하는 경우에는 이 오케스트레이션 단계를 건너뜁니다.
+다음 Preconditions는 사용자가 소셜 계정을 사용하여 로그인했는지를 확인합니다. 이를 위해 디렉터리에서 사용자 계정 찾기를 시도합니다. 사용자가 로그인 또는 로컬 계정을 사용 하 여 등록 하는 경우에이 오케스트레이션 단계를 건너뜁니다.
 
 ```XML
 <OrchestrationStep Order="3" Type="ClaimsExchange">
@@ -138,7 +138,7 @@ ms.locfileid: "64714913"
 </OrchestrationStep>
 ```
 
-Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예제에서는 'objectId' 또는 'email'이 있는지 여부를 확인합니다. 첫 번째 조건이 true이면 경험의 다음 오케스트레이션 단계로 건너뜁니다.
+Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예제에서는 'objectId' 또는 'email'이 있는지 여부를 확인합니다. 첫 번째 조건이 true 이면 여정 오케스트레이션 단계로 건너뜁니다.
 
 ```XML
 <OrchestrationStep Order="4" Type="ClaimsExchange">
@@ -177,7 +177,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection 예제
 
-다음 오케스트레이션 단계에서 사용자는 Facebook, LinkedIn, Twitter, Google 또는 로컬 계정으로 로그인 하도록 선택할 수 있습니다. 사용자가 소셜 ID 공급자 중 하나를 선택하면 `TargetClaimsExchangeId` 특성에 지정된 선택한 클레임 교환을 사용하여 두 번째 오케스트레이션 단계가 실행됩니다. 두 번째 오케스트레이션 단계에서는 로그인 프로세스를 완료할 수 있도록 사용자를 소셜 ID 공급자로 리디렉션합니다. 사용자가 로컬 계정을 사용하여 로그인하도록 선택하는 경우 Azure AD B2C는 같은 오케스트레이션 단계(같은 등록 또는 로그인 페이지)로 유지되며 두 번째 오케스트레이션 단계는 건너뜁니다.
+다음 오케스트레이션 단계에서 선택할 수 있으며 Facebook, LinkedIn, Twitter, Google 또는 로컬 계정으로 로그인 합니다. 사용자가 소셜 ID 공급자 중 하나를 선택하면 `TargetClaimsExchangeId` 특성에 지정된 선택한 클레임 교환을 사용하여 두 번째 오케스트레이션 단계가 실행됩니다. 두 번째 오케스트레이션 단계에서는 로그인 프로세스를 완료할 수 있도록 사용자를 소셜 ID 공급자로 리디렉션합니다. 사용자가 로컬 계정을 사용하여 로그인하도록 선택하는 경우 Azure AD B2C는 같은 오케스트레이션 단계(같은 등록 또는 로그인 페이지)로 유지되며 두 번째 오케스트레이션 단계는 건너뜁니다.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

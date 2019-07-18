@@ -3,8 +3,8 @@ title: SaaS에 대 한 액세스를 관리 하려면 테 넌 트 제한을 사�
 description: Azure AD 테 넌 트를 기준으로 앱에 액세스할 수 있는 사용자를 관리 하려면 테 넌 트 제한을 사용 하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65824391"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>SaaS 클라우드 응용 프로그램에 대 한 액세스를 관리 하는 데 사용 하 여 테 넌 트 제한
 
@@ -107,7 +107,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 응용 프로그램, 클라이언트 또는 상태에서 필터링 할 수 있습니다. 선택 하는 경우는 **열** 단추, 다음 필드의 조합 사용 하 여 데이터를 표시 하도록 선택할 수 있습니다.
 
-- **User**
+- **사용자**
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -118,7 +118,7 @@ Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보�
 - **IP 주소**
 - **클라이언트**
 - **사용자 이름**
-- **위치**:
+- **Location**:
 - **대상 테 넌 트 ID**
 
 ## <a name="office-365-support"></a>Office 365 지원

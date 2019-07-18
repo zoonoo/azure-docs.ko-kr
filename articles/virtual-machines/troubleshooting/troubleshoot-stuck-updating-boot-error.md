@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: cff1577eacd0af86d3ad1c99e1eb2164b64318c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60443775"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
@@ -45,7 +45,7 @@ ms.locfileid: "60443775"
 
 ### <a name="remove-the-update-that-causes-the-problem"></a>문제의 원인이 된 업데이트를 제거합니다.
 
-1. 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요. 
+1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요. 
 2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
 3. OS 디스크가 복구 VM에 연결되면 **diskmgmt.msc**를 실행하여 디스크 관리를 열고 연결된 디스크가 **ONLINE** 상태인지 확인합니다. \Windows 폴더를 유지하는 연결된 OS 디스크에 할당된 드라이브 문자를 기록해 둡니다. 디스크 암호화된 경우 이 문서의 다음 단계를 진행하기 전에 디스크를 암호 해독합니다.
 

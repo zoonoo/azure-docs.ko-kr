@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784679"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477822"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project Acoustics Unreal/Wwise 디자인 자습서
 이 자습서에서는 Unreal 및 Wwise의 Project Acoustics 디자인 설정 및 워크플로에 대해 설명합니다.
@@ -122,6 +122,11 @@ Acoustics Space(음향 공간) 액터는 청사진을 통해 액세스할 수 �
 타일 크기는 Force Load Tile(타일 강제 로드)을 호출하기 전에 이미 설정되어 있어야 합니다. 예를 들어 ACE 파일을 로드하고, 타일 크기를 설정하고, 한 영역에서 스트림하려면 다음과 같이 수행할 수 있습니다.
 
 ![Unreal의 스트리밍 설정 옵션 스크린샷](media/streaming-setup.png)
+
+이 예에서 사용된 Load Acoustics Data(음향 데이터 로드) 청사진 기능에는 다음 매개 변수가 있습니다.
+
+* **Target(대상):** AcousticsSpace 액터입니다.
+* **New Bake(새 베이킹):** 로드될 음향 데이터 자산입니다. 이 값을 비워 두거나 null로 설정하면 새 베이킹을 로드하지 않고 현재 베이킹을 언로드합니다.
 
 ### <a name="optionally-query-for-surface-proximity"></a>필요에 따라 표면 근접성 쿼리
 수신기 주변의 특정 방향에서 표면에 대한 근접성을 확인하려면 Query Distance(거리 쿼리) 기능을 사용할 수 있습니다. 이 기능은 방향 지연 반사 구동 및 표면 근접성으로 구동되는 다른 게임 논리에 유용할 수 있습니다. 이 쿼리는 음향 조회 테이블에서 결과를 가져오므로 광선 발사(ray cast)보다 비용이 적게 듭니다.

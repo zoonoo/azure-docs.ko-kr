@@ -1,19 +1,19 @@
 ---
-title: '자습서: 데이터 복사 서비스를 통해 Microsoft Azure Data Box 디바이스로 데이터 복사 | Microsoft Docs'
+title: 데이터 복사 서비스를 통해 Azure Data Box 디바이스에 데이터를 복사하는 자습서 | Microsoft Docs
 description: 이 자습서에서는 데이터 복사 서비스를 통해 Azure Data Box 디바이스로 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343530"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206056"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 
@@ -59,7 +59,7 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
     |-------------------------------|---------|
     |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. 다음 문자는 작업 이름에 허용되지 않습니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\.         |
     |**원본 위치**                |`\\<ServerIPAddress>\<ShareName>` 또는 `\\<ServerName>\<ShareName>` 형식으로 데이터 소스에 대한 SMB 경로를 를 제공합니다.        |
-    |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다.        |
+    |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다. 로컬 관리자가 연결하는 경우 명시적 보안 권한이 필요합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **보안**을 선택합니다. 이렇게 하면 **보안** 탭에 로컬 관리자가 추가됩니다.       |
     |**암호**                       |데이터 원본에 액세스하기 위한 암호입니다.           |
     |**대상 스토리지 계정**    |목록에서 데이터를 업로드하려면 대상 스토리지 계정을 선택합니다.         |
     |**대상 유형**       |다음 목록에서 대상 스토리지 유형을 선택합니다. **블록 Blob**, **페이지 Blob** 또는 **Azure Files**.        |

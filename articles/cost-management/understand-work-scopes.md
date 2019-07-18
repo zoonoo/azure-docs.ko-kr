@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003014"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490122"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -60,14 +60,14 @@ Cost Management는 다음 범위 중 각각에 대해 다음 기본 제공 역�
 - [**소유자** ](../role-based-access-control/built-in-roles.md#owner) – 비용을 확인 하 고 비용 구성을 비롯 한 모든 것을 관리할 수 있습니다.
 - [**참가자** ](../role-based-access-control/built-in-roles.md#contributor) – 비용을 확인 하 고 모든 사항을 액세스 제어를 제외한 비용 구성을 비롯 하 여 관리할 수 있습니다.
 - [**판독기** ](../role-based-access-control/built-in-roles.md#reader) – 비용 데이터 및 구성을 포함 한 모든 것을 볼 수 있지만 변경할 수 없습니다.
-- [**비용 관리 참여자** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – 비용을 볼 수 있습니다 및 비용 구성을 관리 합니다.
-- [**비용 관리 판독기** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – 비용 데이터 및 구성을 볼 수 있습니다.
+- [**비용 관리 참여자** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – 보고 비용 비용, 구성을 관리 하 고 권장 사항을 봅니다.
+- [**비용 관리 판독기** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – 비용 데이터 보기, 비용 구성 하 고 권장 사항을 볼 수 있습니다.
 
 비용된 관리 참가자는 권장 되는 최소 권한 역할입니다. 사용자 만들기 및 예산 관리에 대 한 액세스를 허용 하 고 보다 효과적으로 모니터링 하 고 비용 보고 내보냅니다. 비용 관리 참가자 엔드-투-엔드 비용 관리 시나리오를 지 원하는 역할을 추가 해야 할 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
 - **예산을 초과 되 면 역할** -비용 관리 참가자 만들기 및/또는 초과분에 자동으로 대응 하는 작업 그룹 관리에 대 한 액세스를 해야 합니다. 권한을 부여 하는 것이 좋습니다 [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) 예산 임계값이 초과 될 때 사용 하는 작업 그룹을 포함 하는 리소스 그룹에 있습니다. 특정 작업을 자동화에 사용 되는 Automation 및 Azure Functions와 같은 특정 서비스에 대 한 추가 역할을 필요 합니다.
 - **데이터 내보내기 비용 일정** -비용 관리 참가자도 저장소 계정에 데이터를 복사 하는 내보내기 예약 하기 위한 저장소 계정 관리에 대 한 액세스를 해야 합니다. 권한을 부여 하는 것이 좋습니다 [Storage 계정 참여자](../role-based-access-control/built-in-roles.md#storage-account-contributor) 데이터 비용 계정 저장소를 포함 하는 리소스 그룹에 내보내집니다.
-- **비용 절감 권장 사항 보기** -비용 관리 Readers 및 Contributors 기본적으로 권장 사항에 액세스할 수 없습니다. 권장 사항에 대 한 액세스는 개별 리소스에 대 한 읽기 액세스에 필요합니다. 권한을 부여 하는 것이 좋습니다 [판독기](../role-based-access-control/built-in-roles.md#reader) 또는 [서비스에 특정 한 역할이](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)합니다.
+- **비용 절감 권장 사항 보기** -비용 관리 판독기 및 비용 관리 참가자에 액세스할 수 *보기* 기본적으로 비용 권장 사항입니다. 그러나 비용 권장 사항에서 역할에 대 한 액세스는 개별 리소스에 대 한 액세스를 해야 합니다. 권한을 부여 하는 것이 좋습니다.는 [서비스에 특정 한 역할이](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) 을 비용 기반 권장 사항을 수행 하려는 경우.
 
 ## <a name="enterprise-agreement-scopes"></a>기업 계약 범위
 
@@ -100,19 +100,19 @@ Azure 구독 등록 계정 아래에 중첩 됩니다. 요금 청구 사용자�
 
 특정 청구 계정에서 명시적으로 포함 되지 때문에 청구 사용자 관리 그룹에 액세스할 수 없는 합니다. 액세스 관리 그룹에 명시적으로 부여 되어야 합니다. 관리는 중첩 된 모든 구독에서 롤업 비용을 그룹화합니다. 그러나 구매 사용량 기준만 포함 됩니다. 이러한 예약 등 제 3 자 Marketplace 제품 구매를 포함 하지 않습니다. 이러한 비용을 보려면 EA 청구 계정을 사용 합니다.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>각 계약 (종 량 제) 범위
+## <a name="individual-agreement-scopes"></a>각 계약 범위
 
-종 량 제 (PAYG) 구독을 관련된 형식을 비롯 한 체험/평가판 등의 청구 계정 명시적 범위가 없는 개발/테스트 제품. 대신, 각 구독에는 계정 소유자 또는 EA 계정 소유자와 같은 계정 관리자에 있습니다.
+개별 제품에서 만든 azure 구독은 무료 평가판과 같은 종 량 제 및 관련 형식 등의 청구 계정 명시적 범위가 없는 개발/테스트 제품. 대신, 각 구독에는 계정 소유자 또는 EA 계정 소유자와 같은 계정 관리자에 있습니다.
 
 - [**대금 청구 계정** ](../billing/billing-view-all-accounts.md) -하나 이상의 Azure 구독에 대 한 단일 계정 소유자를 나타냅니다. 현재 액세스 여러 사용자나 집계 비용 보기에 대 한 액세스 권한을 부여 지원 하지 않습니다.
 
     리소스 유형: 해당 없음
 
-종 량 제 구독 계정 관리자가 보고에서 송장 및 지불 같은 청구 데이터를 관리 하는 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다. 그러나 비용 데이터를 확인 하거나 Azure portal에서 리소스를 관리할 수는 없습니다. 계정 관리자에 대 한 액세스에 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
+개별 Azure 구독 계정 관리자가 보고에서 송장 및 지불 같은 청구 데이터를 관리 하는 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다. 그러나 비용 데이터를 확인 하거나 Azure portal에서 리소스를 관리할 수는 없습니다. 계정 관리자에 대 한 액세스에 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
 
-EA와 달리 종 량 제 구독 계정 관리자는 Azure portal에서 청구서를 볼 수 있습니다. 비용 관리 판독기 및 비용 관리 참여자 역할 송장에 대 한 액세스를 제공 하지는 것을 염두에 두십시오. 자세한 내용은 [PAYG 송장에 대 한 액세스를 부여 하는 방법을](../billing/billing-manage-access.md#give-access-to-billing)합니다.
+EA와 달리 개별 Azure 구독 계정 관리자는 Azure portal에서 청구서를 볼 수 있습니다. 비용 관리 판독기 및 비용 관리 참여자 역할 송장에 대 한 액세스를 제공 하지는 것을 염두에 두십시오. 자세한 내용은 [송장에 대 한 액세스를 부여 하는 방법을](../billing/billing-manage-access.md##give-read-only-access-to-billing)합니다.
 
-## <a name="customer-agreement-scopes"></a>고객 계약 범위
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft 고객 계약 범위
 
 Microsoft 고객 계약 청구 계정에 다음과 같은 범위:
 
@@ -148,13 +148,13 @@ Azure 구독 EA 등록 계정으로 하는 방법을 같은 청구서 섹션 아
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Cost Management에서 범위 사이 전환
 
-Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 필 뷰의 왼쪽 위에 있는 합니다. 신속 하 게 범위를 변경 하려면 사용 합니다. 클릭 합니다 **범위** 필을 범위 선택기를 엽니다. 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 모든 구독을 보여 줍니다. 범위를 선택 하려면 강조 표시 한 다음 클릭 배경을 클릭 **선택** 맨 아래에 있습니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 드릴 범위 이름 링크를 클릭 합니다. 모든 중첩된 수준에서 부모 범위를 선택 하려면 클릭 **이 선택 &lt;범위&gt;**  범위 선택의 맨 위에 있는 합니다.
+Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 뷰의 왼쪽 위에 있는 선택 필 합니다. 신속 하 게 범위를 변경 하려면 사용 합니다. 클릭 합니다 **범위** 필을 범위 선택기를 엽니다. 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 모든 구독을 보여 줍니다. 범위를 선택 하려면 강조 표시 한 다음 클릭 배경을 클릭 **선택** 맨 아래에 있습니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 드릴 범위 이름 링크를 클릭 합니다. 모든 중첩된 수준에서 부모 범위를 선택 하려면 클릭 **이 선택 &lt;범위&gt;**  범위 선택의 맨 위에 있는 합니다.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>범위에 대 한 리소스 ID를 식별 합니다.
 
 비용 관리 Api로 작업 하는 경우 범위 반드시 알아야 합니다. 다음 정보를 사용 하 여 비용 관리 Api에 대 한 적절 한 범위 URI를 작성 합니다.
 
-### <a name="billing-accounts"></a>청구 계정
+### <a name="billing-accounts"></a>대금 청구 계정
 
 1. Azure portal을 열고 다음 이동할 **Cost Management + 청구** 서비스 목록에서.
 2. 선택 **속성** 청구 계정 메뉴에서.
@@ -170,7 +170,7 @@ Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 필 뷰의 
 5. 대금 청구 계정 및 청구 프로필 Id를 복사 합니다.
 6. 범위는: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>청구서 섹션
+### <a name="invoice-sections"></a>송장 섹션
 
 1. Azure portal을 열고 다음 이동할 **Cost Management + 청구** 서비스 목록에서.
 2. 선택 **섹션에서는 송장** 청구 계정 메뉴에서.

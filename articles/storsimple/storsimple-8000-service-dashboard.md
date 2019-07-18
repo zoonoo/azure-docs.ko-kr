@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633143"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 대한 서비스 요약 블레이드 사용
@@ -47,7 +47,7 @@ Essentials 영역은 StorSimple 디바이스 관리자를 만든 리소스 그�
 
 ## <a name="storsimple-device-manager-service-summary"></a>StorSimple 디바이스 관리자 서비스 요약
 
-* **경고** 타일에서는 경고 심각도별로 그룹화된 모든 디바이스 간의 모든 활성 경고에 대한 스냅숏을 제공합니다.
+* **경고** 타일에서는 경고 심각도별로 그룹화된 모든 디바이스 간의 모든 활성 경고에 대한 스냅샷을 제공합니다.
 
     ![경고 타일](./media/storsimple-8000-service-dashboard/service-summary4.png)
 

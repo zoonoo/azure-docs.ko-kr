@@ -4,20 +4,20 @@ description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311928"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449227"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
-이 빠른 시작은 Stream Analytics 작업 만들기를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 실시간 스트리밍 데이터를 읽고 온도가 27보다 높은 메시지를 필터링하는 Stream Analytics 작업을 정의합니다. Stream Analytics 작업은 IoT Hub 디바이스에서 데이터를 읽고, 데이터를 변환하고, 데이터를 BLOB 스토리지의 컨테이너에 다시 씁니다. 이 빠른 시작에서 사용된 입력 데이터는 Raspberry Pi 온라인 시뮬레이터로 생성됩니다. 
+이 빠른 시작은 Stream Analytics 작업 만들기를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 실시간 스트리밍 데이터를 읽고 온도가 27보다 높은 메시지를 필터링하는 Stream Analytics 작업을 정의합니다. Stream Analytics 작업은 IoT Hub에서 데이터를 읽고, 데이터를 변환하고, 데이터를 BLOB 스토리지의 컨테이너에 다시 씁니다. 이 빠른 시작에서 사용된 입력 데이터는 Raspberry Pi 온라인 시뮬레이터로 생성됩니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -27,7 +27,7 @@ ms.locfileid: "52311928"
 
 ## <a name="prepare-the-input-data"></a>입력 데이터 준비
 
-Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구성될 데이터를 준비해야 합니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 완료합니다.
+Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 합니다. 실시간 센서 데이터가 IoT Hub로 수집되고 나중에 작업 입력으로 구성됩니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 완료합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -44,7 +44,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![IoT Hub 만들기](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. **다음: 크기 및 규모 설정**을 선택합니다.
+4. 완료되면 **다음: 크기 및 규모 설정**을 선택합니다.
 
 5. **가격 책정 및 규모 계층**을 선택합니다. 이 빠른 시작의 경우 구독에서 아직 사용할 수 있다면 **F1 - 무료** 계층을 선택합니다. 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
@@ -72,7 +72,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Storage 계정 개요](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **개인(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
+4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **프라이빗(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
 
    ![Blob 컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -82,7 +82,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.  
 
-3. 결과 목록에서 **데이터+Analytics** > **Stream Analytics 작업**을 선택합니다.  
+3. 결과 목록에서 **Analytics** > **Stream Analytics 작업**을 선택합니다.  
 
 4. Stream Analytics 작업 페이지를 다음 정보로 채웁니다.
 
@@ -93,7 +93,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |리소스 그룹   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
-   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT 에지 디바이스에 배포할 수 있습니다. |
+   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT Edge 디바이스에 배포할 수 있습니다. |
 
    ![작업 만들기](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -127,7 +127,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 2. **출력** > **추가** > **Blob Storage**를 선택합니다.  
 
-3. 다음과 같은 값으로 **Blob 저장소** 페이지를 채웁니다.
+3. 다음과 같은 값으로 **Blob Storage** 페이지를 채웁니다.
 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
@@ -179,7 +179,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, Stream Analytics 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 나중에 필요할 때 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, 만든 리소스의 이름을 선택합니다.  
 
@@ -187,7 +187,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 통해서도 Stream Analytics 작업을 배포할 수 있습니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-vs-code.md)를 사용하여 Stream Analytics 작업을 배포할 수도 있습니다.
 
 다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
 

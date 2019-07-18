@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64693117"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
@@ -25,7 +25,7 @@ ms.locfileid: "64693117"
 
 Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되었습니다. 여러 클러스터에서 저장소를 공유할 수 있기 때문에 다양한 작업의 요구를 충족하기 위해 여러 개의 워크로드 최적화 컴퓨팅 클러스터를 만들 수 있습니다. 클러스터 유형마다 해당 특정 워크로드에 대한 최적 구성이 있습니다. 다음 표에는 HDInsight에서 지원되는 클러스터 유형 및 해당 워크로드가 나와 있습니다.
 
-|**워크로드**|**HDInsight 클러스터 유형**|
+|**작업**|**HDInsight 클러스터 유형**|
 |---|---|
 |일괄 처리(ETL/ELT)|Hadoop, Spark|
 |데이터 웨어하우징|Hadoop, Spark, 대화형 쿼리|

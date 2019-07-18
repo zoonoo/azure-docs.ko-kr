@@ -8,10 +8,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318124"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 VMWare VM 및 물리적 서버 장애 복구(Failback)
@@ -39,7 +39,7 @@ ms.locfileid: "60318124"
 
 - 장애 복구(failback)하는 동안 구성 서버 데이터베이스에 가상 머신이 있어야 하며, 그러지 않으면 장애 복구(failback)가 실패하게 됩니다. 정기적으로 예정된 서버 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구(failback)가 작동할 수 있도록 원래 IP 주소를 사용하여 서버를 복원해야 합니다.
 
-- 다시 보호/장애 조치를 트리거하려면 마스터 대상 서버에 스냅숏이 없어야 합니다.
+- 다시 보호/장애 조치를 트리거하려면 마스터 대상 서버에 스냅샷이 없어야 합니다.
 
 ## <a name="overview-of-failback"></a>장애 복구 개요
 Azure로 장애 조치(failover)한 후 다음 단계를 실행하여 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다.

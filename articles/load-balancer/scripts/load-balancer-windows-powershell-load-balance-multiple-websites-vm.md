@@ -3,7 +3,7 @@ title: PowerShell 예제 - Azure PowerShell을 통해 여러 웹 사이트 부�
 description: 이 Azure PowerShell 스크립트 예제에서는 동일한 가상 머신으로 여러 웹 사이트의 부하를 분산하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: 6bedba2c68c05ee7ed6518996e54d007f3e83dc1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: allensu
+ms.openlocfilehash: 098d300efc0b151d07b087959750a209c392872f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591643"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273607"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell 스크립트 예제: 여러 웹 사이트 부하 분산
 

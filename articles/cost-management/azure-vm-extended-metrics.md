@@ -6,20 +6,20 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 2d45ce524ff9f544605867ff6596d82f090a8f1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771509"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66242458"
 ---
-# <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가 
+# <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가
 
-Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관련 상세 정보를 표시합니다. 성능 카운터라고도 하는 메트릭 데이터는 Cloudyn에서 보고서를 생성하는 데 사용됩니다. 그러나 Cloudyn은 자동으로 게스트 VM에서 모든 Azure 메트릭 데이터를 수집하는 것이 아니므로 메트릭 수집을 사용하도록 설정해야 합니다.  이 문서를 통해 Azure VM에 대해 추가 진단 메트릭을 사용하고 구성할 수 있습니다.
+Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관련 상세 정보를 표시합니다. 성능 카운터라고도 하는 메트릭 데이터는 Cloudyn에서 보고서를 생성하는 데 사용됩니다. 그러나 Cloudyn은 자동으로 게스트 VM에서 모든 Azure 메트릭 데이터를 수집하는 것이 아니므로 메트릭 수집을 사용하도록 설정해야 합니다. 이 문서를 통해 Azure VM에 대해 추가 진단 메트릭을 사용하고 구성할 수 있습니다.
 
 메트릭 수집을 사용하도록 설정한 후에는 다음이 가능합니다.
 
@@ -28,14 +28,14 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 - 사용에 따라  크기를 조정하여 비용을 제어합니다.
 - Cloudyn에서 비용 효과적인 크기 조정 최적화 권장 사항을 가져옵니다.
 
-예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. Azure VM 메트릭은 _[호스트] 백분율 CPU_ 및 _[게스트] 메모리 백분율_에 해당합니다.
+예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. 에 해당 하는 Azure VM 메트릭은 _CPU 비율_ 하 고 _\Memory\% Committed Bytes In Use_합니다.
 
 > [!NOTE]
 > 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn에서 Azure Monitor 로그 VM 확장을 사용 하 여 호환 되지 않습니다.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>확장 메트릭을 사용하도록 설정되었는지 확인
 
-1.  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. **가상 머신**에서 VM을 선택한 다음, **모니터링**에서 **메트릭**을 선택합니다. 사용 가능한 메트릭 목록이 표시됩니다.
 3. 일부 메트릭을 선택하면 그래프가 해당 항목에 대한 데이터를 표시합니다.  
     ![예제 메트릭 - 호스트 백분율 CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -44,13 +44,13 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Azure Portal에서 확장 메트릭스 사용
 
-표준 메트릭은 호스트 컴퓨터 메트릭입니다. _[호스트] 백분율 CPU_ 메트릭이 한 예입니다. 게스트 VM의 기본 메트릭도 있는데 역시 확장 메트릭이라고 합니다. 확장 메트릭의 예로 _[게스트] 메모리 백분율_ 및 _[게스트] 사용 가능한 메모리_가 있습니다.
+표준 메트릭은 호스트 컴퓨터 메트릭입니다. 합니다 _백분율 CPU_ 메트릭이 한 예입니다. 게스트 VM의 기본 메트릭도 있는데 역시 확장 메트릭이라고 합니다. 확장 메트릭의 예로 _\Memory\% Committed Bytes In Use_ 하 고 _\Memory\Available 바이트_합니다.
 
 확장 메트릭을 사용하도록 설정하는 방법은 간단합니다. 각 VM에 대해 게스트 수준 모니터링을 사용하도록 설정합니다. 게스트 수준 모니터링을 사용하면 Azure 진단 에이전트가 VM에 설치됩니다. 기본적으로 확장 메트릭의 기본 집합이 추가됩니다. 다음 프로세스는 클래식 및 기본 VM에서 같고, Windows 및 Linux VM에서도 동일합니다.
 
 Azure와 Linux 게스트 수준 모니터링 모두 저장소 계정이 필요하다는 점에 유의합니다. 게스트 수준 모니터링을 사용하면 기존 저장소 계정을 선택하지 않은 경우 계정이 하나 만들어집니다.
 
-### <a name="enable-guest-level-monitoring-on-existing-vms"></a>기존 VM에서 게스트 수준 모니터링 사용 
+### <a name="enable-guest-level-monitoring-on-existing-vms"></a>기존 VM에서 게스트 수준 모니터링 사용
 
 1. **가상 머신**에서 VM 목록을 확인한 다음, VM을 선택합니다.
 2. **모니터링** 아래에서 **진단 설정**을 선택합니다.
@@ -62,7 +62,7 @@ Azure와 Linux 게스트 수준 모니터링 모두 저장소 계정이 필요�
 7. 메트릭 목록에서 게스트 VM에 대해 모든 사용 가능한 성능 카운터를 볼 수 있습니다.  
     ![예제 확장 메트릭 목록](./media/azure-vm-extended-metrics/extended-metrics.png)
 
-### <a name="enable-guest-level-monitoring-on-new-vms"></a>새 VM에서 게스트 수준 모니터링 사용 
+### <a name="enable-guest-level-monitoring-on-new-vms"></a>새 VM에서 게스트 수준 모니터링 사용
 
 새 VM을 만들 때는 관리 탭에서 **OS 게스트 진단**에 대해 **사용**을 선택합니다.
 

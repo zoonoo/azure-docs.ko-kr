@@ -5,23 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/20/2018
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727345"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069216"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
-보안을 염두에 두고 설계된 분산 시스템에서 중요한 것은 시스템으로 들어오는 데이터의 *소스* 및 *무결성*을 확인하는 것입니다. 데이터 소비자는 데이터의 게시자(소스)를 확인할 수 있어야 할 뿐 아니라, 게시된 후 수정되지 않았음(무결성)을 확인할 수 있어야 합니다. Azure Container Registry는 Docker의 [콘텐츠 신뢰][docker-content-trust] 모델을 구현하여 이 두 가지를 모두 지원하며, 이 문서에서는 구현을 시작해 보겠습니다.
+Azure Container Registry는 Docker의 [콘텐츠 신뢰][docker-content-trust] 모델을 구현하여 서명된 이미지를 푸시 및 풀하도록 설정합니다. 이 문서에서는 컨테이너 레지스트리의 콘텐츠 신뢰를 사용하도록 설정하기 시작합니다.
 
-> [!IMPORTANT]
-> 이 기능은 현재 미리 보기로 제공됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> [!NOTE]
+> 콘텐츠 신뢰는 Azure Container Registry의 [Premium SKU](container-registry-skus.md) 기능입니다.
 
 ## <a name="how-content-trust-works"></a>콘텐츠 신뢰의 작동 원리
+
+보안을 염두에 두고 설계된 분산 시스템에서 중요한 것은 시스템으로 들어오는 데이터의 *소스* 및 *무결성*을 확인하는 것입니다. 데이터 소비자는 데이터의 게시자(소스)를 확인할 수 있어야 할 뿐 아니라, 게시된 후 수정되지 않았음(무결성)을 확인할 수 있어야 합니다. 
 
 이미지 게시자는 콘텐츠 신뢰를 사용하여 레지스트리로 푸시하는 이미지를 **서명**할 수 있습니다. 이미지 소비자(게시자의 레지스트리에서 이미지를 풀하는 사람 또는 시스템)는 *오직* 서명된 이미지만 끌어오도록 클라이언트를 구성할 수 있습니다. 이미지 소비자가 서명된 이미지를 풀하면 Docker 클라이언트는 이미지의 무결성을 확인합니다. 이 모델에서는 레지스트리의 서명된 이미지가 실제로 게시자에 의해 게시되었고, 게시된 후로 수정되지 않았음을 소비자가 확신할 수 있습니다.
 
@@ -40,7 +42,7 @@ ms.locfileid: "52727345"
 
 첫 번째 단계는 레지스트리 수준에서 콘텐츠 신뢰를 사용하도록 설정하는 것입니다. 콘텐츠 신뢰를 사용하도록 설정하면 클라이언트(사용자 또는 서비스)가 서명된 이미지를 레지스트리에 푸시할 수 있습니다. 레지스트리에서 콘텐츠 신뢰를 사용하도록 설정해도 레지스트리 사용 범위가 콘텐츠 신뢰가 설정된 소비자로 제한되지 않습니다. 콘텐츠 신뢰가 설정되지 않은 소비자는 계속해서 정상적으로 레지스트리를 사용할 수 있습니다. 그러나 클라이언트에서 콘텐츠 신뢰를 설정한 사용자는 *오직* 레지스트리의 서명된 이미지만 볼 수 있습니다.
 
-레지스트리에 콘텐츠 신뢰를 사용하려면 먼저 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰(미리 보기)** > **사용** > **저장**을 선택합니다.
+레지스트리에 콘텐츠 신뢰를 사용하려면 먼저 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰** > **사용** > **저장**을 선택합니다.
 
 ![Azure Portal에서 레지스트리에 콘텐츠 신뢰를 사용하도록 설정][content-trust-01-portal]
 
@@ -71,13 +73,13 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>이미지 서명 권한 부여
 
-권한이 부여된 사용자 또는 시스템만 레지스트리에 신뢰할 수 있는 이미지를 푸시할 수 있습니다. 사용자(또는 서비스 주체를 사용하는 시스템)에게 신뢰할 수 있는 이미지 푸시 권한을 부여하려면 사용자의 Azure Active Directory ID에 `AcrImageSigner` 역할을 부여합니다. 이미지를 레지스트리에 푸시하는 데 필요한 `Contributor`(또는 `Owner`) 역할 외에도 이 역할이 필요합니다.
+권한이 부여된 사용자 또는 시스템만 레지스트리에 신뢰할 수 있는 이미지를 푸시할 수 있습니다. 사용자(또는 서비스 주체를 사용하는 시스템)에게 신뢰할 수 있는 이미지 푸시 권한을 부여하려면 사용자의 Azure Active Directory ID에 `AcrImageSigner` 역할을 부여합니다. 이미지를 레지스트리에 푸시하는 데 필요한 `AcrPush`(또는 상응하는 것) 역할 외에도 이 역할이 필요합니다. 자세한 내용은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.
 
 Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세한 방법은 다음과 같습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal에서 레지스트리로 이동한 다음, **액세스 제어(IAM)** > **역할 할당 추가**를 차례로 선택합니다. **역할 할당 추가**의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택**한 다음, **저장**합니다.
+Azure Portal에서 레지스트리로 이동한 다음, **액세스 제어(IAM)**  > **역할 할당 추가**를 차례로 선택합니다. **역할 할당 추가**의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택**한 다음, **저장**합니다.
 
 이 예제에서는 두 엔터티, 즉, "service-principal"이라는 서비스 사용자 이름과 "Azure User"라는 사용자에게 `AcrImageSigner` 역할을 할당했습니다.
 
@@ -110,6 +112,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>`는 서비스 사용자의 **appId**, **objectId** 또는 **servicePrincipalNames** 중 하나입니다. 서비스 사용자 및 Azure Container Registry 사용에 대한 자세한 내용은 [서비스 사용자로 Azure Container Registry 인증](container-registry-auth-service-principal.md)을 참조하세요.
 
+역할을 변경한 후, `az acr login`을 실행하여 새 역할이 영향을 받을 수 있도록 Azure CLI에 대한 로컬 ID 토큰을 새로 고칩니다.
+
 ## <a name="push-a-trusted-image"></a>신뢰할 수 있는 이미지 푸시
 
 신뢰할 수 있는 이미지 태그를 컨테이너 레지스트리에 푸시하려면 콘텐츠 신뢰를 사용하도록 설정하고 `docker push`를 사용하여 이미지를 푸시해야 합니다. 서명된 태그를 처음으로 푸시하면 루트 서명 키 및 리포지토리 서명 키의 암호를 만들라는 메시지가 표시됩니다. 루트 및 리포지토리 키는 머신에 로컬로 생성 및 저장됩니다.
@@ -138,7 +142,7 @@ Successfully signed myregistry.azurecr.io/myimage:v1
 
 ## <a name="pull-a-trusted-image"></a>신뢰할 수 있는 이미지 풀
 
-신뢰할 수 있는 이미지를 풀하려면 평소와 같이 콘텐츠 신뢰를 사용하도록 설정하고 `docker pull` 명령을 실행합니다. 콘텐츠 신뢰를 사용하도록 설정한 소비자는 서명된 태그가 있는 이미지만 풀할 수 있습니다. 다음은 서명된 태그를 풀하는 예제입니다.
+신뢰할 수 있는 이미지를 풀하려면 평소와 같이 콘텐츠 신뢰를 사용하도록 설정하고 `docker pull` 명령을 실행합니다. 신뢰할 수 있는 이미지를 풀하려면 `AcrPull` 역할은 일반 사용자에 충분합니다. `AcrImageSigner` 역할과 같은 추가 역할은 필요하지 않습니다. 콘텐츠 신뢰를 사용하도록 설정한 소비자는 서명된 태그가 있는 이미지만 풀할 수 있습니다. 다음은 서명된 태그를 풀하는 예제입니다.
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -184,15 +188,13 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 > [!WARNING]
 > 레지스트리에서 콘텐트 신뢰를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면 **레지스트리에 있는 모든 리포지토리의 모든 서명된 태그에 대한 신뢰 데이터가 모두 삭제됩니다**. 이 작업은 되돌릴 수 없습니다. Azure Container Registry는 삭제된 신뢰 데이터를 복구할 수 없습니다. 콘텐츠 신뢰를 사용하지 않도록 설정해도 이미지 자체는 삭제되지 않습니다.
 
-레지스트리에 콘텐츠 신뢰를 사용하지 않도록 설정하려면 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰(미리 보기)** > **사용 안 함** > **저장**을 선택합니다. 레지스트리의 모든 서명이 손실된다는 경고 메시지가 표시됩니다. 레지스트리의 모든 서명을 영구적으로 삭제하려면 **확인**을 선택합니다.
+레지스트리에 콘텐츠 신뢰를 사용하지 않도록 설정하려면 Azure Portal에서 레지스트리로 이동합니다. **정책** 아래에서 **콘텐츠 신뢰** > **사용 안 함** > **저장**을 선택합니다. 레지스트리의 모든 서명이 손실된다는 경고 메시지가 표시됩니다. 레지스트리의 모든 서명을 영구적으로 삭제하려면 **확인**을 선택합니다.
 
 ![Azure Portal에서 레지스트리에 콘텐츠 신뢰를 사용하지 않도록 설정][content-trust-03-portal]
 
 ## <a name="next-steps"></a>다음 단계
 
-콘텐츠 신뢰에 대한 추가 정보는 Docker 설명서를 참조하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
-
-[Docker의 콘텐츠 신뢰][docker-content-trust]
+콘텐츠 신뢰에 대한 추가 정보는 [Docker의 콘텐츠 신뢰][docker-content-trust]를 참조하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

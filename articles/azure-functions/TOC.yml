@@ -11,10 +11,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 함수 만들기 - Visual Studio
-      href: functions-create-your-first-function-visual-studio.md
     - name: 함수 만들기 - Visual Studio Code
       href: functions-create-first-function-vs-code.md
+    - name: 함수 만들기 - Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
     - name: 함수 만들기 - Java/Maven
       href: functions-create-first-java-maven.md
     - name: 함수 만들기 - Python
@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: 스토리지 - 포털
           href: functions-integrate-storage-queue-output-binding.md
+        - name: 스토리지 - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: 자습서
   items:
     - name: Logic Apps를 사용하는 함수
@@ -53,17 +55,21 @@
       href: functions-create-serverless-api.md
     - name: OpenAPI 정의 만들기
       href: functions-openapi-definition.md
+    - name: 가상 네트워크에 연결
+      href: functions-create-vnet.md
     - name: Event Grid를 사용하여 이미지 크기 조정
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: 서버를 사용하지 않는 웹앱 만들기
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: 사용자 지정 Linux 이미지 만들기
       href: functions-create-function-linux-custom-image.md
     - name: IoT Edge 디바이스의 Functions
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: 샘플
   items:
-    - name: 코드 샘플
+    - name: Azure Serverless Community Library
+      href: 'https://www.serverlesslibrary.net/'
+    - name: Azure 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
@@ -72,10 +78,12 @@
     - name: 버전 1.x 및 2.x 비교
       href: functions-versions.md
       displayName: 'migrate, migration'
-    - name: 프리미엄 플랜
-      href: functions-premium-plan.md
     - name: 비율 크기 조정 및 호스팅
       href: functions-scale.md
+    - name: 프리미엄 플랜
+      href: functions-premium-plan.md
+    - name: 배포
+      href: functions-deployment-technologies.md
     - name: 트리거 및 바인딩
       items:
         - name: 트리거 및 바인딩 정보
@@ -102,7 +110,7 @@
           href: functions-reference-fsharp.md
         - name: JavaScript
           href: functions-reference-node.md
-        - name: 자바
+        - name: Java
           href: functions-reference-java.md
         - name: PowerShell
           href: functions-reference-powershell.md
@@ -118,8 +126,8 @@
       href: functions-networking-options.md
     - name: IP 주소
       href: ip-addresses.md
-    - name: 온-프레미스 함수
-      href: functions-runtime-overview.md
+    - name: Kubernetes의 Functions
+      href: functions-kubernetes-keda.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -130,6 +138,8 @@
           href: functions-test-a-function.md
         - name: 로컬에서 개발 및 디버깅
           href: functions-develop-local.md
+        - name: Visual Studio Code 개발
+          href: functions-develop-vs-code.md
         - name: Visual Studio 개발
           href: functions-develop-vs.md
         - name: 핵심 도구 개발
@@ -142,6 +152,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: 로컬 PowerShell 함수 디버그
           href: functions-debug-powershell-local.md
+        - name: 종속성 주입
+          href: functions-dotnet-dependency-injection.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리
@@ -173,6 +185,7 @@
       items:
         - name: 함수 앱 관리
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: 런타임 버전 설정
           href: set-runtime-version.md
         - name: 확장 수동 등록
@@ -210,7 +223,7 @@
         - name: SQL Database에 연결
           href: functions-scenario-database-table-cleanup.md
         - name: 가상 네트워크에 연결
-          href: functions-create-vnet.md
+          href: functions-create-vnet-old.md
         - name: Open API 2.0 정의 만들기
           href: functions-api-definition-getting-started.md
         - name: PowerApps 및 Microsoft Flow로 내보내기
@@ -229,7 +242,7 @@
   items:
     - name: API 참조
       items:
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
@@ -273,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: host.json 참조
+    - name: host.json 2.x 참조
       href: functions-host-json.md
-      items:
-        - name: Functions 2.x
-          href: functions-host-json.md
-        - name: Functions 1.x
-          href: functions-host-json-v1.md
+    - name: host.json 1.x 참조
+      href: functions-host-json-v1.md
     - name: 네트워킹 FAQ
       href: functions-networking-faq.md
     - name: OpenAPI 참조
@@ -294,6 +304,8 @@
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 할당량 정보
+      href: 'functions-scale.md#service-limits'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 동영상

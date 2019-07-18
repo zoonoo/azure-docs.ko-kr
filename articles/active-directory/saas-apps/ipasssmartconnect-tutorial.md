@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>자습서: iPass SmartConnect와 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | ---------------| ----------|
     | firstname | user.givenname |
     | Lastname | user.surname |
@@ -180,7 +180,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -215,7 +215,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 ### <a name="create-ipass-smartconnect-test-user"></a>iPass SmartConnect 테스트 사용자 만들기
 
-이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다.  [iPass SmartConnect 지원 팀](mailto:help@ipass.com) 과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다.  [iPass SmartConnect 지원 팀](mailto:help@ipass.com) 과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

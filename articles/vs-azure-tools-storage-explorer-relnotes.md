@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Storage 탐색기 릴리스 정보
-description: Microsoft Azure Storage 탐색기에 대한 릴리스 정보
+title: Microsoft Azure Storage Explorer 릴리스 정보
+description: Microsoft Azure Storage Explorer에 대한 릴리스 정보
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154707"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544138"
 ---
-# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Explorer 릴리스 정보
 
-이 문서에는 Azure Storage 탐색기 1.4.3 릴리스의 릴리스 정보 및 이전 버전의 릴리스 정보가 포함되어 있습니다.
+이 문서에서는 Azure Storage 탐색기 1.9.0 릴리스에 대 한 릴리스 정보 및 이전 버전에 대 한 릴리스 정보를 포함합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
-## <a name="version-180"></a>1.8.0 버전 이상
-5/1/2019
+## <a name="version-190"></a>1\.9.0 버전
+7/1/2019
 
-### <a name="download-azure-storage-explorer-180"></a>Azure Storage 탐색기 1.8.0 다운로드
-- [Windows 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-190"></a>Azure Storage 탐색기 1.9.0 다운로드
+- [Windows 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux 용 azure Storage 탐색기 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>새로 만들기
 
-* 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
-* Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* Azure Stack 저장소 API 버전 2017-04-17로 바뀌었습니다.
-* Gen2 ADLS에 대 한 관리 액세스 대화는 이제 동기화 마스크 방식으로 다른 POSIX 권한 도구와 비슷합니다. UI는 마스크의 범위를 초과 하는 사용자 또는 그룹의 권한을 사용 하면 변경 내용이 있는 경우에 표시 됩니다. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* AzCopy 업로드에 대 한 계산 된 MD5 해시를 설정 하는 플래그를 지금 활성화 됩니다. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
-
+* 이제 Azure AD (RBAC 또는 ACL 권한)를 통해 Blob 컨테이너를 연결할 수 있습니다. 이 기능은 컨테이너 있지만 저장소 계정 컨테이너에 있는 하지에 대 한 액세스 권한이 있는 사용자는 데 도움이 됩니다. 이 기능에는 시작 가이드에 대 한 자세한 내용은 참조 하십시오.
+* 획득 하 고 RBAC 사용 하 여 임대 지금은 작업을 중단 합니다. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* 액세스 정책을 관리 하 고 이제 공용 액세스 수준을 설정할 RBAC를 사용 하 여 작동 합니다. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* 이제 blob 폴더를 삭제 하는 RBAC를 사용 하 여 작동합니다. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* RBAC를 사용 하 여 이제 회사 blob 액세스 계층을 변경 합니다. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* 이제 신속 하 게 다시 설정할 수 있습니다 "Help"를 통해 빠른 → "재설정"입니다. [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
 ### <a name="preview-features"></a>미리 보기 기능
 
@@ -51,11 +51,12 @@ ms.locfileid: "65154707"
 
 ### <a name="fixes"></a>수정 프로그램
 
-* 액세스 정책 대화 상자는 만료 되지 않은 저장소 액세스 정책에서 만료 날짜를 설정 더 이상 않습니다. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* 일부 변경 내용이 적용 된 SAS 생성 대화 상자에 SAS를 생성할 때 저장 된 액세스 정책을 올바르게 사용 되도록 합니다. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* 비-512 바이트를 업로드 하는 동안 정렬 페이지 Blob 파일 저장소 탐색기는 이제 더 관련 오류를 노출 합니다. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* 표시 이름을 사용 하는 Blob 컨테이너 복사 실패 합니다. 이제 Blob 컨테이너의 실제 이름을 사용 됩니다. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* 이름에 유니코드 문자를 있던는 ADLS Gen2 폴더에서 특정 작업을 수행 하는 실패 합니다. 모든 작업 작동 합니다. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* 하나의 계정에 대 한 50 개가 넘는 구독을 로드 하는 것을 고정 합니다. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* 직접 연결에 실패할 때 표시 되는 정보 표시줄에서 작동 하지 않음 "로그인" 단추를 고정 합니다. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* MacOS에서.app 파일을 업로드 하지 수정 되었습니다. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* "모두 다시 시도" 실패 한 blob 이름 바꾸기 작동 하지 않습니다. 고정 합니다. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* Blob을 여는 동안 작동 하지 않음 "취소"를 고정 합니다. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* 제품을 통한 여러 맞춤법 및 도구 설명 문제를 해결 합니다. 이러한 문제를 보고 한 모든 덕분에 많은! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -69,23 +70,25 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
    * ADLS Gen2
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
 
 ## <a name="previous-releases"></a>이전 릴리스
 
+* [버전 1.8.1](#version-181)
+* [1.8.0 버전 이상](#version-180)
 * [1.7.0 버전](#version-170)
 * [1.6.2 버전](#version-162)
 * [버전 1.6.1](#version-161)
@@ -122,7 +125,116 @@ ms.locfileid: "65154707"
 * [버전 0.7.20160105.0](#version-07201601050)
 * [버전 0.7.20151116.0](#version-07201511160)
 
-## <a name="version-170"></a>1.7.0 버전
+## <a name="version-181"></a>버전 1.8.1
+5/13/2019
+
+### <a name="hotfixes"></a>핫픽스
+* 일부 경우에 "로드" 자세한 리소스 수준에서를 클릭 하는 리소스의 다음 페이지를 반환 하지 것입니다. 이 문제가 해결되었습니다. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* Windows에서 AzCopy 다운로드 경우 단일 파일 또는 폴더 다운로드 된 파일 또는 폴더의 이름을 문자 Windows 경로 대해 올바르지 않습니다 못합니다. 이 문제가 해결되었습니다. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* 매우 드문 경우에는 이름 바꾸기에 대 한 복사본을 실패 한 경우 또는 저장소를 탐색할 수 없는 경우 Azure 사용 하 여 복사본의 성공 여부를 확인 하려면 파일 공유에서 파일 공유의 이름 바꾸기 또는 이름 바꾸기를 수행 하는 동안 했습니다 o를 삭제 하려면 Storage 탐색기에 대 한 가능성 병합할 파일 복사를 완료 했습니다. 이 문제가 해결되었습니다.
+
+### <a name="new"></a>새 문자
+
+* 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
+* Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 저장소 API 버전 2017-04-17로 바뀌었습니다.
+* Gen2 ADLS에 대 한 관리 액세스 대화는 이제 동기화 마스크 방식으로 다른 POSIX 권한 도구와 비슷합니다. UI는 마스크의 범위를 초과 하는 사용자 또는 그룹의 권한을 사용 하면 변경 내용이 있는 경우에 표시 됩니다. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* AzCopy 업로드에 대 한 계산 된 MD5 해시를 설정 하는 플래그를 지금 활성화 됩니다. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>미리 보기 기능
+
+* 장치 코드 흐름 로그인 미리 보기를 출시 되었습니다. 기능을 사용 하려면 "사용 하 여 장치 코드 흐름 로그인" → "Preview"로 이동 합니다. 모든 사용자를 로그인의 보다 신뢰할 수 있는 형태를 증명할 수 있습니다 하는 대로이 기능을 사용해 볼 빈 로그인 windows 문제 했던가 사용 하는 것이 좋습니다.
+* AzCopy를 사용 하 여 통합 하는 storage 탐색기는 현재 미리 보기를 사용할 수 있습니다. 기능을 사용 하려면 "Preview" → "사용 하 여 AzCopy에 대 한 향상 된 Blob 업로드 및 다운로드"로 이동 합니다. AzCopy를 사용 하 여 완료 하는 blob 전송 속도 더 빨라집니다 및 성능이 향상 됩니다.
+
+### <a name="fixes"></a>수정 프로그램
+
+* 액세스 정책 대화 상자는 만료 되지 않은 저장소 액세스 정책에서 만료 날짜를 설정 더 이상 않습니다. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 일부 변경 내용이 적용 된 SAS 생성 대화 상자에 SAS를 생성할 때 저장 된 액세스 정책을 올바르게 사용 되도록 합니다. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 비-512 바이트를 업로드 하는 동안 정렬 페이지 Blob 파일 저장소 탐색기는 이제 더 관련 오류를 노출 합니다. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 표시 이름을 사용 하는 Blob 컨테이너 복사 실패 합니다. 이제 Blob 컨테이너의 실제 이름을 사용 됩니다. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 이름에 유니코드 문자를 있던는 ADLS Gen2 폴더에서 특정 작업을 수행 하는 실패 합니다. 모든 작업 작동 합니다. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>알려진 문제
+
+* 비 AzCopy Blob 다운로드를 수행 하는 경우 큰 파일에 대 한 MD5 하지 확인 되 고 됩니다. Storage SDK의 버그 때문입니다. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+   * ADLS Gen2
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+
+## <a name="version-180"></a>1\.8.0 버전 이상
+5/1/2019
+
+### <a name="new"></a>새로 만들기
+
+* 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
+* Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 저장소 API 버전 2017-04-17로 바뀌었습니다.
+* Gen2 ADLS에 대 한 관리 액세스 대화는 이제 동기화 마스크 방식으로 다른 POSIX 권한 도구와 비슷합니다. UI는 마스크의 범위를 초과 하는 사용자 또는 그룹의 권한을 사용 하면 변경 내용이 있는 경우에 표시 됩니다. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* AzCopy 업로드에 대 한 계산 된 MD5 해시를 설정 하는 플래그를 지금 활성화 됩니다. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>미리 보기 기능
+
+* 장치 코드 흐름 로그인 미리 보기를 출시 되었습니다. 기능을 사용 하려면 "사용 하 여 장치 코드 흐름 로그인" → "Preview"로 이동 합니다. 모든 사용자를 로그인의 보다 신뢰할 수 있는 형태를 증명할 수 있습니다 하는 대로이 기능을 사용해 볼 빈 로그인 windows 문제 했던가 사용 하는 것이 좋습니다.
+* AzCopy를 사용 하 여 통합 하는 storage 탐색기는 현재 미리 보기를 사용할 수 있습니다. 기능을 사용 하려면 "Preview" → "사용 하 여 AzCopy에 대 한 향상 된 Blob 업로드 및 다운로드"로 이동 합니다. AzCopy를 사용 하 여 완료 하는 blob 전송 속도 더 빨라집니다 및 성능이 향상 됩니다.
+
+### <a name="fixes"></a>수정 프로그램
+
+* 액세스 정책 대화 상자는 만료 되지 않은 저장소 액세스 정책에서 만료 날짜를 설정 더 이상 않습니다. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 일부 변경 내용이 적용 된 SAS 생성 대화 상자에 SAS를 생성할 때 저장 된 액세스 정책을 올바르게 사용 되도록 합니다. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 비-512 바이트를 업로드 하는 동안 정렬 페이지 Blob 파일 저장소 탐색기는 이제 더 관련 오류를 노출 합니다. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 표시 이름을 사용 하는 Blob 컨테이너 복사 실패 합니다. 이제 Blob 컨테이너의 실제 이름을 사용 됩니다. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 이름에 유니코드 문자를 있던는 ADLS Gen2 폴더에서 특정 작업을 수행 하는 실패 합니다. 모든 작업 작동 합니다. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>알려진 문제
+
+* 비 AzCopy Blob 다운로드를 수행 하는 경우 큰 파일에 대 한 MD5 하지 확인 되 고 됩니다. Storage SDK의 버그 때문입니다. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+   * ADLS Gen2
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+
+## <a name="version-170"></a>1\.7.0 버전
 3/5/2019
 
 ### <a name="download-azure-storage-explorer-170"></a>Azure Storage 탐색기 1.7.0 다운로드
@@ -130,7 +242,7 @@ ms.locfileid: "65154707"
 - [Mac 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Linux 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 소유자 및 그룹을 소유 하는 ADLS Gen2 컨테이너, 파일 또는 폴더에 대 한 액세스를 관리 하는 경우 변경할 수 있습니다.
 * Windows, 제품 내에서 Storage 탐색기 업데이트는 이제는 증분 설치입니다. 빠른 업데이트 환경에서 이렇게 해야 합니다. 을 새로 설치 하려는 경우 다운로드할 수 있습니다는 [installer](https://azure.microsoft.com/features/storage-explorer/) 직접 다음 수동으로 설치 하십시오. #1089
@@ -145,10 +257,10 @@ ms.locfileid: "65154707"
 * 이제 AzCopy 사용 하는 경우로 업로드 하려는 blob 유형을 선택할 수 있습니다. #1111
 * 이전에 ADLS Gen2 저장소 계정에 대 한 정적 웹 사이트를 사용할 수 있어 다음 이름 및 키를 사용 하 여 연결을 하는 경우 Storage 탐색기가 감지 않습니다 계층적 네임 스페이스를 사용 하도록 설정 된 합니다. 이 문제가 해결되었습니다. #1081
 * Blob 편집기에서 중 남은 일 수 보존 또는 상태별으로 정렬 중단 되었습니다. 이 문제가 해결되었습니다. #1106
-* 1.5.0, 후 Storage 탐색기 이상 기다리는 서버 쪽 복사본을 바꾸거나 복사 하는 동안 성공 보고 하기 전에 완료에 붙여 넣습니다. 이 문제가 해결되었습니다. #976
+* 1\.5.0, 후 Storage 탐색기 이상 기다리는 서버 쪽 복사본을 바꾸거나 복사 하는 동안 성공 보고 하기 전에 완료에 붙여 넣습니다. 이 문제가 해결되었습니다. #976
 * 실험적 AzCopy 기능을 사용 하는 경우 "명령을 클립보드로 복사"를 클릭 한 후 복사 명령을 하지 않은 경우가 많았고 자체적으로 실행 가능 합니다. 이제 전송을 수동으로 실행 하는 데 필요한 모든 명령은 복사 됩니다. #1079
-* 이전에 ADLS Gen2 blob 프록시 뒤에 있는 경우에 액세스할 수 없습니다. Storage SDK를 사용한 새로운 네트워킹 라이브러리의 버그 때문 이었습니다. 1.7.0이이 문제를 완화 하기 위해 내용이 있지만 일부 사용자는 문제를 확인 하려면 계속 될 수 있습니다. 전체 수정은 향후 업데이트에서 출시 됩니다. #1090
-* 1.7.0 저장에서에서 파일 대화 상자 올바로 기억 됩니다 마지막 위치에 파일을 저장 합니다. #16
+* 이전에 ADLS Gen2 blob 프록시 뒤에 있는 경우에 액세스할 수 없습니다. Storage SDK를 사용한 새로운 네트워킹 라이브러리의 버그 때문 이었습니다. 1\.7.0이이 문제를 완화 하기 위해 내용이 있지만 일부 사용자는 문제를 확인 하려면 계속 될 수 있습니다. 전체 수정은 향후 업데이트에서 출시 됩니다. #1090
+* 1\.7.0 저장에서에서 파일 대화 상자 올바로 기억 됩니다 마지막 위치에 파일을 저장 합니다. #16
 * 속성 창에서 저장소 계정 SKU 계층 된 계정의 종류로 표시 됩니다. 이 문제가 해결되었습니다. #654
 * 경우에 따라 수 없습니다 blob의 임대를 중단 하는 blob의 이름을 잘못 입력 하는 경우에 합니다. 이 문제가 해결되었습니다. #1070
 
@@ -164,13 +276,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -196,9 +308,9 @@ ms.locfileid: "65154707"
 1/9/2019
 
 ### <a name="hotfixes"></a>핫픽스
-* 1.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
-* ADLS Gen2 스토리지 계정에 컨테이너가 없고 이름 및 키를 사용하여 연결된 경우 Storage 탐색기는 스토리지 계정이 ADLS Gen2임을 감지하지 못합니다. 이 문제가 해결되었습니다. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
-* 1.6.0에서는 복사 및 붙여넣기 동안 발생한 충돌을 해결할 필요가 없습니다. 대신, 충돌한 복사가 단순히 실패합니다. 이제 첫 번째 충돌 시 해결 방법을 묻는 메시지가 표시됩니다. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
+* 1\.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* ADLS Gen2 스토리지 계정에 컨테이너가 없고 이름 및 키를 사용하여 연결된 경우 Storage Explorer는 스토리지 계정이 ADLS Gen2임을 감지하지 못합니다. 이 문제가 해결되었습니다. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* 1\.6.0에서는 복사 및 붙여넣기 동안 발생한 충돌을 해결할 필요가 없습니다. 대신, 충돌한 복사가 단순히 실패합니다. 이제 첫 번째 충돌 시 해결 방법을 묻는 메시지가 표시됩니다. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * API 제한으로 인해 액세스 관리 대화 상자의 모든 ObjectId 유효성 검사를 사용할 수 없습니다. 이제 사용자 UPN에 대해서만 유효성 검사가 수행됩니다. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * ADLS Gen2 액세스 관리 대화 상자에서 그룹에 대한 권한을 수정할 수 없습니다. 이 문제가 해결되었습니다. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * 끌어서 놓기 업로드 지원이 ADLS Gen2 편집기에 추가되었습니다. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -206,16 +318,16 @@ ms.locfileid: "65154707"
 * ADLS Gen2 컨테이너, 파일 또는 폴더의 현재 사용 권한을 가져오지 못할 경우 이제 활동 로그에 오류가 제대로 표시됩니다. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Windows에서 MAX_PATH보다 긴 경로 만들 가능성을 줄이기 위해 파일을 열 때 만드는 임시 경로를 단축했습니다. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * 이제 로그인한 사용자가 없고 연결된 리소스가 없는 경우 연결 대화 상자가 올바르게 표시됩니다. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * SAS가 사용되고 SAS에 읽기 권한이 없으면 HNS가 아닌 Blob 컨테이너에 폴더를 업로드하지 못했습니다. 이 문제가 해결되었습니다. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy 전송을 취소할 수 없었습니다. 이 문제가 해결되었습니다. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* 1\.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
-* 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
-* Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
   * 컨테이너 내 데이터 보기 및 탐색
@@ -223,7 +335,7 @@ ms.locfileid: "65154707"
   * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
   * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
-    일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
+    일시 삭제, 스냅샷 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage Explorer는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
@@ -236,13 +348,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -275,16 +387,16 @@ ms.locfileid: "65154707"
 * ADLS Gen2 컨테이너, 파일 또는 폴더의 현재 사용 권한을 가져오지 못할 경우 이제 활동 로그에 오류가 제대로 표시됩니다. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Windows에서 MAX_PATH보다 긴 경로 만들 가능성을 줄이기 위해 파일을 열 때 만드는 임시 경로를 단축했습니다. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * 이제 로그인한 사용자가 없고 연결된 리소스가 없는 경우 연결 대화 상자가 올바르게 표시됩니다. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * SAS가 사용되고 SAS에 읽기 권한이 없으면 HNS가 아닌 Blob 컨테이너에 폴더를 업로드하지 못했습니다. 이 문제가 해결되었습니다. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy 전송을 취소할 수 없었습니다. 이 문제가 해결되었습니다. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* 1\.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
-* 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
-* Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
   * 컨테이너 내 데이터 보기 및 탐색
@@ -292,7 +404,7 @@ ms.locfileid: "65154707"
   * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
   * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
-    일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
+    일시 삭제, 스냅샷 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage Explorer는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
@@ -305,13 +417,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -336,10 +448,10 @@ ms.locfileid: "65154707"
 ## <a name="version-160"></a>버전 1.6.0
 12/5/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
-* 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
-* Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
+* 이제 Storage Explorer를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage Explorer가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
+* Storage Explorer는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage Explorer가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage Explorer는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage Explorer를 사용하여 다음 작업을 수행할 수 있습니다.
   * 컨테이너 만들기 및 삭제
   * 컨테이너 속성 및 사용 권한 관리(왼쪽)
   * 컨테이너 내 데이터 보기 및 탐색
@@ -347,7 +459,7 @@ ms.locfileid: "65154707"
   * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
   * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
-    일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
+    일시 삭제, 스냅샷 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage Explorer는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
@@ -360,13 +472,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -391,7 +503,7 @@ ms.locfileid: "65154707"
 ## <a name="version-150"></a>버전 1.5.0
 2018/10/29
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 [AzCopy v10(미리 보기)](https://github.com/Azure/azure-storage-azcopy)를 사용하여 Blob을 업로드하고 다운로드할 수 있습니다. 이 기능을 사용하도록 설정하려면 "실험적" 메뉴로 이동한 다음, "향상된 Blob 업로드 및 다운로드를 위해 AzCopy 사용"을 클릭합니다. 사용하도록 설정하면 AzCopy는 다음 시나리오에서 사용됩니다.
    * 도구 모음 또는 끌어서 놓기를 통해 폴더 및 파일을 Blob 컨테이너에 업로드합니다.
@@ -404,14 +516,14 @@ ms.locfileid: "65154707"
    * 업로드 또는 다운로드하는 동안 발생하는 오류 및 충돌은 업로드 또는 다운로드가 완료될 때까지 표시되지 않습니다.
 
 마지막으로, 파일 공유에서 AzCopy를 사용하는 지원은 향후 제공될 예정입니다.
-* 이제 Storage 탐색기는 Electron 2.0.11 버전을 사용합니다.
+* 이제 Storage Explorer는 Electron 2.0.11 버전을 사용합니다.
 * 임대를 해제하는 작업은 이제 한 번에 하나의 Blob에서만 수행될 수 있습니다. 또한 중단한 임대의 Blob 이름을 입력해야 합니다. 특히 VM의 경우 실수로 임대를 중단할 가능성을 줄이려고 이렇게 변경했습니다. #394
 * 로그인 문제가 발생하면 이제 인증을 다시 설정하도록 시도할 수 있습니다. "도움말" 메뉴로 이동하고 "다시 설정"을 클릭하여 이 기능에 액세스합니다. #419
 
-### <a name="fix"></a>해결
+### <a name="fix"></a>수정
 
 * 사용자 피드백을 통해 기본 에뮬레이터 노드가 다시 사용하도록 설정되었습니다. 연결 대화 상자를 통해 추가 에뮬레이터 연결을 계속 추가할 수 있습니다. 하지만 에뮬레이터가 기본 포트를 사용하도록 구성된 경우 "로컬 및 연결된/저장소 계정"에서 "에뮬레이터 * 기본 포트" 노드를 사용할 수도 있습니다. #669
-* Storage 탐색기를 통해 더 이상 선행 또는 후행 공백이 있는 Blob 메타데이터 값을 설정할 수 없습니다. #760
+* Storage Explorer를 통해 더 이상 선행 또는 후행 공백이 있는 Blob 메타데이터 값을 설정할 수 없습니다. #760
 * 연결 대화 상자의 동일한 페이지에서 언제든지 "로그인" 단추를 사용하도록 설정했습니다. 이제 적절한 경우 사용하지 않도록 설정합니다. #761
 * 빠른 액세스 항목이 추가되지 않으면 빠른 액세스는 더 이상 콘솔에서 오류를 발생시키지 않습니다.
 
@@ -424,13 +536,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -458,14 +570,14 @@ ms.locfileid: "65154707"
 
 ### <a name="hotfixes"></a>핫픽스
 * Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
-* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage Explorer에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -474,20 +586,20 @@ ms.locfileid: "65154707"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage Explorer에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
-* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage Explorer에서 연결할 수 없습니다.
 * Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
 * Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -514,14 +626,14 @@ ms.locfileid: "65154707"
 
 ### <a name="hotfixes"></a>핫픽스
 * Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
-* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage Explorer에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -530,20 +642,20 @@ ms.locfileid: "65154707"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage Explorer에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
-* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage Explorer에서 연결할 수 없습니다.
 * Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
 * Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -571,12 +683,12 @@ ms.locfileid: "65154707"
 ### <a name="hotfixes"></a>핫픽스
 * 새 Azure Storage 계정 종류에 대한 지원을 추가하기 위해 Azure Resource Management API 버전이 2018-07-01로 업데이트되었습니다. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -585,20 +697,20 @@ ms.locfileid: "65154707"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage Explorer에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
-* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage Explorer에서 연결할 수 없습니다.
 * Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
 * Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -624,19 +736,19 @@ ms.locfileid: "65154707"
 2018년 08월 28일
 
 ### <a name="hotfixes"></a>핫픽스
-* Storage 탐색기는 처음 시작할 때 중요한 데이터를 암호화하는 데 사용되는 키를 생성할 수 없었습니다. 이로 인해 빠른 액세스를 사용하고 리소스를 연결할 때 문제가 발생할 수 있습니다. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
-* 계정에서 홈 테넌트에 대해 MFA를 요구하지 않았지만 다른 일부 테넌트에 대해서는 MFA를 요구한 경우 Storage 탐색기는 구독을 나열할 수 없습니다. 이제 이러한 계정으로 로그인하면 Storage 탐색기에서 자격 증명을 다시 입력하고 MFA를 수행하도록 요청합니다. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
-* Storage 탐색기에서 Azure Germany 및 Azure US Government의 리소스를 연결할 수 없습니다. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
-* 이메일 주소가 동일한 두 개의 계정에 로그인하면 경우에 따라 Storage 탐색기에서 리소스를 트리 보기에 표시하지 못할 수도 있습니다. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* Storage Explorer는 처음 시작할 때 중요한 데이터를 암호화하는 데 사용되는 키를 생성할 수 없었습니다. 이로 인해 빠른 액세스를 사용하고 리소스를 연결할 때 문제가 발생할 수 있습니다. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* 계정에서 홈 테넌트에 대해 MFA를 요구하지 않았지만 다른 일부 테넌트에 대해서는 MFA를 요구한 경우 Storage Explorer는 구독을 나열할 수 없습니다. 이제 이러한 계정으로 로그인하면 Storage Explorer에서 자격 증명을 다시 입력하고 MFA를 수행하도록 요청합니다. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Storage Explorer에서 Azure Germany 및 Azure US Government의 리소스를 연결할 수 없습니다. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* 이메일 주소가 동일한 두 개의 계정에 로그인하면 경우에 따라 Storage Explorer에서 리소스를 트리 보기에 표시하지 못할 수도 있습니다. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
 * 느린 Windows 머신에서 경우에 따라 시작 화면이 표시되는 데 상당한 시간이 걸릴 수 있습니다. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
 * 연결된 계정 또는 서비스가 있는 경우에도 연결 대화 상자가 표시됩니다. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+* 이제 Storage Explorer에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
    * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
    * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
    * 일시 삭제된 Blob을 삭제 취소합니다.
@@ -645,20 +757,20 @@ ms.locfileid: "65154707"
 * Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
 * 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
 * "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
-* 경우에 따라 Storage 탐색기에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+* 경우에 따라 Storage Explorer에서 클래식 스토리지 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
-* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage Explorer에서 연결할 수 없습니다.
 * Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
 * Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -683,10 +795,10 @@ ms.locfileid: "65154707"
 ## <a name="version-130"></a>버전 1.3.0
 07/09/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
+* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/ 로 변경되었습니다.
 * 접근성: 화면 판독기가 활성이 되면 키보드 탐색이 오른쪽에 항목을 표시하는 데 사용되는 테이블과 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>수정 프로그램
@@ -694,7 +806,7 @@ ms.locfileid: "65154707"
 * 읽기 권한이 없는 SAS를 사용하는 경우 큰 blob을 업로드할 수 없었습니다. 업로드에 대한 논리가 이 시나리오에서 작동하도록 수정되었습니다. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
 * 컨테이너에 대한 공용 액세스 수준 설정에서 모든 액세스 정책을 제거하고, 그 반대의 경우도 마찬가지입니다. 이제 공용 액세스 수준 및 액세스 정책은 둘 중 하나를 설정하는 경우 유지됩니다. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
 * 속성 대화 상자에서 “AccessTierChangeTime”이 잘렸습니다. 이 문제가 해결되었습니다. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* “Microsoft Azure Storage 탐색기 -” 접두사가 새 디렉터리 만들기 대화 상자에서 누락되었습니다. 이 문제가 해결되었습니다. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* "Microsoft Azure Storage Explorer -" 접두사가 새 디렉터리 만들기 대화 상자에서 누락되었습니다. 이 문제가 해결되었습니다. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
 * 접근성: VoiceOver를 사용하는 경우 엔터티 추가 대화 상자를 탐색하기 어려웠습니다. 개선이 이루어졌습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * 접근성: 작업 및 속성 창에 대한 축소/확장 단추의 배경색이 고대비 검정 테마의 유사한 UI 컨트롤과 불일치합니다. 색상이 변경되었습니다. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
 * 접근성: 고대비 검정 테마에서 속성 대화 상자의 ‘X’ 단추에 대한 포커스 스타일링이 표시되지 않습니다. 이 문제가 해결되었습니다. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
@@ -709,13 +821,13 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 다음 기능을 지원하지 않으며, Azure Stack에서 작업하는 동안 이러한 기능을 사용하려고 하면 예기치 않은 오류가 발생할 수 있습니다.
    * 파일 공유
    * 액세스 계층
    * 일시 삭제
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -740,17 +852,17 @@ ms.locfileid: "65154707"
 ## <a name="version-120"></a>버전 1.2.0
 2018/06/12
 
-### <a name="new"></a>새로 만들기
-* Storage 탐색기가 테넌트의 하위 집합에서만 하위 구독을 로드하지 못하는 경우 성공적으로 로드된 모든 구독은 실패한 테넌트에 대한 오류 메시지와 함께 표시됩니다. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
-* Windows에서 업데이트를 사용할 수 있는 경우 이제 "종료 시 업데이트"하도록 선택할 수 있습니다. 이 옵션을 선택하면 Storage 탐색기를 닫은 후 업데이트에 대한 설치 관리자가 실행됩니다. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
-* 파일 공유 스냅숏을 볼 때 파일 공유 편집기의 바로 가기 메뉴에 복원 스냅숏이 추가되었습니다.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+### <a name="new"></a>새 문자
+* Storage Explorer가 테넌트의 하위 집합에서만 하위 구독을 로드하지 못하는 경우 성공적으로 로드된 모든 구독은 실패한 테넌트에 대한 오류 메시지와 함께 표시됩니다. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* Windows에서 업데이트를 사용할 수 있는 경우 이제 "종료 시 업데이트"하도록 선택할 수 있습니다. 이 옵션을 선택하면 Storage Explorer를 닫은 후 업데이트에 대한 설치 관리자가 실행됩니다. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* 파일 공유 스냅샷을 볼 때 파일 공유 편집기의 바로 가기 메뉴에 복원 스냅샷이 추가되었습니다.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
 * 큐 지우기 단추는 이제 항상 활성화되어 있습니다.[#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
 * ADFS Azure Stack에 로그인에 대한 지원이 다시 활성화되었습니다. Azure Stack 버전 1804 이상이 필요합니다. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
 
 ### <a name="fixes"></a>수정 프로그램
-* 이름이 동일한 저장소 계정에서 다른 파일 공유의 접두사인 파일 공유에 대한 스냅숏을 본 경우 다른 파일 공유에 대한 스냅숏도 나열됩니다. 이 문제가 해결되었습니다. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
-* SAS를 통해 연결된 경우 파일 공유 스냅숏에서 파일 복원은 오류가 발생합니다. 이 문제가 해결되었습니다. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
-* Blob에 대한 스냅숏을 볼 때 스냅숏 승격 작업은 기본 Blob 및 단일 스냅숏이 선택된 경우 활성화되었습니다. 작업은 이제 단일 스냅숏이 선택된 경우에만 활성화됩니다. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* 이름이 동일한 저장소 계정에서 다른 파일 공유의 접두사인 파일 공유에 대한 스냅샷을 본 경우 다른 파일 공유에 대한 스냅샷도 나열됩니다. 이 문제가 해결되었습니다. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* SAS를 통해 연결된 경우 파일 공유 스냅샷에서 파일 복원은 오류가 발생합니다. 이 문제가 해결되었습니다. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* Blob에 대한 스냅샷을 볼 때 스냅샷 승격 작업은 기본 Blob 및 단일 스냅샷이 선택된 경우 활성화되었습니다. 작업은 이제 단일 스냅샷이 선택된 경우에만 활성화됩니다. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
 * 단일 작업(예: Blob 다운로드)이 시작되고 나중에 실패한 경우 동일한 형식의 다른 작업을 시작할 때까지 자동으로 다시 시도하지 않습니다. 모든 작업은 이제 대기 중인 작업의 수와 관계 없이 자동 다시 시도되어야 합니다.
 * GPV2 및 Blob Storage 계정에서 새롭게 만든 Blob 컨테이너에 대해 열린 편집기에는 액세스 계층 열이 없습니다. 이 문제가 해결되었습니다. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
 * 액세스 계층 열은 경우에 따라 Storage 계정 또는 Blob 컨테이너가 SAS를 통해 연결된 경우 나타나지 않습니다. 열은 이제 항상 표시되지만 액세스 계층 집합이 없는 경우에 빈 값으로 표시됩니다. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
@@ -762,17 +874,17 @@ ms.locfileid: "65154707"
 * 포커스가 지정되었을 때 라디오 단추와 확인란에 테두리 표시가 없었습니다. 이 문제가 해결되었습니다. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
 
 ### <a name="known-issues"></a>알려진 문제
-* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage Explorer에서 연결할 수 없습니다.
 * Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
 * Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -797,16 +909,16 @@ ms.locfileid: "65154707"
 ## <a name="version-110"></a>버전 1.1.0
 05/09/2018
 
-### <a name="new"></a>새로 만들기
-* Storage 탐색기에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
-* Storage 탐색기에서 Blob 전용 및 GPV2 스토리지 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
+### <a name="new"></a>새 문자
+* Storage Explorer에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
+* Storage Explorer에서 Blob 전용 및 GPV2 스토리지 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
 * SAS를 생성할 때 시작 시간이 더 이상 필요하지 않습니다.
 
 ### <a name="fixes"></a>수정 프로그램
 * 미국 정부 계정에 대한 구독 검색이 끊겼었습니다. 이 문제가 해결되었습니다. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
 * 액세스 정책의 만료 시간이 올바르게 저장되지 않았습니다. 이 문제가 해결되었습니다. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
 * 컨테이너에 있는 항목에 대한 SAS URL을 생성할 때 해당 항목의 이름이 URL에 추가되지 않았습니다. 이 문제가 해결되었습니다. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
-* SAS를 만들 때 과거의 만료 시간이 기본값이 되는 경우가 있습니다. 이 문제는 Storage 탐색기에서 마지막으로 사용된 시작 시간과 만료 시간이 기본값으로 사용되기 때문입니다. 이제는 SAS 대화 상자를 열 때마다 새로운 기본값이 생성됩니다. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* SAS를 만들 때 과거의 만료 시간이 기본값이 되는 경우가 있습니다. 이 문제는 Storage Explorer에서 마지막으로 사용된 시작 시간과 만료 시간이 기본값으로 사용되기 때문입니다. 이제는 SAS 대화 상자를 열 때마다 새로운 기본값이 생성됩니다. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
 * 저장소 계정 간에 복사하는 경우 24시간 SAS가 생성됩니다. 복사본이 24시간 넘게 유지된 경우에는 복사가 실패합니다. SAS가 만료되어 복사가 실패할 가능성을 줄이기 위해 SAS가 1주일간 지속되도록 시간을 늘렸습니다. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
 * 일부 작업에 대해 "취소"를 클릭해도 작동하지 않는 경우가 있습니다. 이 문제가 해결되었습니다. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
 * 일부 작업에 대한 전송 속도가 틀렸습니다. 이 문제가 해결되었습니다. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
@@ -823,10 +935,10 @@ ms.locfileid: "65154707"
 * NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -852,24 +964,24 @@ ms.locfileid: "65154707"
 ## <a name="version-100"></a>Version 1.0.0
 2018/04/16
 
-### <a name="new"></a>새로 만들기
-* Storage 탐색기에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
-* AAD에서 지원하는 Azure Stack 계정의 경우 이제 '대상 Azure Stack'을 사용하도록 설정하면 Storage 탐색기가 Azure Stack 등록을 검색합니다. 더 이상 사용자 지정 로그인 환경을 만들 필요가 없습니다.
+### <a name="new"></a>새 문자
+* Storage Explorer에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
+* AAD에서 지원하는 Azure Stack 계정의 경우 이제 '대상 Azure Stack'을 사용하도록 설정하면 Storage Explorer가 Azure Stack 등록을 검색합니다. 더 이상 사용자 지정 로그인 환경을 만들 필요가 없습니다.
 * 보다 빠른 탐색이 가능하도록 여러 바로 가기가 추가되었습니다. 그 중에는 다양한 패널을 전환하고 편집기 간에 이동하는 바로 가기도 포함됩니다. 자세한 내용은 보기 메뉴를 참조하세요.
-* 이제 Storage 탐색기 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 [피드백] 단추를 클릭하거나 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)로 이동하여 문제 페이지를 열 수 있습니다. 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
-* SSL 인증서 문제가 발생했는데 잘못된 인증서를 찾을 수 없는 경우 이제 명령줄에서 `--ignore-certificate-errors` 플래그로 Storage 탐색기를 시작할 수 있습니다. 이 플래그로 시작하면 Storage 탐색기가 SSL 인증서 오류를 무시합니다.
+* 이제 Storage Explorer 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 [피드백] 단추를 클릭하거나 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)로 이동하여 문제 페이지를 열 수 있습니다. 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
+* SSL 인증서 문제가 발생했는데 잘못된 인증서를 찾을 수 없는 경우 이제 명령줄에서 `--ignore-certificate-errors` 플래그로 Storage Explorer를 시작할 수 있습니다. 이 플래그로 시작하면 Storage Explorer가 SSL 인증서 오류를 무시합니다.
 * 이제 BLOB 및 파일 항목의 상황에 맞는 메뉴에 '다운로드' 옵션이 있습니다.
 * 향상된 내게 필요한 옵션 및 화면 판독기가 지원됩니다. 내게 필요한 옵션 기능을 사용하는 경우 [내게 필요한 옵션 설명서](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility)에서 자세한 내용을 참조하세요.
-* 이제 Storage 탐색기가 Electron 1.8.3 사용
+* 이제 Storage Explorer가 Electron 1.8.3 사용
 
 ### <a name="breaking-changes"></a>주요 변경 내용
-* Storage 탐색기가 새로운 인증 라이브러리로 전환되었습니다. 라이브러리 전환 과정의 일부로, 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
+* Storage Explorer가 새로운 인증 라이브러리로 전환되었습니다. 라이브러리 전환 과정의 일부로, 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
 * 중요한 데이터를 암호화하는 데 사용되는 방법이 변경되었습니다. 이로 인해 빠른 실행 항목 중 일부를 다시 추가하고/하거나 연결된 리소스 중 일부를 다시 연결해야 할 수도 있습니다.
 
 ### <a name="fixes"></a>수정 프로그램
 * 프록시 뒤에 있는 일부 사용자는 '확인할 수 없습니다' 오류 메시지와 함께 그룹 BLOB 업로드 또는 다운로드가 중단되었습니다. 이 문제가 해결되었습니다.
 * 직접 연결을 사용하는 동안 로그인이 필요한 경우 '로그인' 프롬프트를 클릭하면 빈 대화 상자가 나타났습니다. 이 문제가 해결되었습니다.
-* Linux에서 GPU 프로세스 크래시 때문에 Storage 탐색기를 시작할 수 없는 경우 이제 크래시가 발생했으니 '--disable-gpu' 스위치를 사용하라고 사용자에게 알려주며, 스위치를 사용하도록 설정하면 Storage 탐색기가 자동으로 다시 시작됩니다.
+* Linux에서 GPU 프로세스 크래시 때문에 Storage Explorer를 시작할 수 없는 경우 이제 크래시가 발생했으니 '--disable-gpu' 스위치를 사용하라고 사용자에게 알려주며, 스위치를 사용하도록 설정하면 Storage Explorer가 자동으로 다시 시작됩니다.
 * 액세스 정책 대화 상자에서 잘못된 액세스 정책을 식별하기가 어려웠습니다. 이제는 쉽게 알아볼 수 있도록 잘못된 액세스 정책 ID의 테두리가 빨간색으로 표시됩니다.
 * 활동 로그가 활동의 여러 부분 사이에 있는 공백을 많이 차지하는 경우가 종종 있었습니다. 이 문제가 해결되었습니다.
 * 테이블 쿼리 편집기에서, 잘못된 상태의 타임스탬프 절에서 나가서 다른 절을 수정하려고 하면 편집기가 동결되었습니다. 이제 다른 절에서 변경 내용이 감지되면 편집기가 타임스탬프 절을 마지막 유효한 상태로 복원합니다.
@@ -879,7 +991,7 @@ ms.locfileid: "65154707"
 * 편집기 도구 모음에서 추가 구분 기호가 보이는 경우가 종종 있었습니다. 이 문제가 해결되었습니다.
 * 이동 경로 탐색 텍스트 상자가 가끔 오버플로되었습니다. 이 문제가 해결되었습니다.
 * 많은 파일을 한꺼번에 업로드하면 BLOB 및 파일 공유 편집기가 계속 새로 고침되는 경우가 가끔 있었습니다. 이 문제가 해결되었습니다.
-* '폴더 통계' 기능은 파일 공유 스냅숏 관리 보기에서 아무런 목적도 없었습니다. 이 기능이 비활성화되었습니다.
+* '폴더 통계' 기능은 파일 공유 스냅샷 관리 보기에서 아무런 목적도 없었습니다. 이 기능이 비활성화되었습니다.
 * Linux에서 파일 메뉴가 표시되지 않았습니다. 이 문제가 해결되었습니다.
 * 폴더를 파일 공유에 업로드할 때 기본적으로 폴더의 콘텐츠만 업로드되었습니다. 이제 폴더의 콘텐츠를 파일 공유의 일치하는 폴더에 업로드하는 것이 기본 동작입니다.
 * 여러 대화 상자에서 단추 순서가 거꾸로 바뀌었습니다. 이 문제가 해결되었습니다.
@@ -889,10 +1001,10 @@ ms.locfileid: "65154707"
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -919,17 +1031,17 @@ ms.locfileid: "65154707"
 
 ### <a name="fixes"></a>수정 프로그램
 * 문제로 인해 BLOB/파일이 편집기에 나열되지 않았습니다. 이 문제가 해결되었습니다.
-* 문제로 인해 스냅숏 뷰 사이를 전환하면 항목이 잘못 표시되었습니다. 이 문제가 해결되었습니다.
+* 문제로 인해 스냅샷 뷰 사이를 전환하면 항목이 잘못 표시되었습니다. 이 문제가 해결되었습니다.
 
 ### <a name="known-issues"></a>알려진 문제
-* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Storage Explorer는 ADFS 계정을 지원하지 않습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317)에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -953,11 +1065,11 @@ ms.locfileid: "65154707"
 ## <a name="version-095"></a>버전 0.9.5
 02/06/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
-* 파일 공유 스냅숏에 대한 지원:
-    * 파일 공유의 스냅숏을 만들고 관리합니다.
-    * 탐색할 때 파일 공유의 스냅숏 간에 보기를 쉽게 전환합니다.
+* 파일 공유 스냅샷에 대한 지원:
+    * 파일 공유의 스냅샷을 만들고 관리합니다.
+    * 탐색할 때 파일 공유의 스냅샷 간에 보기를 쉽게 전환합니다.
     * 파일의 이전 버전을 복원합니다.
 * Azure Data Lake Store에 대한 미리 보기 지원:
     * 여러 계정에서 ADLS 리소스에 연결합니다.
@@ -971,14 +1083,14 @@ ms.locfileid: "65154707"
 * 다양한 버그 수정
 
 ### <a name="known-issues"></a>알려진 문제
-* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Storage Explorer는 ADFS 계정을 지원하지 않습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer.exe --disable-gpu
@@ -1002,30 +1114,30 @@ ms.locfileid: "65154707"
 ## <a name="version-094-and-093"></a>버전 0.9.4 및 0.9.3
 2018년 1월 21일
 
-### <a name="new"></a>새로 만들기
-* 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
-    * Storage 탐색기에 생성된 직접 링크를 여는 경우
-    * 포털에서 Storage 탐색기를 여는 경우
-    * Azure Storage VS Code 확장(출시 예정)에서 Storage 탐색기를 여는 경우
-* Storage 탐색기 내에서 새 Storage 탐색기 창을 여는 기능이 추가되었습니다.
+### <a name="new"></a>새 문자
+* 다음과 같은 경우에 기존 Storage Explorer 창을 다시 사용합니다.
+    * Storage Explorer에 생성된 직접 링크를 여는 경우
+    * 포털에서 Storage Explorer를 여는 경우
+    * Azure Storage VS Code 확장(출시 예정)에서 Storage Explorer를 여는 경우
+* Storage Explorer 내에서 새 Storage Explorer 창을 여는 기능이 추가되었습니다.
     * Windows의 경우 파일 메뉴 아래 및 작업 표시줄의 상황에 맞는 메뉴 아래에 '새 창' 옵션이 있습니다.
     * Mac의 경우 앱 메뉴 아래에 '새 창' 옵션이 있습니다.
 
 ### <a name="fixes"></a>수정 프로그램
 * 보안 문제가 해결되었습니다. 가장 빠른 편의를 위해 0.9.4로 업그레이드하세요.
 * 이전 작업은 적절하게 정리되지 않았습니다. 그러면 장기 실행 작업의 성능에 영향을 주었습니다. 이제 올바르게 정리되었습니다.
-* 많은 수의 파일 및 디렉터리를 포함하는 작업으로 인해 경우에 따라 Storage 탐색기가 중지됩니다. 시스템 리소스 사용을 제한하기 위해 파일 공유를 위한 Azure에 대한 요청이 제한됩니다.
+* 많은 수의 파일 및 디렉터리를 포함하는 작업으로 인해 경우에 따라 Storage Explorer가 중지됩니다. 시스템 리소스 사용을 제한하기 위해 파일 공유를 위한 Azure에 대한 요청이 제한됩니다.
 
 ### <a name="known-issues"></a>알려진 문제
-* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Storage Explorer는 ADFS 계정을 지원하지 않습니다.
 * "탐색기 보기" 및 "계정 관리 보기"에 대한 바로 가기 키는 각각 Ctrl/Cmd+Shift+E 및 Ctrl/Cmd+Shift+A입니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer --disable-gpu
@@ -1046,17 +1158,17 @@ ms.locfileid: "65154707"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-092"></a>0.9.2 버전
+## <a name="version-092"></a>0\.9.2 버전
 11/01/2017
 
 ### <a name="hotfixes"></a>핫픽스
 * 현지 표준 시간대에 따라 테이블 엔터티에 대한 Edm.DateTime 값을 편집할 때, 예기치 않은 데이터 변경이 가능합니다. 이제 편집기는 Edm.DateTime 값에 대해 정확하고 일관된 제어를 제공하는 일반 텍스트 상자를 사용합니다.
 * 이름과 키로 첨부될 때 BLOB 그룹 업로드/다운로드가 시작되지 않습니다. 이 문제가 해결되었습니다.
-* 이전에 Microsoft Azure Storage 탐색기는 계정 구독을 하나 이상 선택한 경우 다만 오래된 계정을 다시 인증하도록 메시지를 표시합니다. 이제 Microsoft Azure Storage 탐색기는 계정이 완벽하게 필터링되었는지 묻는 메시지가 표시됩니다.
+* 이전에 Microsoft Azure Storage Explorer는 계정 구독을 하나 이상 선택한 경우 다만 오래된 계정을 다시 인증하도록 메시지를 표시합니다. 이제 Microsoft Azure Storage Explorer는 계정이 완벽하게 필터링되었는지 묻는 메시지가 표시됩니다.
 * Azure US Government에 대 한 엔드포인트 도메인이 잘못 되었습니다. 이 문제가 해결되었습니다.
 * Manage Accounts 패널에서 [적용] 단추는 때로 클릭하기 힘듭니다. 이 문제가 더 이상 일어나지 않을 것입니다.
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Azure Cosmos DB에 대한 미리 보기 지원:
     * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
@@ -1066,30 +1178,30 @@ ms.locfileid: "65154707"
     * 연결 문자열을 사용하여 데이터베이스 연결 및 관리
 * 여러 개의 작은 Blob을 업로드/다운로드하는 성능 개선
 * Blob 업로드 그룹이나 Blob 다운로드 그룹에 오류가 발생하는 경우 "모두 다시 시도" 작업 추가
-* 이제 네트워크 연결이 손실된 것을 감지하면 Blob 업로드/다운로드 중에 저장소 탐색기가 반복을 일시 중지합니다. 그런 다음 네트워크 연결이 다시 설정되면 반복을 재개할 수 있습니다.
+* 이제 네트워크 연결이 손실된 것을 감지하면 Blob 업로드/다운로드 중에 Storage Explorer가 반복을 일시 중지합니다. 그런 다음 네트워크 연결이 다시 설정되면 반복을 재개할 수 있습니다.
 * 팝업 메뉴를 통해 "모두 닫기", "다른 항목 닫기" 및 "닫기" 탭에 대한 기능 추가
-* 이제 저장소 탐색기는 기본 대화 상자 및 네이티브 팝업 메뉴를 사용합니다.
-* 이제 저장소 탐색기에 보다 쉽게 액세스할 수 있습니다. 향상된 기능은 다음과 같습니다.
+* 이제 Storage Explorer는 기본 대화 상자 및 네이티브 팝업 메뉴를 사용합니다.
+* 이제 Storage Explorer에 보다 쉽게 액세스할 수 있습니다. 향상된 기능은 다음과 같습니다.
     * Windows에서는 NVDA, Mac에서는 VoiceOver에 대한 화면 판독기 지원 향상
     * 고대비 테마 설정 향상
     * 키보드 탭 및 키보드 포커스 수정
 
 ### <a name="fixes"></a>수정 프로그램
-* 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 저장소 탐색기는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 저장소 탐색기는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
+* 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 Storage Explorer는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 Storage Explorer는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage 탐색기를 수동으로 다운로드할 수 있습니다.
+* 0\.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage Explorer를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
-* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Storage Explorer는 ADFS 계정을 지원하지 않습니다.
 * "탐색기 보기" 및 "계정 관리 보기"에 대한 바로 가기 키는 각각 Ctrl/Cmd+Shift+E 및 Ctrl/Cmd+Shift+A입니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer --disable-gpu
@@ -1112,7 +1224,7 @@ ms.locfileid: "65154707"
 
 ## <a name="version-091-and-090"></a>버전 0.9.1 및 0.9.0
 10/20/2017
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Azure Cosmos DB에 대한 미리 보기 지원:
     * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
@@ -1122,30 +1234,30 @@ ms.locfileid: "65154707"
     * 연결 문자열을 사용하여 데이터베이스 연결 및 관리
 * 여러 개의 작은 Blob을 업로드/다운로드하는 성능 개선
 * Blob 업로드 그룹이나 Blob 다운로드 그룹에 오류가 발생하는 경우 "모두 다시 시도" 작업 추가
-* 이제 네트워크 연결이 손실된 것을 감지하면 Blob 업로드/다운로드 중에 저장소 탐색기가 반복을 일시 중지합니다. 그런 다음 네트워크 연결이 다시 설정되면 반복을 재개할 수 있습니다.
+* 이제 네트워크 연결이 손실된 것을 감지하면 Blob 업로드/다운로드 중에 Storage Explorer가 반복을 일시 중지합니다. 그런 다음 네트워크 연결이 다시 설정되면 반복을 재개할 수 있습니다.
 * 팝업 메뉴를 통해 "모두 닫기", "다른 항목 닫기" 및 "닫기" 탭에 대한 기능 추가
-* 이제 저장소 탐색기는 기본 대화 상자 및 네이티브 팝업 메뉴를 사용합니다.
-* 이제 저장소 탐색기에 보다 쉽게 액세스할 수 있습니다. 향상된 기능은 다음과 같습니다.
+* 이제 Storage Explorer는 기본 대화 상자 및 네이티브 팝업 메뉴를 사용합니다.
+* 이제 Storage Explorer에 보다 쉽게 액세스할 수 있습니다. 향상된 기능은 다음과 같습니다.
     * Windows에서는 NVDA, Mac에서는 VoiceOver에 대한 화면 판독기 지원 향상
     * 고대비 테마 설정 향상
     * 키보드 탭 및 키보드 포커스 수정
 
 ### <a name="fixes"></a>수정 프로그램
-* 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 저장소 탐색기는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 저장소 탐색기는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
+* 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 Storage Explorer는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 Storage Explorer는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 저장소 탐색기를 수동으로 다운로드할 수 있습니다.
+* 0\.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Storage Explorer를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
-* 저장소 탐색기는 ADFS 계정을 지원하지 않습니다.
+* Storage Explorer는 ADFS 계정을 지원하지 않습니다.
 * "탐색기 보기" 및 "계정 관리 보기"에 대한 바로 가기 키는 각각 Ctrl/Cmd+Shift+E 및 Ctrl/Cmd+Shift+A입니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
-* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+* Storage Explorer에서 사용하는 전자 셸에는 GPU(그래픽 처리 단위) 하드웨어 가속과 관련된 문제가 발생합니다. Storage Explorer가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 Storage Explorer를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
 
     ```
     ./StorageExplorer --disable-gpu
@@ -1166,11 +1278,11 @@ ms.locfileid: "65154707"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816"></a>0.8.16 버전
+## <a name="version-0816"></a>0\.8.16 버전
 8/21/2017
 
-### <a name="new"></a>새로 만들기
-* Blob을 열 때 저장소 탐색기는 변경 내용이 감지될 경우 다운로드한 파일을 업로드할지 묻는 메시지를 표시합니다.
+### <a name="new"></a>새 문자
+* Blob을 열 때 Storage Explorer는 변경 내용이 감지될 경우 다운로드한 파일을 업로드할지 묻는 메시지를 표시합니다.
 * 향상된 Azure Stack 로그인 환경
 * 여러 개의 작은 파일을 동시에 업로드/다운로드하는 성능 개선
 
@@ -1179,7 +1291,7 @@ ms.locfileid: "65154707"
 * 일부 blob 형식의 경우 업로드 중에 "바꾸기"를 선택하면 충돌이 발생해서 업로드가 다시 시작될 수 있습니다.
 * 버전 0.8.15에서 업로드는 경우에 따라 99%에서 중단됩니다.
 * 파일을 파일 공유에 업로드할 때 아직 존재하지 않는 디렉터리로 업로드하도록 선택하면 업로드가 실패합니다.
-* 저장소 탐색기가 공유 액세스 서명 및 테이블 쿼리에 대한 타임스탬프를 잘못 생성합니다.
+* Storage Explorer가 공유 액세스 서명 및 테이블 쿼리에 대한 타임스탬프를 잘못 생성합니다.
 
 
 ### <a name="known-issues"></a>알려진 문제
@@ -1187,9 +1299,9 @@ ms.locfileid: "65154707"
 * 잘못된 Windows 파일 이름을 갖는 파일을 열려고 하면 다운로드 시 파일을 찾을 수 없음 오류가 표시됩니다.
 * 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 이것은 Azure Storage 노드 라이브러리의 제한 사항입니다.
 * Blob 업로드를 완료한 후 업로드를 시작한 탭이 새로 고쳐집니다. 이러한 현상은 이전과 다르게 변경된 동작이며, 해당 동작으로 인해 현재 표시되어 있는 컨테이너의 루트로 다시 이동하게 됩니다.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 계정 설정 패널에 구독을 필터링하기 위해 자격 증명을 다시 입력하라고 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
@@ -1209,20 +1321,20 @@ ms.locfileid: "65154707"
 ### <a name="version-0814"></a>버전 0.8.14
 06/22/2017
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 여러 중요 보안 업데이트를 활용하기 위해 Electron 버전이 1.7.2로 업데이트되었습니다.
 * 이제 도움말 메뉴에서 온라인 문제 해결 가이드에 빠르게 액세스할 수 있습니다.
 * Storage 탐색기 문제 해결 [가이드][2]
-* Azure Stack 구독 연결 관련 [지침][3]
+* [지침][3] Azure Stack 구독에 연결
 
 ### <a name="known-issues"></a>알려진 문제
 
 * Linux에서 마우스를 클릭해도 폴더 삭제 확인 대화 상자의 단추가 등록되지 않습니다. 이 문제를 해결하려면 Enter 키를 사용하세요.
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * Ubuntu 14.04 설치 시에는 gcc 버전을 업데이트하거나 업그레이드해야 합니다. 업그레이드 단계는 다음과 같습니다.
 
@@ -1239,7 +1351,7 @@ ms.locfileid: "65154707"
 #### <a name="new"></a>새로 만들기
 
 * Storage 탐색기 문제 해결 [가이드][2]
-* Azure Stack 구독 연결 관련 [지침][3]
+* [지침][3] Azure Stack 구독에 연결
 
 #### <a name="fixes"></a>수정 프로그램
 
@@ -1247,16 +1359,16 @@ ms.locfileid: "65154707"
 * 수정됨: 이제 PIN/스마트 카드로 로그인할 수 있습니다.
 * 수정됨: 포털에서 열기가 이제 Azure China 21Vianet, Azure 독일, Azure 미국 정부 및 Azure Stack에서 작동합니다.
 * 수정됨: Blob 컨테이너에 폴더를 업로드하는 중에 "잘못된 작업"오류가 발생하는 경우가 있습니다.
-* 수정됨: 스냅숏을 관리하는 동안 모두 선택이 불가능하도록 설정되었습니다.
-* 수정됨: 기본 BLOB의 메타데이터가 해당 스냅숏의 속성을 보고 나면 덮어쓰여질 수 있습니다.
+* 수정됨: 스냅샷을 관리하는 동안 모두 선택이 불가능하도록 설정되었습니다.
+* 수정됨: 기본 Blob의 메타데이터가 해당 스냅샷의 속성을 보고 나면 덮어쓰여질 수 있습니다.
 
 #### <a name="known-issues"></a>알려진 문제
 
-* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage 탐색기를 다시 시작해야 합니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 Storage Explorer를 다시 시작해야 합니다.
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * Ubuntu 14.04 설치 시에는 gcc 버전을 업데이트하거나 업그레이드해야 합니다. 업그레이드 단계는 다음과 같습니다.
 
@@ -1271,9 +1383,9 @@ ms.locfileid: "65154707"
 ### <a name="version-0812-and-0811-and-0810"></a>버전 0.8.12 및 0.8.11 및 0.8.10
 04/07/2017
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
-* 이제 업데이트 알림에서 업데이트를 설치할 때 Storage 탐색기가 자동으로 닫힙니다.
+* 이제 업데이트 알림에서 업데이트를 설치할 때 Storage Explorer가 자동으로 닫힙니다.
 * 현재 위치 빠른 액세스 기능이 자주 액세스하는 리소스 사용을 위한 향상된 환경을 제공합니다.
 * 이제 Blob 컨테이너 편집기에서 임대한 Blob가 속하는 가상 컴퓨터를 확인할 수 있습니다.
 * 이제 왼쪽 가로 패널을 축소할 수 있습니다.
@@ -1295,11 +1407,11 @@ ms.locfileid: "65154707"
 
 #### <a name="known-issues"></a>알려진 문제
 
-* 0.8.10으로 업그레이드한 후에는 모든 자격 증명을 새로 고쳐야 합니다.
+* 0\.8.10으로 업그레이드한 후에는 모든 자격 증명을 새로 고쳐야 합니다.
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
 * Ubuntu 14.04 설치 시에는 gcc 버전을 업데이트하거나 업그레이드해야 합니다. 업그레이드 단계는 다음과 같습니다.
 
@@ -1319,11 +1431,11 @@ ms.locfileid: "65154707"
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
-* Storage 탐색기 0.8.9는 업데이트를 위해 최신 버전을 자동으로 다운로드합니다.
+* Storage Explorer 0.8.9는 업데이트를 위해 최신 버전을 자동으로 다운로드합니다.
 * 핫픽스: 포털에서 생성한 SAS URI를 사용하여 Storage 계정을 연결하면 오류가 발생합니다.
-* 이제 Blob 스냅숏을 만들고 관리하고 수준을 올릴 수 있습니다.
+* 이제 Blob 스냅샷을 만들고 관리하고 수준을 올릴 수 있습니다.
 * 이제 Azure China 21Vianet, Azure 독일 및 Azure 미국 정부 계정에 로그인할 수 있습니다.
 * 이제 확대/축소 수준을 변경할 수 있습니다. 보기 메뉴의 옵션을 사용하여 확대, 축소 및 확대/축소 다시 설정을 수행할 수 있습니다.
 * 이제 Blob 및 파일의 사용자 메타데이터에서 유니코드 문자가 지원됩니다.
@@ -1349,7 +1461,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 이제 활동 창에서 업데이트, 다운로드 또는 복사 세션을 시작할 때 발생하는 충돌을 해결하는 방법을 선택할 수 있습니다.
 * Storage 리소스의 전체 경로를 보려면 탭 위로 마우스를 가져갑니다.
@@ -1357,7 +1469,7 @@ ms.locfileid: "65154707"
 
 #### <a name="fixes"></a>수정 프로그램
 
-* 수정됨: Storage 탐색기가 이제 Mac에서 신뢰할 수 있는 앱입니다.
+* 수정됨: Storage Explorer가 이제 Mac에서 신뢰할 수 있는 앱입니다.
 * 수정됨: Ubuntu 14.04가 다시 지원됩니다.
 * 수정됨: 구독을 로드할 때 계정 추가 UI가 깜박이는 경우가 있습니다.
 * 수정됨: 왼쪽 탐색 창에 일부 스토리지 리소스가 나열되지 않는 경우가 있습니다.
@@ -1371,7 +1483,7 @@ ms.locfileid: "65154707"
 * 보유하고 있는 리소스 수에 따라 빠른 액세스 기능으로 대상 리소스로 이동하는 데 몇 초 정도 걸릴 수 있습니다.
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 검색 기능이 약 50,000개 노드에서 검색을 처리하지만 이러한 검색 후에 성능이 저하되거나 처리되지 않은 예외가 발생할 수 있습니다.
-* Mac OS에서 Storage 탐색기를 처음 사용할 때 사용자의 키 집합 액세스 권한을 묻는 메시지가 여러 번 표시될 수 있습니다. 확인 메시지가 다시 표시되지 않도록 항상 허용을 선택하는 것이 좋습니다.
+* macOS에서 Storage Explorer를 처음 사용할 때 사용자의 키 집합 액세스 권한을 묻는 메시지가 여러 번 표시될 수 있습니다. 확인 메시지가 다시 표시되지 않도록 항상 허용을 선택하는 것이 좋습니다.
 
 11/18/2016
 ### <a name="version-086"></a>버전 0.8.6
@@ -1404,7 +1516,7 @@ ms.locfileid: "65154707"
 
 #### <a name="known-issues"></a>알려진 문제
 
-* Ubuntu 14.04에서는 이 Storage 탐색기 릴리스가 실행되지 않습니다.
+* Ubuntu 14.04에서는 이 Storage Explorer 릴리스가 실행되지 않습니다.
 * 같은 리소스에 대해 여러 탭을 열려는 경우 같은 리소스를 계속해서 클릭하지 마세요. 다른 리소스를 클릭한 후에 다시 돌아가서 원래 리소스를 클릭하여 다른 탭에서 다시 열어야 합니다.
 * 빠른 액세스는 구독 기반 항목에만 작동합니다. 로컬 리소스 또는 키나 SAS 토큰을 통해 연결된 리소스는 이번 릴리스에서 지원되지 않습니다.
 * 보유하고 있는 리소스 수에 따라 빠른 액세스 기능으로 대상 리소스로 이동하는 데 몇 초 정도 걸릴 수 있습니다.
@@ -1414,7 +1526,7 @@ ms.locfileid: "65154707"
 10/03/2016
 ### <a name="version-085"></a>버전 0.8.5
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 이제 Portal에서 생성된 SAS 키를 사용하여 Storage 계정 및 리소스에 연결할 수 있습니다.
 
@@ -1437,7 +1549,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 리소스를 공유하고 쉽게 액세스하기 위해 Storage 계정, 컨테이너, 큐, 테이블 또는 파일 공유에 대한 직접 링크를 생성할 수 있습니다(Windows 및 Mac OS 지원).
 * 검색 상자에서 Blob 컨테이너, 테이블, 큐, 파일 공유 또는 저장소 계정 검색
@@ -1476,7 +1588,7 @@ ms.locfileid: "65154707"
 * macOS 설치 시 관리자 권한이 필요할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.
 * 파일 공유, Blob 컨테이너 및 테이블의 이름을 바꾸면 파일 공유 할당량, 공용 액세스 수준, 액세스 정책 등 컨테이너에 대한 메타데이터나 기타 속성이 보존되지 않습니다.
-* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. blob, 파일 및 엔터티에 대한 다른 모든 속성 및 메타데이터는 이름을 바꾸는 동안 유지됩니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅샷을 보존되지 않습니다. blob, 파일 및 엔터티에 대한 다른 모든 속성 및 메타데이터는 이름을 바꾸는 동안 유지됩니다.
 * SAS에 연결된 계정 내에서는 리소스 복사 또는 이름 바꾸기가 작동하지 않습니다.
 
 07/07/2016
@@ -1484,7 +1596,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Storage 계정이 구독별로 그룹화됩니다. 키 또는 SAS를 통해 연결된 개발 Storage 및 리소스는 (로컬 및 연결됨) 노드 아래에 표시됩니다.
 * "Azure 계정 설정" 패널에서 계정을 로그오프할 수 있습니다.
@@ -1511,7 +1623,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 파일 공유 지원: 파일 및 디렉터리 보기/업로드/다운로드/복사, SAS URI 만들기 및 연결이 지원됩니다.
 * SAS URI 또는 계정 키를 사용하여 Storage에 연결하기 위한 사용자 환경이 개선되었습니다.
@@ -1534,7 +1646,7 @@ ms.locfileid: "65154707"
 05/17/2016
 ### <a name="version-07201605090"></a>버전 0.7.20160509.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 앱 작동 중단 시의 오류가 보다 효율적으로 처리됩니다.
 
@@ -1554,13 +1666,13 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 테이블 지원: 엔터티 보기/쿼리/내보내기/가져오기 및 CRUD 작업이 지원됩니다.
 * 큐 지원: 메시지 보기, 추가, 큐에서 제거가 지원됩니다.
 * Storage 계정에 대해 SAS URI를 생성할 수 있습니다.
 * SAS URI를 사용하여 Storage 계정에 연결할 수 있습니다.
-* 이후 Storage 탐색기 업데이트를 위한 업데이트 알림이 표시됩니다.
+* 이후 Storage Explorer 업데이트를 위한 업데이트 알림이 표시됩니다.
 * 디자인이 업데이트되었습니다.
 
 #### <a name="fixes"></a>수정 프로그램
@@ -1586,7 +1698,7 @@ ms.locfileid: "65154707"
 
 ### <a name="version-07201601050"></a>버전 0.7.20160105.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Linux 지원이 추가되었습니다(OSX에 대한 패리티 기능).
 * SAS(공유 액세스 서명) 키를 사용하여 Blob 컨테이너를 추가할 수 있습니다.
@@ -1616,7 +1728,7 @@ ms.locfileid: "65154707"
 11/18/2015
 ### <a name="version-07201511160"></a>버전 0.7.20151116.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * macOS 및 Windows 버전이 지원됩니다.
 * 조직 계정, Microsoft 계정, 2FA 등을 사용하여 로그인해 Storage 계정을 확인할 수 있습니다.

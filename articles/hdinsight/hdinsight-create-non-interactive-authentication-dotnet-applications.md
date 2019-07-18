@@ -8,33 +8,33 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: b07a932ef048aa894af990baa57b87529d9da3aa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717399"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433675"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 애플리케이션 만들기
 Microsoft .NET Azure HDInsight 애플리케이션은 애플리케이션 자체의 ID(비대화형) 또는 애플리케이션에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 애플리케이션을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여줍니다. 대화형 애플리케이션의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
 
 비대화형.NET 애플리케이션에서 다음 항목이 필요합니다.
 
-* Azure 구독 테넌트 ID(*디렉터리 ID*라고도 함) - [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
-* Azure AD(Azure Active Directory) 애플리케이션 클라이언트 ID - [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 및 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
-* Azure AD 애플리케이션 비밀 키 - [애플리케이션 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
+* Azure 구독 테넌트 ID(*디렉터리 ID*라고도 함) - [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
+* Azure AD(Azure Active Directory) 애플리케이션 클라이언트 ID - [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 및 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 참조
+* Azure AD 애플리케이션 비밀 키 - [애플리케이션 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 참조
 
 ## <a name="prerequisites"></a>필수 조건
 * HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) 참조
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD 애플리케이션에 역할 할당
-Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 읽기 권한자 역할에 애플리케이션을 추가하면 애플리케이션에서 리소스 그룹과 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준의 범위를 설정합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대한 읽기 권한자 역할에 애플리케이션을 추가하면 애플리케이션에서 리소스 그룹과 포함된 모든 리소스를 읽을 수 있습니다. 이 문서에서는 리소스 그룹 수준에서 범위를 설정 합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 **Azure AD 애플리케이션에 소유자 역할을 추가하려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
-3. 이 자습서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 있는 리소스 그룹을 선택합니다. 많은 수의 리소스 그룹이 있는 경우 필터를 사용하여 원하는 리소스 그룹을 찾을 수 있습니다.
+3. 이 문서의 뒷부분에서 Hive 쿼리를 실행할는 HDInsight 클러스터가 있는 리소스 그룹을 선택 합니다. 많은 수의 리소스 그룹이 있는 경우 필터를 사용하여 원하는 리소스 그룹을 찾을 수 있습니다.
 4. 리소스 그룹 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 5. **역할 할당** 탭을 선택하여 현재의 역할 할당을 봅니다.
 6. 페이지 맨 위에서 **역할 할당 추가**를 선택합니다.

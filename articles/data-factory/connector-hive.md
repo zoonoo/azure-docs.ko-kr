@@ -3,21 +3,20 @@ title: Azure Data Factory를 사용하여 Hive에서 데이터 복사 | Microsof
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Hive에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 12/07/2018
+ms.author: jingwang
 ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808895"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Hive에서 데이터 복사 
@@ -44,7 +43,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Hive** | 예 |
 | host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | 예 |
-| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
+| port | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **HiveServer1**, **HiveServer2**, **HiveThriftServer** | 아닙니다. |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아닙니다. |
 | authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | 예 |
@@ -52,7 +51,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 아닙니다. |
 | useNativeQuery | 드라이버가 기본 HiveQL 쿼리를 사용하는지, 이 쿼리를 동일한 HiveQL의 형식으로 변환하는지를 지정합니다.  | 아닙니다. |
 | username | Hive 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아닙니다. |
-| 암호 | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
+| password | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
 | httpPath | Hive 서버에 해당하는 부분 URL입니다.  | 아닙니다. |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아닙니다. |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아닙니다. |
@@ -120,7 +119,7 @@ Hive에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Hive
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **HiveSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

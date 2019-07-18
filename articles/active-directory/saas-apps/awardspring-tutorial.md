@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99c5c68c2dc01537a0c4360286b922130e64bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db00e0b6ea14e956fc75c2c7cff5d018d9c6bb84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>자습서: Azure Active Directory와 AwardSpring 통합
 
@@ -125,7 +125,7 @@ AwardSpring에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    |  Name | 원본 특성 |
+    |  이름 | 원본 특성 |
     | ---------------| --------------- |    
     | 이름 | user.givenname |
     | 성 | user.surname |

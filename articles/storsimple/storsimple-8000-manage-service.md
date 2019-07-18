@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506627"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
@@ -101,7 +101,7 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>서비스 등록 키를 다시 생성하려면
-1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
     
     ![키 블레이드](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -154,7 +154,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>서비스 데이터 암호화 키 변경을 시작하려면
 1. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. cmdlet이 성공적으로 완료되면 새 서비스 데이터 암호화 키를 얻을 수 있습니다. 이 키를 복사하고 저장해 두었다가 이 프로세스의 3단계에서 사용합니다. 이 키는 StorSimple 관리자 서비스에 등록된 나머지 모든 디바이스를 업데이트하는 데 사용됩니다.

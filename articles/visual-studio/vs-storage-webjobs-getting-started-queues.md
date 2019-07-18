@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391238"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -236,7 +236,7 @@ public static void CreateQueueMessages(
 다음 매개 변수 유형에서 **Queue** 특성을 사용할 수 있습니다.
 
 * **out string** (함수가 종료될 때 매개 변수 값이 null이 아닌 경우 큐 메시지 생성)
-* **out byte[]**(**문자열**처럼 작동)
+* **out byte[]** (**문자열**처럼 작동)
 * **out CloudQueueMessage**(**문자열**처럼 작동)
 * **out POCO**(직렬화 가능한 유형, 함수가 종료될 때 매개 변수가 null인 경우 null 개체가 포함된 메시지 생성)
 * **ICollector**
@@ -342,7 +342,7 @@ logQueue.AddMessage(queueMessage);
 ### <a name="automatic-poison-message-handling"></a>자동 포이즌 메시지 처리
 SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다. 다섯 번째 시도가 실패하면 메시지가 포이즌 큐로 이동됩니다. [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)에서 최대 다시 시도 횟수를 구성하는 방법을 확인할 수 있습니다.
 
-포이즌 큐의 이름은 *{originalqueuename}*-poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
+포이즌 큐의 이름은 *{originalqueuename}* -poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
 다음 예제에서는 큐 메시지에 존재하지 않는 Blob 이름이 포함되어 있을 경우 **CopyBlob** 함수가 실패합니다. 이 경우 메시지가 copyblobqueue 큐에서 copyblobqueue-poison 큐로 이동됩니다. **ProcessPoisonMessage** 에서 포이즌 메시지를 기록합니다.
 
@@ -544,7 +544,7 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
 
 ![Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-연속 WebJob에서는 애플리케이션 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
+연속 WebJob에서는 애플리케이션 로그가 웹앱 파일 시스템의 /data/jobs/continuous/ *{webjobname}* /job_log.txt에 표시됩니다.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

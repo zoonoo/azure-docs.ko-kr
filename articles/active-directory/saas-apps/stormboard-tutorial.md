@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a8c28546417e5de22b363e425728c97cbe5288
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dce74d2e526ca5a961ad6ea0da433ac070026549
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>자습서: Stormboard와 Azure Active Directory 통합
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 283487eeb0f1f85940da4db8c932602e1b45efd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64695798"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -37,7 +37,7 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 
 Azure Functions 배포는 일반적으로 이러한 리소스의 구성 됩니다.
 
-| 리소스                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |   |
+| Resource                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -663,6 +663,27 @@ HTML을 사용하는 예는 다음과 같습니다.
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
+
+### <a name="deploy-using-powershell"></a>PowerShell을 사용하여 배포
+
+다음 PowerShell 명령을 리소스 그룹을 만들고 필요한 리소스를 사용 하 여 함수 앱을 만드는 템플릿을 배포 합니다. 로컬로 실행 하려면 해야 [Azure PowerShell](/powershell/azure/install-az-ps) 설치 합니다. 실행할 [ `Connect-AzAccount` ](/powershell/module/az.accounts/connect-azaccount) 에 로그인 합니다.
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Create the parameters for the file, which for this template is the function app name.
+$TemplateParams = @{"appName" = "<function-app-name>"}
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+```
+
+이 배포를 테스트 하려면 사용할 수는 [이와 같은 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) 소비 계획에서 함수 앱을 Windows에서 만드는 합니다. 대체 `<function-app-name>` 함수 앱에 대 한 고유한 이름입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

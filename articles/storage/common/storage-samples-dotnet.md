@@ -6,16 +6,15 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 05/03/2019
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 3874bf4e4b51354f14c9aa6357ee1c0d9033e545
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65209700"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
@@ -27,7 +26,7 @@ ms.locfileid: "65142550"
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob 추가</td> 
-<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 메서드 예제</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">BLOB 시작</a></td> 
 </tr> 
 <tr> 
 <td>블록 Blob</td>
@@ -86,7 +85,7 @@ ms.locfileid: "65142550"
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">BLOB 시작</a></td>
 </tr>           
 <tr> 
-<td>Blob 스냅숏</td>
+<td>Blob 스냅샷</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">증분 스냅숏을 사용하여 Azure Virtual Machine 디스크 백업</a></td>
 </tr> 
 <tr> 

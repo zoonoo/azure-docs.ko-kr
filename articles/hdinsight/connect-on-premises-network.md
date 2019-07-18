@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60537905"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
@@ -107,7 +107,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 1. **설정**에서 **속성**을 선택합니다.
 
-2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블**과 **사설 IP 주소** 값을 적어둡니다.
+2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블**과 **개인 IP 주소** 값을 적어둡니다.
 
    ![공용 및 개인 IP 주소](./media/connect-on-premises-network/vm-ip-addresses.png)
 

@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476543"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps에서 페이지 매김을 사용 하 여 데이터, 항목 또는 레코드 가져오기
@@ -51,7 +51,7 @@ ms.locfileid: "64476543"
 
 액션 논리 앱 디자이너에서 페이지 매김을 지원 하는지 여부를 결정할에 대 한 작업의 설정을 확인 합니다 **페이지 매김** 설정 합니다. 이 예제에서 SQL Server의 페이지 매김을 설정 하는 방법을 보여 줍니다 **행 가져오기** 작업 합니다.
 
-1. 작업의 오른쪽 위 모서리에서 줄임표를 선택 (**...** ) 단추를 선택한 **설정을**합니다.
+1. 작업의 오른쪽 위 모서리에서 줄임표를 선택 ( **...** ) 단추를 선택한 **설정을**합니다.
 
    ![작업의 설정 열기](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 

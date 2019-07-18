@@ -1,19 +1,17 @@
 ---
 title: Azure 데이터 카탈로그에 대한 질문과 대답
 description: 데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61004044"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508896"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -56,7 +54,7 @@ ms.locfileid: "61004044"
 기능 요청 및 기타 피드백을 제출하려면 [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources)으로 이동합니다.
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>데이터 카탈로그를 시작하려면 어떻게 하나요?
-시작하는 가장 좋은 방법은 [데이터 카탈로그 시작](data-catalog-get-started.md)으로 이동하는 것입니다. 이 문서는 서비스의 기능에 대한 종단간 개요입니다.
+시작하는 가장 좋은 방법은 [데이터 카탈로그 시작](data-catalog-get-started.md)으로 이동하는 것입니다. 이 문서는 서비스의 기능에 대한 엔드투엔드 개요입니다.
 
 ## <a name="how-do-i-register-my-data"></a>내 데이터를 어떻게 등록하나요?
 데이터 카탈로그에 데이터를 등록하려면:
@@ -75,7 +73,7 @@ ms.locfileid: "61004044"
 * 특성/열 설명
 
 > [!IMPORTANT]
-> 데이터 카탈로그를 사용한 데이터 자산 등록은 클라우드에 데이터를 옮기거나 복사하지 않습니다. 데이터 원본에서 자산을 등록하면 자산의 메타데이터를 Azure로 복사하지만 해당 데이터는 기존 데이터 원본 위치에 유지됩니다. 이 규칙에서 유일한 예외는 자산 등록 시 사용자가 미리 보기 레코드 또는 데이터 프로필을 업로드하기로 선택하는 경우입니다. 미리 보기를 포함하는 경우 최대 20개의 레코드가 각 자산에서 복사되며 데이터 카탈로그에 스냅숏으로 저장됩니다. 데이터 프로필을 포함하는 경우 집계 정보가 계산되며 카탈로그에 저장된 메타데이터에 포함됩니다. 집계 정보는 테이블의 크기, 열당 null 값의 비율 또는 열에 대한 최소, 최대 및 평균 값을 포함할 수 있습니다. 
+> 데이터 카탈로그를 사용한 데이터 자산 등록은 클라우드에 데이터를 옮기거나 복사하지 않습니다. 데이터 원본에서 자산을 등록하면 자산의 메타데이터를 Azure로 복사하지만 해당 데이터는 기존 데이터 원본 위치에 유지됩니다. 이 규칙에서 유일한 예외는 자산 등록 시 사용자가 미리 보기 레코드 또는 데이터 프로필을 업로드하기로 선택하는 경우입니다. 미리 보기를 포함하는 경우 최대 20개의 레코드가 각 자산에서 복사되며 데이터 카탈로그에 스냅샷으로 저장됩니다. 데이터 프로필을 포함하는 경우 집계 정보가 계산되며 카탈로그에 저장된 메타데이터에 포함됩니다. 집계 정보는 테이블의 크기, 열당 null 값의 비율 또는 열에 대한 최소, 최대 및 평균 값을 포함할 수 있습니다. 
 >
 >
 
@@ -104,9 +102,6 @@ ms.locfileid: "61004044"
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>카탈로그에서 관심이 있는 다른 데이터 원본과 함께 작업하나요?
 Microsoft는 데이터 카탈로그에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 특정 데이터 원본이 지원되는지 확인하려는 경우 [Azure 피드백 포럼의 Data Catalog](https://feedback.azure.com/forums/906052-data-catalog)로 이동하여 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
 
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Azure Data Catalog는 어떻게 Office 365용 Power BI의 데이터 카탈로그와 연결되나요?
-Azure Data Catalog를 Power BI의 데이터 카탈로그가 진화한 것으로 생각할 수 있습니다. 2017년 봄 기준으로 Azure Data Catalog는 Excel 2016 및 Excel용 파워 쿼리에서 쿼리 공유 및 검색을 활성화하는 데 사용됩니다. Excel의 데이터 카탈로그 기능은 Power BI Pro 라이선스를 갖고 있는 사용자에게 제공됩니다.
-
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>데이터 카탈로그로 자산을 등록하는 데 필요한 권한은 무엇인가요?
 데이터 카탈로그 등록 도구를 실행하려면 사용자는 원본에서 메타데이터를 읽을 수 있도록 허용하는 데이터 원본에 대한 권한이 필요합니다. 미리 보기를 포함하려면 등록되는 개체에서 데이터를 읽을 수 있도록 허용하는 권한이 있어야 합니다.
 
@@ -118,7 +113,7 @@ Azure Data Catalog를 Power BI의 데이터 카탈로그가 진화한 것으로 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>등록하는 데이터 원본에서 더 많거나 풍부한 메타데이터를 추출할 수 있나요?
 데이터 카탈로그의 기능을 확장하는 작업을 활발히 진행 중입니다. 등록하는 동안 데이터 원본에서 추출된 추가 메타데이터를 포함하려는 경우, [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog)에서 이를 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 투표하시기 바랍니다. 
 
-데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다.  자세한 내용은 [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/)를 참조하세요.
+데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다. 자세한 내용은 [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/)를 참조하세요.
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>등록된 데이터 자산의 표시 여부를 제한하여 특정인만 검색하도록 하려면 어떻게 하나요?
 데이터 카탈로그에서 해당 데이터 자산을 선택한 다음 **소유권 가져오기** 단추를 클릭합니다. 데이터 카탈로그의 데이터 자산에 대한 소유권은 표시 여부 설정을 변경하여 모든 사용자가 소유한 자산을 검색하거나 특정 사용자에게 표시 여부를 제한하도록 할 수 있습니다. 자세한 내용은 [Azure Data Catalog의 데이터 자산 관리](data-catalog-how-to-manage.md)를 참조하세요.

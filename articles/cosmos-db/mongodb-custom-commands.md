@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925646"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 MongoDB에 대 한 Azure Cosmos DB API에 저장 된 데이터를 관리 합니다. 
@@ -129,7 +129,7 @@ Get database 확장 명령을 데이터베이스 개체를 반환 합니다. 데
 |**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   응답의 상태입니다. 1 성공 = =. 0 == failure.      |
-| `database`    |    `string`        |   데이터베이스 이름      |
+| `database`    |    `string`        |   데이터베이스의 이름입니다.      |
 |   `provisionedThroughput`  |    `int`      |    데이터베이스에 설정 된 프로 비전 된 처리량입니다. 이 선택적 응답 매개 변수입니다.     |
 
 명령이 실패 하는 경우 기본 사용자 지정 명령 응답이 반환 됩니다. 참조를 [기본 출력](#default-output) 출력 매개 변수 사용자 지정 명령입니다.
@@ -163,7 +163,7 @@ Create 컬렉션 확장 명령에는 새 MongoDB 컬렉션을 만듭니다. 데�
 |**필드**|**형식** |**설명** |
 |---------|---------|---------|
 | customAction    | 문자열 | 사용자 지정 명령 이름입니다. "CreateCollection" 여야 합니다.     |
-| collection      | 문자열 | 컬렉션의 이름                                   |
+| 컬렉션(collection)      | 문자열 | 컬렉션의 이름                                   |
 | offerThroughput | int    | 데이터베이스에 설정 하려면 프로 비전 된 처리량입니다. 이 선택적 매개 변수 |
 | shardKey        | 문자열 | 분할 된 컬렉션을 만드는 분할 된 데이터베이스 키 경로입니다. 이 선택적 매개 변수 |
 
@@ -208,7 +208,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 |**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  customAction   |   문자열      |   사용자 지정 명령 이름입니다. "UpdateCollection" 여야 합니다.      |
-|  collection   |   문자열      |   컬렉션의 이름입니다.       |
+|  컬렉션(collection)   |   문자열      |   컬렉션의 이름입니다.       |
 | offerThroughput   |int|   프로 비전 된 처리량 컬렉션에 설정할 수 있습니다.|
 
 ## <a name="output"></a>출력
@@ -243,7 +243,7 @@ Get 컬렉션 사용자 지정 명령 컬렉션 개체를 반환합니다.
 |**필드**|**형식** |**설명** |
 |---------|---------|---------|
 | customAction    |   문자열      |   사용자 지정 명령 이름입니다. "GetCollection" 여야 합니다.      |
-| collection    |    문자열     |    컬렉션의 이름입니다.     |
+| 컬렉션(collection)    |    문자열     |    컬렉션의 이름입니다.     |
 
 ### <a name="output"></a>출력
 
@@ -253,7 +253,7 @@ Get 컬렉션 사용자 지정 명령 컬렉션 개체를 반환합니다.
 |**필드**|**형식** |**설명** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   응답의 상태입니다. 1 성공 = =. 0 == failure.      |
-| `database`    |    `string`     |   데이터베이스 이름      |
+| `database`    |    `string`     |   데이터베이스의 이름입니다.      |
 | `collection`    |    `string`     |    컬렉션의 이름입니다.     |
 |  `shardKeyDefinition`   |   `document`      |  인덱스 사양 문서를 분할 키로 사용 합니다. 이 선택적 응답 매개 변수입니다.       |
 |  `provisionedThroughput`   |   `int`      |    프로 비전 된 처리량 컬렉션에 설정할 수 있습니다. 이 선택적 응답 매개 변수입니다.     |

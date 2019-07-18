@@ -10,11 +10,11 @@ ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 26789a12053fa6275b09836e706c391e181c8efd
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429999"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181982"
 ---
 ## <a name="create-a-function"></a>함수 만들기
 

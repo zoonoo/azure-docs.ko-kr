@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60919665"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>경고 및 스마트 그룹 상태 관리
@@ -47,3 +47,4 @@ Azure Monitor의 경고에는 이제 [경고 상태 및 모니터 조건](https:
 
 1. 완료되면 상태 변경이 각 스마트 그룹의 히스토리에 기록됩니다. 이 내용은 각 [세부사항] 페이지를 열고 히스토리 섹션을 확인하여 볼 수 있습니다.     
 ![모니터링](./media/alerts-managing-alert-states/state-sg-history.jpg)
+

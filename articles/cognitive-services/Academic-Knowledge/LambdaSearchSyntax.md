@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873209"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61337791"
 ---
 # <a name="lambda-search-syntax"></a>람다 검색 구문
 
@@ -91,7 +91,7 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 ##### <a name="bool-dicedouble-p"></a>bool dice(double p)
 
-0.0보다 크거나 같고 1.0보다 작은 임의의 수를 반환합니다. 이 함수는 숫자가 *p*보다 작거나 같은 경우에만 *true*를 반환합니다.
+0\.0보다 크거나 같고 1.0보다 작은 임의의 수를 반환합니다. 이 함수는 숫자가 *p*보다 작거나 같은 경우에만 *true*를 반환합니다.
 
 *람다* 검색은 *json* 검색보다 표현성이 강합니다. C# 람다 식을 직접 사용하여 쿼리 패턴을 지정할 수 있습니다. 다음은 두 가지 예입니다.
 

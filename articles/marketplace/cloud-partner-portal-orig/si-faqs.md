@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943083"
 ---
 <a name="seller-insights-faq"></a>Seller Insights FAQ
@@ -41,7 +41,7 @@ ms.locfileid: "64943083"
 <a name="calculate-revenue-by-customer-usage-period"></a>고객 사용 기간별 매출 계산
 ------------------------------------------
 
-트랜잭션을 지급 모듈에서을 다운로드 한 후 레이블이 지정 된 열을 찾습니다 **트랜잭션 상태**, "유료" 값을 필터링 합니다.   각 트랜잭션이 나열, 이라는 열에 대 한 **지급 금액 (PC)** 는 귀하가 지불한 된 금액을 나타냅니다.  트랜잭션과 관련 된 사용 기간을 계산 하려면 열을 사용 하 여 **청구 날짜**, 트랜잭션이 적용 되는 기간에 대 한 사용량의 마지막 날의 근사치는 합니다.
+트랜잭션을 지급 모듈에서을 다운로드 한 후 레이블이 지정 된 열을 찾습니다 **트랜잭션 상태**, "유료" 값을 필터링 합니다.   각 트랜잭션이 나열, 이라는 열에 대 한 **지급 금액 (PC)**  는 귀하가 지불한 된 금액을 나타냅니다.  트랜잭션과 관련 된 사용 기간을 계산 하려면 열을 사용 하 여 **청구 날짜**, 트랜잭션이 적용 되는 기간에 대 한 사용량의 마지막 날의 근사치는 합니다.
 
 
 <a name="calculate-your-bad-debt"></a>회수 불능 금액 계산

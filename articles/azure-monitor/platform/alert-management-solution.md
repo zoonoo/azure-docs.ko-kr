@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60777035"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
@@ -87,7 +87,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 솔루션은 System Center Operations Manager에서 경고를 가져오며 유형이 **경고**이고 SourceSystem이 **OpsManager**인 각 경고에 대해 해당 레코드를 만듭니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--- |:--- |
 | Type |*경고* |
 | SourceSystem |*OpsManager* |

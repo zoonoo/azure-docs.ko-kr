@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059452"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
 
@@ -39,9 +39,6 @@ HDInsight에 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 �
 
 **Windows 기반 클러스터**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 **요구 사항**
 
 * 스크립트는 **헤드 노드** 및 **작업자 노드** 모두에 적용되어야 합니다.
@@ -55,7 +52,7 @@ HDInsight에 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 �
   > [!NOTE]  
   > 이 문서에서는 사용자가 이미 저장소 계정과 BLOB 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
   >
-  > 저장소 계정을 만들지 않은 경우 [Azure Portal](https://portal.azure.com)을 통해 수행할 수 있습니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 유틸리티를 사용하여 계정에 컨테이너를 만들고 파일을 업로드할 수 있습니다.
+  > 저장소 계정을 만들지 않은 경우 [Azure Portal](https://portal.azure.com)을 통해 수행할 수 있습니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 유틸리티를 사용하여 계정에 컨테이너를 만들고 파일을 업로드할 수 있습니다.
 
 ## <a name="create-a-cluster-using-the-script"></a>스크립트를 사용하여 클러스터 만들기
 

@@ -4,17 +4,17 @@ description: 그래픽 작성을 통해 코드 작업 없이 Azure Automation에
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740821"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476685"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -44,7 +44,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 라이브러리 컨트롤은 Runbook에 추가할 [활동](#activities) 을 선택하는 곳입니다. 이를 다른 활동에 연결하는 캔버스에 추가할 수 있습니다. 라이브러리 컨트롤은 다음 표에 설명된 4개의 섹션으로 구성됩니다.
 
-| 섹션 | 설명 |
+| Section | 설명 |
 |:--- |:--- |
 | Cmdlet |Runbook에서 사용할 수 있는 모든 cmdlet을 포함합니다. 이러한 cmdlet은 모듈별로 구성됩니다. 자동화 계정에 설치한 모든 모듈을 사용할 수 있습니다. |
 | Runbook |자동화 계정의 Runbook을 포함합니다. 이러한 runbook을 자식 runbook으로 사용될 캔버스에 추가할 수 있습니다. 편집 중인 runbook인 동일한 코어 유형의 runbook만 표시됩니다. 그래픽 runbook의 경우 PowerShell 기반 runbook만 표시되는 반면 그래픽 PowerShell 워크플로 runbook의 경우 PowerShell 워크플로 기반 runbook만 표시됩니다. |
@@ -142,7 +142,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 | 자산 | 설명 |
 |:--- |:--- |
 | NumberOfAttempts |활동이 실행된 횟수입니다. |
-| 출력 |활동의 마지막 실행에서 출력입니다. |
+| Output |활동의 마지막 실행에서 출력입니다. |
 | TotalDuration |작업이 처음으로 시작된 이후 경과된 시간입니다. |
 | StartedAt |작업을 처음으로 시작한 UTC 형식의 시간입니다. |
 
@@ -322,9 +322,9 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--- |:--- |
-| 이름 |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
+| Name |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
 | 설명 |입력 매개 변수에 대한 선택적 설명입니다. |
 | Type |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 |매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |

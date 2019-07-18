@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311835"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
@@ -46,7 +46,7 @@ ms.locfileid: "60311835"
 2. 위쪽에 있는 **고급 설정** 탭으로 전환하고 다음 작업을 수행합니다.
     1. VM이 있는 가상 네트워크를 변경하려면 **VNet 변경**을 선택합니다.
     2. 서브넷을 변경하려면 **서브넷 변경**을 선택합니다.
-    3. VM의 IP 주소가 **공용, 사설 또는 공유**인지 여부를 지정합니다.
+    3. VM의 IP 주소가 **공용, 프라이빗 또는 공유**인지 여부를 지정합니다.
     4. VM을 자동으로 삭제하려면 **만료 날짜 및 시간**을 지정합니다.
     5. 랩 사용자가 VM을 클레임할 수 있도록 하려면 **이 머신을 클레임 가능하도록 설정** 옵션에 대해 **예**를 선택합니다.
     6. 랩 사용자가 사용할 수 있게 하려는 **VM의 인스턴스 수**를 지정합니다.

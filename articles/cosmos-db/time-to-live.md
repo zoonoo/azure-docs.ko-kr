@@ -4,15 +4,15 @@ description: TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729004"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447238"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의에서 TTL ()를 지속 시간 
 
@@ -22,7 +22,7 @@ ms.locfileid: "60729004"
 
 시간 제한 값 (초), 집합과 항목을 마지막으로 수정한 시간 델타로 해석 됩니다. TTL(Time to Live)은 컨테이너 또는 컨테이너 내 항목에서 설정할 수 있습니다.
 
-1. **컨테이너에서 TTL(Time to Live)**(`DefaultTimeToLive` 사용하여 설정):
+1. **컨테이너에서 TTL(Time to Live)** (`DefaultTimeToLive` 사용하여 설정):
 
    - 누락(또는 null로 설정)되는 경우 항목이 자동으로 삭제되지 않습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "60729004"
 
    - 표시 되 고 값을 특정 수로 설정 되어 있으면 *"n"* – 항목이 만료 됩니다 *"n"* 가 마지막으로 수정한 시간 후 시간 (초)입니다.
 
-2. **항목에서 TTL(Time to Live)**(`ttl` 사용하여 설정):
+2. **항목에서 TTL(Time to Live)** (`ttl` 사용하여 설정):
 
    - 이 속성은 `DefaultTimeToLive`가 표시되고 부모 컨테이너에 대해 null로 설정되지 않은 경우에만 적용할 수 있습니다.
 
@@ -45,6 +45,42 @@ ms.locfileid: "60729004"
 * 컨테이너에서 TTL이 -1로 설정된 경우 TTL(Time to Live)이 n으로 설정된 이 컨테이너의 항목은 n초 후에 만료되고 나머지 항목은 만료되지 않습니다. 
 
 TTL을 기준으로 항목을 삭제하는 것은 무료입니다. TTL 만료의 결과로 항목을 삭제하는 경우 추가 비용은 청구되지 않습니다(즉, 추가 RU 없음).
+
+## <a name="examples"></a>예
+
+이 섹션에서는 다른 time-to-live 컨테이너 및 항목에 할당 된 값을 사용 하 여 몇 가지 예를 보여 줍니다.
+
+### <a name="example-1"></a>예 1
+
+컨테이너에서 TTL 설정 되어 null로 (DefaultTimeToLive = null)
+
+|항목에서 TTL| 결과|
+|---|---|
+|ttl = null|    TTL 사용 되지 않습니다. 항목 (기본값)를 만료 되지 않습니다.|
+|ttl = -1   |TTL 사용 되지 않습니다. 항목이 만료 되지 않습니다.|
+|ttl = 2000 |TTL 사용 되지 않습니다. 항목이 만료 되지 않습니다.|
+
+
+### <a name="example-2"></a>예 2
+
+컨테이너에서 TTL은-1로 설정 됩니다 (DefaultTimeToLive =-1)
+
+|항목에서 TTL| 결과|
+|---|---|
+|ttl = null |TTL 사용 됩니다. 항목 (기본값)를 만료 되지 않습니다.|
+|ttl = -1   |TTL 사용 됩니다. 항목이 만료 되지 않습니다.|
+|ttl = 2000 |TTL 사용 됩니다. 항목 2000 초 후에 만료 됩니다.|
+
+
+### <a name="example-3"></a>예 3
+
+컨테이너에서 TTL 1000으로 설정 됩니다 (DefaultTimeToLive = 1000)
+
+|항목에서 TTL| 결과|
+|---|---|
+|ttl = null|    TTL 사용 됩니다. 항목은 1,000 초 (기본값)이 지나면 만료 됩니다.|
+|ttl = -1   |TTL 사용 됩니다. 항목이 만료 되지 않습니다.|
+|ttl = 2000 |TTL 사용 됩니다. 항목 2000 초 후에 만료 됩니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808852"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -76,23 +76,30 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 2. PowerShell을 관리자 권한으로 실행합니다.
 
+   >[!NOTE]
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
 4. 이 시점에서 IoT Core 장치 수 자동으로 다시 시작 합니다. 다른 Windows 10 또는 Windows Server 장치에서 다시 시작할 것인지 묻는 메시지를 표시할 수 있습니다. 그렇다면 이제 장치 다시 시작 합니다. 일단 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-5. 합니다 **Initialize IoTEdge** 명령은 컴퓨터에서 IoT Edge 런타임을 구성 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 수동 프로 비전 기본값으로 사용 됩니다. 
+5. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
-6. 메시지가 표시 되 면 1 단계에서 검색 된 장치 연결 문자열을 제공 합니다. IoT Hub에서 장치 ID를 사용 하 여 물리적 장치를 연결 하는 장치 연결 문자열입니다. 
+6. 메시지가 표시되면 1단계에서 검색된 장치 연결 문자열을 제공합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결합니다. 
 
    장치 연결 문자열을 다음 형식으로 및 따옴표를 포함 하지 않아야 합니다. `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
@@ -101,7 +108,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 디바이스를 수동으로 설치하고 프로비전하는 경우 추가 매개 변수를 사용하여 다음과 같이 설치를 수정할 수 있습니다.
 * 트래픽이 프록시 서버를 통과하도록 설정
 * 설치 관리자에서 오프라인 디렉터리를 확인하도록 설정
-* 특정 에이전트 컨테이너 이미지를 선언하고, 개인 레지스트리에 있는 경우 자격 증명 제공
+* 특정 에이전트 컨테이너 이미지를 선언하고, 프라이빗 레지스트리에 있는 경우 자격 증명 제공
 
 이러한 설치 옵션에 대 한 자세한 내용은 건너 뛰 세요에 대해 자세히 알아보려면 [모든 설치 매개 변수](#all-installation-parameters)합니다.
 
@@ -111,26 +118,33 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 다음 예제에서는 Windows 컨테이너를 사용 하 여 자동 설치를 보여 줍니다.
 
-1. [Windows에서 시뮬레이션된 TPM Edge 디바이스 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md)의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 디바이스를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치의 IoT hub에 등록 되 면 설치 단계를 사용 하 여 계속 합니다.  
+1. 단계에 따라 [만들기 및 Windows에서 시뮬레이션된 된 TPM IoT Edge 장치를 프로 비전](how-to-auto-provision-simulated-device-windows.md) Device Provisioning Service 설정 및 검색 하려면 해당 **범위 ID**를 TPM 장치를 시뮬레이션 하 고 해당 검색**등록 ID**, 개별 등록을 만듭니다. 장치의 IoT hub에 등록 되 면 설치 단계를 사용 하 여 계속 합니다.  
 
    >[!TIP]
    >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
 
 2. PowerShell을 관리자 권한으로 실행합니다.
 
+   >[!NOTE]
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
 4. 이 시점에서 IoT Core 장치 수 자동으로 다시 시작 합니다. 다른 Windows 10 또는 Windows Server 장치에서 다시 시작할 것인지 묻는 메시지를 표시할 수 있습니다. 그렇다면 이제 장치 다시 시작 합니다. 일단 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-6. 합니다 **Initialize IoTEdge** 명령은 컴퓨터에서 IoT Edge 런타임을 구성 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 수동 프로 비전 기본값으로 사용 됩니다. 사용 된 `-Dps` 수동 프로 비전 하는 대신 Device Provisioning Service를 사용 하는 플래그입니다.
+6. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 사용 된 `-Dps` 수동 프로 비전 하는 대신 Device Provisioning Service를 사용 하는 플래그입니다.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -141,7 +155,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 디바이스를 수동으로 설치하고 프로비전하는 경우 추가 매개 변수를 사용하여 다음과 같이 설치를 수정할 수 있습니다.
 * 트래픽이 프록시 서버를 통과하도록 설정
 * 설치 관리자에서 오프라인 디렉터리를 확인하도록 설정
-* 특정 에이전트 컨테이너 이미지를 선언하고, 개인 레지스트리에 있는 경우 자격 증명 제공
+* 특정 에이전트 컨테이너 이미지를 선언하고, 프라이빗 레지스트리에 있는 경우 자격 증명 제공
 
 이러한 설치 옵션에 대한 자세한 내용을 보려면 이 문서를 계속 읽거나 [모든 설치 매개 변수](#all-installation-parameters)에 대한 자세한 정보로 건너뛰세요.
 
@@ -158,7 +172,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 오프 라인 구성 요소를 설치 하려면 사용 된 `-OfflineInstallationPath` 매개 변수는 배포 IoTEdge의 일부로 명령 및 파일 디렉터리의 절대 경로 제공 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -166,7 +180,7 @@ Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시 됩니다.  
+IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시되어야 합니다.  
 
 ```powershell
 Get-Service iotedge
@@ -175,7 +189,7 @@ Get-Service iotedge
 최근 5분 간의 서비스 로그를 검사합니다. IoT Edge 런타임 설치를 완료, 실행 간격에서 발생 한 오류 목록이 표시 될 수 있습니다 **배포 IoTEdge** 하 고 **Initialize IoTEdge**합니다. 이러한 오류는 서비스를 구성 하기 전에 시작 하려고으로 예상 됩니다. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 실행 중인 모듈을 나열합니다. 새로 설치를 실행 하는 것을 표시만 모듈 뒤 **edge 에이전트**합니다. 한 후 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md), 다른 사용자가 표시 됩니다. 
@@ -219,7 +233,7 @@ URI 엔진 설치 스크립트의 출력에 나열 된 또는 config.yaml 파일
 다음 예제는 기존 구성 파일을 가리키고 Windows 컨테이너를 사용하는 설치를 보여 줍니다. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 
@@ -262,7 +276,7 @@ Uninstall-IoTEdge
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-초기화 IoTEdge 명령에 장치 연결 문자열 및 세부 정보를 사용 하 여 IoT Edge를 구성합니다. 이 명령에 의해 생성 된 정보의 상당 그러면 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령이 특히 이러한 일반 매개 변수를 허용합니다. 전체 목록에 대 한 명령줄을 사용 하 여 `Get-Help Initialize-IoTEdge -full`입니다. 
+초기화 IoTEdge 명령에 장치 연결 문자열 및 세부 정보를 사용 하 여 IoT Edge를 구성합니다. 이 명령에 의해 생성 된 정보의 상당 그러면 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령이 특히 이러한 일반 매개 변수를 허용합니다. 전체 목록에 대 한 명령을 사용 하 여 `Get-Help Initialize-IoTEdge -full`입니다. 
 
 | 매개 변수 | 허용되는 값 | 설명 |
 | --------- | --------------- | -------- |
@@ -274,8 +288,8 @@ Uninstall-IoTEdge
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 없는 지정 된 경우 Windows 기본 값입니다.<br><br>Windows 컨테이너에 대 한 IoT Edge 설치에 포함 된 모 비 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **AgentImage** | IoT Edge 에이전트 이미지 URI | 기본적으로 새 IoT Edge 설치는 IoT Edge 에이전트 이미지에 대한 최신 롤링 태그를 사용합니다. 이 매개 변수를 사용하여 이미지 버전에 대한 특정 태그를 설정하거나 사용자 고유의 에이전트 이미지를 제공합니다. 자세한 내용은 [IoT Edge 태그 이해](how-to-update-iot-edge.md#understand-iot-edge-tags)를 참조하세요. |
-| **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 개인 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
-| **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 개인 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. | 
+| **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
+| **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. | 
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 

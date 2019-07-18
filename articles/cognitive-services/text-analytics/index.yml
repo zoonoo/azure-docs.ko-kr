@@ -52,7 +52,7 @@ sections:
             href: quickstarts/csharp
           - image:
               src: media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: quickstarts/java
           - image:
               src: media/index/logo_nodejs.svg

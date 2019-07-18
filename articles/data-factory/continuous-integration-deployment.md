@@ -3,20 +3,21 @@ title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트 |
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
+author: gauravmalhot
 ms.author: gamal
+ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002696"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
@@ -60,7 +61,7 @@ Data Factory UI에서 Azure Repos GIT 통합을 사용하도록 설정한 후에
 
 1.  그런 다음, 개발자는 파이프라인 등의 리소스를 수정할 수 있습니다. 수정하는 경우 **디버그**를 선택하여 가장 최근 변경 내용을 사용하여 파이프라인을 실행하는 방법을 확인할 수 있습니다.
 
-1.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 공동 작업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
+1.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 협업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
 
 1.  변경 내용이 마스터 분기에 있다면 **게시**를 선택하여 개발 팩터리에 게시할 수 있습니다.
 
@@ -1208,6 +1209,6 @@ Git을 구성하지 않은 경우 연결된 템플릿은 **ARM 템플릿 내보�
 
 -   데이터 팩터리 엔터티는 서로 종속되어 있으므로 개별 리소스를 게시할 수 없습니다. 예를 들어, 트리거는 파이프라인에 종속되고, 파이프라인은 데이터 세트 및 다른 파이프라인 등에 종속됩니다. 변경 종속성을 추적하는 것은 어렵습니다. 수동으로 게시할 리소스를 선택할 수 있으면 전체 변경 내용 집합의 하위 집합만 선택할 수 있으며, 이는 게시 후 예기치 않은 동작으로 이어질 수 있습니다.
 
--   개인 분기에서 게시할 수 없습니다.
+-   프라이빗 분기에서 게시할 수 없습니다.
 
 -   Bitbucket에서 프로젝트를 호스팅할 수 없습니다.

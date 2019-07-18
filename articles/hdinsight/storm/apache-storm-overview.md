@@ -6,27 +6,25 @@ ms.reviewer: jasonh
 keywords: Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/27/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696105"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483830"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
 [Apache Storm](https://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](https://hadoop.apache.org/)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
-
 ## <a name="why-use-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm을 사용해야 하는 이유
 
 HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
-* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
+* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__ : 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
 * 생성 중 또는 생성 후에 Storm 클러스터에 대해 스크립트를 실행하여 손쉬운 사용자 지정을 지원합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -38,8 +36,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 * **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
 
-    > [!NOTE]  
-    > 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
+    * 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
 
 * **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다.
 
@@ -47,7 +44,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
 
-Storm 사용 시작을 참조 하세요 [HDInsight의 Apache Storm을 사용 하 여 시작][gettingstarted]합니다.
+Storm 사용을 시작하려면 [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](apache-storm-quickstart.md)을 참조하세요.
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm의 작동 방식
 
@@ -71,7 +68,7 @@ Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습�
 
 ## <a name="ease-of-creation"></a>만들기 편의성
 
-HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다. Storm 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Storm 시작](apache-storm-tutorial-get-started-linux.md)을 참조하세요.
+HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다. Storm 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ## <a name="ease-of-use"></a>사용 편의성
 
@@ -85,7 +82,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 * __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
-* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 만드는 프로젝트 템플릿이 포함 되어 C# 는 SCP.NET framework를 사용 하 여 토폴로지를 Storm. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
+* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.NET Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
 
   자세한 내용은 [HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
@@ -141,7 +138,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-입력된 튜플을 읽고 0 개 이상의 튜플을 내보내는 다음 실행 메서드 끝에 즉시 입력된 튜플을 승인 패턴이 일반적입니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
+입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
 ### <a name="joins"></a>조인
 
@@ -149,7 +146,9 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 다음 Java 예제에서는 fieldsGrouping을 사용하여 구성 요소 "1", "2", "3"에서 생성된 튜플을 MyJoiner Bolt로 라우팅합니다.
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Batch
 
@@ -177,10 +176,5 @@ Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여
 
 HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자세히 알아봅니다.
 
-* [HDInsight의 Apache Storm 시작][gettingstarted]
+* [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](apache-storm-quickstart.md)
 * [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

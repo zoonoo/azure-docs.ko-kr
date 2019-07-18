@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603097"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
@@ -74,9 +74,9 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 8. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
 
 > [!NOTE]
-> 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
+> 데이터 센터 국가/지역) (내 로컬 배송에 대 한 공유 국내 운송 업체 계정 
 >
-> (외부 데이터 센터 국가) abroad 배송에 대 한 공유는 국제 운송 업체 계정
+> 데이터 센터 국가/지역) (외부 abroad 배송에 대 한 공유는 국제 운송 업체 계정
 
  ![그림 1: 가져오기 작업 흐름](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 10. 드라이브는 운송업체 계정을 사용하여 가져오기 작업에 제공된 반송 주소로 배송됩니다.
 
 > [!NOTE]
-> 로컬(데이터 센터 국가 내) 배송의 경우 국내 운송업체 계정 공유 
+> 데이터 센터 국가/지역) (내 로컬 배송에 대 한 공유 국내 운송 업체 계정 
 >
-> (외부 데이터 센터 국가) abroad 배송에 대 한 공유는 국제 운송 업체 계정
+> 데이터 센터 국가/지역) (외부 abroad 배송에 대 한 공유는 국제 운송 업체 계정
   
  ![그림 2: 내보내기 작업 흐름](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Azure Import/Export 서비스는 모든 Azure 저장소 계정으로의 데이�
 ### <a name="supported-shipping-locations"></a>지원되는 발송 위치
 
 
-|국가  |국가  |국가  |국가  |
+|국가/지역  |국가/지역  |국가/지역  |국가/지역  |
 |---------|---------|---------|---------|
 |미국 동부    | 북유럽        | 인도 중부        |미국 정부 아이오와         |
 |미국 서부     |서유럽         | 인도 남부        | 미국 국방부 동부        |
@@ -160,7 +160,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-데이터를 Azure Storage로 가져올 때 표준 스토리지 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob Storage에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+[표준 저장소 트랜잭션 요금](https://azure.microsoft.com/pricing/details/storage/) 가져오기 뿐만 아니라 데이터의 내보내기 중에 적용 합니다. Azure Storage에서 데이터를 내보낼 때는 표준 송신 요금이 함께 storage 트랜잭션 요금이 적용 됩니다. 송신 비용에 대 한 자세한 내용은 참조 하세요. [데이터 전송 가격 책정.](https://azure.microsoft.com/pricing/details/data-transfers/)합니다.
 
 
 

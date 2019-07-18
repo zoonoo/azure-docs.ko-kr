@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145955"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304592"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -62,7 +62,7 @@ Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure Firewall이 Marketplace의 NVA와 같은 기존 서비스와 어떻게 다르게 작동하나요?
 
-Azure Firewall은 특정 고객 시나리오를 해결할 수 있는 기본 방화벽 서비스입니다. 타사 NVA와 Azure Firewall이 혼합되어 있을 것으로 예상됩니다. 함께 잘 작동하는 것이 가장 중요합니다.
+Azure Firewall은 특정 고객 시나리오를 해결할 수 있는 기본 방화벽 서비스입니다. 다양 한 타사 Nva 및 Azure 방화벽을 해야 하는 예상 됩니다. 함께 잘 작동하는 것이 가장 중요합니다.
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Application Gateway WAF와 Azure Firewall의 차이점은 무엇인가요?
 
@@ -71,6 +71,10 @@ WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>NSG(네트워크 보안 그룹)와 Azure Firewall의 차이점은 무엇입니까?
 
 Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다. 그뿐 아니라 더 나은 "심층 방어" 네트워크 보안을 제공합니다. 네트워크 보안 그룹은 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다. Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 가상 네트워크에 네트워크 및 애플리케이션 수준의 보호를 제공합니다.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Azure 방화벽 서브넷에 네트워크 보안 그룹 (Nsg)가 지원 되나요?
+
+Azure 방화벽을 관리 되는 서비스 (볼 수 없는) NIC 수준 Nsg 사용 하 여 플랫폼 보호를 비롯 한 여러 보호 계층을 사용 합니다.  서브넷 수준 Nsg Azure 방화벽 서브넷에서 불필요 하 고 서비스 중단 되지 않도록 하기 위해 비활성화 됩니다.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
@@ -87,7 +91,7 @@ Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습
 예를 들면 다음과 같습니다.
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
@@ -119,13 +123,17 @@ Azure 방화벽 서비스 제한에 대 한 참조 [Azure 구독 및 서비스 �
 
 예. 그러나 동일한 VNET의 서브넷 간 트래픽을 리디렉션할 Udr 구성 추가 주의가 필요 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET**의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
 
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>개인 네트워크 사이의 Azure 방화벽 아웃 바운드 SNAT 하나요?
+
+대상 IP 주소는 당 개인 IP 범위를 하는 경우 azure 방화벽 하지 SNAT [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)합니다. 개인 네트워크에 대 한 공용 IP 주소 범위를 사용 하는 조직, 하는 경우 방화벽 개인 IP 중 하나에 트래픽을 Azure 방화벽 SNATs AzureFirewallSubnet의 주소입니다.
+
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>강제 터널링 연결 지원 되는 네트워크 가상 어플라이언스로?
 
-기본적으로 강제 터널링은 지원 되지 않지만 지원의 도움으로 사용할 수 있습니다.
+강제 터널링 기본적으로 지원 되지 않습니다 하지만 지원의 도움으로 사용할 수 있습니다.
 
-Azure 방화벽에는 직접 인터넷 연결이 있어야 합니다. 프로그램 AzureFirewallSubnet 학습 기본 경로가 BGP 통해 온-프레미스 네트워크에이 사용 하 여 0.0.0.0/0 UDR을 사용 하 여 재정의 해야 합니다 **NextHopType** 값으로 설정 됩니다 **인터넷** 직접 유지 관리 인터넷에 연결 합니다. 기본적으로 Azure 방화벽 온-프레미스 네트워크에 강제 터널링을 지원 하지 않습니다.
+Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다. 기본적으로 Azure Firewall은 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 않습니다.
 
-그러나 구성에 필요한 온-프레미스 네트워크에 강제 터널링을 경우 Microsoft는 지원에서 상황별으로. 에서는 사례를 검토할 수 있도록 지원에 문의 합니다. 수락 된 경우에서는 허용 목록 구독 하 고 필요한 방화벽 인터넷 연결이 유지 되도록 합니다.
+그러나 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요한 경우 Microsoft는 사례별로 지원할 예정입니다. 사용자의 사례를 검토할 수 있도록 지원 부서에 연락해주시기 바랍니다. 수락 된 경우에서는 구독을 허용 하 고 필요한 방화벽 인터넷 연결이 유지 되도록 합니다.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
 
@@ -137,7 +145,7 @@ Azure 방화벽에는 직접 인터넷 연결이 있어야 합니다. 프로그�
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드 카드는 응용 프로그램 규칙 대상 FQDN에서에서 어떻게 작동 하나요?
 
-구성 하는 경우 ***. contoso.com**, 있도록 *anyvalue*. contoso.com 있지만 contoso.com (도메인 루트)이 아니라 합니다. 도메인 루트를 허용 하려는 경우 FQDN 대상으로 명시적으로 구성 해야 합니다.
+구성 하는 경우 * **. contoso.com**, 있도록 *anyvalue*. contoso.com 있지만 contoso.com (도메인 루트)이 아니라 합니다. 도메인 루트를 허용 하려는 경우 FQDN 대상으로 명시적으로 구성 해야 합니다.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>용도 *프로 비전 상태: 실패 한* 의미?
 

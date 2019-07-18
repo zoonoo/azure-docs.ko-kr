@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577382"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
@@ -41,7 +41,7 @@ ms.locfileid: "60577382"
 
 동일한 디바이스로 장애 조치(failover)해야 하는 경우 다음 단계를 수행합니다.
 
-1. 디바이스에서 모든 볼륨의 클라우드 스냅숏을 마련합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
+1. 디바이스에서 모든 볼륨의 클라우드 스냅샷을 마련합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
 2. 디바이스를 공장 기본값으로 다시 설정합니다. [StorSimple 디바이스를 공장 기본 설정으로 다시 설정하는 방법](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings)의 자세한 지침에 따릅니다.
 3. StorSimple 디바이스 관리자 서비스로 이동한 다음 **디바이스**를 선택합니다. **디바이스** 블레이드에서 이전 디바이스는 **오프라인**으로 표시되어야 합니다.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 06/10/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 00f1677e2691f9be5bb4584b07ca00340a52b1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056440"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>가상 네트워크 게이트웨이 SKU(레거시 SKU) 사용
 
@@ -29,6 +29,8 @@ ms.locfileid: "56417315"
 ## <a name="gwsku"></a>게이트웨이 SKU
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
+
+레거시 게이트웨이 가격 책정을 볼 수 있습니다는 **Virtual Network 게이트웨이** 섹션에는 [ExpressRoute 가격 책정 페이지](https://azure.microsoft.com/pricing/details/expressroute)합니다.
 
 ## <a name="agg"></a>SKU 기준으로 예상된 총 처리량
 

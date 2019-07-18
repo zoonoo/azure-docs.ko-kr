@@ -2,7 +2,8 @@
 title: 빠른 시작 - Azure Portal을 사용하여 고가용성 애플리케이션을 위한 Traffic Manager 프로필 만들기
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: allensu
+ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051002"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
 
@@ -53,7 +54,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | ------- | ----- |
     | App Service 계획 | *myAppServicePlanEastUS*를 입력합니다. |
     | 위치 | 미국 동부 |
-    | 가격 책정 계층  | S1 표준 |
+    | 가격 책정 계층 | S1 표준 |
 
 6. **확인**을 선택합니다.
 
@@ -70,7 +71,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | 게시 | 게시하려는 형식으로 **코드**를 선택합니다. |
     | App Service 계획/위치 | *myAppServicePlanWestEurope*을 입력합니다. |
     | 위치 | 서유럽 |
-    | 가격 책정 계층  | S1 표준 |
+    | 가격 책정 계층 | S1 표준 |
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 

@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61340522"
 ---
 # <a name="affiliation-entity"></a>Affiliation 엔터티
 
 <sub> *다음 특성은 Affiliation 엔터티에 한정됩니다. (Ty = '5') </sub>
 
-Name    |설명                            |Type       | 작업
+이름    |설명                            |Type       | 작업
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                              |Int64      |같음
-AfN     |소속의 정규화된 이름        |문자열     |같음
-DAfN    |소속 표시 이름       |문자열     |없음
+AfN     |소속의 정규화된 이름        |String     |같음
+DAfN    |소속 표시 이름       |String     |없음
 CC      |소속의 총 인용 횟수           |Int32      |없음  
 ECC     |소속의 총 예상 인용 횟수 |Int32      |없음
 

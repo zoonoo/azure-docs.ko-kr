@@ -16,10 +16,10 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory 통합
@@ -140,7 +140,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/benselect-tutorial/tutorial_benselect_configure.png) 
 
-1. **BenSelect** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(원시)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [BenSelect 지원팀](mailto:support@selerix.com)으로 보내야 합니다.
+1. **BenSelect** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(원시)** , **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [BenSelect 지원팀](mailto:support@selerix.com)으로 보내야 합니다.
 
    >[!NOTE]
    >app2101 등과 같은 해당 서버에서 SSO를 설정할 수 있도록 이 통합에 SHA256 알고리즘(SHA1은 지원되지 않음)이 필요하다는 내용을 언급해야 합니다. 
@@ -175,7 +175,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  

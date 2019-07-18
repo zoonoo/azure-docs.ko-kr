@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: danlep
 ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827462"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
-Azure Container Registry에서 개인 리포지토리를 사용하여 다음 콘텐츠 서식 중 하나를 관리합니다. 
+Azure Container Registry에서 프라이빗 리포지토리를 사용하여 다음 콘텐츠 서식 중 하나를 관리합니다. 
 
 ## <a name="docker-compatible-container-images"></a>Docker 호환 컨테이너 이미지
 

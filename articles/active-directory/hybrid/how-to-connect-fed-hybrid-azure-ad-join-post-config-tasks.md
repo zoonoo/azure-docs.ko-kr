@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244588"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
@@ -63,7 +63,7 @@ SCP(서비스 연결점)는 디바이스에서 자동 등록에 사용하는 Azu
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Windows 하위 수준 디바이스에 Azure AD Seamless SSO 사용
 
-조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 Azure AD Seamless SSO를 사용하여 Windows 하위 수준 디바이스를 인증합니다(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 Azure AD Seamless SSO를 사용하여 Windows 하위 수준 디바이스를 인증합니다(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso ). 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Windows 하위 수준 디바이스에 대한 Azure AD 정책 설정
 
@@ -76,13 +76,13 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 디바이스�
 
 ## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Windows 하위 수준 디바이스에 Azure AD 엔드포인트 추가
 
-디바이스를 인증할 때 인증서 프롬프트가 나타나지 않도록 Windows 하위 수준 디바이스의 로컬 인트라넷 영역에 Azure AD 디바이스 인증 엔드포인트를 추가합니다(https://device.login.microsoftonline.com). 
+디바이스를 인증할 때 인증서 프롬프트가 나타나지 않도록 Windows 하위 수준 디바이스의 로컬 인트라넷 영역에 Azure AD 디바이스 인증 엔드포인트를 추가합니다(https://device.login.microsoftonline.com ). 
 
 [Seamless SSO](how-to-connect-sso.md)를 사용하는 경우 해당 영역에서 "스크립트를 통해 상태 표시줄 업데이트 허용"을 설정하고 https://autologon.microsoftazuread-sso.com 엔드포인트를 추가합니다. 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Windows 하위 수준 디바이스에 Microsoft Workplace Join을 설치합니다.
 
-이 설치 관리자는 디바이스 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 디바이스를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/download/details.aspx?id=53554에 있습니다. 
+이 설치 관리자는 디바이스 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 디바이스를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/download/details.aspx?id=53554 에 있습니다. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. 디바이스 등록을 허용하도록 그룹 정책을 구성합니다.
 

@@ -10,10 +10,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712673"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
@@ -103,8 +103,8 @@ waiting for AAD role to propagate.done
 ## <a name="install-and-configure-draft"></a>Draft 설치 및 구성
 
 
-1. https://github.com/Azure/draft/releases에서 환경에 맞는 Draft를 다운로드하고 명령을 사용할 수 있도록 PATH에 설치합니다.
-2. https://github.com/kubernetes/helm/releases에서 환경에 맞는 Helm을 다운로드하고 [명령을 사용할 수 있도록 PATH에 설치합니다](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. https://github.com/Azure/draft/releases 에서 환경에 맞는 Draft를 다운로드하고 명령을 사용할 수 있도록 PATH에 설치합니다.
+2. https://github.com/kubernetes/helm/releases 에서 환경에 맞는 Helm을 다운로드하고 [명령을 사용할 수 있도록 PATH에 설치합니다](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Draft를 구성하여 레지스트리를 사용하고 만든 각 Helm 차트에 대한 하위 도메인을 만듭니다. Draft을 구성하려면 다음이 필요합니다.
    - Azure Container Registry 이름(이 예제에서는 `draftacsdemo`)
    - 레지스트리 키 또는 암호(`az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` 명령 사용)

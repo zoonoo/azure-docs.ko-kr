@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691516"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 저장소 모범 사례
@@ -46,7 +46,7 @@ Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 �
 
 Azure Storage는 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 실수로 수정되거나 삭제될 때 데이터를 복구할 수 있도록 [Blob 개체에 대한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md)를 제공합니다.
 
-[Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)을 만들 수 있습니다. 스냅숏은 특정 시점에 생성된 Blob의 읽기 전용 버전이며 Blob을 백업하는 방법을 제공합니다. 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다.
+[Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)을 만들 수 있습니다. 스냅샷은 특정 시점에 생성된 Blob의 읽기 전용 버전이며 Blob을 백업하는 방법을 제공합니다. 스냅샷이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다.
 
 > [!Note]
 > "Wasbs" 인증서가 없는 온-프레미스 Hadoop 배포판의 이전 버전의 경우 Java 트러스트 저장소로 가져와야 합니다.

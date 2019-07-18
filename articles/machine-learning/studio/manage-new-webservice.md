@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861738"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio 웹 서비스 포털을 사용하여 웹 서비스 관리
@@ -96,7 +96,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **업그레이드/다운그레이드** 를 사용하면 기존 계획을 "강화"하여 용량을 추가할 수 있습니다.
 * **삭제** 를 사용하면 계획을 삭제할 수 있습니다.
 
-계획을 클릭하면 해당 대시보드를 볼 수 있습니다. 대시보드는 선택한 기간 동안 스냅숏 또는 계획 사용량을 제공합니다. 기간을 선택하려면 대시보드 오른쪽 위의 **기간** 드롭다운을 클릭합니다. 
+계획을 클릭하면 해당 대시보드를 볼 수 있습니다. 대시보드는 선택한 기간 동안 스냅샷 또는 계획 사용량을 제공합니다. 기간을 선택하려면 대시보드 오른쪽 위의 **기간** 드롭다운을 클릭합니다. 
 
 계획 대시보드에서는 다음 정보를 제공합니다.
 

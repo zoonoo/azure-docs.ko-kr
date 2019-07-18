@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710402"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
@@ -21,7 +21,7 @@ ms.locfileid: "64710402"
 이 문서에서는 3.0 이상 버전의 Linux 진단 확장에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 2.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
+> 2\.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -55,7 +55,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 * **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
-* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
+* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 
@@ -232,7 +232,7 @@ JsonBlob 싱크로 전달되는 데이터는 Azure Storage의 Blob에 저장됩�
 요소 | 값
 ------- | -----
 StorageAccount | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다. [보호 설정](#protected-settings)에서 지정된 이름과 동일해야 합니다.
-mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 동일해야 합니다. 공용 값은 개인 값(설정된 경우)으로 재정의됩니다. [보호 설정](#protected-settings)에서 비밀(예: 암호)을 포함하는 프록시 설정을 배치합니다.
+mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 동일해야 합니다. 공용 값은 프라이빗 값(설정된 경우)으로 재정의됩니다. [보호 설정](#protected-settings)에서 비밀(예: 암호)을 포함하는 프록시 설정을 배치합니다.
 
 남아 있는 요소는 다음 섹션에 자세히 설명되어 있습니다.
 
@@ -539,7 +539,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 ### <a name="privateconfigjson"></a>PrivateConfig.json
 
-개인 설정은 다음을 구성합니다.
+프라이빗 설정은 다음을 구성합니다.
 
 * 저장소 계정
 * 일치하는 계정 SAS 토큰
@@ -699,7 +699,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 * Visual Studio 서버 탐색기.
 * [Microsoft Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage 탐색기").
 
-Microsoft Azure Storage 탐색기의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
+Microsoft Azure Storage Explore의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
 ![이미지](./media/diagnostics-linux/stg_explorer.png)
 

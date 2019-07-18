@@ -2,16 +2,16 @@
 title: Azure DNS 위임 개요
 description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다.
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 2/19/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 2/19/2019
+ms.author: victorh
+ms.topic: conceptual
 ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563161"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
@@ -22,7 +22,7 @@ Azure DNS를 사용하면 DNS 영역을 호스트하고 Azure에서 도메인에
 
 ### <a name="domains-and-zones"></a>도메인 및 영역
 
-Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 '**.**'인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 ' **.** '인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  이러한 최상위 수준 도메인 아래는 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인입니다.  방식으로 계속됩니다. DNS 계층 구조의 도메인은 별도의 DNS 영역을 사용하여 호스트됩니다. 이러한 영역은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스트됩니다.
 
 **DNS 영역** - 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com'). DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 여러 DNS 레코드를 포함할 수 있습니다.
 

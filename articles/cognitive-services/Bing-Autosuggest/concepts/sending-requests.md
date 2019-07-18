@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 597ef48fd7499a9d33b214b182d6dd1354756cdf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011635"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542634"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
 
-애플리케이션에서 Bing Search API에 쿼리를 보내는 경우 Bing Autosuggest API를 사용하여 사용자의 검색 환경을 개선할 수 있습니다. Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 애플리케이션의 검색 상자에 문자를 입력하면 제안이 드롭다운 목록으로 표시될 수 있습니다. 이 문서에서는 이 API에 요청을 전송하는 방법을 자세히 알아봅니다.
+애플리케이션에서 Bing Search API에 쿼리를 보내는 경우 Bing Autosuggest API를 사용하여 사용자의 검색 환경을 개선할 수 있습니다. Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 애플리케이션의 검색 상자에 문자를 입력하면 제안이 드롭다운 목록으로 표시될 수 있습니다. 이 문서에서는 이 API에 요청을 전송하는 방법을 자세히 알아봅니다. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Bing Autosuggest API 엔드포인트
 
@@ -33,7 +33,7 @@ Bing API를 사용하여 제안된 쿼리를 가져오려면 `GET` 요청을 다
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
+헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
 
 **Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.
 모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
@@ -44,7 +44,7 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 ## <a name="bing-autosuggest-api-requests"></a>Bing Autosuggest API 요청
 
 > [!NOTE]
-> Bing Autosuggest API에 대한 요청은 HTTPS 프로토콜을 사용해야 합니다.
+> * Bing Autosuggest API에 대한 요청은 HTTPS 프로토콜을 사용해야 합니다.
 
 모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 애플리케이션의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 애플리케이션에 액세스할 가능성이 높아집니다. 또한 서버에서 호출하면 향후 업데이트를 위한 단일 업그레이드 지점이 제공됩니다.
 
@@ -95,11 +95,13 @@ HTML 파일에서 Bing Autosuggest API 엔드포인트를 다음으로 변경합
 
 Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했으며 Bing에서 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우에만 클라이언트 ID 헤더를 포함합니다.
 
-다음은 이전 요청에 대한 응답을 보여 줍니다. 응답에는 검색 쿼리 제안 목록을 포함하는 웹 제안 그룹이 포함됩니다. 각 제안에는 `displayText`, `query` 및 `url` 필드가 포함됩니다.
+다음 웹 제안 그룹은 위 요청에 대한 응답입니다. 그룹에는 각각에 `displayText`, `query` 및 `url` 필드가 있는 검색 쿼리 제안의 목록이 포함됩니다.
 
 `displayText` 필드에는 검색 상자의 드롭다운 목록을 채우는 데 사용하는 제안된 쿼리가 포함됩니다. 응답에 포함된 모든 제안을 지정된 순서대로 표시해야 합니다.  
 
-사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다. 다음 예제에서는 Bing Web Search API를 사용합니다.
+사용자가 드롭다운 목록에서 쿼리를 선택하면 이 쿼리를 사용하여 [Bing Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) 중 하나를 호출하고 결과를 직접 표시하거나, 반환된 `url` 필드를 사용하여 사용자를 Bing 결과 페이지로 보낼 수 있습니다.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -168,5 +170,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>다음 단계
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Bing Autosuggest API에서 제안된 검색어 가져오기](get-suggestions.md)

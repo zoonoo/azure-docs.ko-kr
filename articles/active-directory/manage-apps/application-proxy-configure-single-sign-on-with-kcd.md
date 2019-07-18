@@ -3,25 +3,25 @@ title: 애플리케이션 프록시를 사용하는 Single Sign-On | Microsoft D
 description: Azure AD 애플리케이션 프록시를 사용하여 Single Sign-On을 제공하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: celested
+ms.date: 05/17/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65859617"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -59,7 +59,8 @@ Active Directory 구성은 애플리케이션 프록시 커넥터와 애플리�
 2. 커넥터를 실행하는 서버를 선택합니다.
 3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
 4. **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 선택합니다. 
-5. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 애플리케이션 서버의 SPN ID 값을 추가합니다. 그러면 애플리케이션 프록시 커넥터가 목록에 정의된 애플리케이션에 대해 AD에서 사용자를 가장할 수 있습니다.
+5. 선택 **모든 인증 프로토콜을 사용 하 여**입니다.
+6. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 애플리케이션 서버의 SPN ID 값을 추가합니다. 그러면 애플리케이션 프록시 커넥터가 목록에 정의된 애플리케이션에 대해 AD에서 사용자를 가장할 수 있습니다.
 
    ![커넥터 SVR 속성 창 스크린샷](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

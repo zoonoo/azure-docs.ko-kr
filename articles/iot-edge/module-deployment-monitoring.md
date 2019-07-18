@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318209"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
@@ -58,7 +58,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 * 이미지 및 컨테이너 레지스트리
 * 데이터 입력 및 출력 경로 
 
-모듈 이미지가 개인 컨테이너 레지스트리에 저장된 경우 IoT Edge 에이전트는 레지스트리 자격 증명을 보관합니다. 
+모듈 이미지가 프라이빗 컨테이너 레지스트리에 저장된 경우 IoT Edge 에이전트는 레지스트리 자격 증명을 보관합니다. 
 
 ### <a name="target-condition"></a>대상 조건
 

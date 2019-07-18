@@ -4,17 +4,17 @@ description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/22/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701769"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477910"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -55,13 +55,15 @@ Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에�
 
    * *AutomationAccountName*(필수): Automation 계정의 이름입니다.
    * *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름입니다.
-   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다. 
+   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름입니다. 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다.
    * *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름입니다.
    * *SubscriptionID*(필수): Automation 계정이 있는 Azure 구독 ID입니다.
    * *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름입니다. Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
 
-     > [!NOTE]
-     > Azure Monitor 로그와의 통합에 대 한 지원만 Automation 지역에는 현재 **오스트레일리아 남동부**를 **미국 동부 2**합니다 **동남 아시아**, 및 **유럽 서 부**합니다. 이러한 영역 중 하나에 Automation 계정에 없는 경우 스크립트에서 Log Analytics 작업 영역을 만들지만 연결할 수 없다고 경고합니다.
+   > [!NOTE]
+   > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
+   >
+   > 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
 
 2. 컴퓨터에서 관리자 모드의 **시작** 화면에서 **Windows PowerShell**을 엽니다.
 3. PowerShell 명령줄 셸에서 다운로드한 스크립트가 포함된 폴더로 이동합니다. *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* 및 *-WorkspaceName* 매개 변수의 값을 변경합니다. 그런 다음, 스크립트를 실행합니다.

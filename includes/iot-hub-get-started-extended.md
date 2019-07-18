@@ -9,11 +9,11 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398685"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182313"
 ---
 ## <a name="extended-iot-scenarios"></a>확장된 IoT 시나리오
 

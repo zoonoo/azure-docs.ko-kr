@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60612038"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Azure IoT Edge에 대한 보안 표준
@@ -50,7 +50,7 @@ IoT 솔루션을 배포할 때는 신뢰할 수 있는 행위자, 장치 및 모
 
 ### <a name="static-attestation"></a>정적 증명
 
-정적 증명은 디바이스 전원을 켤 때 운영 체제, 모든 런타임 및 구성 정보를 포함한 디바이스의 모든 소프트웨어 무결성을 확인합니다. 종종 보안 부팅이라고도 합니다. Azure IoT Edge 디바이스의 보안 프레임워크는 제조업체까지 확장되고, 정적 증명 프로세스를 보장하는 보안 하드웨어 기능을 통합합니다. 이러한 프로세스에는 보안 부팅 및 보안 펌웨어 업그레이드가 포함됩니다.  실리콘 공급업체와의 긴밀한 협력을 통해 불필요한 펌웨어 계층을 제거하여 위협 측면을 최소화합니다. 
+정적 증명은 디바이스 전원을 켤 때 운영 체제, 모든 런타임 및 구성 정보를 포함한 디바이스의 모든 소프트웨어 무결성을 확인합니다. 종종 보안 부팅이라고도 합니다. Azure IoT Edge 디바이스의 보안 프레임워크는 제조업체까지 확장되고, 정적 증명 프로세스를 보장하는 보안 하드웨어 기능을 통합합니다. 이러한 프로세스에는 보안 부팅 및 보안 펌웨어 업그레이드가 포함됩니다.  실리콘 공급업체와의 긴밀한 협업을 통해 불필요한 펌웨어 계층을 제거하여 위협 측면을 최소화합니다. 
 
 ### <a name="runtime-attestation"></a>런타임 증명
 

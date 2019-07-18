@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory 통합
 
@@ -184,7 +184,7 @@ Mimecast Personal Portal에서 Azure AD Single Sign-On을 구성하려면 다음
    
     f. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    g. Azure Portal에서 다운로드한 **base-64**로 인코딩된 인증서를 메모장에서 열고 콘텐츠를 클립보드에 복사한 다음 **Identity Provider Certificate (Metadata)**(ID 공급자 인증서)(Metadata) 텍스트 상자에 붙여넣습니다.
+    g. Azure Portal에서 다운로드한 **base-64**로 인코딩된 인증서를 메모장에서 열고 콘텐츠를 클립보드에 복사한 다음 **Identity Provider Certificate (Metadata)** (ID 공급자 인증서)(Metadata) 텍스트 상자에 붙여넣습니다.
 
     h. **Single Sign-On 허용**을 선택합니다.
    

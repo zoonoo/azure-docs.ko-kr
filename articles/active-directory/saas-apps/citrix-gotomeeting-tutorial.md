@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faf82918619301335f191d39453d317dcf5988b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6068a8d2d50521d8513a2ebad5a62649ef61b1e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>자습서: GoToMeeting과 Azure Active Directory 통합
 

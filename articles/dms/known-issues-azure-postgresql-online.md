@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691945"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
@@ -27,7 +27,7 @@ ms.locfileid: "64691945"
 - 같은 버전의 마이그레이션만 지원됩니다. 예를 들어 PostgreSQL 9.5.11을 Azure Database for PostgreSQL 9.6.7로 마이그레이션할 수는 없습니다.
 
     > [!NOTE]
-    > PostgreSQL 버전 10에 대 한 현재 DMS 지원 PostgreSQL 용 Azure 데이터베이스로 10.3 버전의 마이그레이션. 가능한 한 빨리 최신 버전의 PostgreSQL 지원 하도록 계획 합니다.
+    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다. 가능한 한 빨리 최신 버전의 PostgreSQL 지원 하도록 계획 합니다.
 
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
     - **wal_level** = logical

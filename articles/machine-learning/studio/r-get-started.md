@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726555"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>R 프로그래밍 언어에서 Azure Machine Learning Studio를 사용 하 여 시작
@@ -133,7 +133,7 @@ RStudio는 r 널리 사용 되는 IDE 편집, 테스트 및 디버깅 하는이 
 
 데스크톱 컴퓨터에 R 프로그래밍 언어가 설치되어 있지 않으면 지금 설치하는 것이 좋습니다. 오픈 소스 R 언어는 광범위한 R 보관 네트워크 또는 [https://www.r-project.org/](https://www.r-project.org/)의 CRAN에서 무료로 다운로드할 수 있습니다. Windows, Mac OS, Linux/UNIX용 다운로드가 있습니다. 인접한 미러를 선택하고 다운로드 지침을 따르세요. 또한 CRAN에는 유용한 분석 및 데이터 조작 패키지가 풍부하게 들어 있습니다.
 
-RStudio를 처음 사용하는 경우에는 데스크톱 버전을 다운로드하고 설치해야 합니다. Windows, Mac OS 및 Linux/UNIX용 RStudio 다운로드는 http://www.rstudio.com/products/RStudio/에서 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.  
+RStudio를 처음 사용하는 경우에는 데스크톱 버전을 다운로드하고 설치해야 합니다. Windows, Mac OS 및 Linux/UNIX용 RStudio 다운로드는 http://www.rstudio.com/products/RStudio/ 에서 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.  
 
 RStudio에 대 한 자습서 소개에서 제공 됩니다 [RStudio IDE를 사용 하 여](https://support.rstudio.com/hc/sections/200107586-Using-RStudio)입니다.
 
@@ -930,7 +930,7 @@ outframe
 
 코드의 첫 번째 줄이 조금 어려워서 약간의 설명이 줄을 이해하는 데 도움이 됩니다. 다음과 같이 안의 함수에서 바깥의 함수 순서로 처리합니다.
 
-1. 인수가 '**1**'인 '**[[**' 연산자는 ccf 개체 목록의 첫 번째 요소의 지연에서 상관관계의 벡터를 선택합니다.
+1. 인수가 '**1**'인 ' **[[** ' 연산자는 ccf 개체 목록의 첫 번째 요소의 지연에서 상관관계의 벡터를 선택합니다.
 2. `do.call()` 함수는 `lapply()`가 반환하는 목록의 요소에 `rbind()` 함수를 적용합니다.
 3. `data.frame()` 함수는 `do.call()`에 의해 생성된 결과를 데이터 프레임에 강제 반환합니다.
 

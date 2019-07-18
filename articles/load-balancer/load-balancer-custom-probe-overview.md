@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65415700"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -30,7 +30,7 @@ Azure Load Balancer는 부하 분산 규칙에 사용하기 위한 상태 프로
 | | 표준 SKU | 기본 SKU |
 | --- | --- | --- |
 | [상태 프로브 유형](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [프로브 다운 동작](#probedown) | 모든 프로브가 다운되고, 모든 TCP 흐름이 계속됩니다. | 모든 프로브가 다운되고, 모든 TCP 흐름이 종료됩니다. | 
+| [프로브 다운 동작](#probedown) | 모든 프로브가 다운되고, 모든 TCP 흐름이 계속됩니다. | 아래로 모든 프로브 모든 TCP 흐름에 만료 됩니다. | 
 
 > [!IMPORTANT]
 > Load Balancer 상태 프로브는 168.63.129.16 IP 주소에서 시작되며, 프로브에서 인스턴스를 표시하기 위해 차단되지 않아야 합니다.  자세한 내용은 [원본 IP 주소 프로브](#probesource)를 검토하세요.
@@ -178,7 +178,7 @@ Load Balancer는 내부 상태 모델에 분산 프로빙 서비스를 사용합
 
 AzureLoadBalancer 서비스 태그는 [네트워크 보안 그룹](../virtual-network/security-overview.md)에서 이 원본 IP 주소를 식별하고 기본적으로 상태 프로브 트래픽을 허용합니다.
 
-이 IP 주소는 Load Balancer 상태 프로브 외에도 다음 작업에서 사용합니다.
+부하 분산 장치 상태 프로브를 외에 [IP 주소를 사용 하는 다음 작업](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - VM 에이전트에서 플랫폼과 통신하도록 설정하여 "준비" 상태에 있음을 알립니다.
 - DNS 가상 서버와 통신하도록 설정하여 사용자 지정 DNS 서버를 정의하지 않은 고객에게 필터링된 이름 확인을 제공합니다.  이 필터링을 통해 고객은 배포의 호스트 이름만 확인할 수 있습니다.
@@ -204,7 +204,7 @@ Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 A
 
 상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 
-168.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
+168\.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
 
 VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로브에 응답하도록 보장해야 합니다.  인터페이스당 VM에서 이 주소를 변환하려면 네트워크 주소를 소싱해야 할 수 있습니다.
 

@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1037d8d4652f238f03d8e80b0c59a5f396ab5605
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480126"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445727"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Azure Portal의 알림 허브에서 푸시 알림 설정
 
-Azure Notification Hubs는 사용하기 쉽고 확장 가능한 푸시 엔진을 제공합니다. Notification Hubs를 사용하여 모든 플랫폼(iOS, Android, Windows, Kindle, Baidu) 및 백 엔드(클라우드 또는 온-프레미스)에 알림을 보냅니다. 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)를 참조하세요.
+Azure Notification Hubs는 사용하기 쉽고 확장 가능한 푸시 엔진을 제공합니다. Notification Hubs를 사용하여 모든 플랫폼(iOS, Android, Windows, Baidu) 및 백 엔드(클라우드 또는 온-프레미스)에 알림을 보냅니다. 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 Notification Hubs의 PNS(플랫폼 알림 시스템) 설정을 사용하여 여러 플랫폼에서 푸시 알림을 설정합니다. 빠른 시작은 Azure Portal에서 수행할 단계를 보여줍니다.
 
@@ -95,17 +95,6 @@ Windows Phone용 MPNS(Microsoft Push Notification Service)를 설정하려면 �
 
 자세한 내용은 [Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림](notification-hubs-windows-mobile-push-notifications-mpns.md)을 참조하세요.
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-ADM(Amazon Device Messaging)에 대한 푸시 알림을 설정하려면 다음을 수행합니다.
-
-1. Azure Portal의 **알림 허브** 페이지 왼쪽 메뉴에서 **Amazon(ADM)** 을 선택합니다.
-2. **클라이언트 ID** 및 **클라이언트 비밀**에 대한 값을 입력합니다.
-3. **저장**을 선택합니다.
-    
-   ![Azure Portal의 ADM 설정 스크린샷](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-자세한 내용은 [Kindle 앱용 Notification Hubs 시작](notification-hubs-kindle-amazon-adm-push-notification.md)을 참조하세요.
 
 ## <a name="baidu-android-china"></a>Baidu(Android China)
 
@@ -131,5 +120,4 @@ Baidu용 푸시 알림을 설정하려면 다음을 수행합니다.
 - [Notification Hubs 및 Google FCM을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Windows 디바이스에서 실행 중인 UWP 앱에 알림 푸시](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [MPNS를 사용하여 Windows Phone 8 앱에 푸시 알림](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Kindle 애플리케이션에 푸시 알림](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Notification Hubs 및 Baidu 클라우드 푸시를 사용하여 푸시 알림](notification-hubs-baidu-china-android-notifications-get-started.md)

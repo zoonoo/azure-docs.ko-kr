@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 86d1cf5e103bcbb13782aa7a2a84092aa426d670
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754308"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182842"
 ---
 이러한 모범 사례 염두에 두십시오.
 

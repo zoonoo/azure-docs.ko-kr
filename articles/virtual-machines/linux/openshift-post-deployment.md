@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771365"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
-OpenShift 클러스터를 배포한 후에는 추가 항목을 구성할 수 있습니다. 이 문서에서는 다음 내용을 설명합니다.
+OpenShift 클러스터를 배포한 후에는 추가 항목을 구성할 수 있습니다. 이 문에서는 다음과 같은 내용을 설명합니다.
 
 - Azure AD(Azure Active Directory)를 사용하여 Single Sign-On을 구성하는 방법
 - OpenShift를 모니터링 하려면 Azure Monitor 로그를 구성 하는 방법
@@ -203,7 +203,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 Open Service Broker for Azure 또는 OSBA를 사용하여 OpenShift에서 직접 Azure Cloud Services를 프로비전할 수 있습니다. OSBA는 Azure에서 구현된 Open Service Broker API입니다. Open Service Broker API는 클라우드 기본 애플리케이션이 잠금 없이 클라우드 서비스를 관리하는 데 사용할 수 있는 클라우드 공급자에 대한 공용 언어를 정의하는 사양입니다.
 
-OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template의 지침을 따르세요. 
+OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template 의 지침을 따르세요. 
 > [!NOTE]
 > 만 OpenShift 프로젝트 템플릿 섹션 및 전체 설치 섹션의 단계를 완료 합니다.
 

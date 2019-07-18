@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108783"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 
@@ -30,8 +30,6 @@ ms.locfileid: "60294239"
 
 이 취약점으로 인이 한 조직에서 Azure Multi-factor Authentication의 배포를 평가 하는 데 도움이 됩니다.
 
-MFA에 대 한 등록 되지 않은 사용자가 클릭에 대 한 개수를 보려면 취약점을 보완 하 고 Identity 보안 점수 내 통계로 리디렉션됩니다.
-
 Azure Multi-factor Authentication 사용자 인증에 대 한 보안의 두 번째 계층을 제공합니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. Azure Multi-factor Authentication과 같은 사용 하기 쉬운 확인 옵션을 제공합니다.
 
 * 전화 통화
@@ -39,11 +37,11 @@ Azure Multi-factor Authentication 사용자 인증에 대 한 보안의 두 번�
 * 모바일 앱 알림
 * OTP 인증 코드
 
-사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다. 다단계 인증은 ID 보호를 통해 사용할 수 있는 위험 기반 조건부 액세스 정책에서 중요한 역할을 합니다.
+사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다. Multi-factor authentication에서 Id 보호를 통해 사용할 수 있는 조건부 액세스 정책 위험 기반 키 역할을 합니다.
 
 자세한 내용은 [Azure Multi-Factor Authentication이란?](../authentication/multi-factor-authentication.md)을 참조하세요.
 
-## <a name="unmanaged-cloud-apps"></a>관리되지 않는 클라우드 앱
+## <a name="unmanaged-cloud-apps"></a>관리되지 않은 클라우드 앱
 
 이 취약점을 사용하면 조직에서 관리되지 않은 클라우드 앱을 식별할 수 있습니다.
 
@@ -53,7 +51,7 @@ IT 직원에 게 종종 조직에서 모든 클라우드 응용 프로그램의 
 
 자세한 내용은 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)를 참조하세요.
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management의 보안 경고
+## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management에서 보안 경고
 
 이 취약점을 사용하여 조직에서 권한있는 ID에 대한 경고를 검색하고 해결할 수 있습니다.  
 

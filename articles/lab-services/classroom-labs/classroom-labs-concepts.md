@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067385"
 ---
 # <a name="classroom-labs-concepts"></a>클래스룸 랩 개념
 다음은 Lab Services의 주요 개념 및 정의 포함 되어 있습니다.
 
 ## <a name="quota"></a>할당량
-할당량은 제한 시간 (시간)에서 교사 설정할 수 있는 랩 VM을 사용 하는 학생에 대 한 합니다. 0, 무제한 또는 특정 시간 기간을 설정할 수 있습니다. 할당량을 0으로 설정 하는 경우 학생만 사용할 수 가상 컴퓨터 또는 교사 수동으로 바뀐 경우 가상 머신에서 학생에 대 한 일정을 실행 중인 경우.
+할당량은 제한 시간 (시간)에서 교사 설정할 수 있는 랩 VM을 사용 하는 학생에 대 한 합니다. 0 또는 특정 시간 기간을 설정할 수 있습니다. 할당량을 0으로 설정 하는 경우 학생만 사용할 수 가상 컴퓨터 또는 교사 수동으로 바뀐 경우 가상 머신에서 학생에 대 한 일정을 실행 중인 경우.
  
 ## <a name="schedules"></a>일정
 일정은 교사 클래스를 만들 수 있는 시간 슬롯 (한 번 또는 되풀이)입니다. 처음부터 일정에 자동으로 시작 되는 랩의 모든 virtual machines 및 일정 끝날 때 중지 합니다. 할당량 시간 일정에 실행 중일 때 사용 되지 않습니다.

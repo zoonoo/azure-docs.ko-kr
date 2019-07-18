@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471951"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
@@ -182,7 +182,7 @@ workflow AddPublicIPAndNSG {
     }
     ```
 
-각 복구 계획마다 개별 변수를 만들어 스크립트를 다시 사용할 수 있도록 합니다. 복구 계획 이름을 사용하여 접두사를 추가합니다. 이 시나리오에 대한 종단 간 전체 스크립트는 [Site Recovery 복구 계획의 테스트 장애 조치 중에 VM에 공용 IP 및 NSG 추가](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)를 참조하세요.
+각 복구 계획마다 개별 변수를 만들어 스크립트를 다시 사용할 수 있도록 합니다. 복구 계획 이름을 사용하여 접두사를 추가합니다. 이 시나리오에 대한 엔드투엔드 전체 스크립트는 [Site Recovery 복구 계획의 테스트 장애 조치 중에 VM에 공용 IP 및 NSG 추가](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)를 참조하세요.
 
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522080"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606941"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -37,22 +37,22 @@ ms.locfileid: "58522080"
 - [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 웹 사이트에 가입하고 사용자 지정 태그를 만듭니다. 이 단계에 대한 도움말이 필요하면 [태그 사용](Review-Tool-User-Guide/tags.md)을 참조하세요.
 
     ![비디오 조정 사용자 지정 태그 스크린샷](images/video-tutorial-custom-tags.png)
-- 샘플 애플리케이션을 실행하려면 Azure 계정, Azure Media Services 리소스, Azure Content Moderator 리소스 및 Azure Active Directory 자격 증명이 필요합니다. 이러한 항목을 가져오는 방법에 대한 지침은 [비디오 조정 API](video-moderation-api.md) 가이드를 참조하세요.
+- 샘플 애플리케이션을 실행하려면 Azure 계정, Azure Media Services 리소스, Azure Content Moderator 리소스 및 Azure Active Directory 자격 증명이 필요합니다. 이러한 리소스를 가져오는 방법에 대한 지침은 [비디오 조정 API](video-moderation-api.md) 가이드를 참조하세요.
 - GitHub에서 [비디오 검토 콘솔 애플리케이션](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)을 다운로드합니다.
 
 ## <a name="enter-credentials"></a>자격 증명 입력
 
 `App.config` 파일을 편집하고 Active Directory 테넌트 이름, 서비스 엔드포인트 및 `#####`에서 표시한 구독 키를 추가합니다. 다음 정보가 필요합니다.
 
-    |키|설명|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|AMS(Azure Media Services) API에 대한 엔드포인트|
-    |`ClientSecret`|Azure Media Services에 대한 구독 키|
-    |`ClientId`|Azure Media Services에 대한 클라이언트 ID|
-    |`AzureAdTenantName`|소속 조직을 나타내는 Active Directory 테넌트 이름|
-    |`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 검토 API에 대한 구독 키|
-    |`ContentModeratorApiEndpoint`|Content Moderator API에 대한 엔드포인트|
-    |`ContentModeratorTeamId`|Content Moderator 팀 ID|
+|키|설명|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|AMS(Azure Media Services) API에 대한 엔드포인트|
+|`ClientSecret`|Azure Media Services에 대한 구독 키|
+|`ClientId`|Azure Media Services에 대한 클라이언트 ID|
+|`AzureAdTenantName`|소속 조직을 나타내는 Active Directory 테넌트 이름|
+|`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 검토 API에 대한 구독 키|
+|`ContentModeratorApiEndpoint`|Content Moderator API에 대한 엔드포인트|
+|`ContentModeratorTeamId`|Content Moderator 팀 ID|
 
 ## <a name="examine-the-main-code"></a>기본 코드 검사
 
@@ -225,7 +225,7 @@ ms.locfileid: "58522080"
 > [!NOTE]
 > 콘솔 애플리케이션은 [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2)를 사용하여 업로드된 비디오의 오디오 트랙에서 대본을 생성합니다. 결과는 WebVTT 형식으로 제공됩니다. 이 형식에 대한 자세한 내용은 [Web Video Text Tracks 형식](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)을 참조하세요.
 
-## <a name="create-a-the-human-in-the-loop-review"></a>사람이 개입된(human-in-the-loop) 검토 만들기
+## <a name="create-a-human-review"></a>휴먼 검토 만들기
 
 조정 프로세스는 비디오에서 오디오 트랙의 대본과 함께 키 프레임 목록을 반환합니다. 다음 단계는 사람 조정자를 위해 Content Moderator 검토 도구에서 검토를 만드는 것입니다. `Program.cs`의 `ProcessVideo()` 메서드로 돌아가 `CreateVideoReviewInContentModerator()` 메서드에 대한 호출을 봅니다. 이 메서드는 `VideoReviewAPI.cs`에 있는 `videoReviewApi` 클래스에 있으며, 여기에 표시됩니다.
 

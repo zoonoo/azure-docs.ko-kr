@@ -6,23 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683744"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448900"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 ML Services 및 오픈 소스 기능 소개
-
-> [!NOTE]  
-> 2017년 9월 Microsoft R Server가 **Microsoft Machine Learning Server** 또는 ML Server라는 새로운 이름으로 릴리스되었습니다. 이 때문에 HDInsight의 R Server 클러스터를 이제 HDInsight의 **Machine Learning Services** 또는 **ML Services**라고 합니다. R Server 이름 변경에 대한 자세한 내용은 [Microsoft R Server가 이제 Microsoft Machine Learning Server임](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server)을 참조하세요.
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
 Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services**라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 집합에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
 
@@ -32,13 +27,13 @@ HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거�
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight에서 ML Services 시작
 
-Azure HDInsight에 ML Services 클러스터를 만들려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 **ML Services** 클러스터 유형을 선택합니다. ML Services 클러스터 유형으로 클러스터의 데이터 노드에 있는 ML Services 및 ML Services 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 ML Server가 있습니다. 클러스터를 만드는 방법에 대한 연습은 [HDInsight의 ML Services 시작](r-server-get-started.md)을 참조하세요.
+Azure HDInsight에 ML Services 클러스터를 만들려면 Azure Portal을 사용하여 HDInsight 클러스터를 만들 때 **ML Services** 클러스터 유형을 선택합니다. ML Services 클러스터 유형으로 클러스터의 데이터 노드에 있는 ML Services 및 ML Services 기반 분석을 위한 연결 영역으로서 에지 노드에 있는 ML Server가 있습니다. 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>HDInsight에서 ML Services를 사용하는 이유
 
 HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
 
-### <a name="ai-innovation-from-microsoft-and-open-source"></a>Microsoft 및 오픈-소스의 AI 혁신 
+### <a name="ai-innovation-from-microsoft-and-open-source"></a>Microsoft 및 오픈-소스의 AI 혁신
 
   ML Services에는 [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) 및 [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package)과 같이 실제 메모리보다 더 큰 데이터에 작동할 수 있고, 광범위한 플랫폼에서 분산 방식으로 실행될 수 있는 고도로 확장 가능한 풍부한 분산 알고리즘 집합을 포함합니다. 이 제품에 포함되어 있는 Microsoft의 사용자 지정 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) 및 [Python 패키지](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) 모음에 대해 자세히 알아보세요.
   
@@ -73,13 +68,13 @@ HDInsight의 ML Services에는 다음 기능이 포함됩니다.
 
 HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 스토리지는 Azure Storage 계정 또는 Azure Data Lake Storage와 연결될 수 있습니다. 이러한 연결을 통해 분석 중에 클러스터 저장소에 업로드되는 모든 데이터가 영구적으로 유지되고, 클러스터를 삭제한 후에도 해당 데이터를 사용할 수 있습니다. 저장소 계정의 포털 기반 업로드 기능과 [AzCopy](../../storage/common/storage-use-azcopy.md) 유틸리티를 포함하여 선택한 저장소 옵션에 대한 데이터 전송을 처리할 수 있는 다양한 도구가 있습니다.
 
-사용 중인 기본 저장소 옵션과 관계없이 클러스터 프로비전 프로세스 중에 추가 Blob 및 Data Lake Store에 대한 액세스를 구현하는 옵션이 있습니다. 추가 계정에 액세스 추가에 대한 자세한 내용은 [HDInsight의 ML Services 시작](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)을 참조하세요. 여러 스토리지 계정 사용에 대해 자세히 알아보려면 [HDInsight의 ML Services에 대한 Azure Storage 옵션](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) 문서를 참조하세요.
+사용 중인 기본 저장소 옵션과 관계없이 클러스터 프로비전 프로세스 중에 추가 Blob 및 Data Lake Store에 대한 액세스를 구현하는 옵션이 있습니다.  여러 스토리지 계정 사용에 대해 자세히 알아보려면 [HDInsight의 ML Services에 대한 Azure Storage 옵션](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) 문서를 참조하세요.
 
 [Azure 파일](../../storage/files/storage-how-to-use-files-linux.md) 을 에지 노드용 저장소 옵션으로 사용할 수도 있습니다. Azure 파일을 사용하면 Azure Storage에서 만든 파일 공유를 Linux 파일 시스템에 마운트할 수 있습니다. HDInsight 클러스터의 ML Services에 대한 데이터 스토리지 옵션에 대한 자세한 내용은 [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)을 참조하세요.
 
 ## <a name="access-ml-services-edge-node"></a>ML Services 에지 노드 액세스
 
-브라우저를 사용하여 에지 노드의 Microsoft ML Server에 연결할 수 있습니다. 클러스터를 만드는 동안 기본적으로 설치됩니다. 자세한 내용은 [HDInsight에서 ML Services 시작](r-server-get-started.md)을 참조하세요. R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 클러스터 에지 노드에 연결할 수도 있습니다.
+브라우저를 사용하여 에지 노드의 Microsoft ML Server에 연결할 수 있습니다. 클러스터를 만드는 동안 기본적으로 설치됩니다.  R 콘솔에 액세스하기 위해 SSH/PuTTY를 사용하여 명령줄에서 클러스터 에지 노드에 연결할 수도 있습니다.
 
 ## <a name="develop-and-run-r-scripts"></a>R 스크립트 개발 및 실행
 
@@ -147,6 +142,6 @@ ML Services HDInsight 클러스터와 연관된 요금은 다른 HDInsight 클�
 
 HDInsight 클러스터에서 ML Services를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [HDInsight에서 ML Services 클러스터 시작](r-server-get-started.md)
-* [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)
+* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 ML Services 클러스터에 대한 저장소 옵션](r-server-storage.md)

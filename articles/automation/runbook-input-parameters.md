@@ -4,17 +4,17 @@ description: Runbook 입력 매개 변수는 Runbook이 시작될 때 Runbook에
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fb89af0363ddc25f2bccfa1169834aa856e514a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500040"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478242"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -73,7 +73,7 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 ```
 
 > [!NOTE]
-> `\$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `\$null`이 **아니라** 빈 문자열이 됩니다.
+> `\$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `\$null`이 **아니라** 빈 문자열이 됩니다.  
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 

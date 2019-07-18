@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 4055b1a30c1868f701de281b5de8d648d576219e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937896"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>클라우드 마켓플레이스의 리드 관리
@@ -53,7 +53,7 @@ ms.locfileid: "64937896"
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Cloud 파트너 포털에서 게시하는 동안 공통 리드 구성 오류 발생 
 
-**리드를 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인하세요. LastCRMError: Dynamics CRM(LastCRMException:**)에 로그인할 수 없습니다. 
+**리드를 Dynamics CRM에 저장할 수 없습니다. Dynamics CRM 계정 설정을 확인하세요. LastCRMError: Dynamics CRM(LastCRMException:** )에 로그인할 수 없습니다. 
 
 > O365 인증을 선택한 경우 사용자 계정 및 암호가 유효한지 확인합니다. AAD가 선택된 경우 테넌트 ID, 애플리케이션 ID 및 애플리케이션 비밀 키가 AAD에 설정된 것과 일치하는지 확인합니다. [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)에 설명된 지침을 따릅니다. 계정 사용자 이름/암호가 유효한 경우 Dynamics 365 액세스 권한이 있는지와 라이선스가 할당되었는지 확인합니다(Azure Active Directory를 사용하는 경우 11-15단계, Office 사용자를 사용하는 경우 보안 설정). 
 
@@ -145,14 +145,14 @@ title = MSFT_TEST_636573304831318844
 
 각 리드는 선택한 리드 대상의 필드로 데이터가 전달되게 하며 리드는 **Source-Action|Offer** 형식으로 제공됩니다. 
 
-  원본::
+  원본:  :
 
     “AzureMarketplace”, 
     “AzurePortal”, 
     “TestDrive”,  
     “SPZA” (acronym for AppSource) 
 
-  작업:
+  작업: 
 
     “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
     “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
@@ -164,7 +164,7 @@ title = MSFT_TEST_636573304831318844
     “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
-  제품:
+  제품: 
 
     “checkpoint.check-point-r77-10sg-byol”, 
     “bitnami.openedxcypress”, 
@@ -172,7 +172,7 @@ title = MSFT_TEST_636573304831318844
 
  
 
-  다음은 고객 정보의 샘플 데이터입니다.
+  다음은 고객 정보의 샘플 데이터입니다. 
 
     { 
 
@@ -207,7 +207,7 @@ title = MSFT_TEST_636573304831318844
 
  **Azure 테이블/Azure Blob을 리드 대상으로 구성했습니다. 리드를 보려면 어떻게 해야 하나요?** 
 
-Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 무료로 다운로드한 후 설치하여 Azure 스토리지 계정의 테이블/Blob을 볼 수 있습니다. 
+Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 무료로 다운로드한 후 설치하여 Azure 스토리지 계정의 테이블/Blob을 볼 수 있습니다. 
 
 
 **Azure 테이블을 리드 대상으로 구성했습니다. Marketplace에서 새 리드를 보낼 때마다 알림을 받을 수 있나요?** 
@@ -223,7 +223,7 @@ Azure Portal에서 Blob 또는 테이블에 액세스하거나 [Azure Storage �
 
 **리드 대상에 문제가 있습니다. 일부 리드가 누락되었습니다. 메일로 보내줄 수 있나요?** 
 
-PII(개인 식별 정보) 정책으로 인해 보안되지 않은 메일을 통해 리드 정보를 공유할 수 없습니다. 
+PII(프라이빗 식별 정보) 정책으로 인해 보안되지 않은 이메일을 통해 리드 정보를 공유할 수 없습니다. 
 
 
 

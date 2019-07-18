@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238063"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 이상 구성 스키마
@@ -168,7 +168,7 @@ Azure Diagnostics 사용에 대한 자세한 내용은 [Azure Diagnostics 확장
 ```  
 > [!NOTE]
 > 공용 구성 Azure Monitor 싱크 정의에는 resourceId 및 region이라는 두 가지 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager 가상 머신 또는 가상 머신 확장 집합에는 이 속성을 사용하면 안 됩니다.
-> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 개인 구성 요소도 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 개인 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
+> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 프라이빗 구성 요소도 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 프라이빗 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
 >
 
 이전 XML 구성 파일에 해당하는 JSON입니다.
@@ -396,7 +396,7 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 ```
 
 > [!NOTE]
-> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 개인 구성 요소가 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 개인 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
+> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 프라이빗 구성 요소가 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 프라이빗 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
 >
 
 
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | Azure Diagnostics로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 4096MB입니다.<br />
 |**useProxyServer** | IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure Diagnostics를 구성합니다.|
-|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
+|**sinks** | 1\.5에 추가되었습니다. 선택 사항입니다. 또한 싱크를 지원하는 모든 자식 요소에 대한 진단 데이터를 보낼 싱크 위치도 가리킵니다. 싱크 예제는 Application Insights 또는 Event Hubs입니다.|  
 
 
 <br /> <br />
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** ->  **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
@@ -584,7 +584,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |자식 요소|설명|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time`. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다.|
-|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
+|**sinks** | 1\.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
 
 
 
@@ -606,7 +606,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Logs 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
- 버전 1.0 및 1.1에서 제공됩니다. 1.2에는 제공되지 않습니다. 1.3에서 다시 추가됩니다.  
+ 버전 1.0 및 1.1에서 제공됩니다. 1\.2에는 제공되지 않습니다. 1\.3에서 다시 추가됩니다.  
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
@@ -615,12 +615,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**scheduledTransferPeriod**|**duration**|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
-|**sinks** |**string**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
+|**sinks** |**string**| 1\.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
- 1.9에 추가되었습니다.
+ 1\.9에 추가되었습니다.
 
 |요소 이름|설명|  
 |------------------|-----------------|  
@@ -682,7 +682,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  옵션  
 
- 저장소 계정(이름, 키 및 엔드포인트)의 개인 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
+ 스토리지 계정(이름, 키 및 엔드포인트)의 프라이빗 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  

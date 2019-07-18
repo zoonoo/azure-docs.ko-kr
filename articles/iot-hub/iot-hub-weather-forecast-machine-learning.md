@@ -11,15 +11,15 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
 ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61441018"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
-![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
+![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -37,7 +37,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
   - IoT Hub에서 온도 및 습도 데이터를 읽습니다.
   - 웹 서비스를 호출하여 강우 확률을 가져옵니다.
   - Azure Blob Storage에 결과를 저장합니다.
-- Microsoft Azure Storage 탐색기를 사용하여 일기 예보를 살펴봅니다.
+- Microsoft Azure Storage Explorer를 사용하여 일기 예보를 살펴봅니다.
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -171,12 +171,12 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ![Stream Analytics 작업 실행](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
-## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage 탐색기를 사용하여 일기 예보 보기
+## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage Explorer를 사용하여 일기 예보 보기
 
-클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob Storage에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
+클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob Storage에 결과를 저장합니다. Azure Storage Explorer는 결과를 보는 데 사용할 수 있는 도구입니다.
 
 1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](https://storageexplorer.com/).
-1. Azure Storage 탐색기를 엽니다.
+1. Azure Storage Explorer를 엽니다.
 1. Azure 계정에 로그인합니다.
 1. 구독을 선택합니다.
 1. 구독> **Storage 계정** > Storage 계정> **Blob 컨테이너**> 컨테이너를 차례로 클릭합니다.

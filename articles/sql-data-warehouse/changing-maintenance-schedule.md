@@ -11,10 +11,10 @@ ms.date: 04/03/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4bc1867f0dd18a101b2e764970de4e1904b960e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60680440"
 ---
 # <a name="change-a-maintenance-schedule"></a>유지 관리 일정 변경 
@@ -31,7 +31,7 @@ ms.locfileid: "60680440"
 데이터 웨어하우스에 대한 유지 관리 일정을 변경하려면 다음 단계를 완료합니다.
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  업데이트하려는 데이터 웨어하우스를 선택합니다. 개요 블레이드에서 페이지가 열립니다. 
-3.  개요 블레이드에서 **유지 관리 일정(미리 보기) 요약** 링크를 선택하여 유지 관리 일정 설정에 대한 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다. 
+3.  개요 블레이드에서 **유지 관리 일정(미리 보기) 요약** 링크를 선택하여 유지 관리 일정 설정에 대한 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다.  
 
     ![개요 블레이드 옵션](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

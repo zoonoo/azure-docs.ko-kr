@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 353641c514c9171e211221b84b13c5f09a413a48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 10bcbb4c1957735b0ddad6c97325c32be19ddcdb
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341225"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383392"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>자습서: Bing Image Search API를 사용하여 단일 페이지 앱 만들기
 
@@ -116,7 +116,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ![[Bing Image Search 양식]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
+Bing Image Search API는 검색 범위를 좁히고 검색 결과를 필터링하기 위한 여러 [필터 쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)를 제공합니다. 이 애플리케이션의 HTML 양식은 다음 매개 변수 옵션을 사용하고 표시합니다.
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

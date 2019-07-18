@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690282"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797007"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690282"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Event Hubs 네임스페이스란?
 네임스페이스는 Event Hub/Kafka 토픽에 대한 범위 지정 컨테이너입니다. 고유한 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)을 제공합니다. 네임스페이스는 여러 Event Hub/Kafka 토픽을 저장할 수 있는 애플리케이션 컨테이너로 사용됩니다. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>새 네임 스페이스를 사용 하 여 및 기존 네임 스페이스도 만들 때
+용량 할당 ([처리량 단위 (Tu)](#throughput-units)) 네임 스페이스 수준에서 요금이 청구 됩니다. 네임 스페이스에 있는 지역과 연결 이기도합니다.
+
+하나에서 기존 시나리오에서 다음을 사용 하는 대신 새 네임 스페이스를 만드는 것이 좋습니다. 
+
+- 새 영역을 사용 하 여 연결 된 이벤트 허브 해야 합니다.
+- 다른 구독에 연결 된 이벤트 허브 해야 합니다.
+- 고유한 용량 할당을 사용 하 여 이벤트 허브를 해야 (즉, 용량 할 추가 이벤트 허브가 있는 네임 스페이스에는 40 TU 임계값을 초과 하 고 전용된 클러스터에 대 한 이동 하지 않으려는)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Event Hubs 기본 및 표준 계층 간의 차이는 무엇입니까?
 
@@ -60,11 +69,11 @@ Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토�
 
 Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
 
-| Protocol | 포트 | 세부 정보 | 
+| 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
 연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.
@@ -74,7 +83,7 @@ Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 �
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
 
 네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
 

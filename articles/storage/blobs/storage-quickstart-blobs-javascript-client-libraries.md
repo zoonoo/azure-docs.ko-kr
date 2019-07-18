@@ -55,7 +55,7 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
 SAS(공유 액세스 서명)는 Blob Storage에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
-SAS는 Azure Cloud Shell 또는 Azure Storage 탐색기를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
+SAS는 Azure Cloud Shell 또는 Azure Storage Explorer를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
 
 | 매개 변수      |설명  | Placeholder |
 |----------------|-------------|-------------|

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126752"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 디바이스에 업데이트 5 설치
@@ -78,21 +78,21 @@ ms.locfileid: "62126752"
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |소프트웨어 업데이트<br> _HcsSoftwareUpdate.exe_ 및 _CisMSDAgent.exe_를 둘 다 다운로드 |일반  <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
+| 1. |KB4037264 |소프트웨어 업데이트<br> _HcsSoftwareUpdate.exe_ 및 _CisMSDAgent.exe_를 둘 다 다운로드 |일반 <br></br>중단 없음 |~ 25분 |FirstOrderUpdate|
 
 업데이트 4를 실행하는 디바이스에서 업데이트하는 경우 OS 누적 업데이트를 반드시 두 번째 주문 업데이트로 설치해야 합니다.
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |운영 체제 누적 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2A. |KB4025336 |운영 체제 누적 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
 
 업데이트 3 또는 이전 버전을 실행하는 디바이스에서 설치하는 경우 누적 업데이트 외에 다음도 설치합니다.
 
 | 순서 | KB | 설명 | 업데이트 유형 | 설치 시간 |폴더에 설치|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반  <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
-| 2D |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반  <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI 드라이버 및 펌웨어 업데이트 <br> USM 펌웨어 업데이트(버전 3.38) |일반 <br></br>중단 없음 |~ 3시간 <br> (2A. + 2B. + 2C 포함)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS 보안 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
+| 2D |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS 업데이트 패키지 <br> Windows Server 2012 R2 버전 다운로드 |일반 <br></br>중단 없음 |- |SecondOrderUpdate|
 
 
 앞의 표에 나와 있는 모든 업데이트 맨 위에 디스크 펌웨어 업데이트를 설치해야 할 수도 있습니다. `Get-HcsFirmwareVersion` cmdlet을 실행하여 디스크 펌웨어 업데이트가 필요한지를 확인할 수 있습니다. 펌웨어 버전 `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003` ,`0107`을 실행하는 경우 이러한 업데이트를 설치할 필요가 없습니다.

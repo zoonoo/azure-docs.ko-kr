@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519414"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808104"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트**라고 하고, 내부 연결을 **내부 엔드포인트**라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
 
 ## <a name="input-endpoint"></a>입력 엔드포인트
-입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
+입력 엔드포인트가 외부에 포트를 표시하려는 경우에 사용됩니다. 엔드포인트에 대한 외부 및 내부 포트에 적용되는 엔드포인트의 프로토콜 종류 및 형식을 지정합니다. 원할 경우 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) 특성을 사용하여 엔드포인트에 다른 내부 포트를 지정할 수 있습니다.
 
 입력 엔드포인트는 **http, https, tcp, udp**와 같은 프로토콜을 사용할 수 있습니다.
 

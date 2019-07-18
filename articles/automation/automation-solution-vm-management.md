@@ -4,17 +4,17 @@ description: VM 관리 솔루션 일정에 따라 Azure Resource Manager 가상 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/24/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146035"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476884"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -49,13 +49,13 @@ VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 
 
 ### <a name="permissions-needed-to-deploy"></a>배포 하는 데 필요한 사용 권한
 
-특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기.
+특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기. 구독에서 참가자 및 전역 관리자가 Azure Active Directory 테 넌 트에 있는 경우 다음 사용 권한을 구성할 필요가 없습니다. 해당 권한이 하지 않거나 사용자 지정 역할을 구성 해야 하는 경우 아래쪽에 필요한 사용 권한을 참조 하십시오.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>기존 Automation 계정 및 Log Analytics 계정
 
 Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 다음 권한이 필요 합니다. 시간 솔루션 하는 동안 Vm 시작/중지를 배포 하는 **리소스 그룹**합니다. 역할에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)입니다.
 
-| 사용 권한 | 범위|
+| 사용 권한 | Scope|
 | --- | --- |
 | Microsoft.Automation/automationAccounts/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/variables/write | 리소스 그룹 |
@@ -71,21 +71,26 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
 | Microsoft.OperationsManagement/solutions/write | 리소스 그룹 |
 | Microsoft.OperationalInsights/workspaces/* | 리소스 그룹 |
 | Microsoft.Insights/diagnosticSettings/write | 리소스 그룹 |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/Write | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/read | 리소스 그룹 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역
 
 배포 시간 동안 Vm 시작/중지 솔루션 새 Automation 계정 및 Log Analytics 작업 영역에 솔루션을 배포 하는 사용자 다음 사용 권한 뿐만 아니라 이전 섹션에 정의 된 권한이 있어야 합니다.
 
-- 공동 관리자 구독-해야 하는 클래식 실행 계정 만들기
-- 일부 여야 합니다 **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+- 공동 관리자가 구독에만 해야 하는 클래식 실행 계정 만들기
+- 일부 여야 합니다 [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+- 구독에 다음 사용 권한을 기여자입니다.
 
-| 사용 권한 |범위|
+| 사용 권한 |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | 구독|
+| Microsoft.Authorization/permissions/read |구독|
 | Microsoft.Authorization/roleAssignments/read | 구독 |
 | Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Authorization/roleAssignments/delete | 구독 |
 | Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
@@ -101,6 +106,7 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
 
    > [!NOTE]
    > Azure Portal의 어디서나 **리소스 만들기**를 클릭하여 만들 수도 있습니다. Marketplace 페이지에서 **시작** 또는 **시작/중지**와 같은 키워드를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. 또는 솔루션의 전체 이름에서 하나 이상의 키워드를 입력한 다음 Enter 키를 누를 수도 있습니다. 검색 결과에서 **작업 시간 외 VM 시작/중지**를 선택합니다.
+
 2. 선택한 솔루션에 대한 **작업 시간 외 VM 시작/중지** 페이지에서 요약 정보를 검토한 다음, **만들기**를 클릭합니다.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
@@ -116,6 +122,11 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
    - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서부 2**입니다.
    - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그 업데이트 했습니다 [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/) GB 당 계층은 유일한 옵션입니다.
 
+   > [!NOTE]
+   > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
+   >
+   > 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
+
 5. **Log Analytics 작업 영역** 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 **솔루션 추가** 페이지로 돌아갑니다.
 6. **솔루션 추가** 페이지에서 **Automation 계정**을 선택합니다. 새 Log Analytics 작업 영역을 만드는 경우 연결될 새 Automation 계정을 만들거나 아직 Log Analytics 작업 영역에 연결되지 않은 기존 Automation 계정을 선택할 수 있습니다. 기존 Automation 계정을 선택하거나 **Automation 계정 만들기**를 클릭하고, **Automation 계정 추가** 페이지에서 다음 정보를 제공합니다.
    - **이름** 필드에서 Automation 계정의 이름을 입력합니다.
@@ -129,7 +140,7 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
    여기에서는 다음을 묻는 메시지가 표시됩니다.
    - **대상 ResourceGroup 이름**을 지정합니다. 이 값은 이 솔루션에서 관리되는 VM을 포함하는 리소스 그룹 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 구독 내 모든 리소스 그룹의 VM을 대상으로 하려는 경우에는 와일드카드 사용이 지원됩니다. 이 값은 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames** 변수에 저장됩니다.
    - **VM 제외 목록(문자열)** 을 지정합니다. 이 값은 대상 리소스 그룹에 있는 하나 이상의 가상 머신 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 와일드카드를 사용할 수 있습니다. 이 값은 **External_ExcludeVMNames** 변수에 저장됩니다.
-   - **일정**을 선택합니다. 이 값은 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 지금부터 30분 동안 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedules)을 참조하세요.
+   - **일정**을 선택합니다. 일정에 대 한 시간과 날짜를 선택 합니다. 선택한 시간 부터는 매일 일정의 되풀이 생성 됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedules)을 참조하세요.
    - 작업 그룹에서 **메일 알림**을 받으려면 기본값인 **예**를 그대로 두고 유효한 메일 주소를 제공합니다. **아니요**를 선택하지만 나중에 메일 알림을 수신하려면 쉼표로 구분된 유효한 메일 주소로 만들어진 [작업 그룹](../azure-monitor/platform/action-groups.md)을 업데이트하면 됩니다. 또한 다음 경고 규칙을 사용하도록 설정해야 합니다.
 
      - AutoStop_VM_Child
@@ -276,7 +287,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
-|일정 이름 | Frequency(빈도) | 설명|
+|일정 이름 | 빈도 | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
@@ -334,7 +345,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 다음 테이블은 이 솔루션에 의해 수집된 작업 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-|쿼리 | 설명|
+|query | 설명|
 |----------|----------|
 |성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
@@ -408,7 +419,9 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 
 솔루션을 삭제하려면 다음 단계를 수행합니다.
 
-1. Automation 계정의 왼쪽 페이지에서 **작업 영역**을 선택합니다.
+1. Automation 계정에서 아래의 **관련 된 리소스**를 선택 **연결 된 작업 영역**합니다.
+1. 선택 **작업 영역으로 이동**합니다.
+1. 아래 **일반적인**를 선택 **솔루션**합니다. 
 1. **솔루션** 페이지에서 솔루션 **Start-Stop-VM[Workspace]** 를 선택합니다. **VMManagementSolution[Workspace]** 페이지의 메뉴에서 **삭제**를 클릭합니다.<br><br> ![VM Mgmt 솔루션 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. **솔루션 삭제** 창에서 솔루션을 삭제할 것임을 확인합니다.
 1. 정보가 확인되고 솔루션이 삭제되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 솔루션 제거 프로세스가 시작되면 **솔루션** 페이지로 돌아갑니다.

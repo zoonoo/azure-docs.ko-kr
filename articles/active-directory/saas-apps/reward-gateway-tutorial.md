@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d0dbcda886b3a44917548e19b69ced1b59df9e3e
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>자습서: Reward Gateway와 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 보상 관리자 포털에서 통합 설정을 시작합니다. 자세한 내용은 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication에서 찾을 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 보상 관리자 포털에서 통합 설정을 시작합니다. 자세한 내용은 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 에서 찾을 수 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -142,7 +142,7 @@ Reward Gateway에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Reward Gateway Single Sign-On 구성
 
-**보상 게이트웨이** 쪽에서 Single Sign-On을 구성하려면 보상 관리자 포털에서 통합 설정을 시작합니다. 다운로드한 메타데이터를 사용하여 서명 인증서를 가져오고 구성하는 동안 업로드합니다. 자세한 내용은 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication에서 찾을 수 있습니다.
+**보상 게이트웨이** 쪽에서 Single Sign-On을 구성하려면 보상 관리자 포털에서 통합 설정을 시작합니다. 다운로드한 메타데이터를 사용하여 서명 인증서를 가져오고 구성하는 동안 업로드합니다. 자세한 내용은 https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication 에서 찾을 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7e61207ea23b9b9560668b58b33e3f32f5f70ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920476"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083949"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -215,10 +215,10 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
-온-프레미스 및 클라우드 호스팅 애플리케이션에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
+온-프레미스 및 클라우드 호스팅 응용 프로그램에 대 한 조건부 액세스 정책을 준비 합니다. 사용자 작업 공간 연결 장치에 있는 경우에서 자세한 내용을 보려면 [설정 온-프레미스 조건부 액세스로 Azure Active Directory 장치 등록을 사용 하 여](../active-directory-device-registration-on-premises-setup.md)입니다.
 
 
-## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>스테이지 3: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
+## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3단계: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
 
 ![3 단계 제어할 관리자 활동](./media/directory-admin-roles-secure/stage-three.png)
 
@@ -241,7 +241,7 @@ Azure MFA 또는 Windows Hello와 같이 고위 경영진, 고위 관리자, 중
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Azure AD에 대한 관리 전용 워크스테이션 사용
 
-공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 디바이스에서 분리하면 피싱 공격, 애플리케이션 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
+공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(Privileged Access Workstation)는 인터넷 공격 및 위협 벡터로부터 보호되는 중요한 작업에 대한 전용 운영 체제를 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 디바이스에서 분리하면 피싱 공격, 애플리케이션 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토 
 
@@ -261,7 +261,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 차단할 수 있습니다 [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)합니다. 에 세부 정보를 확인 하십시오 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) Exchnage 온라인을 통해. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 하지만 이제는 클라우드에서 사이버 공격에 대 한 위험이 좋습니다 모든 잠재적 사용자에 게 자격 증명 손상 된 경우 조직에 치명적일 수 수 및 사용자를 통해 이메일에 로그인 할 수 없도록 제외를 식별 / 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 암호입니다. 차단할 수 있습니다 [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)합니다. 에 세부 정보를 확인 하십시오 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) Exchnage 온라인을 통해. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 
@@ -304,9 +304,9 @@ Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우
 
 MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으로 하여 파일을 조사하고 정책을 설정하여 클라우드에서 데이터를 더 잘 표시하고 제어할 수 있습니다. 클라우드에서 파일을 검색 및 분류하고 Azure Information Protection 레이블을 적용합니다. 자세한 내용은 [Azure Information Protection 통합](https://docs.microsoft.com/cloud-app-security/azip-integration)을 참조하세요.
 
-#### <a name="configure-conditional-access"></a>조건부 액세스 구성
+#### <a name="configure-conditional-access"></a>조건부 액세스를 구성 합니다.
 
-[SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 연결 앱에 대한 그룹, 위치 및 애플리케이션 민감도에 따라 조건부 액세스를 구성합니다. 
+그룹, 위치 및 응용 프로그램 민감도에 따라 조건부 액세스 구성 [SaaS 앱](https://azure.microsoft.com/overview/what-is-saas/) 및 Azure AD 앱을 연결 합니다. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>연결된 클라우드 앱의 활동 모니터링
 

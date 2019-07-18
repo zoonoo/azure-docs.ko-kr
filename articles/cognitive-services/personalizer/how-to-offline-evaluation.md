@@ -1,21 +1,21 @@
 ---
-title: 오프라인 평가
-titleSuffix: Personalizer - Azure Cognitive Services
+title: 오프 라인 평가-Personalizer
+titleSuffix: Azure Cognitive Services
 description: 오프라인 평가를 통해 학습 루프를 분석하는 방법 알아보기
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e99a8242e438ef5a8ab7fd917724450f8080bb41
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026641"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722320"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>오프라인 평가를 통해 학습 루프를 분석하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "65026641"
 자세한 내용은 [오프라인 평가](concepts-offline-evaluation.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Personalizer 루프가 구성되어 있어야 합니다.
 1. 의미 있는 평가 결과를 얻으려면 Personalizer 루프의 로그에 50,000개 이상의 이벤트가 있어야 합니다.

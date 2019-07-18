@@ -197,7 +197,7 @@ mstsc /v 52.168.121.216:50001
 로그인한 후 작업 표시줄에서 Internet Explorer를 엽니다.
 
 - **확인**을 선택하여 *권장되는 보안, 개인 정보 및 호환성 설정을 사용*하도록 요구하는 메시지를 수락합니다.
-- 주소 표시줄에 *http://download.sysinternals.com/files/CPUSTRES.zip*을 입력합니다.
+- 주소 표시줄에 *http://download.sysinternals.com/files/CPUSTRES.zip* 을 입력합니다.
 - Internet Explorer 보안 강화 구성을 사용하도록 설정하면 *http://download.sysinternals.com* 도메인을 신뢰할 수 있는 사이트 목록에 **추가**하도록 선택합니다.
 - 파일 다운로드를 묻는 메시지가 표시되면 **열기**를 선택한 다음, *CPUSTRES.EXE* 도구를 선택하고 **실행**합니다.
 

@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295031"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813128"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -91,4 +91,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  테스트 사용자를 선택한 후 **사용자 삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal에서 게스트 사용자를 만들고 앱 공유를 위한 초대를 보냈습니다. 그런 다음, 게스트 사용자의 관점에서 사용 프로세스를 살펴보고 앱이 게스트 사용자의 액세스 패널에 표시되는지 확인했습니다. 공동 작업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)를 참조하세요.
+이 자습서에서는 Azure Portal에서 게스트 사용자를 만들고 앱 공유를 위한 초대를 보냈습니다. 그런 다음, 게스트 사용자의 관점에서 사용 프로세스를 살펴보고 앱이 게스트 사용자의 액세스 패널에 표시되는지 확인했습니다. 협업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](add-users-administrator.md)를 참조하세요.

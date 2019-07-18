@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 등록 | Microsoft Docs
-description: 요청을 제출하여 Azure NetApp Files 서비스에 등록하는 방법을 설명합니다.
+description: Azure NetApp 파일을 사용 하도록 등록 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,25 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66299223"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
-NetApp Azure Files를 사용하기 전에 요청을 제출하여 Azure NetApp Files 서비스에 등록해야 합니다.  등록 후에 서비스를 사용하도록 등록합니다.
 
-## <a name="request-to-enroll-in-the-service"></a>서비스에서 등록 요청
-사용자가 공개 미리 보기 프로그램에 속해 있고 Microsoft.NetApp Azure 리소스 공급자에 액세스하는 허용 목록에 지정되어야 합니다. 공개 미리 보기 프로그램에 참여하는 방법에 대한 자세한 내용은 [Azure NetApp Files 공개 미리 보기 등록 페이지](https://aka.ms/nfspublicpreview)를 참조하세요. 
+> [!IMPORTANT] 
+> Azure NetApp 파일 리소스 공급자를 등록 하기 전에 해야 전자 메일에서에서 받은 Azure NetApp Files 팀은 부여 된 서비스에 대 한 액세스를 확인 합니다. 
 
+이 문서에서는 서비스를 사용 하기 시작할 수 있도록 Azure NetApp 파일에 대 한 등록 하는 방법에 알아봅니다.
 
-## <a name="register-the-netapp-resource-provider"></a>NetApp 리소스 공급자 등록
+## <a name="waitlist"></a>서비스에 액세스 하기 위한 대기 요청 제출
 
-서비스를 사용하려면 Azure NetApp Files에 Azure 리소스 공급자를 등록해야 합니다. 
+1. 통해 Azure NetApp 파일 서비스에 액세스 하기 위한 대기 요청을 제출 합니다 [Azure NetApp 파일 대기 제출 페이지](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u)합니다. 
+
+    대기 등록 즉시 서비스 액세스를 보장 하지 않습니다. 
+
+2. 다른 작업을 진행 하기 전에 Azure NetApp Files 팀의 공식 확인 전자 메일을 기다립니다. 
+
+## <a name="resource-provider"></a>NetApp 리소스 공급자 등록
+
+서비스를 사용하려면 Azure NetApp Files에 Azure 리소스 공급자를 등록해야 합니다.
+
+> [!NOTE] 
+> 서비스에 대 한 액세스를 부여할 수 없이 NetApp 리소스 공급자를 성공적으로 등록 할 수 있습니다. 그러나 액세스 권한 부여 없이 모든 Azure portal 또는 NetApp 계정 또는 다른 Azure NetApp 파일 리소스를 만들려면 API 요청 거부 됩니다 다음 오류로 인해:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
+
 
 1. Azure Portal의 오른쪽 위 모서리에 있는 Azure Cloud Shell 아이콘을 클릭합니다.
 
@@ -46,10 +60,12 @@ NetApp Azure Files를 사용하기 전에 요청을 제출하여 Azure NetApp Fi
 
    명령 출력은 다음과 같이 나타납니다.
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>`는 구독 ID입니다.
+
+    기능 이름이 표시 되지 않으면 `Microsoft.NetApp/ANFGA`, 서비스에 대 한 액세스 권한이 없습니다. 이 단계에서 중지 합니다. 지침에 따라 [서비스에 액세스 하기 위한 대기 요청을 제출](#waitlist) 계속 하기 전에 서비스 액세스를 요청 합니다. 
 
 4. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자를 등록합니다. 
     
@@ -78,6 +94,6 @@ NetApp Azure Files를 사용하기 전에 요청을 제출하여 Azure NetApp Fi
       ![등록된 Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>다음 단계  
+## <a name="next-steps"></a>다음 단계
 
 [NetApp 계정 만들기](azure-netapp-files-create-netapp-account.md)

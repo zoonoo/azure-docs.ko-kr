@@ -14,22 +14,22 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fd790d27c958bf982f95b98426c6ab4d94c5f17f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433810"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412723"
 ---
-# <a name="what-is-azure-cache-for-redis"></a>Azure Cache for Redis란?
+# <a name="azure-cache-for-redis-description"></a>Azure Cache for Redis 설명
 
 Azure Cache for Redis는 널리 사용되는 소프트웨어 [Redis](https://redis.io/)를 기반으로 합니다. 일반적으로 백 엔드 데이터 저장소에 크게 의존하는 시스템의 성능 및 확장성을 개선하기 위해 캐시로 사용됩니다. 성능 향상을 위해 자주 액세스하는 데이터를 애플리케이션 가까이에 있는 빠른 저장소에 일시적으로 복사합니다. [Azure Cache for Redis](https://redis.io/)를 사용하면 이 빠른 스토리지는 데이터베이스에 의해 디스크에서 로드되는 대신 메모리 내 Azure Cache for Redis에 위치합니다.
 
-Azure Cache for Redis는 메모리 내 데이터 구조 스토리지, 분산된 비관계형 데이터베이스 및 메시지 브로커로 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 애플리케이션 성능이 향상됩니다.
+Azure Cache for Redis를 메모리 내 데이터 구조 저장소, 분산된 비관계형 데이터베이스 및 메시지 브로커로도 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 애플리케이션 성능이 향상됩니다.
 
-Azure Cache for Redis는 Microsoft에서 관리하고, Azure 내에서 호스트되며, Azure 내부 또는 외부의 모든 애플리케이션에 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 사용자에게 제공합니다.
+Azure Cache for Redis는 안전한 전용 Redis Cache에 액세스할 수 있도록 합니다. Azure Cache for Redis는 Microsoft에서 관리하고, Azure 내에 호스트되고, Azure 내부 또는 외부의 모든 애플리케이션에서 액세스할 수 있습니다.
 
-## <a name="why-use-azure-cache-for-redis"></a>Azure Cache for Redis를 사용하는 이유
+## <a name="using-azure-cache-for-redis"></a>Azure Cache for Redis 사용
 
 애플리케이션 아키텍처를 지원하거나 애플리케이션의 성능을 개선하기 위해 Azure Cache for Redis를 사용하는 많은 일반적인 패턴이 있습니다. 가장 일반적인 패턴의 일부는 다음과 같습니다.
 
@@ -49,7 +49,7 @@ Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 |---|---|
 Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB)를 지원합니다. 이는 개발/테스트 및 중요하지 않은 작업에 이상적입니다. 기본 계층에는 SLA(서비스 수준 계약)가 없습니다. |
 | Standard | 고가용성 SLA(99.9%)를 사용하며 Microsoft에서 관리되는 2노드 기본/보조 구성의 복제된 캐시입니다. |
-| Premium | Premium 계층은 Enterprise 준비 계층입니다. Premium 계층 캐시는 더 많은 기능을 지원하며 더 낮은 대기 시간으로 더 많은 처리가 가능합니다. Premium 계층의 캐시는 Basic 또는 Standard 계층에 비해 더 나은 성능을 제공하는 더 강력한 하드웨어에 배포됩니다. 이러한 이점은 Standard 계층에 비해 Premium에서 동일한 크기의 캐시에 대한 처리량이 커짐을 의미합니다. |
+| Premium | Premium 계층은 엔터프라이즈급 계층입니다. Premium 계층 캐시는 더 많은 기능을 지원하며 더 낮은 대기 시간으로 더 많은 처리가 가능합니다. Premium 계층의 캐시는 Basic 또는 Standard 계층에 비해 더 나은 성능을 제공하는 더 강력한 하드웨어에 배포됩니다. 이러한 이점은 Standard 계층에 비해 Premium에서 동일한 크기의 캐시에 대한 처리량이 많음을 의미합니다. |
 
 > [!TIP]
 > 프리미엄 캐시에서의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
@@ -67,9 +67,10 @@ Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB
 | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis 클러스터](cache-how-to-premium-clustering.md) |✔|-|-|
 | [방화벽 규칙을 통한 보안](cache-configure.md#firewall) |✔|✔|✔|
+| 전송 중 암호화 |✔|✔|✔|
 | [VNet으로 강화된 보안 및 격리](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
-| [업데이트 예약](cache-administration.md#schedule-updates) |✔|-|-|
+| [예약된 업데이트](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [지역에서 복제](cache-how-to-geo-replication.md) |✔|-|-|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|
 

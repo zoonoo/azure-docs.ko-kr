@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882419"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
@@ -116,11 +116,11 @@ StandBy 복제본은 다운되었다가 열린 지속형 서비스의 복제본�
 ## <a name="replica-role"></a>복제본 역할 
 복제본의 역할은 복제본 세트에서의 기능을 결정합니다.
 
-- **Primary (P)**: 하나는 읽기 및 쓰기 작업을 수행 하는 일을 담당 하는 복제본 세트의 주입니다. 
-- **ActiveSecondary (S)**: 이 주 데이터베이스에서 상태 업데이트를 수신 하 여 적용 하 고 승인을 다시 전송 하는 복제본입니다. 복제본 세트에 여러 활성 보조 복제본이 있습니다. 이러한 활성 보조 복제본의 수는 서비스가 처리할 수 있는 오류 수를 결정합니다.
-- **IdleSecondary (I)**: 이러한 복제본은 주 복제본에 의해 빌드되고 있습니다. 먼저 주 복제본에서 상태를 수신해야 활성 보조 복제본으로 승격될 수 있습니다. 
-- **None (N)**: 이러한 복제본은 복제본 세트에서 책임을 필요는 없습니다.
-- **Unknown (U)**: 이 복제본 초기 역할 수신 하기 전의 **ChangeRole** Service Fabric에서 API 호출 합니다.
+- **Primary (P)** : 하나는 읽기 및 쓰기 작업을 수행 하는 일을 담당 하는 복제본 세트의 주입니다. 
+- **ActiveSecondary (S)** : 이 주 데이터베이스에서 상태 업데이트를 수신 하 여 적용 하 고 승인을 다시 전송 하는 복제본입니다. 복제본 세트에 여러 활성 보조 복제본이 있습니다. 이러한 활성 보조 복제본의 수는 서비스가 처리할 수 있는 오류 수를 결정합니다.
+- **IdleSecondary (I)** : 이러한 복제본은 주 복제본에 의해 빌드되고 있습니다. 먼저 주 복제본에서 상태를 수신해야 활성 보조 복제본으로 승격될 수 있습니다. 
+- **None (N)** : 이러한 복제본은 복제본 세트에서 책임을 필요는 없습니다.
+- **Unknown (U)** : 이 복제본 초기 역할 수신 하기 전의 **ChangeRole** Service Fabric에서 API 호출 합니다.
 
 다음 다이어그램은 복제본 역할 전환과, 발생할 수 있는 몇 가지 시나리오 예제를 설명합니다.
 

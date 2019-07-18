@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
 ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699144"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 메트릭 및 경고
@@ -34,7 +34,7 @@ Azure DNS 서비스에서 호스트 되는 해당 DNS 영역의 특정 측면을
 
 Azure Monitor 설명서 페이지에서 [이러한 메트릭의 정의](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones)를 확인할 수도 있습니다.
 >[!NOTE]
-> 이때 이러한 메트릭은 Azure DNS에서 호스트되는 공용 DNS 영역에만 사용할 수 있습니다. Azure DNS에서 호스트되는 개인 영역을 사용하는 경우 이러한 메트릭은 해당 영역에 대한 데이터를 제공하지 않습니다. 또한 메트릭 및 경고 기능은 Azure 공용 클라우드에서만 지원됩니다. 소버린 클라우드에 대한 지원은 나중에 제공될 예정입니다. 
+> 이때 이러한 메트릭은 Azure DNS에서 호스트되는 공용 DNS 영역에만 사용할 수 있습니다. Azure DNS에서 호스트되는 프라이빗 영역을 사용하는 경우 이러한 메트릭은 해당 영역에 대한 데이터를 제공하지 않습니다. 또한 메트릭 및 경고 기능은 Azure 공용 클라우드에서만 지원됩니다. 소버린 클라우드에 대한 지원은 나중에 제공될 예정입니다. 
 
 에 대 한 메트릭을 볼 수 있는 가장 세분화 된 요소에는 DNS 영역입니다. 현재 영역 내의 개별 리소스 레코드에 대 한 메트릭을 볼 수 없습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926269"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560488"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -207,21 +207,21 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 7. Azure 파일 공유를 분리할 준비가 되면 파일 탐색기의 **네트워크 위치** 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 **연결 해제**를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다.
 
-### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅숏에 액세스
-Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅숏을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅숏을 만들 수 있습니다.
+### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅샷에 액세스
+Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅숏을 만들 수 있습니다.
 
 #### <a name="list-previous-versions"></a>이전 버전 나열
 복원해야 하는 항목 또는 부모 항목을 찾습니다. 해당 항목을 두 번 클릭하여 원하는 디렉터리로 이동합니다. 마우스 오른쪽 단추로 클릭하고 메뉴에서 **속성**을 선택합니다.
 
 ![선택한 디렉터리를 마우스 오른쪽 단추로 클릭하여 표시된 메뉴](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
 
-**이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅숏의 목록을 봅니다. 네트워크 속도 및 디렉터리의 공유 스냅숏 수에 따라 목록이 표시되는 데 수 초 정도 걸릴 수 있습니다.
+**이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅숏의 목록을 봅니다. 네트워크 속도 및 디렉터리의 공유 스냅샷 수에 따라 목록이 표시되는 데 수 초 정도 걸릴 수 있습니다.
 
 ![이전 버전 탭](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
 **열기**를 선택하여 특정 스냅숏을 열 수 있습니다. 
 
-![열린 스냅숏](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+![열린 스냅샷](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
 #### <a name="restore-from-a-previous-version"></a>이전 버전에서 복원
 **복원**을 선택하여 공유 스냅숏을 만들 때의 전체 디렉터리의 내용을 원래 위치에 재귀적으로 복사합니다.
@@ -234,7 +234,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 
 | Windows 버전                           | SMB 1 기본 상태 | 해제/제거 방법       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019(미리 보기)             | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows Server 2019                       | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 버전 1709+            | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows 10 버전 1709+                | 사용 안 함             | Windows 기능을 사용하여 제거 |
 | Windows Server 2016                       | 사용              | Windows 기능을 사용하여 제거 |
@@ -246,7 +246,7 @@ Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 
 | Windows 7                                 | 사용              | 레지스트리를 사용하여 해제       | 
 
 ### <a name="auditing-smb-1-usage"></a>SMB 1 사용 감사
-> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows 10(버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2, Windows 8.1에 적용
+> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows 10 (버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2 및 Windows 8.1 적용 됩니다.
 
 환경에서 SMB 1을 제거하기 전에, SMB 1 사용을 감사하여 변경 때문에 손상되는 클라이언트가 있는지 확인할 수 있습니다. SMB 1을 사용하여 SMB 공유에 대한 요청이 만들어지는 경우 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 아래의 이벤트 로그에 감사 이벤트가 기록됩니다. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Windows Server에서 SMB 1 제거
-> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용
+> Windows Server 2019, Windows Server 반기 채널 (버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용 됩니다.
 
 Windows Server 인스턴스에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
 

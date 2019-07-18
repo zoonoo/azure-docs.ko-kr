@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65550533"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
@@ -48,31 +48,31 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
     ![기어 아이콘 이미지](./media/export-your-model/gear-icon.png)
 
-3. __도메인__ 섹션에서 __소형__ 도메인을 선택합니다. __변경 내용 저장__을 선택하여 변경 내용을 저장합니다.
+3. __도메인__ 섹션에서 __소형__ 도메인을 선택합니다. __변경 내용 저장__ 을 선택하여 변경 내용을 저장합니다.
 
     ![도메인 선택 이미지](./media/export-your-model/domains.png)
 
-4. 페이지 위쪽에서 __교육__을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
+4. 페이지 위쪽에서 __교육__ 을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
 
 ## <a name="export-your-model"></a>모델 내보내기
 
 재교육 후 모델을 내보내려면 다음 단계를 수행합니다.
 
-1. **성능** 탭으로 이동하여 __내보내기__를 선택합니다. 
+1. **성능** 탭으로 이동하여 __내보내기__ 를 선택합니다. 
 
     ![내보내기 아이콘 이미지](./media/export-your-model/export.png)
 
     > [!TIP]
-    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__를 선택합니다.
+    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__ 를 선택합니다.
 
-2. 내보내기 형식을 선택한 다음, __내보내기__를 선택하여 모델을 내보냅니다.
+2. 내보내기 형식을 선택한 다음, __내보내기__ 를 선택하여 모델을 내보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-내보낸 모델을 애플리케이션에 통합합니다. 여러 애플리케이션 예제를 사용할 수 있습니다.
+다음 문서 또는 샘플 중 하나를 탐색하여 응용 프로그램에 내보낸 모델을 통합합니다.
 
-* Swift를 사용한 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 iOS 애플리케이션에서 사용](https://go.microsoft.com/fwlink/?linkid=857726) 샘플
-* 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 Xamarin에 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 샘플 iOS 애플리케이션 
-* 실시간 이미지 분류에 대한 [내보낸 Tensorflow 모델을 Android 애플리케이션에서 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 샘플 
-* [Tensorflow 모델을 Windows에 사용](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
-* [내보낸 ONNX 모델을 Windows Machine Learning에 사용](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/) 샘플
+* [Python을 사용하여 Tensorflow 모델 사용](export-model-python.md)
+* [Windows Machine Learning을 사용하여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)
+* Swift를 사용하는 실시간 이미지 분류에 대한 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) 예제를 참조하세요.
+* Android에서의 실시간 이미지 분류에 대한 [Android 응용 프로그램의 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 예제를 참조하세요.
+* Xamarin iOS 앱에서의 실시간 이미지 분류에 대한 [Xamarin을 사용하는 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 예제를 참조하세요.

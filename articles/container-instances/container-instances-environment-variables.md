@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66149128"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Container instances에서 환경 변수를 설정 합니다.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690181"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508064"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -33,11 +33,11 @@ ms.locfileid: "64690181"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure Storage 계정** [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
-* **Visual Studio 2013, Visual Studio 2015 또는 Visual Studio 2017**
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
-1. Visual Studio 2017을 엽니다.
+1. Visual Studio를 엽니다.
 2. 새 Visual C# 콘솔 애플리케이션을 만듭니다.
 3. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
 4. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
@@ -393,7 +393,6 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 
 ### <a name="run-jobs"></a>작업 실행
 * [.NET SDK를 사용하여 HDInsight에서 Apache Hive 작업 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [.NET SDK를 사용하여 HDInsight에서 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [.NET SDK를 사용하여 HDInsight에서 Apache Sqoop 작업 실행](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [HDInsight에서 Apache Oozie 작업 실행](hdinsight-use-oozie-linux-mac.md)
 

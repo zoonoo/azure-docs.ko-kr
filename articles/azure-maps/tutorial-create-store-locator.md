@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545300"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273825"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -71,7 +71,7 @@ ms.locfileid: "59545300"
 
 ## <a name="create-the-store-location-dataset"></a>매장 위치 데이터 세트 만들기
 
-매장 로케이터 애플리케이션을 개발하기 전에 지도에 표시하려는 매장의 데이터 세트를 만들어야 합니다. 이 자습서에서는 Contoso Coffee라는 가상의 커피숍에 대한 데이터 세트를 사용합니다. 이 간단한 매장 로케이터의 데이터 세트는 Excel 통합 문서에서 관리됩니다. 이 데이터 세트에는 9개 국가, 미국, 캐나다, 영국, 프랑스, 독일, 이탈리아, 네덜란드, 덴마크 및 스페인에 분산되어 있는 10,213개의 Contoso Coffee 커피숍 위치가 포함됩니다. 다음은 이러한 데이터를 보여 주는 스크린샷입니다.
+매장 로케이터 애플리케이션을 개발하기 전에 지도에 표시하려는 매장의 데이터 세트를 만들어야 합니다. 이 자습서에서는 Contoso Coffee라는 가상의 커피숍에 대한 데이터 세트를 사용합니다. 이 간단한 매장 로케이터의 데이터 세트는 Excel 통합 문서에서 관리됩니다. 데이터 세트에는 미국, 캐나다, 영국, 프랑스, 독일, 이탈리아, 네덜란드, 덴마크 및 스페인의 9개 국가/지역에 분산되어 있는 10,213개의 Contoso Coffee 커피숍 위치가 포함되어 있습니다. 다음은 이러한 데이터를 보여 주는 스크린샷입니다.
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ ms.locfileid: "59545300"
 
 1. *index.js*에 코드를 추가합니다. 다음 코드는 지도를 초기화하고, 페이지 로드가 완료될 때까지 기다리는 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가하고, 이벤트를 연결하여 지도 로드를 모니터링하고, 검색 단추 및 내 위치 단추를 작동합니다.
 
-   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가로 제한할 수 있습니다. 검색할 국가를 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
+   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
    검색이 완료되면 첫 번째 결과를 사용한 후 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하는 경우, 브라우저에 기본 제공된 HTML5 Geolocation API를 사용하여 사용자의 위치를 검색하고 지도 중심을 해당 위치로 이동합니다.  
 
@@ -432,7 +432,7 @@ ms.locfileid: "59545300"
 
         //Use subscriptionKeyCredential to create a pipeline
         const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
-            retryOptions: { maxTries: 4 }, // Retry options
+            retryOptions: { maxTries: 4 } // Retry options
         });
 
         //Create an instance of the SearchURL client.
@@ -707,21 +707,6 @@ ms.locfileid: "59545300"
         var camera = map.getCamera();
         var listPanel = document.getElementById('listPanel');
 
-        //Get all the shapes that have been rendered in the bubble layer.
-        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
-
-        data.forEach(function(shape) {
-            if (shape instanceof atlas.Shape) {
-                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles');
-            }
-        });
-
-        //Sort the data by distance.
-        data.sort(function(x, y) {
-            return x.distance - y.distance;
-        });
-
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button.
         if (camera.zoom < maxClusterZoomLevel) {
             //Close the pop-up window; clusters might be displayed on the map.  
@@ -747,6 +732,25 @@ ms.locfileid: "59545300"
             </div>
             */
 
+            //Get all the shapes that have been rendered in the bubble layer. 
+            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+
+            //Create an index of the distances of each shape.
+            var distances = {};
+
+            data.forEach(function (shape) {
+                if (shape instanceof atlas.Shape) {
+
+                    //Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+                    distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+                }
+            });
+
+            //Sort the data by distance.
+            data.sort(function (x, y) {
+                return distances[x.getId()] - distances[y.getId()];
+            });
+
             data.forEach(function(shape) {
                 properties = shape.getProperties();
                 html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">',
@@ -760,8 +764,8 @@ ms.locfileid: "59545300"
                 getOpenTillTime(properties),
                 '<br />',
 
-                //Route the distance to two decimal places.  
-                (Math.round(shape.distance * 100) / 100),
+                //Get the distance of the shape.
+                distances[shape.getId()],
                 ' miles away</div>');
             });
 
@@ -872,6 +876,9 @@ ms.locfileid: "59545300"
             </div>
         */
 
+         //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+        var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
             properties['AddressLine'],
@@ -882,8 +889,8 @@ ms.locfileid: "59545300"
             //Convert the closing time to a format that's easier to read.
             getOpenTillTime(properties),
 
-            //Route the distance to two decimal places.  
-            '<br/>', (Math.round(shape.distance * 100) / 100),
+            //Add the distance information.  
+            '<br/>', distance,
             ' miles away',
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:',
             properties['Phone'],
@@ -896,11 +903,11 @@ ms.locfileid: "59545300"
             html.push('<br/>Amenities: ');
 
             if (properties['IsWiFiHotSpot']) {
-                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>')
+                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>');
             }
 
             if (properties['IsWheelchairAccessible']) {
-                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>')
+                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>');
             }
         }
 

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238225"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751765"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -49,7 +49,7 @@ ms.locfileid: "60238225"
 
 ## <a name="create-the-data-file"></a>데이터 파일 만들기
 
-Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일에서 복사 하 여 만들 수 있습니다 [GitHub-Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), 또는 데이터를 직접 입력 하 여 합니다. 다음 섹션에서는 두 방법을 설명합니다.
+Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일은 [GitHub - Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)에서 복사하여 또는 데이터를 직접 입력하여 만들 수 있습니다. 다음 섹션에서는 두 방법을 설명합니다.
 
 ### <a name="upload-the-data-file"></a>데이터 파일 업로드
 
@@ -261,7 +261,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
 예기치 않은 결과가 표시되면(아마도 그럴 것입니다!) 각 셀이 필요에 따라 "코드" 또는 "Markdown"으로 설정되었는지 확인합니다. 예를 들어 "잘못된 구문" 오류는 코드 셀에 Markdown을 입력한 경우에 주로 발생합니다.
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     ## Import packages and prepare the dataset
@@ -284,7 +284,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     > [!Note]
     > 이 코드에서 "numpy.dtype 크기가 변경되었습니다" 오류가 발생할 수 있습니다. 이 경고는 무시해도 됩니다.
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     Next, split the dataset into a Training set (2/3rds) and Test set (1/3rd). We don't need to do any feature scaling because there is only one column of independent variables, and packages typically do scaling for you.
@@ -298,7 +298,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Fit the data to the training set
@@ -307,7 +307,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. 코드 셀. 이 셀은 실행하면 `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)` 출력을 표시합니다.
@@ -319,14 +319,14 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     regressor.fit(X_train, y_train)   # Provide training data so the machine can learn to predict using a learned model.
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     ## Predict the results
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
@@ -338,7 +338,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     print(y_pred)
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다.
 
     ```markdown
     It's interesting to think that all the "predictions" we use in daily life, like weather forecasts, are just regression models of some sort working with various data sets. Those models are much more complicated than what's shown here, but the idea is the same.
@@ -350,7 +350,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
     The challenge is determining what data to actually use. For example, with weather, how far back in time do you go? How have weather patterns been changing decade by decade? In any case, something like weather predictions will be doing things hour by hour, day by day, for things like temperature, precipitation, winds, cloud cover, etc. Radar and other observations are of course fed into the model and the predictions are reduced to mathematics.
     ```
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Visualize the results
@@ -375,7 +375,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     ![matplotlib 코드의 플롯 출력](media/tutorial/tutorial-plot-output.png)
 
-1. Markdown 셀:
+1. Markdown 셀은 다음과 같습니다. 
 
     ```markdown
     ## Closing comments
@@ -403,7 +403,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
 ## <a name="save-halt-and-close-the-notebook"></a>Notebook을 저장하고, 중지하고, 닫기
 
-Notebook을 편집하는 동안 **파일** > **저장 및 검사점** 명령 또는 도구 모음의 저장 단추를 사용하여 현재 상태를 저장할 수 있습니다. "검사점"은 세션 중 언제든지 되돌릴 수 있는 스냅숏을 만듭니다. 검사점을 사용하면 일련의 실험 변경 작업을 수행할 수 있으며, 변경 내용이 작동하지 않으면 **파일** > **검사점으로 되돌리기** 명령을 사용하여 간단하게 검사점으로 되돌릴 수 있습니다. 추가 셀을 만들고 실행하지 않을 코드를 주석으로 처리하는 방법도 있습니다. 어떤 방법을 사용해도 상관 없습니다.
+Notebook을 편집하는 동안 **파일** > **저장 및 검사점** 명령 또는 도구 모음의 저장 단추를 사용하여 현재 상태를 저장할 수 있습니다. "검사점"은 세션 중 언제든지 되돌릴 수 있는 스냅샷을 만듭니다. 검사점을 사용하면 일련의 실험 변경 작업을 수행할 수 있으며, 변경 내용이 작동하지 않으면 **파일** > **검사점으로 되돌리기** 명령을 사용하여 간단하게 검사점으로 되돌릴 수 있습니다. 추가 셀을 만들고 실행하지 않을 코드를 주석으로 처리하는 방법도 있습니다. 어떤 방법을 사용해도 상관 없습니다.
 
 또한 언제든지 **파일** > **복사본 만들기** 명령을 사용하여 Notebook의 현재 상태 복사본을 프로젝트에 새 파일로 만들 수 있습니다. 해당 복사본은 새 브라우저 탭에서 자동으로 열립니다.
 
@@ -423,7 +423,7 @@ Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Vis
 
 - [샘플 Notebook 살펴보기](azure-notebooks-samples.md)
 
-방법 문서:
+방법 문서는 다음과 같습니다.
 
 - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
 - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)

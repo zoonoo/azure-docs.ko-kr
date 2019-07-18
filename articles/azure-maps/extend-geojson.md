@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799140"
 ---
 # <a name="extending-geojson-geometries"></a>GeoJSON 기하 도형 확장
@@ -28,7 +28,7 @@ Azure Maps에는 지리적 특징의 안팎을 검색할 수 있는 강력한 AP
 * MultiPoint
 * MultiPolygon
 * Point
-* Polygon
+* 다각형
 
 일부 Azure Maps Api (예: [검색 내에서 기 하 도형](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) 허용 되지 않는 "Circle" 같은 기 하 도형 부분 합니다 [GeoJSON 사양][1]합니다.
 

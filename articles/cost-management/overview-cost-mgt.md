@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003184"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792821"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
 비용 관리는 비즈니스 관련 비용을 효율적으로 계획하고 관리하는 프로세스입니다. 비용 관리 태스크는 일반적으로 재무, 관리 및 앱 팀에서 수행합니다. Azure Cost Management는 조직에서 비용을 염두에 두고 계획을 세울 수 있도록 도와줍니다. 또한 비용을 효율적으로 분석하고 클라우드 지출을 최적화하기 위한 작업을 수행하는 데도 도움이 됩니다. 조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](cost-mgt-best-practices.md) 문서를 참조하세요.
+
+Azure Cost Management가 Azure에서 비용을 절약하는 방법에 대한 간략한 개요를 보려면 [Azure Cost Management 개요 비디오](https://www.youtube.com/watch?v=el4yN5cHsJ0)를 시청하세요.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 관련은 있지만 청구와 비용 관리는 다릅니다. 청구는 상품이나 서비스에 대한 비용을 고객에게 청구하고 상업적 관계를 관리하는 프로세스입니다.  일반적으로 조달 및 재무 팀이 청구 작업을 수행합니다.
 
@@ -42,6 +46,10 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 원�
 ## <a name="consider-cloudyn"></a>Cloudyn 고려
 
 [Cloudyn](overview.md)은 Cost Management와 관련된 Azure 서비스입니다. Cloudyn을 사용하면 Azure 리소스에 대한 클라우드 사용 및 지출을 추적할 수 있습니다. 또한 AWS 및 Google을 비롯한 다른 클라우드 공급자도 지원됩니다. 이해하기 쉬운 대시보드 보고서는 비용 할당 및 쇼백/환불을 도울 수 있습니다. 현재, Cost Management는 쇼백/차지백 또는 기타 클라우드 서비스 공급자를 지원하지 않습니다. 그러나 Cloudyn은 이러한 기능 및 공급자를 _지원하는_ 옵션입니다. 현재, Cost Management는 Microsoft CSP(클라우드 서비스 공급자) 계정을 지원하지 않지만 Cloudyn은 이 계정을 지원합니다. CSP 계정이 있거나 쇼백/차지백을 사용하려는 경우 Cloudyn을 사용하여 비용을 관리할 수 있습니다.
+
+[Azure Cost Management 및 Cloudyn 비디오](https://www.youtube.com/watch?v=PmwFWwSluh8)를 보고 비즈니스 요구 사항에 따라 Azure Cost Management 또는 Cloudyn을 사용해야 하는 경우 권장 사항을 확인합니다.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>추가 Azure 도구
 

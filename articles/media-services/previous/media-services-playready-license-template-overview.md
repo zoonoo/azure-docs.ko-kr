@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463211"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
@@ -58,7 +58,7 @@ XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayRe
 
 Media Services는 XML에 대해 serialize 및 deserialize하는 데 사용할 수 있는 일련의 .NET 클래스를 정의합니다. 기본 클래스에 대한 설명은 라이선스 템플릿을 구성하는 데 사용되는 [Media Services .NET 클래스](media-services-playready-license-template-overview.md#classes)를 참조하세요.
 
-.NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 종단 간 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](media-services-protect-with-playready-widevine.md)을 참조하세요.
+.NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 엔드투엔드 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](media-services-protect-with-playready-widevine.md)을 참조하세요.
 
 ## <a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 Media Services .NET 클래스
 Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는 기본 .NET 클래스는 다음과 같습니다. 이들 클래스는 [PlayReady 라이선스 템플릿 XML 스키마](media-services-playready-license-template-overview.md#schema)에 정의된 유형에 매핑됩니다.

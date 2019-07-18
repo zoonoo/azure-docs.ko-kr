@@ -7,7 +7,7 @@ author: senthuransivananthan
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cbde4c7fd568e6d9ff9a0d90332da96926e08077
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922383"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593143"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "64922383"
 
 ## <a name="prequisites"></a>필수 조건
 
-이 빠른 시작의 목적상 Origin으로 사용할 웹 애플리케이션이 있어야 합니다. 이 빠른 시작에서 사용한 예제 웹 애플리케이션은 https://cdndemo.azurewebsites.net에 배포되었습니다.
+이 빠른 시작의 목적상 Origin으로 사용할 웹 애플리케이션이 있어야 합니다. 이 빠른 시작에서 사용한 예제 웹 애플리케이션은 https://cdndemo.azurewebsites.net 에 배포되었습니다.
 
 자세한 내용은 [Azure에서 정적 HTML 웹앱 만들기](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)를 참조하세요.
 
@@ -210,7 +210,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![CDN 엔드포인트 보기](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-콘텐츠를 보려면 HostName을 사용합니다. 예를 들어, 브라우저를 사용하여 https://cdndemo-azurewebsites-net.azureedge.net에 액세스합니다.
+콘텐츠를 보려면 HostName을 사용합니다. 예를 들어, 브라우저를 사용하여 https://cdndemo-azurewebsites-net.azureedge.net 에 액세스합니다.
 
 ## <a name="clean-up"></a>정리
 

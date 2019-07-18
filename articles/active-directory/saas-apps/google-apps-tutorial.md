@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>자습서: G Suite와 Azure Active Directory 통합
 
@@ -185,7 +185,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
-    | Name | 원본 특성 |
+    | 이름 | 원본 특성 |
     | ---------------| --------------- |
     | 고유한 사용자 ID | User.mail |
 
@@ -239,11 +239,11 @@ G Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **Setup SSO with third party identity provider**(타사 ID 공급자로 SSO 설정)을 선택합니다.
 
-    b. G Suite의 **로그인 페이지 URL** 필드에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+    b. G Suite의 **로그인 페이지 URL** 필드에 Azure Portal에서 복사한**로그인 URL**값을 붙여넣습니다.
 
-    다. G Suite의 **로그아웃 페이지 URL** 필드에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+    다. G Suite의 **로그아웃 페이지 URL** 필드에 Azure Portal에서 복사한**로그아웃 URL**값을 붙여넣습니다.
 
-    d. G Suite의 **암호 변경 URL** 필드에 Azure Portal에서 복사한 **암호 변경 URL** 값을 붙여넣습니다.
+    d. G Suite의 **암호 변경 URL** 필드에 Azure Portal에서 복사한 **암호 변경 URL** 값을 붙여넣습니다.
 
     e. G Suite에서 **확인 인증서**에 대해 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127179"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -37,11 +37,11 @@ ID 보호는 적응형 기계 학습 알고리즘 및 휴리스틱을 사용하�
 
 Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다.
 
-이러한 위험 기반 정책은 Azure Active Directory 및 [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)에서 제공하는 다른 [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) 외에도, 암호 재설정 및 다단계 인증 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 제공할 수 있습니다.
+이러한 위험 기반 정책은 다른 것 외에도 [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) Azure Active Directory에서 제공 하는 하 고 [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)수 자동으로 차단 하거나 적응형 수정 작업을 제공 하는 암호 재설정 및 multi-factor authentication 적용을 포함 합니다.
 
 ### <a name="identity-protection-capabilities"></a>ID 보호 기능
 
-Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. Azure Active Directory 및 EMS에서 제공되는 다른 조건부 액세스 제어 외에도 이러한 정책은 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 시작할 수 있습니다.
+Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. Azure Active Directory 및 EMS에서 제공 되는 다른 조건부 액세스 제어 외에도 이러한 정책은 자동으로 차단 하거나 적응형 수정 작업을 포함 하 여 암호 재설정 및 multi-factor authentication 적용을 시작 합니다.
 
 Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 방법의 예는 다음과 같습니다.
 
@@ -95,7 +95,7 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 
 -   **주목할 만한 문제**: 해결되지 않은 문제의 수와 이러한 문제의 심각도를 빠르게 식별할 수 있습니다.
 
--   **감지(미리 보기)**: 리소스에 대해 발생된 보안 경보를 표시하여 공격 패턴을 식별할 수 있습니다.
+-   **감지(미리 보기)** : 리소스에 대해 발생된 보안 경보를 표시하여 공격 패턴을 식별할 수 있습니다.
 
 -   **위협 인텔리전스**: 아웃바운드 악성 IP 트래픽이 있는 서버의 총 수, 악성 위협의 형식 및 IP 위치에 대한 맵을 표시하여 공격 패턴을 식별할 수 있습니다.
 

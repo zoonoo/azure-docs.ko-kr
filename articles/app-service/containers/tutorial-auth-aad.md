@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296086"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705832"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>CORS 구성
 
-이 단계는 인증 및 권한 부여와 관련이 없습니다. 그러나 나중에 브라우저에서 Angular.js 앱의 도메인 간 API 호출을 허용하기 위해 [프런트 엔드 브라우저 코드에서 백 엔드 API를 호출](#call-api-securely-from-browser-code)하는 데 필요합니다. Linux의 App Service에는 [대응되는 Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality)와 달리 기본 제공 CORS 기능이 없으므로 백 엔드 앱을 위해 수동으로 추가해야 합니다.
+이 단계는 인증 및 권한 부여와 관련이 없습니다. 그러나 나중에 브라우저에서 Angular.js 앱의 도메인 간 API 호출을 허용하기 위해 [프런트 엔드 브라우저 코드에서 백 엔드 API를 호출](#call-api-securely-from-browser-code)하는 데 필요합니다. Linux의 App Service는 이제 [해당 Windows 대응](../app-service-web-tutorial-rest-api.md#add-cors-functionality)과 같은 CORS 기능을 지원합니다.
 
 로컬 리포지토리에서 _Startup.cs_ 파일을 엽니다. `ConfigureServices(IServiceCollection services)` 메서드에서 다음 코드 줄을 추가합니다.
 
@@ -109,7 +109,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 services.AddCors();
 ```
 
-`Configure(IApplicationBuilder app)` 메서드에서 다음 코드 줄을 시작 부분에 추가합니다(*\<front_end_app_name>* 대체).
+`Configure(IApplicationBuilder app)` 메서드에서 다음 코드 줄을 시작 부분에 추가합니다( *\<front_end_app_name>* 대체).
 
 ```csharp
 app.UseCors(builder =>
@@ -242,7 +242,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -277,7 +277,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 - 코드의 토큰 사용
 
 > [!TIP]
-> 오류가 발생하여 앱의 인증/권한 부여 설정을 다시 구성하면 토큰 저장소의 토큰이 새 설정에서 다시 생성되지 않을 수 있습니다. 토큰이 다시 생성되도록 하려면 앱에서 로그아웃하고 다시 로그인해야 합니다. 이 작업을 수행하는 쉬운 방법은 브라우저를 비공개 모드로 사용하여 앱의 설정을 변경한 후 비공개 모드로 브라우저를 닫았다가 다시 여는 것입니다.
+> 오류가 발생하여 앱의 인증/권한 부여 설정을 다시 구성하면 토큰 저장소의 토큰이 새 설정에서 다시 생성되지 않을 수 있습니다. 토큰이 다시 생성되도록 하려면 앱에서 로그아웃하고 다시 로그인해야 합니다. 이 작업을 수행하는 쉬운 방법은 브라우저를 개인 모드로 사용하여 앱의 설정을 변경한 후 개인 모드로 브라우저를 닫았다가 다시 여는 것입니다.
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
@@ -289,9 +289,9 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/add-api-access-front-end.png)
 
-**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
+**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택** 을 클릭합니다.
 
-**_&lt;AD\_application\_name>에 액세스_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
+**[ _&lt;AD\_application\_name>에 액세스_]** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/select-permission-front-end.png)
 
@@ -303,7 +303,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/resources-enable-write.png)
 
-왼쪽 브라우저에서 **구독** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** > **_\<front\_end\_app\_name>_** > **구성** > **authsettings**를 클릭합니다.
+왼쪽 브라우저에서 **구독** >  **\ _&lt;your\_subscription>\_**  > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** >  **\ _\<front\_end\_app\_name>\_**  > **구성** > **authsettings** 를 클릭합니다.
 
 **authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 

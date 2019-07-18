@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026663"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253595"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -29,7 +29,7 @@ Personalizer는 **현재 컨텍스트**에 관한 정보인 **기능**을 사용
 * _콘텐츠_(예: 동영상이 `Documentary`, `Movie` 또는 `TV Series` 중 어느 유형인지, 또는 소매 항목이 점포에서 구입할 수 있는지 여부)
 * _현재_ 기간(예: 요일)
 
-Personalizer는 작업 및 컨텍스트에 대해 보낼 수 있는 기능이 무엇인지 규정하거나 제한하거나 고정하지 않습니다.
+Personalizer는 작업 및 컨텍스트에 대해 전송할 수 있는 기능을 규정, 제한 또는 수정 하지 않습니다.
 
 * 일부 작업을 일부 작업에 대해 보내고 다른 작업에 대해서는 보내지 않을 수 있습니다(없는 경우). 예를 들어 TV 시리즈에는 동영상에 없는 특성이 있을 수 있습니다.
 * 일부 기능은 일부 시간에만 사용 가능할 수 있습니다. 예를 들어 모바일 애플리케이션은 웹 페이지보다 더 많은 기능을 제공할 수 있습니다. 
@@ -41,6 +41,12 @@ Personalizer는 작업 및 컨텍스트에 대해 보낼 수 있는 기능이 �
 
 Personalizer는 문자열, 숫자 및 부울 형식의 기능을 지원합니다.
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Personalizer의 기능 유형 선택이 Machine Learning에 미치는 영향
+
+* **문자열**: 문자열 형식의 경우 키와 값의 모든 조합은 Personalizer machine learning 모델에 새 가중치를 만듭니다. 
+* **숫자**: 숫자가 개인 설정 결과에 비례적으로 영향을 미치는 경우 숫자 값을 사용 해야 합니다. 이는 시나리오에 따라 달라 집니다. 예를 들어, 소매 환경을 개인 설정 하는 경우 NumberOfPetsOwned는 2 또는 3 애완 동물을 가진 사람이 개인 설정 결과에 2 개 또는 백업은 하루을 두 번 포함 하는 것이 좋습니다. 숫자 단위를 기반으로 하지만 의미는 선형이 아닌 (예: 나이, 온도 또는 사람 높이) 기능을 사용 하 여 가장 적합 한 기능으로, 일반적으로 범위를 사용 하 여 기능 품질을 향상 시킬 수 있습니다. 예를 들어 Age는 "Age": "0-5", "Age": "6-10" 등으로 인코딩할 수 있습니다.
+* "False" 값으로 전송 된 **부울** 값은 전혀 전송 되지 않은 것 처럼 작동 합니다.
+
 존재하지 않는 기능은 요청에서 생략해야 합니다. Null 값은 모델을 학습할 때 기능이 존재하고 값이 "null"인 것으로 처리되므로 Null 값을 포함하는 기능은 보내지 않아야 합니다.
 
 ## <a name="categorize-features-with-namespaces"></a>네임스페이스로 기능 분류
@@ -50,7 +56,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음은 애플리케이션에 사용하는 기능 네임스페이스의 예입니다.
 
 * User_Profile_from_CRM
-* Time
+* 시간
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -60,16 +66,20 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 * current_time
 * NewsArticle_TextAnalytics
 
-규칙이 유효한 JSON 키인 경우 자기만의 규칙에 따라 기능 네임스페이스의 이름을 지정할 수 있습니다.
+규칙이 유효한 JSON 키인 경우 자기만의 규칙에 따라 기능 네임스페이스의 이름을 지정할 수 있습니다. 네임 스페이스를 사용 하 여 기능을 개별 집합으로 구성 하 고 비슷한 이름을 가진 기능을 명확 하 게 구분할 수 있습니다. 네임 스페이스는 기능 이름에 추가 되는 ' 접두사 '로 생각할 수 있습니다. 네임 스페이스는 중첩할 수 없습니다.
 
-다음 JSON에서 `user`, `state` 및 `device`는 기능 네임스페이스입니다.
+
+다음 JSON에서 `user`, `state` 및 `device`는 기능 네임스페이스입니다. 공개 미리 보기 참고 사항: 현재는 u t f-8을 기반으로 하 고 다른 문자로 시작 하는 기능 네임 스페이스 이름을 사용 하는 것이 좋습니다. `device` `u` `s`예를 들어, 및은, 및`d`로 시작 합니다. `user` `state` 현재 동일한 첫 문자를 포함 하는 네임 스페이스가 있으면 기계 학습에 사용 되는 인덱스에서 충돌이 발생할 수 있습니다.
+
+JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 있습니다. 배열은 배열 항목이 숫자인 경우에만 포함 될 수 있습니다. 
 
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "profileType":"AnonymousUser",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -115,7 +125,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>추정한 정보를 사용하여 기능 세트 확장
 
-이미 가지고 있는 정보에서 추정할 수 있는 암묵적 특성을 생각하여 더 많은 기능을 얻을 수도 있습니다. 예를 들어 가상의 동영상 목록을 맞춤화하는 경우 주말과 평일에 사용자의 행동이 서로 다르다고 추정할 수 있습니까? 시간은 "주말" 또는 "평일" 특성을 갖도록 확장할 수 있습니다. 국경일에는 특정 동영상 유형에 주의를 기울이게 될까요? 예를 들어 "핼러윈" 특성은 핼러윈 행사와 관련된 장소에서 유용합니다. 비가 오는 날씨는 많은 사람의 동영상 선택에 크게 영향을 미칠 수 있습니까? 기상 서비스에서 시간 및 장소와 함께 해당 정보를 제공하면 사용자는 해당 서비스를 특별한 기능으로 추가할 수 있습니다. 
+이미 가지고 있는 정보에서 추정할 수 있는 암묵적 특성을 생각하여 더 많은 기능을 얻을 수도 있습니다. 예를 들어 가상의 동영상 목록 개인 설정에서 주말 vs 평일 elicits 사용자와 다른 동작을 수행할 수 있나요? 시간은 "주말" 또는 "평일" 특성을 갖도록 확장할 수 있습니다. 국경일에는 특정 동영상 유형에 주의를 기울이게 될까요? 예를 들어 "핼러윈" 특성은 핼러윈 행사와 관련된 장소에서 유용합니다. 비가 오는 날씨는 많은 사람의 동영상 선택에 크게 영향을 미칠 수 있습니까? 기상 서비스에서 시간 및 장소와 함께 해당 정보를 제공하면 사용자는 해당 서비스를 특별한 기능으로 추가할 수 있습니다. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>AI 및 Cognitive Services를 사용하여 기능 세트 확장
 
@@ -123,7 +133,7 @@ AI 및 즉시 실행할 수 있는 Cognitive Services는 Personalizer에 매우 
 
 AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용할 가능성이 있는 정보를 자동으로 추출할 수 있습니다.
 
-예: 
+예:
 
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)를 통해 동영상 파일을 실행하여 장면 요소, 텍스트, 감정 및 기타 많은 특성을 추출할 수 있습니다. 그런 다음, 원본 항목 메타데이터에 없었던 특성을 반영하도록 해당 특성을 더 정교하게 만들 수 있습니다. 
 * 개체 감지를 통해 이미지를 반영하고 감정을 통해 얼굴을 반영할 수 있는 식입니다.
@@ -156,9 +166,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-예를 들어 다음과 같은 노래를 선택할 수 있다.
+다음은 몇 가지 예입니다.
 
-|목적|조치|
+|용도|Action|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트에 대한 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|
@@ -190,6 +200,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위를 호출할 때에는 여러 작업을 보내고 해당 작업 중에서 선택하게 합니다.
 
+JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 있습니다. 배열은 배열 항목이 숫자인 경우에만 포함 될 수 있습니다. 
+
 ```json
 {
     "actions": [
@@ -198,7 +210,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +224,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +237,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +253,8 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +281,8 @@ _컨텍스트_에 대한 정보는 각 애플리케이션 및 사용 사례에 �
 
 컨텍스트는 순위 API에 보내는 JSON 개체로 표시됩니다.
 
+JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 있습니다. 배열은 배열 항목이 숫자인 경우에만 포함 될 수 있습니다. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +300,9 @@ _컨텍스트_에 대한 정보는 각 애플리케이션 및 사용 사례에 �
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

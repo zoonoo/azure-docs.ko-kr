@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050533"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
 
@@ -74,7 +74,7 @@ filter 문자열은 반환되는 항목 수를 줄이는 식입니다. 예를 �
 * `and` 및 `or` 논리 연산자를 사용하면 여러 식을 결합할 수 있습니다.
 * `(state eq 'running') and startswith(id, 'renderTask')` filter 문자열 예제는 실행 중인 "렌더링" 태스크만 나열합니다.
 
-### <a name="select"></a>여기서
+### <a name="select"></a>선택
 select 문자열은 각 항목에 대해 반환되는 속성 값을 제한합니다. 속성 이름의 목록을 지정하고 해당 속성 값은 쿼리 결과의 항목에 대해 반환됩니다.
 
 * select 문자열은 속성 이름을 쉼표로 구분한 목록으로 구성됩니다. 쿼리 중인 엔터티 형식에 대한 속성을 지정할 수 있습니다.
@@ -89,7 +89,7 @@ expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄�
 * `stats` expand 문자열 예제는 목록에서 각 항목에 대해 반환되어야 하는 통계 정보를 지정하고 있습니다.
 
 > [!NOTE]
-> 세 가지 쿼리 문자열 형식(filter, select 및 expand) 중 하나를 구성할 때 속성 이름 및 사례가 해당 REST API 요소와 일치해야 합니다. 예를 들어 .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) 클래스를 사용하는 경우 .NET 속성이 [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state)이더라도 **State** 대신 **state**를 지정해야 합니다. .NET 및 REST API 간의 속성 매핑은 아래 표를 참조하세요.
+> 세 가지 쿼리 문자열 형식(filter, select 및 expand) 중 하나를 구성할 때 속성 이름 및 사례가 해당 REST API 요소와 일치해야 합니다. 예를 들어 .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 클래스를 사용하는 경우 .NET 속성이 [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State)이더라도 **State** 대신 **state**를 지정해야 합니다. .NET 및 REST API 간의 속성 매핑은 아래 표를 참조하세요.
 > 
 > 
 
@@ -110,7 +110,7 @@ expand 문자열은 특정 정보를 얻는 데 필요한 API 호출 수를 줄�
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: 각 항목에 반환되는 속성 값을 지정합니다.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: 각 항목의 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
 
-다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
+다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 Batch 서비스를 효율적으로 쿼리하기 위해 Batch .NET API를 사용합니다. 이 시나리오에서 Batch 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient* 는 다음과 같은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Select 및 Expand 절로 구성된 [ODATADetailLevel][odata]의 인스턴스는 반환되는 데이터의 양을 제한하기 위해 [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__)과 같은 적절한 Get 메서드에 전달할 수도 있습니다.
+> Select 및 Expand 절로 구성된 [ODATADetailLevel][odata]의 인스턴스는 반환되는 데이터의 양을 제한하기 위해 [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__)과 같은 적절한 Get 메서드에 전달할 수도 있습니다.
 > 
 > 
 

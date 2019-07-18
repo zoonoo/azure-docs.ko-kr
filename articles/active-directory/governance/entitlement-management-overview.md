@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873601"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204546"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -70,26 +70,17 @@ Id 관리 및 권한 관리의 개요, 2018 Ignite 컨퍼런스에서 다음 동
 
 - Azure AD 보안 그룹
 - Office 365 그룹
-- Azure AD에 대 한 엔터프라이즈 응용 프로그램
-- SaaS 애플리케이션
-- 사용자 지정 통합 응용 프로그램
-- SharePoint Online 사이트 모음
-- SharePoint Online 사이트
+- Azure AD 엔터프라이즈 응용 프로그램, SaaS 응용 프로그램 및 페더레이션을 지 원하는 사용자 지정 통합 응용 프로그램을 포함 하거나 프로 비전
+- SharePoint Online 사이트 모음 및 사이트
 
-## <a name="prerequisites"></a>필수 조건
+또한 Azure AD 보안 그룹 또는 Office 365 그룹에 의존 하는 다른 리소스에 대 한 액세스를 제어할 수 있습니다.  예를 들면 다음과 같습니다.
 
-Azure AD 권한 관리 (미리 보기)를 사용 하려면 다음 라이선스 중 하나가 있어야 있습니다.
-
-- Azure AD Premium P2
-- EMS(Enterprise Mobility + Security) E5 라이선스
-
-자세한 내용은 [Azure Active Directory Premium edition에 등록](../fundamentals/active-directory-get-started-premium.md) 하거나 [Enterprise Mobility + Security E5 평가판](https://aka.ms/emse5trial)합니다.
-
-Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드, 현재이 미리 보기에서 사용 하기 위해 사용할 수 없는 경우
+- 구성 및 액세스 패키지에는 Azure AD 보안 그룹을 사용 하 여 Microsoft Office 365에 대 한 사용자 라이선스를 제공할 수 있습니다 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 해당 그룹에 대 한
+- 사용자 만들기 및 액세스 패키지에는 Azure AD 보안 그룹을 사용 하 여 Azure 리소스 관리에 대 한 액세스를 제공할 수 있습니다는 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 해당 그룹에 대 한
 
 ## <a name="what-are-access-packages-and-policies"></a>액세스 패키지 및 정책 이란?
 
-권한 관리의 개념을 소개는 *액세스 패키지*합니다. 액세스 패키지는 사용자가 프로젝트에서 작업 또는 해당 작업을 수행 해야 하는 모든 리소스 번들입니다. 리소스 그룹, 응용 프로그램 또는 사이트에 대 한 액세스를 포함 합니다. 액세스 패키지 내부 직원 및도 조직 외부 사용자에 대 한 액세스를 제어 하는 데 사용 됩니다. 액세스 패키지 라는 컨테이너에 정의 된 *카탈로그*합니다.
+권한 관리의 개념을 소개는 *액세스 패키지*합니다. 액세스 패키지는 사용자가 프로젝트에서 작업 또는 해당 작업을 수행 해야 하는 모든 리소스 번들입니다. 리소스 그룹, 응용 프로그램 또는 사이트에 대 한 액세스를 포함 합니다. 액세스 패키지 내부 직원 및도 조직 외부 사용자에 대 한 액세스를 제어 하는 데 사용 됩니다. 액세스 패키지는 카탈로그(*catalogs*)라는 컨테이너에 정의됩니다.
 
 하나 이상의 액세스 패키지 포함 *정책을*합니다. 정책 규칙 또는 액세스 패키지를 액세스 하는 guardrails를 정의 합니다. 적절 한 사용자만 적절 한 리소스와 적절 한 양의 시간에 대 한 액세스를 부여 되어 있는지 적용 정책을 사용 하도록 설정 합니다.
 
@@ -114,7 +105,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 �
 
 사용 하는 경우는 [Azure AD-비즈니스 (b2b)](../b2b/what-is-b2b.md) 환경을 초대를 리소스 디렉터리로 가져오고 사용 하려는 외부 게스트 사용자의 전자 메일 주소를 알고 있어야 합니다. 참가자가 시간이 지남에 따라 변경 하는 경우 또는 작거나 단기 프로젝트에서 작업 하는 모든 참가자가 이미 알고 있지만 많은 사용자를 사용 하려는 경우 관리는이 어려운 경우에 유용한이 작동 합니다.  예를 들어, 다른 조직의 작업 및 해당 조직 연락처의 한 지점 수 있습니다 하지만 시간이 지남에 따라 해당 조직에서 추가 사용자도 액세스 해야 합니다.
 
-권한 관리를 사용 하 여 사용자를 지정 하는 또한 액세스 패키지를 요청 하려면 Azure AD를 사용 하는 조직에서 허용 하는 정책을 정의할 수 있습니다. 승인이 필요한 여부와 액세스에 대 한 만료 날짜를 지정할 수 있습니다. 승인자로 지정할 수도 있습니다 승인이 필요한 경우 이전에 초대-액세스 해야 하는 조직에서 외부 사용자를 모르는 되므로 외부 조직에서 하나 이상의 사용자입니다. 액세스 패키지를 구성한 후에 외부 조직에서 사용자 연락처에 액세스 패키지에 링크를 보낼 수 있습니다. 외부 조직의 사용자가 해당 연락처 타인과 공유할 수 및 액세스 패키지를 요청 하려면이 링크를 사용할 수 있습니다.  이미 디렉터리에 초대 된 사용자는 조직에서 해당 링크를 이용할 수 있습니다.
+권한 관리를 사용 하 여 사용자를 지정 하는 또한 액세스 패키지를 요청 하려면 Azure AD를 사용 하는 조직에서 허용 하는 정책을 정의할 수 있습니다. 승인이 필요한 여부와 액세스에 대 한 만료 날짜를 지정할 수 있습니다. 승인자로 지정할 수도 있습니다 승인이 필요한 경우 이전에 초대-액세스 해야 하는 조직에서 외부 사용자를 모르는 되므로 외부 조직에서 하나 이상의 사용자입니다. 액세스 패키지를 구성한 후에 외부 조직에서 사용자 연락처에 액세스 패키지에 링크를 보낼 수 있습니다. 해당 연락처는 외부 조직에서 다른 사용자와 공유할 수 및 액세스 패키지를 요청 하려면이 링크를 사용할 수 있습니다.  해당 조직의 디렉터리에 이미 초대 된 사용자는 해당 링크를 사용할 수도 있습니다.
 
 요청이 승인 되 면 자격 관리 있지 않은 경우 이미 디렉터리에 사용자를 초대를 포함할 수 있는 필요한 액세스를 사용 하 여 사용자 프로 비전 됩니다. Azure AD에 B2B 계정을 자동으로 만듭니다.  Note는 관리자로 제한 되어 있습니다 이전에 조직에서 허용 하는 공동 작업에 대 한 설정를 [B2B 허용 또는 거부 목록을](../b2b/allow-deny-list.md) 다른 조직에 초대를 허용 하거나 차단 합니다.  사용자가 허용 또는 차단 목록에서 허용 되지 않는 경우 다음 이러한가 초대할 수 없습니다.
 
@@ -139,40 +130,11 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 �
 | 할당 된 사용자 | 사용자 또는 그룹에 대 한 액세스 패키지를 할당 하는 것입니다. |
 | enable | 프로세스는 액세스 패키지를 요청 하는 사용자를 사용할 수 있도록입니다. |
 
-## <a name="roles-and-permissions"></a>역할 및 권한
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-권한 관리에 작업 함수를 기반으로 하는 다른 역할에 있습니다.
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-| 역할 | 설명 |
-| --- | --- |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | 권한 관리의 모든 측면을 관리 합니다.<br/>사용자 및 그룹을 만듭니다. |
-| 카탈로그를 만든 | 카탈로그 만들기 및 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. 카탈로그를 자동으로 생성 하는 사람에는 카탈로그의 첫 번째 카탈로그 소유자가 됩니다. |
-| 카탈로그 소유자 | 편집 하 고 기존 카탈로그를 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. |
-| 패키지 관리자 액세스 | 편집 하 고 카탈로그 내에서 모든 기존 액세스 패키지를 관리 합니다. |
-| 승인자 | 패키지에 액세스 하려면 요청을 승인 합니다. |
-| 요청자 | 패키지 액세스를 요청 합니다. |
-
-다음 표에서 이러한 각 역할에 대 한 사용 권한을 나열합니다.
-
-| Task | 사용자 관리자 | 카탈로그를 만든 | 카탈로그 소유자 | 패키지 관리자 액세스 | 승인자 |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [일반 카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [액세스 패키지에서 리소스 역할 추가/제거](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청할 수 있는 사용자 지정](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [직접 액세스 패키지에 사용자 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지에 할당 권한이 있는 사용자 보기](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청 보기](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [요청의 배달 오류 보기](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [보류 중인 요청 취소](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 숨기기](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 삭제 합니다.](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 요청 승인](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [일반 카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그를 편집/삭제](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드, 현재이 미리 보기에서 사용 하기 위해 사용할 수 없는 경우
 
 ## <a name="next-steps"></a>다음 단계
 

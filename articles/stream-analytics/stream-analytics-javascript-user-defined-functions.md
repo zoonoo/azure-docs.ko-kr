@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192278"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329374"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비저장, 계산 전용 스칼라 함수를 지원합니다. 함수의 반환 값은 스칼라(단일) 값만 될 수 있습니다. JavaScript 사용자 정의 함수를 작업에 추가한 후 기본 제공 스칼라 함수처럼 쿼리의 아무 곳에서나 함수를 사용할 수 있습니다.
 
 다음은 JavaScript 사용자 정의 함수가 유용할 수 있는 몇 가지 시나리오입니다.
-* 정규식 함수를 가진 문자열을 구문 분석 및 조작(예: **Regexp_Replace()** 및 **Regexp_Extract()**)
+* 정규식 함수를 가진 문자열을 구문 분석 및 조작(예: **Regexp_Replace()** 및 **Regexp_Extract()** )
 * 데이터 디코딩 및 인코딩(예: 2진을 16진으로 변환)
 * JavaScript **Math** 함수로 수학 계산 수행
 * 정렬, 조인, 찾기 및 채우기 등의 배열 작업 수행
@@ -86,7 +86,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
         InputStream
     ```
 
-3.  샘플 데이터 파일 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
+3.  샘플 데이터 파일을 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
 4.  쿼리를 테스트하려면 **테스트**를 선택합니다.
 
 
@@ -104,7 +104,7 @@ DateTime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
 nvarchar(MAX) | 문자열
 레코드 | Object
-배열 | 배열
+Array | Array
 NULL | Null
 
 
@@ -117,9 +117,11 @@ Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이�
 Date | DateTime
 문자열 | nvarchar(MAX)
 Object | 레코드
-배열 | 배열
+Array | Array
 Null, Undefined | NULL
 기타 다른 형식(예: 함수 또는 오류) | 지원되지 않음(런타임 오류 발생)
+
+JavaScript 언어는 대/소문자를 구분하며 JavaScript 코드에서 개체 필드의 대/소문자는 들어오는 데이터의 필드 대/소문자와 일치해야 합니다. 호환성 수준이 1.0인 작업은 SQL SELECT 문에서 필드를 소문자로 변환합니다. 호환성 수준 1.1 이상에서 SELECT 문의 필드에는 SQL 쿼리에 지정된 것과 동일한 대/소문자가 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 JavaScript 런타임 오류는 치명적인 것으로 간주되고 활동 로그를 통해 표시됩니다. Azure Portal에서 로그를 검색하려면 작업으로 이동하고 **활동 로그**를 선택합니다.

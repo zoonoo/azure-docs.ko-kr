@@ -4,20 +4,23 @@ description: 구성 하 고 인덱싱 정책을 자동 인덱싱 및 Azure Cosmo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068599"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722543"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
 Azure Cosmos DB에서는 모든 컨테이너에는 컨테이너의 항목을 인덱싱해야 하는 방법을 결정 하는 인덱싱 정책을 있습니다. 기본 인덱싱 정책에 대 한를 새로 만든 컨테이너 인덱스 문자열 또는 숫자에 대해 범위 인덱스를 적용 하는 모든 항목의 모든 속성 및 공간 인덱스의 모든 GeoJSON 개체에 대 한 Point 형식입니다. 이 옵션을 사용 하면 인덱싱 및 인덱스 관리를 사전에 대 한 염려 없이 높은 쿼리 성능을 얻을 수 있습니다.
 
 상황에 따라 요구 사항에 맞게 이러한 자동 동작을 재정의 하는 것이 좋습니다. 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정할 수 있습니다 해당 *인덱싱 모드*를 포함 하거나 제외 하 고 *속성 경로*합니다.
+
+> [!NOTE]
+> 이 문서에서 설명 하는 인덱싱 정책을 업데이트 하는 메서드는 Azure Cosmos DB SQL API (코어)에 적용 됩니다.
 
 ## <a name="indexing-mode"></a>인덱싱 모드
 
@@ -71,6 +74,8 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
 
 - 포함 하는 일반 문자를 사용 하 여 경로 대 한: 영숫자 문자 및 _ (밑줄), 큰따옴표 (예를 들어, "/ 경로 /?")는 경로 문자열을 이스케이프 필요가 없습니다. 기타 특수 문자를 사용 하 여 경로 큰따옴표는 경로 문자열을 이스케이프 해야 (예를 들어, "/\"경로 abc\"/?"). 경로에 특수 문자를 예상 하는 경우 보안에 대 한 모든 경로 이스케이프할 수 있습니다. 기능적으로 하지 않는 것 간 차이 및 특수 문자가 있는 뿐 모든 경로 이스케이프 합니다.
 
+- 시스템 속성 "etag" etag 인덱싱에 포함 된 경로를 추가 하지 않으면 기본적으로 인덱싱에서 제외 됩니다.
+
 참조 [이 섹션에서는](how-to-manage-indexing-policy.md#indexing-policy-examples) 인덱싱 정책 예제에 대 한 합니다.
 
 ## <a name="composite-indexes"></a>복합 인덱스
@@ -94,7 +99,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
 
 | **복합 인덱스**     | **샘플 `ORDER BY` 쿼리**      | **인덱스를 지원 합니까?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |

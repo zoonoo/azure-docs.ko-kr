@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 730ff5ff12f18d1f85b3ca53adb42fee41e19fb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>자습서: Trello와 Azure Active Directory 통합
 
@@ -132,7 +132,7 @@ Trello에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 7. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 이전 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성합니다. 다음 단계를 수행합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | --- | --- |
     | User.Email | user.mail |
     | User.FirstName | user.givenname |

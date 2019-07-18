@@ -3,23 +3,23 @@ title: '빠른 시작: Java용 Bing Video Search SDK를 사용하여 비디오 �
 titleSuffix: Azure Cognitive Services
 description: Java용 Bing Video Search SDK로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/26/2019
+ms.author: aahi
+ms.openlocfilehash: 3051f663f277c216fe18513b816bb86478a2efbd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105712"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447001"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>빠른 시작: Java용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 
-Java용 Bing Video Search SDK를 통해 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing Video Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 자세한 주석 및 Bing Video Search 기능이 포함된 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)에서 확인할 수 있습니다.
+Java용 Bing Video Search SDK를 통해 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing Video Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플에 대한 소스 코드는 추가 주석 및 기능과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

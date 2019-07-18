@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733774"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
@@ -23,7 +23,7 @@ ms.locfileid: "60733774"
 
 이 기능이 유용한 몇 가지 시나리오는 다음과 같습니다.
 
-* **DevOps 시나리오(예: 파란색/녹색 배포)**: [병렬 배포 전략](durable-functions-versioning.md#side-by-side-deployments)을 구현하기 전에 실행 중인 작업이 있는지 여부를 알아야 할 수 있습니다.
+* **DevOps 시나리오(예: 파란색/녹색 배포)** : [병렬 배포 전략](durable-functions-versioning.md#side-by-side-deployments)을 구현하기 전에 실행 중인 작업이 있는지 여부를 알아야 할 수 있습니다.
 
 * **고급 모니터링 및 진단 지원**: 쿼리에 최적화된 외부 저장소(예: SQL 데이터베이스 또는 CosmosDB)에서 오케스트레이션 상태 정보를 추적할 수 있습니다.
 
@@ -91,7 +91,7 @@ Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
 Azure Event Grid 구성 가능한 속성에서 찾을 수 있습니다 합니다 [host.json 설명서](../functions-host-json.md#durabletask)합니다. 구성한 후의 `host.json` 파일을 함수 앱 수명 주기 이벤트를 event grid 토픽을 보냅니다. 로컬 및 Azure에서 함수 앱을 실행할 때 작동 합니다. ' '
 
-Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
+함수 앱 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
 ```json
 {
@@ -108,7 +108,7 @@ Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 �
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 
-Function App을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
+함수 앱을 만듭니다. Event grid 토픽와 동일한 지역에서 찾습니다 하는 것이 좋습니다.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Event grid 트리거 함수 만들기
 
@@ -138,7 +138,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-`Add Event Grid Subscription`를 선택합니다. 이 작업에는 사용자가 만든 event grid 토픽에 대 한 event grid 구독을 추가 합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
+`Add Event Grid Subscription`을(를) 선택합니다. 이 작업에는 사용자가 만든 event grid 토픽에 대 한 event grid 구독을 추가 합니다. 자세한 내용은 [Azure Event Grid의 개념](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
 
 ![Event Grid 트리거 링크 선택](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -250,19 +250,19 @@ Azure Portal에서 만든 함수의 로그를 봅니다.
 
 다음 목록에서는 수명 주기 이벤트 스키마를 설명합니다.
 
-* **`id`**: Event grid 이벤트에 대 한 고유 식별자입니다.
-* **`subject`**: 이벤트 주체에 대한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
-* **`data`**: Durable Functions 특정 매개 변수입니다.
-  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) 이름입니다.
-  * **`functionName`**: 오케스트레이터 함수 이름입니다.
-  * **`instanceId`**: Durable Functions instanceId입니다.
-  * **`reason`**: 추적 이벤트와 관련된 추가 데이터입니다. 자세한 내용은 [Durable Functions의 진단(Azure Functions)](durable-functions-diagnostics.md)을 참조하세요.
-  * **`runtimeStatus`**: 오케스트레이션 런타임 상태입니다. 실행 중, 완료됨, 실패, 취소됨입니다.
-* **`eventType`**: "orchestratorEvent"
-* **`eventTime`**: 이벤트 시간(UTC)입니다.
-* **`dataVersion`**: 수명 주기 이벤트 스키마의 버전입니다.
-* **`metadataVersion`**:  메타데이터의 버전입니다.
-* **`topic`**: Event grid 토픽 리소스입니다.
+* **`id`** : Event grid 이벤트에 대 한 고유 식별자입니다.
+* **`subject`** : 이벤트 주체에 대한 경로입니다. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`는 `Running`, `Completed`, `Failed` 및 `Terminated`입니다.  
+* **`data`** : Durable Functions 특정 매개 변수입니다.
+  * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) 이름입니다.
+  * **`functionName`** : 오케스트레이터 함수 이름입니다.
+  * **`instanceId`** : Durable Functions instanceId입니다.
+  * **`reason`** : 추적 이벤트와 관련된 추가 데이터입니다. 자세한 내용은 [Durable Functions의 진단(Azure Functions)](durable-functions-diagnostics.md)을 참조하세요.
+  * **`runtimeStatus`** : 오케스트레이션 런타임 상태입니다. 실행 중, 완료됨, 실패, 취소됨입니다.
+* **`eventType`** : "orchestratorEvent"
+* **`eventTime`** : 이벤트 시간(UTC)입니다.
+* **`dataVersion`** : 수명 주기 이벤트 스키마의 버전입니다.
+* **`metadataVersion`** :  메타데이터의 버전입니다.
+* **`topic`** : Event grid 토픽 리소스입니다.
 
 ## <a name="how-to-test-locally"></a>로컬로 테스트하는 방법
 

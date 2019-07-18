@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538246"
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
@@ -67,10 +67,10 @@ ms.locfileid: "60538246"
 HTTP 아웃바운드 요청을 하는 작업에 대한 입력 필드는 다음과 같습니다.
 A*는 필수 필드 임을 의미합니다.
 
-| 표시 이름 | 속성 이름 | 설명 |
+| Display name | 속성 이름 | 설명 |
 | --- | --- | --- |
 | 원본* |from |필터링할 배열 |
-| 조건* |여기서, |각 항목에 대해 평가할 조건 |
+| 조건* |여기서 |각 항목에 대해 평가할 조건 |
 
 <br>
 

@@ -2,20 +2,20 @@
 title: 토큰-Azure Active Directory B2C 개요 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용 되는 토큰에 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509088"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰의 개요
 
@@ -65,7 +65,7 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 | 인증 컨텍스트 클래스 참조 | `acr` | 해당 없음 | 이전 정책과 사용 합니다. |
 | 보안 프레임워크 정책 | `tfp` | `b2c_1_signupsignin1` | ID 토큰을 얻는 데 사용 된 정책의 이름입니다. |
 | 인증 시간 | `auth_time` | `1438535543` | 이때 사용자 마지막으로 입력 한 자격 증명에 epoch 시간으로 표시 합니다. |
-| 범위 | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 여러 부여 된 권한은 공백으로 구분 됩니다. |
+| Scope | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 여러 부여 된 권한은 공백으로 구분 됩니다. |
 | 권한 있는 주체 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 요청을 시작한 클라이언트 애플리케이션의 **애플리케이션 ID**입니다. |
 
 ## <a name="configuration"></a>구성

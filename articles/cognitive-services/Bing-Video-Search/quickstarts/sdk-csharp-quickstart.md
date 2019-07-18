@@ -3,30 +3,30 @@ title: '빠른 시작: C#용 Bing Video Search SDK를 사용하여 비디오 검
 titleSuffix: Azure Cognitive Services
 description: C#용 Bing Video Search SDK로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 06/26/2019
+ms.author: aahi
+ms.openlocfilehash: 3673f18ff38b2ae98180f470b9f76f1fc57ee8b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867786"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442527"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>빠른 시작: C#용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 
-C#용 Bing Video Search SDK를 통해 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing Video Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch)에서 확인할 수 있습니다. 자세한 주석 및 기능이 포함되어 있습니다.
+C#용 Bing Video Search SDK를 통해 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing Video Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있지만 SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플에 대한 소스 코드는 추가 주석 및 기능과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 * [NuGet 패키지로](https://www.nuget.org/packages/Newtonsoft.Json/) 사용 가능한 Json.NET 프레임워크.
 
-Bing Video Search SDK를 프로젝트에 추가하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 패키지를 추가합니다.
+Bing Video Search SDK를 프로젝트에 추가하려면 Visual Studio의 **솔루션 탐색기**에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 패키지를 추가합니다.
 
 [[NuGet Video Search SDK 패키지]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0)를 설치하면 다음 종속성도 설치됩니다.
 

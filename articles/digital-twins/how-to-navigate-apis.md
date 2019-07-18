@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins API 탐색 | Microsoft Docs
 description: Azure Digital Twins 관리 API를 쿼리하는 일반적인 패턴에 대해 알아봅니다.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/09/2019
+ms.author: v-adgera
+ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924497"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719859"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Azure Digital Twins 관리 API를 사용하는 방법
 
@@ -113,4 +113,4 @@ $count, $expand, $search와 같은 다른 쿼리 옵션은 지원되지 않습�
 
 몇 가지 일반적인 API 쿼리 패턴에 대해 알아보려면 [일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법](how-to-query-common-apis.md)을 참조하세요.
 
-
+API 끝점에 대 한 자세한 내용은 [디지털 쌍 Swagger를 사용 하는 방법을](./how-to-use-swagger.md)합니다.

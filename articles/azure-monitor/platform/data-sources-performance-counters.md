@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205746"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
@@ -96,8 +96,8 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 논리 디스크 | % 사용 가능한 공간 |
 | 논리 디스크 | % 사용된 Inodes |
 | 논리 디스크 | % 사용된 공간 |
-| 논리 디스크 | 디스크 읽기 바이트/초  |
-| 논리 디스크 | 디스크 읽기/초  |
+| 논리 디스크 | 디스크 읽기 바이트/초 |
+| 논리 디스크 | 디스크 읽기/초 |
 | 논리 디스크 | 디스크 전송/초 |
 | 논리 디스크 | 디스크 쓰기 바이트/초 |
 | 논리 디스크 | 디스크 쓰기/초 |

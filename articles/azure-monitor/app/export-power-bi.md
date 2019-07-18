@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900396"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
@@ -24,7 +24,7 @@ ms.locfileid: "60900396"
 
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
-* [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
+* [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이것은 기본적으로 사용되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
 * [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 저장 오버헤드가 추가로 발생합니다.
 * **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
@@ -90,7 +90,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 자격 증명이나 데이터 세트 크기와 관련한 오류가 발생할 수 잇습니다. 이러한 오류에 대해 수행할 작업에 대한 일부 내용은 다음과 같습니다.
 
-### <a name="unauthorized-401-or-403"></a>권한 없음(401 또는 403) 
+### <a name="unauthorized-401-or-403"></a>권한 없음(401 또는 403)
 새로 고침 토큰이 업데이트되지 않은 경우에 발생할 수 있습니다. 액세스 권한이 있는지 확인하려면 다음 단계를 시도합니다.
 
 1. Azure Portal에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.

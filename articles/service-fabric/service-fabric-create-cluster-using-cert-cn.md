@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe1adc0aef80066721ce0b80419c787fe25346a9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394271"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190809"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  인증서 일반 이름을 사용하는 클러스터는 인증서 관리가 훨씬 간단합니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터를 배포하는 방법을 설명합니다.
@@ -84,12 +84,18 @@ Write-Host "Common Name              :"  $CommName
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 다음으로 *certificateCommonName*, *sourceVaultValue* 및 *certificateUrlValue* 매개 변수 값을 이전 스크립트에서 반환된 값으로 설정합니다.
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -108,6 +114,12 @@ Write-Host "Common Name              :"  $CommName
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -190,7 +202,7 @@ Write-Host "Common Name              :"  $CommName
    > [!NOTE]
    > 'CertificateIssuerThumbprint' 필드에서는 지정된 제목 일반 이름으로 인증서의 예상 발급자를 지정할 수 있습니다. 이 필드는 쉼표로 구분된 SHA1 지문의 열거를 허용합니다. 이는 인증서 유효성 검사의 강화입니다. 즉, 발급자가 지정되지 않았거나 비어 있는 경우, 인증서 체인을 구축할 수 있고 유효성 검사기가 신뢰하는 루트에서 종료하면 인증서는 인증이 수락됩니다. 발급자가 지정된 경우 루트를 신뢰할 수 있는지 여부에 관계 없이 직접 발급자의 지문이 이 필드에 지정된 값과 일치하면 인증서는 수락됩니다. PKI는 동일한 제목에 대해 인증서를 발급할 때 서로 다른 인증 기관을 사용할 수 있으므로 주어진 제목에 대해 예상되는 모든 발급자 지문을 지정하는 것이 중요합니다.
    >
-   > 발급자를 지정하는 것은 모범 사례로 간주됩니다. 이를 생략하더라도 신뢰할 수 있는 루트에 연결된 인증서의 경우 작업은 계속 진행되지만 이러한 동작에는 제한이 있으며 가까운 시일 내에 단계적으로 중단될 수 있습니다. 또한 PKI의 인증서 정책을 검색할 수 없고 사용할 수 없고 액세스할 수 없는 경우, Azure에 배포되고 개인 PKI에서 발급된 X509 인증서로 보안되고 제목별로 선언된 클러스터는 Azure Service Fabric 서비스(클러스터-서비스 통신용)에서 유효성을 검사하지 못할 수 있습니다. 
+   > 발급자를 지정하는 것은 모범 사례로 간주됩니다. 이를 생략하더라도 신뢰할 수 있는 루트에 연결된 인증서의 경우 작업은 계속 진행되지만 이러한 동작에는 제한이 있으며 가까운 시일 내에 단계적으로 중단될 수 있습니다. 또한 PKI의 인증서 정책을 검색할 수 없고 사용할 수 없고 액세스할 수 없는 경우, Azure에 배포되고 프라이빗 PKI에서 발급된 X509 인증서로 보안되고 제목별로 선언된 클러스터는 Azure Service Fabric 서비스(클러스터-서비스 통신용)에서 유효성을 검사하지 못할 수 있습니다. 
 
 ## <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
 변경 후 업데이트된 템플릿을 다시 배포합니다.
@@ -215,8 +227,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 * [클러스터 인증서 롤오버](service-fabric-cluster-rollover-cert-cn.md) 방법 알아보기
 * [클러스터 인증서 업데이트 및 관리](service-fabric-cluster-security-update-certs-azure.md)
 * [인증서 지문에서 일반 이름으로 클러스터를 변경](service-fabric-cluster-change-cert-thumbprint-to-cn.md)하여 인증서 관리 간소화
-
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-ic-cluster-change-cert-thumbprint-to-cn.md))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

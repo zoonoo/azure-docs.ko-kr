@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 51fc47a28cc40d286b5a268d4c42e3531f346c5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796867"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485166"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
  이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 시작할 때 발생할 수 있는 BitLocker 오류에 대해 설명합니다.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>증상
 
@@ -32,7 +32,7 @@ ms.locfileid: "59796867"
 
 - BitLocker 키가 있는 USB 드라이버 꽂기
 
-- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 https://windows.microsoft.com/recoverykeyfaq로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
+- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 https://windows.microsoft.com/recoverykeyfaq 로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
 
 - 이 드라이브의 잠금을 해제하려면 암호를 입력하세요. [ ] 입력하는 암호를 표시하려면 Insert 키를 누르세요.
 - USB 디바이스에서 복구 키를 로드하려면 복구 키를 입력하세요.
@@ -47,8 +47,8 @@ ms.locfileid: "59796867"
 
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
-1. 영향을 받는 VM의 시스템 디스크의 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. BitLocker에 의해 암호화된 [복구 VM에 시스템 디스크를 연결](troubleshoot-recovery-disks-portal-windows.md)합니다. 이 작업은 BitLocker로 암호화된 VM 에서만 사용할 수 있는 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행하는 데 필요합니다.
+1. 영향을 받는 VM의 시스템 디스크의 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md). 실행 하는 [관리 bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 7 단계에서 명령을 합니다 **BitLocker 드라이브 암호화** 복구 VM에서에서 기능을 사용할 수 있어야 합니다.
 
     관리 디스크를 연결할 때 “암호화 설정이 포함되어 있으므로 데이터 디스크로 사용할 수 없습니다.” 오류 메시지가 표시될 수 있습니다. 이 경우 다음 스크립트를 실행하여 디스크를 다시 연결합니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "59796867"
 
     **콘텐츠 형식** 값이 **래핑된 BEK**이면 [KEK(키 암호화 키) 시나리오](#key-encryption-key-scenario)로 이동합니다.
 
-    드라이브의 BEK 파일 이름을 확인했으므로 secret-file-name.BEK 파일을 만들어 드라이브의 잠금을 해제해야 합니다. 
+    드라이브의 BEK 파일 이름을 확인했으므로 secret-file-name.BEK 파일을 만들어 드라이브의 잠금을 해제해야 합니다.
 
 6.  복구 디스크에 BEK 파일을 다운로드합니다. 다음 샘플은 BEK 파일을 C:\BEK 폴더에 저장합니다. 스크립트를 실행하기 전에 `C:\BEK\` 경로가 있는지 확인합니다.
 
@@ -120,14 +120,14 @@ ms.locfileid: "59796867"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  BEK 파일을 사용하여 연결된 디스크의 잠금을 해제하려면 다음 명령을 실행합니다.
+7.  BEK 파일이 사용 하 여 연결 된 디스크의 잠금을 해제 하려면 다음 명령을 실행 합니다.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     이 샘플에서 연결된 OS 디스크는 드라이브 F입니다. 올바른 드라이브 문자를 사용하는지 확인합니다. 
 
-    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 BItLocker 문제가 해결된 것으로 생각할 수 있습니다. 
+    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 생각 BitLocker 문제를 해결할 수 있습니다. 
 
     - BEK 키를 사용해도 디스크의 잠금이 해제되지 않으면 다음 명령으로 보호 일시 중단을 사용하여 일시적으로 BitLocker를 끌 수 있습니다.
     
@@ -254,7 +254,7 @@ ms.locfileid: "59796867"
     ```
     이 샘플에서 연결된 OS 디스크는 드라이브 F입니다. 올바른 드라이브 문자를 사용하는지 확인합니다. 
 
-    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 BItLocker 문제가 해결된 것으로 생각할 수 있습니다. 
+    - 디스크 BEK 키를 사용하여 성공적으로 잠금 해제된 경우 생각 BitLocker 문제를 해결할 수 있습니다. 
 
     - BEK 키를 사용해도 디스크의 잠금이 해제되지 않으면 다음 명령으로 보호 일시 중단을 사용하여 일시적으로 BitLocker를 끌 수 있습니다.
     

@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60365190"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
@@ -41,7 +41,7 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다.
    Add-AzureAccount
    ```
 
-2.  적절한 Azure 구독을 선택합니다.
+2. 적절한 Azure 구독을 선택합니다.
 
    ```powershell
    Select-AzureSubscription "<Enter Subscription Name here>"
@@ -70,7 +70,7 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
    Connect-AzAccount
    ```
 
-2.  적절한 Azure 구독을 선택합니다.
+2. 적절한 Azure 구독을 선택합니다.
 
    ```powershell
    Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription

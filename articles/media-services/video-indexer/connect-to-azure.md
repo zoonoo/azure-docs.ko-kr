@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799837"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -161,7 +162,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 * 새 Media Services 계정에 연결하면 Video Indexer가 그 안에서 자동으로 기본 **스트리밍 엔드포인트**를 시작합니다.
 
-    ![Media Services 스트리밍 엔드포인트](./media/create-account/ams-streaming-endpoint.png)
+    ![Media Services 스트리밍 끝점](./media/create-account/ams-streaming-endpoint.png)
 
     스트리밍 엔드포인트의 시작 시간이 깁니다. 따라서 계정을 Azure에 연결하는 시점부터 Video Indexer 웹 애플리케이션에서 비디오를 스트리밍하고 시청할 수 있게 되는 시점까지 몇 분 정도 걸릴 수 있습니다.
 

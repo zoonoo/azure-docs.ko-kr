@@ -9,11 +9,11 @@ ms.date: 05/24/2018
 ms.author: dekapur
 ms.custom: include file
 ms.openlocfilehash: 1c76f84248b674c79ba41953be3358f5c52ead97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419006"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182430"
 ---
 |     |
 | --- |

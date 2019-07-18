@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66256617"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -28,8 +28,8 @@ Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. �
 ## <a name="prerequisites"></a>필수 조건
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
 
-- 다음 워크로드와 함께 [Windows용 Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
-    - ASP.NET 및 웹 개발
+- 설치할 [Windows에 대 한 Visual Studio 2019](https://www.visualstudio.com/downloads/) 다음 워크 로드를 사용 하 여:
+    - ASP.NET 및 웹 개발 (선택 취소 하지 선택적 구성 요소)
     - Azure 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="ide"></a> 1단계: Application Insights SDK 추가
 
 > [!IMPORTANT]
-> 이 예제의 스크린샷은 Visual Studio 2017 버전 15.9.9 기반으로 합니다. Application Insights를 추가할 환경을 ASP.NET 템플릿 유형에 뿐만 아니라 Visual Studio 2017의 버전 마다 다릅니다. 이전 버전에는 "Application Insights 구성"와 같은 대체 텍스트가 있을 수 있습니다.
+> 이 예의 스크린샷에서 Visual Studio 2017 버전 15.9.9에 따라 이상. Application Insights를 추가할 환경을 ASP.NET 템플릿 유형에 뿐만 아니라 Visual Studio의 버전 마다 다릅니다. 이전 버전에는 "Application Insights 구성"와 같은 대체 텍스트가 있을 수 있습니다.
 
 솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고 선택 **추가** > **Application Insights 원격 분석**
 
@@ -99,12 +99,10 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
-[에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](../../azure-monitor/app/app-insights-dashboards.md).
-
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
 IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
-원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
+메트릭을 모니터링할 수 있습니다, Application Insights 포털에서 원격 분석 빌드를 원격 분석을 검색 합니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
 [Visual Studio](../../azure-monitor/app/visual-studio.md)에서 진단 검색 및 [추세](../../azure-monitor/app/visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
 
@@ -146,7 +144,6 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 ### <a name="analysis"></a>분석
 
 * **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.
-* **[Application Insights 포털 사용](../../azure-monitor/app/app-insights-dashboards.md)**<br/> 대시보드, 강력한 진단 및 분석 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기에 대한 정보가 포함되어 있습니다.
 * **[분석](../../azure-monitor/log-query/get-started-portal.md)** - 강력한 쿼리 언어입니다.
 
 ### <a name="alerts"></a>경고

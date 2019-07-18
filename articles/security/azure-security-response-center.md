@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
 ms.openlocfilehash: 117df5b1b1a80d9e0a39c6f0114f97a4dae5ceda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610945"
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft 보안 응답 센터
@@ -37,7 +37,7 @@ MSRC는 이러한 전문가들이 어떤 작업을 어떻게 진행하는지를 
 
 ## <a name="security-researcher-engagement-and-bounty-programs"></a>보안 연구원 참여 및 포상 프로그램
 
-MSRC는 Microsoft 제품 보안을 증진하기 위해 전세계 보안 연구원들과 공동 작업 및 관계를 지원합니다.
+MSRC는 Microsoft 제품 보안을 증진하기 위해 전세계 보안 연구원들과 협업 및 관계를 지원합니다.
 
 Microsoft 포상 프로그램은 다음과 같은 부문에서 연구원에게 포상금을 지급하고 있습니다.
 

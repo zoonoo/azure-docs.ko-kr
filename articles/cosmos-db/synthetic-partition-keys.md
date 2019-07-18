@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너에 가상 파티션 키를 사용하는 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 6b3499c36ae7abd03c4a1f1ca3a3a46e2c315120
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fd436746dcd2e93a1699ac5c68965213c74580e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60937103"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65978873"
 ---
 # <a name="create-a-synthetic-partition-key"></a>가상 파티션 키 만들기
 

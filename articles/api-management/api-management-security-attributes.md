@@ -1,24 +1,23 @@
 ---
-title: Azure API Management에 대 한 일반적인 보안 특성
+title: Azure API Management에 대 한 보안 특성
 description: API Management를 평가 하기 위한 일반적인 보안 특성에 대 한 검사 목록
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 040d628f9fe89f68a1c5ab91a1522c6a3cb724d9
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64508146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66001085"
 ---
-# <a name="common-security-attributes-for-api-management"></a>API Management에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-api-management"></a>API Management에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 API Management에 기본 제공 되는 일반적인 보안 특성을 설명 합니다.
+이 문서에서는 API Management에 기본 제공 보안 특성을 설명 합니다.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -75,4 +74,4 @@ ms.locfileid: "64508146"
 
 | 취약점               | 설명                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed는 취약점으로 인 한 일부 F5 제품 있는 TLS SessionTicket 확장의 구현입니다. ("Bleeding") 최대 31 바이트의 초기화 되지 않은 메모리에서 데이터의 누출 수 있습니다. 32 비트 수 있도록 데이터를 사용 하 여 클라이언트에서 전달 된 세션 ID를 패딩 TLS 스택을 발생 시간입니다. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed는 취약점으로 인 한 일부 F5 제품 있는 TLS SessionTicket 확장의 구현입니다. ("Bleeding") 최대 31 바이트의 초기화 되지 않은 메모리에서 데이터의 누출 수 있습니다. 이 32 비트 길이로 수 있도록 데이터를 사용 하 여 클라이언트에서 전달 된 세션 ID를 패딩 TLS 스택을 때문일 수 있습니다. |

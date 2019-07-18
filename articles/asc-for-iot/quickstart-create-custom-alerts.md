@@ -2,24 +2,25 @@
 title: IoT용 Azure Security Center 사용자 지정 경고 만들기 - 미리 보기 | Microsoft Docs
 description: IoT용 Azure Security Center 사용자 지정 디바이스 경고를 만들고 할당합니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192477"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618038"
 ---
 # <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
 
@@ -50,20 +51,19 @@ IoT Hub의 각 IoT 솔루션에는 기본적으로 **default**라는 하나의 �
 ## <a name="customize-an-alert"></a>경고 사용자 지정
 
 1. IoT Hub를 엽니다. 
-2. **보안**을 선택한 다음, **사용자 지정 경고**를 선택합니다. 
+2. **보안** 섹션에서 **사용자 지정 경고**를 클릭합니다. 
 3. 사용자 지정을 적용하려는 보안 그룹을 선택합니다. 
-4. **사용자 지정 경고 추가**를 클릭합니다.
-5. 경고 이름을 입력합니다(경고 이름은 만든 후에 변경할 수 없음). 
-6. 드롭다운 목록에서 사용자 지정 경고 동작을 선택합니다. 
-7. 필요한 속성을 편집하고 **확인**을 클릭합니다.
-8. **저장**을 클릭해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
+4. **사용자 지정 경고 추가**를 클릭합니다. 
+5. 드롭다운 목록에서 사용자 지정 경고 동작을 선택합니다. 
+6. 필요한 속성을 편집하고 **확인**을 클릭합니다.
+7. **저장**을 클릭해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
 
  
 ## <a name="alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 경고
 
 다음 표에서는 사용자 지정에 사용할 수 있는 경고를 요약하고 있습니다.
 
-| 심각도 | Name                                                                                                    | 데이터 원본 | 설명                                                                                                                                     |
+| 심각도 | 이름                                                                                                    | 데이터 원본 | 설명                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜에서 클라우드-디바이스 메시지 수가 허용 범위 내에 있지 않습니다.          | IoT Hub     | 시간 범위에 속한 클라우드-디바이스 메시지(AMQP 프로토콜)의 양이 구성된 허용 범위를 벗어났습니다.                                  |
 | 낮음      | 사용자 지정 경고 - AMQP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위 내에 있지 않습니다. | IoT Hub     | 시간 범위에 속하면서 디바이스에서 거부된 클라우드-디바이스 메시지(AMQP 프로토콜)의 양이 구성된 허용 범위를 벗어났습니다. |

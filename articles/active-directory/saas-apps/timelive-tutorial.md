@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: cd38da7cb640e53c90a209850bcd8386c75a8aa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a3f1e74b67d30fc5d0b994093f159de0cc833628
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>자습서: TimeLive와 Azure Active Directory 통합
 

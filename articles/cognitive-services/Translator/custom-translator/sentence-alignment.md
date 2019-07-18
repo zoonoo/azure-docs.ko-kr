@@ -2,19 +2,19 @@
 title: 문장 페어링 및 정렬 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 훈련이 실행되는 동안, 병렬 문서에 포함된 문장들이 페어링 또는 정렬됩니다. Custom Translator는 하나의 문장과 이 문장의 번역을 읽어서 한 번에 한 문장씩 번역을 학습합니다. 그런 다음 두 문장의 단어와 구문을 서로 정렬합니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8d2933f6a3bbab792acb708f2a59cad4eb2cabf7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f73c40704e10a8e2368ee1eb369ee3dccdf269ee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777161"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448309"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>병렬 문서의 문장 페어링 및 정렬
 
@@ -37,7 +37,7 @@ Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니�
 | 데이터 집합   | 추출된 문장의 최소 권장 개수 | 정렬된 문장의 최소 권장 개수 | 정렬된 문장의 최대 개수 |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
 | 교육   | 10000                                     | 2,000                                    | 상한 없음                 |
-| 튜닝     | 2,000                                      | 500                                      | 2,500                          |
+| Tuning     | 2,000                                      | 500                                      | 2,500                          |
 | 테스트    | 2,000                                      | 500                                      | 2,500                          |
 | Dictionary | 0                                          | 0                                        | 상한 없음                 |
 

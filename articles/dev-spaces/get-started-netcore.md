@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e05dbc570836741a69ed229fc93eb32a7dfd01dd
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426344"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503152"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure Dev Spaces에서 .NET Core를 사용하여 시작
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에 리소스 그룹을 만듭니다.
+명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -64,7 +64,7 @@ az group create --name MyResourceGroup --location <region>
 다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 클러스터를 만드는 데 몇 분이 걸립니다.
@@ -130,22 +130,46 @@ azds up
 > `up` 명령을 처음 실행할 때는 이러한 단계가 오래 걸리지만 후속 실행은 더 빨라집니다.
 
 ### <a name="test-the-web-app"></a>웹앱 테스트
-콘솔 출력에서 `up` 명령으로 생성된 공용 URL에 대한 정보를 검색합니다. 다음과 같은 형식입니다. 
+콘솔 출력에서 *애플리케이션 시작* 메시지를 검색하여 `up` 명령이 완료되었음을 확인합니다.
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 컨테이너가 실행될 때 `stdout` 및 `stderr` 출력이 터미널 창으로 스트리밍됩니다.
+`up` 명령의 출력에서 서비스의 공용 URL을 식별합니다. `.azds.io`로 끝납니다. 위의 예제에서 공용 URL은 `http://webfrontend.1234567890abcdef1234.eus.azds.io/`입니다.
+
+웹앱을 보려면 브라우저에서 공용 URL을 엽니다. 또한 웹앱을 조작할 때 `stdout` 및 `stderr` 출력이 *azds trace* 터미널 창으로 스트리밍됩니다. HTTP 요청이 시스템을 통과할 때 추적 정보도 표시됩니다. 이를 통해 개발하는 동안 복잡한 다중 서비스 호출을 보다 쉽게 추적할 수 있습니다. Dev Spaces에서 추가된 계측은 이 요청 추적을 제공합니다.
+
+![AZDS 추적 터미널 창](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
+> 공용 URL 외에도 콘솔 출력에 표시되는 `http://localhost:<portnumber>` URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. Azure Dev Spaces는 Kubernetes *포트 전달* 기능을 사용하여 localhost 포트를 AKS에서 실행 중인 컨테이너에 매핑합니다. 로컬 컴퓨터에서 서비스 조작이 용이해집니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
-1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
+1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 [`<h2>Application uses</h2>`를 읽는 줄 73](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73)을 다음과 같이 변경합니다. 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. 파일을 저장합니다. 잠시 후, 터미널 창에 실행 중인 컨테이너의 파일이 업데이트되었다는 메시지가 표시됩니다.
 1. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
 
@@ -160,7 +184,6 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 1. 터미널 창에서 `azds up`를 실행합니다. 
 
 이 명령은 컨테이너 이미지를 다시 빌드하고 Helm 차트를 다시 배포합니다. 실행 중인 애플리케이션에서 코드 변경 내용을 적용하려면 웹앱의 정보 메뉴로 이동합니다.
-
 
 하지만 코드 개발에 사용할 수 있는 *훨씬 더 빠른 방법*이 있으며, 이에 대해서는 다음 섹션에서 살펴볼 예정입니다. 
 
@@ -199,11 +222,11 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 `up` 명령과 마찬가지로 코드가 개발 환경에 동기화되고 컨테이너가 빌드되어 Kubernetes에 배포됩니다. 물론 이번에는 디버거가 원격 컨테이너에 연결됩니다.
 
 > [!Tip]
-> VS Code 상태 표시줄에 클릭 가능한 URL이 표시됩니다.
+> VS Code 상태 표시줄이 주황색으로 바뀌면 디버거가 연결되었음을 나타냅니다. 사이트를 여는 데 사용할 수 있는 클릭 가능한 URL도 표시됩니다.
 
 ![](media/common/vscode-status-bar-url.png)
 
-예를 들어 `Controllers/HomeController.cs` 원본 파일의 `Index()` 함수 내에서 서버 측 코드 파일에 중단점을 설정합니다. 브라우저 페이지를 새로 고치면 중단점에 도달합니다.
+예를 들어 `Controllers/HomeController.cs` 원본 파일의 `About()` 함수 내에서 서버 측 코드 파일에 중단점을 설정합니다. 브라우저 페이지를 새로 고치면 중단점에 도달합니다.
 
 코드가 로컬에서 실행되는 경우처럼 호출 스택, 지역 변수, 예외 정보 등과 같은 디버그 정보에 대한 전체 액세스 권한이 있습니다.
 
@@ -218,9 +241,9 @@ public IActionResult About()
 }
 ```
 
-파일을 저장하고, **디버그 작업 창**에서 **새로 고침** 단추를 클릭합니다. 
+파일을 저장하고, **디버그 작업 창**에서 **다시 시작** 단추를 클릭합니다. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 코드 편집이 완료될 때마다 상당한 시간이 소요되는 새 컨테이너 이미지 다시 빌드 및 다시 배포 작업을 수행하는 대신 Azure Dev Spaces는 기존 컨테이너 내에서 코드를 점진적으로 다시 컴파일하여 더 빠른 편집/디버그 루프를 제공합니다.
 
@@ -232,3 +255,6 @@ public IActionResult About()
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

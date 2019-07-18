@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d788db9d554c6200316bb4e3f36640dac1925fc4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616860"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341544"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 원격 액세스 구성 또는 비활성화
 
@@ -27,7 +27,7 @@ ms.locfileid: "60616860"
 각 NAT 풀 구성에는 하나 이상의 [NSG(네트워크 보안 그룹) 규칙](/rest/api/batchservice/pool/add#networksecuritygrouprule)이 포함되어 있습니다. 각 NSG 규칙은 엔드포인트에 대한 특정 네트워크 트래픽을 허용하거나 거부합니다. 모든 트래픽, [서비스 태그](../virtual-network/security-overview.md#service-tags)(예: "인터넷")로 식별된 트래픽 또는 특정 IP 주소나 서브넷에서 들어오는 트래픽을 허용하거나 거부하도록 선택할 수 있습니다.
 
 ### <a name="considerations"></a>고려 사항
-* 풀 엔드포인트 구성은 풀 [네트워크 구성](/rest/api/batchservice/pool/add#NetworkConfiguration)의 일부입니다. 네트워크 구성은 풀은 [Azure 가상 네트워크](batch-virtual-network.md)에 조인하는 설정을 선택적으로 포함할 수 있습니다. 가상 네트워크에서 풀을 설정할 경우 가상 네트워크의 주소 설정을 사용하는 NSG 규칙을 만들 수 있습니다.
+* 풀 엔드포인트 구성은 풀 [네트워크 구성](/rest/api/batchservice/pool/add#networkconfiguration)의 일부입니다. 네트워크 구성은 풀은 [Azure 가상 네트워크](batch-virtual-network.md)에 조인하는 설정을 선택적으로 포함할 수 있습니다. 가상 네트워크에서 풀을 설정할 경우 가상 네트워크의 주소 설정을 사용하는 NSG 규칙을 만들 수 있습니다.
 * NAT 풀을 구성할 경우 여러 NSG 규칙을 구성할 수 있습니다. 규칙은 우선 순위에 따라 검사됩니다. 규칙이 적용되면 일치하는 규칙은 더 이상 테스트되지 않습니다.
 
 
@@ -53,7 +53,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 다음 Python 코드 조각에서는 모든 인터넷 트래픽을 거부하도록 Linux 풀의 계산 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 이 엔드포인트는 *4000 - 4100* 범위의 프런트 엔드 포트 풀을 사용합니다. 
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -63,14 +63,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                source_address_prefix='Internet'
+                    priority=170,
+                    access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                    source_address_prefix='Internet'
                 )
             ]
         )
         ]
-    ) 
+    )
 )
 ```
 
@@ -97,7 +97,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 다음 Python 코드 조각에서는 *192.168.1.0/24*라는 서브넷에서 오는 액세스만 허용하도록 Linux 풀의 계산 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 서브넷과 일치하지 않는 트래픽을 거부합니다.
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -107,14 +107,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access='allow',
-                source_address_prefix='192.168.1.0/24'
+                    priority=170,
+                    access='allow',
+                    source_address_prefix='192.168.1.0/24'
                 ),
                 batchmodels.NetworkSecurityGroupRule(
-                priority=175,
-                access='deny',
-                source_address_prefix='*'
+                    priority=175,
+                    access='deny',
+                    source_address_prefix='*'
                 )
             ]
         )

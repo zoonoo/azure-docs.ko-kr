@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499559"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073298"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -56,7 +56,10 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 * [가상 네트워크 배포](container-instances-vnet.md)(미리 보기)
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
-Azure Container Instances는 현재 LTSC(장기 서비스 채널) 버전 기반의 Windows Server 2016 이미지를 지원합니다. 1709 및 1803 같은 SAC(Windows 반기 채널) 릴리스는 지원되지 않습니다.
+Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
+
+> [!NOTE]
+> Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 

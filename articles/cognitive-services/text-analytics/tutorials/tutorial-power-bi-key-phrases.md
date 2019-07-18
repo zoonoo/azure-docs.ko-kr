@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003471"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626029"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -103,7 +103,7 @@ Text Analytics 서비스의 [핵심 구 API](https://westus.dev.cognitive.micros
 이제 Power BI와 Text Analytics를 통합하는 사용자 지정 함수를 만들 준비가 완료되었습니다. 이 함수는 매개 변수로 처리할 텍스트를 받습니다. 데이터를 필요한 JSON 형식으로 또는 그 반대로 변환하고 핵심 구 API에 대한 HTTP 요청을 만듭니다. 그런 다음, 함수는 API의 응답을 구문 분석하고 추출된 핵심 구의 쉼표로 구분된 목록을 포함하는 문자열을 반환합니다.
 
 > [!NOTE]
-> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://msdn.microsoft.com/library/mt211003.aspx) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](https://docs.microsoft.com/dotnet/fsharp/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
+> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://docs.microsoft.com/powerquery-m/power-query-m-reference) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](https://docs.microsoft.com/dotnet/fsharp/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
 
 Power BI Desktop에서 아직 쿼리 편집기 창에 있는지 확인합니다. 그렇지 않은 경우에는 **홈** 리본을 선택하고 **외부 데이터** 그룹에서 **쿼리 편집**을 클릭합니다.
 
@@ -176,19 +176,19 @@ Power BI Desktop의 [쿼리 편집기] 창에서 `FabrikamComments` 쿼리로 �
 
 ![[데이터 원본 개인 정보 설정]](../media/tutorials/power-bi/privacy-dialog.png)
 
-## <a name="create-the-word-cloud"></a>단어 구름 만들기
+## <a name="create-the-word-cloud"></a>Word Cloud 만들기
 <a name="WordCloud"></a>
 
 나타나는 배너를 해결한 후에는 [홈] 리본에서 **닫기 및 적용**을 클릭하여 [쿼리 편집기]를 닫습니다.
 
 Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 걸립니다. 테이블의 각 행에서, 새 `keyphrases` 열에는 Key Phrases API가 텍스트에서 검색한 핵심 문구가 포함됩니다. 
 
-이제 이 열을 사용하여 단어 구름을 생성하겠습니다. 시작하려면 작업 영역 왼쪽에 있는 기본 Power BI Desktop 창에서 **보고서** 단추를 클릭합니다.
+이제 이 열을 사용하여 Word Cloud를 생성하겠습니다. 시작하려면 작업 영역 왼쪽에 있는 기본 Power BI Desktop 창에서 **보고서** 단추를 클릭합니다.
 
 > [!NOTE]
-> 모든 의견의 전체 텍스트 대신 추출된 핵심 문구를 사용하여 워드 클라우드를 생성하는 이유는 무엇일까요? 핵심 문구는 *가장 일반적인* 단어뿐 아니라 고객 의견에서 *중요한* 단어를 제공합니다. 또한 상대적으로 수가 적은 의견의 단어를 자주 사용하더라도 결과 클라우드의 단어 크기 조정이 왜곡되지 않습니다.
+> 모든 의견의 전체 텍스트 대신 추출된 핵심 문구를 사용하여 Word Cloud를 생성하는 이유는 무엇일까요? 핵심 문구는 *가장 일반적인* 단어뿐 아니라 고객 의견에서 *중요한* 단어를 제공합니다. 또한 상대적으로 수가 적은 의견에서 특정 단어를 자주 사용하더라도 결과 클라우드의 단어 크기 조정이 왜곡되지 않습니다.
 
-아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점(**...**)을 클릭하고 **스토어에서 가져오기**를 선택합니다. 그리고 "클라우드"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 단어 구름 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
+아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점( **...** )을 클릭하고 **스토어에서 가져오기**를 선택합니다. "Cloud"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 Word Cloud 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
 
 ![[사용자 지정 시각적 개체 추가]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -196,7 +196,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 
 ![[시각화 패널의 Word Cloud 아이콘]](../media/tutorials/power-bi/visualizations-panel.png)
 
-작업 영역에 새 보고서가 나타납니다. [시각화] 패널의 [필드] 패널에서 `keyphrases` 필드를 [범주] 필드로 끌어 놓습니다. 보고서 안에 워드 클라우드가 나타납니다.
+작업 영역에 새 보고서가 나타납니다. [시각화] 패널의 [필드] 패널에서 `keyphrases` 필드를 [범주] 필드로 끌어 놓습니다. 보고서 안에 Word Cloud가 나타납니다.
 
 이제 [시각화] 패널의 [형식] 페이지로 전환합니다. 클라우드에서 "of" 같은 짧고 일반적인 단어를 제거하도록, [중지 단어] 범주에서 **기본 중지 단어**를 켭니다. 
 
@@ -206,7 +206,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 
 ![[포커스 모드 활성화]](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
-보고서에서 포커스 모드 도구를 클릭하면 워드 클라우드를 좀 더 자세히 볼 수 있습니다. 이 도구는 아래와 같이 작업 영역 전체를 채우도록 워드 클라우드를 확장합니다.
+보고서에서 포커스 모드 도구를 클릭하면 Word Cloud를 좀 더 자세히 볼 수 있습니다. 이 도구는 아래와 같이 작업 영역 전체를 채우도록 Word Cloud를 확장합니다.
 
 ![[Word Cloud]](../media/tutorials/power-bi/word-cloud.png)
 
@@ -294,7 +294,7 @@ Text Analytics 서비스, 파워 쿼리 M 수식 언어 또는 Power BI에 대�
 > [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [파워 쿼리 M 참조](https://msdn.microsoft.com/library/mt211003.aspx)
+> [파워 쿼리 M 참조](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI 설명서](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

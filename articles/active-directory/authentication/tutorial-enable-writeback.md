@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183210"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853036"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>자습서: 암호 쓰기 저장을 사용하도록 설정
 
@@ -61,4 +61,4 @@ Azure AD Connect에서 비밀번호 쓰기 저장 기능을 사용하도록 설�
 이 자습서에서는 셀프 서비스 암호 재설정에 비밀번호 쓰기 저장을 사용하도록 설정했습니다. Azure Portal 창을 열어 놓은 상태로 그 다음 자습서로 넘어가서 셀프 서비스 암호 재설정과 관련된 추가 설정을 구성한 후 솔루션을 파일럿에 배포하세요.
 
 > [!div class="nextstepaction"]
-> [Windows 로그온 화면에서 SSPR을 사용하도록 설정](tutorial-sspr-windows.md)
+> [로그인 시 위험 평가](tutorial-risk-based-sspr-mfa.md)

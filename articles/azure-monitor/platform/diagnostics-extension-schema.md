@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527307"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
@@ -90,7 +90,7 @@ Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 �
 </SinksConfig>
 ```
 > [!NOTE]
-> 클래식 VM 및 클래식 클라우드 서비스에 대해 Azure Monitor 싱크를 구성하려면 진단 확장의 개인 구성에서 추가 매개 변수를 정의해야 합니다.
+> 클래식 VM 및 클래식 클라우드 서비스에 대해 Azure Monitor 싱크를 구성하려면 진단 확장의 프라이빗 구성에서 추가 매개 변수를 정의해야 합니다.
 >
 > 자세한 내용은 [자세한 진단 확장 스키마 설명서](diagnostics-extension-schema-1dot3.md)를 참조하세요.
 
@@ -119,7 +119,7 @@ Docker 지원이 추가되었습니다.
 
 
 ### <a name="diagnostics-extension-181"></a>진단 확장 1.8.1
-개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰이 제공된 경우 저장소 계정 키가 무시됩니다.
+프라이빗 구성에서 스토리지 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰이 제공된 경우 저장소 계정 키가 무시됩니다.
 
 
 ```json

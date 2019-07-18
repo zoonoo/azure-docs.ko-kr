@@ -6,17 +6,17 @@ keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006899"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989900"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 애플리케이션 모니터링 시작
 
@@ -50,14 +50,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![Application Insights 리소스 추가](./media/java-quick-start/1createresourseappinsights.png)
 
-   ![Application Insights 리소스 추가](./media/java-quick-start/2createjavaapp.png)
-
    구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
     | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
-   | **애플리케이션 유형** | Java 웹 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
    | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
@@ -85,7 +82,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![Eclipse Azure 구성 메뉴](./media/java-quick-start/0007-j.png)
 
-5. Application Insights 플러그인을 구성한 후에는 애플리케이션을 [게시/다시 게시](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure)해야 원격 분석 데이터 보내기를 시작할 수 있습니다.
+5. Application Insights 플러그인을 구성한 후에는 애플리케이션을 [게시/다시 게시](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app)해야 원격 분석 데이터 보내기를 시작할 수 있습니다.
 
 > [!NOTE]
 > Java용 Application Insights SDK는 라이브 메트릭을 캡처하고 시각화할 수 있지만, 처음으로 원격 분석 수집을 사용하도록 설정하면 포털에 데이터가 표시되기까지 몇 분이 걸릴 수 있습니다. 이 응용 프로그램이 트래픽이 적은 테스트 앱인 경우 활성 요청이나 작업이 있을 때만 대부분의 메트릭이 캡처됩니다.

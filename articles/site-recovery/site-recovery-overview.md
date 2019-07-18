@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3121c7e4b1b1adfb079368aa86c272e9ea473ead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855217"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479927"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -43,7 +43,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 **워크로드 복제** | 지원되는 Azure VM, 온-프레미스 Hyper-V 및 VMware VM, Windows/Linux 물리적 서버에서 실행되는 모든 워크로드를 복제할 수 있습니다.
 **데이터 복원력** | Site Recovery는 애플리케이션 데이터를 차단하지 않고 복제를 오케스트레이션합니다. Azure에 복제할 때 데이터는 제공되는 복원력을 통해 Azure Storage에 저장됩니다. 장애 조치(failover)가 발생하는 경우 복제된 데이터를 기반으로 하여 Azure VM을 만듭니다.
 **RTO 및 RPO 대상** | 조직 제한 내에서 RTO(복구 시간 목표) 및 RPO(복구 지점 목표)를 유지합니다. Site Recovery는 Azure VM 및 VMware VM에 대해 연속 복제를 제공하고 Hyper-V에 대해서는 짧은 빈도(30초)의 복제를 제공합니다. [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)와 통합하여 RTO를 더 줄일 수 있습니다.
-**장애 조치(Failover)를 통해 앱 일관성 유지** | 애플리케이션 일치 스냅숏으로 복구 지점을 사용하여 복제할 수 있습니다. 이러한 스냅숏은 디스크 데이터, 메모리의 모든 데이터, 프로세스의 모든 트랜잭션을 캡처합니다.
+**장애 조치(Failover)를 통해 앱 일관성 유지** | 애플리케이션 일치 스냅샷으로 복구 지점을 사용하여 복제할 수 있습니다. 이러한 스냅샷은 디스크 데이터, 메모리의 모든 데이터, 프로세스의 모든 트랜잭션을 캡처합니다.
 **중단 없는 테스트** | 진행 중인 복제에 영향을 주지 않고 손쉽게 재해 복구 훈련을 실행할 수 있습니다.
 **유연한 장애 조치(failover)** | 예상된 중단에 대해서는 계획된 데이터 무손실 장애 조치를 실행하고, 예기치 않은 재해에 대해서는 복제 빈도에 따라 데이터 손실을 최소화하는 계획되지 않은 장애 조치를 실행할 수 있습니다. 기본 사이트를 다시 사용할 수 있는 경우 손쉽게 이 사이트로 장애 복구할 수 있습니다.
 **사용자 지정 복구 계획** | 복구 계획을 사용하여 여러 VM에서 실행되는 다중 계층 애플리케이션의 장애 조치(failover) 및 복구를 사용자 지정하고 순서를 정할 수 있습니다. 복구 계획에서 컴퓨터를 그룹으로 묶고 선택적으로 스크립트와 수동 작업을 추가합니다. 복구 계획은 Azure Automation runbook과 통합될 수 있습니다.
@@ -56,7 +56,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 **지원됨** | **세부 정보**
 --- | ---
-**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure Stack VM을 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
+**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure Stack VM을 Azure에 복제합니다.<br/><br/> <br/><br/> AWS Windows 인스턴스를 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
 **지역** | Site Recovery가 [지원되는 지역](https://azure.microsoft.com/regions/services/)을 검토합니다. |
 **복제된 컴퓨터** | [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 복제, [온-프레미스 VMware VM 및 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [온-프레미스 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)에 대한 복제 요구 사항을 검토합니다.
 **워크로드** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.

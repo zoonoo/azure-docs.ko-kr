@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591739"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>클라우드 서비스당 여러 VIP 구성
@@ -30,7 +30,7 @@ Azure에서 제공하는 IP 주소를 사용하여 공용 인터넷을 통해 Az
 
 ![다중 VIP SSL 시나리오](./media/load-balancer-multivip/Figure1.png)
 
-위 예제에서 모든 VIP는 동일한 공용 포트(443)를 사용하며, 모든 웹 사이트를 호스트하는 클라우드 서비스의 내부 IP 주소에 대한 고유한 개인 포트에서 하나 이상의 부하 분산 VM으로 트래픽이 리디렉션됩니다.
+위 예제에서 모든 VIP는 동일한 공용 포트(443)를 사용하며, 모든 웹 사이트를 호스트하는 클라우드 서비스의 내부 IP 주소에 대한 고유한 프라이빗 포트에서 하나 이상의 부하 분산 VM으로 트래픽이 리디렉션됩니다.
 
 > [!NOTE]
 > 여러 VIP를 사용해야 하는 또 다른 상황은 동일한 Virtual Machines 집합에서 여러 개의 SQL AlwaysOn 가용성 그룹 수신기를 호스트하는 경우입니다.

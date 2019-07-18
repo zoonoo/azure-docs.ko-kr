@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 781087023bf9783bc3a153578b60b4941dc75c0e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554208"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182413"
 ---
-| 리소스 | 대상 |
+| Resource | 대상 |
 |----------|---------------|
 | 단일 큐의 최대 크기 | 500TiB |
 | 큐에서 메시지의 최대 크기 | 64KiB |

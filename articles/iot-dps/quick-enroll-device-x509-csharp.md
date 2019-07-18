@@ -99,7 +99,7 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
    > 프로덕션 코드에서는 다음 보안 고려 사항을 고려해야 합니다.
    >
    > - 프로비전 서비스 관리자에 대한 연결 문자열을 하드 코딩하면 보안 모범 사례에 반합니다. 대신 연결 문자열은 보안 구성 파일 또는 레지스트리에서와 같이 안전하게 유지되어야 합니다.
-   > - 서명 인증서의 공용 부분만 업로드해야 합니다. 개인 키를 포함하는 .pfx(PKCS12) 또는 .pem 파일을 프로비전 서비스에 업로드하지 않습니다.
+   > - 서명 인증서의 공용 부분만 업로드해야 합니다. 프라이빗 키를 포함하는 .pfx(PKCS12) 또는 .pem 파일을 프로비전 서비스에 업로드하지 않습니다.
         
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";

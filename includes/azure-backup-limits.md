@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554128"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182603"
 ---
 Azure Backup에는 다음과 같은 제한이 적용됩니다.
 

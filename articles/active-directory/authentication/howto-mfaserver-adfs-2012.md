@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b38918dc6b80539ef8852aa408cda501958c9b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057433"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
 AD FS(Active Directory Federation Services)를 사용하고 클라우드 또는 온-프레미스 리소스 보안을 유지하려는 경우, AD FS와 작동하도록 Azure Multi-Factor Authentication 서버를 구성할 수 있습니다. 이 구성은 높은 값의 엔드포인트에 대해 2단계 인증을 트리거합니다.
 
 이 문서에서는 Windows Server 2012 R2 또는 Windows Server 2016에서 AD FS와 함께 Azure Multi-Factor Authentication 서버를 사용하는 방법을 설명합니다. 자세한 내용은 [AD FS 2.0과 함께 Azure Multi-Factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안을 유지](howto-mfaserver-adfs-2.md)하는 방법에 대해 읽어보세요.
+
+> [!IMPORTANT]
+> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 Windows Server AD FS 보안 유지
 
@@ -97,7 +100,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 
 1. 인증 기관에서 웹 서비스 SDK를 실행하는 서버에 대한 클라이언트 인증서를 가져옵니다. [클라이언트 인증서를 가져오는](https://technet.microsoft.com/library/cc770328.aspx)방법을 알아봅니다.  
 2. 웹 서비스 SDK를 실행하는 서버의 로컬 컴퓨터 개인 인증서 저장소로 클라이언트 인증서를 가져옵니다. 신뢰할 수 있는 루트 인증서 인증서 저장소에 인증 기관의 공용 인증서가 있는지 확인합니다.  
-3. 클라이언트 인증서의 공개 키 및 개인 키를 .pfx 파일로 내보냅니다.  
+3. 클라이언트 인증서의 공개 키 및 프라이빗 키를 .pfx 파일로 내보냅니다.  
 4. Base64 형식인 공개 키를 .cer 파일로 내보냅니다.  
 5. Server Manager에서 Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication 기능이 설치되어 있는지 확인합니다. 이 기능이 설치되어 있지 않은 경우 **역할 및 기능 추가** 를 선택하여 이 기능을 추가합니다.  
 6. IIS Manager에서 Web Service SDK 가상 디렉터리가 포함된 웹 사이트의 **구성 편집기** 를 두 번 클릭합니다. 가상 디렉터리가 아니라 웹 사이트를 선택하는 것이 중요합니다.  
@@ -105,7 +108,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 8. 사용을 **true**로 설정합니다.  
 9. oneToOneCertificateMappingsEnabled를 **true**로 설정합니다.  
 10. oneToOneMappings 옆에 있는 **...** 단추를 클릭한 다음 **추가** 링크를 클릭합니다.  
-11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
+11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
 12. 인증서를 이전 단계에서 복사한 문자열로 설정합니다.  
 13. 사용을 **true**로 설정합니다.  
 14. userName을 PhoneFactor Admins 보안 그룹의 구성원인 계정으로 설정합니다. &lt;도메인&gt;&#92;&lt;사용자 이름&gt; 형식을 사용합니다.  

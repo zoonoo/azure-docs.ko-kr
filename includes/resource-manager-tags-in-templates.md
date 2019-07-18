@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786331"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182585"
 ---
 배포 중 리소스 태그를 추가 합니다 `tags` 요소를 배포 하는 리소스입니다. 태그 이름 및 값을 제공합니다.
 

@@ -1,19 +1,19 @@
 ---
-title: PagerDuty를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs
+title: 웹 후크를 사용 하 여 PagerDuty를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 PagerDuty 인스턴스로 가져옵니다.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067146"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>PagerDuty를 사용하여 서비스 상태 경고 구성
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>웹 후크를 사용 하 여 PagerDuty를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
 
 이 문서에서는 웹후크를 사용하여 PagerDuty를 통해 Azure 서비스 상태 알림을 설정하는 방법을 보여 줍니다. [PagerDuty](https://www.pagerduty.com/)의 사용자 지정 Microsoft Azure 통합 형식을 사용하여 기존 또는 새 PagerDuty 서비스에 서비스 상태 경고를 손쉽게 추가할 수 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "60621023"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "60621023"
 
     b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

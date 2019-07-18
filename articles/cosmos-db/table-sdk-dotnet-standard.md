@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/18/2018
-ms.openlocfilehash: 4b193dd41c137907e56e2bf38b18ebcf2f2b481a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 03/18/2019
+ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66480208"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -62,6 +62,8 @@ ms.locfileid: "64692260"
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
+
+이 플랫폼 간.NET 표준 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) .NET Framework 라이브러리를 대체할 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)합니다.
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |

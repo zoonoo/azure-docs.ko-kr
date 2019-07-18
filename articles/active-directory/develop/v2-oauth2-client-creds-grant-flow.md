@@ -3,8 +3,8 @@ title: 사용자 상호 작용 없이 보안 리소스에 액세스를 사용 �
 description: OAuth 2.0 인증 프로토콜의 Microsoft id 플랫폼 구현을 사용 하 여 웹 응용 프로그램을 빌드하십시오.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190829"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482245"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -42,7 +42,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하�
 
 전체 클라이언트 자격 증명 흐름은 다음 다이어그램과 유사합니다. 이 문서의 뒷부분에 각 단계에 대한 설명이 나와 있습니다.
 
-![클라이언트 자격 증명 흐름](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![클라이언트 자격 증명 흐름을 보여 주는 다이어그램](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>직접 권한 부여 가져오기
 
@@ -92,7 +92,7 @@ ACL을 사용하는 대신 API를 사용하여 애플리케이션 사용 권한 
 조직의 관리자의 권한을 요청 하려면 준비 된 경우 Microsoft id 플랫폼에 사용자를 리디렉션할 수 있습니다 *관리 동의 끝점*합니다.
 
 > [!TIP]
-> Postman에서 이 요청을 실행해 보세요. (사용자 고유의 앱 ID를 사용 하 여 최상의 결과-자습서 응용 프로그램에 유용한 권한을 요청 하지 않습니다.) [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman에서 이 요청을 실행해 보세요. (사용자 고유의 앱 ID를 사용 하 여 최상의 결과-자습서 응용 프로그램에 유용한 권한을 요청 하지 않습니다.) [![Postman에서이 요청을 실행 해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 애플리케이션에 필요한 권한을 부여받은 후에는 API에 대한 액세스 토큰을 획득하는 과정을 진행합니다. 토큰을 가져오려면 클라이언트를 사용 하 여 자격 증명 부여에 POST 요청을 보내기는 `/token` Microsoft id 플랫폼 끝점:
 
 > [!TIP]
-> Postman에서 이 요청을 실행해 보세요. (사용자 고유의 앱 ID를 사용 하 여 최상의 결과-자습서 응용 프로그램에 유용한 권한을 요청 하지 않습니다.) [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman에서 이 요청을 실행해 보세요. (사용자 고유의 앱 ID를 사용 하 여 최상의 결과-자습서 응용 프로그램에 유용한 권한을 요청 하지 않습니다.) [![Postman에서이 요청을 실행 해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
 
@@ -251,7 +251,7 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 | `correlation_id` | 전체 구성 요소에서 진단에 도움이 되는 요청에 대한 고유 식별자입니다. |
 
 > [!NOTE]
-> V2 토큰을 받을 수 있는 응용 프로그램을 위해에서 azure portal 내의 응용 프로그램의 매니페스트 파일을 업데이트할 수 있습니다. 특성을 추가할 수 있습니다 `accessTokenAcceptedVersion` 값을 2로 설정 하 고 `"accessTokenAcceptedVersion": 2`입니다. 문서를 확인 하십시오 [응용 프로그램 매니페스트](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) 동일한 자세히 파악할 수 있습니다. 응용 프로그램이 기본적으로 현재 v1 토큰을 받습니다. 매니페스트에서이 특성에 대 한 값이 1로 설정 하는 응용 프로그램/웹 API 매니페스트 내에서 정의 되지 않은이 고 따라서 응용 프로그램은 v1 토큰을 수신 합니다.  
+> V2 토큰을 받을 수 있는 응용 프로그램을 위해에서 azure portal 내의 응용 프로그램의 매니페스트 파일을 업데이트할 수 있습니다. 특성을 추가할 수 있습니다 `accessTokenAcceptedVersion` 값을 2로 설정 하 고 `"accessTokenAcceptedVersion": 2`입니다. 문서를 확인 하십시오 [응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) 동일한 자세히 파악할 수 있습니다. 응용 프로그램이 기본적으로 현재 v1 토큰을 받습니다. 매니페스트에서이 특성에 대 한 값이 1로 설정 하는 응용 프로그램/웹 API 매니페스트 내에서 정의 되지 않은이 고 따라서 응용 프로그램은 v1 토큰을 수신 합니다.  
 
 
 ## <a name="use-a-token"></a>토큰 사용

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 454d17ac4f4c3723d7b7ee1ac2c639b885f3fff9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721205"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 네트워크 보안 그룹(클래식) 만들기
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

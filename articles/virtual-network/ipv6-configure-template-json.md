@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: ae90bc4a12763803f38224d917c4644a68ae7d6b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62131030"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---template-preview"></a>Azure 템플릿 (미리 보기)에서 IPv6 이중 스택 응용 프로그램 배포
@@ -107,7 +107,7 @@ ms.locfileid: "62131030"
             }
 ```
 
-## <a name="optional-configuration"></a>옵션 구성
+## <a name="optional-configuration"></a>선택적 구성
 
 ### <a name="ipv6-internet-access-for-the-virtual-network"></a>가상 네트워크에 대 한 IPv6 인터넷 액세스
 

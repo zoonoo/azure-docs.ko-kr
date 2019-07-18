@@ -11,14 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe;cephalin
+ms.author: jafreebe
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25434360bcc0155411451dbac065e0b7fad9c3bf
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850991"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617477"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>구성 된 Windows Azure App Service 용 Java 앱
 
@@ -27,7 +28,7 @@ Java Standard Edition (SE)는 완전히 관리 되는 Windows 기반 서비스�
 이 가이드는 주요 개념 및 App Service에서 사용 하 여 Java 개발자를 위한 지침을 제공 합니다. Azure App Service를 사용한 경험이 없는 경우를 읽어야 하는 [Java 빠른 시작](app-service-web-get-started-java.md) 첫 번째입니다. Java 개발에 국한 되지 않는 App Service를 사용 하는 방법에 대 한 일반적인 질문에 답변해 드립니다 합니다 [앱 서비스 Windows FAQ](faq-configuration-and-management.md)합니다.
 
 > [!NOTE]
-> 원하는 항목을 찾을 수 없나요? 참조 하십시오 합니다 [Windows OSS FAQ](faq-configuration-and-management.md) 또는 [Java Linux 구성 가이드](containers/app-service-linux-java.md) 배포 및 Java 응용 프로그램 보안에 대 한 정보에 대 한 합니다.
+> 원하는 항목을 찾을 수 없나요? 참조 하십시오 합니다 [Windows OSS FAQ](faq-configuration-and-management.md) 또는 [Java Linux 구성 가이드](containers/configure-language-java.md) 배포 및 Java 응용 프로그램 보안에 대 한 정보에 대 한 합니다.
 
 ## <a name="configuring-tomcat"></a>Tomcat 구성
 

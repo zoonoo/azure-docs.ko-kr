@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65789953"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
 Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다.
 
-- Azure Storage에 쓴 모든 데이터는 [SSE(Storage 서비스 암호화)](storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
+- Azure Storage에 쓴 모든 데이터 (메타 데이터 포함)를 사용 하 여 자동으로 암호화 됩니다 [저장소 서비스 암호화 (SSE)](storage-service-encryption.md)합니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
 - Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.   
     - 저장소 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
     - Blob 및 큐 데이터 작업에 대 한 azure AD 통합은 지원 됩니다. 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
@@ -118,12 +118,12 @@ Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage �
 
 * 보안상의 이유로 정기적으로 다시 생성할 수 있습니다.
 * 누군가가 애플리케이션에 간신히 해킹하여 구성 파일에 하드 코딩되었거나 저장된 키를 검색함으로써 사용자의 스토리지 계정에 대한 모든 권한을 얻게 되면 스토리지 계정 키를 다시 생성해야 합니다.
-* 키를 다시 생성하는 또 다른 경우는 팀이 Storage 계정 키를 유지하는 스토리지 탐색기 응용 프로그램을 사용하고 있는데 팀 구성원 중 하나가 팀을 탈퇴하는 경우입니다. 애플리케이션은 계속 작동되고 해당 구성원이 나간 후에도 스토리지 계정에 대한 액세스 권한을 부여합니다. 실제로 이것이 액세스 수준 공유 액세스 서명을 만드는 주요 이유입니다. 이러한 문제를 방지하기 위해 구성 파일에 액세스 키를 저장하는 대신 계정 수준 SAS를 사용할 수 있습니다.
+* 키를 다시 생성하는 또 다른 경우는 팀이 Storage 계정 키를 유지하는 Storage Explorer 애플리케이션 사용하고 있는데 팀 구성원 중 하나가 팀을 탈퇴하는 경우입니다. 애플리케이션은 계속 작동되고 해당 구성원이 나간 후에도 스토리지 계정에 대한 액세스 권한을 부여합니다. 실제로 이것이 액세스 수준 공유 액세스 서명을 만드는 주요 이유입니다. 이러한 문제를 방지하기 위해 구성 파일에 액세스 키를 저장하는 대신 계정 수준 SAS를 사용할 수 있습니다.
 
 #### <a name="key-regeneration-plan"></a>키 다시 생성 계획
 사용 중인 키를 계획 없이 그냥 다시 생성하고 싶지는 않을 것입니다. 이렇게 하면 해당 저장소 계정에 대한 모든 액세스가 차단되어 심각한 업무 중단이 발생할 수 있습니다. 이 때문에 두 개의 키를 준비하는 것입니다. 한 번에 하나의 키를 다시 생성해야 합니다.
 
-키를 다시 생성하기 전에 저장소 계정에 종속되는 모든 애플리케이션의 목록과 Azure에서 사용하는 다른 서비스 목록을 준비해야 합니다. 예를 들어 저장소 계정에 종속된 Azure Media Services를 사용하는 경우 키를 다시 생성한 후 미디어 서비스와 액세스 키를 다시 동기화해야 합니다. 저장소 탐색기와 같은 애플리케이션을 사용하는 경우 해당 애플리케이션에도 새 키를 제공 해야 합니다. 해당 VHD 파일이 저장소 계정에 저장되어 있는 VM의 경우 저장소 계정 키를 다시 생성해도 영향을 받지 않습니다.
+키를 다시 생성하기 전에 저장소 계정에 종속되는 모든 애플리케이션의 목록과 Azure에서 사용하는 다른 서비스 목록을 준비해야 합니다. 예를 들어 저장소 계정에 종속된 Azure Media Services를 사용하는 경우 키를 다시 생성한 후 미디어 서비스와 액세스 키를 다시 동기화해야 합니다. 스토리지 탐색기와 같은 애플리케이션을 사용하는 경우 해당 애플리케이션에도 새 키를 제공 해야 합니다. 해당 VHD 파일이 저장소 계정에 저장되어 있는 VM의 경우 저장소 계정 키를 다시 생성해도 영향을 받지 않습니다.
 
 Azure 포털에서 키를 다시 생성할 수 있습니다. 키가 다시 생성되면 Storage 서비스에서 동기화되는 데 최대 10분이 걸릴 수 있습니다.
 
@@ -238,10 +238,9 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
     이 문서에서는 Blob, 큐 메시지, 테이블 범위 및 파일에서 서비스 수준 SAS를 사용하는 예제를 제공합니다.
   * [서비스 SAS 생성(영문)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [계정 SAS 생성(영문)](https://msdn.microsoft.com/library/mt584140.aspx)
-* .NET 클라이언트 라이브러리를 사용하여 공유 액세스 서명 및 저장된 액세스 정책을 만드는 방법에 대한 자습서입니다.
 
+* .NET 클라이언트 라이브러리를 사용 하 여 공유 액세스 서명 및 저장 된 액세스 정책 만들기에 대 한 자습서입니다.
   * [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)
-  * [공유 액세스 서명 2부: Blob Service를 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 
@@ -288,7 +287,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 이 기능은 전송 중에 데이터를 암호화하지만 휴지 상태의 암호화 기능은 제공하지 않습니다. 데이터가 전송 중에 암호화되지만, 여전히 HTTPS를 사용하여 데이터의 무결성에 영향을 주는 네트워크 오류 완화에 도움이 되는 기본 제공 데이터 무결성 확인 기능을 활용하는 것이 좋습니다.
 
-이 기능은 Blob을 저장하고 Blob을 검색하는 웹 애플리케이션이 있을 때 애플리케이션 및 데이터를 가능한 한 안전하게 유지하려는 경우 등에 사용할 수 있습니다. 이 경우 클라이언트 쪽 암호화를 사용할 수 있습니다. 클라이언트와 Azure Blob 서비스 간의 트래픽에는 암호화된 리소스가 포함되어 있으며 누구도 전송 중인 데이터를 해석하여 개인 Blob으로 다시 구성할 수 없습니다.
+이 기능은 Blob을 저장하고 Blob을 검색하는 웹 애플리케이션이 있을 때 애플리케이션 및 데이터를 가능한 한 안전하게 유지하려는 경우 등에 사용할 수 있습니다. 이 경우 클라이언트 쪽 암호화를 사용할 수 있습니다. 클라이언트와 Azure Blob 서비스 간의 트래픽에는 암호화된 리소스가 포함되어 있으며 누구도 전송 중인 데이터를 해석하여 프라이빗 Blob으로 다시 구성할 수 없습니다.
 
 클라이언트 쪽 암호화가 Java 및 .NET 저장소 클라이언트 라이브러리에 기본적으로 제공되어 있으며, 여기에서 Azure Key Vault API가 사용하므로 구현하기가 쉽습니다. 데이터 암호화 및 해독 프로세스는 봉투(envelope) 기법을 사용하고 암호화에 사용되는 메타데이터를 각 저장소 개체에 저장합니다. 예를 들어 Blob의 경우 Blob 메타데이터에 저장하고, 큐의 경우에는 각 큐 메시지에 추가됩니다.
 
@@ -375,7 +374,7 @@ VM의 디스크에 대해 Azure Disk Encryption가 사용되도록 설정되면 
 
 스토리지 분석 로그에서 볼 수 있는 또 다른 데이터는 누군가가 스토리지에 액세스할 때 사용하는 인증 방법입니다. 예를 들어, Blob Storage를 사용하는 경우 공유 액세스 서명을 사용했는지 아니면 Storage 계정 키를 사용했는지, 액세스하는 Blob이 공용인지를 확인할 수 있습니다.
 
-저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 개인으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 로그를 주기적으로 확인하여 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아볼 수 있습니다.
+저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 프라이빗으로 설정하고 애플리케이션 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음, 로그를 주기적으로 확인하여 스토리지 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아볼 수 있습니다.
 
 #### <a name="what-do-the-logs-look-like"></a>로그는 어떤 형태로 표시되나요?
 Azure 포털을 통해 저장소 계정 메트릭 및 로깅을 사용하도록 설정하면 분석 데이터가 빠르게 누적되기 시작합니다. 각 서비스에 대한 로깅과 메트릭은 별개입니다. 로깅은 해당 저장소 계정에 작업이 있을 때만 기록되지만, 메트릭은 사용자가 구성한 방식에 따라 분, 시간 또는 일 단위로 기록됩니다.
@@ -386,16 +385,16 @@ $Logs 컨테이너 아래에는 각 서비스에 대한 폴더가 있으며 년/
 
 ![로그 파일 보기](./media/storage-security-guide/image1.png)
 
-Azure Storage에 대한 모든 요청이 기록됩니다. 다음은 처음 몇 개의 필드를 보여 주는 로그 파일의 스냅숏입니다.
+Azure Storage에 대한 모든 요청이 기록됩니다. 다음은 처음 몇 개의 필드를 보여 주는 로그 파일의 스냅샷입니다.
 
-![로그 파일 스냅숏](./media/storage-security-guide/image2.png)
+![로그 파일 스냅샷](./media/storage-security-guide/image2.png)
 
 이 스냅숏을 보면 로그를 사용하여 스토리지 계정에 대한 모든 종류의 호출을 추적할 수 있다는 것을 알 수 있습니다.
 
 #### <a name="what-are-all-of-those-fields-for"></a>이러한 모든 필드의 용도는 무엇인가요?
 아래의 리소스에 나열되는 문서는 로그의 많은 필드와 해당 용도를 목록으로 제공합니다. 필드 목록을 순서대로 나타내면 다음과 같습니다.
 
-![로그 파일의 필드 스냅숏](./media/storage-security-guide/image3.png)
+![로그 파일의 필드 스냅샷](./media/storage-security-guide/image3.png)
 
 GetBlob에 대한 항목과 권한 부여 방법에 관심이 있으므로 operation-type이 “Get-Blob”인 항목을 찾은 다음, request-status(4번째</sup> 열) 및 authorization-type(8번째</sup> 열)을 확인해야 합니다.
 
@@ -407,10 +406,10 @@ GetBlob에 대한 항목과 권한 부여 방법에 관심이 있으므로 opera
 1. Blob이 공용이고 공유 액세스 서명 없이 URL을 사용하여 액세스됩니다. 이 경우 request-status는 “AnonymousSuccess”이고 authorization-type은 “anonymous”입니다.
 
    1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
-2. Blob이 개인이고 공유 액세스 서명과 함께 사용되었습니다. 이 경우 request-status는 “SASSuccess”이고 authorization-type은 “sas”입니다.
+2. Blob이 프라이빗이고 공유 액세스 서명과 함께 사용되었습니다. 이 경우 request-status는 “SASSuccess”이고 authorization-type은 “sas”입니다.
 
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
-3. Blob이 개인이고 액세스하는 데 저장소 키가 사용됩니다. 이 경우 request-status는 “**성공**”이고 authorization-type은 “**인증됨**”입니다.
+3. Blob이 프라이빗이고 액세스하는 데 스토리지 키가 사용됩니다. 이 경우 request-status는 “**성공**”이고 authorization-type은 “**인증됨**”입니다.
 
    1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 

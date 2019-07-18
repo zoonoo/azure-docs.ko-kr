@@ -3,8 +3,8 @@ title: PingAccess를 사용하도록 애플리케이션 프록시 애플리케�
 description: PingAccess를 사용하여 애플리케이션 프록시의 이점을 헤더 기반 인증을 사용하는 애플리케이션으로 확장하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a80d2fbf42cad333ba8779973be3a9710210646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d555aaf99470588bb3ed2b328adb3e99f6c4a50e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65783989"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>PingAccess를 사용하도록 애플리케이션 프록시 애플리케이션을 구성하는 방법
 
-이제 PingAccess를 사용하여 애플리케이션 프록시의 이점을 헤더 기반 인증을 사용하는 애플리케이션으로 확장할 수 있습니다. 헤더를 사용하지 않는 애플리케이션의 경우 [Single Sign-on 설명서](application-proxy-configure-single-sign-on-with-kcd.md)에서 다른 옵션을 참조하세요.
+이제 PingAccess와의 협업을 통해 헤더 기반 인증을 사용하여 애플리케이션 프록시의 이점을 애플리케이션으로 확장할 수 있습니다. 헤더를 사용하지 않는 애플리케이션의 경우 [Single Sign-on 설명서](application-proxy-configure-single-sign-on-with-kcd.md)에서 다른 옵션을 참조하세요.
 
 ## <a name="overview-of-steps-and-recommended-documents"></a>단계 개요 및 권장되는 문서
 

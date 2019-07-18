@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61488461"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Micro Focus Enterprise Server 4.0을 Azure에서 Docker 컨테이너에서 실행
@@ -95,7 +95,7 @@ Docker 응용 프로그램에 이식성 및 격리를 추가합니다. 예를 �
 
 1. 명령 프롬프트를 엽니다.
 
-2. Docker가 설치 되어 있는지 확인 합니다. 명령 프롬프트에 다음을 입력합니다.
+2. Docker가 설치 되어 있는지 확인 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
     ```
         docker version
@@ -166,7 +166,7 @@ Docker 응용 프로그램에 이식성 및 격리를 추가합니다. 예를 �
 
      ![Enterprise Server 관리 콘솔](media/container-010.png)
 
-이것으로 끝입니다. 이제 실행 하 고 Docker 컨테이너에서 CICS 응용 프로그램을 관리 합니다.
+정말 간단하죠. 이제 실행 하 고 Docker 컨테이너에서 CICS 응용 프로그램을 관리 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

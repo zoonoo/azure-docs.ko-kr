@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 5f68b50c94dad0be6d89eef2d6fbef949424f9ba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964220"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182640"
 ---
 > [!IMPORTANT]
 > 프로젝트에서 사용 되는 SCP.NET 버전에는 HDInsight 클러스터에 있는 Storm 버전과 일치 해야 합니다. 다음 표를 사용하여 사용해야 할 버전을 확인합니다.

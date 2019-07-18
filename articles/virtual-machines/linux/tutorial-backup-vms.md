@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure Portal을 사용하여 Azure Backup으
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 302f60680d909f39af4573ec38ac8b76993392cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190564"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695552"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>자습서: Azure의 Linux 가상 머신을 위한 파일 백업 및 복원
 
@@ -34,17 +34,17 @@ ms.locfileid: "32190564"
 
 ## <a name="backup-overview"></a>Backup 개요
 
-Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅숏을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
+Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅샷을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅샷을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
 
-기본적으로 Azure Backup에서는 Linux VM용으로 파일 시스템 일치 백업을 가져옵니다. 그러나 [사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 가져오도록 Azure Backup을 구성할 수 있습니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
+기본적으로 Azure Backup에서는 Linux VM용으로 파일 시스템 일치 백업을 가져옵니다. 그러나 [사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 가져오도록 Azure Backup을 구성할 수 있습니다. Azure Backup 서비스가 스냅샷을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
-데이터 전송이 완료되면 스냅숏이 제거되고 복구 지점이 생성됩니다.
+데이터 전송이 완료되면 스냅샷이 제거되고 복구 지점이 생성됩니다.
 
 
 ## <a name="create-a-backup"></a>백업 만들기
 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **가상 머신**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
 4. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
@@ -156,7 +156,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
 
     ![기본 nginx 웹 페이지](./media/tutorial-backup-vms/nginx-working.png)
 
-18. 로컬 컴퓨터에서 Azure Portal의 브라우저 탭으로 돌아가서 **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
+18. 로컬 컴퓨터에서 Azure Portal용 브라우저 탭으로 돌아가고, **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

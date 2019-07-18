@@ -10,10 +10,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643769"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
@@ -135,7 +135,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* Proxy
+* 프록시
 * RatingsApi
 * RecommendationsApi
 * ShopFront
@@ -180,7 +180,7 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
 ### <a name="initial-release-setup"></a>최초 릴리스 설정
 
-1. 릴리스 파이프라인을 만들려면 **릴리스** > **+ 릴리스**를 클릭합니다.
+1. 릴리스 파이프라인을 만들려면 **릴리스** >  **+ 릴리스**를 클릭합니다.
 
 1. 아티팩트 원본을 구성하려면 **아티팩트** > **아티팩트 원본 연결**을 클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 이 작업을 수행하여 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
 

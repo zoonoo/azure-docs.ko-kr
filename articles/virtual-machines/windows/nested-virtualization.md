@@ -4,19 +4,19 @@ description: Azure Virtual Machines에서 중첩된 가상화를 사용하는 �
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488371"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720219"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -52,7 +52,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 이러한 설정을 수동으로 구성하거나 PowerShell 스크립트를 제공하여 구성을 자동화할 수 있습니다.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>옵션 1: PowerShell 스크립트를 사용하여 중첩된 가상화 구성
-Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog.
+Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ).
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>옵션 2: 수동으로 중첩된 가상화 구성
 
@@ -80,7 +80,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 2. 내부 스위치를 만듭니다.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. 스위치의 속성을 확인하고 새 어댑터에 대한 ifIndex를 기록합니다.
@@ -98,7 +98,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 4. NAT 게이트웨이에 대한 IP 주소를 만듭니다.
     
 게이트웨이를 구성하려면 네트워크에 대한 일부 정보가 필요합니다.    
-  * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치가 반드시 .1일 필요는 없지만 일반적으로(접두사 길이에 따라) .1입니다. 일반적으로 RFC 1918 개인 네트워크 주소 공간을 사용해야 합니다. 
+  * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치가 반드시 .1일 필요는 없지만 일반적으로(접두사 길이에 따라) .1입니다. 일반적으로 RFC 1918 프라이빗 네트워크 주소 공간을 사용해야 합니다. 
   * PrefixLength - 서브넷 접두사 길이는 로컬 서브넷 크기(서브넷 마스크)를 정의합니다. 서브넷 접두사 길이는 0에서 32 사이의 정수 값입니다. 0은 전체 인터넷, 32는 하나의 매핑된 IP만 허용합니다. 일반적인 값의 범위는 NAT에 몇 개의 IP를 연결해야 하는지에 따라 24에서 12까지입니다. 일반적인 PrefixLength는 24입니다. 즉, 255.255.255.0의 서브넷 마스크입니다.
   * InterfaceIndex - **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
 
@@ -119,6 +119,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## <a name="create-the-guest-virtual-machine"></a>게스트 가상 컴퓨터 만들기
+
+>[!IMPORTANT] 
+>
+>Azure 게스트 에이전트는 중첩 된 Vm에서 지원 되지 않습니다 및 호스트와 중첩 된 Vm에서 문제가 발생할 수 있습니다. 중첩 된 Vm에 Azure 에이전트를 설치 하지 마세요 한 이미 Azure 게스트 에이전트가 설치 되어 있는 중첩 된 Vm을 만들기 위한 이미지를 사용 하지 마세요.
 
 1. Hyper-V 관리자를 열고 새 가상 머신을 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 머신을 구성합니다.
     
@@ -145,7 +149,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 3. **DHCP 서버** 확인란을 선택하고 **기능 추가**를 클릭한 다음 마법사가 완료될 때까지 **다음**을 클릭합니다.
   
-4. **Install**을 클릭합니다.
+4. **설치**를 클릭합니다.
 
 #### <a name="configure-a-new-dhcp-scope"></a>새 DHCP 범위 구성
 
@@ -168,7 +172,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 2. 게스트 가상 머신을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
-3. 게스트 가상 머신에 로그온합니다.
+3. 게스트 가상 컴퓨터에 로그인 합니다.
 
 4. 게스트 가상 컴퓨터에서 네트워크 및 공유 센터를 엽니다.
 

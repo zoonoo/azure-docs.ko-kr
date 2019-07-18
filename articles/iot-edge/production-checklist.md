@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65956970"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -128,7 +128,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 ### <a name="manage-access-to-your-container-registry"></a>컨테이너 레지스트리에 대한 액세스 관리
 
-프로덕션 IoT Edge 디바이스에 모듈을 배포하기 전에 외부 사용자가 컨테이너 이미지를 액세스하거나 변경할 수 없도록 컨테이너 레지스트리에 대한 액세스를 제어해야 합니다. 공용이 아닌 개인 컨테이너 레지스트리를 사용하여 컨테이너 이미지를 관리합니다. 
+프로덕션 IoT Edge 디바이스에 모듈을 배포하기 전에 외부 사용자가 컨테이너 이미지를 액세스하거나 변경할 수 없도록 컨테이너 레지스트리에 대한 액세스를 제어해야 합니다. 공용이 아닌 프라이빗 컨테이너 레지스트리를 사용하여 컨테이너 이미지를 관리합니다. 
 
 자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다. Azure Container Registry는 애플리케이션이나 서비스가 IoT Edge 디바이스처럼 자동화된 방식이나 기타 무인 방식으로 컨테이너 이미지를 끌어올 때 [서비스 주체를 사용한 인증](../container-registry/container-registry-auth-service-principal.md)을 권장합니다. 컨테이너 레지스트리에 대한 읽기 전용 권한을 가진 서비스 주체를 만들고 해당 사용자 이름 및 암호를 배포 매니페스트에 제공합니다.
 
@@ -215,7 +215,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 | 플랫폼 | 위치 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 변경 내용을 적용 하려면 컨테이너 엔진 다시 시작 해야 합니다.
 

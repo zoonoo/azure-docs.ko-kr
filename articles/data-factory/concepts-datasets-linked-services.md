@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866460"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-create-datasets.md)
 > * [현재 버전](concepts-datasets-linked-services.md)
 
@@ -69,7 +69,7 @@ Data Factory에서 데이터 집합은 다음 JSON 형식으로 정의 됩니다
 
 자산 | 설명 | 필수 |
 -------- | ----------- | -------- |
-이름 | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 형식 | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 structure | 데이터 세트의 스키마입니다. 자세한 내용은 참조 하세요 [데이터 집합 스키마](#dataset-structure-or-schema)합니다. | 아닙니다. |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
@@ -114,7 +114,7 @@ typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azu
 
 자산 | 설명 | 필수 |
 -------- | ----------- | -------- |
-이름 | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
+name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 형식 | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 schema | 데이터 세트의 스키마입니다. 자세한 내용은 참조 하세요 [호환 가능한 데이터 집합 데이터 흐름](#dataset-type)합니다. | 아닙니다. |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
@@ -183,7 +183,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 자산 | 설명 | 필수
 -------- | ----------- | --------
 이름 | 열의 이름입니다. | 예
-형식 | 열의 데이터 형식입니다. Data Factory는 다음과 같은 중간 데이터 형식을 허용되는 값으로 지원합니다. **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** | 아닙니다.
+type | 열의 데이터 형식입니다. Data Factory는 다음과 같은 중간 데이터 형식을 허용되는 값으로 지원합니다. **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset 및 Timespan** | 아닙니다.
 culture | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. | 아닙니다.
 format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아닙니다.
 

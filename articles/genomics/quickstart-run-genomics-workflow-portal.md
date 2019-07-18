@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261692"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670756"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -139,20 +139,20 @@ Microsoft Genomics 서비스는 페어드 엔드 리드를 입력 파일로 기�
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-저장소 계정 내에서 입력 데이터 용으로 하나의 Blob 컨테이너를 만들고 출력 데이터용으로 두 번째 Blob 컨테이너를 만들어야 합니다.  입력 데이터를 입력 Blob 컨테이너에 업로드합니다. [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter) 또는 [ AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 등 다양한 도구를 사용하여 이 작업을 수행할 수 있습니다. 
+저장소 계정 내에서 입력 데이터 용으로 하나의 Blob 컨테이너를 만들고 출력 데이터용으로 두 번째 Blob 컨테이너를 만들어야 합니다.  입력 데이터를 입력 Blob 컨테이너에 업로드합니다. [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter) 또는 [ AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 등 다양한 도구를 사용하여 이 작업을 수행할 수 있습니다. 
 
 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Python 클라이언트를 사용하여 Microsoft Genomics 서비스를 통해 워크플로 실행 
 
 Microsoft Genomics 서비스를 통해 워크플로를 실행하려면 config.txt 파일을 편집하여 데이터에 대한 입력 및 출력 저장소 컨테이너를 지정합니다.
-Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage 탐색기에서 직접 이 정보를 찾을 수 있습니다.  
+Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage Explorer에서 직접 이 정보를 찾을 수 있습니다.  
 
 
 ![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 구성")
 
 
-GATK4를 실행하려는 경우 `process_name` 매개 변수를 gatk4 또는 gatk4-프로모션으로 설정합니다. GATK4 승격에 대한 자세한 내용은 [이 페이지](https://aka.ms/msgatk4)를 방문하세요.
+GATK4를 실행하려는 경우 `process_name` 매개 변수를 `gatk4`로 설정합니다.
 
 기본적으로 Genomics 서비스는 VCF 파일을 출력합니다. VCF 출력 대신 gVCF 출력을 원하는 경우(GATK 3.x에서 `-emitRefConfidence` 및 GATK 4.x에서 `emit-ref-confidence`와 같음) `config.txt`에 `emit_ref_confidence` 매개 변수를 추가하고 위의 그림에서 표시된 것처럼 `gvcf`로 설정합니다.  다시 VCF 출력으로 변경하려면 `config.txt` 파일에서 제거하거나 `emit_ref_confidence` 매개 변수를 `none`으로 설정합니다. 
 

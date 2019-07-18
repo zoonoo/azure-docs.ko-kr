@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65849737"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: 만들기 및 ML 모델을 가속화
 
-에 대해 알아봅니다 방법을 사용 하 여 합니다 [열고 신경망 네트워크 Exchange](https://onnx.ai) (ONNX) 기계 학습 모델을 최적화할 수 있습니다.
+에 대해 알아봅니다 방법을 사용 하 여 합니다 [열고 신경망 네트워크 Exchange](https://onnx.ai) (ONNX) 유추의 기계 학습 모델을 최적화할 수 있습니다. 모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다. 
 
-모델 및 하드웨어 기능을 최대한 활용 하려면 유추 라이브러리를 조정 해야 하므로 최적화 기계 학습 유추를 위한 모델 어렵습니다. 문제가 어려워집니다 매우 다양 한 종류의 플랫폼 (클라우드/에 지, CPU/GPU 등)에서 최적의 성능을 제공 하려는 경우 각 이후 가지 다양 한 기능 및 특징. 다양 한 다양 한 플랫폼에서 실행 해야 하는 프레임 워크에서에서 모델이 있는 경우 복잡성이 증가 합니다. 시간이 많이 프레임 워크 및 하드웨어의 다른 모든 조합 최적화 하는 것입니다. 기본 프레임 워크에서 한 번 학습 하 고 클라우드 또는 지 모든 곳에서 실행 하는 솔루션에 필요 합니다. 이 경우 ONNX 살펴보기
+모델 및 하드웨어 기능을 최대한 활용 하려면 유추 라이브러리를 조정 해야 하므로 최적화 기계 학습 유추 (또는 모델 점수 매기기)에 대 한 모델은 어렵습니다. 문제가 어려워집니다 매우 다양 한 종류의 플랫폼 (클라우드/에 지, CPU/GPU 등)에서 최적의 성능을 제공 하려는 경우 각 이후 가지 다양 한 기능 및 특징. 다양 한 다양 한 플랫폼에서 실행 해야 하는 프레임 워크에서에서 모델이 있는 경우 복잡성이 증가 합니다. 시간이 많이 프레임 워크 및 하드웨어의 다른 모든 조합 최적화 하는 것입니다. 기본 프레임 워크에서 한 번 학습 하 고 클라우드 또는 지 모든 곳에서 실행 하는 솔루션에 필요 합니다. 이 경우 ONNX 살펴보기
 
 Microsoft 및 파트너 커뮤니티 ONNX 기계 학습 모델을 나타내기 위한 공개 표준으로 만들어집니다. 모델 [여러 프레임 워크](https://onnx.ai/supported-tools) TensorFlow, PyTorch, Scikit-learn, Keras, Chainer, MXNet, 및 MATLAB를 포함 하 여 수 내보내거나 표준 ONNX 형식으로 변환 합니다. 모델을 ONNX 형식으로 되 면 다양 한 플랫폼 및 장치에서 실행할 수 있습니다.
 
@@ -30,7 +30,7 @@ Microsoft 및 파트너 커뮤니티 ONNX 기계 학습 모델을 나타내기 �
 
 ONNX 런타임에서 Bing, Office 및 Cognitive Services와 같은 대규모 Microsoft 서비스에 사용 됩니다. 성능 향상은 다양 한 요인에 따라 달라 집니다 하지만 이러한 Microsoft 서비스 살펴본를 __2 배의 성능 향상 cpu 평균__합니다. ONNX 런타임 수백만의 장치와 수백 개의 Windows 기계 학습의 일부로 사용 됩니다. Azure Machine Learning 서비스를 사용 하 여 런타임이 사용할 수 있습니다. ONNX 런타임을 사용 하 여 광범위 한 프로덕션 급 최적화, 테스트, 및 지속적으로 향상 시킬 수 있습니다.
 
-[![교육, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![교육, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX 모델 가져오기
 
@@ -83,7 +83,7 @@ ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deplo
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="more-info"></a>자세한 정보
+## <a name="more-info"></a>추가 정보
 
 ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)

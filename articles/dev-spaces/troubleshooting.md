@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728820"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441756"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -36,24 +36,26 @@ CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자�
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure Dev Spaces 컨트롤러를 만들지 못했음' 오류
 
+### <a name="reason"></a>이유
 컨트롤러를 만들 때 무언가 잘못되면 이 오류가 표시됩니다. 일시적인 오류인 경우 컨트롤러를 삭제하고 다시 만들면 문제가 해결됩니다.
 
-### <a name="try"></a>다음을 시도해 보세요.
+### <a name="try"></a>시도해 보기
 
-컨트롤러를 삭제하려면 Azure Dev Spaces CLI를 사용합니다. Visual Studio 또는 Cloud Shell에서는 작업할 수 없습니다. AZDS CLI를 설치하려면 먼저 Azure CLI를 설치한 다음 이 명령을 실행합니다.
+컨트롤러를 삭제 합니다.
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+컨트롤러를 삭제 하려면 Azure 개발 공간 CLI를 사용 해야 합니다. Visual Studio에서 컨트롤러를 삭제 하는 것이 불가능 합니다. 또한 설치할 수 없습니다 Azurecli 개발 공간 Azure Cloud Shell에서 Azure Cloud Shell에서 컨트롤러를 삭제할 수 없습니다 있도록 합니다.
+
+Azure 개발 공간 CLI를 설치가 없는 경우 먼저 다음 명령을 사용 하 여 설치 다음 컨트롤러를 삭제할 수 있습니다.
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-그런 다음 이 명령을 실행하여 컨트롤러를 삭제합니다.
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. 처음 만드는 것처럼 이 자습서의 지침에 따릅니다.
-
+CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. 참조를 [개발 팀](quickstart-team-development.md) 하거나 [.NET Core를 사용 하 여 개발](quickstart-netcore-visualstudio.md) 예제에 대 한 빠른 시작 합니다.
 
 ## <a name="error-service-cannot-be-started"></a>'서비스를 시작할 수 없습니다.' 오류
 
@@ -77,7 +79,7 @@ Visual Studio에서
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>다단계 Dockerfile:
-다단계 Dockerfile을 사용하는 경우 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다. 이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
+다단계 Dockerfile을 사용하는 경우 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다.  이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
 
 ```cmd
 $ azds up -v
@@ -95,7 +97,7 @@ Service cannot be started.
 이 오류는 AKS 노드가 다단계 빌드를 지원하지 않는 이전 버전의 Docker를 실행하기 때문에 발생합니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성합니다.
 
 ### <a name="rerunning-a-service-after-controller-re-creation"></a>컨트롤러를 다시 만든 후 서비스 다시 실행
-이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 만든 후 서비스를 다시 실행하려고 하면 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다. 이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
+이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 만든 후 서비스를 다시 실행하려고 하면 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다.  이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
 
 ```cmd
 Installing Helm chart...
@@ -111,7 +113,7 @@ Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already ex
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
-`azds prep` 명령에 `--public` 스위치를 지정하거나 Visual Studio에서 `Publicly Accessible` 확인란을 선택하여 서비스에 대해 공용 URL 엔드포인트를 구성할 수 있습니다. Dev Spaces에서 서비스를 실행하면 공용 DNS 이름이 자동으로 등록됩니다. 이 DNS 이름이 등록되지 않은 경우 공용 URL에 연결할 때 웹 브라우저에 ‘페이지를 표시할 수 없습니다.’ 또는 ‘사이트에 연결할 수 없습니다.’라는 오류가 표시됩니다.
+`azds prep` 명령에 `--public` 스위치를 지정하거나 Visual Studio에서 `Publicly Accessible` 확인란을 선택하여 서비스에 대해 공용 URL 엔드포인트를 구성할 수 있습니다. Dev Spaces에서 서비스를 실행하면 공용 DNS 이름이 자동으로 등록됩니다. 이 DNS 이름이 등록되지 않은 경우 공용 URL에 연결할 때 웹 브라우저에 ‘페이지를 표시할 수 없습니다.’ 또는 ‘사이트에 연결할 수 없습니다.’라는 오류가 표시됩니다.  
 
 ### <a name="try"></a>다음을 시도해 보세요.
 
@@ -123,7 +125,7 @@ azds list-uris
 
 URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 등록을 완료하려면 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
 
-URL이 5분 넘게 ‘보류 중’ 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. AKS가 삭제된 포드를 자동으로 다시 만듭니다.
+URL이 5분 넘게 ‘보류 중’ 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다.  다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. AKS가 삭제된 포드를 자동으로 다시 만듭니다.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -242,13 +244,13 @@ VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system
 ### <a name="try"></a>다음을 시도해 보세요.
 수행해야 하는 작업:
 1. 빌드 컨텍스트를 솔루션 수준으로 설정하도록 _azds.yaml_ 파일을 수정합니다.
-2. 새 빌드 컨텍스트를 기준으로 올바르게 프로젝트 파일(_.csproj_)을 참조하도록 _Dockerfile_ 및 _Dockerfile.develop_ 파일을 수정합니다.
+2. 새 빌드 컨텍스트를 기준으로 올바르게 프로젝트 파일( _.csproj_)을 참조하도록 _Dockerfile_ 및 _Dockerfile.develop_ 파일을 수정합니다.
 3. .sln 파일 옆에 _.dockerignore_ 파일을 배치하고 필요에 따라 수정합니다.
 
-https://github.com/sgreenmsft/buildcontextsample에서 예제를 찾을 수 있습니다.
+https://github.com/sgreenmsft/buildcontextsample 에서 예제를 찾을 수 있습니다.
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 권한 부여 오류
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev Spaces를 관리하려고 하는데 관련 Azure 구독에 대한 ‘owner’ 또는 ‘contributor’ 액세스 권한이 없는 경우 이 오류가 표시될 수 있습니다.
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다.   Dev Spaces를 관리하려고 하는데 관련 Azure 구독에 대한 ‘owner’ 또는 ‘contributor’ 액세스 권한이 없는 경우 이 오류가 표시될 수 있습니다.  
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>이유
@@ -261,7 +263,7 @@ Azure 구독에 대한 소유자 또는 기여자 액세스 권한이 있는 사
 az provider register --namespace Microsoft.DevSpaces
 ```
 
-## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 가상 노드에 대한 ‘컨테이너 이미지 빌드 대기 중...’ 단계에서 Dev Spaces가 시간 초과됩니다.
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 가상 노드에 대한 ‘컨테이너 이미지 빌드 대기 중...’ 단계에서 Dev Spaces가 시간 초과됩니다. 
 
 ### <a name="reason"></a>이유
 실행 하도록 구성 된 서비스를 실행 하려면 개발자 공간을 사용 하려고 할 때이 시간 초과 발생을 [AKS 가상 노드](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
@@ -309,7 +311,7 @@ Helm 명령과 동일한 AKS 클러스터에 대해 개발 공간 명령을 사�
 AKS 클러스터의 네임스페이스에서 Dev Spaces를 활성화하면 _mindaro-proxy_라는 추가 컨테이너가 해당 네임스페이스 내에서 실행되는 각 Pod에 설치됩니다. 이 컨테이너는 Pod의 서비스에 대한 호출을 가로채며, Dev Spaces의 팀 개발 기능에 필수적입니다. 그러나 이러한 Pod에서 실행 중인 특정 서비스를 방해할 수 있습니다. Redis Azure Cache 실행 되 고, 주/보조 통신에서 연결 오류 및 실패를 일으키는 pod를 방해 하는 것이 이라고 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
-영향을 받는 Pod를 Dev Spaces가 ‘사용되지 않는’ 클러스터 내의 네임스페이스로 이동할 수 있습니다. 애플리케이션의 나머지 부분은 Dev Spaces 사용 네임스페이스 내에서 계속 실행할 수 있습니다. Dev Spaces는 비 Dev Spaces 사용 네임스페이스 내에 _mindaro-proxy_ 컨테이너를 설치하지 않습니다.
+영향을 받는 Pod를 Dev Spaces가 ‘사용되지 않는’ 클러스터 내의 네임스페이스로 이동할 수 있습니다.  애플리케이션의 나머지 부분은 Dev Spaces 사용 네임스페이스 내에서 계속 실행할 수 있습니다. Dev Spaces는 비 Dev Spaces 사용 네임스페이스 내에 _mindaro-proxy_ 컨테이너를 설치하지 않습니다.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces에서 컨테이너를 빌드하는 데 내 기존 Dockerfile을 사용하지 않는 것처럼 보임
 
@@ -374,11 +376,11 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 Azure 개발 공간 컨트롤러를 액세스 하는 사용자 관리자를 읽을 권한이 있어야 합니다 *kubeconfig* AKS 클러스터에 있습니다. 이 권한에에서 사용할 수 있는 예를 들어 합니다 [기본 제공 Azure Kubernetes 서비스 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)입니다. Azure 개발 공간 컨트롤러를 액세스 하는 사용자도 있어야 합니다 *참여자* 또는 *소유자* 컨트롤러에 대 한 RBAC 역할입니다.
 
 ### <a name="try"></a>시도해 보기
-AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user)합니다.
+AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)합니다.
 
 컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트.
 
-1.  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. AKS 클러스터와 동일한는 일반적으로 컨트롤러를 포함 하는 리소스 그룹으로 이동 합니다.
 1. 사용 하도록 설정 합니다 *숨겨진된 형식 표시* 확인란을 선택 합니다.
 1. 컨트롤러에서를 클릭 합니다.
@@ -389,3 +391,51 @@ AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자�
     * 에 대 한 *에 대 한 액세스 할당* 선택 *Azure AD 사용자, 그룹 또는 서비스 주체*합니다.
     * 에 대 한 *선택* 권한을 부여 하려는 사용자를 검색 합니다.
 1. *저장*을 클릭합니다.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>컨트롤러 만들기 컨트롤러 이름 길이로 인해 실패 합니다.
+
+### <a name="reason"></a>이유
+Azure 개발 공간 컨트롤러의 이름은 31 자를 초과할 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 31 자를 초과 하는 컨트롤러의 이름, 다음과 같은 오류가 표시 됩니다.
+
+*클러스터에 대 한 개발 공간 컨트롤러 'a-controller-name-that-is-way-too-long-aks-east-us' 만들지 못했습니다. Azure 개발 공간 컨트롤러 'a-controller-name-that-is-way-too-long-aks-east-us' 이름이 잘못 되었습니다. 위반 제약 조건은 개. Azure 개발 공간 컨트롤러 이름은 최대 수만 있습니다 31 자*
+
+### <a name="try"></a>시도해 보기
+
+대체 이름으로 컨트롤러를 만듭니다.
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Windows 노드 풀은 AKS 클러스터를 추가할 때 실패 하는 개발 공간을 사용 하도록 설정
+
+### <a name="reason"></a>이유
+현재, Azure 개발 공간 Linux pod 및 노드만에서 실행할 것입니다. Windows 노드 풀을 사용 하 여 AKS 클러스터에 있는 경우 Linux 노드에서 Azure 개발 공간 pod 된만 예약 되었는지 확인 해야 합니다. Azure 개발 공간 포드를를 Windows 노드에서 실행 하도록 예약 하는 경우 해당 pod 시작 되지 않으며 개발 공간을 사용 하도록 설정 하지 못합니다.
+
+### <a name="try"></a>시도해 보기
+[추가 검은](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) Linux 되도록 AKS 클러스터에 pod는 Windows 노드에서 실행 되도록 예약 되지 않았습니다.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>오류가 "클러스터에서 준비 상태가 완벽된 Linux 노드가 없습니다을 발견 합니다. 필요 'azds' 네임 스페이스의 pod를 배포 하려면 준비 상태가 완벽된 Linux 노드가 하나 이상 있습니다. "
+
+### <a name="reason"></a>이유
+
+Azure 개발 공간을 만들지 못했습니다 컨트롤러 AKS 클러스터에서 완벽된 한 노드를 찾을 수 없기 때문에 *준비* 에서 pod를 예약 하는 상태입니다. Azure 개발 공간에 Linux 노드가 하나 이상 필요는 *준비* tolerations 지정 하지 않고 포드를 예약 하는 데 허용 하는 상태입니다.
+
+### <a name="try"></a>시도해 보기
+[구성을 업데이트 하 여 검은](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) 하나 이상의 Linux를 확인 하 여 AKS 클러스터에 노드 tolerations 지정 하지 않고 포드를 예약 하는 데 있습니다. 또한 하나 이상의 예약을 허용 하는 Linux 노드에 tolerations 지정 하지 않고 포드 인지 확인 합니다 *준비* 상태입니다. 노드는 도달 하는 데 시간이 오래 걸리고 경우 합니다 *준비* 상태, 노드를 다시 시작을 시도할 수 있습니다.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>"Azure 개발 공간 CLI 올바르게 설치 되지 않았습니다" 오류를 실행 하는 경우 `az aks use-dev-spaces`
+
+### <a name="reason"></a>이유
+Azure 개발 공간 CLI에 대 한 업데이트 설치 경로 변경 합니다. 2\.0.63 이전의 Azure CLI의 버전을 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI의 버전을 표시 하려면 사용 하 여 `az --version`입니다.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+실행 하는 경우 오류 메시지가 표시 되어도 `az aks use-dev-spaces` 2.0.63 하기 전에 Azure CLI의 버전으로 설치는 성공지 않습니다. 계속 사용할 수 있습니다 `azds` 아무 문제 없이 합니다.
+
+### <a name="try"></a>시도해 보기
+설치를 업데이트 합니다 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.63 이상. 이 실행할 때 나타나는 오류 메시지 해결 됩니다 `az aks use-dev-spaces`합니다. 또는 Azure CLI 및 Azure 개발 공간 CLI의 현재 버전을 사용 하려면 계속 수 있습니다.

@@ -1,30 +1,40 @@
 ---
-title: Ansible을 사용하여 Azure 동적 인벤토리 관리
+title: 자습서 - Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성 | Microsoft Docs
 description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 방법을 알아봅니다.
-ms.service: azure
 keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/09/2018
-ms.topic: tutorial
-ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092211"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230709"
 ---
-# <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
-Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
+# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>자습서: Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성
+
+Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 두 개의 테스트 가상 머신 구성 
+> * 가상 머신 중 하나에 태그 지정
+> * 태그가 지정된 가상 머신에 Nginx 설치
+> * 구성된 Azure 리소스를 포함하는 동적 인벤토리 구성
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- **Azure 자격 증명** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
-## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
+## <a name="create-the-test-vms"></a>테스트 VM 만들기
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
@@ -57,7 +67,8 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-virtual-machine"></a>가상 머신 태그 지정
+## <a name="tag-a-vm"></a>VM에 태그 지정
+
 사용자 정의 범주별로 [태그를 사용하여 Azure 리소스를 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli)할 수 있습니다. 
 
 다음 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) 명령을 입력하여 `ansible-inventory-test-vm1` 가상 머신에 `nginx` 키를 사용한 태그를 지정합니다.
@@ -65,9 +76,13 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-
 ## <a name="generate-a-dynamic-inventory"></a>동적 인벤토리 생성
-가상 머신이 정의되고 태그가 지정되면 동적 인벤토리를 생성해야 합니다. Ansible은 Azure Resource Manager에 API를 요청하여 Azure 리소스의 동적 인벤토리를 생성하는 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py)라는 Python 스크립트를 제공합니다. 다음 단계에서는 `azure_rm.py` 스크립트를 사용하여 두 개의 테스트 Azure Virtual Machines에 연결하는 과정을 안내합니다.
+
+가상 머신이 정의되고 태그가 지정되면 동적 인벤토리를 생성해야 합니다.
+
+### <a name="using-ansible-version--28"></a>Ansible 2.8 이전 버전 사용
+
+Ansible은 Azure 리소스의 동적 인벤토리를 생성하는 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py)라는 Python 스크립트를 제공합니다. 다음 단계에서는 `azure_rm.py` 스크립트를 사용하여 두 개의 테스트 Azure Virtual Machines에 연결하는 과정을 안내합니다.
 
 1. GNU `wget` 명령을 사용하여 `azure_rm.py` 스크립트를 검색합니다.
 
@@ -102,20 +117,64 @@ az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resou
     }
     ```
 
-## <a name="enable-the-virtual-machine-tag"></a>가상 머신 태그 사용
-원하는 태그가 설정되면 태그를 "사용하도록 설정"해야 합니다. 태그를 사용하도록 설정하는 한 가지 방법은 **export** 명령을 통해 `AZURE_TAGS`라는 환경 변수에 태그를 내보내는 것입니다.
+### <a name="ansible-version--28"></a>Ansible 2.8 이상 버전
+
+Ansible 2.8부터 Ansible은 [Azure 동적 인벤토리 플러그 인](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py)을 제공합니다. 다음 단계는 이 플러그 인을 안내합니다.
+
+1. 인벤토리 플러그 인에는 구성 파일이 필요합니다. 구성 파일은 `azure_rm`으로 끝나야 하고 확장명이 `yml` 또는 `yaml`이어야 합니다. 이 자습서 예제에서는 다음 플레이북을 `myazure_rm.yml`로 저장합니다.
+
+    ```yml
+    plugin: azure_rm
+    include_vm_resource_groups:
+    - ansible-inventory-test-rg
+    auth_source: auto
+    ```
+
+1. 다음 명령을 실행하여 리소스 그룹의 VM을 Ping합니다.
+
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+1. 위의 명령을 실행하는 경우 다음과 같은 오류가 나타날 수 있습니다.
+
+    ```Output
+    Failed to connect to the host via ssh: Host key verification failed.
+    ```
+    
+    "호스트 키 확인" 오류가 발생하면 Ansible 구성 파일에 다음 줄을 추가합니다. Ansible 구성 파일은 `/etc/ansible/ansible.cfg`에 있습니다.
+
+    ```bash
+    host_key_checking = False
+    ```
+
+1. 플레이북이 실행되면 다음 출력과 비슷한 결과가 표시됩니다.
+  
+    ```Output
+    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
+## <a name="enable-the-vm-tag"></a>VM 태그를 사용하도록 설정
+태그를 설정한 경우 태그를 "사용하도록 설정"해야 합니다. 태그를 사용하도록 설정하는 한 가지 방법은 `export` 명령을 통해 환경 변수 `AZURE_TAGS`에 태그를 내보내는 것입니다.
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
 ```
 
-태그를 내보낸 후에는 `ansible` 명령을 다시 시도할 수 있습니다.
+- Ansible 2.8 이전 버전을 사용하는 경우 다음 명령을 실행합니다.
 
-```azurecli-interactive
-ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-```
+    ```bash
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
+    ```
 
-이제 하나의 가상 머신(태그가 **AZURE_TAGS** 환경 변수로 내보낸 값과 일치하는 가상 머신)만 표시됩니다.
+- Ansible 2.8 이상 버전을 사용하는 경우 다음 명령을 실행합니다.
+  
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+이제 하나의 가상 머신(태그가 `AZURE_TAGS` 환경 변수로 내보낸 값과 일치하는 가상 머신)만 표시됩니다.
 
 ```Output
 ansible-inventory-test-vm1 | SUCCESS => {
@@ -126,57 +185,69 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>태그가 지정된 VM에 Nginx 설정
+
 태그의 목적은 가상 머신의 하위 그룹을 빠르고 쉽게 사용할 수 있도록 하는 것입니다. 예를 들어 `nginx` 태그를 할당한 가상 머신에만 Nginx를 설치하려고 한다고 가정해 보겠습니다. 다음 단계에서는 수행하는 방법이 쉽다는 것을 보여 줍니다.
 
-1. 다음과 같이 `nginx.yml`이라는 이름의 파일(플레이북 포함)을 만듭니다.
+1. `nginx.yml` 파일을 만듭니다.
 
    ```azurecli-interactive
-   vi nginx.yml
+   code nginx.yml
    ```
 
-1. 새로 만든 `nginx.yml` 파일에 다음 코드를 삽입합니다.
+1. 다음 샘플 코드를 편집기에 붙여넣습니다.
 
     ```yml
     ---
     - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-      apt: pkg=nginx state=installed
-      notify:
-      - start nginx
+      hosts: all
+      become: yes
+      tasks:
+      - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
 
-    handlers:
-    - name: start nginx
-      service: name=nginx state=started
+      handlers:
+        - name: start nginx
+          service: name=nginx state=started
     ```
 
-1. `nginx.yml` 플레이북을 실행합니다.
+1. 파일을 저장하고 편집기를 종료합니다.
 
-    ```azurecli-interactive
+1. `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+
+   - Ansible 2.8 이전 버전:
+
+    ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-1. 플레이북이 실행되면 다음 출력과 비슷한 결과가 표시됩니다.
+   - Ansible 2.8 이상 버전:
+
+    ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
+    ```
+
+1. 플레이북을 실행하면 다음 결과와 유사한 출력이 표시됩니다.
 
     ```Output
-    PLAY [Install and start Nginx on an Azure virtual machine] **********
+    PLAY [Install and start Nginx on an Azure virtual machine] 
 
-    TASK [Gathering Facts] **********
+    TASK [Gathering Facts] 
     ok: [ansible-inventory-test-vm1]
 
-    TASK [install nginx] **********
+    TASK [install nginx] 
     changed: [ansible-inventory-test-vm1]
 
-    RUNNING HANDLER [start nginx] **********
+    RUNNING HANDLER [start nginx] 
     ok: [ansible-inventory-test-vm1]
 
-    PLAY RECAP **********
+    PLAY RECAP 
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
 
 ## <a name="test-nginx-installation"></a>Nginx 설치 테스트
+
 이 섹션에서는 가상 머신에 Nginx가 설치되었는지 테스트하는 한 가지 방법을 설명합니다.
 
 1. [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 명령을 사용하여 `ansible-inventory-test-vm1` 가상 머신의 IP 주소를 검색합니다. 그런 다음, 반환된 값(가상 머신의 IP 주소)은 가상 머신에 연결하기 위한 SSH 명령에 대한 매개 변수로 사용됩니다.
@@ -199,11 +270,11 @@ ansible-inventory-test-vm1 | SUCCESS => {
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
-    
+
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. SSH 세션의 연결을 끊으려면 **&lt;Ctrl>D** 키보드 조합을 누릅니다.
+1. SSH 세션의 연결을 끊으려면 `<Ctrl>D` 키보드 조합을 누릅니다.
 
 1. `ansible-inventory-test-vm2` 가상 머신에 대해 앞의 단계를 수행하면 Nginx를 얻을 수 있는 위치를 나타내는 정보 메시지가 표시됩니다(현재 설치되어 있지 않음을 나타냄).
 
@@ -218,5 +289,6 @@ ansible-inventory-test-vm1 | SUCCESS => {
     ```
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"] 
-> [Azure에서 Ansible을 사용하여 기본 가상 머신 만들기](/azure/virtual-machines/linux/ansible-create-vm)
+> [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](/azure/virtual-machines/linux/ansible-create-vm)

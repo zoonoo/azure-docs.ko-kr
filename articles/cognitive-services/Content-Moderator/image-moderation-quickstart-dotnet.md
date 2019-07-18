@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757226"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604128"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>빠른 시작: C#으로 이미지에서 불쾌한 콘텐츠 분석
 
@@ -86,7 +86,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ### <a name="load-the-input-images"></a>입력 이미지 로드
 
-**Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 이렇게 하면 입력 파일에서 각 이미지 URL에 대한 평가 데이터를 검색하는 프로그램이 설정됩니다. 그런 다음, 이 데이터를 단일 출력 파일에 씁니다.
+**Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 이 코드는 입력 파일에서 각 이미지 URL에 대한 평가 데이터를 검색하는 프로그램을 설정합니다. 그런 다음, 이 데이터를 단일 출력 파일에 씁니다.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 

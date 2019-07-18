@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011255"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304198"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -87,7 +87,7 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
   + [엔터티 인식](text-analytics-how-to-entity-linking.md)  
 
 
-6. **보내기**를 클릭하여 요청을 제출합니다. 분당 최대 100개의 요청을 제출할 수 있습니다. 
+6. **보내기**를 클릭하여 요청을 제출합니다. 참조 된 [데이터 제한](../overview.md#data-limits) 분당 보내고 두 번째 요청 수에 대 한 정보에 대 한 개요는 섹션입니다.
 
    Postman에서 응답은 아래의 다음 창에 단일 JSON 문서로 표시되며, 각 문서 ID 항목이 요청에 제공됩니다.
 

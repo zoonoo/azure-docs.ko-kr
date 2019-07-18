@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Lighthouse 설명서
+metadata:
+  title: Azure Lighthouse 설명서
+  description: 대규모 고객 리소스를 관리하는 방법 알아보기
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: 'Azure Lighthouse는 서비스 공급자에게 고도의 자동화, 비율 크기 조정, 향상된 거버넌스로 모든 고객의 Azure를 보고 관리할 수 있는 단일 컨트롤 플레인을 제공합니다.'
+sections:
+  - title: 개념
+    items:
+      - type: paragraph
+        text: Azure Lighthouse의 주요 측면을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Azure 위임 리소스 관리</a>
+          - html: <a href="concepts/cross-tenant-management-experience">테넌트 간 관리 환경</a>
+          - html: <a href="concepts/managed-services-offers">Azure Marketplace의 관리형 서비스 솔루션</a>
+          - html: <a href="concepts/recommended-security-practices.md">권장 보안 방법</a>
+          - html: <a href="concepts/cloud-solution-provider.md">클라우드 솔루션 공급자 프로그램 고려 사항</a>
+  - title: 방법 가이드
+    items:
+      - type: paragraph
+        text: Azure 위임 리소스 관리 고객을 등록하는 방법과 해당 리소스를 관리하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">Azure 위임 리소스 관리에 고객 등록</a>
+          - html: <a href="how-to/publish-managed-services-offers">Azure Marketplace에 관리형 서비스 솔루션 게시</a>
+          - html: <a href="how-to/view-manage-customers">고객과 위임된 리소스 보기 및 관리</a>
+          - html: <a href="how-to/view-manage-service-providers">서비스 공급자 보기 및 관리</a>
+  - title: 샘플
+    items:
+      - type: paragraph
+        text: Azure Lighthouse를 사용하는 데 도움이 되는 샘플과 템플릿을 살펴봅니다.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">샘플 인덱스</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK for .NET(NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Python용 Azure SDK</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Python용 Azure SDK(PyPi)</a></p>'
+          - title: REST (영문)
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">API 참조</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01(OpenAPI)</a></p>'

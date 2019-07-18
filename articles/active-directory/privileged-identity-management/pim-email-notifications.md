@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289190"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
@@ -52,7 +52,7 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 | --- | --- | --- | --- |
 | 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
 | 보안 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
-| 전역 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예. |
+| 전역 관리자</br>(활성화/적격) | 아닙니다. | 예* | 예 |
 
 \* [**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용**으로 설정된 경우
 

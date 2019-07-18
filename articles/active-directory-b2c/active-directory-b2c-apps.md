@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형 | Microsoft Docs
 description: Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c3d63a4510d16268e1be3b853fd5c3225b647cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051734"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형
 
@@ -98,7 +98,7 @@ Web API는 웹 애플리케이션, 데스크톱 및 모바일 애플리케이션
 6. `access_token` 및 `refresh_token`이 웹 서버에 반환됩니다.
 7. 웹 API가 권한 부여 헤더에서 `access_token`을 사용하여 호출됩니다.
 8. 웹 API에서 토큰의 유효성을 검사합니다.
-9. 보안 데이터가 웹 서버에 반환됩니다.
+9. 보안 데이터는 웹 응용 프로그램에 반환 됩니다.
 
 권한 부여 코드, 새로 고침 토큰 및 토큰을 가져오는 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-b2c-reference-oauth-code.md)을 참조하세요.
 

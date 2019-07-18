@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610504"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
@@ -230,7 +230,7 @@ Azure 네트워킹은 다양한 보안 원격 액세스 시나리오를 지원�
 Azure Virtual Network와 온-프레미스 사이트 간에 네트워크 트래픽을 보내려면 Azure Virtual Network에 대한 가상 VPN Gateway를 만들어야 합니다. [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)는 공용 연결을 통해 암호화된 트래픽을 보내는 가상 네트워크 게이트웨이의 유형입니다. 또한 VPN Gateway를 사용하여 Microsoft 네트워크 패브릭을 통해 Azure Virtual Network 간에 트래픽을 보낼 수도 있습니다.
 
 ### <a name="express-route"></a>Express 경로
-Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)는 연결 공급자로 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있는 전용 WAN 링크입니다.
+Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)는 연결 공급자로 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있는 전용 WAN 링크입니다.
 
 ![Express 경로](./media/azure-security/azure-security-fig1.png)
 

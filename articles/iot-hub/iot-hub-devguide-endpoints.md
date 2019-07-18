@@ -7,13 +7,13 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/10/2019
+ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055349"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -75,14 +75,14 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 지원합니다.
 
-* Azure Storage 컨테이너 
+* Azure Storage 컨테이너
 * Event Hubs
 * Service Bus 큐
 * Service Bus 토픽
 
 추가할 수 있는 엔드포인트의 수에 대한 제한은 [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 
-REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 끝점의 상태를 가져오려고 합니다. 사용 하는 것이 좋습니다 합니다 [IoT Hub 메트릭](iot-hub-metrics.md) 를 식별 하 여 소멸 또는 비정상 끝점 상태 때 오류를 디버그 라우팅 메시지 대기 시간과 관련 된 합니다.
+REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 끝점의 상태를 가져오려고 합니다. 사용 하는 것이 좋습니다 합니다 [IoT Hub 메트릭](iot-hub-metrics.md) 식별 하 고 대기 시간이 끝점 이러한 상태 중 하나일 때 더 높은 것으로 예상한 대로 데드 또는 비정상 끝점 상태는 경우 오류를 디버그 하는 라우팅 메시지 대기 시간과 관련 된 합니다.
 
 |상태|설명|
 |---|---|

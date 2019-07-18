@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60600045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66479995"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -21,7 +21,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
 
 > [!IMPORTANT]
-> 9.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
+> 9\.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 > LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요
@@ -46,12 +46,12 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
 
-다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
+다음 Ubuntu 커널 지원 됩니다.
 
 
 |커널 시리즈  |최대 지원  |
 |---------|---------|
-|4.4.      |4.4.0-81-제네릭         |
+|4.4      |4.4.0-81-제네릭         |
 |4.8      |4.8.0-56-제네릭         |
 |4.10     |4.10.0-24-제네릭        |
 
@@ -83,7 +83,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
+1. 선택 **영어 (미국)** 국가/지역 키보드 및 선택에 대 한 원본으로 **Enter**합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
@@ -262,7 +262,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **사용 하기 위해 /dev매퍼/\<보존 디스크 다중 경로 id >/mnt 보존 ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
@@ -347,7 +347,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 * 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 머신 디스크)를 분리할 수 없습니다. 이 경우, 장애 복구에 실패합니다.
 
-* 마스터 대상에는 가상 머신에 대한 스냅숏이 없어야 합니다. 스냅숏이 있으면 장애 복구에 실패합니다.
+* 마스터 대상에는 가상 머신에 대한 스냅샷이 없어야 합니다. 스냅샷이 있으면 장애 복구에 실패합니다.
 
 * 일부 사용자 지정 NIC 구성 때문에 시작하는 동안 네트워크 인터페이스를 사용할 수 없으며 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
     * BOOTPROTO=dhcp

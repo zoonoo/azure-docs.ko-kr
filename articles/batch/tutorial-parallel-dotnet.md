@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538692"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595251"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -37,7 +37,7 @@ ms.locfileid: "57538692"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)
+* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017 이상](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 `BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예를 들면 다음과 같습니다.
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
 ```csharp
 // Batch account credentials
@@ -140,7 +140,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
-앱은 연결된 스토리지 계정과 상호 작용하기 위해 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. 공유 키 인증 사용을 인증하는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만듭니다. 그런 다음 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
+앱은 연결된 스토리지 계정과 상호 작용하기 위해 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. 공유 키 인증 사용을 인증하는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만듭니다. 그런 다음 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)를 만듭니다.
 
 ```csharp
 // Construct the Storage account connection string

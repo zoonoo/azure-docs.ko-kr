@@ -81,7 +81,7 @@ az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --accoun
 FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-마스터 노드에 개인 키를 복사합니다. 이 키는 클러스터의 모든 노드와 SSH 연결을 만드는 데 필요합니다. 클러스터를 만들 때 기본값이 아닌 값이 사용된 경우 사용자 이름을 업데이트합니다. 
+마스터 노드에 프라이빗 키를 복사합니다. 이 키는 클러스터의 모든 노드와 SSH 연결을 만드는 데 필요합니다. 클러스터를 만들 때 기본값이 아닌 값이 사용된 경우 사용자 이름을 업데이트합니다. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh

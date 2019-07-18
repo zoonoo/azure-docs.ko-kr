@@ -2,19 +2,19 @@
 title: '빠른 시작: 사용자 지정 모델 빌드, 배포 및 사용 - Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Custom Translator를 사용하여 번역 시스템을 구축하는 단계별 프로세스를 안내합니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f39abd41534ec470b5b4b6f232a556a8c8de5b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762996"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449468"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역용 사용자 지정 모델 빌드, 배포 및 사용
 

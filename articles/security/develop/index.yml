@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 보안 개발 설명서
+metadata:
+  document_id: null
+  title: Microsoft Azure의 보안 개발 설명서
+  meta.description: Learn how to develop secure apps on Azure.
+  services: security
+  author: TerryLanfear
+  manager: barbkess
+  ms.service: security
+  ms.subservice: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/11/2019
+  ms.author: terrylan
+abstract:
+  description: '샘플 앱, 모범 사례 및 지침을 사용하여 Azure에서 보안 애플리케이션을 개발 및 배포하는 방법을 알아봅니다.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/security/develop/secure-dev-overview
+            html: <p>Azure에서 보안 웹 애플리케이션 배포</p>
+            image:
+              src: /media/common/i_get-started.svg
+            title: 시작하기
+          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
+            html: <p>웹앱의 상위 5가지 보안 항목</p>
+            image:
+              src: /media/common/i_learn-about.svg
+            title: Microsoft Learn을 통해 기술 쌓기
+  - title: 개념
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-dev-overview">보안 개발 모범 사례</a>
+          - html: <a href="/azure/security/azure-security-threat-modeling-tool">위협 모델링</a>

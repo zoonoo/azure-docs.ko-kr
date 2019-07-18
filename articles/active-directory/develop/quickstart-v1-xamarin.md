@@ -3,8 +3,8 @@ title: Azure AD Xamarin 시작 | Microsoft Docs
 description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 Xamarin 애플리케이션을 빌드합니다.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881888"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121907"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>빠른 시작: Microsoft 로그인을 통합하는 Xamarin 앱 빌드
 
@@ -57,14 +57,14 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 디바이스 및 PC)�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 막대에서 계정을 클릭합니다. 그런 다음 **디렉터리** 목록에서 앱을 등록할 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
-4. **앱 등록**을 클릭하고 **추가**를 선택합니다.
-5. 새 **네이티브 클라이언트 애플리케이션**을 만들려면 지시를 따릅니다.
+4. **앱 등록**을 클릭한 다음, **새 등록**을 선택합니다.
+5. 새 클라이언트 애플리케이션을 만들려면 다음 지시를 따릅니다.
    * **이름**은 사용자에게 앱에 대해 설명합니다.
+   * **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
    * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 값(예: `http://DirectorySearcher`)을 입력합니다.
 6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. **애플리케이션** 탭에서 이 값을 복사해 둡니다. 나중에 이 값이 필요합니다.
-7. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다.
-8. API로 **Microsoft Graph**를 선택합니다. **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 
-   이렇게 하면 앱에서 사용자의 Graph API를 쿼리할 수 있습니다.
+7. **API 사용 권한** 페이지에서 **사용 권한 추가**를 선택합니다. **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
+8. **위임된 권한**에서 사용 권한 **User.Read**를 선택한 다음, **추가**를 눌러 저장합니다. 이 권한은 Azure AD Graph API에서 사용자를 쿼리하도록 애플리케이션을 설정합니다.
 
 ## <a name="step-3-install-and-configure-adal"></a>3단계: ADAL 설치 및 구성
 

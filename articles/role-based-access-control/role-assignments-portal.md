@@ -15,10 +15,10 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533172"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리
@@ -27,9 +27,9 @@ ms.locfileid: "60533172"
 
 ## <a name="prerequisites"></a>필수 조건
 
-추가 역할 할당 제거 있어야 합니다.
+역할 할당을 추가하거나 제거하려면 다음이 필요합니다.
 
-- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한, 같은 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
 
 ## <a name="overview-of-access-control-iam"></a>액세스 제어 (IAM) 개요
 

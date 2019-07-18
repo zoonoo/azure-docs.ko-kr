@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074742"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785567"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 웹 앱
 
@@ -34,17 +34,17 @@ ms.locfileid: "65074742"
 
 웹 앱에 대 한 권한 부여 코드 흐름을 지 원하는 라이브러리는 다음과 같습니다.
 
-| MSAL 라이브러리 | 설명 |
+| MSAL 라이브러리 | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 지원 되는 플랫폼은.NET Framework 및.NET Core 플랫폼 (UWP 없습니다, Xamarin.iOS 및 Xamarin.Android 플랫폼으로 하는 데 공용 클라이언트 응용 프로그램 빌드) |
 | ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 진행 중-공개 미리 보기에서 개발 |
-| ![자바](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발 |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발 |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 구성
 
 ASP.NET Core에서의 작업이 수행 된 `Startup.cs` 파일입니다. 구독 하는 것이 좋습니다는 `OnAuthorizationCodeReceived` ID 열 이벤트를 연결 하 고이 이벤트에서 MSAL을 호출 합니다. NET의 메서드 `AcquireTokenFromAuthorizationCode` 토큰 캐시, 요청 된 범위에 대 한 액세스 토큰 및 만료에 가까워질 때 액세스 토큰 새로 고침 또는 동일한 사용자를 대신해 서 토큰을 가져오려면 사용할 새로 고침 토큰을 저장 하는 효과가 있는 에 있지만 다른 리소스에 대 한 합니다.
 
-아래 코드의 주석의 위빙을 MSAL.NET 및 ASP.NET Core의 몇 가지 까다로운 측면을 이해 하는 데 도움이 됩니다.
+아래 코드의 주석의 위빙을 MSAL.NET 및 ASP.NET Core의 몇 가지 까다로운 측면을 이해 하는 데 도움이 됩니다. 전체 세부 정보에서 제공 되는 [ASP.NET Core 웹 앱 증분 자습서, 2 장](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -151,9 +151,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {
@@ -184,12 +182,12 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>(코어) ASP.NET 웹 앱에 대 한 MSAL.NET 토큰 캐시
 
-웹 앱, 웹 Api의 팩트를 토큰 캐시 구현을 다릅니다 데스크톱 응용 프로그램 토큰 캐시 구현을 (하는 경우가 많습니다 [기반 파일](scenario-desktop-acquire-token.md#file-based-token-cache)합니다. ASP.NET/ASP.NET Core 세션 또는 Redis cache를 데이터베이스 또는 Azure 블로그 저장소에는 사용할 수 있습니다. 코드에서이 코드 조각은의 개체는 `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` 캐시 서비스를 바인딩하는 메서드 호출 합니다. 세부 정보는 같습니다.이 시나리오 가이드에서 다루지 않지만 아래의 링크를 클릭 발생 합니다.
+웹 앱, 웹 Api의 팩트를 토큰 캐시 구현을 다릅니다 데스크톱 응용 프로그램 토큰 캐시 구현을 (하는 경우가 많습니다 [기반 파일](scenario-desktop-acquire-token.md#file-based-token-cache)합니다. ASP.NET/ASP.NET Core 세션 또는 Redis cache를 또는 데이터베이스 또는 Azure Blob 저장소도 사용할 수 있습니다. 코드에서이 코드 조각은의 개체는 `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` 캐시 서비스를 바인딩하는 메서드 호출 합니다. 세부 정보는 같습니다.이 시나리오 가이드에서 다루지 않지만 아래의 링크를 클릭 발생 합니다.
 
 > [!IMPORTANT]
-> 매우 중요 한 사항은 웹 앱과 web Api에 있어야 한다는 사용자 (계정) 당 하나의 토큰 캐시 됩니다. 각 계정에 대 한 토큰 캐시를 serialize 해야 합니다.
+> 매우 중요 한 사항은 웹 앱과 web Api에 있어야 한다는 사용자 (계정) 당 하나의 토큰 캐시 됩니다. 각 계정의 토큰 캐시를 직렬화해야 합니다.
 
-토큰 캐시를 사용 하 여 웹 앱 및 웹 Api에 대 한 방법의 예제에서 사용할 수는 [ASP.NET Core 웹 앱 자습서](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 단계의 [2-2 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)합니다. 구현을 살펴보고 다음 폴더에 대 한 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) 에 [microsoft 인증-확장-에-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 라이브러리 (에 [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 폴더입니다.
+토큰 캐시를 사용 하 여 웹 앱 및 웹 Api에 대 한 방법의 예제에서 사용할 수는 [ASP.NET Core 웹 앱 자습서](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 단계의 [2-2 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)합니다. 구현 방법은 [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 폴더에 있는 [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 라이브러리의 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) 폴더를 살펴보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

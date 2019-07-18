@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128103"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
@@ -288,7 +288,7 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
 
    b. **SQLEXPRESS에 대한 프로토콜**을 선택합니다.
 
-   다. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
+   c. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
 
    d. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **속성**을 선택합니다.
 
@@ -372,9 +372,9 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 
 | 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |이름 |앱의 이름 |문자열 |
+| **MS_MobileAppName** |name |앱의 이름 |문자열 |
 | **MS_MobileLoggingLevel** |logging.level |로깅할 메시지의 최소 로그 수준 |error, warning, info, verbose, debug, silly |
-| **MS_DebugMode** |debug |디버그 모드의 사용 여부 설정 |true, false |
+| **MS_DebugMode** |디버그 |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_TableSchema** |data.schema |SQL 테이블에 대한 기본 스키마 이름 |string(기본값: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_DisableVersionHeader** |version(undefined로 설정) |X-ZUMO-Server-Version 헤더를 사용하지 않도록 설정 |true, false |
@@ -404,13 +404,13 @@ Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Servi
 1. **리소스 그룹** 상자에 앱과 동일한 이름을 입력합니다.
 1. 기본 App Service 계획이 선택됩니다. App Service 계획을 변경하려면:
 
-   a. **App Service 계획** > **+새로 만들기**를 선택합니다.
+   a. **App Service 계획** >  **+새로 만들기**를 선택합니다.
 
    b. 새 App Service 계획의 이름을 입력하고 적절한 위치를 선택합니다.
 
-   다. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다.
+   c. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다.
 
-   d. **선택** 단추를 클릭합니다.
+   d. 클릭 합니다 **선택** 단추입니다.
 
    e. **App Service 계획** 창으로 돌아가서 **확인**을 선택합니다.
 1. **만들기**를 선택합니다.
@@ -422,7 +422,7 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 > [!NOTE]
 > Mobile Apps 백 엔드와 동일한 위치에 데이터베이스가 이미 있다면 대신 **기존 데이터베이스 사용**을 선택한 다음, 해당 데이터베이스를 선택할 수 있습니다. 다른 위치에 있는 데이터베이스는 대기 시간이 높기 때문에 권장하지 않습니다.
 
-1. 새 Mobile Apps 백 엔드에서 **설정** > **모바일 앱** > **데이터** > **+추가**를 선택합니다.
+1. 새 Mobile Apps 백 엔드에서 **설정** > **모바일 앱** > **데이터** >  **+추가**를 선택합니다.
 1. **데이터 연결 추가** 창에서 **SQL Database - 필요한 설정 구성** > **새 데이터베이스를 만들기**를 선택합니다. **이름** 상자에 새 데이터베이스 이름을 입력합니다.
 1. **서버**를 선택합니다. **새 서버** 창에서 **서버 이름** 상자에 고유한 서버 이름을 입력하고 적절한 서버 관리자 로그인 및 암호를 입력합니다. **Azure 서비스의 서버 액세스 허용**이 선택되어 있는지 확인합니다. **확인**을 선택합니다.
 
@@ -910,7 +910,7 @@ Node.js 애플리케이션은 넓은 범위의 진단 로그 도구에 액세스
 * createdAt
 * updatedAt
 * deleted
-* 버전
+* version
 
 App Service 편집기를 사용하여 테이블 작업을 편집할 수도 있습니다. 백 엔드 사이트 설정에서 **쉬운 테이블**을 선택하면 테이블을 추가, 수정 또는 삭제할 수 있습니다. 테이블의 데이터를 볼 수 있습니다.
 

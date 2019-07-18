@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094074"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594067"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 
@@ -28,7 +28,7 @@ ms.locfileid: "49094074"
  
 
 이 자습서에서는 Azure CDN(Content Delivery Network) 캐싱 규칙을 사용하여 전역적으로 그리고 사용자 지정 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정하는 방법을 설명합니다. Azure CDN에는 두 가지 유형의 캐싱 규칙이 제공됩니다.
-- 전역 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 전역 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
+- 글로벌 캐싱 규칙: 엔드포인트에 대한 모든 요청에 영향을 주는 하나의 글로벌 캐싱 규칙을 프로파일의 각 엔드포인트에 설정할 수 있습니다. 전역 캐싱 규칙은 설정된 경우 모든 HTTP 캐시 지시문 헤더를 재정의합니다.
 
 - 사용자 지정 캐싱 규칙: 프로필의 각 엔드포인트에 대해 하나 이상의 사용자 지정 캐싱 규칙을 설정할 수 있습니다. 사용자 지정 캐싱 규칙은 설정되면 특정 경로 및 파일 확장명과 일치하고, 순서대로 처리되며, 전역 캐싱 규칙을 재정의합니다. 
 

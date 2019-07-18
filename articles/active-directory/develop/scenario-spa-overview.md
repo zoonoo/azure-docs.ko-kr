@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07a21e83f304f3e1acc0ed4033d832dd8e901ac9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076362"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
@@ -41,7 +41,7 @@ JavaScript SPA 빠른 시작을 수행 하 여 첫 번째 응용 프로그램을
 
 많은 최신 웹 응용 프로그램은 JavaScript 또는 Angular, Vue.js, React.js 등 SPA 프레임 워크를 사용 하 여 작성 하는 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 이러한 응용 프로그램이은 웹 브라우저에서 실행 하 고 기존 서버 쪽 웹 응용 프로그램 보다 다양 한 인증 특징이. Microsoft id 플랫폼에 단일 페이지 응용 프로그램 백 엔드 서비스 또는 웹 Api를 사용 하 여 액세스 토큰을 가져오고 사용자 로그인을 사용 하도록 설정 합니다 [OAuth 2.0 암시적 흐름](./v2-oauth2-implicit-grant-flow.md)합니다. 암시적 흐름을 응용 프로그램을을 보호 된 Api를 호출 하는 데 필요한 토큰에 액세스할 수도 및 인증된 된 사용자를 나타내는 ID 토큰을 가져올 수 있습니다.
 
-![단일 페이지 애플리케이션](./media/scenarios/spa-app.svg)
+![단일 페이지 응용 프로그램](./media/scenarios/spa-app.svg)
 
 이 인증 흐름 등 전자, React Native 같은 플랫폼 간 JavaScript 프레임 워크를 사용 하 여 응용 프로그램 시나리오를 다루지 않습니다. 이후 필요 추가 기능 네이티브 플랫폼과 상호 작용 합니다.
 

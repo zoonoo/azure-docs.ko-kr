@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457654"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -52,16 +52,16 @@ Twilio 동사는 Twilio에 **수행할 작업**을 알려 주는 XML 태그입�
 
 다음은 Twilio 동사의 목록입니다.
 
-* **&lt;전화&gt;**: 발신자를 다른 전화에 연결합니다.
-* **&lt;수집&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
-* **&lt;전화 끊기&gt;**: 통화를 끝냅니다.
-* **&lt;재생&gt;**: 오디오 파일을 재생합니다.
-* **&lt;일시 중시&gt;**: 지정된 시간(초) 동안 무음으로 대기합니다.
-* **&lt;녹음&gt;**: 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
-* **&lt;리디렉션&gt;**: 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
-* **&lt;거부&gt;**: 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
-* **&lt;통화&gt;**: 통화 시 텍스트를 음성으로 변환합니다.
-* **&lt;Sms&gt;**: SMS 메시지를 보냅니다.
+* **&lt;전화&gt;** : 발신자를 다른 전화에 연결합니다.
+* **&lt;수집&gt;** : 전화 키패드에 입력된 숫자를 수집합니다.
+* **&lt;전화 끊기&gt;** : 통화를 끝냅니다.
+* **&lt;재생&gt;** : 오디오 파일을 재생합니다.
+* **&lt;일시 중시&gt;** : 지정된 시간(초) 동안 무음으로 대기합니다.
+* **&lt;녹음&gt;** : 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
+* **&lt;리디렉션&gt;** : 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
+* **&lt;거부&gt;** : 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
+* **&lt;통화&gt;** : 통화 시 텍스트를 음성으로 변환합니다.
+* **&lt;Sms&gt;** : SMS 메시지를 보냅니다.
 
 Twilio 동사, 특성 및 TwiML에 대한 자세한 내용은 [TwiML][twiml](영문)을 참조하십시오. Twilio API에 대한 자세한 내용은 [Twilio API][twilio_api](영문)를 참조하십시오.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 384a0d1161197bbe4d4335e27b72ed50755980f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>자습서: Boxcryptor와 Azure Active Directory 통합
 
@@ -181,7 +181,7 @@ Boxcryptor에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="create-boxcryptor-test-user"></a>Boxcryptor 테스트 사용자 만들기
 
-이 섹션에서는 Boxcryptor에서 Britta Simon이라는 사용자를 만듭니다.  [Boxcryptor 지원 팀](mailto:support@boxcryptor.com) 과 협의하여 Boxcryptor 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Boxcryptor 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Boxcryptor에서 Britta Simon이라는 사용자를 만듭니다.  [Boxcryptor 지원 팀](mailto:support@boxcryptor.com) 과 협의하여 Boxcryptor 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Boxcryptor 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

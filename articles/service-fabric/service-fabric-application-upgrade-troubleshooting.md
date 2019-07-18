@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616027"
 ---
 # <a name="troubleshoot-application-upgrades"></a>애플리케이션 업그레이드 문제 해결
@@ -47,7 +47,7 @@ ms.locfileid: "60616027"
 
 ### <a name="investigate-upgrade-timeouts"></a>업그레이드 시간 제한 조사
 
-업그레이드 시간 제한 오류는 서비스 가용성 문제로 인해 가장 일반적으로 발생합니다. 이 단락 다음에 나오는 출력은 서비스 복제본 또는 인스턴스가 새 코드 버전에서 시작하는 것에 실패한 업그레이드에서 일반적입니다. **UpgradeDomainProgressAtFailure** 필드는 오류가 발생했을 때 보류 중인 모든 업그레이드 작업의 스냅숏을 캡처합니다.
+업그레이드 시간 제한 오류는 서비스 가용성 문제로 인해 가장 일반적으로 발생합니다. 이 단락 다음에 나오는 출력은 서비스 복제본 또는 인스턴스가 새 코드 버전에서 시작하는 것에 실패한 업그레이드에서 일반적입니다. **UpgradeDomainProgressAtFailure** 필드는 오류가 발생했을 때 보류 중인 모든 업그레이드 작업의 스냅샷을 캡처합니다.
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -97,7 +97,7 @@ UpgradeReplicaSetCheckTimeout  : 00:00:00
 
 ### <a name="investigate-health-check-failures"></a>상태 확인 오류 조사
 
-상태 확인 오류는 업그레이드 도메인의 모든 노드가 업그레이드를 완료하고 모든 안전 검사를 통과한 후 발생할 수 있는 다양한 문제로 인해 트리거될 수 있습니다. 이 단락 다음에 나오는 출력은 실패한 상태 검사로 인한 일반적인 업그레이드 오류입니다. **UnhealthyEvaluations** 필드는 지정된 [상태 정책](service-fabric-health-introduction.md)에 따라 업그레이드 시 실패한 상태 검사의 스냅숏을 캡처합니다.
+상태 확인 오류는 업그레이드 도메인의 모든 노드가 업그레이드를 완료하고 모든 안전 검사를 통과한 후 발생할 수 있는 다양한 문제로 인해 트리거될 수 있습니다. 이 단락 다음에 나오는 출력은 실패한 상태 검사로 인한 일반적인 업그레이드 오류입니다. **UnhealthyEvaluations** 필드는 지정된 [상태 정책](service-fabric-health-introduction.md)에 따라 업그레이드 시 실패한 상태 검사의 스냅샷을 캡처합니다.
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/DemoApp

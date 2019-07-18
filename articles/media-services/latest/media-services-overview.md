@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999827"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602100"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 애플리케이션 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 장치 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 애플리케이션을 만들 수 있도록 도와줍니다. 
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용합니다.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="what-can-i-do-with-media-services"></a>Media Services로 무엇을 할 수 있나요?
 
@@ -48,7 +48,8 @@ Media Services를 사용하면 클라우드에서 다양한 미디어 워크플�
 
 Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
-개발을 시작하기 전에 [기본 개념](concepts-overview.md)을 검토합니다.<br/>
+> [!TIP]
+> 개발을 시작하기 전에 다음 사항을 검토합니다.<br/>* [기본 개념](concepts-overview.md)(중요 개념인 패키징, 인코딩, 보호 등을 포함)<br/>* [Media Services v3 API로 개발](media-services-apis-overview.md)(API 액세스, 명명 규칙 등에 대한 정보 포함)
 
 ### <a name="quickstarts"></a>빠른 시작  
 
@@ -74,21 +75,16 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 
 * [계정 만들기 - CLI](create-account-cli-how-to.md)
 * [API 액세스 - CLI](access-api-cli-how-to.md)
-* [SDK를 사용하여 개발 시작](developers-guide.md)
 * [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
 * [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
 * [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 
 * [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](custom-preset-cli-howto.md)
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-v3는 어떻게 시작하나요? 
-
-> [!div class="nextstepaction"]
-> [기본 개념 알아보기](concepts-overview.md)<br/>
-> [SDK를 사용하여 Media Services v3 API로 개발](developers-guide.md) 
+[기본 개념 알아보기](concepts-overview.md)
 

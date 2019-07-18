@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819038"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182278"
 ---
 #### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
 
@@ -21,7 +21,7 @@ ms.locfileid: "60819038"
 
 3. **지금 백업** 블레이드에서 다음 단계를 수행합니다.
 
-    1. 드롭다운 목록에서 적절한 **스냅숏 유형**을 선택합니다. **로컬** 스냅숏 또는 **클라우드** 스냅숏을 선택합니다. 빠른 백업 또는 복원을 위해서는 로컬 스냅숏을, 데이터 복원력을 위해서는 클라우드 스냅숏을 선택합니다.
+    1. 드롭다운 목록에서 적절한 **스냅샷 유형**을 선택합니다. **로컬** 스냅숏 또는 **클라우드** 스냅숏을 선택합니다. 빠른 백업 또는 복원을 위해서는 로컬 스냅샷을, 데이터 복원력을 위해서는 클라우드 스냅샷을 선택합니다.
 
         ![수동 백업 만들기](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

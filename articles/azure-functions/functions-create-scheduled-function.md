@@ -31,7 +31,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 + Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
+## <a name="create-an-azure-function-app"></a>Azure 함수 앱 만들기
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

@@ -4,7 +4,7 @@ description: Azure Resource Manager Windows Virtual Machine에 정책을 적용�
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a8d5d48d5024b35b39792a481e600692581d95
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780805"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720005"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Windows VM에 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
@@ -156,7 +156,7 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 }
 ```
 
-## <a name="images-for-virtual-machines"></a>Virtual Machines에 대한 이미지 
+## <a name="images-for-virtual-machines"></a>Virtual Machines에 대한 이미지
 
 보안상의 이유로 승인된 사용자 지정 이미지만 환경에 배포하도록 요구할 수 있습니다. 승인된 이미지를 포함하는 리소스 그룹이나 특정한 승인된 이미지를 지정할 수 있습니다.
 
@@ -196,7 +196,7 @@ anyOf를 사용하여 모든 Windows Server 2012 R2 Datacenter 이상 이미지�
 }
 ```
 
-## <a name="virtual-machine-extensions"></a>Virtual Machine 확장 
+## <a name="virtual-machine-extensions"></a>Virtual Machine 확장
 
 특정 유형의 확장을 사용하지 못하게 하고자 할 수 있습니다. 예를 들어 한 확장이 특정 사용자 지정 가상 머신 이미지와 호환되지 않을 수 있습니다. 다음 예제에서는 특정 확장을 차단하는 방법을 보여 줍니다. 게시자 및 유형을 사용하여 차단할 확장을 판단합니다.
 

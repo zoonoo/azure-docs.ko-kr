@@ -2,34 +2,20 @@
   href: /azure/hdinsight
 - name: 개요
   items:
-    - name: HDInsight의 Apache Hadoop 정보
+    - name: HDInsight의 Apache Hadoop이란?
       href: apache-hadoop-introduction.md
-    - name: HDInsight의 Apache Hadoop 아키텍처
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: HDInsight의 Apache Hadoop 구성 요소
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: 빠른 시작
   items:
     - name: Apache Hadoop 클러스터 만들기 - 포털
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Apache Hadoop 클러스터 만들기 - Resource Manager 템플릿
+    - name: Apache Hadoop 클러스터 만들기 - 템플릿
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: 자습서
   items:
-    - name: ETL 작업 수행
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: 주문형 클러스터 만들기
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
-    - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
-      href: ../hdinsight-cluster-availability.md
       maintainContext: true
 - name: 샘플
   items:
@@ -44,6 +30,18 @@
       maintainContext: true
 - name: 개념
   items:
+    - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: HDInsight의 Apache Hadoop 아키텍처
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: HDInsight의 Apache Hadoop 구성 요소
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -106,19 +104,6 @@
               href: apache-hadoop-use-mapreduce-dotnet-sdk.md
             - name: MapReduce 샘플 실행
               href: apache-hadoop-run-samples-linux.md
-        - name: Apache Hadoop과 Apache Pig 사용
-          href: hdinsight-use-pig.md
-          items:
-            - name: SSH 및 Apache Pig 사용
-              href: apache-hadoop-use-pig-ssh.md
-            - name: Azure PowerShell 사용
-              href: apache-hadoop-use-pig-powershell.md
-            - name: .NET용 SDK 사용
-              href: apache-hadoop-use-pig-dotnet-sdk.md
-            - name: cURL 사용
-              href: apache-hadoop-use-pig-curl.md
-        - name: Apache Pig와 함께 Apache DataFu 사용
-          href: apache-hadoop-use-pig-datafu-udf.md
         - name: Apache Hadoop 작업 제출
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: 개발
@@ -153,6 +138,10 @@
         - name: VSCode용 도구
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: IntelliJ용 도구
+          href: ../spark/apache-spark-intellij-tool-plugin.md
+        - name: Eclipse용 도구
+          href: ../spark/apache-spark-eclipse-tool-plugin.md
         - name: Hortonworks 샌드박스를 사용한 Data Lake 도구
           href: ../hdinsight-hadoop-emulator-visual-studio.md
           maintainContext: true
@@ -198,9 +187,6 @@
           maintainContext: true
         - name: 스크립트 작업 개발
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: Presto 설치 및 사용
-          href: ../hdinsight-hadoop-install-presto.md
           maintainContext: true
         - name: Apache Hive 라이브러리 추가
           href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -283,7 +269,7 @@
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
         - name: HDInsight 클러스터 관리
@@ -301,7 +287,7 @@
             - name: Azure PowerShell 사용
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
@@ -435,7 +421,8 @@
       items:
         - name: HDInsight 가상 네트워크 아키텍처
           href: ../hdinsight-virtual-network-architecture.md
-          maintainContext: true
+        - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet의 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true
@@ -478,18 +465,11 @@
     - name: Resource Manager 템플릿
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: 관련 항목
-  items:
-    - name: Windows 클러스터
-      items:
-        - name: Linux 클러스터로 Windows 클러스터 마이그레이션
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
-        - name: Linux 클러스터로 .NET 솔루션 마이그레이션
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: 리소스
   items:
+    - name: Linux 클러스터로 .NET 솔루션 마이그레이션
+      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+      maintainContext: true
     - name: 릴리스 정보
       items:
         - name: 현재 릴리스 정보

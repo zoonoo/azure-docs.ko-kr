@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683131"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
@@ -45,7 +45,7 @@ ms.locfileid: "60683131"
 
 1. 이 예제에서는 샘플 워크플로 끝에 switch 문을 추가합니다. 마지막 단계를 수행한 후 **새 단계**를 선택합니다.
 
-   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**(**+**)를 선택한 다음 **작업 추가**를 선택합니다.
+   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음 **작업 추가**를 선택합니다.
 
 1. 검색 상자에 필터로 "switch"를 입력합니다. 현재 선택한 작업: **스위치-컨트롤**
 

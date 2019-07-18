@@ -3,8 +3,8 @@ title: Azure Active Directory 앱 매니페스트 이해 | Microsoft Docs
 description: Azure AD 테넌트의 애플리케이션 ID 구성을 나타내고 OAuth 권한 부여, 승인 환경 등을 용이하게 하는 데 사용되는 Azure Active Directory 앱 매니페스트에 대한 자세한 정보를 다룹니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d369891624256e98ba8d46168cc9c10c41d37b8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66235232"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -48,9 +48,9 @@ Azure portal 또는 프로그래밍 방식으로 사용 하 여을 통해 앱의
 > [!NOTE]
 > **설명** 다음에 **예제 값** 열이 표시되지 않는 경우 브라우저 창을 최대화하고 **예제 값** 열이 표시될 때까지 스크롤/살짝 밉니다.
 
-| 키  | 값 형식 | 설명  | 예제 값 |
+| 키  | 값 유형 | 설명  | 예제 값 |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Nullable Int32 | 리소스에서 필요한 액세스 토큰 버전을 지정합니다. 이렇게 하면 엔드포인트 또는 액세스 토큰을 요청하는 데 사용되는 클라이언트와는 독립적으로 만들어진 JWT의 버전과 형식을 변경합니다.<br/><br/>사용된 엔드포인트, v1.0 또는 v2.0은 클라이언트에서 선택되고 id_token의 버전에만 영향을 줍니다. 리소스는 `accesstokenAcceptedVersion`을 명시적으로 구성해서 지원되는 액세스 토큰 형식을 지정해야 합니다.<br/><br/>`accesstokenAcceptedVersion`에 가능한 값은 1, 2 또는 null입니다. 값이 null인 경우 기본값은 1이며 v1.0 엔드포인트에 해당합니다. | `2` |
+| `accessTokenAcceptedVersion` | Nullable Int32 | 리소스에서 필요한 액세스 토큰 버전을 지정합니다. 이렇게 하면 엔드포인트 또는 액세스 토큰을 요청하는 데 사용되는 클라이언트와는 독립적으로 만들어진 JWT의 버전과 형식을 변경합니다.<br/><br/>사용된 엔드포인트, v1.0 또는 v2.0은 클라이언트에서 선택되고 id_token의 버전에만 영향을 줍니다. 리소스는 `accesstokenAcceptedVersion`을 명시적으로 구성해서 지원되는 액세스 토큰 형식을 지정해야 합니다.<br/><br/>`accesstokenAcceptedVersion`에 가능한 값은 1, 2 또는 null입니다. 값이 null인 경우 기본값은 1이며 v1.0 엔드포인트에 해당합니다. <br/><br/>하는 경우 `signInAudience` 는 `AzureADandPersonalMicrosoftAccount`, 값 이어야 합니다 `2`  | `2` |
 | `addIns` | 컬렉션 | 서비스가 특정 컨텍스트에서 앱을 호출 하는 데 사용할 수 있는 사용자 지정 동작을 정의 합니다. 예를 들어 파일 스트림을 렌더링할 수 있는 응용 프로그램은 "FileHandler" 기능에 대해 추가 기능 속성을 설정 될 수 있습니다. 이렇게 하면 Office 365 등의 서비스에서 사용자가 작업 하는 문서의 컨텍스트에서 응용 프로그램을 호출 합니다. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | 대체 애플리케이션 유형을 지정합니다. Azure AD는 기본적으로 replyUrlsWithType에서 애플리케이션 유형을 유추합니다. Azure AD에서 클라이언트 앱 유형을 확인할 수 없는 특정 시나리오(예: HTTP 요청이 URL 리디렉션 없이 발생하는 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 흐름)가 있습니다. 이러한 경우 Azure AD는 이 속성 값을 기반으로 해서 애플리케이션 유형을 해석합니다. 이 값을 true로 설정하면 대체 애플리케이션 유형이 모바일 장치에서 실행 중인 설치된 애플리케이션과 같은 공용 클라이언트로 설정됩니다. 기본값은 false이며, 대체 애플리케이션 유형이 웹앱과 같은 기밀 클라이언트임을 의미합니다. | `false` |
 | `availableToOtherTenants` | Boolean | 응용 프로그램; 다른 테 넌 트와 공유 될 경우 true 그렇지 않으면 false입니다. <br><br> _참고: 이 앱 등록 (레거시) 환경 에서만 사용할 수 있습니다. 바뀝니다 `signInAudience` 에 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 발생 합니다._ | |
@@ -59,7 +59,7 @@ Azure portal 또는 프로그래밍 방식으로 사용 하 여을 통해 앱의
 | `displayName` | String | 앱의 표시 이름입니다. <br><br> _참고: 이 앱 등록 (레거시) 환경 에서만 사용할 수 있습니다. 바뀝니다 `name` 에 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 발생 합니다._ | `"MyRegisteredApp"` |
 | `errorUrl` | String | 지원 안 됨 | |
 | `groupMembershipClaims` | String | 앱에 필요한, 사용자 또는 OAuth 2.0 액세스 토큰에 발급되는 `groups` 클레임을 구성합니다. 이 특성을 설정하려면 다음과 같은 유효한 문자열 값 중 하나를 사용합니다.<br/><br/>- `"None"`<br/>- `"SecurityGroup"`(보안 그룹 및 Azure AD 역할의 경우)<br/>- `"All"`(로그인한 사용자가 속한 모든 보안 그룹, 배포 그룹, Azure AD 디렉터리 역할을 가져옵니다.) | `"SecurityGroup"` |
-| `homepage` | String | 응용 프로그램 홈페이지의 URL입니다. <br><br> _참고: 이 앱 등록 (레거시) 환경 에서만 사용할 수 있습니다. 바뀝니다 `signInUrl` 에 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 발생 합니다._ | `"https://MyRegisteredApp"` |
+| `homepage` | String | 응용 프로그램의 홈 페이지 URL입니다. <br><br> _참고: 이 앱 등록 (레거시) 환경 에서만 사용할 수 있습니다. 바뀝니다 `signInUrl` 에 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 발생 합니다._ | `"https://MyRegisteredApp"` |
 | `objectId` | String | 디렉터리의 앱에 대한 고유 식별자입니다. <br><br> _참고: 이 앱 등록 (레거시) 환경 에서만 사용할 수 있습니다. 바뀝니다 `id` 에 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 발생 합니다._ | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `optionalClaims` | String | 이 특정 앱에 대해 보안 토큰 서비스에서 토큰으로 반환한 선택적 클레임입니다.<br>현재 앱 등록 포털을 통해 등록된 Azure AD 및 개인 계정을 모두 지원하는 앱은 선택적 클레임을 사용할 수 없습니다. 그러나 v2.0 엔드포인트를 사용하여 Azure AD에만 등록된 앱은 매니페스트에서 요청한 선택적 클레임을 가져올 수 있습니다. 자세한 내용은 [선택적 클레임](active-directory-optional-claims.md)을 참조하세요. | `null` |
 | `id` | String | 디렉터리의 앱에 대한 고유 식별자입니다. 이 ID는 프로토콜 트랜잭션에서 앱을 식별하는 데 사용되는 식별자가 아닙니다. 디렉터리 쿼리의 개체를 참조하는 데 사용됩니다. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
@@ -119,7 +119,7 @@ Azure portal 또는 프로그래밍 방식으로 사용 하 여을 통해 앱의
 - "**Xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 지정 된 하나 이상의 속성 값이 올바르지 않습니다. [].** "
 - "**Xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 이 api 버전 업데이트에 대 한 availableToOtherTenants를 설정할 수 없습니다. [].** "
 - "**Xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 이 응용 프로그램에 대 한 'replyUrls' 속성에 대 한 업데이트 허용 되지 않습니다. 'ReplyUrlsWithType' 속성을 대신 사용 합니다. [].** "
-- "**Xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 형식 이름이 없는 값을 찾을 수 및 예상 유형은 사용할 수 없습니다. 모델을 지정 하면 페이로드의 각 값 수 명시적으로 호출자에 의해 페이로드에 지정 되거나 암시적으로 부모 값에서 유추 되는 형식이 있어야 합니다. []**"
+- "**Xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 형식 이름이 없는 값을 찾을 수 및 예상 유형은 사용할 수 없습니다. 모델을 지정 하면 페이로드의 각 값 수 명시적으로 호출자에 의해 페이로드에 지정 되거나 암시적으로 부모 값에서 유추 되는 형식이 있어야 합니다. []** "
 
 이러한 오류 중 하나가 표시 되 면 다음을 권장 합니다.
 

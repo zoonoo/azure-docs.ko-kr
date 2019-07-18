@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935431"
 ---
 <a name="retrieve-a-specific-offer"></a>특정 제안 검색
@@ -42,7 +42,7 @@ ms.locfileid: "64935431"
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId입니다. 예: Contoso                                                        | String        |
 | offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
-| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | 정수        |
+| version     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | Integer       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
 | api-version | 최신 버전 API                                                                    | Date          |
 |  |  |  |
@@ -174,7 +174,7 @@ ms.locfileid: "64935431"
 |  publisherId    | 게시자의 고유 식별자입니다.                                                                                              |
 |  status         | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요.                                  |
 |  Id             | 제안을 고유하게 식별하는 GUID입니다.                                                                                         |
-|  버전        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
+|  version        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
 |  정의     | 워크로드의 실제 정의입니다.                                                                                               |
 |  changedTime    | 제안을 마지막으로 수정한 UTC 날짜/시간입니다.                                                                                   |
 |  |  |

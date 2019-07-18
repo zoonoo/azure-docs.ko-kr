@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505464"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
@@ -108,7 +108,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 6.  **다른 컴퓨터에 연결**을 선택합니다.
 
-7.  문제가 있는 VM의  **사설 IP 주소(DIP)** 를 입력합니다.
+7.  문제가 있는 VM의  **사설 IP 주소(DIP)**  를 입력합니다.
 
 8.  로컬 방화벽 정책을 다시 시작합니다.
 
@@ -118,7 +118,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 어떤 방법으로도 VM에 연결할 수 없는 경우 사용자 지정 스크립트 확장이 실패할 것이며, 시스템 디스크를 통해 직접 작업하여 오프라인 모드로 작업해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
+1.  [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 

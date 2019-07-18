@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900530"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
@@ -45,7 +45,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 최대 길이: 2048자
 
-## <a name="source"></a>원본
+## <a name="source"></a>source
 
 요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](../../azure-monitor/app/correlation.md) 페이지를 참조하세요.
 

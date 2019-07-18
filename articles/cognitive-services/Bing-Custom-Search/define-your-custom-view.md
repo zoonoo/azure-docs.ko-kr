@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66390412"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
 
@@ -27,7 +27,7 @@ Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이
 
 | 조각 이름 | 설명                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com` `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어 `microsoft.com`을 지정하면 Bing에서  `support.microsoft.com` 또는 `technet.microsoft.com`의 결과도 반환합니다. |
+| Domain     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com`. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어 지정할 `microsoft.com`, Bing에서 결과도 반환 `support.microsoft.com` 또는 `technet.microsoft.com`합니다. |
 | 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예를 들어 `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | 웹 페이지    | 웹 페이지 조각은 사용자 지정 검색에 해당 웹 페이지만 포함할 수 있습니다. 하위 페이지를 포함할지 여부를 선택적으로 지정할 수 있습니다.                                                                                                                                                                                  |
 
@@ -74,7 +74,7 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 ## <a name="search-for-images-and-videos"></a>이미지 및 비디오를 검색합니다.
 
-[Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
+[Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) 또는 [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)를 사용하여 웹 콘텐츠와 마찬가지로 이미지와 비디오를 검색할 수 있습니다. 이러한 결과를 [호스트된 UI](hosted-ui.md) 또는 API와 함께 표시할 수 있습니다. 
 
 이러한 API는 사용자 지정이 아닌 [Bing Image Search](../Bing-Image-Search/overview.md) 및 [Bing Video Search](../Bing-Video-Search/search-the-web.md) API와 비슷하지만 전체 웹을 검색하며 `customConfig` 쿼리 매개 변수가 필요하지 않습니다. 이미지 및 비디오 작업에 대한 자세한 내용은 해당 설명서 세트를 참조하세요. 
 
@@ -83,7 +83,7 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 포털의 오른쪽 미리 보기 창을 사용하여 검색 인스턴스를 테스트하고 검색 쿼리를 제출하며 결과를 볼 수 있습니다. 
 
 1. 검색 상자 아래에서 **내 인스턴스**를 선택합니다. **Bing**을 선택하여 검색 환경의 결과를 Bing에 대해 비교할 수 있습니다. 
-2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 참조).
+2. 안전 검색 필터 및 검색할 지역/국가를 선택합니다([쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조).
 3. 쿼리를 입력하고 Enter 키를 누르거나, 검색 아이콘을 클릭하여 현재 구성의 결과를 확인합니다. 해당 결과를 가져오기 위해 **웹**, **이미지** 또는 **비디오**를 클릭하여 수행할 검색 유형을 변경할 수 있습니다. 
 
 <a name="adjustrank"></a>
@@ -118,9 +118,9 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 
 두 가지 방법으로 웹 페이지를 맨 위에 고정할 수 있습니다.
 
-*  **고정됨** 탭에서 맨 위에 고정할 웹 페이지의 URL과 해당 쿼리를 입력합니다.
+* 에 **고정 된** 탭에서 웹 페이지의 맨 위에 해당 하는 쿼리가를 고정 하려면 URL을 입력 합니다.
 
-* **미리 보기** 창에서 검색 쿼리를 입력하고 [검색]을 클릭합니다. 쿼리에 대해 고정할 웹 페이지를 찾고 **맨 위에 고정**을 클릭합니다. 웹 페이지와 쿼리가 **고정됨** 목록에 추가됩니다.
+* **미리 보기** 창에서 검색 쿼리를 입력하고 [검색]을 클릭합니다. 쿼리에 대 한 고정 클릭을 웹 페이지를 찾을 **위쪽에 고정**합니다. 웹 페이지와 쿼리가 **고정됨** 목록에 추가됩니다.
 
 ### <a name="specify-the-pins-match-condition"></a>핀의 일치 조건 지정
 
@@ -133,7 +133,7 @@ Bing에서 검색하려는 웹 조각을 지정하려면 **활성** 탭을 클�
 |---------------|----------------------------------------------------------------------------------|
 | 다음으로 시작 | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 시작하면 핀이 일치합니다. |
 | 다음으로 끝   | 사용자의 쿼리 문자열이 핀의 쿼리 문자열로 끝나면 핀이 일치합니다.  |
-| contains    | 사용자의 쿼리 문자열이 핀의 쿼리 문자열을 포함하면 핀이 일치합니다.   |
+| 포함    | 사용자의 쿼리 문자열이 핀의 쿼리 문자열을 포함하면 핀이 일치합니다.   |
 
 
 핀의 일치 조건을 변경하려면 핀의 편집 아이콘을 클릭합니다. **Query match condition**(쿼리 일치 조건) 열에서 드롭다운 목록을 클릭하고 사용할 새 조건을 선택합니다. 그런 다음, 저장 아이콘을 클릭하여 변경 내용을 저장합니다.

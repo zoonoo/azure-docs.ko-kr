@@ -4,7 +4,7 @@ description: Azure 가상 머신에는 SAP HANA에 대한 두 가지 주요 백�
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,18 +13,18 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02ee65020f72fb9c3262db82e035e628f780e2cf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60937719"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709991"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>파일 수준의 SAP HANA Azure Backup
 
 ## <a name="introduction"></a>소개
 
-이 문서는 3부로 구성된 SAP HANA 백업 관련 문서 시리즈의 일부입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](./sap-hana-backup-guide.md)에서 시작에 대한 개요와 정보를 제공하고, [저장소 스냅숏에 기반한 SAP HANA 백업](./sap-hana-backup-storage-snapshots.md)에서 저장소 스냅숏을 기반으로 하는 백업 옵션을 설명합니다.
+이 문서는 3부로 구성된 SAP HANA 백업 관련 문서 시리즈의 일부입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](./sap-hana-backup-guide.md)에서 시작에 대한 개요와 정보를 제공하고, [저장소 스냅샷에 기반한 SAP HANA 백업](./sap-hana-backup-storage-snapshots.md)에서 저장소 스냅샷을 기반으로 하는 백업 옵션을 설명합니다.
 
 Azure의 VM 유형에 따라 서로 다른 개수의 VHD를 연결할 수 있습니다. 정확한 세부 정보는 [Azure에서 Linux 가상 머신에 대한 크기](../../linux/sizes.md)에 문서화되어 있습니다. 이 설명서에서 참조되는 테스트에서는 64개의 연결된 데이터 디스크를 허용하는 GS5 Azure VM을 사용했습니다. 대용량 SAP HANA 시스템의 경우 소프트웨어 스트라이프와 함께 이미 많은 수의 디스크를 데이터 및 로그 파일에 사용하여 디스크 IO 처리량을 최적화할 수 있습니다. Azure VM의 SAP HANA 배포에 제안된 디스크 구성에 대한 자세한 내용은 [Azure의 SAP HANA 운영 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)를 참조하세요. 권장 사항에는 로컬 백업에 대한 디스크 공간 권장 사항도 포함됩니다.
 
@@ -158,5 +158,5 @@ Azure파일에 SAP HANA 백업 파일을 저장할 때 SAP HANA 파일 백업에
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
-* [저장소 스냅숏에 기반한 SAP HANA 백업](sap-hana-backup-storage-snapshots.md) - 저장소 스냅숏을 기반으로 하는 백업 옵션을 설명합니다.
+* [저장소 스냅샷에 기반한 SAP HANA 백업](sap-hana-backup-storage-snapshots.md) - 저장소 스냅샷을 기반으로 하는 백업 옵션을 설명합니다.
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.

@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428025"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715793"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 일괄 처리로 거래 업체에 EDI 메시지 보내기
 
@@ -65,14 +65,14 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 4. 일괄 처리 수신자 속성을 설정합니다. 
 
-   | 자산 | Value | 메모 | 
+   | 자산 | 값 | 메모 | 
    |----------|-------|-------|
    | **일괄 처리 모드** | 인라인 |  |  
    | **일괄 처리 이름** | TestBatch | **인라인** 일괄 처리 모드에서만 사용 가능 | 
    | **릴리스 기준** | 메시지 수 기반, 일정 기반 | **인라인** 일괄 처리 모드에서만 사용 가능 | 
    | **메시지 수** | 10 | **메시지 수 기반** 릴리스 기준에서만 사용 가능 | 
    | **간격** | 10 | **일정 기반** 릴리스 기준에서만 사용 가능 | 
-   | **Frequency(빈도)** | 분 | **일정 기반** 릴리스 기준에서만 사용 가능 | 
+   | **Frequency(빈도)** | minute | **일정 기반** 릴리스 기준에서만 사용 가능 | 
    ||| 
 
    ![일괄 처리 트리거 세부 정보 제공](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)

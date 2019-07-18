@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd5f32fd43d75ee91460a5d94ec4bcd57edb0769
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e707351e6eaa25774b43557b2e6a817485ef527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>자습서: GTNexus SSO System과 Azure Active Directory 통합
 

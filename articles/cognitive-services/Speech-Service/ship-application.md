@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020402"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604855"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -28,10 +28,10 @@ ms.locfileid: "65020402"
 
 Cognitive Services Speech SDK는 Windows 10 및 Windows Server 2016에서 테스트되었습니다.
 
-Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 최신 버전의 `Microsoft Visual C++ Redistributable for Visual Studio 2017`용 설치 관리자는 여기에서 다운로드할 수 있습니다.
+Cognitive Services 음성 SDK에는 [Microsoft Visual C++ Visual Studio 2019에 대 한 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 시스템에 있습니다. 최신 버전의 `Microsoft Visual C++ Redistributable for Visual Studio 2019`용 설치 관리자는 여기에서 다운로드할 수 있습니다.
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 애플리케이션에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
@@ -46,6 +46,9 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 >[!NOTE]
 > 릴리스부터 1.3.0 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공) 더 이상 필요 하지 않습니다. Core SDK의에서 기능 통합 되었습니다.
+
+>[!NOTE]
+> Windows Forms 앱 (.NET Framework)에 대 한 C# 프로젝트에서 라이브러리 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. 아래에서 확인할 수 있습니다 `Properties -> Publish Section`합니다. 클릭 된 `Application Files` 단추 및 목록 아래로 스크롤한에서 해당 라이브러리를 검색 합니다. 값 설정 되어 있는지 확인 `Included`합니다. Visual Studio 프로젝트를 게시 하 고 배포 하는 경우 파일을 포함 됩니다.
 
 ## <a name="linux"></a>Linux
 

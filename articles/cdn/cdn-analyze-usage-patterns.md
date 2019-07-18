@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061540"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594151"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
 
@@ -96,7 +96,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * 만료
+  * Expires
 * TCP_MISS: 이 상태는 클라이언트에 가장 가까운 POP에서 요청 된 자산의 캐시 된 버전을 찾을 수 없습니다 나타냅니다. 원본 서버 또는 원본 보호 서버의 자산이 요청됩니다. 원본 서버 또는 원본 보호 서버가 자산을 반환하면 클라이언트에 제공되고 클라이언트와 에지 서버 둘 다에 캐시됩니다. 그렇지 않으면 200 이외의 상태 코드(예를 들어 403 사용할 수 없음 또는 404 찾을 수 없음)가 반환됩니다.
 * TCP_EXPIRED_HIT: TTL이 만료 된 자산을 대상으로 하는 요청이 클라이언트로 POP에서 직접 처리 된 경우이 상태가 보고 됩니다. 예를 들어 자산의 max-age 기간이 만료되었습니다. 
   
@@ -119,7 +119,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 보고서에 포함되지 않는 정보는 다음과 같습니다.
 
-* 국가 필터링 옵션으로 인해 거부된 요청
+* 국가/지역 필터링 옵션으로 인해 거부 된 요청입니다.
 * 헤더에 캐시하지 않도록 표시된 자산에 대한 요청 예를 들어 `Cache-Control: private`, `Cache-Control: no-cache` 또는 `Pragma: no-cache` 헤더는 자산이 캐시되지 않도록 합니다.
 * 부분적으로 캐시된 콘텐츠에 대한 바이트 범위 요청.
 

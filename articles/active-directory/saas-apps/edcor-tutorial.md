@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 084a045fda66087b657f26679ab1926fa3611cb8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>자습서: Edcor와 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Edcor에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-edcor-single-sign-on"></a>Edcor Single Sign-On 구성
 
-**Edcor** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Edcor 지원 팀](http://www.edcor.com/contact-us-2/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Edcor** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Edcor 지원 팀](https://www.edcor.com/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -179,7 +179,7 @@ Edcor에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-edcor-test-user"></a>Edcor 테스트 사용자 만들기
 
-이 섹션에서는 Edcor에서 Britta Simon이라는 사용자를 만듭니다.  [Edcor 지원 팀](http://www.edcor.com/contact-us-2/)과 협력하여 Edcor 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Edcor에서 Britta Simon이라는 사용자를 만듭니다.  [Edcor 지원 팀](https://www.edcor.com/contact-us/)과 협력하여 Edcor 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

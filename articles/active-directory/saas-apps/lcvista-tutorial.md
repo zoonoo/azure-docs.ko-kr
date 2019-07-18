@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 580b96de401169caf767d1e965971495d68b09be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>자습서: LCVista와 Azure Active Directory 통합
 

@@ -1,8 +1,8 @@
-- name: 디바이스 관리 설명서
+- name: 다바이스 Identities 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure AD에서 디바이스 관리란?
+    - name: 디바이스 ID란?
       href: overview.md
     - name: 엔터프라이즈 상태 로밍이란?
       href: enterprise-state-roaming-overview.md
@@ -18,37 +18,55 @@
     - name: Windows 10 첫 실행 환경 중 Azure AD 조인 구성
       href: azuread-joined-devices-frx.md
 - name: 개념
-  expanded: false
-  items:
-    - name: 온-프레미스 리소스에 대한 SSO
-      href: azuread-join-sso.md
-- name: 방법 가이드
   expanded: true
   items:
-    - name: Azure Portal을 사용하여 디바이스 관리
+    - name: Azure AD 등록 디바이스
+      href: concept-azure-ad-register.md
+    - name: Azure AD 조인 디바이스
+      href: concept-azure-ad-join.md
+    - name: 하이브리드 Azure AD 가입 디바이스
+      href: concept-azure-ad-join-hybrid.md
+    - name: 온-프레미스 리소스에 대한 SSO
+      href: azuread-join-sso.md
+    - name: 기본 새로 고침 토큰
+      href: concept-primary-refresh-token.md
+    - name: Azure 관리 워크스테이션
+      href: concept-azure-managed-workstation.md
+- name: 방법 가이드
+  expanded: false
+  items:
+    - name: Azure AD 조인 구현 계획
+      href: azureadjoin-plan.md
+    - name: Azure AD 조인 디바이스에 로컬 관리자 할당
+      href: assign-local-admin.md
+    - name: 하이브리드 Azure AD 조인 구현 계획
+      href: hybrid-azuread-join-plan.md
+    - name: 하이브리드 Azure AD 조인의 제어된 유효성 검사
+      href: hybrid-azuread-join-control.md
+    - name: 디바이스 ID 관리
       href: device-management-azure-portal.md
     - name: 부실 디바이스 관리
       href: manage-stale-devices.md
-    - name: Azure AD 조인 구현 계획
-      href: azureadjoin-plan.md
-    - name: 하이브리드 Azure AD 조인 구현 계획
-      href: hybrid-azuread-join-plan.md
-    - name: 디바이스의 하이브리드 Azure AD 조인 제어
-      href: hybrid-azuread-join-control.md
-    - name: Azure AD 조인 디바이스에 로컬 관리자 할당
-      href: assign-local-admin.md
     - name: 엔터프라이즈 상태 로밍 사용
       href: enterprise-state-roaming-enable.md
-    - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
-      href: troubleshoot-hybrid-join-windows-current.md
-    - name: 하이브리드 Azure AD 조인 레거시 Windows 디바이스 문제 해결
-      href: troubleshoot-hybrid-join-windows-legacy.md
-    - name: 엔터프라이즈 상태 로밍 문제 해결
-      href: enterprise-state-roaming-troubleshooting.md
-    - name: FAQ
-      href: faq.md
-    - name: 엔터프라이즈 상태 사용 FAQ
-      href: enterprise-state-roaming-faqs.md
+    - name: Azure 관리 워크스테이션 배포
+      href: howto-azure-managed-workstation.md
+    - name: 디바이스 ID 문제 해결
+      items:
+        - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
+          href: troubleshoot-hybrid-join-windows-current.md
+        - name: dsregcmd를 사용하여 문제 해결
+          href: troubleshoot-device-dsregcmd.md
+        - name: Windows 하위 수준 디바이스에 조인된 하이브리드 Azure AD 문제 해결
+          href: troubleshoot-hybrid-join-windows-legacy.md
+        - name: 엔터프라이즈 상태 로밍 문제 해결
+          href: enterprise-state-roaming-troubleshooting.md
+    - name: 질문과 대답
+      items:
+        - name: FAQ
+          href: faq.md
+        - name: 엔터프라이즈 상태 사용 FAQ
+          href: enterprise-state-roaming-faqs.md
 - name: 참고 자료
   items:
     - name: 엔터프라이즈 상태 로밍 GPO 설정

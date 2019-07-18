@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd26fa53c91c53893c7f326afda5158fa430be1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248182"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
@@ -39,7 +39,7 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
     **Alain Charon - 디렉터리 역할** 페이지가 표시됩니다.
 
-4. **역할 추가**를 선택하고, Alain에 할당할 역할(예: ‘애플리케이션 관리자’)을 선택한 후, **선택**을 선택합니다.
+4. **역할 추가**를 선택하고, Alain에 할당할 역할(예: ‘애플리케이션 관리자’)을 선택한 후, **선택**을 선택합니다. 
 
     ![선택한 역할을 보여 주는 디렉터리 역할 페이지](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 

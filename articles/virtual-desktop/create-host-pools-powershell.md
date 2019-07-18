@@ -4,15 +4,15 @@ description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 미
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 04/05/2019
+ms.topic: conceptual
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 374d5a8f51e28b8a10595842cfc301db503b6bed
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924952"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613322"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -26,12 +26,6 @@ Windows 가상 데스크톱 환경에 로그인 하려면 다음 cmdlet을 실�
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-그런 다음 테 넌 트 그룹에 컨텍스트를 설정 하려면 다음 cmdlet을 실행 합니다. 테 넌 트 그룹의 이름에 없는 경우 테 넌 트 이므로 "기본 테 넌 트 그룹의" 가장 가능성이 높은이 cmdlet을 건너뛸 수 있습니다.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 다음으로 Windows Virtual Desktop 테 넌 트에 새 호스트 풀을 만들려면이 cmdlet을 실행 합니다.
@@ -85,6 +79,9 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 4. 선택 **도메인** 가상 네트워크에 Active Directory 도메인을 입력 합니다.
 5. 도메인 가입 컴퓨터에 대 한 권한이 있는 도메인 계정으로 인증 합니다.
 
+    >[!NOTE]
+    > Azure AD Domain Services 환경에 VM을 가입하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)의 멤버이기도 한지 확인합니다.
+
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Windows 가상 데스크톱 미리 보기 호스트 풀에 가상 컴퓨터 등록
 
 호스트 Windows 가상 데스크톱 풀에 가상 컴퓨터를 등록 하기만 가상 데스크톱 Windows 에이전트를 설치 하면 됩니다.
@@ -100,17 +97,6 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
    - 다운로드 합니다 [Windows 가상 데스크톱 에이전트 부트로더](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)합니다.
    - 다운로드 한 설치 관리자를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 설치 관리자를 신뢰 하도록 합니다.
    - 설치 관리자를 실행합니다.
-4. 설치 하거나 가상 데스크톱 Windows side-by-side-스택을 활성화 합니다. 단계는 다를 수는 OS 버전에 따라 가상 컴퓨터를 사용 합니다.
-   - 가상 머신의 OS가 Windows Server 2016 합니다.
-     - 다운로드 합니다 [가상 데스크톱 Windows side-by-side-스택](https://go.microsoft.com/fwlink/?linkid=2084270)합니다.
-     - 다운로드 한 설치 관리자를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 설치 관리자를 신뢰 하도록 합니다.
-     - 설치 관리자를 실행합니다.
-   - 가상 머신의 OS가 Windows 10 1809 이상 또는 Windows Server 2019 이상:
-     - 다운로드 합니다 [스크립트](https://go.microsoft.com/fwlink/?linkid=2084268) side-by-side-스택을 활성화 합니다.
-     - 다운로드 한 스크립트를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 스크립트를 신뢰 하도록 합니다.
-     - **시작** 메뉴에서 Windows PowerShell ISE에 대 한 검색을 마우스 오른쪽 단추로 클릭 한 다음 선택 **관리자 권한으로 실행**합니다.
-     - 선택 **파일**, 다음 **열기...** , 한 다음 다운로드 한 파일에서 PowerShell 스크립트를 찾아서 엽니다.
-     - 스크립트를 실행 하려면 녹색 재생 단추를 선택 합니다.
 
 >[!IMPORTANT]
 >Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.

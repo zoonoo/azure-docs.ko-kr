@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723917"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242730"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -126,7 +126,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 우선 순위                | 110 입력                                                                                                       |
     | Name                    | Allow-RDP-All                                                                                                   |
 
-    이 자습서에서 RDP(포트 3389)는 *myAsgMgmtServers* 애플리케이션 보안 그룹에 할당된 VM에 대해 인터넷에 노출됩니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 VPN 또는 개인 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
+    이 자습서에서 RDP(포트 3389)는 *myAsgMgmtServers* 애플리케이션 보안 그룹에 할당된 VM에 대해 인터넷에 노출됩니다. 프로덕션 환경에서는 포트 3389를 인터넷에 노출하는 대신 VPN 또는 프라이빗 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
 
 1-3단계를 완료한 후 사용자가 만든 규칙을 검토합니다. 사용자 목록은 다음 그림의 목록과 같이 표시됩니다.
 

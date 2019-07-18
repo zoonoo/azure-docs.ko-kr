@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1805f04d7833dea180847defadd865cb23e9df62
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236287"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340849"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 
@@ -54,13 +54,13 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     다음 표에서는 대화 상자에서 제공하는 값에 대해 설명합니다.
     
-    |필드  | Value  |
+    |필드  | 값  |
     |---------|---------|
     |**데이터 원본 이름**     | 데이터 원본의 이름을 제공합니다.        |
     |**호스트**     | *서버 호스트 이름*으로 Databricks 작업 영역에서 복사한 값을 제공합니다.        |
     |**포트**     | *443*을 입력합니다.        |
     |**인증** > **메커니즘**     | *사용자 이름 및 암호*를 선택합니다.        |
-    |**사용자 이름**     | *토큰*을 입력합니다.        |
+    |**사용자 이름**     | *token*을 입력합니다.        |
     |**암호**     | Databricks 작업 영역에서 복사한 토큰 값을 입력합니다. |
     
     DSN 설정 대화 상자에서 다음과 같은 추가 단계를 수행합니다.
@@ -152,7 +152,7 @@ IDLE을 열고 다음 단계를 수행합니다.
 import pyodbc
 
 # establish a connection using the DSN you created earlier
-conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
+conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit=True)
 
 # run a SQL query using the connection you created
 cursor = conn.cursor()
@@ -161,7 +161,6 @@ cursor.execute("SELECT * FROM radio_sample_data")
 # print the rows retrieved by the query.
 for row in cursor.fetchall():
     print(row)
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

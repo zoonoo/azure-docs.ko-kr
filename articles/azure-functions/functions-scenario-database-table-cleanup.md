@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65908143"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2017에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용하여 Azure SQL Database 인스턴스에 연결되는 예약된 작업을 만드는 방법을 보여줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2019에 미리 정의 된 타이머 트리거 템플릿을 기반으로 만들어집니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
@@ -64,7 +64,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
 
-1. Visual Studio 2017에서 로컬 함수 앱 프로젝트를 엽니다.
+1. Visual Studio 2019에 로컬 함수 앱 프로젝트를 엽니다.
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
 
@@ -139,6 +139,6 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 Functions에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [Azure Functions 개발자 참조](functions-reference.md)  
-   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md)  
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  

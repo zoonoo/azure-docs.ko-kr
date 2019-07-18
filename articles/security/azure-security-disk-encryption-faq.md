@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926290"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653395"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -30,51 +30,13 @@ Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerS
 
 Azure Disk Encryption을 사용한 VM 디스크 암호화에 대한 요금은 청구되지 않으나, Azure Key Vault 사용과 관련된 요금은 청구됩니다. Azure Key Vault 요금에 대한 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 페이지를 참조하세요.
 
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
-
-Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS VM을 포함하여 표준 계층 VM에서 사용할 수 있습니다. Premium Storage가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
-
-## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
-
-하위 집합에 대해 azure Disk Encryption은 지원 합니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 Linux 서버 가능한 모든 배포판의 일부입니다.
-
- ![Azure 디스크 암호화를 지 원하는 벤 다이어그램의 Linux 서버 배포판](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
-
-| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS 및 데이터 디스크 |
-| Ubuntu | 16.04| OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
-| RHEL | 7.6 | OS 및 데이터 디스크* |
-| RHEL | 7.5 | OS 및 데이터 디스크* |
-| RHEL | 7.4 | OS 및 데이터 디스크* |
-| RHEL | 7.3 | OS 및 데이터 디스크* |
-| RHEL | 7.2 | OS 및 데이터 디스크* |
-| RHEL | 6.8 | 데이터 디스크* |
-| RHEL | 6.7 | 데이터 디스크* |
-| CentOS | 7.5 | OS 및 데이터 디스크 |
-| CentOS | 7.4 | OS 및 데이터 디스크 |
-| CentOS | 7.3 | OS 및 데이터 디스크 |
-| CentOS | 7.2n | OS 및 데이터 디스크 |
-| CentOS | 6.8 | OS 및 데이터 디스크 |
-| CentOS | 7.1 | 데이터 디스크  |
-| CentOS | 7.0 | 데이터 디스크  |
-| CentOS | 6.7 | 데이터 디스크  |
-| CentOS | 6.6 | 데이터 디스크  |
-| CentOS | 6.5 | 데이터 디스크  |
-| openSUSE | 42.3 | 데이터 디스크  |
-| SLES | 12-SP4 | 데이터 디스크  |
-| SLES | 12-SP3 | 데이터 디스크  |
-
-> [!NOTE]
-> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 하세요 합니다 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 문서. _ _
-
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 
 시작하려면 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 읽어보세요.
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>어떤 VM 크기 및 운영 체제는 Azure Disk Encryption을 지원 하나요?
+
+[Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites.md) 목록 문서 합니다 [VM 크기](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) 및 [VM 운영 체제](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) Azure 디스크 암호화를 지 합니다.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 
@@ -87,6 +49,9 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>암호 또는 암호화 키 회전 하는 방법
 
 암호를 회전, 디스크 암호화를 사용 하도록 원래 사용 했던 동일한 명령을 호출 하는 다른 키 자격 증명 모음을 지정 합니다. 주요 암호화 키를 회전 하려면 원래 사용 했던 디스크 암호화를 사용 하도록 설정 하려면 새 키 암호화를 지정 하는 동일한 명령을 호출 합니다. 
+
+>[!WARNING]
+> - 이전에 사용한 경우 [Azure AD 앱을 사용 하 여 Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md) 계속 해야이 VM을 암호화 하는 Azure AD 자격 증명을 지정 하 여 VM을 암호화 하려면이 옵션을 사용 합니다. 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에서는 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 사용할 수 없습니다. 즉, 이 암호화된 VM을 위해 AAD 애플리케이션에서 전환하는 기능은 아직 지원되지 않습니다.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>추가 하거나 어떻게 키 암호화 키를 처음 사용 하지 않은 경우 제거?
 
@@ -123,7 +88,9 @@ Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Acti
 최신 버전의 Azure PowerShell SDK를 사용하여 Azure Disk Encryption을 구성합니다. 최신 버전의 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 다운로드합니다. Azure SDK 버전 1.1.0에서는 Azure Disk Encryption을 지원하지 *않습니다*.
 
 > [!NOTE]
-> Linux Azure Disk Encryption 미리 보기 확장은 더 이상 사용되지 않습니다. 자세한 내용은 [Linux IaaS VM에 대한 Azure 디스크 암호화 미리 보기 확장 사용 중단](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/)을 참조하세요.
+> Linux Azure 디스크 암호화 미리 보기 확장 "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" 사용 되지 않습니다. 이 확장은 Azure 디스크 암호화 미리 보기 릴리스에 대 한 게시 되었습니다. 테스트 또는 프로덕션 배포에서 확장의 미리 보기 버전을 사용 하지 해야 합니다.
+
+> 배포 시나리오와 같은 Azure 리소스 관리자 (ARM)를 Linux IaaS VM에서 암호화를 사용 하도록 Linux VM에 대 한 Azure disk encryption 확장을 배포할 필요가 있는 Azure disk encryption 프로덕션 지원 확장을 사용 해야 합니다 " Microsoft.Azure.Security.AzureDiskEncryptionForLinux "로 설정 합니다.
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>사용자 지정 Linux 이미지에 Azure Disk Encryption을 적용할 수 있나요?
 
@@ -158,7 +125,7 @@ Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 �
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.        
 
 ## <a name="is-xfs-filesystem-supported"></a>XFS 파일 시스템 지원 되나요?
-XFS 볼륨 데이터 디스크 암호화는 EncryptFormalAll 에서만 지원 됩니다. 이전에 있는 모든 데이터를 지우지 볼륨을 다시 포맷 됩니다이 합니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
+XFS 볼륨 데이터 디스크 암호화는 EncryptFormatAll 에서만 지원 됩니다. 이전에 있는 모든 데이터를 지우지 볼륨을 다시 포맷 됩니다이 합니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>백업 및 암호화 된 VM을 복원할 수 있나요? 
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029762"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568238"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>예외 및 알고리즘 및 모듈 참조에 대 한 오류 코드
 
@@ -251,15 +251,16 @@ Blob의 전체 경로가 지정 된 경우 경로로 지정 되어 있는지 확
 |----|----|----|
 |모든 분류자|[모델 학습](train-model.md) |[모델 점수 매기기](score-model.md)|
 |회귀 모델|[모델 학습](train-model.md) |[모델 점수 매기기](score-model.md)|
-<!--| 클러스터링 모델| [클러스터링 모델 학습](train-clustering-model.md) 또는 [클러스터링 비우기](sweep-clustering.md)| [클러스터에 데이터 할당](assign-data-to-clusters.md)|
-| 변칙 검색-1 클래스 SVM | [이상 탐지 모델 학습](train-anomaly-detection-model.md) |[모델 점수 매기기](score-model.md)|
-| 변칙 검색-PCA |[모델 학습](train-model.md) |[모델 점수 매기기](score-model.md) </br> 몇 가지 추가 단계는 모델을 평가 해야 합니다. |
-| 시계열 변칙 검색-|  [시계열 변칙 검색](time-series-anomaly-detection.md) |모델은 데이터에서 학습 하 고 점수를 생성 합니다. 모듈의 학습 된 학습자를 만들어지지는지 않습니다 되며 없습니다 추가 점수 매기기 필요 합니다. |
-| 권장 사항 모델| [Matchbox 추천 학습](train-matchbox-recommender.md) | [Matchbox 추천 점수 매기기](score-matchbox-recommender.md) |
-| 이미지 분류 | [미리 학습 된 계단식 이미지 분류](pretrained-cascade-image-classification.md) | [모델 점수 매기기](score-model.md) |
-|Vowpal Wabbit 모델| [Vowpal Wabbit 버전 7-4 모델 학습](train-vowpal-wabbit-version-7-4-model.md) | [Vowpal Wabbit 버전 7-4 모델 점수 매기기](score-vowpal-wabbit-version-7-4-model.md) |   
-|Vowpal Wabbit 모델| [Vowpal Wabbit 버전 7 ~ 10의 모델 학습](train-vowpal-wabbit-version-7-10-model.md) | [Vowpal Wabbit 버전 7 ~ 10의 모델 점수 매기기](score-vowpal-wabbit-version-7-10-model.md) |
-|Vowpal Wabbit 모델| [Vowpal Wabbit 버전 8 모델 학습](score-vowpal-wabbit-version-8-model.md) | [Vowpal Wabbit 버전 8 모델 점수 매기기](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |예외 메시지|  
 |------------------------|  
@@ -1192,7 +1193,7 @@ Machine learning 위해 Hive 쿼리를 사용 하 여 도움말에 대 한 다�
   
  보고 모듈 예외에 의해 생성 된 SQL 메시지 인 경우 보고 된 오류에 따라 조치를 취하십시오. 예를 들어, 오류 메시지를 가능성이 높은 오류에 대 한 특정 지침을 포함 하는 경우에 따라:
 + *이러한 열 또는 누락 된 데이터베이스가*, 수 입력 했는지 잘못 된 열 이름을 나타내는입니다. 열 이름이 올바른지 확인 했으면 하는 경우, 대괄호 또는 따옴표를 사용 하 여 열 식별자를 묶습니다.
-+ *SQL 논리 오류 근처 \<SQL 키워드\>*, 지정 된 키워드 앞에 구문 오류가 있을 수 있음을 나타내는
++ *SQL 논리 오류 근처 \<SQL 키워드\>* , 지정 된 키워드 앞에 구문 오류가 있을 수 있음을 나타내는
 
   
 |예외 메시지|  
@@ -1680,7 +1681,7 @@ Azure Machine Learning에서이 오류는 지원 되지 않는 메서드를 사�
 |------------------------|  
 |모듈 정의 파일에 오류가 있습니다.|  
 |모듈 정의 파일 '{0}' 오류를 포함 합니다.|  
-|모듈 정의 파일 '{0}' 오류를 포함 합니다. {1}|  
+|모듈 정의 파일 '{0}' 오류를 포함 합니다. [https://doi.org/10.13012/J8PN93H8]({1})|  
   
 
 ## <a name="error-0114"></a>0114 오류  
@@ -1879,7 +1880,7 @@ Azure Machine Learning에서이 오류는 지원 되지 않는 메서드를 사�
 |예외 메시지|  
 |------------------------|  
 |지정 된 파일이 없습니다. int zip 파일을 찾을 수 있습니다.|  
-|지정된 파일을 찾을 수 없습니다. 다음 파일을 참조 하십시오. {0}|  
+|지정된 된 파일을 찾을 수 없습니다. 다음 파일을 참조 하십시오. {0}|  
   
 
 ## <a name="error-0134"></a>0134 오류
@@ -2081,7 +2082,7 @@ Azure Machine Learning에서이 오류는 지원 되지 않는 메서드를 사�
 |예외 메시지|  
 |------------------------|  
 |GitHub 액세스 오류입니다.|  
-|GitHub 액세스 오류입니다. {0}|  
+|GitHub 액세스 오류입니다. [https://doi.org/10.13012/J8PN93H8]({0})|  
   
 
 ## <a name="error-0148"></a>0148 오류  

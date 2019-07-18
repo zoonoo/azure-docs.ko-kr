@@ -3,22 +3,23 @@ title: Azure 데이터 팩터리 문제 해결
 description: Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549207"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836170"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -118,14 +119,14 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Azure 포털을 사용하여 문제 해결
 ### <a name="using-portal-blades"></a>포털 블레이드 사용
-단계는 [파이프라인 모니터링](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 을 참조하세요.
+단계는 [파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 ### <a name="using-monitor-and-manage-app"></a>모니터링 및 관리 앱 사용
 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 를 참조하세요.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Azure PowerShell을 사용하여 문제 해결
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Azure PowerShell을 사용하여 오류 해결
-자세한 내용은 [Azure PowerShell을 사용하여 Data Factory 파이프라인 모니터링](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) 을 참조하세요.
+자세한 내용은 [Azure PowerShell을 사용하여 Data Factory 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

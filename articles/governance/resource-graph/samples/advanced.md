@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256824"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692005"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 
@@ -22,7 +22,7 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 다음 고급 쿼리를 살펴보겠습니다.
 
 > [!div class="checklist"]
-> - [VMSS 용량 및 크기 가져오기](#vmss-capacity)
+> - [가상 머신 확장 집합 용량 및 크기 가져오기](#vmss-capacity)
 > - [모든 태그 이름 나열](#list-all-tags)
 > - [정규식과 일치하는 가상 머신](#vm-regex)
 
@@ -38,7 +38,7 @@ Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Reso
 
 이 쿼리는 가상 머신 확장 집합 리소스를 찾고 가상 머신 크기 및 확장 집합의 용량을 포함하는 다양한 세부 정보를 가져옵니다. 이 쿼리는 `toint()` 함수를 사용하여 정렬할 수 있도록 용량을 숫자로 캐스팅합니다. 마지막으로, 열의 이름이 사용자 지정 명명 속성으로 바뀝니다.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 이 쿼리는 태그를 사용하여 시작하고 모든 고유한 태그 이름 및 해당 형식을 나열하는 JSON 개체를 빌드합니다.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 이름으로 일치시킨 후 쿼리는 이름 오름차순으로 이름 및 순서를 프로젝션합니다.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

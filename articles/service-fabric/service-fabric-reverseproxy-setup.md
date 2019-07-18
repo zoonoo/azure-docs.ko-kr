@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392997"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
@@ -243,7 +243,7 @@ Azure 클러스터 외부에서 역방향 프록시를 처리하려면 역방향
 >
 > * 악의적인 사용자는 충분히 강화된 공격 노출 영역이 없는 내부 서비스를 반복적으로 호출하여 서비스 거부 공격을 시작할 수 있습니다.
 > * 악의적인 사용자가 잘못된 패킷을 내부 서비스로 전송하여 의도하지 않은 동작이 발생할 수 있습니다.
-> * 내부용으로 의도된 서비스는 클러스터 외부의 서비스에 노출되지 않아야 하는 개인 정보나 중요한 정보를 반환할 수 있으므로 이 민감한 정보가 악의적인 사용자에게 노출될 수 있습니다. 
+> * 내부용으로 의도된 서비스는 클러스터 외부의 서비스에 노출되지 않아야 하는 프라이빗 정보나 중요한 정보를 반환할 수 있으므로 이 민감한 정보가 악의적인 사용자에게 노출될 수 있습니다. 
 >
 > 역방향 프록시 포트를 공개하기 전에 클러스터 및 클러스터에서 실행 중인 앱의 잠재적인 보안 결과를 완전히 파악하고 완화해야 합니다. 
 >

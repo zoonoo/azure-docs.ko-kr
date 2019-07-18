@@ -1,23 +1,23 @@
 ---
-title: SQL Data Warehouse 분류 | Microsoft Docs
+title: Azure SQL Data Warehouse 분류 | Microsoft Docs
 description: 분류를 사용하여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대한 리소스를 계산하는 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4988d284bed46a918f85eec8d7b4a5b89fc6549e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154202"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588501"
 ---
-# <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse 작업 분류
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL Data Warehouse 작업 분류
 
 이 문서는 들어오는 요청에 리소스 클래스와 중요도를 할당하는 SQL Data Warehouse 워크로드 분류 프로세스를 설명합니다.
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+- 분류자를 만드는 방법에 대 한 자세한 내용은 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  
+- 와 [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)를 참조하세요.
+- 방법 문서를 참조 하세요 [워크 로드 구성 중요도](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법과 [관리 하 고 워크 로드 관리를 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

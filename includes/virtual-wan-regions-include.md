@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7a7a548050d8d5d81ccecf17b4240ebcea10b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459838"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182109"
 ---
 다음 표에는 일반 공급되는 기능을 사용할 수 있는 Azure 지역이 나열되어 있습니다.
 
@@ -28,6 +28,7 @@ ms.locfileid: "60459838"
 | 오스트레일리아 정부 | 오스트레일리아 중부, 오스트레일리아 중부 2 |
 | 인도 | 인도 서부, 인도 중부, 인도 남부 |
 | 대한민국 | 한국 중부, 한국 남부 |
+| 남아프리카 공화국 | 남아프리카 공화국 서 부, 남아프리카 공화국 북부 |
 
 * ExpressRoute 미리 보기에 대한 자세한 내용은 [Virtual WAN과 ExpressRoute - 미리 보기](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register)를 참조하세요.
 * 지점 및 사이트 간 미리 보기에 대한 자세한 내용은 [Virtual WAN과 지점 및 사이트 간 - 미리 보기](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register)를 참조하세요.

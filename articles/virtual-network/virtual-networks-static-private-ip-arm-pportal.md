@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: kumud
 ms.openlocfilehash: 31aeab946b9ad740e2f56eb1ecaafd3e76cc42b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723799"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
@@ -44,11 +44,11 @@ ms.locfileid: "64723799"
 다음 샘플 단계를 수행하려면 단순한 환경이 이미 만들어져 있어야 합니다. 이 문서에 표시된 대로 단계를 실행하려는 경우 먼저 [가상 네트워크 만들기](quick-create-portal.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>정적 개인 IP 주소 테스트용 VM을 만드는 방법
-Azure 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만드는 동안에는 정적 개인 IP 주소를 설정할 수 없습니다. 먼저 VM를 만든 다음 개인 IP를 고정으로 설정합니다.
+Azure Portal을 사용하여 리소스 관리자 배포 모드에서 VM을 만드는 동안에는 정적 개인 IP 주소를 설정할 수 없습니다. 먼저 VM를 만든 다음, 해당 프라이빗 IP를 고정으로 설정합니다.
 
 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.
 
-1. 브라우저에서 https://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 https://portal.azure.com 으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
 2. 다음 그림과 같이 **리소스 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭하고 **배포 모델 선택** 목록에 **리소스 관리자**가 이미 표시되는지 확인한 다음, **만들기**를 클릭합니다.
    
     ![Azure 포털에서 VM 만들기](./media/virtual-networks-static-ip-arm-pportal/figure01.png)

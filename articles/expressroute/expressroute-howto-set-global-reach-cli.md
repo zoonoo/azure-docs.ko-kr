@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute Global Reach 구성: Azure CLI | Microsoft Docs'
-description: 이 문서는 온-프레미스 네트워크 간의 사설 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
+description: 이 문서는 온-프레미스 네트워크 간의 프라이빗 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869976"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 글로벌 환경 구성
@@ -24,7 +24,7 @@ ms.locfileid: "64869976"
 * 최신 버전의 Azure CLI를 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 * ExpressRoute 회로 프로비전 [워크플로](expressroute-workflows.md)를 이해합니다.
 * ExpressRoute 회로가 '프로비저닝됨' 상태인지 확인합니다.
-* Azure 개인 피어링이 ExpressRoute 회로에 구성되어 있는지 확인합니다.  
+* Azure 프라이빗 피어링이 ExpressRoute 회로에 구성되어 있는지 확인합니다.  
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 

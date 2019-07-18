@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146012"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory에서 구분 기호로 분리 된 텍스트 형식
@@ -31,7 +31,7 @@ ms.locfileid: "65146012"
 | 형식             | 데이터 집합의 type 속성 설정 해야 합니다 **DelimitedText**합니다. | 예      |
 | location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 고유한 위치 형식이 및 지원 되는 속성에서 `location`합니다. **자세한 내용은 커넥터 문서에서-> 데이터 집합 속성 섹션**합니다. | 예      |
 | columnDelimiter  | 파일의 열을 구분 하는 데 사용 하는 문자입니다. 현재 데이터 흐름 매핑 하지만 하지 복사 작업에 대 한 다중 문자 구분 기호 에서만 지원 됩니다. <br>기본값은 **쉼표 `,`** 경우 열 구분 기호 즉, 전체 줄 구분 기호는 단일 열으로 만들어진 빈 문자열로 정의 됩니다. | 아닙니다.       |
-| rowDelimiter     | 단일 문자 또는 "\r\n" 파일의 행을 구분 하는 데 사용 합니다.<br>기본값은 다음 값 중 하나 **읽기: ["\r\n", "\r", "\n"]**, 및 **"\n" 또는 "\r\n" 쓰기 시** 매핑 데이터 흐름에서 각각의 복사 작업입니다. <br>때 `rowDelimiter` 구분 기호 (빈 문자열)으로 설정 됩니다는 `columnDelimiter` 으로 단일 값으로 전체 콘텐츠를 처리 하려면 즉, 구분 기호 (빈 문자열)으로 설정 되어야 합니다. | 아닙니다.       |
+| rowDelimiter     | 단일 문자 또는 "\r\n" 파일의 행을 구분 하는 데 사용 합니다.<br>기본값은 다음 값 중 하나 **읽기: ["\r\n", "\r", "\n"]** , 및 **"\n" 또는 "\r\n" 쓰기 시** 매핑 데이터 흐름에서 각각의 복사 작업입니다. <br>때 `rowDelimiter` 구분 기호 (빈 문자열)으로 설정 됩니다는 `columnDelimiter` 으로 단일 값으로 전체 콘텐츠를 처리 하려면 즉, 구분 기호 (빈 문자열)으로 설정 되어야 합니다. | 아닙니다.       |
 | quoteChar        | 열 구분 기호를 포함 하는 경우 열 값을 인용 하는 단일 문자입니다. <br>기본값은 **큰따옴표** `"`합니다. <br>매핑 데이터 흐름에 대 한 `quoteChar` 빈 문자열일 수 없습니다. <br>복사 작업의 경우 `quoteChar` 정의 빈 문자열로 의미 하지 인용 문자는 열 값에 따옴표가 사용 되지 및 `escapeChar` 자체 및 열 구분 기호를 이스케이프 하는 데 사용 됩니다. | 아닙니다.       |
 | escapeChar       | 따옴표로 묶인된 값 내의 따옴표를 이스케이프 하는 단일 문자입니다.<br>기본값은 **백슬래시 `\`** 합니다. <br>매핑 데이터 흐름에 대 한 `escapeChar` 빈 문자열일 수 없습니다. <br/>복사 작업의 경우 `escapeChar` 빈 문자열로 정의 됩니다는 `quoteChar` 빈 문자열도로, 경우 모든 열 값 구분 기호를 포함 하지 않는지를 확인 해야 합니다. | 아닙니다.       |
 | firstRowAsHeader | Treat/확인 첫 번째 행 머리글 줄으로 열의 이름 사용 하 여 지정 합니다.<br>허용 되는 값은 **true** 하 고 **false** (기본값). | 아닙니다.       |

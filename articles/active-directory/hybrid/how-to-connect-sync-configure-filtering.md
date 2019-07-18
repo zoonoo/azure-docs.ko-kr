@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243245"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
@@ -216,7 +216,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 
 인바운드 필터링에서 **범위** 기능을 사용하여 개체를 동기화할지 여부를 확인합니다. 여기서 해당 조직의 요구 사항에 맞게 조정합니다. 범위 모듈에 동기화 규칙이 범위에 있는지 확인하는 **그룹** 및 **절**이 있습니다. 그룹에 하나 이상의 절이 포함됩니다. 여러 절 간에는 논리적 “AND”가 있으며 여러 그룹 간에는 논리적 “OR”이 있습니다.
 
-예:   
+예:  
 ![범위](./media/how-to-connect-sync-configure-filtering/scope.png)  
 **(department = IT) OR (department = Sales AND c = US)** 로 표시됩니다.
 

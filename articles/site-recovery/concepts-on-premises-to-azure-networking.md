@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772260"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
@@ -63,14 +63,14 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 1. 온-프레미스 컴퓨터의 장애 조치 후 Azure VM을 만들 Azure 가상 네트워크를 만듭니다. 애플리케이션이 원활하게 장애 조치(failover)할 수 있도록 온-프레미스 네트워크를 확장해야 합니다.
 2. 장애 조치 전에 Site Recovery의 컴퓨터 속성에서 동일한 IP 주소를 할당합니다. 장애 조치 후 Site Recovery는 이 주소를 Azure VM에 할당합니다.
 3. 장애 조치를 실행하고 동일한 IP 주소로 Azure VM을 만든 후에는 [Vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용하여 네트워크에 연결합니다. 이 작업은 스크립팅될 수 있습니다.
-4. 192.168.1.0/24가 이제 Azure로 이동했음을 반영하기 위해 경로를 수정해야 합니다.
+4. 192\.168.1.0/24가 이제 Azure로 이동했음을 반영하기 위해 경로를 수정해야 합니다.
 
 
 **장애 조치 후 인프라**
 
 ![서브넷 장애 조치(failover) 후](./media/site-recovery-network-design/network-design9.png)
 
-#### <a name="site-to-site-connection"></a>사이트 간 연결 
+#### <a name="site-to-site-connection"></a>사이트 간 연결
 
 장애 조치 후에는 Vnet 간 연결 외에도 Woodgrove가 사이트 간 VPN 연결을 설정할 수 있습니다.
 - 사이트 간 연결을 설정하는 경우 Azure 네트워크에서는 IP 주소 범위가 온-프레미스 IP 주소 범위와 다른 경우 온-프레미스 위치(로컬-네트워크)에 트래픽을 라우팅할 수 있습니다. 이는 Azure는 확대 서브넷을 지원하지 않기 때문입니다. 따라서 온-프레미스에 서브넷 192.168.1.0/24가 있는 경우 Azure 네트워크에 로컬 네트워크 192.168.1.0/24를 추가할 수 없습니다. 이렇게 예측하는 이유는 Azure가 서브넷에 활성 VM이 없고 해당 서브넷이 재해 복구용으로만 만들어진다는 것을 모르기 때문입니다.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545334"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703972"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 
@@ -20,7 +20,7 @@ Azure HDInsight는 사용자 지정 스크립트를 호출하여 클러스터를
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다. HDInsight 애플리케이션에 대한 자세한 내용은 [Azure Marketplace에 HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 도메인 조인 HDInsight 클러스터를 사용하는 경우 클러스터에서 스크립트 동작을 사용할 때 다음 두 가지 Apache Ambari 권한이 필요합니다.
 
@@ -45,23 +45,24 @@ HDInsight 클러스터를 만드는 경우 Azure 구독에 대한 [기여자] �
 스크립트 작업은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트입니다. 스크립트 동작의 특징과 기능은 다음과 같습니다.
 
 * HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 저장소 위치는 다음과 같습니다.
+    
+    * 일반 클러스터:
+    
+      * ADLS Gen1: HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
+      
+      * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 저장소 계정 모두에 대해 액세스 권한을 부여받습니다.
 
-    * HDInsight 클러스터에서 액세스할 수 있는 Azure Data Lake Storage 계정. HDInsight에서 Azure Data Lake Storage를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+        > [!IMPORTANT]  
+        > 후속 스크립트 작업 실패를 저장 하는 스크립트를 사용 하 여 발생 하므로이 Azure Storage 계정에 대해 저장소 키를 회전 하지 않습니다.
 
-        Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
-
-        > [!NOTE]  
-        > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
-
-    * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 저장소 계정 모두에 대해 액세스 권한을 부여받습니다.
-
-    * 공용 파일 공유 서비스. 예를 들어 Azure Blob, GitHub, OneDrive 및 Dropbox가 있습니다.
+      * 공용 파일 공유 서비스 http:// 경로 통해 액세스할 수 있습니다. 예제는 Azure Blob, GitHub, OneDrive입니다.
 
         URI 예제는 [예제 스크립트 동작 스크립트](#example-script-action-scripts)를 참조하세요.
 
-        > [!WARNING]  
-        > HDInsight는 표준 성능 계층에서 Azure Storage 계정의 Blob만 지원합니다. 
-
+     * ESP 사용 하 여 클러스터:
+         
+         * wasb: / / 또는 wasbs: / / 또는 http [s]:// Uri 지원 됩니다.
+            
 * 특정 노드 유형에서만 실행되도록 제한할 수 있습니다. 예를 들어 헤드 노드 또는 작업자 노드가 있습니다.
 
 * 지속형 또는 임시 스크립트일 수 있습니다.
@@ -149,7 +150,6 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
-| Presto 설치 |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. [Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용](hdinsight-hadoop-install-presto.md) 참조 |
 | Giraph 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. [HDInsight Hadoop 클러스터에 Apache Giraph 설치](hdinsight-hadoop-giraph-install-linux.md) 참조 |
 | Hive 라이브러리 미리 로드 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. [HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) 참조 |
 
@@ -173,12 +173,12 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
-    | 자산 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
     | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
-    | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
+    | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **Head**, **Worker** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
 
     __이 스크립트 동작을 유지__ 항목을 사용하여 크기 조정 작업 시 스크립트가 적용되도록 합니다.
@@ -255,12 +255,12 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     다음 표에서는 양식의 요소에 대해 설명합니다.
 
-    | 자산 | 값 |
+    | 속성 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
     | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
-    | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
+    | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **Head**, **Worker** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
 
     __이 스크립트 작업을 유지__ 항목을 사용하여 크기 조정 작업 시 스크립트가 적용되도록 합니다.
@@ -310,7 +310,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     이 명령에 대한 매개 변수를 생략하면 해당 매개 변수를 요구하는 메시지가 표시됩니다. `-u`를 사용하여 지정한 스크립트에서 매개 변수를 허용하는 경우 `-p` 매개 변수를 사용하여 지정할 수 있습니다.
 
-    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. 예: `-n headnode;workernode`
+    유효한 노드 형식은 `headnode`, `workernode` 및 `zookeeper`입니다. 스크립트를 여러 노드 유형에 적용해야 하는 경우 세미콜론(`;`)으로 구분하여 형식을 지정합니다. `-n headnode;workernode` )을 입력합니다.
 
     스크립트를 유지하려면 `--persistOnSuccess`를 추가합니다. 나중에 `azure hdinsight script-action persisted set`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -354,7 +354,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     ![스크립트 동작, 속성](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. 스크립트 동작 섹션에 있는 항목의 오른쪽에서 줄임표(**...**)를 선택하여 해당 동작을 수행할 수도 있습니다.
+6. 스크립트 동작 섹션에 있는 항목의 오른쪽에서 줄임표( **...** )를 선택하여 해당 동작을 수행할 수도 있습니다.
 
     ![스크립트 동작, 줄임표](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -432,7 +432,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
 ### <a name="the-apache-ambari-web-ui"></a>Apache Ambari 웹 UI
 
-1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
+1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
     메시지가 표시되면 클러스터에 대한 관리자 계정 이름(**admin**)과 암호를 입력합니다. 웹 양식에서 관리자 자격 증명을 다시 입력해야 할 수도 있습니다.
 
@@ -454,7 +454,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
     ![작업의 스크린샷](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-    이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
+    이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드**에 대해 별도로 구성됩니다. 다음 예를 참조하십시오.
 
     * **헤드 노드**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 

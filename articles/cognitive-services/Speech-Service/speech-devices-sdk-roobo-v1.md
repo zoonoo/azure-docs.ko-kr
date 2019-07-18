@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e4aba26238a0d87c8e708ae27c7b2dbdb73f16ab
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026773"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604842"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>디바이스: Roobo 스마트 오디오 Dev 키트
+# <a name="device-roobo-smart-audio-dev-kit"></a>장치: Roobo 스마트 오디오 Dev 키트
 
 이 문서에서는 Roobo 스마트 오디오 Dev 키트에 대 한 장치 특정 정보를 제공 합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "65026773"
 
 ## <a name="audio"></a>오디오
 
-Roobo 모든 오디오 플래시 메모리를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. 에 [Roobo 사이트](http://ddk.roobo.com/)장치를 선택한 다음 선택 합니다 **Roobo 도구** 페이지의 맨 아래에 링크.
+Roobo 모든 오디오 플래시 메모리를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. 에 [Roobo 사이트](https://ddk.roobo.com/)장치를 선택한 다음 선택 합니다 **Roobo 도구** 페이지의 맨 아래에 링크.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190913"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389215"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -107,7 +107,7 @@ ms.locfileid: "65190913"
 
     ![웹 서비스 테스트 페이지를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. 테스트 데이터를 입력하거나 자동으로 채워진 샘플 데이터를 사용하고, 아래쪽에서 **테스트**를 선택합니다. 테스트 요청이 웹 서비스에 제출되고, 결과가 페이지에 표시됩니다.
+1. 테스트 데이터를 입력하거나 자동으로 채워진 샘플 데이터를 사용하고, 아래쪽에서 **테스트**를 선택합니다. 테스트 요청이 웹 서비스에 제출되고, 결과가 페이지에 표시됩니다. 입력 데이터에 대한 가격 값이 생성되지만 예측 값을 생성하는 데는 사용되지 않습니다.
 
 ## <a name="manage-the-web-service"></a>웹 서비스 관리
 
@@ -158,4 +158,4 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 이 자습서에서는 그래픽 인터페이스에서 기계 학습 모델을 만들고, 배포하고, 사용하는 방법에 대한 주요 단계를 알아보았습니다. 그래픽 인터페이스를 사용하여 다른 유형의 문제를 해결하는 방법에 대해 자세히 알아보려면 실험 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [신용 위험 분류 샘플](ui-sample-classification-predict-credit-risk-basic.md)
+> [신용 위험 분류 샘플](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

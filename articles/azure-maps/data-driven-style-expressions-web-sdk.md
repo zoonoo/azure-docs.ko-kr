@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904978"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
@@ -338,7 +338,7 @@ Type 식 테스트 및 문자열, 숫자 및 부울 값과 같은 다른 데이�
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | 배열 \| 개체 | 배열 또는 개체 리터럴 값을 반환합니다. 이 식을 사용 하 여 배열 또는 개체를 식으로 평가 되지 않도록 합니다. 이 변수 배열 또는 개체를 식에서 반환 해야 하는 경우에 필요 합니다. |
 | `['to-boolean', value]` | 부울 | 입력된 값을 부울으로 변환 합니다. 결과 `false` 입력이 빈 문자열인 경우 `0`를 `false`합니다 `null`, 또는 `NaN`이 고 그렇지 않으면 해당 `true`합니다. |
-| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 색으로 변환합니다. 여러 값을 제공 하는 경우 첫 번째 성공적인 변환 가져올 때까지 각 순서 대로 평가 됩니다. 입력을 변환할 수 있는, 경우 식 오류입니다. |
+| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | 입력 색으로 변환합니다. 여러 값을 제공 하는 경우 첫 번째 성공적인 변환 가져올 때까지 각 순서 대로 평가 됩니다. 입력을 변환할 수 있는, 경우 식 오류입니다. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력된 값을 숫자로 변환합니다. 입력이 `null` 또는 `false`, 결과 0입니다. 입력이 `true`, 결과 1입니다. 입력이 문자열을 사용 하 여 숫자 변환 됩니다 합니다 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) ECMAScript 언어 사양 함수는 문자열입니다. 여러 값을 제공 하는 경우 첫 번째 성공적인 변환 가져올 때까지 각 순서 대로 평가 됩니다. 입력을 변환할 수 있는, 경우 식 오류입니다. |
 | `['to-string', value]` | 문자열 | 입력된 값을 문자열로 변환합니다. 입력이 `null`, 결과 `""`합니다. 결과 부울 입력을 사용 하는 경우 `"true"` 또는 `"false"`합니다. 입력이 숫자를 사용 하 여 문자열로 변환 됩니다 합니다 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) ECMAScript 언어 사양 함수 번호입니다. 입력 색 이면 변환할 CSS RGBA 색 문자열 `"rgba(r,g,b,a)"`합니다. 입력이 사용 하 여 문자열로 변환 하는 고, 그렇지 합니다 [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) ECMAScript 언어 사양 함수입니다. |
 | `['typeof', value]` | 문자열 | 지정된 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
@@ -371,8 +371,8 @@ Type 식 테스트 및 문자열, 숫자 및 부울 값과 같은 다른 데이�
 
 | 식 | 반환 형식 | 설명 |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | 색 | 색 값을 만듭니다 *빨간색*, *녹색*, 및 *파란색* 사이의 구성 요소 `0` 고 `255`, 알파구성요소및`1`. 모든 구성 요소 범위를 벗어난 경우 식 오류입니다. |
-| `['rgba', number, number, number, number]` | 색 | 색 값을 만듭니다 *빨간색*, *녹색*를 *파란색* 사이의 구성 요소 `0` 및 `255`, 및의 범위 내 알파 구성 요소 `0` 고 `1`입니다. 모든 구성 요소 범위를 벗어난 경우 식 오류입니다. |
+| `['rgb', number, number, number]` | color | 색 값을 만듭니다 *빨간색*, *녹색*, 및 *파란색* 사이의 구성 요소 `0` 고 `255`, 알파구성요소및`1`. 모든 구성 요소 범위를 벗어난 경우 식 오류입니다. |
+| `['rgba', number, number, number, number]` | color | 색 값을 만듭니다 *빨간색*, *녹색*를 *파란색* 사이의 구성 요소 `0` 및 `255`, 및의 범위 내 알파 구성 요소 `0` 고 `1`입니다. 모든 구성 요소 범위를 벗어난 경우 식 오류입니다. |
 | `['to-rgba']` | \[number, number, number, number\] | 입력된 색의 포함 된 4 개 요소 배열을 반환 *빨간색*를 *녹색*를 *파란색*, 및 *알파* 해당 순서 대로 구성 요소입니다. |
 
 **예제**

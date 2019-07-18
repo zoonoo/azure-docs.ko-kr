@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432705"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838109"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 이 아티클에서는 Data Factory 버전 1과 Data Factory를 비교합니다. Data Factory에 대한 소개는 [Data Factory 소개](introduction.md)를 참조하세요. 데이터 팩터리 버전 1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. 
@@ -130,7 +130,7 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure portal | [예](quickstart-create-data-factory-portal.md) | [예](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure portal | [예](quickstart-create-data-factory-portal.md) | 아니요 |
 | Azure PowerShell | [예](quickstart-create-data-factory-powershell.md) | [예](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [예](quickstart-create-data-factory-dot-net.md) | [예](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST API | [예](quickstart-create-data-factory-rest-api.md) | [예](data-factory-build-your-first-pipeline-using-rest-api.md) |

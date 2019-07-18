@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893744"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873026"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "58893744"
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * 이 자습서는 [Azure Cache for Redis를 위한 ASP.NET 빠른 시작](cache-web-app-howto.md)에서 중단된 부분부터 계속됩니다. 아직 수행하지 않은 경우 먼저 빠른 시작을 수행합니다.
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+* 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     * ASP.NET 및 웹 개발
     * Azure 개발
     * SQL Server Express LocalDB 또는 [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express)을 통한 .NET 데스크톱 개발.
@@ -156,7 +156,7 @@ ms.locfileid: "58893744"
 
 1. `configuration` 섹션 내에 다음 `connectionStrings` 섹션을 추가합니다. 연결 문자열의 이름은 `TeamContext`인 Entity Framework 데이터베이스 컨텍스트 클래스의 이름과 일치해야 합니다.
 
-    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하며 Visual Studio 2017과 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
+    이 연결 문자열은 사용자가 [필수 구성 요소](#prerequisites)를 충족하며 Visual Studio 2019와 함께 설치된 *.NET 데스크톱 개발* 워크로드의 일부인 SQL Server Express LocalDB를 설치했다고 가정합니다.
 
     ```xml
     <connectionStrings>
@@ -672,7 +672,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
    | 설정       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-   | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+   | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
    | **위치**: | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
 

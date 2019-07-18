@@ -3,17 +3,16 @@ title: 원격 모니터링 솔루션에서 Edge 패키지 가져오기 - Azure |
 description: 이 문서에서는 원격 모니터링 솔루션 가속기로 IoT Edge 패키지를 가져오는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/10/2018
-ms.date: 12/17/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443014"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기로 IoT Edge 패키지 가져오기

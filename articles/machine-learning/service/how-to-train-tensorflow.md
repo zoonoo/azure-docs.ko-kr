@@ -1,132 +1,267 @@
 ---
-title: TensorFlow & Keras를 사용 하 여 모델 학습
+title: TensorFlow 모델 학습 및 등록
 titleSuffix: Azure Machine Learning service
-description: Keras와 TensorFlow 추정을 사용 하 여 단일 노드 및 분산된 Keras와 TensorFlow 모델 학습을 실행 하는 방법 알아보기
+description: 이 문서에서는 학습 Azure Machine Learning 서비스를 사용 하 여 TensorFlow 모델을 등록 하는 방법을 보여 줍니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
-ms.reviewer: sgilley
-ms.date: 05/06/2019
+ms.author: maxluk
+author: maxluk
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 67263df319063cdf21dadea257dcab05ba0d5f7b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192344"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840008"
 ---
-# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras와 TensorFlow 모델 학습
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 등록 합니다.
 
-Azure 계산에서 TensorFlow 교육 작업을 쉽게 실행할 수 있습니다 사용 하 여 합니다 [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Azure Machine Learning SDK에 스 티 메이 터 클래스입니다. `TensorFlow` 스 티 메이 터 심층 신경망 네트워크 DNN () 교육에 대 한 TensorFlow 기반 컨테이너에서 작업을 실행 하는 Azure Machine Learning 서비스를 전달 합니다.
+이 문서에서는 학습 Azure Machine Learning 서비스를 사용 하 여 TensorFlow 모델을 등록 하는 방법을 보여 줍니다. 사용 하 여 널리 사용 되 [MNIST 데이터 집합](http://yann.lecun.com/exdb/mnist/) 심층 신경망을 사용 하 여 빌드를 사용 하 여 필기 숫자를 분류 하는 [TensorFlow Python 라이브러리](https://www.tensorflow.org/overview)합니다.
 
-`TensorFlow` 스 티 메이 터 학습 스크립트를 변경 하지 않고 다른 계산 대상에 대해 매개 변수가 있는 실행을 쉽게 구성할 수 있습니다 즉 실행에 비해 추상화 계층도 제공 합니다.
+TensorFlow는 deep neural network DNN ()를 만드는 데 일반적으로 오픈 소스 계산 프레임 워크입니다. Azure Machine Learning 서비스를 사용 하 여 탄력적인 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업 규모를 신속 하 게 확장할 수 있습니다. 교육 실행, 버전 모델을 통해 추적할 수 있습니다 모델 등을 배포 합니다.
 
-## <a name="getting-started"></a>시작
+부터 TensorFlow 모델을 개발 하는 여부 가져오는 [기존 모델](how-to-deploy-existing-model.md) 를 클라우드로 Azure Machine Learning 서비스 도움이 될 수 있습니다 프로덕션이 준비 된 모델을 작성 합니다.
 
-사용 하 여 작업을 제출 합니다 `TensorFlow` 스 티 메이 터 자료를 사용 하는 것과 비슷합니다 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)합니다. 되므로 참조 하 여 시작 하는 것이 좋습니다는 [기본 스 티 메이 터 방법 문서](how-to-train-ml-models.md) 먼저 가장 중요 한 개념을 이해 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Machine Learning 서비스를 시작 하려는 경우 [빠른 시작을 완료](quickstart-run-cloud-notebook.md)합니다. 모든 로드 작업 환경을 사용 하는 것이 [샘플 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)합니다.
+이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-## <a name="single-node-training"></a>단일 노드 학습
+ - Azure Machine Learning Notebook VM-다운로드 나 설치 필요 없이
 
-TensorFlow 작업을 실행 하려면 인스턴스화한 후에 [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 개체 및 실험으로 제출 합니다.
+     - 완료 합니다 [클라우드 기반 notebook 퀵 스타트](quickstart-run-cloud-notebook.md) SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 전용된 노트북 서버를 만들려면.
+    - Notebook 서버에 샘플 폴더에서이 디렉터리로 이동 하 여 완료 되 고 확장 된 notebook을 찾습니다: **방법-을-사용-azureml > 학습 된 심층 학습 > train-hyperparameter-tune-deploy-with-tensorflow**폴더입니다. 
+ 
+ - 사용자 고유의 Jupyter Notebook 서버
 
-다음 코드를 TensorFlow 스 티 메이 터 인스턴스화하고 시험 삼아 제출 합니다. 학습 스크립트 `train.py` 지정 된 스크립트 매개 변수를 사용 하 여 실행 됩니다. GPU 사용 하도록 작업을 실행할 [계산 대상](how-to-set-up-training-targets.md), 및 scikit-는 알아봅니다에 대 한 종속성으로 설치 `train.py`합니다.
+     - [Azure Python SDK 학습 컴퓨터 설치](setup-create-workspace.md#sdk)
+    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
+    - [샘플 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` 및 `utils.py`
+     
+    완료 된 찾을 수도 있습니다 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) GitHub 샘플 페이지에이 가이드의 합니다. Notebook 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 notebook 위젯 확장된 섹션을 포함 합니다.
+
+## <a name="set-up-the-experiment"></a>실험을 설정
+
+이 섹션에서는 필요한 python 패키지를 로드, 초기화 작업 영역, 실험, 만들기 및 학습 데이터와 학습 스크립트를 업로드 하 여 학습 실험을 설정 합니다.
+
+### <a name="import-packages"></a>패키지 가져오기
+
+먼저, 필요한 Python 라이브러리를 가져와야 합니다.
 
 ```Python
-from azureml.train.dnn import TensorFlow
+import os
+import urllib
+import shutil
+import azureml
 
-# training script parameters passed as command-line arguments
+from azureml.core import Experiment
+from azureml.core import Workspace, Run
+
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+```
+
+### <a name="initialize-a-workspace"></a>작업 영역 초기화
+
+[Azure Machine Learning 서비스 작업 영역](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 만든 모든 아티팩트를 작업할 수 있는 중앙된 위치를 사용 하 여 제공 합니다. Python SDK에서 작업 영역 아티팩트를 만들어 액세스할 수 있습니다는 [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 개체입니다.
+
+작업 영역 개체를 만들어야 합니다 `config.json` 에서 만든 파일을 [전제 조건 섹션](#prerequisites)합니다.
+
+```Python
+ws = Workspace.from_config()
+```
+
+### <a name="create-an-experiment"></a>실험 만들기
+
+실험 및 학습 스크립트를 보관할 폴더를 만듭니다. 이 예제에서는 "tf-mnist"를 호출 하는 실험을 만듭니다.
+
+```Python
+script_folder = './tf-mnist'
+os.makedirs(script_folder, exist_ok=True)
+
+exp = Experiment(workspace=ws, name='tf-mnist')
+```
+
+### <a name="upload-dataset-and-scripts"></a>데이터 집합 및 스크립트 업로드
+
+합니다 [데이터 저장소](how-to-access-data.md) 데이터 저장 고 탑재 하거나 계산 대상에 데이터를 복사 하 여 액세스할 수 있는 위치입니다. 각 작업 영역의 기본 데이터 저장소를 제공합니다. 학습 하는 동안 쉽게 액세스할 수 있도록 데이터 저장소에 데이터 및 학습 스크립트를 업로드 합니다.
+
+1. MNIST 데이터 집합을 로컬로 다운로드 합니다.
+
+    ```Python
+    os.makedirs('./data/mnist', exist_ok=True)
+
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/mnist/train-images.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/mnist/train-labels.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/mnist/test-images.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
+    ```
+
+1. 기본 데이터 저장소에는 MNIST 데이터 집합을 업로드 합니다.
+
+    ```Python
+    ds = ws.get_default_datastore()
+    ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
+    ```
+
+1. TensorFlow 학습 스크립트를 업로드 `tf_mnist.py`, 및 도우미 파일 `utils.py`합니다.
+
+    ```Python
+    shutil.copy('./tf_mnist.py', script_folder)
+    shutil.copy('./utils.py', script_folder)
+    ```
+
+## <a name="create-a-compute-target"></a>계산 대상 만들기
+
+실행 하 여 TensorFlow 작업에 대 한 계산 대상을 만듭니다. 이 예제에서는 Azure Machine Learning GPU 가능 계산 클러스터를 만듭니다.
+
+```Python
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+```
+
+계산 대상에 대 한 자세한 내용은 참조는 [계산 대상을 란](concept-compute-target.md) 문서.
+
+## <a name="create-a-tensorflow-estimator"></a>TensorFlow 예측 만들기
+
+합니다 [TensorFlow 스 티 메이 터](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 계산 대상에서 TensorFlow 교육 작업을 시작 하는 간단한 방법을 제공 합니다.
+
+제네릭 통해 구현 됩니다. TensorFlow 평가기 [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 모든 프레임 워크를 지원 하기 위해 사용할 수 있는 클래스입니다. 제네릭 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 자세한 내용은 참조 하세요. [평가기를 사용 하 여 Azure Machine Learning을 사용 하 여 모델을 학습 합니다.](how-to-train-ml-models.md)
+
+통해 해당 이름을 전달 하 여 결과 docker 이미지에 설치 된 패키지 있습니다 학습 스크립트 추가 pip 또는 conda 패키지 실행에 필요한 경우는 `pip_packages` 고 `conda_packages` 인수입니다.
+
+```Python
 script_params = {
+    '--data-folder': ws.get_default_datastore().as_mount(),
     '--batch-size': 50,
-    '--learning-rate': 0.01,
+    '--first-layer-neurons': 300,
+    '--second-layer-neurons': 100,
+    '--learning-rate': 0.01
 }
 
-# TensorFlow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params=script_params,
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    conda_packages=['scikit-learn'],
-                    use_gpu=True)
+est = TensorFlow(source_directory=script_folder,
+                 entry_script='tf_mnist.py',
+                 script_params=script_params,
+                 compute_target=compute_target,
+                 use_gpu=True)
+```
 
-# submit the TensorFlow job
-run = exp.submit(tf_est)
+## <a name="submit-a-run"></a>실행을 제출 합니다.
+
+합니다 [개체 실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 작업이 실행 되 고 완료 된 후 실행된 기록에 인터페이스를 제공 합니다.
+
+```Python
+run = exp.submit(est)
+run.wait_for_completion(show_output=True)
+```
+
+실행을 실행 하는 다음 단계를 통해 이동 합니다.
+
+- **준비**: Docker 이미지를 TensorFlow 스 티 메이 터에 따라 생성 됩니다. 이미지 작업 공간의 container registry에 업로드 이며 이후 실행에 대 한 캐시 됩니다. 로그는 실행된 기록에도 스트리밍되고 진행 상황을 모니터링 볼 수 있습니다.
+
+- **크기 조정**: 클러스터는 Batch AI 클러스터 노드를 현재 사용할 수 있는 것 보다는 실행을 실행 해야 하는 경우 확장 하려고 합니다.
+
+- **Running**: 스크립트 폴더에 있는 모든 스크립트가 계산 대상에 업로드 됩니다, 데이터 저장소는 탑재 하거나 복사할 수 고를 entry_script 실행 됩니다. Stdout에서 출력 및. / logs 폴더 실행된 기록에 스트리밍됩니다 및 실행을 모니터링 할 수 있습니다.
+
+- **후 처리 중**: 합니다. / 출력 폴더 실행의 실행된 기록에 복사 됩니다.
+
+## <a name="register-or-download-a-model"></a>등록 또는 모델을 다운로드 합니다.
+
+모델을 학습 한 후 작업 영역에 등록할 수 있습니다. 모델 등록 하면 저장소와 버전 간소화 하기 위해 작업 영역에서 모델 [모델 관리 및 배포](concept-model-management-and-deployment.md)합니다.
+
+```Python
+model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
+```
+
+또한 실행 개체를 사용 하 여 모델의 로컬 복사본을 다운로드할 수 있습니다. 학습 스크립트에서 `mnist-tf.py`, TensorFlow 보호기를 계산 대상 (로컬)를 로컬 폴더에 모델을 유지 합니다. 복사본을 다운로드 하려면 Run 개체를 사용할 수 있습니다.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
 ```
 
 ## <a name="distributed-training"></a>분산 학습
 
-합니다 [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 스 티 메이 터 CPU 및 GPU 클러스터 간에 분산된 교육을도 지원 합니다. 분산된 TensorFlow 작업을 쉽게 실행할 수 있습니다 Azure Machine Learning 서비스는 및 및 관리 인프라를 오케스트레이션 합니다.
+합니다 [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 스 티 메이 터 CPU 및 GPU 클러스터 간에 분산된 교육을도 지원 합니다. 분산된 TensorFlow 작업을 쉽게 실행할 수 있습니다 하 고 Azure Machine Learning 서비스를 오케스트레이션 관리 됩니다.
 
 Azure Machine Learning 서비스에서 TensorFlow 분산된 교육의 두 메서드를 지원합니다.
 
-* [MPI 기반](https://www.open-mpi.org/) 를 사용 하 여 학습을 분산 합니다 [Horovod](https://github.com/uber/horovod) 프레임 워크
-* 네이티브 [분산 TensorFlow](https://www.tensorflow.org/deploy/distributed) 매개 변수 서버 메서드를 사용 하 여
+- [MPI 기반](https://www.open-mpi.org/) 를 사용 하 여 학습을 분산 합니다 [Horovod](https://github.com/uber/horovod) 프레임 워크
+- 네이티브 [분산 TensorFlow](https://www.tensorflow.org/deploy/distributed) 매개 변수 서버 메서드를 사용 하 여
 
 ### <a name="horovod"></a>Horovod
 
 [Horovod](https://github.com/uber/horovod) 분산된 교육 Uber 개발한는 오픈 소스 프레임 워크입니다. 분산된 TensorFlow GPU 작업에 편리한 경로 제공합니다.
 
-다음 샘플 Horovod를 사용 하 여 두 노드 간에 분산 하는 두 명의 작업자를 사용 하 여 분산된 교육 작업을 실행 합니다.
+Horovod를 사용 하려면 지정는 [ `MpiConfiguration` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) 에 대 한 개체는 `distributed_training` TensorFlow 생성자에 매개 변수입니다. 이 매개 변수 Horovod 라이브러리에 학습 스크립트에서 사용 하 여 설치 되어 있는지 확인 합니다.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params={},
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    node_count=2,
-                    process_count_per_node=1,
-                    distributed_backend='mpi', # specifies Horovod backend
-                    use_gpu=True)
-
-# submit the TensorFlow job
-run = exp.submit(tf_est)
-```
-
-학습 스크립트에서 가져올 수 있도록 Horovod 및 해당 종속성으로 설치 됩니다.
-
-```Python
-import tensorflow as tf
-import horovod
+estimator= TensorFlow(source_directory=project_folder,
+                      compute_target=compute_target,
+                      script_params=script_params,
+                      entry_script='script.py',
+                      node_count=2,
+                      process_count_per_node=1,
+                      distributed_training=MpiConfiguration(),
+                      framework_version='1.13',
+                      use_gpu=True)
 ```
 
 ### <a name="parameter-server"></a>매개 변수 서버
 
 매개 변수 서버 모델을 사용하는 [기본 분산 TensorFlow](https://www.tensorflow.org/deploy/distributed)를 실행할 수도 있습니다. 이 방법에서는 매개 변수 서버 및 작업자 클러스터 전반에 걸쳐 학습을 실행합니다. 작업자는 학습 중에 그라데이션을 계산하고 매개 변수 서버는 그라데이션을 집계합니다.
 
-다음 샘플 매개 변수 서버에서는 사용 하 여 두 노드 간에 분산 하는 4 명의 작업자를 사용 하 여 분산된 교육 작업을 실행 합니다.
+매개 변수 서버 메서드를 사용 하려면 지정는 [ `TensorflowConfiguration` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) 개체에 대 한는 `distributed_training` TensorFlow 생성자에 매개 변수입니다.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+distributed_training = TensorflowConfiguration()
+distributed_training.worker_count = 2
+
 # Tensorflow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params={},
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    node_count=2,
-                    worker_count=2,
-                    parameter_server_count=1,
-                    distributed_backend='ps', # specifies parameter server backend
-                    use_gpu=True)
+estimator= TensorFlow(source_directory=project_folder,
+                      compute_target=compute_target,
+                      script_params=script_params,
+                      entry_script='script.py',
+                      node_count=2,
+                      process_count_per_node=1,
+                      distributed_training=distributed_training,
+                      use_gpu=True)
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)
 ```
 
-#### <a name="note-on-tfconfig"></a>`TF_CONFIG` 관련 참고 사항
+#### <a name="define-cluster-specifications-in-tfconfig"></a>클러스터 사양에 대 한 'TF_CONFIG'를 정의 합니다.
 
-네트워크 주소 및 포트에 대 한 클러스터도 필요 합니다 [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec)이므로 설정 하는 Azure Machine Learning을 `TF_CONFIG` 환경 변수를 합니다.
+네트워크 주소와 포트에 대 한 클러스터의 필요를 [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec)이므로 Azure Machine Learning 설정는 `TF_CONFIG` 환경 변수를 합니다.
 
 `TF_CONFIG` 환경 변수는 JSON 문자열입니다. 매개 변수 서버의 변수 예제는 다음과 같습니다.
 
-```
+```JSON
 TF_CONFIG='{
     "cluster": {
         "ps": ["host0:2222", "host1:2222"],
@@ -137,9 +272,9 @@ TF_CONFIG='{
 }'
 ```
 
-TensorFlow의 높은 수준의 [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow는이 구문 분석할 `TF_CONFIG` 변수와 빌드 클러스터 수에 대 한 사양입니다.
+TensorFlow의 높은 수준에 대 한 [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) TensorFlow를 구문 분석 API는 `TF_CONFIG` 변수와 빌드 클러스터 수에 대 한 사양입니다.
 
-교육에 대 한 TensorFlow의 하위 수준 core Api에 대 한 구문 분석 합니다 `TF_CONFIG` 변수와 빌드는 `tf.train.ClusterSpec` 교육 코드에서. [이 예제](https://aka.ms/aml-notebook-tf-ps)에서는 다음과 같이 **학습 스크립트**에서 해당 작업을 수행합니다.
+교육에 대 한 TensorFlow의 하위 수준 core Api에 대 한 구문 분석 합니다 `TF_CONFIG` 변수와 빌드는 `tf.train.ClusterSpec` 교육 코드에서.
 
 ```Python
 import os, json
@@ -153,33 +288,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="keras-support"></a>Keras 지원
-
-[Keras](https://keras.io/) 는 널리 사용 되는 높은 수준의 DNN Python API입니다 TensorFlow, CNTK, Theano 백 엔드를 지원 합니다. TensorFlow를 백 엔드로 사용 하는 경우 추가 Keras 간단 하 게 포함 하는 `pip_package` 생성자 매개 변수입니다.
-
-다음 샘플 인스턴스화하는 [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 스 티 메이 터 시험 삼아 제출 합니다. Keras 학습 스크립트를 실행 하 여 평가기 `keras_train.py`합니다. 작업 gpu 가능에서 실행될지 [계산 대상](how-to-set-up-training-targets.md) Keras pip 통해 종속성으로 설치를 사용 하 여 합니다.
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-keras_est = TensorFlow(source_directory='./my-keras-proj',
-                       script_params=script_params,
-                       compute_target=compute_target,
-                       entry_script='keras_train.py', # relative path to your TensorFlow job
-                       pip_packages=['keras'], # add keras through pip
-                       use_gpu=True)
-```
-
-## <a name="export-to-onnx"></a>ONNX 내보내려면
-
-사용 하 여 최적화 된 추론을 가져오려고 합니다 [ONNX 런타임](concept-onnx.md), TensorFlow 모델 학습된을 ONNX 형식으로 변환할 수 있습니다. [예제](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py)를 참조하세요.
-
-## <a name="examples"></a>예
-
-다양 한 프레임 워크를 사용 하 여 단일 노드 및 분산 TensorFlow 실행에 대 한 작업 코드 샘플을 찾을 수 있습니다 [GitHub 페이지](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
-* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
-* [학습된 모델 배포](how-to-deploy-and-where.md)
+이 문서에서는 학습 및 TensorFlow 모델을 등록 합니다. GPU 사용 하도록 설정 하는 클러스터로 모델을 배포 하는 방법에 알아보려면 GPU 모델 배포 문서를 진행 합니다.
+
+[Gpu 통한 추론을 위해 배포 하는 방법](how-to-deploy-inferencing-gpus.md)
+[Tensorboard를 사용 하 여 모니터링 하는 방법](how-to-monitor-tensorboard.md)

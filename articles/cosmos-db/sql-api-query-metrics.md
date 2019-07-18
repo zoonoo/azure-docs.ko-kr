@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546423"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447266"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -44,7 +44,7 @@ SDK는 쿼리 실행을 위한 다양한 옵션을 제공합니다. 예를 들�
 | `EnableScanInQuery` | 인덱싱을 옵트아웃(opt out)했지만 검색을 통해 쿼리를 실행하려는 경우 true로 설정해야 합니다. 요청된 필터 경로에 인덱싱이 사용되지 않는 경우에만 적용 가능합니다. | 
 | `MaxItemCount` | 왕복당 서버에 반환할 최대 항목 수입니다. -1로 설정하면 서버에서 항목 수를 관리하도록 할 수 있습니다. 또는 이 값을 낮춰서 왕복당 적은 수의 항목만 검색할 수 있습니다. 
 | `MaxBufferedItemCount` | 클라이언트 쪽 옵션이므로 파티션 간 ORDER BY를 수행할 때 메모리 사용량을 제한하는 데 사용합니다. 값이 높을수록 파티션 간 정렬 대기 시간이 줄어듭니다. |
-| `MaxDegreeOfParallelism` | Azure Cosmos DB 데이터베이스 서비스에서 병렬 쿼리를 실행하는 동안 클라이언트 쪽에서 실행되는 동시 작업 수를 가져오거나 설정합니다. 양수 속성 값은 동시 작업 수를 설정 값으로 제한합니다. 0보다 작은 값으로 설정할 경우 시스템이 실행할 동시 작업 수를 자동으로 결정합니다. |
+| `MaxDegreeOfParallelism` | Azure Cosmos DB 데이터베이스 서비스에서 병렬 쿼리를 실행하는 동안 클라이언트 쪽에서 실행되는 동시 작업 수를 가져오거나 설정합니다. 양수 속성 값 집합 값으로 동시 작업 수를 제한합니다. 0보다 작은 값으로 설정할 경우 시스템이 실행할 동시 작업 수를 자동으로 결정합니다. |
 | `PopulateQueryMetrics` | 컴파일 시간, 인덱스 루프 시간 및 문서 로드 시간과 같은 다양한 쿼리 실행 단계에서 소요한 시간에 대한 통계 정보를 자세히 로깅할 수 있습니다. 쿼리 통계의 출력을 Azure 지원과 공유하여 쿼리 성능 문제를 진단할 수 있습니다. |
 | `RequestContinuation` | 쿼리에서 반환한 불투명 연속 토큰을 전달하여 쿼리 실행을 다시 시작할 수 있습니다. 연속 토큰은 쿼리 실행에 필요한 모든 상태를 캡슐화합니다. |
 | `ResponseContinuationTokenLimitInKb` | 서버에서 반환한 연속 토큰의 최대 크기를 제한할 수 있습니다. 애플리케이션 호스트에 응답 헤더 크기에 대한 제한이 있는 경우 설정해야 합니다. 이 옵션을 설정하면 해당 쿼리에 사용된 전체 기간 및 RU를 늘릴 수 있습니다.  |
@@ -169,7 +169,7 @@ Azure Cosmos DB에서 가장 좋은 클라이언트 쪽 성능을 얻는 방법�
 
 
 #### <a name="max-item-count"></a>최대 항목 수
-쿼리의 경우 `MaxItemCount`의 값은 종단 간 쿼리 시간에 상당한 영향을 미칠 수 있습니다. 서버에 대한 각 왕복은 `MaxItemCount`의 항목 수 이상을 반환하지 않습니다(기본값은 100개 항목). 이를 더 높은 값으로 설정하면(-1이 최대이자 권장됨) 서버와 클라이언트 간 왕복 횟수를 제한되어 쿼리 기간이 전체적으로 개선됩니다. 특히 대규모 결과 집합의 쿼리의 경우가 해당됩니다.
+쿼리의 경우 `MaxItemCount`의 값은 엔드투엔드 쿼리 시간에 상당한 영향을 미칠 수 있습니다. 서버에 대한 각 왕복은 `MaxItemCount`의 항목 수 이상을 반환하지 않습니다(기본값은 100개 항목). 이를 더 높은 값으로 설정하면(-1이 최대이자 권장됨) 서버와 클라이언트 간 왕복 횟수를 제한되어 쿼리 기간이 전체적으로 개선됩니다. 특히 대규모 결과 집합의 쿼리의 경우가 해당됩니다.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -272,7 +272,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 
 ## <a name="next-steps"></a>다음 단계
-* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](how-to-sql-query.md)를 참조하세요. 
+* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](sql-query-getting-started.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
 * 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요. 
 

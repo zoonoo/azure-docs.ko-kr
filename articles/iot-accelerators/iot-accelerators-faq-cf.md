@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447933"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
@@ -61,7 +61,7 @@ IP 주소를 제거하는 두 가지 옵션이 있습니다.
 
 [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `build.ps1`을 사용하여 솔루션을 배포한 경우에만 시뮬레이션 VM에 대한 로그인이 지원됩니다.
 
-www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할 수 없습니다. 암호는 임의로 생성되고 다시 설정할 수 없으므로 로그인할 수 없습니다.
+[www.azureiotsolutions.com](www.azureiotsolutions.com) 에서 솔루션을 배포한 경우 VM에 로그인할 수 없습니다. 암호는 임의로 생성되고 다시 설정할 수 없으므로 로그인할 수 없습니다.
 
 1. VM에 공용 IP 주소를 추가합니다. [공용 IP 주소를 시뮬레이션 VM에 어떻게 추가하나요?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)를 참조하세요.
 1. VM의 IP 주소를 사용하여 VM에 대한 SSH 세션을 만듭니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0bbd13a29b8d01f64ca68c35b751b0adf0a76c58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 751de509d17b05c2515261eeb7c036ae345986fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>자습서: Netop Portal과 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Netop Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 6. 위에서 언급한 특성 외에도, Netop Portal 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | ---------------| --------- |
     | NRC-ACCOUNT-ID | “adfs-demo” |
     | NRC-EMAIL | user.userprincipalname |

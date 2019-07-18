@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776510"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
@@ -85,7 +85,7 @@ ms.locfileid: "60776510"
 |publisher|String|이미지의 게시자입니다.|
 |제품|String|이미지 제안입니다.|
 |sku|String|이미지의 SKU입니다.|
-|버전|String|이미지의 버전입니다.|
+|version|String|이미지의 버전입니다.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488955"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182255"
 ---
 ### <a name="to-take-a-backup"></a>백업을 수행하려면
 
@@ -29,7 +29,7 @@ ms.locfileid: "61488955"
 
 5. **첫 번째 일정 추가** 블레이드에서:
 
-    1. 백업 유형을 선택합니다. 빠른 복원을 위해서는 **로컬** 스냅숏을 선택합니다. 데이터 복원력을 위해서는 **클라우드** 스냅숏을 선택합니다.
+    1. 백업 유형을 선택합니다. 빠른 복원을 수행하려면 **로컬** 스냅샷을 선택합니다. 데이터를 복원하려면 **클라우드** 스냅샷을 선택합니다.
     2. 백업 빈도를 분, 시간, 일 또는 주 단위로 지정합니다.
     3. 보존 시간을 선택합니다. 보존 선택 항목은 백업 빈도에 따라 달라집니다. 예를 들어 일별 정책의 경우 보존을 주 단위로 지정하고 월별 정책의 경우 월 단위로 지정할 수 있습니다.
     4. 백업 정책의 시작 시간과 날짜를 선택합니다.

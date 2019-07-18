@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66258295"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -621,11 +621,11 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 ## <a name="patching-and-operations"></a>패치 및 작업
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>기존 리소스 그룹에서 확장 집합을 만들려면 어떻게 하나요?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>기존 리소스 그룹에서 확장 집합을 만들 수 있나요?
 
-기존 리소스 그룹에서 확장 집합을 만드는 것은 아직 Azure Portal에서 할 수는 없지만 Azure Resource Manager 템플릿에서 확장 집합을 배포할 때에는 기존 리소스 그룹을 지정할 수 있습니다. 또한 Azure PowerShell 또는 CLI를 사용하여 확장 집합을 만들 때에도 기존 리소스 그룹을 지정할 수 있습니다.
+예, 기존 리소스 그룹에서 확장 집합을 만들 수 있습니다.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹으로 이동할 수 있나요?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹을 이동할 수 있나요?
 
 예. 확장 집합 리소스를 새 구독 또는 리소스 그룹에 이동할 수 있습니다.
 
@@ -684,7 +684,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 있나요?
 
-아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
+아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254 에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들면 다음과 같습니다. 0, 1, 3...
 
@@ -698,7 +698,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 - Compute 비용은 더 이상 지불하지 않고, VM의 디스크 상태는 유지하려고 합니다.
 - 가상 머신 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.
-  - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 종단 간 확장을 원했을 수 있습니다.
+  - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 엔드투엔드 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 머신 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 머신 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
 
 ### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>가상 머신 확장 집합 인스턴스에 대 한 스냅숏을 가져올 방법 있나요?

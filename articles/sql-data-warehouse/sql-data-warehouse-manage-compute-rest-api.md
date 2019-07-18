@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 658b35163e20d024118bc7a3142c86614540f00c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66476065"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
 Azure SQL Data Warehouse에서 계산을 관리하기 위한 REST API입니다.
@@ -52,12 +52,15 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## <a name="check-database-state"></a>데이터베이스 상태 확인
 
+> [!NOTE]
+> 현재 데이터베이스에서 연결 오류가 발생 하 고 온라인 워크플로 완료 하는 동안 데이터베이스 상태 확인 온라인을 반환할 수 있습니다. 연결 시도 트리거하려면이 API 호출을 사용 하는 경우 2 ~ 3 분 지연 응용 프로그램 코드에 추가 해야 합니다.
+
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
 ## <a name="get-maintenance-schedule"></a>유지 관리 일정 가져오기
-데이터 웨어하우스에 대 한 설정 된 유지 관리 일정을 확인 합니다. 
+데이터 웨어하우스에 대해 설정된 유지 관리 일정을 확인합니다. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -65,7 +68,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>유지 관리 일정 설정
-설정 하 고 기존 데이터 웨어하우스를 maintnenance 일정을 업데이트 합니다.
+기존 데이터 웨어하우스의 유지 관리 일정을 설정하고 업데이트합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60555439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799625"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정
 
@@ -143,7 +144,7 @@ Video Indexer 실제 수정 사용자를 기반으로 모델의 해당 비디오
 
    파일 "에서 기록 편집" 언어 모델의 각를 살펴보려면 클릭 하 여 엽니다. 
 
-    ![원본 대본 편집](./media/customize-language-model/from-transcript-edits.png)
+    ![대 본 편집에서](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>다음 단계
 

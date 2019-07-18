@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: VM 백업 - CLI
       href: quick-backup-vm-cli.md
+    - name: VM 백업 - Resource Manager 템플릿
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: 자습서
   items:
     - name: 대규모 Azure VM 백업
@@ -21,6 +24,10 @@
       href: tutorial-restore-disk.md
     - name: 개별 파일 복원
       href: tutorial-restore-files.md
+    - name: Azure VM에 SQL Server 백업
+      href: tutorial-sql-backup.md
+    - name: Azure Files 파일 공유 백업
+      href: tutorial-backup-azure-files.md
     - name: Windows Server 백업
       href: tutorial-backup-windows-server-to-azure.md
     - name: Windows Server로 파일 복원
@@ -55,6 +62,10 @@
           href: backup-azure-files-faq.md
         - name: FAQ-Azure VM에 SQL Server 데이터베이스 백업
           href: faq-backup-sql-server.md
+        - name: FAQ-Azure Backup Server 및 DPM
+          href: backup-azure-dpm-azure-server-faq.md
+        - name: FAQ-Azure Backup 모니터링 경고
+          href: backup-azure-monitor-alert-faq.md
     - name: 백업 아키텍처
       href: backup-architecture.md
     - name: 역할 기반 Access Control
@@ -137,8 +148,6 @@
           items:
             - name: Azure VM 백업 관리
               href: backup-azure-manage-vms.md
-            - name: Azure VM 백업에 대한 경고 모니터링
-              href: backup-azure-monitor-vms.md
         - name: Azure VM 복원
           items:
             - name: 포털에서 Azure VM 복원
@@ -205,6 +214,8 @@
           href: restore-sql-database-azure-vm.md
         - name: 백업된 SQL Server 데이터베이스 관리
           href: manage-monitor-sql-database-backup.md
+    - name: Azure VM에 SAP HANA 데이터베이스 백업
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Windows Server 파일 및 폴더 백업
@@ -215,18 +226,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Windows Server 시스템 상태 복원
           href: backup-azure-restore-system-state.md
-        - name: Recovery Services 자격 증명 모음 모니터링 및 관리
-          href: backup-azure-manage-windows-server.md
     - name: Recovery Services 자격 증명 모음
       items:
         - name: Recovery Services 자격 증명 모음 개요
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Recovery Services 자격 증명 모음 만들기
+          href: backup-create-rs-vault.md
         - name: Recovery Services 자격 증명 모음 삭제
           href: backup-azure-delete-vault.md
         - name: Recovery Services 자격 증명 모음 이동
           href: backup-azure-move-recovery-services-vault.md
+        - name: Recovery Services 자격 증명 모음 모니터링 및 관리
+          href: backup-azure-manage-windows-server.md
     - name: 문제 해결
       items:
         - name: Azure VM
@@ -245,6 +256,10 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Azure VM에서 SAP HANA 백업
+          href: backup-azure-sap-hana-database-troubleshoot.md
+        - name: 시스템 상태
+          href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup 워크로드 모니터링
       items:
         - name: Azure Portal 사용

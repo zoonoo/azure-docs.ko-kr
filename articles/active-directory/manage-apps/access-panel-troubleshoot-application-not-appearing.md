@@ -3,8 +3,8 @@ title: 할당한 애플리케이션이 액세스 패널에 표시되지 않음 |
 description: 애플리케이션이 액세스 패널에 표시되지 않는 문제 해결
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294024"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272749"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>할당한 애플리케이션이 액세스 패널에 표시되지 않음
 
@@ -399,7 +399,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> 암호 single sign-on에 대 한 응용 프로그램 구성
 
 애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 

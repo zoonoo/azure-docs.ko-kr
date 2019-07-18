@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66153476"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
 If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 
@@ -66,9 +66,9 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 
 자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-이름 | if 조건 작업의 이름입니다. | 문자열 | 예
-형식 | **IfCondition**으로 설정해야 함 | 문자열 | 예
-식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
+name | if 조건 작업의 이름입니다. | String | 예
+type | **IfCondition**으로 설정해야 함 | String | 예
+expression | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
 ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
 ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
 

@@ -1,30 +1,24 @@
 ---
 title: 요청 한도 및 제한 - Azure Resource Manager
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389732"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705113"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
-각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
+각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 한도 보안 주체 (사용자 또는 응용 프로그램)에 범위를 요청 하 고 구독 ID 또는 id입니다. 테 넌 트 보안 주체 보다 좀 더에 요청이 들어 올, 구독 또는 테 넌 트 제한을 12,000 및 시간당 1,200 개 보다 큽니다.
 
-요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독 내의 리소스 그룹 검색과 같이 구독 ID가 전달되는 요청입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
+요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독의 리소스 그룹을 검색 하는 등, 구독 ID 전달을 포함 하는입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
 
 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 
@@ -32,12 +26,12 @@ ms.locfileid: "60389732"
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure 리소스 그래프는 해당 작업에 대 한 요청 수를 제한합니다. 나머지 요청 및 제한에 도달 하면 응답 하는 방법을 확인 하려면이 문서의 단계는 리소스 그래프에도 적용 됩니다. 그러나 리소스 그래프는 자신의 제한 및 다시 설정 속도 설정합니다. 자세한 내용은 [Azure 리소스 그래프에서 제한](../governance/resource-graph/overview.md#throttling)합니다.
 
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 읽기 요청 나머지 읽기 요청 수에 대 한 헤더에서 값을 반환합니다. 나머지 쓰기 요청 수에 대 한 값을 포함 하는 요청을 작성 합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
 
-| 응답 헤더 | 설명 |
+| 응답 헤더 | Description |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |구독에 범위가 지정된 나머지 읽기. 이 값은 읽기 작업에서 반환됩니다. |
 | x-ms-ratelimit-remaining-subscription-writes |구독에 범위가 지정된 나머지 쓰기. 이 값은 쓰기 작업에서 반환됩니다. |

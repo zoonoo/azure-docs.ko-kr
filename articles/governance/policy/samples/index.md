@@ -1,20 +1,18 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 샘플 인덱스입니다. 범주에는 이름 지정, 태그, Key Vault, 네트워킹, 스토리지 등이 포함됩니다.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 01/17/2018
-ms.date: 04/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/19/2019
+ms.author: dacoulte
+ms.openlocfilehash: 140429cef7f63219a0d5cf82c6ebfb3731b0072b
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865904"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979658"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -25,6 +23,8 @@ ms.locfileid: "60865904"
 [!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
 
 [!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+
+[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
 
 [!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
 
@@ -38,5 +38,5 @@ ms.locfileid: "60865904"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.

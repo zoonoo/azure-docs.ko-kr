@@ -11,10 +11,10 @@ ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61421225"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse 권장 사항
@@ -46,7 +46,7 @@ SQL Data Warehouse Advisor에 대한 피드백이 있거나 문제가 있는 경
 복제된 테이블 권장 사항의 경우 Advisor는 다음과 같은 물리적 특징에 따라 테이블 후보를 검색합니다.
 
 - 복제 테이블 크기
-- 열 수
+- 열 개수
 - 테이블 배포 형식
 - 파티션 수
 

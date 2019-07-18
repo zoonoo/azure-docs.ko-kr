@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 사용
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 6483fa8737ee3de6a60c4e4646fefec30ae702b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 026cab6a5749f556d6f748c80e492d1c920767d1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473418"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708401"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -178,7 +178,7 @@ Azure에서 사용자 지정 VM을 만든 다음, OS 디스크를 복사하고 �
 
 ### <a name="create-a-snapshot"></a>스냅숏 만들기
 
-이 예에서는 *myResourceGroup*이라는 리소스 그룹에 *myVM*이라는 VM의 스냅숏을 만들고 *osDiskSnapshot*이라는 스냅숏을 만듭니다.
+이 예에서는 *myResourceGroup*이라는 리소스 그룹에 *myVM*이라는 VM의 스냅샷을 만들고 *osDiskSnapshot*이라는 스냅샷을 만듭니다.
 
 ```azure-cli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -189,15 +189,15 @@ az snapshot create \
 ```
 ###  <a name="create-the-managed-disk"></a>관리 디스크 만들기
 
-스냅숏에서 새 관리 디스크를 만듭니다.
+스냅샷에서 새 관리 디스크를 만듭니다.
 
-스냅숏의 ID를 가져옵니다. 이 예제에서 스냅숏 이름은 *osDiskSnapshot*이며 *myResourceGroup* 리소스 그룹에 있습니다.
+스냅샷의 ID를 가져옵니다. 이 예제에서 스냅샷 이름은 *osDiskSnapshot*이며 *myResourceGroup* 리소스 그룹에 있습니다.
 
 ```azure-cli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
-관리 디스크를 만듭니다. 이 예제에서는 스냅숏에서 *myManagedDisk*라는 관리 디스크를 만듭니다. 이 디스크는 표준 저장소에 있으며 크기는 128GB입니다.
+관리 디스크를 만듭니다. 이 예제에서는 스냅샷에서 *myManagedDisk*라는 관리 디스크를 만듭니다. 이 디스크는 표준 저장소에 있으며 크기는 128GB입니다.
 
 ```azure-cli
 az disk create \

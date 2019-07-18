@@ -4,7 +4,7 @@ description: 가상 머신 확장을 사용하여 Windows 가상 머신에 Log A
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b9d0e582b77dc06e1655a7bdb57ee232c603bc86
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142871"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706674"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 azure 모니터링 가상 머신 확장
 
@@ -28,7 +28,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -36,6 +36,20 @@ Windows에 대 한 Log Analytics 에이전트 확장은 다음 버전의 Windows
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016 버전 1709 및 1803
+
+### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
+다음 표에서 Windows Azure 모니터 VM 확장 및 각 릴리스에 대 한 Log Analytics 에이전트 번들 버전의 매핑을 제공합니다. 
+
+| Log Analytics Windows 에이전트 번들 버전 | Azure Monitor Windows VM 확장 버전 | 릴리스 날짜 | 릴리스 정보 |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 향상 된 기능 </li><li> 프록시 연결 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원)을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 </li></ul>|
+| 10.19.13515 | 1.0.13515 | 2019 년 3 월 | <ul><li>안정화 사소한 수정 </li></ul> |
+| 10.19.10006 | n/a | 2018 년 12 월 | <ul><li> 안정화 사소한 수정 </li></ul> | 
+| 8.0.11136 | n/a | 2018 년 9 월 |  <ul><li> VM 이동에 리소스 ID가 변경 검색에 대 한 지원 추가 </li><li> 리소스 ID를 비 확장을 사용 하는 경우 설치를 보고에 대 한 지원 추가 </li></ul>| 
+| 8.0.11103 | n/a |  2018년 4월 | |
+| 8.0.11081 | 1.0.11081 | 2017 년 11 월 | | 
+| 8.0.11072 | 1.0.11072 | 9 월 2017 | |
+| 8.0.11049 | 1.0.11049 | 2017 년 2 월 | |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -77,7 +91,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| 형식 | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId(예)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -148,7 +162,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzVMExtension` 명령을 사용하여 Log Analytics 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
+`Set-AzVMExtension` 명령을 사용하여 Log Analytics 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 프라이빗 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
@@ -181,6 +195,6 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
 ```
 
-### <a name="support"></a>지원
+### <a name="support"></a>Support(지원)
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

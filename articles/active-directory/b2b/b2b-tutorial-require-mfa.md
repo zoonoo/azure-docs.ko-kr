@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113194"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
-외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스에 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
+외부 B2B 게스트 사용자와 공동 작업하는 경우 MFA(다단계 인증) 정책으로 앱을 보호하는 것이 좋습니다. 이렇게 하면 외부 사용자가 사용자 이름과 암호만으로는 리소스에 액세스할 수 없습니다. Azure AD(Azure Active Directory)에서는 액세스를 위해 MFA가 필요한 조건부 액세스 정책을 사용하여 이 목표를 달성할 수 있습니다. 조직의 멤버에게 MFA 정책을 사용하는 것과 같은 방법으로 MFA 정책을 테넌트, 앱 또는 개별 게스트 사용자 수준에서 적용할 수 있습니다.
 
 예제:
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 
- - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
+ - 조건부 액세스 정책 기능을 포함하는 **Azure AD Premium Edition에 대한 액세스 권한**. MFA를 적용하려면 Azure AD 조건부 액세스 정책을 만들어야 합니다. 파트너에게 MFA 기능이 있는지 여부에 관계없이 MFA 정책은 조직에서 항상 적용됩니다. 조직에 대한 MFA를 설정할 경우 게스트 사용자를 위해 충분한 Azure AD Premium 라이선스를 보유하고 있는지 확인해야 합니다. 
  - 게스트 사용자로 테넌트 디렉터리에 추가하고 로그인하는 데 사용할 수 있는 **유효한 외부 메일 계정**. 게스트 계정을 만드는 방법을 잘 모르는 경우 [Azure Portal에서 B2B 게스트 사용자 추가](add-users-administrator.md)를 참조하세요.
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Azure AD에서 테스트 게스트 사용자 만들기
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2.  로그인 자격 증명만 사용하여 Azure Portal에 액세스할 수 있습니다. 추가 인증이 필요하지 않습니다.
 3.  로그아웃합니다.
 
-## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책을 만듭니다.
+## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>MFA가 필요한 조건부 액세스 정책 만들기
 1.  [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 2.  Azure Portal에서 **Azure Active Directory**를 선택합니다. 
 3.  **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 선택합니다.
@@ -142,4 +142,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  **정책 이름** 목록에서 테스트 정책의 상황에 맞는 메뉴(…)를 선택한 후 **삭제**를 선택합니다. **예**를 선택하여 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 게스트 사용자가 클라우드 앱 중 하나에 로그인할 때 MFA를 사용해야 하는 조건부 액세스 정책을 만들었습니다. 공동 작업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)를 참조하세요.
+이 자습서에서는 게스트 사용자가 클라우드 앱 중 하나에 로그인할 때 MFA를 사용해야 하는 조건부 액세스 정책을 만들었습니다. 협업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](add-users-administrator.md)를 참조하세요.

@@ -1,21 +1,21 @@
 ---
 title: Ink Recognizer란? - Ink Recognizer API
-titlesuffix: Azure Cognitive Services
-description: Ink Recognizer를 애플리케이션, 웹 사이트, 도구 및 기타 솔루션과 통합하여...
+titleSuffix: Azure Cognitive Services
+description: Ink Recognizer를 애플리케이션, 웹 사이트, 도구 및 기타 솔루션과 통합하여 잉크 스트로크 데이터를 입력으로 식별하고 사용하도록 합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026689"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721408"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Ink Recognizer API란?
 

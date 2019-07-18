@@ -3,17 +3,17 @@ title: Azure Maps의 인증 관리 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Maps의 인증을 관리할 수 있습니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694102"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837809"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -59,13 +59,13 @@ Azure Maps 계정을 만들면 Azure AD 테 넌 트 및 Azure Maps 리소스 사
 
 ## <a name="grant-rbac-to-azure-maps"></a>Azure Maps에 RBAC 부여
 
-Azure AD 테 넌 트를 사용 하 여 Azure Maps 계정을 연결한 후에 사용자 또는 응용 프로그램 하나 이상의 Azure Maps 액세스 제어 역할을 할당 하 여 액세스 제어를 부여할 수 있습니다.
+Azure AD 테 넌 트를 사용 하 여 Azure Maps 계정을 연결한 후에 사용자, 그룹 또는 응용 프로그램 하나 이상의 Azure Maps 액세스 제어 역할을 할당 하 여 액세스 제어를 부여할 수 있습니다.
 
 1. 로 이동 **액세스 제어 (IAM)** 를 선택 **역할 할당**를 선택한 후 **역할 할당 추가**합니다.
 
     ![RBAC 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. 에 **역할 할당 추가** 창 아래에 있는 **역할**를 선택 **Azure Maps 날짜 판독기 (미리 보기)** 합니다. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 아래 **선택**, 사용자 또는 응용 프로그램을 선택 합니다. **저장**을 선택합니다.
+2. 에 **역할 할당 추가** 창 아래에 있는 **역할**를 선택 **Azure Maps 날짜 판독기 (미리 보기)** 합니다. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 아래 **선택**, 사용자 또는 응용 프로그램을 선택 합니다.           **저장**을 선택합니다.
 
     ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
 
@@ -98,4 +98,8 @@ RBAC는 세분화 된 액세스 제어를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure AD 인증 및 Azure Maps 웹 SDK에 대한 자세한 내용은 [Azure AD 및 Azure Maps 웹 SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조하세요.
+Azure AD 인증 및 Azure Maps 웹 SDK에 대한 자세한 내용은 [Azure AD 및 Azure Maps 웹 SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조하세요.
+
+Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [사용 메트릭 보기](how-to-view-api-usage.md)

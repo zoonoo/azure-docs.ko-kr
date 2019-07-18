@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143653"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839670"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -33,7 +33,7 @@ ms.locfileid: "65143653"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
@@ -56,7 +56,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 3. 다음 정보로 SQL Data Warehouse 양식을 작성합니다.   
 
-   | 설정 | 제안 값 | 설명 | 
+   | 설정 | 제안된 값 | Description | 
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
@@ -65,14 +65,14 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
     ![데이터 웨어하우스 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 양식**을 작성합니다. 
+4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
-    | 설정 | 제안 값 | Description | 
+    | 설정 | 제안된 값 | Description | 
     | ------- | --------------- | ----------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -80,12 +80,12 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다. 슬라이더를 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다.  슬라이더를 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **적용**을 클릭합니다.
-9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
+9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
 11. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -93,11 +93,11 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 12. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
     
-     ![알림](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![알림(notification)](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준에서의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -105,7 +105,7 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 **SQL Database** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
 
-2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 후 서버 이름을 클릭하여 서버 설정을 엽니다.
+2. 뒷부분의 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 그런 후 서버 이름을 클릭하여 서버 설정을 엽니다.
 
     ![서버 이름 찾기](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
@@ -119,7 +119,7 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **Save**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
@@ -146,7 +146,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. **서버에 연결** 대화 상자에서 다음 정보를 입력합니다.
 
-    | 설정      | 제안 값 | 설명 | 
+    | 설정      | 제안된 값 | 설명 | 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver-20180430.database.windows.net**과 비슷해야 합니다. |
@@ -187,7 +187,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다. 이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
+5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -231,7 +231,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -564,7 +564,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>(선택 사항) 부하를 관리 되는 id를 사용 하 여 인증
 PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 가장 안전한 메커니즘 및 Azure storage를 사용 하 여 VNet 서비스 엔드포인트를 활용할 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
 3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
@@ -590,7 +590,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
   
 1. **Azure Storage 계정에 대한 Polybase 연결:**
     
-   1. 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다 **IDENTITY ' 관리 서비스 Id ' =**:
+   1. 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다 **IDENTITY ' 관리 서비스 Id ' =** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -603,7 +603,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
         
    1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
 
-다음을 참조 하십시오 [설명서] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) SQL Data Warehouse에 대 한 virtual network 서비스 끝점을 설정 하려는 경우. 
+다음을 참조 하십시오 [설명서](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) SQL Data Warehouse에 대 한 virtual network 서비스 끝점을 설정 하려는 경우. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -640,7 +640,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
 > * 로드될 때 데이터의 진행 상태 확인
 > * 새로 로드한 데이터에 대한 통계 생성
 
-마이그레이션 개요를 계속 진행하여 기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법을 알아보세요.
+SQL Data Warehouse를 기존 데이터베이스를 마이그레이션하는 방법을 알아보려면 개발 개요로 이동 합니다.
 
 > [!div class="nextstepaction"]
->[기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법 알아보기](sql-data-warehouse-overview-migrate.md)
+>[기존 데이터베이스를 SQL Data Warehouse에 마이그레이션하려면 디자인 결정](sql-data-warehouse-overview-migrate.md)

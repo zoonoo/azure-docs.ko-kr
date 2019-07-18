@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b615bbe7ffdf2f709cd7d7b0add4f956bec6a84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65779473"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -37,29 +37,30 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-int
 
 Azure Files는 클라이언트 애플리케이션에 광범위한 두 가지 방법을 제공합니다. SMB(서버 메시지 블록) 및 REST .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
 
-API | 사용하는 경우 | 메모
+API | 사용 시기 | 메모
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 애플리케이션의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
-[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `WindowsAzure.Storage`를 사용하는 방법을 보여줍니다.
+[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | 사용자 애플리케이션의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `Microsoft.Azure.Storage.File`를 사용하는 방법을 보여줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 애플리케이션 만들기 및 어셈블리 가져오기
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이 단계는 다른 버전의 Visual Studio에서도 유사합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
-2. **설치됨** > **템플릿** > **Visual C#** > **Windows 기본 바탕 화면**을 선택합니다.
+2. **설치됨** > **템플릿** > **Visual C#**  > **Windows 기본 바탕 화면**을 선택합니다.
 3. **콘솔 앱(.NET Framework)** 를 선택합니다.
 4. **이름:** 필드에서 애플리케이션의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
 이 자습서의 모든 코드 예제는 콘솔 애플리케이션에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
-Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이션을 포함하여 .NET 애플리케이션의 모든 형식에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
+Azure 클라우드 서비스 또는 웹 앱을 포함 한.NET 응용 프로그램 및 데스크톱 및 모바일 응용 프로그램의 모든 형식에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
 
-* [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 스토리지 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
-* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
+* [.NET 용 Microsoft Azure Storage 공통 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): 이 패키지는 저장소 계정에 공통 리소스에 프로그래밍 방식 액세스를 제공합니다.
+* [.NET 용 Microsoft Azure Storage Blob 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): 이 패키지는 저장소 계정의 Blob 리소스에 프로그래밍 방식 액세스를 제공 합니다.
+* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
 
@@ -90,9 +91,9 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
-using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
-using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
+using Microsoft.Azure.Storage; // Namespace for Storage Client Library
+using Microsoft.Azure.Storage.Blob; // Namespace for Azure Blobs
+using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -157,7 +158,7 @@ if (share.Exists())
 {
     // Check current usage stats for the share.
     // Note that the ShareStats object is part of the protocol layer for the File service.
-    Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+    Microsoft.Azure.Storage.File.Protocol.ShareStats stats = share.GetStats();
     Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
     // Specify the maximum size of the share, in GB.
@@ -220,7 +221,7 @@ if (share.Exists())
 }
 ```
 
-공유 액세스 서명을 만들고 사용하는 방법에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 및 [Azure Blob을 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
+공유 액세스 서명 만들기 및 사용에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 ## <a name="copy-files"></a>파일 복사
 Azure Storage 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 다음 섹션에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
@@ -324,12 +325,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 BLOB인 경우 복사 작업 동안 해당 BLOB에 대한 액세스를 인증하는 SAS를 만듭니다.
 
-## <a name="share-snapshots"></a>공유 스냅숏
-Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏을 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
+## <a name="share-snapshots"></a>공유 스냅샷
+Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅샷을 만들 수 있습니다. 또한 공유 스냅샷을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅샷은 읽기 전용이므로 공유 스냅샷에 쓰기 작업이 허용되지 않습니다.
 
 **공유 스냅숏 만들기**
 
-다음 예제에서는 파일 공유 스냅숏을 만듭니다.
+다음 예제에서는 파일 공유 스냅샷을 만듭니다.
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -341,7 +342,7 @@ var snapshotShare = myShare.Snapshot();
 ```
 **공유 스냅숏 나열**
 
-다음 예제에서는 공유에 공유 스냅숏을 나열합니다.
+다음 예제에서는 공유에 공유 스냅샷을 나열합니다.
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -349,7 +350,7 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 **공유 스냅숏 내에서 파일 및 디렉터리 찾아보기**
 
-다음 예제에서는 공유 스냅숏 내에서 파일 및 디렉터리를 찾습니다.
+다음 예제에서는 공유 스냅샷 내에서 파일 및 디렉터리를 찾습니다.
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -359,9 +360,9 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 **공유 및 공유 스냅숏 나열 및 공유 스냅숏의 파일 공유 또는 파일 복원** 
 
-파일 공유의 스냅숏을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
+파일 공유의 스냅샷을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
 
-파일 공유의 공유 스냅숏을 쿼리하여 파일 공유 스냅숏의 파일을 복원할 수 있습니다. 그런 다음 특정 공유 스냅숏에 속하는 파일을 검색하고 해당 버전을 사용하여 직접 읽고 비교하거나 복원할 수 있습니다.
+파일 공유의 공유 스냅샷을 쿼리하여 파일 공유 스냅샷의 파일을 복원할 수 있습니다. 그런 다음, 특정 공유 스냅샷에 속하는 파일을 검색하고 해당 버전을 사용하여 직접 읽고 비교하거나 복원할 수 있습니다.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -392,7 +393,7 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 **공유 스냅숏 삭제**
 
-다음 예제에서는 파일 공유 스냅숏을 삭제합니다.
+다음 예제에서는 파일 공유 스냅샷을 삭제합니다.
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
@@ -401,18 +402,18 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>메트릭을 사용하여 Azure Files 문제 해결
 이제 Azure 저장소 분석은 Azure Files에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
-[Azure Portal](https://portal.azure.com)에서 Azure Files에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
+Azure Files에 대 한 메트릭을 사용할 수 있습니다 합니다 [Azure portal](https://portal.azure.com)합니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
 다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 Azure Files에 대한 메트릭을 사용하도록 설정하는 방법을 보여 줍니다.
 
 먼저 위에서 추가한 항목 외에도 다음 `using` 지시문을 `Program.cs` 파일에 추가합니다.
 
 ```csharp
-using Microsoft.WindowsAzure.Storage.File.Protocol;
-using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+using Microsoft.Azure.Storage.File.Protocol;
+using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Azure Blob, Azure Table 및 Azure Queue는 `Microsoft.WindowsAzure.Storage.Shared.Protocol`네임스페이스에서 `ServiceProperties` 공유 형식을 사용하지만, Azure Files는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유 형식인 `FileServiceProperties`을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
+Azure Blob, Azure Table 및 Azure Queue는 `Microsoft.Azure.Storage.Shared.Protocol`네임스페이스에서 `ServiceProperties` 공유 형식을 사용하지만, Azure Files는 `Microsoft.Azure.Storage.File.Protocol` 네임스페이스에서 고유 형식인 `FileServiceProperties`을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -423,7 +424,7 @@ CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Set metrics properties for File service.
 // Note that the File service currently uses its own service properties type,
-// available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+// available in the Microsoft.Azure.Storage.File.Protocol namespace.
 fileClient.SetServiceProperties(new FileServiceProperties()
 {
     // Set hour metrics
@@ -455,7 +456,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-또한 종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
+또한 엔드투엔드 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.

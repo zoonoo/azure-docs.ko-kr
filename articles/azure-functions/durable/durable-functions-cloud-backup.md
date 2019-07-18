@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 0bef5f1b64ec9f322070ba5c36cab138c7327da2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741276"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
@@ -67,7 +67,7 @@ ms.locfileid: "60741276"
 4. 모든 업로드가 완료될 때까지 기다립니다.
 5. Azure Blob Storage에 업로드된 총 바이트 수를 반환합니다.
 
-`await Task.WhenAll(tasks);`(C#) 및 `yield context.df.Task.all(tasks);`(JavaScript) 줄을 확인합니다. `E2_CopyFileToBlob` 함수에 대한 모든 개별 호출이 ‘대기하지 않았습니다’. 이 줄은 병렬로 실행할 수 있도록 하기 위해 의도적으로 작성되었습니다. 이 작업 배열을 `Task.WhenAll`(C#) 또는 `context.df.Task.all`(JavaScript)에 전달하면 ‘모든 복사 작업이 완료될 때까지’ 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리) 또는 JavaScript의 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, Durable Functions 확장은 종단 간 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
+`await Task.WhenAll(tasks);`(C#) 및 `yield context.df.Task.all(tasks);`(JavaScript) 줄을 확인합니다. `E2_CopyFileToBlob` 함수에 대한 모든 개별 호출이 ‘대기하지 않았습니다’.  이 줄은 병렬로 실행할 수 있도록 하기 위해 의도적으로 작성되었습니다. 이 작업 배열을 `Task.WhenAll`(C#) 또는 `context.df.Task.all`(JavaScript)에 전달하면 ‘모든 복사 작업이 완료될 때까지’ 완료되지 않는 작업을 다시 가져옵니다.  .NET의 TPL(작업 병렬 라이브러리) 또는 JavaScript의 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, Durable Functions 확장은 엔드투엔드 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
 
 > [!NOTE]
 > 작업은 개념상 JavaScript 프라미스와 비슷하지만 오케스트레이터 함수는 `Promise.all` 및 `Promise.race` 대신 `context.df.Task.all` 및 `context.df.Task.any`를 사용하여 작업 병렬 처리를 관리해야 합니다.

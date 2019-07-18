@@ -4,17 +4,17 @@ description: Windows 가상 데스크톱 테 넌 트 환경을 설치 하는 동
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 9f52d1b949310792ffedc6e4723fbfb423fb5dfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928499"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786723"
 ---
-# <a name="tenant-and-host-pool-creation"></a>테 넌 트 및 호스트 풀 만들기
+# <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트와 관련 된 세션 호스트 풀 인프라의 초기 설치 중 문제를 다룹니다.
 
@@ -118,6 +118,17 @@ Azure Resource Manager 템플릿 및 PowerShell DSC의 실패 한 배포 문제�
 **원인 2:** 도메인 이름이 확인 되지 않습니다.
 
 **2 해결 방법:** Vm을 도메인에 가입 되지에 대해 "도메인 이름이 확인 하지 않습니다." 오류를 참조 하세요 [세션 호스트 VM 구성을](troubleshoot-vm-configuration.md)합니다.
+
+
+### <a name="error-your-deployment-failedunauthorized"></a>오류: 프로그램 배포 failed...\Unauthorized
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**원인:** 사용 중인 구독에는 고객 배포를 시도 하는 지역에 필요한 기능에 액세스할 수 없는 형식입니다. 예를 들어, MSDN, 무료, 또는 교육 구독이이 오류를 표시할 수 있습니다.
+
+**해결 방법:** 필요한 기능에 액세스할 수 있는 사용자의 구독 유형이 나 지역을 변경 합니다.
 
 ### <a name="error-vmextensionprovisioningerror"></a>오류: VMExtensionProvisioningError
 
@@ -300,7 +311,6 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-Set-RdsContext -Name <Windows Virtual Desktop tenant group name>
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 

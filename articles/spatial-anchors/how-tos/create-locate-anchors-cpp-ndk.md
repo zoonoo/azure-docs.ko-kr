@@ -1,21 +1,21 @@
 ---
-title: 만들기 및 Azure 공간 앵커를 사용 하 여 C + 앵커를 찾는 방법 + NDK | Microsoft Docs
-description: 만들기 및 Azure 공간 앵커를 사용 하 여 C + 앵커를 찾는 방법의 자세한 설명은 + NDK 합니다.
+title: C++/NDK에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법 | Microsoft Docs
+description: C++/NDK에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7de83b14617245eb2c046eb7cd2f5f26c509517c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3d0295512452367cb0f70f1d9ca6e950d6649353
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999572"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669316"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>만들기 및 Azure 공간 앵커를 사용 하 여 C + 앵커를 찾는 방법 + NDK
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>C++/NDK에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,25 +25,25 @@ ms.locfileid: "59999572"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 가지 다양한 개발 환경을 지원합니다. C + Azure 공간 앵커 SDK를 사용 하는 방법에 알아보겠습니다이 문서에서는 + NDK를 합니다.
+Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 가지 다양한 개발 환경을 지원합니다. 이 문서에서는 다음을 수행하기 위해 C++/NDK에서 Azure Spatial Anchors SDK를 사용하는 방법을 자세히 알아보겠습니다.
 
-- 올바르게 설정 하 고 Azure 공간 앵커 세션을 관리 합니다.
-- 페이지를 만들고 로컬 앵커에 속성을 설정 합니다.
-- 클라우드로 업로드 합니다.
-- 찾아서 클라우드 공간 앵커를 삭제 합니다.
+- Azure Spatial Anchors 세션을 올바르게 설정하고 관리합니다.
+- 로컬 앵커에 속성을 만들고 설정합니다.
+- 클라우드에 업로드합니다.
+- 클라우드 공간 앵커를 찾아 삭제합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 가이드를 완료 하려면 했는지 확인 합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
-- 에 대 한 기본 지식 C++ 하며 <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>합니다.
-- 에 대 한 기본 지식이 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
+- C++ 및 <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>에 대한 기본 지식.
+- <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7에 대한 기본 지식.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-에 대 한 자세한 정보는 [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) 구조체입니다.
+[CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) 구조체에 대해 자세히 알아봅니다.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
@@ -53,7 +53,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-에 대 한 자세한 정보는 [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) 구조체입니다.
+[SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) 구조체에 대해 자세히 알아봅니다.
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -69,7 +69,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-에 대 한 자세한 정보는 [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) 위임 합니다.
+[TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
@@ -118,7 +118,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-에 대 한 자세한 정보는 [시작](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) 메서드.
+[Start](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->Session(ar_session_);
@@ -127,7 +127,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-에 대 한 자세한 정보는 [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) 메서드.
+[ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
@@ -135,7 +135,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-에 대 한 자세한 정보는 [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) 위임 합니다.
+[SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -151,7 +151,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-에 대 한 자세한 정보는 [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) 구조체입니다.
+[CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) 구조체에 대해 자세히 알아봅니다.
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -168,7 +168,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
     }
     ArHitResult* ar_hit = nullptr;
     ArHitResult_create(ar_session_, &ar_hit);
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ArHitResultList_getItem(ar_session_, hit_result_list, 0, ar_hit);
     if (ArHitResult_acquireNewAnchor(ar_session_, ar_hit, &localAnchor) != AR_SUCCESS) return;
@@ -203,7 +203,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-에 대 한 자세한 정보는 [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) 메서드.
+[GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
@@ -220,7 +220,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-에 대 한 자세한 정보는 [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) 메서드.
+[AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
@@ -235,7 +235,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-에 대 한 자세한 정보는 [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) 메서드.
+[UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -252,7 +252,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-에 대 한 자세한 정보는 [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) 메서드.
+[GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -274,7 +274,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-에 대 한 자세한 정보는 [만료](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) 메서드.
+[Expiration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
@@ -285,7 +285,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-에 대 한 자세한 정보는 [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) 메서드.
+[CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
@@ -295,7 +295,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-에 대 한 자세한 정보는 [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) 위임 합니다.
+[AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -323,7 +323,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-에 대 한 자세한 정보는 [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) 메서드.
+[DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
@@ -333,7 +333,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-에 대 한 자세한 정보는 [중지](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) 메서드.
+[Stop](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->Stop();
@@ -341,7 +341,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-에 대 한 자세한 정보는 [재설정](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) 메서드.
+[Reset](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     cloudSession_->Reset();

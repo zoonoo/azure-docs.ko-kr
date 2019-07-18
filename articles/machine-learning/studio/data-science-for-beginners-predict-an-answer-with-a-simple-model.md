@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751582"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
@@ -97,7 +97,7 @@ ms.locfileid: "60751582"
 ![모델에서 해답 찾기](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>신뢰 구간 만들기
-이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간*이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
+이 예측이 얼마나 정확한지 궁금해하는 것은 당연하겠죠. 1\.35 캐럿 다이아몬드 가격이 10,000에 아주 가까운지, 약간 더 높은지 또는 더 낮은지를 알면 도움이 됩니다. 이를 알아내기 위해 회귀 직선 주위에 대부분의 점들을 포함하는 범위를 그려보겠습니다. 이 범위를 *신뢰 구간*이라고 합니다. 앞서 확인한 것처럼 대부분의 가격이 이 범위에 속한다고 확신할 수 있습니다. 1\.35 캐럿 선이 해당 범위의 맨 위와 맨 아래에서 교차하는 수평선을 2개 더 그릴 수 있습니다.
 
 ![예측](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 

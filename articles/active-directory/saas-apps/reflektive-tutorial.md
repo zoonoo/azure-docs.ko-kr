@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8d7b6fee973379516e7dbf58b27cfafe1e1edc0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276544"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>자습서: Reflektive와 Azure Active Directory 통합
 
@@ -138,7 +138,7 @@ Reflektive에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
 ### <a name="configure-reflektive-single-sign-on"></a>Reflektive Single Sign-On 구성
 
-**Reflektive** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Reflektive 지원 팀](mailto:https://support@reflektive.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Reflektive** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Reflektive 지원 팀](mailto: https://support@reflektive.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -192,7 +192,7 @@ Reflektive에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
 ### <a name="create-reflektive-test-user"></a>Reflektive 테스트 사용자 만들기
 
-이 섹션에서는 Reflektive에서 Britta Simon이라는 사용자를 만듭니다. Reflektive 플랫폼에서 사용자를 추가하려면  [Reflektive 지원 팀](mailto:https://support@reflektive.com/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Reflektive에서 Britta Simon이라는 사용자를 만듭니다. Reflektive 플랫폼에서 사용자를 추가하려면  [Reflektive 지원 팀](mailto: https://support@reflektive.com/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

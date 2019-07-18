@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320163"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65989437"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. PowerShell
 
@@ -55,7 +55,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **구독:** 구독이 둘 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버: 이름 확인에 사용할 DNS 서버의 IP 주소** (옵션)
+* **DNS 서버: 이름 확인에 사용할 DNS 서버의 IP 주소** (선택 사항)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: 경로 기반** 
@@ -131,8 +131,8 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
 
 * -GatewayType은  **Vpn**이어야 하고 -VpnType은 **RouteBased**여야 합니다.
-* -VpnClientProtocol은 사용하려는 터널의 유형을 지정하는 데 사용됩니다. 터널 옵션은 **SSTP** 및 **IKEv2**입니다. 그 중 하나 또는 둘 다를 사용하도록 선택할 수 있습니다. 둘 다 사용하려는 경우 쉼표로 구분된 이름을 지정합니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다.
-* 가상 네트워크 게이트웨이 ‘기본’ SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다. Mac 클라이언트를 가상 네트워크에 연결하려는 경우 기본 SKU를 사용하지 마세요.
+* -VpnClientProtocol은 사용하려는 터널의 유형을 지정하는 데 사용됩니다. 터널 옵션은 **OpenVPN, SSTP** 하 고 **IKEv2**합니다. 그 중 하나 또는 모든 지원 되는 조합을 사용 하도록 선택할 수 있습니다. 여러 형식을 사용 하도록 설정 하려는 쉼표로 구분 된 이름을 지정 합니다. OpenVPN 및 SSTP를 함께 사용할 수 없습니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다. 터널 종류 OpenVPN 연결할 OpenVPN 클라이언트를 사용할 수 있습니다.
+* 가상 네트워크 게이트웨이 '기본' SKU는 IKEv2, OpenVPN 또는 RADIUS 인증을 지원 하지 않습니다. Mac 클라이언트를 가상 네트워크에 연결하려는 경우 기본 SKU를 사용하지 마세요.
 * VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다. 이 예제에서는 IKEv2를 사용합니다.
 
 ```azurepowershell-interactive

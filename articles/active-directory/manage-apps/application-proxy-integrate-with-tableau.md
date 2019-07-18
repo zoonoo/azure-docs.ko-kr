@@ -2,23 +2,23 @@
 title: Azure Active Directory 애플리케이션 프록시 및 Tableau | Microsoft Docs
 description: Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65783858"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
@@ -74,7 +74,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
  
 
-## <a name="testing"></a>테스트하는 중 
+## <a name="testing"></a>테스트 
 
 애플리케이션을 테스트할 준비가 되었습니다. Tableau를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.
 

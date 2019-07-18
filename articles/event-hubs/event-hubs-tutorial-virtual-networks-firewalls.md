@@ -7,18 +7,18 @@ manager: darosa
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779048"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605854"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>자습서: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
 
-[VNet(Virtual Network) 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 직접 연결을 통해 가상 네트워크 개인 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다.
+[VNet(Virtual Network) 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다.
 
 방화벽을 사용하면 특정 IP 주소(또는 IP 주소 범위)에서 Event Hubs 네임 스페이스에 대한 액세스를 제한할 수 있습니다.
 

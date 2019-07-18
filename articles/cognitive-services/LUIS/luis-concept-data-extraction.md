@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150693"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다.
@@ -48,7 +48,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|
-|의도|String|topScoringIntent.intent|“GetStoreInfo”|
+|의도|문자열|topScoringIntent.intent|“GetStoreInfo”|
 
 챗봇 또는 LUIS 호출 앱이 둘 이상의 의도 점수를 기반으로 결정을 내리는 경우 쿼리 문자열 매개 변수, `verbose=true`를 설정하여 모든 의도의 점수를 반환합니다. 엔드포인트 응답은 다음과 같습니다.
 
@@ -75,9 +75,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 의도는 최고 점수에서 최하 점수 순으로 정렬됩니다.
 
-|데이터 개체|데이터 형식|데이터 위치|값|Score|
+|데이터 개체|데이터 형식|데이터 위치|값|점수|
 |--|--|--|--|:--|
-|의도|String|intents[0].intent|“GetStoreInfo”|0.984749258|
+|의도|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
 |의도|String|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
@@ -106,10 +106,10 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
-|도메인|데이터 개체|데이터 형식|데이터 위치|값|
+|Domain|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
 |공공 시설|의도|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|의도|String|intents[1].intent|<b>Communication</b>.StartOver”|
+|통신|의도|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
 ||의도|String|intents[2].intent|“None”|
 
 

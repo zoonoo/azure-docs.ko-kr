@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551723"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 뷰 필터
@@ -57,8 +57,8 @@ A **필터** 에 [Azure Monitor 뷰](view-designer.md) 뷰 자체를 수정 하�
 | 필드 이름 | 값에 대한 쿼리 | 태그 |
 |:--|:--|:--|
 | Computer   | 하트비트 &#124; 고유한 컴퓨터 &#124; 컴퓨터 오름차순 정렬 | 컴퓨터 |
-| EventLevelName | 이벤트 &#124; 고유한 EventLevelName | 심각도 |
-| SeverityLevel | Syslog &#124; 고유한 SeverityLevel | 심각도 |
+| EventLevelName | 이벤트 &#124; 고유한 EventLevelName | Severity |
+| SeverityLevel | Syslog &#124; 고유한 SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; 고유한 svcChangeType | ChangeType |
 
 

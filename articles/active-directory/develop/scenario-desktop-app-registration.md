@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057223"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>웹 앱 등록 Api를 호출 되는 데스크톱 앱
 
@@ -46,12 +46,13 @@ ms.locfileid: "65076062"
 
 다시 리디렉션 Uri를 데스크톱 응용 프로그램에서 사용 하 여 사용 하려는 흐름에 따라 달라 집니다.
 
-- 사용 하려는 대화형 인증을 사용 하는 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`합니다. 이 구성에서 해당 URL을 클릭 하 여 달성할 수 있습니다 합니다 **인증** 응용 프로그램에 대 한 섹션
+- 사용 중인 경우는 **대화형 인증** 또는 **장치 코드 흐름**를 사용 하는 것이 좋습니다 `https://login.microsoftonline.com/common/oauth2/nativeclient`합니다. 이 구성에서 해당 URL을 클릭 하 여 달성할 수 있습니다 합니다 **인증** 응용 프로그램에 대 한 섹션
   
   > [!IMPORTANT]
   > 지금 MSAL.NET가 다른 리디렉션 URI를 사용 하 여 Windows에서 실행 되는 데스크톱 응용 프로그램에서 기본적으로 (`urn:ietf:wg:oauth:2.0:oob`). 이 기본값을 변경 하고자 하는 나중에 및를 사용 하는 권장 하므로 `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- 앱에는 통합 Windows 인증, 사용자 이름/암호 또는 장치 코드 흐름을 사용 하는 경우에 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 실제로 이러한 흐름 Microsoft id 플랫폼 v2.0 끝점에 왕복을 수행 하 고 모든 특정 URI에서 응용 프로그램을 다시 호출 되지 않습니다. 구분할 수 있도록 없는 기밀 클라이언트 응용 프로그램 흐름을에서 리디렉션 Uri 중 하나 (클라이언트 자격 증명 흐름 디먼 응용 프로그램에서 사용)에서는 응용 프로그램을 공용 클라이언트 응용 프로그램을 나타내는 데 필요 합니다. 이 구성으로 이동 하 여 이루어집니다 합니다 **인증** 및 응용 프로그램에 대 한 섹션을 **고급 설정** 하위 섹션을 선택 **예**, 질문에 대 한 **응용 프로그램 공용 클라이언트로 간주** (에 **기본 클라이언트 형식** 단락)
+- 앱에는 통합 Windows 인증, 사용자 이름/암호를 사용 하는 경우에 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 실제로 이러한 흐름 Microsoft id 플랫폼 v2.0 끝점에 왕복을 수행 하 고 모든 특정 URI에서 응용 프로그램을 다시 호출 되지 않습니다. 
+- 통합 Windows 인증 및 사용자 이름/암호 없는 기밀 클라이언트 응용 프로그램 흐름을에서 리디렉션 Uri 장치 코드 흐름을 구분 하기 위해 두 (클라이언트 자격 증명 흐름 디먼 응용 프로그램에서 사용)에서는 express 해야 합니다. 응용 프로그램을 공용 클라이언트 응용 프로그램입니다. 이 구성으로 이동 하 여 이루어집니다 합니다 **인증** 및 응용 프로그램에 대 한 섹션을 **고급 설정** 하위 섹션을 선택 **예**, 질문에 대 한 **응용 프로그램 공용 클라이언트로 간주** (에 **기본 클라이언트 형식** 단락)
 
   ![공용 클라이언트를 허용 합니다.](media/scenarios/default-client-type.png)
 

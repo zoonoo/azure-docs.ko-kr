@@ -9,11 +9,11 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: cd97c61e7493249785293ae331713ba1a98efee3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985470"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182758"
 ---
 ## <a name="run-image-from-registry"></a>레지스트리에서 이미지 실행
 

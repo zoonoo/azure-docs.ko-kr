@@ -1,25 +1,25 @@
 ---
 title: Azure Maps API 사용량을 보는 방법 | Microsoft Docs
 description: 포털에서 Azure Maps API 호출에 대한 메트릭을 보는 방법을 알아봅니다.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770153"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460184"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure Maps API 사용량 보기
 
 이 문서에서는 [포털](https://portal.azure.com)에서 Azure Maps 계정에 대한 API 사용량 메트릭을 보는 방법에 대해 설명합니다. 메트릭은 사용자 지정 가능한 기간에 따라 편리한 그래프 형식으로 표시됩니다.
 
-## <a name="view-metric-snapshot"></a>메트릭 스냅숏 보기
+## <a name="view-metric-snapshot"></a>메트릭 스냅샷 보기
 
 Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 볼 수 있습니다. 현재 선택할 수 있는 기간 동안의 *총 요청 수*, *총 오류 수* 및 *가용성*이 표시됩니다.
 
@@ -59,6 +59,11 @@ Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 �
 ## <a name="next-steps"></a>다음 단계
 
 사용량을 추적할 대상이 되는 Azure Maps API에 대해 자세히 알아봅니다.
+> [!div class="nextstepaction"] 
+> [Azure Maps 웹 SDK 사용 방법](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"] 
+> [Azure Maps Android SDK 사용 방법](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API 설명서](https://docs.microsoft.com/rest/api/maps)에서 사용 중인 API에 대해 자세히 참조하세요.

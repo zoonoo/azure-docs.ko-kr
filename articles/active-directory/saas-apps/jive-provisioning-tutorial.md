@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60263363"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Jive 구성
@@ -76,7 +76,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     b. **Jive 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
    
-    다. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
+    c. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
       
       > [!NOTE]
       > Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다.  

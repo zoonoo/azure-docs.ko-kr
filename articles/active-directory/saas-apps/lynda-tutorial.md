@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f20c917a889450f0eacd34e86683b4346681cfc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df563eaac68f8293664f3b79692ab6d4647b3e71
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>자습서: Lynda.com과 Azure Active Directory 통합
 

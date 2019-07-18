@@ -43,7 +43,7 @@ sections:
             href: /azure/devops-project/azure-devops-project-nodejs
           - image:
               src: media\logo_java.svg
-            text: 자바
+            text: Java
             href: /azure/devops-project/azure-devops-project-java
           - image:
               src: media\logo_python.svg

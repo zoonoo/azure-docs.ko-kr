@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059656"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -90,7 +90,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 이 두 가지 스토리지 위치는 모두 로깅된 이벤트에 대해 동일한 기본 정보를 제공하되, **Blob Storage**는 인스턴스 ID, 스레드 ID, 그리고 **파일 시스템**에 비해 상세한 타임스탬프(눈금 형식)와 같은 정보를 추가로 로깅합니다.
 
 > [!NOTE]
-> **Blob Storage**에 저장된 정보는 이러한 스토리지 시스템에서 바로 작업할 수 있는 스토리지 클라이언트 또는 애플리케이션을 사용해서만 액세스할 수 있습니다. 예를 들어, Visual Studio 2013에는 Blob Storage를 탐색하는 데 사용할 수 있는 스토리지 탐색기를 포함하고 있으며, HDInsight는 Blob Storage에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](https://azure.microsoft.com/downloads/)중 하나를 사용하여 Azure Storage에 액세스하는 애플리케이션을 작성할 수도 있습니다.
+> **Blob Storage**에 저장된 정보는 이러한 스토리지 시스템에서 바로 작업할 수 있는 스토리지 클라이언트 또는 애플리케이션을 사용해서만 액세스할 수 있습니다. 예를 들어, Visual Studio 2013에는 Blob Storage를 탐색하는 데 사용할 수 있는 Storage Explore를 포함하고 있으며, HDInsight는 Blob Storage에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](https://azure.microsoft.com/downloads/)중 하나를 사용하여 Azure Storage에 액세스하는 애플리케이션을 작성할 수도 있습니다.
 >
 
 ## <a name="download"></a> 방법: 로그 다운로드
@@ -205,7 +205,7 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> ASP.NET Core의 경우, [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 공급자를 사용하여 로깅이 이루어집니다. 이 공급자는 추가 로그 파일을 Blob 컨테이너에 저장합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure)을 참조하세요.
+> ASP.NET Core의 경우, [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 공급자를 사용하여 로깅이 이루어집니다. 이 공급자는 추가 로그 파일을 Blob 컨테이너에 저장합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging)을 참조하세요.
 >
 >
 

@@ -3,18 +3,18 @@ title: Azure IoT Central UI 둘러보기 | Microsoft Docs
 description: 개발자는 IoT 솔루션을 만드는 데 사용하는 Azure IoT Central UI의 주요 영역을 익힐 수 있습니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 56ff40cb2b103c620b880792571549e2bdb17064
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064356"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -33,7 +33,6 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 - 디바이스 문제를 해결하고 수정합니다.
 - 새 디바이스를 프로비전합니다.
 
-
 ## <a name="use-the-left-navigation-menu"></a>왼쪽 탐색 메뉴 사용
 
 왼쪽 탐색 메뉴를 사용하여 애플리케이션의 다른 영역에 액세스합니다. **<** 또는 **>** 을 선택하여 탐색 모음을 확장하거나 축소할 수 있습니다.
@@ -51,17 +50,22 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 - 디바이스 템플릿 및 디바이스를 검색하려면 **검색** 값을 입력합니다.
 - UI 언어 또는 테마를 변경하려면 **설정** 아이콘을 선택합니다.
 - 애플리케이션에서 로그아웃하려면 **계정** 아이콘을 선택합니다.
-- 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다.
+- 도움말을 보거나 지원을 받으려면 리소스 목록에 대한 **도움말** 드롭다운을 선택합니다. 평가판 애플리케이션에서 지원 리소스에는 [라이브 채팅](howto-show-hide-chat.md)에 대한 액세스가 포함 됩니다.
 
 UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다.
 
 ![UI 테마 선택](media/overview-iot-central-tour/themes.png)
 
+> [!NOTE]
+> 관리자가 애플리케이션에 대해 사용자 지정 테마를 구성하면 밝은 테마와 어두운 테마 중에서 선택할 수 있는 옵션을 사용할 수 없습니다.
+
 ## <a name="dashboard"></a>대시보드
 
 ![대시보드](media/overview-iot-central-tour/homepage.png)
 
-대시보드는 Azure IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 다른 사용자를 위해 애플리케이션 대시보드를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요. 또한 사용자는 [자신의 개인 대시보드를 만들](howto-personalize-dashboard.md) 수도 있습니다.
+* 대시보드는 Azure IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 다른 사용자를 위해 애플리케이션 대시보드를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요.
+
+* 운영자는 맞춤형 대시보드를 만들어서 기본 대시보드와 전환할 수 있습니다. 자세한 내용은 [개인 대시보드 생성 및 관리](howto-personalize-dashboard.md) 방법 문서를 참조하세요.
 
 ## <a name="device-explorer"></a>디바이스 탐색기
 
@@ -88,25 +92,32 @@ _디바이스 집합_ 페이지는 개발자가 만든 디바이스 집합을 �
 
 ![작업 페이지](media/overview-iot-central-tour/jobs.png)
 
-작업 페이지에서는 디바이스에 대한 대량 디바이스 관리 작업을 수행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 디바이스 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
+작업 페이지에서는 디바이스에 대한 대량 디바이스 관리 작업을 실행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 디바이스 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
 
 ## <a name="device-templates"></a>디바이스 템플릿
 
 ![디바이스 템플릿 페이지](media/overview-iot-central-tour/templates.png)
 
-디바이스 템플릿 페이지는 작성자가 애플리케이션에서 디바이스 템플릿을 만들고 관리하는 페이지입니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
+디바이스 템플릿 페이지는 작성자가 애플리케이션에서 디바이스 템플릿을 만들고 관리하는 페이지입니다. 디바이스 템플릿은 다음과 같은 디바이스 특성을 지정합니다.
+
+- 원격 분석, 상태 및 이벤트 측정값
+- 설정 및 속성
+- 명령
+- 이벤트 또는 원격 측정 값 기반 규칙
+
+자세한 내용은 [Azure IoT Central 애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
 
 ## <a name="continuous-data-export"></a>연속 데이터 내보내기
 
 ![연속 데이터 내보내기 페이지](media/overview-iot-central-tour/export.png)
 
-연속 데이터 내보내기 페이지는 관리자가 애플리케이션에서 원격 분석 등의 데이터를 내보내는 방법을 정의하는 페이지입니다. 다른 서비스는 내보낸 데이터를 저장하거나 분석에 사용할 수 있습니다. 자세한 내용은 [Azure IoT Central에서 데이터 내보내기](howto-export-data.md) 문서를 참조하세요.
+연속 데이터 내보내기 페이지는 관리자가 애플리케이션에서 원격 분석 등의 데이터를 스트리밍하는 방법을 정의하는 페이지입니다. 다른 서비스는 내보낸 데이터를 저장하거나 분석에 사용할 수 있습니다. 자세한 내용은 [Azure IoT Central에서 데이터 내보내기](howto-export-data.md) 문서를 참조하세요.
 
 ## <a name="administration"></a>관리
 
 ![관리 페이지](media/overview-iot-central-tour/administration.png)
 
-관리 페이지에는 애플리케이션에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의). 자세한 내용은 [Azure IoT Central 애플리케이션 관리](howto-administer.md) 문서를 참조하세요.
+관리 페이지에는 애플리케이션에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의, UI 사용자 지정). 자세한 내용은 [Azure IoT Central 애플리케이션 관리](howto-administer.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

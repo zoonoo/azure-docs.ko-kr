@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076302"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
+# <a name="scenario-web-app-that-calls-web-apis"></a>시나리오: Web API를 호출하는 웹앱
 
 Microsoft id 플랫폼에서 웹 앱에 로그인 한 사용자를 빌드하는 방법을 알아보고에서 로그인 한 사용자 대신 웹 Api를 호출 하는 합니다.
 
@@ -39,7 +39,7 @@ Microsoft id 플랫폼에서 웹 앱에 로그인 한 사용자를 빌드하는 
 
 따라서 사용자가에 로그인에서 로그인 한 사용자 대신 web API를 호출 하는 웹 앱에 인증을 추가 합니다.
 
-![웹 Api를 호출 하는 웹 앱](./media/scenario-webapp/web-app.svg)
+![Web API를 호출하는 웹앱](./media/scenario-webapp/web-app.svg)
 
 Web Api를 호출 하는 웹 앱:
 

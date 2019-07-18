@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262daaa46db66545dfe44a5b433a2a2995c6a3b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3d916e783554e63ca20a9c841ddd0ece84aebf33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>자습서: EduBrite LMS와 Azure Active Directory 통합
 

@@ -3,28 +3,28 @@ title: Azure Active Directory를 사용하기 위해 애플리케이션 등록 |
 description: IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 애플리케이션 통합에 대한 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba54f8042c20a00f8d559ddce28e007a93afaace
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108293"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure AD(Active Directory)에 대한 LoB(기간 업무) 애플리케이션 개발의 개요를 제공하며, Active Directory/Office 365 글로벌 관리자용으로 작성되었습니다.
 
 ## <a name="overview"></a>개요
-Azure AD와 통합된 애플리케이션을 구축하면 조직의 사용자에게 Office 365를 사용하여 Single Sign-On을 제공합니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스 및 Multi-Factor Authentication(MFA)을 사용하여 앱을 보호하는 방법에 대한 자세한 내용은 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)을 참조하세요.
+Azure AD와 통합된 애플리케이션을 구축하면 조직의 사용자에게 Office 365를 사용하여 Single Sign-On을 제공합니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스 및 multi-factor authentication (MFA) 참조를 사용 하 여 앱을 보호 하는 방법에 자세히 알아보려면 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)합니다.
 
 Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야 합니다. 애플리케이션을 등록하면 개발자가 Azure AD를 사용하여 사용자를 인증하고 이메일, 일정, 문서 등과 같은 사용자 리소스에 대한 액세스를 요청할 수 있습니다.
 

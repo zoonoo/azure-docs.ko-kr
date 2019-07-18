@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822912"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>이벤트를 보내거나 Java를 사용 하 여 Azure Event Hubs에서 이벤트 수신
@@ -206,7 +206,7 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
 </dependency>
 ```
 
-다양 한 유형의 빌드 환경을 가져올 수 있습니다 명시적으로 최근에 릴리스된 JAR 파일 [Maven 중앙 리포지토리]에서 [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22].  
+다양 한 유형의 빌드 환경을 가져올 수 있습니다 명시적으로 최근에 릴리스된 JAR 파일 [Maven 중앙 리포지토리]에서 [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ].  
 
 1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 애플리케이션에 대한 새 Maven 프로젝트를 만듭니다. 클래스는 `ErrorNotificationHandler`라고 합니다.     
    

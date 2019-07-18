@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036317"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
@@ -37,13 +37,13 @@ Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트�
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
+자세한 내용은 [지원 언어](supported-languages.md)를 참조하세요.
 
 ## <a name="creating-1x-apps"></a>버전 1.x에서 실행
 
 기본적으로 Azure Portal에서 만든 함수 앱은 버전 2.x로 설정됩니다. 가능한 경우 새 기능을 위한 투자가 진행될 이 런타임 버전을 사용하는 것이 좋습니다. 필요한 경우 버전 1.x 런타임에서 함수 앱을 계속 실행할 수 있습니다. 함수 앱을 만든 후, 함수를 추가하기 전에만 런타임 버전을 변경할 수 있습니다. 런타임 버전을 1.x로 고정하는 방법을 알아보려면 [현재 런타임 버전 확인 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조하세요.
 
-## <a name="migrating-from-1x-to-2x"></a>1.x에서 2.x로 마이그레이션
+## <a name="migrating-from-1x-to-2x"></a>1\.x에서 2.x로 마이그레이션
 
 버전 1.x 런타임 사용하도록 작성된 기존 앱을 버전 2.x를 대신 사용하도록 마이그레이션할 수 있습니다. 수행해야 하는 대부분의 변경은 .NET Framework 4.7과 .NET Core 2 간의 C# API 변경과 같은 언어 런타임의 변경과 관련되어 있습니다. 또한 선택한 언어 런타임과 코드 및 라이브러리가 호환되는지 확인해야 합니다. 마지막으로 아래에 강조 표시된 트리거, 바인딩 및 기능의 변경 내용을 기록해 두어야 합니다. 최상의 마이그레이션 결과를 얻으려면 버전 2.x에 대한 새 함수 앱을 만들고 기존 버전 1.x 함수 코드를 새 앱으로 이식해야 합니다.  
 

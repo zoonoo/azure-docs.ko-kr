@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61241554"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
@@ -600,7 +600,7 @@ realizeScript의 컨텍스트에서 간단한 Hello World Groovy 스크립트를
 
 로그 메서드를 호출하는 노드 개체는 현재 "노드" 또는 스크립트하는 구성 요소를 나타냅니다. 이와 같은 모든 구성 요소는 출력 로깅 데이터에 대한 기능을 가지며 시스템 탭을 통해 사용할 수 있습니다. 이 경우에 문자열 리터럴 "Hello World"를 출력합니다. 중요한 것은 스크립트가 실제로 수행하는 작업에 대한 통찰력을 제공하는 중요한 디버깅 도구라는 것을 증명할 수 있어야 합니다.
 
-또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음을 실행해보세요.
+또한 스크립트 환경 내에서 다른 구성 요소의 속성에 액세스합니다. 다음과 같이 해보세요.
 
 ```java
     //inspect current node:
@@ -822,7 +822,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 이전과 마찬가지로 "부울" 형식의 "ClippingEnabled"라는 워크플로의 루트에 새 속성을 게시합니다.
 
-![클리핑 설정에 게시된 속성 ](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
+![클리핑 설정에 게시된 속성](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
 
 *클리핑 설정에 게시된 속성*
 

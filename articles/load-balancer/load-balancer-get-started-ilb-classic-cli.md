@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 991e6554df62591dea5c126f8ea82704373d6ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60781242"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 내부 부하 분산 장치 만들기 시작
@@ -61,7 +61,7 @@ ms.locfileid: "60781242"
 
 시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 머신 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 머신은 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
 
-이 가이드를 통해 개인 포트로 포트 1433과 로컬 포트로 포트 1433을 사용하는 내부 부하 분산 장치 집합을 만듭니다.
+이 가이드를 통해 프라이빗 포트로 포트 1433과 로컬 포트로 포트 1433을 사용하는 내부 부하 분산 장치 집합을 만듭니다.
 
 이는 일반적인 시나리오로, 백 엔드의 SQL 가상 머신은 데이터베이스 서버가 공용 IP 주소를 사용하여 직접 노출되지 않는다는 것을 보장하기 위해 내부 부하 분산 장치를 사용합니다.
 

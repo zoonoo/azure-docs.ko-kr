@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726828"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
@@ -69,7 +69,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     ![데이터 다운로드 행](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 스토리지 파일의 경우 **Azure Storage 탐색기에서 열기**는 Azure Storage 탐색기를 시작하고 로그인 시 해당 폴더를 찾습니다.
++ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 스토리지 파일의 경우 **Azure Storage Explorer에서 열기**는 Azure Storage Explorer를 시작하고 로그인 시 해당 폴더를 찾습니다.
 
     ![데이터 복사 경로](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 

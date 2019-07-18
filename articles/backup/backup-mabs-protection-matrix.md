@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237608"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509611"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -24,13 +24,13 @@ ms.locfileid: "60237608"
 
 |작업|Version|Azure Backup 서버</br> installation|Azure Backup</br> 서버 V3|Azure Backup</br> 서버 V2|보호 및 복구|
 |------------|-----------|---------------|--------------|---------------|-----------------|
-|클라이언트 컴퓨터(64비트 및 32비트)|윈도우 10|물리적 서버<br /><br />Hyper-V 가상 머신<br /><br />VMware 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 컴퓨터|Y|Y|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|윈도우 10|물리적 서버<br /><br />Hyper-V 가상 머신<br /><br />VMware 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 컴퓨터|Y|Y|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다.|
 |서버(32비트 및 64비트)|Windows Server 2016|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /><br />VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /><br />물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|Y<br /><br />Nano 서버 아님|Y<br /><br />Nano 서버 아님|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구, 중복 제거된 볼륨|
 |서버(32비트 및 64비트)|Windows Server 2012 R2 - Datacenter 및 Standard|Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)<br /> <br /> Azure Stack|Y|Y|볼륨, 공유, 폴더, 파일<br /><br />Windows Server 2012 중복 제거된 볼륨을 보호하려면 DPM이 Windows Server 2012 R2 이상에서 실행되어야 합니다.|
 |서버(32비트 및 64비트)|Windows Server 2012 R2 - Datacenter 및 Standard|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /> <br /> Azure Stack|Y|Y|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구<br /><br />Windows Server 2012 중복 제거된 볼륨을 보호하려면 DPM이 Windows Server 2012 또는 2012 R2에서 실행되어야 합니다.|
@@ -79,9 +79,18 @@ ms.locfileid: "60237608"
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2012 - Datacenter 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008 R2 SP1 - Enterprise 및 Standard|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|Y|Y|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
 |Hyper-V 호스트 - Hyper-V 호스트 서버, 클러스터 또는 VM의 DPM 보호 에이전트|Windows Server 2008 SP2|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|N|N|보호: Hyper-V 컴퓨터, CSV(클러스터 공유 볼륨)<br /><br />복구: 가상 머신, 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브|
-|VMware VM|VMware vCenter/vSphere ESX/ESXi  라이선스 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
-|VMware VM|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|N|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
+|VMware VM|VMware vCenter/vSphere ESX/ESXi 사용이 허가 된 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
+|VMware VM|[VMware vSphere 사용이 허가 된 버전 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|N|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
 |Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 머신<br /><br />복구: 전체 가상 머신 <br/><br/> 지원되는 Linux 배포 및 버전의 전체 목록은 [Azure 보증 배포판의 Linux](../virtual-machines/linux/endorsed-distros.md)를 참조하세요.|
+
+## <a name="azure-expressroute-support"></a>Azure ExpressRoute 지원
+
+Azure ExpressRoute를 사용 하 여 개인 또는 Microsoft 피어 링 구성 된 경우에 Azure에 데이터를 백업 하려면 사용할 수 없습니다.
+
+Azure ExpressRoute는 공용 피어 링을 구성 하는 경우 Azure에 데이터를 백업 하려면 사용할 수 있습니다.
+
+>[!NOTE]
+>새 회로 대 한 공용 피어 링 사용 되지 않습니다.
 
 ## <a name="cluster-support"></a>클러스터 지원
 Azure Backup Server는 다음과 같은 클러스터 된 애플리케이션에서 데이터를 보호할 수 있습니다.

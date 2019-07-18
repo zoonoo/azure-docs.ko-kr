@@ -2,20 +2,20 @@
 title: Power BI Microsoft Azure로 SQL Data Warehouse 데이터 시각화
 description: Power BI로 SQL Data Warehouse 데이터 시각화
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241279"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
@@ -60,7 +60,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
    
     ![Power BI 맵](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png)
 
-2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. 고객 수익 필드를 왼쪽으로 끌어 축에 놓습니다.
+2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. CustomerIncome 필드를 왼쪽으로 끌어 축에 놓습니다.
    
     ![Power BI가 축 선택](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
    
@@ -93,4 +93,4 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 환경이 개선되면서 이러한 제한 및 참고 사항은 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 샘플 데이터로 [개발](sql-data-warehouse-overview-develop.md), [로드](design-elt-data-loading.md) 또는 [마이그레이션](sql-data-warehouse-overview-migrate.md)할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.
+이제 샘플 데이터를 사용 하 여 준비 하는 데 시간이 제공한를 참조 하는 방법 [개발](sql-data-warehouse-overview-develop.md) 또는 [로드](design-elt-data-loading.md)합니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.

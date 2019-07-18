@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995900"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206873"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -57,7 +57,7 @@ Android Studio를 엽니다.
 
 **기존 Android Studio 프로젝트 열기**를 선택하여 `Android/NDK/`에 있는 프로젝트를 선택합니다.
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>계정 식별자 및 키 구성
 
@@ -65,7 +65,7 @@ Android Studio를 엽니다.
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-`Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`를 엽니다.
+`Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`를 엽니다.
 
 `SpatialAnchorsAccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
 
@@ -73,13 +73,13 @@ Android Studio를 엽니다.
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-`Android/NDK/app/src/main/cpp/spatial_services_application.cc`를 엽니다.
+`Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`를 엽니다.
 
 `SpatialAnchorsAccountKey` 필드를 찾아 `Set me`를 계정 키로 바꿉니다.
 
 `SpatialAnchorsAccountId` 필드를 찾아 `Set me`를 계정 식별자로 바꿉니다.
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Android 디바이스에 앱 배포
 

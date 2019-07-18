@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101628"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
@@ -48,7 +48,7 @@ ms.locfileid: "62101628"
 ## <a name="determine-the-accessibility-of-the-listener"></a>수신기의 액세스 가능 여부 확인
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 개인 수신기를 만들려면 [ILB를 사용하여 수신기](../classic/ps-sql-int-listener.md)를 설정하는 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
+이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 프라이빗 수신기를 만들려면 [ILB를 사용하여 수신기](../classic/ps-sql-int-listener.md)를 설정하는 단계를 제공하는 이 문서의 버전을 참조하세요.
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 엔드포인트 만들기
 외부 부하 분산에서는 VM을 호스팅하는 클라우드 서비스의 공용 가상 IP 주소를 사용합니다. 따라서 이 경우에는 부하 분산 장치를 만들거나 구성할 필요가 없습니다.

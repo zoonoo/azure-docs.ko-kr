@@ -1,18 +1,18 @@
 ---
 title: Azure Red Hat OpenShift는 Azure AD 테 넌 트 만들기 | Microsoft Docs
 description: Microsoft Azure의 Red Hat OpenShift 클러스터를 호스트 하는 Azure Active Directory (Azure AD) 테 넌 트를 만드는 방법은 다음과 같습니다.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66306457"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift는 Azure AD 테 넌 트 만들기
 
@@ -34,7 +34,7 @@ Azure AD 테 넌 트에 아직 없는 경우 새로 만들려면 다음이 지�
 
     ![오른쪽 상단에서에서 테 넌 트 이름을 보여 주는 포털 스크린샷][tenantcallout]  
 
-8. 기록해는 *테 넌 트 ID* 나중에 Azure Red Hat OpenShift 클러스터를 만들 수 있는 위치를 지정할 수 있습니다. 포털에서 이제 새 테 넌 트에 대 한 Azure Active Directory 개요 블레이드를 표시 됩니다. 선택 **속성** 에 대 한 값을 복사 하 **디렉터리 ID**합니다. 이 값으로 참조를 `tenant id` 에 [Azure Red Hat OpenShift 클러스터를 만드는](tutorial-create-cluster.md) 자습서입니다.
+8. 기록해는 *테 넌 트 ID* 나중에 Azure Red Hat OpenShift 클러스터를 만들 수 있는 위치를 지정할 수 있습니다. 포털에서 이제 새 테 넌 트에 대 한 Azure Active Directory 개요 블레이드를 표시 됩니다. 선택 **속성** 에 대 한 값을 복사 하 **디렉터리 ID**합니다. 이 값으로 이라고 `TENANT` 에 [Azure Red Hat OpenShift 클러스터를 만드는](tutorial-create-cluster.md) 자습서.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

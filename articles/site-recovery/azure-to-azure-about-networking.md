@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
 ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789801"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
@@ -72,7 +72,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    --- | --- | ---
    동아시아 | 52.175.17.132 | 13.94.47.61
    동남아시아 | 52.187.58.193 | 13.76.179.223
-   중앙 인도 | 52.172.187.37 | 104.211.98.185
+   인도 중부 | 52.172.187.37 | 104.211.98.185
    인도 남부 | 52.172.46.220 | 104.211.224.190
    미국 중북부 | 23.96.195.247 | 168.62.249.226
    유럽 북부 | 40.69.212.238 | 52.169.18.8
@@ -104,7 +104,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    남아프리카 서부 | 102.133.72.51 | 102.133.26.128
    남아프리카 북부 | 102.133.160.44 | 102.133.154.128
    US Gov 버지니아 | 52.227.178.114 | 23.97.0.197
-   미국 아이오와 주 정부 | 13.72.184.23 | 23.97.16.186
+   US Gov 아이오와 | 13.72.184.23 | 23.97.16.186
    미국 정부 애리조나 | 52.244.205.45 | 52.244.48.85
    미국 정부 텍사스 | 52.238.119.218 | 52.238.116.60
    미국 국방부 동부 | 52.181.164.103 | 52.181.162.129
@@ -128,7 +128,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 3. 대상 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **위치**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **Location**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
    미국 중부 | 40.69.144.231 | 52.165.34.144
 
@@ -142,7 +142,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 3. 원본 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
-   **위치**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
+   **Location**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
     --- | --- | ---
    미국 중부 | 13.82.88.226 | 104.45.147.24
 

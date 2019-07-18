@@ -19,7 +19,7 @@ sections:
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: Azure에서 논리 앱을 만드는 방법을 알아보세요.
+        text: Azure에서 실행되는 논리 앱을 만드는 방법을 알아보세요.
       - type: list
         style: icon48
         items:
@@ -27,6 +27,14 @@ sections:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
             text: Azure portal
             href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Visual Studio
+            href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code
+            href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
   - title: 단계별 자습서
     items:
       - type: paragraph

@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: a5bf0d7d0478ad836ed1921b302ab01b004ec73c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026655"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722221"
 ---
 # <a name="where-can-you-use-personalizer"></a>Personalizer를 사용할 수 있는 경우
 
@@ -58,7 +58,7 @@ Personalizer에서 가장 효율적으로 학습할 수 있는 상황은 다음�
 
 많은 회사에서는 추천 엔진, 마케팅 및 캠페인 도구, 대상 그룹 구분 및 클러스터링, 공동 작업 필터링 및 대규모 카탈로그에서 제품을 고객에게 추천하는 다른 방법을 사용합니다.
 
-[Microsoft Recommenders GitHub 리포지토리](https://github.com/Microsoft/Recommenders)는 Juffyter Notebook으로 제공되는 추천 시스템을 빌드하기 위한 예제와 모범 사례를 제공합니다. xDeepFM, SAR, ALS, RBM, DKN을 포함한 다양한 일반적인 방법에 대한 데이터 준비, 모델 작성, 추천 엔진의 평가, 튜닝 및 운영을 수행하는 작업 예제를 제공합니다.
+[Microsoft Recommenders GitHub 리포지토리](https://github.com/Microsoft/Recommenders)는 Jupyter Notebook으로 제공되는 추천 시스템을 빌드하기 위한 예제와 모범 사례를 제공합니다. xDeepFM, SAR, ALS, RBM, DKN을 포함한 다양한 일반적인 방법에 대한 데이터 준비, 모델 작성, 추천 엔진의 평가, 튜닝 및 운영을 수행하는 작업 예제를 제공합니다.
 
 추천 엔진이 있는 경우 Personalizer는 이를 사용하여 작업할 수 있습니다.
 

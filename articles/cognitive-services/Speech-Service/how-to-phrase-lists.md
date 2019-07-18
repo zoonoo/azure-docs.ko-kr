@@ -1,33 +1,36 @@
 ---
-title: 구 목록-음성 서비스
+title: 구문 목록-음성 서비스
 titlesuffix: Azure Cognitive Services
-description: 사용 하 여 구 목록 음성 서비스를 제공 하는 방법을 알아봅니다는 `PhraseListGrammar` 음성-텍스트 인식 결과 개선 하는 개체입니다.
+description: 음성-텍스트 인식 결과를 개선하기 위해 `PhraseListGrammar` 개체를 사용하여 구문 목록으로 음성 서비스를 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: rhurey
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 5/02/2019
+ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 576d3c4a70c8870a31bc352b9f7723d2c2e69854
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026711"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226358"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대 한 구 목록
+# <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대한 구문 목록
 
-구 목록을 사용 하 여 음성 서비스를 제공 하 여 음성 인식 정확도 높일 수 있습니다. 구 목록 오디오 데이터에서 개인의 이름 또는 특정 위치와 같은 알려진된 구를 식별 하는 데 사용 됩니다.
+구문 목록을 사용하여 음성 서비스를 제공하여 음성 인식의 정확도를 높일 수 있습니다. 구문 목록은 오디오 데이터에서 개인의 이름 또는 특정 위치와 같은 알려진 구문을 식별하는 데 사용됩니다.
 
-예를 들어 명령이 있는 경우 "이동" 하 고 가능한 통용 될 수 있습니다 "Ward" 대상 "Ward에 이동" 항목을 추가할 수 있습니다. 구를 추가 확률이 증가 하는 경우 "이동" 대신 "Ward에 이동"를 인식할 수는 오디오는 인식 합니다.
+예를 들어 "이동" 명령과 음성 될 수 있는 "말"의 가능한 대상이 있는 경우 "앞으로 이동" 항목을 추가할 수 있습니다. 문구를 추가 하면 오디오가 인식 될 때 "이동"이 아니라 "이동" 하는 것으로 인식 될 확률이 높아집니다.
 
-단일 단어 또는 구를 전체 구 목록에 추가할 수 있습니다. 인식 하는 동안 구 목록 항목에 정확히 일치 하는 오디오에 포함 되어 있으면 됩니다. "이동 방향으로 느린"는 "이동 하려면 Ward", 및 캡처된 구 구 목록에 포함 된 경우 이전 예제에서 구축 되 고 인식 결과 "이동 Ward 느린" 됩니다.
+단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 정확히 일치 하는 항목이 오디오에 포함 되는 경우 문구 목록의 항목이 사용 됩니다. 이전 예제를 기반으로 하는 구문 목록에 "이동"이 포함 되 고 캡처된 구가 "천천히 이동" 하는 경우 인식 결과는 "느리게 이동" 됩니다.
 
-## <a name="how-to-use-phrase-lists"></a>구 나열을 사용 하는 방법
+>[!Note]
+> 현재 문구 목록은 음성 텍스트에 대 한 영어만 지원 합니다.
 
-아래 샘플에는 사용 하 여 구 목록 작성 하는 방법을 설명 합니다 `PhraseListGrammar` 개체입니다.
+## <a name="how-to-use-phrase-lists"></a>구문 목록을 사용하는 방법
+
+아래 예제는 `PhraseListGrammar` 개체를 사용하여 구문 목록을 작성하는 방법을 설명합니다.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -65,9 +68,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> 구 목록 음성 서비스는 음성 일치를 사용 하는 최대 1024입니다.
+> 음성 서비스가 음성 일치에 사용할 수 있는 구문 목록의 최대 수는 1024개 구문입니다.
 
-연결 된 구를 지울 수도 있습니다는 `PhraseListGrammar` 호출 clear ()에서.
+clear()를 호출하여 `PhraseListGrammar`과 연결된 구문을 지울 수도 있습니다.
 
 ```C++
 phraselist->Clear();
@@ -90,7 +93,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> 변경 된 `PhraseListGrammar` 적용 다음 인식 또는 음성 서비스에 다시 연결한 다음 개체입니다.
+> `PhraseListGrammar`개체의 변경은 다음 인식 또는 음성 서비스로의 다음 재연결에 영향을 미칩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

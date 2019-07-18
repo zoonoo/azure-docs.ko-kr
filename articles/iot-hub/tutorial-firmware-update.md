@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008905"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485825"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 node --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip )에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname -policy-name service -o table
 
 ```
 
@@ -95,8 +95,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명령을 실행할 때 JSON 문자열을 인용하는 방법에 대한 정보는 [azure-iot-cli-extension 팁](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-)을 참조하세요.
+> Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명령을 실행할 때 JSON 문자열을 인용하는 방법에 대한 정보는 [azure-iot-cli-extension 팁](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips)을 참조하세요.
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
@@ -187,7 +186,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd2.png)
 
-IoT Hub 장치 ID 레지스트리의 대기 시간 때문에 백 엔드 애플리케이션에 전송된 일부 상태 업데이트가 표시되지 않을 수 있습니다. IoT Hub의 **자동 디바이스 관리 -&gt; IoT 디바이스 구성** 섹션에 있는 포털에서 메트릭이 표시되지 않을 수도 있습니다.
+자동 디바이스 구성은 생성 시와 다음 5분 간격으로 실행되므로 백 엔드 애플리케이션으로 전송한 모든 상태 업데이트가 표시되지 않을 수 있습니다. IoT Hub의 **자동 디바이스 관리 -&gt; IoT 디바이스 구성** 섹션에 있는 포털에서 메트릭이 표시되지 않을 수도 있습니다.
 
 ![포털에서 구성 보기](./media/tutorial-firmware-update/portalview.png)
 

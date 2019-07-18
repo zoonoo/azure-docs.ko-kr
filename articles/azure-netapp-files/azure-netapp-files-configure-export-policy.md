@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086174"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
@@ -39,7 +39,7 @@ ms.locfileid: "61086174"
         * IPv4 주소(예: `10.1.12.24`) 
         * 비트 수로 표현된 서브넷 마스크가 있는 IPv4 주소(예: `10.1.12.10/4`)
 
-    * **Access**  
+    * **액세스 권한**  
         다음 액세스 유형 중 하나를 선택합니다.  
         * 액세스 권한 없음 
         * 읽기 및 쓰기
@@ -55,4 +55,4 @@ ms.locfileid: "61086174"
 ## <a name="next-steps"></a>다음 단계 
 * [볼륨 관리](azure-netapp-files-manage-volumes.md)
 * [가상 머신에 대한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [스냅숏 관리](azure-netapp-files-manage-snapshots.md)
+* [스냅샷 관리](azure-netapp-files-manage-snapshots.md)

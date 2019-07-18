@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629291"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple 가상 배열 업데이트 0.2 및 0.1 릴리스 정보
@@ -83,5 +83,5 @@ ms.locfileid: "60629291"
 | **14.** |파일 서버* |폴더의 파일에 연결된 ADS(대체 데이터 스트림)가 있는 경우 ADS는 재해 복구, 복제 및 항목 수준 복구를 통해 백업 또는 복원되지 않습니다. | |
 
 ## <a name="next-step"></a>다음 단계
-[업데이트 0.1 설치](storsimple-ova-install-update-01.md) 
+[업데이트 0.1 설치](storsimple-ova-install-update-01.md)
 

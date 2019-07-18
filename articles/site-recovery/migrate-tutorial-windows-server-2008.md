@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881344"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400091"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
@@ -59,7 +58,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 - 구성 서버, 추가 프로세스 서버 및 Windows Server 2008 SP2 서버를 마이그레이션하는 데 사용되는 모바일 서비스는 Azure Site Recovery 소프트웨어의 버전 9.19.0.0 이상을 실행해야 합니다.
 
-- 애플리케이션 일치 복구 지점 및 다중 VM 일관성 기능은 Windows Server 2008 SP2를 실행하는 서버의 복제에 대해 지원되지 않습니다. Windows Server 2008 SP2 서버는 크래시 일치 복구 지점으로 마이그레이션되어야 합니다. 기본적으로 5분마다 크래시 일치 복구 지점이 생성됩니다. 구성된 애플리케이션 일치 스냅숏 빈도로 복제 정책을 사용하면 애플리케이션 일치 복구 지점의 부족으로 인해 복제 상태가 위험으로 전환될 수 있습니다. 거짓 긍정을 방지하려면 복제 정책에서 애플리케이션 일치 스냅숏 빈도를 "꺼짐"으로 설정합니다.
+- 애플리케이션 일치 복구 지점 및 다중 VM 일관성 기능은 Windows Server 2008 SP2를 실행하는 서버의 복제에 대해 지원되지 않습니다. Windows Server 2008 SP2 서버는 크래시 일치 복구 지점으로 마이그레이션되어야 합니다. 기본적으로 5분마다 크래시 일치 복구 지점이 생성됩니다. 구성된 애플리케이션 일치 스냅샷 빈도로 복제 정책을 사용하면 애플리케이션 일치 복구 지점의 부족으로 인해 복제 상태가 위험으로 전환될 수 있습니다. 거짓 긍정을 방지하려면 복제 정책에서 애플리케이션 일치 스냅샷 빈도를 "꺼짐"으로 설정합니다.
 
 - 마이그레이션되는 서버에는 작업할 모바일 서비스에 대한 .NET Framework 3.5 서비스 팩 1이 있어야 합니다.
 
@@ -118,16 +117,16 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
-1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** > **+복제 정책**을 클릭합니다.
+1. 새 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 클릭합니다.
 2. **복제 정책 만들기**에서 정책 이름을 지정합니다.
 3. **RPO 임계값**에서 RPO(복구 지점 목표) 제한을 지정합니다. 복제 RPO가 이 제한을 초과하면 경고가 생성됩니다.
 4. **복구 지점 보존**에서 각 복구 지점에 대해 지속될 보존 시간을 시간 단위로 지정합니다. 복제된 서버는 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다. Premium Storage에 복제된 컴퓨터의 경우 최대 24시간 보존이 지원되고 표준 스토리지에 복제된 경우 72시간 보존이 지원됩니다.
-5. **앱 일치 스냅숏 빈도**에서 **꺼짐**을 지정합니다. **확인** 을 클릭하여 정책을 만듭니다.
+5. **앱 일치 스냅샷 빈도**에서 **꺼짐**을 지정합니다. **확인** 을 클릭하여 정책을 만듭니다.
 
 정책은 구성 서버와 자동으로 연결됩니다.
 
 > [!WARNING]
-> 복제 정책의 앱 일치 스냅숏 빈도 설정에서 **꺼짐**을 지정합니다. Windows Server 2008을 실행하는 서버를 복제하는 동안 크래시 일관성 복구 지점만 지원됩니다. 앱 일치 스냅숏 빈도에 대해 다른 값을 지정하면 앱 일치 복구 지점의 부족으로 인해 서버의 복제 상태가 위험으로 전환되어 잘못된 경고가 발생합니다.
+> 복제 정책의 앱 일치 스냅샷 빈도 설정에서 **꺼짐**을 지정합니다. Windows Server 2008을 실행하는 서버를 복제하는 동안 크래시 일관성 복구 지점만 지원됩니다. 앱 일치 스냅샷 빈도에 대해 다른 값을 지정하면 앱 일치 복구 지점의 부족으로 인해 서버의 복제 상태가 위험으로 전환되어 잘못된 경고가 발생합니다.
 
    ![복제 정책 만들기](media/migrate-tutorial-windows-server-2008/create-policy.png)
 

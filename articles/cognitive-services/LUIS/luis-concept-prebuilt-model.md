@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813888"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>미리 빌드된 도메인, 의도 및 엔터티 모델
 
@@ -26,15 +26,15 @@ ms.locfileid: "55882848"
 
 LUIS는 3가지 형식의 미리 빌드된 모델을 제공합니다. 각 모델을 언제든지 앱에 추가할 수 있습니다. 
 
-|모델 형식|포함되는 내용|
+|모델 형식|포함|
 |--|--|
-|도메인|의도, 발언, 엔터티|
+|Domain|의도, 발언, 엔터티|
 |의도|의도, 발언|
 |엔터티|엔터티만| 
 
 ## <a name="prebuilt-domains"></a>미리 빌드된 도메인
 
-LUIS(Language Understanding)는 클라이언트 애플리케이션의 일반 범주 또는 도메인에 함께 사용되는 [의도](luis-how-to-add-intents.md) 및 [엔터티](luis-concept-entity-types.md)의 미리 빌드된 집합인 ‘미리 빌드된 도메인’을 제공합니다. 
+LUIS(Language Understanding)는 클라이언트 애플리케이션의 일반 범주 또는 도메인에 함께 사용되는 [의도](luis-how-to-add-intents.md) 및 [엔터티](luis-concept-entity-types.md)의 미리 빌드된 집합인 ‘미리 빌드된 도메인’을 제공합니다.  
 
 미리 빌드된 도메인은 LUIS 앱에 추가되도록 교육 및 준비됩니다. 미리 빌드된 도메인의 의도와 엔터티를 앱에 추가한 후 완전히 사용자 지정할 수 있습니다. 
 

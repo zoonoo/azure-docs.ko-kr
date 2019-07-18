@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5add68902b23d41c9e3031839508418a81086e6b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244643"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342182"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Python에서 QnA Maker REST API를 사용하는 방법
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ ms.locfileid: "56244643"
 
 ## <a name="create-knowledge-base"></a>기술 자료 만들기
 
-다음 코드에서는 [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) 메서드를 사용하여 새 기술 자료를 만듭니다.
+다음 코드에서는 [Create](https://go.microsoft.com/fwlink/?linkid=2092179) 메서드를 사용하여 새 기술 자료를 만듭니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -60,7 +60,10 @@ ms.locfileid: "56244643"
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -73,77 +76,81 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/create'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def create_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def create_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
 # /knowledgebases/create returns an HTTP header named Location that contains a URL
 # to check the status of the operation to create the knowledgebase.
-    return response.getheader('Location'), response.read ()
+    return response.getheader('Location'), response.read()
 
-def check_status (path):
-    print ('Calling ' + host + path + '.')
+
+def check_status(path):
+    print('Calling ' + host + path + '.')
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, None, headers)
-    response = conn.getresponse ()
+    conn.request("GET", path, None, headers)
+    response = conn.getresponse()
 # If the operation is not finished, /operations returns an HTTP header named Retry-After
 # that contains the number of seconds to wait before we query the operation again.
-    return response.getheader('Retry-After'), response.read ()
+    return response.getheader('Retry-After'), response.read()
+
 
 req = {
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
+    "name": "QnA Maker FAQ",
+    "qnaList": [
+      {
+          "id": 0,
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
+          "source": "Custom Editorial",
+          "questions": [
+              "How do I programmatically update my Knowledge Base?"
+          ],
+          "metadata": [
+              {
+                  "name": "category",
+                  "value": "api"
+              }
+          ]
+      }
+    ],
+    "urls": [
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
+    ],
+    "files": []
 }
 
 path = service + method
 # Convert the request to a string.
 content = json.dumps(req)
-operation, result = create_kb (path, content)
-print (pretty_print(result))
+operation, result = create_kb(path, content)
+print(pretty_print(result))
 
 done = False
 while False == done:
     path = service + operation
-    wait, status = check_status (path)
-    print (pretty_print(status))
+    wait, status = check_status(path)
+    print(pretty_print(status))
 
 # Convert the JSON response into an object and get the value of the operationState field.
     state = json.loads(status)['operationState']
 # If the operation isn't finished, wait and query again.
     if state == 'Running' or state == 'NotStarted':
-        print ('Waiting ' + wait + ' seconds...')
-        time.sleep (int(wait))
+        print('Waiting ' + wait + ' seconds...')
+        time.sleep(int(wait))
     else:
         done = True
 ```
@@ -185,7 +192,7 @@ while False == done:
 
 ## <a name="update-knowledge-base"></a>기술 자료 업데이트
 
-다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+다음 코드는 [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -195,7 +202,10 @@ while False == done:
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -205,85 +215,89 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def update_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def update_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PATCH", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PATCH", path, content, headers)
+    response = conn.getresponse()
 # PATCH /knowledgebases returns an HTTP header named Location that contains a URL
 # to check the status of the operation to create the knowledgebase.
-    return response.getheader('Location'), response.read ()
+    return response.getheader('Location'), response.read()
 
-def check_status (path):
-    print ('Calling ' + host + path + '.')
+
+def check_status(path):
+    print('Calling ' + host + path + '.')
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, None, headers)
-    response = conn.getresponse ()
+    conn.request("GET", path, None, headers)
+    response = conn.getresponse()
 # If the operation is not finished, /operations returns an HTTP header named Retry-After
 # that contains the number of seconds to wait before we query the operation again.
-    return response.getheader('Retry-After'), response.read ()
+    return response.getheader('Retry-After'), response.read()
+
 
 req = {
-  'add': {
-    'qnaList': [
-      {
-        'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
-        'source': 'Custom Editorial',
-        'questions': [
-          'How can I change the default message from QnA Maker?'
+    'add': {
+        'qnaList': [
+            {
+                'id': 1,
+                'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
+                'source': 'Custom Editorial',
+                'questions': [
+                    'How can I change the default message from QnA Maker?'
+                ],
+                'metadata': []
+            }
         ],
-        'metadata': []
-      }
-    ],
-    'urls': [
-      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
-    ]
-  },
-  'update' : {
-    'name' : 'New KB Name'
-  },
-  'delete': {
-    'ids': [
-      0
-    ]
-  }
+        'urls': [
+            'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
+        ]
+    },
+    'update': {
+        'name': 'New KB Name'
+    },
+    'delete': {
+        'ids': [
+            0
+        ]
+    }
 }
 
 path = service + method + kb
 # Convert the request to a string.
 content = json.dumps(req)
-operation, result = update_kb (path, content)
-print (pretty_print(result))
+operation, result = update_kb(path, content)
+print(pretty_print(result))
 
 done = False
 while False == done:
     path = service + operation
-    wait, status = check_status (path)
-    print (pretty_print(status))
+    wait, status = check_status(path)
+    print(pretty_print(status))
 
 # Convert the JSON response into an object and get the value of the operationState field.
     state = json.loads(status)['operationState']
 # If the operation isn't finished, wait and query again.
     if state == 'Running' or state == 'NotStarted':
-        print ('Waiting ' + wait + ' seconds...')
-        time.sleep (int(wait))
+        print('Waiting ' + wait + ' seconds...')
+        time.sleep(int(wait))
     else:
         done = True
 ```
@@ -318,7 +332,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>요청 상태 가져오기
 
-[Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](#Create) 또는 [Update](#Update) 메서드에 대한 샘플 코드를 참조하세요.
+[Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](#Create) 또는 [Update](#Update) 메서드에 대한 샘플 코드를 참조하세요.
 
 [맨 위로 이동](#HOLTop)
 
@@ -326,7 +340,7 @@ Press any key to continue.
 
 ## <a name="publish-knowledge-base"></a>기술 자료 게시
 
-다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+다음 코드는 [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 메서드를 사용하여 기존 기술 자료를 게시합니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -336,7 +350,10 @@ Press any key to continue.
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -346,35 +363,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def publish_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def publish_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + kb
-result = publish_kb (path, '')
-print (pretty_print(result))
+result = publish_kb(path, '')
+print(pretty_print(result))
 ```
 
 **기술 자료 게시 응답**
@@ -393,7 +413,7 @@ print (pretty_print(result))
 
 ## <a name="replace-knowledge-base"></a>기술 자료 바꾸기
 
-다음 코드에서는 [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 바꿉니다.
+다음 코드에서는 [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 바꿉니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -403,7 +423,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -413,56 +436,59 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def replace_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def replace_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PUT", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PUT", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 req = {
-  'qnaList': [
-    {
-      'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
-      'source': 'Custom Editorial',
-      'questions': [
-        'How do I programmatically update my Knowledge Base?'
-      ],
-      'metadata': [
-        {
-          'name': 'category',
-          'value': 'api'
-        }
-      ]
-    }
-  ]
+    'qnaList': [
+      {
+          'id': 0,
+          'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
+          'source': 'Custom Editorial',
+          'questions': [
+              'How do I programmatically update my Knowledge Base?'
+          ],
+          'metadata': [
+              {
+                  'name': 'category',
+                  'value': 'api'
+              }
+          ]
+      }
+    ]
 }
 
 path = service + method + kb
 # Convert the request to a string.
 content = json.dumps(req)
-result = replace_kb (path, content)
-print (pretty_print(result))
+result = replace_kb(path, content)
+print(pretty_print(result))
 ```
 
 **기술 자료 바꾸기 응답**
@@ -481,7 +507,7 @@ print (pretty_print(result))
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>기술 자료의 콘텐츠 다운로드
 
-다음 코드에서는 [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 다운로드합니다.
+다음 코드에서는 [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 다운로드합니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -491,7 +517,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -504,29 +533,32 @@ subscriptionKey = 'ENTER KEY HERE'
 kb = 'ENTER ID HERE'
 
 # Replace this with "test" or "prod".
-env = 'test';
+env = 'test'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
-method = '/knowledgebases/{0}/{1}/qna/'.format(kb, env);
+method = '/knowledgebases/{0}/{1}/qna/'.format(kb, env)
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_qna (path):
-    print ('Calling ' + host + path + '.')
+
+def get_qna(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_qna (path)
-print (pretty_print(result))
+result = get_qna(path)
+print(pretty_print(result))
 ```
 
 **기술 자료 다운로드 응답**
@@ -538,7 +570,7 @@ print (pretty_print(result))
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -582,7 +614,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -608,26 +643,29 @@ question = {
     'top': 3
 }
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_answers (path, content):
-    print ('Calling ' + host + path + '.')
+
+def get_answers(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Authorization': 'EndpointKey ' + endpoint_key,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 # Convert the request to a string.
 content = json.dumps(question)
-result = get_answers (method, content)
-print (pretty_print(result))
+result = get_answers(method, content)
+print(pretty_print(result))
 ```
 
 **답변 가져오기 응답**
@@ -658,7 +696,7 @@ print (pretty_print(result))
 
 ## <a name="get-information-about-a-knowledge-base"></a>기술 자료에 대한 정보 가져오기
 
-다음 코드에서는 [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 메서드를 사용하여 지정된 기술 자료에 대한 정보를 가져옵니다.
+다음 코드에서는 [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 메서드를 사용하여 지정된 기술 자료에 대한 정보를 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -668,7 +706,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -678,29 +719,32 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_kb (path):
-    print ('Calling ' + host + path + '.')
+
+def get_kb(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method + kb
-result = get_kb (path)
-print (pretty_print(result))
+result = get_kb(path)
+print(pretty_print(result))
 ```
 
 **기술 자료 세부 정보 가져오기 응답**
@@ -731,7 +775,7 @@ print (pretty_print(result))
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>사용자에 대한 모든 기술 자료 가져오기
 
-다음 코드에서는 [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) 메서드를 사용하여 지정된 사용자의 모든 기술 자료에 대한 정보를 가져옵니다.
+다음 코드에서는 [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) 메서드를 사용하여 지정된 사용자의 모든 기술 자료에 대한 정보를 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -741,7 +785,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -754,23 +801,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_kbs (path):
-    print ('Calling ' + host + path + '.')
+
+def get_kbs(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_kbs (path)
-print (pretty_print(result))
+result = get_kbs(path)
+print(pretty_print(result))
 ```
 
 **사용자에 대한 기술 자료 가져오기 응답**
@@ -817,7 +867,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>기술 자료 삭제
 
-다음 코드에서는 [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) 메서드를 사용하여 지정된 기술 자료를 삭제합니다.
+다음 코드에서는 [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) 메서드를 사용하여 지정된 기술 자료를 삭제합니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -827,7 +877,10 @@ Press any key to continue.
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -837,35 +890,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def delete_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def delete_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("DELETE", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("DELETE", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + kb
-result = delete_kb (path, '')
-print (pretty_print(result))
+result = delete_kb(path, '')
+print(pretty_print(result))
 ```
 
 **기술 자료 삭제 응답**
@@ -884,7 +940,7 @@ print (pretty_print(result))
 
 ## <a name="get-endpoint-keys"></a>엔드포인트 키 가져오기
 
-다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
+다음 코드에서는 [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -894,7 +950,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -907,23 +966,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/endpointkeys/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_keys (path):
-    print ('Calling ' + host + path + '.')
+
+def get_keys(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_keys (path)
-print (pretty_print(result))
+result = get_keys(path)
+print(pretty_print(result))
 ```
 
 **엔드포인트 키 가져오기 응답**
@@ -943,7 +1005,7 @@ print (pretty_print(result))
 
 ## <a name="refresh-endpoint-keys"></a>엔드포인트 키 새로 고침
 
-다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
+다음 코드에서는 [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -953,7 +1015,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -963,35 +1028,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with "PrimaryKey" or "SecondaryKey."
-key_type = "PrimaryKey";
+key_type = "PrimaryKey"
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/endpointkeys/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def refresh_keys (path, content):
-    print ('Calling ' + host + path + '.')
+
+def refresh_keys(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PATCH", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PATCH", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + key_type
-result = refresh_keys (path, '')
-print (pretty_print(result))
+result = refresh_keys(path, '')
+print(pretty_print(result))
 ```
 
 **엔드포인트 키 새로 고침 응답**
@@ -1011,7 +1079,7 @@ print (pretty_print(result))
 
 ## <a name="get-word-alterations"></a>단어 변경 가져오기
 
-다음 코드에서는 [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) 메서드를 사용하여 현재 단어 변경을 가져옵니다.
+다음 코드에서는 [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) 메서드를 사용하여 현재 단어 변경을 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1021,7 +1089,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -1034,23 +1105,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/alterations/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_alterations (path):
-    print ('Calling ' + host + path + '.')
+
+def get_alterations(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_alterations (path)
-print (pretty_print(result))
+result = get_alterations(path)
+print(pretty_print(result))
 ```
 
 **단어 변경 가져오기 응답**
@@ -1076,7 +1150,7 @@ print (pretty_print(result))
 
 ## <a name="replace-word-alterations"></a>단어 변경 바꾸기
 
-다음 코드에서는 [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) 메서드를 사용하여 현재 단어 변경을 바꿉니다.
+다음 코드에서는 [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 메서드를 사용하여 현재 단어 변경을 바꿉니다.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1086,7 +1160,10 @@ print (pretty_print(result))
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -1099,42 +1176,45 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/alterations/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def put_alterations (path, content):
-    print ('Calling ' + host + path + '.')
+
+def put_alterations(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PUT", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PUT", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 req = {
-  'wordAlterations': [
-    {
-      'alterations': [
-        'botframework',
-        'bot frame work'
-      ]
-    }
-  ]
+    'wordAlterations': [
+      {
+          'alterations': [
+              'botframework',
+              'bot frame work'
+          ]
+      }
+    ]
 }
 
 path = service + method
 # Convert the request to a string.
 content = json.dumps(req)
-result = put_alterations (path, content)
-print (pretty_print(result))
+result = put_alterations(path, content)
+print(pretty_print(result))
 ```
 
 **단어 변경 바꾸기 응답**
@@ -1152,7 +1232,7 @@ print (pretty_print(result))
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker(V4) REST API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>참고 항목 
 

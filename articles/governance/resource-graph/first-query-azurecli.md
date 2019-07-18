@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792250"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823158"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
 Azure Resource Graph를 사용하는 첫 번째 단계는 [Azure CLI](/cli/azure/)용 확장이 설치되어 있는지 확인하는 것입니다. 이 빠른 시작에서는 Azure CLI 설치에 확장을 추가하는 과정을 안내합니다. Azure CLI가 로컬로 설치된 상태로 또는 [Azure Cloud Shell](https://shell.azure.com)을 통해 확장을 사용할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure CLI 확장이 선택한 환경에 추가되었으므로 간단한 Resource
 
 최종 쿼리가 여러 번 실행되는 경우, 사용자 환경이 전혀 변경되지 않는다고 가정하면, 반환되는 결과는 일치하며 예상대로 **Name** 속성별로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
-## <a name="cleanup"></a>정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 Azure CLI 환경에서 Resource Graph 확장을 제거하려면 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 

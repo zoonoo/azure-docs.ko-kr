@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296458"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
@@ -128,7 +128,7 @@ Azure AD 로그인 페이지는 온-프레미스 Active Directory에 대해 정�
 
 | 시스템 상태 | 설명 | 작업 필요 |
 |:--- |:--- |:--- |
-| 확인됨 |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |아무 조치도 필요하지 않습니다. |
+| Verified |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |어떤 조치가 필요하지 않습니다. |
 | 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | 추가되지 않음 |Azure AD Connect는 UPN 접미사에 해당하는 사용자 지정 도메인을 찾지 못했습니다. 이 도메인의 사용자의 UPN 접미사는 Azure에서 도메인이 추가 및 확인되지 않으면 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [UPN 접미사에 해당하는 사용자 지정 도메인의 추가 및 확인](../fundamentals/add-custom-domain.md) |
 
@@ -159,7 +159,7 @@ Azure AD 디렉터리의 사용자 지정 도메인 상태와 UPN 접미사가 �
 |:---:|:--- |
 | 추가되지 않음 |이 경우에 contoso.com에 대한 사용자 지정 도메인은 Azure AD 디렉터리에서 추가되지 않습니다. 접미사 @contoso.com이 포함된 UPN 온-프레미스를 가진 사용자는 해당 온-프레미스 UPN을 사용하여 Azure에 로그인할 수 없습니다. 대신 기본 Azure AD 디렉터리에 대한 접미사를 추가하여 Azure AD에서 제공한 새 UPN을 사용해야 합니다. 예를 들어 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 사용자를 동기화하는 경우 온-프레미스 사용자 user@contoso.com은 지정된 user@azurecontoso.onmicrosoft.com의 UPN입니다. |
 | 확인되지 않음 |이 경우에 Azure AD 디렉터리에 추가된 사용자 지정 도메인 contoso.com이 있지만 아직 확인되지 않습니다. 도메인을 확인하지 않고 사용자를 동기화하는 경우 사용자는 '추가되지 않음' 시나리오처럼 Azure AD에 의해 할당된 새 UPN입니다. |
-| 확인됨 |이 경우에 UPN 접미사에 대한 Azure AD에서 추가되고 확인횐 사용자 지정 도메인 contoso.com이 있습니다. 사용자는 Azure AD와 동기화된 후에 해당 온-프레미스 사용자 계정 이름(예: user@contoso.com)을 사용하여 Azure에 로그인할 수 있습니다. |
+| Verified |이 경우에 UPN 접미사에 대한 Azure AD에서 추가되고 확인횐 사용자 지정 도메인 contoso.com이 있습니다. 사용자는 Azure AD와 동기화된 후에 해당 온-프레미스 사용자 계정 이름(예: user@contoso.com)을 사용하여 Azure에 로그인할 수 있습니다. |
 
 ###### <a name="ad-fs-federation"></a>AD FS 페더레이션
 Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 않은 사용자 지정 도메인을 사용하여 페더레이션을 만들 수 없습니다. Azure AD Connect 마법사를 실행하는 경우 확인되지 않은 도메인을 선택하여 페더레이션을 만들려면 Azure AD Connect에서는 도메인에 대해 DNS가 호스트되는 위치를 만들기 위해 필요한 레코드라는 메시지가 나타납니다. 자세한 내용은 [페더레이션에 선택한 Azure AD 도메인 확인](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)을 참조하세요.

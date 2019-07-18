@@ -4,22 +4,23 @@ description: Azure Sentinel에서 데이터를 수집 하는 방법에 알아봅
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9f2f011acb9d815202aa6c6a38ed364ffb0f9cd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60804826"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619648"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure 등록 Sentinel 미리 보기
 
@@ -41,7 +42,7 @@ Azure 등록 Sentinel 먼저 하려면 Azure Sentinel 사용 하도록 설정 �
 - Log Analytics 작업 영역입니다. 자세한 방법 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Azure Sentinel 사용, Azure Sentinel 작업 영역 상주 하는 구독에 대 한 참가자 권한이 필요 합니다. 
-- Azure Sentinel를 사용 하려면 작업 영역에 속하는 리소스 그룹 참가자 또는 뷰어 권한이 필요
+- Azure Sentinel를 사용 하려면 작업 영역에 속하는 리소스 그룹 참가자 또는 읽기 권한자 중 권한이 필요
 - 특정 데이터 원본에 연결할 추가 권한이 필요할 수
  
 ## Azure Sentinel를 사용 하도록 설정 <a name="enable"></a>

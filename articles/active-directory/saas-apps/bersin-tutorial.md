@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8bc292be68879a608df6662418bb9f59c758f660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>자습서: Bersin과 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Bersin과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 Bersin의 Azure AD 통합을 구성하려면 갤러리의 Bersin을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Bersin을 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Bersin을 추가하려면**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -132,7 +132,7 @@ Bersin에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-bersin-single-sign-on"></a>Bersin Single Sign-On 구성
 
-**Bersin** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Bersin 지원 팀](mailto:ramansabde@gmail.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Bersin** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Bersin 지원 팀](mailto:ramansabde@gmail.com)으로 보냅니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -181,7 +181,7 @@ Bersin에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
-6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
+6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 

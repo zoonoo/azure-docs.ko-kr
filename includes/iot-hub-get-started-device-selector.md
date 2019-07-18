@@ -1,10 +1,15 @@
 ---
+author: robinsh
+ms.service: iot-hub
+ms.topic: include
+ms.date: 02/14/2019
+ms.author: robinsh
 ms.openlocfilehash: ed001c74d0a351bc1fb687810177cfcd76178b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783329"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182299"
 ---
 > [!div class="op_single_selector"]
 > * [Raspberry Pi 웹 시뮬레이터](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   

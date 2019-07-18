@@ -1,19 +1,19 @@
 ---
 title: PowerShell을 사용하여 여러 Azure VM 백업
 description: 이 자습서에서는 Azure PowerShell을 사용하여 여러 Azure VM을 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7cbe2cca37ce237409042e40b4a60311aed2446c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58863018"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273998"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM 백업
 

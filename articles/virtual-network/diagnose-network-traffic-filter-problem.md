@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712676"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
@@ -168,7 +168,7 @@ az vm show \
 
 이 문서의 [시나리오](#scenario)에 제공된 문제를 진단하기 위해 Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용하는지 여부에 따라 솔루션은 다음 속성을 사용하여 네트워크 보안 규칙을 만드는 것입니다.
 
-| 자산                | 값                                                                              |
+| 자산                | Value                                                                              |
 |---------                |---------                                                                           |
 | 원본                  | 모두                                                                                |
 | 원본 포트 범위      | 모두                                                                                |

@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729403"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
@@ -73,7 +73,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 트리거 및 AS2 통�
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다. 
 
-1. 아래 **작업 선택** 검색 상자를 선택 하 고 **모든**합니다. 검색 상자에 "as2 인코딩"를 입력 하 고이 작업을 선택 합니다. **AS2 메시지 인코딩**합니다.
+1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 인코딩"를 입력 하 고이 작업을 선택 합니다. **AS2 메시지 인코딩**합니다.
 
    !["AS2 메시지 인코딩"를 선택 합니다.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
@@ -102,7 +102,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 트리거 및 AS2 통�
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다. 
 
-1. 아래 **작업 선택** 검색 상자를 선택 하 고 **모든**합니다. 검색 상자에 "as2 디코딩"를 입력 하 고이 작업을 선택 합니다. **AS2 메시지 디코딩**
+1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 디코딩"를 입력 하 고이 작업을 선택 합니다. **AS2 메시지 디코딩**
 
    !["AS2 디코딩 메시지"를 선택 합니다.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 

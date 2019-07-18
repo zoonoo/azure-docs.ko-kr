@@ -51,7 +51,7 @@ Azure Database for MariaDB 서버를 만들려면
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전을 사용하는 특정 요구 사항이 없는 경우).
-    가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용**을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**세대 계산**(Gen 5)</li><li>**vCore**(vCore 4개)</li><li>**스토리지**(100GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용**을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**컴퓨팅 세대**(Gen 5)</li><li>**vCore**(vCore 4개)</li><li>**스토리지**(100GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
   
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.
@@ -61,14 +61,14 @@ Azure Database for MariaDB 서버를 만들려면
 
 4.  **만들기**를 선택하여 서버를 프로비전합니다. 프로비전에는 최대 20분이 걸릴 수 있습니다.
    
-5.  배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(벨 아이콘)을 클릭합니다.
+5.  배포 프로세스를 모니터링하려면 도구 모음에서 **알림**(종 아이콘)을 클릭합니다.
    
 기본적으로 서버 아래에 **information_schema**, **mysql**, **performance_schema** 및 **sys** 데이터베이스가 만들어집니다.
 
 
 ## <a name="configure-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽 규칙을 만들어 특정 IP 주소에 대한 방화벽을 열지 않는 한 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 데이터베이스에 연결되지 않도록 방지합니다. 
+Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽 규칙을 만들어 특정 IP 주소에 대한 방화벽을 열지 않는 한 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 데이터베이스에 연결되는 것을 방지합니다. 
 
 서버 수준 방화벽 규칙을 만들려면
 
@@ -102,7 +102,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
 먼저 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 명령줄 도구를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 소프트웨어 설치 없이 브라우저 및 Azure Cloud Shell을 사용할 수도 있습니다. mysql 유틸리티를 로컬로 설치한 경우 여기서도 연결할 수 있습니다.
 
-1. Azure Portal의 오른쪽 도구 모음 위에 있는 터미널 아이콘(**>_**)을 통해 Azure Cloud Shell을 시작합니다.
+1. Azure Portal의 오른쪽 도구 모음 위에 있는 터미널 아이콘( **>_** )을 통해 Azure Cloud Shell을 시작합니다.
    ![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
 2. 브라우저에서 Azure Cloud Shell을 엽니다. Cloud Shell의 bash 셸 명령을 사용할 수 있습니다.
@@ -125,7 +125,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
     mysql 매개 변수 |제안 값|설명
     ---|---|---
-    --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
+    --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
     --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     -p | *사용자 암호*<br>(메시지가 표시될 때까지 대기) |메시지가 표시되면 서버를 만드는 데 사용한 암호를 입력합니다. 입력한 암호 문자는 입력하는 동안 Bash 프롬프트에 표시되지 않습니다. 암호를 입력한 후 Enter 키를 누릅니다.
 
@@ -190,7 +190,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
 1. 클라이언트 컴퓨터에서 MySQL Workbench를 엽니다. MySQL Workbench를 다운로드하여 설치하려면 [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)로 이동합니다.
 
-2. 새 연결을 만들려면 **MySQL 연결** 제목 옆의 더하기 아이콘(**+**)을 선택합니다.
+2. 새 연결을 만들려면 **MySQL 연결** 제목 옆의 더하기 아이콘( **+** )을 선택합니다.
 
 3. **새 연결 설정** 대화 상자의 **매개 변수** 탭에 서버 연결 정보를 입력합니다. 자리 표시자 값은 예로 표시됩니다. **호스트 이름**, **사용자 이름** 및 **암호**를 원하는 값으로 대체합니다.
 
@@ -200,7 +200,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
     |---|---|---|
      연결 이름 | **데모 연결** | 이 연결에 대한 레이블입니다. |
     연결 방법 | **표준(TCP/IP)** | 표준(TCP/IP)이면 충분합니다. |
-    호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
+    호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MariaDB 서버에 연결할 때 사용할 포트입니다. |
     사용자 이름 |  *서버 관리자 로그인 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 정보입니다. 예제의 사용자 이름은 **myadmin\@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     암호 | *사용자 암호* | 암호를 저장하려면 **자격 증명 모음에 저장...** 을 선택합니다. |
@@ -208,7 +208,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 4. 모든 매개 변수가 올바르게 구성되었는지 테스트하려면 **연결 테스트**를 선택합니다. 그런 다음, **확인**을 클릭하여 해당 연결을 저장합니다. 
 
     > [!NOTE]
-    > SSL은 서버에서 기본적으로 적용됩니다. 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에 대해 SSL을 사용하지 않도록 설정하기 위해 Azure portal의 서버 개요 페이지에서 **연결 보안** 메뉴를 선택합니다. **SSL 연결 적용**에서 **사용하지 않음**을 선택합니다.
+    > SSL은 서버에서 기본적으로 적용됩니다. 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에 대해 SSL을 사용하지 않도록 설정하기 위해 Azure portal의 서버 개요 페이지에서 **연결 보안** 메뉴를 선택합니다. **SSL 연결 적용**에서 **사용 안함**을 선택합니다.
     >
 
 ## <a name="clean-up-resources"></a>리소스 정리

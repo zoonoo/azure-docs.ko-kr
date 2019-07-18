@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475952"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>빠른 시작: 코드를 작성하지 않고 데이터 준비 및 시각화
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>빠른 시작: Azure Machine Learning에서 코드를 작성하지 않고 데이터 준비 및 시각화
 
-끌어서 놓기 사용자 인터페이스를 사용하여 데이터를 준비하고 시각화합니다. 사용할 데이터에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 다양한 개별 자동차에 대한 항목이 포함되어 있습니다.  
+Azure Machine Learning을 위해 끌어서 놓기 그래픽 인터페이스(미리 보기)에서 데이터를 준비하고 시각화합니다. 사용할 데이터에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 다양한 개별 자동차에 대한 항목이 포함되어 있습니다. 이 빠른 시작을 완료하면 이 데이터를 사용하여 자동차 가격을 예측할 수 있습니다. 
 
-이 빠른 시작에서는 다음 작업을 수행하여 데이터를 검색하고 준비합니다.
+기계 학습 모델을 교육하기 전에 데이터를 이해하고 준비해야 합니다.  이 빠른 시작에서는 다음을 수행합니다.
 
 - 첫 번째 실험을 만들어 데이터 추가 및 미리 보기
 - 누락 값을 제거하여 데이터 준비
@@ -99,13 +99,13 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
    
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 선택기 시작**을 선택합니다.
+1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 편집**을 선택합니다.
 
     **열 선택** 대화 상자에서 **모든 열**을 선택하고, **모든 기능**을 포함시킵니다. 대화 상자는 다음과 같습니다.
 
      ![열 선택기](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. 오른쪽 아래에서 확인 표시(확인) 단추를 선택하여 열 선택기를 닫습니다.
+1. 오른쪽 하단에서 **확인**을 선택하여 열 선택기를 닫습니다.
 
 ## <a name="run-the-experiment"></a>실험 실행
 
@@ -131,7 +131,7 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
      ![데이터 미리 보기](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. 각 열을 클릭하여 데이터 세트에 대해 자세히 파악합니다.
+1. 각 열을 클릭하여 데이터 세트에 대해 자세히 파악하고, 이러한 열이 자동차 가격을 예측하는 데 유용할지 생각해봅니다.
 
 ## <a name="prepare-data"></a>데이터 준비
 
@@ -146,13 +146,13 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 선택기 시작**을 선택합니다.
+1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 편집**을 선택합니다.
 
     * **규칙 사용** 및 **모든 열**을 선택한 상태로 둡니다.
 
     * 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. **normalized-losses**를 입력합니다.
 
-    * 오른쪽 아래에서 확인 표시(확인) 단추를 선택하여 열 선택기를 닫습니다.
+    * 오른쪽 하단에서 **확인**을 선택하여 열 선택기를 닫습니다.
 
     ![열 제외](./media/ui-quickstart-run-experiment/exclude-column.png)
         
@@ -176,9 +176,9 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
 ### <a name="clean-missing-data"></a>누락 데이터 정리
 
-이제 데이터가 누락된 나머지 행을 모두 제거하는 다른 모듈을 추가합니다.
+모델을 학습할 때는 누락된 데이터에 대해 조치를 취해야 합니다.  여기에서는, 누락된 데이터가 있는 나머지 행을 제거하는 모듈을 추가합니다.  
 
-1. 검색 상자에서 **정리**를 입력하여 **누락 데이터 정리** 모듈을 찾습니다.
+1. 검색 상자에 **정리**를 입력하여 **누락 데이터 정리** 모듈을 찾습니다.
 
 1. **누락 데이터 정리** 모듈을 실험 캔버스로 끌어서 **데이터 세트에서 열 선택** 모듈에 연결합니다. 
 
@@ -216,7 +216,7 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
     이제 193개 행과 25개 열이 있습니다.
 
-    **num-of-doors**를 클릭하면 고유 값이 여전히 2이지만 누락 값은 이제 0입니다.  
+    **num-of-doors**를 클릭하면 고유 값이 여전히 2이지만 누락 값은 이제 0입니다. 나머지 열을 클릭하여 데이터 세트에 누락된 값이 없는 것을 확인합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -228,7 +228,7 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
 - 첫 번째 실험을 만들어 데이터 추가 및 미리 보기
 - 누락 값을 제거하여 데이터 준비
-- 결과 데이터 시각화
+- 준비된 데이터 시각화
 
 이 데이터를 사용하여 자동차 가격을 예측하기 위해 다음 자습서로 계속 진행하세요.
 

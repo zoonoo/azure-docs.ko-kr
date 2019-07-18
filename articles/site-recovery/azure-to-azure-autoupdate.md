@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65922125"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제의 모바일 서비스의 자동 업데이트
 
@@ -49,7 +49,7 @@ Site Recovery에서 다음과 같은 방법으로 업데이트 관리를 허용�
 
 사용 하도록 설정한 경우 VM의 복제를 시작 하거나 [VM 보기에서](azure-to-azure-quickstart.md) 하거나 [recovery services 자격 증명 모음에서](azure-to-azure-how-to-enable-replication.md), Site Recovery는 Site Recovery 확장에 대 한 업데이트를 관리 하거나 관리를 허용 하거나 수동으로.
 
-![확장 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
+![확장 프로그램 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>자격 증명 모음 내에서 확장 업데이트 설정 전환
 
@@ -535,3 +535,14 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
     **권장 조치**: 삭제 한 다음 [실행 계정을 다시 만드는](https://docs.microsoft.com/azure/automation/automation-create-runas-account)합니다.
+
+-  **오류**: Azure 실행 자동화 계정에서 사용 되는 인증서가 만료 되려고 합니다. 
+
+    실행 계정에 대해 만든 자체 서명 된 인증서 생성 날짜 로부터 1 년에 만료 됩니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 전자 메일 알림에 대 한 등록을 하는 경우 또한 받게 전자 메일 작업 쪽에서 필요한 경우. 이 오류는 만료 날짜 전에 2 개월 표시 됩니다 하 고 인증서가 만료 된 경우 중요 한 오류 변경 됩니다. 인증서가 만료 되 면 동일한을 갱신할 때까지 자동 업데이트 작동 되지 않습니다.
+
+   **권장 조치**: '복구' 및 ' 인증서 갱신 '이 문제를 해결 하려면 다음을 클릭 합니다.
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> 인증서를 갱신 되 면 현재 상태를 업데이트할 수 있도록 페이지를 새로 고치십시오.

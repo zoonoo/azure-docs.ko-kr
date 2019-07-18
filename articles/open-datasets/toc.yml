@@ -1,0 +1,39 @@
+- name: Azure Open Datasets 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure Open Datasets란?
+      displayName: open datasets overview introduction
+      href: overview-what-are-open-datasets.md
+- name: 자습서
+  items:
+    - name: 자동화된 기계 학습을 사용하는 회귀
+      href: tutorial-opendatasets-automl.md
+- name: 샘플
+  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
+  href: samples.md
+- name: 참고 자료
+  items:
+    - name: Python SDK
+      displayName: api open datasets reference sdk
+      href: 'https://aka.ms/open-datasets-api'
+    - name: Jupyter Notebook
+      displayName: python notebooks
+      href: 'https://github.com/Azure/OpenDatasetsNotebooks'
+- name: 리소스
+  items:
+    - name: Azure Open Datasets 카탈로그
+      href: 'https://azure.microsoft.com/services/open-datasets/catalog/'
+    - name: Microsoft Research 공개 데이터
+      href: 'https://msropendata.com/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 사용자 포럼
+      href: 'https://aka.ms/open-datasets-forum'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-open-datasets'

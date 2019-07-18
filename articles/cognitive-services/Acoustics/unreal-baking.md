@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797178"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304303"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Project Acoustics Unreal 베이킹 자습서
 이 문서에서는 Unreal 편집기 확장을 사용하여 음향 효과 베이킹을 제출하는 프로세스를 설명합니다.
@@ -208,7 +208,7 @@ Azure 자격 증명은 로컬 머신에 안전하게 저장되고 Unreal 편집�
 이 플러그 인에서 생성된 4개의 데이터 파일은 다양한 지점에 있습니다. 그 중 하나만 런타임 시 필요하고, 프로젝트의 Content/Acoustics 폴더에 위치하여 프로젝트의 패키징 경로에 자동으로 추가됩니다. 다른 3개는 Acoustics Data 폴더 내에 있으며 패키지되지 않습니다.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: 이 파일은 Acoustics 모드 UI의 필드에 입력하는 데이터를 저장합니다. 이 파일의 이름과 위치는 변경할 수 없습니다. 이 파일에는 준비에 영향을 미치는 다른 값도 있지만 고급 사용자를 위한 것이며 변경하지 않는 것이 좋습니다.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: 이 파일은 준비 시뮬레이션 동안 만들어지며, 장면의 음향 효과를 렌더링하기 위해 런타임에서 사용하는 조회 데이터를 포함합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
+* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: 이 파일은 준비 시뮬레이션 동안 만들어지며, 장면의 음향 효과를 렌더링하기 위해 런타임에서 사용하는 조회 데이터를 포함합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다. 이 파일을 만든 후에 이 파일의 이름을 변경하려면 Unreal 프로젝트에서 UAsset을 삭제하고 File Explorer에서 파일의 이름을 Unreal 외부로 변경한 다음, 이 파일을 Unreal로 다시 가져와 새 UAsset을 생성합니다. 자체적으로 UAsset의 이름을 바꾸는 것은 작동하지 않습니다.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: 이 파일은 복셀 음향 효과 기하 도형 및 재질 속성을 저장합니다. **프로브** 탭의 **계산** 단추를 사용하여 계산됩니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: 이 파일은 **프로브** 탭의 **계산** 단추를 사용하여 계산되는 매개 변수를 저장합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
 

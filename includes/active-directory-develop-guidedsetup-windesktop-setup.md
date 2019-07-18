@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ce95e8d0249a886e031e3ae0fe9dd8e20804f391
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799534"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182378"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -76,7 +76,7 @@ ms.locfileid: "59799534"
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
         //   - For Work or School account in your org, use your tenant ID, or domain
         //   - for any Work or School accounts, use `organizations`
         //   - for any Work or School accounts, or Microsoft personal account, use `common`

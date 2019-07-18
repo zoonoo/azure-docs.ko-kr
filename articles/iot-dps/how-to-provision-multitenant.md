@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66116113"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
@@ -193,7 +193,7 @@ ms.locfileid: "59793166"
 이 섹션에서는 각 VM에서 Azure IoT C SDK를 복제합니다. SDK에는 각 지역의 테넌트 디바이스 프로비저닝을 시뮬레이트하는 샘플이 포함되어 있습니다.
 
 
-1. 각 VM에 대해 다음 명령을 사용하여 **Cmake**, **g++**, **gcc** 및 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)을 설치합니다.
+1. 각 VM에 대해 다음 명령을 사용하여 **Cmake**, **g++** , **gcc** 및 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)을 설치합니다.
 
     ```bash
     sudo apt-get update

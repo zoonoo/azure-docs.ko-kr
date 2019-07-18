@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105797"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508763"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -32,14 +32,14 @@ SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서
 
   || 단일 데이터베이스 |
   |:--- |:--- |
-  | 생성| [포털](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)| 
+  | 생성| [포털](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> SQL Server 방화벽 설정에서 **Azure 서비스 방문 허용** 옵션이 **켜기**로 설정되어 있는지 확인합니다. 이 옵션을 사용하면 SQL 쿼리 편집기에서 데이터베이스 및 데이터 웨어하우스에 액세스할 수 있습니다.
+> 쿼리 편집기는 포트 443 및 1443을 사용하여 통신합니다.  이러한 포트에서 아웃바운드 HTTPS 트래픽을 사용하도록 설정했는지 확인합니다. 또한 데이터베이스 및 데이터 웨어하우스에 액세스하려면 서버의 허용된 방화벽 규칙에 아웃바운드 IP 주소를 추가해야 합니다.
 
 ## <a name="sign-in-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -55,7 +55,7 @@ SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서
 
 3. **인증 형식** 드롭다운 메뉴에서 **SQL Server 인증**을 선택하고 데이터베이스를 만드는 데 사용되는 서버 관리자 계정의 사용자 ID 및 암호를 입력합니다.
 
-    ![로그인](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![로그인](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. **확인**을 선택합니다.
 
@@ -78,8 +78,8 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 4. AD 관리자 페이지 도구 모음에서 **저장**을 선택합니다.
 
-5. **mySampleDatabase** 데이터베이스로 이동하고 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. **로그인** 페이지가 나타납니다. AD 관리자인 경우 오른쪽에 있는 **Active Directory Single Sign-On**에 로그인되었다는 메시지가 나타납니다. 
-   
+5. **mySampleDatabase** 데이터베이스로 이동하고 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. **로그인** 페이지가 나타납니다. AD 관리자인 경우 오른쪽에 있는 **Active Directory Single Sign-On**에 로그인되었다는 메시지가 나타납니다.
+
 6. **확인**을 선택합니다.
 
 
@@ -160,7 +160,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 쿼리 편집기를 사용할 때 알아야 할 몇 가지 사항이 있습니다.
 
-* 가상 네트워크에서 SQL Server 데이터베이스를 쿼리하는 데는 쿼리 편집기를 사용할 수 없습니다.
+* 쿼리 편집기는 포트 443 및 1443을 사용하여 통신합니다.  이러한 포트에서 아웃바운드 HTTPS 트래픽을 사용하도록 설정했는지 확인합니다. 또한 데이터베이스 및 데이터 웨어하우스에 액세스하려면 서버의 허용된 방화벽 규칙에 아웃바운드 IP 주소를 추가해야 합니다.
 
 * F5 키를 누르면 쿼리 편집기 페이지가 새로 고쳐지고 작업 중인 모든 쿼리가 손실됩니다.
 

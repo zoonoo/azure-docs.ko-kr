@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794452"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154780"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 분석](analytics.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 사용자 지정 이벤트 수를 가져오려면 `customEvents | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
+[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 사용자 지정 이벤트의 정확한 수를 가져오려면 따라서 코드를 사용 해야 같은 `customEvents | summarize sum(itemCount)`합니다.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric은 .NET SDK에서 더 이상 사용되지 않습니다. 메트릭은 전송되기 전에 항상 미리 집계되어야 합니다. GetMetric(..) 오버로드 중 하나를 사용하여 SDK 사전 집계 기능에 액세스하기 위한 메트릭 개체를 가져옵니다. 사용자 고유의 사전 집계 논리를 구현하는 경우 Track(ITelemetry metricTelemetry) 메서드를 사용하여 결과 집계를 보낼 수 있습니다. 애플리케이션이 전체 시간에서 집계를 수행하지 않고 모든 경우에 개별 원격 분석 항목을 전송해야 하는 경우에는 이벤트 원격 분석 사용 사례가 적용될 가능성이 높습니다. TelemetryClient.TrackEvent(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)를 참조하세요.
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric는 메트릭 보내기는 기본 방법은 아닙니다. 메트릭은 전송되기 전에 항상 미리 집계되어야 합니다. GetMetric(..) 오버로드 중 하나를 사용하여 SDK 사전 집계 기능에 액세스하기 위한 메트릭 개체를 가져옵니다. 고유한 사전 집계 논리를 구현 하는 경우 결과 집계 보낼 trackmetric () 메서드를 사용할 수 있습니다. 애플리케이션이 전체 시간에서 집계를 수행하지 않고 모든 경우에 개별 원격 분석 항목을 전송해야 하는 경우에는 이벤트 원격 분석 사용 사례가 적용될 가능성이 높습니다. TelemetryClient.TrackEvent(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)를 참조하세요.
 
 Application Insights에서는 특정 이벤트에 연결되지 않은 메트릭을 차트로 작성할 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다. 메트릭을 사용할 경우 개별 측정값보다 변형 및 추세에 좀 더 관심을 갖게 되며 통계 차트가 유용합니다.
 
@@ -633,12 +633,16 @@ try
 {
     success = dependency.Call();
 }
+catch(Exception ex) 
+{
+    success = false;
+    telemetry.TrackException(ex);
+    throw new Exception("Operation went wrong", ex);
+}
 finally
 {
     timer.Stop();
-    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
+    telemetry.TrackDependency("DependencyType", "myDependency", "myCall", startTime, timer.Elapsed, success);
 }
 ```
 
@@ -708,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>데이터 플러시
 
-일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 애플리케이션에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
+일반적으로 SDK는 데이터를 고정된 간격 (일반적으로 30 초) 또는 버퍼가 될 때마다 전체 (일반적으로 500 개 항목)을 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 애플리케이션에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
 
 *C#*
 

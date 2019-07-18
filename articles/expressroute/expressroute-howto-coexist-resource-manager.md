@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdd267937db589156aa5eddc7608323b143266de
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366591"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508847"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "60366591"
 
 ## <a name="configuration-designs"></a>구성 디자인
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 ExpressRoute에 대한 장애 조치(failover) 경로로 구성
-ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. 이 연결은 Azure 개인 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. Azure Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치(failover) 솔루션은 없습니다. ExpressRoute 회로는 항상 기본 링크입니다. ExpressRoute 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 비대칭 라우팅을 방지하려면 로컬 네트워크 구성에서 사이트 간 VPN을 통한 ExpressRoute 회로를 사용해야 합니다. ExpressRoute를 수신한 경로에 대해 더 높은 로컬 기본 설정을 설정하여 ExpressRoute 경로를 사용할 수 있습니다. 
+ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. 이 연결은 Azure 프라이빗 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. Azure Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치(failover) 솔루션은 없습니다. ExpressRoute 회로는 항상 기본 링크입니다. ExpressRoute 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 비대칭 라우팅을 방지하려면 로컬 네트워크 구성에서 사이트 간 VPN을 통한 ExpressRoute 회로를 사용해야 합니다. ExpressRoute를 수신한 경로에 대해 더 높은 로컬 기본 설정을 설정하여 ExpressRoute 경로를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 두 경로가 동일한 경우 사이트 간 VPN보다 ExpressRoute 회로가 사용되며, Azure는 가장 긴 접두사 일치 항목을 사용하여 패킷의 대상에 대한 경로를 선택합니다.
@@ -167,7 +167,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 8. 기존 ExpressRoute 회로에 연결하는 경우 8-9단계를 건너뛰고, 10단계로 이동합니다. ExpressRoute 회로를 구성합니다. ExpressRoute 회로 구성에 대한 자세한 내용은 [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)를 참조하세요.
 
 
-9. ExpressRoute 회로를 통해 Azure 개인 피어링을 구성합니다. ExpressRoute 회로를 통한 Azure 개인 피어링에 대한 자세한 내용은 [피어링 구성](expressroute-howto-routing-arm.md)을 참조하세요.
+9. ExpressRoute 회로를 통해 Azure 프라이빗 피어링을 구성합니다. ExpressRoute 회로를 통한 Azure 프라이빗 피어링에 대한 자세한 내용은 [피어링 구성](expressroute-howto-routing-arm.md)을 참조하세요.
 
 10. <a name="gw"></a>ExpressRoute 게이트웨이를 만듭니다. ExpressRoute 게이트웨이 구성에 대한 자세한 내용은 [ExpressRoute 게이트웨이 구성](expressroute-howto-add-gateway-resource-manager.md)을 참조하세요. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 합니다.
 
@@ -216,7 +216,30 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. 이제 게이트웨이 없는 가상 네트워크가 생겼습니다. 새 게이트웨이를 만들고 연결을 설정하려면 이전 섹션의 단계를 따릅니다.
+4. 이제 게이트웨이 없는 가상 네트워크가 생겼습니다. 새 게이트웨이 만들고 연결을 설정 하려면 다음 예제를 사용 합니다.
+
+   변수를 설정합니다.
+
+    ```azurepowershell-interactive
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   ```
+
+   게이트웨이를 만듭니다.
+
+   ```azurepowershell-interactive
+   $gw = New-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup> -Location <yourlocation) -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+   ```
+
+   연결을 만듭니다.
+
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+   New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+   ```
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN Gateway에 지점 및 사이트 간 구성을 추가하려면
 

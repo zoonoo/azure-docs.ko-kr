@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: mbullwin
 ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904833"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
@@ -104,7 +104,7 @@ ms.locfileid: "60904833"
 
    b. 이메일의 제목을 입력합니다.
 
-   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
     
    d. 클릭 합니다 **새 매개 변수 추가** 드롭다운 및 첨부 파일 및 HTML은 선택 합니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "60904833"
 
     b. **첨부 파일 콘텐츠**를 선택합니다.
     
-    다. **HTML임** 상자에서 **예**를 선택합니다.
+    c. **HTML임** 상자에서 **예**를 선택합니다.
 
       ![Office 365 메일 구성 화면](./media/automate-with-logic-apps/12emailattachment.png)
 

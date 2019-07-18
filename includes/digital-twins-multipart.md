@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921881"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182843"
 ---
 > [!NOTE]
 > 다중 파트 요청에는 세 가지 정보가 필요합니다.

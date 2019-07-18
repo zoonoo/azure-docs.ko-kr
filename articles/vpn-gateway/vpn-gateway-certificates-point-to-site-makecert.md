@@ -3,17 +3,16 @@ title: '지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내
 description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/01/2018
-ms.author: v-jay
+ms.date: 09/05/2018
+ms.author: cherylmc
 ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768109"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
@@ -46,7 +45,7 @@ ms.locfileid: "60768109"
 
 exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)을 참조하세요. 신뢰할 수 있는 루트 인증서를 추가하려면 문서의 [이 섹션](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add)을 참조하세요.
 
-### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>자체 서명된 인증서 및 개인 키를 내보낸 다음 저장(선택 사항)
+### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>자체 서명된 인증서 및 프라이빗 키를 내보내고 저장(선택 사항)
 
 자체 서명된 루트 인증서를 내보낸 다음 안전하게 저장할 수 있습니다. 필요한 경우 나중에 다른 컴퓨터에서 해당 인증서를 설치하고 더 많은 클라이언트 인증서를 생성하거나 다른 .cer 파일을 내보낼 수 있습니다. 자체 서명된 루트 인증서를 .pfx로 내보내려면 루트 인증서를 선택하고 [클라이언트 인증서 내보내기](#clientexport)에서 설명하는 것과 같은 단계를 사용합니다.
 

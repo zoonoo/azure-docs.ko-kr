@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/18/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204600"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>이란 Azure AD 액세스 검토?
 
@@ -46,7 +46,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 - **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어찌하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
 - **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
 - **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그오프하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
-- **정책의 예외 목록을 유지 관리하려면:** 이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
+- **정책의 예외 목록을 유지 관리하려면:** 이상적인 환경에서는 모든 사용자가 조직의 리소스에 대 한 액세스를 보호 하려면 액세스 정책을 수행 합니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
 - **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 대 한 직원 액세스 하지 초대 된 게스트 하지만 IAM, 온-프레미스의 일부를 사용 하 여 자동화할 수 있습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
 - **검토를 주기적으로 반복되도록 함:** 주간, 월별, 분기별 또는 연간과 같이 설정된 빈도에 따라 사용자의 액세스 검토 반복을 설정할 수 있으며, 검토자는 각 검토 시작 시 알림을 받게 됩니다. 검토자는 친숙한 인터페이스를 사용하거나 스마트 권장 사항을 활용하여 액세스를 승인하거나 거부할 수 있습니다.
 
@@ -58,19 +58,32 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
+| Azure AD 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
 
-액세스 검토를 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
+각 사용자가 액세스 검토를 사용 하 여 상호 작용 하는 유료 Azure AD Premium P2 라이선스가 있어야 합니다. 다음은 이러한 템플릿의 예입니다.
 
-- Azure AD Premium P2
-- EMS(Enterprise Mobility + Security) E5 라이선스
+- 관리자에 게 액세스 검토 만들기
+- 그룹 소유자 액세스를 수행 하는 검토
+- 님이 검토자로 할당 된 사용자
+- 자체 검토를 수행 하는 사용자
 
-자세한 내용은 [방법: Azure Active Directory Premium에 가입](../fundamentals/active-directory-get-started-premium.md) 또는 [Enterprise Mobility + Security E5 평가판](https://aka.ms/emse5trial)을 참조하세요.
+게스트 사용자에게 자신의 액세스 권한을 검토하도록 요청할 수도 있습니다. 사용자 고유의 조직 내 사용자 중 하나에 할당 하는 각 유료 Azure AD Premium P2 라이선스에 대 한 외부 사용자 개수가에서 최대 5 명의 게스트 사용자를 초대 하려면 Azure AD-비즈니스 (b2b)를 사용할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)합니다.
 
-## <a name="get-started-with-access-reviews"></a>액세스 검토로 시작
+해야 하는 라이선스 수를 결정할 수 있도록 몇 가지 예제 시나리오는 다음과 같습니다.
+
+| 시나리오 | 계산 | 필요한 라이선스 수 |
+| --- | --- | --- |
+| 관리자는 사용자가 500 명인 그룹 A의 액세스 검토를 만듭니다.<br/>님이 검토자로 3 명의 그룹 소유자를 할당합니다. | 관리자 1 + 3 그룹 소유자 | 4 |
+| 관리자는 사용자가 500 명인 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 자체 검토자로 500 명 이상의 관리자 1 | 501 |
+| 관리자 5 명의 사용자와 25 명의 게스트 사용자 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 1 관리자 + 자체 검토자로 사용자 5 명<br/>(게스트 사용자는 필요한 1 5 비율에 포함 됨) | 6 |
+| 관리자는 28 게스트 사용자 5 명의 사용자와 그룹 A의 액세스 검토를 만듭니다.<br/>자체 검토할 수 있습니다. | 1 관리자 + 자체 검토자로 사용자 5 + 1 명의 사용자를 필요한 1 5 비율로 게스트 사용자 | 7 |
+
+사용자에게 라이선스를 할당하는 방법에 대한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
+
+## <a name="learn-about-access-reviews"></a>액세스 검토에 알아봅니다
 
 액세스 검토를 만들고 수행하는 데 관해 자세히 알아보려면 다음 짧은 데모를 시청하세요.
 
@@ -80,29 +93,9 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## <a name="enable-access-reviews"></a>액세스 검토 사용하도록 설정
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-액세스 검토를 사용하도록 설정하려면 다음 단계를 수행합니다.
-
-1. 전역 관리자 또는 사용자 관리자에 로그인 하는 [Azure portal](https://portal.azure.com) 액세스를 사용 하려는 검토 합니다.
-
-1. **모든 서비스**를 클릭하고 액세스 검토 서비스를 찾습니다.
-
-1. 클릭 **액세스 검토**합니다.
-
-    ![모든 서비스-액세스 검토](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. 탐색 목록에서 **등록**을 클릭하여 **액세스 검토 등록** 페이지를 엽니다.
-
-    ![액세스 검토 등록](./media/access-reviews-overview/onboard-button.png)
-
-1. **만들기**를 클릭하여 현재 디렉터리에서 액세스 검토를 사용하도록 설정합니다.
-
-    ![액세스 검토 등록](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    다음에 대 한 액세스를 먼저 검토, 액세스 검토 옵션을 사용 하도록 설정 합니다.
-
-    ![액세스 검토를 사용 하도록 설정](./media/access-reviews-overview/access-reviews-enabled.png)
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

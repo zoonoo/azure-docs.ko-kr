@@ -7,27 +7,24 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: be7479d3f042d6e64428a07e0509907b78595200
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9e3f7e3b23cba3fab87ee35aa2a15b6305d9ece4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054185"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Windows Server Virtual Machines에서 Azure IoT Edge를 실행 합니다.
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에서는 Azure IoT Edge 런타임을 사용 하 여 Windows Server 2019 가상 머신을 실행 하는 단계를 나열 합니다 [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace 제품입니다. 지침을 따르세요 [Azure IoT Edge 런타임을 설치](how-to-install-iot-edge-windows.md) 다른 버전과 함께 사용 하기 위해 Windows에서.
-
-> [!NOTE]
-> Windows Server에서 IoT Edge 런타임은입니다 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
+이 문서에서는 Azure IoT Edge 런타임을 사용 하 여 Windows Server 2019 가상 머신을 실행 하는 단계를 나열 합니다 [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품입니다. 지침을 따르세요 [Azure IoT Edge 런타임을 설치](how-to-install-iot-edge-windows.md) 다른 버전과 함께 사용 하기 위해 Windows에서.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Azure Marketplace에서 배포
-1.  로 이동 합니다 [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace 제품에서 "Windows Server"를 검색 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.  로 이동 합니다 [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 제품에서 "Windows Server"를 검색 하거나 [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.  선택 **가져오기 지금** 
 3.  **소프트웨어 계획**"Windows Server 2019 Datacenter Server Core와 컨테이너" 찾아서 선택할 **계속** 다음 대화 상자에서.
     * 다른 버전의 Windows Server 컨테이너를 사용 하 여 이러한 지침을 사용할 수도 있습니다.

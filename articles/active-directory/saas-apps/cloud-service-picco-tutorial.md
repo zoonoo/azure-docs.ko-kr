@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0424cc744f1b6db0e4adaaf074ae72d94e9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37597b010394ed6c0a3cfd75be85d58628fdbdfb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>자습서: Cloud Service PICCO와 Azure Active Directory 통합
 

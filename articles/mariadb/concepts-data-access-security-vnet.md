@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332838"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
@@ -50,13 +50,13 @@ ms.locfileid: "60332838"
 
 작업을 수행할 때까지 서브넷의 VM은 Azure Database for MariaDB 서버와 통신할 수 없습니다. 통신을 설정하는 한 동작은 가상 네트워크 규칙을 생성하는 것입니다. VNet 규칙 접근 방식을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
 
-### <a name="a-allow-access-to-azure-services"></a>a. Azure 서비스에 대한 액세스 허용
+### <a name="a-allow-access-to-azure-services"></a>A. Azure 서비스에 대한 액세스 허용
 
 연결 보안 창에는 **Azure 서비스에 대한 액세스 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for MariaDB 데이터베이스에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
 
 ### <a name="b-ip-rules"></a>B. IP 규칙
 
-Azure Database for MariaDB 방화벽을 사용하면 Azure Database for MariaDB 서버에 대한 통신이 허용되는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 개인 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 하지만 Azure 개인 네트워크 내부의 많은 노드는 *동적* IP 주소로 구성됩니다. 동적 IP 주소는, 예를 들어 VM이 다시 시작될 때 변경될 수 있습니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
+Azure Database for MariaDB 방화벽을 사용하면 Azure Database for MariaDB 서버에 대한 통신이 허용되는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 프라이빗 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 하지만 Azure 프라이빗 네트워크 내부의 많은 노드는 *동적* IP 주소로 구성됩니다. 동적 IP 주소는, 예를 들어 VM이 다시 시작될 때 변경될 수 있습니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
 
 VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소 구성][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]을 참조하세요.
 
@@ -106,7 +106,7 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한 사항이 있습니다.
 
-- 웹앱을 VNet/서브넷의 개인 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. VNet 방화벽 규칙이 있는 서버에 웹 앱에서 연결을 사용 하려면 허용 Azure 서비스가 서버에서 서버에 액세스 해야 합니다.
+- 웹앱을 VNet/서브넷의 프라이빗 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. VNet 방화벽 규칙이 있는 서버에 웹 앱에서 연결을 사용 하려면 허용 Azure 서비스가 서버에서 서버에 액세스 해야 합니다.
 
 - Azure Database for MariaDB에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이처럼 참조되는 모든 서브넷은 Azure Database for MariaDB를 호스팅하는 동일한 지리적 지역에서 호스팅되어야 합니다.
 

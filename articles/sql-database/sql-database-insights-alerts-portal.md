@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036056"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
@@ -77,21 +77,21 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 | 리소스 종류 | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
 | --- | --- | --- | --- | --- |
-| SQL 데이터베이스 | cpu_percent | CPU 비율 | 평균 | 5분 |
-| SQL 데이터베이스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
-| SQL 데이터베이스 | log_write_percent | 로그 IO 비율 | 평균 | 5분 |
-| SQL 데이터베이스 | dtu_consumption_percent | DTU 비율 | 평균 | 5분 |
-| SQL 데이터베이스 | 저장소 | 총 데이터베이스 크기 | 최대 | 30분 |
-| SQL 데이터베이스 | connection_successful | 성공적인 연결 | 합계 | 10분 |
-| SQL 데이터베이스 | connection_failed | 실패한 연결 | 합계 | 10분 |
-| SQL 데이터베이스 | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |
-| SQL 데이터베이스 | 교착 상태 | 교착 상태 | 합계 | 10분 |
-| SQL 데이터베이스 | storage_percent | 데이터베이스 크기 비율 | 최대 | 30분 |
-| SQL 데이터베이스 | xtp_storage_percent | 메모리 내 OLTP 저장소 백분율(미리 보기) | 평균 | 5분 |
-| SQL 데이터베이스 | workers_percent | 작업자 백분율 | 평균 | 5분 |
-| SQL 데이터베이스 | sessions_percent | 세션 백분율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | cpu_percent | CPU 비율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | log_write_percent | 로그 IO 비율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | dtu_consumption_percent | DTU 비율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | 저장소 | 총 데이터베이스 크기 | 최대 | 30분 |
+| SQL 데이터베이스(SQL database) | connection_successful | 성공적인 연결 | 합계 | 10분 |
+| SQL 데이터베이스(SQL database) | connection_failed | 실패한 연결 | 합계 | 10분 |
+| SQL 데이터베이스(SQL database) | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |
+| SQL 데이터베이스(SQL database) | 교착 상태 | 교착 상태 | 합계 | 10분 |
+| SQL 데이터베이스(SQL database) | storage_percent | 데이터베이스 크기 비율 | 최대 | 30분 |
+| SQL 데이터베이스(SQL database) | xtp_storage_percent | 메모리 내 OLTP 저장소 백분율(미리 보기) | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | workers_percent | 작업자 백분율 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | sessions_percent | 세션 백분율 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_limit | DTU 제한 | 평균 | 5분 |
-| SQL 데이터베이스 | dtu_used | DTU 사용됨 | 평균 | 5분 |
+| SQL 데이터베이스(SQL database) | dtu_used | DTU 사용됨 | 평균 | 5분 |
 ||||||
 | 탄력적 풀 | cpu_percent | CPU 비율 | 평균 | 10분 |
 | 탄력적 풀 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |

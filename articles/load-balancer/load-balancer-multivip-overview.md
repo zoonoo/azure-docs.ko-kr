@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
 ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594167"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
@@ -30,7 +30,7 @@ Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성�
 
 다음 표에는 프런트 엔드 구성의 몇 가지 예가 들어 있습니다.
 
-| 프런트 엔드 | IP 주소 | protocol | 포트 |
+| 프런트 엔드 | IP 주소 | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 이 시나리오에서 프런트 엔드는 다음과 같이 구성됩니다.
 
-| 프런트 엔드 | IP 주소 | protocol | 포트 |
+| 프런트 엔드 | IP 주소 | protocol | port |
 | --- | --- | --- | --- |
 | ![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![자주색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -65,12 +65,12 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
-| 규칙 | 프런트 엔드 IP 주소 | protocol | 포트 | 대상 | 포트 |
+| 규칙 | 프런트 엔드 IP 주소 | protocol | port | 대상 | port |
 | --- | --- | --- | --- | --- | --- |
 | ![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP 주소 |80 |
 | ![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP 주소 |81 |
@@ -104,7 +104,7 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 이전 시나리오에서와 동일한 프런트 엔드 구성을 가정해 보겠습니다.
 
-| 프런트 엔드 | IP 주소 | protocol | 포트 |
+| 프런트 엔드 | IP 주소 | protocol | port |
 | --- | --- | --- | --- |
 | ![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![자주색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 
 
 | 규칙 | 프런트 엔드 | 백 엔드 풀에 매핑 |
 | --- | --- | --- |
-| 1 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
-| 2 |![규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
+| 1 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
+| 2 |![rule(규칙)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
 다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
 
-| 규칙 | 프런트 엔드 IP 주소 | protocol | 포트 | 대상 | 포트 |
+| 규칙 | 프런트 엔드 IP 주소 | protocol | port | 대상 | port |
 | --- | --- | --- | --- | --- | --- |
 | ![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |프런트 엔드와 동일(65.52.0.1) |프런트 엔드와 동일(80) |
 | ![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |프런트 엔드와 동일(65.52.0.2) |프런트 엔드와 동일(80) |

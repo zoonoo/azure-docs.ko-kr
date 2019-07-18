@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
 ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699208"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 패키지
@@ -54,7 +54,7 @@ ms.locfileid: "60699208"
 | Microsoft.ApplicationInsights.TraceListener | 2.7.2 | Application Insights로 추적 로그 메시지를 보낼 수 있도록 하는 사용자 지정 TraceListener입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) |
 | Microsoft.ApplicationInsights.Log4NetAppender | 2.7.2 | Application Insights로 Log4Net 로그 메시지를 보낼 수 있도록 하는 사용자 지정 어펜더입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
 | Microsoft.ApplicationInsights.NLogTarget | 2.7.2 |  Application Insights로 NLog 로그 메시지를 보낼 수 있도록 하는 사용자 지정 대상입니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-| Microsoft.ApplicationInsights.SnapshotCollector | 1.3.1 | 애플리케이션에서 예외를 모니터링하고 오프라인 분석을 위해 스냅숏을 자동으로 수집합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/)
+| Microsoft.ApplicationInsights.SnapshotCollector | 1.3.1 | 애플리케이션에서 예외를 모니터링하고 오프라인 분석을 위해 스냅샷을 자동으로 수집합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/)
 
 ## <a name="service-fabric"></a>Service Fabric
 
@@ -83,4 +83,4 @@ ms.locfileid: "60699208"
 
 - [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)를 모니터링합니다.
 - ASP.NET Core [Azure Linux 웹앱](../../azure-monitor/app/profiler-aspnetcore-linux.md)을 프로파일링합니다.
-- ASP.NET [스냅숏](../../azure-monitor/app/snapshot-debugger.md)을 디버그합니다.
+- ASP.NET [스냅샷](../../azure-monitor/app/snapshot-debugger.md)을 디버그합니다.

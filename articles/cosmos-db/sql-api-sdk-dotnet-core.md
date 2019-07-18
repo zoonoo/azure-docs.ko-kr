@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626828"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340191"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -50,6 +50,24 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 * 스트림 지원
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
 
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* NuGet 패키지에 정의 된 SDK의 System.Net.Http 버전 일치
+* LINQ 쿼리에 대 한 전체 자릿수 크기를 늘렸습니다.
+* CompositePath "," CompositePathSortOrder "," SpatialSpec "," SpatialType "및" PartitionKeyDefinitionVersion 새 클래스 추가
+* DocumentCollection에 추가 된 TimeToLivePropertyPath
+* 추가 CompositeIndexes 및 SpatialIndexes IndexPolicy
+* PartitionKeyDefinition에 버전 추가
+* PartitionKey를 None 추가
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * 추가 IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint ConnectionPolicy에 있습니다.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
 * 진단 개선 사항
@@ -148,7 +166,7 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
  
  * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경.
  * 직접 연결 모드로 전송된 요청의 응답에서 진단 정보 및 대기 시간을 표시합니다. 속성 이름은 ResourceResponse 클래스의 RequestDiagnosticsString 및 RequestLatency입니다.
- * 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+ * 이 SDK 버전은 https://aka.ms/cosmosdb-emulator 에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
  
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
@@ -214,7 +232,7 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](how-to-sql-query.md#Aggregates)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregates.md)을 참조하세요.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -237,6 +255,9 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |2019 년 6 월 20 일 |--- |
+| [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
+| [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
 | [2.2.3](#2.2.3) |2019 년 3 월 11 일 |--- |
 | [2.2.2](#2.2.2) |2019 년 2 월 6 일 |--- |
 | [2.2.1](#2.2.1) |2018년 12월 24일 |--- |

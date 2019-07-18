@@ -1,10 +1,15 @@
 ---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
 ms.openlocfilehash: de6598e4823c5beb2782524c3a8cd7646e54f402
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096009"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181935"
 ---
 > [!div class="op_single_selector"]
 > * [포털](../articles/hdinsight/hdinsight-administer-use-portal-linux.md)
@@ -12,4 +17,4 @@ ms.locfileid: "62096009"
 > * [.NET SDK](../articles/hdinsight/hdinsight-administer-use-dotnet-sdk.md)
 > * [Azure CLI](../articles/hdinsight/hdinsight-administer-use-command-line.md)
 > 
->
+

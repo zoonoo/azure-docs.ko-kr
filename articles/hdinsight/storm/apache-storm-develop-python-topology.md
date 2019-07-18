@@ -9,19 +9,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078208"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
 Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. [Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
 
 > [!IMPORTANT]  
-> 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+> 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다. 
 
 이 프로젝트에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
 
@@ -134,7 +134,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Storm UI를 사용하여 클러스터에서 토폴로지를 볼 수 있습니다. Storm UI는 https://mycluster.azurehdinsight.net/stormui에 있습니다. `mycluster`를 클러스터 이름으로 바꿉니다.
+3. Storm UI를 사용하여 클러스터에서 토폴로지를 볼 수 있습니다. Storm UI는 https://mycluster.azurehdinsight.net/stormui 에 있습니다. `mycluster`를 클러스터 이름으로 바꿉니다.
 
 > [!NOTE]  
 > Storm 토폴로지가 시작되면 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 다음 방법 중 하나를 사용합니다.

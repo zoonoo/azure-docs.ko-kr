@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689705"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503326"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -77,11 +77,11 @@ Linux, UNIX에서 Windows (LUW) 용 IBM Db2 [높은 가용성 및 재해 복구 
 | 문서화 | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 모든 필요한 SAP Note |
-| [Azure Virtual Machines 계획 및 Linux에서 SAP에 대 한 구현을] [ planning-guide] 가이드 |
-| [Linux에서 SAP 용 azure Virtual Machines 배포] [ deployment-guide] (이 문서) |
-| [Azure 가상 머신에 Linux에서 SAP에 대 한 관리 system(DBMS) 배포 데이터베이스] [ dbms-guide] 가이드 |
+| [Azure Virtual Machines 계획 및 Linux에서 SAP에 대 한 구현을][planning-guide] 가이드 |
+| [Linux에서 SAP 용 azure Virtual Machines 배포][deployment-guide] (이 문서) |
+| [Azure Virtual Machines 관리 system(DBMS) 배포 Linux에서 SAP 용 데이터베이스][dbms-guide] 가이드 |
 | [SAP 워크 로드를 Azure의 계획 및 배포 검사 목록][azr-sap-plancheck] |
-| [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp] |
+| [SUSE Linux Enterprise Server SAP 응용 프로그램 12 sp3 모범 사례 가이드][sles-for-sap-bp] |
 | [SUSE Linux Enterprise 고가용성 확장 12 SP3][sles-ha-guide] |
 | [SAP 워크 로드 용 IBM Db2 Azure Virtual Machines DBMS 배포][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
@@ -144,7 +144,7 @@ Azure에서 Linux Pacemaker에 대 한 자세한 내용은 참조 하세요. [Az
 
 IBM Db2 LUW 용 리소스 에이전트는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 포함 됩니다. 이 문서에 설명 된 설치 프로그램에 대 한 SAP 응용 프로그램용 SUSE Linux 서버를 사용 해야 합니다. Azure Marketplace는 새 Azure 가상 머신을 배포 하는 데 사용할 수 있는 SAP Applications 12에 대 한 SUSE Enterprise Server에 대 한 이미지를 포함 합니다. Azure VM Marketplace에서 VM 이미지를 선택 하면 Azure Marketplace를 통해 SUSE에 의해 제공 되는 다양 한 지원 또는 서비스 모델 고려해 야 합니다. 
 
-### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스트의 경우: DNS 업데이트
 가상 호스트 이름을 포함 한 모든 호스트 이름 목록을 확인 하 고 호스트 이름 확인에 적절 한 IP 주소를 사용 하도록 설정 하려면 DNS 서버를 업데이트 합니다. DNS 서버에 존재 하지 않거나 업데이트 하 고 DNS 항목을 만들 수 없습니다,이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우 항목은 SAP 시스템 환경에서 모든 Vm에 적용 되어 있는지 확인 합니다. 하지만 이상적으로 Azure로 확장 하는 DNS를 사용 하는 권장,
 
 
@@ -337,9 +337,9 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 
 다음 항목 중 하나를 사용 하 여 붙습니다.
 
-- **[A]**: 모든 노드에 적용
-- **[1]**: 노드 1에만 적용 
-- **[2]**: 노드 2에만 적용
+- **[A]** : 모든 노드에 적용
+- **[1]** : 노드 1에만 적용 
+- **[2]** : 노드 2에만 적용
 
 **[A]**  Pacemaker 구성에 대 한 필수 구성 요소:
 1. 사용자 db2 사용 하 여 두 데이터베이스 서버를 종료\<sid > db2stop를 사용 하 여 합니다.
@@ -425,7 +425,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예를 들어 **Db2 연결**).
 
-   다. 설정 합니다 **할당** 에 **정적**, IP 주소를 입력 하 고 **가상 IP** 시작 부분에 정의 합니다.
+   c. 설정 합니다 **할당** 에 **정적**, IP 주소를 입력 하 고 **가상 IP** 시작 부분에 정의 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -437,7 +437,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 백 엔드 풀의 이름을 입력 합니다 (예를 들어 **Db2-백 엔드**).
 
-   다. **가상 머신 추가**를 선택합니다.
+   c. **가상 머신 추가**를 선택합니다.
 
    d. 가용성 집합 또는 IBM Db2 데이터베이스를 이전 단계에서 만든 호스트 가상 컴퓨터를 선택 합니다.
 
@@ -451,7 +451,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 상태 프로브의 이름 입력 (예를 들어 **Db2 hp**).
 
-   다. 선택 **TCP** 프로토콜 및 포트 **62500**합니다. 유지 합니다 **간격** 값으로 설정 **5**를 유지 하 고는 **비정상 임계값** 값으로 설정 **2**합니다.
+   c. 선택 **TCP** 프로토콜 및 포트 **62500**합니다. 유지 합니다 **간격** 값으로 설정 **5**를 유지 하 고는 **비정상 임계값** 값으로 설정 **2**합니다.
 
    d. **확인**을 선택합니다.
 
@@ -461,7 +461,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 부하 분산 장치 규칙의 이름을 입력 합니다 (예를 들어 **Db2 SID**).
 
-   다. 프런트 엔드 IP 주소, 백 엔드 풀 및 이전에 만든 상태 프로브 선택 (예를 들어 **Db2 프런트 엔드**).
+   c. 프런트 엔드 IP 주소, 백 엔드 풀 및 이전에 만든 상태 프로브 선택 (예를 들어 **Db2 프런트 엔드**).
 
    d. 유지 된 **프로토콜** 로 설정 **TCP**, 포트를 입력 하 고 *데이터베이스 통신 포트*합니다.
 
@@ -496,13 +496,12 @@ Db2 HADR 구성 생성 하기 전에 설치를 수행한 경우 이전 섹션에
 
 J2EE 구성 도구를 사용 하 여 확인 하거나 JDBC URL을 업데이트 합니다. X 해야 하는 J2EE 구성 도구는 그래픽 도구 이기 때문에 서버를 설치 합니다.
  
-1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 실행 합니다.
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 실행 합니다.   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. 왼쪽된 프레임에서 선택 **보안 저장소**합니다.
-1. 오른쪽 프레임 선택 키 jdbc/풀 / \<SAPSID>/url 합니다.
+1. 오른쪽 프레임 선택 키jdbc/풀/\<SAPSID > / url입니다.
 1. 가상 호스트 이름을 JDBC URL에 호스트 이름을 변경 합니다.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. 선택 **추가**합니다.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. **추가**를 선택합니다.
 1. 변경 내용을 저장 하려면 왼쪽 위에 있는 디스크 아이콘을 선택 합니다.
 1. 구성 도구를 닫습니다.
 1. Java 인스턴스를 다시 시작 합니다.
@@ -516,7 +515,7 @@ HADR 설치에 대 한 보관 Db2 로그를 구성 하려면 주 및 대기 데�
 
 전송 또는 프로필 디렉터리에 대 한 기존 항상 사용 가능한 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][nfs-ha] 
+- [SUSE Linux Enterprise Server의 Azure Vm에 있는 NFS의 고가용성][nfs-ha] 
 - [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 - [Azure NetApp 파일](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (NFS 공유 만들려면)
 
@@ -595,8 +594,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **crm 리소스 마이그레이션 \<res_name > <host>:** 위치 제약 조건을 만들고 인수를 사용 하 여 문제가 발생할 수 있습니다
-- **crm 리소스 지우기 \<res_name >**: 위치 제약 조건 삭제
-- **crm 리소스 정리 \<res_name >**: 리소스의 모든 오류를 지웁니다.
+- **crm 리소스 지우기 \<res_name >** : 위치 제약 조건 삭제
+- **crm 리소스 정리 \<res_name >** : 리소스의 모든 오류를 지웁니다.
 
 ### <a name="test-the-fencing-agent"></a>펜싱 에이전트를 테스트 합니다.
 

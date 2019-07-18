@@ -3,8 +3,8 @@ title: 액세스 패널의 애플리케이션에 로그인하는 문제 | Micros
 description: myapps.microsoft.com의 Microsoft Azure AD 액세스 패널에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51e486e8eb2fef04c1b876dff3de644dda4aaf2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65781127"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 애플리케이션에 로그인하는 문제
 
@@ -333,7 +333,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
-   2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
+   2\. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
 ### <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 

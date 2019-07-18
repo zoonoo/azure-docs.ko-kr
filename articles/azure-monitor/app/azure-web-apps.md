@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922458"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502078"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -274,7 +274,7 @@ Application Insights에 대해 구성 된 응용 프로그램 설정 사용 하 
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -301,7 +301,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ### <a name="upgrading-from-versions-289-and-up"></a>및 2.8.9 버전에서 업그레이드
 
-2.8.9 버전에서 업그레이드 하는 추가 작업 없이 자동으로 발생 합니다. 대상 app service 백그라운드에서 새 모니터링 비트 전달할지 및 응용 프로그램 다시 시작에는 픽업 됩니다.
+2\.8.9 버전에서 업그레이드 하는 추가 작업 없이 자동으로 발생 합니다. 대상 app service 백그라운드에서 새 모니터링 비트 전달할지 및 응용 프로그램 다시 시작에는 픽업 됩니다.
 
 방문을 실행 중인 확장의 버전을 확인 하려면 `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -318,7 +318,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
     1. 응용 프로그램 설정을 ApplicationInsightsAgent 미리 설치 된 사이트 확장을 사용 하도록 설정 합니다. 참조 [powershell을 통해 사용 하도록 설정 하면](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell)합니다.
     2. Azure App Service에 대 한 Application Insights 확장 라는 개인 사이트 확장을 수동으로 제거 합니다.
 
-2.5.1 이전 버전에서 업그레이드가 완료 되 면 응용 프로그램 bin 폴더에서 ApplicationInsigths dll가 제거 되었는지 확인 [문제 해결 단계를 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)합니다.
+2\.5.1 이전 버전에서 업그레이드가 완료 되 면 응용 프로그램 bin 폴더에서 ApplicationInsigths dll가 제거 되었는지 확인 [문제 해결 단계를 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -348,7 +348,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 아래 표에서 이러한 값 의미의 자세한 설명, 해당 기본 관련 원인 및 수정 권장:
 
-|문제 값|설명|해결
+|문제 값|설명|수정
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장 SDK의 일부 응용 프로그램에서 이미 하는 백오프 있음을 나타냅니다. 에 대 한 참조로 인해 하기란 `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, 또는 `Microsoft.ApplicationInsights`  | 참조를 제거 합니다. 이러한 참조의 일부 특정 Visual Studio 템플릿에서 기본적으로 추가 되 고 이전 버전의 Visual Studio에 대 한 참조를 추가할 수 있습니다 `Microsoft.ApplicationInsights`합니다.
 |`AppAlreadyInstrumented:true` | 응용 프로그램이.NET Core 2.1 또는 2.2를 대상으로 하는 고 가리킵니다 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 메타 패키지를 Application Insights에서 다음을 제공 하 고 확장은 백오프. | .NET Core 2.1,2.2에서 고객이 [권장](https://github.com/aspnet/Announcements/issues/287) Microsoft.AspNetCore.App 메타 패키지를 대신 사용 하도록 합니다.|

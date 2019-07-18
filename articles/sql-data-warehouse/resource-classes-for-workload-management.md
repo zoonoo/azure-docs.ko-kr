@@ -1,22 +1,21 @@
-﻿---
-title: 워크로드 관리를 위한 리소스 클래스 - Azure SQL Data Warehouse | Microsoft Docs
+---
+title: Azure SQL Data Warehouse의 워크 로드 관리를 위한 리소스 클래스 | Microsoft Docs
 description: Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.subservice: workload-management
+ms.date: 06/20/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475085"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595530"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 
@@ -80,11 +79,12 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 
 Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동작을 이해하기 어렵게 만드는 복잡성이 더해지는 몇 가지 정보가 있습니다.
 
-- smallrc 리소스 클래스는 정적 리소스 클래스와 같은 고정 메모리 모델로 작동합니다.  Smallrc 쿼리는 서비스 수준이 높아짐에 따라 추가 메모리를 동적으로 가져오지 않습니다.
+**Gen1에서**
+- smallrc 리소스 클래스는 정적 리소스 클래스와 같은 고정 메모리 모델로 작동합니다.  Smallrc 쿼리는 서비스 수준이 높아짐에 따라 추가 메모리를 동적으로 가져오지 않습니다. 
 - 서비스 수준이 달라지면 사용 가능한 쿼리 동시성이 높아지거나 낮아질 수 있습니다.
-- 서비스 수준을 확장하는 경우 동일한 리소스 클래스에 할당된 메모리가 비례로 변경되지 않습니다.
+- 서비스 수준을 확장 하는 경우에 동일한 리소스 클래스에 할당 된 메모리에 대 한 비례 변경을 제공 하지 않습니다.
 
-**Gen2에 한해**, 동적 리소스 클래스는 진정으로 동적이며 위에서 언급한 점을 처리합니다.  새로운 규칙은 **서비스 수준에 관계없이** small-medium-large-xlarge 리소스 클래스에 대해 메모리 비율 할당은 3-10-22-70이라는 것입니다.  다음 표는 서비스 수준에 관계 없이, 실행되는 최소 동시 쿼리 수와 메모리 할당 비율에 대한 자세한 내용을 통합적으로 보여 줍니다.
+**Gen2**, 동적 리소스 클래스는 실제로 위에서 언급 한 요소를 주소 지정 하는 동적입니다.  새로운 규칙은 **서비스 수준에 관계없이** small-medium-large-xlarge 리소스 클래스에 대해 메모리 비율 할당은 3-10-22-70이라는 것입니다.  다음 표는 서비스 수준에 관계 없이, 실행되는 최소 동시 쿼리 수와 메모리 할당 비율에 대한 자세한 내용을 통합적으로 보여 줍니다.
 
 | 리소스 클래스 | 메모리 비율 | 최소 동시 쿼리 수 |
 |:--------------:|:-----------------:|:----------------------:|
@@ -116,7 +116,7 @@ Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동�
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE INDEX
+- CREATE  INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -248,9 +248,9 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 >
 >예를 들어 DW100에서 부여 가능한 최대 메모리는 400MB이고, 테이블 스키마 크기가 400MB의 요구 사항을 충족할 크기여야 합니다.
 
-### <a name="usage-example"></a>사용 예
+### <a name="usage-example"></a>사용 예제
 
-구문  
+구문:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
 1. @DWU: NULL 매개 변수를 제공하여 DW DB에서 현재 DWU를 추출하거나 지원되는 모든 DWU를 'DW100' 형식으로 제공
@@ -275,7 +275,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 
@@ -942,7 +942,6 @@ GO
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

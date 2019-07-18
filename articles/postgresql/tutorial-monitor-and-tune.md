@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL의 모니터링 및 튜닝 자습서 | Microsoft Docs
-description: 이 자습서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 작업을 안내합니다.
+title: Azure Database for PostgreSQL의 모니터링 및 튜닝 자습서 - Single Server
+description: 이 자습서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 작업을 안내합니다. - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536444"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073065"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 
 Azure Database for PostgreSQL에는 서버 성능을 이해하고 개선하는 데 도움이 되는 기능이 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]

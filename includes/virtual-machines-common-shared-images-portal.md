@@ -5,19 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 06/27/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: cae108a1d4226e8c0fe39f9cd1cedc1e6a024ffc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148060"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465438"
 ---
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 > [!NOTE]
 > 다시 등록 해야 공유 이미지 갤러리를 사용 하 여 미리 보기 중에 등록 하는 경우는 `Microsoft.Compute` 공급자입니다. 오픈 [Cloud Shell](https://shell.azure.com/bash) 및 형식: `az provider register -n Microsoft.Compute`
@@ -51,10 +51,9 @@ ms.locfileid: "65148060"
 1. 에 대 한 **Publisher**, 형식 *myPublisher*합니다. 
 1. 에 대 한 **제공**, 형식 *myOffer*합니다.
 1. 에 대 한 **SKU**, 형식 *mySKU*합니다.
-1. 했는지 **예** 선택한 주세요 **사용 하도록 설정** 선택한 후 **검토 + 만들기**합니다.
+1. 완료 되 면 선택 **검토 + 만들기**합니다.
 1. 이미지 정의 유효성 검사를 통과 한 후 선택 **만들기**합니다.
 1. 배포가 완료 되 면 선택 **리소스로 이동**합니다.
-
 
 
 ## <a name="create-an-image-version"></a>이미지 버전 만들기
@@ -75,3 +74,20 @@ ms.locfileid: "65148060"
 1. 배포가 완료 되 면 선택 **리소스로 이동**합니다.
 
 이미지를 모든 대상 지역에 복제 하는 데 걸릴 수 있습니다.
+
+## <a name="share-the-gallery"></a>갤러리를 공유 합니다.
+
+이미지 갤러리 수준에서 액세스를 공유 하는 것이 좋습니다. 다음 안내 방금 만든 갤러리를 공유 합니다.
+
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. 왼쪽 메뉴에서 선택 **리소스 그룹**합니다. 
+1. 리소스 그룹의 목록에서 선택 **myGalleryRG**합니다. 리소스 그룹에 대 한 블레이드가 열립니다.
+1. 왼쪽 메뉴에는 **myGalleryRG** 페이지에서 **액세스 제어 (IAM)** 합니다. 
+1. 아래 **역할 할당을 추가**를 선택 **추가**합니다. 합니다 **역할 할당을 추가** 창이 열립니다. 
+1. 아래 **역할**를 선택 **판독기**합니다.
+1. 아래 **에 대 한 액세스 할당**을 기본값인 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
+1. 아래 **선택**, 초대 하려는 사용자의 전자 메일 주소를 입력 합니다.
+1. 메시지가 표시는 조직 외부의 사용자 인 경우 **이 사용자는 Microsoft와 공동 작업을 수행할 수 있도록 하는 메일이 전송 됩니다.** 전자 메일 주소를 사용 하 여 사용자를 선택한 다음 클릭 **저장할**합니다.
+
+조직 외부의 사용자가 조직에 전자 메일 초대를 갖게 됩니다. 사용자가 초대를 수락 해야 다음 갤러리 및 이미지 정 및 리소스의 목록에는 버전의 모든 참조 수 있습니다.
+

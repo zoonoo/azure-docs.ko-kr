@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786073"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 프리미엄 계층 소개
 Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시는 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 애플리케이션을 빌드하는 데 도움을 줍니다. 
@@ -27,9 +27,9 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 새로운 프리미엄 계층은 모든 표준 계층 기능과 추가 기능(예: 성능 향상, 더 큰 작업, 재해 복구, 가져오기/내보내기 및 강화된 보안)이 포함된 엔터프라이즈급 계층입니다. 프리미엄 캐시 계층의 추가 기능에 대해 자세히 알아보려면 계속 읽습니다.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>표준 또는 기본 계층에 비해 향상된 성능
-**표준 또는 기본 계층에 대해 향상된 성능.**  프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
+**표준 또는 기본 계층에 대해 향상된 성능.** 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
 
-**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.**  예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
+**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.** 예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
 
 프리미엄 캐시의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
 
@@ -51,7 +51,7 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 ## <a name="importexport"></a>Import/Export
-가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 이를 통해 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 이를 통해 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스 중에는 Azure Cache for Redis에서 RDB 파일을 Azure Storage에서 메모리로 로드한 다음, 키를 캐시에 삽입합니다.
 
@@ -59,13 +59,13 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 
 자세한 내용은 [Azure Cache for Redis에서 데이터를 가져오고 내보내는 방법](cache-how-to-import-export-data.md)을 참조하세요.
 
-## <a name="reboot"></a>Reboot
+## <a name="reboot"></a>다시 부팅
 이 프리미엄 계층에서는 요청이 있을 때 하나 이상의 캐시 노드를 다시 부팅할 수 있습니다. 따라서 오류 발생 시 애플리케이션의 복원력을 테스트할 수 있습니다. 다음 노드를 다시 부팅할 수 있습니다.
 
 * 캐시의 마스터 노드
-* 캐시의 슬레이브 노드
-* 캐시의 마스터 및 슬레이브 노드 둘 다
-* 프리미엄 캐시에 클러스터링을 사용하는 경우 캐시의 개별 분할 영역에 대한 마스터, 슬레이브 또는 두 노드를 모두 다시 부팅할 수 있습니다.
+* 캐시의 보조 노드
+* 캐시의 기본 및 보조 노드
+* 주, 보조 서버 또는 두 노드 캐시의 개별 분할 된 데이터베이스에 대 한 클러스터링이 포함 된 프리미엄 캐시를 사용 하는 경우 재부팅할 수 있습니다.
 
 자세한 내용은 [다시 부팅](cache-administration.md#reboot) 및 [다시 부팅 FAQ](cache-administration.md#reboot-faq)를 참조하세요.
 

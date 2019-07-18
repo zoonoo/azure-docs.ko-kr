@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c97b09690885057370910c0c1ec062d6b3f37363
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278142"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>자습서: Grovo와 Azure Active Directory 통합
 
@@ -129,7 +129,7 @@ Grovo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 7. 위에서 언급한 특성 외에도, Grovo 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ------------------- | -------------------- |    
     | 이름          | user.givenname |
     | 성           | user.surname |

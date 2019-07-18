@@ -8,23 +8,64 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020351"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490189"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019 년 6 월 릴리스
+
+**샘플**
+*   UWP 및 Unity에서 텍스트를 음성에 대 한 빠른 시작 샘플
+*   Swift에서 iOS 빠른 시작 샘플
+*   음성 의도 인식 및 변환에 대 한 unity 샘플
+*   DialogServiceConnector에 대 한 업데이트 된 빠른 시작 샘플
+
+**향상된 기능/변경 사항**
+* 대화 네임 스페이스:
+    * SpeechBotConnector는 DialogServiceConnector로 바뀌었습니다.
+    * BotConfig은 DialogServiceConfig로 바뀌었습니다.
+    * BotConfig::FromChannelSecret()는 DialogServiceConfig::FromBotSecret()에 다시 매핑 되었음을
+    * 모든 기존 직접 줄 음성 클라이언트 이름을 바꾼 후 지원 되는 데 계속
+* 프록시, 영구 연결을 지원 하기 위해 TTS REST 어댑터 업데이트
+* 잘못 된 영역이 전달 될 때 오류 메시지 개선
+* Swift/Objective-C:
+    * 향상 된 오류 보고: 오류가 발생할 수 있는 메서드 두 버전에는: 노출 하는 하나는 `NSError` 오류 처리 및 예외가 발생 하는 것에 대 한 개체입니다. 전자는 Swift에 노출 됩니다. 이 변경할 기존 Swift 코드에 대 한 적용 해야합니다.
+    * 향상 된 이벤트 처리
+
+**버그 수정**
+*   TTS에 대 한 수정: SpeakTextAsync 향후 오디오 렌더링을 완료 될 때까지 기다리지 않고 반환 되는 위치
+*   문자열 마샬링에 대 한 수정 C# 전체 언어 지원을 사용 하도록 설정
+*   샘플에서 net461 대상 프레임 워크를 사용 하 여 핵심 라이브러리를 로드 하려면.NET core 앱 문제 해결
+*   샘플의 출력 폴더에 네이티브 라이브러리를 배포 하려면 필요에 따른 문제에 대 한 수정
+*   안정적으로 닫는 웹 소켓에 대 한 수정
+*   부하가 매우 Linux에 대 한 연결을 여는 동안 가능한 충돌에 대 한 수정
+*   MacOS 용 프레임 워크 번들에 누락 된 메타 데이터에 대 한 수정
+*   에 대 한 문제 해결 `pip install --user` Windows에서
+
+
+## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
+
+이 버그 수정 릴리스입니다 네이티브/관리 되는 SDK에만 영향을 있습니다. JavaScript 버전의 SDK에는 영향을 주지는 합니다.
+
+**버그 수정**
+
+* FromSubscription 대화 기록을 사용 하는 경우 수정 합니다.
+* 음성 우선 가상 도우미에 대 한 spotting 키워드에서 버그를 수정 합니다.
+
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019 월 릴리스
 
 **새로운 기능**
 
-* 기능 (KWS)를 발견 하는 키워드는 Windows 및 Linux 용입니다. 하지만 공식 KWS 지원, 모든 마이크 유형과 함께 KWS 기능이 작동 될 수 있습니다 현재 제한 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK.
+* 절전 모드 해제 (키워드 spotting/KWS) word 기능 Windows 및 Linux에 대 한 출시 되었습니다. 하지만 공식 KWS 지원, 모든 마이크 유형과 함께 KWS 기능이 작동 될 수 있습니다 현재 제한 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK.
 * 구 힌트 기능은 SDK를 통해 사용할 수 있습니다. 자세한 내용은 [여기](how-to-phrase-lists.md)를 참조하세요.
 * 대화 기록 기능은 SDK를 통해 사용할 수 있습니다. [여기](conversation-transcription-service.md)를 참조하세요.
 * 직접 줄 음성 채널을 사용 하 여 음성 우선 가상 도우미에 대 한 지원을 추가 합니다.
@@ -58,7 +99,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 **새로운 기능** 
 
 * SDK는 이제 베타 버전으로 텍스트 음성 변환 서비스를 지원합니다. Windows 및 Linux 바탕 화면에서 지원 됩니다 C++ 및 C#합니다. 자세한 내용은 다음을 확인 합니다 [텍스트 음성 변환 개요](text-to-speech.md#get-started-with-text-to-speech)합니다.
-* SDK는 이제 스트림에 입력 파일로 저작/Ogg 및 MP3 오디오 파일을 지원합니다. 이 기능은에서 Linux에만 사용할 수 있습니다 C++ 및 C# 는 현재 베타 버전 및 (자세한 내용은 [여기](how-to-use-compressed-audio-input-streams.md)).
+* SDK는 이제 스트림에 입력 파일로 저작/OGG 및 MP3 오디오 파일을 지원합니다. 이 기능은에서 Linux에만 사용할 수 있습니다 C++ 및 C# 는 현재 베타 버전 및 (자세한 내용은 [여기](how-to-use-codec-compressed-audio-input-streams.md)).
 * Java,.NET core 용 음성 SDK는 C++ Objective-c macOS 지원 작업해왔으며 합니다. MacOS 용 Objective-c 지원은 현재 베타 중입니다.
 * iOS: 이제 iOS (Objective-c)에 대 한 음성 SDK는 CocoaPod로도 게시 됩니다.
 * JavaScript: 기본이 아닌 마이크 입력된 장치를 지원 합니다.

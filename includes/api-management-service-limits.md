@@ -10,13 +10,13 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553885"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182606"
 ---
-| 리소스 | 제한 |
+| Resource | 제한 |
 | --- | --- |
 | 최대 배율 단위 수 | 지역당 10개<sup>1</sup> |
 | 캐시 크기 | 단위당 5GB<sup>2</sup> |

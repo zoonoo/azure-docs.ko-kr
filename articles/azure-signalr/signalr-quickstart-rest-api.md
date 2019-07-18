@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530795"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724659"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -130,9 +130,9 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [모두에게 브로드캐스트](#broadcast) | **&#x2713;** | **&#x2713;**
 [그룹에 브로드캐스트](#broadcast-group) | **&#x2713;** | **&#x2713;**
-일부 그룹에 브로드캐스트 | **&#x2713;**(사용되지 않음) | `N / A`
+일부 그룹에 브로드캐스트 | **&#x2713;** (사용되지 않음) | `N / A`
 [특정 사용자에게 보내기](#send-user) | **&#x2713;** | **&#x2713;**
-일부 사용자에게 보내기 | **&#x2713;**(사용되지 않음) | `N / A`
+일부 사용자에게 보내기 | **&#x2713;** (사용되지 않음) | `N / A`
 [그룹에 사용자 추가](#add-user-to-group) | `N / A` | **&#x2713;**
 [그룹에서 사용자 제거](#remove-user-from-group) | `N / A` | **&#x2713;**
 
@@ -181,4 +181,4 @@ API | `1.0-preview` | `1.0`
 이 빠른 시작에서는 REST API를 사용하여 SignalR Service에서 클라이언트로 실시간 메시지를 브로드캐스트하는 방법을 알아보았습니다. 다음으로, REST API를 기반으로 빌드되는 SignalR Service 바인딩을 사용하여 Azure Functions를 개발 및 배포하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azuer SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)
+> [Azure SignalR Service 바인딩을 사용하여 Azure Functions 개발](signalr-quickstart-azure-functions-csharp.md)

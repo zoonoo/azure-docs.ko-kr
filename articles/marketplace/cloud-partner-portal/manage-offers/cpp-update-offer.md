@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
 ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942403"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
@@ -93,7 +93,7 @@ AppSource 제품의 경우
 마켓플레이스 텍스트 기반 및 이미지 자산(예: 회사 로고, 제품 설명 등)을 업데이트해야 하는 시나리오가 있을 수 있습니다. 이러한 자산을 업데이트하려면 다음 단계를 수행합니다.
 
 1. **모든 제품** 페이지에서 제품을 찾습니다. 
-2. **마켓플레이스** 탭을 선택하고 제품의 ‘마켓플레이스 탭’ 항목에 있는 지침을 따릅니다.
+2. **마켓플레이스** 탭을 선택하고 제품의 ‘마켓플레이스 탭’ 항목에 있는 지침을 따릅니다. 
 3. **게시**를 클릭하여 게시 프로세스를 시작합니다.
 
 
@@ -111,7 +111,7 @@ AppSource 제품의 경우
 
 ## <a name="compare-feature"></a>기능 비교
 
-게시된 제품을 변경하는 경우 ‘비교’ 기능을 사용하여 변경 내용을 감사할 수 있습니다. 이 기능을 이용하려면 다음을 수행합니다.
+게시된 제품을 변경하는 경우 ‘비교’ 기능을 사용하여 변경 내용을 감사할 수 있습니다.  이 기능을 이용하려면 다음을 수행합니다.
 
 1. 편집 프로세스 중 언제든지 제품에 대해 **편집기** 탭의 **비교** 단추를 클릭할 수 있습니다.
 2. 비교 창에는 이 제품에 대해 저장된 변경 내용의 버전이 마켓플레이스 제품과 비교하여 나란히 표시됩니다. 

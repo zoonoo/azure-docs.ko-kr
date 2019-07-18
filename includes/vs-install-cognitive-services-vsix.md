@@ -11,11 +11,11 @@ ms.author: ghogen
 ms.custom: include file
 manager: douge
 ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252356"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182470"
 ---
 ## <a name="install-the-cognitive-services-vsix-extension"></a>Cognitive Services VSIX 확장 설치
 

@@ -3,8 +3,8 @@ title: v1.0의 애플리케이션 유형 | Azure
 description: Azure Active Directory v2.0 엔드포인트에서 지원되는 앱 유형 및 시나리오에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540656"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
 
@@ -34,11 +34,11 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 
 다음은 Azure AD에서 지원되는 다섯 가지 기본 애플리케이션 시나리오입니다.
 
-- **[SPA(단일 페이지 애플리케이션)](single-page-application.md)**: 사용자가 Azure AD로 보호되는 단일 페이지 애플리케이션에 로그인해야 합니다.
-- **[웹 브라우저-웹 애플리케이션](web-app.md)**: 사용자가 Azure AD로 보호되는 웹 애플리케이션에 로그인해야 합니다.
-- **[네이티브 애플리케이션-웹 API](native-app.md)**: Azure AD로 보호되는 웹 API에서 리소스를 가져오기 위해 전화, 태블릿 또는 PC에서 실행되는 네이티브 애플리케이션에서 사용자를 인증해야 합니다.
-- **[웹 애플리케이션-웹 API](web-api.md)**: 웹 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
-- **[디먼 또는 서버 애플리케이션-웹 API](service-to-service.md)**: 웹 사용자 인터페이스가 없는 디먼 애플리케이션 또는 서버 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
+- **[SPA(단일 페이지 애플리케이션)](single-page-application.md)** : 사용자가 Azure AD로 보호되는 단일 페이지 애플리케이션에 로그인해야 합니다.
+- **[웹 브라우저-웹 애플리케이션](web-app.md)** : 사용자가 Azure AD로 보호되는 웹 애플리케이션에 로그인해야 합니다.
+- **[네이티브 애플리케이션-웹 API](native-app.md)** : Azure AD로 보호되는 웹 API에서 리소스를 가져오기 위해 전화, 태블릿 또는 PC에서 실행되는 네이티브 애플리케이션에서 사용자를 인증해야 합니다.
+- **[웹 애플리케이션-웹 API](web-api.md)** : 웹 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
+- **[디먼 또는 서버 애플리케이션-웹 API](service-to-service.md)** : 웹 사용자 인터페이스가 없는 디먼 애플리케이션 또는 서버 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
 
 코드 작업을 시작하기 전에 링크를 따라 각 앱 유형에 대해 자세히 알아보고 대략적인 시나리오를 파악하세요. v1.0 엔드포인트 또는 v2.0 엔드포인트에서 작동하는 특정 앱을 작성할 때 알아야 할 차이점을 살펴볼 수도 있습니다.
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 
 다양한 언어 및 플랫폼을 사용하여 여기에 설명된 앱과 시나리오를 개발할 수 있습니다. 코드 샘플 가이드 [시나리오별 v1.0 코드 샘플](sample-v1-code.md) 및 [시나리오별 v2.0 코드 샘플](sample-v2-code.md)에 있는 전체 코드 샘플에서 모두 지원됩니다. 해당 [GitHub 샘플 리포지토리](https://github.com/Azure-Samples?q=active-directory)에서 바로 코드 샘플을 다운로드할 수도 있습니다.
 
-또한 애플리케이션에 종단 간 시나리오의 특정 부분이나 세그먼트가 필요한 경우 대부분 해당 기능을 개별적으로 추가할 수 있습니다. 예를 들어 웹 API를 호출하는 네이티브 애플리케이션이 있는 경우 웹 API도 호출하는 웹 애플리케이션을 쉽게 추가할 수 있습니다.
+또한 애플리케이션에 엔드투엔드 시나리오의 특정 부분이나 세그먼트가 필요한 경우 대부분 해당 기능을 개별적으로 추가할 수 있습니다. 예를 들어 웹 API를 호출하는 네이티브 애플리케이션이 있는 경우 웹 API도 호출하는 웹 애플리케이션을 쉽게 추가할 수 있습니다.
 
 ## <a name="app-registration"></a>앱 등록
 
@@ -74,7 +74,7 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>단일 테넌트 또는 다중 테넌트 응용 프로그램 개발 시의 추가 고려 사항
 
-단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 https://login.microsoftonline.com/common이지만 테넌트 특정 엔드포인트는 https://login.microsoftonline.com/contoso.onmicrosoft.com일 수 있습니다. 공통 엔드포인트는 애플리케이션을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
+단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 https://login.microsoftonline.com/common 이지만 테넌트 특정 엔드포인트는 https://login.microsoftonline.com/contoso.onmicrosoft.com 일 수 있습니다. 공통 엔드포인트는 애플리케이션을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
 
 현재 단일 테넌트 애플리케이션을 개발 중이지만 이 애플리케이션을 다수의 조직에서 사용할 수 있도록 만들려는 경우 Azure AD에서 애플리케이션 및 해당 구성을 쉽게 변경하여 다중 테넌트를 지원하도록 만들 수 있습니다. 또한 단일 테넌트 애플리케이션의 인증을 제공하든 아니면 다중 테넌트 애플리케이션의 인증을 제공하든 상관없이, Azure AD는 모든 디렉터리의 모든 토큰에 동일한 서명 키를 사용합니다.
 

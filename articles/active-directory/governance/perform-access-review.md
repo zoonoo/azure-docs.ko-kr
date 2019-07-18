@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384688"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471821"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>그룹에 대 한 액세스를 검토 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -28,13 +28,19 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 이 문서에서는 지정 된 검토자 그룹 또는 응용 프로그램에 대 한 액세스를 사용 하 여 사용자의 멤버에 대 한 액세스 검토를 수행 하는 방법을 설명 합니다.
 
+## <a name="prerequisites"></a>필수 조건
+
+- Azure AD Premium P2
+
+자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
+
 ## <a name="open-the-access-review"></a>액세스 검토를 엽니다.
 
 액세스 검토를 수행 하는 첫 단계를 찾아 액세스 검토를 엽니다.입니다.
 
 1. 액세스를 검토 하도록 요청 하는 Microsoft에서 전자 메일을 찾습니다. 예제 메일 그룹에 대 한 액세스를 검토 하는 다음과 같습니다.
 
-    ![액세스 검토 이메일](./media/perform-access-review/access-review-email.png)
+    ![예제 메일 그룹에 대 한 액세스를 검토 하기 위해 Microsoft에서](./media/perform-access-review/access-review-email.png)
 
 1. 클릭 합니다 **검토 시작** 링크 액세스 검토를 엽니다.
 
@@ -42,7 +48,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 1. MyApps portal에 로그인 [ https://myapps.microsoft.com ](https://myapps.microsoft.com)합니다.
 
-    ![MyApps 포털](./media/perform-access-review/myapps-access-panel.png)
+    ![MyApps 포털 앱을 수 있는 권한이 나열](./media/perform-access-review/myapps-access-panel.png)
 
 1. 페이지의 오른쪽 위 모서리에 있는 사용자 기호를 클릭하면 이름과 기본 조직이 표시됩니다. 둘 이상의 조직이 나열되는 경우 액세스 검토를 요청한 조직을 선택합니다.
 
@@ -50,7 +56,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
     타일이 표시되지 않은 경우 해당 조직에 대해 수행할 액세스 검토가 없으므로 이 시점에서는 어떤 작업도 필요하지 않습니다.
 
-    ![액세스 검토 목록](./media/perform-access-review/access-reviews-list.png)
+    ![앱 및 그룹에 대 한 보류 중인 액세스 검토 목록](./media/perform-access-review/access-reviews-list.png)
 
 1. 클릭 합니다 **검토 시작** 수행 하려는 액세스 검토에 대 한 링크입니다.
 
@@ -60,22 +66,22 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 요청이 자신의 액세스 검토를 인 페이지 다르게 보입니다. 자세한 내용은 [그룹 또는 응용 프로그램에 직접 액세스를 검토](review-your-access.md)합니다.
 
-![액세스 검토 수행](./media/perform-access-review/perform-access-review.png)
+![검토 해야 하는 사용자를 나열 하는 개방형 액세스 검토](./media/perform-access-review/perform-access-review.png)
 
 두 가지는를 승인 하거나 액세스를 거부할 수 있습니다.
 
-- 승인 하거나 개별적으로 각 요청을 거부할 수 또는
+- 승인 하거나 하나 이상의 사용자에 대 한 액세스를 거부할 수 있습니다 또는
 - 가장 빠르고 가장 쉬운 방법인 시스템 권장 사항은 적용할 수 있습니다.
 
-### <a name="approve-or-deny-access-for-each-request"></a>각 요청에 대 한 액세스 승인 또는 거부
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>하나 이상의 사용자에 대 한 액세스 승인 또는 거부
 
 1. 가 계속된 액세스 승인 또는 거부 여부를 결정 하는 사용자의 목록을 검토 합니다.
 
-1. 를 승인 하거나 각 요청을 거부 하려면 창에서 수행할 동작을 지정 하려면 행을 클릭 합니다.
+1. 를 승인 하거나 단일 사용자에 대 한 액세스를 거부 하려면 창에서 수행할 동작을 지정 하려면 행을 클릭 합니다. 를 승인 하거나 여러 사용자에 대 한 액세스를 거부 하려면 사용자 옆의 확인 표시를 추가 하 고 클릭 합니다 **검토 X 사용자** 수행할 동작을 지정 하는 창을 여는 단추입니다.
 
-1. 클릭 **승인할** 하거나 **거부**합니다. 확실 하지 않은 경우 클릭 수 있습니다 **알지**합니다. 그렇게 하면 사용자가 자신의 액세스를 유지 하지만 선택 감사 로그에 반영 됩니다.
+1. 클릭 **승인할** 하거나 **거부**합니다. 확실 하지 않은 경우 클릭 수 있습니다 **알지**합니다. 그렇게 하면 사용자에 대 한 액세스를 유지 하지만 선택 감사 로그에 반영 됩니다.
 
-    ![액세스 검토 수행](./media/perform-access-review/approve-deny.png)
+    ![승인, 거부를 포함 하는 작업 창 옵션 알지](./media/perform-access-review/approve-deny.png)
 
 1. 필요한 경우에 이유를 입력 합니다 **이유** 상자입니다.
 
@@ -96,11 +102,11 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 1. 페이지의 맨 아래에 파란색 막대를 클릭 **권장 사항을 따르는**합니다.
 
-    ![권장 사항 동의](./media/perform-access-review/accept-recommendations.png)
+    ![Accept 권장 사항 단추를 보여 주는 나열 하는 개방형 액세스 검토](./media/perform-access-review/accept-recommendations.png)
 
     권장 되는 작업의 요약이 표시 됩니다.
 
-    ![권장 사항 요약 동의](./media/perform-access-review/accept-recommendations-summary.png)
+    ![권장 되는 작업의 요약을 표시 하는 창](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. 클릭 **확인** 권장 사항을 수락 하도록 합니다.
 

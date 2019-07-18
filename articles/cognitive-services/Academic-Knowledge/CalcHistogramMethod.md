@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498835"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 메서드
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>요청 매개 변수
 
-이름  |값 | Required?  |설명
+Name  |값 | Required?  |설명
 -----------|----------|--------|----------
 **expr**    |텍스트 문자열 | 예  |히스토그램을 계산할 엔터티를 지정하는 쿼리 식입니다.
 **model** |텍스트 문자열 | 아닙니다. |쿼리할 모델 이름을 선택합니다.  현재 기본값은 *최신*입니다.

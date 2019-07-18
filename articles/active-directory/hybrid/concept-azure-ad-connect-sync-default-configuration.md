@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246077"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
@@ -52,7 +52,7 @@ ms.locfileid: "60246077"
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Exchange Online에서 작동하지 않는 개체를 동기화하지 않습니다.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-   이 비트 마스크(&H21C07000)는 다음 개체도 필터링합니다.
+  이 비트 마스크(&H21C07000)는 다음 개체도 필터링합니다.
   * 메일 사용이 가능한 공용 폴더(미리 보기 버전 1.1.524.0부터)
   * 시스템 도우미 사서함
   * 사서함 데이터베이스 사서함(시스템 사서함)
@@ -220,7 +220,7 @@ NULL
 ### <a name="putting-it-all-together"></a>모든 항목 요약
 이제 다른 동기화 규칙을 사용하여 구성이 작동하는 방식을 이해할 수 있을 만큼 동기화 규칙에 대해 충분히 알고 있습니다. 메타버스에도 제공된 사용자와 특성을 보면 다음과 같은 순서로 규칙이 적용됩니다.
 
-| Name | 주석 |
+| 이름 | 주석 |
 |:--- |:--- |
 | AD에서 들어오기 – 사용자 조인 |메타버스를 사용하여 커넥터 공간 개체에 조인시키기 위한 규칙. |
 | AD에서 들어오기 – 사용하도록 설정된 UserAccount |Azure AD 및 Office 365에 로그인하는 데 필요한 속성. 사용된 계정에서 이러한 특성이 필요합니다. |

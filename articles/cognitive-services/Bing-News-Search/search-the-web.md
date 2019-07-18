@@ -1,22 +1,22 @@
 ---
 title: Bing News Search API란?
 titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 헤드라인 및 추세 토픽을 포함하여 여러 범주의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
+description: Bing News Search API를 사용하여 헤드라인 및 추세 항목을 포함하여 카테고리 전반의 최신 헤드라인을 웹에서 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d4d8c35869fbfc13220aba037a97aadd3cea01c2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877102"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272722"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing News Search API란?
 
@@ -54,6 +54,6 @@ Bing News Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
+* [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
 
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.

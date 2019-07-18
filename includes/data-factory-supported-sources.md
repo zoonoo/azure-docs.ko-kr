@@ -9,11 +9,11 @@ ms.date: 11/19/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: cfc977134b103cc3b601ba674c596e232aa4f167
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61462407"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182344"
 ---
 |Category | 데이터 저장소 |  
 | :-------- | :----- |  

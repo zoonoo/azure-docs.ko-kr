@@ -3,8 +3,8 @@ title: 브라우저를 사용 하지 않는 장치에서 사용자 로그인에 
 description: 디바이스 코드 부여를 사용하여 브라우저 없는 포함된 인증 흐름을 빌드하세요.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
-ms.author: celested
+ms.date: 06/12/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e92e4d0e296e83b413cfd2a67041a5749c16699e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299418"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482223"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 장치 코드 흐름
 
@@ -31,9 +31,11 @@ ms.locfileid: "60299418"
 Microsoft identity 플랫폼 지원 합니다 [장치 코드 부여](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), 스마트 TV와 같은 입력 제한 된 장치, IoT 장치 또는 프린터에 로그인 할 수 있습니다.  이 흐름을 활성화하기 위해, 해당 장비는 사용자가 로그인할 웹 페이지를 다른 장비의 브라우저에서 방문하도록 합니다.  사용자가 로그인하면 디바이스는 필요에 따라 액세스 토큰 및 새로 고침 토큰을 가져올 수 있습니다.  
 
 > [!IMPORTANT]
-> 지금은 Microsoft id 플랫폼 끝점 Azure AD 테 넌 트에 있지만 하지 개인 계정에 대 한 장치 흐름만 지원합니다.  즉, 테 넌 트를 설정 하는 끝점을 사용 해야 또는 `organizations` 끝점입니다.  
+> 지금은 Microsoft id 플랫폼 끝점 Azure AD 테 넌 트에 있지만 하지 개인 계정에 대 한 장치 흐름만 지원합니다.  즉, 테 넌 트를 설정 하는 끝점을 사용 해야 또는 `organizations` 끝점입니다.  이 지원은 곧 사용할 수 있습니다. 
 >
 > Azure AD 테넌트에 초대된 개인 계정은 해당 디바이스 흐름 부여를 사용할 수 있지만, 테넌트의 컨텍스트에서만 사용할 수 있습니다.
+>
+> 자세한 노트로는 `verification_uri_complete` 응답 필드가 포함 되거나 지금은 지원 되지 않습니다.  
 
 > [!NOTE]
 > Microsoft id 플랫폼 끝점은 모든 Azure Active Directory 시나리오 및 기능만 지원 하지 않습니다. 에 대 한 자세한 내용은 Microsoft id 플랫폼 끝점을 사용 해야 하는지 여부를 확인 합니다 [Microsoft identity 플랫폼 제한](active-directory-v2-limitations.md)합니다.
@@ -50,7 +52,7 @@ Microsoft identity 플랫폼 지원 합니다 [장치 코드 부여](https://too
 
 > [!TIP]
 > Postman에서 이 요청을 실행해 보세요.
-> [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Postman에서이 요청을 실행 해 보십시오.](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -75,10 +77,9 @@ scope=user.read%20openid%20profile
 
 | 매개 변수 | 형식 | 설명 |
 | ---              | --- | --- |
-|`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 권한 부여 서버의 액세스 토큰을 요청 하려면이 매개 변수를 사용 합니다. |
+|`device_code`     | 문자열 | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는 권한 부여 서버의 액세스 토큰을 요청 하려면이 매개 변수를 사용 합니다. |
 |`user_code`       | String | 보조 장치에서 세션을 식별 하는 데 사용 되는 사용자에 게 표시 하는 간단한 문자열입니다.|
 |`verification_uri`| URI | 로그인하기 위해 사용자가 `user_code`을(를) 사용하여 이동하는 URI입니다. |
-|`verification_uri_complete`| URI | 결합 하는 URI를 `user_code` 하며 `verification_uri`예를 들어 (Bluetooth 장치에 또는 QR 코드를 통해)를 통해 사용자에 게 텍스트가 아닌 전송에 사용 되는 합니다.  |
 |`expires_in`      | int | `device_code` 및 `user_code`의 만료 전 시간(초)입니다. |
 |`interval`        | int | 클라이언트가 폴링 요청 간에 대기해야 하는 시간(초)입니다. |
 | `message`        | String | 사용자에 대한 지침이 포함된 사람이 읽을 수 있는 문자열입니다. 이는 `?mkt=xx-XX` 양식의 요청에 **쿼리 매개 변수**를 포함하고 적절한 언어 문화권 코드를 채워서 지역화할 수 있습니다. |

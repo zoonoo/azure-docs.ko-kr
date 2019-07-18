@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935339"
 ---
 <a name="retrieve-offers"></a>제품 검색
@@ -72,7 +72,7 @@ ms.locfileid: "64935339"
 |  publisherId    | 게시자를 고유하게 식별하는 식별자                                                                      |
 |  status         | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요.                         |
 |  id             | 게시자 네임스페이스에서 제품을 고유하게 식별하는 GUID                                                    |
-|  버전        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다. |
+|  version        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다. |
 |  정의     | 워크로드 실제 정의에 대한 요약 보기를 포함합니다. 자세한 정의를 얻으려면 [특정 제안 검색](./cloud-partner-portal-api-retrieve-specific-offer.md) API를 사용하세요. |
 |  changedTime    | 제품이 마지막으로 수정된 UTC 시간                                                                              |
 |  |  |

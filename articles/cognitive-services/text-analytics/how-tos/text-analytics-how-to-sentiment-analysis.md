@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011302"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797798"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정을 감지하는 방법
 
@@ -79,7 +79,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`)를 포함해야 합니다.
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
@@ -90,20 +90,20 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
-요청을 받으면 분석이 수행됩니다. 서비스에서는 분당 최대 100개의 요청을 허용합니다. 각 요청은 최대 1MB가 될 수 있습니다.
+요청을 받으면 분석이 수행됩니다. 분당 및 초당 보낼 수 있는 요청의 크기와 수에 대한 내용은 개요의 [데이터 제한](../overview.md#data-limits) 섹션을 참조하세요.
 
 상태 비저장 서비스임에 유의하세요. 계정에는 아무 데이터도 저장되지 않습니다. 결과는 응답으로 즉시 반환됩니다.
 
 
 ## <a name="step-3-view-results"></a>3단계: 결과 보기
 
-감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하여 0에서 1 사이의 점수를 할당합니다. 0.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
+감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하여 0에서 1 사이의 점수를 할당합니다. 0\.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0\.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
 다음 예제에서는 이 문서의 문서 컬렉션에 대한 응답을 보여 줍니다.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 V3 공개 미리 보기
+
+API 텍스트 분류 및 채점의 정확도와 상세도를 대폭 개선하는 [감정 분석 다음 버전](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9)이 공개 미리 보기로 제공됩니다. 
+
+> [!NOTE]
+> * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.
+> * 현재 감정 분석 V3의 특징: 
+>    * 현재는 영어만 지원합니다.  
+>    * `Central US`, `Central Canada`, `East Asia` 지역에서만 사용할 수 있습니다. 
+
+|기능 |설명  |
+|---------|---------|
+|정확도 개선     | 이전 버전보다 텍스트 문서에서 긍정적, 중립적, 부정적 및 혼합된 감정을 감지하는 기능이 크게 개선되었습니다.           |
+|문서 및 문장 수준 감정 점수     | 문서 및 문서의 개별 문장에서 감정을 감지합니다. 문서에 여러 문장이 있는 경우 각 문장에도 감정 점수가 할당됩니다.         |
+|감정 범주 및 점수     | 이제 API는 감정 점수 외에도 텍스트의 감정 범주(`positive`, `negative`, `neutral` 및 `mixed`)를 반환합니다.        |
+| 출력 개선 | 이제 감정 분석은 전체 텍스트 문서와 개별 문장 수준의 정보를 모두 반환합니다. |
+
+### <a name="sentiment-labeling"></a>감정 레이블 지정
+
+감정 분석 V3는 문장 및 문서 수준에서 점수와 레이블(`positive`, `negative` 및 `neutral`)을 반환할 수 있습니다. 문서 수준에서 `mixed` 감정 레이블(점수 아님)도 반환할 수 있습니다. 문서의 감정은 해당 문장의 점수를 집계하여 결정됩니다.
+
+| 문장 감정                                                        | 반환된 문서 레이블 |
+|---------------------------------------------------------------------------|----------------|
+| 하나 이상의 문장이 긍정적이고 나머지 문장은 중립적입니다. | `positive`     |
+| 하나 이상의 문장이 부정적이고 나머지 문장은 중립적입니다.  | `negative`     |
+| 하나 이상의 문장이 부정적이고 하나 이상의 문장이 긍정적입니다.         | `mixed`        |
+| 모든 문장이 중립적입니다.                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>감정 분석 V3 요청 예제
+
+다음 JSON은 새 버전의 감정 분석에 대한 요청의 예입니다. 요청 형식은 이전 버전과 동일합니다.
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>감정 분석 V3 응답 예제
+
+요청 형식은 이전 버전과 동일하지만, 응답 형식은 변경되었습니다. 다음 JSON은 새 버전의 API에서 보낸 응답 예제입니다.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>C# 코드 예제
+
+이 버전의 감정 분석을 호출하는 C# 애플리케이션 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs)에서 찾을 수 있습니다.
 
 ## <a name="summary"></a>요약
 

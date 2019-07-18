@@ -16,29 +16,29 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60836135"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202936"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md
@@ -150,7 +150,7 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 이미 설명한 것 처럼 IOPS 요구 사항에 따라 도움이 단일 VHD를 초과 하면 다양 한 Vhd에서 데이터베이스 파일에 필요한 IOPS 수를 조정 합니다. 디스크 IOPS 부하를 분산 하는 가장 쉬운 방법은 여러 디스크에 스트라이프를 소프트웨어 빌드 방법은입니다. 다음 소프트웨어 stripe에서 얻은 Lun에 다양 한 SAP dbms 데이터 파일을 배치 합니다. 스트라이프 디스크 수 요구 IOPs 요구 사항, 디스크 처리량 요구 및 볼륨에 따라 좌우 됩니다.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 여러 Azure Vhd에 걸쳐 있는 스트라이프 세트를 만들려면 Windows 저장소 공간을 사용 하는 것이 좋습니다. 적어도 사용 하 여 Windows Server 2012 R2 또는 Windows Server 2016 합니다.
@@ -164,7 +164,7 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Azure Storage는 세 개의 Vhd 이미지, 때문에 해당 스트라이프 할 때 중복성을 구성 하려면 적합 하지 않습니다. I/o는 여러 Vhd에 분산 되도록 스트라이프를 구성 해야 합니다.
@@ -230,7 +230,7 @@ VM을 배포한 후 azure Vm에서 비영구 디스크를 제공 합니다. VM �
 
 자세한 내용은 [Azure에서 Windows Vm의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)합니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Azure VM에서 D 드라이브는 Azure 계산 노드에서 일부 로컬 디스크에서 지원 되는 비지속형된 드라이브입니다. 이기 때문에 비지속형 VM 다시 부팅 되 면 D 드라이브 내용에 대 한 변경 내용을 손실 됩니다. 변경 내용 저장 된 파일, 생성 된 디렉터리 및 설치 된 응용 프로그램을 포함 합니다.
@@ -241,7 +241,7 @@ VM을 배포한 후 azure Vm에서 비영구 디스크를 제공 합니다. VM �
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Azure Vm 간에 네트워크 대기 시간을 더 줄이기 위해 선택 하는
 > 일부 VM 유형은 가속 네트워킹을 지원합니다. 이전 문서에서는 가속 네트워킹을 지 원하는 VM 형식을 나열 합니다.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 네트워킹에 대 한 Windows 가속을 사용 하 여 Vm을 배포 하는 방법에 알아보려면 참조 [가속 네트워킹을 사용 하 여 Windows 가상 머신을 만드는](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)합니다.
@@ -350,7 +350,7 @@ Azure Vm 간에 네트워크 대기 시간을 더 줄이기 위해 선택 하는
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > SUSE, Red Hat 및 Oracle Linux의 경우 가속 네트워킹은 최신 릴리스에서 지원됩니다. 예: SLES 12 SP2 또는 RHEL 7.2 이전 릴리스에서 Azure Accelerated Networking을 지원 하지 않습니다.

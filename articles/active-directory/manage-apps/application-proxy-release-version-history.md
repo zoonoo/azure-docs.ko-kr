@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure AD Application Proxy의 모든 릴리스�
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 97b54d57a13f0f2b47633a25f1a44efdfa17d11a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441664"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595051"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 애플리케이션 프록시: 버전 릴리스 내역
 이 문서는 버전 및 출시 된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 기능을 나열 합니다. Azure AD 팀 새로운 특징과 기능을 사용 하 여 응용 프로그램 프록시를 정기적으로 업데이트합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다.
@@ -86,7 +86,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 
 ## <a name="earlier-versions"></a>이전 버전
 
-1.5.36.0 이전의 응용 프로그램 프록시 커넥터 버전을 사용 중인 경우 최신 확인 하기 위해 최신 버전으로 업데이트 기능을 완벽 하 게 지원 합니다.
+1\.5.36.0 이전의 응용 프로그램 프록시 커넥터 버전을 사용 중인 경우 최신 확인 하기 위해 최신 버전으로 업데이트 기능을 완벽 하 게 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 에 대해 자세히 알아보세요 [Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 대 한 원격 액세스](application-proxy.md)합니다.

@@ -3,8 +3,8 @@ title: Microsoft ID 플랫폼의 인증 | Azure
 description: Microsoft ID 플랫폼이 지원하는 앱 모델, API, 프로비전 및 가장 일반적인 인증 시나리오인 Microsoft ID 플랫폼의 인증에 대해 알아보세요.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785576"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734476"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -85,14 +85,11 @@ Microsoft ID 플랫폼에서 **애플리케이션 개체**는 추상 엔터티�
 
 이 프로비전 흐름에서
 
-|   |   |
-|---|---|
-| 1 | 테넌트 B의 사용자가 앱에 로그인하려고 함 |
-| 2 | 사용자 자격 증명이 획득 및 확인됨 |
-| 3 | 테넌트 B에 대한 액세스 권한을 얻기 위해 앱에 동의하라는 메시지가 사용자에게 표시됨 |
-| 4 | Microsoft ID 플랫폼에서 A의 애플리케이션 개체를 테넌트 B의 서비스 주체를 만들기 위한 청사진으로 사용 |
-| 5 | 사용자가 요청된 토큰 수신 |
-|   |   |
+1. 테넌트 B의 사용자가 앱에 로그인하려고 시도하면 권한 부여 엔드포인트에서 애플리케이션의 토큰을 요청합니다.
+1. 인증에 필요한 사용자 자격 증명을 획득하여 확인
+1. 테넌트 B에 대한 액세스 권한을 얻으려면 앱에 동의하라는 메시지가 사용자에게 표시됨
+1. Microsoft ID 플랫폼은 테넌트 A의 애플리케이션 개체를 테넌트 B의 서비스 주체를 만들기 위한 청사진으로 사용
+1. 사용자가 요청된 토큰 수신
 
 다른 테넌트(C, D 등)에서 원하는 횟수만큼 이 프로세스를 반복할 수 있습니다. 테넌트 A에서 앱(애플리케이션 개체)에 대한 청사진을 유지합니다. 앱에 동의한 다른 모든 테넌트의 사용자 및 관리자는 각 테넌트에서 해당하는 서비스 주체 개체를 통해 애플리케이션이 수행할 수 있는 작업에 대한 컨트롤을 유지합니다. 자세한 내용은 [Microsoft ID 플랫폼의 애플리케이션 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
@@ -122,7 +119,7 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
 | 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
-| Name | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
+| 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |

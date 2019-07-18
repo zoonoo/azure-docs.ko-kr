@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154638"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
@@ -201,7 +201,7 @@ Blockchain Workbench 배포에는 Azure AD 애플리케이션의 등록이 필�
     |설정  | 값  |
     |---------|---------|
     |이름 | `Blockchain API` |
-    |애플리케이션 형식 |웹앱/API|
+    |응용 프로그램 유형 |웹앱/API|
     |로그온 URL | `https://blockchainapi` |
 
 5. **만들기**를 선택하여 Azure AD 애플리케이션을 등록합니다.
@@ -290,9 +290,9 @@ API 애플리케이션은 디렉터리에 액세스하는 사용자로부터 사
 
 Azure AD 테넌트에 게스트 사용자가 있는 경우 Blockchain Workbench 사용자 할당 및 관리가 제대로 작동하는지 확인하도록 추가 단계를 수행합니다.
 
-1. Azure AD 테넌트를 전환하고 **Azure Active Directory > 사용자 설정 > 외부 공동 작업 설정 관리**를 선택합니다.
+1. Azure AD 테넌트를 전환하고 **Azure Active Directory &gt; 사용자 설정 &gt; 협업 작업 설정 관리**를 선택합니다.
 2. **게스트 사용자 권한이 제한됨**을 **아니요**로 설정합니다.
-    ![외부 공동 작업 설정](media/deploy/user-collaboration-settings.png)
+    ![외부 협업 설정](media/deploy/user-collaboration-settings.png)
 
 ## <a name="configuring-the-reply-url"></a>회신 URL 구성
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918844"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988482"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
@@ -129,3 +129,4 @@ Service Bus 메시징 사용을 시작하려면 다음 문서를 참조하세요
 * Azure Service Bus [표준 및 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) 계층 및 해당 가격 책정에 대한 자세한 정보
 * [Azure Service Bus 프리미엄 계층의 성능 및 대기 시간](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) 또는 [JMS](service-bus-java-how-to-use-jms-api-amqp.md)에서 빠른 시작 시도
+* [Service Bus 탐색기로 Service Bus 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: df77a745ef6508b15b5a8bcde5eede0e06eb1afc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60583726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799632"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
 
@@ -58,11 +59,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 }
 ```
 
-**enabled**를 true로 설정하면 Video Indexer에서 검색할 ‘포함’ 목록에 브랜드가 배치됩니다. **enabled**를 false로 설정하면 ‘제외’ 목록에 브랜드가 배치되므로 Video Indexer에서 검색하지 않습니다.
+**enabled**를 true로 설정하면 Video Indexer에서 검색할 ‘포함’ 목록에 브랜드가 배치됩니다.  **enabled**를 false로 설정하면 ‘제외’ 목록에 브랜드가 배치되므로 Video Indexer에서 검색하지 않습니다. 
 
 **referenceUrl** 값은 해당 Wikipedia 페이지의 링크처럼, 브랜드의 참조 웹 사이트일 수 있습니다.
 
-**tags** 값은 브랜드의 태그 목록입니다. 이 값은 Video Indexer 웹 사이트의 브랜드 ‘범주’ 필드에 표시됩니다. 예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
+**tags** 값은 브랜드의 태그 목록입니다. 이 값은 Video Indexer 웹 사이트의 브랜드 ‘범주’ 필드에 표시됩니다.  예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
 
 ### <a name="response"></a>response
 
@@ -88,7 +89,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="delete-a-brand"></a>브랜드 삭제
 
-지정된 계정의 사용자 지정 브랜드 모델에서 브랜드를 제거합니다. 계정은 **accountId** 매개 변수에 지정됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.
+지정된 계정의 사용자 지정 브랜드 모델에서 브랜드를 제거합니다. 계정은 **accountId** 매개 변수에 지정됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.  
 
 ### <a name="request-url"></a>요청 URL
 
@@ -163,7 +164,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> **enabled**를 **true**로 설정하면 브랜드가 Video Indexer에서 검색할 ‘포함’ 목록에 배치되고, **enabled**를 false로 설정하면 브랜드가 ‘제외’ 목록에 배치되어 Video Indexer에서 검색하지 않습니다.
+> **enabled**를 **true**로 설정하면 브랜드가 Video Indexer에서 검색할 ‘포함’ 목록에 배치되고, **enabled**를 false로 설정하면 브랜드가 ‘제외’ 목록에 배치되어 Video Indexer에서 검색하지 않습니다.  
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
@@ -204,7 +205,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> 이 예제에서는 **브랜드 만들기** 섹션에서 예제 요청 본문에 만든 브랜드가 새 태그 및 새 설명으로 업데이트됩니다. 또한 ‘제외’ 목록에 배치하기 위해 **enabled** 값이 false로 변경되었습니다.
+> 이 예제에서는 **브랜드 만들기** 섹션에서 예제 요청 본문에 만든 브랜드가 새 태그 및 새 설명으로 업데이트됩니다. 또한 ‘제외’ 목록에 배치하기 위해 **enabled** 값이 false로 변경되었습니다. 
 
 ### <a name="response"></a>response
 
@@ -230,7 +231,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-all-of-the-brands"></a>모든 브랜드 가져오기
 
-브랜드가 ‘포함’ 또는 ‘제외’ 브랜드 목록에 배치되는지에 관계없이 지정된 계정의 사용자 지정 브랜드 모델에 있는 모든 브랜드를 반환합니다.
+브랜드가 ‘포함’ 또는 ‘제외’ 브랜드 목록에 배치되는지에 관계없이 지정된 계정의 사용자 지정 브랜드 모델에 있는 모든 브랜드를 반환합니다.  
 
 ### <a name="request-url"></a>요청 URL
 
@@ -286,7 +287,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> *Example* 브랜드는 Video Indexer에서 검색할 ‘포함’ 목록에 있고, *Example2* 브랜드는 ‘제외’ 목록에 있으므로 Video Indexer에서 검색하지 않습니다.
+> *Example* 브랜드는 Video Indexer에서 검색할 ‘포함’ 목록에 있고, *Example2* 브랜드는 ‘제외’ 목록에 있으므로 Video Indexer에서 검색하지 않습니다.  
 
 ## <a name="get-brands-model-settings"></a>브랜드 모델 설정 가져오기
 

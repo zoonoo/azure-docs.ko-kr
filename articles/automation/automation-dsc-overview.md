@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071479"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798441"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -41,7 +41,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. Log Analytics 작업 영역에 상태 구성 상태 데이터를 보내는 방법에 알아보려면 참조 [앞으로 Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그](automation-dsc-diagnostics.md)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Automation 상태 구성 (DSC)를 사용 하는 경우 다음 요구 사항을 고려 하십시오.
 
@@ -54,7 +54,7 @@ Windows를 실행 하는 노드를 다음 버전 지원 됩니다.
 - Windows Server 2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
-- 윈도우 10
+- Windows 10
 - Windows 8.1
 - Windows 7
 
@@ -69,7 +69,7 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>DSC의 요구 사항
 
-Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
+Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
 
 Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 온 보 딩 하는 동안 설치 됩니다.
 
@@ -82,11 +82,25 @@ Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell D
 * US Gov 버지니아의 전역 URL: *.azure-automation.us
 * 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+Azure Automation과 통신 하려면 관리 되는 노드에 대 한 네트워크 연결을 제공 합니다.
+와 같은 노드 간에 통신 하는 DSC 리소스를 사용 하는 경우는 [WaitFor 리소스](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), 노드 간에 트래픽을 허용 해야 합니다.
+이러한 네트워크 요구 사항을 이해 하려면 각 DSC 리소스에 대 한 설명서를 참조 하세요.
+
+#### <a name="proxy-support"></a>프록시 지원
+
+DSC 에이전트에 대 한 프록시 지원은 Windows 1809 이상 버전에서에서 제공 됩니다.
+이 옵션을 구성 하려면 값을 설정 **ProxyURL** 하 고 **ProxyCredential** 에 [메타 구성 스크립트](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) 노드를 등록 하는 데 사용 합니다.
+프록시를 이전 버전의 Windows 용 DSC에서 사용할 수 없습니다.
+
+Linux 노드에 대 한 DSC 에이전트 프록시를 지원 하 고 url을 확인 하려면 http_proxy 변수 활용 됩니다.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure 상태 구성 네트워크 범위 및 네임 스페이스
+
 예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다.
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
 
-| **지역** | **DNS 레코드** |
+| **Region** | **DNS 레코드** |
 | --- | --- |
 | 미국 중서부 | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

@@ -9,10 +9,10 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60886875"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>다른 IoT 클라우드를 IoT Central에 연결하는 IoT Central 디바이스 브리지 빌드
@@ -23,7 +23,7 @@ IoT Central 디바이스 브리지는 Sigfox, Particle, The Things Network 및 �
 
 ## <a name="what-is-it-and-how-does-it-work"></a>정의 및 작동 방식
 IoT Central 디바이스 브리지는 GitHub의 오픈 소스 솔루션입니다. Azure 구독에 여러 Azure 리소스를 사용하여 사용자 지정 Azure Resource Manager 템플릿을 배포하는 “Azure에 배포” 단추를 사용하도록 준비가 완료된 것입니다. 리소스에는 다음이 포함됩니다.
--   Azure Function 앱
+-   Azure 함수 앱
 -   Azure Storage 계정
 -   소비 계획
 -   Azure Key Vault

@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66000159"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus Relay에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus Relay에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Service Bus Relay에 기본 제공 되는 일반적인 보안 특성을 설명 합니다.
+이 문서에서는 Azure Service Bus Relay에 기본 제공 보안 특성을 설명 합니다.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "64927494"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>|  N/A | 릴레이 웹 소켓을 이며 데이터는 유지 되지 않습니다. |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | 서비스에서는 TLS 합니다. |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | 서비스에서는 TLS 합니다. |
 | 암호화 키 처리 (예: CMK, BYOK)| 아닙니다. | Microsoft TLS 인증서만 사용합니다.  |
 | 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예 | HTTPS입니다. |

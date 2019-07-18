@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab2fc543d345436e3d0a82fdb97a8c937f6ef256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0abb842f5c8ce36262def30ec243e70327075825
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>자습서: join.me와 Azure Active Directory 통합
 

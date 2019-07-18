@@ -5,22 +5,24 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150066"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798334"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
 Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. Azure Storage는 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되었거나 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 데이터를 복사합니다. 동일한 데이터 센터, 동일한 지역 내의 영역 데이터 센터 또는 지리적으로 분리된 지역 간에 데이터를 복제하도록 선택할 수 있습니다.
 
 복제를 사용하면 스토리지 계정은 오류 상황에서도 [Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
+
+Azure Storage는 정기적으로 순환 중복 검사 (Crc)를 사용 하 여 저장 된 데이터의 무결성을 확인 합니다. 데이터 손상이 발견 되는 경우 중복 데이터를 사용 하 여 복구 합니다. Azure Storage는 또한 저장 하거나 데이터를 검색 하는 경우 데이터 패킷 손상 감지를 모든 네트워크 트래픽을 체크섬을 계산 합니다.
 
 ## <a name="choosing-a-redundancy-option"></a>중복 옵션 선택
 
@@ -36,23 +38,25 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 | 시나리오                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | 예                             | 예                              | 예                                  | 예                                  |
-| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아닙니다.                              | 예                              | 예                                  | 예                                  |
-| 전체 지역 가동 중단                                                                                     | 아닙니다.                              | 아니요                               | 예                                  | 예                                  |
-| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아닙니다.                              | 아니요                               | 아니요                                   | 예                                  |
+| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니요                              | 예                              | 예                                  | 예                                  |
+| 전체 지역 가동 중단                                                                                     | 아니요                              | 아니요                               | 예                                  | 예                                  |
+| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 아니요                                   | 예                                  |
 | 지정된 한 해 동안 개체의 \_\_ 내구성을 제공하도록 설계                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 저장소 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
 | 쓰기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |
+
+저장소 계정의 모든 데이터는 복제, 블록 blob 등 blob, 페이지 blob, 큐, 테이블 및 파일을 추가 합니다. ZRS는 범용 v2 저장소 계정이 필요로 하지만 모든 유형의 저장소 계정이 복제 됩니다.
 
 각 중복 옵션에 대한 가격 책정 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요. 
 
 Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/)를 참조하세요.
 
 > [!NOTE]
-> Premium Storage는 LRS(로컬 중복 스토리지)만 지원합니다.
+> Azure Premium Storage (LRS)만 로컬 중복 저장소를 지원합니다.
 
 ## <a name="changing-replication-strategy"></a>복제 전략 변경
-사용 하 여 저장소 계정의 복제 전략을 변경할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 또는 중 하나는 [Azure 클라이언트 라이브러리](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools)합니다. 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
+사용 하 여 저장소 계정의 복제 전략을 변경할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 또는 중 하나는 [Azure 클라이언트 라이브러리](https://docs.microsoft.com/azure/index#pivot=sdkstools)합니다. 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
 
    > [!NOTE]
    > 현재는 포털 또는 API를 사용하여 계정을 ZRS로 변환할 수 없습니다. 계정의 복제를 ZRS로 변환하려면 자세한 내용은 [ZRS(영역 중복 저장소)](storage-redundancy-zrs.md)를 참조하세요.
@@ -64,7 +68,7 @@ Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Stora
 
 GRS 또는 LRS에서 RA-GRS 저장소 계정으로 변환 하면 해당 계정은 변환 된 날짜 이후에도 추가로 30 일 동안 RA-GRS로 청구 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](storage-redundancy-lrs.md)
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)

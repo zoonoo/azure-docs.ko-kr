@@ -34,7 +34,7 @@
               href: data-lake-analytics-manage-use-dotnet-sdk.md
             - name: Python
               href: data-lake-analytics-manage-use-python-sdk.md
-            - name: 자바
+            - name: Java
               href: data-lake-analytics-manage-use-java-sdk.md
             - name: Node.js
               href: data-lake-analytics-manage-use-nodejs.md
@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: 할당량 한도 조정
           href: data-lake-analytics-quota-limits.md
+        - name: 재해 복구 계획
+          href: data-lake-analytics-disaster-recovery.md
     - name: U-SQL 프로그램 개발
       items:
         - name: U-SQL 언어

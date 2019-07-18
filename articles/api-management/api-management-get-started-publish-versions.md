@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912123"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203695"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
@@ -38,15 +38,15 @@ ms.locfileid: "50912123"
 ## <a name="prerequisites"></a>필수 조건
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 ## <a name="add-a-new-version"></a>새 버전 추가
 
 ![API 상황에 맞는 메뉴 - 버전 추가](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. API 목록에서 **데모 회의 API**를 선택합니다.
-2. 옆에 있는 상황에 맞는 메뉴(**...**)를 선택합니다.
+2. 옆에 있는 상황에 맞는 메뉴( **...** )를 선택합니다.
 3. **+ 버전 추가**를 선택합니다.
 
 > [!TIP]

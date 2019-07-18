@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531685"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
@@ -159,7 +159,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
 일시적인 오류가 발생할 때 논리 앱에서 작업 재실행을 시도하는 방법을 제어하려면 다음과 같이 각 작업의 설정에서 [재시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 설정하면 됩니다.
 
-1. 작업의 (**...** ) 메뉴를 열고 **설정**을 선택합니다.
+1. 작업의 ( **...** ) 메뉴를 열고 **설정**을 선택합니다.
 
    ![작업 설정 열기](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,7 +179,7 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
    ![병렬 작업 추가](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. 대체 작업에서 (**...** ) 메뉴를 열고 **실행 조건 구성**을 선택합니다.
+1. 대체 작업에서 ( **...** ) 메뉴를 열고 **실행 조건 구성**을 선택합니다.
 
    ![실행 조건 구성](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 

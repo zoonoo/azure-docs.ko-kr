@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358035"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
@@ -39,7 +39,7 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 | 온-프레미스 Active Directory | Azure AD |
 | --- | --- |
 | telephoneNumber | 사무실 전화 |
-| mobile | 모바일 폰 |
+| mobile | 휴대폰 |
 
 사용자가 자신의 휴대폰 번호를 확인하면 Azure AD에서 인증 연락처 정보 아래의 전화 필드도 해당 번호로 채워집니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 48552105ddd2defb0f38350c7840cd8ded40ab0f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66149261"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -42,7 +42,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 이 시나리오에서는 다음과 같은 Azure 리소스를 만듭니다.
 
 * IPv4 및 IPv6 공용 IP 주소를 가진 인터넷 연결 부하 분산 장치
-* 공용 VIP를 개인 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
+* 공용 VIP를 프라이빗 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
 * 두 개의 VM이 들어 있는 가용성 집합
 * 2개의 가상 머신(VM)
 * 할당된 IPv4 및 IPv6 주소를 사용하는 각 VM에 대한 가상 네트워크 인터페이스

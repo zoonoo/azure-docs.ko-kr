@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761746"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620800"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -79,7 +79,7 @@ temporal 쿼리 요소의 시간 값이 크면 출력이 지연의 원인이 될
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 출력을 사용하여 키 위반 경고
 
-Azure SQL Database를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics에서는 출력 싱크에 [적어도 한 번 배달]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의된 경우에도 사용자는 [정확히 한 번 배달을 설정]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)할 수 있습니다. 
+Azure SQL 데이터베이스를 Stream Analytics 작업에 대한 출력으로 구성하면 대상 테이블에 레코드를 대량으로 삽입합니다. 일반적으로 Azure Stream Analytics에서는 출력 싱크에 [적어도 한 번 배달](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)을 보장합니다. SQL 테이블에 고유한 제약 조건이 정의된 경우에도 사용자는 [정확히 한 번 배달을 설정]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)할 수 있습니다. 
 
 SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중복 레코드가 삽입되면 Azure Stream Analytics는 중복된 레코드를 제거합니다. 데이터를 일괄 처리로 분할하고 단일 중복 레코드가 발견될 때까지 일괄 처리를 반복해서 삽입합니다. 스트리밍 작업에 중복된 행의 수가 너무 많으면 분할 및 삽입 프로세스가 중복 항목을 하나씩 무시해야 해서 효율성이 떨어지고 시간이 오래 걸립니다. 최근 한 시간 내에 활동 로그에서 여러 키 위반 경고 메시지가 표시된 경우 SQL 출력이 전체 작업 성능을 저하시킬 가능성이 있습니다. 
 
@@ -91,6 +91,10 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 * 고유 인덱스에 ALTER INDEX를 사용하여 IGNORE_DUP_KEY 옵션을 설정할 수 있습니다. PRIMARY KEY/UNIQUE 제약 조건과 다르게 CREATE INDEX 또는 INDEX 정의를 사용하여 만듭니다.  
 * 이러한 인덱스에 고유성을 적용할 수 없기 때문에 IGNORE_DUP_KEY는 열 저장소 인덱스에 적용되지 않습니다.  
 
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>열 이름은 Azure Stream Analytics에서 소문자로 변환
+원래 호환성 수준 (1.0)를 사용 하면 Azure Stream Analytics는 열 이름을 소문자로 변경 하는 데 사용 합니다. 이 동작은 이후 호환성 수준에서 수정 되었습니다. 대/소문자를 유지 하기 위해 고객은 호환성 수준 1.1 이상으로 이동할 것이 좋습니다. 자세한 정보를 확인할 수 있습니다 [Azure Stream Analytics 작업에 대 한 호환성 수준을](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)합니다.
+
+
 ## <a name="get-help"></a>도움말 보기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -100,5 +104,5 @@ SQL 테이블에 UNIQUE KEY 제약 조건이 설정되고 SQL 테이블에 중�
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

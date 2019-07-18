@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569835"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Security Center에서 인시던트 및 경고 조사(미리 보기)
 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
+
+> [!NOTE]
+> 경고 및 인시던트 조사 환경이 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_investigate)합니다.
 
 ## <a name="what-is-investigation-in-security-center"></a>Security Center의 조사란?
 Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해하고, 잠재적인 [보안 인시던트](https://docs.microsoft.com/azure/security-center/security-center-incident)의 근본 원인을 추적할 수 있습니다.
@@ -38,7 +41,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 ## <a name="how-investigation-works"></a>조사 작동 방식
 조사는 조사 대시보드의 중앙 영역을 차지하는 그래프에 의해 구성됩니다. 그래프는 항상 특정 엔터티에 집중하여 이에 관련된 엔터티를 나타냅니다. 엔터티는 보안 경고, 사용자, 컴퓨터 또는 인시던트일 수 있습니다.
 
-![Map](./media/security-center-investigation/security-center-investigation-fig1.png)
+![지도](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 사용자는 그래프에서 엔터티를 클릭하여 여러 엔터티를 탐색할 수 있습니다. 그래프는 선택된 엔터티 및 해당 관련 엔터티에 자동으로 중앙 집중합니다. 그래프에서 더 이상 관련 없는 엔터티를 제거할 수 있습니다.
 

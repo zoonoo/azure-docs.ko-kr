@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646817"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
@@ -28,7 +28,7 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 - SQL Server는 온-프레미스에서 실행 중인 SQL Server의 인스턴스 또는 클라우드의 Azure 가상 머신에서 실행 중인 SQL Server의 인스턴스일 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/)를 참조하세요.  
 - Azure SQL 데이터베이스는 SQL Server 게시자의 밀어넣기 구독자여야 합니다.  
 - 배포 데이터베이스 및 복제 에이전트는 Azure SQL 데이터베이스에 배치할 수 없습니다.  
-- 스냅숏 및 단방향 트랜잭션 복제가 지원됩니다. 피어 투 피어 트랜잭션 복제 및 병합 복제는 지원되지 않습니다.
+- 스냅샷 및 단방향 트랜잭션 복제가 지원됩니다. 피어 투 피어 트랜잭션 복제 및 병합 복제는 지원되지 않습니다.
 - 복제는 Azure SQL Database Managed Instance에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance를 사용하여 복제](replication-with-sql-database-managed-instance.md)를 참조하세요.
 
 ## <a name="versions"></a>버전  
@@ -65,7 +65,7 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 
 1. 온-프레미스 SQL Server 데이터베이스에서 트랜잭션 복제 게시를 만듭니다.  
 2. 온-프레미스 SQL Server에서 **새 구독 마법사** 또는 Transact-SQL 명령문을 사용하여 Azure SQL Database에 대한 구독 밀어넣기를 생성합니다.  
-3. Azure SQL Database에 단일 및 풀링된 데이터베이스를 사용하는 경우 초기 데이터 세트는 스냅숏 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅숏입니다. 관리형 인스턴스 데이터베이스와 함께 데이터베이스 백업을 사용하여 구독자 데이터베이스를 시드할 수도 있습니다.
+3. Azure SQL Database에 단일 및 풀링된 데이터베이스를 사용하는 경우 초기 데이터 세트는 스냅샷 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅샷입니다. 관리형 인스턴스 데이터베이스와 함께 데이터베이스 백업을 사용하여 구독자 데이터베이스를 시드할 수도 있습니다.
 
 ### <a name="data-migration-scenario"></a>데이터 마이그레이션 시나리오  
 
@@ -107,7 +107,7 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
 - [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'**)을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
+- 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'** )을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
 
 ## <a name="see-also"></a>관련 항목  
 

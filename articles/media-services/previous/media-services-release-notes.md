@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65991909"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -36,7 +36,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
-| Azure Storage SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |Media Services에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Storage SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Storage SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. |
+| Azure Storage SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |Media Services에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Storage SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Storage SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) 메서드를 사용합니다. |
 | Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 애플리케이션의 리소스 사용을 제한합니다. 해당 서비스에서 "서비스를 사용할 수 없음" 503 HTTP 상태 코드를 반환할 수 있습니다. |자세한 내용은 [Media Services 오류 코드](media-services-encoding-error-codes.md)에서 503 HTTP 상태 코드 설명을 참조하세요. |
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수의 제한은 1,000개입니다. 공용 REST 버전 2에서는 쿼리 결과를 1,000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 건너뛰기 및 포함(.NET)/top(REST)을 사용합니다. |
 | 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. |자세한 내용은 [이 섹션](media-services-deliver-content-overview.md#known-issues)을 참조하세요. |
@@ -44,6 +44,10 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="march-2019"></a>2019 년 3 월
+
+Azure Media Services의 Media Hyperlapse 미리 보기 기능 사용 되지 않았습니다.
 
 ## <a name="december-2018"></a>2018년 12월
 
@@ -119,7 +123,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 
 스트리밍 엔드포인트 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 모든 Media Services 계정에는 버전 2.0 기본 스트리밍 엔드포인트가 포함됩니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경은 기존 계정에 영향을 주지 않습니다. 기존 스트리밍 엔드포인트인 버전 1.0을 2.0 버전으로 업그레이드할 수 있습니다. 이러한 변경으로 인한 동작, 청구 및 기능 변경 내용이 있습니다. 자세한 내용은 [스트리밍 엔드포인트 개요](media-services-streaming-endpoints-overview.md)를 참조하세요.
 
-2.15 버전부터 Media Services는 스트리밍 엔드포인트 엔터티에 다음과 같은 속성을 추가했습니다.
+2\.15 버전부터 Media Services는 스트리밍 엔드포인트 엔터티에 다음과 같은 속성을 추가했습니다.
 
 * CdnProvider 
 * CdnProfile
@@ -395,7 +399,7 @@ Media Services .NET SDK의 현재 버전은 3.0.0.5입니다. 다음이 업데�
 
 ## <a id="jan_feb_changes_14"></a>2014년 1월/2월 릴리스
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 및 3.0.0.3
-3.0.0.1 및 3.0.0.2의 변경 내용은 다음과 같습니다.
+3\.0.0.1 및 3.0.0.2의 변경 내용은 다음과 같습니다.
 
 * OrderBy 문에서 LINQ 쿼리 사용에 관련된 문제가 수정되었습니다.
 * [GitHub]의 테스트 솔루션이 단위 기반 테스트와 시나리오 기반 테스트로 분할되었습니다.
@@ -405,12 +409,12 @@ Media Services .NET SDK의 현재 버전은 3.0.0.5입니다. 다음이 업데�
 버전 3.0.0.3에서 다음과 같은 사항이 변경되었습니다.
 
 * 버전 3.0.3.0을 사용하도록 Azure Storage 종속성이 업그레이드되었습니다.
-* 3.0에서 이전 버전과 호환성 문제가 수정되었습니다.*.*  릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
+* 3\.0에서 이전 버전과 호환성 문제가 수정되었습니다. *.* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
 
 ## <a id="december_changes_13"></a>2013년 12월 릴리스
 ### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0
 > [!NOTE]
-> 3.0.x.x 릴리스는 이전 버전인 2.4.x.x 릴리스와 호환되지 않습니다.
+> 3\.0.x.x 릴리스는 이전 버전인 2.4.x.x 릴리스와 호환되지 않습니다.
 > 
 > 
 

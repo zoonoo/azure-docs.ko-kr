@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712230"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "60563395"
 
 ## <a name="domain-names"></a>도메인 이름
 
-Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 '**.**'인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
+Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름이 단순히 ' **.** '인 'root' 도메인에서 시작합니다.  그 아래에 'com', 'net', 'org', 'uk' 또는 'jp'와 같은 최상위 도메인이 있습니다.  그 아래에 'org.uk' 또는 'co.jp'와 같은 두 번째 수준의 도메인이 있는 DNS 계층 구조의 도메인은 전체적으로 분산되며 전 세계의 DNS 이름 서버에서 호스팅됩니다.
 
 도메인 이름 등록 기관은 'contoso.com'과 같은 도메인 이름을 구입할 수 있는 조직입니다.  도메인 이름을 구입할 경우 해당 이름 하의 DNS 계층 구조를 관리할 수 있습니다. 예를 들어, 'www.contoso.com'이라는 이름을 회사 웹 사이트에 사용할 수 있습니다. 등록 기관은 사용자 대신 자체 이름 서버에 도메인을 호스트하거나 사용자가 다른 이름 서버를 지정할 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure DNS는 전 세계적으로 분산된 고가용성 이름 서버 인프라�
 
 Azure DNS는 현재 도메인 이름 구입을 지원하지 않습니다. 도메인 이름을 구입하려면 타사 도메인 이름 등록 기관을 이용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md) 을 참조하세요.
 
-## <a name="dns-zones"></a>DNS 영역 
+## <a name="dns-zones"></a>DNS 영역
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -134,7 +134,7 @@ Azure DNS REST API 수준에서 Etag는 HTTP 헤더를 사용하여 지정됩니
 | 헤더 | 동작 |
 | --- | --- |
 | 없음 |PUT 항상 성공(Etag 검사 안 함) |
-| If-match <etag> |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
+| If-match \<etag > |리소스가 있고 Etag가 일치하는 경우에만 PUT 성공 |
 | If-match * |리소스가 있는 경우에만 PUT 성공 |
 | If-none-match * |리소스가 없는 경우에만 PUT 성공 |
 

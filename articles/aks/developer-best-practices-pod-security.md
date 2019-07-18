@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
 ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65073981"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
-AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 pod 보안 유지가 핵심 고려 사항입니다. 애플리케이션은 필요한 최소 권한 수 원칙에 따라 디자인해야 합니다. 개인 데이터를 안전하게 유지하는 일은 고객을 위하는 마음입니다. 데이터베이스 연결 문자열, 키 또는 비밀과 인증서를 외부 세계에 노출하여 악의적인 공격 용도로 활용되는 것을 원하지 않을 것입니다. 이러한 항목을 코드에 추가하거나 컨테이너 이미지에 포함하지 않도록 합니다. 이러한 방식은 노출 위험을 초래하며, 컨테이너 이미지를 다시 작성해야 할 때 해당 자격 증명을 순환하는 기능을 제한합니다.
+AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 경우 pod 보안 유지가 핵심 고려 사항입니다. 애플리케이션은 필요한 최소 권한 수 원칙에 따라 디자인해야 합니다. 프라이빗 데이터를 안전하게 유지하는 일은 고객을 위하는 마음입니다. 데이터베이스 연결 문자열, 키 또는 비밀과 인증서를 외부 세계에 노출하여 악의적인 공격 용도로 활용되는 것을 원하지 않을 것입니다. 이러한 항목을 코드에 추가하거나 컨테이너 이미지에 포함하지 않도록 합니다. 이러한 방식은 노출 위험을 초래하며, 컨테이너 이미지를 다시 작성해야 할 때 해당 자격 증명을 순환하는 기능을 제한합니다.
 
 이 모범 사례 문서는 AKS의 pod 보안 유지 방법을 중점적으로 설명합니다. 다음 방법에 대해 알아봅니다.
 

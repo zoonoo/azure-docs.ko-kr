@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 40035b946d0f2b09929f8c7f1ac27231546e6746
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64692910"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
 
@@ -41,10 +41,10 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 |long  |  bigint   |
 |double  |  double   |
 |문자열  |  nvarchar(max)   |
-|datetime  |  datetime   |
+|dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array<object>  |  IArray   |
+|Array\<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -114,7 +114,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
  |**설정**  |**제안 값**  |
  |---------|---------|
  |어셈블리 원본  | 클라우드의 기존 어셈블리 패키지    |
- |리소스  |  현재 계정의 데이터 선택   |
+ |Resource  |  현재 계정의 데이터 선택   |
  |구독  |  구독을 선택합니다.   |
  |Storage 계정  |  저장소 계정 선택   |
  |컨테이너  |  저장소 계정에서 만든 컨테이너 선택   |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
 ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204192"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure 파일 복원
@@ -260,7 +260,7 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS       Backup               Completed            11/12/2018 2:42:07 PM     11/12/2018 2:42:11 PM     8bdfe3ab-9bf7-4be6-83d6-37ff1ca13ab6
 ```
 
-백업을 수행하는 동안 Azure 파일 공유 스냅숏이 사용되기 때문에 일반적으로 명령에 이 출력이 반환될 때까지 작업이 완료됩니다.
+백업을 수행하는 동안 Azure 파일 공유 스냅샷이 사용되기 때문에 일반적으로 명령에 이 출력이 반환될 때까지 작업이 완료됩니다.
 
 ### <a name="modify-the-protection-policy"></a>보호 정책 수정
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050980"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450188"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
 이 자습서에서는 프런트 엔드 호스트 섹션의 Front Door에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 TLS/SSL 암호화를 통해 안전하게 보호됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 애플리케이션을 보호합니다.
 
-Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름에HTTPS를 지원합니다. 예를 들어 Front Door(예: https:\//contoso.azurefd.net)를 만들면 https://contoso.azurefd.net에 수행되는 요청에 HTTPS가 자동으로 활성화됩니다. 그러나 사용자 지정 도메인 'www.contoso.com'을 등록하고 나면 이 프런트 엔드 호스트에 HTTPS를 별도로 활성화해야 합니다.   
+Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름에HTTPS를 지원합니다. 예를 들어 Front Door(예: https:\//contoso.azurefd.net)를 만들면 https://contoso.azurefd.net 에 수행되는 요청에 HTTPS가 자동으로 활성화됩니다. 그러나 사용자 지정 도메인 'www.contoso.com'을 등록하고 나면 이 프런트 엔드 호스트에 HTTPS를 별도로 활성화해야 합니다.   
 
 사용자 지정 HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
@@ -77,13 +77,11 @@ Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 �
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
 1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Front Door와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
- 
-2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다.
 
 > [!WARNING]
-> </br> - Azure Front Door Service는 현재 Front Door 구성과 동일한 구독의 Key Vault 계정만 지원합니다. Front Door와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
-> </br> - Azure Front Door Service는 현재 비밀 섹션에 저장된 Key Vault 인증서만 지원합니다. 비밀 섹션 대신 인증서 섹션에 저장하면 인증서 가져오기가 실패합니다.
-> </br> - Azure Front Door Service는 현재 암호 **없이** PFX를 사용하여 업로드된 인증서만 지원합니다.
+> Azure Front Door Service는 현재 Front Door 구성과 동일한 구독의 Key Vault 계정만 지원합니다. Front Door와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
+
+2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다.
 
 #### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록
 
@@ -142,7 +140,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| Name            | type  | 값                 |
+| 이름            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -163,7 +161,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 ![WHOIS 레코드](./media/front-door-custom-domain-https/whois-record.png)
 
-또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 비공개인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
+또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 프라이빗인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  

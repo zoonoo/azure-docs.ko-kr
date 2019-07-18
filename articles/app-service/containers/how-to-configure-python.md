@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 7bbbe9629404733a76064d270480a0e162e2612b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fb90122f7277687886a6579fdb729b7f91660ed6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919882"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617266"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -144,7 +145,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서, 앱 코드 외부에서 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)을 지정할 수 있습니다. 그런 다음, 표준 [os.environ](https://docs.python.org/3/library/os.html#os.environ) 패턴을 사용하여 액세스할 수 있습니다. 예를 들어 앱 설정 `WEBSITE_SITE_NAME`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음, 표준 [os.environ](https://docs.python.org/3/library/os.html#os.environ) 패턴을 사용하여 액세스할 수 있습니다. 예를 들어 앱 설정 `WEBSITE_SITE_NAME`에 액세스하려면 다음 코드를 사용합니다.
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -187,7 +188,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](app-service-linux-faq.md)

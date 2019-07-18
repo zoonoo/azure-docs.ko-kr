@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073577"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 
@@ -59,19 +59,19 @@ Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 Fair
 
 Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
-  * **AC(앱 인증서)**: 개인 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다.
+  * **AC(앱 인증서)** : 프라이빗 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다.
 
        키 배달 정책을 구성할 때 해당 암호와 Base64 형식의 .pfx 파일을 제공해야 합니다.
 
       다음 단계에서는 FairPlay에 대한 .pfx 인증서 파일을 생성하는 방법을 설명합니다.
 
-    1. https://slproweb.com/products/Win32OpenSSL.html에서 OpenSSL을 설치합니다.
+    1. https://slproweb.com/products/Win32OpenSSL.html 에서 OpenSSL을 설치합니다.
 
         FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
     2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
-    3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 개인 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
+    3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 프라이빗 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **앱 인증서 암호**: .pfx 파일을 만들기 위한 암호입니다.
@@ -82,7 +82,7 @@ Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
 FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
 
-  * **AC(앱 인증서)**: 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용하여 암호를 해독합니다.
+  * **AC(앱 인증서)** : 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 프라이빗 키를 사용하여 암호를 해독합니다.
 
 FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 다음 실제 인증서를 생성합니다. 이 프로세스에서는 다음 세 가지 요소를 모두 만듭니다.
 
@@ -513,7 +513,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

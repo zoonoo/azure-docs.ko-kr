@@ -9,10 +9,10 @@ ms.date: 05/15/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60346328"
 ---
 # <a name="smart-groups"></a>스마트 그룹
@@ -33,7 +33,7 @@ ms.locfileid: "60346328"
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 확인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 닫힘 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| Closed | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
 [스마트 그룹의 상태를 변경하는 방법을 알아보세요.](https://aka.ms/managing-alert-smart-group-states)
 

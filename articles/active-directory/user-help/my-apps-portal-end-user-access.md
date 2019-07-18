@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477287"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>My Apps 포털에서 앱을 액세스 및 사용
@@ -84,7 +84,7 @@ ms.locfileid: "60477287"
 
 1.  회사 또는 학교 계정에 로그인합니다.
 
-2.  웹 브라우저를 열고 이동 https://myapps.microsoft.com, 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com합니다.
+2.  웹 브라우저를 열고 이동 https://myapps.microsoft.com , 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com 합니다.
 
     합니다 **앱** 조직에서 소유 하 고 사용 하 여 사용할 수 있습니다 모든 클라우드 기반 앱을 보여 주는 페이지가 나타납니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "60477287"
 
 1. 모바일 장치에서 다운로드 하 고 Intune Managed Browser 앱을 설치 합니다 [Apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 하며 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)합니다.
 
-2. Intune Managed Browser 앱을 열고로 이동 https://myapps.microsoft.com, 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com합니다.
+2. Intune Managed Browser 앱을 열고로 이동 https://myapps.microsoft.com , 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com 합니다.
 
     합니다 **앱** 조직에서 소유 하 고 사용 하 여 사용할 수 있습니다 모든 클라우드 기반 앱을 보여 주는 페이지가 나타납니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "60477287"
 
 1. 모바일 장치에서 Safari와 같은 웹 브라우저 앱을 시작 합니다.
 
-2. 로 https://myapps.microsoft.com, 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com합니다.
+2. 로 https://myapps.microsoft.com , 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com 합니다.
 
     합니다 **앱** 조직에서 소유 하 고 사용 하 여 사용할 수 있습니다 모든 클라우드 기반 앱을 보여 주는 페이지가 나타납니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "60477287"
 
 1. 모바일 장치에서 Google Chrome과 같은 웹 브라우저 앱을 시작 합니다.
 
-2. 로 https://myapps.microsoft.com, 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com합니다.
+2. 로 https://myapps.microsoft.com , 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com 합니다.
 
     합니다 **앱** 조직에서 소유 하 고 사용 하 여 사용할 수 있습니다 모든 클라우드 기반 앱을 보여 주는 페이지가 나타납니다.
 

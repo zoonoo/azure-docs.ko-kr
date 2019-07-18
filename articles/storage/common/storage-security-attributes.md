@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66001470"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Azure Storage에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-storage"></a>Azure Storage에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Storage에 기본 제공 되는 일반적인 보안 특성을 설명 합니다. 
+이 문서에서는 Azure Storage에 기본 제공 보안 특성을 설명 합니다. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "64711962"
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 |  |
 
-## <a name="network-segmentation"></a>네트워크 분할
+## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|

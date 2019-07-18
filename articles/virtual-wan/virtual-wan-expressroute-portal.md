@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: edf5e04b7cf9b5c79666c54fbeca49858cf21079
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077531"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기(미리 보기)
 
@@ -47,7 +47,8 @@ Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 �
 
 **미리 보기 고려 사항:**
 
-ExpressRoute 회로는 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)를 지원하는 국가에서 사용하도록 설정해야 합니다.
+  * ExpressRoute 회로는 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)를 지원하는 국가/지역에서 사용하도록 설정해야 합니다.
+  * ExpressRoute 회로는 Virtual WAN 허브에 연결하려면 프리미엄 회로여야 합니다. 
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
 

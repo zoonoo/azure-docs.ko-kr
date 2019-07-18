@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675ca1025c4317945f0d588f425d875bf83f249c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6408700623b8c260b7ef579ca87d26b6c21c9aac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airstack"></a>자습서: AirStack과 Azure Active Directory 통합
 

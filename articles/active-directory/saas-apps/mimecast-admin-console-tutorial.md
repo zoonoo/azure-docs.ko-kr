@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>자습서: Mimecast 관리 콘솔과 Azure Active Directory 통합
 
@@ -164,7 +164,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하려면 다음 �
     >[!NOTE]
     >로그인 URL 값과 로그아웃 URL 값은 Mimecast 관리 콘솔에 대해 동일합니다.
     
-    g. 메모장에서 Azure Portal로부터 다운로드한 base-64 인증서를 열고, 첫 줄(“*--*”) 및 마지막 줄(“*--*”)을 제거하고, 나머지 내용을 클립보드에 복사한 다음 **ID 공급자 인증서(메타데이터)** 텍스트 상자로 붙여넣습니다.
+    g. 메모장에서 Azure Portal로부터 다운로드한 base-64 인증서를 열고, 첫 줄(“ *--* ”) 및 마지막 줄(“ *--* ”)을 제거하고, 나머지 내용을 클립보드에 복사한 다음 **ID 공급자 인증서(메타데이터)** 텍스트 상자로 붙여넣습니다.
     
     h. **Single Sign-On 허용**을 선택합니다.
     

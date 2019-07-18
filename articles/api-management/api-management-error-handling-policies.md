@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704432"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -77,15 +77,15 @@ ms.locfileid: "60564332"
 
  오류가 발생하고 제어가 `on-error` 정책 섹션으로 이동하는 경우 오류가 `on-error` 섹션에 있는 정책에서 액세스할 수 있고 [context.LastError](api-management-policy-expressions.md#ContextVariables) 속성에 저장됩니다. LastError에는 다음 속성이 있습니다.  
   
-| 이름     | 형식   | 설명                                                                                               | 필수 |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
-| Reason   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아닙니다.       |
-| Message  | 문자열 | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
-| Scope    | 문자열 | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아닙니다.       |
-| Section  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아닙니다.       |
-| Path     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아닙니다.       |
-| PolicyId | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아닙니다.       |
+| 이름       | 형식   | 설명                                                                                               | 필수 |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
+| `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아닙니다.       |
+| `Message`  | 문자열 | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
+| `Scope`    | 문자열 | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아닙니다.       |
+| `Section`  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아닙니다.       |
+| `Path`     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아닙니다.       |
+| `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아닙니다.       |
 
 > [!TIP]
 > context.Response.StatusCode를 통해 상태 코드에 액세스할 수 있습니다.  
@@ -99,8 +99,8 @@ ms.locfileid: "60564332"
 | Source        | 조건                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 구성 | Uri가 API 또는 작업과 일치하지 않음 | OperationNotFound       | 들어오는 요청을 작업과 일치시킬 수 없습니다.                                                                      |
-| 권한 부여 | 구독 키가 제공되지 않음             | SubscriptionKeyNotFound | 구독 키가 누락되어 액세스가 거부되었습니다. 이 API에 요청을 수행할 때 구독 키를 포함해야 합니다. |
-| 권한 부여 | 구독 키 값이 잘못됨         | SubscriptionKeyInvalid  | 잘못된 구독 키로 인해 액세스가 거부되었습니다. 활성 구독에 대해 유효한 키를 제공해야 합니다.            |
+| authorization | 구독 키가 제공되지 않음             | SubscriptionKeyNotFound | 구독 키가 누락되어 액세스가 거부되었습니다. 이 API에 요청을 수행할 때 구독 키를 포함해야 합니다. |
+| authorization | 구독 키 값이 잘못됨         | SubscriptionKeyInvalid  | 잘못된 구독 키로 인해 액세스가 거부되었습니다. 활성 구독에 대해 유효한 키를 제공해야 합니다.            |
   
 ## <a name="predefined-errors-for-policies"></a>정책에 대해 미리 정의된 오류  
  정책 평가 중에 발생할 수 있는 오류 조건에 대해 다음 오류가 미리 정의됩니다.  

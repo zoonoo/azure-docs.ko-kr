@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f49b384f6f943e8c6767a6133a835011bc1e6bac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059333"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스에서 다시 사용할 수 있는 기계 학습 파이프라인 빌드
 
 이 문서에서는 Python용 Azure Machine Learning SDK로 빌드할 수 있는 기계 학습 파이프라인 및 파이프라인 사용의 장점에 대해 알아보겠습니다.
 
@@ -34,6 +34,7 @@ ML(기계 학습) 파이프라인, 데이터 과학자, 데이터 엔지니어 �
 
 ![Azure Machine Learning Service의 기계 학습 파이프라인](./media/concept-ml-pipelines/pipelines.png)
 
+<a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>Azure 파이프라인 기술을 사용 해야 합니까?
 
 Azure 클라우드는 여러 다른 파이프라인에 다른 목적으로 각 제공합니다. 다음 표에서 다양 한 파이프라인 및 용도 대 한를 나열 합니다.

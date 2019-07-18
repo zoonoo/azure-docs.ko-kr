@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861857"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Maps에 대한 Azure Event Grid 이벤트 스키마
@@ -104,8 +104,8 @@ Azure Maps 계정은 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| topic | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
@@ -133,15 +133,15 @@ Maps API에서 오류가 발생하면 ErrorDetails 개체가 반환됩니다. Er
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 코드 | 문자열 | HTTP 상태 코드입니다. |
-| Message | 문자열 | 사용 가능한 경우, 사용자가 읽을 수 있는 오류 설명입니다. |
+| code | 문자열 | HTTP 상태 코드입니다. |
+| message | 문자열 | 사용 가능한 경우, 사용자가 읽을 수 있는 오류 설명입니다. |
 | innererror | InnerError | 사용 가능한 경우, 오류에 대한 서비스 특정 정보가 포함된 개체입니다. |
 
 InnerError는 오류에 대한 서비스 특정 정보가 포함된 개체입니다. InnerError 개체의 속성은 다음과 같습니다. 
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 코드 | 문자열 | 오류 메시지입니다. |
+| code | 문자열 | 오류 메시지입니다. |
 
 기하 도형 개체는 요청의 사용자 시간을 기준으로, 만료된 지오펜스의 기하 도형 ID를 나열합니다. 기하 도형 개체에 포함된 기하 도형 항목의 속성은 다음과 같습니다. 
 

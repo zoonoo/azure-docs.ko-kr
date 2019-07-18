@@ -4,7 +4,7 @@ description: Azure(큰 인스턴스)의 SAP HANA에 대해 지원되는 시나�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3699764cbcad2446067daff9f19e801cad299c47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60477792"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707291"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI(HANA 큰 인스턴스)에 대한 아키텍처 세부 정보와 지원되는 시나리오에 대해 설명합니다.
@@ -50,7 +50,7 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 이 문서에서는 지원되는 각 아키텍처의 두 구성 요소에 대해 자세히 설명합니다.
 
 - 이더넷
-- Storage
+- 저장 공간
 
 ### <a name="ethernet"></a>이더넷
 
@@ -64,11 +64,11 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드-노드 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
@@ -97,7 +97,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - 이더넷 “D”는 Pacemaker용 STONITH 디바이스에 액세스하는 데만 사용해야 합니다. 이 인터페이스는 HSR(HANA 시스템 복제)을 구성하며, SBD 기반 디바이스를 사용하여 운영 체제에서 자동 장애 조치(Failover)를 수행하려고 할 때 필요합니다.
 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 저장소는 요청된 토폴로지에 따라 미리 구성됩니다. 볼륨 크기와 탑재 지점은 서버 수, SKU 및 구성된 토폴로지에 따라 달라집니다. 이 문서 뒷부분에서 필요한 시나리오를 검토하여 자세한 정보를 얻으세요. 더 많은 저장소가 필요한 경우 1TB씩 증분해서 구입할 수 있습니다.
 
 >[!NOTE]
@@ -138,16 +138,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -173,16 +173,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -213,16 +213,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -237,7 +237,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - MCOS: 볼륨 크기 분산은 메모리의 데이터베이스 크기를 기준으로 합니다. [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 섹션을 참조하여 다중 SID 환경에서 지원되는 메모리의 데이터베이스 크기에 대해 알아보세요.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요.
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅샷을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
 
@@ -254,16 +254,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -286,7 +286,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - MCOS: 볼륨 크기 분산은 메모리의 데이터베이스 크기를 기준으로 합니다. [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 섹션을 참조하여 다중 SID 환경에서 지원되는 메모리의 데이터베이스 크기에 대해 알아보세요.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅샷을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - DR: QA("QA 인스턴스 설치"로 표시)에 대한 데이터, 로그 백업, 로그, 공유 볼륨이 QA 인스턴스 설치에 대해 구성됩니다.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
@@ -308,16 +308,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -356,16 +356,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -395,7 +395,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - STONITH: STONITH 설치에 대해 SBD가 구성됩니다. 그러나 STONITH의 사용은 선택 사항입니다.
 - DR: 주 및 보조 노드 복제에 **두 스토리지 볼륨 세트가 필요**합니다.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅샷을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - DR: QA("QA 인스턴스 설치"로 표시)에 대한 데이터, 로그 백업, 로그, 공유 볼륨이 QA 인스턴스 설치에 대해 구성됩니다.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
@@ -415,16 +415,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -456,16 +456,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -492,16 +492,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -531,16 +531,16 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
-| A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
 | B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
-| A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
+| 변수를 잠그기 위한 | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
 | B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>저장 공간
 다음 탑재 지점은 미리 구성됩니다.
 
 | 탑재 지점 | 사용 사례 | 
@@ -559,7 +559,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 -  DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅샷을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
 

@@ -4,14 +4,14 @@ description: Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 82d7cdf0c9519bb8a682445e666d46d6fd7bfbd7
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495484"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550946"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos 리소스 관리
 
@@ -31,7 +31,8 @@ az cosmosdb create \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations EastUS=0 WestUS=1 \
+   --locations regionName=EastUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=WestUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations false
 ```
 
@@ -84,7 +85,7 @@ Cosmos 계정의 키를 가져오려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # List account keys
-az cosmosdb list-keys \
+az cosmosdb keys list \
    --name  mycosmosdbaccount \
    --resource-group myResourceGroup
 ```

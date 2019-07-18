@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Security Center 지원 플랫폼 및 기능
       href: security-center-os-coverage.md
+    - name: 엔드포인트 보호 평가 및 권장 사항
+      href: security-center-endpoint-protection.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -33,6 +35,12 @@
       href: security-center-data-security.md
     - name: 권장 사항을 사용하여 보안 강화
       href: security-center-using-recommendations.md
+    - name: 위협 감지
+      href: security-center-detection-capabilities.md
+    - name: 보안 경고 관리
+      href: security-center-managing-and-responding-alerts.md
+    - name: 보안 인시던트
+      href: security-center-incident.md
     - name: 사고 대응
       href: security-center-incident-response.md
 - name: 방법 가이드
@@ -43,6 +51,8 @@
       href: security-center-onboarding.md
     - name: Windows Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
+    - name: Azure VM의 SQL에 대한 고급 데이터 보안(공개 미리 보기).
+      href: security-center-iaas-advanced-data.md
     - name: App Service 보호
       href: security-center-app-services.md
     - name: 보안 정책 작업
@@ -55,29 +65,31 @@
       href: security-center-powershell-onboarding.md
     - name: Security Center 설정
       href: security-center-policies-overview.md
-      items:
-        - name: 데이터 수집
-          href: security-center-enable-data-collection.md
-        - name: 기본 제공 보안 정책
-          href: security-center-policy-definitions.md
-        - name: 전자 메일 알림
-          href: security-center-provide-security-contact-details.md
-        - name: '가격 책정 계층 '
-          href: security-center-pricing.md
-        - name: 보안 구성
-          href: security-center-customize-os-security-config.md
-        - name: 테넌트 수준 표시 유형
-          href: security-center-management-groups.md
+    - name: 파일 무결성 모니터링을 사용하는 기준 비교
+      href: security-center-file-integrity-monitoring-baselines.md
+    - name: 데이터 수집
+      href: security-center-enable-data-collection.md
+    - name: 기본 제공 보안 정책
+      href: security-center-policy-definitions.md
+    - name: 전자 메일 알림
+      href: security-center-provide-security-contact-details.md
+    - name: 가격 책정 계층
+      href: security-center-pricing.md
+    - name: 보안 구성
+      href: security-center-customize-os-security-config.md
+    - name: 테넌트 수준 표시 유형
+      href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
-      href: security-center-recommendations.md
       items:
+        - name: 보안 권장 사항이란?
+          href: security-center-recommendations.md
         - name: 보안 상태 강화
           href: security-center-monitoring.md
         - name: 머신 및 응용 프로그램 보호
           href: security-center-virtual-machine-protection.md
         - name: 네트워크 리소스 사용
           href: security-center-network-recommendations.md
-        - name: SQL 서비스 및 데이터 보호
+        - name: 파일 및 스토리지 서비스 보호
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호
           href: security-center-identity-access.md
@@ -91,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: 적응형 네트워크 강화
           href: security-center-adaptive-network-hardening.md
-    - name: 위협 감지
-      href: security-center-detection-capabilities.md
+    - name: 위협 검색 경고
       items:
-        - name: 보안 경고
-          href: security-center-managing-and-responding-alerts.md
-        - name: 보안 인시던트
-          href: security-center-incident.md
-        - name: 보안 경고 이해
-          href: security-center-alerts-type.md
-        - name: 경고 유효성 검사
+        - name: 보안 경고 개요
+          href: security-center-alerts-overview.md
+        - name: VM 및 서버에 대한 위협 탐지
+          href: security-center-alerts-iaas.md
+        - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지
+          href: security-center-alerts-compute.md
+        - name: 데이터 서비스에 대한 위협 탐지
+          href: security-center-alerts-data-services.md
+        - name: Azure 서비스 계층에 대한 위협 탐지
+          href: security-center-alerts-service-layer.md
+        - name: Azure 보안 제품과 통합
+          href: security-center-alerts-integration.md
+        - name: 클라우드 스마트 경고 상관 관계(인시던트)
+          href: security-center-alerts-cloud-smart.md
+        - name: 경고 유효성 검사(EICAR 테스트 파일)
           href: security-center-alert-validation.md
-        - name: Azure 리소스와 사용자에 대한 UEBA
-          href: security-center-ueba-mcas.md
     - name: 보관
       items:
         - name: 디스크 암호화 적용
@@ -162,18 +179,26 @@
           href: security-center-search.md
         - name: 계획 및 작업
           href: security-center-planning-and-operations-guide.md
+        - name: 보안 경고 이해
+          href: security-center-alerts-type.md
+        - name: Azure 리소스와 사용자에 대한 UEBA
+          href: security-center-ueba-mcas.md
 - name: 참고 자료
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: 기능 및 API 사용 중지(2019년 7월)
+      href: security-center-features-retirement-july2019.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?term=securityS
     - name: 사용자 데이터 관리
       href: security-center-privacy.md
+    - name: IoT 관리
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: FAQ
       href: security-center-faq.md
     - name: Azure Security

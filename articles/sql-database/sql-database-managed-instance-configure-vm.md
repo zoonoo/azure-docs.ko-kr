@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60701884"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
@@ -64,7 +64,7 @@ ms.locfileid: "60701884"
 
 ## <a name="prepare-the-azure-virtual-machine"></a>Azure 가상 머신 준비
 
-SQL Managed Instance가 개인 Virtual Network에 배치되므로 SQL Server Management Studio 또는 Azure Data Studio 같은 설치된 SQL 클라이언트 도구를 사용하여 Azure VM을 만들어야 합니다. 이 도구를 통해 Managed Instance에 연결하고 쿼리를 실행할 수 있습니다. 이 빠른 시작에서는 SQL Server Management Studio를 사용합니다.
+SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Server Management Studio 또는 Azure Data Studio 같은 설치된 SQL 클라이언트 도구를 사용하여 Azure VM을 만들어야 합니다. 이 도구를 통해 Managed Instance에 연결하고 쿼리를 실행할 수 있습니다. 이 빠른 시작에서는 SQL Server Management Studio를 사용합니다.
 
 필요한 도구가 모두 포함된 클라이언트 가상 머신을 만드는 가장 쉬운 방법은 Azure Resource Manager 템플릿을 사용하는 것입니다.
 

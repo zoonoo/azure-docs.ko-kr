@@ -10,12 +10,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995692"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303295"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>자습서: Azure SQL Database C&#x23; 및 ADO.NET 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -33,7 +33,7 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Visual Studio 2017](https://www.visualstudio.com/downloads/)의 설치
+[Visual Studio 2019](https://www.visualstudio.com/downloads/) 이상 설치
 
 ## <a name="create-a-blank-single-database"></a>빈 단일 데이터베이스 만들기
 
@@ -55,14 +55,14 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
     | **리소스 그룹** | *yourResourceGroup* | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
     | **원본 선택** | 빈 데이터베이스 | 빈 데이터베이스를 만들도록 지정합니다. |
 
-4. **서버**를 클릭하여 기존 데이터베이스 서버를 사용하거나, 새 데이터베이스 서버를 만들고 구성합니다. 기존 서버를 선택하거나 **새 서버 만들기**를 클릭하고 **새 서버** 양식에 다음 정보를 입력합니다.
+4. **서버**를 클릭하여 기존 데이터베이스 서버를 사용하거나, 새 데이터베이스 서버를 만들어서 구성합니다. 기존 서버를 선택하거나 **새 서버 만들기**를 클릭하고 **새 서버** 양식에 다음 정보를 입력합니다.
 
     | 설정       | 제안 값 | 설명 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 사용해야 합니다. |
-    | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -81,7 +81,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>서버 수준 IP 방화벽 규칙 만들기
 
-SQL Database 서비스는 서버 수준에서 IP방화벽을 만듭니다. 방화벽 규칙에서 특정 IP가 방화벽을 통과하도록 허용하지 않는 한 이 방화벽은 외부 애플리케이션과 도구가 서버 및 서버의 데이터베이스에 연결하지 못하게 차단합니다. 단일 데이터베이스에 대한 외부 연결을 사용하려면 먼저 IP 주소(또는 IP 주소 범위)에 대한 IP 방화벽 규칙을 추가해야 합니다. 다음 단계에 따라 [SQL Database 서버 수준 IP 방화벽 규칙](sql-database-firewall-configure.md)을 만듭니다.
+SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방화벽 규칙에서 특정 IP가 방화벽을 통과하도록 허용하지 않는 한 이 방화벽은 외부 애플리케이션과 도구가 서버 및 서버의 데이터베이스에 연결하지 못하게 차단합니다. 단일 데이터베이스에 대한 외부 연결을 사용하려면 먼저 IP 주소(또는 IP 주소 범위)에 대한 IP 방화벽 규칙을 추가해야 합니다. 다음 단계에 따라 [SQL Database 서버 수준 IP 방화벽 규칙](sql-database-firewall-configure.md)을 만듭니다.
 
 > [!IMPORTANT]
 > SQL Database 서비스는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 이 서비스에 연결을 시도하면 포트 1433을 통한 아웃바운드 트래픽을 네트워크 방화벽에서 허용하지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열지 않으면 단일 데이터베이스에 연결할 수 없습니다.

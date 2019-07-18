@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
-ms.author: dariagrigoriu
+ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: fc3749a9ebfbf0319a57b471b6fce9f62042ba27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b66237cfbd2db9254362b7fa7efe7da7c624d4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852685"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617591"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 

@@ -11,7 +11,7 @@
   items:
     - name: 'C#'
       href: csharp.md
-    - name: 자바
+    - name: Java
       href: java-quickstart.md
     - name: JavaScript
       href: javascript.md

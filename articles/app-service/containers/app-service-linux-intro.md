@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bca1b067f5ec667e8b5da92a182a5618582b2f3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793444"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617437"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -33,12 +33,12 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 | 언어 | 지원되는 버전 |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14(모두 JRE 8 실행) |
-| PHP | 5.6, 7.0, 7.2 |
-| Python(미리 보기) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>배포
 
@@ -71,18 +71,13 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능만 표시됩니다. 더 많은 기능이 사용 가능해지면 포털에 표시됩니다.
 
-Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.  
+Linux의 App Service는 [무료, 기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스팅하는 App Service 계획에서는 Linux Web App을 만들 수 없습니다.  
 
-현재 제한 사항에 따라 Windows 및 Linux 앱을 동일한 리소스 그룹에 혼합할 수 없습니다.
+현재 제한 사항에 따라 동일한 리소스 그룹에 대해 동일한 지역에서 Windows 및 Linux 앱을 혼합할 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
-컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
-
-![로깅 사용][2]
-
-설정은 즉시 적용됩니다. App Service는 설정 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
+애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다. 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **App Service 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다. 설정은 즉시 적용됩니다. App Service는 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
 
 **고급 도구**의 **개발 도구** 메뉴에서 SCM 사이트에 액세스할 수 있습니다.
 

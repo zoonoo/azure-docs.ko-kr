@@ -4,17 +4,17 @@ description: Windows 가상 데스크톱 환경에서 테 넌 트 및 세션 호
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928124"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786719"
 ---
-# <a name="tenant-and-host-pool-creation"></a>테 넌 트 및 호스트 풀 만들기
+# <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 virtual machines (Vm)를 구성 하는 경우 겪고 있는 문제를 해결 합니다.
 
@@ -222,7 +222,7 @@ VM 업데이트 관리를 실행 하는 데 작동 하지 않는 side-by-side-�
 동일한 서브넷 및 도메인에서 업데이트 관리를 실행 하려면 다음이 지침을 수행 합니다.
 
 1. 수정이 적용 됩니다 위치에서 VM에 사용 하 여 표준 원격 데스크톱 프로토콜 (RDP)를 연결 합니다.
-2. PsExec을 다운로드 https://docs.microsoft.com/sysinternals/downloads/psexec합니다.
+2. PsExec을 다운로드 https://docs.microsoft.com/sysinternals/downloads/psexec 합니다.
 3. 다운로드 한 파일을 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec가 압축 된 폴더로 이동 합니다.
@@ -284,6 +284,18 @@ Microsoft Windows 10 운영 체제를 사용 하는 경우 아래 지침을 사�
     ```
 
 16. Cmdlet은 완료 되 면 제대로 작동 하지 않는 side-by-side-스택 사용 하 여 VM을 다시 시작을 실행 합니다.
+
+## <a name="remote-licensing-model-is-not-configured"></a>원격 라이선스 모델에 구성 되어 있지 않습니다.
+
+관리 계정을 사용 하 여 Windows 10 Enterprise 다중 세션에 로그인 하는 경우 이라는 알림을 받을 수 있습니다 "원격 데스크톱 라이선스 모드가 구성 되지 않은, 원격 데스크톱 서비스는 X의 작동이 중지 됩니다 (일). 연결 브로커 서버에서 사용 하 여 서버 관리자 원격 데스크톱 라이선스 모드를 지정 합니다. " 이 메시지를 표시 하는 경우 즉, 라이선스 모드를 수동으로 구성 해야 **사용자별**합니다.
+
+수동으로 구성 하려면 라이선스 모드:  
+
+1. 로 이동 하 **시작 메뉴** 검색 상자에서 다음 찾기 및 열기 **gpedit.msc** 로컬 그룹 정책 편집기에 액세스 하려면. 
+2. 로 이동 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소**  >   **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트** > **라이선스**합니다. 
+3. 선택 **원격 데스크톱 라이선스 모드를 설정할** 로 변경 **사용자별**합니다.
+
+현재 알림 및 유예 기간이 시간 초과 문제를 찾고 하 고 향후 업데이트에서 해결 하려고 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192299"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
@@ -110,12 +110,12 @@ ms.locfileid: "65192299"
 
 |코드  |설명  |
 |---------|---------|
-|-1     |  올바르지 않음       |
-|0     | 복제 중        |
+|-1     |  잘못됨       |
+|0     | 복제        |
 |1     |  리하이드레이션       |
 |2     |   Completed       |
 |3     |   실패      |
-|4     |    종료하는 중     |
+|4     |    완료 하는 중     |
 |||
 
 
@@ -139,7 +139,7 @@ PowerShell을 사용 하기 전에 [설치 하거나 최신 Azure PowerShell 모
 
 Power BI Desktop, Excel 및 사용자 지정 앱과 같은 최종 사용자 클라이언트 연결의 경우 **서버 이름**을 사용합니다. 
 
-SSMS, SSDT, PowerShell의 연결 문자열, Azure Function 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. (기본) 관리 서버에서 모든 처리 작업을 수행 합니다.
+SSMS, SSDT, PowerShell의 연결 문자열, Azure 함수 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. (기본) 관리 서버에서 모든 처리 작업을 수행 합니다.
 
 ![서버 이름](media/analysis-services-scale-out/aas-scale-out-name.png)
 

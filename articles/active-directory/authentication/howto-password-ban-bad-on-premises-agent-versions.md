@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358211"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702943"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
 
@@ -28,7 +28,7 @@ ms.locfileid: "60358211"
 * 최종 일반 공급 버전으로 업데이트 EULA 계약에 동의
 
 > [!NOTE]
-> 1.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
+> 1\.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
 
 ## <a name="121160"></a>1.2.116.0
 
@@ -38,7 +38,7 @@ ms.locfileid: "60358211"
   * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 에서만 이상 DC 에이전트 1.2.116.0 버전을 실행 하는 프록시에 사용할 수 있습니다.
   * 프록시의 재등록 (또는 갱신) 될 때까지 azure 테 넌 트 데이터를 보고 될 수 있습니다 또는 포리스트 발생 했습니다.
 * 프록시 서비스는 이제.NET 4.7이 설치 되어 있는지 필요 합니다.
-  * .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
+  * .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
   * Server Core 시스템에서 성공 하기 위해.NET 4.7 설치 관리자를 /q 플래그를 전달 해야 할 수도 있습니다.
 * 프록시 서비스는 이제 자동 업그레이드를 지원합니다. 프록시 서비스와 함께 설치 되는 Microsoft Azure AD Connect Agent Updater 서비스를 사용 하는 자동 업그레이드 합니다. 자동 업그레이드는 기본적으로 켜져 있습니다.
 * 자동 업그레이드가 사용 하도록 설정할 수 있습니다 또는 집합 AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 사용 하지 않도록 설정 합니다. Get-AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
@@ -119,7 +119,7 @@ ms.locfileid: "60358211"
 * 이제 DC 에이전트 및 프록시 설치 관리자는 모두 이후 버전으로 업그레이드하는 경우 현재 위치 업그레이드를 지원합니다.
 
 > [!WARNING]
-> 1.1.10.3 버전에서 현재 위치 업그레이드는 지원되지 않으며 설치 오류가 발생합니다. 1.2.10 버전 이상으로 업그레이드하려면 먼저 DC 에이전트 및 프록시 서비스 소프트웨어를 완전히 제거한 다음, 처음부터 새 버전을 설치합니다. Azure AD 암호 보호 프록시 서비스를 다시 등록해야 합니다.  포리스트를 다시 등록할 필요가 없습니다.
+> 1\.1.10.3 버전에서 현재 위치 업그레이드는 지원되지 않으며 설치 오류가 발생합니다. 1\.2.10 버전 이상으로 업그레이드하려면 먼저 DC 에이전트 및 프록시 서비스 소프트웨어를 완전히 제거한 다음, 처음부터 새 버전을 설치합니다. Azure AD 암호 보호 프록시 서비스를 다시 등록해야 합니다.  포리스트를 다시 등록할 필요가 없습니다.
 
 > [!NOTE]
 > DC 에이전트 소프트웨어의 현재 위치 업그레이드에는 다시 부팅이 필요합니다.

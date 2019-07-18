@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872536"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65235634"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 이 문서에서는 Azure Data Factory에서 지원하는 시스템 변수에 대해 설명합니다. 데이터 팩터리 엔터티를 정의할 때 식에서 이러한 변수를 사용할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "64872536"
 | 변수 이름 | 설명 |
 | --- | --- |
 | @pipeline().DataFactory |안에서 파이프라인 실행이 진행 중인 데이터 팩터리의 이름 |
-| @pipeline().Pipeline |파이프라인의 이름  |
+| @pipeline().Pipeline |파이프라인의 이름 |
 | @pipeline().RunId | 특정 파이프라인 실행의 ID |
 | @pipeline().TriggerType | (수동, 스케줄러) 파이프라인을 호출하는 트리거 유형 |
 | @pipeline().TriggerId| 파이프라인을 호출하는 트리거 ID |
@@ -45,6 +45,7 @@ ms.locfileid: "64872536"
 
 ## <a name="tumbling-window-trigger-scope"></a>연속 창 트리거 범위
 이 시스템 변수는 트리거가 "TumblingWindowTrigger" 유형인 경우, 트리거 JSON의 어디에서나 참조할 수 있습니다.
+(참고: 타임 스탬프는 기본적으로 ISO 8601 형식으로)
 
 | 변수 이름 | 설명 |
 | --- | --- |

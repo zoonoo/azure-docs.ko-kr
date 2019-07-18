@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: becec6881ccc5c061a0f0e93e697852645f9388f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac503c4408432da4e2c0c9281ee5cdd6e5d9e984
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115966"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198593"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>웹 서버 로그로 웹앱 모니터링
 
@@ -53,7 +53,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | 웹앱의 구성을 수정합니다. |
-| [Get-AzWebAppMetrics](/powershell/module/az.websites/get-azwebappmetrics) | 웹앱의 메트릭을 가져옵니다. |
+| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | 웹앱의 메트릭을 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118387"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
@@ -29,13 +29,13 @@ Service Fabric은 사용자에게 클러스터의 중요한 작업에 대해 알
 
 ## <a name="introduction"></a>소개
 
-6.4 릴리스에서는 Linux 클러스터에 대한 Syslog에 Service Fabric 플랫폼 이벤트를 보내기 위해 SyslogConsumer가 도입되었습니다. 이 기능을 켜면 Log Analytics 에이전트에서 수집 및 전송할 수 있는 이벤트가 자동으로 Syslog로 흐릅니다.
+6\.4 릴리스에서는 Linux 클러스터에 대한 Syslog에 Service Fabric 플랫폼 이벤트를 보내기 위해 SyslogConsumer가 도입되었습니다. 이 기능을 켜면 Log Analytics 에이전트에서 수집 및 전송할 수 있는 이벤트가 자동으로 Syslog로 흐릅니다.
 
 각 Syslog 이벤트에는 4개 구성 요소가 있습니다.
 * Facility
 * ID
 * Message
-* 심각도
+* Severity
 
 SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성을 변경하여 유효한 시설을 업데이트할 수 있습니다. 사용되는 Identity는 `ServiceFabric`입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
 

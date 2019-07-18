@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60612699"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합
@@ -69,7 +69,7 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
 - [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 방화벽: 관리자는 특정 상용 방화벽 공급업체만 사용하도록 허용할 수 있습니다. 동일한 기능을 수행할 수 있도록 Azure Marketplace에서 지원되는 네트워크 가상 어플라이언스 방화벽 솔루션을 사용합니다.
 
 > [!NOTE]
-> 데이터 경로에서 방화벽을 사용하면 데이터 경로에서 추가 홉이 발생합니다. 종단 간 데이터 교환의 네트워크 성능에 영향을 줄 수 있습니다. 처리량 가용성 및 연결 대기 시간은 영향을 받을 수 있습니다. 
+> 데이터 경로에서 방화벽을 사용하면 데이터 경로에서 추가 홉이 발생합니다. 엔드투엔드 데이터 교환의 네트워크 성능에 영향을 줄 수 있습니다. 처리량 가용성 및 연결 대기 시간은 영향을 받을 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 

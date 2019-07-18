@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c7ce8b79644a9ffc9481ba825ec5623a9268983
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437832"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476327"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스에 대한 보안 경고 구성
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용자 환경에서 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
 
-![경고 페이지](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Azure 리소스-경고, 위험 수준 및 수를 나열 하는 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>경고 검토
 경고를 선택하여 경고나 재구성 조언을 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
-![경고 보고서](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![경고 보고서를 보여 주는 마지막 검색 시간, 설명, 완화 단계, 형식, 심각도, 보안 영향 및 다음 시간을 방지 하는 방법](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>경고
 | 경고 | 심각도 | 트리거 | 권장 사항 |
@@ -47,11 +47,13 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 ## <a name="configure-security-alert-settings"></a>보안 경고 설정 구성
 경고 페이지에서 **설정**으로 이동합니다.
-![설정](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+
+![강조 표시 된 설정 사용 하 여 경고 페이지](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 환경 및 보안 목표로 작업하는 다양한 경고에서 설정을 사용자 지정합니다.
-![설정 사용자 지정](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+![사용 하도록 설정 하 고 설정을 구성 하는 경고에 대 한 페이지 설정](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스에 대한 보안 경고 구성](pim-resource-roles-configure-alerts.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)

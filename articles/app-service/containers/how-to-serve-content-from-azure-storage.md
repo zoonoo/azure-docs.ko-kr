@@ -7,19 +7,19 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu-msft
-ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: msangapu
+ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920036"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617107"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
-이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다. 
+이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 기존 웹앱(Linux의 App Service 또는 Web App for Containers)
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
@@ -28,6 +28,8 @@ ms.locfileid: "64920036"
 
 > [!NOTE]
 > Azure Storage는 기본이 아닌 스토리지이며 별도로 청구되고, 웹앱에 포함되지 않습니다.
+>
+> 가져올 사용자 고유의 저장소 인프라 제한으로 인해 저장소 방화벽 구성을 사용 하 여 지원 하지 않습니다.
 >
 
 Azure [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)을 만듭니다.
@@ -74,7 +76,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 사용자 지정 id를 사용 하 여 다중 컨테이너 앱을 사용 하 여 azure Storage는 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 실행 [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
 
-사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예를 들면 다음과 같습니다.
+사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예:
 
 ```yaml
 wordpress:
@@ -85,4 +87,4 @@ wordpress:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure App Service에서 웹앱 구성](https://docs.microsoft.com/azure/app-service/web-sites-configure)
+- [Azure App Service에서 웹앱 구성](../configure-common.md)

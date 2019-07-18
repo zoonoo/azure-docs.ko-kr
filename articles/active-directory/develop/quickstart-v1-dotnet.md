@@ -3,8 +3,8 @@ title: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API �
 description: 로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 애플리케이션을 빌드하는 방법을 알아보세요.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223396"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121952"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>빠른 시작: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -57,13 +57,15 @@ ms.locfileid: "58223396"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
-4. **앱 등록**에서 **추가**를 선택합니다.
-5. 프롬프트에 따라 새 **네이티브** 클라이언트 애플리케이션을 만듭니다.
-    * 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-    * **리디렉션 Uri** 는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: `http://DirectorySearcher`).
+4. **앱 등록**에서 **새 등록**을 선택합니다.
+5. 프롬프트에 따라 새 클라이언트 애플리케이션을 만듭니다.
+    * **이름**은 애플리케이션 이름이고 최종 사용자에게 애플리케이션을 설명합니다.
+    * **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+    * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 애플리케이션과 관련되고(예: `http://DirectorySearcher`) 이전 리디렉션 URI 정보를 바탕으로 한 값을 입력합니다. 또한 드롭다운에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다. 
 
 6. 등록을 완료하면 AAD는 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 복사해 둡니다.
-7. **설정** 페이지에서 **필수 사용 권한**, **추가**를 차례로 선택합니다. **Microsoft Graph**를 API로 선택하고 **위임된 사용 권한**에서 **디렉터리 데이터 읽기** 사용 권한을 추가합니다. 이 사용 권한을 설정하면 애플리케이션이 사용자에 대해 Graph API를 쿼리할 수 있습니다.
+7. **API 사용 권한** 페이지에서 **사용 권한 추가**를 선택합니다. **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
+8. **위임된 권한**에서 사용 권한 **User.Read**를 선택한 다음, **추가**를 눌러 저장합니다. 이 권한은 Azure AD Graph API에서 사용자를 쿼리하도록 애플리케이션을 설정합니다.
 
 ## <a name="step-2-install-and-configure-adal"></a>2단계: ADAL 설치 및 구성
 

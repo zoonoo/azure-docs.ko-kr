@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc172b5327d72687fea7d13ddb706ecc7ab630b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915258"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135367"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>자습서: Azure Cosmos DB 백 엔드를 사용하여 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
@@ -44,7 +44,7 @@ ms.locfileid: "58915258"
 
 `Connection String`을 복사합니다. 이후에 필요합니다.
 
-## <a name="open-the-sample-project-in-unity"></a>Unity에서 샘플 프로젝트 열기
+## <a name="download-the-unity-sample-project"></a>Unity 샘플 프로젝트 다운로드
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -70,7 +70,7 @@ Visual Studio를 열고, `Sharing\SharingServiceSample` 폴더의 프로젝트�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 디바이스 간에 앵커 식별자를 공유했습니다. 새 Android 앱에서 Azure Spatial Anchors를 사용하는 방법을 자세히 알아보려면 다음 자습서를 계속 진행하세요.
+이 자습서에서는 Azure Cosmos DB를 사용하여 디바이스 간에 앵커 식별자를 공유했습니다. 새 Unity HoloLens 앱에서 Azure Spatial Anchors를 사용하는 방법을 자세히 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [새 Android 앱 시작](./tutorial-new-android-app.md)
+> [새 Android 앱 시작](./tutorial-new-unity-hololens-app.md)

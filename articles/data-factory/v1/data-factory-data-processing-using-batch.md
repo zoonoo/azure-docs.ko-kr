@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204033"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446621"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
 > 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [Data Factory의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
 
-이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
+이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 엔드투엔드 연습 과정을 제공합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -67,7 +67,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 [![대규모 데이터 처리 다이어그램](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
-다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 종단 간 솔루션을 구축하는 코드와 설명이 포함되어 있습니다.
+다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 엔드투엔드 솔루션을 빌드하는 코드와 설명이 포함되어 있습니다.
 
 * **계산 노드(VM)의 풀과 함께 Batch를 구성합니다.** 노드 수와 각 노드의 크기를 지정할 수 있습니다.
 
@@ -123,10 +123,10 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    f. **확인**을 선택하여 풀을 만듭니다.
 
-#### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
-[Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
+#### <a name="azure-storage-explorer"></a>Azure Storage Explorer
+[Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
-1. 개인 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
+1. 프라이빗 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
 
 1. CloudXplorer를 사용하는 경우 다음과 같은 구조의 폴더와 하위 폴더를 만듭니다.
 
@@ -134,7 +134,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    `Inputfolder` 및 `outputfolder`는 `mycontainer`에서 최상위 폴더입니다. `inputfolder` 폴더에는 날짜-시간 스탬프(YYYY-MM-DD-HH)를 포함하는 하위 폴더가 있습니다.
 
-   Storage 탐색기를 사용하는 경우 다음 단계에서 `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` 등과 같은 이름이 지정된 파일을 업로드합니다. 이 단계는 자동으로 폴더를 만듭니다.
+   Storage Explorer를 사용하는 경우 다음 단계에서 `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` 등과 같은 이름이 지정된 파일을 업로드합니다. 이 단계는 자동으로 폴더를 만듭니다.
 
 1. 키워드 **Microsoft**가 있는 콘텐츠를 사용하여 컴퓨터에 텍스트 파일 **file.txt**를 만듭니다. "테스트 사용자 지정 작업 Microsoft 테스트 사용자 지정 작업 Microsoft"를 예로 들 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    ![입력 폴더](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Azure Storage 탐색기를 사용하는 경우 **file.txt** 파일을 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 선택하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
+   Azure Storage Explorer를 사용하는 경우 **file.txt** 파일을 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 선택하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
 
 1. `customactivitycontainer`라는 다른 컨테이너를 만듭니다. 이 컨테이너에 사용자 지정 작업 zip 파일을 업로드합니다.
 

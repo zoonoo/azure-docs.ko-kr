@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869419"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593384"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -72,7 +72,7 @@ ms.locfileid: "64869419"
 
       ```rand -hex <key length>```
 
-      예를 들면 다음과 같습니다.
+      예를 들어:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -96,7 +96,7 @@ ms.locfileid: "64869419"
       > <table>
       > <tr>
       >   <th>매개 변수 이름</th> 
-      >   <th>설명</th>
+      >   <th>Description</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -114,7 +114,7 @@ ms.locfileid: "64869419"
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>입력 값 `/pictures/`: 포함 된 요청만 `/pictures/` 경로 허용 됩니다. 예: `http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+      >       <li>입력 값 `/pictures/`: 포함 된 요청만 `/pictures/` 경로 허용 됩니다. `http://www.mydomain.com/pictures/city/strasbourg.png` )을 입력합니다.</li>
       >       <li>입력 값 `/pictures/city/strasbourg.png`: 이 특정 경로 및 자산에 대 한 요청만 허용 됩니다.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ ms.locfileid: "64869419"
 
    7. **암호화**를 선택하여 토큰을 생성합니다.
 
-      토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. 예: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`
+      토큰을 생성하면 **생성된 토큰** 상자에 표시됩니다. 토큰을 사용하려면 쿼리 문자열로 URL 경로의 파일 끝에 추가합니다. `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b` )을 입력합니다.
         
    8. 필요에 따라 토큰의 매개 변수를 볼 수 있도록 암호 해독 도구로 토큰을 테스트합니다. **암호를 해독할 토큰** 상자에 토큰 값을 붙여넣습니다. **해독할 키** 목록에서 사용할 암호화 키를 선택한 다음, **암호 해독**을 선택합니다.
 
@@ -173,17 +173,17 @@ ms.locfileid: "64869419"
 3. **HTTP Large**에서 **규칙 엔진**을 선택합니다. 규칙 엔진을 사용하여 기능을 적용할 경로를 정의하고, 토큰 인증 기능을 사용하도록 설정하고, 기능과 관련된 추가 토큰 인증을 사용하도록 설정합니다. 자세한 내용은 [규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
 
    1. 기존 규칙을 선택하거나 새 규칙을 만들어 토큰 인증을 적용할 자산 또는 경로를 정의합니다. 
-   2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-rules-engine-reference-features.md#token-auth)** 을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 선택하고, 규칙을 만드는 경우 **추가**를 선택합니다.
+   2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** 을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 선택하고, 규칙을 만드는 경우 **추가**를 선택합니다.
         
       ![CDN 규칙 엔진 토큰 인증 사용 예제](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. 규칙 엔진에서 추가 토큰 인증 관련 기능을 사용하도록 설정할 수도 있습니다. 다음 기능 중 하나를 사용하도록 설정하려면 **기능** 목록에서 해당 기능을 선택한 다음 **사용**을 선택합니다.
     
-   - **[토큰 인증 거부 코드](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: 요청이 거부 되는 경우 사용자에 게 반환할 응답 유형을 결정 합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
+   - **[토큰 인증 거부 코드](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : 요청이 거부 되는 경우 사용자에 게 반환할 응답 유형을 결정 합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
 
-   - **[토큰 인증 URL 대/소문자를 무시](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: 토큰의 유효성을 검사 하는 데 URL은 대/소문자 구분 여부를 결정 합니다.
+   - **[토큰 인증 URL 대/소문자를 무시](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : 토큰의 유효성을 검사 하는 데 URL은 대/소문자 구분 여부를 결정 합니다.
 
-   - **[토큰 인증 매개 변수](cdn-rules-engine-reference-features.md#token-auth-parameter)**: 요청된 된 URL에 표시 되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
+   - **[토큰 인증 매개 변수](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : 요청된 된 URL에 표시 되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
         
      ![CDN 규칙 엔진 토큰 인증 설정 예제](./media/cdn-token-auth/cdn-rules-engine2.png)
 
@@ -194,7 +194,7 @@ ms.locfileid: "64869419"
    - C#
    - PHP
    - Perl
-   - 자바
+   - Java
    - Python 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정

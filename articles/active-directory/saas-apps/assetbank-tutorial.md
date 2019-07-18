@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fbaad8ea3e242c79f06ac314f551bddd892d45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75339a03f94ad10446a5b5b1024a3f5fd1c7c432
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>자습서: Asset Bank와 Azure Active Directory 통합
 

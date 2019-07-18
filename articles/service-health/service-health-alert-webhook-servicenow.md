@@ -1,23 +1,24 @@
 ---
-title: ServiceNow를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs
+title: 웹 후크를 사용 하 여 ServiceNow를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067114"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow를 사용하여 서비스 상태 경고 구성
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow를 사용 하 여 Azure 서비스 상태 경고를 보냅니다
 
 이 문서에서는 웹후크를 사용하여 ServiceNow와 Azure 서비스 상태 경고를 통합하는 방법을 보여 줍니다. ServiceNow 인스턴스로 웹후크 통합을 설정한 후 Azure 서비스 문제에 영향을 받는 경우 기존 알림 인프라를 통해 경고를 받습니다. Azure 서비스 상태 경고가 발생할 때마다 ServiceNow의 스크립팅된 REST API를 통해 웹후크를 호출합니다.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>ServiceNow에서 스크립팅된 REST API 만들기
+
 1.  [ServiceNow](https://www.servicenow.com/) 계정에 등록하고 로그인했는지 확인합니다.
 
 1.  ServiceNow에서 **시스템 웹 서비스** 섹션으로 이동하여 **스크립팅된 REST API**를 선택합니다.
@@ -156,7 +157,7 @@ ms.locfileid: "60620943"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
@@ -173,7 +174,7 @@ ms.locfileid: "60620943"
 
     b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
-    다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
+    c. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 

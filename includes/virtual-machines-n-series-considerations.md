@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1de7221f100077e07a2211bdb94e0198b35cb77c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776320"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182164"
 ---
 ## <a name="deployment-considerations"></a>배포 고려 사항
 

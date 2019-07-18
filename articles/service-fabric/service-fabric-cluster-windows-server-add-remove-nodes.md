@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711036"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
@@ -58,7 +58,7 @@ ms.locfileid: "60711036"
     Service Fabric Explorer에서 업그레이드의 진행률을 모니터링할 수 있습니다. 또한 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)를 실행할 수 있습니다.
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>gMSA를 사용하여 Windows 보안으로 구성된 클러스터에 노드 추가
-gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https://technet.microsoft.com/library/hh831782.aspx)) 구성 업그레이드를 사용하여 새 노드를 추가할 수 있습니다.
+gMSA(그룹 관리 서비스 계정)로 구성된 클러스터의 경우(https://technet.microsoft.com/library/hh831782.aspx) ) 구성 업그레이드를 사용하여 새 노드를 추가할 수 있습니다.
 1. 기존 노드 중 하나에서 [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 "노드" 섹션에 추가하려는 새 노드에 대한 세부 정보를 추가합니다. 새 노드가 동일한 그룹 관리 계정의 일부인지 확인합니다. 이 계정은 모든 컴퓨터에서 관리자여야 합니다.
 
     ```
