@@ -41,7 +41,7 @@ ms.locfileid: "67204353"
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON 스키마 파일의 위치입니다.<br><br> 리소스 그룹 배포의 경우 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`을 사용합니다.<br><br>구독 배포의 경우 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`을 사용합니다. |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
 | apiProfile |아닙니다. | 리소스 종류에 대 한 API 버전 컬렉션으로 사용 되는 API 버전입니다. 템플릿에서 각 리소스에 대 한 API 버전을 지정할 필요가 없도록 하려면이 값을 사용 합니다. API 프로필 버전을 지정 하 고 리소스 형식에 대 한 API 버전을 지정 하지 않는 Resource Manager 프로필에 정의 된 해당 리소스 종류에 대 한 API 버전을 사용 합니다.<br><br>API 프로필 속성이 Azure Stack 및 전역 Azure와 같은 다른 환경에 템플릿을 배포할 때 특히 유용 합니다. 서식 파일에 두 환경 모두에서 지원 되는 버전을 자동으로 사용 하도록 하려면 API 프로필 버전을 사용 합니다. 현재 API 프로필 버전 및 API 버전 프로필에 정의 된 리소스의 목록을 참조 하세요 [API 프로필](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)합니다.<br><br>자세한 내용은 [API 프로필을 사용 하 여 버전 추적](templates-cloud-consistency.md#track-versions-using-api-profiles)합니다. |
-| [매개 변수](#parameters) |아닙니다. |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
+| [parameters](#parameters) |아닙니다. |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
 | [variables](#variables) |아닙니다. |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
 | [functions](#functions) |아닙니다. |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
 | [resources](#resources) |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
