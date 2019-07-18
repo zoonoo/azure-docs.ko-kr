@@ -7,13 +7,13 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: sachdevaswati
-ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: HT
+ms.author: vijayts
+ms.openlocfilehash: 422f4b6bf7f22cf7653ad75836c613e4c1ea01b9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204447"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704947"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -29,7 +29,7 @@ SQL Server 데이터베이스는 낮은 복구 지점 목표 (RPO) 및 장기 �
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
