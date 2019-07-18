@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![Azure portal에서 azure Databricks 개요](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    저장소 계정 DBFS (), 작업자 sg (네트워크 보안 그룹), 작업자-vnet (가상 네트워크)의 실제 위치를 포함 하는 관리 되는 리소스 그룹. 가상 컴퓨터, 디스크, IP 주소 및 네트워크 인터페이스 만들어지는 위치 이기도 합니다. 기본적으로이 리소스 그룹이 잠겨 그러나 클러스터 가상 네트워크에서 시작 되 면 네트워크 인터페이스 관리 되는 리소스 그룹의 작업자 vnet와 "허브" 가상 네트워크 간에 만들어집니다.
+    관리되는 리소스 그룹은 저장소 계정(DBFS), worker-sg(네트워크 보안 그룹), workers-vnet(가상 네트워크)의 실제 위치를 포함합니다. 그 위치는 가상 컴퓨터, 디스크, IP 주소 및 네트워크 인터페이스가 만들어지는 위치이기도 합니다. 기본적으로 이 리소스 그룹은 잠겨있지만 클러스터가 가상 네트워크에서 시작되면, 네트워크 인터페이스가 관리되는 리소스 그룹의 workers-vnet와 "허브" 가상 네트워크 간에 만들어집니다.
 
     ![Azure Databricks 관리 되는 리소스 그룹](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 
