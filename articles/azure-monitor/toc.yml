@@ -388,18 +388,26 @@
               items:
                 - name: 웹 앱
                   href: app/java-get-started.md
+                - name: 웹앱(2.5.0-BETA)
+                  href: app/java-get-started-25-beta.md
                 - name: Docker 앱
                   href: app/docker.md
                 - name: 로그 추적
                   href: app/java-trace-logs.md
+                - name: 로그 추적(2.5.0-BETA)
+                  href: app/java-trace-logs-25-beta.md
                 - name: Unix 메트릭
                   href: app/java-collectd.md
                 - name: 종속성
                   href: app/java-agent.md
+                - name: 종속성(2.5.0-BETA)
+                  href: app/java-agent-25-beta.md
                 - name: 필터 원격 분석
                   href: app/java-filter-telemetry.md
                 - name: 마이크로미터 메트릭
                   href: app/micrometer-java.md
+                - name: 마이크로미터 메트릭(2.5.0-BETA)
+                  href: app/micrometer-java-25-beta.md
                 - name: Spring Boot Initializer 앱 구성
                   href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
             - name: Node.js 앱

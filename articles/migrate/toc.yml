@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: 에이전트 기반 마이그레이션을 사용하여 VMware VM 마이그레이션
               href: tutorial-migrate-vmware-agent.md
-    - name: Hyper-V 평가 및 마이그레이션
+    - name: Hyper-V VM 평가 및 마이그레이션
       items:
         - name: Hyper-V 평가 및 마이그레이션 준비
           href: tutorial-prepare-hyper-v.md
@@ -30,7 +30,7 @@
           href: tutorial-assess-hyper-v.md
         - name: Hyper-V VM 마이그레이션
           href: tutorial-migrate-hyper-v.md
-    - name: 실제 서버 및 가상 머신 마이그레이션
+    - name: 물리 서버 및 VM 마이그레이션
       href: tutorial-migrate-physical-virtual-machines.md
 - name: 개념
   items:

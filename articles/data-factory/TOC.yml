@@ -564,12 +564,12 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: LastModifiedDate로 새 파일 복사
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: 데이터베이스에서 대량 복사
+          href: solution-template-bulk-copy-with-control-table.md
+        - name: 데이터베이스에서 델타 복사
+          href: solution-template-delta-copy-with-control-table.md
         - name: 파일 이동
           href: solution-template-move-files.md
-        - name: 컨트롤 테이블을 사용하여 대량 복사
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: 컨트롤 테이블을 사용하여 델타 복사
-          href: solution-template-delta-copy-with-control-table.md
         - name: Databricks를 사용하여 데이터 변환
           href: solution-template-databricks-notebook.md
     - name: 문제 해결 가이드

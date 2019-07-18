@@ -55,7 +55,9 @@
       items:
         - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
           href: troubleshoot-hybrid-join-windows-current.md
-        - name: 하이브리드 Azure AD 조인 레거시 Windows 디바이스 문제 해결
+        - name: dsregcmd를 사용하여 문제 해결
+          href: troubleshoot-device-dsregcmd.md
+        - name: Windows 하위 수준 디바이스에 조인된 하이브리드 Azure AD 문제 해결
           href: troubleshoot-hybrid-join-windows-legacy.md
         - name: 엔터프라이즈 상태 로밍 문제 해결
           href: enterprise-state-roaming-troubleshooting.md
