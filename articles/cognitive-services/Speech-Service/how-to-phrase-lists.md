@@ -10,20 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606521"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226358"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대한 구문 목록
 
 구문 목록을 사용하여 음성 서비스를 제공하여 음성 인식의 정확도를 높일 수 있습니다. 구문 목록은 오디오 데이터에서 개인의 이름 또는 특정 위치와 같은 알려진 구문을 식별하는 데 사용됩니다.
 
-예를 들어 명령이 있는 경우 "이동" 하 고 가능한 통용 될 수 있습니다 "Ward" 대상 "Ward에 이동" 항목을 추가할 수 있습니다. 구를 추가 확률이 증가 하는 경우 "이동" 대신 "Ward에 이동"를 인식할 수는 오디오는 인식 합니다.
+예를 들어 "이동" 명령과 음성 될 수 있는 "말"의 가능한 대상이 있는 경우 "앞으로 이동" 항목을 추가할 수 있습니다. 문구를 추가 하면 오디오가 인식 될 때 "이동"이 아니라 "이동" 하는 것으로 인식 될 확률이 높아집니다.
 
-단일 단어 또는 구를 전체 구 목록에 추가할 수 있습니다. 인식 하는 동안 구 목록 항목에 정확히 일치 하는 오디오에 포함 되어 있으면 됩니다. "이동 방향으로 느린"는 "이동 하려면 Ward", 및 캡처된 구 구 목록에 포함 된 경우 이전 예제에서 구축 되 고 인식 결과 "이동 Ward 느린" 됩니다.
+단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 정확히 일치 하는 항목이 오디오에 포함 되는 경우 문구 목록의 항목이 사용 됩니다. 이전 예제를 기반으로 하는 구문 목록에 "이동"이 포함 되 고 캡처된 구가 "천천히 이동" 하는 경우 인식 결과는 "느리게 이동" 됩니다.
+
+>[!Note]
+> 현재 문구 목록은 음성 텍스트에 대 한 영어만 지원 합니다.
 
 ## <a name="how-to-use-phrase-lists"></a>구문 목록을 사용하는 방법
 

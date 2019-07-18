@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/26/2019
 ms.author: alinast
 ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 07/16/2019
 ms.locfileid: "67484682"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 미리 보기 배포 및 공간 그래프 구성

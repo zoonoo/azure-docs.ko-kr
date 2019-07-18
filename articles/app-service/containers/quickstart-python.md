@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 557b917f53064f0e6e9ecd61e2d230a6a4fd2ad6
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514526"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853689"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
@@ -105,7 +105,7 @@ Checking connectivity... done.
 
 샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
 
-다음 예제에서 `<app-name>`을 고유한 앱 이름으로 바꿉니다.
+다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`).
 
 ```bash
 cd python-docs-hello-world

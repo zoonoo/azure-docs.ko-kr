@@ -1,56 +1,56 @@
 ---
-title: Kubernetes 온-프레미스를 사용 합니다.
+title: Kubernetes 및 투구와 함께 사용
 titleSuffix: Azure Cognitive Services
-description: Kubernetes 및 Helm을 사용 하 여 음성-텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 Kubernetes 패키지를 만들어 보겠습니다. 이 패키지를 배포할 수는 kubernetes 클러스터 온-프레미스입니다.
+description: Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/10/2019
+ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: ace519d9be5945754fb79dc4c6fbb244c665d98b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786249"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302599"
 ---
-# <a name="use-kubernetes-on-premises"></a>Kubernetes 온-프레미스를 사용 합니다.
+# <a name="use-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 함께 사용
 
-Kubernetes 및 Helm을 사용 하 여 음성-텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 Kubernetes 패키지를 만들어 보겠습니다. 이 패키지를 배포할 수는 kubernetes 클러스터 온-프레미스입니다. 마지막으로 배포 된 서비스 및 다양 한 구성 옵션을 테스트 하는 방법을 살펴봅니다.
+Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스와 다양 한 구성 옵션을 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Speech Service 컨테이너 설치 및 실행](speech-container-howto.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>전제 조건
 
-음성 컨테이너 온-프레미스를 사용 하기 전에 다음 필수 조건을 충족 해야 합니다.
+온-프레미스에서 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
 |필수|용도|
 |--|--|
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
-| 컨테이너 레지스트리 액세스 | Kubernetes 클러스터에 docker 이미지를 끌어오기를 순서 대로 컨테이너 레지스트리에 액세스를 해야 합니다. 해야 [container registry에 대 한 액세스 요청][speech-preview-access] 첫 번째입니다. |
-| Kubernetes CLI | 합니다 [Kubernetes CLI][kubernetes-cli] container registry에서 공유 자격 증명을 관리 하기 위한 필요 합니다. Kubernetes는 Helm은 Kubernetes 패키지 관리자는 하기 전에 필요 합니다. |
-| Helm CLI | 일부로 합니다 [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]합니다. |
-|음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 수 있는 _음성_ Azure 리소스. 두 값은 Azure portal의 **음성** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하기 위해 필요합니다.<br><br>**{API_KEY}** : 리소스 키<br><br>**{ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| Container Registry 액세스 | Kubernetes가 docker 이미지를 클러스터로 가져오기 위해 컨테이너 레지스트리에 액세스 해야 합니다. 먼저 [컨테이너 레지스트리에 대 한 액세스를 요청][speech-preview-access] 해야 합니다. |
+| Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] 는 컨테이너 레지스트리에서 공유 자격 증명을 관리 하는 데 필요 합니다. Kubernetes는 Kubernetes 패키지 관리자 인 투구 이전에도 필요 합니다. |
+| 투구 CLI | [투구 CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]의 일부입니다. |
+|음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 수 있는 _음성_ Azure 리소스. 두 값은 Azure portal의 **음성** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하기 위해 필요합니다.<br><br>**{API_KEY}** : 리소스 키<br><br>**{ENDPOINT_URI}** : 끝점 URI 예:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="the-recommended-host-computer-configuration"></a>권장 되는 호스트 컴퓨터 구성
+## <a name="the-recommended-host-computer-configuration"></a>권장 호스트 컴퓨터 구성
 
-참조를 [Speech Service 컨테이너 호스트 컴퓨터로][speech-container-host-computer] 세부 정보를 참조 합니다. 이 *helm 차트* 자동으로 계산 하는 CPU 및 메모리 요구 사항이 얼마나 많은 디코딩합니다 (동시 요청 수)에 따라 사용자 지정 하는 합니다. 또한 오디오/텍스트 입력에 대 한 최적화로 구성 된 여부에 따라 조정 됩니다 `enabled`합니다. 두 개의 동시 요청 수 및 최적화를 해제 하면 helm 차트 기본값은입니다.
+참조로 [음성 서비스 컨테이너 호스트 컴퓨터][speech-container-host-computer] 세부 정보를 참조 하세요. 이 *투구 차트* 는 사용자가 지정 하는 디코드 (동시 요청) 수를 기준으로 CPU 및 메모리 요구 사항을 자동으로 계산 합니다. 또한 오디오/텍스트 입력에 대 한 최적화가로 `enabled`구성 되었는지 여부에 따라 조정 됩니다. 투구 차트는 기본적으로, 두 개의 동시 요청 및 최적화를 사용 하지 않도록 설정 합니다.
 
-| 서비스 | CPU / 컨테이너 | 메모리 / 컨테이너 |
+| 서비스 | CPU/컨테이너 | 메모리/컨테이너 |
 |--|--|--|
-| **음성 텍스트 변환** | 하나의 디코더 1, 150 (밀리 코어)의 최소가 필요합니다. 경우는 `optimizedForAudioFile` 1,950 (밀리 코어)는 필요한 가능 합니다. (기본값: 두 디코더) | 필수: 2GB<br>제한:  4GB |
-| **텍스트 음성 변환** | 하나의 동시 요청에는 500 (밀리 코어)의 최소가 필요합니다. 경우는 `optimizeForTurboMode` 1,000 (밀리 코어)는 필요한 가능 합니다. (기본값: 두 개의 동시 요청) | 필수: 1GB<br> 제한: 2GB |
+| **음성 텍스트 변환** | 하나의 디코더에는 최소 1150 millicores가 필요 합니다. `optimizedForAudioFile` 을 사용 하는 경우 1950 millicores이 필요 합니다. (기본값: 두 개의 디코더) | 필수: 2GB<br>제한이  4GB |
+| **텍스트 음성 변환** | 한 동시 요청에는 최소 500 millicores가 필요 합니다. `optimizeForTurboMode` 을 사용 하는 경우 1000 millicores이 필요 합니다. (기본값: 두 개의 동시 요청) | 필수: 1GB<br> 제한이 2GB |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 
-호스트 컴퓨터는 사용할 수 있는 Kubernetes 클러스터가 해야 합니다. 이 자습서를 참조 하세요 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md) 호스트 컴퓨터에 Kubernetes 클러스터를 배포 하는 방법에 대 한 개념적 이해에 대 한 합니다.
+호스트 컴퓨터에 사용 가능한 Kubernetes 클러스터가 있어야 합니다. Kubernetes 클러스터를 호스트 컴퓨터에 배포 하는 방법에 대 한 개념을 이해 하려면 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md) 에 대 한이 자습서를 참조 하세요.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Kubernetes 클러스터를 사용 하 여 Docker 자격 증명 공유
 
-Kubernetes 클러스터를 허용 하도록 `docker pull` 에서 구성 된 이미지는 `containerpreview.azurecr.io` 클러스터에 docker 자격 증명을 전송 해야 하는 컨테이너 레지스트리. 실행 된 [ `kubectl create` ][kubectl-create] 을 만들려면 아래 명령을 *docker 레지스트리 암호* 컨테이너 레지스트리 액세스 필수 구성 요소에서 제공 된 자격 증명에 따라 합니다.
+`containerpreview.azurecr.io` 컨테이너 레지스트리에서 구성 된 이미지에 `docker pull` 대 한 Kubernetes 클러스터를 허용 하려면 docker 자격 증명을 클러스터로 전송 해야 합니다. 컨테이너 레지스트리 액세스 필수 구성 요소에서 제공 된 자격 증명에 따라 *docker 레지스트리 암호* 를 만들려면 아래 [명령을실행합니다.`kubectl create`][kubectl-create]
 
-선택한 명령줄 인터페이스에서 다음 명령을 실행 합니다. 로 대체 해야 합니다 `<username>`, `<password>`, 및 `<email-address>` 컨테이너 레지스트리 자격 증명을 사용 하 여 합니다.
+원하는 명령줄 인터페이스에서 다음 명령을 실행 합니다. `<username>` ,`<password>`및 를`<email-address>` 컨테이너 레지스트리 자격 증명으로 바꾸어야 합니다.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,41 +61,41 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> 에 대 한 액세스를 이미 있는 경우는 `containerpreview.azurecr.io` container registry 대신 일반 플래그를 사용 하 여 Kubernetes 비밀을 만들 수 있습니다. 명령을 Docker 구성 JSON에 대해 실행 하는 것이 좋습니다.
+> `containerpreview.azurecr.io` 컨테이너 레지스트리에 대 한 액세스 권한이 이미 있는 경우 대신 일반 플래그를 사용 하 여 Kubernetes 암호를 만들 수 있습니다. Docker 구성 JSON에 대해 실행 되는 다음 명령을 고려 합니다.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-비밀이 성공적으로 생성 된 경우 다음 출력이 콘솔에 출력 됩니다.
+암호가 성공적으로 만들어지면 다음 출력이 콘솔에 인쇄 됩니다.
 
 ```console
 secret "containerpreview" created
 ```
 
-비밀 생성 되어 있는지 확인 하려면 실행 합니다 [ `kubectl get` ][kubectl-get] 사용 하 여는 `secrets` 플래그입니다.
+비밀이 만들어졌는지 확인 하려면 [`kubectl get`][kubectl-get] `secrets` 플래그를 사용 하 여를 실행 합니다.
 
 ```console
 kuberctl get secrets
 ```
 
-실행 된 `kubectl get secrets` 모든 구성 된 암호를 인쇄 합니다.
+를 실행 `kubectl get secrets` 하면 구성 된 모든 암호가 인쇄 됩니다.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
-## <a name="configure-helm-chart-values-for-deployment"></a>배포에 대 한 Helm 차트 값 구성
+## <a name="configure-helm-chart-values-for-deployment"></a>배포에 대 한 투구 차트 값 구성
 
-방문 합니다 [Microsoft Helm Hub][ms-helm-hub] Microsoft에서 제공 하는 모든 공개 helm 차트에 대 한 합니다. Microsoft Helm 허브에서 찾을 수 있습니다 합니다 **Cognitive Services 음성 온-프레미스 차트**합니다. 합니다 **Cognitive Services 음성 온-프레미스** 차트를 설치 하지만 먼저 만들어야 합니다를 `config-values.yaml` 명시적 구성 파일입니다. Microsoft 리포지토리 Helm 인스턴스를 추가 하 여 시작 해 보겠습니다.
+Microsoft에서 제공 하는 모든 공개적으로 사용 가능한 투구 차트를 보려면 [Microsoft 투구 Hub][ms-helm-hub] 를 방문 하세요. Microsoft 투구 Hub에서 **Cognitive Services 음성 온-프레미스 차트**를 찾을 수 있습니다. **Cognitive Services 음성 온-프레미스** 는 설치할 차트 이지만 먼저 명시적 구성으로 `config-values.yaml` 파일을 만들어야 합니다. 먼저 Microsoft 리포지토리를 투구 인스턴스에 추가 해 보겠습니다.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-다음으로 Helm 차트 값이 구성 됩니다. 다음 YAML 라는 파일에 복사한 `config-values.yaml`합니다. 사용자 지정 하는 방법은 합니다 **Cognitive Services 음성 온-프레미스 Helm 차트**를 참조 하세요 [helm 차트를 사용자 지정](#customize-helm-charts)합니다. 대체는 `billing` 및 `apikey` 고유한 값입니다.
+다음으로 투구 차트 값을 구성 합니다. 다음 YAML을 복사 하 여 라는 `config-values.yaml`파일에 붙여 넣습니다. **Cognitive Services 음성 온-프레미스 투구 차트**를 사용자 지정 하는 방법에 대 한 자세한 내용은 [투구 차트 사용자 지정](#customize-helm-charts)을 참조 하세요. `billing` 및`apikey` 값을 사용자 고유의 값으로 바꿉니다.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -134,19 +134,19 @@ textToSpeech:
 ```
 
 > [!IMPORTANT]
-> 경우는 `billing` 고 `apikey` 값을 제공 하지, 서비스는 15 분이 지나면 만료 됩니다. 마찬가지로, 서비스를 사용할 수 없습니다 확인 실패 합니다.
+> `billing` 및`apikey` 값이 제공 되지 않은 경우 서비스는 15 분 후에 만료 됩니다. 마찬가지로, 서비스를 사용할 수 없게 되 면 확인이 실패 합니다.
 
-### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지 (Helm 차트)
+### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지 (투구 차트)
 
-*Helm 차트* 는 docker 이미지를 끌어오는 구성이 포함 된 `containerpreview.azurecr.io` 컨테이너 레지스트리.
+*투구 차트* 에는 `containerpreview.azurecr.io` 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다.
 
-> A [Helm 차트][helm-charts] 는 Kubernetes 리소스의 관련된 집합을 설명 하는 파일의 컬렉션입니다. Memcached pod, 또는 복잡 하 고 HTTP 서버, 데이터베이스, 캐시 및 등을 사용 하 여 전체 웹 응용 프로그램 스택을 같은 간단한를 배포 하려면 단일 차트를 사용할 수 있습니다.
+> [투구 차트][helm-charts] 는 관련 된 Kubernetes 리소스 집합을 설명 하는 파일의 컬렉션입니다. 단일 차트는 memcached pod 또는 HTTP 서버, 데이터베이스, 캐시 등의 전체 웹 앱 스택과 같이 복잡 한 항목을 배포 하는 데 사용할 수 있습니다.
 
-제공 된 *Helm 차트* Speech Service를 둘 다 텍스트 음성 변환, 음성-텍스트 서비스에서의 docker 이미지를 끌어오기는 `containerpreview.azurecr.io` 컨테이너 레지스트리.
+제공 된 *투구 차트* 는 음성 서비스의 docker 이미지를 텍스트 음성 변환 및 `containerpreview.azurecr.io` 컨테이너 레지스트리의 음성-텍스트 서비스로 끌어옵니다.
 
-## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 Helm 차트 설치
+## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 투구 차트 설치
 
-설치 하는 *helm 차트* 실행 해야 합니다 [ `helm install` ][helm-install-cmd] 명령을 대체를 `<config-values.yaml>` 적절 한 경로 및 파일 이름 인수를 사용 하 여 합니다. 합니다 `microsoft/cognitive-services-speech-onpremise` 아래에 참조 된 Helm 차트에서 사용할 수는 [Microsoft Helm Hub 여기][ms-helm-hub-speech-chart]합니다.
+*투구 차트* 를 설치 하려면 [`helm install`][helm-install-cmd] `<config-values.yaml>` 명령을 실행 하 여를 적절 한 경로 및 파일 이름 인수로 대체 해야 합니다. 아래 `microsoft/cognitive-services-speech-onpremise` 에서 참조 하는 투구 차트는 [Microsoft 투구 허브][ms-helm-hub-speech-chart]에서 사용할 수 있습니다.
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
@@ -155,7 +155,7 @@ helm install microsoft/cognitive-services-speech-onpremise \
     --name onprem-speech
 ```
 
-성공적인 설치 실행에서 보려는 예상 출력 예는 다음과 같습니다.
+성공적인 설치 실행에서 볼 수 있는 출력의 예는 다음과 같습니다.
 
 ```console
 NAME:   onprem-speech
@@ -197,13 +197,13 @@ cognitive-services-speech-onpremise has been installed!
 Release is named onprem-speech
 ```
 
-Kubernetes 배포를 완료 하려면 몇 분 정도 대신할 수 있습니다. Pod와 서비스는 제대로 배포 되어 있고 사용할 수를 확인 하려면 다음 명령을 실행 합니다.
+Kubernetes 배포를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. Pod와 서비스가 올바르게 배포 되 고 사용 가능한 지 확인 하려면 다음 명령을 실행 합니다.
 
 ```console
 kubectl get all
 ```
 
-다음 출력과 유사한 출력이 표시 되어야 합니다.
+다음 출력과 유사한 내용이 표시 되어야 합니다.
 
 ```console
 NAME                                  READY     STATUS    RESTARTS   AGE
@@ -230,18 +230,18 @@ horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speec
 horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
 ```
 
-### <a name="verify-helm-deployment-with-helm-tests"></a>Helm 테스트를 사용 하 여 Helm 배포를 확인 합니다.
+### <a name="verify-helm-deployment-with-helm-tests"></a>투구 테스트를 사용 하 여 투구 배포 확인
 
-설치 된 Helm 차트 정의 *테스트 Helm*, 확인을 위한 편의 기능으로 제공 하는 합니다. 이러한 테스트는 서비스 준비 상태를 확인합니다. 모두 확인할 **음성-텍스트** 및 **text to speech** services, 여기에서는 실행 합니다 [Helm 테스트][helm-test] 명령입니다.
+설치 된 투구 차트는 인증에 대 한 편의를 제공 하는 *투구 테스트*를 정의 합니다. 이러한 테스트는 서비스 준비 상태를 확인 합니다. **음성-텍스트** 및 **텍스트 음성 변환** 서비스를 모두 확인 하기 위해 [투구 테스트][helm-test] 명령을 실행 합니다.
 
 ```console
 helm test onprem-speech
 ```
 
 > [!IMPORTANT]
-> POD 상태가 없는 경우 이러한 테스트가 실패 `Running` 배포 목록에 없는 경우 또는 `AVAILABLE` 열입니다. 환자 될 완료 하려면 10 분 이상 걸릴 수 있습니다.
+> POD 상태가이 아니거나 `Running` 배포의 `AVAILABLE` 열 아래에 나열 되지 않은 경우 이러한 테스트는 실패 합니다. 이를 완료 하는 데 10 분 정도 걸릴 수 있으므로 잠시 기다려 주십시오.
 
-이러한 테스트는 다양 한 상태 결과 출력 됩니다.
+이러한 테스트는 다양 한 상태 결과를 출력 합니다.
 
 ```console
 RUNNING: speech-to-text-readiness-test
@@ -250,11 +250,11 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-실행 하는 대신 합니다 *테스트 helm*를 수집할 수 있는 *외부 IP* 주소 및 해당 포트에서를 `kubectl get all` 명령. 웹 브라우저를 열고 이동할 IP 및 포트를 사용 하 여, `http://<external-ip>:<port>:/swagger/index.html` API swagger 페이지 보기로 합니다.
+*투구 테스트*를 실행 하는 대신 `kubectl get all` 명령에서 *외부 IP* 주소 및 해당 포트를 수집할 수 있습니다. IP 및 포트를 사용 하 여 웹 브라우저를 열고로 `http://<external-ip>:<port>:/swagger/index.html` 이동 하 여 API swagger 페이지를 봅니다.
 
-## <a name="customize-helm-charts"></a>Helm 차트를 사용자 지정
+## <a name="customize-helm-charts"></a>투구 차트 사용자 지정
 
-Helm 차트는 계층적입니다. 차트 상속에 대 한 허용 되 고 계층적 것도 사항에 맞는 개념의 보다 구체적인 설정을 상속 된 규칙을 재정의 하는 위치.
+투구 차트는 계층 구조입니다. 계층적으로 차트를 상속 하는 경우에는 보다 구체적인 설정이 상속 된 규칙을 재정의 하는 특이성의 개념에도 맞춘 됩니다.
 
 [!INCLUDE [Speech umbrella-helm-chart-config](includes/speech-umbrella-helm-chart-config.md)]
 
@@ -264,7 +264,7 @@ Helm 차트는 계층적입니다. 차트 상속에 대 한 허용 되 고 계�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Kubernetes Service (AKS)에서 Helm을 사용 하 여 응용 프로그램 설치에 대 한 자세한 내용은 [보려면 이곳을 방문][installing-helm-apps-in-aks]합니다.
+AKS (Azure Kubernetes Service)에서 투구를 사용 하 여 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 [여기를 참조][installing-helm-apps-in-aks]하세요.
 
 > [!div class="nextstepaction"]
 > [Cognitive Services 컨테이너][cog-svcs-containers]

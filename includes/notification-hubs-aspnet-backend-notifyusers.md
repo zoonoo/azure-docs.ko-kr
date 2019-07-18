@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182449"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227787"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
 
@@ -158,7 +158,7 @@ ms.locfileid: "67182449"
 
 3. 결과 목록에서 **Microsoft Azure Notification Hubs**를 선택한 다음 **설치**를 선택합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
 
-    이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
+    이 작업은 [Microsoft.Azure.Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
 
 4. 알림을 보내는 데 사용되는 알림 허브와의 연결을 나타내는 새 클래스 파일을 만듭니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 선택합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 선택하여 클래스를 생성합니다.
 
@@ -170,7 +170,7 @@ ms.locfileid: "67182449"
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](http://portal.azure.com)에서 제공)으로 바꿉니다.
+6. `Notifications` 클래스 정의를 다음 코드로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure Portal](https://portal.azure.com)에서 제공)으로 바꿉니다.
 
     ```csharp
     public class Notifications

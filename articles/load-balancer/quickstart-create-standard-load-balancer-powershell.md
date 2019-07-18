@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730480"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274102"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 

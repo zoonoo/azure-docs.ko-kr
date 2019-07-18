@@ -1,7 +1,7 @@
 ---
-title: Face API-인식 모델을 지정 하는 방법
+title: 인식 모델을 지정 하는 방법-Face API
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Face API 응용 프로그램을 사용 하는 인식 모델을 선택 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Face API 응용 프로그램에 사용할 인식 모델을 선택 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: longl
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592960"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254356"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -25,7 +25,7 @@ Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 �
 
 새 사용자인 경우 최신 모델을 사용하는 것이 좋습니다. 모델 충돌을 방지하면서 다양한 얼굴 작업에서 그것을 지정하는 방법을 알아봅니다. 고급 사용자이면서 최신 모델로의 전환에 대해 확실하지 않으면, 새 모델을 평가하고 현재 데이터 집합을 사용하여 결과를 비교하는 [다른 모델 평가](#evaluate-different-models) 섹션으로 이동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇치 않은 경우 먼저 다음의 방법 가이드를 참조합니다.
 
@@ -45,8 +45,7 @@ AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇�
 
 선택적으로, _recognitionModel_이 응답에서 반환되어야 할지 여부를 나타내는 _returnRecognitionModel_ 매개 변수(기본 **false**)를 지정할 수 있습니다 따라서 [Face-Detect] REST API에 대한 요청 URL은 다음과 같이 표시됩니다.
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 클라이언트 라이브러리를 사용하는 경우, 버전을 나타내는 문자열을 전달하여 `recognitionModel` 값을 할당할 수 있습니다.
 만약 할당하지 않은 경우, 기본 모델 버전(_recognition_01_)이 사용됩니다. .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
@@ -60,7 +59,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(예를 들어, [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해)와 연결하고, 여러 **Person** 개체는 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
 
-**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
+**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹은 항상 생성 된 인식 모델을 사용 하 고 새 얼굴은이 모델에 추가 될 때이 모델에 연결 됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup-Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -78,7 +77,7 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 
 ## <a name="find-similar-faces-with-specified-model"></a>지정된 모델을 사용하여 유사한 얼굴 찾기
 
-또한 유사성 검색에 대해 인식 모델을 지정할 수 있습니다. [FaceList - Create] 또는 [LargeFaceList-Create] API를 사용하여 얼굴 목록을 만들 때 `recognitionModel`을 사용하여 모델 버전을 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 얼굴 목록은 항상 생성된 인식 모델을 사용합니다. 새 얼굴이 추가될 때 모델에 연결됩니다. 만든 후에는 변경할 수 없습니다. 얼굴 목록이 구성된 모델을 보려면 [FaceList - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true** 로 설정합니다.
+또한 유사성 검색에 대해 인식 모델을 지정할 수 있습니다. [FaceList - Create] 또는 [LargeFaceList-Create] API를 사용하여 얼굴 목록을 만들 때 `recognitionModel`을 사용하여 모델 버전을 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 얼굴 목록은 항상 생성된 인식 모델을 사용합니다. 새 얼굴이 추가될 때 모델에 연결됩니다. 만든 후에는 변경할 수 없습니다. 얼굴 목록이 구성된 모델을 보려면 [FaceList-Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true** 로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -86,15 +85,15 @@ await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", 
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-이 코드에서, `My face collection`이라는 얼굴 목록을 생성하며, 특징 추출을 위해 _recognition_02_ 모델을 사용합니다. 새 감지된 얼굴에 유사한 얼굴을 찾기 위해 얼굴 목록을 검색할 때 해당 얼굴은_recognition_02_ 모델을 사용하여 감지([Face-Detect])됩니다. 이전 섹션과 같이 모델 일관성을 유지해야 합니다. 이전 섹션과 모델 일관성을 유지 해야 합니다.
+이 코드에서, `My face collection`이라는 얼굴 목록을 생성하며, 특징 추출을 위해 _recognition_02_ 모델을 사용합니다. 새 감지된 얼굴에 유사한 얼굴을 찾기 위해 얼굴 목록을 검색할 때 해당 얼굴은_recognition_02_ 모델을 사용하여 감지([Face-Detect])됩니다. 이전 섹션과 같이 모델 일관성을 유지해야 합니다. 이전 섹션과 마찬가지로 모델은 일관적 이어야 합니다.
 
-[Face-Find Similar] API에서는 변경 사항이 없습니다. 감지에서 모델 버전만 지정하면 됩니다.
+[Face-유사 찾기] API에서는 변경 사항이 없습니다. 감지에서 모델 버전만 지정하면 됩니다.
 
 ## <a name="verify-faces-with-specified-model"></a>지정된 모델을 사용하여 얼굴 확인
 
 [Face-Verify] API는 두 얼굴이 같은 사람에 속하는지 여부를 확인합니다. 인식 모델과 관련하여 Verify API에서 변경사항은 없지만 동일한 모델을 사용하여 감지된 얼굴만 비교할 수 있습니다. 따라서 두 얼굴은 모두 `recognition_01` 또는 `recognition_02` 모델을 사용하여 감지되어야 합니다.
 
-## <a name="evaluate-different-models"></a>여러 모델 평가
+## <a name="evaluate-different-models"></a>다른 모델 평가
 
 데이터에서 _recognition_01_와 _recognition_02_ 모델의 성능을 비교하려는 경우, 다음과 같이 비교할 수 있습니다.
 
@@ -111,14 +110,14 @@ await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognit
 * [이미지에서 얼굴 감지](../quickstarts/csharp-detect-sdk.md)
 
 [Face-Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
-[Face-Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
+[Face-유사 찾기]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [Face-Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
 [Face-Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
-[PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
+[PersonGroup-Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
 [FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
-[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
+[FaceList-Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
 [LargeFaceList-Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc

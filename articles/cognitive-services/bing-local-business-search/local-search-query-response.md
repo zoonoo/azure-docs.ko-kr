@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: rosh; v-gedod
-ms.openlocfilehash: e2911ebe9157507534717a4177d4380813dd2ff6
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rosh
+ms.openlocfilehash: cf622f658208ab85fe0a0670a0e034bd58a5047d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541565"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849931"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "67541565"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들면 다음과 같습니다.
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들어:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -60,10 +60,10 @@ API에서 반환된 JSON 결과는 다음 특성을 포함합니다.
 * entityPresentationInfo
 * 지역
 * id
-* 이름
+* name
 * routeablePoint
 * telephone
-* URL
+* url
 
 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 일반적인 내용은 [Bing Local Search API v7](local-search-reference.md) 참조를 확인하세요.
 

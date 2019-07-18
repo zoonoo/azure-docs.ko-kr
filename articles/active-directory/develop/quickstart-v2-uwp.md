@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84da3ca512af30ad3b5d4fbc1182f5195366e1ae
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 9955ea434f7a0e48f2d1f81d2a1f57cc3cd67dcb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565443"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277873"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
-초기 `AcquireTokenAsync` 메서드 다음에 보호된 리소스에 액세스하는 토큰을 가져오려면 `AcquireTokenSilent` 메서드를 사용합니다. 사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분의 경우 사용자 개입 없이 토큰 획득 및 갱신 처리
+초기 `AcquireTokenInteractive` 메서드 다음에 보호된 리소스에 액세스하는 토큰을 가져오려면 `AcquireTokenSilent` 메서드를 사용합니다. 사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분의 경우 사용자 개입 없이 토큰 획득 및 갱신 처리
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

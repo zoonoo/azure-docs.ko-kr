@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 5e4f231db781b96fe204802555b56238b9e27e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442677"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305474"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Text Analytics API에 대한 언어 및 지역 지원
 
@@ -31,30 +31,30 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>감정 분석, 핵심 구 추출 및 명명된 엔터티 인식
 
-감정 분석, 핵심 구 추출 및 엔터티 인식의 경우, 추가 언어의 언어 규칙을 수용하도록 분석기가 미세 조정되므로 지원되는 언어 목록의 선택 범위가 좀 더 구체화됩니다. 전체 집합에 대 한 지원을 [엔터티 형식](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) 는 현재 다음 언어로 제한 됩니다. 
+감정 분석, 핵심 구 추출 및 엔터티 인식의 경우, 추가 언어의 언어 규칙을 수용하도록 분석기가 미세 조정되므로 지원되는 언어 목록의 선택 범위가 좀 더 구체화됩니다. 모든 [엔터티 형식](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) 집합에 대 한 지원은 현재 다음 언어로 제한 됩니다. 
 * 영어
 * 중국어-간체
 * 프랑스어
 * 독일어
 * 스페인어
 
-만 `Person`, `Location` 고 `Organization` 명명 된 엔터티는 다른 언어에 대해 반환 됩니다.
+다른 언어 `Person`에 `Location` 대해서 `Organization` 는 및 명명 된 엔터티만 반환 됩니다.
 
 ## <a name="language-list-and-status"></a>언어 목록 및 상태
 
 언어 지원은 처음에는 미리 보기로 롤아웃되었다가 Text Analytics 서비스 전체의 지원 방식과 관계없이, 다른 언어와 별개로 GA(일반 공급) 상태로 서서히 진행됩니다. Text Analytics API가 일반 공급으로 전환되더라도 언어는 미리 보기 상태를 유지할 수 있습니다.
 
-| 언어    | 언어 코드 | 데이터 | 키 구 | 명명된 엔터티 인식 |   메모  |
+| 언어    | 언어 코드 | 감정 | 키 구 | 명명된 엔터티 인식 |   참고  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | 아랍어      | `ar`          |           |             | ✔ \*                     | |
 | 체코어       | `cs`          |           |             | ✔ \*                     | |
-| 중국어-간체 | `zh-CN`|           |             | ✔ \*        |    |
+| 중국어-간체 | `zh-CN`|           |             | ✔         |    |
 | 덴마크어      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | 네덜란드어       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | 영어     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | 핀란드어     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 프랑스어      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| 독일어      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| 프랑스어      | `fr`          | ✔        | ✔           |  ✔            |     |
+| 독일어      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | 그리스어       | `el`          | ✔ \*     |             |            |     |
 | 헝가리어   | `hu`          |           |             |  ✔ \*          |     | 
 | 이탈리아어     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
@@ -69,11 +69,11 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 | 스웨덴어     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | 터키어     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* 언어 지원은 미리 보기로 제공
+\*언어 지원은 미리 보기 상태입니다.
 
-\*\* [라는 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) 하 고 [Entity linking](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) 모두가이 언어에 사용할 수 있습니다.    
+\*\*이 언어에 대해 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) 및 [엔터티 링크](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) 를 모두 사용할 수 있습니다.    
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/cognitive-services/)   
 [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

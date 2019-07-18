@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979150"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807441"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
 
@@ -25,6 +25,8 @@ Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는
 
 > [!IMPORTANT]
 > 이제 가격 책정 계층에 관계없이 모든 할당에 Azure Policy의 규정 준수 평가가 제공됩니다. 할당에 규정 준수 데이터가 표시되지 않는 경우 구독이 Microsoft.PolicyInsights 리소스 공급자에 등록되었는지 확인하세요.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>RBAC(역할 기반 액세스 제어)와 어떻게 다르나요?
 
@@ -41,11 +43,11 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 
 기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 
-## <a name="policy-definition"></a>정책 정의 
+## <a name="policy-definition"></a>정책 정의
 
 Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만들기로 시작합니다. 모든 정책 정의에는 정책이 적용되는 조건이 있습니다. 또한 조건이 충족되면 발생하는 정의된 효과가 있습니다.
 
-Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예: 
+Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예:
 
 - **SQL Server 12.0 필요**: 모든 SQL Server가 버전 12.0을 사용하는지 확인합니다. 이 기준에 부합하지 않는 모든 서버를 거부하게 됩니다.
 - **허용되는 스토리지 계정 SKU** 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
@@ -92,7 +94,7 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 ## <a name="initiative-assignment"></a>이니셔티브 할당
 
-정책 할당처럼 이니셔티브 할당은 특정 범위에 할당된 이니셔티브 정의입니다.  이니셔티브 할당은 각 범위에 대해 여러 이니셔티브 정의를 만들 필요를 줄입니다. 이 범위 역시 관리 그룹부터 리소스 그룹까지 아우를 수 있습니다.
+정책 할당처럼 이니셔티브 할당은 특정 범위에 할당된 이니셔티브 정의입니다. 이니셔티브 할당은 각 범위에 대해 여러 이니셔티브 정의를 만들 필요를 줄입니다. 이 범위 역시 관리 그룹부터 리소스 그룹까지 아우를 수 있습니다.
 
 각 이니셔티브를 서로 다른 범위에 할당할 수 있습니다. 하나의 이니셔티브를 **subscriptionA** 및 **subscriptionB** 둘 다에 할당할 수 있습니다.
 
@@ -102,10 +104,10 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 예를 들어 각각 다른 형식의 매개 변수가 필요한 **policyA** 및 **policyB** 정책 정의를 사용하여 이니셔티브 정의 **initiativeC**가 있는 시나리오를 살펴보겠습니다.
 
-| 정책 | 매개 변수의 이름 |매개 변수 형식   |참고 |
+| 정책 | 매개 변수의 이름 |매개 변수 형식  |참고 |
 |---|---|---|---|
 | policyA | allowedLocations | array  |매개 변수 형식이 배열로 정의되었으므로 이 매개 변수는 값으로 문자열 목록을 예상합니다. |
-| policyB | allowedSingleLocation |string |매개 변수 형식이 문자열로 정의되었으므로 이 매개 변수는 값으로 한 단어를 예상합니다. |
+| policyB | allowedSingleLocation |문자열 |매개 변수 형식이 문자열로 정의되었으므로 이 매개 변수는 값으로 한 단어를 예상합니다. |
 
 이 시나리오에서는 **initiativeC**에 대한 이니셔티브 매개 변수를 정의할 때 세 가지 옵션이 있습니다.
 

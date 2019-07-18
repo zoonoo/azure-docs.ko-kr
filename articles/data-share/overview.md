@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 1e0d640c5434c27695b90ee7fd4c20a4959c24b3
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788987"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807554"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Azure Data Share 미리 보기란?
 
@@ -78,14 +78,6 @@ Azure Data Share는 Azure에서 제공하는 기본 보안을 활용하여 저�
 권한이 부여된 사용자가 액세스할 수 있도록 액세스 제어는 Azure Data Share 리소스 수준에서 설정할 수 있습니다. 
 
 Azure Data Share는 Azure Resources(이전의 MSI)용 관리 ID를 활용하여 Azure Active Directory에서 ID를 자동으로 관리합니다. Azure Resources용 관리 ID는 데이터 공유에 사용되는 스토리지 계정에 액세스하는 데 활용됩니다. 자격 증명은 데이터 공급자와 데이터 소비자 간에 교환되지 않습니다. 자세한 내용은 [Azure Resources용 관리 ID 페이지](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 
-
-## <a name="pricing"></a>가격
-
-Azure Data Share 미리 보기는 두 가지 구성 요소에 대해 요금을 청구합니다. 첫 번째 구성 요소는 데이터 공유 관리를 위한 것입니다. 미리 보기 중에는 데이터 공유 관리가 무료입니다.
-
-두 번째 구성 요소는 이동을 위한 것입니다. Aure Data Share는 데이터를 데이터 공급자의 Azure 테넌트에서 데이터 소비자의 Azure 테넌트로 이동하는 데 드는 요금을 청구합니다. 데이터 세트 이동 작업당 데이터 세트 이동 및 데이터 세트 이동에 필요한 컴퓨팅에 대한 비용을 지불해야 합니다. 데이터 세트 이동 컴퓨팅에 대한 요금은 vCore-시간당 단위로 청구됩니다. 데이터 세트 이동 컴퓨팅 요금은 분 단위로 비례 배분되고 반올림됩니다. 미리 보기 중에는 데이터 세트 이동 작업이 무료입니다. 
-
-가격 책정에 대한 자세한 내용은 Azure Data Share [가격 페이지](https://azure.microsoft.com/pricing/)를 방문하세요.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

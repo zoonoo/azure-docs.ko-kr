@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 00dbb29cac30f2a3bbecf71727c79617e24af3e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e1a04cad7fe5c9c95397ffad2faa80c7d657d0f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441308"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273806"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 

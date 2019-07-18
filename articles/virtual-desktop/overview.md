@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/17/2019
 ms.author: helohr
-ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476720"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305060"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -105,10 +105,6 @@ Windows Virtual Desktop은 다음 OS 이미지를 지원합니다.
 
 * Windows 10 Enterprise 다중 세션
 * Windows Server 2016
-
-## <a name="provide-feedback"></a>피드백 제공
-
-[Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요. Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사례를 접수하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

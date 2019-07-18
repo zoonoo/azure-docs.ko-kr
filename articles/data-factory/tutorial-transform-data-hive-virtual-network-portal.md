@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165249"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277464"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -201,7 +201,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 다음 사항에 유의하세요.
 
 - **scriptPath**는 MyStorageLinkedService에 사용한 Azure Storage 계정의 Hive 스크립트 경로를 가리킵니다. 경로는 대/소문자를 구분합니다.
-- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
+- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
 
 1. Data Factory UI의 왼쪽 창에서 **+(더하기)** 를 클릭하고, **파이프라인**을 클릭합니다. 
 
@@ -226,7 +226,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
         ![스크립트 설정](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. **스크립트 탭**에서 **고급** 섹션을 펼칩니다. 
     6. **매개 변수**에 대해 **스크립트에서 자동 채우기**를 클릭합니다. 
-    7. **출력** 매개 변수에 대한 값을 `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
+    7. **출력** 매개 변수에 대한 값을 `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
  
         ![스크립트 인수](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Data Factory에 아티팩트를 게시하려면 **게시**를 클릭합니다.

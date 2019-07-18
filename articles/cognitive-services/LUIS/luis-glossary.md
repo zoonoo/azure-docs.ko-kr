@@ -1,5 +1,5 @@
 ---
-title: 용어
+title: 용어 설명
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523505"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302517"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -96,11 +96,11 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 테스트 정확도의 측정값입니다.
 
-## <a name="false-negative"></a>가음성(TN)
+## <a name="false-negative"></a>False 음수 (FN)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 잘못 예측한 발언을 나타냅니다.
 
-## <a name="false-positive"></a>가양성(TP)
+## <a name="false-positive"></a>가양성 (FP)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
