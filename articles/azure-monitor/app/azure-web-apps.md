@@ -11,7 +11,7 @@ ms.date: 04/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
 ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502078"
@@ -100,7 +100,7 @@ ms.locfileid: "67502078"
 
 클라이언트 쪽 모니터링 하는 것은 ASP.NET에 대해 옵트인 합니다. 사용 하려면 클라이언트 쪽 모니터링:
 
-* 선택 **설정을** > * * * * 응용 프로그램 설정 * * *
+* 선택 **설정을** > ** **응용 프로그램 설정****
    * 응용 프로그램 설정에서 새로 추가 **앱 설정 이름은** 하 고 **값**:
 
      이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`

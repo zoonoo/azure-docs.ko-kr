@@ -108,7 +108,7 @@ ms.locfileid: "60787498"
 | metricTrigger | statistic | timeGrain 기간 내 집계 방법입니다. 예를 들어 **statistic = “Average”** 및 **timeGrain = “PT1M”** 은, 평균을 구하여 메트릭이 1분마다 집계되어야 함을 의미합니다. 이 속성은 메트릭이 샘플링되는 방식을 나타냅니다. |
 | metricTrigger | timeWindow | 메트릭을 다시 확인할 기간입니다. 예를 들어 **timeWindow = “PT10M”** 은 자동 크기 조정 기능이 실행될 때마다 지난 10분 동안의 메트릭을 쿼리하는 것을 의미합니다. 이 시간 창은 메트릭을 정규화할 수 있도록 하며 일시적인 스파이크에 대응하지 않도록 합니다. |
 | metricTrigger | timeAggregation | 샘플링된 메트릭을 집계하는 데 사용되는 집계 방법입니다. 예를 들어 **TimeAggregation = “Average”** 는 평균을 구하여 샘플링된 메트릭을 집계합니다. 앞의 경우에서 1분짜리 샘플을 10개 가져와서 평균을 구합니다. |
-| rule | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
+| rules | scaleAction | 규칙의 metricTrigger가 트리거될 때 수행할 작업입니다. |
 | scaleAction | direction | 스케일 아웃하려는 경우 "Increase"이고, 스케일 인하려는 경우 "Decrease"입니다.|
 | scaleAction | value | 늘리거나 줄일 리소스 용량 크기입니다. |
 | scaleAction | cooldown | 크기 조정 작업 후, 다시 크기를 조정하기 전에 대기하는 시간입니다. 예를 들어, **cooldown = “PT10M”** 인 경우 자동 크기 조정 기능은 추가로 10분 동안 다시 크기 조정을 시도하지 않습니다. cooldown은 인스턴스의 추가 또는 제거 후에 메트릭이 안정화될 수 있도록 합니다. |

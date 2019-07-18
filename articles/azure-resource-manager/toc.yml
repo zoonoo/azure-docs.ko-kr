@@ -152,6 +152,12 @@
               href: ./move-limitations/virtual-machines-move-limitations.md
             - name: Virtual Network
               href: ./move-limitations/virtual-network-move-limitations.md
+    - name: 태그들
+      items:
+        - name: 리소스 태그 지정
+          href: resource-group-using-tags.md
+        - name: 태그 지원
+          href: tag-support.md
     - name: 관리
       items:
         - name: 리소스 그룹 관리
@@ -176,9 +182,6 @@
             - name: Azure PowerShell 사용
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: 리소스 정리
-          displayName: tags
-          href: resource-group-using-tags.md
         - name: 리소스 잠금
           href: resource-group-lock-resources.md
         - name: 구독에 액세스하는 인증 API
@@ -251,12 +254,8 @@
           href: resource-group-template-functions-resource.md
         - name: 문자열 함수
           href: resource-group-template-functions-string.md
-    - name: 리소스 기능
-      items:
-        - name: 전체 모드 삭제
-          href: complete-mode-deletion.md
-        - name: 태그 지원
-          href: tag-support.md
+    - name: 전체 모드 삭제
+      href: complete-mode-deletion.md
     - name: 서비스별 리소스 공급자
       href: azure-services-resource-providers.md
     - name: REST - Resource Manager
