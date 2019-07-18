@@ -8,15 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: 4670dd37facf341e355d736a72b4d71f27237fda
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710951"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612896"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -24,7 +24,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * C#에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio 2017 개발](durable-functions-create-first-csharp.md)을 고려해야 합니다.
+> * 에 지 속성 함수를 개발 하는 경우 C#를 대신 고려해 야 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)합니다.
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
@@ -65,7 +65,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -92,7 +92,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 1. Postman 또는 cURL과 같은 HTTP 도구를 사용하여 POST 요청을 사용자가 복사한 URL로 보냅니다. 다음 예제는 Durable Functions로 POST 요청을 보내는 cURL 명령입니다.
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     이 예제에서는 `{your-function-app-name}`은 도메인으로, 함수 앱의 이름입니다. 응답 메시지에는 실행을 모니터링하고 관리하기 위해 사용할 수 있는 URI 엔드포인트 세트가 포함되어 있습니다. 다음 예와 같습니다.
@@ -141,5 +141,3 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 > [!div class="nextstepaction"]
 > [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

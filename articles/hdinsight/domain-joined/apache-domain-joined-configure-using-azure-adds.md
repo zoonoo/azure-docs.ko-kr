@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: ed2611896f2c23a3cf1d2fec5d9e711f518a65c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 81f14fa54303911a34b334f41b5f7f6b0f9f394b
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926345"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720617"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -22,22 +22,24 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
 > [!NOTE]  
-> ESP는 클러스터 형식에 대 한 HDI 3.6에서 일반 공급: 대화형, Apache Spark 및 Apache Hadoop입니다. Apache HBase 및 Apache Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
+> ESP는 HDInsight 3.6 클러스터 형식에 대 한 4.0에 일반적으로 제공 됩니다. Apache Spark, 대화형, Apache Hadoop 및 HBase 합니다. ESP Apache Kafka 클러스터 형식에 대 한 미리 보기입니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
 > [!NOTE]  
-> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소에 Data Lake 저장소 (ADLS (Azure) 인지 Gen1 또는 Gen2 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 하는 데 필요한 사용자에 대해서만 Multi-factor Authentication (MFA)를 해제 해야 합니다. [신뢰할 수 있는 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 [조건부 액세스](../../active-directory/conditional-access/overview.md)를 사용하여 HDInsight 클러스터 VNET IP 범위에 액세스하는 경우 특정 사용자에 대해서만 MFA를 비활성화할 수 있습니다. 조건부 액세스를 사용하는 경우 AD 서비스 엔드포인트가 HDInsight VNET에서 활성화되었는지 확인하세요.
+> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소에 Data Lake 저장소 (ADLS (Azure) 인지 Gen1 또는 Gen2 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 하는 데 필요한 사용자에 대해서만 Multi-factor Authentication (MFA)를 해제 해야 합니다. 사용할 수 있습니다 [신뢰할 수 있는 Ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 하거나 [조건부 액세스](../../active-directory/conditional-access/overview.md) 특정 사용자에 대 한 MFA를 사용 하지 않도록 설정 하려면만 경우에 액세스 하는 HDInsight 클러스터 VNET IP 범위입니다. 사용 중인 경우 조건부 액세스 하세요 확인 있는지 AD 서비스 끝점에 사용 하도록 설정 하는 HDInsight vnet입니다.
 >
 > 클러스터 스토리지가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 
-ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/active-directory-ds-getting-started.md)를 참조하세요. 
+ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/create-instance.md)를 참조하세요. 
 
 Azure AD-DS를 사용하도록 설정하는 경우 모든 사용자 및 개체는 기본적으로 AAD(Azure Active Directory)에서 Azure AD-DS로 동기화를 시작합니다. 동기화 작업의 길이는 Azure AD의 개체 수에 따라 달라집니다. 수십만 개의 개체에 대한 동기화는 며칠이 걸릴 수 있습니다. 
 
-HDInsight 클러스터에 액세스 해야 하는 그룹에만 동기화 하도록 선택할 수 있습니다. 특정 그룹만 동기화하는 이 옵션은 *범위가 지정된 동기화*라고 합니다. 지침은 [Azure AD부터 관리 도메인까지로 범위가 지정된 동기화 구성](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md)을 참조하세요.
+Azure AD DS를 사용 하는 도메인 이름은 39 자 여야 합니다 또는 less, HDInsight를 사용 하 여 작동 하도록 합니다.
 
-보안 LDAP를 사용하도록 설정하는 경우 주체 이름에 도메인 이름을, 인증서에 주체 대체 이름을 입력합니다. 예를 들어 도메인 이름이 *contoso100.onmicrosoft.com*인 경우 인증서 주체 이름 또는 주체 대체 이름이 정확해야 합니다. 자세한 내용은 [Azure AD-DS 관리되는 도메인에 대해 보안 LDAP 구성](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)을 참조하세요. 아래는 자체 서명된 인증서를 만들고 주체 이름과 DnsName(주체 대체 이름)에 도메인 이름(*contoso100.onmicrosoft.com*)을 사용하는 예입니다.
+HDInsight 클러스터에 액세스 해야 하는 그룹에만 동기화 하도록 선택할 수 있습니다. 특정 그룹만 동기화하는 이 옵션은 *범위가 지정된 동기화*라고 합니다. 지침은 [Azure AD부터 관리 도메인까지로 범위가 지정된 동기화 구성](../../active-directory-domain-services/scoped-synchronization.md)을 참조하세요.
+
+보안 LDAP를 사용하도록 설정하는 경우 주체 이름에 도메인 이름을, 인증서에 주체 대체 이름을 입력합니다. 예를 들어 도메인 이름이 *contoso100.onmicrosoft.com*인 경우 인증서 주체 이름 또는 주체 대체 이름이 정확해야 합니다. 자세한 내용은 [Azure AD-DS 관리되는 도메인에 대해 보안 LDAP 구성](../../active-directory-domain-services/configure-ldaps.md)을 참조하세요. 아래는 자체 서명된 인증서를 만들고 주체 이름과 DnsName(주체 대체 이름)에 도메인 이름(*contoso100.onmicrosoft.com*)을 사용하는 예입니다.
 
 ```powershell
 $lifetime=Get-Date
@@ -80,7 +82,7 @@ Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비�
 
 Azure AD-DS 인스턴스와 HDInsight 클러스터를 동일한 Azure Virtual Network에 배치하는 것이 더 쉽습니다. 다른 VNET을 사용할 계획인 경우 HDI VM이 도메인 컨트롤러를 인식할 수 있도록 해당 가상 네트워크를 피어링해야 합니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 개인 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 "contoso.com"인 경우 이 단계를 완료하고 "contoso.com"을 ping하면 올바른 Azure AD-DS IP로 확인되어야 합니다. 
+VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 "contoso.com"인 경우 이 단계를 완료하고 "contoso.com"을 ping하면 올바른 Azure AD-DS IP로 확인되어야 합니다. 
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -112,11 +114,11 @@ ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공
 
 다음 스크린샷에서는 Azure Portal의 성공적인 구성을 보여줍니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)을 선택합니다.
 
 만든 관리 ID는 새 클러스터를 만들 때 사용자 할당 관리 ID 드롭다운에서 선택할 수 있습니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

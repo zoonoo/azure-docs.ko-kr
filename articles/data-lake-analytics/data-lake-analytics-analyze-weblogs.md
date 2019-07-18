@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334117"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
@@ -21,7 +21,7 @@ ms.locfileid: "60334117"
 
 ## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2015 또는 Visual Studio 2013**.
-* **[Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)**.
+* **[Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)** .
 
     Visual Studio용 데이터 레이크 도구를 설치하면 Visual Studio의 **도구** 메뉴에서 **Data Lake** 항목을 볼 수 있습니다.
 

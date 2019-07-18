@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863171"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305070"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
-
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
 
 이 자습서에서는 Event Grid의 사용자 지정 항목을 위한 능동-수동 장애 조치(failover) 아키텍처를 만드는 방법을 알아봅니다. 두 지역 간에 항목과 구독을 미러링한 후 항목이 비정상 상태가 되면 장애 조치(failover)를 관리하는 방식으로 장애 조치를 구현할 것입니다. 이 자습서의 아키텍처는 모든 새 트래픽을 장애 조치합니다. 이 설정에서는 손상된 지역이 다시 정상화될 때까지 이미 이동 중인 이벤트가 복구되지 않는다는 사실을 알아두는 것이 중요합니다.
+
+> [!NOTE]
+> Event Grid는 현재 서버 쪽에서 자동 GeoDR(지역 재해 복구)를 지원합니다. 장애 조치(failover) 프로세스를 더 효과적으로 제어하려는 경우 클라이언트 쪽 재해 복구 논리를 구현할 수 있습니다. 자동 GeoDR에 대한 자세한 내용은 [Azure Event Grid의 서버 쪽 지역 재해 복구](geo-disaster-recovery.md)를 참조하세요.
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 

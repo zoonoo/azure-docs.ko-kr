@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952607"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Bing Search 및 Azure Logic Apps 소식
@@ -89,7 +89,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    ![작업 추가](./media/connectors-create-api-bing-search/add-action.png)
 
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 3. 검색 상자에 필터로 "Bing Search"를 입력합니다.
 작업 목록에서 원하는 작업을 선택합니다.

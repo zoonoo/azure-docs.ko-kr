@@ -3,19 +3,19 @@ title: '빠른 시작: Java용 Bing Entity Search SDK를 사용하여 엔터티 
 titlesuffix: Azure Cognitive Services
 description: Java용 Bing Entity Search SDK를 사용하여 엔터티를 검색하려면 이 빠른 시작을 사용하세요.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: 15958033ef305a44f9c5254409fa111acd9d1eb5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094112"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813712"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>빠른 시작: Java용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 

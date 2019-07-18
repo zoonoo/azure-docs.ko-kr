@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 - 클러스터 삭제
           href: service-fabric-tutorial-delete-cluster.md
-    - name: AWS에서 독립 실행형 클러스터 만들기
+    - name: 독립 실행형 클러스터 만들기
       items:
-        - name: 1 - AWS에서 인프라 만들기
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 - 인프라 만들기
+          items:
+            - name: AWS 사용
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Azure 사용
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2 - Service Fabric 설정
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3 - 클러스터에 애플리케이션 배포
@@ -97,6 +101,8 @@
       href: service-fabric-best-practices-infrastructure-as-code.md
     - name: 모니터링 및 진단
       href: service-fabric-best-practices-monitoring.md
+    - name: 애플리케이션 설계
+      href: service-fabric-best-practices-applications.md
     - name: 프로덕션 준비 검사 목록
       href: service-fabric-production-readiness-checklist.md
 - name: 샘플
@@ -515,6 +521,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Windows에서 Linux 클러스터 설정
               href: service-fabric-local-linux-cluster-windows.md
+            - name: VS에서 원격 Linux 클러스터에 .NET Core 애플리케이션 배포
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Linux/Eclipse 개발 환경에서 작업
           items:
             - name: Java 개발을 위해 Eclipse 플러그인 시작
@@ -609,6 +617,8 @@
                   href: service-fabric-cluster-azure-deployment-preparation.md
                 - name: Azure Portal에서 만들기
                   href: service-fabric-cluster-creation-via-portal.md
+                - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-cross-availability-zones.md
                 - name: Azure Active Directory 인증 설정
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 사용자 지정 클러스터 템플릿 만들기
@@ -639,8 +649,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: 클러스터 노드 패치(Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: 클러스터 노드 패치(Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: 디스크 암호화 사용(Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: 디스크 암호화 사용(Linux)
@@ -691,6 +699,8 @@
       items:
         - name: 일반적인 시나리오 진단
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: 코드 패키지 오류 진단
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: 애플리케이션 모니터링
           items:
             - name: 애플리케이션에 로깅 추가
@@ -840,8 +850,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 문제 해결 가이드
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: 릴리스 정보
+      href: release-notes.md
     - name: 샘플 코드
       href: 'https://aka.ms/servicefabricsamples'
     - name: 지원 옵션
@@ -850,5 +860,7 @@
       href: service-fabric-versions.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: 문제 해결 가이드
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

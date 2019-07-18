@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27f54f9f520e464f9f6f401ce1e5c11e2ec68bc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 333cab23090db499f3c03f7daeab2464b9ea7daf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>자습서: HappyFox와 Azure Active Directory 통합
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec8ffebbbe339e00431f510978f1d3155f1bc4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3d9ff6daf954c4c5293223d6a92522163d17973
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>자습서: RedBrick Health와 Azure Active Directory 통합
 

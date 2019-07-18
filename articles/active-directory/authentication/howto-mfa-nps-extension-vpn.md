@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570648"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561135"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -171,7 +171,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 6. **확인**을 선택하고 **다음**을 선택합니다.
 
-7. **인증 방법 구성** 창에서 기본 선택 사항(**Microsoft 암호화 인증 버전 2(MS-CHAPv2)**)을 그대로 적용하거나 다른 옵션을 선택하고 **다음**을 선택합니다.
+7. **인증 방법 구성** 창에서 기본 선택 사항(**Microsoft 암호화 인증 버전 2(MS-CHAPv2)** )을 그대로 적용하거나 다른 옵션을 선택하고 **다음**을 선택합니다.
 
     > [!NOTE]
     > EAP(Extensible Authentication Protocol)를 구성하는 경우 Microsoft CHAPv2(Challenge Handshake Authentication Protocol) 또는 PEAP(Protected Extensible Authentication Protocol)를 사용해야 합니다. 다른 EAP는 지원되지 않습니다.
@@ -246,7 +246,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
-    다. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
+    c. 에 **제한 시간 (초)** 상자에 값을 입력 합니다 **30**합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
 
     ![시간 제한을 구성 하는 RADIUS 서버 창 추가](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-factor Authentication에 대 한 사용자를 구성 하는 지원 문서를 참조 하세요 [클라우드 기반 Azure Multi-factor Authentication 배포 계획 수립](howto-mfa-getstarted.md#create-conditional-access-policy) 고 [2 단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 
@@ -363,7 +363,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 * 자체 서명된 인증서를 만듭니다.
 * 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 * 로컬 컴퓨터 저장소에 인증서를 저장합니다.
-* 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+* 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
 * NPS 서비스를 다시 시작합니다.
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.

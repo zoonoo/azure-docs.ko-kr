@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 71f1beb68171613fe926ba4d87a13ef58cac1edf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947080"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655269"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Azure Application Gateway에 대 한 일반적인 질문은 다음과 같습니다.
 
 ## <a name="general"></a>일반
 
@@ -43,7 +45,7 @@ Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket을 지원합니다.
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>백 엔드 풀의 일부로 어떤 리소스가 지원 되나요?
 
-참조 [지원 되는 백 엔드 리소스](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool)합니다.
+참조 [지원 되는 백 엔드 리소스](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools)합니다.
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>어떤 지역에서 응용 프로그램 게이트웨이 사용할 수 있는?
 
@@ -133,7 +135,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 예. Azure 인스턴스 인스턴스가 동시에 모든 실패 하지는 업데이트 및 장애 도메인 분산 됩니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 크기 조정을 지원합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -187,13 +189,18 @@ IP 연결을 설정한으로 Application Gateway에 가상 네트워크 외부 �
 
 호스트 필드는 프로브를 구성한 경우 멀티 사이트를 보내려면 응용 프로그램 게이트웨이 이름을 지정 합니다. 그렇지 않으면 '127.0.0.1'을 사용 합니다. 이 값은 가상 컴퓨터 호스트 이름과 다릅니다. 해당 형식은 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\>합니다.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>응용 프로그램 게이트웨이에 대 한 몇 가지 원본 Ip 허용 목록에 추가 해야 합니까?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>응용 프로그램 게이트웨이에 대 한 몇 가지 원본 IP 주소만 허용 합니까?
 
-예. 참조 [특정 원본 Ip에 대 한 액세스를 제한](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips)합니다.
+예. 참조 [특정 원본 Ip에 대 한 액세스를 제한](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips)합니다.
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>공용 및 개인 연결 수신기에 대 한 동일한 포트를 사용할 수 있습니까?
 
 아니요.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>이 지침 v1 SKU에서 v2 SKU로 마이그레이션에 사용할 수 있습니까?
+
+예. 자세한 세부 정보를 참조 하십시오 [마이그레이션할 Azure Application Gateway 및 Web Application Firewall v1에서 v2로](migrate-v1-v2.md)합니다.
+
 
 ## <a name="configuration---ssl"></a>구성-SSL
 
@@ -312,6 +319,10 @@ WAF CRS는 현재 지원 [2.2.9](application-gateway-crs-rulegroups-rules.md#owa
 ### <a name="does-waf-support-ddos-protection"></a>WAF는 DDoS 보호를 지원 하나요?
 
 예. Application gateway를 배포 하는 가상 네트워크에서 DDoS protection을 사용할 수 있습니다. 이 설정은 Azure DDoS Protection 서비스는 응용 프로그램 게이트웨이 VIP (가상 IP)를 보호 하는 것을 보장 합니다.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>이 지침 v1 SKU에서 v2 SKU로 마이그레이션에 사용할 수 있습니까?
+
+예. 자세한 세부 정보를 참조 하십시오 [마이그레이션할 Azure Application Gateway 및 Web Application Firewall v1에서 v2로](migrate-v1-v2.md)합니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 

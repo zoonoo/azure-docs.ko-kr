@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집'
-description: 이 빠른 시작 문서에서는 Kafka에서 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
+title: Kafka에서 Azure Data Explorer로 데이터 수집
+description: 이 문서에서는 Azure 데이터 탐색기에서 Kafka에 (부하) 데이터를 수집 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66497272"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Kafka에서 Azure Data Explorer로 데이터 수집
  
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Kafka에서의 수집(데이터 로드)을 제공합니다. Kafka는 시스템 또는 애플리케이션 간에 데이터를 안정적으로 이동하는 실시간 스트리밍 데이터 파이프라인을 빌드할 수 있도록 하는 분산 스트리밍 플랫폼입니다.
  
@@ -22,11 +22,11 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
  
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
  
-* [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
+* [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md).
  
-* 데이터를 생성하고 Kafka로 전송하는 [샘플 앱](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka)
+* 데이터를 생성하고 Kafka로 전송하는 [샘플 앱](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka).
 
-* 샘플 앱을 실행할 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
+* 샘플 앱을 실행하기 위한 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/).
  
 ## <a name="kafka-connector-setup"></a>Kafka 커넥터 설치
 
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>다음 단계
  
-> [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
+* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)

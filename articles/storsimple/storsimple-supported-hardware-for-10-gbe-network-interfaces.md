@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726954"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
 ## <a name="overview"></a>개요
@@ -51,14 +51,14 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 ## <a name="list-of-devices-tested-in-the-field"></a>필드에서 테스트한 디바이스 목록
 이 섹션에는 StorSimple 고객이 필드에 성공적으로 배포한 디바이스 목록이 포함되어 있습니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| 매개 변수 | Value |
+| 매개 변수 | 값 |
 | --- | --- |
 | 스위치 제조사 |Juniper |
 | 스위치 모델 |ex4550-32F |
 | 스위치 운영 체제 버전 |JunOS 12.3R9.4 |
 | 블레이드 모델 |포트 등록(PIC 0) |
 | 송수신 장치 제조사 |Juniper |
-| 송수신 장치 모델 |부품 번호 740-021308  <br></br>  부품 번호 740-030658 |
+| 송수신 장치 모델 |부품 번호 740-021308 <br></br> 부품 번호 740-030658 |
 | 송수신 장치 펌웨어 버전 |Rev 01 버전 0.0(보고됨) |
 | 케이블 모델 |이중 점퍼 LC/LC 50/125µ, OM3, LSZH |
 | StorSimple 모델 |8600 |

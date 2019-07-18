@@ -3,19 +3,19 @@ title: '빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사'
 titlesuffix: Azure Cognitive Services
 description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105746"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798372"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사
 
@@ -23,10 +23,10 @@ ms.locfileid: "58105746"
 
 ## <a name="application-dependencies"></a>애플리케이션 종속성
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 * Bing Spell Check [NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
 
-Bing Spell Check SDK를 프로젝트에 추가하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages`를 클릭합니다. `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 패키지를 추가합니다. 이 패키지는 다음 종속성도 설치합니다.
+Bing Spell Check SDK를 프로젝트에 추가하려면 Visual Studio의 **솔루션 탐색기**에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 패키지를 추가합니다. 이 패키지는 다음 종속성도 설치합니다.
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

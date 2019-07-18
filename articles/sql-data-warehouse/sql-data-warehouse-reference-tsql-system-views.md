@@ -2,20 +2,20 @@
 title: 시스템 보기 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse에서 지원되는 시스템 보기에 대한 설명서 링크입니다.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a172f469ef3ff1107179dcd7a8d501cfe6d70049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f813bc07cc7c88ce36de28d1e233b210535143c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475833"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595430"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 시스템 보기
 Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
@@ -26,6 +26,9 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
+* [sys.pdw_materialized_view_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest) (미리 보기)
+* [sys.pdw_materialized_view_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest) (미리 보기)
+* [sys.pdw_materialized_view_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) (미리 보기)
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)
@@ -222,14 +225,14 @@ SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어�
 
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA 보기
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
-* [열](https://msdn.microsoft.com/library/ms188348.aspx)
-* [매개 변수](https://msdn.microsoft.com/library/ms173796.aspx)
-* [루틴](https://msdn.microsoft.com/library/ms188757.aspx)
+* [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
+* [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
+* [ROUTINES](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
-* [테이블](https://msdn.microsoft.com/library/ms186224.aspx)
+* [TABLES](https://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [뷰](https://msdn.microsoft.com/library/ms181381.aspx)
+* [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 자세한 참조 정보는 [Azure SQL Data Warehouse의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Azure SQL Data Warehouse의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조하세요.

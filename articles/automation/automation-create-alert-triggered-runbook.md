@@ -4,17 +4,17 @@ description: Azure 경고가 발생할 경우 실행할 Runbook을 트리거하�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f58783a4d5ce1b81e951b811dfa8d65bc2a4f926
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920026"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477763"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -22,7 +22,7 @@ ms.locfileid: "64920026"
 
 ## <a name="alert-types"></a>경고 유형
 
-경고 유형은 사용 하 여 automation runbook을 사용할 수 있습니다.
+3가지 경고 유형으로 Automation Runbook을 사용할 수 있습니다.
 
 * 일반적인 경고
 * 활동 로그 경고
@@ -60,6 +60,14 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 5. 다음 PowerShell 예제를 복사 합니다 **편집** 페이지입니다.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

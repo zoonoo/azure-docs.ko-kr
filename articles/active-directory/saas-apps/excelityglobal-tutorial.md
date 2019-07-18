@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 01ca2129ee31c1f51ee87995d550b6cf258fc49a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>자습서: ExcelityGlobal과 Azure Active Directory 통합
 
@@ -140,7 +140,7 @@ ExcelityGlobal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>ExcelityGlobal Single Sign-On 구성
 
-**ExcelityGlobal** 쪽에서 Single Sign-On을 구성하려면 **지문 값**과 Azure Portal에서 복사한 해당 URL을 [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us/our-locations/)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**ExcelityGlobal** 쪽에서 Single Sign-On을 구성하려면 **지문 값**과 Azure Portal에서 복사한 해당 URL을 [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -195,7 +195,7 @@ ExcelityGlobal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ### <a name="create-excelityglobal-test-user"></a>ExcelityGlobal 테스트 사용자 만들기
 
-이 섹션에서는 ExcelityGlobal에서 Britta Simon이라는 사용자를 만듭니다.  [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us/our-locations/)과 협력하여 ExcelityGlobal 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ExcelityGlobal에서 Britta Simon이라는 사용자를 만듭니다.  [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us)과 협력하여 ExcelityGlobal 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

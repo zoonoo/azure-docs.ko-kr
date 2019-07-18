@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457671"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Python에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -46,17 +46,17 @@ API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는
 
 다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서][twiml]에서 알아보세요.
 
-* **&lt;전화&gt;**: 발신자를 다른 전화에 연결합니다.
-* **&lt;수집&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
-* **&lt;전화 끊기&gt;**: 통화를 끝냅니다.
-* **&lt;일시 중시&gt;**: 지정된 시간(초) 동안 무음으로 대기합니다.
-* **&lt;재생&gt;**: 오디오 파일을 재생합니다.
-* **&lt;큐&gt;**: 호출자 큐에 추가합니다.
-* **&lt;녹음&gt;**: 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
-* **&lt;리디렉션&gt;**: 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
-* **&lt;거부&gt;**: 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
-* **&lt;통화&gt;**: 통화 시 텍스트를 음성으로 변환합니다.
-* **&lt;Sms&gt;**: SMS 메시지를 보냅니다.
+* **&lt;전화&gt;** : 발신자를 다른 전화에 연결합니다.
+* **&lt;수집&gt;** : 전화 키패드에 입력된 숫자를 수집합니다.
+* **&lt;전화 끊기&gt;** : 통화를 끝냅니다.
+* **&lt;일시 중시&gt;** : 지정된 시간(초) 동안 무음으로 대기합니다.
+* **&lt;재생&gt;** : 오디오 파일을 재생합니다.
+* **&lt;큐&gt;** : 호출자 큐에 추가합니다.
+* **&lt;녹음&gt;** : 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
+* **&lt;리디렉션&gt;** : 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
+* **&lt;거부&gt;** : 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
+* **&lt;통화&gt;** : 통화 시 텍스트를 음성으로 변환합니다.
+* **&lt;Sms&gt;** : SMS 메시지를 보냅니다.
 
 ### <a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -103,7 +103,7 @@ SSH를 통해 Virtual Machine에 연결할 수 있으면 선택한 웹 프레임
    
         $ pip install twilio
 
-    또는
+    -또는-
 
 * GitHub([https://github.com/twilio/twilio-python][twilio_python])에서 Python용 Twilio 라이브러리를 다운로드하고 다음과 같이 설치합니다.
 

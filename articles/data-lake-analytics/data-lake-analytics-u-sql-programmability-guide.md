@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811606"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
@@ -1067,11 +1067,11 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 ## <a name="use-user-defined-extractors"></a>UDE(사용자 정의 추출기) 사용
 U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 수 있습니다. EXTRACT 문은 기본 제공 UDO 추출기를 사용할 수 있습니다.  
 
-* *Extractors.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에서 데이터를 추출합니다.
+* *Extractors.Text()* : 다른 인코딩의 구분 기호로 분리된 텍스트 파일에서 데이터를 추출합니다.
 
-* *Extractors.Csv()*: 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에서 데이터를 추출합니다.
+* *Extractors.Csv()* : 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에서 데이터를 추출합니다.
 
-* *Extractors.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에서 데이터를 추출합니다.
+* *Extractors.Tsv()* : 다른 인코딩의 탭으로 구분된 값(TSV) 파일에서 데이터를 추출합니다.
 
 사용자 지정 추출기를 개발하는 것이 유용할 수 있습니다. 다음 작업 중 하나를 수행하려는 경우 데이터를 가져오는 동안 도움이 될 수 있습니다.
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>사용자 정의 출력자 사용
 사용자 정의 출력자는 기본 제공 U-SQL 기능을 확장할 수 있는 또 다른 U-SQL UDO입니다. 추출기와 마찬가지로 여러 개의 기본 제공 출력자가 있습니다.
 
-* *Outputters.Text()*: 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
-* *Outputters.Csv()*: 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에 데이터를 씁니다.
-* *Outputters.Tsv()*: 다른 인코딩의 탭으로 구분된 값(TSV) 파일에 데이터를 씁니다.
+* *Outputters.Text()* : 다른 인코딩의 구분 기호로 분리된 텍스트 파일에 데이터를 씁니다.
+* *Outputters.Csv()* : 다른 인코딩의 쉼표로 구분된 값(CSV) 파일에 데이터를 씁니다.
+* *Outputters.Tsv()* : 다른 인코딩의 탭으로 구분된 값(TSV) 파일에 데이터를 씁니다.
 
 사용자 지정 출력자를 사용하면 사용자 정의된 형식으로 데이터를 쓸 수 있습니다. 이 기능은 다음 작업에 유용할 수 있습니다.
 

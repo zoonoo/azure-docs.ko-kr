@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999760"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **로그온 URL** 텍스트 상자에 `https://cxsuite.foresee.com/` URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 https:\//www.okta.com/saml2/service-provider/<UniqueID> 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 https:\//www.okta.com/saml2/service-provider/\<UniqueID> 패턴을 사용하여 URL을 입력합니다.
 
     > [!Note]
     > **식별자** 값이 자동으로 채워지지 않으면 위의 패턴에 따라 수동으로 값을 채웁니다. 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 얻으려면 [ForeSee CX Suite 고객 지원 팀](mailto:support@foresee.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -194,7 +194,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="create-foresee-cx-suite-test-user"></a>ForeSee CX Suite 테스트 사용자 만들기
 
-이 섹션에서는 ForeSee CX Suite에서 Britta Simon이라는 사용자를 만듭니다. [ForeSee CX Suite 지원 팀](mailto:support@foresee.com)과 협력하여 ForeSee CX Suite 플랫폼의 허용 목록에 포함하는 데 필요한 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 ForeSee CX Suite 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ForeSee CX Suite에서 Britta Simon이라는 사용자를 만듭니다. [ForeSee CX Suite 지원 팀](mailto:support@foresee.com)과 협력하여 ForeSee CX Suite 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 ForeSee CX Suite 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

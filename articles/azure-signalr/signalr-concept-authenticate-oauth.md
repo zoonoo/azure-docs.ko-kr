@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66128284"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
 
@@ -60,7 +60,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
     | 설정 이름 | 제안 값 | 설명 |
     | ------------ | --------------- | ----------- |
-    | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
+    | 응용 프로그램 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | `http://localhost:5000/home` | |
     | 애플리케이션 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
     | 권한 부여 호출 URL | `http://localhost:5000/signin-github` | 이 설정은 OAuth 애플리케이션에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |

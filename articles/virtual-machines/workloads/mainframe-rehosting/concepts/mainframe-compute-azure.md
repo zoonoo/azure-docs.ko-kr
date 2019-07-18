@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190323"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
@@ -59,7 +59,7 @@ Azure Virtual Machines는 다양 한 유형과 크기의에서 계산 능력을 
 
 | 크기     | 유형 및 설명                                                                 |
 |----------|--------------------------------------------------------------------------------------|
-| D 시리즈 | 3.5 GHz 클럭 속도 최대 64 vCPU와 범용                           |
+| D 시리즈 | 3\.5 GHz 클럭 속도 최대 64 vCPU와 범용                           |
 | E 시리즈 | 최대 64 개의 Vcpu를 사용 하 여 액세스에 최적화 된 메모리                                                 |
 | F 시리즈 | 최대 64 개의 Vcpu와 3..7 GHz 클럭 속도 사용 하 여 최적화 된 계산                       |
 | H 시리즈 | 고성능 컴퓨팅 (HPC) 응용 프로그램에 대 한 최적화                          |

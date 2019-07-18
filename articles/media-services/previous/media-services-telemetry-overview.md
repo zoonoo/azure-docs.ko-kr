@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545523"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석  
@@ -110,7 +110,7 @@ ResultCode|결과 코드 세부 정보|S_OK
 RequestCount|집계의 총 요청|3
 BytesSent|집계된 보낸 바이트 수|2987358
 ServerLatency|평균 서버 대기 시간(저장소 포함)|129
-E2ELatency|평균 종단 간 대기 시간|250
+E2ELatency|평균 엔드투엔드 대기 시간|250
 
 **라이브 채널**
 
@@ -132,10 +132,10 @@ OverlapCount|수집의 겹침|0
 DiscontinuityCount|트랙 불연속성|0
 LastTimestamp|마지막으로 수집된 데이터 타임스탬프|1800488800
 NonincreasingCount|증가하지 않는 타임스탬프로 인해 삭제된 조각 수|2
-UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |True 
-UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|True 
-UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True 
-Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True <br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |True
+UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|True
+UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True
+Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **라이브 보관**
 
@@ -162,7 +162,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 메트릭 데이터는 고객의 저장소 계정의 여러 Azure 테이블에 저장됩니다. 이 데이터는 다음과 같은 도구로 사용할 수 있습니다.
 
 - AMS SDK
-- Microsoft Azure Storage 탐색기(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
+- Microsoft Azure Storage Explorer(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
 - REST API
 
 ### <a name="how-to-find-average-bandwidth-consumption"></a>평균 대역폭 소비량을 확인하는 방법

@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075012"
 ---
 # <a name="single-page-application---move-to-production"></a>단일 페이지 응용 프로그램-프로덕션으로 이동
@@ -30,11 +30,11 @@ ms.locfileid: "65075012"
 
 앱 프로덕션을 준비 확인 하는 데 필요한 단계를 따릅니다.
 
-- [로깅을](msal-logging.md) 응용 프로그램에서 합니다.
+- 애플리케이션에 [로그인이 가능하도록 설정](msal-logging.md)합니다.
 
 ## <a name="test-your-integration"></a>통합 테스트
 
-- 수행 하 여 통합을 테스트 합니다 [Microsoft identity 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)합니다.
+- [Microsoft ID 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

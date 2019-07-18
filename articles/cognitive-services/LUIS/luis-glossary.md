@@ -1,5 +1,5 @@
 ---
-title: 용어
+title: 용어 설명
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874484"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302517"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -26,7 +26,7 @@ Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 
 
 ## <a name="authoring"></a>작성
 
-작성은 [LUIS](luis-reference-regions.md) 웹 사이트 또는 [작성 API](https://aka.ms/luis-authoring-api)를 사용하여 [LUIS 앱](#luis-app)을 생성, 관리 및 배포하는 기능입니다.
+작성은 [LUIS](luis-reference-regions.md) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용하여 [LUIS 앱](#luis-app)을 생성, 관리 및 배포하는 기능입니다.
 
 ## <a name="authoring-key"></a>작성 키
 
@@ -74,7 +74,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="endpoint"></a>엔드포인트
 
-[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
+[LUIS 엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
 예제 엔드포인트가 다음과 같이 표시됩니다.
 
@@ -82,7 +82,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 |쿼리 문자열 매개 변수|description|
 |--|--|
-|region| [게시된 지역](luis-reference-regions.md#publishing-regions) |
+|영역(region)| [게시된 지역](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 앱 ID |
 |subscriptionID | Azure Portal에서 생성된 LUIS 끝점(구독) 키 |
 |q | 발화 |
@@ -96,11 +96,11 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 테스트 정확도의 측정값입니다.
 
-## <a name="false-negative"></a>가음성(TN)
+## <a name="false-negative"></a>False 음수 (FN)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 잘못 예측한 발언을 나타냅니다.
 
-## <a name="false-positive"></a>가양성(TP)
+## <a name="false-positive"></a>가양성 (FP)
 
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 

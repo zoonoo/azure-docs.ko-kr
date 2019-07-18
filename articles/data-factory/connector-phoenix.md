@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405926"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Phoenix에서 데이터 복사 
@@ -43,10 +43,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Phoenix** | 예. |
 | host | Phoenix 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예. |
-| 포트 | Phoenix 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8765입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아닙니다. |
+| port | Phoenix 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8765입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아닙니다. |
 | httpPath | Phoenix 서버에 해당하는 부분 URL입니다. 즉, /gateway/sandbox/phoenix/version입니다. HDInsights를 사용 중인 경우 `/hbasephoenix0`을 지정합니다.  | 아닙니다. |
 | authenticationType | Phoenix 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | 예. |
-| 사용자 이름 | Phoenix 서버에 연결하는 데 사용되는 사용자 이름입니다.  | 아닙니다. |
+| username | Phoenix 서버에 연결하는 데 사용되는 사용자 이름입니다.  | 아닙니다. |
 | password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아닙니다. |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아닙니다. |
@@ -118,7 +118,7 @@ Phoenix에서 데이터를 복사하려면 복사 작업의 원본 형식을 **P
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **PhoenixSource** | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

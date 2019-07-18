@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Portal을 사용하여 Stream Analytics 작업을 만들고 관리'
-description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 통합적 데모를 제공합니다.
+description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 엔드투엔드 데모를 제공합니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523548"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612375"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
@@ -32,7 +32,7 @@ ms.locfileid: "59523548"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음이 필요합니다.
+시작하기 전에 다음 작업을 수행합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -53,7 +53,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
    |**설정**  |**제안 값** |**설명**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
+   |이름     | myEventHubsNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
    |구독     |   \<구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
    |리소스 그룹     |   MyASADemoRG      |  **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.       |
    |위치     |   미국 서부2      |    이벤트 허브 네임스페이스를 배포할 수 있는 위치입니다.     |
@@ -71,7 +71,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 Azur
 
 애플리케이션에서 Event Hubs로 데이터를 보낼 수 있으려면 이벤트 허브에 적절한 액세스 권한을 허용하는 정책이 있어야 합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
-1. 이전 섹션에서 만든 이벤트 허브 *MyEventHub*로 이동합니다. **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **+ 추가**를 선택합니다.
+1. 이전 단계인 MyEventHub*에서 만든 이벤트 허브로 이동합니다. **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **+ 추가**를 선택합니다.
 
 2. 정책 이름을 **MyPolicy**로 지정하고 **관리** 확인란을 선택합니다. 그런 다음 **만들기**를 선택합니다.
 
@@ -99,7 +99,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 3. 구성 파일의 `<appSettings>` 요소를 다음 세부 정보로 업데이트합니다.
 
    * *EventHubName* 키의 값을 연결 문자열의 EntityPath 값으로 설정합니다.
-   * *Microsoft.ServiceBus.ConnectionString* 키 값을 EntityPath 값을 뺀 연결 문자열로 설정합니다.
+   * *Microsoft.ServiceBus.ConnectionString* 키 값을 EntityPath 값을 뺀 연결 문자열로 설정합니다(앞에 나오는 세미콜론을 반드시 제거함).
 
 4. 파일을 저장합니다.
 5. 명령 창을 열고 TelcoGenerator 애플리케이션 압축을 푼 폴더로 변경합니다. 다음 명령을 입력합니다.
@@ -111,14 +111,14 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    이 명령은 다음 매개 변수를 사용합니다.
    * 시간당 호출 데이터 레코드 수.
    * 사기 확률 - 즉, 앱에서 사기성 호출을 시뮬레이션해야 하는 빈도. 값 0.2는 호출 레코드의 약 20%가 사기성으로 나타남을 의미합니다.
-   * 기간(시간) - 앱을 실행해야 하는 시간. 또한 언제든지 명령줄에서 프로세스를 종료하여(**Ctrl+C**) 앱을 중지할 수 있습니다.
+   * 기간(시간) - 앱을 실행해야 하는 시간. 명령줄에서 프로세스(**Ctrl+C**)를 종료하여 언제든지 앱을 중지할 수도 있습니다.
 
    몇 초 후 앱에서 이벤트 허브로 데이터를 전송함에 따라 화면에 전화 통화 레코드가 표시되기 시작합니다. 이 전화 통화 데이터에는 다음 필드가 포함되어 있습니다.
 
    |**레코드**  |**정의**  |
    |---------|---------|
    |CallrecTime    |  호출 시작 시간에 대한 타임스탬프       |
-   |SwitchNum     |  호출 연결에 사용되는 전화 스위치. 이 예에서는 스위치는 발신 국가(미국, 중국, 영국, 독일 또는 오스트레일리아)를 나타내는 문자열입니다.       |
+   |SwitchNum     |  호출 연결에 사용되는 전화 스위치. 이 예에서는 스위치는 발신 국가/지역(미국, 중국, 영국, 독일 또는 오스트레일리아)를 나타내는 문자열입니다.       |
    |CallingNum     |  호출자의 전화번호.       |
    |CallingIMSI     |  국제 모바일 구독자 ID(IMSI) 호출자의 고유 식별자.       |
    |CalledNum     |   호출 수신자의 전화번호.      |
@@ -140,7 +140,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |구독    |  \<구독\>   |   작업을 만들 Azure 구독을 선택합니다.       |
    |리소스 그룹   |   MyASADemoRG      |   **기존 항목 사용**을 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.      |
    |위치   |    미국 서부2     |      작업을 배포할 수 있는 위치입니다. 최상의 성능을 위해 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋으며 지역 간에 데이터를 전송하는 데 비용을 지불하지 않아도 됩니다.      |
-   |호스팅 환경    | 클라우드        |     Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT 에지 디바이스에 배포할 수 있습니다.    |
+   |호스팅 환경    | 클라우드        |     Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT Edge 디바이스에 배포할 수 있습니다.    |
    |스트리밍 단위     |    1       |      스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.      |
 
 4. 나머지 설정에서는 기본 옵션을 사용하고 **만들기**를 선택한 후 배포가 완료될 때까지 기다립니다.
@@ -163,7 +163,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |구독    |   \<구독\>      |   이벤트 허브를 만든 Azure 구독을 선택합니다. 이벤트 허브는 Stream Analytics 작업과 같은 구독일 수도 있고 다른 구독일 수도 있습니다.       |
    |이벤트 허브 네임스페이스    |  myEventHubsNS       |  이전 섹션에서 만든 이벤트 허브 네임스페이스를 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 허브 네임스페이스가 드롭다운에 나열됩니다.       |
    |이벤트 허브 이름    |   MyEventHub      |  이전 섹션에서 만든 이벤트 허브를 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 허브가 드롭다운에 나열됩니다.       |
-   |이벤트 허브 정책 이름   |  Mypolicy       |  이전 섹션에서 만든 이벤트 허브 공유 액세스 정책을 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 정책이 드롭다운에 나열됩니다.       |
+   |이벤트 허브 정책 이름   |  MyPolicy       |  이전 섹션에서 만든 이벤트 허브 공유 액세스 정책을 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 정책이 드롭다운에 나열됩니다.       |
 
 4. 나머지 설정에서는 기본 옵션을 사용하고 **저장**을 선택합니다.
 
@@ -191,7 +191,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 ## <a name="define-a-query-to-analyze-input-data"></a>입력 데이터를 분석하는 쿼리 정의
 
-다음 단계는 실시간으로 데이터를 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://msdn.microsoft.com/library/dn834998.aspx)를 사용하여 변환 쿼리를 정의합니다. 이 자습서에 사용된 쿼리는 전화 데이터에서 사기성 호출을 검색합니다.
+다음 단계는 실시간으로 데이터를 분석하는 변환을 만드는 것입니다. [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용하여 변환 쿼리를 정의합니다. 이 자습서에 사용된 쿼리는 전화 데이터에서 사기성 호출을 검색합니다.
 
 이 예제에서는 동일한 사용자가 5초 이내에 다른 위치에서 사기성 호출을 만듭니다. 예를 들어 동일한 사용자가 미국 및 오스트레일리아에서 동시에 합법적으로 전화를 걸 수 없습니다. Stream Analytics 작업에 대한 변환 쿼리를 정의하려면:
 
@@ -212,7 +212,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) 함수를 사용하여 조인의 **ON** 절 내에서 지정됩니다.
+   사기성 호출을 검사하려면 `CallRecTime` 값에 따라 스트리밍 데이터를 자체 조인하면 됩니다. 그 후 `CallingIMSI` 값(발신 번호)이 동일하지만 `SwitchNum` 값(발신 국가/지역)은 다른 호출 레코드를 찾을 수 있습니다. 스트리밍 데이터에 JOIN 작업을 사용할 경우 조인은 일치하는 행이 시간상으로 얼마나 분리할 수 있는지 정도에 대한 몇 가지 한도를 제공해야 합니다. 스트리밍 데이터가 무한하기 때문에 관계에 대한 시간 범위는 [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) 함수를 사용하여 조인의 **ON** 절 내에서 지정됩니다.
 
    이 쿼리는 **DATEDIFF** 함수를 제외하고 일반 SQL 조인과 흡사합니다. 이 쿼리에 사용되는 **DATEDIFF** 함수는 Stream Analytics로 한정되며, `ON...BETWEEN` 절 내부에 나타나야 합니다.
 
@@ -248,7 +248,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 4. Power BI 작업 영역에서 **+ 만들기**를 선택하여 *사기성 호출*이라는 새 대시보드를 만듭니다.
 
-5. 창 맨 위에서 **타일 추가**를 선택합니다. **사용자 지정 스트리밍 데이터**를 선택하고 **다음**을 선택합니다. **데이터 세트** 아래에서 **ASAdataset**를 선택합니다. **시각화 유형** 드롭다운에서 **카드**를 선택하고 **필드**에 **fraudulentcalls**를 추가합니다. **다음**을 선택하여 타일 이름을 입력하고, **적용**을 선택하여 타일을 만듭니다.
+5. 창 맨 위에서 **타일 추가**를 선택합니다. **사용자 지정 스트리밍 데이터**를 선택하고 **다음**을 선택합니다. **데이터 세트** 아래에서 **ASAdataset**를 선택합니다. **시각화 유형** 드롭다운에서 **카드**를 선택하고 **필드**에 **사기성 호출**을 추가합니다. **다음**을 선택하여 타일 이름을 입력하고, **적용**을 선택하여 타일을 만듭니다.
 
    ![Power BI 대시보드 타일 만들기](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -258,18 +258,18 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    * 값을 추가하고 **fraudulentcalls**를 선택합니다.
    * **표시할 시간 창**에 지난 10분을 선택합니다.
 
-7. 두 타일이 모두 추가되면 대시보드가 아래 예제처럼 보입니다. 이벤트 허브 발신자 애플리케이션 및 Stream Analytics 애플리케이션이 실행 중이면 새 데이터가 도착할 때마다 PowerBI 대시보드가 주기적으로 업데이트됩니다.
+7. 두 타일이 모두 추가되면 대시보드가 아래 예제처럼 보입니다. 이벤트 허브 발신자 애플리케이션 및 Stream Analytics 애플리케이션이 실행 중이면 새 데이터가 도착할 때마다 Power BI 대시보드가 주기적으로 업데이트됩니다.
 
    ![Power BI 대시보드에서 결과 보기](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>웹 애플리케이션에 PowerBI 대시보드 포함
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>웹 애플리케이션에 Power BI 대시보드 포함
 
-자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 애플리케이션을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
+자습서의 이 부분에서는 Power BI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 애플리케이션을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
 
 애플리케이션을 설정하려면 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 리포지토리로 이동한 다음, **User Owns Data** 섹션 아래의 지침을 따릅니다(**integrate-dashboard-web-app** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)에 있는 **통합-대시보드-웹앱** 샘플 코드를 사용합니다.
 브라우저에서 애플리케이션을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.
 
-1. **Power BI에 로그인**을 선택합니다. 그러면 PowerBI 계정에 대시보드에 대한 응용 프로그램 액세스 권한이 부여됩니다.
+1. **Power BI에 로그인**을 선택합니다. 그러면 Power BI 계정에 대시보드에 대한 애플리케이션 액세스 권한이 부여됩니다.
 
 2. **대시보드 가져오기** 단추를 선택합니다. 그러면 계정의 대시보드가 테이블에 표시됩니다. 앞에서 만든 대시보드 이름(**powerbi-embedded-dashboard**)을 찾아서 해당 **EmbedUrl**을 복사합니다.
 

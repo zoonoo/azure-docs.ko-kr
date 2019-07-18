@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60694819"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
@@ -36,7 +36,7 @@ ms.locfileid: "60694819"
 
     ![랩의 구성 및 정책에 액세스](./media/devtest-lab-configure-vnet/policies-menu.png)
 1. **외부 리소스** 섹션에서 **가상 네트워크**를 선택합니다. 랩에 대해 만들어진 기본 가상 네트워크뿐만 아니라 현재 랩에 대해 구성한 가상 네트워크의 목록이 표시됩니다. 
-1. **+추가**를 선택합니다.
+1. 선택 **+ 추가**합니다.
    
     ![랩에 기존 가상 네트워크 추가](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 1. **가상 네트워크** 창에서 **[가상 네트워크 선택]** 을 선택합니다.

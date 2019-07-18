@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595387"
 ---
+> [!NOTE] 
+> 이 문서에 설명 된 사용자 계정을 사용자에 다릅니다. 보안상의 이유로 원격 데스크톱 프로토콜 (RDP) 또는 SSH (보안 셸)를 사용 하는 계정입니다. 
+>
+> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
+> RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
 Azure Batch의 태스크는 항상 사용자 계정으로 실행됩니다. 기본적으로 태스크는 관리자 권한 없이 표준 사용자 계정으로 실행됩니다. 일반적으로는 이러한 기본 사용자 계정 설정만으로 충분합니다. 그러나 특정 시나리오에서는 태스크를 실행하려는 사용자 계정을 구성하는 것이 유용할 수 있습니다. 이 문서에서는 사용자 계정의 유형 및 시나리오에 맞게 구성하는 방법을 설명합니다.
@@ -32,18 +41,10 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 
 - **자동 사용자 계정.** 자동 사용자 계정은 Batch 서비스에 의해 자동으로 생성되는 기본 제공 사용자 계정입니다. 기본적으로 태스크는 자동 사용자 계정에서 실행됩니다. 태스크가 실행될 자동 사용자 계정을 나타내도록 태스크에 대한 자동 사용자 지정을 구성할 수 있습니다. 자동 사용자 지정을 사용하면 태스크를 실행할 자동 사용자 계정의 권한 상승 수준 및 범위를 지정할 수 있습니다. 
 
-- **명명된 사용자 계정.** 풀을 만들 때 풀에 대해 하나 이상의 명명된 사용자 계정을 지정할 수 있습니다. 각 사용자 계정은 풀의 각 노드에서 생성됩니다. 계정 이름 외에도 계정 암호, 권한 상승 수준을 지정할 수 있으며, Linux 풀의 경우에는 SSH 개인 키도 지정할 수 있습니다. 태스크를 추가할 때 해당 태스크를 실행할 명명된 사용자 계정을 지정할 수 있습니다.
+- **명명된 사용자 계정.** 풀을 만들 때 풀에 대해 하나 이상의 명명된 사용자 계정을 지정할 수 있습니다. 각 사용자 계정은 풀의 각 노드에서 생성됩니다. 계정 이름 외에도 계정 암호, 권한 상승 수준을 지정할 수 있으며, Linux 풀의 경우에는 SSH 프라이빗 키도 지정할 수 있습니다. 태스크를 추가할 때 해당 태스크를 실행할 명명된 사용자 계정을 지정할 수 있습니다.
 
 > [!IMPORTANT] 
 > Batch 서비스 버전 2017-01-01.4.0에서는 해당 버전을 호출하기 위해 코드를 업데이트해야 하는 주요 변경 내용이 추가되었습니다. 이전 버전의 Batch에서 코드를 마이그레이션하는 경우 REST API 또는 Batch 클라이언트 라이브러리에서 **runElevated** 속성이 더 이상 지원되지 않습니다. 태스크의 새로운 **userIdentity** 속성을 사용하여 권한 상승 수준을 지정합니다. 클라이언트 라이브러리 중 하나를 사용하는 경우 Batch 코드를 업데이트하기 위한 빠른 지침을 보려면 [최신 Batch 클라이언트 라이브러리로 코드 업데이트](#update-your-code-to-the-latest-batch-client-library) 섹션을 참조하세요.
->
->
-
-> [!NOTE] 
-> 이 문서에서 설명하는 사용자 계정은 보안상의 이유로 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸)을 지원하지 않습니다. 
->
-> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
-> RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
 >
 >
 
@@ -151,7 +152,7 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ## <a name="named-user-accounts"></a>명명된 사용자 계정
 
-풀을 만들 때 명명된 사용자 계정을 정의할 수 있습니다. 명명된 사용자 계정에는 사용자가 제공하는 이름 및 암호가 지정됩니다. 명명된 사용자 계정에 대해 권한 상승 수준을 지정할 수 있습니다. Linux 노드의 경우 SSH 개인 키를 제공할 수도 있습니다.
+풀을 만들 때 명명된 사용자 계정을 정의할 수 있습니다. 명명된 사용자 계정에는 사용자가 제공하는 이름 및 암호가 지정됩니다. 명명된 사용자 계정에 대해 권한 상승 수준을 지정할 수 있습니다. Linux 노드의 경우 SSH 프라이빗 키를 제공할 수도 있습니다.
 
 명명된 사용자 계정은 풀의 모든 노드에 존재하며 해당 노드에서 실행되는 모든 태스크에서 사용할 수 있습니다. 풀에 대해 원하는 수의 명명된 사용자를 정의할 수 있습니다. 태스크 또는 태스크 컬렉션을 추가할 때 태스크가 풀에 대해 정의된 명명된 사용자 계정 중 하나에서 실행되도록 지정할 수 있습니다.
 

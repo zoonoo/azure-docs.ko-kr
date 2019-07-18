@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003244"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798420"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>빠른 시작: App Configuration으로 Azure 함수 만들기
 
@@ -31,7 +31,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [Visual Studio 2017](https://visualstudio.microsoft.com/vs)을 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다. [최신 Azure Functions 도구](../azure-functions/functions-develop-vs.md#check-your-tools-version)도 설치합니다.
+이 빠른 시작을 수행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)를 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다. [최신 Azure Functions 도구](../azure-functions/functions-develop-vs.md#check-your-tools-version)도 설치합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -56,10 +56,10 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. *Function1.cs*를 열고, App Configuration .NET Core 구성 공급자에 대한 참조를 추가합니다.
+2. *Function1.cs*를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

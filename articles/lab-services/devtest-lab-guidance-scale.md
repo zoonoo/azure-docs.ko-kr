@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561492"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs 인프라 강화
@@ -48,7 +48,7 @@ ms.locfileid: "60561492"
 - **예측** - 기업의 구독 비용을 예측할 수 있습니다.  구독이 하나이면 모든 리소스가 단일 풀에 포함되므로 예산을 책정하기가 훨씬 쉬워집니다. 이 방식에서는 청구 주기의 특정 시점에 비용 제어 조치를 취할 시기를 더 간단하게 결정할 수 있습니다.
 - **관리 효율성** Vm 아티팩트, 수식, 네트워크 구성, 사용 권한, 정책, 등은 때문 쉽습니다. 모든 업데이트는 많은 구독에서 업데이트할 대조적으로 하나의 구독에만 필요 합니다.
 - **네트워킹** - 온-프레미스 연결 기능이 필요한 기업의 경우 구독이 하나이면 네트워킹 작업이 훨씬 간소화됩니다. 추가 구독이 있으면 여러 구독에서 가상 네트워크를 연결해야 하는데(허브-스포크 모델), 그러려면 추가 구성과 관리를 수행해야 하며 IP 주소 공간도 추가로 필요합니다.
-- **팀 공동 작업** - 모든 작업자가 같은 구독에서 작업을 하므로 공동 작업을 더 쉽게 수행할 수 있습니다. 예를 들어 동료에게 VM을 다시 할당하거나 팀 리소스를 공유하는 등의 작업이 간소화됩니다.
+- **팀 협업** - 모든 작업자가 같은 구독에서 작업을 하므로 협업을 더 쉽게 수행할 수 있습니다. 예를 들어 동료에게 VM을 다시 할당하거나 팀 리소스를 공유하는 등의 작업이 간소화됩니다.
 
 ### <a name="subscription-per-user"></a>사용자별 구독 사용
 사용자별로 별도의 구독을 사용하는 방식 역시 단일 구독과 동일한 기회를 제공합니다. 여러 구독을 사용하는 경우의 이점은 다음과 같습니다.

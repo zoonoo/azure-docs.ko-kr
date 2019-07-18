@@ -73,7 +73,7 @@ ms.locfileid: "56805056"
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. 다운로드한 소스 코드에서 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 샘플 폴더로 이동합니다. 원하는 편집기에서 **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** 파일을 열고 다음 세부 정보를 추가합니다.
+1. 다운로드한 소스 코드에서 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 샘플 폴더로 이동합니다. 원하는 편집기에서 ** _/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** 파일을 열고 다음 세부 정보를 추가합니다.
 
     1. 다음과 같이 포털에서 프로비전 서비스에 대한 `[Provisioning Connection String]`을 추가합니다.
 
@@ -173,9 +173,9 @@ ms.locfileid: "56805056"
 
 1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 개인 디바이스 인증서로 업데이트합니다.
 
-    PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 개인 키 및 PFX가 포함됩니다.
+    PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 프라이빗 키 및 PFX가 포함됩니다.
 
-    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 ./certs/new-device.cert.pem에 공개 키가 포함됩니다. 디바이스의 개인 키는 ./private/new-device.key.pem 파일에 있게 됩니다.
+    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 ./certs/new-device.cert.pem에 공개 키가 포함됩니다. 디바이스의 프라이빗 키는 ./private/new-device.key.pem 파일에 있게 됩니다.
 
     공개 키 파일을 열고 `leafPublicPem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN PRIVATE KEY-----_ 부터 _-----END PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
 
@@ -189,7 +189,7 @@ ms.locfileid: "56805056"
         "-----END CERTIFICATE-----\n";
     ```
 
-    개인 키 파일을 열고 `leafPrivatePem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN RSA PRIVATE KEY-----_ 부터 _-----END RSA PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
+    프라이빗 키 파일을 열고 `leafPrivatePem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN RSA PRIVATE KEY-----_ 부터 _-----END RSA PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +

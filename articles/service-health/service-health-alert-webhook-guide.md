@@ -1,5 +1,5 @@
 ---
-title: 웹후크를 사용하여 기존 문제 관리 시스템에 대한 상태 알림 구성 | Microsoft Docs
+title: 웹 후크를 사용 하 여 기존 문제 관리 시스템에 대 한 Azure 서비스 상태 알림 구성
 description: 기존 문제 관리 시스템에 서비스 상태 이벤트에 대한 개인 설정 알림 가져오기
 author: stephbaron
 ms.author: stbaron
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067184"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>웹후크를 사용하여 기존 문제 관리 시스템에 대한 상태 알림 구성
 
@@ -26,6 +26,10 @@ ms.locfileid: "60622161"
 * [ServiceNow를 사용하여 경고 구성](service-health-alert-webhook-servicenow.md)
 * [PagerDuty를 사용하여 경고 구성](service-health-alert-webhook-pagerduty.md)
 * [OpsGenie를 사용하여 경고 구성](service-health-alert-webhook-opsgenie.md)
+
+### <a name="watch-an-introductory-video"></a>소개 비디오 보기
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>서비스 상태 웹후크 페이로드를 사용하여 사용자 지정 알림 구성
 고유의 사용자 지정 웹후크 통합을 설정하려면 서비스 상태 알림 중 전송되는 JSON 페이로드를 구문 분석해야 합니다.

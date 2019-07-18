@@ -9,15 +9,15 @@
 - name: 참고 자료
   items:
     - name: Azure CLI
-      href: /cli/azure/
+      href: 'https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest'
     - name: PowerShell
-      href: /powershell/azure/overview
+      href: 'https://docs.microsoft.com/powershell/azure/overview'
     - name: T-SQL
       href: 'https://msdn.microsoft.com/library/azure/bb510741.aspx'
     - name: SQL Server 드라이버
       href: 'https://msdn.microsoft.com/library/mt654049.aspx'
     - name: REST (영문)
-      href: /rest/api/
+      href: 'https://docs.microsoft.com/rest/api/'
 - name: 리소스
   items:
     - name: FAQ
@@ -25,14 +25,14 @@
     - name: Linux의 SQL Server 설명서
       href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
     - name: 가격
-      href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
+      href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fvirtual-machines%2flinux%2fsql%2ftoc.json
     - name: PaaS 또는 IaaS?
-      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
+      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
     - name: SSDT(SQL Server Data Tools)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server 도구
       href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+      href: 'https://www.azure.cn/roadmap/?category=compute'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'

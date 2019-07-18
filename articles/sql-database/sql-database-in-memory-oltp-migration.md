@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65785309"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 애플리케이션의 성능 향상
 
@@ -134,7 +134,7 @@ CREATE PROCEDURE schemaname.procedurename
         END;
 ```
 
-* TRANSACTION_ISOLATION_LEVEL의 경우 스냅숏은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
+* TRANSACTION_ISOLATION_LEVEL의 경우 스냅샷은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
   
   * 반복 가능한 읽기
   * 직렬화 가능

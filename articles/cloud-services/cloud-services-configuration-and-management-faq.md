@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337428"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
@@ -81,7 +81,7 @@ ms.locfileid: "60337428"
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>"확장을 위한 Windows Azure Tools 암호화 인증서"의 목적은 무엇인가요?
 
-이러한 인증서는 클라우드 서비스에 확장명을 추가할 때마다 자동으로 생성됩니다. 가장 일반적으로 WAD 확장 또는 RDP 확장이지만 맬웨어 방지 또는 로그 수집기 확장과 같은 다른 항목일 수도 있습니다. 이러한 인증서는 확장을 위해 개인 구성을 암호화하고 암호 해독하는 경우에만 사용됩니다. 만료 날짜를 확인하지 않으므로 인증서가 만료되는지는 중요하지 않습니다. 
+이러한 인증서는 클라우드 서비스에 확장명을 추가할 때마다 자동으로 생성됩니다. 가장 일반적으로 WAD 확장 또는 RDP 확장이지만 맬웨어 방지 또는 로그 수집기 확장과 같은 다른 항목일 수도 있습니다. 이러한 인증서는 확장을 위해 프라이빗 구성을 암호화하고 암호 해독하는 경우에만 사용됩니다. 만료 날짜를 확인하지 않으므로 인증서가 만료되는지는 중요하지 않습니다. 
 
 이러한 인증서를 무시할 수 있습니다. 인증서를 정리하려면 모두 삭제할 수 있습니다. Azure에서 사용 중인 인증서를 삭제하려면 오류가 throw됩니다.
 

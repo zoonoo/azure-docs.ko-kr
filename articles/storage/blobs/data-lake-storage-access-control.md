@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66751644"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -26,9 +26,9 @@ Azure Data Lake 저장소 Gen2 Azure 역할 기반 액세스 제어 (RBAC)와 �
 
 RBAC 역할 할당을 사용 하 여 사용 권한 집합을 효과적으로 적용할 *보안 주체*합니다. A *보안 주체* 은 사용자, 그룹, 서비스 주체 또는에서 Azure AD (Active Directory) Azure 리소스에 대 한 액세스를 요청 하는 정의 된 관리 되는 id를 나타내는 개체입니다.
 
-최상위 리소스에 이러한 Azure 리소스는 제한 하는 일반적으로 (예: Azure Storage 계정)입니다. Azure Storage 및 이에 따른 Azure Data Lake Storage Gen2의 경우 이 메커니즘은 파일 시스템 리소스로 확장되었습니다.
+최상위 리소스에 이러한 Azure 리소스는 제한 하는 일반적으로 (예: Azure Storage 계정)입니다. Azure Storage 및 결과적으로 Azure Data Lake 저장소 Gen2 경우이 메커니즘에 컨테이너 (파일 시스템) 리소스 확장 되었습니다.
 
-저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 알아보려면 참조 [Authenticate 권한을 Azure blob 및 Azure Active Directory를 사용 하 여 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
+저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 알아보려면 참조 [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>파일 및 디렉터리 수준 액세스 제어 목록에서 역할 할당의 영향
 
@@ -37,7 +37,7 @@ RBAC 역할 할당을 사용 하 여 사용 권한 집합을 효과적으로 적
 보안 주체를 통해 RBAC 데이터 권한을 부여 하면를 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), 사용자 지정 역할을 통해 이러한 사용 권한을 가장 먼저 계산 됩니다 권한 부여 요청 시 또는 합니다. 권한 부여는 즉시 해결 되 고 더 추가 하는 다음 요청된 된 작업의 보안 주체 RBAC 할당에 의해 권한이 부여 된 경우에 ACL 검사가 수행 됩니다. 또는 보안 주체는 RBAC 할당 되지 않은 경우 요청 작업에 할당 된 사용 권한을 맞지 ACL 검사 보안 주체가 요청 된 작업을 수행할 권한이 있는지 확인 하려면 수행 됩니다.
 
 > [!NOTE]
-> 보안 주체에 할당 된 경우는 [저장소 Blob 데이터]() 소유자 기본 제공 역할 할당 후 보안 주체 비율은 *슈퍼 사용자* 모든 변형에 대 한 전체 액세스를 부여 됩니다 디렉터리 또는 파일 뿐만 아니라 Acl의 소유자는 해당 소유자가 파일과 디렉터리에 대 한 설정을 포함 하 여 작업입니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
+> 보안 주체 저장소 Blob 데이터 소유자 기본 제공 역할 할당, 할당 된 경우 보안 주체를 사용 하는 것으로 간주는 *슈퍼 사용자* 설정을 비롯 한 모든 변경 작업에 대 한 모든 권한을 부여 되는 해당 소유자가 파일과 디렉터리에 대 한 Acl 뿐만 아니라 디렉터리 또는 파일의 소유자입니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>공유 키 및 공유 액세스 서명 (SAS) 인증
 
@@ -53,7 +53,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 저장소 계정 수준에서 보안 주체를 역할에 할당 한 경우에 해당 보안 주체 특정 파일 및 디렉터리에 대 한 액세스 권한 부여 액세스 제어 목록을 사용할 수 있습니다.
 
-역할 할당을 통해 부여 되는 수준이 보다 낮은 액세스 수준을 제공 하기 위해 액세스 제어 목록에 사용할 수 없습니다. 예를 들어, 할당 하는 경우는 [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) 에서 디렉터리에 기록 하는 보안 주체를 방지 하기 위해 보안 주체 액세스 제어를 사용할 수 없습니다. 다음에 역할 목록입니다.
+역할 할당을 통해 부여 되는 수준이 보다 낮은 액세스 수준을 제공 하기 위해 액세스 제어 목록에 사용할 수 없습니다. 예를 들어, 할당 하는 경우는 [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 에서 디렉터리에 기록 하는 보안 주체를 방지 하기 위해 보안 주체 액세스 제어를 사용할 수 없습니다. 다음에 역할 목록입니다.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>파일 및 디렉터리 수준 권한 설정 사용 하 여 액세스 제어 목록
 
@@ -61,7 +61,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 |이 도구를 사용 하려면:    |이 문서를 참조 하세요.    |
 |--------|-----------|
-|Azure Storage 탐색기    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|Azure Storage Explorer    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
 |REST API    |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -74,8 +74,6 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
 기본 Acl은 acl을 디렉터리에 연결 된 디렉터리 아래에 만들어진 모든 자식 항목에 대 한 액세스 Acl을 결정 하는 템플릿입니다. 파일에는 기본 ACL이 없습니다.
-
-액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
 
 액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
 
@@ -92,6 +90,9 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 디렉터리에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
+> [!NOTE]
+> Acl (RBAC 없음)를 사용 하 여 권한을 부여 하는 경우 서비스 주체 읽기 또는 파일에 대 한 쓰기 액세스를 허용 하려면 서비스 주체를 지정 해야 **Execute** 권한 있는 각 폴더에 파일 시스템에는 파일에 이어지는 폴더의 계층입니다.
+
 #### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
 **RWX**는 **읽기 + 쓰기 + 실행**을 나타내는 데 사용됩니다. **읽기=4**, **쓰기=2** 및 **실행=1**의 압축된 숫자 형식이 있으며, 그 합계는 권한을 나타냅니다. 다음은 몇 가지 예입니다.
@@ -101,7 +102,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
 | 4            | `R--`        | 읽기                   |
-| 0            | `---`        | 사용 권한 없음         |
+| 0            | `---`        | 권한 없음         |
 
 #### <a name="permissions-inheritance"></a>권한 상속
 
@@ -150,7 +151,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 #### <a name="the-owning-group"></a>소유 그룹
 
-POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 사용자 "Alice"는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
+POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 사용자 "Alice"는 "finance" 그룹에 속할 수 있습니다. Alice가 여러 그룹에 속할 수도 있습니다 하지만 하나의 그룹을 항상 해당 기본 그룹으로 지정 됩니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 

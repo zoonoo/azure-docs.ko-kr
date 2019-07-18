@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66122010"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -27,8 +27,8 @@ ms.locfileid: "59528263"
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
-|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |같은 데이터 집합|
+|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |같은 데이터 집합|
 |[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.
@@ -134,7 +134,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
     ```
 
 3. `az logout` 명령을 사용하여 사용자 A로 Azure에서 로그아웃한 다음 사용자 B로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
-4. myVnetB를 만듭니다. 2 단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10.0.0.0/16을 10.1.0.0/16으로 변경하고 모든 A를 B로, 모든 B를 A로 바꿉니다. 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다.
+4. myVnetB를 만듭니다. 2 단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionA-Id>`를 구독 B의 ID로 바꿉니다. 10\.0.0.0/16을 10.1.0.0/16으로 변경하고 모든 A를 B로, 모든 B를 A로 바꿉니다. 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다.
 5. 사용자 B로 Azure에서 로그아웃하고 사용자 A로 Azure에 로그인합니다.
 6. myVnetA에서 myVnetB로의 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트 내용을 복사합니다. `<SubscriptionB-Id>`를 구독 B의 ID로 바꿉니다. 스크립트를 실행하려면 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣은 다음 Enter를 누릅니다.
 
@@ -167,7 +167,7 @@ CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 �
 
 8. 사용자 A로 Azure에서 로그아웃하고 사용자 B로 Azure에 로그인합니다.
 9. myVnetB에서 myVnetA로의 피어링을 만듭니다. 6단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. `<SubscriptionB-Id>`를 구독 A의 ID로 바꾸고 모든 A를 B로, 모든 B를 A로 변경합니다. 변경을 마친 후 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다.
-10. MyVnetB의 피어링 상태를 확인합니다. 7단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹과 가상 네트워크 이름에 대해 A를 B로 변경하고, 스크립트를 복사하고, 수정된 스크립트를 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 피어링 상태는 **Connected**입니다.  myVnetB에서 myVnetA로의 피어링을 만든 후에는 MyVnetA의 피어링 상태가 **Connected**로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 7단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다. 
+10. MyVnetB의 피어링 상태를 확인합니다. 7단계의 스크립트 내용을 PC의 텍스트 편집기에 복사합니다. 리소스 그룹과 가상 네트워크 이름에 대해 A를 B로 변경하고, 스크립트를 복사하고, 수정된 스크립트를 CLI 세션에 붙여 넣은 다음 `Enter`를 누릅니다. 피어링 상태는 **Connected**입니다. myVnetB에서 myVnetA로의 피어링을 만든 후에는 MyVnetA의 피어링 상태가 **Connected**로 변경됩니다. 사용자 A를 다시 Azure에 로그인하고 7단계를 재수행하여 myVnetA의 피어링 상태를 확인할 수 있습니다. 
 
     > [!NOTE]
     > 두 가상 네트워크 모두에 대해 피어링 상태가 **Connected**가 될 때까지는 피어링이 설정되지 않습니다.

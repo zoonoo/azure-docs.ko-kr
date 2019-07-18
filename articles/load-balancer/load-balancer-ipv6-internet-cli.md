@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516692"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
@@ -38,7 +38,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 * 할당된 IPv4 및 IPv6 주소를 사용하는 각 VM에 대한 가상 네트워크 인터페이스
 * IPv4 및 IPv6 공용 IP 주소를 사용하는 공용 부하 분산 장치
 * 두 개의 VM이 포함된 가용성 집합
-* 공용 VIP를 개인 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
+* 공용 VIP를 프라이빗 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 배포
 

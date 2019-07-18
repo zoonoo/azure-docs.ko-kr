@@ -18,6 +18,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 표준 부하 분산 장치 만들기 - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 표준 Load Balancer 만들기 - Azure Resource Manager 템플릿
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산
@@ -58,6 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: 표준 부하 분산 장치 메트릭 및 진단
       href: load-balancer-standard-diagnostics.md
+    - name: 보안 특성
+      href: load-balancer-security-attributes.md
 - name: 방법
   items:
     - name: 영역 중복 공용 표준 부하 분산 장치 만들기
@@ -126,23 +131,23 @@
       items:
         - name: 아웃바운드 연결(클래식)
           href: load-balancer-outbound-connections-classic.md
-    - name: 클라우드 서비스의 여러 VIP 구성
-      href: load-balancer-multivip.md
-      items:
-        - name: Cloud Services에 대한 내부 부하 분산 장치 구성
-          href: load-balancer-get-started-ilb-classic-cloud.md
+        - name: 클라우드 서비스의 여러 VIP 구성
+          href: load-balancer-multivip.md
           items:
-            - name: Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)
-              href: load-balancer-get-started-ilb-classic-ps.md
-            - name: Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)
-              href: load-balancer-get-started-ilb-classic-cli.md
-        - name: 공용 부하 분산 장치 구성(클래식 PowerShell)
-          href: load-balancer-get-started-internet-classic-ps.md
-          items:
-            - name: 공용 부하 분산 장치 구성(클래식 클라우드)
-              href: load-balancer-get-started-internet-classic-cloud.md
-            - name: 공용 부하 분산 장치 구성(클래식 CLI)
-              href: load-balancer-get-started-internet-classic-cli.md
+            - name: Cloud Services에 대한 내부 부하 분산 장치 구성
+              href: load-balancer-get-started-ilb-classic-cloud.md
+              items:
+                - name: Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)
+                  href: load-balancer-get-started-ilb-classic-ps.md
+                - name: Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)
+                  href: load-balancer-get-started-ilb-classic-cli.md
+            - name: 공용 부하 분산 장치 구성(클래식 PowerShell)
+              href: load-balancer-get-started-internet-classic-ps.md
+              items:
+                - name: 공용 부하 분산 장치 구성(클래식 클라우드)
+                  href: load-balancer-get-started-internet-classic-cloud.md
+                - name: 공용 부하 분산 장치 구성(클래식 CLI)
+                  href: load-balancer-get-started-internet-classic-cli.md
 - name: 참고 자료
   items:
     - name: 코드 샘플
@@ -153,7 +158,7 @@
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.network
     - name: Node.js
       href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'
@@ -185,6 +190,8 @@
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Azure Load Balancer 피드백
+      href: 'https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
     - name: 요금 계산기

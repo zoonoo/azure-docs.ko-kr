@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737219"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310477"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="사용 하는 Azure Functions 런타임의 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
 > * [버전 2](functions-host-json.md)
 
@@ -35,7 +35,6 @@ ms.locfileid: "60737219"
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
 다음 샘플 *host.json* 파일에는 가능한 모든 옵션이 지정되어 있습니다.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ ms.locfileid: "60737219"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -145,7 +147,7 @@ ms.locfileid: "60737219"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 앱 서비스 계획의 경우 전체 제한은 없으며 기본값은 런타임 버전에 따라 달라집니다. 버전 2.x에서 앱 서비스 계획의 기본값은 30분입니다. 버전 1.x의 기본값은 *null*(시간 제한 없음)입니다.
+모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 전용된 App Service 계획에서 전체 제한이 이며 기본값은 30 분입니다. 값 `-1` 무제한 실행을 나타냅니다.
 
 ```json
 {
@@ -194,6 +196,9 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -204,7 +209,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
-|console|해당 없음| [콘솔](#console) 로깅 설정입니다. |
+|console|해당 없음| [console](#console) 로깅 설정입니다. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 
 ## <a name="console"></a>console
@@ -274,6 +279,18 @@ v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"versi
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+관리 되는 종속성은 현재 미리 보기 기능 PowerShell 기반 함수 에서만 지원 됩니다. 종속성을 서비스에 의해 자동으로 관리할 수 있습니다. 활성화 속성이 설정 된 경우 true로 합니다 [requirements.psd1](functions-reference-powershell.md#dependency-management) 파일 처리 됩니다. 종속성 모든 부 버전이 새로 릴리스될 때 업데이트 됩니다.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

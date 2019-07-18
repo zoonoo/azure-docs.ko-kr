@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051173"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570612"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -87,7 +87,7 @@ Azure는 클라우드 컴퓨팅 플랫폼에서 많은 서비스를 제공합니
 
 - Azure Virtual Machines - Linux 및 Windows
 
-- App Services(Web Apps, Mobile Apps, Logic Apps, API Apps 및 Function Apps)
+- App Services(Web Apps, Mobile Apps, Logic Apps, API Apps 및 함수 앱)
 
 - Azure Batch(대규모 병렬 및 배치 계산 작업의 경우)
 
@@ -145,7 +145,7 @@ Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](https:
 
 Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. Azure에서 서비스, 애플리케이션 또는 VM을 프로비저닝할 때 지역을 선택하라는 메시지가 나타납니다. 선택한 지역은 애플리케이션이 실행되는 특정 데이터 센터를 나타냅니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
-Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 애플리케이션을 배포할 수 있다는 것입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
+Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 애플리케이션을 배포할 수 있다는 것입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가/지역에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -481,7 +481,7 @@ Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므
 
 - Azure 리소스 관리자 템플릿
 
-> **사용하는 경우**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 사설 서브넷으로 분할할 수 있습니다.
+> **사용하는 경우**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 프라이빗 서브넷으로 분할할 수 있습니다.
 > 
 > **시작**: Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
 

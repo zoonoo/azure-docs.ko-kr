@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719225"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65991441"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -169,7 +169,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 #### <a name="availability"></a>가용성
 
-데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
+데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/ 로 이동하여 MEDIA 테이블로 스크롤합니다.
 
 ### <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
@@ -208,7 +208,6 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
 |Azure 미디어 얼굴 탐지기|미리 보기|모두|
-|Azure 미디어 Hyperlapse|미리 보기|모두|
 |Azure Media Indexer|GA|모두|
 |Azure 미디어 동작 탐지기|미리 보기|모두|
 |Azure 미디어 OCR|미리 보기|모두|

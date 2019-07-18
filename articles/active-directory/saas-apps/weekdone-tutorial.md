@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d067d36ea41f80648fcb06fe3b0e51e4f5b3a1a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 43ade2035e6f831f9d665d2b53dabb3afb96f41d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>자습서: Weekdone과 Azure Active Directory 통합
 

@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Visual Search SDK, Python'
 titleSuffix: Azure Cognitive Services
 description: Visual Search SDK Python 콘솔 애플리케이션을 설치합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: 970b3e7e8e45e5d5249fb5a45c966d9395b130a0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884157"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204025"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>빠른 시작: Bing Visual Search SDK for Python을 사용하여 이미지 인사이트 가져오기
 
@@ -24,7 +24,7 @@ ms.locfileid: "55884157"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python](https://www.python.org/) 2.x 또는 3.x
-* [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것이 좋습니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치합니다.
+* [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것이 좋습니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다.
 * Bing Visual Search SDK for Python. 다음 명령을 실행하여 설치할 수 있습니다.
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
@@ -50,6 +50,7 @@ ms.locfileid: "55884157"
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. 구독 키, 사용자 지정 구성 ID 및 업로드할 이미지에 대한 변수를 만듭니다. 
     
@@ -63,7 +64,7 @@ ms.locfileid: "55884157"
 3. 클라이언트 인스턴스화
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-the-search-request"></a>검색 요청 보내기

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f514fe06c056c4f3142cbe1aad1f5b4082a796
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82a51913e2b278849d2640c838fa7ebc38bc2d9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>자습서: Alcumus Info Exchange와 Azure Active Directory 통합
 

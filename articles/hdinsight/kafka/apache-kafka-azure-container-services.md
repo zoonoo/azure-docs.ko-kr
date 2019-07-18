@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723675"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446469"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -35,7 +35,7 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-또한 이 문서에서는 [Azure Kubernetes Services 자습서](../../aks/tutorial-kubernetes-prepare-app.md)를 살펴보았다고 가정합니다. 이 자습서에서는 컨테이너 서비스를 만들고, Kubernetes 클러스터와 컨테이너 레지스트리를 생성하고, `kubectl` 유틸리티를 구성합니다.
+또한 이 문서에서는 [Azure Kubernetes Services 자습서](../../aks/tutorial-kubernetes-prepare-app.md)를 살펴보았다고 가정합니다. 이 문서에서는 컨테이너 서비스 Kubernetes 클러스터에서 컨테이너 레지스트리를 생성 하 고 구성 된 `kubectl` 유틸리티입니다.
 
 ## <a name="architecture"></a>아키텍처
 
@@ -103,7 +103,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
-1. 웹 브라우저를 사용하여 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. __CLUSTERNAME__을 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
+1. 웹 브라우저를 사용하여 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. __CLUSTERNAME__을 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 

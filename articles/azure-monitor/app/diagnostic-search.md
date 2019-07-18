@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900271"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
@@ -58,9 +58,9 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 ![개별 종속성 요청 스크린샷](./media/diagnostic-search/003.png)
 
-종단 간 트랜잭션 세부 정보 보기가 시작됩니다.
+엔드투엔드 트랜잭션 세부 정보 보기가 시작됩니다.
 
-![종단 간 트랜잭션 세부 정보 보기 스크린샷입니다.](./media/diagnostic-search/004.png)
+![엔드투엔드 트랜잭션 세부 정보 보기 스크린샷입니다.](./media/diagnostic-search/004.png)
 
 ## <a name="filter-event-types"></a>이벤트 유형 필터링
 필터 블레이드를 열고 확인하려는 이벤트 유형을 선택합니다. (나중에 열었던 블레이드로 필터를 복원하려는 경우 재설정을 클릭합니다.)

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199310"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606200"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Office 365 그룹이 만료되도록 설정
 
@@ -35,11 +35,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisite"></a>필수 요소
 
-그룹 만료를 설정하려면 조직의 글로벌 관리자 또는 사용자 관리자여야 합니다.
+ 그룹 만료 설정에 필요한 최소 권한 역할은 조직의 사용자 관리자입니다.
 
 ## <a name="turn-on-user-creation-for-groups"></a>그룹에 대한 사용자 만들기 기능 켜기
 
-1. 조직의 글로벌 관리자 또는 사용자 관리자인 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 사용자 관리자 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **그룹**을 선택한 다음, **일반**을 선택합니다.
   
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-기술 제약 조건을 포함한 만료, 사용자 지정 차단 단어를 추가하는 방법, Office 365 앱의 최종 사용자 환경에 대한 자세한 내용은 만료 정책에 대해 자세히 설명하는 다음 문서를 참조하세요.
+PowerShell 지침 및 기술 제약 조건을 포함한 만료에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [만료 정책 모든 세부 정보](groups-lifecycle.md)
+> [만료 정책 PowerShell](groups-lifecycle.md)

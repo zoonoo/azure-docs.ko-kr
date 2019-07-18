@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570099"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509273"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 | **지원되는 최소 런타임**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* TCP 모드에서 기본적으로
+* 파티션 간 쿼리 메트릭을 모든 파티션에 이제 반환합니다.
+* 전역 강력한 이제 제대로 작동
+* 쿼리에 대 한 장애 조치 다중 마스터에 대 한 않았습니다. 다시 시도
+* 종속성이 보안 핫픽스 삭제
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* 해시 V2 지원에 대 한 픽스
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Client#close()에서 리소스 누수에 대 한 픽스 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
@@ -133,7 +143,7 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 * 적절한 java 문서 생성을 위한 Java 헤더 파일을 수정했습니다.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* 게이트웨이 모드에서 [Netty 라이브러리](https://netty.io/)를 사용하여 비차단 IO에 대한 종단 간 지원을 제공하는 GA SDK입니다. 
+* 게이트웨이 모드에서 [Netty 라이브러리](https://netty.io/)를 사용하여 비차단 IO에 대한 엔드투엔드 지원을 제공하는 GA SDK입니다. 
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.

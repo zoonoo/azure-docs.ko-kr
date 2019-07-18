@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
 ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129062"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "62129062"
 Azure 고객은 Azure Portal([https://portal.azure.com](https://portal.azure.com))에서 지원 요청을 만들고 관리할 수 있습니다.
 
 > [!NOTE]
-> 독일 Azure Portal은 [https://portal.microsoftazure.de](https://portal.microsoftazure.de) 입니다.  
+> 독일 Azure Portal은 [https://portal.microsoftazure.de](https://portal.microsoftazure.de)  입니다.  
 > 미국 정부에 대한 Azure Portal은 [https://portal.azure.us](https://portal.azure.us)입니다.
 
 

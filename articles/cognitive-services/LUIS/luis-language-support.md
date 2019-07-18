@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072372"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
@@ -99,7 +99,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 다음 문화권에는 사용자 지정 토크 나이저 버전이:
 
-|문화권|Version|목적|
+|Culture|Version|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|Machine learning 기반 토크 나이저를 복합 단어는 단일 구성 요소로 세분화 하려고 하는 사용 하 여 분할 하 여 단어를 토큰화 합니다.<br>사용자가 입력 `Ich fahre einen krankenwagen` 설정 된를 utterance로 `Ich fahre einen kranken wagen`입니다. 표시를 허용 `kranken` 및 `wagen` 다른 엔터티로 독립적으로 유지 합니다.|
 |독일어<br>`de-de`|1.0.2|공간에 분할 하 여 단어를 토큰화 합니다.<br> 사용자가 입력 `Ich fahre einen krankenwagen` 단일 토큰을 utterance로 유지 합니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |

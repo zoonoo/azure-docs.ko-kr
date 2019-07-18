@@ -2,39 +2,39 @@
 title: 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정 - Azure Active Directory B2C | Microsoft Docs
 description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 등록 또는 로그인 경험에 클레임을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685282"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835199"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  항목을 드롭다운으로 구성하고 필수 여부를 정의합니다.
+이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  드롭다운으로 항목을 구성 하 고가 필요한 지 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다. 진행하기 전에 등록/로그인 사용자 경험을 테스트하여 새 로컬 계정을 등록합니다.
 
 ## <a name="add-claims"></a>클레임 추가
 
-사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C가 사용자로부터 직접, 정보를 대화형으로 수집할 때마다 Identity Experience Framework는 자체 어설션 공급자를 사용합니다.
+사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C를 대화형으로 사용자에서 직접 정보 수집, 언제 든 지 Identity Experience Framework를 해당 자체 어설션된 공급자를 사용 합니다.
 
 
 ### <a name="define-the-claim"></a>클레임 정의
 
-사용자에게 도시를 요청해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
+해당 도시에 대 한 사용자에 게 요청 해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
 
 ```xml
 <ClaimType Id="city">
@@ -79,7 +79,7 @@ ms.locfileid: "64685282"
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![드롭다운 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![몇 가지 옵션을 보여 주는 단일 선택 드롭다운 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ ms.locfileid: "64685282"
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![다중 선택 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![몇 가지 옵션을 보여 주는 다중 선택 확인란 컨트롤](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ ms.locfileid: "64685282"
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. SignUporSignIn.xml 파일에 `<OutputClaim ClaimTypeReferenceId="city" />` 클레임을 추가하여 성공적인 사용자 경험 후에 이 클레임이 애플리케이션에 토큰으로 전송되도록 합니다.
 
     ```xml

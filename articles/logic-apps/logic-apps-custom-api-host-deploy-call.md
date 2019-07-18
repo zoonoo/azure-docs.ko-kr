@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
 ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740414"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 사용자 지정 API 배포 및 호출
@@ -35,7 +35,7 @@ ms.locfileid: "60740414"
 
    ![사용자 지정 API에 대한 OpenAPI 파일에 연결](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. **API** 아래에서 **CORS**를 선택합니다. **허용된 원본**에 대한 CORS 정책을 **'*'**(모두 허용)로 설정합니다.
+3. **API** 아래에서 **CORS**를 선택합니다. **허용된 원본**에 대한 CORS 정책을 **'*'** (모두 허용)로 설정합니다.
 
    이 설정은 Logic App Designer의 요청을 허용합니다.
 

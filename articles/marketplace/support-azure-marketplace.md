@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937694"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원  
@@ -30,7 +30,7 @@ Microsoft를 사용 하 여 티켓을 열어 [marketplace 게시자 지원](http
 |:--- |:--- |:--- |  
 | 도움이 필요하면 [Marketplace 지원](https://go.microsoft.com/fwlink/?linkid=844975)의 인시던트 만들기 페이지를 방문하세요.</li> </ul> | Cloud 파트너 포털에 대한 지원. | PST 오전 6시~오후 6시에 지원이 제공됩니다. |  
 
-## <a name="technical"></a>기술  
+## <a name="technical"></a>기술적  
 
 | 지원 채널 | 설명 |  
 |:--- |:--- |  

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083905"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -43,7 +43,7 @@ ms.locfileid: "60472352"
 이러한 계정을 구성할 때는 다음 요구 사항이 충족되어야 합니다.
 
 - 응급 액세스 계정은 조직의 개별 사용자와 연결되지 않아야 합니다. 직원이 제공한 휴대폰, 개별 직원이 가지고 다니는 하드웨어 토큰 또는 기타 직원 전용 자격 증명에 계정이 연결되지 않아야 합니다. 이 예방 조치는 개별 직원이 자격 증명이 필요한 경우 접근할 수 없는 인스턴스를 포함합니다. 등록된 모든 디바이스가 Azure AD와 통신하는 여러 수단이 있는 안전하고 알려진 위치에 있는지 확인하는 것이 중요합니다.
-- 응급 액세스 계정에 사용되는 인증 메커니즘은 다른 응급 액세스 계정을 비롯한 기타 관리 계정에 사용되는 메커니즘과 구분되어야 합니다.  예를 들어 온-프레미스 MFA를 통해 일반 관리자 로그인이 수행되는 경우에는 Azure MFA가 다른 메커니즘이 될 수 있습니다.  하지만 Azure MFA가 관리 계정에 대한 인증의 기본 부분인 경우에는 다른 방법(예: 타사 MFA 공급자를 통한 조건부 액세스 사용)을 고려하는 것이 좋습니다.
+- 응급 액세스 계정에 사용되는 인증 메커니즘은 다른 응급 액세스 계정을 비롯한 기타 관리 계정에 사용되는 메커니즘과 구분되어야 합니다.  예를 들어 온-프레미스 MFA를 통해 일반 관리자 로그인이 수행되는 경우에는 Azure MFA가 다른 메커니즘이 될 수 있습니다.  그러나 관리 계정에 대 한 인증의 Azure MFA를 사용 하 여 기본 일부인 경우 다른 방법을 타사 MFA 공급자를 사용 하 여 조건부 액세스를 사용 하는 등 이러한 고려해 합니다.
 - 디바이스나 자격 증명이 만료되지 않아야 하고 사용 부족으로 인해 자동으로 정리되는 범위에 속하지 않아야 합니다.  
 - 응급 액세스 계정에 대한 글로벌 관리자 역할 할당은 영구적으로 설정해야 합니다. 
 
@@ -52,11 +52,11 @@ ms.locfileid: "60472352"
 
 암호 손상으로 인한 공격 위험을 줄이기 위해서, Azure AD에서는 모든 개별 사용자에 대해 MFA을 요구하는 것이 좋습니다. 이 그룹에는 계정이 공격에 노출되면 상당한 영향을 미치는 관리자 및 기타 모든 사용자(예: 회계 담당자)가 포함됩니다.
 
-하지만 응급 액세스 계정 중 하나 이상은 응급 계정이 아닌 기타 계정과 MFA 메커니즘이 달라야 합니다. 여기에는 타사 MFA 솔루션이 포함됩니다. Azure AD 및 기타 연결된 SaaS(software as a service)의 [모든 관리자에게 MFA](../authentication/howto-mfa-userstates.md)를 요구하는 조건부 액세스 정책이 있는 경우에는 이러한 요구 사항에서 응급 액세스 계정을 제외하고 대신 다른 매커니즘을 구성해야 합니다. 또한 계정에 사용자별 MFA 정책이 없도록 해야 합니다.
+하지만 응급 액세스 계정 중 하나 이상은 응급 계정이 아닌 기타 계정과 MFA 메커니즘이 달라야 합니다. 여기에는 타사 MFA 솔루션이 포함됩니다. 요구 하는 조건부 액세스 정책이 있는 경우 [모든 관리자에 대해 multi-factor authentication](../authentication/howto-mfa-userstates.md) Azure ad 및 기타 연결 된 소프트웨어에서 응급 액세스 계정을 제외 해야 하는 서비스 (SaaS) 앱으로 요구 사항 및 대신 다른 메커니즘을 구성 합니다. 또한 계정에 사용자별 MFA 정책이 없도록 해야 합니다.
 
-### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>조건부 액세스 정책에서 하나 이상의 계정 제외
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>조건부 액세스 정책에서 하나 이상의 계정을 제외합니다
 
-응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 따라서 하나 이상의 응급 액세스 계정을 모든 조건부 액세스 정책에서 제외시켜야 합니다. [기준 정책](../conditional-access/baseline-protection.md)을 사용하도록 설정한 경우에는 응급 액세스 계정을 제외해야 합니다.
+응급 상황에서 정책으로 인해 액세스 권한이 차단되어 문제를 해결하지 못하는 경우는 없어야 합니다. 하나 이상의 응급 액세스 계정 모든 조건부 액세스 정책에서 제외 되어야 합니다. [기준 정책](../conditional-access/baseline-protection.md)을 사용하도록 설정한 경우에는 응급 액세스 계정을 제외해야 합니다.
 
 ## <a name="additional-guidance-for-hybrid-customers"></a>하이브리드 고객에 대한 추가 지침
 

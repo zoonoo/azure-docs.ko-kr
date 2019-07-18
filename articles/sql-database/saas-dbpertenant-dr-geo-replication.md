@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129859"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
@@ -90,9 +90,9 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 
 복구 프로세스를 시작하기 전에 애플리케이션의 정상 상태를 검토합니다.
-1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net - &lt;user&gt;를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
+1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net - &lt; user&gt; 를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
     * 페이지 아래쪽으로 스크롤하여 바닥글에서 카탈로그 서버 이름과 위치를 확인합니다. 위치는 앱을 배포한 지역입니다.
-    *팁: 위치 위를 마우스로 가리키면 해당 위치가 크게 표시됩니다.*
+    *팁: 위치 위를 마우스로 가리키면 해당 위치가 크게 표시됩니다.* 
     ![원래 지역의 이벤트 허브 정상 상태](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Contoso Concert Hall 테넌트를 클릭하고 해당 이벤트 페이지를 엽니다.
@@ -207,7 +207,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
  
      ![오프라인 Events Hub](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * 오프라인 테넌트의 이벤트 페이지를 직접 열면 '테넌트 오프라인' 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline 페이지](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png)를 열어 봅니다. 
+   * 오프라인 테넌트의 이벤트 페이지를 직접 열면 '테넌트 오프라인' 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall ![ Contoso Offline 페이지](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 를 열어 봅니다. 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>복구 지역에 새 테넌트 프로비전
 기존의 모든 테넌트 데이터베이스가 장애 조치(Failover)되기 전에도 복구 지역에 새 테넌트를 프로비전할 수 있습니다.  
@@ -256,7 +256,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 2. *PowerShell ISE*의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트에서 다음 값을 설정합니다.
     * **$DemoScenario = 4** - 복구 지역의 테넌트에서 이벤트를 삭제합니다.
 3. **F5** 키를 눌러 스크립트를 실행합니다.
-4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;user&gt;를 배포의 사용자 값으로 바꿈)를 새로 고치고 마지막 이벤트가 삭제된 것을 확인합니다.
+4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt; user&gt; 를 배포의 사용자 값으로 바꿈)를 새로 고치고 마지막 이벤트가 삭제된 것을 확인합니다.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>애플리케이션을 원래 프로덕션 지역으로 송환
 
@@ -289,7 +289,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
     * **F5** 키를 눌러 새 PowerShell 창에서 복구 스크립트를 실행합니다.  송환에는 몇 분 정도 걸리며, PowerShell 창에서 모니터링할 수 있습니다.
     ![송환 프로세스](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)를 새로 고칩니다.
+4. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)를 새로 고칩니다.
     * 모든 테넌트가 온라인 상태이며 이 프로세스를 통해 액세스할 수 있습니다.
 
 5. 송환이 완료되면 이벤트 허브를 새로 고치고 Hawthorn Hall에 대한 이벤트 페이지를 엽니다. 이 데이터베이스가 원래 지역으로 송환되었음을 확인합니다.

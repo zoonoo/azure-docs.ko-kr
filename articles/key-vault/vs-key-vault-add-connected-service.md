@@ -4,18 +4,17 @@ description: 이 자습서를 통해 ASP.NET 또는 ASP.NET Core 웹 애플리�
 services: key-vault
 author: ghogen
 manager: jillfra
-ms.prod: visual-studio
-ms.technology: vs-azure
+ms.service: key-vault
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
-ms.openlocfilehash: 154eaa577ea66056c301db9516b425931b81d24d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f84662ce17d604f1a60b6700d259d322415ae91e
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730439"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672220"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -23,7 +22,7 @@ ms.locfileid: "64730439"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 - **Visual Studio 2019** 또는 **Visual Studio 2017 버전 15.7** 사용 하 여 합니다 **웹 개발** 워크 로드가 설치 되어 있습니다. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -141,7 +140,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **TYPE THE RESOURCE GROUP NAME:** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="how-your-aspnet-core-project-is-modified"></a>ASP.NET Core 프로젝트를 수정 하는 방법
 
@@ -151,7 +150,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 프로젝트 파일.NET 참조 및 NuGet 패키지 참조를 영향을 줍니다.
 
-| Type | 참조 |
+| 형식 | 참조 |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -187,7 +186,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 프로젝트 파일.NET 참조에 영향을 줍니다 및 `packages.config` (NuGet 참조).
 
-| Type | 참조 |
+| 형식 | 참조 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

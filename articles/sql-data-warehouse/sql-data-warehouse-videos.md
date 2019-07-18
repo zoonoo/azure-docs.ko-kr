@@ -6,16 +6,16 @@ author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 15893b023e629a9739c7af3a414f35a7761b55d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 52f61f606ddf28c23eb3f72ff91c68a47b667ea1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474934"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595450"
 ---
 # <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse-비디오
 

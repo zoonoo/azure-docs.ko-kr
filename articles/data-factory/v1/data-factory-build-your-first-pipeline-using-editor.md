@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535997"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573831"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -209,16 +209,16 @@ ms.locfileid: "57535997"
     ```
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
-   | 자산 | 설명 |
-   |:--- |:--- |
-   | 형식 |Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다. |
-   | linkedServiceName |이전에 만든 AzureStorageLinkedService를 참조합니다. |
-   | folderPath | 입력 Blob이 포함된 Blob 컨테이너와 폴더를 지정합니다. | 
-   | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 input.log 파일만 처리됩니다. |
-   | 형식 |로그 파일이 텍스트 형식이므로 **TextFormat**을 사용합니다. |
-   | columnDelimiter |로그 파일의 열은 쉼표(`,`)로 구분됩니다. |
-   | frequency/interval |**Month** 및 간격을 설정한 빈도가 **1**인 경우 입력 조각은 매월 제공됩니다. |
-   | external | 이 파이프라인에 의해 입력 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서에서는 이 파이프라인에 의해 input.log 파일이 생성되지 않으므로 이 속성이 **true**로 설정됩니다. |
+   | 자산 | 중첩 | 설명 |
+   |:--- |:--- |:--- |
+   | type | properties |Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다. |
+   | linkedServiceName | format |이전에 만든 AzureStorageLinkedService를 참조합니다. |
+   | folderPath | typeProperties | 입력 Blob이 포함된 Blob 컨테이너와 폴더를 지정합니다. | 
+   | fileName | typeProperties |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 input.log 파일만 처리됩니다. |
+   | type | format |로그 파일이 텍스트 형식이므로 **TextFormat**을 사용합니다. |
+   | columnDelimiter | format |로그 파일의 열은 쉼표(`,`)로 구분됩니다. |
+   | frequency/interval | availability |**Month** 및 간격을 설정한 빈도가 **1**인 경우 입력 조각은 매월 제공됩니다. |
+   | external | properties | 이 파이프라인에 의해 입력 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서에서는 이 파이프라인에 의해 input.log 파일이 생성되지 않으므로 이 속성이 **true**로 설정됩니다. |
 
     이러한 JSON 속성에 대한 자세한 내용은 [Azure Blob 커넥터](data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요.
 
@@ -438,7 +438,7 @@ ms.locfileid: "57535997"
 ## <a name="see-also"></a>참고 항목
 | 항목 | 설명 |
 |:--- |:--- |
-| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 엔드투엔드 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 세트](data-factory-create-datasets.md) |이 문서는 Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [앱 모니터링 및 관리를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 앱 모니터링 및 관리를 사용하여 파이프라인을 모니터링, 관리 및 디버그하는 방법을 설명합니다. |

@@ -2,23 +2,23 @@
 title: Azure AD 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(공개 미리 보기)
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65546193"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -69,9 +69,9 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | app_res |
 | appctx |
 | appctxsender |
-| appId |
+| appid |
 | appidacr |
-| 어설션 |
+| assertion |
 | at_hash |
 | aud |
 | auth_data |
@@ -87,17 +87,17 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| 코드 |
+| code |
 | controls |
 | credential_keys |
 | csr |
 | csr_type |
-| deviceId |
+| deviceid |
 | dns_names |
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| 이메일 |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -105,7 +105,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | grant_type |
 | graph |
 | group_sids |
-| 그룹 |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,9 +156,9 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| 리소스 |
-| 역할 |
-| 역할 |
+| resource |
+| role |
+| role |
 | scope |
 | scp |
 | sid |
@@ -177,7 +177,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| 사용자 이름 |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -267,7 +267,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 **Value:** Value 요소는 클레임에 내보내질 데이터로 정적 값을 정의합니다.
 
-**Source/ID 쌍:**: Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
+**Source/ID 쌍:** : Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
 
 Source 요소는 다음 중 하나로 설정합니다. 
 
@@ -380,7 +380,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ### <a name="exceptions-and-restrictions"></a>예외 및 제한 사항
 
-**SAML NameID 및 UPN:**: NameID 및 UPN 값이 제공되는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
+**SAML NameID 및 UPN:** : NameID 및 UPN 값이 제공되는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 

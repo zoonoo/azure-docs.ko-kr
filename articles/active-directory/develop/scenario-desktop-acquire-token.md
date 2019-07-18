@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075342"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795096"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>토큰을 획득 하는 웹 Api를 호출 하는 데스크톱 앱
 
@@ -163,7 +163,7 @@ MSAL.NET 팀이 확장성 메커니즘을 활용 하 여 UI 테스트를 다시 
 
 #### <a name="other-optional-parameters"></a>다른 선택적 매개 변수
 
-모든 다른 선택적 매개 변수에 대 한 자세한 `AcquireTokenInteractive` 에 대 한 참조 설명서에서 [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+모든 다른 선택적 매개 변수에 대 한 자세한 `AcquireTokenInteractive` 에 대 한 참조 설명서에서 [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>통합된 Windows 인증
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-AcquireTokenByIntegratedWindowsAuthentication에 한정자가 가능한 목록을 참조 하세요. [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+AcquireTokenByIntegratedWindowsAuthentication에 한정자가 가능한 목록을 참조 하세요. [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>사용자 이름/암호
 
@@ -293,8 +293,9 @@ AcquireTokenByIntegratedWindowsAuthentication에 한정자가 가능한 목록�
 
 이 흐름은 다음과 **좋지** 하므로 사용자가 암호를 묻는 응용 프로그램 보안이 유지 되지 않습니다. 이 문제에 대 한 자세한 내용은 참조 하세요. [이 문서에서는](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)합니다. Windows 도메인에 가입 된 컴퓨터에서 자동으로 토큰 획득 하기 위해 기본 흐름은 다음과 [통합 Windows 인증](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)합니다. 그렇지 않은 경우 사용할 수도 있습니다 [장치 코드 흐름](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > 경우에이 유용한 경우도 (DevOps 시나리오)에 onw UI를 제공 하는 대화형 시나리오에서 사용자 이름/암호를 사용 하려는 경우 실제로 벗어나면 이동 하는 방법에 대 한 간주 해야 합니다. 사용자 이름/암호를 사용 하 여 사용자는 제공 접속 다양 한 작업:
-
+>
 > - 최신 id의 테 넌 트 핵심: 암호 fished 가져옵니다 재생 합니다. 이 개념을 가로챌 수 있는 공유 암호를 지정 했으므로 합니다.
 > 암호 없는 호환 되지 않습니다.
 > - 사용자가 MFA를 수행 해야 할 수 없습니다 (상호 작용이 없는)으로 로그인
@@ -502,7 +503,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -519,7 +520,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-에 적용할 수 있는 모든 한정자에 대 한 내용은 `AcquireTokenByUsernamePassword`를 참조 하세요 [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+에 적용할 수 있는 모든 한정자에 대 한 내용은 `AcquireTokenByUsernamePassword`를 참조 하세요 [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>명령줄 도구 (웹 브라우저) 없음
 
@@ -529,7 +530,7 @@ static async Task GetATokenForGraph()
 
 Azure AD 사용 하 여 대화형 인증은 웹 브라우저 필요 (자세한 내용은 참조 하십시오 [웹 브라우저 사용](https://aka.ms/msal-net-uses-web-browser)). 그러나 장치 또는 웹 브라우저를 제공 하지 않는 운영 체제에서 사용자를 인증 하려면 장치 코드 흐름 수가 있습니다 (예를 들어 다른 컴퓨터 또는 휴대폰)에 서명 하는 다른 장치를 사용 하 여 대화형으로. 장치 코드 흐름을 사용 하면 응용 프로그램이 특히 이러한 장치/OS를 위한 2 단계 프로세스를 통해 토큰을 가져옵니다. 이러한 응용 프로그램의 예로 iOT, 또는 명령줄 도구 (CLI)에서 실행 중인 응용 프로그램입니다. 있다는 아이디어가입니다.
 
-1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 `http://microsoft.com/devicelogin`) 있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
+1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 `https://microsoft.com/devicelogin`) 있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
 
 2. 인증이 성공 하면 필요한 웹 API 호출을 수행 하는 데 사용할 및 명령줄 앱 인 백 채널을 통해 필요한 토큰을 받게 됩니다.
 
@@ -547,7 +548,7 @@ Azure AD 사용 하 여 대화형 인증은 웹 브라우저 필요 (자세한 �
 - `scopes` 에 대 한 액세스 토큰을 요청 하려면
 - 받을 콜백 합니다 `DeviceCodeResult`
 
-  ![Image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
 다음 샘플 코드는 예외를 가져올 수 있습니다 및 완화 방법 종류에 대 한 설명이 포함 최신 경우를 표시 합니다.
 
@@ -634,7 +635,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 ## <a name="file-based-token-cache"></a>파일 기반 토큰 캐시
 
-MSAL.NET을 메모리 내 토큰 캐시를 기본적으로 제공 됩니다.
+MSAL.NET에서는 메모리 내 토큰 캐시가 기본적으로 제공됩니다.
 
 ### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>Serialization은 Windows 데스크톱 앱 및 웹 앱/웹 Api에서 사용자 지정 가능
 
@@ -643,16 +644,16 @@ MSAL.NET을 메모리 내 토큰 캐시를 기본적으로 제공 됩니다.
 클래스 및 인터페이스를 토큰 캐시 serialization에 관련 된 다음 유형이 있습니다.
 
 - ``ITokenCache``를 serialize 하거나 deserialize 다양 한 형식에서 캐시 방법 뿐만 아니라 토큰 캐시 serialization 요청 알림을 신청할 이벤트를 정의 하는 (ADAL v3.0, MSAL 2.x 및 MSAL 3.x = ADAL v5.0)
-- ``TokenCacheCallback`` 콜백을 넘어갑니다 이벤트 serialization을 처리할 수 있도록 합니다. 형식의 인수를 사용 하 여 호출할 수 ``TokenCacheNotificationArgs``입니다.
+- ``TokenCacheCallback``은 직렬화를 처리할 수 있도록 이벤트에 전달되는 콜백입니다. 형식의 인수를 사용 하 여 호출할 수 ``TokenCacheNotificationArgs``입니다.
 - ``TokenCacheNotificationArgs`` 제공 된 ``ClientId`` 응용 프로그램 및 토큰을 사용할 수 있는 사용자에 대 한 참조
 
-  ![Image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET 토큰 캐시를 만들고 사용 하 여 제공 합니다 `IToken` 응용 프로그램을 호출 하는 경우의 cache `GetUserTokenCache` 및 `GetAppTokenCache` 메서드. 인터페이스를 구현 하는 것이 없게 합니다. 사용자의 책임을 사용자 지정 토큰 캐시에 대 한 serialization을 구현 하는 경우 다음과 같습니다.
+> 사용자가 애플리케이션의 `GetUserTokenCache` 및 `GetAppTokenCache` 메서드를 호출하면 MSAL.NET은 사용자 대신 토큰 캐시를 만들고 사용자에게 `IToken` 캐시를 제공합니다. 인터페이스를 구현 하는 것이 없게 합니다. 사용자는 사용자 지정 토큰 캐시 직렬화를 구현할 때 다음과 같은 일만 하면 됩니다.
 >
-> - 에 대응할 `BeforeAccess` 고 `AfterAccess` "이벤트"입니다. 합니다`BeforeAccess` 대리자가 반면 캐시를 deserialize 해야 하는 `AfterAccess` 하나는 캐시를 직렬화 하는 작업을 담당 합니다.
-> - 이러한 이벤트의 일부 저장 하거나 전달 되는 이벤트 인수를 통해 원하는 어떤 저장소에 blob을 로드 합니다.
+> - 에 대응할 `BeforeAccess` 하 고 `AfterAccess` "이벤트" (또는 *비동기* 누구). 합니다`BeforeAccess` 대리자가 반면 캐시를 deserialize 해야 하는 `AfterAccess` 하나는 캐시를 직렬화 하는 작업을 담당 합니다.
+> - 이러한 이벤트의 일부는 Blob을 저장하거나 로드하며, Blob은 이벤트 인수를 통해 사용자가 원하는 스토리지에 전달됩니다.
 
 전략은 공용 클라이언트 응용 프로그램 (데스크톱) 또는 기밀 클라이언트 응용 프로그램 (웹 앱/웹 API에 디먼 앱)에 대 한 토큰 캐시에 대 한 serialization을 작성 하는 경우에 따라 다양 합니다.
 
@@ -660,9 +661,9 @@ MSAL V2.x 이후 몇 가지 옵션이 있습니다, MSAL.NET 형식 (통합된 �
 
 사용자 지정 토큰 캐시 serialization ADAL.NET 간 SSO 상태 공유 3.x ADAL.NET 5.x 및 MSAL.NET 다음 샘플의 일부 설명 되어: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>단순 토큰 캐시 serialization (MSAL에만 해당)
+### <a name="simple-token-cache-serialization-msal-only"></a>간단한 토큰 캐시 직렬화(MSAL만 해당)
 
-다음은 데스크톱 응용 프로그램에 대 한 토큰 캐시의 사용자 지정 직렬화를 구현 하는 것은 순진한의 예입니다. 다음 응용 프로그램과 같은 폴더에 파일의 사용자 토큰 캐시입니다.
+아래는 데스크톱 애플리케이션의 토큰 캐시를 사용자 지정 직렬화하는 간단한 예입니다. 다음 응용 프로그램과 같은 폴더에 파일의 사용자 토큰 캐시입니다.
 
 호출 하 여 serialization을 활성화 하는 응용 프로그램을 빌드한 후 ``TokenCacheHelper.EnableSerialization()`` 응용 프로그램 전달 `UserTokenCache`
 
@@ -722,8 +723,9 @@ static class TokenCacheHelper
  }
 ```
 
-공용 클라이언트 응용 프로그램 (Windows, Mac 및 linux에서 실행 되는 데스크톱 응용 프로그램)에 대 한 파일 기반 serializer는에서 사용할 수 있는 제품 품질 토큰 캐시의 미리 보기는 [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) 오픈 소스 라이브러리입니다. 다음 nuget 패키지에서 응용 프로그램에 포함할 수 있습니다. [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+공용 클라이언트 응용 프로그램 (Windows, Mac 및 linux에서 실행 되는 데스크톱 응용 프로그램)에 대 한 파일 기반 serializer는에서 사용할 수 있는 제품 품질 토큰 캐시의 미리 보기는 [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) 오픈 소스 라이브러리입니다. 다음 nuget 패키지에서 이 미리 보기를 애플리케이션에 포함할 수 있습니다. [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > 고 지 사항입니다. Microsoft.Identity.Client.Extensions.Msal 라이브러리 MSAL.NET을 통해 확장입니다. 이러한 라이브러리의 클래스를 만들 수 있습니다 반송 MSAL.NET에 나중에 그대로 또는 주요 변경 내용.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>이중 토큰 캐시 serialization (unified MSAL 캐시 + ADAL V3)

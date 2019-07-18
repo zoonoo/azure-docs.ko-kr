@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>자습서: Azure Active Directory와 Form.com 통합
 
@@ -134,7 +134,7 @@ Form.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-formcom-single-sign-on"></a>Form.com Single Sign-On 구성
 
-**Form.com** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)**, **앱 페더레이션 메타데이터 URL** 및 적절히 복사한 URL을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Form.com** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** , **앱 페더레이션 메타데이터 URL** 및 적절히 복사한 URL을 [Form.com 지원 팀](https://form.com/about/company/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

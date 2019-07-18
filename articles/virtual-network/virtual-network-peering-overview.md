@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077635"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -27,7 +27,7 @@ Azure를 원활 하 게 연결할 수 있습니다 가상 네트워크 피어 �
 
 로컬 또는 글로벌 가상 네트워크 피어링을 사용하는 이점은 다음과 같습니다.
 
-* 피어링된 가상 네트워크 간의 네트워크 트래픽이 개인 전용입니다. 가상 네트워크 간의 트래픽이 Microsoft 백본 네트워크에서 유지됩니다. 가상 네트워크 간의 통신에 공용 인터넷, 게이트웨이, 또는 암호화가 필요하지 않습니다.
+* 피어링된 가상 네트워크 간의 네트워크 트래픽이 프라이빗 전용입니다. 가상 네트워크 간의 트래픽이 Microsoft 백본 네트워크에서 유지됩니다. 가상 네트워크 간의 통신에 공용 인터넷, 게이트웨이, 또는 암호화가 필요하지 않습니다.
 * 다른 가상 네트워크에 있는 리소스 간에 짧은 대기 시간, 높은 대역폭 연결
 * 가상 네트워크가 피어링되면 하나의 가상 네트워크에 있는 리소스가 다른 가상 네트워크에 있는 리소스와 통신할 수 있습니다.
 * Azure 구독, 배포 모델 및 Azure 지역에 데이터를 전송할 수 있습니다.
@@ -90,7 +90,7 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 가상 네트워크 피어링 연결을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. VNet 피어링 및 전역 VNet 피어링 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 
-게이트웨이 전송은 프레미스 간 또는 VNet 간 연결의 피어링된 가상 네트워크에서 VPN Gateway를 활용하도록 가상 네트워크를 설정하는 피어링 속성입니다. 이 시나리오에서 원격 게이트웨이를 통해 전달되는 트래픽은 [VPN Gateway 요금](https://azure.microsoft.com/pricing/details/vpn-gateway/)이 적용되고 [VNet 피어링 요금](https://azure.microsoft.com/pricing/details/virtual-network)이 발생하지 않습니다. 예를 들어, VNetA 온-프레미스 연결에 대 한 VPN gateway가 고 VNetB가 구성 하는 적절 한 속성을 사용 하 여 VNetA에 피어 링을 VNetB에서 온-프레미스 사이트로 VPN gateway 가격 책정 당 송신을만 청구 됩니다. VNet 피어링 요금이 적용되지 않습니다. [가상 네트워크 피어링을 위한 VPN Gateway 전송을 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법을 알아봅니다.
+게이트웨이 전송에는 가상 네트워크를 크로스-프레미스 또는 VNet 대 VNet 연결에 대 한 피어 링 된 가상 네트워크에 VPN/ExpressRoute 게이트웨이 활용할 수 있도록 하는 피어 링 속성입니다. 이 시나리오에서는 원격 게이트웨이 통해 전달 되는 트래픽을 적용 하는 것 [VPN gateway 요금은](https://azure.microsoft.com/pricing/details/vpn-gateway/) ExpressRoute 게이트웨이 요금이 발생 하지 않습니다 또는 [VNet 피어 링 요금입니다.](https://azure.microsoft.com/pricing/details/virtual-network) 예를 들어, VNetA 온-프레미스 연결에 대 한 VPN gateway가 고 VNetB가 구성 하는 적절 한 속성을 사용 하 여 VNetA에 피어 링을 VNetB에서 온-프레미스 사이트로 VPN gateway 가격 책정 또는 ExpressRoute 가격 당 송신을만 청구 됩니다. VNet 피어링 요금이 적용되지 않습니다. [가상 네트워크 피어링을 위한 VPN Gateway 전송을 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

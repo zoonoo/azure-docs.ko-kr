@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217259"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
@@ -50,7 +50,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 > 
 
 ## <a name="billing-implications"></a>요금 청구
-라이브 인코딩 채널은 상태가 API를 통한 "실행 중"으로 전환되면 그 즉시 청구되기 시작됩니다.   또한 Azure Portal 또는 Azure Media Services 탐색기 도구(https://aka.ms/amse)에서 상태를 볼 수도 있습니다.
+라이브 인코딩 채널은 상태가 API를 통한 "실행 중"으로 전환되면 그 즉시 청구되기 시작됩니다.   또한 Azure Portal 또는 Azure Media Services 탐색기 도구(https://aka.ms/amse) 에서 상태를 볼 수도 있습니다.
 
 다음 표에서는 채널 상태가 API 및 Azure Portal에서 청구 상태에 매핑되는 방식을 보여줍니다. API와 포털 UX의 상태는 서로 약간 다릅니다. 채널이 API를 통한 "실행 중" 상태 또는 Azure Portal의 "준비" 또는 "스트리밍" 상태에 있는 한, 요금이 청구됩니다.
 채널이 요금을 청구하지 못하게 하려면 API를 통해 또는 Azure Portal에서 채널을 중지해야 합니다.
@@ -202,7 +202,7 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 들어오는 비디오의 모든 CEA 708 캡션 데이터를 무시하도록 라이브 인코더에 지시하는 선택적 플래그입니다. 플래그를 false(기본값)로 설정하면 인코더가 CEA 708 데이터를 검색하고 출력 비디오 스트림에 다시 삽입합니다.
 
 #### <a name="index"></a>인덱스
-SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입력 스트림에 여러 프로그램이 포함된 경우 채널 내의 라이브 인코더는 입력의 PMT(프로그램 맵 테이블)를 구문 분석하고 스트림 형식 이름이 MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 개인 PES, MPEG-1 오디오, MPEG-2 오디오인 입력을 식별하여 PMT에 지정된 순서로 정렬합니다. 해당 정렬의 n번째 항목을 선택하기 위해 0부터 시작하는 인덱스가 사용됩니다.
+SPTS(단일 프로그램 전송 스트림)로 보내는 것이 좋습니다. 입력 스트림에 여러 프로그램이 포함된 경우 채널 내의 라이브 인코더는 입력의 PMT(프로그램 맵 테이블)를 구문 분석하고 스트림 형식 이름이 MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 오디오, MPEG-2 오디오인 입력을 식별하여 PMT에 지정된 순서로 정렬합니다. 해당 정렬의 n번째 항목을 선택하기 위해 0부터 시작하는 인덱스가 사용됩니다.
 
 #### <a name="language"></a>언어
 ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입니다. 없는 경우 기본값은 UND(정의되지 않음)입니다.

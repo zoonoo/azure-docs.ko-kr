@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e0e595f6bbc1ed241aefe48eb766c04a790a102e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488340"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384583"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -26,14 +26,15 @@ ms.locfileid: "59488340"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
-* NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
-    * Visual Studio에서 NuGet 패키지를 설치하려면
-        1. 솔루션 탐색기에서 마우스 오른쪽 단추를 클릭합니다.
-        2.  **NuGet 패키지 관리...**
-        3. **newtonsoft.json**을 검색한 후 패키지를 설치합니다.
+- [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 
-* Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+- NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크. Visual Studio에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+
+   1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
+   2. **NuGet 패키지 관리**를 선택합니다.
+   3. *Newtonsoft.Json*을 검색하고 패키지를 설치합니다.
+
+- Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -177,4 +178,4 @@ ms.locfileid: "59488340"
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Bing Entity Search API란?](../overview.md )
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

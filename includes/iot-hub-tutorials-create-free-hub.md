@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e3110e4018e214e7e7aa591b811246369c029ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38942231"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229206"
 ---
 Azure Portal을 사용하여 IoT Hub를 만들려면
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **리소스 만들기** > **사물 인터넷** > **IoT Hub**를 선택합니다.
 
@@ -27,8 +27,8 @@ Azure Portal을 사용하여 IoT Hub를 만들려면
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 구독 | 드롭다운에서 Azure 구독을 선택합니다. |
-    | 리소스 그룹 | 새로 만듭니다. 이 자습서에서는 **tutorials-iot-hub-rg**라는 이름을 사용합니다. |
+    | Subscription | 드롭다운에서 Azure 구독을 선택합니다. |
+    | Resource group | 새로 만듭니다. 이 자습서에서는 **tutorials-iot-hub-rg**라는 이름을 사용합니다. |
     | 지역 | 이 자습서에서는 **미국 서부**를 사용합니다. 자신에게 가장 가까운 지역을 선택할 수 있습니다. |
     | Name | 다음 스크린샷에서는 **tutorials-iot-hub**라는 이름을 사용합니다. 허브를 만들 때 고유한 이름을 선택해야 합니다. |
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590e7e301b33fdab4122c4b776ebc52f6ed92b08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0f5de59d0a0188db4eac68c428de3818c12b303
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>자습서: Envoy와 Azure Active Directory 통합
 

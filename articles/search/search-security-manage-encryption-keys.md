@@ -1,5 +1,5 @@
 ---
-title: -미사용 암호화 Azure Key Vault-Azure Search에서에서 고객 관리 키 사용
+title: -미사용 암호화 Azure Key Vault (미리 보기)-Azure Search에서에서 고객 관리 키 사용
 description: 인덱스 및 생성 하 고 Azure Key Vault에서 관리 하는 키를 통해 Azure Search에서 동의어 맵을 통해 서버 쪽 암호화를 추가 합니다.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029177"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485312"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객 관리 키를 사용 하 여 azure Search 암호화
+
+> [!Note]
+> 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 고객 관리 키를 사용 하 여 암호화가 됩니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. .NET SDK 버전 8.0-미리 보기를 사용할 수도 있습니다.
+>
+> 이 기능은 무료 서비스에 사용할 수 없습니다. 2019-01-01 이후에 생성 되는 청구 가능한 검색 서비스를 사용 해야 합니다. 지금은 포털 지원 되지 않습니다.
 
 기본적으로 Azure Search는 사용자 콘텐츠를 사용 하 여 미사용 암호화 [서비스 관리 키](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models)합니다. 기본 암호화 키를 생성 하 고 Azure Key Vault에서 관리를 사용 하 여 추가 암호화 계층을 사용 하 여 보완할 수 있습니다. 이 문서의 단계를 안내합니다.
 
@@ -26,20 +31,17 @@ ms.locfileid: "65029177"
 
 다른 키 자격 증명 모음에서 다른 키를 사용할 수 있습니다. 즉, 단일 검색 서비스는 잠재적 고객 관리 키를 사용 하 여 암호화 되지 않은 indexes\synonym 지도 함께 다른 고객 관리 키를 사용 하 여 암호화 각각 여러 암호화 indexes\synonym 맵을 호스트할 수 있습니다. 
 
->[!Note]
-> **기능 가용성**: 고객 관리 키를 사용 하 여 암호화에는 무료 서비스에 대 한 제공 되지 않는 미리 보기 기능입니다. 유료 서비스에만 사용할 수 있기 2019-01-01, 최신 미리 보기 api-version을 사용 하 여 이후에 만든 검색 서비스에 대 한 (api-버전 = 2019-05-06-미리 보기). 현재는이 기능에 대 한 포털 지원 되지 않습니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
 다음 서비스는이 예제에서 사용 됩니다. 
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
++ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
-[Azure Key Vault 리소스 만들기](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) 구독의 기존 자격 증명 모음을 찾거나 합니다.
++ [Azure Key Vault 리소스 만들기](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) 구독의 기존 자격 증명 모음을 찾거나 합니다.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 나 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 구성 작업에 사용 됩니다.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 나 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 구성 작업에 사용 됩니다.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) 하 고 [Azure Search SDK](https://aka.ms/search-sdk-preview) 미리 보기 REST API를 호출할 수 있습니다. 포털 또는 지금은 고객이 관리 하는 암호화에 대 한.NET SDK를 지원 하지 있습니다.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) 하 고 [Azure Search SDK](https://aka.ms/search-sdk-preview) 미리 보기 REST API를 호출할 수 있습니다. 포털 또는 지금은 고객이 관리 하는 암호화에 대 한.NET SDK를 지원 하지 있습니다.
 
 ## <a name="1---enable-key-recovery"></a>1--키 복구를 사용 하는 중
 
@@ -225,7 +227,7 @@ REST API를 통해 새 동의어 맵 만들기의 세부 정보를 찾을 수 �
 
 1. [Azure Active Directory 애플리케이션을 만듭니다](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [응용 프로그램 ID 및 인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) 암호화 된 인덱스를 만드는 데 필요한 있을 것입니다. 값을 제공 해야 합니다 **응용 프로그램 ID** 하 고 **인증 키**합니다.
+1. [응용 프로그램 ID 및 인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 암호화 된 인덱스를 만드는 데 필요한 있을 것입니다. 값을 제공 해야 합니다 **응용 프로그램 ID** 하 고 **인증 키**합니다.
 
 >[!Important]
 > 를 관리 되는 id를 대신 인증의 AAD 응용 프로그램을 사용 하도록 결정 하는 경우 Azure Search는 사용자를 대신해, AAD 응용 프로그램을 관리할 수 있는 권한이 없습니다 이므로 정기적으로 회전 같은 AAD 응용 프로그램을 관리 하는 사실을 고려해합니다 응용 프로그램 인증 키입니다.

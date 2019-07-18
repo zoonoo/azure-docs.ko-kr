@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799940"
 ---
 # <a name="virtual-machine-skus-tab"></a>가상 머신 SKU 탭
 
@@ -47,7 +47,7 @@ ms.locfileid: "64938140"
 | **설명\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
 | **이 SKU 숨기기\*** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
 | **클라우드 가용성\*** | SKU를 사용할 수 있는 클라우드를 결정합니다.  기본값은 Azure의 공개 버전입니다.  Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족 정부 및 해당 인증 파트너에 대한 액세스를 제어하는 정부-커뮤니티 클라우드입니다.  정부 클라우드에 대한 자세한 내용은 [Azure Government 시작](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. |
-| **이 개인 SKU는 무엇입니까?\*** | SKU가 비공개 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 비공개 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
+| **이 개인 SKU는 무엇입니까?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
 | **국가/지역 가용성\*** | SKU를 구입할 수 있는 국가 또는 세계 지역을 결정합니다. 하나 이상의 지역/국가를 선택합니다. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *가격*   |  |
 | **라이선스 모델\***| 사용할 표준화된 청구 모델입니다.  **사용량 기반 월별 청구 SKU**를 선택하면 코어당 가격 책정의 세부 정보와 체험 평가판 기간을 제공할지 여부를 지정할 수 있는 접이식 섹션이 열립니다.  이 섹션에서는 이 가격 책정 일정을 Excel로 내보내고 가져올 수도 있습니다. 자세한 내용은 [Azure Marketplace의 청구 옵션](../../billing-options-azure-marketplace.md)을 참조하세요. | 
@@ -55,7 +55,7 @@ ms.locfileid: "64938140"
 | **운영 체제 제품군\*** | 솔루션 VM이 Windows 또는 Linux 기반인지 여부를 나타냅니다. |
 | **운영 체제 유형 선택** | 지정된 OS의 특정 공급업체 또는 릴리스입니다. |
 | **OS 이름\*** | 고객에게 표시할 운영 체제 이름입니다.  |
-| **권장 되는 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이러한 권장 사항은 잠재 고객에게 눈에 잘 띄게 표시되지만, 솔루션 이미지와 호환되는 모든 VM 크기를 지정할 수 있습니다. | 
+| **권장 되는 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이 목록은 Azure portal 및 Microsoft 마켓플레이스를 따라 전달 됩니다.  (해당 고객 구독, 지역, 영역 등)에 유효한이 목록의 첫 번째 VM 크기는 잠재 고객에 대 한 기본값으로 설정 됩니다.  사용자는 솔루션 이미지와 호환 되는 모든이 크기를 변경할 수 있습니다. | 
 | **개방 포트**| 개방할 포트와 SKU를 지원할 프로토콜입니다.  이러한 구성은 솔루션 VM의 네트워크에 대해 구성된 가상 네트워크와 일치해야 합니다. 이러한 설정은 VM을 배포하는 중에 적용됩니다. 그러나 SKU가 게시되면 포트 설정을 수정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)을 참조하세요. <br/>모든 VM에 추가되는 기본 네트워크 매핑은 다음과 같습니다. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22에 SSH TCP 22-&GT;합니다. |
 | **디스크 버전**  | 디스크 버전 번호와 디스크 URL로 지정되는 연결된 솔루션 VM입니다. 디스크 버전은 [의미 체계 버전](https://semver.org/) 형식(`<major>.<minor>.<patch>`)이어야 합니다.  URL은 운영 체제 VHD에 대해 만든 공유 액세스 서명 URI입니다.  SKU당 최대 8개의 디스크 버전을 추가할 수 있지만, SKU에 대한 가장 높은 디스크 버전 번호만 Azure Marketplace에 표시됩니다. 다른 버전은 API를 통해서만 볼 수 있습니다.  <!--TD: Add more specific link to API --> <br/> **새 데이터 디스크** 접이식 섹션을 사용하면 최대 15개의 데이터 디스크를 VM에 연결할 수 있습니다.  지정된 VM 버전 및 연결된 데이터 디스크가 있는 SKU가 게시되면 이 구성을 수정할 수 없습니다.  추가 VM 버전이 SKU에 추가되면 동일한 수의 데이터 디스크도 지원해야 합니다. <br/> Azure 기반 VM 이미지를 만들지 않은 경우 나중에 이 필드 업데이트를 추가할 수 있습니다.  연결된 VM 리소스를 만드는 방법에 대한 자세한 내용은 [VM 기술 자산 만들기](./cpp-create-technical-assets.md) 섹션을 참조하세요.  
 |  |  |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002970"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -160,7 +160,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </Creative>
 ```
 
-<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResource**>, <**IFrameResource**> 또는 <**HTMLResource**>일 수 있습니다. <**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
+<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResource**>, <**IFrameResource**> 또는 <**HTMLResource**>일 수 있습니다. \<**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML <**img**> 태그에 표시됩니다.
 
@@ -276,7 +276,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 `<AdBreak>` 요소
     </vmap:VMAP>
 ```
 
-<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf를 참조하세요.
+<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf 를 참조하세요.
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>MAST(Media Abstract Sequencing Template) 파일 사용
 MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리거를 지정할 수 있습니다. 재생 전 광고, 재생 중 광고 및 재생 후 광고에 대한 트리거를 포함하는 예제 MAST 파일은 다음과 같습니다.

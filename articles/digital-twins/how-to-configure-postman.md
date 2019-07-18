@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/05/2019
+ms.author: v-adgera
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926204"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116559"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "60926204"
 
 [Postman](https://www.getpostman.com/)과 같은 REST 클라이언트 도구를 사용하여 Azure Digital Twins를 시작하여 로컬 테스트 환경을 준비합니다. Postman 클라이언트를 통해 복잡한 HTTP 요청을 신속하게 만들 수 있습니다. [www.getpostman.com/apps](https://www.getpostman.com/apps)로 이동하여 Postman 클라이언트의 데스크톱 버전을 다운로드합니다.
 
-[Postman](https://www.getpostman.com/)은 유용한 데스크톱 및 플러그 인 기반 GUI에 대한 주요 HTTP 요청을 찾는 REST 테스트 도구입니다. 
+[Postman](https://www.getpostman.com/)은 유용한 데스크톱 및 플러그 인 기반 GUI에 대한 주요 HTTP 요청을 찾는 REST 테스트 도구입니다.
 
 Postman 클라이언트를 통해 솔루션 개발자는 HTTP 요청의 종류(*POST*, *GET*, *UPDATE*, *PATCH* 및 *DELETE*), 호출할 API 엔드포인트 및 SSL의 사용을 지정할 수 있습니다. Postman은 또한 HTTP 요청 헤더, 매개 변수, 양식 데이터 및 본문 추가를 지원합니다.
 
@@ -39,15 +39,15 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 1. **필수 권한** 아래에서 **추가**를 선택하고 **API 액세스 추가** 아래에 **Azure Digital Twins**를 입력합니다. 검색에서 API를 찾을 수 없는 경우 **Azure Smart Spaces**을 대신 검색합니다. 그런 다음, **사용 권한 부여 > 위임된 권한**과 **완료**를 차례로 선택합니다.
 
-    ![Azure Active Directory 앱 등록 API 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    [![Azure Active Directory 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. **매니페스트**를 클릭하여 앱에 대한 애플리케이션 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
+1. 선택 **매니페스트** 앱에 대 한 응용 프로그램 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
 
-      ![Azure Active Directory 암시적 흐름][1]
+    [![Azure Active Directory 암시적 흐름](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. **회신 URL**을 `https://www.getpostman.com/oauth2/callback`으로 구성합니다.
 
-      ![Azure Active Directory 회신 URL][2]
+    [![Azure Active Directory 회신 URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Azure Active Directory 앱의 **애플리케이션 ID**를 복사하고 유지합니다. 이어지는 단계에서 사용됩니다.
 
@@ -74,13 +74,13 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
     | 인증 URL | 2단계의 **권한 부여 URL**을 사용합니다. |
     | 클라이언트 ID | 이전 섹션에서 생성되거나 용도가 변경된 Azure Active Directory 앱에 대해 **애플리케이션 ID**를 사용합니다. |
-    | 범위 | 비워 둠 |
+    | Scope | 비워 둠 |
     | 시스템 상태 | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |
 
 1. 클라이언트는 이제 다음과 같아야 합니다.
 
-   ![Postman 클라이언트 예제][3]
+    [![Postman 클라이언트 예제](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. **토큰 요청**을 선택합니다.
 
@@ -98,20 +98,20 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 1. **헤더** 탭 아래에서 값이 `multipart/mixed`인 HTTP 요청 헤더 키 **Content-Type**을 추가합니다.
 
-   ![콘텐츠 형식 multipart/mixed][4]
+   [![다중 파트/혼합 콘텐츠 형식](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 텍스트가 아닌 데이터를 파일로 직렬화합니다. JSON 데이터는 JSON 파일로 저장됩니다.
 1. **본문** 탭 아래에서 **키** 이름을 할당하고 `file` 또는 `text`를 선택하여 각 파일을 추가합니다.
 1. 그런 후 **파일 선택** 단추를 사용하여 각 파일을 선택합니다.
 
-   ![Postman 클라이언트 예제][5]
+   [![Postman 클라이언트 예제](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman 클라이언트에서는 다중 파트 청크에 **Content-Type** 또는 **Content-Disposition**을 수동으로 할당할 필요가 없습니다.
    > * 각 파트에 대해 해당 헤더를 지정할 필요가 없습니다.
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
-1. 마지막으로, **보내기**를 클릭하여 다중 파트 HTTP POST 요청을 제출합니다.
+1. 마지막으로, 선택 **보낼** 다중 파트 HTTP POST 요청을 제출 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -120,10 +120,3 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 - 다중 파트 요청을 사용하여 [Azure Digital Twins 엔터티에 blob을 추가](./how-to-add-blobs.md)합니다.
 
 - Management API를 사용하여 인증에 대해 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 참조하세요.
-
-<!-- Images -->
-[1]: media/how-to-configure-postman/implicit-flow.png
-[2]: media/how-to-configure-postman/reply-url.png
-[3]: media/how-to-configure-postman/postman-oauth-token.png
-[4]: media/how-to-configure-postman/content-type.png
-[5]: media/how-to-configure-postman/form-body.png

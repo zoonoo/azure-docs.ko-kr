@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
-ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.author: anavin
+ms.openlocfilehash: bbd21ffeffeaf036909b5ab89f1a07909a03c3f0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191904"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621720"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell을 사용하여 여러 IP 구성의 부하 분산
 
@@ -54,7 +54,7 @@ ms.locfileid: "57191904"
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. NIC가 하나인 VM 만들기를 준비하려면 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)에 있는 3 ~ 5단계의 지침을 수행합니다. 6.1단계를 실행하고 6.2단계 대신 다음을 사용합니다.
+4. NIC가 하나인 VM 만들기를 준비하려면 [Windows VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)에 있는 3 ~ 5단계의 지침을 수행합니다. 6\.1단계를 실행하고 6.2단계 대신 다음을 사용합니다.
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"

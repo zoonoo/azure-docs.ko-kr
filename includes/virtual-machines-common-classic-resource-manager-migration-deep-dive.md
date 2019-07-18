@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125365"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182179"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "62125365"
 |Azure Resource Manager 스택으로 미리 마이그레이션되는 모든 ER 회로|
 |네트워킹 리소스에 대한 Azure Resource Manager 할당량 확인 - 예: 고정 공용 IP, 동적 공용 IP, 부하 분산 장치, 네트워크 보안 그룹, 경로 테이블 및 네트워크 인터페이스 |
 | 배포 및 가상 네트워크에서 유효한 모든 부하 분산 장치 규칙 |
-| 동일한 가상 네트워크에서 중지-할당 취소된 VM 간에 충돌하는 사설 IP |
+| 동일한 가상 네트워크에서 중지-할당 취소된 VM 간에 충돌하는 프라이빗 IP. |
 
 ### <a name="prepare"></a>준비
 준비 작업은 마이그레이션 프로세스의 두 번째 단계입니다. 이 단계의 목표는 클래식 배포 모델에서 리소스 관리자 리소스로의 IaaS 리소스 전환을 시뮬레이션하는 것입니다. 또한 준비 작업에서는 이 시뮬레이션을 시각화할 수 있도록 나란히 표시합니다.

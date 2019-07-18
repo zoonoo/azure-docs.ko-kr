@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074622"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>웹 앱 사용자를 로그인 하는-로그인
@@ -124,7 +124,7 @@ public void SignOut()
 }
 ```
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 ASP.NET Core 또는 ASP.NET을 사용 하지 않으려는 경우에에서 사용할 수 있는 프로토콜 설명서를 살펴볼 수 있습니다 [Open ID Connect](./v2-protocols-oidc.md)합니다.
 

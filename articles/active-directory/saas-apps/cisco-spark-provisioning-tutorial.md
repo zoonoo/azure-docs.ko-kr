@@ -12,16 +12,16 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-wingf
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7263968725a1892a5184a5f97ee760a1667feeab
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278415"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672669"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Spark 구성
 
@@ -83,7 +83,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-cisco-spark-in-azure-ad"></a>Azure AD에서 Cisco Spark에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Cisco Spark**합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Cisco Spark**를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -111,7 +111,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
    * [시작 페이지](https://developer.webex.com/getting-started.html)로 이동합니다.
 
-   * 아래로 스크롤하여는 [인증 섹션](https://developer.webex.com/getting-started.html#authentication)
+   * [인증 섹션](https://developer.webex.com/getting-started.html#authentication)으로 스크롤
   
     ![Cisco Spark 인증 토큰](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
 

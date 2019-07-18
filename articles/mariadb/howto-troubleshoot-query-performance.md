@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745165"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB는 상당히 느린 ‘파일 정렬’ 작업을 수행합니다. 많은 행을 정렬해야 하는 경우에는 특히 느립니다. 이 쿼리를 최적화하려면, 정렬 중인 두 열 모두에 결합된 인덱스를 만듭니다.
+MariaDB는 상당히 느린 ‘파일 정렬’ 작업을 수행합니다. 많은 행을 정렬해야 하는 경우에는 특히 느립니다.  이 쿼리를 최적화하려면, 정렬 중인 두 열 모두에 결합된 인덱스를 만듭니다.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);

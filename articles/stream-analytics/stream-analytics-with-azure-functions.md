@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 04/09/2018
+ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066748"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
 Functions를 Stream Analytics 작업에 대한 출력 싱크 중 하나로 구성하면 Azure Stream Analytics에서 Azure Functions를 실행할 수 있습니다. Functions는 Azure 또는 타사 서비스에서 발생하는 이벤트로 트리거되는 코드를 구현할 수 있게 해주는 이벤트 중심의 컴퓨팅 온 디맨드 환경입니다. 트리거에 응답하는 이러한 Functions 기능 때문에 Stream Analytics 작업에 대한 출력이 자연스럽게 제공됩니다.
 
@@ -26,9 +26,10 @@ Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Funct
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Stream Analytics 작업 만들기
+> * Stream Analytics 작업 만들기 및 실행
+> * Azure Cache for Redis 인스턴스 만들기
 > * Azure Function 만들기
-> * 작업에 대한 출력으로 Azure 함수 구성
+> * Azure Cache for Redis에서 결과 확인
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -38,16 +39,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ![Azure 서비스 간 관계를 보여주는 다이어그램](./media/stream-analytics-with-azure-functions/image1.png)
 
-이 작업을 수행하기 위해서는 다음 단계가 필요합니다.
-* [Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* Azure Cache for Redis 인스턴스 만들기  
-* Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기    
-* [출력으로 사용할 함수로 Stream Analytics 작업 업데이트](#update-the-stream-analytics-job-with-the-function-as-output)  
-* Azure Cache for Redis에서 결과 확인  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기
 
-[실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서에 따라 이벤트 허브를 만들고, 이벤트 생성자 애플리케이션을 시작하고, Stream Analytics 작업을 만듭니다. (쿼리 및 출력을 만드는 단계는 건너뜁니다. 대신 다음 섹션을 참조해서 Functions 출력을 설정합니다.)
+[실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서에 따라 이벤트 허브를 만들고, 이벤트 생성자 애플리케이션을 시작하고, Stream Analytics 작업을 만듭니다. 쿼리 및 출력을 만드는 단계는 건너뜁니다. 대신 다음 섹션을 참조해서 Azure Functions 출력을 설정합니다.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
 
@@ -59,9 +53,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기
 
-1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하십시오. 이 연습에서는 CSharp 언어를 사용하여 [Azure Functions에서 함수 앱 및 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
+1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하세요. 이 연습에서는 C# 언어를 사용하여 함수 앱 및 [Azure Functions의 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
 
-2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. ("\<Azure Cache for Redis 연결 문자열이 여기에 표시됩니다.\>"를 이전 섹션에서 검색한 Azure Cache for Redis 기본 연결 문자열로 바꿉니다.)  
+2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. **"\<Azure Cache for Redis 연결 문자열이 여기에 표시됩니다.\>"** 를 이전 섹션에서 검색한 Azure Cache for Redis 기본 연결 문자열로 바꿉니다. 
 
     ```csharp
     using System;
@@ -112,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ```
 
-   Stream Analytics가 함수에서 "HTTP 요청 엔터티가 너무 큼" 예외를 수신할 경우 Functions로 보내는 일괄 처리 크기를 줄입니다. 함수에서 다음 코드를 사용하여 Stream Analytics가 너무 큰 일괄 처리를 보내지 않는지 확인합니다. 함수에 사용되는 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력한 값과 일치하는지 확인합니다.
+   Stream Analytics가 함수에서 "HTTP 요청 엔터티가 너무 큼" 예외를 수신할 경우 Functions로 보내는 일괄 처리 크기를 줄입니다. 다음 코드는 Stream Analytics가 너무 큰 일괄 처리를 보내지 않도록 합니다. 함수에 사용되는 최대 일괄 처리 수 및 크기 값이 Stream Analytics 포털에 입력한 값과 일치하는지 확인합니다.
 
     ```csharp
     if (dataArray.ToString().Length > 262144)
@@ -121,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         }
    ```
 
-3. 원하는 텍스트 편집기에서 이름이 **project.json**인 JSON 파일을 만듭니다. 다음 코드를 사용하고 이를 로컬 컴퓨터에 저장합니다. 이 파일에는 C# 함수에 필요한 NuGet 패키지 종속성이 포함됩니다.  
+3. 원하는 텍스트 편집기에서 이름이 **project.json**인 JSON 파일을 만듭니다. 다음 코드를 붙여넣고 이를 로컬 컴퓨터에 저장합니다. 이 파일에는 C# 함수에 필요한 NuGet 패키지 종속성이 포함됩니다.  
    
     ```json
     {
@@ -145,8 +139,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![앱 서비스 편집기 스크린샷](./media/stream-analytics-with-azure-functions/image4.png)
 
- 
-
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>출력으로 사용할 함수로 Stream Analytics 작업 업데이트
 
 1. Azure 포털에서 Stream Analytics 작업을 엽니다.  
@@ -163,9 +155,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |최대 일괄 처리 수|함수로 전송되는 각 일괄 처리에서 최대 이벤트 수를 지정합니다. 기본값은 100입니다. 이 속성은 선택 사항입니다.|
    |키|다른 구독의 함수를 사용할 수 있습니다. 함수에 액세스하기 위한 키 값을 제공합니다. 이 속성은 선택 사항입니다.|
 
-3. 출력 별칭의 이름을 제공합니다. 이 자습서에서는 이름을 **saop1**이라고 지정합니다(원하는 이름을 사용할 수 있음). 기타 세부 정보를 채웁니다.  
+3. 출력 별칭의 이름을 제공합니다. 이 자습서에서는 이름이 **saop1**로 지정되어 있으며 원하는 이름을 사용할 수 있습니다. 기타 세부 정보를 채웁니다.
 
-4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. (출력 싱크 이름을 다르게 지정한 경우 "saop1" 텍스트를 바꾸는지 확인합니다.)  
+4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. 출력 싱크 이름을 **saop1**로 지정하지 않은 경우 쿼리에서 변경해야 합니다.  
 
    ```sql
     SELECT
@@ -178,9 +170,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. 명령줄에서 다음 명령을 실행하여 telcodatagen.exe 애플리케이션을 시작합니다(`telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` 형식 사용).  
+5. 명령줄에서 다음 명령을 실행하여 telcodatagen.exe 애플리케이션을 시작합니다. 명령은 `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` 형식을 사용합니다.  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  Stream Analytics 작업을 시작합니다.
 
@@ -188,7 +182,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔**을 선택합니다.  
 
-2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예를 들면 다음과 같습니다.
+2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

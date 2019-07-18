@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62117451"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
@@ -212,7 +212,7 @@ node train.js
 
 두 개의 다른 발언을 시도하여 thermostat으로 반환되는지 확인합니다. 
 
-|#|발언|엔터티|형식|값|
+|#|발언|엔터티(entity)|형식|값|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

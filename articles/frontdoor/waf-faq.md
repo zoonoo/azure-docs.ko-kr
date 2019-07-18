@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061489"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -31,9 +31,6 @@ Application Gateway 또는 Azure 프런트 도어 서비스에서 호스팅되�
 ## <a name="what-is-waf-for-azure-front-door-service"></a>Azure 프런트 도어 서비스에 대 한 WAF 란? 
 
 Azure 프런트 도어는 뛰어나고 전역으로 분산 된 응용 프로그램 및 콘텐츠 배달 네트워크. Azure WAF와 첫 번째 관문을 통합 하는 경우 거부-서비스를 중지 하 고 대상 Azure 네트워크에 지에서 응용 프로그램 공격, 공격 원본 가까이 가상 네트워크를 입력 하기 전에 제품 보호 성능 저하 없이.
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>어떻게 요금이 청구 프런트 도어에 대 한 Azure WAF에 대 한?
-공개 미리 보기 중 첫 번째 관문에서 WAF 사용이 무료로 제공 됩니다. 첫 번째 관문 요금은 추가 참고 합니다. 첫 번째 관문 Service 가격 책정을 참조 하세요 [여기](https://azure.microsoft.com/pricing/details/frontdoor/)합니다.
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF는 HTTPS를 지원 하나요?
 
@@ -77,5 +74,5 @@ Azure 프런트 도어 수 Azure 네트워크 가장자리에서 전체적으로
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 [Azure 웹 응용 프로그램 방화벽](waf-overview.md)합니다.
+- [Azure 웹 애플리케이션 방화벽](waf-overview.md)에 대해 알아봅니다.
 - 에 대해 자세히 알아보세요 [Azure 프런트 도어](front-door-overview.md)합니다.

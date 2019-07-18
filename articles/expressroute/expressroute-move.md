@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363835"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
@@ -60,7 +60,7 @@ ExpressRoute 회로의 **allowClassicOperations** 매개 변수를 설정하여 
 
 그렇지만 **allowClassicOperations**를 TRUE로 설정하면 다음 클래식 작업을 수행할 수 없습니다.
 
-* Azure 개인, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
+* Azure 프라이빗, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
 * ExpressRoute 회로 삭제
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>클래식과 리소스 관리자 배포 모델 간의 통신

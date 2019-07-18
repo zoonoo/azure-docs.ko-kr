@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66e15d58f0c9d82d9ac73747cbd995d8de5cdf97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>자습서: 123ContactForm과 Azure Active Directory 통합
 

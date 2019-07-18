@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146709"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485122"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Ordinal 미리 빌드된 엔터티
 서수는 집합 내의 개체를 `first`, `second`, `third`와 같이 숫자로 나타낸 것입니다. 이 엔터티를 이미 학습했기 때문에 ordinal을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Ordinal 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -130,4 +130,4 @@ Ordinal은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 합니다 [백분율](luis-reference-prebuilt-percentage.md)를 [전화 번호](luis-reference-prebuilt-phonenumber.md), 및 [온도](luis-reference-prebuilt-temperature.md) 엔터티. 
+에 대 한 자세한 합니다 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)를 [전화 번호](luis-reference-prebuilt-phonenumber.md), 및 [온도](luis-reference-prebuilt-temperature.md) 엔터티. 

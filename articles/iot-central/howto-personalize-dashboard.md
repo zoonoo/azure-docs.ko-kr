@@ -3,17 +3,17 @@ title: Azure IoT Central 개인 대시보드 만들기 | Microsoft Docs
 description: 사용자를 만들고 개인 대시보드를 관리 하는 방법에 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c048ae8c0daba0e467a9243f4dd83f8d95921e10
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518613"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502638"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>개인 대시보드를 만들고 설정 합니다.
 
@@ -38,6 +38,8 @@ ms.locfileid: "60518613"
 ![타일에 대한 설정 및 속성이 표시된 “대시보드” 탭](media/howto-personalize-dashboard/personaldashboard.png)
 
 개인 대시보드를 추가로 사용자 지정 하는 방법을 알아봅니다 라이브러리의 다른 타일 형식을 탐색할 수 있습니다.
+
+Azure IoT Central의 타일을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요 [대시보드 타일을 사용 하 여](howto-use-tiles.md)입니다.
 
 ## <a name="manage-dashboards"></a>대시보드 관리
 

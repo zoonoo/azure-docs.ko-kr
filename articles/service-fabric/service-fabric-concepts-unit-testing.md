@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595505"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 
@@ -36,7 +36,7 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 
 ## <a name="common-practices"></a>일반적인 방법
 
-다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 이 기능을 제공하는 모의 라이브러리가 있습니다. 3.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
+다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 3\.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
 
 ### <a name="arrangement"></a>정렬
 
@@ -64,8 +64,8 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 
 단위 테스트를 실행할 때, RunAsync, ChangeRoleAsync, OpenAsync 및 CloseAsync에 제공되는 모든 취소 토큰은 테스트 실행 동안 보류되어야 합니다. 이러한 토큰을 보류하면 테스트 중에 서비스 종료 또는 강등을 시뮬레이트할 수 있고 서비스가 적절히 응답하는지 확인할 수 있습니다.
 
-#### <a name="test-end-to-end-with-mocked-remote-resources"></a>모의 원격 리소스로 포괄적인 테스트 진행
-단위 테스트는 상태 저장 서비스의 상태를 수정할 수 있는 애플리케이션 코드 양만큼 실행해야 합니다. 테스트는 좀 더 포괄적으로 진행하는 것이 좋습니다. 존재하는 유일한 모의 항목은 원격 리소스 상호 작용을 기록, 시뮬레이트 및/또는 확인하는 것입니다. 여기에는 상태 관리자 및 신뢰할 수 있는 컬렉션과의 상호 작용이 포함됩니다. 다음 코드 조각은 포괄적인 테스트를 보여주는 오이 피클 예제입니다.
+#### <a name="test-end-to-end-with-mocked-remote-resources"></a>모의 원격 리소스로 엔드투엔드 테스트 진행
+단위 테스트는 상태 저장 서비스의 상태를 수정할 수 있는 애플리케이션 코드 양만큼 실행해야 합니다. 테스트는 좀 더 엔드투엔드로 진행하는 것이 좋습니다. 존재하는 유일한 모의 항목은 원격 리소스 상호 작용을 기록, 시뮬레이트 및/또는 확인하는 것입니다. 여기에는 상태 관리자 및 신뢰할 수 있는 컬렉션과의 상호 작용이 포함됩니다. 다음 코드 조각은 엔드투엔드 테스트를 보여주는 오이 피클 예제입니다.
 
 ```
     Given stateful service named "fabric:/MyApp/MyService" is created

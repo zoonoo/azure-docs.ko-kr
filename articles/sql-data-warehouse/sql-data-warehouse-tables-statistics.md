@@ -2,21 +2,21 @@
 title: 통계 만들기 및 업데이트 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65851535"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 통계
 
@@ -78,7 +78,7 @@ Table_name은 표시할 통계가 들어 있는 테이블의 이름입니다. �
 |||
 |-|-|
 | **통계 업데이트의 빈도**  | 일반: 매일 </br> 데이터 로드 또는 변환 후 |
-| **샘플링** | 십억 개보다 적은 행이 있는 경우, 기본 샘플링(20%)을 사용합니다. </br> 십억 개 이상의 행이 있는 경우, 2%의 샘플링을 사용합니다. |
+| **샘플링** |  십억 개보다 적은 행이 있는 경우, 기본 샘플링(20%)을 사용합니다. </br> 십억 개 이상의 행이 있는 경우, 2%의 샘플링을 사용합니다. |
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
@@ -389,7 +389,7 @@ UPDATE STATISTICS [schema_name].[table_name];
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 문은 사용하기 쉽습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다. 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
+UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
 
 > [!NOTE]
 > 테이블에 대한 모든 통계를 업데이트하는 경우 SQL Data Warehouse는 각 통계 개체에 대한 테이블을 검색하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.

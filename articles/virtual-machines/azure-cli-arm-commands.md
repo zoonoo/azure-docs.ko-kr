@@ -4,7 +4,7 @@ description: 리소스 관리자 배포 모델에서 리소스를 관리하는 A
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4a155159759a4b817842087bff7d4167ed8ed0c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799830"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722836"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -969,6 +969,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 부하 분산 장치에서 백엔드 IP 풀 범위 리소스를 제거합니다.
@@ -1333,7 +1334,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-     network public-ip list [options] <resource-group> 리소스 그룹 내 모든 공용 IP 리소스를 나열합니다.
+
+    network public-ip list [options] <resource-group>
+리소스 그룹 내 모든 공용 IP 리소스를 나열합니다.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,7 +1356,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 리소스 그룹 내 공용 IP 리소스에 대한 공용 IP 속성을 표시합니다.

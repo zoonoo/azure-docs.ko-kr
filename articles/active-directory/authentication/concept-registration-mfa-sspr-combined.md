@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415795"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537017"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "60415795"
 
 ![내 프로필 표시를 사용자에 대 한 보안 정보 등록](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-새 환경을 설정 하기 전에이 관리자에 초점을 맞춘 설명서 및 기능과이 기능의 효과 이해 하도록 사용자에 초점을 맞춘 설명서를 검토 합니다. 새 환경에 대 한 사용자에 게 준비 하 고 출시를 확인 하는 데 도움이 사용자 문서에서 교육을 기본입니다.
+새 환경을 설정 하기 전에이 관리자에 초점을 맞춘 설명서 및 기능과이 기능의 효과 이해 하도록 사용자에 초점을 맞춘 설명서를 검토 합니다. 교육을 기준 합니다 [사용자 용 설명 문서](../user-help/user-help-security-info-overview.md) 새 환경 및 성공적인 롤아웃 하도록 도움을 위한 사용자를 준비 합니다.
 
 Azure AD 등록 Azure US Government, Azure 독일 또는 Azure 중국 21Vianet 같은 국가별 클라우드에 현재 제공 되지 않습니다. 보안 정보를 결합 합니다.
 
@@ -84,20 +84,20 @@ Azure AD 등록 Azure US Government, Azure 독일 또는 Azure 중국 21Vianet �
 
 등록 하거나 해당 보안 정보 새로 고침 하 라는 메시지가 표시 될 수 있습니다 사용자는 몇 가지 시나리오는 다음과 같습니다.
 
-* Multi-factor Authentication 등록 Id 보호를 통해 적용 합니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
-* Multi-factor Authentication 등록 사용자별 Multi-factor Authentication을 통해 적용 됩니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
-* Multi-factor Authentication 등록 조건부 액세스 또는 기타 정책을 통해 적용 됩니다. 사용자는 Multi-factor Authentication을 요구 하는 리소스를 사용할 때 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
-* SSPR 등록을 적용 합니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. SSPR 방법만 등록 합니다.
-* SSPR 새로 고침 작업을 적용 합니다. 사용자는 관리자가 설정한 간격에 해당 보안 정보를 검토 해야 사용자가 해당 정보를 표시 됩니다 및 현재 정보를 확인 하거나 필요한 경우 변경할 수 있습니다.
+- Multi-factor Authentication 등록 Id 보호를 통해 적용 합니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
+- Multi-factor Authentication 등록 사용자별 Multi-factor Authentication을 통해 적용 됩니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
+- Multi-factor Authentication 등록 조건부 액세스 또는 기타 정책을 통해 적용 됩니다. 사용자는 Multi-factor Authentication을 요구 하는 리소스를 사용할 때 등록 하 라는 메시지가 표시 됩니다. (사용자가 SSPR에 대 한 사용) 하는 경우 Multi-factor Authentication 메서드와 SSPR 메서드 등록 합니다.
+- SSPR 등록을 적용 합니다. 사용자는 로그인 시 등록 하 라는 메시지가 표시 됩니다. SSPR 방법만 등록 합니다.
+- SSPR 새로 고침 작업을 적용 합니다. 사용자는 관리자가 설정한 간격에 해당 보안 정보를 검토 해야 사용자가 해당 정보를 표시 됩니다 및 현재 정보를 확인 하거나 필요한 경우 변경할 수 있습니다.
 
 등록을 적용 하는 경우 사용자가 가장 낮은 보안 수준 가장의 Multi-factor Authentication 및 SSPR 정책을 준수 하는 데 필요한 방법 중 최소 수를 표시 됩니다.
 
 예를 들면 다음과 같습니다.
 
-* 사용자는 SSPR에 대 한 활성화 됩니다. SSPR 정책 다시 설정 하는 두 방법이 필요 하 고 모바일 앱 코드, 메일 및 전화를 활성화 합니다.
-   * 이 사용자가 두 개의 메서드를 등록 해야 합니다.
-      * 사용자는 기본적으로 authenticator 앱 및 phone 표시 됩니다.
-      * 사용자는 authenticator 앱 또는 전화 대신 전자 메일 등록 하도록 선택할 수 있습니다.
+- 사용자는 SSPR에 대 한 활성화 됩니다. SSPR 정책 다시 설정 하는 두 방법이 필요 하 고 모바일 앱 코드, 메일 및 전화를 활성화 합니다.
+   - 이 사용자가 두 개의 메서드를 등록 해야 합니다.
+      - 사용자는 기본적으로 authenticator 앱 및 phone 표시 됩니다.
+      - 사용자는 authenticator 앱 또는 전화 대신 전자 메일 등록 하도록 선택할 수 있습니다.
 
 이 순서도 설명 메서드는 로그인 시 등록을 중단 하는 경우 사용자에 게 표시 됩니다.
 
@@ -136,6 +136,8 @@ Multi-factor Authentication에 사용할 수 있는 하나 이상의 메서드 �
 ## <a name="next-steps"></a>다음 단계
 
 [테 넌 트의 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md)
+
+[SSPR 및 MFA 사용량 및 통찰력 보고](howto-authentication-methods-usage-insights.md)
 
 [Multi-factor Authentication 및 SSPR에 대 한 사용 가능한 메서드](concept-authentication-methods.md)
 

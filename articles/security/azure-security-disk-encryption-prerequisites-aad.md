@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 5fa8e54a6a665b1bad91a87ca8e58f873df1ae8a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286417"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672312"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -28,26 +28,64 @@ ms.locfileid: "58286417"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> 지원되는 운영 체제
-Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016
-  - Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows 업데이트에서 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 사용하여 설치합니다.    
-- Windows 클라이언트 버전: Windows 8 클라이언트 및 Windows 10 클라이언트
-- Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다. 현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
+### <a name="windows"></a>Windows
+
+- Windows 클라이언트: Windows 8 이상입니다.
+- Windows Server: Windows Server 2008 R2 이상.  
+ 
+> [!NOTE] 
+> 암호화에 대 한 설치할.NET Framework 4.5를 필요로 하는 Windows Server 2008 R2 Windows Server 2008 R2 x64 기반 시스템용 Microsoft.NET Framework 4.5.2 선택적 업데이트를 사용 하 여 Windows 업데이트에서 설치 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+>  
+> Windows Server 2012 R2 Core 및 Windows Server 2016 Core에는 암호화에 대 한 VM에 설치할 bdehdcfg 구성 요소에 필요 합니다.
+
+### <a name="linux"></a>Linux 
+
+하위 집합에 대해 azure Disk Encryption은 지원 합니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 Linux 서버 가능한 모든 배포판의 일부입니다.
+
+![Azure 디스크 암호화를 지 원하는 벤 다이어그램의 Linux 서버 배포판](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
+
+| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
+| --- | --- |--- |
+| Ubuntu | 18.04| OS 및 데이터 디스크 |
+| Ubuntu | 16.04| OS 및 데이터 디스크 |
+| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.3 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
+| CentOS | 7.6 | OS 및 데이터 디스크 |
+| CentOS | 7.5 | OS 및 데이터 디스크 |
+| CentOS | 7.4 | OS 및 데이터 디스크 |
+| CentOS | 7.3 | OS 및 데이터 디스크 |
+| CentOS | 7.2n | OS 및 데이터 디스크 |
+| CentOS | 6.8 | 데이터 디스크 |
+| openSUSE | 42.3 | 데이터 디스크 |
+| SLES | 12-SP4 | 데이터 디스크 |
+| SLES | 12-SP3 | 데이터 디스크 |
+
+> [!NOTE]
+> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 내용은 합니다.
+
 - Azure Disk Encryption은 Key Vault 및 VM이 동일한 Azure 하위 지역 및 구독에 있어야 합니다. 별도 하위 지역에서 리소스를 구성하면 Azure Disk Encryption 기능 사용 시 오류가 발생합니다.
 
-## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM에 대한 추가 필수 구성 요소 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux IaaS Vm에 대 한 추가 필수 구성 요소 
 
-- Linux용 Azure Disk Encryption에는 [지원되는 이미지](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)에서 OS 디스크 암호화를 사용하도록 설정하기 위해 VM에 7GB의 RAM이 필요합니다. OS 디스크 암호화 프로세스가 완료되면 VM을 적은 메모리로 실행하도록 구성할 수 있습니다.
+- Azure Disk Encryption dm 암호화에 필요 하 고 vfat 될 모듈을 시스템에 제공 합니다. 제거 하거나 기본 이미지에서 vfat를 사용 하지 않도록 설정에 시스템에서 키 볼륨을 읽고 후속 다시 부팅 후에 디스크를 잠금 해제 하는 데 필요한 키를 가져온 하지 것입니다. 시스템에서 vfat 모듈을 제거 하는 시스템 강화 단계 Azure Disk Encryption을 사용 하 여 호환 되지 않습니다. 
 - 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. "/dev/sdX" 형식의 디바이스 이름은 특히 암호화가 적용된 후 다시 부팅할 때 동일한 디스크에 연결될 수 없으므로 이 항목에 영구 블록 디바이스 이름을 사용합니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md)을 참조하세요.
-- /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 원하는 드라이브가 여전히 탑재되어 있는지 확인합니다. 
+- /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 드라이브가 여전히 탑재되어 있는지 확인합니다. 
   - 암호화를 사용하도록 설정하기 전에 /etc/fstab 파일에서 드라이브를 올바르게 탑재하지 않으면 Azure Disk Encryption에서 해당 드라이브를 올바르게 탑재할 수 없습니다.
   - Azure Disk Encryption 프로세스는 암호화 프로세스의 일환으로 탑재 정보를 /etc/fstab에서 자체의 구성 파일로 이동합니다. 데이터 드라이브 암호화가 완료된 후 /etc/fstab에서 누락된 항목을 보고 놀라지 마세요.
-  -  다시 부팅한 후 Azure Disk Encryption 프로세스에서 새로 암호화된 디스크를 탑재하는 데 시간이 걸립니다. 이러한 디스크는 다시 부팅한 후 즉시 사용할 수 없습니다. 다른 프로세스가 액세스할 수 있게 되기 전에 이 프로세스에서 암호화된 드라이브를 시작, 잠금 해제 및 탑재하는 데 시간이 필요합니다. 이 프로세스는 시스템 특성에 따라 다시 부팅 후 2분 이상 걸릴 수 있습니다.
+  - 중지 해야 암호화를 시작 하기 전에 모든 서비스 및 프로세스에 쓸 수 있는 데이터 디스크를 탑재 및 수 없도록 하는 자동으로 다시 부팅 한 후 시작 되지 않습니다. 이러한 수를 열어 파일 암호화 실패 하면 다시 탑재 하는 암호화 절차 방지이 파티션에서 합니다. 
+  - 다시 부팅한 후 Azure Disk Encryption 프로세스에서 새로 암호화된 디스크를 탑재하는 데 시간이 걸립니다. 이러한 디스크는 다시 부팅한 후에 즉시 사용할 수 없습니다. 다른 프로세스가 액세스할 수 있게 되기 전에 이 프로세스에서 암호화된 드라이브를 시작, 잠금 해제 및 탑재하는 데 시간이 필요합니다. 이 프로세스는 시스템 특성에 따라 다시 부팅 후 2분 이상 걸릴 수 있습니다.
 
-데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 197-205번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205)에 있습니다. 
-
+데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 244-248번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248)에 있습니다. 
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 
@@ -71,9 +109,9 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 
 **그룹 정책:**
- - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
+ - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [bitlocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [사용자 저장소 구성의 BitLocker 복구 정보 허용 256 비트 복구 키->](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +284,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 1. [필요한 권한 확인](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 애플리케이션을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
-3. [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
+3. [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 
      - 인증 키 클라이언트 암호 이며 집합 AzVMDiskEncryptionExtension는 AadClientSecret으로 사용 됩니다. 
         - 인증 키는 애플리케이션에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
      - 응용 프로그램 ID AzKeyVaultAccessPolicy 집합에 대 한 ServicePrincipalName AzVMDiskEncryptionExtension 집합에 대 한 AadClientId와 나중에 사용 됩니다. 
@@ -342,7 +380,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
 ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

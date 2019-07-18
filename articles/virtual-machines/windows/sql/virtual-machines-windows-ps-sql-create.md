@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 68fa8510b45d5bd00128b57ffcccd19b1c55359b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66165744"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 가상 머신을 프로비전하는 방법
 
@@ -187,7 +187,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 이제 가상 네트워크를 정의했으므로 가상 머신에 연결하기 위해 IP 주소를 구성해야 합니다. 이 자습서에서는 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet을 사용하여 새 리소스 그룹에 공용 IP 주소를 만듭니다. 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블에 대해 이전에 초기화한 변수를 지정합니다.
 
 > [!NOTE]
-> 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 개인 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
+> 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 프라이빗 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
 
 다음 cmdlet을 실행하여 공용 IP 주소를 만듭니다.
 

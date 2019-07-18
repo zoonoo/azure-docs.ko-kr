@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437673"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
@@ -53,7 +53,7 @@ Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어
  
 특정 날짜 또는 위치를 선택하여 결과를 필터링할 수도 있습니다.
 
-**앱당 고유 사용자**:  이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다.
+**앱당 고유 사용자**:  이 보고서는 지정된 앱을 사용하는 모든 고유 사용자를 보여줍니다. 여기에는 애플리케이션에 “성공적으로” 로그인한 사용자만 포함됩니다. 
 
 **디바이스 로그인**: 이 보고서는 조직 내에서 사용된 다양한 디바이스 프로필을 이해하고 용도에 따라 디바이스 정책을 결정하는 데 도움이 됩니다. 이 보고서는 애플리케이션에 로그인할 때 사용된 OS 및 브라우저 유형과 다음과 같은 상세한 사용자 정보를 제공합니다.
 
@@ -112,7 +112,7 @@ Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 세트
 
 Power BI와 관련된 일반적인 도움말은 이 [도움말 문서](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 확인하세요.
 
-### <a name="refresh-failed"></a>새로 고치지 못했습니다. 
+### <a name="refresh-failed"></a>새로 고침 실패 
  
 **이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 이메일을 받습니다. 
 

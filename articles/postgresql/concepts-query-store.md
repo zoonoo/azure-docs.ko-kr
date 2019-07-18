@@ -1,16 +1,16 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 저장소 기능을 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 쿼리 저장소 기능을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067192"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을 설정 합니다 `TOP` 하 고 **저장**합니다.
+4. 값을 `TOP`으로 설정하고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계 수 있도록 합니다. 
+쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을 설정 합니다 `ALL` 하 고 **저장**합니다.
+1. 값을 `ALL`으로 설정하고 **저장**합니다.
 
 
-또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -84,7 +84,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **기본값** | **범위**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
 | pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
@@ -93,7 +93,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **기본값** | **범위**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | 없음 | none, all|
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
@@ -160,7 +160,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |query_id   |bigint     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |event_type |text       ||백 엔드가 대기 중인 이벤트 유형|
 |event  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
-|calls  |정수         ||캡처된 동일한 이벤트 수|
+|calls  |정수        ||캡처된 동일한 이벤트 수|
 
 
 ### <a name="functions"></a>Functions

@@ -22,7 +22,7 @@
               href: Quickstarts/create-new-kb-csharp.md
             - name: Go
               href: Quickstarts/create-new-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
               href: Quickstarts/create-new-kb-nodejs.md
@@ -34,7 +34,7 @@
               href: Quickstarts/publish-kb-csharp.md
             - name: Go
               href: Quickstarts/publish-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
               href: Quickstarts/publish-kb-nodejs.md
@@ -46,12 +46,16 @@
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
             - name: Go
               href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/get-answer-from-knowledge-base-java.md
             - name: Node.js
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: SDK 사용
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
 - name: 자습서
   items:
     - name: KB에서 만들기 및 대답
@@ -96,9 +100,9 @@
         - name: 기술 자료 만들기 및 게시
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: 답변 구하기
+        - name: 메타데이터를 사용하여 응답 가져오기
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: 기술 자료를 사용하는 봇 만들기
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 다른 언어로 된 기술 자료 만들기
@@ -112,7 +116,7 @@
           href: How-To/test-knowledge-base.md
         - name: 활성 학습을 사용하여 기술 자료 개선
           href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: 서비스 관리
       items:
         - name: QnA Maker 서비스 설정
@@ -133,7 +137,7 @@
       items:
         - name: 'C#'
           href: Quickstarts/csharp.md
-        - name: 자바
+        - name: Java
           href: Quickstarts/java.md
         - name: Node.js
           href: Quickstarts/nodejs.md
@@ -144,7 +148,14 @@
 - name: 참고 자료
   items:
     - name: REST API 참조
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
+      items:
+        - name: API 작성
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: GenerateAnswer API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: 학습 API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: FAQ
       href: faqs.md
     - name: 제한
@@ -162,7 +173,9 @@
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: 참조 설명서
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: NuGet 패키지
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
         - name: Go
           items:
@@ -184,6 +197,8 @@
   items:
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격 책정 및 제한

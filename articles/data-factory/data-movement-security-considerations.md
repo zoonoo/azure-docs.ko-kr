@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996131"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460680"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 >
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
@@ -46,12 +46,12 @@ Data Factory는 다음에 대해 인증을 받았습니다.
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance를 확인하세요.
+Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance 를 확인하세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
 - **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
-- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 개인 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지�
 Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios"></a>하이브리드 시나리오
-하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
+하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
 
 ![자체 호스팅 통합 런타임 채널](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -119,7 +119,7 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임에서 연결된 서비스를 암호화하는 동안 사용되는 포트
-기본적으로 PowerShell은 보안 통신을 위해 자체 호스팅 통합 런타임을 사용하는 컴퓨터에서 포트 8050을 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
+기본적으로 PowerShell 보안 통신을 위해 자체 호스팅된 통합 런타임 사용 하 여 컴퓨터에서 포트 8060을 사용합니다. 필요한 경우 이 포트를 변경할 수 있습니다.  
 
 ![게이트웨이용 HTTPS 포트](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -131,14 +131,14 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 또한 [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) 또는 [Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하여 온-프레미스 네트워크와 Azure 사이의 통신 채널을 더욱 안전하게 보호할 수 있습니다.
 
-Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 ExpressRoute(비공개 피어링)를 설정하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수 있습니다.    
+Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 ExpressRoute(프라이빗 피어링)를 설정하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수 있습니다.    
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 자체 호스팅 통합 런타임 구성 권장 사항을 요약한 것입니다.
 
 | 원본      | 대상                              | 네트워크 구성                    | 통합 런타임 설정                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
 | 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute (Microsoft 피어 링)            | 자체 호스팅된 integration runtime에서 온-프레미스 설치 수 또는 Azure 가상 컴퓨터에 있습니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
@@ -197,7 +197,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 애플리케이션의 경우 컴퓨터 수준(회사 방화벽 수준이 아님)에서만 인바운드 포트 8050을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아닌) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

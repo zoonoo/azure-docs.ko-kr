@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045836"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330551"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 
@@ -126,7 +126,7 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    **엔드포인트**: **메시징**을 선택합니다. (작업 모니터링을 선택하는 경우 전송하는 데이터가 아닌 IoT Hub에 대한 원격 분석 데이터를 얻게 됩니다.) 
 
-   **공유 액세스 정책 이름**: **iothubowner**를 선택합니다. 포털에서 사용자를 위한 공유 액세스 정책 키가 채워집니다.
+   **공유 액세스 정책 이름**: **서비스**를 선택합니다. 포털에서 사용자를 위한 공유 액세스 정책 키가 채워집니다.
 
    **소비자 그룹**: 이 자습서의 1단계에서 설정한 소비자 그룹을 선택합니다. 이 자습서에서는 **contosoconsumers**를 사용합니다.
    

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061321"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2는 Azure AD(Azure Active Directory) 사용자, 그�
 
 ### <a name="use-security-groups-versus-individual-users"></a>보안 그룹 및 개별 사용자 사용
 
-Data Lake Storage Gen2에서 빅 데이터를 사용할 때는 서비스 사용자를 통해 Azure HDInsight와 같은 서비스에서 데이터를 사용하도록 허용할 가능성이 높습니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 모든 경우에서 개별 사용자를 폴더 및 디렉터리에 할당하는 대신 Azure Active Director [보안 그룹](../common/storage-auth-aad.md)을 사용하는 것이 좋습니다.
+Data Lake 저장소 Gen2의 빅 데이터를 사용할 때 서비스 주체는이 서비스의 데이터로 작동 하려면 Azure HDInsight와 같은 허용를 가능성이 높습니다. 그러나 개별 사용자가 데이터에 액세스해야 하는 경우도 있을 수 있습니다. 모든 경우에서 개별 사용자를 폴더 및 디렉터리에 할당하는 대신 Azure Active Director [보안 그룹](../common/storage-auth-aad.md)을 사용하는 것이 좋습니다.
 
 보안 그룹에 권한이 할당되면 그룹에서 사용자를 추가하거나 제거할 때 Data Lake Storage Gen2를 업데이트할 필요가 없습니다. 그러면 ACL(액세스 제어 목록)당 액세스 제어 항목의 최대 수를 초과하지 않도록 하는 데도 도움이 됩니다. 현재 이 개수는 32개입니다(모든 파일 및 디렉터리와 항상 연결되는 소유 사용자, 소유 그룹, 마스크 및 기타의 4가지 POSIX 스타일 ACL 포함). 각 디렉터리에는 총 64개의 액세스 제어 항목에 대한 두 가지 ACL 유형, 즉 액세스 ACL과 기본 ACL이 있을 수 있습니다. 이러한 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](data-lake-storage-access-control.md)를 참조하세요.
 
@@ -40,7 +40,7 @@ Azure Active Directory 서비스 사용자는 일반적으로 Azure Databricks�
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Azure 서비스 액세스 권한으로 Data Lake Storage Gen2 방화벽 사용
 
-Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽은 Azure Portal에서 **방화벽** > **방화벽 사용(켜기)** > **Azure 서비스 방문 허용** 옵션을 통해 스토리지 계정에 사용하도록 설정할 수 있습니다.
+Data Lake Storage Gen2는 외부 공격의 벡터를 제한하는 데 추천되는 Azure 서비스에만 방화벽을 설정하고 액세스를 제한하는 옵션을 지원합니다. 방화벽은 Azure Portal에서 **방화벽** > **방화벽 사용(켜기)**  > **Azure 서비스 방문 허용** 옵션을 통해 스토리지 계정에 사용하도록 설정할 수 있습니다.
 
 스토리지 방화벽을 통해 액세스할 수 있는 가상 네트워크에 Azure Databricks 클러스터를 추가하려면 Databricks의 미리 보기 기능을 사용해야 합니다. 이 기능을 사용하려면 지원 요청을 제출하세요.
 
@@ -52,7 +52,7 @@ Data Lake Storage Gen2 또는 클라우드 서비스를 사용하여 시스템�
 
 HA(고가용성)와 DR(재해 복구)은 서로 결합될 수 있는 경우도 있지만, 특히 데이터에 관해서는 다소 다른 전략을 사용합니다. Data Lake Storage Gen2는 지역화된 하드웨어 오류를 방지하기 위해 이미 내부적으로 3배의 복제를 처리하고 있습니다. 또한 ZRS와 같은 다른 복제 옵션은 HA를 향상시키는 반면, GRS 및 RA-GRS는 DR을 향상시킵니다. HA에 대한 계획을 만들 때 서비스 중단이 발생하는 경우 작업은 로컬 또는 새 지역에서 별도로 복제된 인스턴스로 전환하여 가능한 한 빨리 최신 데이터에 액세스해야 합니다.
 
-DR 전략에서는 지역에서 치명적인 장애가 드물게 발생하는 경우에 대비하기 위해 GRS 또는 RA-GRS 복제도 사용하여 데이터를 다른 지역으로 복제해야 합니다. 또한 데이터 손상과 같은 위기 상황에 대한 요구 사항도 고려해야 하며, 이 경우 대체할 스냅숏을 정기적으로 만들어야 할 수 있습니다. 데이터의 중요도와 크기 및 위험 허용 오차에 따라 1시간, 6시간 및 24시간 기간의 델타 스냅숏을 롤링하는 것이 좋습니다.
+DR 전략에서는 지역에서 치명적인 장애가 드물게 발생하는 경우에 대비하기 위해 GRS 또는 RA-GRS 복제도 사용하여 데이터를 다른 지역으로 복제해야 합니다. 또한 데이터 손상과 같은 위기 상황에 대한 요구 사항도 고려해야 하며, 이 경우 대체할 스냅샷을 정기적으로 만들어야 할 수 있습니다. 데이터의 중요도와 크기 및 위험 허용 오차에 따라 1시간, 6시간 및 24시간 기간의 델타 스냅샷을 롤링하는 것이 좋습니다.
 
 Data Lake Storage Gen2를 사용하여 데이터를 복원하는 경우 HA/DR 요구 사항을 충족하는 GRS 또는 RA-GRS를 통해 데이터를 지리적으로 복제하는 것이 좋습니다. 또한 애플리케이션에서 Data Lake Storage Gen2를 사용하여 트리거 또는 실패한 시도의 길이를 모니터링하거나 적어도 수동으로 개입하도록 관리자에게 알림을 보내어 자동으로 보조 지역으로 장애 조치하는 방법을 고려해야 합니다. 서비스가 온라인 상태로 돌아올 때까지 기다리는 것과 비교하여 장애 조치에 대한 절충점이 있음을 명심하세요.
 

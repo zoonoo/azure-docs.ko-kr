@@ -1,34 +1,52 @@
 ---
-title: Ansible을 사용하여 Azure App Service 웹앱 크기 조정
-description: Ansible을 사용하여 Linux의 App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 포함하는 웹앱을 만드는 방법 알아보기
-ms.service: azure
+title: 자습서 - Ansible을 사용하여 Azure App Service에서 앱 크기 조정 | Microsoft Docs
+description: Azure App Service에서 앱을 강화하는 방법 알아보기
 keywords: Ansible, Azure, Devops, Bash, 플레이북, Azure App Service, Web App, 크기 조정, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792279"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230956"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ansible을 사용하여 Azure App Service 웹앱 크기 조정
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview)(또는 간단히 Web Apps)는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>자습서: Ansible을 사용하여 Azure App Service에서 앱 크기 조정
 
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure App Service에서 앱의 크기를 조정하는 방법에 대해 설명합니다.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 기존 App Service 계획의 팩트 가져오기
+> * 3명의 작업자가 있는 S2로 App Service 계획 강화
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps** - Azure App Service 웹앱이 아직 설치되지 않은 경우 [Ansible을 사용하여 Azure 웹앱을 만들](ansible-create-configure-azure-web-apps.md) 수 있습니다.
 
-## <a name="scale-up-an-app-in-app-service"></a>App Service에서 앱 강화
-앱이 속한 App Service 계획의 가격 책정 계층을 변경하여 강화할 수 있습니다. 이 섹션에서는 다음 작업을 정의하는 샘플 Ansible 플레이북을 제공합니다.
-- 기존 App Service 계획의 팩트 가져오기
-- 세 명의 작업자에서 S2로 App Service 계획 업데이트
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure App Service 앱** -Azure App Service 앱이 없는 경우 [Ansible을 사용하여 Azure App Service에서 앱을 구성](ansible-create-configure-azure-web-apps.md)합니다.
+
+## <a name="scale-up-an-app"></a>앱 강화
+
+크기 조정에는 *강화* 및 *규모 확장*의 두 가지 워크플로가 있습니다.
+
+**강화:**: 강화하는 것은 더 많은 리소스를 획득하는 것을 의미합니다. 이러한 리소스에는 CPU, 메모리, 디스크 공간, VM 등이 포함됩니다. 앱이 속한 App Service 계획의 가격 책정 계층을 변경하여 앱을 강화합니다. 
+**규모 확장:**: 규모 확장은 앱을 실행하는 VM 인스턴스 수를 늘리는 것을 의미합니다. App Service 계획 가격 책정 계층에 따라 최대 20개의 인스턴스로 확장할 수 있습니다. [자동 크기 조정](/azure/azure-monitor/platform/autoscale-get-started)을 사용하면 미리 정의된 규칙 및 일정에 따라 인스턴스 수가 자동으로 조정됩니다.
+
+이 섹션의 플레이북 코드는 다음 작업을 정의합니다.
+
+* 기존 App Service 계획의 팩트 가져오기
+* 세 명의 작업자에서 S2로 App Service 계획 업데이트
+
+다음 플레이북을 `webapp_scaleup.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
       var: facts.appserviceplans[0].sku
 ```
 
-이 플레이북을 *webapp_scaleup.yml*로 저장합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
-플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-플레이북을 실행한 후에 다음 예제와 비슷한 출력에서는 App Service 계획이 세 개의 작업자를 포함한 S2로 성공적으로 업데이트되었음을 보여줍니다.
-```Output
-PLAY [localhost] **************************************************************
+플레이북을 실행하면 다음 결과와 유사한 출력이 표시됩니다.
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"] 
-> [Azure의 Ansible](https://docs.microsoft.com/azure/ansible/)
+> [Azure의 Ansible](/azure/ansible/)

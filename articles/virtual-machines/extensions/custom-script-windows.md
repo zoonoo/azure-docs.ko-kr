@@ -3,19 +3,19 @@ title: Windows용 Azure 사용자 지정 스크립트 확장 | Microsoft Azure
 description: 사용자 지정 스크립트 확장을 사용하여 Windows VM 구성 작업 자동화
 services: virtual-machines-windows
 manager: carmonm
-author: georgewallace
+author: bobbytreed
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
-ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/02/2019
+ms.author: robreed
+ms.openlocfilehash: 8487b8477b1837fce0b1c2c6435174c48dfbded4
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869863"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478418"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -105,14 +105,14 @@ GitHub 또는 Azure Storage와 같은 외부 스크립트를 다운로드 해야
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | 문자열 |
-| 형식 | CustomScriptExtension | 문자열 |
+| publisher | Microsoft.Compute | string |
+| 형식 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 문자열 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 >[!NOTE]
 >이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 다음과 같이 이름을 사용합니다.
@@ -206,6 +206,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 * 확장이 **이름을** 매개 변수는 확장의 이전 배포와 동일 합니다.
 * 구성을 업데이트 합니다 그렇지 않은 경우 명령을 다시 실행 되지 않습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다.
+
+설정할 수 있습니다 합니다 [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) 속성을 **true**합니다.
+
+### <a name="using-invoke-webrequest"></a>Invoke-webrequest를 사용 하 여
+
+사용 중인 경우 [Invoke-webrequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) 스크립트에서 매개 변수를 지정 해야 `-UseBasicParsing` 자세한 상태를 확인할 때 다음 오류가 표시 됩니다 그렇지 않으면:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
 
 ## <a name="classic-vms"></a>클래식 VM
 

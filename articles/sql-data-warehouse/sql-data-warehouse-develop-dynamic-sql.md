@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse의 동적 SQL 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 동적 SQL 사용 팁.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e1d209828313068e61b4acec3c4f92b7d643e1b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567637cab1c983992b08f65352ab9a92bd448c5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65861818"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL Data Warehouse의 동적 SQL
 솔루션 개발을 위한 Azure SQL Data Warehouse의 동적 SQL 사용 팁.

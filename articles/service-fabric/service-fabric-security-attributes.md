@@ -9,16 +9,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66003066"
 ---
-# <a name="common-security-attributes-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Service Fabric에 기본 제공 되는 일반적인 보안 특성을 설명 합니다. 
+이 문서에서는 Azure Service Fabric에 빌드된 보안 특성을 설명 합니다. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "64719395"
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | Service Fabric API 호출은 Azure Resource Manager를 통해 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. |
 
-## <a name="network-segmentation"></a>네트워크 분할
+## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|

@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 59ba66fb013a4ea6aebd40164ca252447876053d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929417"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182080"
 ---
 **Azure 네이티브 인증서 인증**
 

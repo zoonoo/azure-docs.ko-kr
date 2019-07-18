@@ -2,19 +2,19 @@
 title: 시스템 테스트 결과와 배포 보기 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 훈련을 성공적으로 마쳤으면 시스템 테스트를 검토하여 훈련 결과를 분석합니다. 훈련 결과가 만족스러우면 훈련된 모델에 대한 배포 요청을 제출합니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438617"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442492"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 

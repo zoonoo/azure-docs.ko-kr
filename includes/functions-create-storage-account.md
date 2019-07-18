@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 889b9c0cf944085f5f42ece892d5cac747a27240
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247011"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181980"
 ---
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 

@@ -4,7 +4,7 @@ description: 사용자 지정 스크립트 확장 v1을 사용하여 Linux VM �
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4920cde64ae951fa5f234f6ad6d7423429bb907
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800295"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706041"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -121,15 +121,15 @@ ms.locfileid: "60800295"
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.OSTCExtensions | 문자열 |
-| 형식 | CustomScriptForLinux | 문자열 |
-| typeHandlerVersion | 1.5 | int |
-| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | 문자열 |
-| enableInternalDNSCheck | true | 부울 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| apiVersion | 2015-06-15 | 날짜 |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
+| typeHandlerVersion | 1.5 | ssNoversion |
+| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | 배열 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
+| enableInternalDNSCheck | true | boolean |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 

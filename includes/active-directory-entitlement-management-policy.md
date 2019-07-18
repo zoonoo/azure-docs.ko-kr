@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866424"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182374"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>정책: 디렉터리의 사용자에 대 한
 
@@ -34,6 +34,9 @@ ms.locfileid: "64866424"
 ### <a name="policy-for-users-not-in-your-directory"></a>정책: 디렉터리에 없는 사용자에 대 한
 
 이 액세스 패키지를 요청할 수 있는 디렉터리에 없는 사용자에 대해 정책을 사용 하려는 경우 다음이 단계를 수행 합니다. 디렉터리에서 허용 하도록 구성 해야 합니다 **조직 관계 공동 작업 제한** 설정 합니다.
+
+> [!NOTE]
+> 아직 해당 요청이 승인 되거나 자동으로 승인 된 디렉터리에 게스트 사용자 계정은 사용자에 대해 생성 됩니다. 게스트 초대 될 수 있지만 초대 전자 메일을 받지 않습니다. 대신, 해당 액세스 패키지 할당 전달 될 때 이메일을 받게 됩니다. 기본적으로 게스트 사용자가 더 이상 해당 이상에 모든 액세스 패키지 할당을 해당 마지막 할당 만료 되었거나 취소 되었습니다 때문에 게스트 사용자 계정 로그인에서 차단 되며 삭제 액세스 패키지 할당이 없습니다. 있는 경우에 디렉터리에 무기한으로 유지 하는 게스트 사용자가 하려는 경우 권한 관리 구성에 대 한 설정을 변경할 수 있습니다.
 
 1. 에 **액세스를 요청할 수 있는 사용자** 섹션에서 **디렉터리에 없는 사용자에 대 한**합니다.
 
@@ -96,11 +99,11 @@ ms.locfileid: "64866424"
 
 만료 섹션에서는 액세스 패키지에는 사용자의 할당 만료 될 때 지정 합니다.
 
-1. 에 **만료** 으로 설정 **액세스 패키지가 만료 된** 에 **날짜**를 **기간 (일)**, 또는 **안 함**.
+1. 에 **만료** 으로 설정 **액세스 패키지가 만료 된** 에 **날짜**를 **기간 (일)** , 또는 **안 함**.
 
     에 대 한 **날짜에**, 나중에 만료 날짜를 선택 합니다.
 
-    에 대 한 **기간 (일)**, 0과 3660 일 사이의 숫자를 지정 합니다.
+    에 대 한 **기간 (일)** , 0과 3660 일 사이의 숫자를 지정 합니다.
 
     선택에 따라, 특정 날짜는 특정 일 수가 승인 된 후에 만료 됩니다 액세스 패키지에는 사용자의 할당 또는 사용 하지 않습니다.
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b52453bab661531461a2bec2f15f7659ec15a1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441715"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 
@@ -51,3 +51,4 @@ PowerShell 또는 Azure CLI를 사용하여 데이터베이스를 만들고, 구
 - [Azure SQL Database에서 단일 데이터베이스를 사용하는 방법](sql-database-howto-single-database.md)에서 고급 작업 방법을 자세히 알아보세요.
 - [PowerShell](sql-database-powershell-samples.md) 및 [Azure CLI](sql-database-cli-samples.md)로 작성된 샘플 스크립트를 찾아봅니다.
 - 데이터베이스를 구성하는 데 사용할 수 있는 [관리 API](sql-database-single-databases-manage.md)에 대해 자세히 알아봅니다.
+- [온-프레미스 데이터베이스에 대한 올바른 Azure SQL Database/Managed Instance SKU를 식별합니다](/sql/dma/dma-sku-recommend-sql-db/).

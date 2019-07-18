@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362257"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60362257"
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 따르기 전에, 영향을 받는 VM의 [시스템 디스크 스냅숏을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
+다음 단계를 따르기 전에 영향을 받는 VM의 [시스템 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
 
 ### <a name="use-the-serial-console"></a>직렬 콘솔 사용

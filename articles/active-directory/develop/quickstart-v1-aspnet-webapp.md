@@ -1,10 +1,10 @@
 ---
 title: ASP.NET 웹앱에 Microsoft로 로그인 추가 | Microsoft Docs
-description: OpenID Connect 표준을 사용하는 기존 웹 브라우저 기반 애플리케이션을 통해 ASP.NET 솔루션에서 Microsoft 로그인을 추가하는 방법을 알아봅니다.
+description: OpenID Connect 표준을 사용하는 기존 웹 브라우저 기반 애플리케이션을 사용하여 ASP.NET 솔루션에서 Microsoft 로그인을 추가하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
-ms.author: andret
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548562"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702996"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-이 빠른 시작에서는 OpenID Connect를 사용하는 브라우저 기반 애플리케이션을 통해 ASP.NET MVC 솔루션을 사용하여 Microsoft로 로그인을 구현하는 방법을 알아봅니다. ASP.NET 애플리케이션에서 회사 및 학교 계정의 로그인을 사용하도록 설정하는 방법을 알아봅니다.
+이 빠른 시작에서는 OpenID Connect를 사용하는 기본 웹 브라우저 기반 애플리케이션을 통해 ASP.NET MVC(Model-View-Controller) 솔루션을 사용하여 Microsoft에 로그인을 구현하는 방법을 알아봅니다. ASP.NET 애플리케이션에서 회사 및 학교 계정의 로그인을 사용하도록 설정하는 방법을 알아봅니다.
 
 이 빠른 시작을 마치면 애플리케이션에서 Azure AD(Azure Active Directory)와 통합된 조직의 회사 및 학교 계정을 사용한 로그인을 허용하게 됩니다.
 
@@ -38,15 +38,15 @@ ms.locfileid: "59548562"
 
 시작하려면 다음과 같은 필수 구성을 충족하는지 확인합니다.
 
-* Visual Studio 2015 업데이트 3 또는 Visual Studio 2017이 설치되어 있어야 합니다. 이 프로그램이 아직 설치되어 있지 않나요? [Visual Studio 2017 무료 다운로드](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 업데이트 3 이상이 설치되어 있어야 합니다. 이 프로그램이 아직 설치되어 있지 않나요? [체험용 Visual Studio 2019 다운로드](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>시나리오: 사용자가 ASP.NET 앱에서 회사 및 학교 계정에 로그인
 
 ![이 가이드의 작동 방식](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-이 시나리오에서는 브라우저가 ASP.NET 웹 사이트에 액세스하고 사용자가 로그인 단추를 사용하여 인증하도록 요청합니다. 이 시나리오에서는 웹 페이지를 렌더링하는 작업의 대부분이 서버 쪽에서 발생합니다.
+이 시나리오에서는 브라우저가 ASP.NET 웹 사이트에 액세스하고 로그인 단추를 사용하여 인증하도록 사용자에게 요청합니다. 이 시나리오에서는 웹 페이지를 렌더링하는 작업의 대부분이 서버 쪽에서 발생합니다.
 
-이 빠른 시작에서는 사용자가 빈 템플릿을 사용하여 ASP.NET 웹 애플리케이션에 로그인하는 방법을 설명하며, 로그인 단추 추가와 같은 단계 및 모든 컨트롤러와 메서드를 포함하고, 이러한 작업에 포함된 개념에 대해 설명합니다. 또한 Azure AD 사용자가 [Visual Studio 웹 템플릿](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)을 사용하고 **조직 계정**을 선택한 다음, 클라우드 옵션 중 하나를 선택하여 회사 및 학교 계정으로 로그인하는 프로젝트를 만들 수도 있습니다. 이 옵션에서는 추가 컨트롤러, 메서드 및 보기와 함께 다양한 템플릿을 사용합니다.
+빠른 시작에서는 빈 템플릿에서 시작하여 ASP.NET 웹 애플리케이션에서 사용자를 로그인하는 방법을 보여줍니다. 또한 로그인 단추와 모든 컨트롤러 및 메서드를 추가하는 등의 단계가 포함되며 이러한 작업의 배경이 되는 개념을 설명합니다. Azure AD 사용자가 [Visual Studio 웹 템플릿](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)을 사용하고 **조직 계정**을 선택한 다음, 클라우드 옵션 중 하나를 선택하여 회사 및 학교 계정으로 로그인하는 프로젝트를 만들 수도 있습니다. 이 옵션에서는 추가 컨트롤러, 메서드 및 보기에 다양한 템플릿이 사용됩니다.
 
 ## <a name="libraries"></a>라이브러리
 
@@ -70,9 +70,10 @@ ms.locfileid: "59548562"
 ## <a name="step-2-create-your-aspnet-project"></a>2단계: ASP.NET 프로젝트 만들기
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**로 이동합니다.
-2. **Visual C#\Web**에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-3. 애플리케이션의 이름을 지정하고 **확인**을 선택합니다.
-4. **비어 있음**을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
+2. **프로젝트 형식**으로 **웹**을 선택한 다음, **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
+3. 애플리케이션의 이름을 지정하고 **만들기**를 선택합니다.
+4. **비어 있음**을 선택한 다음, **폴더 및 핵심 참조 추가**에서 **MVC**를 선택하여 MVC 참조를 추가합니다.
+5. **만들기**를 선택합니다.
 
 ## <a name="step-3-add-authentication-components"></a>3단계: 인증 구성 요소 추가
 
@@ -125,7 +126,7 @@ OWIN 미들웨어 *시작 클래스*를 만들려면 다음을 수행합니다.
 로그인 및 로그아웃 메서드를 노출하는 새 컨트롤러를 만듭니다.
 
 1.  **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가 > 컨트롤러**를 선택합니다.
-2.  **MVC(.NET 버전) 컨트롤러 - 비어 있음**을 선택합니다.
+2.  **MVC{버전} 컨트롤러 - 비어 있음**을 선택합니다.
 3.  **추가**를 선택합니다.
 4.  이름을 `HomeController`로 지정하고 **추가**를 선택합니다.
 5.  클래스에 **OWIN** 네임스페이스를 추가합니다.
@@ -158,7 +159,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 1. **MVC{버전} 컨트롤러 - 비어 있음**을 선택합니다.
 1. **추가**를 선택합니다.
 1. 이름을 **ClaimsController**로 지정합니다.
-1. 컨트롤러 클래스의 코드를 다음 코드로 바꿉니다. 그러면 클래스에 `[Authorize]` 특성이 추가됩니다.
+1. 컨트롤러 클래스의 코드를 다음 코드로 바꿉니다. 이 예제에서는 클래스에 `[Authorize]` 특성이 추가됩니다.
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,29 +197,30 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 4. 프로젝트의 SSL URL을 클립보드에 복사합니다.<br/><br/>![프로젝트 속성](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. <code>web.config</code>에서 <code>Enter_the_Redirect_URL_here</code>를 프로젝트의 SSL URL로 바꿉니다.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 애플리케이션을 등록한 다음, *web.config*에 정보 추가
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 애플리케이션을 등록한 다음, *web.config*에 정보 추가하기
 
-1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 애플리케이션을 등록합니다.
-2. **새 애플리케이션 등록**을 선택합니다.
-3. 애플리케이션의 이름을 입력합니다.
-4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 애플리케이션의 회신 URL 목록에도 자동으로 추가됩니다.
-5. **만들기**를 선택하여 애플리케이션을 등록합니다. 그러면 애플리케이션 목록으로 돌아갑니다.
-6. 이제 방금 만든 애플리케이션을 검색 및/또는 선택하여 해상 속성을 엽니다.
-7. **애플리케이션 ID**의 GUID를 클립보드에 복사합니다.
-8. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 방금 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
+1. [Azure Portal](https://portal.azure.com/)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+2. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
+3. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+4. **새 등록**을 선택합니다.
+5. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
+6. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+7. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 Visual Studio 프로젝트의 *SSL URL*(Azure AD가 토큰을 반환할 위치)로 설정합니다.
+78. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 복사합니다.
+9. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 > [!TIP]
 > 여러 디렉터리에 액세스하도록 계정이 구성된 경우 Azure Portal의 오른쪽 상단에 있는 계정 이름을 클릭한 다음, 선택한 디렉터리가 표시되는지 확인하여 애플리케이션을 등록할 조직의 디렉터리를 올바로 선택해야 합니다.<br/>![올바른 디렉터리 선택](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>10단계: 로그인 옵션 구성
 
-한 조직의 Azure AD 인스턴스에 속한 사용자만 로그인하도록 허용하거나 어떠한 조직에 속한 사용자가 로그인하도록 수락하도록 애플리케이션을 구성할 수 있습니다. 다음 선택 항목 중 하나의 지침을 따르세요.
+특정 조직의 Azure AD 인스턴스에 속한 사용자만 로그인하도록 허용하거나 모든 조직에 속한 사용자의 로그인을 수락하도록 애플리케이션을 구성할 수 있습니다. 다음 항목 중 하나의 지침을 따르세요.
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>모든 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하도록 애플리케이션 구성(다중 테넌트)
 
-Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하려면 다음 단계를 수행합니다. 이것은 *SaaS 애플리케이션*의 일반적인 시나리오입니다.
+Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하려면 다음 단계를 수행합니다. 이 시나리오는 *SaaS 애플리케이션*에 일반적입니다.
 
-1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 돌아가서 방금 등록한 애플리케이션을 찾습니다.
+1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 돌아가서 등록한 애플리케이션을 찾습니다.
 2. **모든 설정**에서 **속성**을 선택합니다.
 3. **다중 테넌트** 속성을 **예**로 변경한 다음, **저장**을 선택합니다.
 
@@ -278,7 +280,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>예상 결과
 
-로그인한 사용자는 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL인 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}*({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
+사용자가 로그인하면 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL에 해당하는 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}* ({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
 
 ### <a name="see-users-claims"></a>사용자의 클레임 보기
 
@@ -290,9 +292,9 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 | 자산 | 값 | 설명 |
 |---|---|---|
-| Name | {User Full Name} | 사용자의 이름과 성 |
+| 이름 | {User Full Name} | 사용자의 이름과 성 |
 | 사용자 이름 | <span>user@domain.com</span> | 로그온한 사용자를 식별하는 데 사용되는 사용자 이름 |
-| 제목| {Subject} |웹에서 사용자 로그온을 고유하게 식별하는 문자열 |
+| 제목| {Subject} |전체 웹에서 사용자 로그온을 고유하게 식별하는 문자열 |
 | 테넌트 ID | {Guid} | 사용자의 Azure AD 조직을 고유하게 나타내는 *guid*입니다. |
 
 또한 인증 요청에 포함된 모든 사용자 클레임을 포함하는 표가 표시됩니다. ID 토큰의 모든 클레임 목록과 설명은 [ID 토큰의 클레임 목록](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.

@@ -1,7 +1,7 @@
 ---
-title: 이미지 형식 검색 - Computer Vision
+title: 이미지 유형 감지 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API의 이미지 형식 검색 기능과 관련된 개념입니다.
+description: Computer Vision API의 이미지 유형 감지 기능과 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368326"
 ---
-# <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 형식 검색
+# <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 유형 감지
 
-사용 하 여 합니다 [분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, Computer Vision을 분석할 수 이미지의 콘텐츠 형식은 이미지가 클립 아트 또는 선 그리기 인지 여부를 나타내는입니다.
+[분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용하여, Computer Vision은 이미지가 클립 아트인지 또는 선 그리기인지 여부를 나타내는 이미지의 콘텐츠 형식을 분석할 수 있습니다.
 
-## <a name="detecting-clip-art"></a>클립 아트 검색
+## <a name="detecting-clip-art"></a>클립 아트 감지
 
 Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이미지가 클립 아트인 가능성을 0부터 3까지로 평가합니다.
 
@@ -33,7 +33,7 @@ Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이
 | 2 | 보통 클립 아트 |
 | 3 | 좋은 클립 아트 |
 
-### <a name="clip-art-detection-examples"></a>클립 아트 검색 예제
+### <a name="clip-art-detection-examples"></a>클립 아트 감지 예제
 
 다음 JSON 응답에서는 예제 이미지가 클립 아트일 가능성을 평가할 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
@@ -71,11 +71,11 @@ Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이
 }
 ```
 
-## <a name="detecting-line-drawings"></a>선 그리기 검색
+## <a name="detecting-line-drawings"></a>선 그리기 감지
 
 Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 여부를 나타내는 부울 값을 반환합니다.
 
-### <a name="line-drawing-detection-examples"></a>선 그리기 검색 예제
+### <a name="line-drawing-detection-examples"></a>선 그리기 감지 예제
 
 다음 JSON 응답에서는 예제 이미지가 선 그리기인지 나타낼 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
@@ -115,4 +115,4 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-참조 된 [분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 이미지 형식을 검색 하는 방법을 알아보려면 설명서를 참조 합니다.
+[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 참조 설명서를 참조하여 이미지 유형을 감지하는 방법에 대해 자세히 알아봅니다.

@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 2de88c7f490dd2d949274f165013b1a9aa72249b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5b464ed4eaf576bc77c2c1eda17ae68b598dc2a4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118735"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704295"
 ---
-합니다 **호스트** 는 docker 컨테이너를 실행 하는 x64 기반 컴퓨터입니다. 다음을 포함하여 Azure에서 컴퓨터 온-프레미스 또Docker 호스팅 서비스일 수 있습니다.
+호스트는 Docker 컨테이너를 실행하는 x64 기반 컴퓨터입니다. 다음과 같이 Azure에서 컴퓨터 온-프레미스 또는 Docker 호스팅 서비스일 수 있습니다.
 
-* [Azure Kubernetes Service](../articles/aks/index.yml)
-* [Azure Container Instances](../articles/container-instances/index.yml)
+* [Azure Kubernetes Service](../articles/aks/index.yml).
+* [Azure Container Instances](../articles/container-instances/index.yml).
 * [Kubernetes](https://kubernetes.io/) 클러스터는 [Azure Stack](/azure-stack/operator)에 배포됩니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 

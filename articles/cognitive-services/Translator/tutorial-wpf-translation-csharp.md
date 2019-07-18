@@ -3,19 +3,19 @@ title: '자습서: WPF, C#을 사용하여 번역 앱 만들기 - Translator Tex
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Cognitive Service API를 사용하는 WPF(Windows Presentation Foundation) 앱을 만듭니다. 이 연습에서는 Translator Text API 및 Bing Spell Check API의 기능을 사용하는 방법을 보여 줍니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
-ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078128"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657937"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -62,7 +62,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 1. Visual Studio를 엽니다. 그런 다음, **파일 > 새로 만들기 > 프로젝트**를 차례로 선택합니다.
 2. 왼쪽 패널에서 **Visual C#** 을 찾아서 선택합니다. 그런 다음, 가운데 패널에서 **WPF 앱(.NET Framework)** 을 선택합니다.
    ![Visual Studio에서 WPF 앱 만들기](media/create-wpf-project-visual-studio.png)
-3. 프로젝트의 이름을 지정하고, 프레임워크 버전을 **.NET Framework 4.5.2 이상**으로 설정한 다음, **확인**을 클릭합니다.
+3. 프로젝트 `MSTranslatorTextDemo`의 이름을 지정하고, 프레임워크 버전을 **.NET Framework 4.5.2 이상**으로 설정한 다음, **확인**을 클릭합니다.
 4. 프로젝트가 만들어졌습니다. 두 개의 탭, `MainWindow.xaml` 및 `MainWindow.xaml.cs`가 열려 있습니다. 이 자습서에서는 이 두 파일에 코드를 추가합니다. 첫 번째 탭은 앱의 사용자 인터페이스에 대한 것이며, 두 번째 탭은 Translator Text 및 Bing Spell Check 호출에 대한 것입니다.
    ![환경 검토](media/blank-wpf-project.png)
 
@@ -79,9 +79,10 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 1. Visual Studio의 솔루션 탐색기(오른쪽 패널)에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조...** 를 선택합니다. 그러면 **참조 관리자**가 열립니다.
    ![어셈블리 참조 추가](media/add-assemblies-sample.png)
 2. 어셈블리 탭에는 참조에 사용할 수 있는 모든 .NET Framework 어셈블리가 나열됩니다. 화면의 오른쪽 위에 있는 검색 창을 사용하여 다음 참조를 검색하고 이를 프로젝트에 추가합니다.
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
 
 > [!NOTE]
@@ -108,7 +109,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 사용자 인터페이스에 포함되는 구성 요소는 다음과 같습니다.
 
-| Name | Type | 설명 |
+| 이름 | Type | 설명 |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Microsoft Translator에서 텍스트 번역에 지원하는 언어 목록을 표시합니다. 사용자가 번역할 원본 언어를 선택합니다. |
 | `ToLanguageComboBox` | ComboBox | `FromComboBox`와 동일한 언어 목록을 표시하지만 사용자가 번역할 대상 언어를 선택하는 데 사용됩니다. |
@@ -197,7 +198,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {
@@ -370,7 +371,7 @@ JSON 응답은 구문 분석되어 사전으로 변환됩니다. 그런 다음, 
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
-       detectLanguageWebRequest.ContentType = "app/json; charset=utf-8";
+       detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
        detectLanguageWebRequest.Method = "POST";
 
        // Send request
@@ -427,7 +428,7 @@ private string CorrectSpelling(string text)
     HttpWebRequest spellCheckWebRequest = (HttpWebRequest)WebRequest.Create(uri);
     spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
     spellCheckWebRequest.Method = "POST";
-    spellCheckWebRequest.ContentType = "app/x-www-form-urlencoded"; // doesn't work without this
+    spellCheckWebRequest.ContentType = "application/x-www-form-urlencoded"; // doesn't work without this
 
     // Create and send the request
     string body = "text=" + System.Web.HttpUtility.UrlEncode(text);

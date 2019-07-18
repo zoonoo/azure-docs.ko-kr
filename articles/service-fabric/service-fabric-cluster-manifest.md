@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65209715"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 *ClusterConfig.json* 파일에서 설정할 수 있는 독립 실행형 Azure Service Fabric 클러스터의 구성 설정을 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.  구성 설정을 변경 또는 추가한 후 [독립 실행형 클러스터를 만들](service-fabric-cluster-creation-for-windows-server.md)거나 [독립 실행형 클러스터의 구성을 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)할 수 있습니다.
 
-[독립 실행형 Microsoft Azure Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)할 때, ClusterConfig.json 샘플도 포함됩니다. 이름에 "DevCluster"가 있는 샘플은 논리 노드를 사용하여 이러한 세 개 노드가 모두 동일한 컴퓨터에 포함된 클러스터를 만듭니다. 이러한 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터 형식은 개발 또는 테스트 환경에 유용합니다. 프로덕션 클러스터로 지원되지는 않습니다. 이름에 MultiMachine이 있는 샘플을 사용하면 각 노드가 별도의 컴퓨터에 있는 프로덕션급 클러스터를 만들 수 있습니다. 이러한 클러스터의 주 노드 수는 클러스터의 [안정성 수준](#reliability)에 따라 결정됩니다. 5.7 릴리스 API 버전 05-2017에서는 안정성 수준 속성을 제거했습니다. 대신 코드에서 클러스터에 가장 최적화된 안정성 수준을 계산합니다. 버전 5.7부터는 이 속성의 값을 설정하지 마세요.
+[독립 실행형 Microsoft Azure Service Fabric 패키지를 다운로드](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)할 때, ClusterConfig.json 샘플도 포함됩니다. 이름에 "DevCluster"가 있는 샘플은 논리 노드를 사용하여 이러한 세 개 노드가 모두 동일한 컴퓨터에 포함된 클러스터를 만듭니다. 이러한 노드 중 하나 이상은 주 노드로 표시되어야 합니다. 이 클러스터 형식은 개발 또는 테스트 환경에 유용합니다. 프로덕션 클러스터로 지원되지는 않습니다. 이름에 MultiMachine이 있는 샘플을 사용하면 각 노드가 별도의 컴퓨터에 있는 프로덕션급 클러스터를 만들 수 있습니다. 이러한 클러스터의 주 노드 수는 클러스터의 [안정성 수준](#reliability)에 따라 결정됩니다. 5\.7 릴리스 API 버전 05-2017에서는 안정성 수준 속성을 제거했습니다. 대신 코드에서 클러스터에 가장 최적화된 안정성 수준을 계산합니다. 버전 5.7부터는 이 속성의 값을 설정하지 마세요.
 
 * ClusterConfig.Unsecure.DevCluster.json 및 ClusterConfig.Unsecure.MultiMachine.json은 보안이 유지되지 않는 테스트 또는 프로덕션 클러스터 각각을 만드는 방법을 보여 줍니다.
 
@@ -122,7 +122,7 @@ security 섹션은 보안 독립 실행형 Service Fabric 클러스터에 필요
 }
 ```
 
-metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 인증서 기반 보안의 경우 *X509*, Azure Active Directory 기반 보안의 경우 *Windows*로 설정할 수 있습니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
+metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 에 설정할 수 있습니다 중 하나로 *X509* 인증서 기반 보안 또는 *Windows* Active Directory 기반 보안에 대 한 합니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
 
 ### <a name="node-types"></a>노드 유형
 nodeTypes 섹션에서는 클러스터에서 사용하는 노드 유형에 대해 설명합니다. 아래 코드 조각과 같이 클러스터에 하나 이상의 노드 유형을 지정해야 합니다. 

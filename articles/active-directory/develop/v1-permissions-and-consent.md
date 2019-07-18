@@ -3,8 +3,8 @@ title: Azure Active Directory의 권한 | Microsoft Docs
 description: Azure Active Directory의 권한 및 사용 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545206"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -31,7 +31,7 @@ ms.locfileid: "60250801"
 
 Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다.
 
-범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.
+범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.  
 
 ## <a name="types-of-permissions"></a>권한 형식
 

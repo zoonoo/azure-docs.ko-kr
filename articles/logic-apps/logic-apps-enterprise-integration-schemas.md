@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846374"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 스키마로 XML 유효성 검사
@@ -39,14 +39,14 @@ ms.locfileid: "60846374"
   나중에 통합 계정에 스키마를 추가할 때 컨테이너의 콘텐츠 URI가 필요합니다.
 
   * [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md): 스토리지 계정 및 blob 컨테이너를 관리하는 데 사용할 수 있습니다. 
-  Storage 탐색기를 사용하려면 다음 옵션 중 하나를 선택합니다.
+  Storage Explorer를 사용하려면 다음 옵션 중 하나를 선택합니다.
   
     * Azure Portal에서 스토리지 계정을 선택합니다. 
-    스토리지 계정 메뉴에서 **Storage 탐색기**를 선택합니다.
+    스토리지 계정 메뉴에서 **Storage Explorer**를 선택합니다.
 
-    * 데스크톱 버전의 경우 [Azure Storage 탐색기를 다운로드 및 설치](https://www.storageexplorer.com/)합니다. 
-    그런 다음, [Storage 탐색기 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage 탐색기를 스토리지 계정에 연결합니다. 
-    자세한 내용은 [빠른 시작: Azure Storage 탐색기를 사용하여 개체 스토리지에 Blob 만들기](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+    * 데스크톱 버전의 경우 [Azure Storage Explorer를 다운로드 및 설치](https://www.storageexplorer.com/)합니다. 
+    그런 다음, [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)의 단계에 따라 Storage Explorer를 스토리지 계정에 연결합니다. 
+    자세한 내용은 [빠른 시작: Azure Storage Explorer를 사용하여 개체 스토리지에 Blob 만들기](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)를 참조하세요.
 
 스키마를 만들고 추가할 때 논리 앱은 필요하지 않습니다. 그러나 스키마를 사용하려면 논리 앱에서 해당 스키마를 저장하는 통합 계정에 연결해야 합니다. [논리 앱을 통합 계정에 연결하는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)을 알아봅니다. 논리 앱이 아직 없는 경우 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아봅니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "60846374"
 
 #### <a name="check-container-access-level"></a>컨테이너 액세스 수준 확인
 
-1. Azure Storage 탐색기를 엽니다. 탐색기 창에서 Azure 구독을 아직 확장하지 않은 경우 확장합니다.
+1. Azure Storage Explorer를 엽니다. 탐색기 창에서 Azure 구독을 아직 확장하지 않은 경우 확장합니다.
 
 1. **Storage 계정** > {*your-storage-account*} > **Blob 컨테이너**를 확장합니다. Blob 컨테이너를 선택합니다.
 

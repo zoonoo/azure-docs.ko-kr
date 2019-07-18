@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588802"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
@@ -59,7 +59,7 @@ ms.locfileid: "60588802"
 
 | 기호                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **열기** | 새 파일을 엽니다. |
+| **파일** | 새 파일을 엽니다. |
 | **저장** | 현재 파일을 저장합니다. |
 | **디자인** | 모델을 만들 수 있는 **디자인** 보기를 엽니다. |
 | **분석** | 생성된 위협과 그 속성을 표시합니다. |
@@ -157,9 +157,9 @@ ms.locfileid: "60588802"
 
 ![이전](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>이후
+#### <a name="after"></a>After
 
-![이후](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
+![After](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>메시지
 

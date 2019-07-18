@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66257062"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -208,7 +208,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 5. 스트림 분석 작업 페이지로 돌아가서 **출력**을 선택합니다.  
 
-6. **+추가**를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI**를 선택합니다.  
+6. 선택 **+ 추가**합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI**를 선택합니다.  
 
 7. 새 Power BI 출력을 만들어 평균 가격을 시각화하려면 다음 작업을 수행합니다.
 
@@ -256,7 +256,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
    a. **출력 별칭:** incomingRevenueOutput, 데이터 세트 이름: incomingRevenue, 테이블 이름: incomingRevenue  
    b. **출력 별칭:** top5Output, 데이터 세트 이름: top5, 테이블 이름: top5  
-   다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
+   c. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
    그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 

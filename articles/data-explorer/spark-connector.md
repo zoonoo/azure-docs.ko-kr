@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65441356"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Apache Spark (미리 보기)에 대 한 azure 데이터 탐색기 커넥터
 
@@ -200,7 +200,7 @@ Azure 데이터 탐색기 주 역할에 대 한 자세한 내용은 참조 하�
     display(df)
     ```
 
-1. 많은 양의 데이터를 읽을 때 임시 blob 저장소를 제공 합니다. 저장소 컨테이너 SAS 키 또는 저장소 계정 이름, 계정 키 및 컨테이너 이름을 제공 합니다. 
+1. 많은 양의 데이터를 읽을 때 임시 blob 저장소를 제공 합니다. 저장소 컨테이너 SAS 키 또는 저장소 계정 이름, 계정 키 및 컨테이너 이름을 제공 합니다. 이 단계는만 Spark 커넥터의 현재 미리 보기 릴리스에 대 한 필요 합니다.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

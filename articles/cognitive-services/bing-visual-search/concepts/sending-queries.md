@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011695"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541549"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
 
-이 문서에서는 응답 개체뿐만 아니라 Bing Visual Search API로 전송된 요청의 매개 변수와 특성에 대해서도 설명합니다.
+이 문서에서는 응답 개체뿐만 아니라 Bing Visual Search API로 전송된 요청의 매개 변수와 특성에 대해서도 설명합니다. 
 
 다음 세 가지 방법으로 이미지에 대한 인사이트를 가져올 수 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "60011695"
 
 `imageInsightsToken`을 인사이트 토큰으로 설정해야 합니다. 인사이트 토큰을 가져오려면 Bing Image API를 호출합니다. 응답에는 `Image` 개체 목록이 포함됩니다. 각 `Image` 개체에는 토큰을 포함하는 `imageInsightsToken` 필드가 포함됩니다.
 
-`cropArea` 필드는 선택 사항입니다. 자르기 영역 왼쪽 위 모퉁이 오른쪽 아래 모퉁이의 관심 영역을 지정합니다. 0.0~1.0 범위의 값을 지정합니다. 값은 전체 너비 또는 높이의 백분율입니다. 예를 들어 위 예제에서는 이미지의 오른쪽 절반을 관심 영역으로 표시합니다. 인사이트 요청을 관심 영역으로 제한하려면 포함합니다.
+`cropArea` 필드는 선택 사항입니다. 자르기 영역 왼쪽 위 모퉁이 오른쪽 아래 모퉁이의 관심 영역을 지정합니다. 0\.0~1.0 범위의 값을 지정합니다. 값은 전체 너비 또는 높이의 백분율입니다. 예를 들어 위 예제에서는 이미지의 오른쪽 절반을 관심 영역으로 표시합니다. 인사이트 요청을 관심 영역으로 제한하려면 포함합니다.
 
 `filters` 개체에는 유사한 이미지 및 유사한 제품 결과를 특정 도메인으로 제한하는 데 사용할 수 있는 사이트 필터(`site` 필드 참조)가 포함되어 있습니다. 예를 들어 이미지가 Surface Book인 경우 `site`를 www.microsoft.com으로 설정할 수 있습니다.
 
@@ -73,12 +73,12 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 포함 해야 합니다 `mkt` 쿼리 매개 변수:
 
-| Name | 값 | Type | 필수 |
+| 이름 | 값 | Type | 필수 |
 | --- | --- | --- | --- |
-| <a name="cc" />cc  | 결과에서 발생 한 위치를 나타내는 2 자리 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | 문자열 | 아닙니다.       |
-| <a name="mkt" />mkt   | 결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알 수 있는 경우에 항상 시장을 지정 해야 합니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | 문자열 | 예      |
-| <a name="safesearch" />safeSearch | 성인 콘텐츠에 대 한 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에서 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청하는 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** 사용 하는 경우는 `site:` 쿼리 연산자 응답 결과 관계 없이 성인 콘텐츠를 포함할 수 있는 가능성이 매우는 `safeSearch` 쿼리 매개 변수 설정 합니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다.  | 문자열 | 아닙니다.       |
-| <a name="setlang" />setLang  | 사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 두 문자 언어 코드를 사용 하 여 언어를 지정 합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다. | 문자열 | 아닙니다.   |
+| <a name="cc" />cc  | 결과에서 발생 한 위치를 나타내는 2 자리 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 아닙니다.       |
+| <a name="mkt" />mkt   | 결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알 수 있는 경우에 항상 시장을 지정 해야 합니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 예      |
+| <a name="safesearch" />safeSearch | 성인 콘텐츠에 대 한 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에서 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청하는 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** 사용 하는 경우는 `site:` 쿼리 연산자 응답 결과 관계 없이 성인 콘텐츠를 포함할 수 있는 가능성이 매우는 `safeSearch` 쿼리 매개 변수 설정 합니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다.  | String | 아닙니다.       |
+| <a name="setlang" />setLang  | 사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 두 문자 언어 코드를 사용 하 여 언어를 지정 합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다. | String | 아닙니다.   |
 
 ## <a name="headers"></a>헤더
 
@@ -192,6 +192,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## <a name="bing-visual-search-responses"></a>Bing Visual Search 응답
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 이미지에 사용할 수 있는 인사이트가 있는 경우 응답에는 인사이트를 포함하는 `tags`가 하나 이상 포함됩니다. `image` 필드 입력된 이미지에 대 한 insights 토큰을 포함 합니다.
 

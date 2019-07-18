@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Spatial Anchors를 사용하는 HoloLens Unity 앱 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 HoloLens 앱을 빌드하는 방법을 알아봅니다.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009245"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135197"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 HoloLens Unity 앱 만들기
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
-이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하는 HoloLens Unity 앱을 만듭니다. Spatial Anchors는 시간이 지나도 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 HoloLens 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
+이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하는 Unity HoloLens 앱을 만듭니다. Spatial Anchors는 시간이 지나도 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 HoloLens 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
 
 이 문서에서 배울 내용은 다음과 같습니다.
 
@@ -34,18 +34,18 @@ ms.locfileid: "60009245"
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 
-- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 이상 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> 이상이 설치되어 있어야 합니다. 설치된 Visual Studio에 **유니버설 Windows 플랫폼 개발** 워크로드가 포함되어 있어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>도 설치해야 합니다.
+- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 이상 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. 설치된 Visual Studio에 **유니버설 Windows 플랫폼 개발** 워크로드가 포함되어 있어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>를 설치합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. 디바이스에 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018)(RS5라고도 함)가 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인**을 선택합니다.
 - 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능**에 있습니다.
 - 앱에서 **Windows Mixed Reality SDK**의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정**에 있습니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Unity에서 샘플 프로젝트 열기
+## <a name="download-and-open-the-unity-sample-project"></a>Unity 샘플 프로젝트 다운로드 및 열기
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Unity에서 Unity 폴더의 프로젝트를 엽니다.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
 
@@ -53,7 +53,7 @@ Unity에서 Unity 폴더의 프로젝트를 엽니다.
 
 **플랫폼 전환**을 선택하여 플랫폼을 **유니버설 Windows 플랫폼**으로 변경합니다. UWP 지원 구성 요소가 누락된 경우 Unity가 이러한 구성 요소를 설치하라고 요청할 수 있습니다.
 
-   ![Unity 빌드 설정 창](./media/get-started-unity-hololens/unity-build-settings.png)
+![Unity 빌드 설정 창](./media/get-started-unity-hololens/unity-build-settings.png)
 
 **빌드 설정** 창을 닫습니다.
 

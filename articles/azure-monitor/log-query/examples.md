@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759914"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
@@ -25,7 +25,7 @@ ms.locfileid: "60759914"
 
 이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
-## <a name="events"></a>이벤트
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>"cryptographic"으로 기술되는 애플리케이션 수준 이벤트 검색
 이 예제에서는 **Events** 테이블에서 **EventLog**가 _Application_이며 **RenderedDescription**에 _cryptographic_ 이 포함된 레코드를 검색합니다. 검색 결과에는 지난 24시간 동안의 레코드가 포함됩니다.

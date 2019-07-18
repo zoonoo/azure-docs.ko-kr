@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 61cf31bcd82997a13ffae79df106485a86a9444d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136820"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Azure CLI를 사용하여 GitHub에서 배포를 통해 App Service 앱 만들기
 

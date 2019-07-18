@@ -9,11 +9,11 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386387"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182194"
 ---
 **관리 디스크를 표준 HDD**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "60386387"
 
 **SSD 프리미엄 관리 디스크: VM 당 제한**
 
-| 리소스 | 기본 제한 |
+| Resource | 기본 제한 |
 | --- | --- |
 | VM 당 최대 IOPS |GS5 VM에서 80,000 IOPS |
 | VM 당 최대 처리량 |GS5 VM에서 2,000MB/s |

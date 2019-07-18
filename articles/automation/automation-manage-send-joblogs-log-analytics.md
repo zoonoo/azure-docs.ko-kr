@@ -4,17 +4,17 @@ description: 이 문서에서는 통찰력 및 관리 하려면 Azure Monitor �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a305c90f50ce0ad618ca1cf4f32d88120a19d4a7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200599"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476649"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
 
@@ -96,10 +96,10 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 유형의 레�
 | Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
-| ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
+| ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>-생성<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
+| Resource | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그 데이터를 수집 하는 방법을 합니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResultDescription |runbook 작업 결과 상태를 설명합니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
@@ -116,13 +116,13 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 유형의 레�
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
 | Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
-| StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
+| StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>\- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
+| Resource | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그 데이터를 수집 하는 방법을 합니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResultDescription |runbook의 출력 스트림을 포함합니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |

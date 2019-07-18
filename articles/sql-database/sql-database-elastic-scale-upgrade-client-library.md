@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335052"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드
@@ -31,7 +31,7 @@ ms.locfileid: "60335052"
 
 ## <a name="upgrade-steps"></a>업그레이드 단계
 
-**1. 애플리케이션을 업그레이드합니다.**  Visual Studio에서 라이브러리를 사용하는 모든 개발 프로젝트에 최신 클라이언트 라이브러리 버전을 다운로드하고 해당 버전을 참조하도록 지정한 다음 프로젝트를 다시 빌드하고 배포합니다.
+**1. 애플리케이션을 업그레이드합니다.** Visual Studio에서 라이브러리를 사용하는 모든 개발 프로젝트에 최신 클라이언트 라이브러리 버전을 다운로드하고 해당 버전을 참조하도록 지정한 다음 프로젝트를 다시 빌드하고 배포합니다.
 
 * Visual Studio 솔루션에서 **도구** --> **NuGet 패키지 관리자** -->  **솔루션용 NuGet 패키지 관리**를 선택합니다.
 * (Visual Studio 2013) 왼쪽 패널에서 **업데이트**를 선택한 다음, 창에 표시되는 **Azure SQL Database 탄력적인 확장 클라이언트 라이브러리** 패키지에서 **업데이트** 단추를 선택합니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 5e4e565b0b5272de19458617a9c4bd3509907cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60817392"
 ---
 # <a name="configuring-asset-delivery-policies"></a>자산 배달 정책 구성
@@ -227,7 +227,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
- [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption 형식의 콘텐츠 키를 만들고 자산에 연결
@@ -270,7 +270,7 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 > 
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>자산을 자산 배달 정책과 연결
- [자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
+[자산을 자산 배달 정책과 연결](#link_asset_with_asset_delivery_policy)
 
 ## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
 

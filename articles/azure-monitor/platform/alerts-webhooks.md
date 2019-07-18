@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345784"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
@@ -75,7 +75,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | context |Y | |경고 컨텍스트입니다. |
 | timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
 | id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
-| 이름 |Y | |경고 이름입니다. |
+| name |Y | |경고 이름입니다. |
 | description |Y | |경고에 대한 설명입니다. |
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
 | condition |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |

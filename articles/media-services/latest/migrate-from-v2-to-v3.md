@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205479"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542556"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -29,14 +29,14 @@ ms.locfileid: "65205479"
 현재 비디오 서비스가 [레거시 Media Services v2 API](../previous/media-services-overview.md) 위에 배포된 경우 v3 API로 마이그레이션하기 전에 다음 지침 및 고려 사항을 검토해야 합니다. v3 API에는 개발자 경험과 Media Services 기능을 향상하는 여러 이점과 새 기능이 있습니다. 그러나 이 문서의 [알려진 문제](#known-issues) 섹션에서 언급했듯이, API 버전 간의 변경 사항으로 인해 몇 가지 제한이 있습니다. Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다. 
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="benefits-of-media-services-v3"></a>Media Services v3의 혜택
   
 ### <a name="api-is-more-approachable"></a>더 접근하기 쉬운 API
 
 *  v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. Azure Resource Manager 템플릿을 사용하여 변환, 스트리밍 엔드포인트, 라이브 이벤트 등을 만들고 배포할 수 있습니다.
-* [공개 API(Swagger라고도 함) 사양](https://aka.ms/ams-v3-rest-sdk) 문서입니다.
+* [OpenAPI 사양 (이전의 Swagger)](https://aka.ms/ams-v3-rest-sdk) 문서.
     파일 기반 인코딩을 포함하여 모든 서비스 구성 요소의 스키마를 공개합니다.
 * [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) 통합을 통해 간단한 스크립팅을 지원합니다.
@@ -60,6 +60,7 @@ ms.locfileid: "65205479"
 * v3로 만든 자산의 경우 Media Services는 [Azure Storage 서버 쪽 스토리지 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)만 지원합니다.
     * Media Services에서 제공하는 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)(AES 256)를 사용하는 v2 API로 만든 자산에 v3 API를 사용할 수 있습니다.
     * v3 API를 사용하는 레거시 AES 256 [스토리지 암호화](../previous/media-services-rest-storage-encryption.md)로는 새 자산을 만들 수 없습니다.
+* V3에서 자산의 속성은 v2에서 보려면 다릅니다 [속성을 매핑하는 방법을](assets-concept.md#map-v3-asset-properties-to-v2)합니다.
 * v3 SDK가 Storage SDK에서 분리되었으며, 따라서 사용하고 싶은 Storage SDK를 보다 철저하게 제어하고 버전 문제를 피할 수 있게 되었습니다. 
 * v3 API에서 모든 인코딩 비트 전송률은 비트/초입니다. 이것은 v2 Media Encoder Standard 미리 설정과 다른 점입니다. 예를 들어 v2의 비트 전송률은 128(kbps)로 지정되지만 v3에서는 128000(비트/초)이 됩니다. 
 * Entities AssetFiles, AccessPolicies 및 IngestManifests는 v3에 없습니다.
@@ -80,7 +81,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 
 * v3를 통해 [프리미엄 인코더](../previous/media-services-premium-workflow-encoder-formats.md) 및 레거시 [미디어 분석 프로세서](../previous/media-services-analytics-overview.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.<br/>Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
 * 많은 합니다 [v2의 Media Encoder Standard의 고급 기능](../previous/media-services-advanced-encoding-with-mes.md) Api 현재 사용할 수 없는 v3에서는 같은:
-    * 클리핑(주문형 및 라이브 시나리오용)
+  
     * 자산 연결
     * 오버레이
     * 자르기
@@ -115,7 +116,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 > [!NOTE]
 > Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

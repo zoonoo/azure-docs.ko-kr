@@ -2,20 +2,19 @@
 title: Azure SQL Data Warehouse 작업에 대해 알아보기 | Microsoft Docs
 description: 'SQL Data Warehouse의 탄력성 덕분에 DWU(데이터 웨어하우스 단위)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다. '
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-origin.date: 04/17/2018
-ms.date: 11/12/2018
-ms.author: v-jay
+ms.subservice: design
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531199"
 ---
 # <a name="data-warehouse-workload"></a>데이터 웨어하우스 워크로드
@@ -59,7 +58,7 @@ ms.locfileid: "60531199"
 ### <a name="exporting-data"></a>데이터 내보내기
 데이터를 보고 및 분석용으로 만드는 한 가지 방법은 데이터 웨어하우스에 있는 데이터를 보고 및 분석 실행 전용 서버로 보내는 것입니다. 이러한 서버를 데이터 마트라고 합니다. 예를 들어, 보고서 데이터를 미리 처리한 다음 데이터 웨어하우스에서 전 세계 많은 서버로 내보냄으로써 고객과 분석가가 광범위하게 사용하게 만들 수 있습니다.
 
-* 보고서 생성을 위해 매일 밤 일별 데이터의 스냅숏으로 읽기 전용 보고 서버를 채울 수 있습니다. 이를 통해 데이터 웨어하우스에 대한 계산 리소스 요구 사항을 줄이는 동시에 고객을 위해 더 많은 대역폭을 제공할 수 있습니다. 보안 측면에서는 데이터 마트를 사용하면 데이터 웨어하우스에 액세스할 수 있는 사용자 수를 줄일 수 있습니다.
+* 보고서 생성을 위해 매일 밤 일별 데이터의 스냅샷으로 읽기 전용 보고 서버를 채울 수 있습니다. 이를 통해 데이터 웨어하우스에 대한 계산 리소스 요구 사항을 줄이는 동시에 고객을 위해 더 많은 대역폭을 제공할 수 있습니다. 보안 측면에서는 데이터 마트를 사용하면 데이터 웨어하우스에 액세스할 수 있는 사용자 수를 줄일 수 있습니다.
 * 분석을 위해 데이터 웨어하우스에서 분석 큐브를 빌드하고 데이터 웨어하우스에 대해 분석을 실행하거나 데이터를 미리 처리한 다음 추가 분석을 위해 분석 서버로 내보낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

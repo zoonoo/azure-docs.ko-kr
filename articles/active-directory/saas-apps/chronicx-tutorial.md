@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 499cbcada19728a0d0eba1831460ea38245b7f5c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 53a770feebb18781f10c491e0b78843743da9d8f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>자습서: ChronicX®와 Azure Active Directory 통합
 

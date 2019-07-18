@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61126943"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL Data Warehouse에서 데이터베이스 보호
@@ -86,7 +86,7 @@ GRANT SELECT ON SCHEMA::Test to ApplicationUser
 Azure Portal에서 또는 Azure Resource Manager API를 사용하여 데이터베이스 및 논리 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어][Role-based access control in Azure portal]를 참조하세요.
 
 ## <a name="encryption"></a>암호화
-Azure SQL Data Warehouse TDE(투명한 데이터 암호화)를 통해 미사용 데이터를 암호화하고 암호를 해독하여 악의적인 작업의 위협으로부터 보호할 수 있습니다.  데이터베이스를 암호화할 때, 애플리케이션을 변경할 필요 없이 연관된 백업 및 트랜잭션 로그 파일이 암호화됩니다. TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. 
+Azure SQL Data Warehouse TDE(투명한 데이터 암호화)를 통해 미사용 데이터를 암호화하고 암호를 해독하여 악의적인 작업의 위협으로부터 보호할 수 있습니다.  데이터베이스를 암호화할 때, 애플리케이션을 변경할 필요 없이 연관된 백업 및 트랜잭션 로그 파일이 암호화됩니다. TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. 
 
 SQL Database에서 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 SQL Database 서버에 대해 고유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. SQL Data Warehouse에서 사용되는 암호화 알고리즘은 AES 256입니다. TDE에 대한 일반적인 설명은 [투명한 데이터 암호화][Transparent Data Encryption]를 참조하세요.
 

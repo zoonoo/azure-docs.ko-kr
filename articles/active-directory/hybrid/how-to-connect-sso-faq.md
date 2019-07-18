@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242222"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
@@ -43,7 +43,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
-| 애플리케이션 이름 | 사용할 애플리케이션 URL |
+| 응용 프로그램 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
 | 액세스 패널 | https:\//myapps.microsoft.com/contoso.com |
 | 웹용 Outlook | https:\//outlook.office365.com/contoso.com |
@@ -51,7 +51,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 또한 만료 된 자동 로그온 환경을 응용 프로그램이 보내면 Azure AD 끝점에 대 한 로그인 요청 설정 테 넌 트-즉, https:\//login.microsoftonline.com/contoso.com/ <... > 또는 https:\//login.microsoftonline.com/ < tenant_ID > / <... >-대신 Azure AD의 공통 끝점, 즉 https:\//login.microsoftonline.com/common/ <... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
-| 애플리케이션 이름 | 사용할 애플리케이션 URL |
+| 응용 프로그램 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
 | Azure portal | https:\//portal.azure.com/contoso.com |

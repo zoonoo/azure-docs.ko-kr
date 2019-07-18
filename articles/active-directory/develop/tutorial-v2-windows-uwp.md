@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522795"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276636"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 애플리케이션이 액세스 토큰을 요청한 다음, Microsoft Graph API를 호출하는 방법을 설명합니다. 이 가이드는 Microsoft ID 플랫폼 엔드포인트의 액세스 토큰이 필요한 다른 API에도 적용됩니다.
 
@@ -148,7 +147,7 @@ ms.locfileid: "59522795"
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -334,7 +333,9 @@ ms.locfileid: "59522795"
    - **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. Visual Studio로 돌아가서 **MainPage.xaml.cs** 파일을 열고, ClientId 값을 방금 등록한 애플리케이션 ID로 바꿉니다.
 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-   - **리디렉션 URI** | **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+   1. **리디렉션 URI** 섹션의 리디렉션 URI 목록에서 다음을 수행합니다.
+   1. **TYPE** 열에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다.
+   1. **리디렉션 URI** 열에 `urn:ietf:wg:oauth:2.0:oob`를 입력합니다.
 1. **저장**을 선택합니다.
 1. 앱의 페이지 목록에서 **API 권한**을 선택합니다.
    - **권한 추가** 단추를 클릭한 다음,
@@ -351,7 +352,7 @@ ms.locfileid: "59522795"
 2. **기능** 탭을 선택하고 다음 설정이 사용하도록 설정되어 있는지 확인합니다.
 
     - 엔터프라이즈 인증
-    - 개인 네트워크(클라이언트 및 서버)
+    - 프라이빗 네트워크(클라이언트 및 서버)
     - 공유 사용자 인증서
 
 > [!IMPORTANT]

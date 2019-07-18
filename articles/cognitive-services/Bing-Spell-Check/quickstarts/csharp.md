@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: e7a1f2572296015aac2d05b36b9b659c85586ff9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616291"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390255"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
 
@@ -23,9 +23,9 @@ ms.locfileid: "59616291"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Visual Studio에서 `Newtonsoft.Json`을 NuGet 패키지로 설치하려면 다음을 수행합니다.
-    1. 솔루션 탐색기에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
+    1. **솔루션 탐색기**에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
     1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
     1. `Newtonsoft.Json`을 검색하고 패키지를 설치합니다.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
@@ -81,8 +81,9 @@ ms.locfileid: "59616291"
         HttpResponseMessage response = new HttpResponseMessage();
         // add the rest of the code snippets here (except for main())...
     }
+    ```
 
-2. Create the URI for your request by appending your host, path, and parameters.
+2. 호스트, 경로 및 매개 변수를 추가하여 요청에 대한 URI를 만듭니다.
     
     ```csharp
     string uri = host + path + params_;
@@ -187,4 +188,4 @@ static void Main(string[] args)
 > [단일 페이지 웹앱 만들기](../tutorials/spellcheck.md)
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

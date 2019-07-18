@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307311"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
@@ -42,7 +42,7 @@ ms.locfileid: "60307311"
     
 4.  **IP 구성**을 선택합니다.
 5.  IP를 선택 합니다. 
-6.  **개인 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
+6.  **프라이빗 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
 7.  **IP 주소**를 서브넷에서 사용할 수 있는 다른 IP 주소로 변경합니다.
 8. 가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
 9.  컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
@@ -82,7 +82,7 @@ ms.locfileid: "60307311"
 2.  **Virtual Machines(클래식)** 를 선택합니다.
 3.  영향을 받는 Virtual Machine을 선택합니다.
 4.  **IP 주소**를 선택합니다.
-5.  **개인 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
+5.  **프라이빗 IP 할당**이 **정적**이 아닌 경우 **정적**으로 변경합니다.
 6.  **IP 주소**를 서브넷에서 사용할 수 있는 다른 IP 주소로 변경합니다.
 7.  **저장**을 선택합니다.
 8.  가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.

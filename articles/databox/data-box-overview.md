@@ -7,20 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117747"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551516"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
 Microsoft Azure Data Box 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 사용자에게 전용 Data Box 저장소 디바이스를 배송하여 안전한 데이터 전송을 더욱 빠르게 실현시켜 드립니다. 각 저장소 디바이스는 사용 가능한 최대 저장소 용량이 80TB이며, 지역 이동 통신 사업자를 통해 사용자의 데이터 센터에 수송됩니다. 디바이스는 운송 중에 데이터를 안전하게 보호하기 위해 견고하게 포장됩니다.
 
-Azure Portal을 통해 Data Box 디바이스를 주문할 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 종단 간 추적됩니다.
+Azure Portal을 통해 Data Box 디바이스를 주문할 수 있습니다. 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정할 수 있습니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
 
 
 ## <a name="use-cases"></a>사용 사례
@@ -109,13 +109,16 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-Data Box는 서비스가 배포된 지역, 디바이스가 배송된 국가 및 데이터를 전송하는 대상 Azure Storage 계정에 따라 데이터를 전송할 수 있습니다. 
+Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다. 
 
 - **서비스 가용성** - 이 릴리스의 경우 Data Box 서비스는 다음과 같은 지역에서 사용할 수 있습니다.
     - 미국 내 모든 지역 - 미국 중서부, 미국 서부 2, 미국 서부, 미국 중남부, 미국 중부, 미국 중북부, 미국 동부 및 미국 동부 2.
     - 유럽 연합 - 유럽 서부 및 유럽 북부.
     - 영국 - 영국 남부 및 영국 서부.
     - 프랑스 - 프랑스 중부 및 프랑스 남부.
+    - 일본 - 일본 동부 및 일본 서부.
+    - 오스트레일리아 - 오스트레일리아 동부 및 오스트레일리아 남동부.
+    - 캐나다 - 캐나다 동부 및 캐나다 중부
 
 - **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.  
 

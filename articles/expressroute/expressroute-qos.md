@@ -9,10 +9,10 @@ ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712319"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
@@ -21,7 +21,7 @@ ms.locfileid: "64712319"
 ![](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 개인 피어링에서 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다. 
+> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 프라이빗 피어링에서 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다. 
 > 
 > 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e56f37c84890b6e679e9739bc772e67a1b7e53f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>자습서: Dossier와 Azure Active Directory 통합
 

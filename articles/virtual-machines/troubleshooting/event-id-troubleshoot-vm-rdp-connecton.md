@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485508"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>이벤트 ID로 Azure VM RDP 연결 문제 해결 
@@ -35,9 +35,9 @@ RDP(원격 데스크톱 프로토콜) 세션을 사용하여 Azure VM에 연결�
 
 ## <a name="before-you-troubleshoot"></a>해결하기 전에
 
-### <a name="create-a-backup-snapshot"></a>백업 스냅숏 만들기
+### <a name="create-a-backup-snapshot"></a>백업 스냅샷 만들기
 
-백업 스냅숏을 만들려면 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
+백업 스냅샷을 만들려면 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
 
 ### <a name="connect-to-the-vm-remotely"></a>원격으로 VM에 연결
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **키워드:**       <br />
 **사용자:**          SYSTEM <br />
 **컴퓨터:** *컴퓨터* <br />
-**설명:** SSL 서버 자격 증명 개인 키에 액세스하려 할 때 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
+**설명:** SSL 서버 자격 증명 프라이빗 키에 액세스하려 할 때 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
 내부 오류 상태는 10001입니다.
 
 ### <a name="cause"></a>원인

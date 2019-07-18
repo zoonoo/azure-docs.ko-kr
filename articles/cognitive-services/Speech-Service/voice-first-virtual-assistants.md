@@ -1,54 +1,56 @@
 ---
-title: 사용자 지정 음성-첫 번째 가상 도우미 (미리 보기)-음성 서비스
+title: 사용자 지정 음성-우선 가상 도우미 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 개요 기능, 기능 및 Cognitive Services 음성 소프트웨어 개발 키트 (SDK) Bot Framework에 직접 줄 음성 채널을 사용 하는 사용자 지정 음성-첫 번째 가상 도우미에 대 한 제한입니다.
+description: Bot Framework 및 Cognitive Services 음성 소프트웨어 개발 키트(SDK)의 Direct Line Speech 채널을 사용하는 사용자 지정 음성-우선 가상 도우미의 기능, 능력 및 제한에 대한 개요입니다.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138175"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806898"
 ---
-# <a name="about-custom-voice-first-virtual-assistants-preview"></a>사용자 지정 음성-첫 번째 가상 도우미 미리 보기 정보
+# <a name="about-custom-voice-first-virtual-assistants-preview"></a>사용자 지정 음성-우선 가상 도우미 미리 보기 정보
 
-Azure 음성 서비스를 사용 하 여 사용자 지정 가상 도우미 하면 개발자가 자신의 응용 프로그램과 환경에 대 한 자연 스러운, 인간과 유사한 대화형 인터페이스를 만들 수 있습니다. 봇 프레임 워크의 직접 줄 음성 채널의, 짧은 대기 시간 및 높은 안정성으로 상호 작용 아웃 음성 음성 수 있도록 호환 수 조정, 오케스트레이션 된 진입점을 제공 하 여 이러한 기능을 향상 시킵니다. 이러한 봇에 자연 언어 상호 작용에 대 한 Microsoft의 LUIS (Language Understanding)를 사용할 수 있습니다. 직접 줄 음성 음성 소프트웨어 개발 키트 (SDK)를 사용 하 여 장치에 액세스 합니다.
+Azure Speech Services를 사용하는 사용자 지정 가상 도우미는 개발자가 자신의 애플리케이션과 경험을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다. Bot Framework의 Direct Line Speech 채널은 짧은 대기 시간 및 높은 안정성으로 음성 입력, 음성 출력 상호 작용을 가능하게 하는 호환 가능 봇에 조정되고 조율된 진입점을 제공함으로써 이러한 능력을 향상시킵니다. 이러한 봇에 자연 언어 상호 작용을 위한 Microsoft의 LUIS(Language Understanding)를 사용할 수 있습니다. 장치는 음성 소프트웨어 개발 키트(SDK)를 사용하여 Direct Line Speech에 액세스합니다.
 
-   ![직접 회선 음성 오케스트레이션 서비스 흐름의 개념도](media/voice-first-virtual-assistants/overview.png "The 음성 채널 흐름")
+   ![직접 라인 음성 오케스트레이션 서비스 흐름의 개념적 다이어그램](media/voice-first-virtual-assistants/overview.png "음성 채널 흐름")
 
-직접 줄 음성 및 사용자 지정 음성-첫 번째 가상 도우미에 대 한 관련된 기능을 이상적인 보완은는 [가상 도우미 솔루션](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) 하 고 [엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)합니다. 모든 호환 봇과 직접 줄 음성 작동할 수 있지만 이러한 리소스는 고품질 대화형 환경 뿐만 아니라 일반적인 지원 기술 및 신속 하 게 시작 하는 것에 대 한 모델에 대 한 다시 사용할 수 있는 초기 계획을 제공 합니다.
+
+Direct Line Speech 및 사용자 지정 음성-우선 가상 도우미에 대한 관련된 기능은 [가상 도우미 솔루션 및 엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)에 대한 이상적인 보완 사항입니다. Direct Line Speech는 호환 가능한 봇과 함께 작동할 수 있지만,  이러한 리소스는 고품질 대화형 환경 뿐만 아니라 빠른 시작을 위한 일반적인 지원 기술과 모델을 위한 재사용 가능한 기준선을 제공합니다.
+
 
 ## <a name="core-features"></a>핵심 기능
 
-| Category | 기능 |
+| 범주 | 기능 |
 |----------|----------|
-|[사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md) | "Hey Contoso."와 같은 사용자 지정 키워드를 사용 하 여 봇을 사용 하 여 대화를 시작 하려면 사용자가 설정할 수 있습니다. 이 작업은 사용자 지정 절전 모드 해제 단어로 구성 될 수 있는 음성 SDK에서 사용자 지정 절전 모드 해제 단어 엔진을 사용 하 여 수행 됩니다 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)합니다. 직접 줄 음성 채널 및 단독으로 장치 절전 모드 해제 word 활성화의 정확도 개선 하는 서비스 쪽 절전 모드 해제 word 확인을 포함 합니다.
-|[음성을 텍스트로 변환](speech-to-text.md) | 인식 된 텍스트를 사용 하 여 실시간으로 기록 오디오를 포함 하는 직접 줄 음성 채널 [음성-텍스트](speech-to-text.md) Azure 음성 서비스에서입니다. 이 텍스트는 감정과 대로 봇을 클라이언트 응용 프로그램에 사용할 수 있습니다.
-|[텍스트 음성 변환](text-to-speech.md) | 사용 하 여 봇의 응답을 텍스트를 합성 됩니다 [text to speech](text-to-speech.md) Azure 음성 서비스에서입니다. 이 합성 한 후 제공 될 예정 오디오 스트림으로 클라이언트 응용 프로그램입니다. Microsoft는 음성으로 귀사 브랜드에 자세히 알아보려면 제공 하는 사용자 고유의 사용자 지정, 고품질 신경망 TTS 음성을 구축 하는 기능을 제공 [문의처](mailto:mstts@microsoft.com)합니다.
-|[직접 회선 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Bot Framework 내에서 채널로 직접 줄 통해 클라이언트 응용 프로그램, 호환 봇의 경우와 Azure 음성 서비스의 기능 간에 원활 하 게 연결 합니다. 직접 줄 음성 채널을 사용 하면 봇이 마치를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Bot Framework 설명서에서 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)합니다.
+|[사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md) | 사용자가 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 봇으로 대화를 시작할 수 있도록 설정할 수 있습니다. 이 작업은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 절전 모드 해제 단어를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 절전 모드 해제 단어 엔진을 사용 하 여 수행 됩니다. 직접 선 음성 채널은 절전 모드 해제 단어 인증 및 장치 전용의 정확도를 개선 하는 서비스 쪽 절전 모드 해제 단어 확인을 포함 합니다.
+|[음성 텍스트](speech-to-text.md) | 직접 선 음성 채널에는 Azure Speech Services의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 인식 된 텍스트에 대 한 오디오의 실시간 기록을 포함 합니다. 이 텍스트는 transcribed 때 봇과 클라이언트 응용 프로그램에서 모두 사용할 수 있습니다.
+|[텍스트 음성 변환](text-to-speech.md) | Bot의 텍스트 응답은 Azure Speech Services에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 사용자의 브랜드에 음성을 제공 하는 고품질의 사용자 지정 신경망을 빌드하는 기능을 제공 하 여 [문의처](mailto:mstts@microsoft.com)에 대해 자세히 알아보세요.
+|[직접 줄 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | 봇 프레임 워크 내에서 직접 라인 음성은 클라이언트 응용 프로그램, 호환 봇 및 Azure Speech Services의 기능 간에 원활한 원활한 연결을 가능 하 게 합니다. 직접 선 음성 채널을 사용 하도록 봇을 구성 하는 방법에 대 한 자세한 내용은 [Bot Framework 설명서의 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)를 참조 하세요.
 
 ## <a name="sample-code"></a>샘플 코드
 
-음성 우선 가상 도우미를 만들기 위한 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에 몇 가지 인기 있는 프로그래밍 언어에서 봇을 연결 하기 위한 클라이언트 응용 프로그램을 다룹니다.
+음성-우선 가상 도우미를 만들기 위한 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에서는 몇 가지 인기 있는 프로그래밍 언어로 봇을 연결하기 위한 클라이언트 응용 프로그램을 다룹니다.
 
-* [음성 우선 가상 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
-* [빠른 시작: 음성 우선 가상 도우미 (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [빠른 시작: 음성 우선 가상 도우미 (Java)](quickstart-virtual-assistant-java-jre.md)
+* [음성-우선 가상 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
+* [빠른 시작: 음성-우선 가상 도우미 (C#)](quickstart-virtual-assistant-csharp-uwp.md)
+* [빠른 시작: 음성-우선 가상 도우미 (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## <a name="customization"></a>사용자 지정
 
-Azure 음성 서비스를 사용 하 여 빌드된 음성 우선 가상 도우미를 사용할 수 있는 사용자 지정 옵션의 전체 범위를 사용할 수 [음성-텍스트](speech-to-text.md)하십시오 [text to speech](text-to-speech.md), 및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)합니다.
+Azure Speech Services를 사용하여 빌드된 음성-우선 가상 도우미는 [음성-텍스트](speech-to-text.md), [텍스트-음성](text-to-speech.md) 및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 범위의 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 언어/로캘에서 마다 다른 사용자 지정 옵션 (참조 [지원 되는 언어](supported-languages.md)).
+> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다([지원되는 언어](supported-languages.md)를 참조합니다).
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -58,6 +60,6 @@ Azure 음성 서비스를 사용 하 여 빌드된 음성 우선 가상 도우�
 ## <a name="next-steps"></a>다음 단계
 
 * [무료로 Speech Service 구독 키 받기](get-started.md)
-* [Speech SDK 가져오기](speech-sdk.md)
+* [음성 SDK 가져오기](speech-sdk.md)
 * [기본 봇 생성 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [가상 도우미 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)
+* [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)

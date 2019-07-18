@@ -16,10 +16,10 @@ ms.date: 07/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60263546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>자습서: Kanbanize와 Azure Active Directory 통합
@@ -112,7 +112,7 @@ Kanbanize에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.kanbanize.com/saml/acs`
 
-    다. **고급 URL 설정 표시**를 선택합니다.
+    c. **고급 URL 설정 표시**를 선택합니다.
 
     d.  **릴레이 상태** 텍스트 상자에 URL `/ctrl_login/saml_login`을 입력합니다.
 
@@ -159,7 +159,7 @@ Kanbanize에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 로그인 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 엔드포인트** 텍스트 상자에 붙여넣습니다.
+    c. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
     d. **이메일에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 

@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663165"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621912"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -86,7 +86,7 @@ ms.locfileid: "58663165"
     "omsSolution": "ServiceFabric"
     ```
 
-3. Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
+3. Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* >  *“apiVersion”: “[variables(‘vmssApiVersion’)]”* . *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
     
     ```json
     {

@@ -23,7 +23,7 @@ ms.locfileid: "58106460"
 
 Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비스 데이터를 사용하기 위한 선언적 방식을 제공합니다. 이 빠른 시작에서는 출력 바인딩을 사용하여 HTTP 요청에서 함수가 트리거될 때 큐에 메시지를 만듭니다. Azure Storage Explorer를 사용하여 함수가 만드는 큐 메시지를 확인합니다.
 
-![저장소 탐색기에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
+![Storage Explorer에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -116,11 +116,11 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 2. 로그에서 함수가 성공했는지 확인합니다. 
 
-**outqueue**라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 Storage 계정에 만들어집니다. 저장소 탐색기를 사용하여 그 안에 큐와 메시지가 만들어졌는지 확인합니다.
+**outqueue**라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 Storage 계정에 만들어집니다. Storage Explorer를 사용하여 그 안에 큐와 메시지가 만들어졌는지 확인합니다.
 
-### <a name="connect-storage-explorer-to-your-account"></a>저장소 탐색기를 계정에 연결
+### <a name="connect-storage-explorer-to-your-account"></a>Storage Explorer를 계정에 연결
 
-이미 저장소 탐색기를 설치하고 이 빠른 시작에 사용하는 저장소 계정에 연결한 경우 이 섹션을 건너뜁니다.
+이미 Storage Explorer를 설치하고 이 빠른 시작에 사용하는 스토리지 계정에 연결한 경우 이 섹션을 건너뜁니다.
 
 1. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 선택하고 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다.
 
@@ -132,11 +132,11 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. 페이지 아래쪽의 **설명서** 섹션을 확장합니다. 
 
-   포털에 저장소 탐색기에서 저장소 계정에 연결하는 데 사용할 수 있는 자격 증명이 표시됩니다.
+   포털에 Storage Explorer에서 스토리지 계정에 연결하는 데 사용할 수 있는 자격 증명이 표시됩니다.
 
    ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-1. 포털에서 **계정 이름** 값을 복사하여 저장소 탐색기의 **계정 이름** 상자에 붙여 넣습니다.
+1. 포털에서 **계정 이름** 값을 복사하여 Storage Explorer의 **계정 이름** 상자에 붙여넣습니다.
  
 1. **계정 키** 옆의 표시/숨김 아이콘을 클릭하여 값을 표시한 다음 **계정 키** 값을 복사하여 저장소 탐색기의 **계정 키** 상자에 붙여넣습니다.
   
@@ -146,13 +146,13 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ### <a name="examine-the-output-queue"></a>출력 큐 검토 
 
-1. 저장소 탐색기에서 이 빠른 시작에 사용하는 저장소 계정을 선택합니다.
+1. Storage Explorer에서 이 빠른 시작에 사용하는 스토리지 계정을 선택합니다.
 
 1. **큐** 노드를 확장한 다음 이름이 **outqueue**인 큐를 선택합니다. 
 
    이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 Azure로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름: Azure’입니다.
 
-    ![저장소 탐색기에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
+    ![Storage Explorer에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
 1. 함수를 다시 실행하면 큐에 새 메시지가 표시되는 것을 알 수 있습니다.  
 

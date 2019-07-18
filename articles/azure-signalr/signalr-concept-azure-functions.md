@@ -6,16 +6,19 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61401890"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275101"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR Service를 사용 하 여 실시간 앱 빌드
 
 Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 애플리케이션 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
+
+> [!NOTE]
+> 대화형 자습서에서 SignalR 및 Azure Functions를 함께 사용 하는 방법을 알아봅니다 [SignalR Service 및 Azure Functions를 사용 하 여 웹 응용 프로그램에서 자동 업데이트 사용](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)합니다.
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Azure 서비스를 통해 실시간 통신 통합
 
@@ -41,7 +44,7 @@ Azure Functions 및 SignalR Service로 구현할 수 있는 실시간 서버리�
 
 ## <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
-Azure Functions용 SignalR Service 바인딩을 통해 Azure Function 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
+Azure Functions용 SignalR Service 바인딩을 통해 Azure 함수 앱이 SignalR Service에 연결된 클라이언트에 메시지를 게시할 수 있습니다. 클라이언트는 .NET, JavaScript 및 Java에서 사용할 수 있는 SignalR 클라이언트 SDK를 사용하여 서비스에 연결할 수 있으며 더 많은 언어에서 곧 제공 될 예정입니다.
 
 ### <a name="an-example-scenario"></a>예제 시나리오
 
@@ -63,9 +66,10 @@ SignalR Service를 사용하면 모든 클라이언트 또는 클라이언트의
 
 이 문서에서는 Azure Functions를 SignalR Service와 함께 사용하여 다양한 실시간 메시징 시나리오를 사용하는 방법에 대한 개요를 살펴봤습니다.
 
-Azure Functions 및 SignalR Service를 함께 사용 하는 방법에 대 한 전체 내용은 다음 가이드를 참조 하세요.
+Azure Functions 및 SignalR Service를 함께 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 합니다.
 
 * [Azure Functions 개발 및 SignalR Service를 사용 하 여 구성](signalr-concept-serverless-development-config.md)
+* [Azure Functions 및 SignalR Service를 사용 하 여 웹 응용 프로그램에서 자동 업데이트를 사용 하도록 설정](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 자세히 알아보려면 다음 빠른 시작 중 하나를 수행하세요.
 

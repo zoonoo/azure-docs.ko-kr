@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Portal을 사용하여 표준 Load Balancer를 만들고 관리하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22d0e56a77036c551b6006f43997c92fcce07499
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845208"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273365"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산
 
@@ -49,8 +49,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
-    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
+    | Subscription               | 구독을 선택합니다.    |    
+    | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *myResourceGroupSLB*를 입력합니다.|
     | Name                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
@@ -126,8 +126,8 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
     | ------- | ----- |
     | Name | *myVNet*을 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다.|
-    | 리소스 그룹 | 기존 리소스(*myResourceGroupSLB*)를 선택합니다. |
+    | Subscription | 구독을 선택합니다.|
+    | Resource group | 기존 리소스(*myResourceGroupSLB*)를 선택합니다. |
     | 위치 | **유럽 서부**를 선택합니다.|
     | 서브넷 - 이름 | *myBackendSubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |

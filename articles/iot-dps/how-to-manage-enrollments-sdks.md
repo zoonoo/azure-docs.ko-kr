@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627272"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure Device Provisioning Service SDK로 디바이스 등록을 관리하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "60627272"
 ## <a name="prerequisites"></a>필수 조건
 * 디바이스 프로비전 서비스 인스턴스의 연결 문자열 가져오기
 * 사용되는 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 대한 디바이스 보안 아티팩트를 가져옵니다.
-    * [**TPM(신뢰할 수 있는 플랫폼 모듈)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**TPM(신뢰할 수 있는 플랫폼 모듈)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * 개별 등록: 물리적 디바이스 또는 TPM 시뮬레이터의 등록 ID 및 TPM 인증 키.
         * 등록 그룹은 TPM 증명에 적용되지 않습니다.
     * [**X.509**](/azure/iot-dps/concepts-security):

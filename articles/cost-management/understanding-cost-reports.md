@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65969068"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
@@ -85,7 +85,7 @@ ms.locfileid: "61003803"
        - 일회성 요금
        - 지원
        - 사용 비용
-     - **고객**
+     - **Customer**
        - 특정 고객, 여러 고객 또는 모든 고객을 선택합니다.
      - **계정 이름**
        - 계정 또는 구독 이름입니다. Azure에서는 Azure 구독의 이름입니다.
@@ -105,7 +105,7 @@ ms.locfileid: "61003803"
        - 사용 중인 리소스의 종류입니다.
      - **하위 유형**
        - 하위 유형을 선택합니다.
-     - **작업**
+     - **연산**
        - 작업을 선택하거나 **모두 표시**를 선택합니다.
      - **가격 모델**
        - 전부 선불
@@ -178,7 +178,7 @@ ms.locfileid: "61003803"
 
 15. **정책**
 
-    그림에는 없지만 일부 보고서에는 예상 비용 계산 정책이 포함됩니다. 이러한 보고서에서 **통합** 정책은 Microsoft 등록이나 AWS 지불자 등, 현재 엔터티의 모든 계정 및 구독에 대한 권장 사항을 나타냅니다. **독립형** 정책은 다른 구독이 없는 경우 한 계정 또는 구독에 대한 권장 사항을 나타냅니다.  선택한 정책은 조직에서 사용하는 최적화 전략에 따라 다릅니다. 비용 예상은 지난 30일 사용량을 기준으로 합니다.
+    그림에는 없지만 일부 보고서에는 예상 비용 계산 정책이 포함됩니다. 이러한 보고서에서 **통합** 정책은 Microsoft 등록이나 AWS 지불자 등, 현재 엔터티의 모든 계정 및 구독에 대한 권장 사항을 나타냅니다. **독립형** 정책은 다른 구독이 없는 경우 한 계정 또는 구독에 대한 권장 사항을 나타냅니다. 선택한 정책은 조직에서 사용하는 최적화 전략에 따라 다릅니다. 비용 예상은 지난 30일 사용량을 기준으로 합니다.
 
 ## <a name="save-and-schedule-reports"></a>보고서 저장 및 예약
 

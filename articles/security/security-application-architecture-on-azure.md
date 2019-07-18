@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597835"
 ---
 # <a name="application-architecture-on-azure"></a>Azure 상의 애플리케이션 아키텍처
@@ -47,5 +47,5 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 이 템플릿을 과정 외부에서도 사용할 있습니다.
 
 * [교육 비디오를 시청](https://aka.ms/3dBlueprintTemplateVideo) 하여 이 템플릿으로 무엇을 할 수 있는지 알아보십시오.
-*  [Microsoft 3D 청사진 Visio 템플릿](https://aka.ms/3DBlueprintTemplate)
+* [Microsoft 3D 청사진 Visio 템플릿](https://aka.ms/3DBlueprintTemplate)
 * [클라우드 및 엔터프라이즈 기호](https://docs.microsoft.com/azure/architecture/) 를 다운로드하여 3D 템플릿과 함께 사용

@@ -11,11 +11,11 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60394492"
 ---
 # <a name="part-of-speech-tagging"></a>음성 부분 태그 지정
 

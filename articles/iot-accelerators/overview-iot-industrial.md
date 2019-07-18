@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c3a54d469d3dcbe04c11aa049906b551d68022f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491751"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606196"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>산업용 IoT(IIoT)란?
 
@@ -30,7 +30,7 @@ OPC 쌍을 통해 작업 현장 머신에 액세스하는 데 걸리는 시간�
 > [!NOTE]
 > Azure 산업용 IoT 서비스에 대한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/azure-iiot-services)를 참조하세요.
 Azure IoT Edge 모듈의 작동 방식에 대해 잘 모르는 경우 다음 문서를 시작하세요.
-- [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
+- [Azure IoT Edge 정보](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge 모듈](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>연결된 공장

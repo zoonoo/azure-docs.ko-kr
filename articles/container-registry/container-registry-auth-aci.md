@@ -1,25 +1,24 @@
 ---
 title: Azure Container Instances의 Azure Container Registry를 사용하여 인증
-description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
+description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-registry
-author: rockboyfor
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 03/25/2019
-ms.author: v-yeche
+ms.date: 04/23/2018
+ms.author: danlep
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333587"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 
-Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Container Registry에서 개인 컨테이너 레지스트리에 액세스 권한을 제공할 수 있습니다.
+Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Container Registry에서 프라이빗 컨테이너 레지스트리에 액세스 권한을 제공할 수 있습니다.
 
-이 문서에서는 레지스트리에 대한 *풀* 권한으로 Azure AD 서비스 주체를 만들고 구성하는 방법을 알아봅니다. 그런 다음 인증을 위해 서비스 주체를 사용하여 개인 레지스트리에서 이미지를 풀하는 ACI(Azure Container Instances)에서 컨테이너를 시작합니다.
+이 문서에서는 레지스트리에 대한 *풀* 권한으로 Azure AD 서비스 주체를 만들고 구성하는 방법을 알아봅니다. 그런 다음, 인증을 위해 서비스 주체를 사용하여 프라이빗 레지스트리에서 이미지를 풀하는 ACI(Azure Container Instances)에서 컨테이너를 시작합니다.
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
@@ -35,12 +34,12 @@ Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Containe
 
 서비스 주체를 사용하여 Azure Container Instances에서 컨테이너를 시작하려면 `--registry-username`에 대한 ID와 `--registry-password`에 대한 암호를 지정합니다.
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

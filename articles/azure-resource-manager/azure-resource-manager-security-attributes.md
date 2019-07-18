@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ebc39dcd9fe921c794add48cc677a799841cbb78
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002267"
 ---
-# <a name="common-security-attributes-for-azure-resource-manager"></a>일반적인 보안 특성에 대 한 Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Resource Manager에 기본 제공 일반 보안 특성을 설명 합니다.
+이 문서에서는 Azure Resource Manager에 기본 제공 보안 특성을 설명 합니다.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "64943635"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 |  |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | HTTPS/TLS. |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | HTTPS/TLS. |
 | 암호화 키 처리 (예: CMK, BYOK)| N/A | Azure Resource Manager 고객 콘텐츠 없음만 컨트롤 데이터를 저장합니다. |
 | 열 수준 암호화 (Azure Data Services)| 예 | |
 | API 호출 암호화| 예 | |

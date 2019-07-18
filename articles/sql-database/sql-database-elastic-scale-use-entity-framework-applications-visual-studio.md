@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331924"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
@@ -45,8 +45,8 @@ ms.locfileid: "60331924"
 
 Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용하여 애플리케이션을 빌드하고 애플리케이션 개체의 지속성을 확인합니다.
 
-* **Code First(New Database)**: EF 개발자가 애플리케이션 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
-* **Code First(Existing Database)**: EF가 기존 데이터베이스에서 모델에 대한 애플리케이션 코드를 생성하도록 지정합니다.
+* **Code First(New Database)** : EF 개발자가 애플리케이션 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
+* **Code First(Existing Database)** : EF가 기존 데이터베이스에서 모델에 대한 애플리케이션 코드를 생성하도록 지정합니다.
 * **Model First**: 개발자가 EF 디자이너에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 만듭니다.
 * **Database First**: 개발자가 EF 도구를 사용하여 기존 데이터베이스에서 모델을 유추합니다. 
 

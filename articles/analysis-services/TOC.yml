@@ -1,8 +1,8 @@
-- name: Analysis Services 설명서
+- name: Azure Analysis Services 설명서
   href: index.md
 - name: 개요
   items:
-    - name: Analysis Services란?
+    - name: Azure Analysis Services란?
       href: analysis-services-overview.md
 - name: 빠른 시작
   items:

@@ -147,8 +147,8 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 ### <a name="test"></a>test
 
 - 테스트 사례는 Go로 작성되었습니다.
-- 테스트의 모든 코드는 종단 간 테스트입니다.
-- 종단 간 테스트는 Terraform을 사용하여 **fixture** 아래에 정의된 모든 항목을 프로비전한 다음, **template_output.go** 코드의 출력을 미리 정의된 예상 값과 비교하려고 합니다.
+- 테스트의 모든 코드는 엔드투엔드 테스트입니다.
+- 엔드투엔드 테스트는 Terraform을 사용하여 **fixture** 아래에 정의된 모든 항목을 프로비전한 다음, **template_output.go** 코드의 출력을 미리 정의된 예상 값과 비교하려고 합니다.
 - **Gopkg.lock** 및 **Gopkg.toml**: 종속성을 정의합니다. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Docker 파일을 사용하여 새 Terraform 모듈 테스트
@@ -203,7 +203,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 
     ![Rake 빌드](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="run-the-end-to-end-test"></a>종단 간 테스트 실행
+### <a name="run-the-end-to-end-test"></a>엔드투엔드 테스트 실행
 
 1. `rake e2e`을 입력합니다.
 

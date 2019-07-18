@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325821"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Always On 가용성 그룹 소개 #
@@ -41,7 +41,7 @@ Azure Virtual Machines의 가용성 그룹에 대한 주요 차이점은 Azure V
 | [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 아닙니다. | 예 | 예 | 예 | 아니오 | 아닙니다. |
 | [빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 아닙니다. | 예 | 예 | 예 | 아니오 | 아닙니다. |
 | [포털 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | 파일 공유 | 아닙니다. | 아니요 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| [수동](virtual-machines-windows-portal-sql-availability-group-prereq.md) | 모두 | 모두 | 모두 | 모두 | 예. | 예 | 예 | 예 | 예 | 예. |
+| [수동](virtual-machines-windows-portal-sql-availability-group-prereq.md) | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 Azure Virtual Machines에서 SQL Server 가용성을 빌드할 준비가 되면 다음 자습서를 참조하세요.

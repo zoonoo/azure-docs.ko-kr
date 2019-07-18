@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103726"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226417"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -89,7 +89,7 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
    * 새 리소스 그룹의 이름. 이름은 동일한 서비스에 대한 여러 구독을 구분하는 데 도움이 됩니다.
    * 새 리소스가 연결되는 Azure 구독을 선택하여 요금이 얼마나 청구되는지 확인합니다.
-   * 리소스가 사용될 지역을 선택합니다. 현재 Speech Service는 동아시아, 북유럽 및 미국 서부 지역에서 사용할 수 있습니다.
+   * 리소스가 사용 될 [지역을](regions.md) 선택 합니다.
    * 체험 또는 유료 가격 책정 계층을 선택합니다. 각 계층의 가격 및 사용 할당량에 대한 전체 정보를 보려면 **전체 가격 책정 세부 정보 보기**를 클릭합니다.
    * 이 Speech 구독에 대한 새 리소스 그룹을 만들거나 기존 리소스 그룹에 해당 구독을 할당합니다. 리소스 그룹은 다양한 Azure 구독의 구성을 유지하는 데 도움이 됩니다.
    * 나중에 구독에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.

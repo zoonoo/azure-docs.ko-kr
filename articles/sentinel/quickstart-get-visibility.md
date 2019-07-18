@@ -4,10 +4,11 @@ description: Azure Sentinel 빠른 시작 - Azure Sentinel 미리 보기 시작
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402884"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619800"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>빠른 시작: Azure Sentinel 미리 보기 시작
 

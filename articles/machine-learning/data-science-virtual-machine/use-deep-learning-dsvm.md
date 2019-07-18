@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 0609cabd5a9898900580580d1f5f412722637bcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407040"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>딥 러닝 Virtual Machine 사용
@@ -31,7 +31,7 @@ AI용 딥 러닝 VM에는 여러 가지 도구가 제공됩니다. [심화 학�
 
 ## <a name="deep-learning-tutorials-and-walkthroughs"></a>심화 학습 자습서 및 연습
 
-프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 포괄적인 자습서가 계속 추가될 예정입니다.   
+프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 엔드투엔드 자습서가 계속 추가될 예정입니다.   
 
 
 - [다양한 프레임워크에서 신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임워크에서 다른 프레임워크로 코드를 마이그레이션하는 방법을 보여주는 포괄적인 연습입니다. 또한 프레임워크에서 시간 성능을 실행하고 모델을 비교하는 방법을 보여 줍니다. 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
 ms.openlocfilehash: 6d67fa4af031480fda4a91f7356bff69830a654c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711506"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
@@ -106,7 +106,7 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 
 인증서는 다음 요구 사항을 충족해야 합니다.
 
-* 인증서에 개인 키가 포함되어 있어야 합니다. 이러한 인증서의 확장명은 일반적으로 .pfx 또는 .pem입니다.  
+* 인증서에 프라이빗 키가 포함되어 있어야 합니다. 이러한 인증서의 확장명은 일반적으로 .pfx 또는 .pem입니다.  
 * 키 교환을 위해 인증서를 만들어야 합니다. 이 인증서는 개인 정보 교환(.pfx) 파일로 내보낼 수 있습니다.
 * **인증서의 주체 이름은 Service Fabric 클러스터에 액세스하는 데 사용하는 도메인과 일치해야 합니다**. 클러스터의 HTTPS 관리 엔드포인트 및 Service Fabric Explorer에 SSL을 제공하려면 이렇게 일치해야 합니다. *.cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 

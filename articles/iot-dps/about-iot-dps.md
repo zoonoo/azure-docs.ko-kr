@@ -116,7 +116,7 @@ Device Provisioning Service의 서비스 수준 계약은 99.9%이며, [SLA를 �
 Device Provisioning Service는 Azure IoT Hub를 통한 디바이스 프로비전을 자동화합니다. [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서의 IoT 디바이스 프로비전에 관해 대략적으로 이해하게 되었을 것입니다. 다음 단계는 종단 간 IoT 시나리오를 사용해 보는 것입니다.
+이제 Azure에서의 IoT 디바이스 프로비전에 관해 대략적으로 이해하게 되었을 것입니다. 다음 단계는 엔드투엔드 IoT 시나리오를 사용해 보는 것입니다.
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)
 > [시뮬레이션된 디바이스 만들기 및 프로비전](quick-create-simulated-device.md)

@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832600"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
@@ -53,7 +53,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 
 ### <a name="quota-enforcement"></a>할당량 적용
 
-앱이 *CPU(짧음)*, *CPU(일)*, *대역폭* 할당량을 초과하는 경우 할당량이 재설정될 때까지 앱이 중지됩니다. 이 시간 중에는 들어오는 모든 요청에서 HTTP 403 오류가 발생합니다.
+앱이 *CPU(짧음)* , *CPU(일)* , *대역폭* 할당량을 초과하는 경우 할당량이 재설정될 때까지 앱이 중지됩니다. 이 시간 중에는 들어오는 모든 요청에서 HTTP 403 오류가 발생합니다.
 
 ![403 오류 메시지][http403]
 
@@ -97,7 +97,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | **초당 IO 쓰기 바이트 수** | 앱 프로세스에서 I/O 작업에 바이트를 쓰는 속도입니다.|
 | **초당 IO 쓰기 작업 수** | 앱 프로세스에서 쓰기 I/O 작업을 실행하는 속도입니다.|
 | **메모리 작업 집합** | 현재 앱에 사용된 메모리 양(MiB)입니다. |
-| **전용 바이트 수** | 전용 바이트 수는 다른 프로세스와 공유할 수 없는 앱 프로세스에서 할당한 메모리의 현재 크기(바이트)입니다.|
+| **전용 바이트 수** | 프라이빗 바이트 수는 다른 프로세스와 공유할 수 없는 앱 프로세스에서 할당한 메모리의 현재 크기(바이트)입니다.|
 | **요청** | 결과 HTTP 상태 코드에 관계 없이 총 요청 수입니다. |
 | **애플리케이션 큐의 요청 수** | 애플리케이션 요청 큐의 요청 수입니다.|
 | **스레드 수** | 앱 프로세스에서 현재 활성 상태인 스레드의 수입니다.|

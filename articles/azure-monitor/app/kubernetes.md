@@ -1,21 +1,21 @@
 ---
-title: Azure Monitor-0 계측 응용 프로그램 Kubernetes에 대 한 호스 티 드 앱 모니터링 | Microsoft Docs
-description: 0 계측 응용 프로그램 호스트 된 Kubernetes 앱에 대 한 모니터링은 모니터링 솔루션에서 Kubernetes 클러스터에서 실행 되는 pod에서 들어오고 나가는 요청에 관련 된 Application Insights 원격 분석을 수집할 수입니다. 서비스 메시 기술을 활용 하 여 Istio 호출 됩니다.
+title: Azure Kubernetes Service (AKS) 또는 다른 Kubernetes 모니터링에 Application Insights를 사용 하 여 호스트 응용 프로그램-Azure Monitor | Microsoft Docs
+description: Azure 모니터는 호스트 된 Kubernetes 응용 프로그램에 대 한 응용 프로그램 모니터링을 제공 하도록 Kubernetes 클러스터에 서비스 메시 기술을 Istio를 사용 합니다. 이 옵션을 사용 하면 클러스터에서 실행 되는 pod에서 들어오고 나가는 요청에 관련 된 Application Insights 원격 분석을 수집할 수 있습니다.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.author: alkaplan
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65555829"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>호스 티 드 앱 Kubernetes 0 계측 응용 프로그램 모니터링
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>호스트 응용 프로그램을 Kubernetes 0 계측 응용 프로그램 모니터링
 
 > [!IMPORTANT]
 > 이 기능은 현재 공개 미리 보기로 제공 됩니다.
@@ -78,7 +78,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - 값을 편집할 *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 원격 분석을 포함 하는 Azure portal에서 Application Insights 리소스의 계측 키를 포함 하는 환경 변수입니다.
     - 필요한 경우 값을 편집할 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수를 모니터링할 수 있도록 하려는 네임 스페이스의 쉼표로 구분 된 목록을 포함 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
-4. 적용 *마다* YAML 파일에서 찾을 *src/kubernetes/* 다음을 실행 하 여 (내 해야 */srckubernetes/*):
+4. 적용 *마다* YAML 파일에서 찾을 *src/kubernetes/* 다음을 실행 하 여 (내 해야 */srckubernetes/* ):
 
    ```console
    kubectl apply -f .

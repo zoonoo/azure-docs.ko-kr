@@ -3,8 +3,8 @@ title: 가상 머신 네트워크 라우팅 진단 문제 - 자습서 - Azure Po
 description: 이 자습서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312198"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684511"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 진단 문제
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 문제 진단
 
 VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -53,7 +53,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
@@ -89,13 +89,13 @@ Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기�
     | 가상 머신         | myVm 선택                                            |
     | Linux       | myvm - 네트워크 인터페이스 이름은 달라질 수 있습니다.   |
     | 원본 IP 주소       | 10.0.0.4                                               |
-    | 대상 IP 주소   | 13.107.21.200 - www.bing.com에 대한 주소 중 하나입니다. |
+    | 대상 IP 주소   | 13.107.21.200 - <www.bing.com>에 대한 주소 중 하나입니다. |
 
     ![다음 홉](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
     몇 초 후에 결과는 다음 홉 형식이 **인터넷**이며, **경로 테이블 ID**가 **시스템 경로**임을 알려줍니다. 이 결과를 사용하면 대상에 대한 올바른 시스템 경로가 있음을 알 수 있습니다.
 
-3. **대상 IP 주소**를 *172.31.0.100*으로 변경하고 **다음 홉**을 다시 선택합니다. 반환된 결과는 **없음**이 **다음 홉 형식**이며, **경로 테이블 ID**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 올바른 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+3. **대상 IP 주소**를 *172.31.0.100*으로 변경하고 **다음 홉**을 다시 선택합니다. 반환된 결과는 **없음**이 **다음 홉 형식**이며, **경로 테이블 ID**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 

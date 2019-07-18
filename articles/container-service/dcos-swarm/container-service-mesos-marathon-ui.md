@@ -10,10 +10,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61468230"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(사용되지 않음) Marathon 웹 UI를 통해 Azure Container Service DC/OS 클러스터 관리
@@ -75,7 +75,7 @@ Marathon을 사용하여 새 컨테이너를 배포하려면, **애플리케이�
 
 ![새 애플리케이션 UI--상태 검사](./media/container-service-mesos-marathon-ui/dcos_healthcheck.png)
 
-DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 클러스터를 인터넷에서 애플리케이션에 액세스할 수 있으려면 공용 에이전트에 애플리케이션을 배포해야 합니다. 이를 위해, 새 애플리케이션 마법사의 **선택 사항** 탭을 선택하고 **수락된 리소스 역할**에 **slave_public**을 입력합니다.
+DC/OS 클러스터는 프라이빗 및 공용 에이전트와 함께 배포됩니다. 클러스터를 인터넷에서 애플리케이션에 액세스할 수 있으려면 공용 에이전트에 애플리케이션을 배포해야 합니다. 이를 위해, 새 애플리케이션 마법사의 **선택 사항** 탭을 선택하고 **수락된 리소스 역할**에 **slave_public**을 입력합니다.
 
 그런 다음 **애플리케이션 만들기**를 클릭합니다.
 

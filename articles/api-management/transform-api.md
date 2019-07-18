@@ -23,7 +23,7 @@ ms.locfileid: "59521940"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
-이 자습서에서는 개인 백 엔드 정보를 노출시키지 있도록 API를 변환하는 방법을 보여 줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
+이 자습서에서는 프라이빗 백 엔드 정보를 노출시키지 있도록 API를 변환하는 방법을 보여 줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
 
 이 자습서에서는 Azure API Management로 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여 줍니다. 예를 들어 개발자가 과도하게 사용하지 않도록 API 호출 횟수를 제한하려고 할 수 있습니다. 자세한 내용은 [API Management 정책](api-management-policies.md)을 참조하세요.
 
@@ -115,7 +115,7 @@ ms.locfileid: "59521940"
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
-7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예: 
+7.  **find-and-replace** 코드( **\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -131,7 +131,7 @@ ms.locfileid: "59521940"
 4.  **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-7.  **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
+7.  **rate-limit-by-key** 코드( **\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

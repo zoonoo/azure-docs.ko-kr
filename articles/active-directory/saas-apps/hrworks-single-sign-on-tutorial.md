@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 790df60f973e6f86bd4424173909159fdd81ee0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>자습서: HRworks Single Sign-On과 Azure Active Directory 통합
 
@@ -130,7 +130,7 @@ HRworks Single Sign-On에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 2. 메뉴 모음의 왼쪽에서 **관리자** > **기본** > **보안** > **Single Sign-On**을 클릭하고 다음 단계를 수행합니다.
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Single Sign-On 구성](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. **Single Sign-On 사용** 확인란을 선택합니다.
 
@@ -138,7 +138,7 @@ HRworks Single Sign-On에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     다. **Value for NameID**(NameID 값)에 **Individual NameID identifier**(개별 NameID 식별자)를 선택합니다.
 
-    d. 메모장에서, Azure Portal에서 다운로드한 메타데이터 XML을 열고 해당 콘텐츠를 복사한 다음,  **메타데이터**  텍스트상자에 붙여넣습니다.
+    d. 메모장에서, Azure Portal에서 다운로드한 메타데이터 XML을 열고 해당 콘텐츠를 복사한 다음, **메타데이터** 텍스트 상자에 붙여넣습니다.
 
     e. **저장**을 클릭합니다.
 
@@ -202,7 +202,7 @@ Azure AD 사용자가 HRworks Single Sign-On에 로그인할 수 있도록 하�
 
 2. 메뉴 모음 왼쪽에서 **관리자** > **Persons**(개인) > **Persons**(개인) > **New person**(새로운 개인)을 클릭합니다.
 
-     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. 팝업에서 **다음**을 클릭합니다.
 

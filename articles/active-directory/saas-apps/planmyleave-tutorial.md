@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d1192d3606dfbbf54a8177c2369a9cae8871d92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>자습서: PlanMyLeave와 Azure Active Directory 통합
 
@@ -148,7 +148,7 @@ PlanMyLeave에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     b.  다운로드한 메타데이터를 열고 **X509Certificate** 값을 복사한 다음 **인증서** 텍스트 상자에 붙여넣습니다.
 
-    다. "**Is Enable(사용 여부)**"을 "**예**"로 설정합니다.
+    다. "**Is Enable(사용 여부)** "을 "**예**"로 설정합니다.
 
     d. **저장**을 클릭합니다. 
 
@@ -170,7 +170,7 @@ PlanMyLeave에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

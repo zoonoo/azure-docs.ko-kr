@@ -3,20 +3,20 @@ title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 큐 레이트 목록이 QnA Maker 서비스 관련 자주 묻는 질문은 빠르고 더 나은 결과 사용 하 여 서비스를 채택 하는 데 도움이 됩니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
-ms.author: tulasim
+ms.date: 06/11/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d96c5829dfaa57e66b4afec203c27110b8627ac1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607173"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447574"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker에 대한 질문과 대답
 
@@ -114,7 +114,7 @@ Azure Search 리소스의 이름은 일부 임의 문자가 끝에 추가되는 
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>QnA Maker를 사용하기 위해 Bot Framework를 사용해야 하나요?
 
-아니요, QnA Maker와 함께 Bot Framework를 사용하지 않아도 됩니다. 그러나 QnA Maker는 Azure Bot Service에서 여러 템플릿 중 하나로 제공됩니다. Bot Service는 Microsoft Bot Framework를 통해 지능형 봇의 신속한 개발을 사용하도록 설정하고, 서버리스 환경에서 실행됩니다.
+아니요, 필요가 없습니다 사용 하 여 [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) QnA Maker를 사용 하 여 합니다. 여러 템플릿 중 하나로 QnA Maker는 제공 하는 반면 [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)합니다. Bot Service는 Microsoft Bot Framework를 통해 지능형 봇의 신속한 개발을 사용하도록 설정하고, 서버리스 환경에서 실행됩니다.
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>QnA Maker를 사용하여 봇을 만들려면 어떻게 하나요?
 

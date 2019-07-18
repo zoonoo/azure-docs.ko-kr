@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅숏을 VHD로 내보내기/복사
+title: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅샷을 VHD로 내보내기/복사 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 다른 지역의 저장소 계정으로 스냅샷을 VHD로 내보내기/복사
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55984143"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 저장소 계정으로 관리 스냅숏을 VHD로 내보내기/복사
+# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 저장소 계정으로 관리 스냅샷을 VHD로 내보내기/복사
 
-이 스크립트는 다른 지역의 저장소 계정으로 관리 스냅숏을 내보냅니다. 먼저 스냅숏의 SAS URI를 생성한 다음 이를 사용하여 다른 지역의 저장소 계정으로 스냅숏을 복사합니다. 이 스크립트를 사용하여 재해 복구를 위해 다른 지역에서 관리 디스크의 백업을 유지 관리합니다.  
+이 스크립트는 다른 지역의 저장소 계정으로 관리 스냅샷을 내보냅니다. 먼저 스냅샷의 SAS URI를 생성한 다음, 이를 사용하여 다른 지역의 저장소 계정으로 스냅샷을 복사합니다. 이 스크립트를 사용하여 재해 복구를 위해 다른 지역에서 관리 디스크의 백업을 유지 관리합니다.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -39,13 +39,13 @@ ms.locfileid: "55984143"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트에서는 다음 명령을 사용하여 관리 스냅숏의 SAS URI를 생성하고 SAS URI를 사용하여 저장소 계정에 스냅숏을 복사합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트에서는 다음 명령을 사용하여 관리 스냅샷의 SAS URI를 생성하고 SAS URI를 사용하여 저장소 계정에 스냅샷을 복사합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 저장소 계정에 스냅숏을 복사하는 데 사용되는 스냅숏의 SAS URI를 생성합니다. |
+| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 저장소 계정에 스냅샷을 복사하는 데 사용되는 스냅샷의 SAS URI를 생성합니다. |
 | [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅숏의 기본 VHD를 저장소 계정에 복사합니다. |
+| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅샷의 기본 VHD를 저장소 계정에 복사합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,26 +3,26 @@ title: Translator Speech 서비스란?
 titleSuffix: Azure Cognitive Services
 description: Translator Speech API를 사용하여 음성을 음성으로 및 음성을 텍스트로 번역을 애플리케이션에 추가합니다.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ed425cd6545d85cdf3b2f76038b381a0f09045f9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674857"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449665"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Speech API란?
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 애플리케이션, 도구 또는 솔루션에 통합형 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
+Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 애플리케이션, 도구 또는 솔루션에 엔드투엔드 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
 Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services API 컬렉션](https://docs.microsoft.com/azure/)에 속한 Azure 서비스입니다.
 

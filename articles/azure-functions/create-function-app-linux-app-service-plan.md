@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Linux에 Function App 만들기 | Microsoft Docs
+title: Azure Portal에서 Linux에 함수 앱 만들기 | Microsoft Docs
 description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 services: functions
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.locfileid: "65153826"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
-Azure Functions를 사용하면 Linux에서 기본 Azure App Service 컨테이너에 함수를 호스트할 수 있습니다. 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 [App Service 계획](functions-scale.md#app-service-plan)에서 실행되는 Linux 호스티드 Function App을 만드는 방법을 보여 줍니다. [고유한 사용자 지정 컨테이너를 가져올 수도](functions-create-function-linux-custom-image.md) 있습니다.
+Azure Functions를 사용하면 Linux에서 기본 Azure App Service 컨테이너에 함수를 호스트할 수 있습니다. 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 [App Service 계획](functions-scale.md#app-service-plan)에서 실행되는 Linux 호스티드 함수 앱을 만드는 방법을 보여 줍니다. [고유한 사용자 지정 컨테이너를 가져올 수도](functions-create-function-linux-custom-image.md) 있습니다.
 
 ![Azure Portal에서 함수 앱 만들기](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
@@ -32,9 +32,9 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. 이 문서에서는 Function App을 만들 때 App Service 계획을 만듭니다.
+Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. 이 문서에서는 함수 앱을 만들 때 App Service 계획을 만듭니다.
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택한 다음, **계산** > **함수 앱**을 차례로 선택합니다.
 
     ![Azure Portal에서 함수 앱 만들기](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
@@ -47,10 +47,10 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | **앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.  | 
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
-    | **OS** | Linux | Linux에서 Function App이 실행됩니다. |
-    | **게시** | 코드 | **런타임 스택**의 기본 Linux 컨테이너가 사용됩니다. Function App 프로젝트 코드만 제공하면 됩니다. 또 다른 옵션은 사용자 지정 [Docker 이미지](functions-create-function-linux-custom-image.md)를 게시하는 것입니다. |
-    | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [Function App의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |
-    | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows Function App을 둘 다 실행할 수는 없습니다. |
+    | **OS** | Linux | Linux에서 함수 앱이 실행됩니다. |
+    | **게시** | 코드 | **런타임 스택**의 기본 Linux 컨테이너가 사용됩니다. 함수 앱 프로젝트 코드만 제공하면 됩니다. 또 다른 옵션은 사용자 지정 [Docker 이미지](functions-create-function-linux-custom-image.md)를 게시하는 것입니다. |
+    | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |
+    | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows 함수 앱을 둘 다 실행할 수는 없습니다. |
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. [Python 지원](functions-reference-python.md)은 현재 미리 보기로 제공됩니다. |
     | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 저장소 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [저장소 계정 요구 사항](functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
     | **[Application Insights](functions-monitoring.md)** | 사용 | Application Insights는 기본적으로 사용하지 않도록 설정됩니다. 이제 Application Insights 통합을 사용하도록 설정하고 App Service 계획 위치 가까이의 호스팅 위치를 선택하는 것이 좋습니다. 나중에 이 작업을 수행하려는 경우 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.  |
@@ -63,16 +63,16 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
 
 5. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
 
-다음으로 새 함수 앱에서 함수를 만듭니다. Function App을 사용할 수 있게 된 이후에도 완전히 초기화될 때까지 몇 분 정도 걸릴 수 있습니다.
+다음으로 새 함수 앱에서 함수를 만듭니다. 함수 앱을 사용할 수 있게 된 이후에도 완전히 초기화될 때까지 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="create-function"></a>HTTP 트리거 함수 만들기
 
-이 섹션에서는 포털의 새 Function App에서 함수를 만드는 방법을 보여 줍니다.
+이 섹션에서는 포털의 새 함수 앱에서 함수를 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 포털 개발 환경은 Azure Functions를 사용해 보는 데 유용할 수 있습니다. 대부분의 시나리오에서 [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) 또는 [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project)를 사용하여 함수를 개발하고 Function App에 프로젝트를 게시하는 것이 좋습니다.  
+> 포털 개발 환경은 Azure Functions를 사용해 보는 데 유용할 수 있습니다. 대부분의 시나리오에서 [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) 또는 [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project)를 사용하여 함수를 개발하고 함수 앱에 프로젝트를 게시하는 것이 좋습니다.  
 
-1. 새 Function App에서 **개요** 탭을 선택하고 완전히 로드된 후 **+ 새 함수**를 선택합니다.
+1. 새 함수 앱에서 **개요** 탭을 선택하고 완전히 로드된 후 **+ 새 함수**를 선택합니다.
 
     ![개요 탭에서 새 함수 만들기](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
 

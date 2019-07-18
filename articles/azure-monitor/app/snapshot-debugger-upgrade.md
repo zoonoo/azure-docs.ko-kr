@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: Mario.Hewardt
+ms.author: marioh
 ms.reviewer: mbullwin
-ms.openlocfilehash: 54b79897ee378cda52106fe704e25c50a4325f38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2dcf719e6c276c5641dc4c0040d8d7a808eeb3f2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60784196"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706363"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>스냅숏 디버거 업그레이드
 

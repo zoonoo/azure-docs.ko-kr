@@ -11,10 +11,10 @@ ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646659"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
@@ -35,7 +35,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문은 필요 없음
 
-### <a name="responses"></a>응답
+### <a name="responses"></a>Responses
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
@@ -173,7 +173,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
-|202 수락됨     |         |     수락됨    |
+|202 수락됨     |         |     동의함    |
 
 #### <a name="example-responses"></a>예제 응답
 

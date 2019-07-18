@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922598"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
@@ -39,8 +39,8 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 
 |**가격 책정 계층**| **vCore**|**InnoDB 버퍼 풀(MB)**| **최대 연결**|
 |---|---|---|---|
-|Basic| 1| 1024| 50|
-|Basic| 2| 2560| 100|
+|기본| 1| 1024| 50|
+|기본| 2| 2560| 100|
 |범용| 2| 3584| 300|
 |범용| 4| 7680| 625|
 |범용| 8| 15360| 1250|

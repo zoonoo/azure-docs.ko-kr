@@ -3,8 +3,8 @@ title: 내 애플리케이션 목록에 예기치 않은 애플리케이션 | Mi
 description: 테넌트에서 모든 애플리케이션을 보는 방법 및 엔터프라이즈 애플리케이션의 모든 애플리케이션 목록에 애플리케이션을 표시하는 방법 이해
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65781105"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
 
@@ -46,7 +46,7 @@ ms.locfileid: "60292132"
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>내 모든 애플리케이션 목록에 특정 애플리케이션이 나타나는 이유는 무엇입니까?
 
-**모든 애플리케이션**으로 필터링한 경우 **모든 애플리케이션****목록**은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
+**모든 애플리케이션**으로 필터링한 경우 **모든 애플리케이션** **목록** 은 테넌트의 모든 서비스 주체 개체를 보여 줍니다. 서비스 주체 개체는 다양한 방법으로 이 목록에 나타날 수 있습니다.
 
 1. 다음을 포함하여 애플리케이션 갤러리에서 모든 애플리케이션을 추가하는 경우:
 

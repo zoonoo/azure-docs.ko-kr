@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502252"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
@@ -234,12 +234,12 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 
 ## <a name="other-languages"></a>기타 언어
 
-**C#**: Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `csc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
+**C#** : Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `csc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
 
 **Java**: OpenJDK는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `javac` 또는 `java` 명령을 입력하여 Java를 사용할 수 있습니다. 
 
 **node.js**: node.js는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `node` 또는 `npm` 명령을 입력하여 node.js에 액세스할 수 있습니다. Windows에서는 node.js 애플리케이션을 개발하기 위한 그래픽 IDE를 제공하기 위해 Visual Studio용 Node.js 도구 확장이 설치됩니다. 
 
-**F#**: Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `fsc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
+**F#** : Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `fsc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
 
 

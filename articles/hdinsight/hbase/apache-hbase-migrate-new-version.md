@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
 ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143315"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
@@ -200,7 +200,7 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
     1. HBase 서비스를 중지 합니다.
     1. Zookeeper 노드에 SSH를 실행 합니다 [zkCli](https://github.com/go-zkcli/zkcli) 명령 `rmr /hbase-unsecure` Zookeeper에서 HBase 루트 znode를 제거 하려면.
     1. HBase를 다시 시작 합니다.
-1. 4.0 외에도 다른 HDInsight 버전으로 업그레이드 하는 경우 다음이 단계를 수행 합니다.
+1. 4\.0 외에도 다른 HDInsight 버전으로 업그레이드 하는 경우 다음이 단계를 수행 합니다.
     1. 변경 내용을 저장합니다.
     1. Ambari에서 표시한 대로 필요한 모든 서비스를 다시 시작합니다.
 1. 애플리케이션이 새 클러스터를 가리키도록 합니다.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730501"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
@@ -126,7 +126,7 @@ az vm show \
 
 - 라우팅은 정의한 경로, BGP(Border Gateway Protocol) 및 시스템 경로 중 LPM(접두사 최대 길이 일치)에 기반합니다. 동일한 LPM 일치가 포함된 경로가 두 개 이상 있으면 [경로 개요](virtual-networks-udr-overview.md#how-azure-selects-a-route)에 나열된 순서대로 해당 원점에 따라 경로가 선택됩니다. 유효 경로를 사용하면 사용 가능한 모든 경로를 기준으로 LPM 일치에 해당하는 유효 경로만 표시될 수 있습니다. 네트워크 인터페이스에 대해 경로가 평가되는 방법이 표시되면 VM으로부터 연결에 영향을 미칠 수 있는 특정 경로 문제를 훨씬 더 쉽게 해결할 수 있습니다.
 - *VirtualAppliance*를 다음 홉 형식으로 사용하여 NVA(네트워크 가상 어플라이언스)에 대한 사용자 지정 경로를 정의하는 경우 트래픽을 수신하는 NVA에 IP 전달이 사용되도록 설정되어 있는지 확인합니다. 그렇지 않으면 패킷이 삭제됩니다. [네트워크 인터페이스에 IP 전달을 사용](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)하는 방법에 대해 자세히 알아봅니다. 또한 운영 체제 또는 NVA 내의 애플리케이션은 네트워크 트래픽을 전달하고 작업을 수행하도록 구성되어야 합니다.
-- 0.0.0.0/0에 대한 경로를 만든 경우 모든 아웃바운드 인터넷 트래픽은 NVA 또는 VPN Gateway 등 사용자가 지정한 다음 홉으로 라우팅됩니다. 이러한 경로 생성을 흔히 강제 터널링이라고 합니다. 다음 홉이 트래픽을 처리하는 방법에 따라 인터넷에서 VM으로 RDP 또는 SSH 프로토콜을 사용하는 원격 연결은 이 경로에서 작동하지 않을 수 있습니다. 다음과 같이 강제 터널링을 사용하도록 설정할 수 있습니다.
+- 0\.0.0.0/0에 대한 경로를 만든 경우 모든 아웃바운드 인터넷 트래픽은 NVA 또는 VPN Gateway 등 사용자가 지정한 다음 홉으로 라우팅됩니다. 이러한 경로 생성을 흔히 강제 터널링이라고 합니다. 다음 홉이 트래픽을 처리하는 방법에 따라 인터넷에서 VM으로 RDP 또는 SSH 프로토콜을 사용하는 원격 연결은 이 경로에서 작동하지 않을 수 있습니다. 다음과 같이 강제 터널링을 사용하도록 설정할 수 있습니다.
     - 사이트 간 VPN을 사용하는 경우 *VPN Gateway*라는 다음 홉 형식을 사용하여 경로를 만듭니다. [강제 터널링을 구성](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대해 자세히 알아봅니다.
     - 사이트 간 VPN 또는 ExpressRoute 회로를 사용할 때 가상 네트워크 게이트웨이를 통해 BGP에 0.0.0.0/0(기본 경로)을 보급하는 경우입니다. [사이트 간 VPN](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering)에서 BGP를 사용하는 방법을 자세히 알아봅니다.
 - 가상 네트워크 피어링 트래픽이 제대로 작동하려면 피어링된 가상 네트워크의 접두사 범위에 대해 *VNet 피어링*이라는 다음 홉 형식의 시스템 경로가 존재해야 합니다. 이러한 경로가 존재하지 않고 가상 네트워크 피어링 링크 연결이 **연결됨** 상태인 경우:

@@ -16,10 +16,10 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory 통합
@@ -121,7 +121,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
-    **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://platform.rescale.com/saml2/<company id>/sso/` 
+    **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 또는 로그온 URL을 사용하여 값을 업데이트합니다. 이러한 값을 얻으려면 [ScaleX Enterprise 클라이언트 지원 팀](https://info.rescale.com/contact_sales)에 문의하세요. 
@@ -171,7 +171,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     b. **서비스 공급 기업 saml**: ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent*** 값을 붙여넣습니다.
 
-    다. **ACS 응답의 ID 공급 기업 이메일 필드 이름**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여넣습니다.
+    c. **ACS 응답의 ID 공급 기업 이메일 필드 이름**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여넣습니다.
 
     d. **ID 공급 기업 EntityDescriptor 엔터티 ID:** Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
@@ -214,7 +214,7 @@ ScaleX Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  

@@ -4,7 +4,7 @@ description: Azure PowerShell 스크립트 샘플 - Azure Monitor 로그
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 83a93e9c24b34a0a081e18946fa3ff21bd06a61d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541522"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695558"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>PowerShell을 사용하여 Azure Monitor VM 만들기 
 
@@ -29,7 +29,7 @@ ms.locfileid: "57541522"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

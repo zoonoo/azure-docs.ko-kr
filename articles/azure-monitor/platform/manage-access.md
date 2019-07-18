@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782805"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295513"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>로그 데이터 및 Azure Monitor에서 작업 영역 관리
 Azure Monitor는 기본적으로 데이터 및 구성 정보가 포함된 컨테이너 인 Log Analytics 작업 영역에 로그 데이터를 저장합니다. 로그 데이터에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
@@ -278,7 +278,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 ## <a name="table-level-rbac"></a>테이블 수준 RBAC
 **테이블 수준 RBAC** 다른 권한 뿐 아니라 Log Analytics 작업 영역에서 데이터를 보다 세부적으로 제어를 제공할 수 있습니다. 이 컨트롤을 사용 하면 사용자의 특정 집합에만 액세스할 수 있는 특정 데이터 형식을 정의할 수 있습니다.
 
-사용 하 여 테이블 액세스 제어를 구현 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 권한을 부여 하거나 특정에 대 한 액세스를 거부 [테이블](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) 작업 영역에서 합니다. 이러한 역할은 작업 영역 중심 또는 리소스 중심 작업 영역에 적용 됩니다 [액세스 제어 모델](#access-control-mode) 사용자에 관계 없이 [액세스 모드](#access-modes)합니다.
+사용 하 여 테이블 액세스 제어를 구현 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 권한을 부여 하거나 특정에 대 한 액세스를 거부 [테이블](../log-query/logs-structure.md) 작업 영역에서 합니다. 이러한 역할은 작업 영역 중심 또는 리소스 중심 작업 영역에 적용 됩니다 [액세스 제어 모델](#access-control-mode) 사용자에 관계 없이 [액세스 모드](#access-modes)합니다.
 
 만들기는 [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 테이블 액세스 제어에 대 한 액세스를 정의 하는 다음 작업을 사용 하 여 합니다.
 

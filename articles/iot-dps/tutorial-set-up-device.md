@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500977"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911686"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
@@ -27,7 +27,7 @@ ms.locfileid: "59500977"
 
 이 자습서에서는 여러분이 이미 [클라우드 리소스 설정](tutorial-set-up-cloud.md) 자습서의 지침에 따라 Device Provisioning Service 인스턴스 및 IoT Hub를 만든 것으로 가정합니다.
 
-이 자습서에서는 C용 Device Provisioning Service 클라이언트 SDK를 포함하고 있는 [Azure IoT SDK 및 C 리포지토리용 라이브러리](https://github.com/Azure/azure-iot-sdk-c)를 사용합니다. 이 SDK는 현재 Windows 또는 Ubuntu 구현에서 실행 중인 디바이스에 TPM 및 X.509 지원을 제공합니다. 이 자습서는 Windows 개발 클라이언트 사용을 기반으로 하며, 마찬가지로 사용자가 Visual Studio 2017의 기본적인 내용을 알고 있다고 가정합니다. 
+이 자습서에서는 C용 Device Provisioning Service 클라이언트 SDK를 포함하고 있는 [Azure IoT SDK 및 C 리포지토리용 라이브러리](https://github.com/Azure/azure-iot-sdk-c)를 사용합니다. 이 SDK는 현재 Windows 또는 Ubuntu 구현에서 실행 중인 디바이스에 TPM 및 X.509 지원을 제공합니다. 이 자습서는 Windows 개발 클라이언트 사용을 기반으로 하며, 마찬가지로 사용자가 Visual Studio의 기본적인 내용을 알고 있다고 가정합니다. 
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 
 
@@ -36,14 +36,14 @@ ms.locfileid: "59500977"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 활성화된 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)
+* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>플랫폼별 SDK 버전 빌드
 
-Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio 2017을 사용하는 SDK를 빌드합니다.
+Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio를 사용하는 SDK를 빌드합니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
@@ -211,5 +211,5 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 자동 프로비전을 위한 Azure IoT Hub Device Provisioning Service에 등록하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [IoT Hub에 디바이스 프로비저닝](tutorial-provision-device-to-hub.md)
+> [IoT Hub에 디바이스 프로비전](tutorial-provision-device-to-hub.md)
 

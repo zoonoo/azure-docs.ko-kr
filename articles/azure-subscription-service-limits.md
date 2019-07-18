@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d1043f254d2a2cc2804ab8a4d68770b6d57cbed4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150313"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296010"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록 확장 되며 더 많은 서비스에 맞게 업데이트 합니다.
@@ -45,7 +45,6 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
@@ -54,9 +53,11 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning 서비스](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
-* [Azure Monitor](#monitor-limits)
+* [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
@@ -77,15 +78,21 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Load Balancer](#load-balancer)
-* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [네트워킹](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Load Balancer](#load-balancer)
+  * [공용 IP 주소](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [공용 IP 주소](#publicip-address)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +104,6 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [가상 머신 확장 집합](#virtual-machine-scale-sets-limits)
 
@@ -127,9 +133,9 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 #### <a name="shared-image-gallery-limits"></a>이미지 갤러리 제한 공유
 
 공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위한 구독 당 제한이 있습니다.
-- 지역당, 구독당 공유 이미지 갤러리 10개
-- 지역당, 구독당 이미지 정의 200개
-- 지역당, 구독당 이미지 버전 2000개
+- 지역당 구독 당 100 공유 이미지 갤러리
+- 지역당 구독 당 1,000 이미지 정의
+- 지역당 구독 당 10,000 이미지 버전
 
 ### <a name="virtual-machine-scale-sets-limits"></a>가상 머신 확장 집합 제한
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
@@ -144,6 +150,9 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service 제한
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning 서비스 제한
+최신 Azure Machine Learning Compute 할당량 값에서 찾을 수 있습니다는 [Azure Machine Learning의 할당량 페이지](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
@@ -222,6 +231,9 @@ Azure Files 한도에 대 한 자세한 내용은 참조 하세요. [Azure Files
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### <a name="functions-limits"></a>함수 제한
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### <a name="scheduler-limits"></a>Scheduler 제한
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -234,7 +246,7 @@ Azure Files 한도에 대 한 자세한 내용은 참조 하세요. [Azure Files
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
-Azure Cosmos DB는 어떠한 애플리케이션의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB에서 제공 하는 규모에 대 한 질문이 있으면 전자 메일을 보내 askcosmosdb@microsoft.com합니다.
+Azure Cosmos DB 제한 참조 [Azure Cosmos DB의 제한 사항](cosmos-db/concepts-limits.md)합니다.
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](mysql/concepts-limits.md)을 참조하세요.
@@ -268,8 +280,26 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="mobile-services-limits"></a>Mobile Services 제한
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>모니터 제한
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### <a name="azure-monitor-limits"></a>Azure Monitor 제한
+
+#### <a name="alerts"></a>경고
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### <a name="action-groups"></a>작업 그룹
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### <a name="log-analytics-workspaces"></a>Log Analytics 작업 영역
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### <a name="application-insights"></a>Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### <a name="notification-hubs-limits"></a>Notification Hubs 제한
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -316,9 +346,6 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="log-analytics-limits"></a>Log Analytics 한도
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### <a name="backup-limits"></a>Backup 제한
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -327,9 +354,6 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 ### <a name="site-recovery-limits"></a>사이트 복구 제한
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="application-insights-limits"></a>Application Insights 제한
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API Management 제한
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

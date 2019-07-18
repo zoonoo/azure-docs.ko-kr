@@ -287,7 +287,7 @@ Visual Studio Code 내에서 Terraform 명령을 사용하려면 먼저 두 Azur
 
 ![Lint 테스트 결과](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>모듈 테스트: *end-to-end*
+### <a name="module-test-end-to-end"></a>모듈 테스트: *엔드투엔드*
 
 1. 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: 테스트 실행**을 선택합니다.
 
@@ -304,7 +304,7 @@ Visual Studio Code 내에서 Terraform 명령을 사용하려면 먼저 두 Azur
 
 몇 분 후 다음 예제와 비슷한 터미널 창에 목록이 표시됩니다.
 
-![End-to-end 테스트 결과](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![엔드투엔드 테스트 결과](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

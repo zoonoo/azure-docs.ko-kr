@@ -2,19 +2,20 @@
 title: 윤리 및 사용 책임 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 이러한 지침은 회사와 서비스에서 신뢰를 구축하는 데 도움이 되는 방식으로 맞춤 설정을 구현하기 위한 것입니다. 잠시 여유를 갖고 맞춤 설정이 사람들의 삶에 미치는 영향에 대해 연구하고, 알아보고, 깊이 생각해 보세요. 의심스러우면 지침을 확인해 보세요.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
-ms.translationtype: HT
+ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035428"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722398"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
 
@@ -49,7 +50,7 @@ Personalizer 구현은 사용자와 비즈니스에 중요한 가치가 될 수 
 
 콘텐츠와 사용자 인터페이스를 맞춤 설정하기 위해 학습하는 서비스를 사용하는 것이 유용합니다. 또한 사용자가 콘텐츠 맞춤 설정을 알지 못하는 경우를 포함하여 맞춤 설정이 실제 세계에서 부정적인 부작용을 일으키는 경우 잘못 적용될 수도 있습니다. 
 
-부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 시나리오는 "결과적" 선택 또는 손해의 위험을 수반하는 선택으로 간주되는 경향이 있습니다. 예:  
+부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 시나리오는 "결과적" 선택 또는 손해의 위험을 수반하는 선택으로 간주되는 경향이 있습니다. 예: 
 
 
 * **재무**: 개인이 모르거나, 얻을 수 없거나, 이의를 제기할 수 없는 데이터를 기반으로 하는 위험 요인이 있는 대출, 금융 및 보험 제품에 맞춤 설정이 제공됩니다. 
@@ -101,7 +102,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="unintended-consequences-from-reward-scores"></a>보상 점수에서 의도하지 않은 결과
 보상 점수는 최선의 의도로 작성될 수 있지만, Personalizer에서 콘텐츠의 순위를 지정하는 방식에 대해 예기치 않은 결과 또는 의도하지 않은 결과를 초래할 수 있습니다. 
 
-다음 예제를 살펴보세요.
+다음 예를 참조하세요.
 
 * 시청한 비디오 길이의 비율에 대해 비디오 콘텐츠 맞춤 설정을 보상하는 경우 아마도 더 짧은 비디오의 순위를 지정하는 경향이 있습니다.
 * 공유 방식 또는 콘텐츠 자체에 대한 감정 분석 없이 소셜 미디어 공유를 보상하는 경우 공격적이거나, 변조되지 않거나, 선동적인 콘텐츠의 순위로 지정될 수 있으며, 이는 많은 "참여"를 유도하는 경향이 있지만 거의 가치가 없습니다.
@@ -130,15 +131,11 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="transparency"></a>투명성
 *AI 시스템은 이해할 수 있어야 합니다*. Personalizer를 사용하는 경우 다음과 같습니다.
 
-•   콘텐츠를 맞춤 설정한 방법에 대한 정보를 사용자에게 제공합니다. 예를 들어 사용자에게 "이러한 제안이 있는 이유는 무엇인가요?"라는 레이블이 있는 단추를 표시할 수 있습니다. 그러면 Personalizer 결과에서 역할을 수행한 사용자와 작업의 상위 기능을 확인할 수 있습니다.
-•   사용 약관에서 사용자와 해당 동작에 대한 정보를 사용하여 환경을 맞춤 설정한다는 것을 언급해야 합니다.
-
-
-* *콘텐츠를 맞춤 설정한 방법에 대한 정보를 사용자에게 제공합니다.* 예를 들어 맞춤 설정에서 역할을 수행한 사용자와 작업의 상위 기능을 사용자와 작업의 상위 기능을 보여 주는 `Why These Suggestions?`라는 레이블이 지정된 단추를 사용자에게 표시할 수 있습니다.
-* 사용 약관에서 사용자에 대한 정보를 사용하여 환경을 맞춤 설정한다는 것을 언급해야 합니다.
+* *콘텐츠를 맞춤 설정한 방법에 대한 정보를 사용자에게 제공합니다.* 예를 들어 Personalizer 결과에서 역할을 수행한 사용자와 작업의 상위 기능을 사용자와 작업의 상위 기능을 보여주는 `Why These Suggestions?`라는 레이블이 지정된 단추를 사용자에게 표시할 수 있습니다.
+* 사용 약관에서 사용자와 해당 동작에 대한 정보를 사용하여 환경을 맞춤 설정한다는 것을 언급해야 합니다.
 
 ### <a name="fairness"></a>공정성
-*AI 시스템은 모든 사람을 공정하게 대우해야 합니다.
+*AI 시스템은 모든 사람을 공정하게 대우해야 합니다*.
 
 * 결과가 장기적이거나, 결과적이거나, 실제적인 손해를 수반하는 사용 사례에는 Personalizer를 사용하지 않습니다.
 * 콘텐츠를 맞춤 설정하는 데 적합하지 않거나 원하지 않는 편견을 전파하는 데 도움이 될 수 있는 기능은 사용하지 않습니다. 예를 들어 비슷한 재무 상황에 있는 사람은 금융 상품에 대해 동일하게 맞춤형 추천 사항을 볼 수 있어야 합니다.
@@ -200,7 +197,7 @@ Microsoft는 이러한 책임을 이행하는 데 도움을 주기 위해 도구
 * [Ethics and Data Science(데이터 과학 및 윤리)](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/)(DJ Patil, Hilary Mason, Mike Loukides, 공동 작성자)
 * [ACM Code of Ethics(ACM 윤리 강령)](https://www.acm.org/code-of-ethics)
 * [GINA(Genetic Information Nondiscrimination Act)](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms(알고리즘 책임에 대한 FATML 원칙)](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059370"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
-
-> [!IMPORTANT]  
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +52,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 ## <a name="remote-access-to-services"></a>서비스에 대한 원격 액세스
 
-* **Ambari (웹)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (웹)**  - https://CLUSTERNAME.azurehdinsight.net
 
     클러스터 관리자 사용자 이름 및 암호를 사용 하 여 인증 하 고 Ambari에 로그인 합니다.
 
@@ -66,14 +63,14 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
     >
     > Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Apache Ambari Web UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
@@ -251,7 +248,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Azure CLI를 사용 하 여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
@@ -288,7 +285,6 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
 * [Apache Ambari REST API를 사용 하 여 HDInsight 클러스터 관리](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)

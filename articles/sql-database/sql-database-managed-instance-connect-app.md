@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142718"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274005"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database Managed Instance에 연결
 
@@ -45,7 +45,7 @@ VNet을 연결하는 두 가지 옵션이 있습니다.
 피어링이 Microsoft 백본 네트워크를 사용하기 때문에 피어링 옵션은 적합한 기능입니다. 따라서 연결성 관점에서 피어링된 VNet 및 동일한 VNet에 있는 가상 머신 간에 대기 시간이 눈에 띄는 차이점은 없습니다. VNet 피어링은 동일한 지역의 네트워크로 제한됩니다.  
 
 > [!IMPORTANT]
-> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다.
+> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 관련 섹션을 참고 합니다 [Azure 가상 네트워크 Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 자세한 문서. 
 
 ## <a name="connect-an-on-premises-application"></a>온-프레미스 애플리케이션 연결
 
@@ -56,7 +56,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 - 사이트 간 VPN 연결([Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 연결  
 
-온-프레미스와 Azure 연결을 성공적으로 설정하고 Managed Instance에 연결을 설정할 수 없는 경우 리디렉션을 위해 방화벽에서 11000~12000 포트 범위뿐만 아니라 SQL 포트 1433의 아웃바운드 연결이 열려 있는지 확인합니다.
+온-프레미스 Azure 연결을 성공적으로 설정 하 고 관리 되는 인스턴스에 대 한 연결을 설정할 수 없는 경우 방화벽 리디렉션에 대 한 포트 범위 11000-11999 뿐만 아니라 SQL 포트 1433에서 아웃 바운드 연결이 열려 있는지 확인 합니다.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>개발자 상자에서 애플리케이션 연결
 
@@ -96,7 +96,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 연결 문제를 해결하려면 다음을 검토합니다.
 
-- VNet은 동일하지만 서브넷이 다른 Azure 가상 머신에서 Managed Instance에 연결할 수 없는 경우 액세스를 차단할 수도 있는 NSG(네트워크 보안 그룹)를 VM 서브넷으로 설정했는지 확인합니다. 또한 11000-12000 범위의 포트와 마찬가지로 SQL 포트 1433에서 아웃바운드 연결을 개방해야 합니다. Azure 경계 내 리디렉션을 통한 연결에 필요하기 때문입니다.
+- 동일한 VNet 하지만 다른 서브넷 내에서 Azure 가상 머신에서 관리 되는 인스턴스에 연결할 수 없는 경우 액세스를 차단할 수 있는 VM 서브넷을 설정 하는 네트워크 보안 그룹 있는지 확인 합니다. 또한 이때 Azure 경계 내에서 리디렉션을 통해 연결 하는 데 필요한 것 이므로 범위 11000-11999의에서 포트 뿐만 아니라 SQL 포트 1433에서 아웃 바운드 연결을 열어야 합니다.
 - VNet과 연결된 라우트 테이블에 대해 BGP 전파를 **사용**으로 설정해야 합니다.
 - P2S VPN을 사용할 경우 Azure Portal에서 구성을 확인하여 **수신/송신** 숫자가 보이는지 확인합니다. 0이 아닌 숫자는 Azure가 온-프레미스에서 트래픽을 라우팅하는 것을 나타냅니다.
 

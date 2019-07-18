@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: f97f84ebf1dc4406bd924817bfd4aa3267559751
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694351"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509276"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -152,7 +152,7 @@ ms.locfileid: "64694351"
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse 뷰</td>
+      <td>Azure SQL Data Warehouse 뷰</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +173,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 측정값</td>
@@ -181,7 +181,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services 테이블</td>
@@ -189,7 +189,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services 보고서</td>
@@ -197,7 +197,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>브라우저</td>
-      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음.</td>
+      <td>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음. SQL Server 2008 및 이후 버전의 경우에 해당</td>
     </tr>
     <tr>
       <td>SQL Server 테이블</td>
@@ -205,7 +205,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>SQL Server 뷰</td>
@@ -213,7 +213,7 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server 데이터 도구</td>
-      <td></td>
+      <td>SQL Server 2008 및 이후 버전입니다.</td>
     </tr>
     <tr>
       <td>Teradata 테이블</td>
@@ -230,6 +230,14 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>영어로 작동합니다. 측정값은 지원 되지 않습니다.</td>
     </tr>
     <tr>
       <td>SAP HANA 뷰</td>

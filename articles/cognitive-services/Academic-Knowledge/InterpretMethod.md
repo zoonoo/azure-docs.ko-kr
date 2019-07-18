@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57975494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61338455"
 ---
 # <a name="interpret-method"></a>Interpret 메서드
 
@@ -42,7 +42,7 @@ ms.locfileid: "57975494"
   
 ## <a name="response-json"></a>응답(JSON)
 
-이름     | 설명
+Name     | 설명
 ---------|---------
 **query** |요청의 *query* 매개 변수입니다.
 **interpretations** |문법에 따라 사용자 입력을 일치시키는 0개 이상의 서로 다른 방법 배열입니다.

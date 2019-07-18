@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713840"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
@@ -129,7 +129,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 이 명령의 출력에는 만든 자격 증명 모음의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **name**: 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 
@@ -147,7 +147,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예를 들어 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**입니다. 
+이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예를 들어 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 입니다. 
 
 자격 증명 모음에 암호가 SQLPassword이고 Azure Key Vault에 대한 "hVFkk965BuUv" 값이 있는 비밀을 추가합니다. 
 
@@ -155,7 +155,7 @@ az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-해당 URI를 사용하여 이 암호를 참조합니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하여 항상 현재 버전을 가져오고, https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id]를 사용하여 이 특정 버전을 가져옵니다. 예를 들어 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**입니다.
+해당 URI를 사용하여 이 암호를 참조합니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 를 사용하여 항상 현재 버전을 가져오고, https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id]를 사용하여 이 특정 버전을 가져옵니다. 예를 들어 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 입니다.
 
 .pem 또는 .pfx를 사용하여 인증서를 자격 증명 모음으로 가져옵니다.
 

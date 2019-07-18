@@ -1,25 +1,25 @@
 ---
 title: '자습서: 전자 상거래 제품 이미지 조정 - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: 지정된 레이블로 제품 이미지를 분석 및 분류(Azure Computer Vision 및 Custom Vision 사용)하고 불쾌한 이미지는 추가 검토하도록 태그를 지정(Azure Content Moderator 사용)할 애플리케이션을 설정합니다.
+description: 지정된 레이블을 통해 제품 이미지를 분석하고 분류하는 애플리케이션을 설정합니다(Azure Computer Vision 및 Custom Vision 사용). 추가 검토가 필요한 문제가 될만한 이미지에는 태그를 지정합니다(Azure Content Moderator 사용).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ec17f9f0206ef639bd47d694880c064a012ea1cf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539499"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604184"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
-이 자습서에서는 Content Moderator를 포함한 Azure Cognitive Services를 사용하여 전자 상거래 시나리오를 위한 제품 이미지를 효과적으로 분류하고 조정하는 방법에 대해 알아봅니다. Computer Vision 및 Custom Vision을 사용하여 다양한 태그(레이블)를 이미지에 적용한 다음, Content Moderator의 기계 학습 기반 기술을 사용자 검토 팀과 결합하여 인텔리전트 조정 시스템을 제공하는 팀 검토를 만듭니다.
+이 자습서에서는 Content Moderator를 포함한 Azure Cognitive Services를 사용하여 전자 상거래 시나리오를 위한 제품 이미지를 분류하고 조정하는 방법에 대해 알아봅니다. Computer Vision 및 Custom Vision을 사용하여 태그(레이블)를 이미지에 적용한 다음, Content Moderator의 기계 학습 기반 기술을 사용자 검토 팀과 결합하여 인텔리전트 조정 시스템을 제공하는 팀 검토를 만듭니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-custom-moderation-tags"></a>사용자 지정 조정 태그 만들기
 
-다음으로 검토 도구에서 사용자 지정 태그를 만듭니다(이 과정에 대한 도움이 필요한 경우 [태그](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) 문서 참조). 이 경우 **celebrity**, **USA**, **flag**, **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity**). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
+다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) 문서를 참조하세요.) 이 경우 **celebrity**, **USA**, **flag**, **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity**). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
 
 ![사용자 지정 태그 구성](images/tutorial-ecommerce-tags2.PNG)
 
@@ -57,11 +57,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 애플리케이션 이름을 **EcommerceModeration**으로 지정하고 **확인**을 클릭합니다.
 1. 이 프로젝트를 기존 솔루션에 추가하는 경우 이 프로젝트를 단일 시작 프로젝트로 선택합니다.
 
-이 자습서에서는 프로젝트의 핵심 코드만 강조하며 필요한 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트([전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
+이 자습서에서는 프로젝트의 핵심 코드만 강조하며 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트([전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
 
 ## <a name="define-api-keys-and-endpoints"></a>API 키 및 엔드포인트 정의
 
-의에서 설명한 대로 이 자습서에서는 세 가지 Cognitive Services를 사용합니다. 따라서 세 개의 해당 키와 API 엔드포인트가 필요합니다. **Program** 클래스에 다음 필드를 확인합니다.
+이 자습서에서는 세 가지 Cognitive Services를 사용합니다. 따라서 해당하는 세 개의 키와 API 엔드포인트가 필요합니다. **Program** 클래스에 다음 필드를 확인합니다.
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -69,13 +69,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="primary-method-calls"></a>기본 메서드 호출
 
-**Main** 메서드에서 이미지 URL 목록을 반복하는 다음 코드를 확인합니다. 세 가지 서로 다른 서비스로 각 이미지를 분석하고, 적용된 태그를 **ReviewTags** 배열에 기록한 다음, 조정자 역할을 맡은 사람에 대한 검토를 만듭니다(이미지를 Content Moderator 도구로 보냅니다). 이러한 메서드에 대해서는 다음 섹션에서 살펴봅니다. 여기서 원하는 경우, 적용된 태그를 확인하기 위해 조건문에 **ReviewTags** 배열을 사용하여 검토를 위해 전송된 이미지를 제어할 수 있습니다.
+**Main** 메서드에서 이미지 URL 목록을 반복하는 다음 코드를 확인합니다. 세 가지 서로 다른 서비스로 각 이미지를 분석하고, 적용된 태그를 **ReviewTags** 배열에 기록한 다음, Content Moderator 검토 도구에 이미지를 전송하여 조정자 역할을 맡은 사람에 대한 검토를 만듭니다. 이러한 메서드에 대해서는 다음 섹션에서 살펴봅니다. 원하는 경우, 적용된 태그를 확인하는 조건문에 **ReviewTags** 배열을 사용하여 검토를 위해 전송할 이미지를 제어할 수 있습니다.
 
 [!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
 ## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy 메서드
 
-**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator의 이미지 API를 호출(REST 사용)하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이) **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
+**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator의 이미지 API를 호출(REST 사용)하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이임) **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 메서드
 
-다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)의 존재 여부를 검사합니다. [GitHub 리포지토리](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)의 **sample-images** 폴더에 있는 이미지를 사용하여 이 예제의 일부 범주를 신속하게 학습할 수 있습니다.
+다음으로, 실제 제품(이 경우 국기, 장난감 및 펜)을 분류하는 **EvaluateCustomVisionTags** 메서드를 살펴봅니다.&mdash; [분류자를 작성하는 방법](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) 가이드의 지침에 따라 고유한 사용자 지정 이미지 분류자를 작성하여 국기, 장난감 및 펜(또는 사용자 지정 태그로 선택한 항목)을 이미지에서 감지할 수 있습니다. [GitHub 리포지토리](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)의 **sample-images** 폴더에 있는 이미지를 사용하여 이 예제의 일부 범주를 신속하게 학습할 수 있습니다.
 
 ![펜, 장난감 및 국기 학습 이미지가 있는 Custom Vision 웹 페이지](images/tutorial-ecommerce-custom-vision.PNG)
 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-reviews-for-review-tool"></a>검토 도구용 검토 만들기
 
-이전 섹션에서 들어오는 이미지를 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_Metadata_로 전달됨)와 함께 이미지를 Content Moderator 도구에 업로드하여 사용자 검토용으로 제공하는 **CreateReview** 메서드를 살펴봅니다. 
+이전 섹션에서 앱이 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 들어오는 이미지를 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_Metadata_로 전달됨)와 함께 이미지를 Content Moderator 검토 도구에 업로드하는 **CreateReview** 메서드를 살펴봅니다.
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
@@ -107,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="submit-a-list-of-test-images"></a>테스트 이미지 목록 제출
 
-**Main** 메서드에서 볼 수 있듯이 이 프로그램은 “C:Test” 디렉터리에서 이미지 Url 목록을 포함하는 _Urls.txt_ 파일을 검색합니다. 이러한 파일 및 디렉터리를 만들거나 텍스트 파일을 가리키도록 경로를 변경하고 이 파일을 테스트하려는 이미지의 URL로 채웁니다.
+**Main** 메서드에서 볼 수 있듯이 이 프로그램은 “C:Test” 디렉터리에서 이미지 Url 목록을 포함하는 _Urls.txt_ 파일을 검색합니다. 이 파일과 디렉터리를 만들거나 텍스트 파일을 가리키도록 경로를 변경합니다. 그런 다음, 테스트할 이미지의 URL로 이 파일을 채웁니다.
 
 [!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 제품 유형별로 태그를 지정하고 검토 팀이 콘텐츠 조정에 대해 합리적인 의사 결정을 할 수 있도록 제품 이미지를 분석하는 프로그램을 설정합니다. 다음으로, 이미지 조정에 대해 자세히 알아보세요.
+이 자습서에서는 제품 이미지를 분석하고 제품 유형별로 태그를 지정하여 이러한 정보를 근거로 검토 팀이 콘텐츠 조정에 대한 합리적인 의사 결정을 내릴 수 있는 프로그램을 설정합니다. 다음으로, 이미지 조정에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [조정된 이미지 검토](./review-tool-user-guide/review-moderated-images.md)

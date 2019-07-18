@@ -3,9 +3,8 @@ title: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출 | Mi
 description: Android 앱에서 사용자를 로그인하고 Microsoft Graph API를 호출하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 05/21/2019
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9537748f8dd3ee027236c73e9587ff6b78ded7f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207588"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482652"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -46,7 +45,7 @@ Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 O
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자 로그인 및 Microsoft Graph 호출
 
-![토폴로지](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Azure AD 및 Android 토폴로지 표시](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 모든 Azure AD 계정에 이 앱을 사용할 수 있습니다. 단일 테넌트 및 다중 테넌트 시나리오를 둘 다 지원합니다(단계별로 설명). 앱을 빌드하여 엔터프라이즈 사용자와 연결하고 Microsoft Graph를 통해 해당 Azure + O365 데이터에 액세스하는 방법을 보여 줍니다. 인증 흐름에서 최종 사용자는 애플리케이션에 로그인하고 사용 권한에 동의해야 하며, 경우에 따라 관리자가 앱에 동의해야 할 수도 있습니다. 이 샘플에 포함된 대부분의 논리는 최종 사용자를 인증하고 기본적인 Microsoft Graph 호출 방법을 보여줍니다.
 
@@ -86,18 +85,17 @@ mAuthResult.getAccessToken()
     - ***Azure Active Directory*** > ***앱 등록***을 선택합니다.
 
 2. 앱 만들기
-    - **새 애플리케이션 등록**을 선택합니다.
+    - **새 등록**을 선택합니다.
     - **이름** 필드에 앱 이름을 입력합니다.
-    - **애플리케이션 유형**에서 **네이티브**를 선택합니다.
-    - **리디렉션 URI**로 `http://localhost`를 입력합니다.
+    - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+    - **리디렉션 URI**의 드롭다운에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택하고 `http://localhost`를 입력합니다.
+    - **등록**을 클릭합니다.
 
 3. Microsoft Graph 구성
-    - **설정 > 필요한 권한**을 선택합니다.
-    - **추가**를 선택하고, **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
-    - **로그인 및 사용자 프로필 읽기** 권한을 선택한 다음, **선택**을 눌러 저장합니다.
-        - 이 권한은 `User.Read` 범위에 매핑됩니다.
-    - 선택 사항: **필요한 권한 > Microsoft Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
-
+    - **API 사용 권한**을 선택합니다.
+    - **사용 권한 추가**를 선택하고 **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
+    - **위임된 권한**에서 사용 권한 **User.Read**를 선택한 다음, **추가**를 눌러 저장합니다.        
+    
 4. 축하합니다! 앱이 구성되었습니다. 그 다음 섹션에서는 다음 작업을 수행해야 합니다.
     - `Application ID`
     - `Redirect URI`

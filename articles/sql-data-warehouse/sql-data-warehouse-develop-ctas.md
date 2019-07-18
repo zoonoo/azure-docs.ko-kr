@@ -2,21 +2,21 @@
 title: Azure SQL Data Warehouse의 CTAS(CREATE TABLE AS SELECT) | Microsoft Docs
 description: 설명 및 솔루션 개발을 위한 Azure SQL Data Warehouse에서 CREATE TABLE AS SELECT (CTAS) 문의 예입니다.
 services: sql-data-warehouse
-author: mlee3gsd
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/26/2019
-ms.author: mlee3gsd
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: c8e9f3ccdfaee64f75443f6a4eb89a3df7c48b0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91de474cc0610099b4264cc6d0dfbd26e8df0618
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65851442"
 ---
 # <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 CREATE TABLE AS SELECT (CTAS)
 
@@ -26,7 +26,7 @@ ms.locfileid: "60403747"
 
 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 문은 사용할 수 있는 T-SQL 기능에서 가장 중요한 구문 중의 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령을 사용하여 테이블로 데이터를 삽입하고 생성하는 간단하고 가장 빠른 방법입니다.
 
-## <a name="selectinto-vs-ctas"></a>SELECT...INTO Vs. CTAS
+## <a name="selectinto-vs-ctas"></a>SELECT...INTO Vs. CTAS CTAS
 
 [SELECT... INTO](/sql/t-sql/queries/select-into-clause-transact-sql) 문의 더 사용자 지정 가능한 버전이 CTAS 입니다.
 
@@ -353,7 +353,7 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 * ISNULL의 두 번째 부분은 상수 0입니다.
 
 > [!NOTE]
-> null 허용 여부를 올바르게 설정하려면, COALESCE가 아닌 ISNULL을 필수로 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 항상 null을 허용합니다. 이와 달리 ISNULL은 결정적입니다. 그러므로 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴일 경우 결과 값은 NOT NULL입니다.
+> null 허용 여부를 올바르게 설정하려면, COALESCE가 아닌 ISNULL을 필수로 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 항상 null을 허용합니다. 이와 달리 ISNULL은 결정적입니다. 결정적입니다. 그러므로 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴일 경우 결과 값은 NOT NULL입니다.
 
 계산의 무결성을 보장하는 것은 테이블 파티션 전환에서 또한 중요합니다. 팩트 테이블로 정의된 다음 테이블이 있다고 가정해 보겠습니다.
 

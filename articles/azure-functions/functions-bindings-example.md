@@ -4,19 +4,18 @@ description: Azure 함수 바인딩을 구성 하는 방법을 알아봅니다
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
-ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/18/2019
+ms.author: cshoe
+ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437891"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480431"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 트리거 및 바인딩 예제
 
@@ -136,10 +135,9 @@ public class Person
 }
 ```
 
-이제 큐에 데이터를 출력 하는 Azure Table storage에 의해 트리거되는 작업 함수입니다.
+이제 Azure 큐에 의해 트리거되는 Azure Table storage에 데이터를 출력 하는 작업 함수입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [Azure Functions 바인딩 식 패턴](./functions-bindings-expressions-patterns.md)
-

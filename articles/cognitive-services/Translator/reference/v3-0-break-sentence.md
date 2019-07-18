@@ -3,19 +3,19 @@ title: Translator Text API BreakSentence 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API BreakSentence 메서드를 사용합니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: swmachan
+ms.openlocfilehash: 59f6957f1781852e4ab4c0713742581b5c884f25
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578209"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357872"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -154,7 +154,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>호출자가 너무 많은 요청을 보냅니다.</td>
+    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
   </tr>
   <tr>
     <td>500</td>

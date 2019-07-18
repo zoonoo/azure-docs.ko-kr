@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401733"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
@@ -71,7 +71,7 @@ System Center Operations Manager Health Check 솔루션은 다음 원본에서 �
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Log Analytics용 Operations Manager 실행 계정
 
-Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)을 참조하세요. 
+Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 빌드합니다. 도메인 사용자 계정과 같은 다른 보안 컨텍스트에서 관리 팩을 실행하려면 각 작업에 워크로드 관련 권한이 필요합니다. 권한이 있는 자격 증명을 통해 Operations Manager 실행 계정을 구성합니다. 자세한 내용은 Operations Manager 설명서의 [실행 계정을 만드는 방법](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx)을 참조하세요.
 
 다음 정보를 사용하여 System Center Operations Manager Health Check를 위한 Operations Manager 실행 계정을 설정할 수 있습니다.
 

@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse의 테이블 분할 | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af9fa49d274036888fd266f8983c523a3b077cbd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935883"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65851517"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
 Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
@@ -226,7 +226,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 번에 데이터를 포함하는 파티션으로 새 데이터를 로드
-파티션 전환을 사용하여 파티션에 데이터를 로드하는 것은 새 데이터의 스위치를 사용자가 볼 수 없는 테이블의 새 데이터를 스테이징하는 편리한 방법입니다. 바쁜 시스템에서 파티션 전환과 관련된 잠금 경합을 처리하는 것은 어려울 수 있습니다. 파티션의 기존 데이터를 지우려면 `ALTER TABLE`을 사용하여 데이터를 전환해야 했습니다. 그런 다음 새 데이터에서 전환하려면 다른 `ALTER TABLE`이 필요했습니다. SQL Data Warehouse에서 `TRUNCATE_TARGET` 옵션은 `ALTER TABLE` 명령에서 지원됩니다. `TRUNCATE_TARGET`을 사용하면 `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다. 다음은 `CTAS`를 사용하여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입한 다음 모든 데이터를 대상 테이블로 다시 전환하여 기존 데이터를 덮어쓰는 예제입니다.
+파티션 전환을 사용하여 파티션에 데이터를 로드하는 것은 새 데이터의 스위치를 사용자가 볼 수 없는 테이블의 새 데이터를 스테이징하는 편리한 방법입니다.  바쁜 시스템에서 파티션 전환과 관련된 잠금 경합을 처리하는 것은 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 `ALTER TABLE` 을 사용하여 데이터를 전환해야 했습니다.  그런 다음 새 데이터에서 전환하려면 다른 `ALTER TABLE` 이 필요했습니다.  SQL Data Warehouse에서 `TRUNCATE_TARGET` 옵션은 지원는 `ALTER TABLE` 명령에서 지원됩니다.  `TRUNCATE_TARGET` 을 사용하면 `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은 `CTAS` 를 사용하여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입한 다음 모든 데이터를 대상 테이블로 다시 전환하여 기존 데이터를 덮어쓰는 예제입니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

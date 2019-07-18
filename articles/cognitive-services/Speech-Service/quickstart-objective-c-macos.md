@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: f25c3801553b0ac0c725170cda95f5c1eacc3637
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 25f341d167cecd765fd89d9286708d0bd8df6dd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020749"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603027"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Objective-C로 음성 인식
 
@@ -34,10 +34,10 @@ ms.locfileid: "65020749"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
 
 Mac용 Cognitive Services Speech SDK는 프레임워크 번들로 배포됩니다.
-Xcode 프로젝트에서 [CocoaPod](https://cocoapods.org/)로 사용하거나, https://aka.ms/csspeech/macosbinary에서 다운로드하거나, 수동으로 연결할 수 있습니다. 이 가이드에서는 CocoaPod를 사용합니다.
+Xcode 프로젝트에서 [CocoaPod](https://cocoapods.org/)로 사용하거나, https://aka.ms/csspeech/macosbinary 에서 다운로드하거나, 수동으로 연결할 수 있습니다. 이 가이드에서는 CocoaPod를 사용합니다.
 
 ## <a name="create-an-xcode-project"></a>Xcode 프로젝트 만들기
 
@@ -67,30 +67,24 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="install-the-sdk-as-a-cocoapod"></a>CocoaPod로 SDK 설치
 
 1. 해당 [설치 지침](https://guides.cocoapods.org/using/getting-started.html)에 설명된 대로 CocoaPod 종속성 관리자를 설치합니다.
-1. 샘플 앱이 있는 디렉터리(`helloworld`)로 이동합니다. 해당 디렉터리에 이름이 `Podfile`인 텍스트 파일 및 다음과 같은 콘텐츠를 배치합니다.
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.0'
-    end
-    ```
+1. 샘플 앱이 있는 디렉터리(`helloworld`)로 이동합니다. 해당 디렉터리에 이름이 `Podfile`인 텍스트 파일 및 다음과 같은 콘텐츠를 배치합니다. [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. 터미널에서 `helloworld` 디렉터리로 이동해 `pod install` 명령을 실행합니다. 이렇게 하면 종속성으로 샘플 앱 및 Speech SDK가 모두 포함되는 `helloworld.xcworkspace` Xcode 작업 영역이 생성됩니다. 이 작업 영역은 다음에서 사용됩니다.
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
 1. XCode에서 `helloworld.xcworkspace` 작업 영역을 엽니다.
-1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]로 바꿉니다.
+1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 다음으로 바꿉니다.  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 
 1. 디버그 출력을 표시되도록 설정합니다(**뷰** > **디버그 영역** > **콘솔 활성화**).
-1. 메뉴에서 **제품** -> **실행**을 선택하거나 **재생** 단추를 클릭하여 예제 코드를 빌드하고 실행합니다.
+1. 메뉴에서 **제품** > **실행**을 선택하거나 **재생** 단추를 클릭하여 예제 코드를 빌드하고 실행합니다.
 1. 단추를 클릭하고 몇 단어를 말하면 화면 아래쪽 부분에 사용자가 말한 텍스트가 보입니다. 처음으로 앱을 실행하는 경우 컴퓨터 마이크에 대한 앱 액세스 권한을 부여하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
-

@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: VMware에서 Azure로 재해 복구
       items:
+        - name: 규모에 따른 재해 복구 설정
+          href: vmware-physical-large-deployment.md
         - name: 네트워킹 설정
           items:
             - name: 온-프레미스와 Azure 간 복제의 네트워크 인터페이스 관리
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: 물리적 서버에서 Azure로 재해 복구
       items:
+        - name: 규모에 따른 재해 복구 설정
+          href: vmware-physical-large-deployment.md
         - name: 네트워킹 설정
           items:
             - name: 온-프레미스와 Azure 간 복제의 네트워크 인터페이스 관리

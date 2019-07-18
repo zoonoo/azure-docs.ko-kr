@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736329"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330831"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure Front Door Service란?
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -25,7 +25,7 @@ Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지
 Front Door는 Layer 7 또는 HTTP/HTTPS 계층에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 따라서 구성에서 선택한 라우팅 방법에 따라 Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 애플리케이션 백엔드로 라우팅합니다. 애플리케이션 백엔드는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Front Door는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](front-door-routing-methods.md) 및 [백엔드 상태 모니터링 옵션](front-door-health-probes.md)을 제공합니다. [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 유사한 Front Door는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 다음 기능이 Front Door에 포함됩니다.
 
@@ -50,7 +50,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 쿠키 기반 세션 선호도 기능은 동일한 응용 프로그램 백 엔드에서 사용자 세션을 유지하려는 경우에 유용합니다. Front Door 관리 쿠키를 사용하면 사용자 세션의 후속 트래픽이 동일한 애플리케이션 백 엔드로 전달되어 처리됩니다. 이 기능은 세션 상태가 사용자 세션의 백 엔드에 로컬로 저장된 경우에 특히 중요합니다.
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>SSL(Secure Sockets Layer) 종료
-Front Door는 개별 사용자가 응용 프로그램 백 엔드를 사용하여 시간과 노력이 많이 드는 연결을 설정하는 대신 Front Door 환경과 SSL 연결을 설정할 수 있는 에지에서 SSL 종단을 지원합니다. 또한 Front Door는 Front Door 환경과 백 엔드 간에 HTTP와 HTTPS 연결을 모두 지원합니다. 따라서 종단 간 SSL 암호화도 설정할 수 있습니다. 예를 들어 애플리케이션 워크로드의 Front Door가 활성 서비스의 웜 연결 재사용으로 인해 1분 안에 5000개 이상의 요청을 수신하는 경우 애플리케이션 백 엔드와 약 500개의 연결만 설정하여 백 엔드의 상단한 로드를 줄일 수 있습니다.
+Front Door는 개별 사용자가 응용 프로그램 백 엔드를 사용하여 시간과 노력이 많이 드는 연결을 설정하는 대신 Front Door 환경과 SSL 연결을 설정할 수 있는 에지에서 SSL 종단을 지원합니다. 또한 Front Door는 Front Door 환경과 백 엔드 간에 HTTP와 HTTPS 연결을 모두 지원합니다. 따라서 엔드투엔드 SSL 암호화도 설정할 수 있습니다. 예를 들어 애플리케이션 워크로드의 Front Door가 활성 서비스의 웜 연결 재사용으로 인해 1분 안에 5000개 이상의 요청을 수신하는 경우 애플리케이션 백 엔드와 약 500개의 연결만 설정하여 백 엔드의 상단한 로드를 줄일 수 있습니다.
 
 ## <a name="custom-domains-and-certificate-management"></a>사용자 지정 도메인 및 인증서 관리
 Front Door를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 Front Door URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
@@ -61,11 +61,18 @@ Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹
 
 Front Door 플랫폼 자체는 [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
 
+## <a name="url-redirection"></a>URL 리디렉션
+업계에 강력한 푸시를 통해 보안 통신만 지원하도록 하기 위해 웹 애플리케이션의 모든 HTTP 트래픽을 HTTPS로 자동으로 리디렉션할 예정입니다. 이는 사용자와 애플리케이션 간의 모든 통신이 암호화된 경로에서 발생하도록 합니다. 
+
+이전에는 애플리케이션 소유자가 전용 서비스를 만들어 이 요구 사항을 처리했으며 유일한 목적은 HTTP에서 수신하는 요청을 HTTPS로 리디렉션하는 것이었습니다. Azure Front Door Service는 HTTP에서 HTTPS로 트래픽을 리디렉션하는 기능을 지원합니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다. Azure Front Door Service에서 URL 리디렉션은 HTTP에서 HTTPS로 리디렉션뿐만 아니라 다른 호스트 이름으로 리디렉션, 다른 경로로 리디렉션 또는 URL의 새 쿼리 문자열로 리디렉션으로도 제한됩니다.
+
+자세한 내용은 Azure Front Door Service를 사용한 [트래픽 리디렉션](front-door-url-redirect.md)을 참조하세요.
+
 ## <a name="url-rewrite"></a>URL 다시 쓰기
 Front Door는 백 엔드에 전달할 요청을 생성할 때 사용할 선택적 사용자 지정 전달 경로를 구성할 수 있게 하여 [URL 재작성](front-door-url-rewrite.md)을 지원합니다. Front Door는 백 엔드에 요청을 전달할 때 전송할 호스트 헤더를 추가로 구성할 수 있게 해줍니다.
 
 ## <a name="protocol-support---ipv6-and-http2-traffic"></a>프로토콜 지원 - IPv6 및 HTTP/2 트래픽
-Azure Front Door는 기본적으로 종단 간 IPv6 연결을 지원하고 HTTP/2 프로토콜도 지원합니다. 
+Azure Front Door는 기본적으로 엔드투엔드 IPv6 연결을 지원하고 HTTP/2 프로토콜도 지원합니다. 
 
 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 애플리케이션 백 엔드와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. HTTP/2를 사용하면 백 엔드와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. HTTP/2 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청 또는 응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 더 효율적으로 활용할 수 있습니다. [Azure Front Door Service의 HTTP/2 지원](front-door-http2.md)에 대해 자세히 알아보세요.
 

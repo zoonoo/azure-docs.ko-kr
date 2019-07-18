@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a297c9db22d81ee3c32be4732198ba25b8f5a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0d57b3ce4e378a366148b5c3eef6bc4d5d9eb96d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>자습서: TimeOffManager와 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ TimeOffManager에서 Azure AD Single Sign-on을 구성하려면 다음 단계를
 
 6. TimeOffManager 애플리케이션의 경우 위에서 언급한 특성 외에 몇 가지 추가 특성을 SAML 응답에 다시 전달해야 합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | --- | --- |
     | firstname |User.givenname |
     | Lastname |User.surname |

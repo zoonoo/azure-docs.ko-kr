@@ -4,7 +4,7 @@ description: Azure에서 투기적 실행 사이드 채널 취약성을 완화�
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 06/04/2019
 ms.author: cynthn
-ms.openlocfilehash: ce7f0bcbfdb3e23ff77431b95ac109e322b132cc
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
-ms.translationtype: HT
+ms.openlocfilehash: 26fbc6dff5ae98812f38225a17534d51b406e270
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140943"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671239"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Azure에서 투기적 실행 사이드 채널 취약성을 완화하기 위한 지침입니다.
 

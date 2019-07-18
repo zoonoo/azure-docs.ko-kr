@@ -3,21 +3,21 @@ title: 사용자 지정 변환기-지원 되지 않는 언어 배포
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 변환기에서 지원 되지 않는 언어 쌍을 배포 하는 방법입니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.author: swmachan
+ms.openlocfilehash: 284a7e98c088edb73a2c770a4c14bb0a479a6621
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476528"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436065"
 ---
-# <a name="unsupported-language-deployments"></a>지원 되지 않는 언어 배포
+# <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 

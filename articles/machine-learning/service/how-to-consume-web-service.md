@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023824"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797629"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -486,3 +486,11 @@ print(resp.text)
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
+
+Power BI는 예측을 사용 하 여 Power BI에서 데이터를 보강 하는 Azure Machine Learning 웹 서비스의 사용을 지원 합니다. 
+
+Power BI에서 사용 하기 위해 지원 되는 웹 서비스를 생성 하려면 스키마에는 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI에서 지 원하는 스키마를 만드는 방법 알아보기](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi)합니다.
+
+웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용 됩니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration)합니다.

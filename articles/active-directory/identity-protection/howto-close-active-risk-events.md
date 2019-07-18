@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109022"
 ---
 # <a name="how-to-close-active-risk-events"></a>방법: 활성 위험 이벤트 닫기
 
@@ -48,7 +48,7 @@ ms.locfileid: "60453508"
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>사용자 위험 정책이 있는 암호 재설정 필요
 
-[사용자 위험 조건부 액세스 정책](howto-user-risk-policy.md)을 구성하면 지정된 사용자 위험 수준이 자동으로 감지된 경우 암호 변경을 요구할 수 있습니다. 
+구성 하 여 합니다 [사용자 위험 조건부 액세스 정책](howto-user-risk-policy.md), 지정 된 사용자 위험 수준을 자동으로 발견 된 경우 암호 변경을 요구할 수 있습니다. 
 
 ![암호 재설정](./media/howto-close-active-risk-events/13.png)
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067291"
 ---
 # <a name="configure-usage-settings-and-policies"></a>사용 설정 및 정책 구성
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -80,11 +80,12 @@ Azure Lab Services 교사 모든 랩 초대 메일에 하거나 하나를 사용
 다음 단계를 사용하여 사용자당 할당량을 설정할 수 있습니다. 
 
 1. 왼쪽 메뉴에서 **사용자**를 선택합니다.
-2. 도구 모음에서 **사용자당 할당량: 제한 없음**을 선택합니다. 
-3. **사용자당 할당량** 페이지에서 다음 옵션 중 하나를 선택합니다. 
-    1. **없음**. 사용자는 예약된 시간 동안 또는 랩 소유자가 가상 머신을 사용하도록 설정한 경우에만 가상 머신을 사용할 수 있습니다.
-    2. **제한 없음(기본값)**. 사용자가 시간 제한 없이 가상 머신을 사용할 수 있습니다.
-    3. **사용자당 시간 수 지정**. 사용자는 예약된 시간 외에도 설정된 시간(아래에 지정) 동안 가상 머신을 사용할 수 있습니다. 이 옵션을 선택하는 경우 텍스트 상자에 **시간**을 입력합니다. 
+2. 선택 **사용자별 할당량:** 도구 모음에서 합니다. 
+3. 에 **사용자별 할당량** 페이지에서 각 사용자 (학생)에 게 제공 하려는 시간을 지정 합니다. 
+    1. **0 시간 (일정에만 해당)** 합니다. 사용자는 예약된 된 시간 동안에 또는 Vm에 설정으로 랩 소유자는 Vm을 사용할 수 있습니다.
+
+        ![0 시간에만 예약 된 시간](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **총 사용자 당 랩 시간**합니다. 사용자 (이 필드에 지정 됨) 하는 시간 집합 번호에 해당 Vm을 사용할 수 있습니다 **예약된 된 시간 외에도**합니다. 이 옵션을 선택하는 경우 텍스트 상자에 **시간**을 입력합니다. 
 
         ![사용자당 시간 수](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. **저장**을 선택합니다. 
@@ -92,7 +93,11 @@ Azure Lab Services 교사 모든 랩 초대 메일에 하거나 하나를 사용
 
     ![사용자당 할당량](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> 학생에 게 등록 링크를 보내기 전에 교사 해야 0 할당량 시간을 선택 하거나 랩에 대 한 할당량 시간을 지정할 경우 클래스에 대 한 일정을 설정 합니다.
+>
 > [VM의 예약된 실행 시간](how-to-create-schedules.md)은 사용자에게 할당된 할당량에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간입니다. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>CSV 파일을 업로드하여 사용자 추가

@@ -3,9 +3,9 @@ title: ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 �
 description: ADAL 클라이언트 애플리케이션에 대한 오류 처리 지침 및 모범 사례를 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e125adebfcd110f814b112544004220d2e54e08
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411460"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483209"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -52,7 +52,7 @@ AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보�
 
 기본적으로 AcquireTokenSilent 오류는 두 가지 사례가 있습니다.
 
-| 대/소문자 | 설명 |
+| 사례 | 설명 |
 |------|-------------|
 | **사례 1**: 대화형 로그인으로 해결 가능한 오류 | 유효한 토큰이 부족하여 오류가 발생하면 대화형 요청이 필요합니다. 특히 캐시 조회 및 잘못된/만료된 새로 고침 토큰을 해결하려면 AcquireToken을 호출해야 합니다.<br><br>이러한 경우 최종 사용자에게 로그인하라는 메시지가 표시되어야 합니다. 애플리케이션은 최종 사용자 조작(예: 로그인 단추 누르기) 이후 또는 나중에 대화형 요청을 수행하도록 선택할 수 있습니다. 선택 사항은 원하는 애플리케이션 동작에 따라 달라집니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요.|
 | **사례 2**: 대화형 로그인으로 해결 가능하지 않은 오류 | 네트워크 오류 및 일시적/임시 오류 또는 기타 실패의 경우 대화형 AcquireToken 요청을 수행해도 문제가 해결되지 않습니다. 불필요한 대화형 로그인 프롬프트는 최종 사용자에게 불편을 줄 수도 있습니다. AcquireTokenSilent 실패 시 ADAL은 대부분의 오류에 대해 자동으로 다시 시도를 한 번 수행합니다.<br><br>클라이언트 애플리케이션에서 나중에 다시 시도할 수도 있지만 수행하는 시기와 방법은 애플리케이션 동작 및 원하는 최종 사용자 경험에 따라 달라집니다. 예를 들어 애플리케이션은 몇 분 후 또는 일부 최종 사용자 작업에 대한 응답으로 AcquireTokenSilent 다시 시도를 수행할 수 있습니다. 즉시 다시 시도는 애플리케이션이 제한되는 결과를 가져오므로 수행하지 않아야 합니다.<br><br>후속 다시 시도가 동일한 오류로 실패해도 클라이언트에서 AcquireToken을 사용하여 대화형 요청을 수행해야 한다는 것을 의미하지 않습니다. 오류가 해결되지 않기 때문입니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요. |
@@ -586,7 +586,7 @@ window.Logging = {
 
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
-[![로그인 단추][AAD-Sign-In]][AAD-Sign-In]
+[!["Microsoft 로그인" 단추를 보여 줍니다.][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

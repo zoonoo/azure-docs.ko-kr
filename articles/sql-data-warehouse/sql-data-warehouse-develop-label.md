@@ -2,20 +2,20 @@
 title: SQL Data Warehouse에서 레이블을 사용하여 쿼리 계측 | Microsoft Docs
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse에서 레이블을 사용하여 쿼리를 계측하기 위한 팁.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/17/2018
-ms.date: 10/15/2018
-ms.author: v-jay
-ms.openlocfilehash: 5c60a7dc44471599834c4b1225b397c8e6eabbd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.subservice: query
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.openlocfilehash: 5c53fc3594d02c92ea6a238f89417e31dad4818c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65861778"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 레이블을 사용하여 쿼리 계측
 솔루션 개발을 위해 Azure SQL Data Warehouse에서 레이블을 사용하여 쿼리를 계측하기 위한 팁.

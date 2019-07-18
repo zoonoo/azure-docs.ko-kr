@@ -5,15 +5,15 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0e97eed0a4028fdd9d2254fd9472dc3141d607a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66239847"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 

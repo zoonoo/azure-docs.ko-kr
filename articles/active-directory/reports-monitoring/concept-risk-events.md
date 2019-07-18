@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107690"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -54,7 +54,7 @@ ms.locfileid: "64682940"
 * **Azure AD Premium P2 버전**에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. 
 * 사용 하 여 합니다 **Azure AD Premium P1 버전**고급 검색 (예: 알 수 없는 로그인 속성)를 라이선스에서 다루지 않는 및 이름 아래에 표시 됩니다 **검색 하는 추가 위험이 있는 로그인** . 또한 위험 수준 및 위험 세부 정보 필드는 숨겨집니다.
 
-위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
+위험 이벤트의 감지를 이미 id 보호의 중요 한 측면을 나타내는 동안 해결 수동으로 또는 조건부 액세스 정책을 구성 하 여 자동화 된 응답을 구현 하는 옵션이 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 
 ## <a name="risk-event-types"></a>위험 이벤트 유형
 

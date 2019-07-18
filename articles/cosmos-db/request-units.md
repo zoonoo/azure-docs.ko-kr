@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 요청 단위 요구 사항을 지정하고 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12f91676ac50511bf3d2d33f7fed2029e152dc98
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926024"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164996"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -75,3 +75,4 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 * 설명 하는 방법 [Azure Cosmos DB에서 프로 비전 된 처리량 비용을 최적화](optimize-cost-throughput.md)합니다.
 * 설명 하는 방법 [읽기 및 쓰기 Azure Cosmos DB의 비용을 최적화](optimize-cost-reads-writes.md)합니다.
 * 설명 하는 방법 [Azure Cosmos DB의 쿼리 비용을 최적화](optimize-cost-queries.md)합니다.
+* 설명 하는 방법 [모니터 처리량 메트릭을 사용 하 여](use-metrics.md)입니다.

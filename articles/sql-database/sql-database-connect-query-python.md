@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: python
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 788e21dc5d866bdd6641349ceeeeacbfab98c25c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 7fbb9265ac12126fb13a26650fbb5d65f3d39260
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444977"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792076"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -99,7 +99,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [첫 번째 Azure SQL 데이터베이스 디자인](sql-database-design-first-database.md)
 - [SQL Server용 Microsoft Python 드라이버](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python 개발자 센터](https://azure.microsoft.com/develop/python/?v=17.23h)
 

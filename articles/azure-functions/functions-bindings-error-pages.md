@@ -5,20 +5,19 @@ services: functions
 cloud: ''
 documentationcenter: ''
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 02/01/2018
-ms.date: 11/22/2018
-ms.author: v-junlch
-ms.openlocfilehash: bf54d312de5625a7fa44cea4d5107e83cf15583c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 02/01/2018
+ms.author: cshoe
+ms.openlocfilehash: ef8f2d5a63f7924097362f6aa0ebc78cc0f6455f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105511"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480700"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
@@ -45,5 +44,3 @@ Azure 서비스와 통합하는 경우 기본 서비스의 API에서 발생하�
 + [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
 + [Table Storage](functions-bindings-storage-table.md#exceptions-and-return-codes)
-
-<!-- Update_Description: update metedata properties -->

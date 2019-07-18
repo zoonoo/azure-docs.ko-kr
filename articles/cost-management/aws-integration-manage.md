@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870314"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275700"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>AWS 비용 및 Azure에서 사용 현황을 관리합니다
 
@@ -83,7 +83,7 @@ AWS를 보려는 통합된 계정 비용 범위 선택기를 열고 선택한는
 | 미터 범주 | lineItem/ProductCode | 모두 |   |
 | 미터 하위 범주 | lineitem/UsageType | 모두 |   |
 | 작업(Operation) | lineItem/Operation | 모두 |   |
-| 리소스 | lineItem/ResourceId | 모두 |   |
+| Resource | lineItem/ResourceId | 모두 |   |
 | 리소스 종류 | product/instanceType | 모두 | 제품/instanceType null 인 경우 lineItem/UsageType 사용 됩니다. |
 | ResourceGuid | N/A | 모두 | Azure 미터 GUID입니다. |
 | 서비스 이름 | product/ProductName | 모두 | 제품/ProductName null 인 경우 lineItem/ProductCode 사용 됩니다. |
@@ -91,8 +91,8 @@ AWS를 보려는 통합된 계정 비용 범위 선택기를 열고 선택한는
 | 구독 ID | lineItem/UsageAccountId | 통합된 계정 및 관리 그룹 |   |
 | 구독 이름 | N/A | 통합된 계정 및 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
 | 태그 | resourceTags/\* | 모두 | 합니다 _사용자:_ 접두사 클라우드 간 태그 수 있도록 사용자 정의 태그에서 제거 됩니다. 합니다 _aws:_ 접두사는 그대로 유지 됩니다. |
-| 청구 계정 ID | bill/PayerAccountId | 관리 그룹 |   |
-| 청구 계정 이름 | N/A | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
+| 대금 청구 계정 ID | bill/PayerAccountId | 관리 그룹 |   |
+| 대금 청구 계정 이름 | N/A | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
 | 공급자 | N/A | 관리 그룹 | AWS 또는 Azure입니다. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>AWS 범위 집합 예산
@@ -129,6 +129,8 @@ AWS Api에 액세스 하면 추가 비용이 발생할 수 있습니다.
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>AWS 연결 된 계정에 권한 없음
 
+**오류 코드:** _권한이 없음_
+
 두 가지 방법으로 연결 하는 AWS 계정 비용을 액세스 하는 권한을 얻으려면:
 
 - AWS 연결 된 계정에 있는 관리 그룹에 대 한 액세스를 가져옵니다.
@@ -136,7 +138,11 @@ AWS Api에 액세스 하면 추가 비용이 발생할 수 있습니다.
 
 기본적으로 AWS 커넥터 작성자는 커넥터에서 만든 모든 개체의 소유자입니다. 통합된 계정 및는 AWS 계정 연결을 AWS 등.
 
+커넥터 설정을 확인 하기 위해 적어도 기여자 역할을 해야, 판독기 커넥터 설정을 확인할 수 없습니다.
+
 ### <a name="collection-failed-with-assumerole"></a>AssumeRole 하지 못했으며 컬렉션
+
+**오류 코드:** _FailedToAssumeRole_
 
 이 오류는 Cost Management AWS AssumeRole API를 호출할 수 없는 것을 의미 합니다. 이 문제는 역할 정의 사용 하 여 문제로 인해 발생할 수 있습니다. 다음 조건이 충족 되는지 확인 합니다.
 
@@ -147,11 +153,23 @@ AWS Api에 액세스 하면 추가 비용이 발생할 수 있습니다.
 
 ### <a name="collection-failed-with-access-denied"></a>컬렉션 액세스 거부로 인해 실패 했습니다
 
-이 오류 메시지 Cost Management에 Amazon S3 버킷에 저장 된 현재 파일에 액세스할 수 없는 것을 의미 합니다. 역할에 연결 된 AWS JSON 정책 맨 아래에 표시 된 예제와 유사 하 고 있는지 확인 합니다 [AWS에서 역할 및 정책을 만들기](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) 섹션입니다.
+- **오류 코드:** _AccessDeniedReportDefinitions_ 
+- **오류 코드:** _AccessDeniedListReports_ 
+- **오류 코드:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>FailedToFindReport 사용 하 여 커넥터 오류
+이 오류 메시지를 Cost Management에 Amazon S3 버킷에 저장 된 현재 파일에 액세스할 수 없는 것을 의미 합니다. 역할에 연결 된 AWS JSON 정책 맨 아래에 표시 된 예제와 유사 하 고 있는지 확인 합니다 [AWS에서 역할 및 정책을 만들기](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) 섹션입니다.
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>비용 및 사용 현황 보고서를 찾지 못했습니다 이후 실패 한 컬렉션
+
+**오류 코드:** _FailedToFindReport_
 
 이 오류는 Cost Management connector에 정의 된 비용 및 사용 현황 보고서를 찾을 수 없습니다를 의미 합니다. 삭제 되지 않습니다 및 역할에 연결 된 AWS JSON 정책 맨 아래에 표시 된 예제 유사한 지 확인 합니다 [AWS에서 역할 및 정책을 만들기](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) 섹션입니다.
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>비용 및 사용 현황 보고서 정의 불일치로 인해 커넥터를 확인 하거나 만들 수 없습니다
+
+**오류 코드:** _ReportIsNotValid_
+
+이 오류가 AWS 비용 및 사용 현황 보고서 정의에 관련 된 것이 보고서에 대 한 특정 설정이 필요 내용은 요구 사항에 [AWS에서 비용 및 사용 현황 보고서를 만들려면](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>다음 단계
 

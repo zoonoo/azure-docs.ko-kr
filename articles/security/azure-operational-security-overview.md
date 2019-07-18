@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586852"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653414"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -37,17 +37,17 @@ IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데�
 
 다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. Azure Monitor 로그도 명확 하 게 구분 데이터의 컬렉션 해당 데이터에 대해 수행 하는 작업에서 모든 작업은 모든 종류의 데이터를 사용할 수 있도록 합니다.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>자동화
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)은 클라우드 및 엔터프라이즈 환경에서 일반적으로 장기간 실행되고, 오류가 발생하기 쉬우며, 자주 반복되는 수동 작업을 자동화할 수 있는 방법을 제공합니다. 시간을 절약하고 일반 관리 작업의 안정성을 향상시키며, 이러한 작업을 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>백업
 
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. 
 
 Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계없이 모든 Azure Backup 구성 요소는 Azure에서 Azure Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 
 
-자세한 내용은 [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)를 참조하세요.
+자세한 내용은 [Azure Backup 구성 요소 표](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)를 참조하세요.
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -72,7 +72,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [풍부한 감사](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다.  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -117,7 +117,7 @@ Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주�
 
 진단 로그는 [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
@@ -127,9 +127,9 @@ Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수�
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
-고객은 Virtual Network, Azure ExpressRoute, Azure Application Gateway, 부하 분산 장치 등의 개별 네트워크 리소스를 오케스트레이션하고 구성하여 Azure에서 종단 간 네트워크를 구축합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
+고객은 Virtual Network, Azure ExpressRoute, Azure Application Gateway, 부하 분산 장치 등의 개별 네트워크 리소스를 오케스트레이션하고 구성하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
 
-종단 간 네트워크는 복잡하게 구성되고 리소스 간에 상호 작용할 수 있으므로 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 통해 시나리오 기반 모니터링이 필요한 복잡한 시나리오를 발생합니다.
+엔드투엔드 네트워크는 복잡한 구성과 리소스 간에 상호 작용할 수 있습니다. [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 통해 시나리오 기반 모니터링이 필요한 복잡한 시나리오를 발생합니다.
 
 Network Watcher는 Azure 네트워크의 모니터링 및 진단을 간소화합니다. Network Watcher에서 제공되는 진단 및 시각화 도구를 사용하여 다음을 수행할 수 있습니다.
 

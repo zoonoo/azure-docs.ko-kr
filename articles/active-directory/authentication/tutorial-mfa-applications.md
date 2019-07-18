@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113236"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>자습서: Azure Multi-Factor Authentication 파일럿 배포 완료
 
@@ -56,7 +56,7 @@ ms.locfileid: "56204800"
 
 ## <a name="test-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 테스트
 
-조건부 액세스 정책이 작동하는지 증명하려면 MFA를 요구하지 않아야 하는 리소스에 로그인 후 MFA가 필요한 Azure Portal에 로그인하는 테스트를 수행하세요.
+조건부 액세스 정책이 작동하는지 증명하려면 MFA를 요구하지 않아야 하는 리소스에 로그인한 다음, MFA가 필요한 Azure Portal에 로그인하는 테스트를 수행하세요.
 
 1. InPrivate 또는 incognito 모드에서 새 브라우저 창을 열고 [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)으로 이동합니다.
    * 이 문서의 필수 조건 섹션에서 만든 테스트 사용자로 로그인하여 MFA를 완료하라고 요청하지는 않는지 확인합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "56204800"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** , **조건부 액세스**로 이동합니다.
-1. 앞에서 만든 조건부 액세스 정책을 선택합니다.
+1. 사용자가 만든 조건부 액세스 정책을 선택합니다.
 1. **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

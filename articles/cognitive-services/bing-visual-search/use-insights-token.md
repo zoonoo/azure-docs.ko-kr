@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493878"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341715"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력을 제공 합니다.
 
@@ -64,7 +64,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ### <a name="c-prerequisites"></a>C#필수 구성 요소
 
-- 모든 버전의 [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows에서 실행 되는이 코드를 가져오려고 합니다.
+- 모든 버전의 [Visual Studio 2019](https://www.visualstudio.com/downloads/) Windows에서 실행 되는이 코드를 가져오려고 합니다.
 - Azure 구독. 이 빠른 시작에서 사용할 수는 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키입니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -434,7 +434,8 @@ function requestCallback(err, res, body) {
 # Run the following in a command console window
 # pip3 install requests
 
-import requests, json
+import requests
+import json
 
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
@@ -449,10 +450,11 @@ insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simi
 formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
 
-file = {'knowledgeRequest' : (None, formData)}
+file = {'knowledgeRequest': (None, formData)}
+
 
 def main():
-    
+
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
@@ -467,7 +469,6 @@ def print_json(obj):
     print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
 
 
-
 # Main execution
 if __name__ == '__main__':
     main()
@@ -475,7 +476,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>다음 단계
 
-[비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
+[Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search API 란?](overview.md)  
 [Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
 [평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

@@ -36,7 +36,7 @@ sections:
               src: media/index/Azure_ClonePage.svg
             title: Notebook 복제
           - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
-            html: '<p>로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 전송한 다음, 공동 작업을 위해 공유하는 방법에 대해 알아봅니다.</p>'
+            html: '<p>로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 전송한 다음, 협업을 위해 공유하는 방법에 대해 알아봅니다.</p>'
             image:
               src: media/index/Azure_MigrateNotebook.svg
             title: 로컬 Jupyter Notebook 마이그레이션

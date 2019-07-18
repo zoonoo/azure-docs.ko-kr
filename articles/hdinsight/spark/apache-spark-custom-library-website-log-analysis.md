@@ -8,23 +8,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728930"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448752"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
 이 노트북에서는 HDInsight의 Apache Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
 > [!TIP]  
-> 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **PySpark** 폴더 아래의 **사용자 지정 library.ipynb를 사용하여 Spark에서 로그 분석** Notebook을 실행합니다.
+> 이 문서에서는 HDInsight에서 만드는 Spark (Linux) 클러스터에서 Jupyter 노트북으로 사용할 이기도 합니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 문서를 수행 하려면 Spark 클러스터 만들기, Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), 다음 notebook을 실행 하 고 **사용자 지정 library.ipynb를 사용 하 여 Spark를 사용 하 여 로그 분석** 아래를 **PySpark** 폴더입니다.
 >
 >
 
-**필수 조건:**
+**사전 요구 사항:**
 
 다음이 있어야 합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "64728930"
 
        logLines.take(2)
 
-   다음과 유사하게 출력되어야 합니다.
+   출력은 다음과 같은 형태가 됩니다.
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -203,7 +203,7 @@ ms.locfileid: "64728930"
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)

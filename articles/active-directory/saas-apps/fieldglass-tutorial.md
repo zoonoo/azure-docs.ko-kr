@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2c66eba95f286dfa7a84c05c66c14768629312
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9c97ba19a680ece37ae4e3b4fa5257169f0842c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877907"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>자습서: Fieldglass와 Azure Active Directory 통합
 

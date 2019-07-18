@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0a9af2098c4b45b8988e190a3984724cfce46ac
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484900"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143685"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -38,7 +38,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다.
 
 ## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성
-이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows에 있습니다.
+이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 에 있습니다.
 
 - **Azuredeploy.json**은 가상 머신을 배포하도록 미리 구성된 Resource Manager 템플릿입니다.
 
@@ -76,8 +76,8 @@ Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메�
 // Add this code directly below.
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "WADExtensionSetup",
-        "apiVersion": "2015-05-01-preview",
+        "name": "[concat(variables('vmName'), '/', 'WADExtensionSetup')]",
+        "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ],
@@ -147,7 +147,7 @@ Azure에서 MSI 확장에 시스템 ID를 할당하도록 VM 리소스에 **iden
 {
             "type": "extensions",
             "name": "Microsoft.Insights.VMDiagnosticsSettings",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"

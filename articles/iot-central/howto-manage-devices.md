@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 장치 관리 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 애플리케이션에서 장치를 관리하는 방법을 알아봅니다.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052985"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 장치 관리
 
@@ -44,7 +44,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 디바이스를 만들 디바이스 템플릿을 선택합니다.
 
-1. + **새로 만들기**를 선택합니다.
+1. \+ **새로 만들기**를 선택합니다.
 
 1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 장치는 Azure IoT Central 애플리케이션에 연결하는 물리적 장치입니다. 시뮬레이션된 디바이스에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다.
 
@@ -66,7 +66,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. **가져오기**를 선택합니다.
 
-    ![가져오기 작업](./media/howto-manage-devices/BulkImport1.png)
+    ![가져오기 작업](./media/howto-manage-devices/bulkimport1a.png)
 
 1. 가져올 디바이스 ID 목록이 들어 있는 CSV 파일을 선택합니다.
 
@@ -74,7 +74,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 가져오기가 완료되면 디바이스 그리드에 성공 메시지가 표시됩니다.
 
-    ![가져오기 성공](./media/howto-manage-devices/BulkImport3.png)
+    ![가져오기 성공](./media/howto-manage-devices/bulkimport3a.png)
 
 디바이스 가져오기 작업이 실패하면 디바이스 그리드에 오류 메시지가 표시됩니다. 모든 오류를 캡처하는 로그 파일이 생성되며 이 파일을 다운로드할 수 있습니다.
 
@@ -86,13 +86,13 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 왼쪽 패널에서 **연결되지 않은 디바이스**를 선택합니다.
 
-    ![연결되지 않은 디바이스](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![연결되지 않은 디바이스](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. 템플릿과 연결하려는 디바이스를 선택합니다.
 
 1. 선택 **연결**:
 
-    ![디바이스 연결](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![디바이스 연결을 클릭합니다.](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. 사용 가능한 템플릿 목록에서 템플릿을 선택 하 고 선택 **연결**합니다.
 
@@ -113,7 +113,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 내보내기 및 선택 하려는 장치를 선택 합니다 **내보내기** 작업 합니다.
 
-    ![내보내기](./media/howto-manage-devices/Export1.png)
+    ![내보내기](./media/howto-manage-devices/export1a.png)
 
 1. 내보내기 프로세스가 시작됩니다. 그리드 위쪽에서 상태를 추적할 수 있습니다.
 
@@ -121,7 +121,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 선택 된 **성공 메시지** 디스크의 로컬 폴더에 파일을 다운로드 하려면.
 
-    ![내보내기 성공](./media/howto-manage-devices/Export2.png)
+    ![내보내기 성공](./media/howto-manage-devices/export2a.png)
 
 1. 내보낸 CSV 파일에는 디바이스 ID, 디바이스 이름, 디바이스 키 및 X509 인증서 지문 열이 포함되어 있습니다.
 

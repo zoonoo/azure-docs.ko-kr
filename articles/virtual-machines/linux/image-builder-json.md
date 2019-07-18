@@ -3,16 +3,16 @@ title: Azure 이미지 작성기 템플릿 (미리 보기) 만들기
 description: Azure 이미지 작성기를 사용 하는 템플릿을 만드는 방법에 알아봅니다.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+manager: gwallace
+ms.openlocfilehash: 16ad2a93c9ff035166a738edba40c99075a6e7ba
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159602"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671473"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -32,7 +32,7 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -51,11 +51,11 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>위치
 
 위치는 사용자 지정 이미지 만들어지는 지역입니다. 이미지 작성기 미리 보기의 경우에 다음 지역만 지원 됩니다.
 
-- 미국 동부
+- East US
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -76,7 +76,7 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
 
 자세한 내용은 [리소스 종속성을 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)합니다.
 
-## <a name="identity"></a>ID
+## <a name="identity"></a>클레임
 기본적으로 이미지 작성기 지원 스크립트를 사용 하 여 또는 GitHub와 Azure storage와 같은 여러 위치에서 파일을 복사 합니다. 이 사용 하려면 공개적으로 액세스 가능한 같아야 합니다.
 
 또한 id ' Storage Blob 데이터 판독기 ' 최소 Azure 저장소 계정에 부여 된으로 Azure Storage에 이미지 작성기 액세스할 수 있도록 Azure User-Assigned 관리 Id가 정의 사용할 수 있습니다. 즉, 설치 SAS 토큰 또는 외부에서 액세스할 수 있는 저장소 blob을 만들 필요가 없습니다.
@@ -332,6 +332,8 @@ OS 지원: Linux 및 Windows
  
 오류가 발생 하는 경우 파일을 다운로드 하거나 지정된 된 디렉터리에 배치 하려고 사용자 지정 단계를 실패 하 고는 customization.log이 됩니다.
 
+>> 참고! 파일 사용자 지정 < 20MB 작은 파일 다운로드에만 적합합니다. 더 큰 파일 다운로드 명령을 사용 하 여 스크립트나 인라인을 사용 하 여 코드와 같은 파일을 다운로드 하려면 Linux에 대 한 `wget` 나 `curl`, Windows, `Invoke-WebRequest`합니다.
+
 Azure Storage에서 파일 사용자 지정에서 파일을 다운로드할 수 있습니다 사용 하 여 [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)합니다.
 
 ### <a name="generalize"></a>일반화 
@@ -447,7 +449,7 @@ Azure 공유 이미지 갤러리는 이미지 지역 복제를 관리할 수 있
 > [!NOTE]
 > Azure 이미지 작성기를 사용 하 여 갤러리를 다른 지역에 있지만 Azure 이미지 작성기 서비스는 데이터 센터 간에 이미지를 전송 해야 합니다. 및이 더 오래 걸립니다. 이미지 작성기가 자동으로 버전 이미지를 기반으로 하는 단조 정수, 현재 지정할 수 없습니다. 
 
-### <a name="distribute-vhd"></a>배포: VHD   
+### <a name="distribute-vhd"></a>배포: VHD  
 VHD에 출력할 수 있습니다. 그런 다음 VHD를 복사 하 고 Azure MarketPlace에 게시 하거나 Azure Stack을 사용 하는 데 사용할 수 있습니다.  
 
 ```json

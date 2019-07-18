@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337411"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593059"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
 
 Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 수 있는 인증서에 의해 서명되거나 자체 서명될 수 있습니다. 자체 서명된 인증서는 해당 작성자에 의해 서명되므로 기본적으로 신뢰할 수 없습니다. 대부분의 브라우저는 이러한 문제를 무시할 수 있습니다. Cloud Services를 개발하고 테스트하는 경우에만 자체 서명된 인증서를 사용해야 합니다. 
 
-Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 수 있습니다. 인증서에는 지문이 포함되어 있어 모호하지 않은 방식의 식별 수단을 제공합니다. 이 지문은 Azure [구성 파일](cloud-services-configure-ssl-certificate-portal.md) 에서 클라우드 서비스가 사용할 인증서를 식별하는 데 사용됩니다. 
+Azure에서 사용하는 인증서에는 프라이빗 또는 공개 키가 포함될 수 있습니다. 인증서에는 지문이 포함되어 있어 모호하지 않은 방식의 식별 수단을 제공합니다. 이 지문은 Azure [구성 파일](cloud-services-configure-ssl-certificate-portal.md) 에서 클라우드 서비스가 사용할 인증서를 식별하는 데 사용됩니다. 
 
 >[!Note]
 >Azure Cloud Services는 AES256-SHA256 암호화 인증서를 수락하지 않습니다.
@@ -39,7 +39,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 서비스 인증서는 서비스와 별도로 관리할 수 있으며 다른 개인이 관리할 수도 있습니다. 예를 들어 개발자는 IT 관리자가 이전에 Azure로 업로드한 인증서를 참조하는 서비스 패키지를 업로드할 수 있습니다. IT 관리자는 새 서비스 패키지를 업로드할 필요 없이 서비스 구성을 변경하는 해당 인증서를 관리하고 갱신할 수 있습니다. 새 서비스 패키지 없이 업데이트가 가능한 이유는 인증서의 논리적 이름과 저장소 이름 및 위치는 서비스 정의 파일에 있고 인증서 지문은 서비스 구성 파일에 지정되어 있기 때문입니다. 인증서를 업데이트하려면 새 인증서를 업로드하고 서비스 구성 파일의 지문 값을 변경하기만 하면 됩니다.
 
 >[!Note]
->[Cloud Services FAQ](cloud-services-faq.md) 문서에는 인증서에 대한 몇 가지 유용한 정보가 들어 있습니다.
+>합니다 [Cloud Services FAQ-구성 및 관리](cloud-services-configuration-and-management-faq.md) 문서에 인증서에 대 한 몇 가지 유용한 정보가 있습니다.
 
 ## <a name="what-are-management-certificates"></a>관리 인증서란 무엇인가요?
 관리 인증서를 사용하면 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 클라우드 서비스와는 실제로 관련이 없습니다. 
@@ -57,7 +57,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 어떠한 도구든 다음 설정을 준수하는 경우 자체 서명된 인증서를 만드는 데 사용할 수 있습니다.
 
 * X.509 인증서여야 합니다.
-* 개인 키가 포함되어 있어야 합니다.
+* 프라이빗 키가 포함되어 있어야 합니다.
 * 키 교환용으로 만들어졌어야 합니다(.pfx 파일).
 * 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다.
 

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/28/2019
+ms.openlocfilehash: a997f1d0fd304b43f56953c51e6a8944a4c93ce0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66257192"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB는 Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -243,7 +243,7 @@ var streamingQuery = streamingQueryWriter.start()
 ## <a name="lambda-architecture-rearchitected"></a>람다 아키텍처: 재개발
 이전 섹션에서 언급한 대로 다음 구성 요소를 사용하여 원래의 람다 아키텍처를 간소화할 수 있습니다.
 * Azure Cosmos DB
-* - 일괄 처리와 속도 계층 간에 데이터를 멀티캐스팅할 필요가 없도록 하는 Azure Cosmos DB 변경 피드 라이브러리입니다.
+* \- 일괄 처리와 속도 계층 간에 데이터를 멀티캐스팅할 필요가 없도록 하는 Azure Cosmos DB 변경 피드 라이브러리입니다.
 * HDInsight의 Apache Spark
 * Azure Cosmos DB용 Spark 커넥터
 

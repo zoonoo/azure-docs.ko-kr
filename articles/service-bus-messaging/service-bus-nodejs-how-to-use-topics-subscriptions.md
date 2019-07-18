@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591818"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541004"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Node.js에서 Service Bus 토픽 및 구독을 사용하는 방법
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>사용 하 여 Service Bus 토픽 및 구독 Node.js 및 azure sb 패키지와 함께 하는 방법
+> [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
+> - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+이 자습서에서는 Service Bus 토픽에 메시지를 보내고 사용 하 여 Service Bus 구독에서 메시지를 수신 하는 Node.js 응용 프로그램을 만드는 방법을 배웁니다 합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지 있습니다. 샘플은 JavaScript로 작성 되었으며 Node.js를 사용 하 여 [Azure 모듈](https://www.npmjs.com/package/azure) 내부적으로 사용 하는 `azure-sb` 패키지 있습니다.
 
-이 가이드에서는 Node.js 애플리케이션에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
+합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 사용 하 여 패키지 [Service Bus REST 런타임 Api](/rest/api/servicebus/service-bus-runtime-rest)합니다. New를 사용 하는 빠른 경험을 얻을 수 있습니다 [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) 패키지는 더 빨리 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)합니다. 새 패키지에 대 한 자세한 내용은를 참조 하세요. [Node.js를 사용 하 여 Service Bus 토픽 및 구독을 사용 하는 방법 및 @azure/service-bus 패키지](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), 그렇지 않은 읽기를 사용 하는 방법을 알아보려면 계속 진행 합니다 [azure](https://www.npmjs.com/package/azure) 패키지 합니다.
+
+여기에서 다루지 시나리오에는 다음이 포함 됩니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -36,8 +41,8 @@ ms.locfileid: "60591818"
 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
+- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+- 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
 
     > [!NOTE]
     > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Node.js** 이 빠른 시작 합니다. 
@@ -143,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 토픽 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 > [!NOTE]
-> 구독은 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 영구적입니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, `getSubscription` 메서드를 사용하여 구독이 존재하는지를 먼저 확인해야 합니다.
+> 기본적으로 구독은 영구 하거나 될 때까지 또는 연결 된 항목을 사용 하 여 삭제 됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, `getSubscription` 메서드를 사용하여 구독이 존재하는지를 먼저 확인해야 합니다.
 >
->
+> 구독을 설정 하 여 자동으로 삭제 할 수 있습니다 합니다 [AutoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)합니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 구독을 만들 때 사용하는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 AllMessages라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
@@ -309,7 +314,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 애플리케이션이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 동작은 일반적으로 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다.
+토픽과 구독은 영구적는 하지 않는 한는 [autoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) 을 설정 하 고 명시적으로 해야 합니다 통해 삭제를 [Azure portal][Azure portal] 또는 프로그래밍 방식으로 합니다.
 다음 예제는 `MyTopic` 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```javascript
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.

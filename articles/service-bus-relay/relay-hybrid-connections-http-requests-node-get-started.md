@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60553956"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Node에서 Relay 하이브리드 연결 HTTP 요청 시작
@@ -62,7 +62,7 @@ Relay에 메시지를 보내려면 HTTP 클라이언트를 사용하거나 Node.
 2. Node.js 명령 프롬프트 형식 `node sender.js`의 클라이언트 애플리케이션을 실행하고 일부 텍스트를 입력합니다.
 3. 서버 애플리케이션 콘솔이 클라이언트 애플리케이션에 입력된 텍스트를 출력하는지 확인합니다.
 
-축하합니다. Node.js를 사용하여 종단 간 하이브리드 연결 애플리케이션을 만들었습니다.
+축하합니다. Node.js를 사용하여 엔드투엔드 하이브리드 연결 애플리케이션을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 메시지를 보내고 받는 데 HTTP를 사용한 Node.js 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 또한 WebSockets를 사용하여 메시지를 보내고 받을 수 있도록 지원합니다. Azure Relay 하이브리드 연결에 WebSockets를 사용하는 방법에 대한 자세한 내용은 [WebSockets 빠른 시작](relay-hybrid-connections-node-get-started.md)을 참조하세요.

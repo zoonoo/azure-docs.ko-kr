@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021497"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164486"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -49,7 +49,17 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 
 권장 사항 목록은 추가 비용을 절감할 수 있도록 구매 권장 사항을 표시하거나 사용 비효율성을 식별합니다. 총 **연간 절약 가능 금액**은 권장 사항 규칙을 충족하는 모든 VM을 종료 또는 할당 해제할 경우 절약할 수 있는 총액을 보여 줍니다. 종료하고 싶지 않다면 덜 비싼 VM SKU로 크기 조정을 고려해야 합니다.
 
-**연간 절약 가능 금액**과 함께, **영향** 범주는 가능한 많이 절약 가능한 권장 사항을 식별하기 위한 것입니다. 영향이 높은 권장 사항은 [종량제 비용에 따라 비용을 절감하기 위해 예약 가상 머신 인스턴스 구매](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) 및 [사용률이 낮은 인스턴스의 크기를 조정하여 가상 머신 소비 최적화](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)입니다. 영향이 중간인 권장 사항은 [프로비저닝되지 않은 ExpressRoute 회로를 제거하여 비용 절감](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) 및 [유휴 가상 네트워크 게이트웨이를 삭제 또는 재구성하여 비용 절감](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)입니다.
+**연간 절약 가능 금액**과 함께, **영향** 범주는 가능한 많이 절약 가능한 권장 사항을 식별하기 위한 것입니다.
+
+높은 영향 권장 사항은 다음과 같습니다.
+- [종 량 제 비용 보다 비용 절약에 예약 된 가상 머신 인스턴스 구매](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [최적화 크기를 조정 하거나 사용률이 낮은 인스턴스를 종료 하 여 가상 머신 소비](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [관리 디스크 스냅숏을 저장할 표준 저장소 사용](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+중간 영향 권장 사항은 다음과 같습니다.
+- [실패 하는 Azure Data Factory 파이프라인을 삭제 합니다.](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [취소 프로 비전 된 ExpressRoute 회로 제거 하 여 비용을 절감 합니다.](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [삭제 하거나 유휴 상태의 가상 네트워크 게이트웨이 다시 구성 하 여 비용을 절감 합니다.](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>권장 사항 이행
 

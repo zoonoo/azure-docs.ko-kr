@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed6762a1cce3afb3e22b15a63c68432fec121efe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891470"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>자습서: Anaplan와 Azure Active Directory 통합
 

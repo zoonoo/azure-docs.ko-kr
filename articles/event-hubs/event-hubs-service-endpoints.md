@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343446"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080532"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "60343446"
 
 를 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 연결 하도록 구성 되 면 해당 Event Hubs 네임 더 이상 어디에서 트래픽을 허용 하지만 가상 네트워크의 서브넷에 권한이 부여 합니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
-메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 개인 관계가 생성됩니다. 이 동작은 예외가 있습니다. 기본적으로 서비스 끝점을 사용 하면 가상 네트워크와 연결 된 IP 방화벽에서 규칙은 denyall 됩니다. 이벤트 허브 공용 끝점에 대 한 액세스를 사용 하도록 설정 하려면 IP 방화벽에서 특정 IP 주소를 추가할 수 있습니다. 
+메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작은 예외가 있습니다. 기본적으로 서비스 끝점을 사용 하면 가상 네트워크와 연결 된 IP 방화벽에서 규칙은 denyall 됩니다. 이벤트 허브 공용 끝점에 대 한 액세스를 사용 하도록 설정 하려면 IP 방화벽에서 특정 IP 주소를 추가할 수 있습니다. 
 
 
 >[!WARNING]
@@ -71,7 +71,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
 * **namespaceName**: Event Hubs 네임스페이스입니다.
 * **vnetRuleName**: 만들 Virtual Network 규칙의 이름입니다.
-* **virtualNetworkingSubnetId**: 가상 네트워크 서브넷에 대해 정규화된 Resource Manager 경로입니다(예: 가상 네트워크 기본 서브넷의 경우 `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`).
+* **virtualNetworkingSubnetId**: 가상 네트워크 서브넷에 대해 정규화된 Resource Manager 경로입니다(예: 가상 네트워크 기본 서브넷의 경우 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`).
 
 > [!NOTE]
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.

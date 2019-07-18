@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727585"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기본 Load Balancer 만들기
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **작업**: **허용**을 선택합니다.  
    - **우선 순위**: *100*을 입력합니다. 
    - **이름**: *MyHTTPRule*을 입력합니다. 
-   - **설명**: ‘HTTP 허용’을 입력합니다. 
+   - **설명**: ‘HTTP 허용’을 입력합니다.  
    
 1. **추가**를 선택합니다. 
    

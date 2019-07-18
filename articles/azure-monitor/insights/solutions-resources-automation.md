@@ -15,10 +15,10 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110364"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
@@ -242,7 +242,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 자산 | 설명 |
 |:--- |:--- |
-| schedule name |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
+| schedule name |일정의 이름을 포함하는 단일 **name** 엔터티입니다. |
 | runbook name  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
@@ -272,7 +272,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
 | type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| 값 | 변수의 값입니다. |
+| value | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  

@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ea8758934f5209228e9c6697b5f0497e68baf62e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 563f4ee432b6f0ee90d6532edd0e44ecebd5b292
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149640"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621487"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>공유 이미지 갤러리 문제 해결
 

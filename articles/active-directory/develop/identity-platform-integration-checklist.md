@@ -3,8 +3,8 @@ title: Microsoft id 플랫폼과 통합 | Azure
 description: Microsoft id 플랫폼 (v2.0)를 사용 하 여 통합 하는 경우 모범 사례 및 프로젝트의 일반적인 문제점에 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111465"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft identity 플랫폼 통합 검사 목록
 
@@ -31,13 +31,13 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 
 ## <a name="testing-your-integration"></a>통합 테스트
 
-다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/legal/mdsa)합니다.
+다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)합니다.
 
 ### <a name="basics"></a>기본 사항
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://docs.microsoft.com/legal/mdsa)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
 
 ### <a name="ownership"></a>소유권
 
@@ -62,7 +62,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드에 최신 상태로 유지 합니다. 여 Uri에서 와일드 카드 (*)를 사용 하지 마세요. 웹 앱에 대 한 모든 Uri 안전 하 고 (예: https 체계를 사용 하 여) 암호화 되는지 확인 합니다. 공용 클라이언트의 경우 사용 하 여 플랫폼 특정 리디렉션 Uri 해당 하는 경우 (주로 iOS 및 Android 용). 그렇지 않은 경우 사용 하 여 대량의 앱에 다시 호출 하는 경우 충돌을 방지 하는 임의성을 사용 하 여 리디렉션 Uri. 앱 격리 웹 에이전트에서 사용 중인 경우 사용할 수 있습니다 https://login.microsoftonline.com/nativeclient합니다. 검토 하 고 모든 사용 되지 않거나 필요 하지 않은 리디렉션 Uri는 정기적으로 trim 키를 누릅니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드에 최신 상태로 유지 합니다. 여 Uri에서 와일드 카드 (*)를 사용 하지 마세요. 웹 앱에 대 한 모든 Uri 안전 하 고 (예: https 체계를 사용 하 여) 암호화 되는지 확인 합니다. 공용 클라이언트의 경우 사용 하 여 플랫폼 특정 리디렉션 Uri 해당 하는 경우 (주로 iOS 및 Android 용). 그렇지 않은 경우 사용 하 여 대량의 앱에 다시 호출 하는 경우 충돌을 방지 하는 임의성을 사용 하 여 리디렉션 Uri. 앱 격리 웹 에이전트에서 사용 중인 경우 사용할 수 있습니다 https://login.microsoftonline.com/nativeclient 합니다. 검토 하 고 모든 사용 되지 않거나 필요 하지 않은 리디렉션 Uri는 정기적으로 trim 키를 누릅니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 앱 디렉터리에 등록 되 면 최소화 하 고 수동으로 응용 프로그램 등록 소유자 목록을 모니터링 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 에 대 한 지원을 사용 하도록 설정 하지는 [OAuth2 암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md) 꼭 필요한 경우가 아니면 합니다. 유효한 시나리오에 알아봅니다 [여기](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 사용 하지 마세요 [리소스 소유자 암호 자격 증명 흐름 (ROPC)](v2-oauth-ropc.md)는 사용자의 암호를 직접 처리 합니다. 이 흐름은 높은 수준의 신뢰 및 사용자 노출 하며 다른, 보다 안전한 흐름을 사용할 수 없는 경우에 사용 해야 합니다. |

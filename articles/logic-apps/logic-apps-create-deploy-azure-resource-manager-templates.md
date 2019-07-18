@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: 21603ff213bc8babb4145209a76aee0b4150cc12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681758"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용 하 여 논리 앱 배포
@@ -48,7 +48,7 @@ ms.locfileid: "60681758"
 
 ## <a name="authorize-oauth-connections"></a>OAuth 연결 권한 부여
 
-배포 후 논리 앱은 유효한 매개 변수와 함께 종단 간에 적용됩니다. 그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다. 자동화 된 배포의 경우 이와 같은 각 OAuth 연결에 동의 하는 스크립트를 사용할 수 있습니다 [예제 프로젝트의에서 스크립트는 GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth)합니다. Logic Apps 디자이너에서 논리 앱을 열어도 Visual Studio 또는 Azure portal을 통해 OAuth 연결 권한을 부여할 수 있습니다.
+배포 후 논리 앱은 유효한 매개 변수와 함께 엔드투엔드에 적용됩니다. 그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다. 자동화 된 배포의 경우 이와 같은 각 OAuth 연결에 동의 하는 스크립트를 사용할 수 있습니다 [예제 프로젝트의에서 스크립트는 GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth)합니다. Logic Apps 디자이너에서 논리 앱을 열어도 Visual Studio 또는 Azure portal을 통해 OAuth 연결 권한을 부여할 수 있습니다.
 
 <a name="powershell"></a>
 
@@ -67,7 +67,7 @@ New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent
 ```
 
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>

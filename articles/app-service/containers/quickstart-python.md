@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 557b917f53064f0e6e9ecd61e2d230a6a4fd2ad6
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607775"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853689"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
 이 빠른 시작에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
 
@@ -106,7 +105,7 @@ Checking connectivity... done.
 
 샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
 
-다음 예제에서 `<app-name>`을 고유한 앱 이름으로 바꿉니다.
+다음 예에서 `<app-name>`을 전역적으로 고유한 앱 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`).
 
 ```bash
 cd python-docs-hello-world
@@ -171,7 +170,7 @@ return "Hello Azure!"
 
 변경 내용을 저장하고 편집기를 종료합니다. `^S` 명령을 사용하여 저장하고 `^Q` 명령을 사용하여 종료합니다.
 
-[`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) 명령을 사용하여 앱을 다시 배포합니다. `<app-name>`을 앱의 이름으로 바꾸고 `<location-name>`에 대한 위치를 지정합니다([`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령에서 표시 된 값 중 하나를 사용).
+[`az webapp up`](/cli/azure/webapp#az-webapp-up) 명령을 사용하여 앱을 다시 배포합니다. `<app-name>`을 앱의 이름으로 바꾸고 `<location-name>`에 대한 위치를 지정합니다([`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령에서 표시 된 값 중 하나를 사용).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -198,8 +197,6 @@ az webapp up -n <app-name> -l <location-name>
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
-
-Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)

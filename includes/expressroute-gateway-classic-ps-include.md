@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365165"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181937"
 ---
 > [!NOTE]
 > 이러한 예제가 S2S/ExpressRoute 공존 구성에는 적용되지 않습니다.

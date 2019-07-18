@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 347de9b575e3b47ee795026115fd2452c28b866b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150188"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -57,6 +57,8 @@ ms.locfileid: "55877340"
 ## <a name="intents-and-entities"></a>의도 및 엔터티
 
 왼쪽 탐색 창에서 **의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 의도마다 예제 발언이 있습니다.
+
+![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")]
 
 > [!NOTE]
 > **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이것은 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다. 

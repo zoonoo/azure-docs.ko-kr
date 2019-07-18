@@ -65,10 +65,7 @@
 - name: 리소스
   items:
     - name: R 개발자 가이드
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-      maintainContext: true
-    - name: 블로그
-      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: MSDN 포럼
       href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
     - name: 스택 오버플로

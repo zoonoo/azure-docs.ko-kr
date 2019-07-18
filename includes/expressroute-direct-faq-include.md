@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/25/2019
+ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 41f62d095c1a0cbdd0a888326b263a3294066637
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118733"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712461"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
-ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute Direct는 대규모로 활성/활성 연결을 지원하는 이중 100Gbps 연결을 제공합니다. 
+ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute 직접 이중 100 또는 10 Gbps 연결, 확장에 대 한 활성/활성 연결을 지를 제공 합니다. 
 
 ### <a name="how-do-customers-connect-to-expressroute-direct"></a>고객이 ExpressRoute Direct에 연결하려면 어떻게 해야 하나요? 
 
@@ -25,20 +25,31 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>현재 위치가 ExpressRoute Direct를 지원 하나요? 
 
-사용 가능한 포트는 동적이며 PowerShell에서 용량을 보는 데 사용할 수 있습니다. ‘가용성에 따라 변경될 수 있는’ 이 위치는 다음과 같습니다.
+사용 가능한 포트는 동적이며 PowerShell에서 용량을 보는 데 사용할 수 있습니다. ‘가용성에 따라 변경될 수 있는’ 이 위치는 다음과 같습니다. 
 
 * 암스테르담
-* 캔버라
+* 암스테르담2
+* 오클랜드 
 * 시카코
-* 워싱턴 DC
-* 댈러스 
+* 댈러스
+* 더블린
 * 홍콩 특별 행정구
-* 로스앤젤레스
+* 런던
+* Los Angeles
+* 멜버른
 * New York City
-* 파리
+* 퍼스
 * 샌안토니오
+* Seattle
+* 서울
 * 실리콘밸리
-* 싱가포르 
+* 싱가포르 2 
+* 시드니
+* 타이베이
+* 도쿄
+* 토론토
+* 워싱턴 DC
+* 워싱턴 DC2
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct에 대한 SLA란 무엇인가요?
 
@@ -46,7 +57,7 @@ ExpressRoute Direct는 동일한 [엔터프라이즈급 ExpressRoute](https://az
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>고객이 ExpressRoute Direct 사용을 고려해야 하는 시나리오는 무엇인가요?  
 
-ExpressRoute Direct는 Microsoft 글로벌 백본에 대한 직접 100Gbps 포트 쌍을 고객에게 제공합니다. 고객에게 가장 큰 혜택을 제공하는 시나리오에는 대량 데이터 수집, 규제 시장에 대한 물리적 격리 및 버스트 시나리오(예: 렌더링)에 대한 전용 용량이 포함됩니다. 
+ExpressRoute 직접 Microsoft 글로벌 백본에 직접 100 또는 10 Gbps 포트 쌍을 사용 하 여 고객을 제공합니다. 고객에게 가장 큰 혜택을 제공하는 시나리오에는 대량 데이터 수집, 규제 시장에 대한 물리적 격리 및 버스트 시나리오(예: 렌더링)에 대한 전용 용량이 포함됩니다. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>ExpressRoute Direct에 대한 청구 모델은 무엇인가요? 
 

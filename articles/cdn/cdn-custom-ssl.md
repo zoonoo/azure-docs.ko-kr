@@ -7,20 +7,20 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200296"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594055"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -50,7 +50,11 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
+또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md) 
+
+> [!IMPORTANT]
+> CDN 관리 인증서는 루트 또는 정점 도메인에서 제공되지 않습니다. Azure CDN 사용자 지정 도메인이 루트 또는 정점 도메인인 경우 자체 인증서 가져오기 기능을 사용해야 합니다. 
+>
 
 ---
 
@@ -90,10 +94,10 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 활성화](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> 이 옵션은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
+> 이 옵션은 **Microsoft의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에서만 사용할 수 있습니다. 
 >
  
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요.
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요. **Verizon의 Azure CDN**의 경우 유효한 CA가 허용됩니다. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
@@ -170,7 +174,7 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 엔드포인트 호스트 이름입니다.
 
-| Name            | type  | 값                 |
+| 이름            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -178,23 +182,23 @@ CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](ht
 
 CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 도메인 이름에 전용 인증서를 만듭니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
 
-일반적으로 자동 유효성 검사에 몇 분 정도 걸립니다. 1시간 내에 도메인의 유효성이 확인되지 않으면 지원 티켓을 엽니다.
+자동 유효성 검사는 일반적으로 몇 시간이 걸립니다. 24시간 내에 도메인의 유효성이 확인되지 않으면 지원 티켓을 엽니다.
 
 >[!NOTE]
 >DNS 공급자가 포함된 CAA(Certificate Authority Authorization) 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다. CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA를 DNS 공급자로 지정할 수 있습니다. CA에서 CAA 레코드가 있는 도메인에 대한 인증서 주문을 받고 해당 CA가 인증된 발급자로 나열되지 않은 경우 해당 도메인 또는 하위 도메인에 인증서를 발급할 수 없습니다. CAA 레코드 관리에 대한 내용은 [CAA 레코드 관리](https://support.dnsimple.com/articles/manage-caa-record/)를 참조하세요. CAA 레코드 도구는 [CAA 레코드 도우미](https://sslmate.com/caa/)를 참조하세요.
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음
 
-엔드포인트에 대한 CNAME 레코드 항목이 더 이상 없거나 cdnverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
-
 >[!NOTE]
->현재 사용자 지정 도메인 소유권에 대한 이메일 유효성 검사는 **Akamai의 Azure CDN** 프로필에 사용할 수 없습니다. 이 기능은 현재 백로그로 제공됩니다. 
+>현재 사용자 지정 도메인 소유권에 대한 이메일 유효성 검사는 **Akamai의 Azure CDN** 프로필에 사용할 수 없습니다. **Akamai의 Azure CDN**을 사용하는 경우, 사용자 지정 도메인은 위에서 설명된 대로 CNAME 레코드로 CDN 엔드포인트에 매핑되어야 합니다.  이 기능은 현재 백로그로 제공됩니다. 
+
+CNAME 레코드 항목에 cdnverify 하위 도메인이 포함된 경우 이 단계의 나머지 지침을 따릅니다.
 
 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하는 요청이 제출되면, DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 해당 등록자에게 문의하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
 ![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
 
-또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 비공개인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
+또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 프라이빗인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  

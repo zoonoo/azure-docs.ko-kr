@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: 빠른 시작
               items:
-                - name: VM 암호화 - Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Azure CLI를 사용하여 Linux VM 암호화
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Azure PowerShell을 사용하여 Linux VM 암호화
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Azure CLI를 사용하여 Windows VM 암호화
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Azure PowerShell을 사용하여 Windows VM 암호화
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure 디스크 암호화
               items:
                 - name: 디스크 암호화 필수 구성 요소
@@ -67,27 +73,29 @@
                 - name: VMSS 확장 시퀀싱을 사용하여 디스크 암호화
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 디스크 암호화에 대한 부록
-              href: azure-security-disk-encryption-appendix.md
-            - name: 디스크 암호화 FAQ
-              href: azure-security-disk-encryption-faq.md
-            - name: 문제 해결
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure AD 앱(이전 릴리스)을 포함한 Azure Disk Encryption
-              displayName: active directory
-              items:
-                - name: Azure AD 앱 필수 구성 요소를 포함한 디스크 암호화
+                  href: azure-security-disk-encryption-appendix.md
+                - name: 디스크 암호화 FAQ
+                  href: azure-security-disk-encryption-faq.md
+                - name: 문제 해결
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure AD 앱(이전 릴리스)을 포함한 Azure Disk Encryption
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Windows VM용 Azure AD 앱을 포함한 디스크 암호화
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Linux VM용 Azure AD 앱을 포함한 디스크 암호화
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Azure AD 앱 필수 구성 요소를 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Windows VM용 Azure AD 앱을 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Linux VM용 Azure AD 앱을 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Storage 보안
       href: security-storage-overview.md
     - name: 저장소 보안 지침
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 고객 Lockbox
+      href: azure-customer-lockbox-overview.md
 - name: 플랫폼 및 인프라
   items:
     - name: 인프라 보안
@@ -134,6 +142,9 @@
         - name: 보안 검사 목록
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: 암호 없음 선택
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: 모범 사례
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md
@@ -224,6 +235,8 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
+        - name: 감사 범위별 Azure Services
+          href: ./compliance/azure-services-in-fedramp-auditscope.md
         - name: 데이터 분석
           href: ./blueprints/fedramp-analytics-overview.md
         - name: 데이터 웨어하우스
@@ -340,6 +353,8 @@
               href: azure-security-threat-modeling-tool-releases-71601261.md
             - name: Threat Modeling Tool 업데이트 릴리스 7.1.60408.1 - 2019년 4월 9일
               href: azure-security-threat-modeling-tool-releases-71604081.md
+            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60702.1 - 2019/7/02
+              href: azure-security-threat-modeling-tool-releases-71607021.md
         - name: 해결 방법
           href: azure-security-threat-modeling-tool-mitigations.md
           items:

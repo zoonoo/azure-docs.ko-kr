@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9cbee4f9f4f694510e852fe3790c8242ef346576
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66416065"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -37,7 +37,7 @@ ms.locfileid: "64702821"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-
+* 원래 VHD와 변환 전 VM에서 사용된 저장소 계정은 삭제되지 않습니다. 이들 작업은 요금이 계속 청구됩니다. 이러한 아티팩트에 대한 요금이 청구되지 않도록 하려면 변환이 완료되었는지 확인한 후 원래 VHD Blob을 삭제합니다. 삭제 하기 위해 이러한 연결 되지 않은 디스크를 찾아야 하는 경우 문서를 참조 하세요 [연결 되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제](find-unattached-disks.md)합니다.
 
 
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환
@@ -99,7 +99,6 @@ ms.locfileid: "64702821"
 변환하는 동안 오류가 발생한 경우 또는 이전 변환에서의 문제로 인해 VM 상태가 실패인 경우 `ConvertTo-AzVMManagedDisk` cmdlet을 다시 실행합니다. 다시 시도만으로 상황이 해결되는 경우가 많습니다.
 변환하기 전에 모든 VM 확장이 '프로비전 성공' 상태에 있는지 확인합니다. 그렇지 않으면 변환이 오류 코드 409로 실패합니다.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Azure Portal을 사용하여 변환
 
 Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스크로 변환할 수도 있습니다.
@@ -108,7 +107,7 @@ Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스�
 2. 포털의 VM 목록에서 VM을 선택합니다.
 3. VM 블레이드의 메뉴에서 **디스크**를 선택합니다.
 4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션**을 선택합니다.
-5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고에는 클릭하여 가용성 집합을 변환할 수 있는 링크가 있습니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우에는 **마이그레이션**을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다. 
+5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고에는 클릭하여 가용성 집합을 변환할 수 있는 링크가 있습니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우에는 **마이그레이션**을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다.
 
 VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 
@@ -116,5 +115,5 @@ VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 
 [표준 관리 디스크를 프리미엄으로 변환](convert-disk-storage.md)
 
-[스냅숏](snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.
+[스냅샷](snapshot-copy-managed-disk.md)을 사용하여 VM의 읽기 전용 복사본을 만듭니다.
 

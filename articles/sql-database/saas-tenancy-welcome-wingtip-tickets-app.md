@@ -14,15 +14,15 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61487380"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 
-세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 이 앱은 극장, 클럽 등 작은 장소를 대상으로 간단한 이벤트를 나열하며 티켓팅하는 SaaS 앱입니다. 각 장소는 앱의 테넌트이며, 장소 세부 정보, 고객, 티켓 주문, 이벤트 목록 등의 자체 데이터를 갖습니다.  관리 스크립트 및 자습서와 함께 앱을 통해 종단 간 SaaS 시나리오를 보여 줍니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
+세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 이 앱은 극장, 클럽 등 작은 장소를 대상으로 간단한 이벤트를 나열하며 티켓팅하는 SaaS 앱입니다. 각 장소는 앱의 테넌트이며, 장소 세부 정보, 고객, 티켓 주문, 이벤트 목록 등의 자체 데이터를 갖습니다.  관리 스크립트 및 자습서와 함께 앱을 통해 엔드투엔드 SaaS 시나리오를 보여 줍니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>세 개의 SaaS 애플리케이션과 테넌트 패턴
 

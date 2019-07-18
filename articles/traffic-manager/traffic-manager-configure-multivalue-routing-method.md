@@ -3,20 +3,21 @@ title: Azure Traffic Manager에서 다중값 트래픽 라우팅 방법 구성
 description: 이 문서에서는 A/AAAA 엔드포인트로 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
-ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050909"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
@@ -27,7 +28,7 @@ ms.locfileid: "58094806"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 1. Azure Portal의 왼쪽 창에서 **리소스 그룹**을 선택합니다.
@@ -46,7 +47,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
     | 라우팅 방법          | **다중값** 라우팅 방법을 선택합니다.                                       |
     | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | *myResourceGroupTM1*을 선택합니다. |
-    | 위치                | 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
+    | Location                | 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
    |        |           | 
   
    ![Traffic Manager 프로필 만들기](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)

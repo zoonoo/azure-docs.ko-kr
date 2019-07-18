@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 240291c7ec1d989e52a2896dc696f69afbee0093
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32625ad1dc9648c5e91265ae71790b419497871a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>자습서: myPolicies와 Azure Active Directory 통합
 

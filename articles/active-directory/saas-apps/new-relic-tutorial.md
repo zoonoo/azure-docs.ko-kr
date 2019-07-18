@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ New Relic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-6.  **설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+6. **설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 

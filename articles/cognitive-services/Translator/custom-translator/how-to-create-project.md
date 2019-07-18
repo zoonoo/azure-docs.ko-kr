@@ -2,19 +2,19 @@
 title: 프로젝트를 만드는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator에서 프로젝트를 만드는 방법
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762707"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448324"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
@@ -34,17 +34,17 @@ ms.locfileid: "57762707"
 
     b.  설명: 프로젝트의 간단한 요약입니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않지만, 여러 프로젝트를 구분하는 데 도움이 될 수 있습니다.
 
-    다.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
+    c.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
 
     d.  범주(필수): 프로젝트에 가장 적합한 범주를 선택합니다. 범주는 번역하려는 문서의 스타일과 용어를 설명합니다.
 
     e.  범주 설명: 이 필드에는 현재 근무하고 있는 특정 분야나 업계에 대한 설명을 입력합니다. 예를 들어, 범주가 의학이라면 여기에는 수술, 소아과와 같은 설명을 입력할 수 있습니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않습니다.
 
-    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다. 단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
+    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다.  단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
 
     ![프로젝트 만들기 대화 상자](media/how-to/how-to-create-project-dialog.png)
 
-3.  만들기 클릭 
+3.  만들기 클릭
 
 ## <a name="view-project-details"></a>프로젝트 세부 사항 보기
 

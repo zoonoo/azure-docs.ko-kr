@@ -9,11 +9,11 @@ ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427689"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181885"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Event Grid 리소스 공급자를 사용하도록 설정
 

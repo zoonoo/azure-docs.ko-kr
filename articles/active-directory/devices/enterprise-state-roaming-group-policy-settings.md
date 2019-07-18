@@ -1,28 +1,22 @@
 ---
 title: 그룹 정책 및 MDM 설정 | Microsoft Docs
-description: 회사 소유의 디바이스에 사용해야 하는 그룹 정책 및 MDM(모바일 디바이스 관리) 설정에 대한 정보를 제공합니다. 이러한 정책은 사용자의 디바이스 전체에 적용됩니다.
+description: 회사 소유의 디바이스에 사용해야 하는 그룹 정책 및 MDM(모바일 디바이스 관리) 설정에 대한 정보를 제공합니다.
 services: active-directory
-keywords: 엔터프라이즈 상태 로밍에 대한 그룹 정책 및 MDM 설정이란, 엔터프라이즈 상태 로밍, windows 클라우드
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3f2b1afa67ec36da4d4da57b296e696fd6c6910
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353162"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481936"
 ---
 # <a name="group-policy-and-mdm-settings"></a>그룹 정책 및 MDM 설정
 이러한 정책은 사용자의 디바이스 전체에 적용되므로 회사 소유의 디바이스에만 그룹 정책 및 MDM(모바일 디바이스 관리) 설정을 사용하세요. 개인의 설정 동기화를 비활성화하는 MDM 정책을 적용하면 사용자 소유의 디바이스가 해당 디바이스 사용에 부정적인 영향을 미치게 됩니다. 뿐만 아니라 해당 디바이스의 다른 사용자도 정책의 영향을 받습니다.

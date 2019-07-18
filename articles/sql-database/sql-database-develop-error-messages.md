@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723499"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 애플리케이션에 대한 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
@@ -216,7 +216,7 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 | 40652 |16 |서버를 이동하거나 만들 수 없습니다. 구독 (subscription-id)이(가) 서버 할당량을 초과합니다. |
 | 40671 |17 |게이트웨이 및 관리 서비스 간의 통신 오류입니다. 나중에 다시 시도하십시오. |
 | 40852 |16 |로그인에서 요청된 서버 '%.\*ls'의 데이터베이스 '%.\*ls'을(를) 열 수 없습니다. 데이터베이스에 대한 액세스는 보안 지원 연결 문자열을 사용해서만 허용됩니다. 이 데이터베이스에 액세스하려면 서버 FQDN에 ‘secure(보안)’를 포함하도록 연결 문자열을 수정합니다 - '서버 이름'.database.windows.net은 '서버 이름'.database.`secure`.windows.net로 수정되어야 합니다. |
-| 40914 | 16 | 로그인에서 요청한 '*[server-name]*' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.<br /><br />해결하려면 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 추가를 고려합니다. |
+| 40914 | 16 | 로그인에서 요청한 ' *[server-name]* ' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.<br /><br />해결하려면 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 추가를 고려합니다. |
 | 45168 |16 |SQL Azure 시스템이 부하를 받고 있으며 단일 SQL Database 서버에 대해 동시 DB CRUD 작업(예: 데이터베이스 만들기)에 대한 상한을 적용합니다. 오류 메시지에 지정된 서버가 최대 동시 연결 수를 초과했습니다. 나중에 다시 시도하십시오. |
 | 45169 |16 |SQL Azure 시스템이 부하를 받고 있으며 단일 구독에 대해 동시 서버 CRUD 작업에 대한 상한을 두고 있습니다(예: 데이터베이스 만들기). 오류 메시지에 지정된 구독이 최대 동시 연결 수를 초과했으며 요청이 거부되었습니다. 나중에 다시 시도하십시오. |
 

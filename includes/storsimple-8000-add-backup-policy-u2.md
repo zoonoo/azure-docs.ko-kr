@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819073"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182393"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 추가하려면
 
@@ -33,7 +33,7 @@ ms.locfileid: "60819073"
 
        ![백업 정책 추가](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
-       1. **스냅숏 유형**으로 **클라우드** 또는 **로컬**을 선택합니다.
+       1. **스냅샷 유형**으로 **클라우드** 또는 **로컬**을 선택합니다.
 
        2. 백업 빈도를 표시합니다. 숫자를 지정한 다음 드롭다운 목록에서 **일** 또는 **주**를 선택합니다.
 

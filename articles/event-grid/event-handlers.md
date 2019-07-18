@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080548"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -72,6 +72,64 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 | [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
+## <a name="service-bus-queue-preview"></a>Service Bus 큐 (미리 보기)
+
+엔터프라이즈 응용 프로그램에서 버퍼링 또는 명령 및 컨트롤 시나리오에서 사용 하기 위해 Service Bus 큐를 직접 Event Grid의 이벤트를 라우팅하는 이벤트 처리기로 Service Bus를 사용 합니다. 미리 보기 Service Bus 토픽 및 세션을 사용 하 여 작동 하지 않습니다 하지만 Service Bus 큐의 모든 계층을 사용 하 여 작동 합니다.
+
+참고 하는 동안 Service Bus 공개 미리 보기에서 처리기는 설치 해야 합니다 CLI 또는 PowerShell 확장 이벤트 구독을 만드는 것을 사용 하는 경우.
+
+### <a name="install-extension-for-azure-cli"></a>Azure CLI 확장 설치
+
+Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이 필요합니다.
+
+[CloudShell](/azure/cloud-shell/quickstart)에서:
+
+* 확장을 이전에 설치한 경우 업데이트 하 여 `az extension update -n eventgrid`입니다.
+* 이전에 확장을 설치 하지 않은 경우 사용 하 여 설치 `az extension add -n eventgrid`합니다.
+
+로컬 설치의 경우:
+
+1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). 확인 하 여 최신 버전으로 있는지 확인 `az --version`합니다.
+1. 이전 버전을 사용 하 여 확장 제거 `az extension remove -n eventgrid`합니다.
+1. 설치 합니다 `eventgrid` 확장과 `az extension add -n eventgrid`합니다.
+
+### <a name="install-module-for-powershell"></a>PowerShell 모듈 설치
+
+PowerShell의 경우 [AzureRM.EventGrid 모듈](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview)이 필요합니다.
+
+[CloudShell](/azure/cloud-shell/quickstart-powershell)에서:
+
+* 사용 하 여 모듈을 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+로컬 설치의 경우:
+
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다.
+1. 사용 하 여 모듈을 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+`-AllowPrerelease` 매개 변수를 사용할 수 없는 경우 다음 단계를 사용합니다.
+
+1. `Install-Module PowerShellGet -Force`을 실행합니다.
+1. `Update-Module PowerShellGet`을 실행합니다.
+1. PowerShell 콘솔을 닫습니다.
+1. 관리자 권한으로 PowerShell을 다시 시작 합니다.
+1. 모듈을 설치 합니다 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>CLI를 사용 하 여 Service Bus 처리기를 추가 하려면
+
+Azure cli의 경우 다음 예제에서는 구독 및 Event Grid 토픽을 Service Bus 큐에 연결:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
 ## <a name="queue-storage"></a>Queue Storage
 
 Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응답 시간이 너무 오래 걸리는 장기 실행 프로세스가 있는 경우 Queue Storage를 사용할 수 있습니다. 이벤트를 Queue Storage를 보내면 앱이 자체 일정에 따라 프로세스를 끌어와서 처리할 수 있습니다.
@@ -80,7 +138,7 @@ Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응
 |---------|---------|
 | [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | Queue Storage에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
 
-## <a name="webhooks"></a>WebHook
+## <a name="webhooks"></a>웹후크
 
 이벤트에 응답하는 사용자 지정 가능한 엔드포인트에는 웹후크를 사용합니다.
 

@@ -3,23 +3,26 @@ title: '빠른 시작: 지원되는 언어 목록 가져오기, Node.js - Transl
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
-ms.author: erhopf
-ms.openlocfilehash: df637ee16d2116696af42fa1b162e1c77a880c19
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: e31f30373349d4048f9021ab8eee7f39dcf5cd57
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922180"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705518"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js를 사용하는 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Node.js 및 Translator Text REST API를 사용하여 지원되는 언어의 목록을 반환하는 GET 요청을 만드는 방법을 알아봅니다.
+
+>[!TIP]
+> 모든 코드를 한꺼번에 볼 수 있도록 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)에 이 샘플의 소스 코드가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,6 +67,8 @@ let options = {
 };
 ```
 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## <a name="make-the-request-and-print-the-response"></a>요청 만들기 및 응답 출력
 
 다음으로, `request()` 메서드를 사용하여 요청을 만들겠습니다. 이전 섹션에서 첫 번째 인수로 만든 `options` 개체를 가져온 다음, prettified JSON 응답을 출력합니다.
@@ -89,7 +94,7 @@ node get-languages.js
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 이 샘플은 결과 조각을 표시하도록 잘렸습니다.
 
@@ -183,8 +188,10 @@ node get-languages.js
 
 ## <a name="next-steps"></a>다음 단계
 
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+
 > [!div class="nextstepaction"]
-> [GitHub에서 Node.js 예제 살펴보기](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

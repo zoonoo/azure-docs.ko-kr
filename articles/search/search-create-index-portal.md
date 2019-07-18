@@ -11,10 +11,10 @@ ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60817310"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기
@@ -23,7 +23,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
-## <a name="start-index-designer"></a>인덱스 디자이너 시작
+## <a name="start-index-designer"></a>인덱스 디자이너 시작하기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
 
@@ -37,7 +37,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
    * 이름은 60자로 제한합니다.
 
-## <a name="add-fields"></a>필드 추가
+## <a name="add-fields"></a>필드 추가하기
 
 인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 필드 컬렉션은 모두 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
 
@@ -72,13 +72,13 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 |**정렬 가능**|기본적으로 시스템은 점수에 따라 결과를 정렬하지만 문서에 있는 필드를 기반으로 정렬하도록 구성할 수 있습니다. 형식이 `Collection(Edm.String)`인 필드는 **정렬 가능**으로 설정할 수 없습니다. |  
 |**패싯 가능**|일반적으로 카테고리별 적중 횟수가 포함된 검색 결과를 표시하는 데 사용됩니다(예: 특정 도시의 호텔). 형식이 `Edm.GeographyPoint`인 필드에는 이 옵션을 사용할 수 없습니다. **필터링 가능**, **정렬 가능** 또는 **패싯 가능**이고 형식이 `Edm.String`인 필드는 최대 32KB일 수 있습니다. 자세한 내용은 [인덱스 만들기(REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.|  
 |**key**|인덱스 내의 문서에 대한 고유 식별자입니다. 정확히 하나의 필드를 키 필드로 선택해야 하며 해당 필드의 형식은 `Edm.String`이어야 합니다.|  
-|**조회 가능**|검색 결과에서 필드를 반환할 수 있는지 여부를 결정합니다. *이익률* 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다.  `true` for `key` 로 설정해야 합니다.|  
+|**조회 가능**|검색 결과에서 필드를 반환할 수 있는지 여부를 결정합니다. *이익률* 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다. `true` for `key` 로 설정해야 합니다.|  
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search 인덱스를 만든 후에는 다음 단계로 이동할 수 있습니다. [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md).
+Azure Search 인덱스를 만든 후에는 [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md) 단계를 진행할 수 있습니다.
 
-또는 [인덱스를 보다 자세히 살펴볼](search-what-is-an-index.md) 수도 있습니다. 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
+또는 [인덱스를 보다 자세히 살펴볼 수도 있습니다](search-what-is-an-index.md). 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349847"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
@@ -40,10 +40,10 @@ ms.locfileid: "60349847"
 | 시스템 상태 | 주석 |
 | --- | --- |
 | 사용 |자동 업그레이드를 사용할 수 있습니다. |
-| 일시 중단됨 |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
+| Suspended |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
 | 사용 안 함 |자동 업그레이드를 사용할 수 없습니다. |
 
-`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1.1.750.0 전에 Set-adsyncautoupgrade cmdlet은 자동 업그레이드 상태가 Suspended로 설정 된 경우 Autoupgrade 중단 됩니다. 이 기능에 AutoUpgrade를 차단 하지 않도록 이제 변경 되었습니다.
+`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1\.1.750.0 전에 Set-adsyncautoupgrade cmdlet은 자동 업그레이드 상태가 Suspended로 설정 된 경우 Autoupgrade 중단 됩니다. 이 기능에 AutoUpgrade를 차단 하지 않도록 이제 변경 되었습니다.
 
 자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 **Office 365 URL 및 IP 주소 범위** 에서 설명하는 대로 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)용 프록시 서버에서 URL을 열었는지 확인합니다.
 

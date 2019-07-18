@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926240"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
@@ -99,7 +99,7 @@ Azure Virtual Machine을 삭제한 후 vhd 파일(페이지 blob)을 삭제하�
 #### <a name="azure-powershell"></a>Azure PowerShell 
 사용자가 PowerShell을 사용하여 삭제하도록 선택하면 다음 오류가 발생합니다. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : 원격 서버에서 오류를 반환했습니다. (412) 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다. HTTP 상태 코드: 412 - HTTP 오류 메시지: 현재 Blob에 임대가 있는데 요청에서 임대 ID가 지정되지 않았습니다.</span>
 

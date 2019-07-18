@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2017
+ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2a5cfc417f75e5bb08e416b3243903badcf572e1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587262"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480478"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Java SDK를 사용하여 웹앱 빌드
 
@@ -33,7 +33,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 ## <a name="prerequisites"></a>필수 조건
 
 이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
-* JDK 1.7+(JDK가 없는 경우 `apt-get install default-jdk` 실행)
+* [Azure 및 Azure Stack JDK 8 버전용 JDK 설치](https://aka.ms/azure-jdks)
 * Maven(Maven이 없는 경우 `apt-get install maven` 실행)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

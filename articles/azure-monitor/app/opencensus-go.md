@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577856"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
@@ -214,9 +214,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![성능 창의 스크린샷](./media/opencensus-go/0008-performance.png)
 
-5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 애플리케이션을 통해 개별 이벤트의 호출 스택의 수준까지 종단 간 트랜잭션을 탐색할 수 있습니다.
+5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 애플리케이션을 통해 개별 이벤트의 호출 스택의 수준까지 엔드투엔드 트랜잭션을 탐색할 수 있습니다.
 
-     ![종단 간 트랜잭션 인터페이스의 스크린샷](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![엔드투엔드 트랜잭션 인터페이스의 스크린샷](./media/opencensus-go/0009-end-to-end-transaction.png)
 
 ## <a name="opencensus-trace-for-go"></a>Go용 OpenCensus 추적
 

@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728642"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606307"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
@@ -80,7 +80,7 @@ az eventgrid event-subscription create \
 
 하이브리드 연결에서 이벤트를 검색할 수 있는 애플리케이션이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
 
-1. Visual Studio 2017 버전 15.5 이상이 설치되어 있는지 확인합니다.
+1. Visual Studio 2019 이상이 설치되어 있는지 확인하세요.
 
 1. 로컬 컴퓨터에 리포지토리를 복제합니다.
 

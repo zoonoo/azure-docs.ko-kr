@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074892"
 ---
-# <a name="scenario-protected-web-api"></a>시나리오: 보호 된 web API
+# <a name="scenario-protected-web-api"></a>시나리오: 보호된 웹 API
 
 이 시나리오에서는 보여드리겠습니다 web API를 노출 하는 방법 및 어떻게 보호할 수 있습니다 인증 된 사용자만 있도록 API에 액세스할 수 있습니다. Web API를 사용 하 여 회사 및 학교 계정 또는 개인 Microsoft 개인 계정으로 인증 된 사용자를 사용 하도록 설정 해야 합니다.
 

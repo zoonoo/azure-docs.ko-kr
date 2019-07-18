@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 22f56fb44737bab30b113e3afe6b8ba21518330d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4edee73e13c0490810706a0f7a028b54f37b287b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>자습서: Azure Active Directory와 RedVector 통합
 

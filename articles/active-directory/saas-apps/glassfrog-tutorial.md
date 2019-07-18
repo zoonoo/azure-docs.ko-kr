@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c2b32d1c96a01282aa8cdbae1d55976a89abea81
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: a816cd6df8351a9b9daefd569d1fad2ec0763832
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>자습서: GlassFrog와 Azure Active Directory 통합
 

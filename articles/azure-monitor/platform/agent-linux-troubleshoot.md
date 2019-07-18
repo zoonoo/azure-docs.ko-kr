@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071665"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -171,7 +171,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
     |*.ods.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
     |*.oms.opinsights.azure.com | 포트 443| 인바운드 및 아웃바운드 |  
     |\*.blob.core.windows.net | 포트 443| 인바운드 및 아웃바운드 |  
-    |*.azure-automation.net | 포트 443| 인바운드 및 아웃바운드 | 
+    |\* .azure-automation.net | 포트 443| 인바운드 및 아웃바운드 | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 
@@ -187,6 +187,33 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
 이 문제는 알려진 문제이며 Linux 데이터를 Log Analytics 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
+
+
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>문제: 100 %CPU 사용 하 여 omiagent 표시
+
+### <a name="probable-causes"></a>가능한 원인
+Nss pem 패키지에서의 문제 재발 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) 요는 심각한 성능 문제를 발생 Redhat/Centos 7.x 배포판에 많이 제공 합니다. 이 문제에 대 한 자세한 내용은 다음 문서를 확인 합니다. 버그 [libcurl 1667121 성능 회귀](https://bugzilla.redhat.com/show_bug.cgi?id=1667121)합니다.
+
+성능 관련 버그는 항상 발생 하지 및 재현 하기 매우 어렵습니다. Omiagent 사용 하 여 이러한 문제가 발생 하면 특정 임계값을 초과 하는 경우에 omiagent의 스택 추적을 수집 합니다 스크립트 omiHighCPUDiagnostics.sh를 사용 해야 합니다.
+
+1. 스크립트를 다운로드 합니다. <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. 24 시간 동안 30 %CPU 임계값에 대 한 진단 유틸리티를 실행 합니다. <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. 여러 Curl 및 NSS 함수 호출을 다음 확인 단계를 수행 하는 경우 호출 스택 omiagent_trace 파일에 덤프 됩니다.
+
+### <a name="resolution-step-by-step"></a>해결 방법 (단계별)
+
+1. Nss pem 패키지를 업그레이드 [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html)합니다. <br/>
+`sudo yum upgrade nss-pem`
+
+2. Nss pem 업그레이드에 사용할 수 없는 경우 (주로 발생 Centos에서) 다음 curl 7.29.0-46 다운 그레이드 합니다. 경우 실수로 "yum 업데이트"를 실행 하면, 다음 curl 7.29.0-51로 업그레이드 됩니다 및 문제가 다시 발생 합니다. <br/>
+`sudo yum downgrade curl libcurl`
+
+3. OMI를 다시 시작 합니다. <br/>
+`sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않음
 

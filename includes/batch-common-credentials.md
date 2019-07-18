@@ -1,15 +1,15 @@
 ---
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: danlep
-ms.openlocfilehash: 7d90ccf55b10eff4299692b481a25ba4cdf41b8a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.author: lahugh
+ms.openlocfilehash: 14891acdbe9a0f810666ba54f8d63050a9330601
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279781"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182552"
 ---
 ## <a name="get-account-credentials"></a>계정 자격 증명 가져오기
 

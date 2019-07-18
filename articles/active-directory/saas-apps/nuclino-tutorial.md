@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 74bbab82-5581-4dcf-8806-78f77c746968
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 010055d994a5cdc4dd5540fd80d6dd81c44a1e3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278805"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>자습서: Nuclino와 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 7. 위에서 언급한 특성 외에도, Nuclino 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     | ---------------| --------- |
     | first_name | user.givenname |
     | last_name | user.surname |

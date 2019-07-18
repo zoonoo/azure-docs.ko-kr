@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66472737"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -38,19 +38,23 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
-
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    
+       
+     > [!NOTE]
+     > Microsoft.web 리소스 공급자 사용 되는 위의 예제에서 참조 하는 앱 서비스 인스턴스. 마찬가지로 다른 리소스 공급자를 사용 하 고 범위 URI를 빌드할 수 있습니다. 이해 하기 위해 자세한 내용은를 참조 하십시오 [Azure 리소스 공급자 및 종류](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 지원 되 [Azure RM 리소스 공급자 작업](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations)합니다.  
+     
 1. *{filter}* 를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
     | Filter | 설명 |
     | --- | --- |
-    | `$filter=atScope()` | 하위 범위의 역할 할당은 제외하고 지정된 범위에 대한 역할 할당만 나열합니다. |
-    | `$filter=principalId%20eq%20'{objectId}'` | 지정된 사용자, 그룹 또는 서비스 주체에 대한 역할 할당을 나열합니다. |
-    | `$filter=assignedTo('{objectId}')` | 그룹에서 상속된 역할 할당을 포함하여 지정된 사용자에 대한 역할 할당을 나열합니다. |
+    | `$filter=atScope()` | 만 지정된 된 범위를 제외한 다음 하위에서 역할 할당에 대 한 역할 할당을 나열 합니다. |
+    | `$filter=principalId%20eq%20'{objectId}'` | 지정 된 사용자, 그룹 또는 서비스 주체에 대 한 역할 할당을 나열합니다. |
+    | `$filter=assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 주체에 대 한 역할 할당을 나열합니다. 사용자 역할 할당 권한이 있는 그룹의 멤버인 경우 해당 역할 할당 나열 됩니다. 이 필터는 전이적 그룹 즉, 사용자 그룹의 멤버인 경우 해당 그룹에 역할 할당 권한이 있는 다른 그룹의 구성원은 해당 역할 할당도 나열 됩니다. 이 필터는 사용자 또는 서비스 주체 개체 id만 허용 됩니다. 그룹에 대 한 개체 id를 전달할 수 없습니다. |
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
@@ -77,11 +81,11 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
     
 1. URI 내에서 *{scope}* 를 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
 
@@ -105,11 +109,11 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
 

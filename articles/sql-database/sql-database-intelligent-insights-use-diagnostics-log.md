@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703169"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
@@ -114,7 +114,7 @@ Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가
 }]
 ```
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 보고된 각 메트릭의 측정 단위는 메트릭(metric) 속성 아래에 가능한 값인 초, 수, 백분율과 함께 제공됩니다. 측정된 메트릭 값은 값(value) 속성으로 보고됩니다.
 

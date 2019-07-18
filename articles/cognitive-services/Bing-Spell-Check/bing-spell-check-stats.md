@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 51a621a09b7f093f0674ee852d7492275f995e93
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60896295"
 ---
 # <a name="how-to-get-analytics-for-bing-spell-check-api"></a>Bing Spell Check API에 대한 분석 방법
 

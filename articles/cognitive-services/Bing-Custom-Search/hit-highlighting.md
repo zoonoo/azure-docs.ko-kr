@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237504"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445562"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>장식 표식을 사용하여 텍스트를 강조 표시
 
@@ -31,7 +31,7 @@ Bing은 유니코드 문자 또는 HTML 태그를 마커로 사용하는 옵션�
   
 `textDecorations`이 **true**이면 Bing이 답변의 표시 문자열에 다음 마커를 포함할 수 있습니다. HTML에 해당하는 요소가 없으면 HTML 테이블 셀이 비어 있습니다.
 
-|Unicode|HTML|설명
+|유니코드|HTML|설명
 |-|-|-
 |U+E000|\<b>|쿼리 용어의 시작을 표시(적중 항목 강조 표시)
 |U+E001|\</b>|쿼리 용어의 끝을 표시
@@ -56,7 +56,7 @@ Bing은 유니코드 문자 또는 HTML 태그를 마커로 사용하는 옵션�
 |U+E018|\<sup>|위 첨자 콘텐츠의 시작을 표시
 |U+E019|\</sup>|위 첨자 콘텐츠의 끝을 표시
 
-다음 예제는 log(2) 쿼리 용어에 대한 아래 첨자 마커가 포함된 `Computation` 답변을 표시합니다. `expression` 필드는 `textDecoration이 **true**인 경우에만 마커를 포함합니다.
+다음 예제는 log(2) 쿼리 용어에 대한 아래 첨자 마커가 포함된 `Computation` 답변을 표시합니다. `expression` 필드는 `textDecoration`이 **true**인 경우에만 마커를 포함합니다.
 
 ![계산 마커](./media/bing-markers-computation.PNG) 
 

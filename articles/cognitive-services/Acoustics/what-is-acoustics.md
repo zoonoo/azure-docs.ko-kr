@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313620"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502947"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동으로 영역을 표시하지 않고도 복잡한 장면에서 회절, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 미적 목표를 충족합니다.
@@ -41,7 +41,7 @@ Project Acoustics의 주요 혁신은 음향 시뮬레이션과 기존의 소리
 
 ## <a name="platforms"></a>플랫폼
 현재 Project Acoustics 런타임 플러그 인이 배포될 수 있는 플랫폼은 다음과 같습니다.
-*  Windows
+* Windows
 * Android
 * Xbox One
 
@@ -51,7 +51,7 @@ Project Acoustics의 주요 혁신은 음향 시뮬레이션과 기존의 소리
   * Xbox 이진 파일 및 지원이 필요하면 아래 등록 양식을 통해 문의해 주세요.
 
 ## <a name="contact-us"></a>문의처
-* [Project Acoustics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Project Acoustics 토론 및 문제 보고](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Project Acoustics 업데이트를 받기 위한 등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>다음 단계

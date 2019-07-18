@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: C#-Content Moderator의 사용자 지정 목록에 대해 이미지 확인'
+title: C#-Content Moderator의 사용자 지정 목록에 대해 이미지 확인
 titlesuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 이미지 목록으로 이미지를 조정하는 방법입니다.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881794"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603401"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>빠른 시작: C#에서 사용자 지정 이미지 목록을 사용하여 조정
+# <a name="moderate-with-custom-image-lists-in-c"></a>C#에서 사용자 지정 이미지 목록을 사용하여 조정
 
 이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 - 사용자 지정 이미지 목록 만들기
@@ -32,7 +32,7 @@ ms.locfileid: "55881794"
 > [!NOTE]
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 
-이 빠른 시작에 대한 콘솔 애플리케이션은 이미지 목록 API로 수행할 수 있는 작업 중 일부를 시뮬레이션합니다.
+이 가이드에 대 한 콘솔 응용 프로그램 이미지 목록 API 사용 하 여 수행할 수 있습니다 작업 중 일부를 시뮬레이션 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>목록에 이미지의 컬렉션을 추가하는 메서드 만들기
 
-**Program** 클래스에 다음 메서드를 추가합니다. 이 빠른 시작은 목록의 이미지에 태그를 적용하는 방법을 보여주지 않습니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 이 가이드에는 목록에서 이미지에 태그를 적용 하는 방법을 보여 주지 않습니다. 
 
 ```csharp
 /// <summary>

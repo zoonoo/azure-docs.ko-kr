@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360174"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447764"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스 시작하기
 
@@ -67,7 +67,7 @@ ms.locfileid: "59360174"
 
 - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
 - [Resource Manager와 PowerShell 템플릿](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
+- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/)
 - [Resource Manager 템플릿](sql-database-single-database-get-started-template.md)
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>최소 가동 중지 시간으로 관리되는 인스턴스로 마이그레이션
@@ -78,4 +78,5 @@ ms.locfileid: "59360174"
 
 - [Managed Instance에서 지원되는 기능에 대한 개략적인 목록](sql-database-features.md)과 [세부 정보 및 알려진 문제](sql-database-managed-instance-transact-sql-information.md)는 여기에서 참조하세요.
 - [관리형 인스턴스의 기술적인 특성](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 알아봅니다.
-- [Azure SQL Database에서 관리되는 인스턴스를 사용하는 방법](sql-database-howto-managed-instance.md)에서 고급 작업 방법을 자세히 알아보세요.
+- [Azure SQL Database에서 관리형 인스턴스를 사용하는 방법](sql-database-howto-managed-instance.md)에서 고급 작업 방법을 자세히 알아보세요.
+- [온-프레미스 데이터베이스에 대한 올바른 Azure SQL Database/Managed Instance SKU를 식별합니다](/sql/dma/dma-sku-recommend-sql-db/).

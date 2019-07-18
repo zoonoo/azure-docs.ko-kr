@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781806"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704871"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -29,7 +29,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 - 특정 복구 지점으로 복원 하려면 특정을 전체 또는 차등 백업을 복원 합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 데이터베이스를 복원 하기 전에 다음 note:
 
@@ -41,6 +41,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
     - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
 - 모든 시스템 데이터베이스 (모델, master, msdb)에 대 한 복원을 트리거하기 전에 SQL Server 에이전트 서비스를 중지 합니다.
 - 이러한 데이터베이스 중 하나에 대 한 연결을 수행 하려고 할 수 있습니다 하는 모든 응용 프로그램을 닫습니다.
+- 여러 인스턴스가 있는 경우 서버에서 실행 인스턴스의 모든 이어야 합니다 하 고 그렇지 않은 경우 서버를 실행 중인 데이터베이스를 복원 하는 데에 대 한 대상 서버의 목록에 표시 되지 않습니다.
 
 ## <a name="restore-a-database"></a>데이터베이스 복원
 
@@ -88,7 +89,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 2. 데이터베이스를 복원하려는 SQL Server 이름 및 인스턴스를 선택합니다.
 3. **복원된 DB 이름** 상자에 대상 데이터베이스의 이름을 입력합니다.
 4. 해당되는 경우 **선택한 SQL 인스턴스에 이름이 같은 DB가 있으면 덮어쓰기**를 선택합니다.
-5. **확인**을 선택합니다.
+5.           **확인**을 선택합니다.
 
     ![복원 구성 메뉴에 대한 값 제공](./media/backup-azure-sql-database/restore-configuration-menu.png)
 
@@ -125,7 +126,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 
 1. 에 **고급 구성** 메뉴에서 복원 후 데이터베이스를 사용할 수 없지만 유지 하려는 경우 사용 하도록 설정 **Restore with NORECOVERY**합니다.
 1. 대상 서버에서 복원 위치를 변경하려면 새 대상 경로를 입력합니다.
-1. **확인**을 선택합니다.
+1.           **확인**을 선택합니다.
 
     ![고급 구성 메뉴](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
@@ -144,7 +145,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 
 1. 에 **고급 구성** 메뉴에서 복원 후 데이터베이스를 사용할 수 없지만 유지 하려는 경우 사용 하도록 설정 **Restore with NORECOVERY**합니다.
 1. 대상 서버에서 복원 위치를 변경하려면 새 대상 경로를 입력합니다.
-1. **확인**을 선택합니다.
+1.           **확인**을 선택합니다.
 
     ![고급 구성 메뉴](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
@@ -152,6 +153,13 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 1. 복원 진행률을 추적 합니다 **알림을** 영역에서 선택 하 여 추적 또는 **복원 작업** 데이터베이스 메뉴에서.
 
     ![복원 작업 진행률](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>많은 수의 파일을 사용 하 여 데이터베이스 복원
+
+데이터베이스의 파일의 총 문자열 크기 보다 크면를 [특정 제한](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup 복원 하는 동안 대상 복원 경로 설정할 수 없습니다 있도록 다른 pit 구성 요소에서 데이터베이스 파일의 목록을 저장 작업입니다. 파일 대신 SQL 기본 경로에 복원 됩니다.
+
+  ![대용량 파일을 사용 하 여 데이터베이스 복원](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>다음 단계
 

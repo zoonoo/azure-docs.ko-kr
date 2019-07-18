@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 역방향 프록시 보안 통신 | Microsoft Docs
-description: 안전한 종단 간 통신을 사용하려면 역방향 프록시를 구성합니다.
+description: 안전한 엔드투엔드 통신을 사용하려면 역방향 프록시를 구성합니다.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837846"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결

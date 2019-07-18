@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073962"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
@@ -27,7 +27,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 빛 실행할 �
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Pod 리소스 요청 및 한도 정의
 
-**모범 사례 가이드** - YAML 매니페스트의 모든 Pod에서 Pod 요청 및 한도를 설정합니다. AKS 클러스터에서 ‘리소스 할당량’을 사용하는 경우 이러한 값을 정의하지 않으면 배포가 거부될 수 있습니다.
+**모범 사례 가이드** - YAML 매니페스트의 모든 Pod에서 Pod 요청 및 한도를 설정합니다. AKS 클러스터에서 ‘리소스 할당량’을 사용하는 경우 이러한 값을 정의하지 않으면 배포가 거부될 수 있습니다. 
 
 AKS 클러스터 내에서 컴퓨팅 리소스를 관리하는 기본 방법은 Pod 요청 및 한도를 사용하는 것입니다. 이러한 요청 및 한도를 사용하면 Kubernetes 스케줄러가 Pod에 할당해야 하는 컴퓨팅 리소스를 알 수 있습니다.
 
@@ -38,7 +38,7 @@ AKS 클러스터 내에서 컴퓨팅 리소스를 관리하는 기본 방법은 
     * 노드에서 지원할 수 있는 것보다 높은 Pod 한도를 설정하지 마세요. 각 AKS 노드는 핵심 Kubernetes 구성 요소의 설정된 CPU 및 메모리 크기를 예약합니다. 애플리케이션이 노드에서 너무 많은 리소스를 사용하려고 하여 다른 Pod가 성공적으로 실행되지 않을 수 있습니다.
     * 다시, 하루 또는 주 중에 여러 번 애플리케이션의 성능을 모니터링합니다. 사용량이 가장 많은 시간을 확인하고 애플리케이션 요구 사항을 충족하는 데 필요한 리소스에 Pod 한도를 맞춥니다.
 
-Pod 사양에서 이러한 요청 및 한도를 정의하는 것이 좋습니다. 이러한 값을 포함하지 않으면 Kubernetes 스케줄러가 필요한 리소스를 이해하지 못합니다. 스케줄러가 허용되는 애플리케이션 성능을 제공하기에 충분한 리소스 없이 노드에서 Pod를 예약할 수 있습니다. 클러스터 관리자는 리소스 요청 및 한도를 설정해야 하는 네임스페이스에서 ‘리소스 할당량’을 설정할 수 있습니다. 자세한 내용은 [AKS 클러스터의 리소스 할당량][resource-quotas]을 참조하세요.
+Pod 사양에서 이러한 요청 및 한도를 정의하는 것이 좋습니다. 이러한 값을 포함하지 않으면 Kubernetes 스케줄러가 필요한 리소스를 이해하지 못합니다. 스케줄러가 허용되는 애플리케이션 성능을 제공하기에 충분한 리소스 없이 노드에서 Pod를 예약할 수 있습니다. 클러스터 관리자는 리소스 요청 및 한도를 설정해야 하는 네임스페이스에서 ‘리소스 할당량’을 설정할 수 있습니다.  자세한 내용은 [AKS 클러스터의 리소스 할당량][resource-quotas]을 참조하세요.
 
 CPU 요청 또는 한도를 정의하는 경우 값은 CPU 단위로 측정됩니다. *1.0* CPU는 노드에 있는 하나의 기본 가상 CPU 코어와 동일합니다. GPU에도 동일한 측정이 사용됩니다. 일반적으로 아주 작은 요청 또는 한도는 millicpu로 정의할 수도 있습니다. 예를 들어 *100m*은 기본 가상 CPU 코어의 *0.1*입니다.
 
@@ -74,6 +74,8 @@ Azure Dev Spaces를 사용하면 AKS 클러스터에서 직접 애플리케이�
 
 Dev Spaces를 사용하는 이 통합 개발 및 테스트 프로세스를 적용하면 로컬 테스트 환경(예: [minikube][ minikube])의 필요성이 줄어듭니다. 대신 AKS 클러스터에서 개발하고 테스트합니다. 네임스페이스를 사용하여 클러스터를 논리적으로 격리하는 방법에 대한 이전 섹션의 설명대로 이 클러스터를 보호 및 격리할 수 있습니다. 앱을 프로덕션 환경에 배포할 준비가 되면 실제 AKS 클러스터에서 배포가 모두 완료되었으므로 자신 있게 배포할 수 있습니다.
 
+Azure 개발 공간 Linux pod 및 노드에서 실행 되는 응용 프로그램 사용을 위한 것입니다.
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Kubernetes용 Visual Studio Code 확장 사용
 
 **모범 사례 가이드** - YAML 매니페스트를 작성할 때 Kubernetes용 VS Code 확장을 설치하고 사용합니다. 통합 배포 솔루션에 확장을 사용할 수도 있고, 이는 AKS 클러스터를 드물게 조작하는 애플리케이션 소유자에게 도움이 될 수 있습니다.
@@ -87,6 +89,8 @@ Dev Spaces를 사용하는 이 통합 개발 및 테스트 프로세스를 적�
 **모범 사례 지침** -최신 버전의를 실행 하는 정기적으로 `kube-advisor` 클러스터의 문제를 감지 하는 오픈 소스 도구입니다. 기존 AKS 클러스터에서 리소스 할당량을 적용하는 경우 먼저 `kube-advisor`를 실행하여 리소스 요청 및 한도가 정의되지 않은 Pod를 찾습니다.
 
 합니다 [kube advisor] [ kube-advisor] 도구는 Kubernetes 클러스터를 검색 하 고 발견 된 문제를 보고 하는 연결된 된 AKS 오픈 소스 프로젝트입니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
+
+Kube-관리자 도구 리소스 요청과 PodSpecs에 대 한 Windows 응용 프로그램 뿐만 아니라 Linux 응용 프로그램에서 누락 된 제한에 대해 보고할 수 있지만 kube-관리자 도구 자체 Linux pod에서 예약 해야 합니다. Pod를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 예약할 수 있습니다는 [노드 선택기] [ k8s-node-selector] pod 구성에서 합니다.
 
 많은 개발 팀과 애플리케이션을 호스트하는 AKS 클러스터에서는 이러한 리소스 요청 및 한도가 설정되지 않은 Pod를 추적하기 어려울 수 있습니다. AKS 클러스터에서 `kube-advisor`를 정기적으로 실행하는 것이 좋습니다.
 
@@ -110,3 +114,4 @@ Dev Spaces를 사용하는 이 통합 개발 및 테스트 프로세스를 적�
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

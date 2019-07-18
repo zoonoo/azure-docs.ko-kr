@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: a29aa4ac802cfc708203e7e2d125cb421e4bb9a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60937492"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>Azure 포털을 사용하여 가상 네트워크(클래식) 만들기

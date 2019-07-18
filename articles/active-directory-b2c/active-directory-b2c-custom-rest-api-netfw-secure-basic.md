@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 HTTP 기본 인증을 사용하여 RESTful 서비스 보호 | Microsoft Docs
 description: HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8c1251056ad816af664f95abcd18d50ceca4619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694657"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835274"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -27,13 +27,13 @@ ms.locfileid: "64694657"
 
 자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure AD B2C 사용자 경험에서 REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서에서 단계를 완료합니다.
 
 ## <a name="step-1-add-authentication-support"></a>1단계: 인증 지원 추가
 
-### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
+### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1\.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
 
 1. 앞에서 만든 Visual Studio 프로젝트를 엽니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "64694657"
     [System.Convert]::ToBase64String($bytes)
     ```
 
-### <a name="step-12-install-owin-libraries"></a>1.2단계: OWIN 라이브러리 설치
+### <a name="step-12-install-owin-libraries"></a>1\.2단계: OWIN 라이브러리 설치
 
 시작하려면 Visual Studio 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -66,9 +66,9 @@ PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### <a name="step-13-add-an-authentication-middleware-class"></a>1.3단계: 인증 미들웨어 클래스 추가
+### <a name="step-13-add-an-authentication-middleware-class"></a>1\.3단계: 인증 미들웨어 클래스 추가
 
-*App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이렇게 하려면 다음을 수행합니다.
+*App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이를 수행하려면:
 
 1. *App_Start* 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 후 **클래스**를 선택합니다.
 
@@ -76,12 +76,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 2. **이름** 상자에서 **ClientAuthMiddleware.cs**를 입력합니다.
 
-   ![새 C# 클래스 만들기](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![새 C# Visual Studio에서 새 항목 추가 대화 상자에서 클래스](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
 3. *App_Start\ClientAuthMiddleware.cs* 파일을 열고 파일 콘텐츠를 다음 코드로 바꿉니다.
 
     ```csharp
-    
+
     using Microsoft.Owin;
     using System;
     using System.Collections.Generic;
@@ -91,7 +91,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     using System.Text;
     using System.Threading.Tasks;
     using System.Web;
-    
+
     namespace Contoso.AADB2C.API
     {
         /// <summary>
@@ -101,12 +101,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
         {
             private static readonly string ClientID = ConfigurationManager.AppSettings["WebApp:ClientId"];
             private static readonly string ClientSecret = ConfigurationManager.AppSettings["WebApp:ClientSecret"];
-    
+
             /// <summary>
             /// Gets or sets the next owin middleware
             /// </summary>
             private Func<IDictionary<string, object>, Task> Next { get; set; }
-    
+
             /// <summary>
             /// Initializes a new instance of the <see cref="ClientAuthMiddleware"/> class.
             /// </summary>
@@ -115,7 +115,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 this.Next = next;
             }
-    
+
             /// <summary>
             /// Invoke client authentication middleware during each request.
             /// </summary>
@@ -125,7 +125,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 // Get wrapper class for the environment
                 var context = new OwinContext(environment);
-    
+
                 // Check whether the authorization header is available. This contains the credentials.
                 var authzValue = context.Request.Headers.Get("Authorization");
                 if (string.IsNullOrEmpty(authzValue) || !authzValue.StartsWith("Basic ", StringComparison.OrdinalIgnoreCase))
@@ -133,21 +133,21 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
                     // Process next middleware
                     return Next(environment);
                 }
-    
+
                 // Get credentials
                 var creds = authzValue.Substring("Basic ".Length).Trim();
                 string clientId;
                 string clientSecret;
-    
+
                 if (RetrieveCreds(creds, out clientId, out clientSecret))
                 {
                     // Set transaction authenticated as client
                     context.Request.User = new GenericPrincipal(new GenericIdentity(clientId, "client"), new string[] { "client" });
                 }
-    
+
                 return Next(environment);
             }
-    
+
             /// <summary>
             /// Retrieve credentials from header
             /// </summary>
@@ -159,7 +159,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 string pair;
                 clientId = clientSecret = string.Empty;
-    
+
                 try
                 {
                     pair = Encoding.UTF8.GetString(Convert.FromBase64String(credentials));
@@ -172,16 +172,16 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
                 {
                     return false;
                 }
-    
+
                 var ix = pair.IndexOf(':');
                 if (ix == -1)
                 {
                     return false;
                 }
-    
+
                 clientId = pair.Substring(0, ix);
                 clientSecret = pair.Substring(ix + 1);
-    
+
                 // Return whether credentials are valid
                 return (string.Compare(clientId, ClientAuthMiddleware.ClientID) == 0 &&
                     string.Compare(clientSecret, ClientAuthMiddleware.ClientSecret) == 0);
@@ -190,19 +190,19 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     }
     ```
 
-### <a name="step-14-add-an-owin-startup-class"></a>1.4단계: OWIN 시작 클래스 추가
+### <a name="step-14-add-an-owin-startup-class"></a>1\.4단계: OWIN 시작 클래스 추가
 
-`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이렇게 하려면 다음을 수행합니다.
+`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이를 수행하려면:
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** **추가** > 를 선택한 다음 **OWIN**을 검색합니다.
 
-   ![OWIN 시작 클래스 추가](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
+   ![Visual Studio에서 새 항목 추가 대화 상자에서 OWIN 시작 클래스 만들기](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
 2. *Startup.cs* 파일을 열고 파일 콘텐츠를 다음 코드로 바꿉니다.
 
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    
+
     [assembly: OwinStartup(typeof(Contoso.AADB2C.API.Startup))]
     namespace Contoso.AADB2C.API
     {
@@ -216,7 +216,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     }
     ```
 
-### <a name="step-15-protect-the-identity-api-class"></a>1.5단계: ID API 클래스 보호
+### <a name="step-15-protect-the-identity-api-class"></a>1\.5단계: ID API 클래스 보호
 
 Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러 클래스에 추가합니다. 이 태그는 권한 부여 요구 사항을 충족하는 사용자에게 컨트롤러에 대한 액세스를 제한합니다.
 
@@ -230,7 +230,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다.
 
-### <a name="step-31-add-a-restful-services-client-id"></a>3.1단계: RESTful 서비스 클라이언트 ID 추가
+### <a name="step-31-add-a-restful-services-client-id"></a>3\.1단계: RESTful 서비스 클라이언트 ID 추가
 
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
@@ -241,7 +241,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 4. **옵션**에서 **수동**을 선택합니다.
 
-5. **이름**에 **B2cRestClientId**를 입력합니다.  
+5. **이름**에 **B2cRestClientId**를 입력합니다.
     *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
 
 6. **암호** 상자에 앞에서 정의한 앱 ID를 입력합니다.
@@ -252,7 +252,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 9. `B2C_1A_B2cRestClientId` 키를 만들었는지 확인합니다.
 
-### <a name="step-32-add-a-restful-services-client-secret"></a>3.2단계: RESTful 서비스 클라이언트 비밀 추가
+### <a name="step-32-add-a-restful-services-client-secret"></a>3\.2단계: RESTful 서비스 클라이언트 비밀 추가
 
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
@@ -262,7 +262,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 4. **옵션**에서 **수동**을 선택합니다.
 
-5. **이름**에 **B2cRestClientSecret**을 입력합니다.  
+5. **이름**에 **B2cRestClientSecret**을 입력합니다.
     *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
 
 6. **암호** 상자에 앞에서 정의한 앱 암호를 입력합니다.
@@ -297,8 +297,8 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
     ```
 
     코드 조각을 추가한 후에 기술 프로필은 다음 XML 코드와 비슷하게 표시됩니다.
-    
-    ![기본 인증 XML 요소를 추가합니다.](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+
+    ![TechnicalProfile에 기본 인증 XML 요소를 추가 합니다.](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>5단계: 테넌트에 정책 업로드
 
@@ -323,12 +323,12 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
-3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.  
+3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.
     Azure AD B2C는 창의 위쪽에 오류 메시지를 표시합니다.
 
-    ![ID API 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![Id API에서에서 지정 된 이름 입력된 유효성 검사 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
+4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 예제에서 번호를 적어둡니다.
 
     ```
@@ -355,7 +355,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
 
 * [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic)을 제공했습니다.
-* [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)에서 전체 코드를 다운로드할 수 있습니다.
+* [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic)에서 전체 코드를 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,20 +3,20 @@ title: 기술 자료 수명 주기 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684024"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447612"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -31,7 +31,7 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 편집 또는 자동 추출을 통해 기술 자료에 콘텐츠가 채워지면 기술 자료를 테스트할 수 있습니다. 대화형 테스트를 통해 QnA Maker 포털에서 수행할 수 있습니다 합니다 **테스트** 일반적인 사용자 쿼리를 입력 하 고 올바른 응답 및 충분 한 신뢰도 점수를 사용 하 여 응답이 반환 되도록 확인 하 여 패널입니다. 
 
 * **낮은 신뢰성 점수를 해결 하려면**: 대체 질문을 추가 합니다. 
-* **반환 될 때 쿼리를 올바르게 하지 합니다 [기본 응답](confidence-score.md#change-default-answer)**: 올바른 질문에 대 한 새 답변을 추가 합니다. 
+* **반환 될 때 쿼리를 올바르게 하지 합니다 [기본 응답](confidence-score.md#change-default-answer)** : 올바른 질문에 대 한 새 답변을 추가 합니다. 
 
 이  테스트-업데이트 반복 과정은 사용자가 결과에 만족할 때까지 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023701"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66752860"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>작성 하 고 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 구성
 
@@ -25,6 +25,7 @@ ms.locfileid: "65023701"
 
 > [!Important]
 > 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
+> 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
 
 파이프라인에 포함되는 쓰기 단계의 수에는 제한이 없으므로 문제 해결 또는 다른 파이프라인에 대한 중간 결과를 얻기 위해 추가 쓰기 단계를 쉽게 추가할 수 있습니다.
 
@@ -72,7 +73,7 @@ t.head(5)
 
 ### <a name="delimited-file-example"></a>구분 기호로 분리된 파일 예제
 
-다음 코드에서는 합니다 [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) 구분 기호로 분리 된 파일로 데이터를 작성 하는 함수입니다.
+다음 코드에서는 합니다 [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) 구분 기호로 분리 된 파일로 데이터를 작성 하는 함수입니다.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -89,11 +90,11 @@ written_files.head(5)
 
 | | 열1 | 열2 | 열3 | 열4 | 열5 | 열6 | 열7 | 열8 | 열9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | 오류 | 아니요 | 아니요 | ENRS | NaN    | NaN | NaN |   
-|1| 10003.0 | 99999.0 | 오류 | 아니요 | 아니요 | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | 오류 | 아니요 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | 오류 | 아니요 | 아니요 |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | 오류 | 아니요 | 아니요 | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | ERROR | 아니요 | 아니요 | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | ERROR | 아니요 | 아니요 | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | ERROR | 아니요 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | ERROR | 아니요 | 아니요 |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | ERROR | 아니요 | 아니요 | ENSO |    59783.0 | 5350.0 |  500.0|
 
 앞의 출력에서 올바르게 구문 분석되지 않은 숫자로 인해 숫자 열에 몇 가지 오류가 나타나는 것을 볼 수 있습니다. CSV로 쓸 때 null 값은 기본적으로 "ERROR" 문자열로 대체됩니다.
 
@@ -120,7 +121,7 @@ written_files.head(5)
 
 ### <a name="parquet-file-example"></a>Parquet 파일 예제
 
-비슷합니다 `write_to_csv()`는 [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) 쓰기 데이터 흐름 실행 시 실행 되는 Parquet 단계를 사용 하 여 새 데이터 흐름을 반환 합니다.
+비슷합니다 `write_to_csv()`는 [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) 쓰기 데이터 흐름 실행 시 실행 되는 Parquet 단계를 사용 하 여 새 데이터 흐름을 반환 합니다.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),

@@ -12,18 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 05/17/2019
 ms.author: b-juche
-ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087253"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65957029"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 
-Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅숏과 같은 리소스에 대한 HTTP 작업을 정의합니다. 이 문서는 Azure NetApp Files REST API 사용을 시작하는 데 도움이 됩니다.
+Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅샷과 같은 리소스에 대한 HTTP 작업을 정의합니다. 이 문서는 Azure NetApp Files REST API 사용을 시작하는 데 도움이 됩니다.
+
+## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp 파일 REST API 사양
+
+이 통해 Azure NetApp 파일에 대 한 REST API 사양을 게시 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+
+`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Azure NetApp Files REST API 액세스  
 
@@ -147,7 +154,7 @@ Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 �
             }
     }
 
-다음 예제에서는 볼륨의 스냅숏을 만드는 방법을 보여 줍니다. 
+다음 예제에서는 볼륨의 스냅샷을 만드는 방법을 보여 줍니다. 
 
     {
         "name": "apitest2/apiPool01/apiVol01/snap02",
@@ -160,7 +167,7 @@ Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 �
     }
 
 > [!NOTE] 
-> 스냅숏을 만들려면 `fileSystemId`를 지정해야 합니다.  볼륨에 대한 GET 요청을 사용하여 `fileSystemId` 값을 얻을 수 있습니다. 
+> 스냅샷을 만들려면 `fileSystemId`를 지정해야 합니다.  볼륨에 대한 GET 요청을 사용하여 `fileSystemId` 값을 얻을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

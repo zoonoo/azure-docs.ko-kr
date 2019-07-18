@@ -1,12 +1,18 @@
 ---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
 ms.openlocfilehash: ad576caaac83f823d9aed3a828ae4bf31ba16fb7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66179834"
 ---
 > [!NOTE]
 > 이 문서는 웹앱을 참조하지만 API 앱 및 모바일 앱에도 적용됩니다.
 > 
->
+> 
+

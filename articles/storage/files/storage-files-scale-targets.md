@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190026"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542668"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -34,24 +34,34 @@ Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니�
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 
-### <a name="premium-scale-targets"></a>프리미엄 크기 조정 목표
+세 가지 종류의 Azure Files에 대 한 주의 사항: 저장소 계정, 공유 및 파일입니다.
 
-세 가지 종류의 프리미엄 파일 공유에 대해 고려해 야 할 제한 사항: 저장소 계정, 공유 및 파일입니다.
+예를 들면 다음과 같습니다. 프리미엄 파일 공유를 사용 하 여 단일 공유 100,000 IOPS를 달성할 수 있습니다 및 단일 파일에서 최대 5,000 개의 IOPS를 확장할 수 있습니다. 따라서 공유 하나에 3 개의 파일을 사용 하는 경우 해당 공유에서 가져올 수 있습니다 최대 IOPS는 15,000입니다.
 
-예를 들면 다음과 같습니다. 단일 공유 100,000 IOPS를 달성할 수 있습니다 및 단일 파일에서 최대 5,000 개의 IOPS를 확장할 수 있습니다. 따라서 예를 들어, 하나의 공유에 3 개의 파일에 있는 경우 해당 공유에서 가져올 수 있습니다 최대 IOPS는 15,000입니다.
+### <a name="standard-storage-account-limits"></a>표준 저장소 계정 제한
+
+참조 된 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 이러한 한도 대 한 섹션입니다.
 
 ### <a name="premium-filestorage-account-limits"></a>프리미엄 FileStorage 계정 제한
 
-프리미엄 파일 공유는 라는 특별 한 저장소 계정에 프로 비전 **filestorage (미리 보기)** 합니다. 이 계정에는 표준 파일 공유에 사용 되는 저장소 계정 보다 약간 다른 크기 조정 목표입니다. 저장소 계정 크기 조정 목표에 대 한 참조 테이블에 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 섹션입니다.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
+> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정당 하나의 공유 경우 달성할 수 있습니다.
+
+### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 목표
+
+> [!NOTE]
+> 표준 파일 공유 5tib 보다 큰 미리 보기 상태 이며 특정 제한 사항이 있습니다.
+> 제한 사항 및 이러한 파일 공유 크기의 미리 보기에 등록 하는 목록에 대 한 참조를 [표준 파일 공유](storage-files-planning.md#standard-file-shares) 계획 가이드의 섹션입니다.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure 파일 동기화의 크기 조정 목표
 
-Azure 파일 동기화를 사용하면 최대한 무제한으로 사용할 수 있도록 디자인하려고 했지만 가능한 것은 아닙니다. 아래 표에서는 테스트의 한계 및 실제적인 목표인 하드 한도를 나타냅니다.
+Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 무제한 사용이 가능하지 않은 경우도 있습니다. 아래 표에는 Microsoft의 테스트 경계와 하드 한도인 목표가 표시되어 있습니다.
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 

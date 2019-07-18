@@ -1,18 +1,18 @@
 ---
 title: Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
 description: 이 자습서에서는 Cosmos DB에 대해 서비스 엔드포인트를 사용하도록 설정한 가상 네트워크에서 Azure Databricks를 구현하는 방법을 설명합니다.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054588"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>자습서: Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
 
@@ -41,7 +41,7 @@ ms.locfileid: "60012852"
 
 ## <a name="create-a-cosmos-db-service-endpoint"></a>Cosmos DB 서비스 엔드포인트 만들기
 
-1. Azure Databricks 작업 영역이 가상 네트워크에 배포되면 [Azure Portal](https://portal.azure.com)에서 가상 네트워크로 이동합니다. Databricks 배포를 통해 만들어진 공용 및 사설 서브넷을 확인합니다.
+1. Azure Databricks 작업 영역이 가상 네트워크에 배포되면 [Azure Portal](https://portal.azure.com)에서 가상 네트워크로 이동합니다. Databricks 배포를 통해 만들어진 공용 및 프라이빗 서브넷을 확인합니다.
 
    ![가상 네트워크 서브넷](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
 

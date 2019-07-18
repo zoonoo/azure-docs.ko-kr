@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238125"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
@@ -138,7 +138,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
 ```
 **열 매핑 흐름:**
 
-![열 매핑 흐름 ](./media/data-factory-map-columns/column-mapping-flow.png)
+![열 매핑 흐름](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>예제 2 – SQL 쿼리를 사용하여 Azure SQL에서 Azure Blob로 열 매핑
 이 예제에서는 단순히 “structure” 섹션에서 테이블 이름과 열 이름을 지정하는 대신 SQL 쿼리를 사용하여 Azure SQL의 데이터를 추출합니다. 
@@ -177,7 +177,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
 
 **열 매핑 흐름**
 
-![열 매핑 흐름 - 2 ](./media/data-factory-map-columns/column-mapping-flow-2.png)
+![열 매핑 흐름 - 2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 복사 작업 사용에 대한 자습서 문서를 참조하세요. 

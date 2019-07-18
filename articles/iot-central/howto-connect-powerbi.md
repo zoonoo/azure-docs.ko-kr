@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/15/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053034"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 
@@ -29,7 +29,7 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 
 이 솔루션은 [연속 데이터 내보내기](howto-export-data.md)에서 Azure Blob Storage 계정의 데이터를 가져오는 파이프라인을 설정합니다. 이 데이터는 Azure Functions, Azure Data Factory 및 Azure SQL Database를 거치며 처리 및 변환됩니다. PBIX 파일로 다운로드할 수 있는 Power BI 보고서에서 출력을 시각화하고 분석할 수 있습니다. 이러한 모든 리소스는 필요에 따라 각 구성 요소를 사용자 지정할 수 있도록 Azure 구독에서 생성됩니다.
 
-## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
+## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate) 다운로드
 
 ## <a name="prerequisites"></a>필수 조건
 솔루션을 설정하려면 다음이 필요합니다.
@@ -58,7 +58,7 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 각 리소스의 세부 정보 및 리소스가 사용되는 방식이 아래에 설명되어 있습니다.
 
 ### <a name="azure-functions"></a>Azure 기능
-Azure Function App은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
+Azure 함수 앱은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니다. 함수는 각 측정값, 디바이스 및 디바이스 템플릿 파일 내의 필드를 추출하고 Azure Data Factory에서 사용할 여러 개의 중간 SQL 테이블을 채웁니다.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩니다. 데이터를 처리하고 분석 테이블에 저장하는 저장 프로시저 활동을 실행합니다.
@@ -91,7 +91,7 @@ Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩
 
 ## <a name="resources"></a>리소스
 
-AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
+AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 다운로드하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

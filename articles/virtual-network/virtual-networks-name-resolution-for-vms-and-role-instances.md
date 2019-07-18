@@ -1,7 +1,7 @@
 ---
 title: Azure 가상 네트워크에서 리소스에 대한 이름 확인
 titlesuffix: Azure Virtual Network
-description: 'Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오 '
+description: Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오
 services: virtual-network
 documentationcenter: na
 author: rohinkoul
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65411368"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -31,7 +31,7 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 어떤 방법으로 이름을 확인할지는 사용하는 리소스가 서로 어떻게 통신해야 하는지에 따라 다릅니다. 다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.
 
 > [!NOTE]
-> 시나리오에 따라, 현재 공개 미리 보기 상태인 Azure DNS 개인 영역 기능을 사용할 수도 있습니다. 자세한 내용은 [사설 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
+> 시나리오에 따라, 현재 공개 미리 보기 상태인 Azure DNS 프라이빗 영역 기능을 사용할 수도 있습니다. 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
 >
 
 | **시나리오** | **해결 방법** | **접미사** |
@@ -80,7 +80,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 
 이 섹션에서는 클라이언트 쪽 캐싱 및 클라이언트 쪽 재시도에 대해 설명합니다.
 
-### <a name="client-side-caching"></a>클라이언트 쪽 캐싱 
+### <a name="client-side-caching"></a>클라이언트 쪽 캐싱
 
 모든 DNS 쿼리를 네트워크를 통해 전송해야 하는 것은 아닙니다. 클라이언트 쪽 캐싱을 사용하면 대기 시간을 줄이고 로컬 캐시에서 되풀이되는 DNS 쿼리를 확인하여 네트워크 블립에 대한 복원력을 개선하는 데 도움이 됩니다. DNS 레코드는 레코드 새로 고침에 영향을 주지 않으면서 캐시가 가능한 오랫동안 레코드를 저장할 수 있도록 하는 TTL(Time-To-Live) 메커니즘을 포함합니다. 따라서 클라이언트 쪽 캐싱은 대부분의 상황에 적합합니다.
 
@@ -88,15 +88,15 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 
 사용할 수 있는 다양한 DNS 캐싱 패키지가 있습니다(예: dnsmasq). 다음은 가장 일반적인 배포판에 dnsmasq를 설치하는 방법입니다.
 
-* **Ubuntu(resolvconf 사용)**:
+* **Ubuntu(resolvconf 사용)** :
   * `sudo apt-get install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
-* **SUSE(netconf 사용)**:
+* **SUSE(netconf 사용)** :
   * `sudo zypper install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다. 
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다. 
   * **/etc/sysconfig/network/config**를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq*로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf를 `netconfig update`로 업데이트합니다.
-* **CentOS (NetworkManager 사용)**:
+* **CentOS (NetworkManager 사용)** :
   * `sudo yum install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다.
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다.
@@ -154,7 +154,7 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 ![가상 네트워크 간의 DNS 다이어그램](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Configuration Protocol)는 각 VM에 내부 DNS 접미사(**. internal.cloudapp.net**)를 제공합니다. 호스트 이름 레코드가 **internal.cloudapp.net** 영역에 있으므로 이 접미사를 통해 호스트 이름 확인을 수행할 수 있습니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다(예: 도메인 가입 시나리오). 대신 작동하지 않는 자리 표시자(*reddog.microsoft.com*)가 제공됩니다.
+Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Configuration Protocol)는 각 VM에 내부 DNS 접미사( **. internal.cloudapp.net**)를 제공합니다. 호스트 이름 레코드가 **internal.cloudapp.net** 영역에 있으므로 이 접미사를 통해 호스트 이름 확인을 수행할 수 있습니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다(예: 도메인 가입 시나리오). 대신 작동하지 않는 자리 표시자(*reddog.microsoft.com*)가 제공됩니다.
 
 필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 
@@ -169,11 +169,11 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * 외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
 > [!NOTE]
-> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용할 때의 추가 성능 분석 및 최적화는 [재귀적 Windows DNS Server 2012 R2의 이름 확인 성능](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)을 참조하세요.
+> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용할 때의 추가 성능 분석 및 최적화는 [재귀적 Windows DNS Server 2012 R2의 이름 확인 성능](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)을 참조하세요.
 > 
 > 
 
-### <a name="web-apps"></a>웹 앱
+### <a name="web-apps"></a>웹앱
 가상 네트워크 또는 동일한 가상 네트워크의 VM에 연결된 App Service를 사용하여 빌드된 웹앱에서 이름 확인을 수행해야 한다고 가정합니다. Azure(가상 IP 168.63.129.16)로 쿼리를 전달하는 DNS 전달자가 있는 사용자 지정 DNS 서버를 설정하는 것 외에 다음 단계를 수행합니다.
 1. [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
 2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹**의 **가상 네트워크 통합**에서 **네트워크 동기화**를 선택합니다.

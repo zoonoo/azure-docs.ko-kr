@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498528"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor에서 azure Key Vault Analytics 솔루션
@@ -103,7 +103,7 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/key-vault-logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--- |:--- |
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |

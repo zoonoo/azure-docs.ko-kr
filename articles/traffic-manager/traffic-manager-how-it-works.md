@@ -3,7 +3,7 @@ title: Azure Traffic Manager 작동 방식 | Microsoft Docs
 description: 이 문서는 Traffic Manager가 웹 애플리케이션의 고성능 및 고가용성을 위해 트래픽을 라우팅하는 방식을 이해하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071178"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -34,7 +34,7 @@ Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 ## <a name="traffic-manager-example"></a>Traffic Manager 예제
 
-Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 https://partners.contoso.com/login.aspx입니다. 애플리케이션은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 엔드포인트에 배포합니다.
+Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL은 https://partners.contoso.com/login.aspx 입니다. 애플리케이션은 3개의 Azure 지역에서 호스팅됩니다. 가용성을 개선하고 전역 성능을 최대화하려면 Traffic Manager를 사용하여 클라이언트 트래픽을 사용 가능한 가장 가까운 엔드포인트에 배포합니다.
 
 이 구성을 만들기 위해 다음 단계를 완료합니다.
 

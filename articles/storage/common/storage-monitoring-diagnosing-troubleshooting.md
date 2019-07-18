@@ -2,24 +2,25 @@
 title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
 description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65912446"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>개요
-클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 장치 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 응용 프로그램의 네트워크 트래픽은 공용 네트워크와 개인 네트워크를 트래버스할 수 있으며 응용 프로그램은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
+클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 장치 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 애플리케이션의 네트워크 트래픽은 공용 네트워크와 프라이빗 네트워크를 트래버스할 수 있으며 애플리케이션은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
 
 이러한 애플리케이션은 올바르게 관리하려면 미리 모니터링하여 애플리케이션과 종속 기술의 모든 측면을 진단하고 문제를 해결하는 방법을 파악해야 합니다. Azure Storage 서비스 사용자는 애플리케이션이 사용하는 Storage 서비스를 지속적으로 모니터링하여 정상적인 응답 시간보다 속도가 느려지는 등 예기치 않은 동작 변경을 파악해야 하며, 로깅을 사용하여 보다 자세한 데이터를 수집하고 문제를 자세하게 분석해야 합니다. 모니터링 및 로깅을 통해 얻은 진단 정로를 토대로 애플리케이션에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위해 수행할 수 있는 적절한 단계를 결정할 수 있습니다. Azure Storage는 핵심 Azure 서비스이며 고객이 Azure 인프라에 배포하는 대부분의 솔루션에서 중요한 역할을 합니다. Azure Storage에는 클라우드 기반 응용 프로그램의 스토리지 문제 모니터링, 진단 및 해결 과정을 간소화하는 기능이 포함되어 있습니다.
 
@@ -27,7 +28,7 @@ ms.locfileid: "62103862"
 > 현재 Azure 파일은 로깅을 지원하지 않습니다.
 >
 
-Azure Storage 애플리케이션에서 종단간 문제 해결 실습 가이드는, [Azure Storage 및 로깅, Azcopy, 메시지 분석기를 사용한 종단 간 문제 해결](../storage-e2e-troubleshooting.md)을 참조하세요.
+Azure Storage 애플리케이션에서 엔드투엔드 문제 해결 실습 가이드는, [Azure Storage 및 로깅, AzCopy, 메시지 분석기를 사용한 엔드투엔드 문제 해결](../storage-e2e-troubleshooting.md)을 참조하세요.
 
 * [소개]
   * [이 가이드의 구성 방식]
@@ -43,7 +44,7 @@ Azure Storage 애플리케이션에서 종단간 문제 해결 실습 가이드�
   * [Storage 에뮬레이터 문제]
   * [저장소 로깅 도구]
   * [네트워크 로깅 도구 사용]
-* [종단 간 추적]
+* [엔드투엔드 추적]
   * [로그 데이터 상관 관계 설정]
   * [클라이언트 요청 ID]
   * [서버 요청 ID]
@@ -91,7 +92,7 @@ Azure Storage 애플리케이션에서 종단간 문제 해결 실습 가이드�
 
 "[스토리지 문제 진단]" 섹션에서는 Azure Storage 분석 로깅(스토리지 로깅)을 사용하여 문제를 진단하는 방법을 설명합니다. 또한 .NET용 Storage 클라이언트 라이브러리 또는 Java용 Azure SDK와 같은 클라이언트 라이브러리 중 하나의 기능을 사용하여 클라이언트 쪽 로깅을 사용하도록 설정하는 방법도 설명합니다.
 
-"[종단 간 추적]" 섹션에서는 다양한 로그 파일 및 메트릭 데이터에 포함된 정보의 상관 관계를 지정하는 방법을 설명합니다.
+"[엔드투엔드 추적]" 섹션에서는 다양한 로그 파일 및 메트릭 데이터에 포함된 정보의 상관 관계를 지정하는 방법을 설명합니다.
 
 "[문제 해결 지침]" 섹션에서는 발생 가능한 몇 가지 일반적인 저장소 관련 문제에 대한 문제 해결 지침을 제공합니다.
 
@@ -138,7 +139,7 @@ Azure 애플리케이션을 지속적으로 모니터링한 후 다음을 수행
 Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대한 도움말은 [Azure Storage 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) 블로그 게시물을 참조하세요.
 
 ### <a name="monitoring-availability"></a>가용성 모니터링
-시간 또는 분 메트릭 테이블(**$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 저장소 계정의 저장소 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
+시간 또는 분 메트릭 테이블( **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 저장소 계정의 저장소 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
 
 값이 100%보다 작으면 일부 저장소 요청이 실패함을 나타냅니다. 메트릭 데이터에서 **ServerTimeoutError**와 같이 오류 유형이 다른 요청 수를 표시하는 기타 열을 검사하여 해당 요청이 실패하는 이유를 확인할 수 있습니다. 서비스가 요청을 보다 효율적으로 부하 분산하기 위해 파티션을 이동하는 동안 일시적으로 서버 시간이 초과되는 등의 경우에는 **가용성**이 잠시 동안 100%보다 낮아질 수 있습니다. 클라이언트 애플리케이션의 다시 시도 논리가 이와 같은 일시적인 상황을 처리해야 합니다. [스토리지 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/azure/hh343260.aspx) 문서에는 Storage 메트릭이 해당 **가용성** 계산에 포함하는 트랜잭션 형식이 나와 있습니다.
 
@@ -228,7 +229,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 대부분의 경우 스토리지 로깅 및 Storage 클라이언트 라이브러리의 로그 데이터로 문제를 충분히 진단할 수 있습니다. 그러나 이러한 네트워크 로깅 도구가 제공할 수 있는 상세 정보가 필요한 경우도 있습니다. 예를 들어 Fiddler를 통해 HTTP 및 HTTPS 메시지를 확인하면 저장소 서비스가 보내고 받는 헤더 및 페이로드 데이터를 볼 수 있으므로 클라이언트 애플리케이션이 저장소 작업을 다시 시도하는 방법을 검사할 수 있습니다. Wireshark 등의 프로토콜 분석기는 패킷 수준에서 작동하여 TCP 데이터를 확인할 수 있도록 합니다. 따라서 패킷 손실 및 연결 끊김 문제를 해결할 수 있습니다. 메시지 분석기는 HTTP 및 TCP 계층에서 모두 작동할 수 있습니다.
 
 ## <a name="end-to-end-tracing"></a>종단 간 추적
-다양한 로그 파일을 사용하는 종단 간 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
+다양한 로그 파일을 사용하는 엔드투엔드 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
 
 ### <a name="correlating-log-data"></a>로그 데이터 상관 관계 지정
 클라이언트 애플리케이션의 로그, 네트워크 추적 및 서버 쪽 저장소 로깅을 확인할 때는 여러 로그 파일 간에 요청 상관 관계를 설정할 수 있어야 합니다. 로그 파일에는 상관 관계 식별자로 활용할 수 있는 여러 필드가 포함되어 있습니다. 다른 로그의 항목 간 상관 관계를 설정하는 데 사용할 수 있는 가장 유용한 필드는 클라이언트 요청 ID입니다. 그러나 서버 요청 ID 또는 타임스탬프를 사용하면 유용한 경우도 있습니다. 다음 섹션에서는 이러한 옵션에 대해 자세히 설명합니다.
@@ -370,7 +371,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 클라이언트 쪽 로그를 통해 클라이언트 애플리케이션이 제출하는 요청의 수를 확인해야 합니다. 또한 CPU, .NET 가비지 수집, 네트워크 이용률 또는 메모리와 같은 클라이언트의 일반 .NET 관련 성능 병목 현상도 확인해야 합니다. .NET 클라이언트 애플리케이션 문제 해결을 시작하려면 [디버깅, 추적 및 프로파일링](https://msdn.microsoft.com/library/7fe0dd2y)을 참조하세요.
 
 #### <a name="investigating-network-latency-issues"></a>네트워크 대기 시간 문제 조사
-일반적으로 네트워크에서 발생하는 긴 종단 간 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 일시적인 네트워크 문제와 영구적인 네트워크 문제(예: 패킷 삭제)를 모두 조사해야 합니다.
+일반적으로 네트워크에서 발생하는 긴 엔드투엔드 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 일시적인 네트워크 문제와 영구적인 네트워크 문제(예: 패킷 삭제)를 모두 조사해야 합니다.
 
 Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 “[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]”를 참조하세요.
 
@@ -425,7 +426,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 **PercentThrottlingError**는 저장소 요청 수가 증가할 때 함께 증가하거나, 처음으로 애플리케이션의 부하를 테스트할 때 증가하는 경우가 많습니다. 또한 이 오류는 저장소 작업에서 "503 서버 사용 중" 또는 "500 작업 시간 초과" HTTP 상태 메시지로 클라이언트에 표시될 수도 있습니다.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>일시적인 PercentThrottlingError 증가
-애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 스토리지 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 [Microsoft.WindowsAzure.Storage.RetryPolicies 네임스페이스](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)를 참조하세요.
+애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 저장소 클라이언트 라이브러리를 사용 하 여 다시 시도 정책을 구현 하는 방법에 대 한 자세한 내용은 참조는 [Microsoft.Azure.Storage.RetryPolicies 네임 스페이스](/dotnet/api/microsoft.azure.storage.retrypolicies)합니다.
 
 > [!NOTE]
 > 애플리케이션의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.
@@ -468,15 +469,15 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |동기 요청을 시작합니다. <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |작업 중에 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환했습니다. (403) 사용 권한 없음 |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
-| Microsoft.WindowsAzure.Storage |오류 |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |동기 요청을 시작합니다. <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |작업 중에 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환했습니다. (403) 사용 권한 없음 |
+| Microsoft.Azure.Storage |정보 |3 |85d077ab -… |위치 모드에 따라 다음 위치가 Primary로 설정되었습니다. |
+| Microsoft.Azure.Storage |오류 |1 |85d077ab -… |다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 작업이 실패했습니다. 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 |
 
 이 시나리오에서는 클라이언트가 서버에 토큰을 보내기 전에 SAS 토큰이 만료되는 이유를 조사해야 합니다.
 
@@ -514,24 +515,24 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 | 요청 ID | 작업 텍스트 |
 | --- | --- |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontaine](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot; |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| 07b26a5d-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다. |
+| 07b26a5d-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontaine](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 동기 요청을 시작하는 중입니다. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |응답을 기다리는 중입니다. |
 | 07b26a5d-... |응답을 받았습니다. 상태 코드 = 202, 요청 ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | 07b26a5d-... |응답 본문을 다운로드하는 중입니다. |
 | 07b26a5d-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다.</td> |
+| e2d06d78-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontainer](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 비동기 요청을 시작하는 중입니다.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
-| de8b1c3c-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt에 대한 동기 요청을 시작하는 중입니다. |
+| de8b1c3c-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt](https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt )에 대한 동기 요청을 시작하는 중입니다. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |요청 데이터 쓰기를 준비하는 중입니다. |
 | e2d06d78-... |응답을 기다리는 동안 예외를 throw함: 원격 서버에서 오류를 반환했습니다. (404) 찾을 수 없음 |
@@ -539,7 +540,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 | e2d06d78-... |응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다. |
 | e2d06d78-... |응답 본문을 다운로드하는 중입니다. |
 | e2d06d78-... |작업이 완료되었습니다. |
-| e2d06d78-... |https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 비동기 요청을 시작하는 중입니다. |
+| e2d06d78-... |[https://domemaildist.blob.core.windows.net/azuremmblobcontainer](https://domemaildist.blob.core.windows.net/azuremmblobcontainer )에 대한 비동기 요청을 시작하는 중입니다. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |응답을 기다리는 중입니다. |
 | de8b1c3c-... |요청 데이터를 쓰는 중입니다. |
@@ -836,7 +837,7 @@ Azure Storage에서 분석에 대 한 자세한 내용은 다음이 리소스를
 [저장소 로깅 도구]: #storage-logging-tools
 [네트워크 로깅 도구 사용]: #using-network-logging-tools
 
-[종단 간 추적]: #end-to-end-tracing
+[엔드투엔드 추적]: #end-to-end-tracing
 [로그 데이터 상관 관계 설정]: #correlating-log-data
 [클라이언트 요청 ID]: #client-request-id
 [서버 요청 ID]: #server-request-id

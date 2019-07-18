@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0b120cedf35a6f88c880443dee626cce18835d42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859280"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API 가져오기 및 REST로 변환
 
@@ -33,7 +33,7 @@ ms.locfileid: "38239811"
 
 ## <a name="prerequisites"></a>필수 조건
 
-다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
+다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "38239811"
 
 5. Tab 키를 누릅니다.
 
-    다음 필드는 SOAP API의 정보, 표시 이름, 이름, 설명으로 채워집니다.
+    다음 필드는 SOAP API의 표시 이름, 이름, 설명과 같은 정보로 채워집니다.
 6. API URL 접미사를 추가합니다. 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.
 9. API를 제품에 연결하여 API를 게시합니다. 이 경우 "*Unlimited*" 제품이 사용됩니다.  API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.
 

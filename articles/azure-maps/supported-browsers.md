@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 84c5dbcf5073ba8c0ae662af019cde590a9adf10
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686639"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
@@ -40,7 +40,7 @@ Azure Maps 웹 SDK는 다음 데스크톱 브라우저를 지원합니다.
 
 참고 항목 [레거시 브라우저 대상](#Target-Legacy-Browsers) 이 문서의 뒷부분에 나오는.
 
-## <a name="mobile"></a>모바일
+## <a name="mobile"></a>휴대폰
 
 Azure Maps 웹 SDK는 다음과 같은 모바일 브라우저를 지원합니다.
 

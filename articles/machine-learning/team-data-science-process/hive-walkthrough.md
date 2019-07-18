@@ -1,6 +1,6 @@
 ---
 title: Hadoop 클러스터에서 데이터 탐색 - Team Data Science Process
-description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
+description: HDInsight Hadoop 클러스터를 사용하는 엔드투엔드 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -12,14 +12,14 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303966"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
-이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
+이 연습에서는 엔드투엔드 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
 
 더 큰 데이터 세트를 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
 
@@ -721,7 +721,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 [데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
 
-**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net입니다.
+**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net 입니다.
 
 **Hadoop 사용자 계정 이름**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름 아님).
 
@@ -744,7 +744,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 테이블이 내부 테이블이고 채워진 경우 해당 내용이 여기에 표시되어야 합니다.
 
-테이블이 내부 테이블인지 확인하는 또 다른 방법은 Azure Storage 탐색기를 사용하는 것입니다. Azure 저장소 탐색기를 사용하여 클러스터의 기본 컨테이너 이름으로 이동한 다음 테이블 이름으로 필터링합니다. 테이블과 해당 내용이 표시되면 내부 테이블인 것입니다.
+테이블이 내부 테이블인지 확인하는 또 다른 방법은 Azure Storage Explorer를 사용하는 것입니다. Azure 저장소 탐색기를 사용하여 클러스터의 기본 컨테이너 이름으로 이동한 다음 테이블 이름으로 필터링합니다. 테이블과 해당 내용이 표시되면 내부 테이블인 것입니다.
 
 다음은 Hive 쿼리 및 [데이터 가져오기][import-data] 모듈의 스크린샷입니다.
 

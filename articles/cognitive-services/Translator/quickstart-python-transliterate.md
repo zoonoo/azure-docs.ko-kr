@@ -3,25 +3,28 @@ title: '빠른 시작: 텍스트 음역, Python - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 이 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
-ms.author: erhopf
-ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862848"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704337"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 음역
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 제공된 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+
+>[!TIP]
+> 모든 코드를 한 번에 보려면 이 샘플의 소스 코드를 [GitHub]()에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +39,10 @@ ms.locfileid: "57862848"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,6 +98,8 @@ headers = {
 }
 ```
 
+Cognitive Services 다중 서비스 구독을 사용하는 경우 요청 매개 변수에 `Ocp-Apim-Subscription-Region`도 포함해야 합니다. [다중 서비스 구독을 사용한 인증에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## <a name="create-a-request-to-transliterate-text"></a>텍스트 음역 요청 만들기
 
 음역하려는 문자열을 정의합니다.
@@ -116,7 +124,8 @@ response = request.json()
 마지막 단계는 결과를 인쇄하는 것입니다. 이 코드 조각은 키를 정렬하고 들여쓰기를 설정하며 항목 및 키 구분 기호를 선언하여 결과를 꾸밉니다.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
@@ -146,8 +155,10 @@ python transliterate-text.py
 
 ## <a name="next-steps"></a>다음 단계
 
+Translator Text API로 할 수 있는 모든 것에 대해 알아보려면 API 참조를 살펴보세요.
+
 > [!div class="nextstepaction"]
-> [GitHub에서 Python 예제 살펴보기](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>참고 항목
 

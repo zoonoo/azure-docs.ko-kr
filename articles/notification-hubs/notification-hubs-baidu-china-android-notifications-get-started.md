@@ -12,18 +12,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
+ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460812"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274912"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> 이 자습서에 사용 되지 않습니다. 
 
 Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다.
 
@@ -65,7 +68,7 @@ Baidu를 사용하려면 Baidu 계정이 있어야 합니다. 이미 있는 경�
 
 Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 키를 받게 됩니다.
 
-1. [Baidu 포털]에 로그인한 후 **更多>>**(**추가**)를 클릭합니다.
+1. [Baidu 포털]에 로그인한 후 **更多>>** (**추가**)를 클릭합니다.
 
     ![등록 - 자세히](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 

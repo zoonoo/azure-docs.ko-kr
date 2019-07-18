@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/11/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/11/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320105"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182062"
 ---
 연결 문제가 있으면 다음 항목을 확인합니다.
 

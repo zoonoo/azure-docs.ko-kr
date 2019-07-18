@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938471"
 ---
 <a name="what-is-test-drive"></a>시험 사용이란?
@@ -47,8 +47,8 @@ ms.locfileid: "64938471"
 
 애플리케이션이 얼마나 복잡한지에 관계없이 Microsoft 시험 사용을 통해 고객을 위한 제품을 실현할 수 있습니다. 지금은 제품 유형, 시나리오 및 현재 위치의 마켓플레이스를 기준으로 하는 세 가지 다른 유형의 시험 사용이 제공됩니다.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Azure Resource Manager 시험 사용은 게시자가 빌드한 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.
-- **[Logic App](./logic-app-test-drive.md)**: 논리 앱 테스트 드라이브는 모든 복잡 한 솔루션 아키텍처를 포함 하는 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Azure Resource Manager 시험 사용은 게시자가 빌드한 솔루션을 구성하는 모든 Azure 리소스가 포함된 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용하는 제품입니다.
+- **[Logic App](./logic-app-test-drive.md)** : 논리 앱 테스트 드라이브는 모든 복잡 한 솔루션 아키텍처를 포함 하는 배포 템플릿입니다. 모든 Dynamics 애플리케이션 또는 사용자 지정 제품은 이 유형의 시험 사용을 사용해야 합니다.
 - **Power BI**: Power BI 테스트 드라이브를 단순히 포함된에 대 한 링크가 사용자 지정 작성 대시보드의 경우 대화형 Power BI 시각적 개체를 보여 주려는 제품은 이 유형의 시험 사용을 사용해야 합니다.
     포함된 Power BI URL만 업로드하면 됩니다.
 

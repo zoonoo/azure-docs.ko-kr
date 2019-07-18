@@ -3,8 +3,8 @@ title: Azure AD 애플리케이션 프록시의 사용자 지정 도메인 | Mic
 description: 앱의 URL이 사용자가 액세스하는 위치에 관계 없이 동일하도록 Azure AD 애플리케이션 프록시에서 사용자 지정 도메인을 관리합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108666"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -71,7 +71,9 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 ### <a name="certificate-format"></a>인증서 형식
 인증서 서명 메서드에 대한 제한은 없습니다. ECC(타원 곡선암호화), SAN(주체 대체 이름 ) 및 다른 일반적인 인증서 형식은 모두 지원됩니다. 
 
-와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다. 
+와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다.
+
+보안 고려 사항으로 인해 사용자 고유의 공개 키 인프라 (PKI)에서 발급 한 인증서를 사용할 수 없습니다.
 
 ### <a name="changing-the-domain"></a>도메인 변경
 모든 확인된 도메인은 애플리케이션에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 애플리케이션에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
@@ -85,7 +87,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* 게시된 앱에 대해 [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
+* [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md) 게시 된 앱입니다.
 * [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036394"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
@@ -99,7 +99,7 @@ ACL(액세스 제어 목록)은 가상 머신 엔드포인트의 트래픽을 �
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>7단계: 클래식 VM에 대해 엔드포인트가 생성되는지 여부 확인
 
-클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 VM은 프라이빗 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 머신과 자동으로 통신할 수 있습니다. 그러나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 엔드포인트가 필요합니다. 자세한 내용은 [엔드포인트를 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md)을 참조하세요.
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해 보기
 

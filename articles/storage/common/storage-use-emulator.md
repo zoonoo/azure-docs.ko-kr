@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149093"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
@@ -55,7 +55,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 저장소 에뮬레이터는 기본적으로 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`에 설치됩니다.
 
 > [!TIP]
-> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음 스토리지 탐색기 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
+> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음, Storage Explorer 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
@@ -191,8 +191,8 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 * 저장소 에뮬레이터는 blob 크기를 최대 2GB까지만 지원합니다.
 * 스토리지 에뮬레이터에서 blob 이름의 최대 길이는 256자인 반면, Azure Storage에서 blob 이름의 최대 길이는 1024자입니다.
-* 증분 복사를 사용하면 덮어쓴 Blob의 스냅숏을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
-* Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅숏 간에는 작동하지 않습니다.
+* 증분 복사를 사용하면 덮어쓴 Blob의 스냅샷을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
+* Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅샷 간에는 작동하지 않습니다.
 * 임대 ID가 요청에 지정되어 있지 않은 경우에도 Put Blob 작업은 저장소 에뮬레이터에 있으며 활성 임대가 있는 blob에 대해 성공할 수 있습니다.
 * 추가 Blob 작업은 에뮬레이터에서 지원되지 않습니다. 추가 Blob에 대한 작업을 시도하면 FeatureNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
 

@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699344"
 ---
 # <a name="local-forwarder-preview"></a>로컬 전달자 (미리 보기)
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* /home/SAMPLE_USER/LOCALFORWARDER_DIR 디렉터리에서 **.log* 파일을 검사하여 서비스를 모니터링합니다.
+* /home/SAMPLE_USER/LOCALFORWARDER_DIR 디렉터리에서 * *.log* 파일을 검사하여 서비스를 모니터링합니다.
 
 ### <a name="mac"></a>Mac
 macOS에서는 로컬 전달자가 작동할 수는 있지만 현재 공식적으로 지원되는 것은 아닙니다.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>로컬 전달자 모니터링
 
-추적은 로컬 전달자를 실행하는 실행 파일 옆에 있는 파일 시스템에 기록됩니다(**.log* 파일 찾기). *NLog.config*란 이름의 파일을 실행 파일 옆에 배치하여 기본값 대신 고유한 구성을 제공할 수 있습니다. 형식의 설명은 [설명서](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format)를 참조하세요.
+추적은 로컬 전달자를 실행하는 실행 파일 옆에 있는 파일 시스템에 기록됩니다(* *.log* 파일 찾기). *NLog.config*란 이름의 파일을 실행 파일 옆에 배치하여 기본값 대신 고유한 구성을 제공할 수 있습니다. 형식의 설명은 [설명서](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format)를 참조하세요.
 
 구성 파일이 제공되지 않은 경우(즉, 기본값) 로컬 전달자는 기본 구성([여기](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config)에서 찾을 수 있음)을 사용합니다.
 

@@ -54,11 +54,21 @@
   items:
     - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 지역 및 가용성
-      href: regions-and-availability.md
+    - name: 영역
+      href: regions.md
+    - name: 가용성 및 성능
+      items:
+        - name: 가용성
+          href: availability.md
+        - name: 공동 배치
+          href: co-location.md
+        - name: 네트워크 성능
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM 유형 및 크기
       href: sizes.md
       items:
+        - name: 2세대 VM
+          href: generation-2.md
         - name: 범용 가상 컴퓨터
           href: sizes-general.md
           displayName: Dsv3 Dv3 DSv2 Dv2 Av2
@@ -80,10 +90,10 @@
           items:
             - name: 성능 최적화
               href: storage-performance.md
-        - name: GPU에 최적화
-          displayName: NV NVv2 NC NCv2 NCv3 ND
-          href: sizes-gpu.md
+        - name: 컴퓨팅 가속화
           items:
+            - name: GPU에 최적화
+              href: sizes-gpu.md
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
         - name: 고성능 계산
@@ -112,10 +122,12 @@
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 사용 후 삭제 OS 디스크
+          href: ephemeral-os-disks.md
     - name: 네트워킹
       href: network-overview.md
-    - name: 자동 크기 조정 애플리케이션
-      href: autoscale.md
+    - name: 확장 집합
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 인프라 자동화
       href: infrastructure-automation.md
     - name: 보안 및 정책
@@ -128,6 +140,8 @@
       href: backup-recovery.md
     - name: 인프라 예제
       href: infrastructure-example.md
+    - name: 보안 특성
+      href: virtual-machines-windows-security-attributes.md
 - name: 방법 가이드
   items:
     - name: VM 만들기
@@ -243,18 +257,36 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: 이미지 사용
       items:
-        - name: 공유 이미지(미리 보기)
+        - name: 공유 이미지
           items:
             - name: 개요
               href: shared-image-galleries.md
-            - name: PowerShell을 사용하여 공유 이미지 만들기
+            - name: PowerShell
               href: shared-images.md
-            - name: CLI를 사용하여 공유 이미지 만들기
-              href: ../linux/shared-images.md
             - name: 포털
               href: shared-images-portal.md
+            - name: CLI
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 테넌트 간에 이미지 공유
+              href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md
+        - name: 이미지 작성기(미리 보기)
+          items:
+            - name: 개요
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure CLI 사용
+              href: image-builder.md
+            - name: 이미지 갤러리용 빌드
+              href: image-builder-gallery.md
+            - name: 기존 이미지 업데이트
+              href: image-builder-gallery-update-image-version.md
+            - name: 스크립트 저장
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 템플릿 참조
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 문제 해결
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
         - name: VM 업로드 준비
@@ -275,6 +307,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: 고가용성
           href: manage-availability.md
+        - name: 근접 배치 그룹 만들기
+          href: proximity-placement-groups.md
         - name: 수직 확장
           href: vertical-scaling-automation.md
         - name: 가용성 영역에서 VM 만들기
@@ -326,11 +360,9 @@
           href: detach-disk.md
         - name: 템플릿을 사용하여 디스크 배포
           href: using-managed-disks-template-deployments.md
-        - name: 디스크에 VHD 업로드 - PowerShell
-          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 디스크 크기 조정
           href: expand-os-disk.md
-        - name: 디스크 스냅숏
+        - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
@@ -437,7 +469,7 @@
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'

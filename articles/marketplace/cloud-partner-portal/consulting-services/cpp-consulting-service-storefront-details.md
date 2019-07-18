@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942707"
 ---
 # <a name="storefront-details-tab"></a>상점 세부 정보 탭
@@ -38,12 +38,12 @@ ms.locfileid: "64942707"
 
 제품 요약은 제품 이름 바로 아래에 표시되는 제품의 간략한 설명입니다. 일반 텍스트를 사용하여 줄 바꿈 없이 제품 요약을 입력합니다. 아래에는 해당 제품 이름에 적합한 제품 요약의 예제가 나와 있습니다.
 
-*예 1*
+*예제 1*
 
 -   **제품 이름**: 클라우드 분석: 3일 워크샵
 -   **제품 요약**: Microsoft Azure 및 Power BI의 개요를 살펴보고, 현재 환경을 평가하고, 미니 POC를 진행합니다.
 
-*예 2*
+*예제 2*
 
 -   **제품 이름**: 산업용 Azure IoT: 30일 개념 증명
 -   **제품 요약**: 대시보드, 보고서 및 알림이 포함된 Azure IoT Hub 솔루션에 현장의 장비를 안전하게 연결하기 위한 산업용 커넥티드 제품 파일럿을 작성합니다.

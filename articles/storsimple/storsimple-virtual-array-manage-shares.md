@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116869"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에서 공유 관리
@@ -117,7 +117,7 @@ StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된
    
     1. StorSimple 서비스 요약 블레이드의 **공유** 설정에서 오프라인으로 전환하려는 공유가 상주하는 가상 배열을 선택합니다.
 
-    2. 공유를 **선택**하고 **...**(또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **오프라인으로 전환**을 선택합니다.
+    2. 공유를 **선택**하고 **...** (또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **오프라인으로 전환**을 선택합니다.
      
         ![오프라인 공유](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
@@ -136,7 +136,7 @@ StorSimple 서비스 요약 블레이드의 **공유** 메뉴에서는 지정된
 #### <a name="to-delete-a-share"></a>공유를 삭제하려면
 
 1. StorSimple 서비스 요약 블레이드의 **공유** 설정에서 삭제하려는 공유가 상주하는 가상 배열을 선택합니다.
-2. 공유를 **선택**하고 **...**(또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
+2. 공유를 **선택**하고 **...** (또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
    
     ![공유 삭제](./media/storsimple-virtual-array-manage-shares/share-delete.png)
 3. 삭제하려는 공유의 상태를 확인합니다. 삭제하려는 공유가 오프라인 상태가 아니면 먼저 오프라인으로 전환합니다. [오프라인으로 공유 전환](#take-a-share-offline) 단계를 따릅니다.

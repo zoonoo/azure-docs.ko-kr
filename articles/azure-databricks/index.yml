@@ -8,10 +8,10 @@ metadata:
   author: mamccrea
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 03/19/2018
+  ms.date: 05/07/2019
   ms.author: mamccrea
 abstract:
-  description: '원 클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어 및 비즈니스 분석가 간의 공동 작업이 가능한 대화형 작업 영역이 포함된 Apache Spark 기반 분석 플랫폼인 Azure Databricks를 사용하는 방법을 알아봅니다. 빠른 시작 및 자습서에서는 Azure Databricks 사용을 시작하고 다른 Azure 서비스와 통합하는 방법을 보여줍니다.'
+  description: '원 클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어 및 비즈니스 분석가 간의 협업이 가능한 대화형 작업 영역이 포함된 Apache Spark 기반 분석 플랫폼인 Azure Databricks를 사용하는 방법을 알아봅니다. 빠른 시작 및 자습서에서는 Azure Databricks 사용을 시작하고 다른 Azure 서비스와 통합하는 방법을 보여줍니다.'
   aside:
     image:
       alt: null
@@ -37,6 +37,10 @@ sections:
               src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
             text: Resource Manager 템플릿
             href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+          - image:
+              src: /azure/azure-databricks/media/index/virtualnetwork.svg
+            text: 가상 네트워크
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection
   - title: 단계별 자습서
     items:
       - type: paragraph
@@ -44,6 +48,8 @@ sections:
       - type: list
         style: ordered
         items:
+          - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">Docker 컨테이너에서 실행 중인 SQL Server 쿼리</a>
+          - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">Cosmos DB 서비스 엔드포인트 사용</a>
           - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">데이터 추출, 변환 및 로드</a>'
           - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Event Hubs에서 데이터 스트리밍</a>
           - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Cognitive Services를 사용한 감정 분석</a>
@@ -56,3 +62,5 @@ sections:
         items:
           - title: REST (영문)
             html: <p><a href="/rest/api/databricks">REST API</a></p>
+          - title: 리소스 관리자
+            html: <p><a href="/azure/templates/microsoft.databricks/workspaces">템플릿</a></p>

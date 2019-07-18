@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
 ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615889"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure Consumption API 개요 
@@ -109,7 +109,7 @@ API에는 다음이 포함됩니다.
 
 -   **Azure 역할 기반 액세스 제어** - [Azure Portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 또는 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다. 
 -   **필터링** - 다음 필터를 사용하여 권장 사항 결과를 조정합니다.
-    - 범위
+    - Scope
     - 되돌아보기 기간
 -   **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
 

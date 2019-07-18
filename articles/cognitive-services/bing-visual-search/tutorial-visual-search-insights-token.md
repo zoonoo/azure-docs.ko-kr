@@ -3,29 +3,29 @@ title: ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미�
 titleSuffix: Azure Cognitive Services
 description: ImageInsightsToken에서 지정한 이미지의 URL을 가져오기 위해 Bing Visual Search SDK를 사용합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 78584c2c0419bb27fb58c07eb97b1aa38501951f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493948"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204072"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기
 
 Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾을 수 있습니다. 이 애플리케이션은 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다. 그런 다음 보냅니다는 `ImageInsightsToken` Bing 검색 Url 및 온라인으로 확인할 유사한 이미지의 Url을 포함 하는 Bing과 반환 결과입니다.
 
-이 자습서에 대 한 전체 소스 코드에서 추가 오류 처리 및 주석을 사용 하 여 확인할 수 있습니다 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs)합니다.
+이 자습서에 대 한 전체 소스 코드에서 추가 오류 처리 및 주석을 사용 하 여 확인할 수 있습니다 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용 하는 경우 사용 하 여이 응용 프로그램 실행할 수 있습니다 [Mono](https://www.mono-project.com/)합니다.
 * NuGet Visual Search 및 Image Search 패키지입니다.
     - Visual Studio에서 솔루션 탐색기에서 마우스 오른쪽 단추로 클릭 하면 프로젝트를 마우스 **NuGet 패키지 관리** 합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지 및 `Microsoft.Azure.CognitiveServices.Search.ImageSearch` 패키지를 차례로 설치합니다. NuGet 패키지를 설치하면 다음도 설치됩니다.
@@ -38,10 +38,10 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Bing Image Search SDK에서 ImageInsightsToken 가져오기
 
-이 애플리케이션은 [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 획득한 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchAPI()`를 사용하는 API를 호출합니다. 사용 하 여 `SearchAsync()` 쿼리를 사용 하 여:
+이 애플리케이션은 [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)를 통해 획득한 `ImageInsightsToken`을 사용합니다. 새 C# 콘솔 애플리케이션에서 클라이언트를 만들어 `ImageSearchClient()`를 사용하는 API를 호출합니다. 사용 하 여 `SearchAsync()` 쿼리를 사용 하 여:
 
 ```csharp
-var client = new ImageSearchAPI(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
+var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
 var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```
@@ -144,4 +144,4 @@ if (visualSearchResults.Tags.Count > 0)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)

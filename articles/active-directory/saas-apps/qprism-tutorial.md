@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bf6c50a486acfaf8c0410616a75d9bcbe36987e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: af3862d81270363c475ab9d925757569a6927858
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>자습서: QPrism과 Azure Active Directory 통합
 

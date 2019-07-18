@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65506964"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
@@ -98,13 +98,13 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| 이름             | 형식  | Description  |Default  |
+| 이름             | 형식  | Description  |기본값  |
 |------------------|-------|--------------|---------|
-| `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
-| `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
+| `Type`           | Enum  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
+| `CommitMode`     | Enum  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
 | `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 | `RetryCount`     | Int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
-| `Objects`        | 배열 | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
+| `Objects`        | Array | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
 CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 데이터 세트의 초기 로드를 수행하는 경우에 사용됩니다. 하나 이상의 일괄 처리를 성공적으로 커밋한 후 새로 고침 작업이 실패하면, 성공적으로 커밋된 일괄 처리는 커밋된 상태로 유지됩니다(성공적으로 커밋된 일괄 처리는 롤백되지 않음).
 
@@ -201,48 +201,15 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
 2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
-코드 샘플은 대화형 로그인, 사용자 이름/암호 또는 [서비스 사용자](#service-principal)를 사용할 수 있습니다.
+코드 샘플에서는 [서비스 주체](#service-principal) 인증 합니다.
 
-#### <a name="interactive-login-or-usernamepassword"></a>대화형 로그인 또는 사용자 이름/암호
-
-이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 애플리케이션이 생성되어야 합니다. 
-
-1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 클릭합니다.
-
-    ![새 애플리케이션 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  **만들기**에서 이름을 입력하고 **네이티브** 애플리케이션 유형을 선택합니다. **리디렉션 URI**에 대해 **urn:ietf:wg:oauth:2.0:oob**를 입력하고 **만들기**를 클릭합니다.
-
-    ![설정](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  앱을 선택한 후 **애플리케이션 ID**를 복사하고 저장합니다.
-
-    ![애플리케이션 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  **설정**에서 **필요한 권한** > **추가**를 클릭합니다.
-
-    ![API 액세스 추가](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  **API 선택**의 검색 상자에 **Azure Analysis Services**를 입력한 다음, 선택합니다.
-
-    ![API 선택](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  **모든 모델 읽기 및 쓰기**를 선택하고 **선택**을 클릭합니다. 둘 다 선택되면 **완료**를 클릭하여 사용 권한을 추가합니다. 전파하는 데 몇 분이 걸릴 수 있습니다.
-
-    ![모든 모델 읽기 및 쓰기 선택](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  코드 샘플에서 **UpdateToken()** 메서드를 찾습니다. 이 메서드의 내용을 확인합니다.
-8.  **string clientID = …** 를 찾은 후 3단계에서 복사한 **애플리케이션 ID**를 입력합니다.
-9.  샘플을 실행합니다.
-
-#### <a name="service-principal"></a>서비스 주체
+### <a name="service-principal"></a>서비스 주체
 
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 
 1.  코드 예제에서 **string authority = …** 를 찾은 후 **common**을 조직의 테넌트 ID로 바꿉니다.
 2.  ClientCredential 클래스가 자격 증명 개체를 인스턴스화하는 데 사용되도록 주석 처리하거나 주석 처리를 해제합니다. \<App ID> 및 \<App Key> 값이 안전한 방식으로 액세스되는지 확인하고, 그렇지 않은 경우 서비스 사용자에 대해 인증서 기반 인증을 사용합니다.
-3.  샘플을 실행합니다.
+3.  예제를 실행합니다.
 
 
 ## <a name="see-also"></a>참고 항목

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6c050bd7cc620776d4e9cb5afd8d11637d11ab4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fb5685338ee3d8888f99cc36f4868ef897de5a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>자습서: Front와 Azure Active Directory 통합
 

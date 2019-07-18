@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 020403268665633bf3d71cf43258ced87b4f837d
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886348"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249707"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -36,7 +36,7 @@ ms.locfileid: "58886348"
 
 ## <a name="create-a-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 
-1. Open Visual Studio 2017 Community Edition.
+1. Visual Studio 2019 Community 버전을 엽니다.
 1. 새 콘솔 앱(.NET Core) 프로젝트를 만들고 프로젝트 이름을 QnaMakerQuickstart로 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.
 
 ## <a name="add-the-required-dependencies"></a>필수 종속성 추가
@@ -72,4 +72,4 @@ Visual Studio에서 프로그램을 빌드하고 실행합니다. 자동으로 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker(V4) REST API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)

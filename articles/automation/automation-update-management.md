@@ -4,17 +4,17 @@ description: 이 문서는 Azure 업데이트 관리 솔루션을 사용하여 W
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/29/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3bfec413430de588be6c4423702d41779a8426d0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919694"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477987"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -39,13 +39,13 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다.
 
-CVE가 릴리스되면 평가할 Linux 머신에 대한 패치가 나타날 때까지 2~3시간이 걸립니다.  Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
+패키지를 출시 되 면 패치 평가 대 한 Linux 컴퓨터에 대 한 표시를 2 ~ 3 시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
 
 컴퓨터에 업데이트 준수 검사가 완료 되 면 에이전트를 대량으로 Azure Monitor 로그의 정보를 전달 합니다. Windows 컴퓨터는 기본적으로 12시간마다 준수 검사가 실행됩니다.
 
 검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 이내에 업데이트 준수 검사가 시작됩니다.
 
-Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
+Linux 컴퓨터에 대 한 준수 검사가 기본적으로 매시간 수행 됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
 솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 얼마나 최신 상태인지를 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 이 동작은 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터에서도 동일합니다.
 
@@ -79,9 +79,6 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
 
-> [!NOTE]
-> 업데이트 관리를 사용 하 여 azure 가상 머신 확장 집합을 관리할 수 있습니다. 업데이트 관리는 자체 및 기본 이미지가 아닌 인스턴스에서 작동합니다. 모든 VM 인스턴스를 한 번에 업데이트 되지에 대 한 증분 방식으로 업데이트를 예약 해야 합니다.
-
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 
 다음 표에는 지원되지 않는 운영 체제가 나열되어 있습니다.
@@ -99,7 +96,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 #### <a name="linux"></a>Linux
 
-Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 사설 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
+Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
 
 Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 정보를 참조 하세요 [Linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)합니다. Windows Log Analytics 에이전트를 설치 하는 방법에 대 한 정보를 참조 하세요 [Microsoft 모니터링 에이전트에 대 한 Windows](../log-analytics/log-analytics-windows-agent.md)합니다.
 
@@ -195,7 +192,7 @@ Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그�
 
 관리되는 Windows 컴퓨터 각각에서 하루에 두 번 검사가 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다.
 
-관리되는 Linux 컴퓨터 각각에서 3시간마다 검사가 수행됩니다.
+검색은 관리 되는 각 Linux 컴퓨터에 대 한 매시간 수행 됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 
@@ -226,11 +223,11 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 
 새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. 합니다 **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
-| 업데이트 그룹 |Azure 컴퓨터에 대 한 배포에 포함 하려면 Azure Vm의 동적 그룹을 만들려는 구독, 리소스 그룹, 위치 및 태그의 조합을 기준으로 쿼리를 정의 합니다. </br></br>비 Azure 컴퓨터에 대 한 기존 저장 된 배포에 포함 하는 비 Azure 컴퓨터의 그룹을 선택 하려면 검색을 선택 합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
+| 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |
@@ -262,7 +259,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ## <a name="view-update-deployments"></a>업데이트 배포 보기
 
-**업데이트 배포** 탭을 선택하여 기존 업데이트 배포의 목록을 볼 수 있습니다. 테이블에서 업데이트 배포 중 하나를 선택하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다.
+**업데이트 배포** 탭을 선택하여 기존 업데이트 배포의 목록을 볼 수 있습니다. 테이블에서 업데이트 배포 중 하나를 선택하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다. 작업 로그는 최대 30일 동안 저장됩니다.
 
 ![업데이트 배포 결과의 개요](./media/automation-update-management/update-deployment-run.png)
 
@@ -306,7 +303,7 @@ sudo yum -q --security check-update
 
 ### <a name="pre-download-updates"></a>업데이트 사전 다운로드
 
-그룹 정책에서 업데이트를 자동으로 다운로드하도록 구성하려면 [자동 업데이트 설정 구성](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5)을 **3**으로 설정할 수 있습니다. 이 경우 필요한 업데이트가 백그라운드에서 다운로드되지만 설치되지는 않습니다. 이를 통해 업데이트 관리 일정을 제어할 수 있지만, 업데이트 관리 유지 관리 기간 이후에도 업데이트를 다운로드할 수 있게 됩니다. 이를 통해 업데이트 관리에서 **유지 관리 기간을 초과함** 오류가 발생하지 않을 수 있습니다.
+그룹 정책에서 업데이트를 자동으로 다운로드하도록 구성하려면 [자동 업데이트 설정 구성](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates)을 **3**으로 설정할 수 있습니다. 이 경우 필요한 업데이트가 백그라운드에서 다운로드되지만 설치되지는 않습니다. 이를 통해 업데이트 관리 일정을 제어할 수 있지만, 업데이트 관리 유지 관리 기간 이후에도 업데이트를 다운로드할 수 있게 됩니다. 이를 통해 업데이트 관리에서 **유지 관리 기간을 초과함** 오류가 발생하지 않을 수 있습니다.
 
 PowerShell을 사용하여 설정할 수도 있습니다. 이를 위해 업데이트를 자동으로 다운로드하려는 시스템에서 다음 PowerShell을 실행합니다.
 
@@ -350,7 +347,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|* .azure-automation.net|*.azure-automation.us|
+|\* .azure-automation.net|*.azure-automation.us|
 
 Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid Worker 역할 포트](automation-hybrid-runbook-worker.md#hybrid-worker-role)를 참조하세요.
 
@@ -379,7 +376,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="missing-updates-list"></a>누락 업데이트 목록
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>컴퓨터 목록
@@ -634,7 +631,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행해야 할 수도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
 
-## <a name="remove-a-vm-for-update-management"></a>업데이트 관리용 VM 제거
+## <a name="remove-a-vm-from-update-management"></a>업데이트 관리에서 VM을 제거 합니다.
 
 업데이트 관리에서 VM을 제거하려면:
 

@@ -2,19 +2,19 @@
 title: 자습서 - Linux 가상 머신 및 Python 애플리케이션을 사용하여 Azure Key Vault에 비밀 저장 | Microsoft Docs
 description: 이 자습서에서는 Azure Key Vault에서 비밀을 읽는 Python 애플리케이션을 구성하는 방법을 알아봅니다.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702116"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876698"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>자습서: Linux VM 및 Python 앱을 사용하여 Azure Key Vault에 비밀 저장
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 `az vm create` 명령을 사용하여 VM을 만듭니다.
 
-다음 예제에서는 **myVM**이라는 VM을 만들고 **azureuser**라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치(**~/.ssh**)에 배치합니다. 특정 키 집합을 대신 만들려면 `--ssh-key-value` 옵션을 사용합니다.
+다음 예제에서는 **myVM**이라는 VM을 만들고 **azureuser**라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하고 이를 기본 키 위치( **~/.ssh**)에 배치합니다. 특정 키 집합을 대신 만들려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azurecli-interactive
 az vm create \

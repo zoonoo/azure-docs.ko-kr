@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
 ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584610"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Azure SQL Database의 Azure 유지 관리 이벤트 계획
@@ -35,7 +35,7 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 클라우드 데이터베이스 서비스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 강력한 연결 [재시도 논리](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 합니다. 그러면 이러한 상황을 완화하는 데 도움이 되며 일반적으로 최종 사용자에게 오류를 투명하게 만들 수 있습니다.
 
-## <a name="frequency"></a>Frequency(빈도)
+## <a name="frequency"></a>빈도
 
 평균적으로 계획된 유지 관리 이벤트는 매달 1.7개가 발생합니다.
 

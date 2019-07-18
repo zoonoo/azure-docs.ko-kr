@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 06/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a71e8b3ffff822521a23aafd6764bcce9bd4d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153388"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303925"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
-Azure Media Services를 사용 하면 다양 한 브라우저 및 장치에서 콘텐츠를 재생할 수 있도록 고품질 디지털 미디어 파일을 적응 비트 전송률 MP4 파일로 인코딩할 수 있습니다. Media Services 인코딩 작업을 성공적으로 만들고 출력 자산을 적응 비트 전송률 mp4 및 스트리밍 구성 파일의 집합입니다. 구성 파일에는.ism,.ismc,.mpi, 및 기타 파일을 수정 하면 안을 포함 됩니다. 인코딩 작업이 완료 되 면 있습니다 활용할 수 있습니다 [동적 패키징](dynamic-packaging-overview.md) 스트리밍을 시작 하 고 있습니다.
+디지털 비디오 및/또는 다른 파일의 크기를 줄이면 하는 (a) 및/또는 (b)와 호환 되는 형식을 생성 하기 위한 목적으로 하나의 표준 형식에서 오디오를 포함 하는 파일을 변환 하는 프로세스를 적용할 Media Services의 encoding 용어는 다양 한 장치 및 응용 프로그램입니다. 이 프로세스는 비디오 압축 또는 트랜스 코딩 라고도 합니다. 참조를 [데이터 압축](https://en.wikipedia.org/wiki/Data_compression) 하며 [인코딩 및 트랜스 코딩 란?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) 개념에 대 한 자세한 내용은 합니다.
 
-출력에 비디오를 확인 하려면 재생에 대 한 클라이언트에서 사용할 자산을 생성 해야는 **스트리밍 로케이터** 스트리밍 Url 작성 및 합니다. 그런 다음 매니페스트에 지정된 된 형식에 따라 클라이언트 스트림을 받을 선택 된 프로토콜입니다.
+비디오 장치 및 응용 프로그램에 일반적으로 전달할지 [점진적 다운로드](https://en.wikipedia.org/wiki/Progressive_download) 를 통해 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)합니다. 
 
-다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
+* 점진적 다운로드를 통해 전달할를 사용할 수 있습니다 Azure Media Services는 디지털 미디어 파일 (mezzanine) 변환 하는 [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) 사용 하 여 인코딩된 비디오를 포함 하는 파일을 [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) 코덱 및 사용 하 여 인코딩된 오디오 합니다 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) 코덱 합니다. 이 MP4 파일 자산 저장소 계정에 기록 됩니다. Azure Storage Api 또는 Sdk를 사용할 수 있습니다 (예를 들어 [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 파일을 직접 다운로드. 출력을 만들 경우 해당 위치를 사용 하는 저장소에서 관련 컨테이너 이름의 자산입니다. 그렇지 않은 경우 Media Services를 사용할 수 있습니다 [자산 컨테이너 Url을 나열할](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)합니다. 
+* 콘텐츠 배달에 대 한 적응 비트 전송률 스트리밍을 통해를 준비 하려면 mezzanine 파일 (높음-낮음) 여러 전송률로 인코딩할 수 해야 합니다. 비트 전송률을 줄일 수으로 품질의 정상적인 전환 되도록 따라서 비디오의 해상도가입니다. 소위 인코딩 사다리 – 해상도 및 비트 전송률의 테이블에에서이 인해 (참조 [자동으로 생성 된 적응 비트 전송률 사다리](autogen-bitrate-ladder.md)). Media Services를 사용 하 여이 과정에서 – 여러 전송률로 mezzanine 파일을, 저장소 계정에 자산을 쓸 스트리밍 관련된 구성 파일, 및 MP4 파일 집합을 얻게 됩니다. 사용할 수 있습니다는 [동적 패키징](dynamic-packaging-overview.md) 같은 스트리밍 프로토콜을 통해 비디오를 배달 하는 Media Services의 기능 [MPEG DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) 하 고 [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)합니다. 작성 해야이 [스트리밍 로케이터](streaming-locators-concept.md) 빌드하고 스트리밍 Url을 다음 전달 될 수 있습니다 해제 장치/응용 프로그램의 기능을 기반으로 하는 지원 되는 프로토콜에 해당 합니다.
 
-![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+다음 다이어그램에서는 주문형으로 동적 패키징과 인코딩 워크플로 보여 줍니다.
+
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 이 항목에서는 Media Services v3을 사용하여 콘텐츠를 인코딩하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="transforms-and-jobs"></a>변환 및 작업
 
-Media Services v3을 사용하여 인코딩하려면 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 만들어야 합니다. 변환은 인코딩 설정 및 출력에 대한 방법을 정의하며 작업은 방법의 인스턴스입니다. 자세한 내용은 [Transform 및 Job](transforms-jobs-concept.md)을 참조하세요.
+Media Services v3을 사용하여 인코딩하려면 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 만들어야 합니다. 인코딩 설정 및 출력;에 대 한는 레시피를 정의 하는 변환 작업에는 레시피의 인스턴스입니다. 자세한 내용은 [Transform 및 Job](transforms-jobs-concept.md)을 참조하세요.
 
 Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하여 입력 미디어 파일을 처리하는 방법을 인코더에 알려줍니다. 예를 들어 인코딩된 콘텐츠에서 원하는 비디오 해상도 및/또는 오디오 채널 수를 지정할 수 있습니다. 
 
@@ -44,11 +47,46 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 > [!NOTE]
 > MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 따른 종속성을 서비스에서 사용하지 않아야 합니다.
 
+### <a name="creating-job-input-from-an-https-url"></a>HTTPS URL에서 작업 입력 만들기
+
+비디오를 처리 하는 작업을 제출 하면 Media Services 입력된 비디오를 찾을 수 있는 위치를 지시 해야 합니다. 옵션 중 하나는 HTTPS URL을 작업 입력으로 지정 하는 것입니다. 현재 Media Services v3는 청크 분할된 전송 인코딩을 HTTPS url을 지원 하지 않습니다. 
+
+#### <a name="examples"></a>예
+
+* [.NET을 사용 하 여 HTTPS URL로 인코딩](stream-files-dotnet-quickstart.md)
+* [REST 사용 하 여 HTTPS URL로 인코딩](stream-files-tutorial-with-rest.md)
+* [CLI 사용 하 여 HTTPS URL로 인코딩](stream-files-cli-quickstart.md)
+* [Node.js 사용 하 여 HTTPS URL로 인코딩](stream-files-nodejs-quickstart.md)
+
+### <a name="creating-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
+
+입력 비디오는 Media Service 자산으로 저장할 수 있으며 이 경우 파일(로컬 또는 Azure Blob Storage에 저장됨)을 기반으로 입력 자산을 만듭니다. 
+
+#### <a name="examples"></a>예
+
+[기본 제공 사전 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
+
+### <a name="creating-job-input-with-subclipping"></a>서브를 사용 하 여 작업 입력 만들기
+
+비디오를 인코딩할 때에 또는 소스 파일을 잘라 트리밍하고 입력된 비디오의 원하는 부분만 있는 출력을 생성 하려면 지정할 수 있습니다. 이 기능을 사용 하 여 사용할 [변환](https://docs.microsoft.com/rest/api/media/transforms) 중 하나를 사용 하 여 빌드된 합니다 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 미리 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정입니다. 
+
+만들도록 지정할 수는 [작업](https://docs.microsoft.com/rest/api/media/jobs/create) 비디오 주문형 또는 라이브 아카이브를 (기록 된 이벤트)의 단일 클립을 사용 합니다. 작업 입력 자산 또는 HTTPS URL을 수 있습니다.
+
+> [!TIP]
+> 비디오의 sublip 비디오 reencoding 하지 않고 스트리밍 하려는 경우 사용을 고려 [동적 Packager를 사용 하 여 매니페스트 미리 필터링](filters-dynamic-manifest-overview.md)합니다.
+
+#### <a name="examples"></a>예
+
+예제를 참조 하세요.
+
+* [서브 클립.NET을 사용 하 여 비디오](subclip-video-dotnet-howto.md)
+* [서브 클립 REST 사용 하 여 비디오](subclip-video-rest-howto.md)
+
 ## <a name="built-in-presets"></a>기본 제공 미리 설정
 
 Media Services에서 현재 지원하는 기본 제공 인코딩 미리 설정은 다음과 같습니다.  
 
-### <a name="builtinstandardencoderpreset-preset"></a>BuiltInStandardEncoderPreset 미리 설정
+### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)은 표준 인코더로 입력 비디오를 인코딩하는 기본 제공 미리 설정을 지정하는 데 사용됩니다. 
 
@@ -68,7 +106,7 @@ Media Services에서 현재 지원하는 기본 제공 인코딩 미리 설정�
 
 기본 설정을 사용 하는 방법을 보려면, 체크 아웃 [업로드, 인코딩 및 스트리밍 파일](stream-files-tutorial-with-api.md)합니다.
 
-### <a name="standardencoderpreset-preset"></a>StandardEncoderPreset 미리 설정
+### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)은 표준 인코더로 입력 비디오를 인코딩할 때 사용할 설정을 설명합니다. Transform 미리 설정을 사용자 지정할 때 이 미리 설정을 사용합니다. 
 
@@ -79,25 +117,31 @@ Media Services에서 현재 지원하는 기본 제공 인코딩 미리 설정�
 - 높이 너비 AVC 내용에 대 한 모든 값은 4의 배수 여야 합니다.
 - Azure Media Services v3에서는 인코딩 비트 전송률 모두 비트 / 초입니다. 이 킬로 비트/초 단위로 v2 Api 사용 하 여 사전 설정에서 다릅니다. 예를 들어 v2의 비트 전송률 (k b/초) 128로 지정 된, 경우 v3에서 것은에 설정할 128000 (비트/초)입니다.
 
-#### <a name="examples"></a>예
+### <a name="customizing-presets"></a>사전 설정을 사용자 지정
 
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코더 사전 설정을 사용자 지정 하는 방법을 보여 주는 예제를 참조 하세요.
+
+#### <a name="examples"></a>예
 
 - [.NET을 사용 하 여 사전 설정 사용자 지정](customize-encoder-presets-how-to.md)
 - [CLI 사용 하 여 사전 설정 사용자 지정](custom-preset-cli-howto.md)
 - [REST 사용 하 여 사전 설정 사용자 지정](custom-preset-rest-howto.md)
 
+## <a name="preset-schema"></a>기본 설정된 스키마
+
+Media Services v3에서는 사전 설정에는 API 자체의 강력한 형식의 엔터티. 이러한 개체에 대 한 "schema" 정의 찾을 수 있습니다 [Open API Specification (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)합니다. 미리 설정 된 정의 볼 수도 있습니다 (같은 **StandardEncoderPreset**)에 [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (또는 다른 Media Services v3 SDK 참조 설명서).
+
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 
 미디어 처리 크기를 조정 하려면 참조 [CLI 사용 하 여 Scale](media-reserved-units-cli-how-to.md)합니다.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)
 * [기본 제공 사전 설정을 사용 하는 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
 * [기본 제공 사전 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
 * [특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정 빌드](customize-encoder-presets-how-to.md)
-* [Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)

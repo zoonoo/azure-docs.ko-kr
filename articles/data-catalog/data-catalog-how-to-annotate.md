@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001939"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65953177"
 ---
 # <a name="how-to-annotate-data-sources"></a>데이터 원본에 주석을 추가하는 방법
 ## <a name="introduction"></a>소개
@@ -27,9 +27,9 @@ ms.locfileid: "61001939"
 * 데이터베이스 관리자는 각 데이터베이스 및 허용된 ETL 처리 창에 대한 백업 일정을 알고 있습니다.
 * 시스템 소유자는 사용자가 데이터 원본에 대한 액세스를 요청하는 프로세스를 알고 있습니다.
 * 데이터 관리자는 데이터 원본의 자산 및 특성을 엔터프라이즈 데이터 모델에 매핑하는 방법을 알고 있습니다.
-* 분석가는 데이터가 지원하는 비즈니스 프로세스의 컨텍스트에서 어떻게 사용되는지 알고 있습니다.
+* 분석가 데이터가 지 원하는 비즈니스 프로세스의 컨텍스트에서 사용 되는 방법을 알고 있습니다.
 
-각 관점은 가치가 있으며 데이터 카탈로그는 각각 서로 캡처되고 사용되도록 허용하는 메타데이터에 크라우드소싱 접근을 사용하여 등록된 데이터 원본에 대한 전체적인 그림을 제공합니다. 데이터 카탈로그 포털을 사용하여 각각의 사용자는 다른 사용자가 제공하는 주석을 볼 수 있는 동안 자신의 주석을 추가하고 편집할 수 있습니다.
+각 관점은 가치가 있으며 데이터 카탈로그는 각각 서로 캡처되고 사용되도록 허용하는 메타데이터에 크라우드소싱 접근을 사용하여 등록된 데이터 원본에 대한 전체적인 그림을 제공합니다. Data Catalog 포털을 사용 하 여, 각 사용자 추가 및 편집할 수 자신의 주석, 다른 사용자가 제공한 주석을 볼 수 있습니다.
 
 ## <a name="different-types-of-annotations"></a>다양한 유형의 주석
 데이터 카탈로그는 다음과 같은 형식의 주석을 지원합니다.

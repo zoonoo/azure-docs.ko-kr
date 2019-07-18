@@ -5,22 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/05/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 555a8e3e92dc1d12cb7c6d6e06d2511f15a2c862
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fb9e9ea0e126509697b4874bf1e5e0b6a380e7f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66425768"
 ---
-|**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2 연결** | **집계<br>처리량 벤치마크** | **BGP** |
-|---       | ---        | ---       | ---            | ---       | --- |
-|**Basic** | 최대 10    | 최대 128  | 지원되지 않음  | 100Mbps  | 지원되지 않음|
-|**VpnGw1**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 |
-|**VpnGw2**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 |
-|**VpnGw3**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 |
+|**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
+|---       | ---        | ---       | ---            | ---       | --- | --- |
+|**Basic** | 최대 10    | 최대 128  | 지원되지 않음  | 100Mbps  | 지원되지 않음| 아니요 |
+|**VpnGw1**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 아니요 |
+|**VpnGw2**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 아니요 |
+|**VpnGw3**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 아니요 |
+|**VpnGw1AZ**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 예 |
+|**VpnGw2AZ**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 예 |
+|**VpnGw3AZ**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 예 |
 
 
 (*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.

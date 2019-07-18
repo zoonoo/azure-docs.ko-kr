@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893965"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147292"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>하이브리드 환경에서 Linux 컴퓨터용 Log Analytics 에이전트 구성
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Linux 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](quick-collect-azurevm.md)을 참조하세요.  
+[Azure Log Analytics](../platform/agent-windows.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Linux 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다. 이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Linux 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Linux VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](quick-collect-azurevm.md)을 참조하세요.  
 
-지원되는 구성을 이해하려면 [지원되는 Linux 운영 체제](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)을 검토합니다.
+계속하기 전에 먼저 Log Analytics 에이전트 [개요](../platform/log-analytics-agent.md) 문서를 검토하여 지원되는 구성, [지원되는 Linux 운영 체제](../platform/log-analytics-agent.md#supported-linux-operating-systems) 및 [네트워크 방화벽 구성](../platform/log-analytics-agent.md#network-firewall-requirements)을 이해해야 합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

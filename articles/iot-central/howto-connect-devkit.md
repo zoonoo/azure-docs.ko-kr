@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66235873"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
 
@@ -208,12 +208,12 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>상태 
-| 이름          | 표시 이름   | 정상 | 주의 | 위험 | 
+| 이름          | Display name   | 정상 | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨강    | 
+| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨간색    | 
 
-#### <a name="events"></a>이벤트 
-| 이름             | 표시 이름      | 
+#### <a name="events"></a>Events 
+| 이름             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
 
@@ -221,7 +221,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | 초기 |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
@@ -229,25 +229,25 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 설정 전환
 
-| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| Display name | 필드 이름 | 온 텍스트 | 오프 텍스트 | 초기 |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+| IR           | activateIR | ON      | 끄기      | 꺼짐     |
 
 ### <a name="properties"></a>properties
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 디바이스 속성 | 디바이스 위치   | location  | location    |
-| Text            | 제조 일자     | manufacturedIn   | N/A       |
+| 텍스트            | 제조 일자     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>명령
 
-| 표시 이름 | 필드 이름 | 반환 형식 | 입력된 필드의 표시 이름 | 입력된 필드 이름 | 입력된 필드 형식 |
+| Display name | 필드 이름 | 반환 형식 | 입력된 필드의 표시 이름 | 입력된 필드 이름 | 입력된 필드 형식 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | echo       | text        | 표시할 값         | displayedValue   | text             |
 | 카운트다운    | 카운트다운  | number      | 계산               | countFrom        | number           |
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 된 다음 단계에 알아보려면는 이제 Azure IoT Central 응용 프로그램을 Raspberry Pi를 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.
+제안 된 다음 단계에 알아보려면는 이제 Azure IoT Central 응용 프로그램에 MXChip IoT DevKit을 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.

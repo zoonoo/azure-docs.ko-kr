@@ -5,16 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
-ms.date: 11/12/2018
-ms.author: v-biyu
+ms.date: 09/18/2018
+ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: f189843e865863d9b4088363e691ebc42ad9f2a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865892"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182349"
 ---
 ### <a name="network-interfaces"></a>네트워크 인터페이스
 

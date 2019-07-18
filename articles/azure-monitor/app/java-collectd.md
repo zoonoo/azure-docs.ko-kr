@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061203"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
@@ -114,7 +114,7 @@ Application Insights 리소스를 엽니다 [메트릭 차트를 추가한][metr
 *포털에 데이터가 표시되지 않습니다.*
 
 * [검색][diagnostic]을 열고 원시 이벤트가 도착했는지 확인합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
-*  [나가는 데이터에 대한 방화벽 예외를 설정](../../azure-monitor/app/ip-addresses.md)
+* [나가는 데이터에 대한 방화벽 예외를 설정](../../azure-monitor/app/ip-addresses.md)
 * Application insights 플러그 인에서 추적을 사용할 수 있습니다. `<Plugin ApplicationInsightsWriter>`에서 이 줄 추가:
   * `SDKLogger true`
 * 터미널을 열고 세부정보 표시 모드를 시작하여 어떤 문제가 보고되었는지 확인합니다.

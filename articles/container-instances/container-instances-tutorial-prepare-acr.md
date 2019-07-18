@@ -19,14 +19,14 @@ ms.locfileid: "57538156"
 
 세 부분으로 이루어진 자습서의 두 번째 부분입니다. 자습서의 [1부](container-instances-tutorial-prepare-app.md)에서는 Node.js 웹 애플리케이션에 사용할 Docker 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
 
-Azure Container Registry는 Azure의 개인 Docker 레지스트리입니다. 이 자습서에서는 구독에서 Azure Container Registry 인스턴스를 만든 후 이전에 만든 컨테이너 이미지를 여기에 푸시합니다. 시리즈의 2부에 해당하는 본 문서에서는 다음 작업을 수행합니다.
+Azure Container Registry는 Azure의 프라이빗 Docker 레지스트리입니다. 이 자습서에서는 구독에서 Azure Container Registry 인스턴스를 만든 후 이전에 만든 컨테이너 이미지를 여기에 푸시합니다. 시리즈의 2부에 해당하는 본 문서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Container Registry 인스턴스 만들기
 > * Azure Container Registry에 컨테이너 이미지 태그 지정
 > * 레지스트리에 이미지 업로드
 
-시리즈의 마지막 과정인 그 다음 문서에서는 Azure Container Instances에 개인 레지스트리의 컨테이너를 배포합니다.
+시리즈의 마지막 과정인 그 다음 문서에서는 Azure Container Instances에 프라이빗 레지스트리의 컨테이너를 배포합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -92,7 +92,7 @@ Login Succeeded
 
 ## <a name="tag-container-image"></a>컨테이너 이미지 태그 지정
 
-컨테이너 이미지를 Azure Container Registry 같은 개인 레지스트리에 푸시하려면 먼저 레지스트리 로그인 서버의 전체 이름을 사용하여 이미지에 태그를 지정해야 합니다.
+컨테이너 이미지를 Azure Container Registry 같은 프라이빗 레지스트리에 푸시하려면 먼저 레지스트리 로그인 서버의 전체 이름을 사용하여 이미지에 태그를 지정해야 합니다.
 
 먼저 Azure 컨테이너 레지스트리의 전체 로그인 서버 이름을 가져옵니다. [az acr show][az-acr-show] 명령을 실행하고, `<acrName>`을 방금 만든 레지스트리 이름으로 바꿉니다.
 
@@ -140,7 +140,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-개인 레지스트리의 전체 로그인 서버 이름으로 *aci-tutorial-app* 이미지에 태그를 지정했으니, [docker push][docker-push] 명령을 사용하여 이미지를 레지스트리에 푸시할 수 있습니다. `<acrLoginServer>`를 이전 단계에서 얻은 전체 로그인 서버 이름으로 바꿉니다.
+프라이빗 레지스트리의 전체 로그인 서버 이름으로 *aci-tutorial-app* 이미지에 태그를 지정했으니, [docker push][docker-push] 명령을 사용하여 이미지를 레지스트리에 푸시할 수 있습니다. `<acrLoginServer>`를 이전 단계에서 얻은 전체 로그인 서버 이름으로 바꿉니다.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1

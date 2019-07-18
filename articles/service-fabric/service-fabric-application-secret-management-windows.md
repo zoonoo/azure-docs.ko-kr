@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615263"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화
@@ -29,7 +29,7 @@ ms.locfileid: "60615263"
 ## <a name="obtain-a-data-encipherment-certificate"></a>데이터 암호화 인증서 가져오기
 데이터 암호화 인증서는 서비스의 Settings.xml에 포함된 [매개 변수][parameters-link] 및 서비스의 ServiceManifest.xml에 있는 [환경 변수][environment-variables-link]를 암호화 및 해독하는 용도로만 엄격하게 사용됩니다. 인증 또는 암호화 텍스트의 서명에는 사용되지 않습니다. 인증서는 다음 요구 사항을 충족해야 합니다.
 
-* 인증서에 개인 키가 포함되어 있어야 합니다.
+* 인증서에 프라이빗 키가 포함되어 있어야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
 * 인증서 키 사용에는 데이터 암호화(10)가 포함되어야 하며, 서버 인증 또는 클라이언트 인증은 포함되면 안 됩니다. 
   

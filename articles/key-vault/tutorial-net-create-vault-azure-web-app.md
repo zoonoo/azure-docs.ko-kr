@@ -2,19 +2,19 @@
 title: 자습서 - .NET에서 Azure Web App과 Azure Key Vault 사용 | Microsoft Docs
 description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션을 구성합니다.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 42c8d863a58c5f5d8f47f6686aa9a5b8f80277d2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805893d6b5756c76ebc523187e0ed75c9fe24ed9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710509"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874755"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com
 * Mac: [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
 * Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
-  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://review.docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+  * 이 자습서에서는 Azure CLI를 로컬로 실행해야 합니다. Azure CLI 버전 2.0.4 이상이 설치되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>관리 서비스 ID 정보
@@ -191,7 +191,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 ## <a name="run-the-web-app"></a>웹앱 실행
 
-1. Visual Studio 2017의 주 메뉴에서 디버깅하거나 디버깅하지 않고 **디버그** > **시작**을 선택합니다. 
+1. Visual Studio 2019의 주 메뉴에서 디버깅하거나 디버깅하지 않고 **디버그** > **시작**을 선택합니다. 
 1. 브라우저에서 다음과 같이 **정보** 페이지로 이동합니다.  
     **AppSecret**에 대한 값이 표시됩니다.
 

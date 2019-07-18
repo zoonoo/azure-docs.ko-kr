@@ -128,4 +128,4 @@ az group delete --name myResourceGroup --yes
 
 이 빠른 시작에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 두 VM 간에 비공개로 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 
-Azure는 VM 간에 무제한 비공개 통신을 허용합니다. 기본적으로 Azure는 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.
+Azure는 VM 간에 무제한 프라이빗 통신을 허용합니다. 기본적으로 Azure는 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.

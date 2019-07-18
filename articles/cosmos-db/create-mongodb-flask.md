@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119210"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954662"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 Python 앱 빌드
 
@@ -104,7 +104,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 2. 터미널 창을 열고 `cd`로 앱이 저장된 디렉터리로 이동합니다.
 
-3. 그런 다음 Mac을 사용하는 경우 Flask 앱에 대한 환경 변수를 `set FLASK_APP=app.py` 또는 `export FLASK_APP=app.py`로 설정합니다.
+3. 그런 다음, Flask 앱에 대한 환경 변수를 `set FLASK_APP=app.py`, PowerShell 편집기의 경우 `$env:FLASK_APP = app.py` 또는 Mac을 사용하는 경우 `export FLASK_APP=app.py`로 설정합니다. 
 
 4. `flask run`을 사용하여 앱을 실행하고 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)으로 이동합니다.
 
@@ -142,7 +142,7 @@ Azure에 배포할 때 애플리케이션 키를 제거하고 아래 섹션이 �
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)를 참조하세요.
+그런 다음, MONGOURL, MONGO_PASSWORD 및 MONGO_USERNAME을 애플리케이션 설정에 추가해야 합니다. Azure Web Apps의 애플리케이션 설정에 대한 자세한 내용은 이 [자습서](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)를 참조하세요.
 
 이 리포지토리의 포크를 만들지 않으려면 아래의 [Azure에 배포] 단추를 클릭할 수도 있습니다. 그런 다음, Azure로 이동하고 Cosmos DB 계정 정보를 사용하여 애플리케이션 설정을 지정해야 합니다.
 

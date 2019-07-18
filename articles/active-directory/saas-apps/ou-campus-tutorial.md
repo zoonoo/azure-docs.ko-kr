@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 862594797410c19a60bf6cc34ba50868e52148ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 220f2d0f857b4626dbadccaf30a7a436bb15f409
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>자습서: OU Campus와 Azure Active Directory 통합
 

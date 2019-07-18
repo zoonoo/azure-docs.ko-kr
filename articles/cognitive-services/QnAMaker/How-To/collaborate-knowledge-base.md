@@ -1,21 +1,21 @@
 ---
-title: 기술 자료에 대한 공동 작업 - Qna Maker
+title: 기술 자료-QnA Maker에서 공동 작업
 titleSuffix: Azure Cognitive Services
 description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 Azure 역할 기반 액세스 제어를 통해 제공됩니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 757b791f632e6d7ecb15a0a40384061f0658a6ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857042"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447508"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>기술 자료에 대한 공동 작업
 
@@ -23,7 +23,7 @@ QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작�
 
 QnA Maker 서비스를 다른 사람과 공유하려면 다음 단계를 수행하세요.
 
-1. Azure Portal에 로그인하고 QnA Maker 리소스로 이동합니다.
+1. Azure portal에 로그인 하 고 QnA Maker 리소스로 이동 합니다.
 
     ![QnA Maker 리소스 목록](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 

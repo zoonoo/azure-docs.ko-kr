@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706687"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>My Apps 포털에서 그룹 정보를 업데이트
@@ -39,7 +39,7 @@ ms.locfileid: "64706687"
 
 1.  회사 또는 학교 계정에 로그인합니다.
 
-2.  웹 브라우저를 열고 이동 https://myapps.microsoft.com, 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com합니다.
+2.  웹 브라우저를 열고 이동 https://myapps.microsoft.com , 하거나 조직에서 제공 된 링크를 사용 합니다. 예를 들어, 있습니다 수 페이지로 이동 하는 사용자 지정 조직에 대 한 같은 https://myapps.microsoft.com/contoso.com 합니다.
 
     합니다 **앱** 조직에서 소유 하 고 사용 하 여 사용할 수 있습니다 모든 클라우드 기반 앱을 보여 주는 페이지가 나타납니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "64706687"
         
         - **보안.** 사용자 그룹의 공유 리소스에 대한 멤버 및 컴퓨터 액세스를 관리하는 데 사용됩니다. 예를 들어 특정 보안 정책의 보안 그룹을 만들 수 있습니다. 이렇게 하면 각 멤버에 개별적으로 권한을 추가할 필요 없이 한 번에 모든 멤버에게 권한 집합을 제공할 수 있습니다.
 
-        - **Office 365.** 공유 사서함, 일정, 파일, SharePoint 사이트 등에 대한 액세스를 멤버에게 부여하여 공동 작업 기회를 제공합니다. 이 옵션을 통해 조직 외부에 있는 사용자에게 그룹에 대한 액세스를 제공할 수 있습니다.
+        - **Office 365.** 공유 사서함, 일정, 파일, SharePoint 사이트 등에 대한 액세스를 멤버에게 부여하여 협업 기회를 제공합니다. 이 옵션을 통해 조직 외부에 있는 사용자에게 그룹에 대한 액세스를 제공할 수 있습니다.
 
     - **그룹 이름.** 기억하기 쉽고 의미 있는 그룹 이름을 추가합니다.
 

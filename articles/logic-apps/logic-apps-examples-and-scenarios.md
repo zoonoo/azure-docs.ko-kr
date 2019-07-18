@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
 ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303692"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
@@ -102,7 +102,7 @@ Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 �
 * [자습서: IoT 원격 모니터링 및에 IoT hub와 사서함을 연결 하는 Azure Logic Apps를 사용 하 여 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [블로그: Logic apps에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
-## <a name="end-to-end-scenarios"></a>종단 간 시나리오
+## <a name="end-to-end-scenarios"></a>엔드투엔드 시나리오
 
 * [백서: Logic Apps와 같은 Azure 서비스를 사용 하 여 종단 간 사례 관리 통합](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 

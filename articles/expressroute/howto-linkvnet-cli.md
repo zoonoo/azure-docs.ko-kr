@@ -5,15 +5,16 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: anzaman,cherylmc
+ms.date: 05/21/2019
+ms.author: cherylmc
+ms.reviewer: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883082"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621071"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -35,8 +36,8 @@ ms.locfileid: "60883082"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](howto-circuit-cli.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
-  * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](howto-routing-cli.md) 을 참조하세요. 
-  * Azure 개인 피어이링 구성되어 있는지 확인합니다. 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](howto-routing-cli.md) 을 참조하세요. 
+  * Azure 프라이빗 피어이링 구성되어 있는지 확인합니다. 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 구성합니다](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). `--gateway-type ExpressRoute`를 사용해야 합니다.
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. 
@@ -139,6 +140,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **연결 권한 부여를 해제하려면**
 
 ExpressRoute 회로와 가상 네트워크의 연결을 삭제하여 권한 부여를 해제할 수 있습니다.
+
+## <a name="modify-a-virtual-network-connection"></a>가상 네트워크 연결 수정
+가상 네트워크 연결의 특정 속성을 업데이트할 수 있습니다. 
+
+**연결 무게를 업데이트하려면**
+
+가상 네트워크를 여러 ExpressRoute 회로에 연결할 수 있습니다. 둘 이상의 ExpressRoute 회로에서 동일한 접두사를 수신할 수도 있습니다. 이 접두사를 대상으로 하는 트래픽을 전송할 연결을 선택하기 위해 연결의 *RoutingWeight*를 변경할 수 있습니다. 트래픽은 제일 높은 *RoutingWeight*를 사용한 연결로 전송됩니다.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+*RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
+
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성 
+설정할 수 있습니다 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) ExpressRoute 회로에 있으면 [ExpressRoute 직접](expressroute-erdirect-about.md) 가상 네트워크 게이트웨이 Ultra Performance 인지 ErGw3AZ 합니다. FastPath 패킷 / 초 및 온-프레미스 네트워크와 가상 네트워크 간에 초당 연결 등의 데이터 경로 성능을 향상 됩니다. 
+
+> [!NOTE] 
+> 이미 가상 네트워크에 연결 되어 있지만 FastPath 사용 하도록 설정 하지 않은 경우 새로 만들고 가상 네트워크 연결을 삭제 해야 합니다. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

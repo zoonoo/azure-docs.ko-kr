@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
 ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60903660"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
@@ -100,7 +100,7 @@ ms.locfileid: "60903660"
 
    b. 이메일의 제목을 입력합니다.
 
-   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
 
    d. **고급 옵션 표시**를 클릭합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "60903660"
 
     b. **첨부 파일 콘텐츠**를 선택합니다.
     
-    다. **HTML임** 상자에서 **예**를 선택합니다.
+    c. **HTML임** 상자에서 **예**를 선택합니다.
 
     ![Office 365 메일 구성 창](./media/automate-with-flow/11emailattachment.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: ad6a84679df09964b1bed047f3fbd236a29172b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942283"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 상점 세부 정보 탭
@@ -19,11 +19,11 @@ ms.locfileid: "64942283"
 **상점 세부 정보** 탭을 사용하여 영업 및 마케팅에 대한 정보와 아티팩트를 제공합니다.  이 탭에는 **제안 세부 정보**, **목록 세부 정보**, **마케팅 아티팩트**, **법적 정보**, **고객 지원**, **잠재 고객 관리**의 6가지 섹션이 있습니다.  별표(*)가 추가된 레이블은 필수 항목임을 나타냅니다.
 
 
-## <a name="offer-details-section"></a>제안 세부 정보 섹션
+## <a name="offer-details-section"></a>제품 세부 정보 섹션
 
 이 섹션에서는 제안의 요약과 설명을 제공합니다.  이 정보는 마켓플레이스에서 눈에 띄게 표시됩니다.
  
-![상점 세부 정보 탭의 제안 세부 정보 섹션](./media/storefront-tab-offer-details.png)
+![상점 세부 정보 탭의 제품 세부 정보 섹션](./media/storefront-tab-offer-details.png)
 
 여기서 다음 표에서이 탭에 있는 필드를 설명 합니다. 필수 필드는 별표(*)로 표시됩니다. 
 

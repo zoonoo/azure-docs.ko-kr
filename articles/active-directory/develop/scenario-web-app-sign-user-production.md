@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074712"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>로그인 한 사용자-프로덕션 환경으로 이동 하는 웹 앱
@@ -35,7 +35,7 @@ ms.locfileid: "65074712"
 한 번 웹 앱 로그인 사용자, 로그인 한 사용자 대신 웹 Api를 호출할 수 있습니다 것. 웹 앱에서 호출 웹 Api는 다음 시나리오의 개체:
 
 > [!div class="nextstepaction"]
-> [웹 Api를 호출 하는 웹 앱](scenario-web-app-call-api-overview.md)
+> [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md)
 
 ### <a name="deep-dive---web-app-tutorial"></a>딥 다이브 분석-웹 앱 자습서
 

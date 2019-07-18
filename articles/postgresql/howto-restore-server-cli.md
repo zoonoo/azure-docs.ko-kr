@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
-description: Azure CLI를 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법을 알아봅니다.
+title: 백업 및 PostgreSQL-단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
+description: 백업 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법을 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65069091"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>백업 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
@@ -35,7 +35,7 @@ Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기�
 서버를 만들 때 로컬 중복 백업 또는 지역 중복 백업을 위한 서버 구성 중에서 선택할 수 있습니다. 
 
 > [!NOTE]
-> 서버가 만들어지면 지리적으로 중복되거나 로컬로 중복된 중복 형식은 전환할 수 없습니다.
+> 서버가 만들어지면 지역 중복과 로컬 중복의 유형 간 전환할 수 없습니다.
 >
 
 `az postgres server create` 명령을 통해 서버를 만드는 동안 `--geo-redundant-backup` 매개 변수는 백업 중복성 옵션을 결정합니다. `Enabled`인 경우 지역 중복 백업이 수행됩니다. 또는 `Disabled`인 경우 로컬 중복 백업이 수행됩니다. 
@@ -72,7 +72,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 복원할 특정 시점을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2018-03-13T05:59:00-08:00`과 같이 현지 표준 시간대를 사용할 수 있습니다. UTC Zulu 형식을 사용할 수도 있습니다(예: `2018-03-13T13:59:00Z`). |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
 
@@ -112,7 +112,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 새 서버가 속하게 되는 리소스 그룹의 이름입니다.|
-|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
+|name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |source-server | mydemoserver | 해당 지역 중복 백업이 사용되는 기존 서버의 이름입니다. |
 |location | eastus | 새 서버의 위치입니다. |
 |sku-name| GP_Gen4_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen4_8은 vCore가 8개인 범용 4세대 서버로 매핑합니다.|

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61044655"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 요소
@@ -48,7 +48,7 @@ ms.locfileid: "61044655"
 ```
 
 ## <a name="remarks"></a>설명
-- `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](https://www.w3.org/TR/html5/forms.html#attr-input-accept)을 참조하세요. 기본값은 **null**입니다.
+- `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](https://www.w3.org/TR/html5/forms.html#attr-input-accept)을 참조하세요. 기본값은 **null**합니다.
 - `options.multiple`이 **true**로 설정되면 사용자가 브라우저의 파일 대화 상자에서 둘 이상의 파일을 선택할 수 있게 합니다. 기본값은 **false**입니다.
 - 이 요소는 `options.uploadMode` 값에 따라 두 가지 모드로 파일 업로드를 지원합니다. **file**을 지정하면 출력에 파일의 내용이 Blob으로 포함됩니다. **url**을 지정하면 파일은 임시 위치에 업로드되고 출력에 Blob의 URL이 포함됩니다. 임시 Blob은 24시간 후에 제거됩니다. 기본값은 **file**입니다.
 - 업로드된 파일은 보호됩니다. 출력 URL에는 배포 중에 파일에 액세스하기 위한 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)이 포함됩니다.

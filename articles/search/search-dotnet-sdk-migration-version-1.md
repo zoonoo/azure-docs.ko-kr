@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65024159"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
-
-> [!Important]
-> 이 콘텐츠는 준비 중입니다. Azure Search.NET SDK의 버전 9.0은 NuGet에서 사용할 수 있습니다. 이 문서에서는 9.0로 업그레이드 하는 방법에 설명 노력 합니다. 
-> 
 
 버전 1.0.2-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하는 경우 이 문서를 통해 버전 1.1로 애플리케이션을 업그레이드할 수 있습니다.
 
@@ -327,7 +323,7 @@ Azure Search .NET SDK의 각 작업은 동기 및 비동기 호출자에 대한 
 
 <a name="BugFixesV1"></a>
 
-## <a name="bug-fixes-in-version-11"></a>1.1 버전의 버그 수정
+## <a name="bug-fixes-in-version-11"></a>1\.1 버전의 버그 수정
 이전 버전의 Azure Search .NET SDK에는 사용자 지정 모델 클래스의 serialization과 관련된 버그가 있었습니다. Null이 허용되지 않는 값 형식의 속성으로 사용자 지정 모델 클래스를 만든 경우 버그가 발생할 수 있습니다.
 
 ### <a name="steps-to-reproduce"></a>재현 단계

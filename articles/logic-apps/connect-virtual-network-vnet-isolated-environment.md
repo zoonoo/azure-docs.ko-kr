@@ -1,20 +1,20 @@
 ---
 title: ISE(통합 서비스 환경)를 통해 Azure Logic Apps에서 Azure 가상 네트워크에 연결
-description: 논리 앱 및 통합 계정이 공용이나 “글로벌” Azure에서 격리된 비공개 상태를 유지하면서 Azure VNET(가상 네트워크)에 액세스할 수 있도록 ISE(통합 서비스 환경) 만들기
+description: 논리 앱 및 통합 계정이 공용이나 "글로벌" Azure에서 격리된 프라이빗 상태를 유지하면서 Azure VNET(가상 네트워크)에 액세스할 수 있도록 ISE(통합 서비스 환경) 만들기
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467088"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "65150661"
 
 이 문서에서는 다음 작업을 완료하는 방법을 보여줍니다.
 
-* 트래픽이 ISE(통합 서비스 환경)를 통해 가상 네트워크의 서브넷 간에 이동할 수 있도록 Azure 가상 네트워크에 포트를 설정합니다.
+* 트래픽이 해당 가상 네트워크의 서브넷에서 통합 서비스 환경 (ISE)을 통해 이동할 수 있도록 가상 네트워크에서 모든 필요한 포트가 열려 있는지 확인 합니다.
 
 * ISE(통합 서비스 환경)를 만듭니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "65150661"
 * Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
   > [!IMPORTANT]
-  > ISE에서 실행되는 논리 앱, 기본 제공 작업 및 커넥터의 경우 사용량 기반 가격 책정 플랜이 아닌 다른 가격 책정 플랜을 사용합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
+  > Logic apps, 기본 제공 트리거, 기본 제공 작업 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다. 
 
@@ -60,11 +60,13 @@ ms.locfileid: "65150661"
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>네트워크 포트 설정
+## <a name="check-network-ports"></a>네트워크 포트를 확인 합니다.
 
-올바르게 작동하고 액세스 가능한 상태로 유지되려면 ISE(통합 서비스 환경)에 가상 네트워크에서 사용 가능한 특정 포트가 있어야 합니다. 이러한 포트 중 하나를 사용할 수 없는 경우 ISE에 액세스할 수 없게 되며, ISE 작동이 중지될 수 있습니다. 가상 네트워크에서 ISE를 사용할 때 일반적인 설정 문제는 차단된 포트가 하나 이상 있는 경우입니다. ISE와 대상 시스템 간의 연결에 사용하는 커넥터에 자체 포트 요구 사항이 있을 수도 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
+가상 네트워크를 사용 하 여 통합 서비스 환경 (ISE)를 사용 하는 경우 설치 프로그램의 일반적인 문제는 하나 이상의 차단 된 포트로 것입니다. 커넥터에 ISE와 대상 시스템 간의 연결을 만드는 데 사용 하는 고유한 포트 요구 사항이 있을 수도 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
 
-ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 설정할 수 있습니다 [네트워크 보안 그룹](../virtual-network/security-overview.md) 하 여 해당 서브넷에 대해 [서브넷 간에 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)합니다. 이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. 합니다 [Resource Manager 서비스 태그](../virtual-network/security-overview.md#service-tags) 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사의 그룹을 나타냅니다.
+ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 필요에 따라를 설정할 수 있습니다 [네트워크 보안 그룹 (Nsg)](../virtual-network/security-overview.md) 하 여 가상 네트워크의 [서브넷간네트워크트래픽필터링](../virtual-network/tutorial-filter-network-traffic.md). Nsg를 사용 하는 가상 네트워크에는 다음 표에 설명 된 대로이 경로 선택 하면 특정 포트에 ISE 열리는지 있는지 확인 합니다. 가상 네트워크에서 방화벽 또는 Nsg를 설정한 경우 이러한 포트를 열면 있는지 확인 합니다. 이런 방식으로 ISE에 액세스할 수 있는 상태를 유지 및 여 ISE에 액세스 권한을 잃지 않도록 제대로 작동할 수 있습니다. 그렇지 않으면 모든 필요한 포트를 사용할 수 없는 경우에 ISE에 작동이 중지 됩니다.
+
+이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. 합니다 [Resource Manager 서비스 태그](../virtual-network/security-overview.md#service-tags) 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사의 그룹을 나타냅니다.
 
 > [!IMPORTANT]
 > 서브넷 내에서 내부 통신용 ISE 이러한 서브넷 내에서 모든 포트를 열어야에 필요 합니다.
@@ -116,7 +118,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 |
    | **위치**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **추가 용량** | 예 | 0 ~ 10 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [ISE 추가 용량](#add-capacity)합니다. |
+   | **추가 용량** | 예. | 0 ~ 10 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [ISE 추가 용량](#add-capacity)합니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크에 없는 경우 [Azure virtual network를 먼저 만들어야](../virtual-network/quick-create-portal.md)합니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet).  |
    |||||
@@ -159,7 +161,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    1. **서브넷 추가** 창에서 이 정보를 제공합니다.
 
       * **이름**: 서브넷의 이름
-      * **주소 범위(CIDR 블록)**: 가상 네트워크 및 CIDR 형식의 서브넷 범위
+      * **주소 범위(CIDR 블록)** : 가상 네트워크 및 CIDR 형식의 서브넷 범위
 
       ![서브넷 세부 정보 추가](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -199,33 +201,19 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
 ## <a name="create-logic-app---ise"></a>논리 앱 만들기 - ISE
 
-ISE(통합 서비스 환경)를 사용하는 논리 앱을 만들려면 이러한 차이점이 있는 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)의 단계를 따릅니다. 
-
-* 예를 들어 논리 앱을 만들 때 **Location** 속성에서 **통합 서비스 환경** 섹션에서 ISE를 선택합니다.
+통합 서비스 환경 (ISE)에서 실행 되는 논리 앱을 만드는 [일반적인 방법으로 논리 앱을 만들](../logic-apps/quickstart-create-first-logic-app-workflow.md) 설정 하는 경우를 제외 하 고는 **위치** 속성에 ISE에서 선택 합니다  **통합 서비스 환경** 섹션 예를 들어:
 
   ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* 동일한 기본 제공 트리거 및 HTTP와 같은 논리 앱으로 동일한 ISE에서 실행 하는 작업을 사용할 수 있습니다. **ISE** 레이블이 있는 커넥터는 논리 앱과 동일한 ISE에서 실행됩니다. **ISE** 레이블이 없는 커넥터는 전역 Logic Apps 서비스에서 실행됩니다.
-
-  ![ISE 커넥터 선택](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Azure 가상 네트워크에 ISE를 삽입하면 ISE의 논리 앱은 해당 가상 네트워크의 리소스에서 직접 액세스할 수 있습니다. 가상 네트워크에 연결된 온-프레미스 시스템의 경우 논리 앱이 이러한 항목 중 하나를 사용하여 해당 시스템에 직접 액세스할 수 있도록 해당 네트워크에 ISE를 삽입합니다. 
-
-  * SQL Server 등의 해당 시스템용 ISE 커넥터
-  
-  * HTTP 동작 
-  
-  * 사용자 지정 커넥터
-
-  가상 네트워크에 있지 않거나 ISE 커넥터가 없는 온-프레미스 시스템의 경우 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md)합니다.
+트리거 및 동작 작업 하는 방법을 해당 하는 레이블이 지정 된 전역 Logic Apps 서비스에 비해 ISE를 사용 하는 경우 참조 하는 방법의 차이 [와 격리 된 ISE 개요에서 전역](connect-virtual-network-vnet-isolated-environment-overview.md#difference)합니다.
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>통합 계정 만들기 - ISE
 
-ISE(통합 서비스 환경)에서 논리 앱으로 통합 계정을 사용하려면 해당 통합 계정은 논리 앱으로 *동일한 환경*을 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 
+통합 서비스 환경 (ISE)에 logic apps와 통합 계정을 사용 하려는 경우 해당 통합 계정을 사용 해야 합니다 *동일한 환경* logic apps로 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다.
 
-ISE를 사용하는 통합 계정을 만들려면 현재 **통합 서비스 환경** 섹션이 표시되는 **Location** 속성을 제외하고 [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)의 단계를 따릅니다. 예를 들어 지역 대신 ISE를 선택합니다.
+ISE를 사용 하는 통합 계정을 만드는 [일반적인 방법으로 통합 계정 만들기](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 설정 하는 경우를 제외 하 고는 **위치** 속성에 ISE에서 선택 합니다 **통합 환경 서비스** 섹션 예를 들어:
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

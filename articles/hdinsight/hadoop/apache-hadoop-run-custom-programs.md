@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
 ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713095"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
@@ -54,7 +54,7 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
     scp mycustomprogram.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    **USERNAME**을 클러스터의 SSH 사용자 계정으로 바꿉니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호할 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.
+    **USERNAME**을 클러스터의 SSH 사용자 계정으로 바꿉니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호할 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 프라이빗 키를 지정해야 합니다.
 
 2. [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)를 사용하여 클러스터에 연결합니다.
 

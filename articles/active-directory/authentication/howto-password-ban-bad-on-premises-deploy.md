@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414831"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785539"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -36,16 +36,20 @@ ms.locfileid: "60414831"
 
 ## <a name="deployment-requirements"></a>배포 요구 사항
 
+* 라이선싱 요구 사항은 문서에서 Azure AD 암호 보호를 확인할 수 있습니다 [조직에서 잘못 된 암호를 제거](concept-password-ban-bad.md#license-requirements)합니다.
 * Windows Server 2012를 실행 해야 설치 하는 Azure AD 암호 보호에 대 한 서비스 이상 DC 에이전트를 받는 모든 도메인 컨트롤러입니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트에 Windows Server 2012 도메인 또는 포리스트 기능 수준에서 수도 있어야 하는 것을 의미 하지 않습니다. 설명 했 듯이 [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles), 최소 DFL 또는 중 하나는 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 FFL 필요 하지 않습니다.
 * DC 에이전트 서비스가 설치 되어 있는 모든 컴퓨터에.NET 4.5가 설치 되어 있어야 합니다.
 * 설치 하는 Azure AD 암호 보호는 Windows Server 2012 R2를 실행 해야 하는 한 서비스 이상 프록시를 받는 모든 컴퓨터입니다.
+   > [!NOTE]
+   > 프록시 서비스 배포는 도메인 컨트롤러 수 아웃 바운드 인터넷에 직접 연결 하는 경우에 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다. 
+   >
 * Azure AD 암호 보호 프록시 서비스를 설치할 모든 컴퓨터에 설치 하는.NET 4.7 있어야 합니다.
-  .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
+  .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
 * 모든 컴퓨터에 설치 된 유니버설 C 런타임 가져올 Azure AD 암호 보호 구성 요소를 설치 하는 도메인 컨트롤러를 포함 하 여 있어야 합니다. 런타임은 Windows Update에서 모든 업데이트가 있는지 확인 하 여 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows의 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)합니다.
 * 네트워크 연결이 존재 해야 각 도메인에 하나 이상의 도메인 컨트롤러와 하나 이상의 서버를 호스트 하는 암호 보호에 대 한 프록시 서비스입니다. 이 연결에 프록시 서비스에서 RPC 서버 포트와 RPC 끝점 매퍼 포트 135 액세스 하려면 도메인 컨트롤러를 허용 해야 합니다. 기본적으로 RPC 서버 포트를 RPC 동적 포트를 이지만 하도록 구성할 수 있습니다 [정적 포트를 사용 하 여](#static)입니다.
 * 프록시 서비스를 호스팅하는 모든 컴퓨터에 네트워크는 다음 끝점에 액세스할 수 있어야 합니다.
 
-    |**엔드포인트**|**목적**|
+    |**엔드포인트**|**용도**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
@@ -141,7 +145,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
    > 이 cmdlet은 특정 Azure 테 넌 트에 대해 실행 되는 처음으로 완료 되기 전에 현저한 지연이 있을 수 있습니다. 오류가 보고 된 경우가 아니면이 지연에 대 한 걱정 하지 마세요.
 
 1. 포리스트를 등록합니다.
-   * 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. Cmdlet는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요합니다. 또한 포리스트 루트 도메인의 온-프레미스 Active Directory 도메인 관리자 권한이 필요합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
+   * 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. Cmdlet는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
 
       `Register-AzureADPasswordProtectionForest` cmdlet은 다음 세 가지 인증 모드를 지원 합니다.
 
@@ -215,7 +219,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
    두 경우 모두 대체 `http://yourhttpproxy.com:8080` 특정 HTTP 프록시 서버 포트와 주소입니다.
 
-   HTTP 프록시에 구성 된 경우 저희에 게 권한 부여 정책에 부여 해야 암호 보호에 대 한 프록시 서비스를 호스팅하는 컴퓨터의 Active Directory 컴퓨터 계정에 대 한 액세스.
+   HTTP 프록시를 권한 부여 정책을 사용 하도록 구성 된 경우 암호 보호에 대 한 프록시 서비스를 호스팅하는 컴퓨터의 Active Directory 컴퓨터 계정에 대 한 액세스를 부여 해야 합니다.
 
    중지 하 고 만들기 또는 업데이트 한 후에 프록시 서비스를 다시 시작 하는 것이 좋습니다 합니다 *AzureADPasswordProtectionProxy.exe.config* 파일입니다.
 
@@ -262,7 +266,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
    도메인 컨트롤러를 아직 되지 않은 컴퓨터에서 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스는 시작 및 실행 되지만 컴퓨터는 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 합니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들면 다음과 같습니다.
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

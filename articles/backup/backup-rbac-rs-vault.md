@@ -2,18 +2,18 @@
 title: Azure 역할 기반 액세스 제어를 사용하여 백업 관리
 description: 역할 기반 Access Control을 사용하여 Recovery Services 자격 증명 모음의 백업 관리 작업에 대한 액세스를 관리합니다.
 services: backup
-author: trinadhk
+author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/24/2019
+ms.author: utraghuv
+ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253721"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565650"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
@@ -23,7 +23,7 @@ Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액
 
 Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 역할을 제공 합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
 
-* [Backup 참여자](../role-based-access-control/built-in-roles.md#backup-contributor) - 이 역할은 Recovery Services 자격 증명 모음을 만들고 다른 사용자에 대한 액세스 권한을 제공하는 권한을 제외하고, 백업을 만들고 관리하는 모든 권한을 갖습니다. 모든 백업 관리 작업을 수행할 수 있는 백업 관리 관리자 역할로 생각하시면 됩니다.
+* [Backup 참여자](../role-based-access-control/built-in-roles.md#backup-contributor) -이 역할은 Recovery Services 자격 증명 모음을 삭제 하 고 다른 사용자에 게 액세스할 수 있도록 제외 하 고 백업을 만들고 관리 하는 데 필요한 모든 권한을 갖습니다. 모든 백업 관리 작업을 수행할 수 있는 백업 관리 관리자 역할로 생각하시면 됩니다.
 * [Backup 운영자](../role-based-access-control/built-in-roles.md#backup-operator) - 이 역할은 백업을 제거하고 백업 정책을 관리하는 권한을 제외하고, 참여자가 할 수 있는 모든 일을 할 수 있습니다. 이 역할은 온-프레미스 리소스의 데이터 삭제나 등록 제거를 통해 백업을 중지하는 작업처럼 안전하지 않은 작업을 수행할 수 없다는 점만 빼면 참여자와 똑같습니다.
 * [Backup 읽기 권한자](../role-based-access-control/built-in-roles.md#backup-reader) - 이 역할은 모든 백업 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할을 모니터링 요원으로 생각하시면 됩니다.
 
@@ -36,11 +36,11 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 | 관리 작업 | 필요한 최소 RBAC 역할 | 필요한 범위 |
 | --- | --- | --- |
-| Recovery Services 자격 증명 모음 만들기 | 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |
+| Recovery Services 자격 증명 모음 만들기 | Backup 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |
 | Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |
 | | 가상 머신 참가자 | VM 리소스 |
 | VM의 주문형 백업 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
-| VM 복원 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | 참가자 | VM이 배포될 리소스 그룹 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
 | 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
@@ -48,7 +48,7 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | | Storage 계정 참가자 | 디스크가 복원되는 Storage 계정 리소스 |
 | VM 백업에서 관리 디스크 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
-| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정  |
+| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정 |
 | | 참가자 | 관리 디스크가 복원될 리소스 그룹 |
 | VM 백업에서 개별 파일 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
@@ -67,15 +67,15 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 | 관리 작업 | 필요한 역할 | 리소스 |
 | --- | --- | --- |
-| Azure 파일 공유의 백업을 사용 하도록 설정 | Backup 참가자 | 복구 서비스 자격 증명 모음 |
+| Azure 파일 공유의 백업을 사용 하도록 설정 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 | 참가자 저장소 계정 리소스 |
-| VM의 주문형 백업 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
-| 파일 공유를 복원 합니다. | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |
+| 파일 공유를 복원 합니다. | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 | 복원 원본 및 대상 파일 공유 사용 되는 저장소 계정 리소스 |
-| 개별 파일 복원 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| 개별 파일 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 |   복원 원본 및 대상 파일 공유 사용 되는 저장소 계정 리소스 |
-| 보호 중지 | Backup 참가자 | 복구 서비스 자격 증명 모음 |      
-| 저장소 계정 자격 증명 모음에서 등록 취소 |   Backup 참가자 | 복구 서비스 자격 증명 모음 |
+| 보호 중지 | Backup 참가자 | Recovery Services 자격 증명 모음 |      
+| 저장소 계정 자격 증명 모음에서 등록 취소 |   Backup 참가자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 | 저장소 계정 리소스|
 
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/13/2019
 ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525928"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>지원되는 MySQL용 Azure 데이터베이스 서버 버전
@@ -25,13 +25,13 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 
 버그 수정 릴리스: 5.6.42
 
-Mysql 참조 [릴리스](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) 향상 된 기능 및 수정 5.6.42 MySQL에 대 한 자세한 내용은 합니다.
+MySQL 5.6.42의 향상된 기능 및 수정에 대한 자세한 내용은 Mysql [릴리스 노트](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) 를 참조합니다.
 
 ## <a name="mysql-version-57"></a>MySQL 버전 5.7
 
 버그 수정 릴리스: 5.7.24
 
-Mysql 참조 [릴리스](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) 향상 된 기능 및 수정에 대해 자세히 알아보려면 5.7.24 MySQL에 있습니다.
+ySQL 5.7.24의 향상된 기능 및 수정 사항에 대한 자세한 내용은 Mysql [릴리스 노트](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) 를 참조합니다.
 
 > [!NOTE]
 > 서비스에서 게이트웨이를 사용하여 새 인스턴스로 연결을 리디렉션합니다. 연결이 설정되면 MySQL 클라이언트는 MySQL Server 인스턴스에서 실행 중인 실제 버전이 아닌 게이트웨이에서 설정된 MySQL 버전을 표시합니다. MySQL Server 인스턴스의 버전을 확인하려면 MySQL 프롬프트에서 `SELECT VERSION();` 명령을 사용합니다.
@@ -39,7 +39,7 @@ Mysql 참조 [릴리스](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-
 ## <a name="managing-updates-and-upgrades"></a>업데이트 및 업그레이드 관리
 서비스는 버그 수정 버전 업데이트에 대한 패치를 자동으로 관리합니다. 예: 5.7.20~5.7.21  
 
-현재 주 및 부 버전 업그레이드는 지원되지 않습니다. 예를 들어 MySQL 5.6에서 MySQL 5.7로의 업그레이드는 지원되지 않습니다. 5.6에서 5.7로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 부 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
+현재 주 및 부 버전 업그레이드는 지원되지 않습니다. 예를 들어 MySQL 5.6에서 MySQL 5.7로의 업그레이드는 지원되지 않습니다. 5\.6에서 5.7로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 부 버전을 [덤프 및 복원](./concepts-migrate-dump-restore.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

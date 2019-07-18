@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715223"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 디바이스 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -74,15 +74,15 @@ ms.locfileid: "60631555"
 | 1 |Invoke-HcsSetupWizard: 이 명령은 활성 컨트롤러 에서만 실행할 수 있습니다. |수동 컨트롤러에서 구성을 수행합니다. |활성 컨트롤러에서 이 명령을 실행합니다. 자세한 내용은 [디바이스에서 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 2 |Invoke-HcsSetupWizard: 장치가 준비 되지 않았습니다. |데이터 0에 대한 네트워크 연결 문제가 있습니다. |데이터 0에 대한 실제 네트워크 연결을 확인합니다. |
 | 3 |Invoke-HcsSetupWizard: 네트워크 상의 다른 시스템과 충돌 하는 IP 주소 (HRESULT의 예외: 0x80070263). |데이터 0에 대해 제공된 IP가 이미 다른 시스템에서 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
-| 4 |Invoke-HcsSetupWizard: 클러스터 리소스 실패 했습니다. (HRESULT의 예외: 0x800713AE). |VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
+| 4 |Invoke-HcsSetupWizard: 클러스터 리소스 실패 했습니다. (예외가 발생한 HRESULT: 0x800713AE). |VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다. |사용되지 않는 새 IP를 제공합니다. |
 | 5 |Invoke-HcsSetupWizard: 잘못 된 IPv4 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조하세요. |
 | 6 |Invoke-HcsSetupWizard: 잘못 된 IPv6 주소입니다. |IP 주소는 잘못된 형식으로 제공됩니다. |형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요. |
-| 7 |Invoke-HcsSetupWizard: 끝점 매퍼에서 사용할 수 있는 끝점이 더 이상 있습니다. (HRESULT의 예외: 0x800706D9) |클러스터 기능이 작동하지 않습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
+| 7 |Invoke-HcsSetupWizard: 끝점 매퍼에서 사용할 수 있는 끝점이 더 이상 있습니다. (예외가 발생한 HRESULT: 0x800706D9) |클러스터 기능이 작동하지 않습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>선택적 웹 프록시 설정 중 오류
 | 번호 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: 잘못 된 매개 변수 (HRESULT의 예외: 0x80070057) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용합니다. http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 |Invoke-HcsSetupWizard: 잘못 된 매개 변수 (HRESULT의 예외: 0x80070057) |프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다. |URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용 합니다: http:// *\<IP 주소 또는 웹 프록시 서버의 FQDN >* : *\<TCP 포트 번호 >* |
 | 2 |Invoke-HcsSetupWizard: RPC 서버를 사용할 수 없습니다 (HRESULT의 예외: 0x800706ba) |근본 원인은 다음 중 하나입니다.<ol><li>클러스터가 켜지지 않았습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 명령은 수동 컨트롤러에서 실행되었습니다.</li></ol> |근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)해야 합니다.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC 호출이 실패 했습니다 (HRESULT의 예외: 0x800706be) |클러스터의 작동이 중단되었습니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다. |
 | 4 |Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없습니다 (HRESULT의 예외: 0x8007138f) |클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. |디바이스를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하여 클러스터 리소스를 만듭니다. |

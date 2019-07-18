@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259459"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807441"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
 
@@ -26,9 +26,11 @@ Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는
 > [!IMPORTANT]
 > 이제 가격 책정 계층에 관계없이 모든 할당에 Azure Policy의 규정 준수 평가가 제공됩니다. 할당에 규정 준수 데이터가 표시되지 않는 경우 구독이 Microsoft.PolicyInsights 리소스 공급자에 등록되었는지 확인하세요.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="how-is-it-different-from-rbac"></a>RBAC(역할 기반 액세스 제어)와 어떻게 다르나요?
 
-정책 및 RBAC(역할 기반 액세스 제어) 간에는 몇 가지 주요 차이점이 있습니다. RBAC는 다른 범위에 있는 사용자 작업에 중점을 둡니다. 리소스 그룹에 대한 기여자 역할에 추가되어 해당 리소스 그룹을 변경할 수 있습니다. 정책은 배포하는 동안 기존 리소스에 대한 리소스 속성에 중점을 둡니다. 정책은 리소스의 유형 또는 위치와 같은 속성을 제어합니다. RBAC와 달리 정책은 기본적으로 허용 및 명시적 거부 시스템입니다.
+Azure Policy 및 RBAC(역할 기반 액세스 제어)는 몇 가지 주요 차이점이 있습니다. RBAC는 다른 범위에 있는 사용자 작업에 중점을 둡니다. 리소스 그룹에 대한 기여자 역할에 추가되어 해당 리소스 그룹을 변경할 수 있습니다. Azure Policy는 배포 시 기존 리소스의 리소스 속성에 중점을 둡니다. Azure Policy는 리소스의 유형 또는 위치와 같은 속성을 제어합니다. RBAC와 달리 Azure Policy는 기본적으로 허용 및 명시적 거부 시스템입니다.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy의 RBAC 사용 권한
 
@@ -37,15 +39,15 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자(미리 보기)** 역할은 대부분의 정책 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자**와 **읽기 권한자**는 둘 다 모든 읽기 정책 작업을 사용할 수 있지만, **기여자**는 수정을 트리거할 수도 있습니다.
+여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자(미리 보기)** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자**와 **읽기 권한자**는 둘 다 모든 읽기 Azure Policy 작업을 사용할 수 있지만, **기여자**는 수정을 트리거할 수도 있습니다.
 
 기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 
-## <a name="policy-definition"></a>정책 정의 
+## <a name="policy-definition"></a>정책 정의
 
 Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만들기로 시작합니다. 모든 정책 정의에는 정책이 적용되는 조건이 있습니다. 또한 조건이 충족되면 발생하는 정의된 효과가 있습니다.
 
-Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예: 
+Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예:
 
 - **SQL Server 12.0 필요**: 모든 SQL Server가 버전 12.0을 사용하는지 확인합니다. 이 기준에 부합하지 않는 모든 서버를 거부하게 됩니다.
 - **허용되는 스토리지 계정 SKU** 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
@@ -92,7 +94,7 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 ## <a name="initiative-assignment"></a>이니셔티브 할당
 
-정책 할당처럼 이니셔티브 할당은 특정 범위에 할당된 이니셔티브 정의입니다.  이니셔티브 할당은 각 범위에 대해 여러 이니셔티브 정의를 만들 필요를 줄입니다. 이 범위 역시 관리 그룹부터 리소스 그룹까지 아우를 수 있습니다.
+정책 할당처럼 이니셔티브 할당은 특정 범위에 할당된 이니셔티브 정의입니다. 이니셔티브 할당은 각 범위에 대해 여러 이니셔티브 정의를 만들 필요를 줄입니다. 이 범위 역시 관리 그룹부터 리소스 그룹까지 아우를 수 있습니다.
 
 각 이니셔티브를 서로 다른 범위에 할당할 수 있습니다. 하나의 이니셔티브를 **subscriptionA** 및 **subscriptionB** 둘 다에 할당할 수 있습니다.
 
@@ -102,10 +104,10 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 예를 들어 각각 다른 형식의 매개 변수가 필요한 **policyA** 및 **policyB** 정책 정의를 사용하여 이니셔티브 정의 **initiativeC**가 있는 시나리오를 살펴보겠습니다.
 
-| 정책 | 매개 변수의 이름 |매개 변수 형식   |참고 |
+| 정책 | 매개 변수의 이름 |매개 변수 형식  |참고 |
 |---|---|---|---|
 | policyA | allowedLocations | array  |매개 변수 형식이 배열로 정의되었으므로 이 매개 변수는 값으로 문자열 목록을 예상합니다. |
-| policyB | allowedSingleLocation |string |매개 변수 형식이 문자열로 정의되었으므로 이 매개 변수는 값으로 한 단어를 예상합니다. |
+| policyB | allowedSingleLocation |문자열 |매개 변수 형식이 문자열로 정의되었으므로 이 매개 변수는 값으로 한 단어를 예상합니다. |
 
 이 시나리오에서는 **initiativeC**에 대한 이니셔티브 매개 변수를 정의할 때 세 가지 옵션이 있습니다.
 
@@ -115,7 +117,7 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 이니셔티브 정의에 값 옵션을 만드는 경우 이니셔티브 할당 중에 목록에 속하지 않는 다른 값을 입력할 수 없습니다.
 
-## <a name="maximum-count-of-policy-objects"></a>정책 개체의 최대 수
+## <a name="maximum-count-of-azure-policy-objects"></a>Azure Policy 개체의 최대 수
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +146,8 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 이제 Azure Policy 개요와 몇 가지 핵심 개념을 살펴보았으므로 다음과 같은 단계를 권장합니다.
 
-- [Portal을 사용하여 정책 정의 할당](assign-policy-portal.md)
-- [Azure CLI를 사용하여 정책 정의 할당](assign-policy-azurecli.md)
-- [PowerShell을 사용하여 정책 정의 할당](assign-policy-powershell.md)
+- [포털을 사용하여 정책 정의를 할당합니다](assign-policy-portal.md).
+- [Azure CLI를 사용하여 정책 정의를 할당합니다](assign-policy-azurecli.md).
+- [PowerShell을 사용하여 정책 정의를 할당합니다](assign-policy-powershell.md).
 - [Azure 관리 그룹으로 리소스 구성](..//management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
 - Channel 9에서 [Azure Policy를 통해 Azure 환경 제어](https://channel9.msdn.com/events/Build/2018/THR2030)를 봅니다.

@@ -1,18 +1,18 @@
 ---
 title: InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 description: InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741615"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
@@ -120,7 +120,7 @@ sudo systemctl start telegraf
 
      ![네임스페이스 및 메트릭 선택](./media/collect-custom-metrics-linux-telegraf/VM-resource-selector.png)
 
-## <a name="additional-configuration"></a>추가 구성 
+## <a name="additional-configuration"></a>기타 고려 사항 
 
 이전 연습에서는 몇 가지 기본 입력 플러그 인에서 메트릭을 수집하도록 Telegraf 에이전트를 구성하는 방법에 대한 정보를 제공합니다. Telegraf 에이전트는 몇 가지 추가적인 지원 구성 옵션을 포함하여 150개가 넘는 입력 플러그 인을 지원합니다. InfluxData는 [지원되는 플러그 인 목록](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) 및 [구성 방법](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/)에 대한 지침을 게시합니다.  
 
@@ -132,5 +132,6 @@ sudo systemctl start telegraf
 
 ## <a name="next-steps"></a>다음 단계
 - [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+
 
 

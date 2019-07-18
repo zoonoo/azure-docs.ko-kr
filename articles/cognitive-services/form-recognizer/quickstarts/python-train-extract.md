@@ -5,37 +5,42 @@ description: 이 빠른 시작에서는 Python에서 Form Recognizer REST API를
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63b58e5e667d03d7808973b0783ed98ab4cb5447
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026677"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605866"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognize 모델 학습 및 양식 데이터 추출
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
-이 빠른 시작에서는 Python에서 Form Recognizer REST API를 사용하여 양식을 학습시키고 채점하여 키-값 쌍 및 테이블을 추출합니다.
+이 빠른 시작에서는 Python에서 Azure Form Recognizer REST API를 통해 양식을 학습시키고 채점하여 키-값 쌍 및 테이블을 추출합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
--  Form Recognizer 제한 액세스 미리 보기에 대한 액세스 권한이 있어야 합니다. 미리 보기에 액세스하려면 [Cognitive Services Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요. 
+이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
+- Form Recognizer 제한된 액세스 미리 보기에 대한 액세스 권한. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요.
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
-- Form Recognizer에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)를 참조하세요.
-- 동일한 유형의 양식이 5세트 이상 있어야 합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다.
+- 동일한 형식의 5개 이상 양식으로 구성된 세트. 이 데이터를 사용하여 모델을 학습합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Blob Storage 계정의 루트에 데이터를 업로드합니다.
 
-## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
+## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
-샘플을 만들고 실행하려면 아래 코드 조각을 다음과 같이 변경합니다.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
-1. `<subscription_key>`의 값을 구독 키로 바꿉니다.
+## <a name="train-a-form-recognizer-model"></a>Form Recognizer 모델 학습
+
+먼저 Azure Storage Blob 컨테니어의 학습 데이터 세트가 필요합니다. 주 입력 데이터와 동일한 형식/구조의 채워진 양식(PDF 문서 및/또는 이미지)이 5개 이상 있어야 합니다. 또는 두 개의 채워진 양식이 있는 단일 빈 양식을 사용할 수 있습니다. 빈 양식의 파일 이름에 "empty"라는 단어가 포함되어야 합니다. 학습 데이터를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 집합 빌드](../build-training-data-set.md)를 참조하세요.
+
+Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델을 학습하려면 다음 python 코드를 실행하여 **Train** API를 호출합니다. 코드를 실행하기 전에 다음과 같이 변경합니다.
+
 1. `<Endpoint>` 값을 구독 키가 제공된 Azure 지역의 Form Recognizer 리소스에 대한 엔드포인트 URL로 바꿉니다.
-1. `<SAS URL>`을 학습 데이터가 있는 Azure Blob Storage 컨테이너 SAS(공유 액세스 서명) URL로 바꿉니다.  
+1. `<Subscription key>`를 이전 단계에서 복사한 구독 키로 바꿉니다.
+1. `<SAS URL>`을 Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL로 바꿉니다. SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 
     ```python
     ########### Python Form Recognizer Train #############
@@ -58,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     except Exception as e:
         print(str(e))
     ```
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `form-recognize-train.py`
+1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognize-train.py*와 같습니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python form-recognize-train.py`
 
@@ -103,16 +108,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 }
 ```
 
-`"modelId"` 값을 기록해 둡니다. 다음 단계에서 필요합니다.
+`"modelId"` 값을 적어두세요. 다음 단계에서 필요합니다.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>양식에서 키-값 쌍 및 테이블 추출
 
-다음으로, 문서를 분석하고 문서에서 키-값 쌍 및 테이블을 추출할 것입니다. 아래 Python 스크립트를 실행하여 **모델 - 분석** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+다음으로, 문서를 분석하여 키-값 쌍 및 테이블을 추출합니다. 뒤에 나오는 Python 스크립트를 실행하여 **모델 - 분석** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 개요 탭에서 찾을 수 있습니다.
-1. `<File Path>`를 데이터를 추출할 양식이 있는 파일 경로 위치 또는 URL로 바꿉니다.
-1. `<modelID>`를 모델 학습의 이전 단계에서 받은 모델 ID로 바꿉니다.
-1. `<file type>`을 지원되는 형식의 pdf, 이미지/jpeg, 이미지/png로 바꿉니다.
+1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
+1. `<path to your form>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다.
+1. `<modelID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
+1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`입니다.
 1. `<subscription key>`를 구독 키로 바꿉니다.
 
     ```python
@@ -121,11 +126,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 
@@ -140,13 +145,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         print(str(e))
     ```
 
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `form-recognize-analyze.py`
+1. 코드를 확장명이 .py인 파일로 저장합니다. 예를 들어 *form-recognize-analyze.py*와 같습니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python form-recognize-analyze.py`
 
 ### <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON으로 반환되고, 양식에서 추출된 키-값 쌍 및 테이블을 표시합니다.
+성공 응답이 JSON으로 반환됩니다. 양식에서 추출된 키-값 쌍 및 테이블을 나타냅니다.
 
 ```bash
 {
@@ -471,7 +476,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Python에서 Form Recognizer REST API를 사용하여 모델을 학습시키고 샘플 사례에서 실행했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
+이 빠른 시작에서는 Python에서 Form Recognizer REST API를 사용하여 모델을 학습시키고 샘플 시나리오에서 실행했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [REST API 참조 설명서](https://aka.ms/form-recognizer/api)

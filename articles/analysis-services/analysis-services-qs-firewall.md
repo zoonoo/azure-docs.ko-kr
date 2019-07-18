@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187286"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537140"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 
@@ -33,7 +33,7 @@ ms.locfileid: "54187286"
 1. 서버를 클릭하여 개요 페이지를 엽니다. 
 2. **설정** > **방화벽** > **방화벽 설정**에서 **켜기**를 클릭합니다.
 3. Power BI 서비스에서 DirectQuery 액세스를 허용하려면 **Power BI에서 액세스 허용**에서 **켜기**를 클릭합니다.  
-4. (선택 사항) 하나 이상의 IP 주소 범위를 지정합니다. 각 범위에 대한 이름, 시작 및 끝 IP 주소를 입력합니다. 
+4. (선택 사항) 하나 이상의 IP 주소 범위를 지정합니다. 각 범위에 대한 이름, 시작 및 끝 IP 주소를 입력합니다. 방화벽 규칙 이름은 128자로 제한되고 대문자, 소문자, 숫자, 밑줄 및 하이픈만 포함할 수 있습니다. 공백 및 기타 특수 문자는 허용되지 않습니다.
 5. **저장**을 클릭합니다.
 
      ![방화벽 설정](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5d0c8b458f11076ea87d74eae3eecd72fb37eb40
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664882"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621520"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -179,7 +179,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group?view=azure-cli-latest)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group?view=azure-cli-latest)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```azurecli
 az login
@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예: 
+클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예:
 - Windows에서: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
 - Mac에서: 키 집합 앱을 사용합니다.
 - Ubuntu에서: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: be8f70e36636fc090552fdc64a18f4d1829388e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db51e4020e3f16244b19c8107a17080bf85c3330
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>자습서: Fuze와 Azure Active Directory 통합
 
@@ -144,7 +144,7 @@ Fuze에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

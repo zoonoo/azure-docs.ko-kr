@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023122"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
@@ -118,7 +118,7 @@ Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
     ![Azure Functions 런타임 미리 보기 포털 구독 계획 및 이름][16]
 
-1. 모든 함수 앱이 포털의 왼쪽 창에 나열됩니다.  새 Function App을 만들려면 제목 **Function App**을 선택하고 **+** 옵션을 클릭합니다.
+1. 모든 함수 앱이 포털의 왼쪽 창에 나열됩니다.  새 함수 앱을 만들려면 제목 **함수 앱**을 선택하고 **+** 옵션을 클릭합니다.
 
 1. 함수 앱의 이름을 입력하고 올바른 구독을 선택한 후 프로그래밍할 Azure Functions 런타임 버전을 선택하고 **만들기**를 클릭합니다.
 

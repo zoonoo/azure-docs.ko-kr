@@ -18,7 +18,7 @@ ms.locfileid: "58000831"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>자습서: Azure에서 Terraform을 사용하여 온-프레미스 가상 네트워크 만들기
 
-이 자습서에서는 Azure Virtual Network(VNet)를 사용하여 온-프레미스 네트워크를 구현합니다. Azure VNet은 자체 사설 가상 네트워크로 대체할 수 있습니다. 이렇게 하려면 서브넷에 있는 적절한 IP 주소를 매핑합니다.
+이 자습서에서는 Azure Virtual Network(VNet)를 사용하여 온-프레미스 네트워크를 구현합니다. Azure VNet은 자체 프라이빗 가상 네트워크로 대체할 수 있습니다. 이렇게 하려면 서브넷에 있는 적절한 IP 주소를 매핑합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "58000831"
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 
-온-프레미스 네트워크를 시뮬레이션하려면 Azure Virtual Network를 만듭니다. 데모 VNet은 실제 가설 온-프레미스 네트워크를 대체합니다. 기존 온-프레미스 네트워크와 동일한 작업을 수행하려면 서브넷에 있는 적절한 IP 주소를 매핑하세요.
+온-프레미스 네트워크를 시뮬레이션하려면 Azure Virtual Network를 만듭니다. 데모 VNet은 실제 프라이빗 온-프레미스 네트워크를 대체합니다. 기존 온-프레미스 네트워크와 동일한 작업을 수행하려면 서브넷에 있는 적절한 IP 주소를 매핑하세요.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 

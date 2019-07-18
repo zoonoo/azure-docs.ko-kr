@@ -3,19 +3,19 @@ title: CTF(Collaborative Translation Framework) 보고 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: CTF(Collaborative Translation Framework) 보고 사용 방법입니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: swmachan
+ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712825"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443455"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -30,11 +30,11 @@ Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어�
 * 자동 번역(기계 번역)을 반환하지 않습니다.
 
 ## <a name="endpoint"></a>엔드포인트
-CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
+CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta/ctfreporting.svc 입니다.
 
 
 ## <a name="methods"></a>메서드
-| 이름 |    설명|
+| Name |    설명|
 |:---|:---|
 | GetUserTranslationCounts 메서드 | 사용자가 만든 번역 개수를 가져옵니다. |
 | GetUserTranslations 메서드 | 사용자가 만든 번역을 검색합니다. |
@@ -97,9 +97,9 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 | 필드 | 설명 |
 |:---|:---|
 | 카운트| 검색된 결과 수입니다.|
-| 원본 | 원본 언어입니다.|
+| 보낸 사람 | 원본 언어입니다.|
 | 등급| AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-| 받는 사람| 대상 언어입니다.|
+| 수행할 작업| 대상 언어입니다.|
 | Uri| AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 | 사용자| 사용자 이름입니다.|
 
@@ -168,10 +168,10 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 | 필드 | 설명 |
 |:---|:---|
 | CreatedDateUtc| AddTranslation()을 사용하여 항목을 만든 날짜입니다.|
-| 원본| 원본 언어입니다.|
+| 보낸 사람| 원본 언어입니다.|
 | OriginalText| 요청을 제출할 때 사용되는 원본 언어 텍스트입니다.|
 |등급 |AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-|받는 사람|    대상 언어입니다.|
+|수행할 작업|    대상 언어입니다.|
 |TranslatedText|    AddTranslation() 메서드 호출에서 제출된 번역입니다.|
 |Uri|   AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 |사용자   |사용자 이름입니다.|

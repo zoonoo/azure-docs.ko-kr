@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c00b805a8a702828f6d6402478ed8d2a79d3966e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4f7f1c28423e67ff9ff09385a5e0c7675e4a6049
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862882"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338837"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  
 
@@ -55,13 +55,13 @@ search_term = "Azure Cognitive Services"
 
 ## <a name="make-a-request"></a>요청하기
 
-다음 블록은 `requests` 라이브러리를 사용하여 Bing Web Search API를 호출하고 결과를 JSON 개체로 반환합니다. API 키는 `headers` 사전에 전달되고, 검색 용어와 쿼리 매개 변수는 `params` 사전에 전달됩니다. 옵션 및 매개 변수의 전체 목록은 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 설명서를 참조하세요.
+다음 블록은 `requests` 라이브러리를 사용하여 Bing Web Search API를 호출하고 결과를 JSON 개체로 반환합니다. API 키는 `headers` 사전에 전달되고, 검색 용어와 쿼리 매개 변수는 `params` 사전에 전달됩니다. 옵션 및 매개 변수의 전체 목록은 [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 설명서를 참조하세요.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+params = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 response = requests.get(search_url, headers=headers, params=params)
 response.raise_for_status()
 search_results = response.json()
@@ -77,7 +77,7 @@ from IPython.display import HTML
 rows = "\n".join(["""<tr>
                        <td><a href=\"{0}\">{1}</a></td>
                        <td>{2}</td>
-                     </tr>""".format(v["url"],v["name"],v["snippet"]) \
+                     </tr>""".format(v["url"], v["name"], v["snippet"])
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```

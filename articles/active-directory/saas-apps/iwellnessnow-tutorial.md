@@ -17,10 +17,10 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60269456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>자습서: iWellnessNow와 Azure Active Directory 통합
@@ -115,7 +115,7 @@ iWellnessNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
     
-    다. **서비스 공급 기업 메타데이터 파일**을 성공적으로 업로드한 후에는 **iWellnessNow 도메인 및 URL** 섹션 텍스트 상자의 **식별자** 및 **응답 URL** 값이 다음과 같이 자동으로 입력됩니다.
+    c. **서비스 공급 기업 메타데이터 파일**을 성공적으로 업로드한 후에는 **iWellnessNow 도메인 및 URL** 섹션 텍스트 상자의 **식별자** 및 **응답 URL** 값이 다음과 같이 자동으로 입력됩니다.
 
     ![iWellnessNow 도메인 및 URL Single Sign-On 정보](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 

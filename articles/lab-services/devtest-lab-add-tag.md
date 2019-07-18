@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311371"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
@@ -31,7 +31,7 @@ ms.locfileid: "60311371"
 * NIC
 * IP 주소
 * 부하 분산 장치
-* 저장소 계정
+* Storage 계정
 * 관리 디스크
 
 [랩 만들기](devtest-lab-create-lab.md)를 수행할 때 태그를 적용한 다음 나중에 태그 블레이드의 구성 및 설정을 통해 태그를 관리할 수 있습니다.

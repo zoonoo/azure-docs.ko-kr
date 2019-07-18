@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436601"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
@@ -72,7 +72,7 @@ CloudEvents v0.1에서는 다음과 같은 속성을 사용할 수 있습니다.
 | eventTime          | 타임 스탬프| "2018-04-05T17:31:00Z"           | 이벤트가 발생한 때의 타임스탬프(선택 사항)                    | eventTime
 | schemaURL          | URI      | "https:\//myschema.com"           | 데이터 특성이 준수하는 스키마에 대한 링크(선택 사항) | *사용되지 않음*
 | contentType        | String   | "application/json"               | 데이터 인코딩 형식을 설명합니다(선택 사항).                       | *사용되지 않음*
-| 확장         | Map      | { "extA": "vA", "extB", "vB" }  | 추가 메타데이터(선택 사항)                                 | *사용되지 않음*
+| 확장         | 지도      | { "extA": "vA", "extB", "vB" }  | 추가 메타데이터(선택 사항)                                 | *사용되지 않음*
 | 데이터               | Object   | { "objA": "vA", "objB", "vB" }  | 이벤트 페이로드(선택 사항)                                       | 데이터
 
 자세한 내용은 [CloudEvents 사양](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes)을 참조하세요.
@@ -97,7 +97,7 @@ CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사�
 
 사용자 지정 토픽을 만들 때 해당 사용자 지정 토픽의 입력 스키마를 설정합니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 # If you have not already installed the extension, do it now.
@@ -131,7 +131,7 @@ New-AzureRmEventGridTopic `
 
 이벤트 구독을 만들 때 출력 스키마를 설정합니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)

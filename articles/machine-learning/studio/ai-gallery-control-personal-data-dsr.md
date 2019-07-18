@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752048"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
@@ -36,7 +36,7 @@ Azure AI Gallery 웹 사이트 UI를 통해 게시한 항목을 볼 수 있습�
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>AI Gallery 카탈로그 API를 사용하여 데이터 보기
 
-https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI Gallery 카탈로그 API를 통해 수집된 데이터를 프로그래밍 방식으로 볼 수 있습니다. 데이터를 보려면 작성자 ID가 필요합니다. 카탈로그 API를 통해 목록에 없는 엔터티를 보려면 액세스 토큰이 필요합니다.
+[https://catalog.cortanaanalytics.com/entities](https://catalog.cortanaanalytics.com/entities ) 에서 액세스할 수 있는 AI Gallery 카탈로그 API를 통해 수집된 데이터를 프로그래밍 방식으로 볼 수 있습니다. 데이터를 보려면 작성자 ID가 필요합니다. 카탈로그 API를 통해 목록에 없는 엔터티를 보려면 액세스 토큰이 필요합니다.
 
 카탈로그 응답은 JSON 형식으로 반환됩니다.
 

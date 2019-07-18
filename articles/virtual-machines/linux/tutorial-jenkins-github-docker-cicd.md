@@ -4,7 +4,7 @@ description: 자습서 - 이 자습서에서는 각 코드 커밋의 GitHub에�
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6c6510113710ea19128fcd27adbf8671a8f083bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8ef524121f41129d842cfdf9822fe6a19c71810
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996512"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709563"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -152,7 +152,7 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 - **Add webhook**(웹후크 추가)를 선택한 다음, 필터 상자에서 *Jenkins*를 입력합니다.
 - **Payload URL**(페이로드 URL)에 대해 `http://<publicIps>:8080/github-webhook/`를 입력합니다. 후행 슬래시(/)를 포함해야 합니다.
 - **Content type**(콘텐츠 형식)에 대해 *application/x-www-form-urlencoded*를 선택합니다.
-- **Which events would you like to trigger this webhook?**(이 웹후크가 트리거되도록 하려는 이벤트는 무엇입니까?)에 대해 *Just the push event*(푸시 이벤트만)를 선택합니다.
+- **Which events would you like to trigger this webhook?** (이 웹후크가 트리거되도록 하려는 이벤트는 무엇입니까?)에 대해 *Just the push event*(푸시 이벤트만)를 선택합니다.
 - **Active**(활성)를 선택합니다.
 - **Add webhook**를 클릭합니다.
 
@@ -165,8 +165,8 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 선택합니다.
 
 - *HelloWorld*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 다음 **확인**을 선택합니다.
-- **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world*와 같은 포크된 리포지토리 URL을 입력합니다.
-- **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
+- **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world* 와 같은 포크된 리포지토리 URL을 입력합니다.
+- **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world.git* 과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
 - **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 - **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음 명령 창에 `echo "Test"` 명령을 입력합니다.
 - 작업 창 맨 아래에서 **저장**을 선택합니다.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a04622d0c35a93d954dcca38859ea3a48a8d5416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e63b209f24e2bdc54c809caaaa4fb5faa80b43a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>자습서: TrackVia와 Azure Active Directory 통합
 

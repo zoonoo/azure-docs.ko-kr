@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786376"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312039"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-onprem-db2-connector.md)
 > * [현재 버전](connector-db2.md)
 
@@ -34,6 +34,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 * z/OS용 IBM DB2 11.1
 * z/OS용 IBM DB2 10.1
+* i용 IBM DB2 7.3
 * i용 IBM DB2 7.2
 * i용 IBM DB2 7.1
 * LUW용 IBM DB2 11
@@ -194,7 +195,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

@@ -7,25 +7,25 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323285"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593257"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더
 
 **Verizon의 Azure CDN Premium** 제품의 경우, HTTP 요청을 원본 서버로 보내면 POP(상호 접속 위치) 서버는 클라이언트 요청에서 예약된 하나 이상의 헤더(또는 프록시 특별 헤더)를 POP에 추가할 수 있습니다. 이러한 헤더는 수신되는 표준 전달 헤더에 추가됩니다. 표준 요청 헤더에 대한 자세한 내용은 [요청 필드](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields)를 참조하세요.
 
-이러한 예약된 헤더 중 하나가 Azure CDN(콘텐츠 전송 네트워크) POP 요청에서 원본 서버에 추가되지 않도록 하려면 규칙 엔진에서 [프록시 특별 헤더 기능](cdn-rules-engine-reference-features.md#proxy-special-headers)을 사용하여 규칙을 만들어야 합니다. 이 규칙에서는 헤더 필드의 기본 헤더 목록에서 제거하려는 헤더를 제외합니다. [디버그 캐시 응답 헤더 기능](cdn-rules-engine-reference-features.md#debug-cache-response-headers)을 사용하도록 설정한 경우 필요한 `X-EC-Debug` 헤더를 추가해야 합니다. 
+이러한 예약된 헤더 중 하나가 Azure CDN(콘텐츠 전송 네트워크) POP 요청에서 원본 서버에 추가되지 않도록 하려면 규칙 엔진에서 [프록시 특별 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers)을 사용하여 규칙을 만들어야 합니다. 이 규칙에서는 헤더 필드의 기본 헤더 목록에서 제거하려는 헤더를 제외합니다. [디버그 캐시 응답 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers)을 사용하도록 설정한 경우 필요한 `X-EC-Debug` 헤더를 추가해야 합니다. 
 
 예를 들어 제거할는 `Via` 헤더 규칙의 헤더 필드는 다음과 같은 헤더를 포함 해야 합니다. *X-전달-에 X-전달-Proto, X-host, X-midgress, X 게이트웨이 목록, X-EC-이름, 호스트*합니다. 
 
@@ -33,7 +33,7 @@ ms.locfileid: "60323285"
 
 다음 표에서는 Verizon CDN POP에서 요청에 추가할 수 있는 헤더를 설명합니다.
 
-요청 헤더 | 설명 | 예
+요청 헤더 | 설명 | 예제
 ---------------|-------------|--------
 [Via](#via-request-header) | 요청을 원본 서버에 프록시한 POP 서버를 식별합니다. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | 요청자의 IP 주소를 나타냅니다.| 10.10.10.10
@@ -42,7 +42,7 @@ X-Host | 요청의 호스트 이름을 나타냅니다. | cdn.mydomain.com
 X-Midgress | 요청이 추가 CDN 서버를 통해 프록시되었는지 여부를 나타냅니다. 예를 들어 POP 서버-원본 실드 서버 또는 POP 서버-ADN 게이트웨이 서버 프록시 연결이 있습니다. <br />중간 트래픽이 발생할 때만 요청에 이 헤더가 추가됩니다. 이 경우 헤더가 1로 설정되어 요청이 추가 CDN 서버를 통해 프록시되었음을 나타냅니다.| 1
 [Host](#host-request-header) | 요청된 콘텐츠를 찾을 수 있는 호스트와 포트를 식별합니다. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: 고객 원본에 할당 된 ADN 게이트웨이 서버 장애 조치 목록을 식별 합니다. <br />원본 실드: 고객 원본에 할당 된 원본 실드 서버 집합을 나타냅니다. | `icn1,hhp1,hnd1`
-X-EC-_&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md))는 CDN에서 사용하도록 예약됩니다.| waf-production
+X-EC- _&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md))는 CDN에서 사용하도록 예약됩니다.| waf-production
 
 ## <a name="via-request-header"></a>Via 요청 헤더
 `Via` 요청 헤더에서 POP 서버를 식별하는 형식은 다음 구문으로 지정됩니다.

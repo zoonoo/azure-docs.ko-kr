@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65464637"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
@@ -38,7 +38,7 @@ ms.locfileid: "64682026"
 
 1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. [Azure Storage 문서](https://aka.ms/blobdocscreatestorageaccount)에서 자세히 알아볼 수 있습니다.
 2. 계정 유형은 **범용** 또는 **Blob Storage** 중에 선택합니다.
-3. 구독을 선택합니다. 
+3. 구독을 선택하세요. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
@@ -57,14 +57,14 @@ ms.locfileid: "64682026"
     > [!Note]
     > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu.PNG)
+    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
 
 3. 선택 된 **+ 새로 만들기** 오른쪽 위에 있는 단추입니다. 선택할 **Azure Blob Storage** 내보내기의 대상으로 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
-    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new.PNG)
+    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
 
 4. 드롭다운 목록 상자에서 선택 하 **저장소 계정의 네임 스페이스**합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "64682026"
 
 6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
 
-  ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
+   ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
 
 7. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "64682026"
 내보낸 측정값 데이터에는 해당 시간에 IoT Central이 모든 디바이스에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 스토리지로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
 
 > [!NOTE]
-> 측정값을 보내는 디바이스는 디바이스 ID로 표시됩니다(아래 섹션 참조). 디바이스 이름을 가져오려면 디바이스 스냅숏을 내보냅니다. 디바이스 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
+> 측정값을 보내는 디바이스는 디바이스 ID로 표시됩니다(아래 섹션 참조). 디바이스 이름을 가져오려면 디바이스 스냅샷을 내보냅니다. 디바이스 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
 
 다음 예제에서는 디코딩된 Avro 파일의 레코드를 보여 줍니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "64682026"
 
 ### <a name="devices"></a>디바이스
 
-연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅숏이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
+연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅샷이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
 - IoT Central의 디바이스 `id`
 - 디바이스의 `name`
 - [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)의 `deviceId`
@@ -132,15 +132,15 @@ ms.locfileid: "64682026"
 - 속성 값
 - 설정 값
 
-새 스냅숏이 1분에 한 번씩 기록됩니다. 스냅숏에는 다음이 포함됩니다.
+새 스냅샷이 1분에 한 번씩 기록됩니다. 스냅샷에는 다음이 포함됩니다.
 
-- 마지막 스냅숏 이후에 추가된 새 디바이스
-- 마지막 스냅숏 이후에 속성 및 설정 값이 변경된 디바이스
+- 마지막 스냅샷 이후에 추가된 새 디바이스.
+- 마지막 스냅샷 이후에 속성 및 설정 값이 변경된 디바이스.
 
 > [!NOTE]
-> 마지막 스냅숏 이후에 삭제된 디바이스는 내보내지지 않습니다. 현재는 삭제된 디바이스를 나타내는 표시기가 스냅숏에 없습니다.
+> 마지막 스냅샷 이후에 삭제된 디바이스는 내보내지지 않습니다. 현재는 삭제된 디바이스를 나타내는 표시기가 스냅샷에 없습니다.
 >
-> 각 디바이스가 속하는 디바이스 템플릿은 디바이스 템플릿 ID로 표시됩니다. 디바이스 템플릿 이름을 가져오려면 디바이스 템플릿 스냅숏을 내보내야 합니다.
+> 각 디바이스가 속하는 디바이스 템플릿은 디바이스 템플릿 ID로 표시됩니다. 디바이스 템플릿 이름을 가져오려면 디바이스 템플릿 스냅샷을 내보내야 합니다.
 
 디코딩된 Avro 파일의 A 레코드는 다음과 같을 수 있습니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "64682026"
 
 ### <a name="device-templates"></a>디바이스 템플릿
 
-연속 데이터 내보내기를 처음으로 켜면 모든 디바이스 템플릿이 포함된 단일 스냅숏이 내보내집니다. 각 디바이스 템플릿에는 다음 항목이 포함됩니다.
+연속 데이터 내보내기를 처음으로 켜면 모든 디바이스 템플릿이 포함된 단일 스냅샷이 내보내집니다. 각 디바이스 템플릿에는 다음 항목이 포함됩니다.
 - 디바이스 템플릿의 `id`
 - 디바이스 템플릿의 `name`
 - 디바이스 템플릿의 `version`
@@ -182,13 +182,13 @@ ms.locfileid: "64682026"
 - 속성 데이터 형식 및 기본값
 - 설정 데이터 형식 및 기본값
 
-새 스냅숏이 1분에 한 번씩 기록됩니다. 스냅숏에는 다음이 포함됩니다.
+새 스냅샷이 1분에 한 번씩 기록됩니다. 스냅샷에는 다음이 포함됩니다.
 
-- 마지막 스냅숏 이후에 추가된 새 디바이스 템플릿
-- 마지막 스냅숏 이후에 측정값, 속성 및 설정 정의가 변경된 디바이스 템플릿
+- 마지막 스냅샷 이후에 추가된 새 디바이스 템플릿.
+- 마지막 스냅샷 이후에 측정값, 속성 및 설정 정의가 변경된 디바이스 템플릿.
 
 > [!NOTE]
-> 마지막 스냅숏 이후에 삭제된 디바이스 템플릿은 내보내지지 않습니다. 현재는 삭제된 디바이스 템플릿을 나타내는 표시기가 스냅숏에 없습니다.
+> 마지막 스냅샷 이후에 삭제된 디바이스 템플릿은 내보내지지 않습니다. 현재는 삭제된 디바이스 템플릿을 나타내는 표시기가 스냅샷에 없습니다.
 
 디코딩된 Avro 파일의 A 레코드는 다음과 같을 수 있습니다.
 

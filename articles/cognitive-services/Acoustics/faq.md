@@ -1,5 +1,5 @@
 ---
-title: 프로젝트 소음에 대 한 질문과 대답
+title: Project Acoustics 질문과 대답
 titlesuffix: Azure Cognitive Services
 description: 이 페이지에서는 다운로드 지침 및 준비 프로세스를 포함하여 프로세스 Acoustics에 대한 질문과 대답을 제공합니다.
 services: cognitive-services
@@ -7,29 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a18f6b57e203c40c0f667f07e8371348cb738c9b
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317309"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827576"
 ---
-# <a name="project-acoustics-frequently-asked-questions"></a>프로젝트 소음에 대 한 질문과 대답
+# <a name="project-acoustics-frequently-asked-questions"></a>Project Acoustics 질문과 대답
 
 ## <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 
-프로젝트 소음 일련의 플러그 인은 정적 조명과 유사 런타임 전에 소리 wave 동작을 계산 하는 소음 시스템. 클라우드는 파동 물리학 계산을 수행하므로 런타임 CPU 비용이 낮습니다.  
+플러그 인의 Project Acoustics suite는 정적 조명과 유사 하 게 런타임 이전에 발생 하는 소리 웨이브 동작을 계산 하는 Acoustics 시스템입니다. 클라우드는 파동 물리학 계산을 수행하므로 런타임 CPU 비용이 낮습니다.  
 
 ## <a name="where-can-i-download-the-plugin"></a>이 플러그 인을 어디에서 다운로드할 수 있나요?
 
-다운로드할 수 있습니다 합니다 [소음 Unity 프로젝트 플러그 인](https://www.microsoft.com/download/details.aspx?id=57346) 또는 [프로젝트 소음 Unreal 플러그 인](https://www.microsoft.com/download/details.aspx?id=58090)합니다.
+[Project Acoustics Unity 플러그 인](https://www.microsoft.com/download/details.aspx?id=57346) 또는 [Project Acoustics unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090)을 다운로드할 수 있습니다.
 
-## <a name="does-project-acoustics-support-x-platform"></a>에서는 프로젝트 소음 <x> 플랫폼?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Project Acoustics에서 x &lt;&gt; 플랫폼을 지원 하나요?
 
-고객 요구에 따라 지원 되는 플랫폼 발전 함에 따라 음향을 프로젝트입니다. 에 문의 합니다 [프로젝트 소음 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) 추가 플랫폼에 대 한 지원에 대 한 질의 시에 합니다.
+Project Acoustics platform 지원은 고객의 요구에 따라 진화 합니다. [Project Acoustics issue 포럼](https://github.com/microsoft/ProjectAcoustics/issues) 에서 microsoft에 문의 하 여 추가 플랫폼에 대 한 지원에 대해 문의 하세요.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure는 런타임에 사용되나요?
 
@@ -49,17 +49,17 @@ Acoustics는 프레임별로 원본당 약 0.01%의 CPU를 사용합니다. RAM 
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>런타임 조회 테이블에는 무엇이 있나요?
 
-ACE 파일에는 다양 한 원본 및 수신기 위치 쌍으로 매개 변수 보간에 사용 되는 voxelized 장면 기 하 도형 간에 음향 매개 변수의 테이블입니다.
+ACE 파일에는 다양 한 소스 및 수신기 위치 쌍 간의 어쿠스틱 매개 변수 및 매개 변수 보간에 사용 되는 voxelized 장면 기 하 도형에 대 한 표가 포함 되어 있습니다.
  
-## <a name="can-project-acoustics-handle-moving-sources"></a>프로젝트 소음 이동 원본을 처리할 수 있습니다.
+## <a name="can-project-acoustics-handle-moving-sources"></a>프로젝트에서 이동 소스를 처리 하는 것을 Acoustics 수 있나요?
 
-예, 프로젝트 소음은 조회 테이블을 참조 하 고 이동 하는 원본 및 수신기를 처리할 수 있도록 각 틱에 오디오 DSP를 업데이트 합니다.
+예, Project Acoustics는 조회 테이블을 검색 하 고 각 틱에서 오디오 DSP를 업데이트 하므로 원본 및 수신기 이동을 처리할 수 있습니다.
  
-## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>프로젝트 소음 동적 기 하 도형을 처리할 수 있습니다. 닫히는 문을 처리할 수 있나요? 떨어져 나가는 벽을 처리할 수 있나요?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>프로젝트 Acoustics 동적 기 하 도형을 처리할 수 있나요? 닫히는 문을 처리할 수 있나요? 떨어져 나가는 벽을 처리할 수 있나요?
 
-아니요. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 좋습니다, 소음에서 기 하 도형 도어를 종료 하 고 소멸 가능한의 상태에 따라 추가 폐색에 적용 하 고 사용 하 여 이동 가능한 게임 개체 기술을 설정 합니다.
+아니요. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 도어 기 하 도형을 acoustics에서 종료 한 다음, 설정 된 기술을 사용 하 여 소멸 가능한 및 이동 가능한 게임 개체의 상태에 따라 추가 폐색을 적용 하는 것이 좋습니다.
  
-## <a name="does-project-acoustics-use-acoustic-materials"></a>프로젝트 소음 음향 자료를 사용 하나요?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>프로젝트 Acoustics 음향 자료를 사용 하나요?
 
 예. 재질은 사용자 수준의 실제 재질 이름에서 선택되며 흡수성을 갖습니다.
  
@@ -69,12 +69,12 @@ ACE 파일에는 다양 한 원본 및 수신기 위치 쌍으로 매개 변수 
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>클라우드에서 그렇게 많은 계산이 수행되는 이유는 무엇인가요? 사용자에게 어떤 이득이 있나요?
 
-프로젝트 Acoustics는 아주 복잡한 가상 환경에서도 정확하고 안정적인 음향 매개 변수를 제공하며 모든 아키텍처 측면을 고려합니다. 부드러운 폐색 장애물 및 볼륨을 그리기의 수동 작업 없이 동적 반향 변형을 제공 합니다. 유지되는 모든 작업에서는 런타임 동안 CPU가 부족합니다.
+프로젝트 Acoustics는 아주 복잡한 가상 환경에서도 정확하고 안정적인 음향 매개 변수를 제공하며 모든 아키텍처 측면을 고려합니다. 볼륨 그리기를 수동으로 수행 하지 않고도 부드러운 폐색 및 장애물 및 동적 반향 변형을 제공 합니다. 유지되는 모든 작업에서는 런타임 동안 CPU가 부족합니다.
 
 ## <a name="what-exactly-happens-during-baking"></a>"준비" 중에 정확히 어떤 작업이 수행되나요?
 
-적용 된 각 수신기 프로브에서 가운데 cuboid 시뮬레이션 영역의 음향 wave 시뮬레이션으로 구성 됩니다.
+굽기는 각 수신기 프로브를 중심으로 하는 cuboid 시뮬레이션 지역의 음향 웨이브 시뮬레이션으로 구성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 시도 된 [소음 Unity 프로젝트 샘플 콘텐츠](unity-quickstart.md) 또는 [Unreal 샘플 콘텐츠](unreal-quickstart.md)
+* [Project Acoustics Unity 샘플 콘텐츠](unity-quickstart.md) 또는 [unreal 샘플 콘텐츠](unreal-quickstart.md) 를 사용해 보세요.
 

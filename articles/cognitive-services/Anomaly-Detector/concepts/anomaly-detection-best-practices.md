@@ -1,20 +1,21 @@
 ---
 title: Anomaly Detector API를 사용하는 경우 모범 사례
+titleSuffix: Azure Cognitive Services
 description: 비정상 탐지기 API를 사용 하 여 변칙을 검색 하는 경우 모범 사례에 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692209"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721631"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>비정상 탐지기 API를 사용 하 여에 대 한 모범 사례
 
@@ -51,7 +52,7 @@ ms.locfileid: "64692209"
 
 ## <a name="data-preparation"></a>데이터 준비
 
-비정상 탐지기 API는 시계열 허용 데이터 형식이 JSON 요청 개체를 지정 합니다. 시계열에 순차적 시간 동안 기록 된 모든 숫자 데이터를 수 있습니다. 시계열 데이터의 windows API의 성능 향상을 위해 비정상 탐지기 API 끝점에 보낼 수 있습니다. 보낼 수 있습니다 하는 데이터 요소의 최소 수는 12이 고 최대값은 8640 지점입니다. 
+비정상 탐지기 API는 시계열 허용 데이터 형식이 JSON 요청 개체를 지정 합니다. 시계열에 순차적 시간 동안 기록 된 모든 숫자 데이터를 수 있습니다. 시계열 데이터의 windows API의 성능 향상을 위해 비정상 탐지기 API 끝점에 보낼 수 있습니다. 보낼 수 있습니다 하는 데이터 요소의 최소 수는 12이 고 최대값은 8640 지점입니다. [세분성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) 데이터에서 샘플링 되는 속도로 정의 됩니다. 
 
 비정상 탐지기 API로 전송 하는 데이터 요소는 숫자 값을 유효한 utc (협정 세계시) 타임 스탬프 있어야 합니다. 
 
@@ -68,6 +69,15 @@ ms.locfileid: "64692209"
         "value": 29615278
       },
     ]
+}
+```
+
+비표준 시간 간격으로 데이터를 샘플링 하는 경우 추가 하 여 지정할 수 있습니다는 `customInterval` 요청에는 특성입니다. 예를 들어 계열이 5 분 마다 샘플링 된 경우 다음 JSON 요청에 추가할 수 있습니다.
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

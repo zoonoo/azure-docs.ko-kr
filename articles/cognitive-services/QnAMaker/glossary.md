@@ -3,20 +3,20 @@ title: 용어 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 서비스에는 서비스 관련 용어와 함께 Machine Learning의 많은 새로운 용어 및 자연어 처리 기능이 있습니다. 이 목록은 그러한 용어를 이해하는 데 도움이 됩니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c6b7e4ca2acc1416e19fc8b70f57aed82afa4e1e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649444"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446540"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 기술 자료 및 서비스에 대한 용어집
 
@@ -35,7 +35,7 @@ QnA Maker 서비스는 QnA Maker 사용을 시작하기 위한 필수 조건입�
 ## <a name="published-knowledge-base"></a>게시된 기술 자료
 기술 자료에는 두 가지 상태(테스트 및 게시됨)가 있습니다.  게시된 기술 자료는 챗봇/응용 프로그램에서 사용되는 버전입니다. 기술 자료를 게시하는 작업은 테스트 기술 자료 콘텐츠를 게시된 기술 자료 버전에 넣습니다. 게시된 기술 자료는 애플리케이션이 엔드포인트를 통해 사용하는 버전이므로, 콘텐츠가 올바르고 잘 테스트되었는지 신중하게 확인해야 합니다.
 
-## <a name="query"></a>쿼리
+## <a name="query"></a>query
 사용자 쿼리는 기술 자료에 대한 최종 사용자 또는 테스터의 질문입니다. 쿼리가 자연어 형식이거나 질문을 나타내는 몇 개의 키워드인 경우도 있습니다.
 
 ## <a name="response"></a>response

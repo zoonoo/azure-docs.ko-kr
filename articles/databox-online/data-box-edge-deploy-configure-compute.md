@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Edge를 사용하여 데이터 변환 | Microsoft Docs
+title: Azure Data Box Edge의 컴퓨팅 기능을 사용한 데이터를 필터링하고 분석하기 위한 자습서 | Microsoft Docs
 description: Data Box Edge에 계산 역할을 구성하고 이 역할을 사용하여 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 31911c124aeafecb8ee37d14e58d3a0bdc0d4955
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7b3d725eb05c811d3fdd44516c1bde9a8dfbaaac
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400736"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924328"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환
 

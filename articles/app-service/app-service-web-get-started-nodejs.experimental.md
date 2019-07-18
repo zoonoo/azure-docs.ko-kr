@@ -16,11 +16,11 @@ ms.date: 02/21/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 237f498d1ebe2b402c86f1a4aed66a7ed443ccfa
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56653666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139311"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -190,7 +190,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다.
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

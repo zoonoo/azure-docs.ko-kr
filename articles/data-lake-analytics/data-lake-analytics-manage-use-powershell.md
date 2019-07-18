@@ -10,11 +10,11 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66156413"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -31,7 +31,7 @@ Data Lake Analytics와 함께 PowerShell을 사용하려면 다음과 같은 정
 * **리소스 그룹**: Data Lake Analytics 계정을 포함하는 Azure 리소스 그룹의 이름입니다.
 * **Data Lake Analytics 계정 이름**: Data Lake Analytics 계정의 이름입니다.
 * **기본 Data Lake Store 계정 이름**: 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
-* **위치**: Data Lake Analytics 계정의 위치입니다(예: “미국 동부 2” 또는 다른 지원되는 위치).
+* **Location**: Data Lake Analytics 계정의 위치입니다(예: “미국 동부 2” 또는 다른 지원되는 위치).
 
 이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 

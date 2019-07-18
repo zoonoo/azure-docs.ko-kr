@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse에 연결 - SSMS | Microsoft Docs
 description: SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 809802bc34a6cdc45f4b018d35895939e4b8f667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873713"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
    * **인증**. **SQL Server 인증** 또는 **Active Directory 통합 인증**을 선택합니다.
    * **사용자 이름** 및 **암호**. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
    * **연결**을 클릭합니다.
-4. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
+4. 탐색하려면 Azure SQL Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    
     ![AdventureWorksDW 탐색하기][3]
 
@@ -65,7 +65,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 쿼리를 실행합니다. 이렇게 하려면 `실행`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
+4. 쿼리를 실행합니다. 이렇게 하려면 `Execute`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
    
     ![쿼리 실행][5]
 5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.

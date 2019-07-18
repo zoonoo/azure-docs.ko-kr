@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
 ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61275526"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Azure Site Recovery로 구성한 Windows Server 2012 R2 호스트, SCVMM 2012 R2를 Windows Server 2016 및 SCVMM 2016으로 업그레이드
@@ -75,7 +75,7 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 
 1.  제어판 -> 프로그램 -> 프로그램 및 기능 ->Microsoft Azure Site Recovery로 이동하여 ASR 공급자를 제거하고 제거를 클릭합니다.
 2. [SCVMM 데이터베이스를 유지하고 운영 체제를 업그레이드합니다.](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#back-up-and-upgrade-the-operating-system)
-3. **프로그램 추가/제거**에서 **VMM** > **제거**를 선택합니다. b. **기능 제거**를 선택한 후 **VMM 관리 서버 및 VMM 콘솔**을 선택합니다. 다. **데이터베이스 옵션**에서 **데이터베이스 유지**를 선택합니다. d. 요약을 검토하고 **제거**를 클릭합니다.
+3. **프로그램 추가/제거**에서 **VMM** > **제거**를 선택합니다. b. **기능 제거**를 선택한 후 **VMM 관리 서버 및 VMM 콘솔**을 선택합니다. c. **데이터베이스 옵션**에서 **데이터베이스 유지**를 선택합니다. d. 요약을 검토하고 **제거**를 클릭합니다.
 
 4. [VMM 2016 설치합니다](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016).
 5. SCVMM을 시작하고 **패브릭** 탭에서 각 호스트의 상태를 검사합니다. 최신 상태를 가져오려면 **새로 고침**을 클릭합니다. 상태는 “주의 필요”로 표시되어야 합니다. 

@@ -4,7 +4,7 @@ description: Azure Functions에서 SignalR Service 바인딩을 사용하는 방
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62d9319ae292c9f4ae22f8fcd83bdd8799dc6617
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306837"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480268"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -626,4 +626,4 @@ public SignalRGroupAction removeFromGroup(
 > [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions 개발 및 Azure SignalR Service를 사용 하 여 구성](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성](../azure-signalr/signalr-concept-serverless-development-config.md)

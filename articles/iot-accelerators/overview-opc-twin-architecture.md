@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783905"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606174"
 ---
 # <a name="opc-twin-architecture"></a>OPC 쌍 아키텍처
 
@@ -35,6 +35,6 @@ ms.locfileid: "59783905"
 
    ![OPC 쌍 작동 원리](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. 또한 쌍 서비스 REST 인터페이스는 OPC 게시자의 모니터링된 항목 및 구독을 만드는 데도 사용할 수 있습니다. OPC 게시자는 OPC UA 서버 시스템에서 IoT Hub로 원격 분석을 보낼 수 있습니다. OPC 게시자에 대한 자세한 내용은 GitHub에서 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) 리포지토리를 참조하세요.
+1. 또한 쌍 서비스 REST 인터페이스는 OPC 게시자의 모니터링된 항목 및 구독을 만드는 데도 사용할 수 있습니다. OPC 게시자는 OPC UA 서버 시스템에서 IoT Hub로 원격 분석을 보낼 수 있습니다. OPC 게시자에 대한 자세한 내용은 [OPC 게시자란?](overview-opc-publisher.md)을 참조하세요.
 
    ![OPC 쌍 작동 원리](media/overview-opc-twin-architecture/opc-twin4.png)

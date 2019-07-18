@@ -16,7 +16,7 @@ ms.locfileid: "59999028"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
-Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
+Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com* 의 예를 사용한다고 가정합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -138,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - *www.contoso.com* - 이 호스트 이름 예를 사용자의 도메인 이름으로 바꿉니다.
 
 3. **확인**을 클릭합니다.
-4. *fabrikamListener* 이름을 사용하여 두 번째 수신기를 만들고 두 번째 도메인 이름을 사용합니다. 이 예제에서는 *www.fabrikam.com*이 사용됩니다.
+4. *fabrikamListener* 이름을 사용하여 두 번째 수신기를 만들고 두 번째 도메인 이름을 사용합니다. 이 예제에서는 *www.fabrikam.com* 이 사용됩니다.
 
 ![다중 사이트 수신기](media/create-multiple-sites-portal/be-listeners.png)
 

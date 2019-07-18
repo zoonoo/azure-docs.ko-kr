@@ -3,15 +3,15 @@ title: Azure Cosmos DB 에뮬레이터 인증서 내보내기
 description: Windows 인증서 저장소를 사용하지 않는 언어와 런타임으로 개발할 때는 SSL 인증서를 내보내고 관리해야 합니다. 이 게시물에서는 단계별 지침을 제공합니다.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521393"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244442"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 

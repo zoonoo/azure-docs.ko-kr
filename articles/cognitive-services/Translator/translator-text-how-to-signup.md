@@ -3,20 +3,20 @@ title: 시작하기 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Translator Text API에 등록하고 구독 키를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e51e6875681618b5f558d5c52ed5a2b14095b079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726145"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434964"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator Text API에 등록하는 방법
 

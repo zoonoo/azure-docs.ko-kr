@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66493765"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
 Azure 엔터프라이즈 계약을 맞은 사용자는 Azure Portal과 EA(기업계약) 포털에 부여된 권한 조합에 따라 Azure Cost Management 데이터에 대한 사용자의 액세스 수준이 정의됩니다. 다른 Azure 계정 유형을 사용하는 사용자의 액세스 수준은 Cost Management 데이터입니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
 
 사용자가 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용하는 경우 사용자는 여러 개의 범위를 선택하지 않습니다. 대신 자식 범위가 롤업하는 더 큰 범위를 선택한 다음, 보려는 대상으로 필터링합니다. 일부 사용자는 자식 범위가 롤업하는 부모 범위에 액세스할 수 없으므로 데이터 통합을 이해해야 합니다.
+
+조사식 합니다 [Azure Cost Management를 사용 하 여 액세스를 할당 하는 방법](https://www.youtube.com/watch?v=J997ckmwTa8) 비용과 Azure 역할 기반 액세스 제어를 사용 하 여 요금을 볼 수 있는 권한을 할당 하는 방법에 대 한 자세한 비디오.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Cost Management 범위
 
@@ -166,6 +170,13 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
 9. **저장**을 클릭합니다.
+
+## <a name="cross-tenant-authentication-issues"></a>교차 테 넌 트 인증 문제
+
+현재 Azure Cost Management 테 넌 트 간 인증에 대 한 지원이 제한적입니다. 일부 환경에서 테 넌 트 간 인증 하려고 할 때 나타날 수 있습니다는 **액세스가 거부 되었습니다** 비용 분석에 오류가 있습니다. 이 문제는 다른 테 넌 트의 구독에 역할 기반 액세스 제어 (RBAC)를 구성 하 고 비용 데이터 보기를 시도 하는 경우에 발생할 수 있습니다.
+
+*문제를 해결 하려면*: 테 넌 트 간 RBAC를 구성한 후에 1 시간을 대기 합니다. 비용 분석에 비용을 확인 하거나 두 테 넌 트의 사용자에 게 Cost Management 액세스 권한을 부여 해 보십시오.  
+
 
 ## <a name="next-steps"></a>다음 단계
 

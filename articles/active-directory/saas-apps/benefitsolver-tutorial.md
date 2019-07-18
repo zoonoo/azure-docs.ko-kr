@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39b285dd81347cb9ea031bfab168e372d4537f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: deb4ad1e5295600f32b243472c6b2332713bcc4b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>자습서: Benefitsolver와 Azure Active Directory 통합
 
@@ -120,7 +120,7 @@ Benefitsolver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | Name |  원본 특성|
+    | 이름 |  원본 특성|
     |---------------|----------------|
     | ClientID | [Benefitsolver 클라이언트 지원 팀](https://www.businessolver.com/contact)에서 이 값을 가져와야 합니다.|
     | ClientKey | [Benefitsolver 클라이언트 지원 팀](https://www.businessolver.com/contact)에서 이 값을 가져와야 합니다.|

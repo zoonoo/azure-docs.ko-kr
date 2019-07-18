@@ -3,7 +3,7 @@ title: Windows Defender Advanced Threat Protection과 Azure Security Center 통�
 description: 이 문서에서는 Azure Security Center와 Windows Defender Advanced Threat Protection의 통합 방법을 소개합니다.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 ms.service: security-center
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/27/2018
+ms.author: monhaber
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129130"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551756"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
 Azure Security Center를 [Windows Defender ATP(Advanced Threat Protection)](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp)와 통합하면 클라우드 워크로드 보호 플랫폼 제품을 확장할 수 있습니다.
 이러한 확장을 통해 제품이 변경되면 포괄적인 EDR(엔드포인트 검색 및 대응) 기능이 제공됩니다. Windows Defender ATP를 통합하면 비정상적인 상태를 정확히 파악할 수 있습니다. 그리고 Azure Security Center에서 모니터링하는 서버 엔드포인트에 대한 고급 공격을 검색하고 적절하게 대응할 수 있습니다.
 
-Azure Security Center 고객은 이제 다음과 같은 Windows Defender ATP 기능을 사용할 수 있습니다.
+## <a name="windows-defender-atp-features-in-security-center"></a>Security Center에서 Windows Defender ATP 기능
+
+Windows Defender ATP를 사용 하는 경우 다음을 수행 표시 합니다.
 
 - **차세대 위반 후 탐지 센서**: Windows 서버용 Windows Defender ATP 센서는 광범위한 동작 신호를 수집합니다.
 
@@ -43,19 +45,16 @@ Azure Security Center 고객은 이제 다음과 같은 Windows Defender ATP 기
 
 ![경고 목록 및 각 경고 관련 일반 정보가 표시된 Azure Security Center](media/security-center-wdatp/image1.png)
 
-Azure Security Center에서 [경고 조사](security-center-investigation.md)를 진행할 수 있습니다.
-
-![Azure Security Center의 경고 조사 대시보드](media/security-center-wdatp/image2.png)
-
 Windows Defender ATP로 피벗하여 경고를 추가로 조사할 수 있습니다. 그러면 경고 프로세스 트리, 인시던트 그래프 등의 추가 정보를 확인할 수 있습니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
 
 ![경고 관련 세부 정보가 표시된 Windows Defender ATP 페이지](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>플랫폼 지원
 
-이 기능은 Windows Server 2012 R2 및 Windows Server 2016에서 검색을 지원합니다.
+Security Center에서 Windows Defender ATP는 표준 서비스 구독에 속한 Windows Server 2012 R2 및 Windows Server 2016 운영 체제에서 검색을 지원 합니다.
 
-표준 서비스 계층 구독의 서버만 지원됩니다.
+> [!NOTE]
+> Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우 Windows Defender ATP 테 넌 트를 자동으로 만들어지고 Windows Defender ATP 데이터는 유럽에서 기본적으로 저장 됩니다. 데이터를 다른 위치로 이동 해야 할 경우에 테 넌 트를 다시 설정 하려면 Microsoft 지원에 문의 해야 합니다.
 
 ## <a name="onboarding-servers-to-security-center"></a>Security Center에 서버 등록 
 
@@ -70,10 +69,9 @@ Security Center에 서버를 등록하려면 Windows Defender ATP 서버 온보�
 
    ![컴퓨터 등록](media/security-center-wdatp/onboard-computers.png)
 
-
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP 통합 사용
 
-Windows Defender ATP 통합이 사용하도록 설정되어 있는지 확인하려면 선택 **Security Center** > **보안 정책** > **구독** > **설정 편집**을 선택합니다.
+Windows Defender ATP 통합을 사용 하는 경우를 보려면 선택 **Security center** > **가격 책정 및 설정** > 구독을 클릭 합니다.
 
   ![Azure Security Center 정책 관리](media/security-center-wdatp/policy-management.png)
 
@@ -95,7 +93,7 @@ Windows Defender ATP 통합이 사용하도록 설정되어 있는지 확인하�
 
 ## <a name="set-the-firewall-configuration"></a>방화벽 구성 설정
 
-Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
+Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 
 ## <a name="test-the-feature"></a>기능 테스트
 

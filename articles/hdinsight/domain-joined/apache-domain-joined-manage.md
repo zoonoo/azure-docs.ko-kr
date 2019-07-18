@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
 ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725688"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
@@ -45,7 +45,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
    ![클러스터 연결 상황에 맞는 메뉴](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 저장소 계정, 저장소 키를 추가한 다음, 저장소 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 저장소 탐색기용입니다.
+2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 저장소 계정, 저장소 키를 추가한 다음, 저장소 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 스토리지 탐색기용입니다.
    
    ![클러스터 연결 대화 상자](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
@@ -69,7 +69,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
    ![클러스터 연결 상황에 맞는 메뉴](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
-2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 저장소 계정, 저장소 키를 입력한 다음, 저장소 탐색기의 저장소 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
+2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 스토리지 계정, 스토리지 키를 입력한 다음, 스토리지 탐색기의 스토리지 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
    
    ![클러스터 연결 대화 상자](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    

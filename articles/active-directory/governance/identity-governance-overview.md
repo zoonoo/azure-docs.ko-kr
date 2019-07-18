@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109585"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Id 거 버 넌 스 란?
 
@@ -48,7 +48,7 @@ Id 관리를 통해 간의 균형을 조정 하는 조직은 *생산성* -얼마
 
 많은 조직에서 직원의 ID 수명 주기가 HCM(인적 자원 관리) 시스템에서 해당 사용자의 표현에 연결됩니다.  Azure AD Premium은 [Workday 인바운드 프로비전(미리 보기) 자습서](../saas-apps/workday-inbound-tutorial.md)에 설명된 대로 Active Directory와 Azure Active Directory 모두의 Workday에 표시된 사람에 대한 사용자 ID를 자동으로 유지합니다.  또한 Azure AD Premium에는 SAP, Oracle eBusiness 및 Oracle PeopleSoft와 같은 온-프레미스 HCM 시스템에서 레코드를 가져올 수 있는 [Microsoft Identity Manager](/microsoft-identity-manager/)가 포함됩니다.
 
-점점 더 많은 시나리오에서는 조직 외부 사람들과 공동 작업해야 합니다. [Azure AD B2B](/azure/active-directory/b2b/) 공동 작업을 사용하면 조직의 애플리케이션과 서비스를 게스트 사용자 및 모든 조직의 외부 파트너와 안전하게 공유하면서 고유한 회사 데이터에 대한 제어를 유지합니다.
+점점 더 많은 시나리오에서는 조직 외부 사람들과 협업해야 합니다. [Azure AD B2B](/azure/active-directory/b2b/) 공동 작업을 사용하면 조직의 애플리케이션과 서비스를 게스트 사용자 및 모든 조직의 외부 파트너와 안전하게 공유하면서 고유한 회사 데이터에 대한 제어를 유지합니다.
 
 ## <a name="access-lifecycle"></a>액세스 수명 주기
 
@@ -60,7 +60,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../manage-apps/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
 
-사용자가 애플리케이션에 액세스하려고 하는 경우 Azure AD는 [조건부 액세스](/azure/active-directory/conditional-access/) 정책을 적용합니다. 예를 들어, 조건부 액세스 정책을 표시 포함 될 수 있습니다는 [사용 약관](../conditional-access/terms-of-use.md) 하 고 [해당 약관에 동의한 사용자를 확인](../conditional-access/require-tou.md) 응용 프로그램에 액세스 하기 위해서는 먼저 합니다.
+Azure AD는 사용자가 응용 프로그램에 액세스 하려고 하는 경우 [조건부 액세스](/azure/active-directory/conditional-access/) 정책입니다. 예를 들어, 조건부 액세스 정책을 표시 포함 될 수 있습니다는 [사용 약관](../conditional-access/terms-of-use.md) 하 고 [해당 약관에 동의한 사용자를 확인](../conditional-access/require-tou.md) 응용 프로그램에 액세스 하기 위해서는 먼저 합니다.
 
 ## <a name="privileged-access-lifecycle"></a>권한 있는 액세스 수명 주기
 
@@ -68,7 +68,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ![권한 있는 액세스 수명 주기](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  다단계 인증 및 조건부 액세스 외에도 Just-In-Time 액세스 및 Azure AD PIM에서 제공된 역할 변경 내용 경고 기능은 포괄적인 집합의 거버넌스 제어를 제공하여 회사의 리소스(디렉터리, Office 365 및 Azure 리소스 역할)를 보호하는 데 도움이 됩니다. 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
+PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  Just in time 액세스 및 역할 경고 multi-factor authentication 및 조건부 액세스 하는 것 외에도, Azure AD PIM에서 제공 하는 기능 변경, 포괄적인 집합을 거 버 넌 스 제어 하는 데 보안 회사 리소스 (디렉터리를 제공 합니다. Office 365 및 Azure 리소스 역할). 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -84,6 +84,6 @@ PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 권한 관리란? (미리 보기)](entitlement-management-overview.md)
-- [이란 Azure AD 액세스 검토?](access-reviews-overview.md)
+- [Azure AD 액세스 검토란?](access-reviews-overview.md)
 - [Azure AD Privileged Identity Management란?](../privileged-identity-management/pim-configure.md)
 - [사용 약관으로 무엇을 할 수 있나요?](active-directory-tou.md)

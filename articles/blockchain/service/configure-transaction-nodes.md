@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027962"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain Service 트랜잭션 노드 구성
@@ -23,7 +23,7 @@ Azure Blockchain 서비스와 상호 작용, 이렇게 하면 블록 체인 멤�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure Blockchain 멤버를 만들려면](create-member.md)
+* [Azure Blockchain 멤버 만들기](create-member.md)
 
 ## <a name="transaction-node-overview"></a>트랜잭션 노드 개요
 
@@ -32,9 +32,9 @@ Azure Blockchain 서비스와 상호 작용, 이렇게 하면 블록 체인 멤�
 기본 트랜잭션 노드 세부 정보를 보려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain 서비스 멤버를 이동 합니다. 선택 **트랜잭션 노드**합니다.
+1. Azure Blockchain Service 멤버로 이동합니다. 선택 **트랜잭션 노드**합니다.
 
-    ![기본 트랜잭션 노드를 선택 합니다.](./media/configure-transaction-nodes/nodes.png)
+    ![기본 트랜잭션 노드 선택](./media/configure-transaction-nodes/nodes.png)
 
     개요의 세부 정보는 공용 끝점 주소와 공개 키를 포함 합니다.
 
@@ -51,12 +51,12 @@ Azure Blockchain 서비스와 상호 작용, 이렇게 하면 블록 체인 멤�
 
     | 설정 | 설명 |
     |---------|-------------|
-    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 끝점에 대 한 DNS 주소를 만드는 이름이 사용 됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 만들어진 후에 노드 이름을 변경할 수 없습니다. |
+    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 만들어진 후에 노드 이름을 변경할 수 없습니다. |
     | 암호 | 강력한 암호를 설정 합니다. 기본 인증을 사용 하 여 트랜잭션 노드 끝점에 액세스 하는 암호를 사용 합니다.
 
 1. **만들기**를 선택합니다.
 
-    새 트랜잭션 노드를 프로 비전 10 분 정도 걸립니다. 노드 추가 트랜잭션 비용이 발생 합니다. 비용에 대 한 자세한 내용은 참조 하세요. [Azure 가격 책정](https://aka.ms/ABSPricing)합니다.
+    새 트랜잭션 노드를 프로비저닝하는 데 약 10분이 걸립니다. 노드 추가 트랜잭션 비용이 발생 합니다. 비용에 대 한 자세한 내용은 참조 하세요. [Azure 가격 책정](https://aka.ms/ABSPricing)합니다.
 
 ## <a name="endpoints"></a>엔드포인트
 
@@ -85,7 +85,7 @@ Azure에 부여할 엔드포인트에 AD 액세스 제어:
     |---------|-------------|
     | 역할 | 선택 **소유자**하십시오 **참가자**, 또는 **판독기**합니다.
     | 다음에 대한 액세스 할당 | 선택 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
-    | 여기서 | 사용자, 그룹 또는 서비스 주체를 추가 하려는 검색 합니다.
+    | 선택 | 사용자, 그룹 또는 서비스 주체를 추가 하려는 검색 합니다.
 
 1. 선택 **저장할** 역할 할당을 추가 합니다.
 

@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515205"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
 
@@ -42,7 +42,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 
 ### <a name="open-the-sample-directly"></a>샘플 직접 열기
 
-위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
+위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>로컬 복사본에서 샘플 열기
 

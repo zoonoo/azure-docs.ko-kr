@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66497555"
 ---
 # <a name="monitor-site-recovery"></a>Site Recovery 모니터링
 
@@ -190,7 +190,7 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 
 다음과 같이 구독합니다.
 
-자격 증명 모음 > **모니터링 및 보고서** 섹션에서 **Site Recovery 이벤트**를 클릭합니다.
+자격 증명 모음에서 > **모니터링** 섹션에서 클릭 **Site Recovery 이벤트**합니다.
 1. **이메일 알림**을 클릭합니다.
 1. **이메일 알림**에서 알림을 켜고 보낼 사람을 지정합니다. 모든 구독 관리자와 선택적으로 특정 이메일 주소로 알림을 보낼 수 있습니다.
 

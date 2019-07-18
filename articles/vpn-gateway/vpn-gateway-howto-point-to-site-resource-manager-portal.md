@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105926"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203053"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. Azure portal
 
@@ -43,7 +43,7 @@ ms.locfileid: "62105926"
 * **리소스 그룹:** TestRG
 * **위치:** 미국 동부
 * **게이트웨이 서브넷:** 192.168.200.0/24<br>
-* **DNS 서버:**(선택 사항) 이름 확인에 사용할 DNS 서버의 IP 주소.
+* **DNS 서버:** (선택 사항) 이름 확인에 사용할 DNS 서버의 IP 주소.
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
@@ -98,7 +98,7 @@ ms.locfileid: "62105926"
 2. **지금 구성**을 클릭하여 구성 페이지를 엽니다.
 
    ![지금 구성](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. **지점 및 사이트 간 구성** 페이지의 **주소 풀** 상자에서 사용하려는 개인 IP 주소 범위를 추가합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
+3. **지점 및 사이트 간 구성** 페이지의 **주소 풀** 상자에서 사용하려는 개인 IP 주소 범위를 추가합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. 최소 서브넷 마스크는 능동/수동 및 활성/비활성 구성에 대 한 28 비트 29 비트입니다. **저장**을 클릭하여 설정을 확인하고 저장합니다.
 
    ![클라이언트 주소 풀](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "62105926"
 
 ## <a name="tunneltype"></a>7. 터널 종류 구성
 
-터널 종류를 선택할 수 있습니다. 두 개의 터널 옵션은 SSTP 및 IKEv2입니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다. 그 중 하나 또는 둘 다를 사용하도록 선택할 수 있습니다. 솔루션에 필요한 확인란을 선택합니다.
+터널 종류를 선택할 수 있습니다. 터널 옵션은 OpenVPN, SSTP 및 IKEv2입니다. Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다. Windows 클라이언트는 IKEv2를 먼저 시도하고 연결되지 않는 경우 SSTP로 대체합니다. OpenVPN 터널 유형 연결할 OpenVPN 클라이언트를 사용할 수 있습니다.
 
 ![터널 종류](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

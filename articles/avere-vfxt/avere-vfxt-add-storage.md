@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515893"
 ---
 # <a name="configure-storage"></a>저장소 구성
@@ -104,7 +104,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
    ![Azure Portal의 새 저장소 계정](media/avere-vfxt-new-storage-acct.png)
 
-1. 개요 페이지에서 **Blob**을 클릭한 다음, **+ 컨테이너**를 클릭하여 Blob 컨테이너를 만듭니다. 컨테이너 이름을 사용하고, 액세스가 **개인**으로 설정되어 있는지 확인합니다.
+1. 개요 페이지에서 **Blob**을 클릭한 다음, **+ 컨테이너**를 클릭하여 Blob 컨테이너를 만듭니다. 컨테이너 이름을 사용하고, 액세스가 **프라이빗**으로 설정되어 있는지 확인합니다.
 
    ![기존 컨테이너가 없는 저장소 Blob 페이지](media/avere-vfxt-blob-no-container.png)
 

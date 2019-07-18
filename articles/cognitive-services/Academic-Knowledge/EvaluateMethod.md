@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61339099"
 ---
 # <a name="evaluate-method"></a>Evaluate 메서드
 
@@ -43,7 +43,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="response-json"></a>응답(JSON)
 
-이름 | 설명
+Name | 설명
 -------|-----   
 **expr** |  요청의 *expr* 매개 변수입니다.
 **entities** |  쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 자연 로그 확률 값 및 다른 요청된 특성의 값이 포함됩니다.

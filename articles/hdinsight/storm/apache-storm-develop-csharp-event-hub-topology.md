@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690936"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483927"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -38,7 +38,7 @@ HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다.
 > [!IMPORTANT]  
 > 이 문서의 예제는 HDInsight 3.5 또는 3.6 클러스터를 가정합니다.
 >
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 
 
 C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>완성된 프로젝트 다운로드
 
-이 자습서에서 만든 프로젝트의 전체 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나 이 자습서의 단계에 따라 구성 설정을 제공해야 합니다.
+이 문서에서 만든 프로젝트의 전체 버전을 다운로드할 수 있습니다 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)합니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [HDInsight 클러스터 버전 3.5 또는 3.6의 Apache Storm](apache-storm-tutorial-get-started-linux.md).
+* HDInsight에서 Apache Storm 클러스터입니다. 참조 [Azure portal을 사용 하 여 Apache Hadoop 만들기 클러스터](../hdinsight-hadoop-create-linux-clusters-portal.md) 선택한 **Storm** 에 대 한 **클러스터 유형**합니다.
 
     > [!WARNING]  
     > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5 또는 3.6에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
@@ -135,7 +135,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | 이름 | 권한 |
+   | Name | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736289"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door에서 회람 규칙에 요청을 매칭하는 방법
@@ -112,7 +112,7 @@ Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 �
 >
 > 예제 구성:
 >
-> | 라우팅 | 호스트             | path    |
+> | 경로 | 호스트             | path    |
 > |-------|------------------|---------|
 > | A     | profile.contoso.com | /api/\* |
 >

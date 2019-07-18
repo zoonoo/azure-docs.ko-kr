@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61431925"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용하여 인기 비디오 가져오기 
 

@@ -4,7 +4,7 @@ description: Azure의 SAP HANA(대규모 인스턴스)에 HANA를 설치하는 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4629894933507bda7359fb034c4079d38100029
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce82a2972d9cc349e527811e32c974996327e70b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098482"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709736"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Azure의 SAP HANA(대규모 인스턴스)에 HANA 설치
 

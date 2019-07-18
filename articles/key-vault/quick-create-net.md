@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: 노드 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 - Azure Key Vault | Microsoft Docs'
+title: '빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색 - Azure Key Vault | Microsoft Docs'
 description: 빠른 시작에서 .NET 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색합니다.
 services: key-vault
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052794"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -39,7 +39,7 @@ ms.locfileid: "57316390"
 ## <a name="prerequisites"></a>필수 조건
 
 * Windows에서:
-  * 다음 워크로드를 지원하는 [Visual Studio 2017 버전 15.7.3 이상](https://www.microsoft.com/net/download/windows):
+  * 다음 워크로드가 포함된 [Visual Studio 2019](https://www.microsoft.com/net/download/windows):
     * ASP.NET 및 웹 개발
     * .NET Core 플랫폼 간 개발
   * [.NET Core 2.1 SDK 이상](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 특정 키 자격 증명 모음 이름으로 샘플을 실행하도록 program.cs 파일을 편집합니다.
 
 1. key-vault-dotnet-core-quickstart 폴더로 이동합니다.
-2. Visual Studio 2017에서 key-vault-dotnet-core-quickstart.sln 파일을 엽니다.
+2. Visual Studio 2019에서 key-vault-dotnet-core-quickstart.sln 파일을 엽니다.
 3. Program.cs 파일을 열고, *YourKeyVaultName* 자리 표시자를 앞에서 만든 키 자격 증명 모음의 이름으로 업데이트합니다.
 
 이 솔루션에서는 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 라이브러리를 사용합니다.
 
 ## <a name="run-the-app"></a>앱 실행
 
-Visual Studio 2017의 주 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 차례로 선택합니다. 브라우저가 표시되면 **정보** 페이지로 이동합니다. **AppSecret**에 대한 값이 표시됩니다.
+Visual Studio 2019의 주 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 차례로 선택합니다. 브라우저가 표시되면 **정보** 페이지로 이동합니다. **AppSecret**에 대한 값이 표시됩니다.
 
 ## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 이제 애플리케이션이 실행되면 검색된 비밀 값이 표시됩니다. 앞의 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 사용 권한의 ID를 제공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 VM에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
+더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 키 자격 증명 모음에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
 
 [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 명령을 사용하여 키 자격 증명 모음을 삭제합니다.
 

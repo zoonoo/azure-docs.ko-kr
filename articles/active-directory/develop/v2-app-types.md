@@ -3,8 +3,8 @@ title: Microsoft id 플랫폼에 대 한 응용 프로그램 종류 | Azure
 description: 앱 및 Microsoft id 플랫폼 (v2.0) 끝점에서 지 원하는 시나리오의 형식입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297163"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482401"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼에 대 한 응용 프로그램 유형
 
@@ -51,11 +51,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>단일 페이지 앱(JavaScript)
 
-대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 단일 페이지 앱 프런트 엔드가 있습니다. Microsoft id 플랫폼 끝점 사용 하 여 이러한 앱을 지원 합니다 [OAuth 2.0 암시적 흐름](v2-oauth2-implicit-grant-flow.md)합니다.
+대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 종종 Angular, React, 또는 Vue 같은 프레임 워크를 사용 하 여 기록 됩니다. Microsoft id 플랫폼 끝점 사용 하 여 이러한 앱을 지원 합니다 [OAuth 2.0 암시적 흐름](v2-oauth2-implicit-grant-flow.md)합니다.
 
 이 흐름에서 앱을 Microsoft id 플랫폼에서 직접 토큰을 받습니다 서버 간 교환 없이 끝점에 권한을 부여 합니다. 모든 인증 논리 및 세션 처리가 추가 페이지 리디렉션 없이 전적으로 JavaScript 클라이언트에서 발생합니다.
 
-![암시적 인증 흐름](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![암시적 인증 흐름을 보여 줍니다.](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 이 시나리오의 작동이 방식을 보려면,의 단일 페이지 앱 코드 샘플 중 하나를 수행 합니다 [시작 하는 Microsoft id 플랫폼](v2-overview.md#getting-started) 섹션.
 
@@ -80,7 +80,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 웹 서버 앱에서 로그인 인증 흐름은 다음과 같은 높은 수준의 단계를 수행합니다.
 
-![웹앱 인증 흐름](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![웹 앱 인증 흐름을 보여 줍니다.](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 Microsoft id 플랫폼 끝점에서 받은 공개 서명 키를 사용 하 여 ID 토큰 유효성을 검사 하 여 사용자의 id를 확인할 수 있습니다. 후속 페이지 요청에서 사용자를 식별하는 데 사용할 수 있는 세션 쿠키가 설정됩니다.
 
@@ -106,7 +106,7 @@ Web API를 통해 사용자는 [범위](v2-permissions-and-consent.md)라고도 
 
 Web API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱, 서버 쪽 데몬 및 다른 Web API까지 포함하여 모든 유형의 앱에서 액세스 토큰을 받을 수 있습니다. Web API에 대한 개략적인 흐름은 다음과 같습니다.
 
-![Web API 인증 흐름](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![웹 API 인증 흐름을 보여 줍니다.](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법에 알아보려면 웹 API 코드 샘플에서는 확인 합니다 [시작 하는 Microsoft id 플랫폼](v2-overview.md#getting-started) 섹션입니다.
 
@@ -118,7 +118,7 @@ OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법에 알
 
 이 흐름에서 앱 사용자가 로그인 할 때 Microsoft id 플랫폼 끝점에서 권한 부여 코드를 받습니다. 권한 부여 코드는 현재 로그인한 사용자를 대신해 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 앱은 백그라운드에서 권한 부여 코드를 OAuth 2.0 액세스 토큰 및 새로 고침 토큰으로 교환할 수 있습니다. 앱은 액세스 토큰을 사용하여 HTTP 요청 시 Web API에 인증할 수 있고 새로 고침 토큰을 사용하여 이전 액세스 토큰 만료 시 새 액세스 토큰을 가져올 수 있습니다.
 
-![네이티브 앱 인증 흐름](./media/v2-app-types/convergence-scenarios-native.svg)
+![네이티브 앱 인증 흐름을 보여 줍니다.](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 
@@ -126,6 +126,6 @@ OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법에 알
 
 이 흐름에서 앱에 직접 상호 작용 하는 하는 `/token` 액세스 끝점:
 
-![디먼 앱 인증 흐름](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![디먼 앱 인증 흐름을 보여 줍니다.](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 디먼 앱을 빌드하려면 [클라이언트 자격 증명 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하거나 [.NET 샘플 앱](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 사용해 보세요.

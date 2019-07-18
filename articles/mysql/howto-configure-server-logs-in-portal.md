@@ -1,21 +1,21 @@
 ---
-title: Azure Portal에서 Azure Database for MySQL에 대한 서버 로그 구성 및 액세스
-description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 서버 로그를 구성 및 액세스하는 방법을 설명합니다.
+title: 구성 하 고 Azure portal에서 MySQL 용 Azure Database에 대 한 느린 쿼리 로그에 액세스
+description: 이 문서에 구성 하 고 Azure portal에서 MySQL 용 Azure Database에서 느린 로그에 액세스 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052726"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Azure Portal에서 서버 로그 구성 및 액세스
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>구성 및 Azure portal에서 액세스 느린 쿼리 로그
 
-Azure Portal에서 [Azure Database for MySQL 서버 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드할 수 있습니다.
+구성, 나열 및 다운로드 합니다 [Azure Database for MySQL 느린 쿼리 로그](concepts-server-logs.md) Azure portal에서 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -42,7 +42,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 6. **서버 매개 변수** 페이지에서 **닫기 단추**(X 아이콘)를 클릭하여 로그 목록으로 돌아갑니다.
 
 ## <a name="view-list-and-download-logs"></a>목록 보기 및 로그 다운로드
-로깅이 시작되면 사용 가능한 로그 목록을 보고 서버 로그 창에서 개별 로그 파일을 다운로드할 수 있습니다. 
+로깅 시작 되 면 사용할 수 있는 느린 쿼리 로그의 목록을 본 서버 로그 창에 개별 로그 파일을 다운로드할 수 있습니다.
 
 1. Azure Portal을 엽니다.
 
@@ -61,9 +61,7 @@ MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다.
 
    ![다운로드 아이콘을 클릭합니다.](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>다음 단계
-- 프로그래밍 방식으로 로그를 다운로드하는 방법은 [CLI를 사용하여 서버 로그 액세스](howto-configure-server-logs-in-cli.md)를 참조하세요.
-- Azure Database for MySQL의 [서버 로그](concepts-server-logs.md)에 대해 자세히 알아봅니다. 
+- 참조 [CLI에서 액세스 느린 쿼리 로그](howto-configure-server-logs-in-cli.md) 를 프로그래밍 방식으로 느린 쿼리 로그를 다운로드 하는 방법을 알아봅니다.
+- 에 대해 자세히 알아보세요 [느린 쿼리 로그](concepts-server-logs.md) Azure Database for MySQL에서에서.
 - 매개 변수 정의 및 MySQL 로깅에 대한 자세한 내용은 [로그](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)의 MySQL 설명서를 참조하세요.
-

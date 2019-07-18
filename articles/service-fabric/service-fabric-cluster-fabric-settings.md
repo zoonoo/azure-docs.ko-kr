@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386825"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144403"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -38,10 +38,10 @@ ms.locfileid: "60386825"
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|string, 기본값: "None"|공용| 서버 인증서의 유효성을 검사하지 않습니다. 요청이 성공합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록에 대한 ServiceCertificateThumbprints 구성을 참조합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문에 대한 ServiceCommonNameAndIssuer 구성을 참조합니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 |BodyChunkSize |uint, 기본값: 16384 |동적| 본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
-|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 애플리케이션/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
+|CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 애플리케이션/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx ).  |
 |DefaultHttpRequestTimeout |시간(초). 기본값은 120입니다. |동적|시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
 |ForwardClientCertificate|bool, 기본값: FALSE|동적|false로 설정된 경우 역방향 프록시는 클라이언트 인증서에 대해 요청하지 않습니다. true로 설정된 경우 역방향 프록시는 SSL 핸드셰이크 중 클라이언트 인증서에 대해 요청하며 X-Client-Certificate라는 헤더의 서비스에 base64로 인코딩된 PEM 형식의 문자열을 전달합니다. 서비스는 인증서 데이터를 검사한 후 적절한 상태 코드로 요청에 실패할 수 있습니다. true이고 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다. 역방향 프록시는 투명한 계층처럼 작동합니다. 자세한 정보는 [클라이언트 인증서 인증 설정](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)을 참조하세요. |
-|GatewayAuthCredentialType |string, 기본값: "None" |공용| http 앱 게이트웨이 엔드포인트에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
+|GatewayAuthCredentialType |string, 기본값: "None" |공용| 나타냅니다 http 앱 게이트웨이 끝점 유효한 값에 사용할 보안 자격 증명 유형을 None / X509 합니다. |
 |GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" |동적| GatewayX509CertificateStoreName에 지정한 스토어에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, 기본값: "" |동적| http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다. |
 |GatewayX509CertificateFindValueSecondary | string, 기본값: "" |동적|http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다.|
@@ -125,14 +125,19 @@ ms.locfileid: "60386825"
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
+|AdminOnlyHttpAudit |bool, 기본값: true | 동적 | 감사에서 클러스터의 상태 영향을 주지 않는 HTTP 요청을 제외 합니다. 현재; "GET" 형식의 요청에만 제외 됩니다. 그러나이 변경 될 수 있습니다. |
 |AppDiagnosticStoreAccessRequiresImpersonation |bool, 기본값: true | 동적 |애플리케이션 대신 진단 저장소에 액세스할 때 가장이 필요한지의 여부 |
 |AppEtwTraceDeletionAgeInDays |int, 기본값: 3 | 동적 |애플리케이션 ETW 추적을 포함하고 있는 오래된 ETL 파일을 삭제한 이후 경과한 일 수 |
 |ApplicationLogsFormatVersion |int, 기본값: 0 | 동적 |애플리케이션 로그 형식의 버전. 지원되는 값은 0과 1입니다. 버전 1은 버전 0보다 더 많은 ETW 이벤트 레코드 필드를 포함합니다. |
+|AuditHttpRequests |bool, 기본값: false | 동적 | HTTP 감사를 설정 하거나 해제 합니다. 감사의 목적은; 클러스터에 대해 수행 된 작업을 확인 하려면 요청을 시작한 사람을 포함 합니다. 이 최적의 시도 로깅; note 및 추적 손실 될 수 있습니다. "User" 인증을 사용 하 여 HTTP 요청을 기록 되지 않습니다. |
+|CaptureHttpTelemetry|bool, 기본값: false | 동적 | HTTP 원격 분석을 켜거나 끕니다. 원격 분석의 목적은 이후의 작업을 계획 하 고 문제 영역을 식별 하는 데 원격 분석 데이터를 캡처할 수 있으려면 Service Fabric 용입니다. 모든 개인 데이터 또는 요청 본문에는 원격 분석 기록 하지 않습니다. 원격 분석 구성 하지 않는 한 모든 HTTP 요청을 캡처합니다. |
 |ClusterId |문자열 | 동적 |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
 |ConsumerInstances |문자열 | 동적 |DCA 소비자 인스턴스 목록 |
 |DiskFullSafetySpaceInMB |int, 기본값: 1024 | 동적 |DCA에서 사용하지 못하도록 보호하기 위해 남아 있는 디스크 공간(MB) |
 |EnableCircularTraceSession |bool, 기본값: false | 공용 |플래그에서 순환 추적 세션을 사용해야 하는지 여부를 나타냅니다. |
 |EnableTelemetry |bool, 기본값: true | 동적 |원격 분석 사용 여부 |
+|FailuresOnlyHttpTelemetry | bool, 기본값: true | 동적 | HTTP 원격 분석 캡처를 사용 하면 실패 한 요청만을 캡처하십시오. 이 원격 분석에 대해 생성 된 이벤트 수가 줄이기 하는 데 도움이 됩니다. |
+|HttpTelemetryCapturePercentage | Int, 기본값: 50 | 동적 | HTTP 원격 분석 캡처를 사용 하면 임의 비율로 요청을 캡처하십시오. 이 원격 분석에 대해 생성 된 이벤트 수가 줄이기 하는 데 도움이 됩니다. |
 |MaxDiskQuotaInMB |int, 기본값: 65536 | 동적 |Windows Fabric 로그 파일의 디스크 할당량(MB) |
 |ProducerInstances |문자열 | 동적 |DCA 생산자 인스턴스 목록 |
 
@@ -145,7 +150,7 @@ ms.locfileid: "60386825"
 |PartitionPrefix|string, 기본값은 "--"입니다.|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -627,7 +632,7 @@ ms.locfileid: "60386825"
 |AADTokenEndpointFormat|string, 기본값: ""|공용|AAD 토큰 끝점에 Azure 상용 기본 Azure Government와 같은 기본이 아닌 환경에 지정 된 "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, 기본값: ""|동적|모든 가능한 클레임은 관리자 클라이언트에서 예상되는 모든 가능한 클레임이며, ClientClaims와 동일한 형식입니다. 이 목록은 ClientClaims에 내부적으로 추가되므로 ClientClaims에 동일한 항목을 추가할 필요가 없습니다. |
 |AdminClientIdentities|string, 기본값: ""|동적|관리자 역할의 패브릭 클라이언트에 대한 Windows ID이며, 권한 있는 패브릭 작업에 대한 권한을 부여하는 데 사용됩니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. 편의상 fabric.exe를 실행하는 계정에 관리자 역할이 자동으로 할당됩니다. ServiceFabricAdministrators 그룹도 마찬가지입니다. |
-|AppRunAsAccountGroupX509Folder|string, 기본값: /home/sfuser/sfusercerts |공용|AppRunAsAccountGroup X509 인증서와 개인 키가 있는 폴더 |
+|AppRunAsAccountGroupX509Folder|string, 기본값: /home/sfuser/sfusercerts |공용|AppRunAsAccountGroup X509 인증서와 프라이빗 키가 있는 폴더 |
 |CertificateExpirySafetyMargin|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(43200)|공용|시간 간격은 초 단위로 지정합니다. 인증서 만료에 대한 여유 제한입니다. 만료가 이 값보다 더 가까울 경우 인증서 상태 보고서 상태가 확인에서 경고로 변경됩니다. 기본값: 30일 |
 |CertificateHealthReportingInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600 * 8)|공용|시간 간격은 초 단위로 지정합니다. 인증서 상태 보고 간격을 지정하며, 기본값은 8시간입니다. 0으로 설정하면 인증서 상태 보고가 사용되지 않습니다. |
 |ClientCertThumbprints|string, 기본값: ""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클러스터에서 이 지문을 사용하여 들어오는 연결에 대한 권한을 부여합니다. 쉼표로 구분된 이름 목록입니다. |
@@ -639,11 +644,11 @@ ms.locfileid: "60386825"
 |ClusterCredentialType|string, 기본값: "None"|허용되지 않음|클러스터를 보호하는 데 사용할 보안 자격 증명 유형을 나타냅니다. 유효한 값: "None / X509 / Windows" |
 |ClusterIdentities|string, 기본값: ""|동적|클러스터 노드의 Windows ID이며, 클러스터 멤버 자격 권한 부여에 사용됩니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. |
 |ClusterSpn|string, 기본값: ""|허용되지 않음|패브릭이 단일 도메인 사용자(gMSA/도메인 사용자 계정)로 실행되는 경우 클러스터의 서비스 사용자 이름입니다. fabric.exe의 임대 수신기 및 수신기, 즉 페더레이션 수신기, 내부 복제 수신기, 런타임 서비스 수신기 및 이름 지정 게이트웨이 수신기의 SPN입니다. . 패브릭이 머신 계정으로 실행될 때 이 값은 비워 두어야 합니다. 이 경우 수신기 전송 주소에서 측면 계산 SPN을 연결합니다. |
-|CrlCheckingFlag|uint, 기본값: 0x40000000|동적|기본 인증서 체인 유효성 검사에 대한 플래그이며, 구성 요소 특정 플래그로 재정의될 수 있습니다. 예: Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx). |
+|CrlCheckingFlag|uint, 기본값: 0x40000000|동적|기본 인증서 체인 유효성 검사에 대한 플래그이며, 구성 요소 특정 플래그로 재정의될 수 있습니다. 예: Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx ). |
 |CrlDisablePeriod|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(15)|동적|시간 간격은 초 단위로 지정합니다. CRL 오프라인 오류를 무시할 수 있는 경우 오프라인 오류가 발생한 후에 지정된 인증서에 대한 CRL 확인이 사용되지 않는 기간입니다. |
 |CrlOfflineHealthReportTtl|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(1440)|동적|시간 간격은 초 단위로 지정합니다. |
 |DisableFirewallRuleForDomainProfile| bool, 기본값: TRUE |공용| 도메인 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. |
-|DisableFirewallRuleForPrivateProfile| bool, 기본값: TRUE |공용| 개인 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. | 
+|DisableFirewallRuleForPrivateProfile| bool, 기본값: TRUE |공용| 프라이빗 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. | 
 |DisableFirewallRuleForPublicProfile| bool, 기본값: TRUE | 공용|공용 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. |
 |FabricHostSpn| string, 기본값: "" |공용| 패브릭이 단일 도메인 사용자(gMSA/도메인 사용자 계정)로 실행되고 FabricHost가 컴퓨터 계정에서 실행되는 경우 FabricHost의 서비스 사용자 이름입니다. FabricHost에 대한 IPC 수신기의 SPN입니다. FabricHost는 컴퓨터 계정에서 실행되므로 기본적으로 비워 두어야 합니다. |
 |IgnoreCrlOfflineError|bool, 기본값: FALSE|동적|서버 쪽에서 들어오는 클라이언트 인증서를 확인할 때 CRL 오프라인 오류를 무시할지 여부 |
@@ -652,7 +657,7 @@ ms.locfileid: "60386825"
 |ServerCertThumbprints|string, 기본값: ""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클라이언트에서 이 지문을 사용하여 클러스터를 인증합니다. 쉼표로 구분된 이름 목록입니다. |
 |SettingsX509StoreName| string, 기본값: "MY"| 동적|패브릭에서 구성을 보호하는 데 사용하는 X509 인증서 저장소 |
 |UseClusterCertForIpcServerTlsSecurity|bool, 기본값: FALSE|공용|클러스터 인증서를 사용하여 IPC 서버 TLS 전송 단위의 보안을 유지하는지 여부 |
-|X509Folder|string, 기본값: /var/lib/waagent|공용|X509 인증서와 개인 키가 있는 폴더 |
+|X509Folder|string, 기본값: /var/lib/waagent|공용|X509 인증서와 프라이빗 키가 있는 폴더 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 

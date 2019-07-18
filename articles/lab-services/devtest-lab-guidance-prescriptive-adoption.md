@@ -14,13 +14,13 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916402"
 ---
-# <a name="devtest-labs-in-the-enterprise"></a>기업에서 DevTest Labs
+# <a name="devtest-labs-in-the-enterprise"></a>기업의 DevTest Labs
 기업 때문에 클라우드를 채택 하 고 신속 하 게 됩니다 [혜택](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) 민첩성, 유연성 및 경제성을 포함 하는 합니다. 첫 번째 단계는 종종 개발 및 테스트 워크 로드. Azure DevTest Labs 제공 [기능](devtest-lab-concepts.md) enterprise 및 지원 혜택입니다 [주요 개발/테스트 시나리오](devtest-lab-guidance-get-started.md)합니다.
 
 워크 로드를 클라우드로 마이그레이션하는 회사에 대 한 일반적인 문제는 다음과 같습니다.

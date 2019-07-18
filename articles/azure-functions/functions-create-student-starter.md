@@ -41,7 +41,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. 
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **함수 앱**을 차례로 선택합니다.
 
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -54,9 +54,9 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
     | **앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.  | 
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
-   | **[App Service 계획/위치](./functions-scale.md)** | 새로 만들기 | Function App이 배포되는 지역 및 리소스 밀도를 제어하는 호스팅 계획입니다. 동일한 계획에 배포된 여러 Function App은 모두 동일한 단일 무료 인스턴스를 공유합니다. 이러한 측면이 Student Starter 계획의 제한 사항입니다. 전체 호스팅 옵션은 [여기에 설명되어 있습니다.](./functions-scale.md)|
+   | **[App Service 계획/위치](./functions-scale.md)** | 새로 만들기 | 함수 앱이 배포되는 지역 및 리소스 밀도를 제어하는 호스팅 계획입니다. 동일한 계획에 배포된 여러 함수 앱은 모두 동일한 단일 무료 인스턴스를 공유합니다. 이러한 측면이 Student Starter 계획의 제한 사항입니다. 전체 호스팅 옵션은 [여기에 설명되어 있습니다.](./functions-scale.md)|
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
-    |**[Application Insights](./functions-monitoring.md)**| 사용 | Application Insights는 Function App의 로그를 저장 및 분석하는 데 사용됩니다. Application Insights를 지원하는 위치를 선택하면 기본적으로 사용하도록 설정됩니다. Application Insights는 Application Insights를 배포할 가까운 지역을 수동으로 선택하여 모든 함수에 사용할 수 있습니다. Application Insights가 없으면 라이브 스트리밍 로그만 볼 수 있습니다.
+    |**[Application Insights](./functions-monitoring.md)**| 사용 | Application Insights는 함수 앱의 로그를 저장 및 분석하는 데 사용됩니다. Application Insights를 지원하는 위치를 선택하면 기본적으로 사용하도록 설정됩니다. Application Insights는 Application Insights를 배포할 가까운 지역을 수동으로 선택하여 모든 함수에 사용할 수 있습니다. Application Insights가 없으면 라이브 스트리밍 로그만 볼 수 있습니다.
 
 3. 위의 **App Service 계획/위치**를 선택하여 다른 위치를 선택합니다.
 

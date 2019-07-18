@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105669"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Wunderlist 모니터링 및 관리
@@ -61,7 +61,7 @@ Azure Logic Apps 및 Wunderlist 커넥터를 사용하면 다음과 같이 다�
        또는
 
      * 작업을 추가하려는 단계 사이에서, 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-     표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+     표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
      
        검색 상자에서 필터로 “wunderlist”를 입력합니다. 
        작업 목록에서 원하는 작업을 선택합니다.

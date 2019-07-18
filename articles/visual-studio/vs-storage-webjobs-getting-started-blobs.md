@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122926"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -84,7 +84,7 @@ ms.locfileid: "62122926"
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-*  [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+* [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
 Azure 스토리지 계정으로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수도 있습니다.
 
@@ -193,7 +193,7 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 **BlobTr
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 스토리지 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* Blob에 대해 호출 된 함수 ("*{WebJob 이름}* 합니다. 함수입니다. *{함수 이름}*", 예를 들어: "WebJob1.Functions.CopyBlob")
+* Blob에 대해 호출 된 함수 (" *{WebJob 이름}* 합니다. 함수입니다. *{함수 이름}* ", 예를 들어: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름

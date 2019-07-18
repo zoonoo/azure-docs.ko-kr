@@ -4,7 +4,7 @@ description: SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925733"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707222"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -28,15 +28,15 @@ ms.locfileid: "64925733"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -52,7 +52,7 @@ ms.locfileid: "64925733"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 이 문서에서는 가상 머신을 배포하고, 가상 머신을 구성하고, 클러스터 프레임워크를 설치하고, 가용성이 높은 SAP 시스템의 공유 데이터를 저장하는 데 사용할 수 있는 고가용성 NFS 서버를 설치하는 방법을 설명합니다.
-이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에 포함된 리소스(예: 가상 머신, 가상 네트워크) 이름은 [SAP 파일 서버 템플릿][template-file-server]을 리소스 접두사인 **prod**와 함께 사용한 것으로 가정합니다.
+이 가이드에서는 NW1 및 NW2라는 두 개의 SAP 시스템에 사용되는 고가용성 NFS 서버를 설정하는 방법에 대해 설명합니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크) 이름을 사용 하는 것으로 가정 합니다 [SAP 파일 서버 템플릿][template-file-server] 리소스 접두사를 사용 하 여 **prod**합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -71,13 +71,13 @@ ms.locfileid: "64925733"
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE Linux Enterprise 고가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
+* [Azure Virtual Machines 계획 및 Linux에서 SAP 용 구현][planning-guide]
+* [Linux (이 문서)에서 SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [Linux에서 SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE Linux Enterprise 높은 가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
   * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 저장소
-* [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
-* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise Server SAP 응용 프로그램 12 sp3 모범 사례 가이드][sles-for-sap-bp]
+* [고가용성 확장 SUSE 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>개요
 
@@ -110,7 +110,7 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
-1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server]을 엽니다.   
+1. 엽니다는 [SAP 파일 서버 템플릿][template-file-server] Azure portal에서   
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사 -  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -121,7 +121,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    4. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/ **&lt;구독 ID&gt;** /resourceGroups/ **&lt;리소스 그룹 이름&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;가상 네트워크 이름&gt;** /subnets/ **&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -189,7 +189,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ### <a name="configure-nfs-server"></a>NFS 서버 구성
 
-다음 항목에는 접두사 **[A]**(모든 노드에 적용됨), **[1]**(노드 1에만 적용됨), **[2]**(노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
 1. **[A]** 호스트 이름 확인 설정
 
@@ -539,8 +539,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 ## <a name="next-steps"></a>다음 단계
 
 * [SAP ASCS 및 데이터베이스 설치](high-availability-guide-suse.md)
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
+* [SAP 용 azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* 고가용성 및 Azure Vm에서 SAP HANA의 재해 복구에 대 한 계획을 설정 하는 방법에 알아보려면 참조 [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]

@@ -1,5 +1,5 @@
 ---
-title: 탐색 하 고 (데이터 집합 클래스) 데이터를 준비 합니다.
+title: 탐색 하 고 (데이터 집합 클래스) 데이터를 변환 합니다.
 titleSuffix: Azure Machine Learning service
 description: 요약 통계를 사용 하 여 데이터를 탐색 하 고 데이터 정리, 변환 및 기능 엔지니어링을 통해 데이터를 준비 합니다.
 services: machine-learning
@@ -10,20 +10,20 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204952"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443961"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
-탐색 하 고 사용 하 여 데이터를 준비 하는 방법을 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 합니다 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스 (미리 보기)을 사용 하면 탐색 하 고 같은 함수를 제공 하 여 데이터를 준비할 수 있습니다: 샘플링, 요약 통계 및 지능형 변환 합니다. 변환 단계에 저장 됩니다 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 확장성이 뛰어난 방식으로 스키마가 서로 다른 여러 큰 파일을 처리 하는 기능을 사용 하 여 합니다.
+탐색에서 azureml 데이터 집합 패키지를 사용 하 여 데이터를 준비 하는 방법을 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 합니다 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스 (미리 보기)을 사용 하면 탐색 하 고 같은 함수를 제공 하 여 데이터를 준비할 수 있습니다: 샘플링, 요약 통계 및 지능형 변환 합니다. 변환 단계에 저장 됩니다 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 확장성이 뛰어난 방식으로 스키마가 서로 다른 여러 큰 파일을 처리 하는 기능을 사용 하 여 합니다.
 
 > [!Important]
-> 일부 데이터 집합 클래스 (미리 보기)는 데이터 준비 SDK (GA) 종속성이 있습니다. 변환 함수는 GA'ed를 사용 하 여 직접 수행할 수 있습니다 하는 동안 [데이터 준비 SDK 함수](how-to-transform-data.md), 새 솔루션을 빌드하는 경우이 문서에 설명 된 데이터 집합 패키지 래퍼 것이 좋습니다. Azure Machine Learning 데이터 집합 (미리 보기) 수 뿐만 아니라 데이터를 변환 하는 데 뿐만 [스냅숏 데이터](how-to-create-dataset-snapshots.md) 저장 하 고 [버전이 지정 된 데이터 집합 정의](how-to-manage-dataset-definitions.md)합니다. 데이터 집합에는 AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 하는 데이터 준비 SDK의 다음 버전입니다.
+> 일부 데이터 집합 클래스 (미리 보기)에 종속 되어는 [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA). 변환 함수는 GA'ed를 사용 하 여 직접 수행할 수 있습니다 하는 동안 [데이터 준비 함수](how-to-transform-data.md), 새 솔루션을 빌드하는 경우이 문서에 설명 된 데이터 집합 패키지 래퍼 것이 좋습니다. Azure Machine Learning 데이터 집합 (미리 보기) 수 뿐만 아니라 데이터를 변환 하는 데 뿐만 [스냅숏 데이터](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) 저장 하 고 [버전이 지정 된 데이터 집합 정의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)합니다. 데이터 집합에는 AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 하는 데이터 준비 SDK의 다음 버전입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,9 +33,9 @@ ms.locfileid: "65204952"
 
 * Azure Machine Learning 서비스 작업 영역. 참조 [Azure Machine Learning 서비스 작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)합니다.
 
-* Python 용 Azure Machine Learning SDK (버전 1.0.21 이상). 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+* Python 용 Azure Machine Learning SDK (버전 1.0.21 이상), azureml 데이터 집합 패키지를 포함 하는 합니다. 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
 
-* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트를 데이터 준비 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
+* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 데이터 준비 SDK 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
 
 * 예제를 따라가려면 샘플 파일을 다운로드 합니다. [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) 하 고 [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json)합니다.
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|거짓 연습|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|거짓 연습|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
@@ -119,7 +119,7 @@ dataset.get_profile()
 
 ||Type|Min|max|개수|누락된 수|누락되지 않은 수|누락 백분율|오류 수|비어 있는 수|0.1% 분위수|1% 분위수|5% 분위수|25% 분위수|50% 분위수|75% 분위수|95% 분위수|99% 분위수|99.9% 분위수|평균|표준 편차|Variance|왜곡도|첨도
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Block|FieldType.STRING|004XX S KILBOURN AVE|113XX S 어떤 AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -127,10 +127,10 @@ IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1
 Primary Type|FieldType.STRING|거짓 연습|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 설명|FieldType.STRING|가짜 확인|500 달러를 통해|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||학교, 공용 빌드|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Arrest|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Domestic|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 비트|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-구|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
+구역|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
@@ -148,7 +148,7 @@ Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7
 
 이전 섹션에서 생성 된 데이터 집합 프로필에서 했습니다 보면 `Latitude` 고 `Longitude` 열에 누락 값의 비율이 높으면 합니다. 이 예제에서는 평균을 계산 하 고 이러한 두 개의 열에 누락 값을 대체 합니다.
 
-먼저, 사용 하 여 데이터 집합의 최신 정의 가져옵니다 [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) 사용 하 여 데이터를 줄이려면 및 [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)이므로 주소 하고자 하는 열만 봅니다.
+먼저, 사용 하 여 데이터 집합의 최신 정의 가져옵니다 [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) 사용 하 여 데이터를 줄이려면 및 [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow)이므로 주소 하고자 하는 열만 봅니다.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -162,11 +162,11 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||ID|Arrest| 위도|경도|
+||id|Arrest| 위도|경도|
 -|---------|-----|---------|----------|
-|0|10498554|거짓|41.692834|-87.604319|
-|1|10516598|거짓| 41.744107 |-87.664494|
-|2|10519196|거짓| NaN|NaN|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
 
 다음으로 확인 합니다 `MEAN` 사용 하 여 위도 열 값을 [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 함수입니다. 이 함수는 `group_by_columns` 매개 변수의 열 배열을 수락하여 집계 수준을 지정합니다. `summary_columns` 매개 변수는 허용 합니다 `SummaryColumnsValue` 현재 열 이름을, 새 계산된 필드 이름을 지정 하는 함수 및 `SummaryFunction` 하는 데.
 
@@ -181,7 +181,7 @@ lat_mean.head(1)
 
 ||Arrest|Latitude_MEAN|
 --|-----|--------|
-|0|거짓|41.780049|
+|0|False|41.780049|
 
 사용 하 여 대체 값을 확인 합니다 [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) imputes 열을 계산된 하는 고정 된 식에 알아보려면 `MIN`에 `MAX`를 `MEAN` 값 또는 `CUSTOM` 값입니다. `group_by_columns`를 지정하면 그룹별로 계산된 `MIN`, `MAX` 및 `MEAN`을 사용하여 누락 값이 그룹을 기준으로 입력됩니다.
 
@@ -215,11 +215,11 @@ ds_def.head(3)
 
 누락 된 위도 사용 하 여 귀속 된 다음 출력 테이블에 표시 된 대로 합니다 `MEAN` 의 값 `Arrest==False` -87을 사용 하 여 그룹 및 누락 된 경도 귀속 되었습니다.
 
-||ID|Arrest|위도|경도
+||id|Arrest|위도|경도
 -|---------|-----|---------|----------
-0|10498554|거짓|41.692834|-87.604319
-1|10516598|거짓|41.744107|-87.664494
-2|10519196|거짓|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 를 사용 하 여 데이터 집합 정의 업데이트할 [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) 수행된 변환 단계를 유지 하 합니다.
 
@@ -228,11 +228,11 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||ID|Arrest|위도|경도
+||id|Arrest|위도|경도
 -|---------|-----|---------|----------
-0|10498554|거짓|41.692834|-87.604319
-1|10516598|거짓|41.744107|-87.664494
-2|10519196|거짓|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 ## <a name="create-assertion-rules"></a>어설션 규칙 만들기
 
@@ -258,8 +258,8 @@ ds_def.get_profile()
 
 ||Type|Min|max|개수|누락된 수|누락되지 않은 수|누락 백분율|오류 수|비어 있는 수|0.1% 분위수|1% 분위수|5% 분위수|25% 분위수|50% 분위수|75% 분위수|95% 분위수|99% 분위수|99.9% 분위수|평균|표준 편차|Variance|왜곡도|첨도
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
-Arrest|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
+Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 위도|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1.05
 경도|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
@@ -288,13 +288,13 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Case Number|Date|Block|...|
+||id|Case Number|Date|Block|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 
-날짜 및 시간 형식 '에서 2016으로 변환 해야 한다고 가정해 봅니다-04-04 오후 10 시-오전 12 시 '. 에 [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) 인수를에 원하는 출력의 예제를 제공 합니다 `example_data` 형식으로 매개 변수: *(원래 출력, 원하는 출력)*.
+날짜 및 시간 형식 '에서 2016으로 변환 해야 한다고 가정해 봅니다-04-04 오후 10 시-오전 12 시 '. 에 [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) 인수를에 원하는 출력의 예제를 제공 합니다 `example_data` 형식으로 매개 변수: *(원래 출력, 원하는 출력)* .
 
 다음 코드에서는 원하는 출력의 두 가지 예 ("2016-04-04 23시 56분: 00", "2016-04-04 오후 10-오전 12 시") 및 ("2016-04-15 17시: 00", "2016-04-15 오후 4 시-오후 6 시")
 
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 다음 표에 새 열을 Date_Time_Range 포함 지정 된 형식의 레코드를 확인 합니다.
 
-||ID|Date|Date_Time_Range
+||id|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>다음 단계
-
-* [데이터 집합 정의의 수명 주기 관리](how-to-manage-dataset-definitions.md)합니다.
 
 * 자동화 된 기계 학습을 참조 하세요 [자습서](tutorial-auto-train-models.md) 회귀 모델 예제에 대 한 합니다.
 

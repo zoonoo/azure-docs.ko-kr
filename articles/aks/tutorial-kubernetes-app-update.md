@@ -2,18 +2,18 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5415778713261fbb3e57695573c8486cb32da781
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756127"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614389"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -35,7 +35,7 @@ Kubernetes에서 애플리케이션을 배포한 후 새 컨테이너 이미지 
 
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="update-an-application"></a>응용 프로그램 업데이트
+## <a name="update-an-application"></a>애플리케이션 업데이트
 
 샘플 애플리케이션을 변경한 다음, AKS 클러스터에 배포된 버전을 업데이트하겠습니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인합니다. 그런 다음, *azure-vote* 디렉터리 내에서 애플리케이션 예제 소스 코드를 찾을 수 있습니다. `vi` 같은 편집기를 사용하여 *config_file.cfg* 파일을 엽니다.
 
@@ -57,7 +57,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-the-container-image"></a>컨테이너 이미지 업데이트
 
-프런트 엔드 이미지를 다시 만들고 업데이트된 애플리케이션을 테스트하려면 [docker-compose][docker-compose] 명령을 사용합니다. `--build` 인수를 사용하여 응용 프로그램 이미지를 다시 만들도록 Docker Compose에 명령합니다.
+프런트 엔드 이미지를 다시 만들고 업데이트된 애플리케이션을 테스트하려면 [docker-compose][docker-compose] 명령을 사용합니다. `--build` 인수를 사용하여 애플리케이션 이미지를 다시 만들도록 Docker Compose에 명령합니다.
 
 ```console
 docker-compose up --build -d
@@ -85,7 +85,10 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다. ACR 레지스트리로 푸시하는 데 문제가 있는 경우 [az acr login][az-acr-login] 명령을 실행했는지 확인합니다.
+이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
+
+> [!NOTE]
+> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. 예: `az acr login --name <azure container registry name>`
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -111,7 +114,7 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-애플리케이션을 업데이트하려면 [kubectl set][kubectl-set] 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트하고, *v2* 응용 프로그램 버전을 지정합니다.
+애플리케이션을 업데이트하려면 [kubectl set][kubectl-set] 명령을 사용합니다. `<acrLoginServer>`를 컨테이너 레지스트리의 로그인 서버 또는 호스트 이름으로 업데이트하고, *v2* 애플리케이션 버전을 지정합니다.
 
 ```console
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
@@ -149,7 +152,7 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 애플리케이션을 업데이트하고 이 업데이트를 AKS 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 애플리케이션을 업데이트하고 AKS 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 응용 프로그램 코드 업데이트
@@ -157,7 +160,7 @@ kubectl get service azure-vote-front
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * 업데이트된 컨테이너 이미지 배포
 
-그 다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드 하는 방법을 알아보세요.
+다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 업그레이드][aks-tutorial-upgrade]

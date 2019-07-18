@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78901524392c575fcb9e821650b392dcea28c8b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8a78252a48ba8e3d69c6931da688f6ad692d96f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>자습서: Heroku와 Azure Active Directory 통합
 

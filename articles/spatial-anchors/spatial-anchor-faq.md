@@ -4,16 +4,16 @@ description: Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에�
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753596"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653245"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -57,7 +57,7 @@ Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에서 다중 사
 
 Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) 및 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409)을 준수합니다.
 
-![환경 및 파생된 해당 스파스 지점 클라우드](./media/sparce-point-cloud.png)
+![환경 및 파생된 해당 스파스 지점 클라우드](./media/sparse-point-cloud.png)
 *그림 1: 환경 및 파생된 해당 스파스 지점 클라우드*
 
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 
 **Q: 적절한 제한 한도가 있나요?**
- 
+
 **A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrs@microsoft.com). 이 미리 보기 단계에서는 계층화 및 가격 책정 구조를 아직 발표하지 않았지만 곧 발표할 것입니다.
 
 **Q: Azure Spatial Anchors를 사용할 수 있는 지역은 어떻게 되나요?**
@@ -120,8 +120,12 @@ GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 
 **Q: Unreal을 사용할 수 있나요?**
 
-**A:** Unreal은 곧 지원할 예정입니다.
+**A:** Unreal에 대한 지원은 앞으로 고려될 것입니다.
 
 **Q: Xamarin을 사용할 수 있나요?**
 
-**A:** 예. Xamarin SDK가 제공되지 않지만, 개발자는 Azure Spatial Anchors API와 통합하여 Xamarin 앱에서 Azure Spatial Anchors를 사용할 수 있습니다.
+**A:** Xamarin에 대한 지원은 앞으로 고려될 것입니다.
+
+**Q: Azure Spatial Anchors는 어떤 포트 및 프로토콜을 사용하나요?**
+
+**A:** Azure Spatial Anchors는 암호화된 프로토콜을 사용하여 TCP 포트 443을 통해 통신합니다. 포트 443을 통해 HTTPS를 사용하여 통신하는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 인증에 사용합니다.

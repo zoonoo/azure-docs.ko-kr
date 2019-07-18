@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: dabae62b9e308bc97850ee36fa735b8a11c4d6f0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 22970eb58dc244405e522d46fcaa380151076062
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020961"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603110"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 애플리케이션을 개발하는 방법을 설명합니다.
-이 애플리케이션은 Speech SDK Maven 패키지 버전 1.5.0 및 Android Studio 3.3을 기반으로 합니다.
+이 애플리케이션은 Speech SDK Maven 패키지 버전 1.6.0 및 Android Studio 3.3을 기반으로 합니다.
 Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
 
 > [!NOTE]
@@ -34,47 +34,7 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
 ## <a name="create-and-configure-a-project"></a>프로젝트 만들기 및 구성
 
-1. Android Studio를 실행하고 시작 창에서 **새 Android Studio 프로젝트 시작**을 선택합니다.
-
-    ![Android Studio 시작 창 스크린샷](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
-
-1. **프로젝트 선택** 마법사가 표시되면 작업 선택 상자에서 **전화 및 태블릿** 및 **빈 작업**을 선택합니다. **다음**을 선택합니다.
-
-   ![프로젝트 선택 마법사의 스크린샷](media/sdk/qs-java-android-02-target-android-devices.png)
-
-1. **프로젝트 구성** 화면에서 **이름**으로 **Quickstart**를 입력하고 **패키지 이름**으로 **samples.speech.cognitiveservices.microsoft.com**을 입력하고 프로젝트 디렉터리를 선택합니다. **최소 API 수준**으로 **API 23: Android 6.0(Marshmallow)** 을 선택하고 모든 다른 확인란을 선택 취소된 상태로 유지하고 **마침**을 선택합니다.
-
-   ![프로젝트 구성 마법사의 스크린샷](media/sdk/qs-java-android-03-create-android-project.png)
-
-Android Studio가 새 Android 프로젝트를 준비하는 데 잠시 시간이 걸립니다. 다음으로, Speech SDK에 대해 알고 Java 8을 사용하는 프로젝트를 구성합니다.
-
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.0`입니다.
-
-Android용 Speech SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
-https:\//csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스팅됩니다.
-
-Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio 메뉴 모음에서 **파일** > **프로젝트 구조**를 선택하여 프로젝트 구조 창을 엽니다. 프로젝트 구조 창에서 다음과 같이 변경합니다.
-
-1. 창의 왼쪽 목록에서 **프로젝트**를 선택합니다. 작은따옴표로 묶은 Maven 리포지토리 URL을 추가하여 **기본 라이브러리 리포지토리** 설정을 편집합니다. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
-
-   ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-06-add-maven-repository.png)
-
-1. 같은 화면의 왼쪽에서 **앱**을 선택합니다. 그런 다음, 창 맨 위의 **종속성** 탭을 선택합니다. 녹색 더하기 기호(+)를 선택하고 드롭다운 메뉴에서 **라이브러리 종속성**을 선택합니다.
-
-   ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-07-add-module-dependency.png)
-
-1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`을 입력합니다. 그런 다음 **확인**을 선택합니다.
-   Speech SDK는 이제 다음과 같이 종속성 목록에 추가됩니다.
-
-   ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
-
-1. **속성** 탭을 선택합니다. **원본 호환성** 및 **대상 호환성** 둘 다에 대해 **1.8**을 선택합니다.
-
-   ![](media/sdk/qs-java-android-09-dependency-added.png)
-
-1. **확인**을 선택하여 프로젝트 구조 창을 닫고 프로젝트에 변경 내용을 적용합니다.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## <a name="create-user-interface"></a>사용자 인터페이스 만들기
 
@@ -84,7 +44,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 * `activity_main.xml` 창 왼쪽 위에 있는 색상표에서 단추를 텍스트 위의 빈 공간으로 끌어옵니다.
 
-* 오른쪽의 단추 특성에서 `onClick` 특성 값에 `onSpeechButtonClicked`를 입력합니다.  이 이름으로 버튼 이벤트를 처리하기 위한 메서드를 작성할 것입니다.  오른쪽 위 모서리에 있는 해당 ID 특성을 `button`로 변경합니다.
+* 오른쪽의 단추 특성에서 `onClick` 특성 값에 `onSpeechButtonClicked`를 입력합니다. 이 이름으로 버튼 이벤트를 처리하기 위한 메서드를 작성할 것입니다.  오른쪽 위 모서리에 있는 해당 ID 특성을 `button`로 변경합니다.
 
 * 레이아웃 제약 조건을 유추하도록 디자이너 맨 위에 있는 마법 지팡이 아이콘을 사용합니다.
 
@@ -116,11 +76,11 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 1. 애플리케이션을 빌드하려면 Ctrl + F9를 누르거나 메뉴 모음에서 **빌드** > **프로젝트 만들기**를 선택합니다.
 
-1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** > **'앱' 실행**을 선택합니다.
+1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** >  **'앱' 실행**을 선택합니다.
 
 1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
-   ![배포 대상 선택 창 스크린샷 ](media/sdk/qs-java-android-12-deploy.png)
+   ![배포 대상 선택 창 스크린샷](media/sdk/qs-java-android-12-deploy.png)
 
 애플리케이션에서 단추를 눌러 음성 인식 섹션을 시작합니다. 다음 15초간의 영어 음성이 Speech Services로 전송되어 전사됩니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
 

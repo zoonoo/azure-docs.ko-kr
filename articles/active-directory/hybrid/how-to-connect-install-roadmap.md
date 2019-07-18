@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109442"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -40,7 +40,7 @@ ms.locfileid: "60243712"
 [설치 후](how-to-connect-post-installation.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스를 할당해야 합니다.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect를 설치하기 위한 다음 단계
-|항목 |연결|  
+|항목 |링크|  
 | --- | --- |
 |Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./how-to-connect-install-express.md)|
@@ -68,7 +68,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 
 [비밀번호 쓰기 저장](../authentication/quickstart-sspr.md) 을 사용하면 사용자가 클라우드에서 암호를 변경하고 다시 설정할 수 있으며 온-프레미스 암호 정책을 적용합니다.
 
-[디바이스 쓰기 저장](how-to-connect-device-writeback.md) 을 사용하면 Azure AD에 등록된 디바이스가 온-프레미스 Active Directory에 다시 기록되므로 조건부 액세스를 위해 사용할 수 있습니다.
+[장치 쓰기 저장](how-to-connect-device-writeback.md) 쓸 다시 온-프레미스 Active Directory 조건부 액세스에 사용할 수 있도록 Azure AD에 등록 된 장치를 허용 합니다.
 
 [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 기능은 기본적으로 켜지고 동시에 클라우드 디렉터리가 수없이 많이 삭제되지 않도록 보호합니다. 기본적으로 실행 당 삭제 500회를 허용합니다. 조직의 규모에 따라서 이 설정을 변경할 수 있습니다.
 
@@ -160,12 +160,12 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 ![Azure AD Connect Health 포털](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **빠른 시작**: 이 옵션을 선택하면 **빠른 시작** 블레이드가 열립니다. **도구 가져오기**를 선택하여 Azure AD Connect Health 에이전트를 다운로드할 수 있습니다. 설명서에 액세스하고 피드백을 제공할 수도 있습니다.
-* **Azure Active Directory Connect(동기화)**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 Azure AD Connect 서버를 표시합니다. **동기화 오류** 항목에는 범주별 첫 번째 온보드된 동기화 서비스의 기본 동기화 오류가 표시됩니다. **동기화 서비스** 항목을 선택하면 열리는 블레이드에 Azure AD Connect 서버에 대한 정보가 표시됩니다. [동기화용 Azure AD Connect Health 사용](how-to-connect-health-sync.md)에서 기능에 대해 자세히 알아보세요.
+* **Azure Active Directory Connect(동기화)** : 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 Azure AD Connect 서버를 표시합니다. **동기화 오류** 항목에는 범주별 첫 번째 온보드된 동기화 서비스의 기본 동기화 오류가 표시됩니다. **동기화 서비스** 항목을 선택하면 열리는 블레이드에 Azure AD Connect 서버에 대한 정보가 표시됩니다. [동기화용 Azure AD Connect Health 사용](how-to-connect-health-sync.md)에서 기능에 대해 자세히 알아보세요.
 * **Active Directory Federation Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 전체 AD FS 서비스를 표시합니다. 인스턴스를 선택하면 열리는 블레이드에 해당 서비스 인스턴스에 대한 정보가 표시됩니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다. [Azure AD Connect Health를 AD FS와 함께 사용](how-to-connect-health-adfs.md)에서 기능에 대해 자세히 알아보세요.
 * **Active Directory Domain Services**: 이 옵션은 Azure AD Connect Health에서 현재 모니터링하는 전체 AD DS 포리스트를 표시합니다. 포리스트를 선택하면 열리는 블레이드에 해당 포리스트에 대한 정보가 표시됩니다. 이 정보에는 중요한 정보의 개요, 도메인 컨트롤러 대시보드, 복제 상태 대시보드, 경고 및 모니터링이 포함됩니다. [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)에서 기능에 대해 자세히 알아보세요.
 * **구성**: 이 섹션에는 다음 기능을 켜거나 끄는 옵션이 포함되어 있습니다.
 
-  - **설정** 항목에는 에이전트의 기본 구성이 포함됩니다. 자동 업그레이드 설정을 사용하면 최신 버전으로 Azure AD Connect Health 에이전트를 자동으로 업데이트합니다. 최신 버전의 Azure AD Connect Health Agent를 사용할 수 있는 경우 자동으로 업데이트됩니다. 이 옵션은 기본적으로 사용하도록 설정되어 있습니다. Microsoft가 문제 해결을 위해서만 Azure AD 디렉터리 상태 데이터에 액세스할 수 있음: 이 옵션을 사용하도록 설정하면 사용자에게 표시되는 것과 동일한 데이터를 Microsoft가 볼 수 있습니다. 이 정보는 문제 해결 및 지원에 도움이 될 수 있습니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
+  - **설정** 항목에는 에이전트의 기본 구성이 포함됩니다. 자동 업그레이드 설정을 사용하면 최신 버전으로 Azure AD Connect Health 에이전트를 자동으로 업데이트합니다. 최신 버전의 Azure AD Connect Health Agent를 사용할 수 있는 경우 자동으로 업데이트됩니다. 이 기능은 기본적으로 사용됩니다. Microsoft가 문제 해결을 위해서만 Azure AD 디렉터리 상태 데이터에 액세스할 수 있음: 이 옵션을 사용하도록 설정하면 사용자에게 표시되는 것과 동일한 데이터를 Microsoft가 볼 수 있습니다. 이 정보는 문제 해결 및 지원에 도움이 될 수 있습니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
 * **역할 기반 액세스 제어(IAM)** 섹션은 기본 역할에서 Connect Health 데이터에 대한 액세스를 관리합니다. 
 
 ## <a name="next-steps"></a>다음 단계

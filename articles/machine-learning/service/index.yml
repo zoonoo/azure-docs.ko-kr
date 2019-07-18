@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 02/19/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -24,7 +24,7 @@ abstract:
       src: media/index/video.png
       width: 250
     title: '비디오 보기(9:58)'
-    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
+    href: 'https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/'
     width: 250
 sections:
   - title: 5분 빠른 시작
@@ -36,6 +36,7 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
           - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
+          - html: 시각적 개체 인터페이스에서 <a href="ui-quickstart-run-experiment">코드를 작성하지 않고 데이터를 준비하고 시각화합니다</a>.
   - title: 단계별 자습서
     items:
       - type: paragraph
@@ -45,6 +46,7 @@ sections:
         items:
           - html: 이미지 분류 모델을 <a href="tutorial-train-models-with-aml">학습</a> 및 <a href="tutorial-deploy-models-with-aml">배포</a>합니다(<b>2부 시리즈</b>).
           - html: <a href="tutorial-data-prep">데이터를 준비</a>하고 <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용</a>하여 회귀 모델을 학습 및 조정합니다(<b>2부 시리즈</b>).
+          - html: 시각적 개체 인터페이스를 사용하여 <a href="ui-tutorial-automobile-price-train-score">자동차 가격을 예측</a>하고 회귀 모델을 <a href="ui-tutorial-automobile-price-deploy">배포합니다</a>.
   - title: 샘플
     items:
       - type: paragraph
@@ -57,6 +59,7 @@ sections:
           - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
           - html: 시각적 인터페이스에 대한 <a href="../algorithm-module-reference/module-reference.md">알고리즘 및 모듈 참조</a>
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: 기계 학습 명령줄 인터페이스 확장'
   - title: 기타 Azure Machine Learning 기술
     items:
       - type: list

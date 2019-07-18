@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935572"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672582"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -37,9 +37,9 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 * **캡슐화:** 저장 프로시저를 사용하여 논리를 단일 장소에 그룹화할 수 있습니다. 캡슐화는 데이터 위에 추상 계층을 추가하므로 데이터와 독립적으로 애플리케이션을 개발할 수 있습니다. 이 추상화 계층은 데이터에 스키마가 없으며 애플리케이션에 직접 논리를 추가할 필요가 없는 경우에 유용합니다. 추상화를 사용하면 스크립트에서 액세스를 간소화하여 데이터를 안전하게 유지할 수 있습니다.
 
 > [!TIP]
-> 저장 프로시저는 쓰기가 많은 작업에 가장 적합합니다. 저장 프로시저를 사용할 위치를 결정할 때 가능한 최대 양의 쓰기를 캡슐화하하여 최적화합니다. 일반적으로 저장 프로시저가 대량의 읽기 작업을 수행하는 가장 효율적인 방법은 아니므로 저장 프로시저를 사용하여 대량의 읽기를 클라이언트에 일괄로 반환할 경우 원하는 이점을 얻지 못합니다.
+> 저장된 프로시저는 쓰기 작업이 많은 고 파티션 키 값에 걸쳐 트랜잭션 요구 하는 작업에 가장 적합 합니다. 저장된 프로시저를 사용할 것인지를 결정 하는 경우 쓰기 가능한 최대 캡슐화 주위를 최적화 합니다. 일반적으로 저장된 프로시저 많은 읽기 또는 쿼리 작업을 수행 하기 위한 가장 효율적인 방법에 많은 클라이언트에 반환 하는 읽기를 일괄 처리 하는 절차는 원하는 혜택을 주지 않습니다를 사용 하 여 저장 됩니다. 최상의 성능을 위해 이러한 읽기 작업이 많은 작업을 클라이언트 쪽에서 Cosmos SDK를 사용 하 여 수행 되어야 합니다. 
 
-## <a name="transactions"></a>트랜잭션
+## <a name="transactions"></a>의
 
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서는 **ACID 속성 보장**을 제공합니다. ACID는 **A**tomicity(원자성), **C**onsistency(일관성), **I**solation(격리) 및 **D**urability(내구성)를 의미하는 잘 알려진 약어입니다. 
 
@@ -75,7 +75,7 @@ JavaScript 함수는 [프로비저된 처리 용량](request-units.md)에도 적
 
 ## <a name="triggers"></a>트리거
 
-이 섹션에서는 다음과 같은 두 가지 유형의 트리거에 대해 설명합니다.
+Azure Cosmos DB는 두 가지 유형의 트리거를 지원합니다.
 
 ### <a name="pre-triggers"></a>사전 트리거
 
@@ -84,6 +84,9 @@ Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호�
 ### <a name="post-triggers"></a>사후 트리거
 
 사전 트리거와 마찬가지로 사후 트리거도 Azure Cosmos DB 항목에 대한 작업과 관련되며 입력 매개 변수가 필요하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+
+> [!NOTE]
+> 트리거가 없는 경우 실행 하는 자동으로 등록 된 해당 작업 (만들기 / 삭제 / 교체 / 업데이트) 발생 합니다. 이러한 작업을 실행할 때 명시적으로 호출할 필요가 있습니다. 자세한 내용은 참조 하세요 [트리거를 실행 하는 방법을](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서.
 
 ## <a id="udfs"></a>사용자 정의 함수
 

@@ -9,10 +9,10 @@ ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64946792"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>포털을 사용 하 여 Application Gateway를 사용 하 여 종단 간 SSL 구성
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 대칭 키 암호화 및 게이트웨이에 전송 된 트래픽을 암호 해독에 사용 됩니다. 엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 이렇게 하려면 application gateway에 인증 인증서 라고도 하며, 백 엔드 서버의 공개 인증서를 업로드 합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
+Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 대칭 키 암호화 및 게이트웨이에 전송 된 트래픽을 암호 해독에 사용 됩니다. 엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 이렇게 하려면 application gateway에 인증 인증서 라고도 하며, 백 엔드 서버의 공개 인증서를 업로드 합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 엔드투엔드 통신의 보안이 유지됩니다.
 
 자세한 내용은 참조 하세요 [SSL 종료 및 종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)합니다.
 

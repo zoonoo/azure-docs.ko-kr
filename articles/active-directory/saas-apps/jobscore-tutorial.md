@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0acb07651948e923de777713020d678859a2d3b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 93f53f698fd3468455015589654a72382c494d81
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>자습서: JobScore와 Azure Active Directory 통합
 

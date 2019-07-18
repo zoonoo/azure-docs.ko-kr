@@ -9,18 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024438"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485194"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
 Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 및 전체 텍스트 검색에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
 
-인덱스를 추가하거나 업로드하면 Azure Search는 제공된 스키마를 기반으로 해서 물리적 구조를 만듭니다. 예를 들어 인덱스의 필드가 검색 가능으로 표시된 경우 해당 필드에 대해 반전된 인덱스가 생성됩니다. 나중에 문서를 추가 또는 업로드하거나 Azure Search에 검색 쿼리를 제출하는 경우 검색 서비스의 특정 인덱스에 요청을 전송하게 됩니다. 문서 값이 포함된 필드 로드를 ‘인덱싱’ 또는 데이터 수집이라고 합니다.
+인덱스를 추가하거나 업로드하면 Azure Search는 제공된 스키마를 기반으로 해서 물리적 구조를 만듭니다. 예를 들어 인덱스의 필드가 검색 가능으로 표시된 경우 해당 필드에 대해 반전된 인덱스가 생성됩니다. 나중에 문서를 추가 또는 업로드하거나 Azure Search에 검색 쿼리를 제출하는 경우 검색 서비스의 특정 인덱스에 요청을 전송하게 됩니다. 문서 값이 포함된 필드 로드를 ‘인덱싱’ 또는 데이터 수집이라고 합니다. 
 
 포털, [REST API](search-create-index-rest-api.md) 또는 [.NET SDK](search-create-index-dotnet.md)에서 인덱스를 만들 수 있습니다.
 
@@ -36,7 +36,7 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
   
    **만들기**를 클릭하면 인덱스를 지원하는 모든 물리적 구조체가 검색 서비스 내에 생성됩니다.
 
-3. [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index)와 [Postman](search-fiddler.md) 같은 웹 테스트 도구를 사용하여 인덱스 스키마를 다운로드할 수 있습니다. 이제 포털에서 만든 인덱스의 JSON 표현이 생겼습니다. 
+3. [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index)와 [Postman](search-get-started-postman.md) 같은 웹 테스트 도구를 사용하여 인덱스 스키마를 다운로드할 수 있습니다. 이제 포털에서 만든 인덱스의 JSON 표현이 생겼습니다. 
 
    지금부터는 코드 기반 접근 방식으로 전환하겠습니다. 포털은 이미 만들어진 인덱스를 편집할 수 없기 때문에 반복에 적합하지 않습니다. 하지만 나머지 작업에는 Postman 및 REST를 사용할 수 있습니다.
 
@@ -48,13 +48,13 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 
 물리적 구조 서비스에서 만들어지므로 [삭제 하 고 인덱스를 다시 만드는](search-howto-reindex.md) 변화가 기존 필드 정의를 변경할 때마다 반드시 합니다. 즉, 개발하는 동안 다시 작성이 자주 이루어질 것을 예상해야 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다. 
 
-반복 설계에는 포털 방식보다 코드를 권장합니다. 인덱스 정의에 포털을 사용하는 경우 다시 작성할 때마다 인덱스 정의를 채워야 합니다. 대안으로 사용 가능한 [Postman 및 REST API](search-fiddler.md) 같은 도구는 개발 프로젝트의 초기 단계에서 개념 증명 테스트에 도움이 됩니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
+반복 설계에는 포털 방식보다 코드를 권장합니다. 인덱스 정의에 포털을 사용하는 경우 다시 작성할 때마다 인덱스 정의를 채워야 합니다. 대안으로 사용 가능한 [Postman 및 REST API](search-get-started-postman.md) 같은 도구는 개발 프로젝트의 초기 단계에서 개념 증명 테스트에 도움이 됩니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
 
 ## <a name="components-of-an-index"></a>인덱스의 구성 요소
 
 아래 그림과 같이 Azure Search 인덱스는 다음 요소로 구성됩니다. 
 
-일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에 포함 [suggesters](#suggesters)를 [점수 매기기 프로필](#scoring-profiles)합니다 [분석기](#analyzers) 사용자 지정을 지원 하도록 구성 요소를 사용 하 여 [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션입니다.
+일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다.  기타 요소에 포함 [suggesters](#suggesters)를 [점수 매기기 프로필](#scoring-profiles)합니다 [분석기](#analyzers) 사용자 지정을 지원 하도록 구성 요소를 사용 하 여 [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션입니다.
 
 ```json
 {
@@ -160,16 +160,22 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여기서](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) 확인할 수 있습니다.
 
 ### <a name="index-attributes"></a>인덱스 특성
+
+인덱스에 정확히 하나의 필드가으로 지정 되어야 합니다는 **키** 각 문서를 고유 하 게 식별 하는 필드입니다.
+
+다른 특성 필드는 응용 프로그램 사용 되는 방식을 결정 합니다. 예를 들어 합니다 **검색 가능한** 특성은 전체 텍스트 검색에 포함 되어야 하는 모든 필드에 할당 됩니다. 
+
+인덱스를 작성 하는 데 사용할 Api는 다양 한 기본 동작이 있습니다. 에 대 한는 [REST Api](https://docs.microsoft.com/rest/api/searchservice/Create-Index), 대부분의 특성은 기본적으로 활성화 됩니다 (예를 들어 **검색 가능한** 및 **검색할 수** 문자열 필드에 적용 됩니다)만 종종 경우 설정 해야 하 고 설정을 해제 해야 합니다. .NET SDK에 대 한 반대 마찬가지입니다. 명시적으로 설정 하지 않으면 모든 속성을 기본값인 특히 활성화 하지 않으면 해당 검색 동작을 사용 하지 않도록 설정 됩니다.
+
 | 특성 | 설명 |
 | --- | --- |
-| *키* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
-| *조회 가능* |검색 결과에서 필드를 반환할 수 있는지 여부를 지정합니다. |
-| *필터링 가능* |필드를 필터 쿼리에 사용하도록 허용합니다. |
-| *정렬 가능* |쿼리에서 이 필드를 사용하여 검색 결과를 정렬할 수 있습니다. |
-| *패싯 가능* |사용자 자기 주도형 필터링을 위해 필드를 [패싯 탐색](search-faceted-navigation.md) 구조에 사용할 수 있습니다. 일반적으로 여러 문서(예를 들어 단일 브랜드 또는 서비스 범주에 속하는 여러 문서)를 그룹화하는 데 사용할 수 있는 반복되는 값을 포함한 필드는 패싯으로 가장 적합합니다. |
-| *검색 가능* |전체 텍스트 검색 가능 필드로 표시합니다. |
+| `key` |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
+| `retrievable` |검색 결과에서 필드를 반환할 수 있는지 여부를 지정합니다. |
+| `filterable` |필드를 필터 쿼리에 사용하도록 허용합니다. |
+| `Sortable` |쿼리에서 이 필드를 사용하여 검색 결과를 정렬할 수 있습니다. |
+| `facetable` |사용자 자기 주도형 필터링을 위해 필드를 [패싯 탐색](search-faceted-navigation.md) 구조에 사용할 수 있습니다. 일반적으로 여러 문서(예를 들어 단일 브랜드 또는 서비스 범주에 속하는 여러 문서)를 그룹화하는 데 사용할 수 있는 반복되는 값을 포함한 필드는 패싯으로 가장 적합합니다. |
+| `searchable` |전체 텍스트 검색 가능 필드로 표시합니다. |
 
-Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 확인할 수 있습니다.
 
 ## <a name="storage-implications"></a>스토리지 영향
 
@@ -209,7 +215,7 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 + **allowedOrigins**(필수): 인덱스에 대한 액세스 권한을 부여할 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
 
-  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다.
+  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다. 
 
 + **maxAgeInSeconds**(선택 사항): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 

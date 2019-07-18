@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66129579"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
 
@@ -126,7 +126,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
     </PerformanceCounters>
     ```
 
-1. 개인 구성에서 Azure Monitor 계정을 정의합니다. 그런 다음, 메트릭을 내보내는 데 사용할 서비스 주체 정보를 추가합니다.
+1. 프라이빗 구성에서 Azure Monitor 계정을 정의합니다. 그런 다음, 메트릭을 내보내는 데 사용할 서비스 주체 정보를 추가합니다.
 
     ```xml
     <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">

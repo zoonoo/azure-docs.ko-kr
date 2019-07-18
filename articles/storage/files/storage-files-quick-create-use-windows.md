@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - Windows VM에서 Azure Files 공유 만들기 및 사용 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure Portal에서 Azure Files 공유를 설정하고 Windows 가상 머신에 연결합니다. 파일 공유에 연결하고 파일 공유에 파일을 업로드합니다. 그런 다음, 파일 공유의 스냅숏을 만들고, 파일 공유에서 파일을 수정하고, 파일 공유의 이전 스냅숏을 복원합니다.
+description: 이 빠른 시작에서는 Azure Portal에서 Azure Files 공유를 설정하고 Windows 가상 머신에 연결합니다. 파일 공유에 연결하고 파일 공유에 파일을 업로드합니다. 그런 다음, 파일 공유의 스냅샷을 만들고, 파일 공유에서 파일을 수정하고, 파일 공유의 이전 스냅샷을 복원합니다.
 services: storage
 author: roygara
 ms.service: storage
@@ -116,45 +116,45 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
       ![Azure Files 연결 창의 UNC 경로](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
-## <a name="create-a-share-snapshot"></a>공유 스냅숏 만들기
+## <a name="create-a-share-snapshot"></a>공유 스냅샷 만들기
 
-이제 드라이브를 매핑했으므로 스냅숏을 만들 수 있습니다.
+이제 드라이브를 매핑했으므로 스냅샷을 만들 수 있습니다.
 
-1. 포털에서 파일 공유로 이동하고 **스냅숏 만들기**를 선택합니다.
+1. 포털에서 파일 공유로 이동하고 **스냅샷 만들기**를 선택합니다.
 
-   ![스냅숏 만들기](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   ![스냅샷 만들기](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
 1. VM에서 *qstestfile.txt*를 열고 “이 파일이 수정되었습니다”를 입력하고 > 파일을 저장하고 닫습니다.
-1. 다른 스냅숏을 만듭니다.
+1. 다른 스냅샷을 만듭니다.
 
-## <a name="browse-a-share-snapshot"></a>공유 스냅숏 찾아보기
+## <a name="browse-a-share-snapshot"></a>공유 스냅샷 찾아보기
 
-1. 파일 공유에서 **스냅숏 보기**를 선택합니다.
+1. 파일 공유에서 **스냅샷 보기**를 선택합니다.
 1. **파일 공유 스냅숏** 창에서 목록 중 첫 번째 스냅숏을 선택합니다.
 
-   ![타임스탬프의 목록에서 선택한 스냅숏](./media/storage-files-quick-create-use-windows/snapshot-list.png)
+   ![타임스탬프의 목록에서 선택한 스냅샷](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
-1. 해당 스냅숏에 대한 창에서 *qsTestFile.txt*를 선택합니다.
+1. 해당 스냅샷에 대한 창에서 *qsTestFile.txt*를 선택합니다.
 
-## <a name="restore-from-a-snapshot"></a>스냅숏에서 복원
+## <a name="restore-from-a-snapshot"></a>스냅샷에서 복원
 
-1. 파일 공유 스냅숏 블레이드에서 *qsTestFile*을 마우스 오른쪽 단추로 클릭하고 **복원** 단추를 선택합니다.
+1. 파일 공유 스냅샷 블레이드에서 *qsTestFile*을 마우스 오른쪽 단추로 클릭하고 **복원** 단추를 선택합니다.
 1. **원본 파일 덮어쓰기**를 선택합니다.
 
    ![다운로드 및 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
 1. VM에서 파일을 엽니다. 수정되지 않은 버전이 복원되었습니다.
 
-## <a name="delete-a-share-snapshot"></a>공유 스냅숏 삭제
+## <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
 
-1. 파일 공유에서 **스냅숏 보기**를 선택합니다.
+1. 파일 공유에서 **스냅샷 보기**를 선택합니다.
 1. **파일 공유 스냅숏** 창에서 목록 중 마지막 스냅숏을 선택하고 **삭제**를 클릭합니다.
 
    ![삭제 단추](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
-## <a name="use-a-share-snapshot-in-windows"></a>Windows에서 공유 스냅숏 사용
+## <a name="use-a-share-snapshot-in-windows"></a>Windows에서 공유 스냅샷 사용
 
-온-프레미스 VSS 스냅숏과 마찬가지로 이전 버전 탭을 사용하여 탑재된 Azure 파일 공유의 스냅숏을 볼 수 있습니다.
+온-프레미스 VSS 스냅샷과 마찬가지로 이전 버전 탭을 사용하여 탑재된 Azure 파일 공유의 스냅샷을 볼 수 있습니다.
 
 1. 파일 탐색기에서 탑재된 공유를 찾습니다.
 
@@ -172,7 +172,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
 ## <a name="restore-from-a-previous-version"></a>이전 버전에서 복원
 
-1. **복원**을 선택합니다. 그러면 공유 스냅숏을 만들 때 전체 디렉터리의 콘텐츠가 원래 위치에 재귀적으로 복사됩니다.
+1. **복원**을 선택합니다. 그러면 공유 스냅샷을 만들 때 전체 디렉터리의 콘텐츠가 원래 위치에 재귀적으로 복사됩니다.
 
    ![경고 메시지의 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
 

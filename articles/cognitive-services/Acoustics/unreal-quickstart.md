@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492412"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798134"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project Acoustics Unreal/Wwise 빠른 시작
 이 빠른 시작에서는 Unreal Engine 및 Wwise를 위한 제공된 샘플 콘텐츠를 사용하여 Project Acoustics 디자인 컨트롤을 실험합니다.
@@ -50,14 +50,16 @@ Project Acoustics Unreal 플러그 인의 경우 Wwise Unreal 플러그 인 API�
 
     ![Wwise 프로젝트를 패치하는 스크립트를 보여주는 Windows 탐색기 창의 스크린샷](media/patch-wwise-script.png)
 
-* DirectX SDK가 설치되어 있지 않은 경우 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다.
+* DirectX SDK를 설치하지 않은 경우 사용하는 Wwise의 버전에 따라 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에 `DXSDK_DIR`을 포함하는 줄을 주석으로 처리해야 할 수도 있습니다.
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Unreal 프로젝트를 엽니다. 
 모듈을 다시 작성하라는 메시지가 표시되면 예를 클릭합니다.
 
-빌드 장애 시 프로젝트를 열지 못할 경우 Project Acoustics Wwise 플러그 인이 Project Acoustics 샘플 프로젝트에 사용된 것과 동일한 버전의 Wwise에 설치되었는지 확인합니다.
+>빌드 장애 시 프로젝트를 열지 못할 경우 Project Acoustics Wwise 플러그 인이 Project Acoustics 샘플 프로젝트에 사용된 것과 동일한 버전의 Wwise에 설치되었는지 확인합니다.
+
+>[AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6을 사용하지 않는 경우 샘플 프로젝트에서 오디오를 재생하려면 사운드 뱅크를 다시 생성해야 합니다.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Project Acoustics 디자인 컨트롤을 사용하여 실험
 Unreal 편집기에서 재생 단추를 클릭하여 장면에 어떤 소리가 나는지 들어봅니다. 바탕 화면에서 W, A, S, D 및 마우스를 사용하여 이동합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 **F1** 키를 누릅니다. 사용해볼 수 있는 일부 디자인 활동은 다음과 같습니다.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516545"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
@@ -64,7 +64,7 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
             eno1:
               dhcp6: true
 
-초기 부팅 시는 netplan 구성을 씁니다/지정된 네트워킹 디먼 NETPLAN에 대 한 참조 정보를 전달 하는 데 장치 제어 해제 실행 "렌더러 네트워크" 참조 https://netplan.io/reference합니다.
+초기 부팅 시는 netplan 구성을 씁니다/지정된 네트워킹 디먼 NETPLAN에 대 한 참조 정보를 전달 하는 데 장치 제어 해제 실행 "렌더러 네트워크" 참조 https://netplan.io/reference 합니다.
  
 ## <a name="debian"></a>Debian
 

@@ -3,7 +3,7 @@ title: Azure AD 조인 및 Azure Active Directory Domain Services 비교 | Micro
 description: Azure AD 조인과 Azure AD Domain Services 중에서 결정
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: iainfou
+ms.openlocfilehash: b6f2ca922153bca4afa22c2b07db03ff2973444d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359435"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474282"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 조인과 Azure Active Directory Domain Services 중에서 선택
 이 문서에서는 Azure AD(Active Directory) 조인과 Azure AD Domain Services의 차이를 설명하고 사용 사례를 기반으로 선택하도록 도와줍니다.
@@ -38,8 +38,8 @@ Azure AD를 사용하면 조직에서 사용하는 디바이스의 ID를 관리�
 | **디바이스의 유형** | **디바이스 플랫폼** | **메커니즘** |
 |:---| --- | --- |
 | 개인 디바이스 | Windows 10, iOS, Android, Mac OS | Azure AD 등록 |
-| 온-프레미스 AD에 조인되지 않은 조직 소유 디바이스 | 윈도우 10 | Azure AD 가입 |
-| 온-프레미스 AD에 조인된 조직 소유 디바이스 | 윈도우 10 | 하이브리드 Azure AD 가입 |
+| 온-프레미스 AD에 조인되지 않은 조직 소유 디바이스 | Windows 10 | Azure AD 가입 |
+| 온-프레미스 AD에 조인된 조직 소유 디바이스 | Windows 10 | 하이브리드 Azure AD 가입 |
 
 Azure AD 가입 또는 등록 디바이스에서 사용자 인증은 최신 OAuth/OpenID Connect 기반 프로토콜을 사용하여 이루어집니다. 이러한 프로토콜은 인터넷을 통해 작동하도록 설계되었으며 사용자가 어디서든 회사 리소스에 액세스하는 모바일 시나리오에 적합합니다.
 
@@ -66,14 +66,14 @@ Azure AD Domain Services는 Azure 가상 네트워크에서 관리되는 AD 도�
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Azure AD Domain Services에 대한 자세한 정보
-* [Azure AD Domain Services 개요](active-directory-ds-overview.md)
+* [Azure AD Domain Services 개요](overview.md)
 * [기능](active-directory-ds-features.md)
-* [배포 시나리오](active-directory-ds-scenarios.md)
-* [Azure AD Domain Services가 사용 사례에 적합한 경우 찾기](active-directory-ds-comparison.md)
-* [Azure AD Domain Services를 Azure AD 디렉터리와 동기화하는 방법 이해](active-directory-ds-synchronization.md)
+* [배포 시나리오](scenarios.md)
+* [Azure AD Domain Services가 사용 사례에 적합한 경우 찾기](comparison.md)
+* [Azure AD Domain Services를 Azure AD 디렉터리와 동기화하는 방법 이해](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Azure AD 조인에 대해 자세히 알아보기
 * [Azure Active Directory의 디바이스 관리 소개](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Azure AD Domain Services 시작
-* [Azure Portal을 사용하여 Azure AD Domain Services 활성화](active-directory-ds-getting-started.md)
+* [Azure Portal을 사용하여 Azure AD Domain Services 활성화](create-instance.md)

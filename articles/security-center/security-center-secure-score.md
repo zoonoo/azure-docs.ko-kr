@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: monhaber
-ms.openlocfilehash: 22791fc43ff17d56e1f51e7f7737a10109f47c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65968293"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 개선
 

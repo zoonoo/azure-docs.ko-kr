@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66400202"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -42,6 +42,11 @@ Connect-AzAccount
 Get-AzSubscription
 ```
 
+작업 컨텍스트를 확인 하려면 (구독에 대해 명령이 실행 되는 함), 다음 명령을 사용 합니다.
+
+```powershell
+Get-AzContext
+```
 작업 컨텍스트를 다른 구독으로 변경하려면 다음 명령을 사용합니다.
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>구독에 대한 활동 로그 검색
-`Get-AzLog` cmdlet을 사용합니다.  다음은 몇 가지 일반적인 예입니다.
+사용 된 [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  다음은 몇 가지 일반적인 예입니다. 활동 로그 작업의 지난 90 일 동안 보관합니다. 이 시간 결과 이전의 날짜를 사용 하 여 오류 메시지가 발생 합니다.  
+
+아래 명령에서 사용할 시간 무엇을 확인 하려는 현재 날짜/시간을 참조 하세요.
+```powershell
+Get-Date
+```
 
 이 날짜/시간부터 현재까지의 로그 항목을 가져옵니다.
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 이 날짜/시간 범위의 로그 항목을 가져옵니다.
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 특정 리소스 그룹에서 로그 항목을 가져옵니다.
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 다음 명령은 활동 로그에서 마지막 1,000개 이벤트를 검색합니다.
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzLog` 참조를 확인하세요.
 
 > [!NOTE]
-> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. **-MaxEvents** 매개 변수를 사용하면 15일 이후의 N개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. 사용 하 여 **MaxRecords** 매개 변수를 사용 하면 15 일 이후의 마지막 n 개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
 > 
 > 
 
@@ -143,14 +153,14 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 매개 변수 | 값 |
 | --- | --- |
 | name |simpletestdiskwrite |
-| 이 경고 규칙의 위치 |미국 동부 |
+| 이 경고 규칙의 위치 |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | 생성된 경고의 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 `Get-MetricDefinitions` cmdlet를 참조하세요. |
 | operator |GreaterThan |
 | 임계값(이 메트릭의 경우 수/초) |1 |
 | WindowSize(h:mm:ss 형식) |00:05:00 |
-| 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |평균 |
+| 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |Average |
 | 사용자 지정 전자 메일(문자열 배열) |'foo@example.com','bar@example.com' |
 | 소유자, 참가자 및 일기 권한자에게 전자 메일 보내기 |-SendToServiceOwners |
 

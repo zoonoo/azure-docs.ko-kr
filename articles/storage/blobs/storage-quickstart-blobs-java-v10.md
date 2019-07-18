@@ -101,7 +101,7 @@ Cleaning up the sample and exiting!
 
 샘플을 제어할 수 있으므로 코드를 실행하는 명령을 입력합니다. 입력은 대/소문자를 구분합니다.
 
-[Azure Storage 탐색기](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage 탐색기](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
 파일을 확인합니다. 그런 다음, **E**를 선택하고 **Enter** 키를 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도를 파악했으므로 **Quickstart.java** 파일을 열고 코드를 확인합니다. 
 

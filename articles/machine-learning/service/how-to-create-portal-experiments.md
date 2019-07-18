@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035441"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312813"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>작성 및 자동화 된 machine learning 실험 (미리 보기)는 Azure 포털을 탐색 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "65035441"
 
 ![Azure 포털 실험 방문 페이지](media/how-to-create-portal-experiments/landing-page.png)
 
-그렇지 않으면 모든 자동화 된 기계 학습 실험을 비롯 한 SDK를 사용 하 여 실행 되는 것에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
+그렇지 않으면 모든 자동화 된 machine learning 실험에서 SDK를 사용 하 여 만든 라이선스 포함에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
 
 ![Azure 포털 실험 대시보드](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "65035441"
 
     필드|설명
     ---|---
-    컴퓨팅 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
+    계산 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
     가상 머신 크기| 컴퓨터에 대 한 가상 머신 크기를 선택 합니다.
     추가 설정| *최소 노드*: 컴퓨터에 대 한 최소 노드 수를 입력 합니다. AML 계산에 대 한 노드의 최소 수는 0입니다. 데이터 프로 파일링을 사용 하려면 하나 이상의 노드가 있어야 합니다. <br> *최대 노드*: 컴퓨터에 대 한 최대 노드 수를 입력 합니다. 기본값은 6 개 노드는 AML Compute에 대 한 합니다.
 
@@ -96,16 +96,16 @@ ms.locfileid: "65035441"
 
 1. 예측:
     1. 시간 열을 선택 합니다. 이 열에 사용할 데이터를 포함 합니다.
-    1. 예측된 기간을 선택 합니다. 얼마나 많은 시간 (분/시간/일/주/월/년) 단위 될 것임을 나타내려면 모델 미래를 예측할 수 있습니다. 할수록 모델은 덜 정확 하 게 될 것으로, 예측 해야 합니다. [에 대 한 예측 및 자세한 예측 기간](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment)합니다.
+    1. 예측된 기간을 선택 합니다. 얼마나 많은 시간 (분/시간/일/주/월/년) 단위 될 것임을 나타내려면 모델 미래를 예측할 수 있습니다. 할수록 모델은 덜 정확 하 게 될 것으로, 예측 해야 합니다. [에 대 한 예측 및 자세한 예측 기간](how-to-auto-train-forecast.md)합니다.
 
 1. (선택 사항) 고급 설정: 추가 설정을 사용 하면 교육 작업을 더 잘 제어할 수 있습니다.
 
     고급 설정|설명
     ------|------
-    기본 메트릭| 모델 점수 매기기에 사용 되는 주요 메트릭. [모델 메트릭에 대 한 자세한](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics)합니다.
+    기본 메트릭| 모델 점수 매기기에 사용 되는 주요 메트릭. [모델 메트릭에 대 한 자세한](how-to-configure-auto-train.md#explore-model-metrics)합니다.
     종료 기준| 이러한 조건 중 하나라도 충족 되 면 전체 완료 되기 전에 교육 작업을 종료 합니다. <br> *작업 시간 (분)을 학습*: 학습 작업을 실행할 수 있도록 기간입니다.  <br> *최대 반복 횟수*: 파이프라인 (반복) 교육 작업에서 테스트의 최대 수입니다. 작업에 지정 된 반복 횟수 이상 실행 되지 않습니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대 한 최소 메트릭 점수입니다. 이 통해 정의 된 대상 메트릭에 연결 하려는 경우 있습니다 수행 하지 시간이 더 필요한 것 보다 교육 작업에 있습니다.
     전처리| 자동화 된 기계 학습을 수행한 전처리을 사용할지를 선택 합니다. 전처리 자동 데이터 정리, 준비 하 고 변환 가상 기능을 생성할 포함 되어 있습니다. [전처리 하는 방법에 대 한 자세한](#preprocess)합니다.
-    유효성 검사| 학습 작업에 사용 하 여 교차 유효성 검사 옵션 중 하나를 선택 합니다. [교차 유효성 검사에 대 한 자세한 내용은](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options)합니다.
+    유효성 검사| 학습 작업에 사용 하 여 교차 유효성 검사 옵션 중 하나를 선택 합니다. [교차 유효성 검사에 대 한 자세한 내용은](how-to-configure-auto-train.md)합니다.
     동시성| 다중 코어 계산을 사용 하는 경우 사용 하려는 다중 코어 한도 선택 합니다.
     차단 된 알고리즘| 학습 작업에서 제외 하려면 알고리즘을 선택 합니다.
 
@@ -180,10 +180,67 @@ ms.locfileid: "65035441"
 
 ### <a name="view-training-run-details"></a>교육 실행 세부 정보 보기
 
-성능 메트릭 및 배포 차트와 같은 실행된 세부 정보를 학습을 보려면 출력 모델 중 하나에서 드릴 다운 합니다. [차트에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts)합니다.
+성능 메트릭 및 배포 차트와 같은 실행된 세부 정보를 학습을 보려면 출력 모델 중 하나에서 드릴 다운 합니다. [차트에 자세히 알아보려면](how-to-track-experiments.md#understanding-automated-ml-charts)합니다.
 
 ![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)
+
+## <a name="deploy-model"></a>모델 배포
+
+에 가장 적합 한 모델을 만든 후 새 데이터에 예측 웹 서비스로 배포 하는 차례입니다.
+
+자동화 된 기계 학습을 지 원하는 코드를 작성 하지 않고 모델을 배포 합니다.
+
+1. 배포에 대 한 몇 가지 옵션이 있습니다. 
+    1. 메트릭 조건에 따라 최상의 모델을 배포 하려는 경우 선택 실험에서 설정한 **최상의 모델 배포** 에서 합니다 **실행 세부 정보** 페이지입니다.
+
+        ![배포 모델 단추](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. 특정 모델 반복을 배포 하려는 경우 해당 특정 실행된 세부 정보 페이지를 열고 선택 모델에서 드릴 **배포 모델**합니다.
+
+        ![배포 모델 단추](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. 먼저는 서비스에 모델을 등록 하는 것입니다. "모델을 등록 합니다."를 선택 하 고 등록 프로세스를 완료 될 때까지 기다립니다.
+
+    ![블레이드 모델 배포](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. 모델 등록 되 면 점수 매기기 스크립트 (scoring.py) 및 배포 하는 동안 사용할 환경 스크립트 (condaEnv.yml)를 다운로드할 수 있습니다.
+
+1. 점수 매기기 스크립트 및 환경 스크립트를 다운로드 한 경우로 이동 합니다 **자산** 왼쪽된 탐색 창 및 선택 블레이드 **모델**합니다.
+
+    ![탐색 창 모델](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. 등록, 모델을 선택 하 고 "이미지 만들기"를 선택 합니다.
+
+    다음 형식으로 실행된 하는 ID, 반복 번호를 포함 하는 해당 설명에 따라 모델을 식별할 수 있습니다: *< Run_ID > _ < Iteration_number > (_m)*
+
+    ![모델: 이미지 만들기](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. 이미지의 이름을 입력 합니다. 
+1. 선택 된 **찾아보기** 는 점수 매기기 (scoring.py) 이전에 다운로드 한 파일을 업로드 하려면 "점수 매기기 파일" 상자 옆에 있는 단추입니다.
+
+1. 선택 된 **찾아보기** 이전에 다운로드 한 (condaEnv.yml) 환경에서 파일을 업로드할 "Conda 파일" 상자 옆에 있는 단추입니다.
+
+    추가 파일 업로드 수 있을 뿐만 아니라 고유한 점수 매기기 스크립트 및 conda 파일을 사용할 수 있습니다. [점수 매기기 스크립트에 자세히 알아보려면](how-to-deploy-and-where.md#script)합니다.
+
+      >[!Important]
+      > 파일 이름에서 32 자가 하 여야 하 고 해야 시작 하 고 끝나야 영숫자를 사용 하 여 합니다. 대시, 밑줄, 마침표, 및 사이의 영숫자만 포함할 수 있습니다. 공백은 허용 되지 않습니다.
+
+    ![이미지 만들기](media/how-to-create-portal-experiments/create-image.png)
+
+1. 이미지 만들기를 시작 하려면 "만들기" 단추를 선택 합니다. 완료 되 면 완료 하는 데 몇 분 걸립니다, 그리고 위쪽 막대에서 메시지가 나타납니다.
+1. "이미지" 탭으로 이동한 배포 하려는 이미지 옆의 확인란을 "배포 만들기"를 선택 합니다. [배포에 자세히 알아보려면](how-to-deploy-and-where.md)합니다.
+
+    2 가지 방법으로 배포 합니다.
+     + Azure Container Instance (ACI)-이 값은 대규모로 운영 배포가 아닌 범용 테스트에 더 사용 됩니다. 에 대 한 하나 이상의 코어에 대 한 값을 입력 해야 _CPU 예약 용량_, 및 적어도 하나의 기가바이트 (GB에 대 한) _메모리 예약 용량_
+     + AKS (azure Kubernetes Service))-이 옵션은 대규모로 배포 됩니다. 준비는 AKS 기반 계산 하도록 해야 합니다.
+
+     ![이미지: 배포 만들기](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. 완료되면 **만들기**를 선택합니다. 모델을 배포 하면 각 파이프라인 실행을 완료 하려면 몇 분 정도 걸릴 수 있습니다.
+
+1. 정말 간단하죠. 운영 웹 서비스를 예측을 생성 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [자동화 된 기계 학습에 자세히 알아보려면](concept-automated-ml.md) 및 Azure Machine Learning입니다.
+* [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)합니다.

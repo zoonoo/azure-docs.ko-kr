@@ -4,19 +4,19 @@ description: Azure Functions에서 HTTP 트리거 및 바인딩을 사용하는 
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104376"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480447"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -28,7 +28,7 @@ HTTP 트리거는 [웹후크](https://en.wikipedia.org/wiki/Webhook)에 응답�
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-이 문서의 코드는 기본적으로 .NET Core를 사용하는 Functions 2.x 구문으로 설정됩니다. 1.x 구문에 대한 자세한 내용은 [1.x 기능 템플릿](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)을 참조하세요.
+이 문서의 코드는 기본적으로 .NET Core를 사용하는 Functions 2.x 구문으로 설정됩니다. 1\.x 구문에 대한 자세한 내용은 [1.x 기능 템플릿](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)을 참조하세요.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -307,6 +307,7 @@ module.exports = function(context, req) {
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -666,7 +667,7 @@ module.exports = function (context, req) {
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
-.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;
@@ -756,7 +757,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 이러한 함수 앱 수준 보안 방법 중 하나를 사용할 때는 HTTP 트리거 함수 인증 수준을 `anonymous`로 설정해야 합니다.
 
-### <a name="webhooks"></a>Webhook
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 버전 2.x에서 HTTP 트리거의 성능 향상을 위해 이렇게 변경되었습니다.
@@ -792,7 +793,7 @@ HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으�
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="output"></a>출력
+## <a name="output"></a>Output
 
 HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용합니다. 이 바인딩에는 HTTP 트리거가 필요하며 트리거 요청과 관련된 응답을 사용자 지정할 수 있습니다. HTTP 출력 바인딩을 제공하지 않으면 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다.
 

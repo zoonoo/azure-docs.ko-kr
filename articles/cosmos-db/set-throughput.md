@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너 및 데이터베이스에 프로비전되
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330316"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561388"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -71,8 +71,10 @@ Azure Cosmos 데이터베이스의 처리량을 프로비전하는 경우 데이
 두 모델을 결합할 수 있습니다. 데이터베이스와 컨테이너의 처리량을 둘 다 프로비전할 수 있습니다. 다음 예제는 Azure Cosmos 데이터베이스 및 컨테이너의 처리량을 프로비전하는 방법을 보여줍니다.
 
 * 명명 된 Azure Cosmos 데이터베이스를 만들 수 있습니다 *Z* 프로 비전 된 처리량 *"K"* Ru 합니다. 
-* 다음으로 라는 5 개의 컨테이너를 만듭니다 *A*, *B*를 *C*, *D*, 및 *E* 데이터베이스 내에서.
-* 명시적으로 구성할 수 있습니다 *"P"* 라는 컨테이너에 대 한 프로 비전 된 처리량 Ru *B*합니다.
+* 다음으로 라는 5 개의 컨테이너를 만듭니다 *A*, *B*를 *C*, *D*, 및 *E* 데이터베이스 내에서. 컨테이너 B를 만들 때 사용 하도록 설정 되었는지 확인 **이 컨테이너에 대 한 전용된 처리량을 프로 비전** 옵션을 명시적으로 구성할 *"P"* 이 컨테이너에서 프로 비전 된 처리량 Ru 합니다. 구성할 수 있는 참고 공유 및 전용 처리량을 데이터베이스 및 컨테이너를 만들 때만 합니다. 
+
+   ![컨테이너 수준에서 처리량을 설정합니다.](./media/set-throughput/coll-level-throughput.png)
+
 * *"K"* Ru 처리량은 4 개의 컨테이너 간에 공유 되 *A*를 *C*, *D*, 및 *E*합니다. 정확한 양의 처리량을 사용할 수 있습니다 *A*를 *C*를 *D*, 또는 *E* 달라 집니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 라는 컨테이너 *B* 가져오려는 보장 되는 *"P"* Ru 처리량 항상 합니다. SLA가 지원됩니다.
 
@@ -88,7 +90,7 @@ Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량
 
 .NET SDK를 사용 하 여 [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 메서드를 사용 하면 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
 
-언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 
+언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 처리량을 증가 시키려면 크기 조정 작업을 수행 하면 필요한 리소스를 프로 비전 하는 시스템 작업 때문에 더 긴 시간이 걸릴 수 있습니다. Azure 포털 또는 Sdk를 사용 하 여 프로그래밍 방식으로 크기 조정 작업의 상태를 확인할 수 있습니다. .NET SDK를 사용할 때 사용 하 여 크기 조정 작업의 상태를 가져올 수 있습니다는 `DocumentClient.ReadOfferAsync` 메서드.
 
 ## <a name="comparison-of-models"></a>모델 비교
 
@@ -96,7 +98,6 @@ Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량
 |---------|---------|---------|
 |최소 RU |400(처음 네 개의 컨테이너 후 각 추가 컨테이너에는 초당 최소 100RU가 필요합니다.) |400|
 |컨테이너당 최소 RU|100|400|
-|스토리지 1GB를 사용하는 데 필요한 최소 RU|40|40|
 |최대 RU|데이터베이스에서 무제한|컨테이너에서 무제한|
 |특정 컨테이너에 할당 또는 제공되는 RU|보장되지 않습니다. 지정된 컨테이너에 할당되는 RU는 속성에 따라 다릅니다. 속성은 처리량, 워크로드 분산 및 컨테이너 수를 공유하는 컨테이너 파티션 키의 선택 항목일 수 있습니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|
 |컨테이너의 최대 스토리지|무제한.|무제한.|

@@ -2,22 +2,32 @@
 title: Azure Red Hat OpenShift에 대 한 질문과 대답 | Microsoft Docs
 description: 다음은 Microsoft Azure의 Red Hat OpenShift에 대 한 일반적인 질문에 대답
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122957"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
 이 문서에서는 Microsoft Azure의 Red Hat OpenShift에 대 한 질문과 대답을 (Faq)를 다룹니다.
+
+## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
+
+Azure Red Hat OpenShift를 사용 하려면 먼저 Azure Red Hat OpenShift 예약 응용 프로그램 노드 4 개를 구매 해야 합니다.
+
+Azure 고객으로 라면[Azure Red Hat OpenShift 예약 인스턴스 구매](https://aka.ms/openshift/buy) Azure portal을 통해. 를 구입 후 수 클러스터 프로 비전을 24 시간 내 구독 활성화 됩니다.
+
+Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift/contact-sales) 고 프로세스를 시작 하려면 페이지 맨 아래에 판매 양식을 작성 합니다.
+
+참조를 [가격 책정 페이지 Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) 자세한 합니다.
 
 ## <a name="which-azure-regions-are-supported"></a>어떤 Azure 지역이 지원 됩니까?
 
@@ -25,7 +35,7 @@ ms.locfileid: "65078672"
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>기존 가상 네트워크에 클러스터를 배포할 수 있습니까?
 
-예. 클러스터를 만들 때 기존 가상 네트워크에 Azure Red Hat OpenShift 클러스터를 배포할 수 있습니다. 참조를 [기존 가상 네트워크는 클러스터의 가상 네트워크를 연결할 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 세부 정보에 대 한 합니다.
+아니요. 하지만 Azure Red Hat OpenShift 클러스터를 피어 링을 통해 기존 VNET을 연결할 수 있습니다. 참조 [기존 가상 네트워크는 클러스터의 가상 네트워크를 연결할 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 세부 정보에 대 한 합니다.
 
 ## <a name="what-cluster-operations-are-available"></a>클러스터 작업에 사용할 수 있습니까?
 
@@ -39,7 +49,11 @@ ms.locfileid: "65078672"
 
 기본적으로 미사용 암호화에 있습니다. Azure Storage 플랫폼 및 해독 검색 전 해당 데이터를 유지 하기 전에 데이터를 자동으로 암호화 합니다. 참조 [미사용 데이터에 대 한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 세부 정보에 대 한 합니다.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Prometheus/Grafana를 사용 하 여 컨테이너를 모니터링 하 고 용량을 관리할 수 있습니다?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>내 응용 프로그램을 모니터링 한 Prometheus/Grafana를 사용할 수 있나요?
+
+예, 네임 스페이스에서 네임 스페이스 및 모니터 응용 프로그램에서 Prometheus를 배포할 수 있습니다.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>클러스터 상태 및 용량 관련 된 메트릭을 모니터링 하려면 Prometheus/Grafana를 사용할 수 있나요?
 
 아니요, 현재 시간에 없습니다.
 
@@ -66,3 +80,11 @@ ms.locfileid: "65078672"
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>추상화 된 경우 마스터와 인프라 노드 Azure Kubernetes Service (AKS)를 사용 하 여 그대로?
 
 아니요. 모든 리소스를 클러스터 마스터를 포함 하 여 고객 구독에서 실행 합니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>Open Service Broker에 대 한 Azure (OSBA) 지원 인지 확인 합니다.
+
+예. Azure Red Hat OpenShift를 사용 하 여 OSBA를 사용할 수 있습니다. 참조 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 자세한 내용은 합니다.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 고 했지만 시작 `Failed to get vnet CIDR` 오류입니다.
+
+가상 네트워크가 있는 구독에 등록할 수 있는지 확인 `Microsoft.ContainerService` 공급자 `az provider register -n Microsoft.ContainerService --wait` 

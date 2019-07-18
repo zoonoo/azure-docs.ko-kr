@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740997"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 컴퓨터 그룹
@@ -34,7 +34,7 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 Azure Monitor에서 각 보안 그룹에 대한 그룹을 만듭니다. (Windows 머신에만 해당)|
 | 구성 관리자 | System Center Configuration Manager에서 컬렉션을 가져오고 Azure Monitor에서 각 컬렉션에 대한 그룹을 만듭니다. |
-| Windows Server 업데이트 서비스 |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
+| Windows Server Update Services |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
 
 ### <a name="log-query"></a>로그 쿼리
 로그 쿼리에서 생성된 컴퓨터 그룹에는 사용자가 정의한 쿼리에서 반환된 모든 컴퓨터가 포함됩니다.  이 쿼리는 컴퓨터 그룹이 사용될 때마다 실행되므로 그룹이 만들어진 이후의 모든 변경 내용이 반영됩니다.  
@@ -53,7 +53,7 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:---|:---|
 | 이름   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |

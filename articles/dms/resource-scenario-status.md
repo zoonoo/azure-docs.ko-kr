@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473011"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service를 지 원하는 마이그레이션 시나리오의 상태
@@ -65,7 +65,7 @@ Azure Database Migration Service를 지 원하는 마이그레이션 시나리�
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle | ✔ | 비공개 미리 보기 |
+|   | Oracle | ✔ | 프라이빗 미리 보기 |
 | **Azure SQL VM** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | 공개 미리 보기 |
@@ -73,7 +73,7 @@ Azure Database Migration Service를 지 원하는 마이그레이션 시나리�
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 비공개 미리 보기 |
+|   | Oracle | ✔ | 프라이빗 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Database Migration Service 및 국가별 가용성 개요를 문서 참조 [Azure Database Migration Service 란](dms-overview.md)합니다.

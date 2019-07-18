@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473909"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
@@ -39,7 +39,7 @@ ms.locfileid: "60473909"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
+1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome 으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
 
 2. 페이지에 표시되는 단계에 따라 개인 Google 계정에 2단계 인증을 설정합니다.
 

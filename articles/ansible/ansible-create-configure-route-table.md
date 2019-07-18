@@ -1,34 +1,42 @@
 ---
-title: Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제
-description: Ansible을 사용하여 경로 테이블을 만들거나, 변경하거나, 삭제하는 방법을 알아봅니다.
-ms.service: azure
+title: 자습서 - Ansible을 사용하여 Azure 경로 테이블 구성 | Microsoft Docs
+description: Ansible을 사용하여 Azure 경로 테이블을 생성, 변경 및 삭제하는 방법 알아보기
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 네트워킹, 경로, 경로 테이블
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/17/2018
-ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792449"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230877"
 ---
-# <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Ansible을 사용하여 Azure 경로 테이블 만들기, 변경 또는 삭제
-Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. Azure에서 기본 라우팅 중 하나를 변경하려면 [경로 테이블](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 만들어 변경합니다.
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>자습서: Ansible을 사용하여 Azure 경로 테이블 구성
 
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서에서는 Azure 경로 테이블을 만들거나, 변경하거나, 삭제하고 경로 테이블을 서브넷에 연결하는 방법을 보여 줍니다. 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+
+Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 간에 트래픽을 자동으로 라우트합니다. 환경의 라우팅을 보다 강력하게 제어해야 할 경우 [경로 테이블](/azure/virtual-network/virtual-networks-udr-overview)을 만들 수 있습니다. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> 경로 테이블 만들기 가상 네트워크 및 서브넷 만들기 경로 테이블을 서브넷에 연결 서브넷에서 경로 테이블 분리 경로 삭제 경로 테이블 쿼리 경로 테이블 삭제
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> 이 자습서에서 다음 플레이북 샘플을 실행하려면 Ansible 2.7이 필요합니다.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
-이 섹션에서는 경로 테이블을 만드는 Ansible 플레이북 샘플이 제공됩니다. Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
+
+이 섹션의 플레이북 코드는 경로 테이블을 만듭니다. 경로 테이블 제한에 대한 내용은 [Azure 제한](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
+
+다음 플레이북을 `route_table_create.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -42,16 +50,35 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
         resource_group: "{{ resource_group }}"
 ```
 
-이 플레이북을 `route_table_create.yml`로 저장합니다. 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_create.yml
 ```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
-서브넷에는 0개 또는 1개의 경로 테이블이 연결될 수 있습니다. 경로 테이블은 0개 또는 여러 개의 서브넷에 연결할 수 있습니다. 경로 테이블은 가상 네트워크에 연결되지 않기 때문에 경로 테이블을 연결하려는 각 서브넷에 경로 테이블을 연결해야 합니다. 서브넷에서 나가는 모든 트래픽은 경로 테이블 내에서 만든 경로인 [기본 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default)를 기반으로 라우트되고, 가상 네트워크가 Azure 가상 네트워크 게이트웨이에 연결된 경우에는 온-프레미스 네트워크에서 전파된 경로(ExpressRoute, VPN Gateway에서 BGP를 사용하는 경우에는 VPN)를 기반으로 라우트됩니다. 경로 테이블과 동일한 Azure 위치 및 구독에 있는 가상 네트워크의 서브넷에만 경로 테이블을 연결할 수 있습니다.
 
-이 섹션에서는 가상 네트워크와 서브넷을 만든 다음, 경로 테이블을 서브넷에 연결하는 Ansible 플레이북 샘플이 제공됩니다.
+이 섹션의 플레이북 코드:
+
+* 가상 네트워크를 만듭니다.
+* 가상 네트워크 내에서 서브넷 만들기
+* 서브넷에 경로 테이블 연결
+
+경로 테이블은 가상 네트워크에 연결되지 않습니다. 대신, 경로 테이블은 가상 네트워크의 서브넷에 연결됩니다.
+
+가상 네트워크 및 라우팅 테이블은 동일한 Azure 위치 및 구독에 공존해야 합니다.
+
+서브넷 및 경로 테이블에는 일대다 관계가 형성됩니다. 서브넷은 연결된 경로 테이블 없이 또는 경로 테이블 1개를 사용하여 정의할 수 있습니다. 경로 테이블은 하나 또는 여러 개의 서브넷에 연결되거나 서브넷에 연결되지 않을 수 있습니다. 
+
+서브넷의 트래픽은 다음을 기준으로 라우팅됩니다.
+
+- 경로 테이블 내에 정의된 경로
+- [기본 경로](/azure/virtual-network/virtual-networks-udr-overview#default)
+- 온-프레미스 네트워크에서 전파된 경로
+
+가상 네트워크는 Azure Virtual Network 게이트웨이에 연결되어야 합니다. VPN Gateway에서 BGP를 사용하는 경우 게이트웨이는 ExpressRoute 또는 VPN일 수 있습니다.
+
+다음 플레이북을 `route_table_associate.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -80,14 +107,19 @@ ansible-playbook route_table_create.yml
         route_table: "{ route_table_name }"
 ```
 
-이 플레이북을 `route_table_associate.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_associate.yml
 ```
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>서브넷에서 경로 테이블 분리
-서브넷에서 경로 테이블을 분리하는 경우 서브넷의 `route_table`을 `None`으로 설정하면 됩니다. Ansible 플레이북 샘플은 다음과 같습니다. 
+
+이 섹션의 플레이북 코드는 서브넷에서 경로 테이블을 분리합니다.
+
+서브넷에서 경로 테이블을 분리하고, 서브넷의 `route_table`을 `None`으로 설정합니다. 
+
+다음 플레이북을 `route_table_dissociate.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -104,14 +136,17 @@ ansible-playbook route_table_associate.yml
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-이 플레이북을 `route_table_dissociate.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_dissociate.yml
 ```
 
 ## <a name="create-a-route"></a>경로 만들기
-이 섹션에서는 경로 테이블 아래에 경로를 만드는 Ansible 플레이북 샘플이 제공됩니다. `virtual_network_gateway`를 `next_hop_type`으로 정의하고, `10.1.0.0/16`을 `address_prefix`로 정의합니다. 접두사는 경로 테이블 내 둘 이상의 경로에서 중복될 수 없지만 다른 접두사 내에서는 중복 가능합니다. Azure에서 경로를 선택하는 방법과 모든 다음 홉 유형에 대한 자세한 내용은 [라우팅 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
+
+이 섹션의 플레이북 코드는 경로 테이블 내에 경로를 만듭니다. 
+
+다음 플레이북을 `route_create.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -128,14 +163,23 @@ ansible-playbook route_table_dissociate.yml
         address_prefix: "10.1.0.0/16"
         route_table_name: "{{ route_table_name }}"
 ```
-이 플레이북을 `route_create.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+
+플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+
+* `virtual_network_gateway`는 `next_hop_type`으로 정의됩니다. Azure의 경로 선택 방법에 대한 자세한 내용은 [라우팅 개요](/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
+* `address_prefix`는 `10.1.0.0/16`으로 정의됩니다. 경로 테이블 내에서 접두사는 중복될 수 없습니다.
+
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_create.yml
 ```
 
 ## <a name="delete-a-route"></a>경로 삭제
-이 섹션에서는 경로 테이블에서 경로를 삭제하는 Ansible 플레이북 샘플이 제공됩니다.
+
+이 섹션의 플레이북 코드는 경로 테이블에서 경로를 삭제합니다.
+
+다음 플레이북을 `route_delete.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -152,15 +196,17 @@ ansible-playbook route_create.yml
         state: absent
 ```
 
-이 플레이북을 `route_delete.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_delete.yml
 ```
 
-## <a name="get-information-of-a-route-table"></a>경로 테이블 정보 가져오기
-`azure_rm_routetable_facts`라는 Ansible 모듈을 통해 route_table의 세부 정보를 볼 수 있습니다. facts 모듈은 모든 경로가 연결된 경로 테이블의 정보를 반환합니다.
-Ansible 플레이북 샘플은 다음과 같습니다. 
+## <a name="get-route-table-information"></a>경로 테이블 정보 가져오기
+
+이 섹션의 플레이북 코드는 Ansible 모듈 `azure_rm_routetable_facts`를 사용하여 경로 테이블 정보를 검색합니다.
+
+다음 플레이북을 `route_table_facts.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -178,16 +224,21 @@ Ansible 플레이북 샘플은 다음과 같습니다.
          var: query.route_tables[0]
 ```
 
-이 플레이북을 `route_table_facts.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_facts.yml
 ```
 
 ## <a name="delete-a-route-table"></a>경로 테이블 삭제
-경로 테이블이 모든 서브넷에 연결된 경우에는 경로 테이블을 삭제할 수 없습니다. 경로 테이블을 삭제하기 전에 모든 서브넷에서 [분리](#dissociate-a-route-table-from-a-subnet)합니다.
 
-경로 테이블은 모든 경로와 함께 삭제할 수 있습니다. Ansible 플레이북 샘플은 다음과 같습니다. 
+이 섹션의 플레이북 코드는 경로 테이블을 삭제합니다.
+
+경로 테이블을 삭제하면 해당 경로도 모두 삭제됩니다.
+
+서브넷과 연결된 경로 테이블은 삭제할 수 없습니다. 경로 테이블을 삭제하기 전에 [서브넷에서 경로 테이블을 분리](#dissociate-a-route-table-from-a-subnet)합니다. 
+
+다음 플레이북을 `route_table_delete.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -202,7 +253,7 @@ ansible-playbook route_table_facts.yml
         state: absent
 ```
 
-이 플레이북을 `route_table_delete.yml`로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_delete.yml
@@ -210,4 +261,4 @@ ansible-playbook route_table_delete.yml
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [Azure의 Ansible](https://docs.microsoft.com/azure/ansible/)
+> [Azure의 Ansible](/azure/ansible/)

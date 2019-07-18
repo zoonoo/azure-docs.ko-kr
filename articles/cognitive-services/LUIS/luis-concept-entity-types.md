@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080046"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -109,6 +109,30 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 혼합 엔터티는 엔터티 검색 방법의 조합을 사용합니다.
 
+## <a name="machine-learned-entities-use-context"></a>기계 학습 엔터티 컨텍스트를 사용합니다.
+
+기계 학습 엔터티를 utterance 컨텍스트에서에서 알아봅니다. 이렇게 하면 배치의 변형 예제 표현에서 중요 합니다. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>기계 학습 엔터티 컨텍스트를 사용 하지 마세요
+
+비-컴퓨터 엔터티 고려 하지 않은 utterance 상황에 맞는 계정 엔터티를 일치 시킬 때 학습 합니다. 
+
+* [미리 빌드된 엔터티](#prebuilt-entity)
+* [Regex 엔터티](#regular-expression-entity)
+* [목록 엔터티](#list-entity) 
+
+이러한 엔터티는 레이블 지정 또는 모델 학습에 필요 하지 않습니다. 를 추가 하거나 엔터티 구성 되 면 엔터티 추출 됩니다. 단점은 이러한 엔터티 수 수 overmatched, 여기서 컨텍스트를 고려 하는 경우 일치 하는 것 없습니다 내용이 있습니다. 
+
+이 목록 엔터티를 사용 하 여 새 모델에서 자주 발생 합니다. 작성 하 고 목록 엔터티를 사용 하 여 모델을 테스트 하지만 모델을 게시 하 고 끝점에서 쿼리를 받을 때 있습니다 모델 컨텍스트 부족으로 인해 overmatching 됩니다. 
+
+단어 또는 구를 일치 및 상황에 맞는 고려 하려는 경우 두 가지 옵션이 있습니다. 첫 번째 구 목록을 사용 하 여 쌍을 이루는 간단한 엔터티를 사용 하는 것입니다. 구 목록 일치 하는 사용 되지 않습니다 하지만 대신에 신호 비교적 유사한 단어 (교환할 목록) 데 도움이 됩니다. 구 목록의 변형 하는 대신 정확히 일치 해야 하는 경우 아래에 설명 된 역할을 가진 목록 엔터티를 사용 합니다.
+
+### <a name="context-with-non-machine-learned-entities"></a>컴퓨터 학습 되지 않은 엔터티를 사용 하 여 상황에 맞는
+
+머신이 아닌 컴퓨터 학습된 엔터티에 대 한 중요 utterance의 컨텍스트를 하려는 경우 사용 해야 [역할](luis-concept-roles.md)입니다.
+
+컴퓨터 학습 되지 않은 엔터티를 같은 있는지 [미리 빌드된 엔터티로](#prebuilt-entity)를 [regex](#regular-expression-entity) 엔터티 또는 [목록](#list-entity) 엔터티 인스턴스를 넘어 일치 하는 것이 좋습니다. 두 가지 역할을 사용 하 여 엔터티를 만드는 중입니다. 하나의 역할에 대 한 원하는 내용을 캡처합니다 및 없습니다 원하는 내용을 대 한 하나의 역할 캡처됩니다. 두 버전 모두에 예제 표현에 레이블을 표시 해야 합니다.  
+
 ## <a name="composite-entity"></a>복합 엔터티
 
 복합 엔터티는 이루어져 미리 작성 된 엔터티를 같은 다른 엔터티를 단순 목록 엔터티와 정규식 있습니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
@@ -133,8 +157,9 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 텍스트 데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.
 
 * 알려진 세트입니다.
+* 자주 변경 되지 않습니다. 자체 확장 목록 또는 목록에 자주 변경 해야 할 경우 구 목록을 사용 하 여 승격 된 간단한 엔터티를 보다 적합 합니다. 
 * 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
-* 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. LUIS는 정확한 텍스트 일치를 벗어나는 목록을 사용하지 않습니다. 형태소 분석, 복수형 및 기타 변형은 목록 엔터티로 확인되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
+* 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. LUIS는 정확한 텍스트 일치를 벗어나는 목록을 사용하지 않습니다. 유사 항목 일치, case-insensitivity, 형태소 분석, 복수, 및 다른 변형 목록 엔터티와 확인 되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
 
 ![목록 엔터티](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 |발화|
 |--|
-|' Hat 및 기타 임상 이야기는 American이 올해 저술한 The Man는 잘못 검색 His 아내가?<br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|The Man Who Mistook His Wife for a Hat and Other Clinical Tales는 올해 미국에서 저술되었나요?<br><br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
+|Half Asleep in Frog Pajamas는 올해 미국에서 저술되었나요?<br><br>**Half Asleep in Frog Pajamas**는 올해 미국에서 저술되었나요?|
+|The Particular Sadness of Lemon Cake: A Novel은 올해 미국에서 저술되었나요?<br><br>**The Particular Sadness of Lemon Cake: A Novel**은 올해 미국에서 저술되었나요?|
+|There's A Wocket In My Pocket! 은 올해 미국에서 저술되었나요?<br><br>**There's A Wocket In My Pocket!** 은 올해 미국에서 저술되었나요?|
+||
 
 ## <a name="prebuilt-entity"></a>미리 빌드된 엔터티
 
@@ -225,6 +251,18 @@ LUIS 포털에서 미리 작성 된 엔터티를 사용자 지정 엔터티를 �
 
 [자습서](luis-quickstart-intents-regex-entity.md)<br>
 [엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+정규식 일치에 예상 보다 더 일치할 수 있습니다. 이 예로 숫자 word와 같은 일치 `one` 고 `two`입니다. 예로 수와 일치 하는 다음 정규식 `one` 다른 숫자와 함께 합니다.
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+정규식이 이러한 수치를 사용 하 여 같은 종료 하는 모든 단어 일치 `phone`합니다. 다음과 같은 문제 해결, regex와 일치 하는지 확인 하기 위해 계정 단어 경계를 고려 합니다. 이 예제에 대 한 단어 경계를 사용 하는 regex는 다음 정규식에 사용 됩니다.
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>단순 엔터티 
 

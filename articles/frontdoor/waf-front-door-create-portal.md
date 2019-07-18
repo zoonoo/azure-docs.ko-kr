@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460252"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66479073"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Azure portal을 사용 하 여 WAF 정책에 대 한 Azure 프런트 도어 만들기
 
@@ -63,17 +63,19 @@ WAF 정책을 만들 때 기본 WAF에서 정책이입니다 **검색** 모드�
 
  ![WAF 변경 정책 모드](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>사용자 지정 규칙
+
+선택 하 여 사용자 지정 규칙을 만들 수 있습니다 **사용자 지정 규칙 추가** 아래 합니다 **사용자 지정 규칙** 섹션입니다. 사용자 지정 규칙 구성 페이지에서 시작 됩니다. 쿼리 문자열을 포함 하는 경우 요청을 차단 하는 사용자 지정 규칙을 구성 하는 예로 **blockme**합니다.
+
+![WAF 변경 정책 모드](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>기본 규칙 집합 (DRS)
 
 Azure 관리 되는 기본 규칙 집합은 기본적으로 사용 됩니다. 규칙 그룹 내의 개별 규칙을 사용 하지 않으려면 선택 되는 규칙 그룹 내에서 규칙을 확장 합니다 **확인란** 선택한 규칙 번호 앞에 **사용 하지 않도록 설정** 위의 탭 합니다. 규칙 내에서 개별 규칙 설정 규칙 번호 앞에 있는 확인란을 선택 하 고 선택한 작업 형식을 변경 하는 **동작을 변경** 위의 탭 합니다.
 
- ![WAF 규칙 집합 변경](./media/waf-front-door-create-portal/managed.png)
+ ![WAF 규칙 집합 변경](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 [Azure 웹 응용 프로그램 방화벽](waf-overview.md)합니다.
+- [Azure 웹 애플리케이션 방화벽](waf-overview.md)에 대해 알아봅니다.
 - 에 대해 자세히 알아보세요 [Azure 프런트 도어](front-door-overview.md)합니다.
-
-
-
-

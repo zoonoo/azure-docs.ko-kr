@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f588115e38ded07b79568c91b8d166949b34a886
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179181"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253851"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Azure AD에서 암호 해시 동기화란?
 암호 해시 동기화는 하이브리드 ID를 설정하기 위해 사용된 로그인 메서드 중 하나입니다. Azure AD Connect는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "56179181"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [하이브리드 ID란?](whatis-phs.md)
+- [하이브리드 ID란?](whatis-hybrid-identity.md)
 - [Azure AD Connect 및 Connect Health란?](whatis-azure-ad-connect.md)
 - [PTA(통과 인증)란?](how-to-connect-pta.md)
 - [페더레이션이란?](whatis-fed.md)

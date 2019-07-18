@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094525"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management 템플릿 데이터 모델 참조
@@ -43,7 +43,7 @@ ms.locfileid: "61094525"
 -   [HTTP 요청](#HTTPRequest)  
 -   [HTTP 응답](#HTTPResponse)  
 -   [문제](#Issue)  
--   [작업](#Operation)  
+-   [연산](#Operation)  
 -   [작업 메뉴](#Menu)  
 -   [작업 메뉴 항목](#MenuItem)  
 -   [페이징](#Paging)  
@@ -85,7 +85,7 @@ ms.locfileid: "61094525"
   
 |자산|Type|설명|  
 |--------------|----------|-----------------|  
-|`Id`|문자열|애플리케이션의 고유 식별자입니다.|  
+|`Id`|문자열|응용 프로그램의 고유 식별자입니다.|  
 |`Title`|문자열|애플리케이션의 제목입니다.|  
 |`Description`|문자열|애플리케이션의 설명입니다.|  
 |`Url`|URI|애플리케이션에 대한 URI입니다.|  
@@ -291,12 +291,12 @@ ms.locfileid: "61094525"
 |`ProductDetailsUrl`|문자열|제품 세부 정보에 대한 상대 URL입니다.|  
 |`state`|문자열|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> - `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br /><br /> - `1 - active` – 구독이 활성화되어 있습니다.<br /><br /> - `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br /><br /> - `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br /><br /> - `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br /><br /> - `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
 |`DisplayName`|문자열|구독의 표시 이름입니다.|  
-|`CreatedDate`|datetime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독이 만들어진 날짜입니다.|  
+|`CreatedDate`|dateTime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독이 만들어진 날짜입니다.|  
 |`CanBeCancelled`|부울|현재 사용자가 구독을 취소할 수 있는지 여부입니다.|  
 |`IsAwaitingApproval`|부울|구독이 승인 대기 중인지 여부입니다.|  
-|`StartDate`|datetime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 시작 날짜입니다.|  
-|`ExpirationDate`|datetime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 만료 날짜입니다.|  
-|`NotificationDate`|datetime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 알림 날짜입니다.|  
+|`StartDate`|dateTime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 시작 날짜입니다.|  
+|`ExpirationDate`|dateTime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 만료 날짜입니다.|  
+|`NotificationDate`|dateTime|ISO 8601 형식(`2014-06-24T16:25:00Z`)의 구독에 대한 알림 날짜입니다.|  
 |`primaryKey`|문자열|기본 구독 키입니다. 최대 길이는 256자입니다.|  
 |`secondaryKey`|문자열|보조 구독 키입니다. 최대 길이는 256자입니다.|  
 |`CanBeRenewed`|부울|현재 사용자가 구독을 갱신할 수 있는지 여부입니다.|  

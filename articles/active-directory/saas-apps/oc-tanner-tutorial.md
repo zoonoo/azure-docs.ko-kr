@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8814dc9ba94ca7fa56a2225c71895520467bf05f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Tanner - AppreciateHub
 
@@ -80,7 +80,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 2. **[O.C. Tanner - AppreciateHub Single Sign-On 구성](#configure-oc-tanner---appreciatehub-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[O.C. 만들기 Tanner - O.C.에서 Britta Simon에 해당하는 사용자가 있는 AppreciateHub 테스트 사용자](#create-oc-tanner---appreciatehub-test-user)**. 해당 사용자의 Azure AD 표현에 연결된 Tanner - AppreciateHub.
+5. **[O.C. 만들기 Tanner - O.C.에서 Britta Simon에 해당하는 사용자가 있는 AppreciateHub 테스트 사용자](#create-oc-tanner---appreciatehub-test-user)** . 해당 사용자의 Azure AD 표현에 연결된 Tanner - AppreciateHub.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성

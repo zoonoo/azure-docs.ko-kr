@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 15154844c954e53ca1add5d3fbaa3e9d02152ad2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703214"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
@@ -154,7 +154,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 - 탄력적 풀 리소스 제한에 도달
 - 과도한 작업자 또는 세션 스레드 수
 - 과도한 데이터베이스 잠금
-- 메모리 압력
+- 메모리 가중
 - 다른 대기 통계
 
 리소스 제한이나 탄력적 풀 리소스 제한에 도달하면 구독 또는 탄력적 풀에서 사용할 수 있는 리소스 소모량이 절대 임계값 이상으로 증가했음을 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다. 과도한 작업자 또는 세션 스레드 수는 시작된 작업자 스레드 또는 세션 수가 절대 임계값 이상에 도달한 상태를 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다.

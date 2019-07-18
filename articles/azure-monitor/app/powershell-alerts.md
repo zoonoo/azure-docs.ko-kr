@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66130973"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
@@ -112,7 +112,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |예외 속도 |초당 발생한 예외입니다. |
 | `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |애플리케이션 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
 | `performanceCounter.percentage_processor_total.value` |프로세서 시간 |프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다. |
-| `performanceCounter.process_private_bytes.value` |프로세스 전용 바이트 |모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다. |
+| `performanceCounter.process_private_bytes.value` |프로세스 프라이빗 바이트 |모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다. |
 | `performanceCounter.request_execution_time.value` |ASP.NET 요청 실행 시간 |가장 최근 요청의 실행 시간입니다. |
 | `performanceCounter.requests_in_application_queue.value` |실행 큐의 ASP.NET 요청 |애플리케이션 요청 큐의 길이입니다. |
 | `performanceCounter.requests_per_sec.value` |ASP.NET 요청 속도 |ASP.NET에서 애플리케이션에 전송된 모든 요청의 속도(초)입니다. |
@@ -127,7 +127,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>보기 |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[성능](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[종속성](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[서버 요청](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -138,5 +138,5 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 ## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](powershell-script-create-resource.md)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
-* [Application Insights에 Microsoft Azure 진단 결합 자동화](powershell-azure-diagnostics.md)
+* [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)
 * [경고에 대한 응답 자동화](../../azure-monitor/platform/alerts-webhooks.md)

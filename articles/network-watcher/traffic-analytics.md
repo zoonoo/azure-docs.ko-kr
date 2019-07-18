@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939885"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051673"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -42,7 +42,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ## <a name="key-components"></a>핵심 구성 요소
 
-- **NSG(네트워크 보안 그룹)**: Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **NSG(네트워크 보안 그룹)** : Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
 - **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석을 기반으로 Azure Monitor 로그를 사용 하 여 빌드됩니다. 같은 응용 프로그램을 모니터링 합니다. 자세한 내용은 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
 - **Log Analytics 작업 영역**: Azure Monitor 로그, Azure 계정에 관련 된 데이터가 저장 된 인스턴스. Log Analytics 작업 영역에 대 한 자세한 내용은 참조 하세요. [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
@@ -87,12 +87,19 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 캐나다 중부
 * 미국 중서부
-* 미국 서부 2
 * 미국 동부
+* 미국 동부 2
+* 미국 중남부
+* 미국 서부
+* 미국 서부 2
+* 미국 중부
 * 프랑스 중부
+* 유럽 북부
 * 서유럽
 * 영국 남부
+* 오스트레일리아 동부
 * 오스트레일리아 남동부
+* 동아시아
 * 동남아시아
 * 한국 중부
 * 중앙 인도

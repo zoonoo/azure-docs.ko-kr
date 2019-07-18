@@ -1,42 +1,43 @@
 ---
-title: '빠른 시작: 잉크 인식기 REST API 및 Java를 사용 하 여 디지털 잉크를 인식 합니다.'
-description: 디지털 잉크 스트로크를 인식 하려면 잉크 인식기 API를 사용 합니다.
+title: '빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식'
+titleSuffix: Azure Cognitive Services
+description: Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026783"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721237"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: 잉크 인식기 REST API 및 Java를 사용 하 여 디지털 잉크를 인식 합니다.
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식
 
-디지털 잉크 스트로크에 잉크 인식기 API 사용을 시작 하려면이 빠른 시작을 사용 합니다. 이 Java 응용 프로그램 JSON 형식 잉크 스트로크 데이터를 포함 하는 API 요청을 보내고 응답을 가져옵니다.
+이 빠른 시작을 사용하여 디지털 잉크 스트로크에 Ink Recognizer API를 사용하기 시작합니다. 이 Java 애플리케이션은 JSON 형식의 잉크 스트로크 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 
 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-일반적으로 디지털 잉크 입력 기능 앱에서 API를 호출 합니다. 이 빠른 시작이에서는 JSON 파일에서 다음 필기 샘플에 대 한 잉크 스트로크 데이터를 보냅니다.
+일반적으로 API는 디지털 잉크 입력 앱에서 호출합니다. 이 빠른 시작은 JSON 파일에서 다음 필기 샘플에 대한 잉크 스트로크 데이터를 보냅니다.
 
-![필기 문자의 이미지](../media/handwriting-sample.jpg)
+![필기 문자 이미지](../media/handwriting-sample.jpg)
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)에서 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 합니다 [Java&trade; 개발 Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
+- [JDK(Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상
 
-- Maven 리포지토리에서 이러한 라이브러리 가져오기
-    - [Java에서 JSON](https://mvnrepository.com/artifact/org.json/json) 패키지
+- Maven 리포지토리에서 다음과 같은 라이브러리 가져오기
+    - [JSON(Java](https://mvnrepository.com/artifact/org.json/json) 패키지)
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) 패키지
 
-- 이 빠른 시작 예제 잉크 스트로크 데이터에서 찾을 수 있습니다 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)합니다.
+- 이 빠른 시작의 잉크 스트로크 데이터 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json)에서 찾을 수 있습니다.
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -57,7 +58,7 @@ ms.locfileid: "65026783"
     import java.nio.file.Paths;
     ```
 
-2. 구독 키 및 끝점에 대 한 변수를 만듭니다. 다음은 URI 잉크 인식에 사용할 수 있습니다. API 요청 URL을 만드는 데는 나중에 서비스 끝점으로 추가 됩니다.
+2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 잉크 인식에 사용할 수 있는 URI입니다. 나중에 API 요청 URL을 만드는 서비스 엔드포인트에 추가됩니다.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -71,17 +72,17 @@ ms.locfileid: "65026783"
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
 
-1. 라는 새 함수를 만들고 `sendRequest()` 위에서 만든 변수를 사용 합니다. 그런 후에 다음 단계를 수행합니다.
+1. 위에서 만든 변수를 사용하는 `sendRequest()`라는 새 함수를 만듭니다. 그런 후에 다음 단계를 수행합니다.
 
-2. 만들기는 `CloseableHttpClient` API에 요청을 보낼 수 있는 개체입니다. 요청을 보낼는 `HttpPut` 잉크 인식기 URL과 끝점에 결합 하 여 요청 개체입니다.
+2. API에 요청을 보낼 수 있는 `CloseableHttpClient` 개체를 만듭니다. 엔드포인트와 Ink Recognizer URL을 결합하여 `HttpPut` 요청 개체에 요청을 보냅니다.
 
-3. 요청을 사용 하 여 `setHeader()` 함수를 설정 합니다 `Content-Type` 헤더를 `application/json`, 구독 키를 추가 하 고는 `Ocp-Apim-Subscription-Key` 헤더.
+3. 요청의 `setHeader()` 함수를 사용하여 `Content-Type` 헤더를 `application/json`으로 설정하고 구독 키를 `Ocp-Apim-Subscription-Key` 헤더에 추가합니다.
 
-4. 요청을 사용 하 여 `setEntity()` 데이터 전송에 함수입니다.   
+4. 요청의 `setEntity()` 함수를 전송할 데이터에 사용합니다.   
 
-5. 클라이언트를 사용 하 여 `execute()` 요청을 보내도록 함수 및 저장 하는 `CloseableHttpResponse` 개체입니다. 
+5. 클라이언트의 `execute()` 함수를 사용하여 요청을 보내고 `CloseableHttpResponse` 개체에 저장합니다. 
 
-6. 만들기는 `HttpEntity` 응답 콘텐츠를 저장할 개체입니다. 사용 하 여 콘텐츠를 가져올 `getEntity()`합니다. 응답 비어 있지 않은 경우이 반환 합니다.
+6. 응답 콘텐츠를 저장할 `HttpEntity` 개체를 만듭니다. `getEntity()`를 사용하여 콘텐츠를 받습니다. 응답이 비어 있지 않으면 반환합니다.
     
     ```java
     static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -107,9 +108,9 @@ ms.locfileid: "65026783"
     }
     ```
 
-## <a name="send-an-ink-recognition-request"></a>잉크 인식 요청을 보내기
+## <a name="send-an-ink-recognition-request"></a>잉크 인식 요청 보내기
 
-이라는 메서드를 만듭니다 `recognizeInk()` 잉크 스트로크 데이터를 인식 하도록 합니다. 호출 된 `sendRequest()` 끝점, url, 구독 키 및 json 데이터를 사용 하 여 위에서 만든 메서드. 결과 가져오고 콘솔에 인쇄 합니다.
+잉크 스트로크 데이터를 인식하는 `recognizeInk()`라는 메서드를 만듭니다. 위에서 만든 `sendRequest()` 메서드를 엔드포인트, URL, 구독 키 및 JSON 데이터로 호출합니다. 결과를 받아서 콘솔에 출력합니다.
 
 ```java
 static void recognizeInk(String requestData) {
@@ -119,11 +120,11 @@ static void recognizeInk(String requestData) {
 }
 ```
 
-## <a name="load-your-digital-ink-data-and-send-the-request"></a>디지털 잉크 데이터를 로드 하 고 요청을 보내기
+## <a name="load-your-digital-ink-data-and-send-the-request"></a>디지털 잉크 데이터를 로드하고 요청 보내기
 
-1. 응용 프로그램의 main 메서드를 요청에 추가 될 데이터를 포함 하는 JSON 파일에서을 읽습니다.
+1. 애플리케이션의 main 메서드에서 요청에 추가할 데이터가 포함된 JSON 파일을 읽습니다.
 
-2. 위에서 만든 잉크 인식 함수를 호출 합니다.
+2. 위에서 만든 잉크 인식 함수를 호출합니다.
     
     ```java
     public static void main(String[] args) throws Exception {
@@ -132,9 +133,9 @@ static void recognizeInk(String requestData) {
     }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>응용 프로그램을 실행 하 고 응답을 보려면
+## <a name="run-the-application-and-view-the-response"></a>애플리케이션을 실행하고 응답 보기
 
-애플리케이션을 실행합니다. 성공적인 응답은 JSON 형식으로 반환 됩니다. JSON 응답에서 찾을 수 있습니다 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)합니다.
+애플리케이션을 실행합니다. 성공 응답이 JSON 형식으로 반환됩니다. [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -142,9 +143,9 @@ static void recognizeInk(String requestData) {
 > [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-잉크 인식 API를 디지털 잉크 입력 기능 앱에서 작동 하는 방법을 보려면 하려면 GitHub에서 다음 샘플 응용 프로그램에서 확인을 수행 합니다.
-* [C#및 유니버설 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#및 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
+* [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 및 WPF(Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Javascript 웹 브라우저 앱](https://go.microsoft.com/fwlink/?linkid=2089908)       
 * [Java 및 Android 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089906)
 * [Swift 및 iOS 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089805)

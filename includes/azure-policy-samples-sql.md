@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-policy
-author: WenJason
+author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
-ms.date: 07/09/2018
-ms.author: v-jay
+ms.date: 09/18/2018
+ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: 80087e000c015dedfaeaeacfd4c28520c45f4764
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865903"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182359"
 ---
 ## <a name="sql"></a>SQL
 

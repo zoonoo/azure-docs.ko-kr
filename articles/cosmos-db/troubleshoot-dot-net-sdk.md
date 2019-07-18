@@ -3,18 +3,17 @@ title: 진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
 description: 클라이언트 쪽 로깅 및 식별, 진단 및.NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 해결 하려면 다른 타사 도구 등의 기능을 사용.
 author: j82w
 ms.service: cosmos-db
-ms.date: 01/19/2019
+ms.date: 05/28/2019
 ms.author: jawilley
-ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7f969ab6059140ec32c9c5bf5045c546602a3c15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9511562b81f7ac0c1582897d703f4c5ccb89716
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404715"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806391"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
 이 문서에서는 일반적인 문제, 해결, 진단 단계 및 도구 사용 하는 경우는 [.NET SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB SQL API 계정으로 합니다.
@@ -49,7 +48,7 @@ ms.locfileid: "60404715"
 RequestTimeout 직접/t c P를 사용 하는 경우 일반적으로 발생 하지만 게이트웨이 모드에서 발생할 수 있습니다. 이들은 일반적인 알려진된 원인 및 문제를 해결 하는 방법에 대 한 제안 사항입니다.
 
 * CPU 사용률이 높습니다는 대기 시간이 발생할 및/또는 시간 제한 요청 합니다. 고객이 더 많은 리소스를 제공 하려면 호스트 컴퓨터를 확장할 수 또는 더 많은 컴퓨터 간에 부하를 배포할 수 있습니다.
-* 소켓 / 포트 가용성 낮을 수 있습니다. 2.0 버전 이전에 릴리스된.NET Sdk를 사용 하면 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다. 이 항상 최신 SDK 버전을 실행 하려면 권장 되는 이유의 예입니다.
+* 소켓 / 포트 가용성 낮을 수 있습니다. 2\.0 버전 이전에 릴리스된.NET Sdk를 사용 하면 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다. 이 항상 최신 SDK 버전을 실행 하려면 권장 되는 이유의 예입니다.
 * 여러 DocumentClient 인스턴스를 만드는 연결 경합 및 시간 제한 문제가 발생할 수 있습니다. 수행 합니다 [성능 팁](performance-tips.md), 단일 DocumentClient 인스턴스를 사용 하 여 전체 프로세스를 통해.
 * 사용자가 해당 컬렉션은 프로 비전 되지 않습니다 충분히 백 엔드 요청을 제한 하 고 클라이언트가이 호출자에 게 표시 하지 않고 내부적으로 다시 시도 하기 때문에 높은 대기 시간 또는 요청 시간 제한을 때로는 참조 하십시오. 확인 합니다 [포털 메트릭](monitor-accounts.md)합니다.
 * Azure Cosmos DB는 전체 프로 비전 된 처리량은 실제 파티션 간에 균등 하 게 배포합니다. 포털 메트릭을 워크 로드는 핫 발생 하는 경우 참조 확인 [파티션 키](partition-data.md)합니다. 이렇게 하면 집계 사용 된 처리량 (RU/s)를 프로 비전 된 Ru를 아래에 표시 되어야 하지만 사용 하는 단일 파티션의 처리량 (RU/s)을 프로 비전된 된 처리량을 초과 합니다. 
@@ -61,13 +60,13 @@ RequestTimeout 직접/t c P를 사용 하는 경우 일반적으로 발생 하�
         * 또한를 통해 SDK 로그를 캡처할 수 있습니다 [추적 수신기](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) 자세한 세부 정보를 가져옵니다.
 
 ### <a name="connection-throttling"></a>연결 제한
-연결 제한 호스트 컴퓨터에서 연결 제한으로 인해 발생할 수 있습니다. 2.0 이전의 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다.
+연결 제한 호스트 컴퓨터에서 연결 제한으로 인해 발생할 수 있습니다. 2\.0 이전의 Azure에서 실행 하는 클라이언트 적중 수는 [Azure SNAT(PAT) 포트 고갈]합니다.
 
 ### <a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
 공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
 
- Azure SNAT 포트는 VM에 사설 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
+ Azure SNAT 포트는 VM에 개인 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
 
 * Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 참조하세요. 
 

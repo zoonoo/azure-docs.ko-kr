@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241393"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -89,7 +89,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 2. 다음과 같이 변경합니다.
 
     * **location** 이외의 모든 매개 변수를 제거합니다.
-    * **storageAccountName**이라는 매개 변수를 추가합니다. 
+    * **storageAccountName**이라는 매개 변수를 추가합니다.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
         },
         ```
         스토리지 계정 이름과 위치는 기본 템플릿에서 연결된 템플릿으로 매개 변수로 전달됩니다.
-        
+
     * **variables** 요소 및 모든 변수 정의를 제거합니다.
     * 스토리지 계정 이외의 모든 리소스를 제거합니다. 총 4개의 리소스를 제거합니다.
     * 스토리지 계정 리소스의 **name** 요소 값을 다음으로 업데이트합니다.
@@ -109,7 +109,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
         ```
 
     * **출력** 요소를 업데이트하면 다음과 같이 표시됩니다.
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ echo "Linked template URI with SAS token: $templateURI"
     다음 세부 사항에 주의하세요.
 
     * 기본 템플릿의 `Microsoft.Resources/deployments` 리소스는 다른 템플릿에 연결하는 데 사용됩니다.
-    * `deployments` 리소스는 `linkedTemplate`이라는 이름을 갖습니다. 이 이름은 [종속성 구성](#configure-dependency)에 사용됩니다.  
+    * `deployments` 리소스는 `linkedTemplate`이라는 이름을 갖습니다. 이 이름은 [종속성 구성](#configure-dependency)에 사용됩니다.
     * 연결된 템플릿을 호출할 때 [증분](./deployment-modes.md) 배포 모드만 사용할 수 있습니다.
     * `templateLink/uri`는 연결된 템플릿 URI를 포함합니다. 연결된 템플릿(SAS 토큰이 있는 템플릿)을 업로드할 때 얻을 수 있는 URI로 값을 업데이트합니다.
     * `parameters`를 사용하여 기본 템플릿의 값을 연결된 템플릿에 전달합니다.
@@ -305,7 +305,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
     ![종속성을 구성하는 Azure Resource Manager 연결된 템플릿](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate*은 배포 리소스의 이름입니다.  
+    *linkedTemplate*은 배포 리소스의 이름입니다.
 3. 이전 스크린샷과 같이 **properties/diagnosticsProfile/bootDiagnostics/storageUri**를 업데이트합니다.
 4. 수정된 템플릿을 저장합니다.
 
@@ -334,4 +334,4 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 이 자습서에서는 템플릿을 기본 템플릿과 연결된 템플릿으로 모듈화했습니다. 가상 머신 확장을 사용하여 배포 후 작업을 수행하는 방법은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [가상 머신 확장 배포](./deployment-manager-tutorial.md)
+> [가상 머신 확장 배포](./resource-manager-tutorial-deploy-vm-extensions.md)

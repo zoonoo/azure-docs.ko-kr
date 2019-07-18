@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118114"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
@@ -120,7 +120,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 >
 >
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 수식에 지원되는 형식은 다음과 같습니다.
 
 * double
@@ -190,12 +190,12 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | min(doubleVecList) |double |doubleVecList의 최소값을 반환합니다. |
 | norm(doubleVecList) |double |doubleVecList에서 만든 벡터의 두 기준을 반환합니다. |
 | percentile(doubleVec v, double p) |double |벡터 v의 백분위수 요소를 반환합니다. |
-| rand() |double |0.0에서 1.0 사이의 임의 값을 반환합니다. |
+| rand() |double |0\.0에서 1.0 사이의 임의 값을 반환합니다. |
 | range(doubleVecList) |double |doubleVecList에 있는 최소값과 최대값 사이의 차이를 반환합니다. |
 | std(doubleVecList) |double |doubleVecList에 있는 값의 샘플 표준 편차를 반환합니다. |
 | stop() | |자동 크기 조정 식의 평가를 중지합니다. |
 | sum(doubleVecList) |double |doubleVecList에 있는 모든 구성 요소의 합계를 반환합니다. |
-| time(string dateTime="") | timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
+| time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
 앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들면 다음과 같습니다.
@@ -263,7 +263,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 >
 >
 
-## <a name="metrics"></a>메트릭
+## <a name="metrics"></a>metrics
 수식을 정의할 때 리소스 및 작업 메트릭을 모두 사용할 수 있습니다. 가져오고 평가한 메트릭 데이터를 기반으로 하는 풀의 전용 노드 대상 수를 조정합니다. 각 메트릭에 대한 자세한 내용은 위의 [변수](#variables) 섹션을 참조하세요.
 
 <table>

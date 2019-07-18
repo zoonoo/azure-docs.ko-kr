@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60765170"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
@@ -68,14 +68,14 @@ ms.locfileid: "60765170"
 ## <a name="createplan"></a> App Service 계획 만들기
 App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용해야 하는 작업자는 관리자에 의해 ASE에 할당된 작업자입니다.  즉, 새 계획을 만들려면 ASE 작업자 풀에 할당된 수가 작업자 풀의 모든 계획에서 전체 인스턴스 수보다 많아야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
 
-App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 계산 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 개인 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
+App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 계산 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 프라이빗 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
 
 다음 지침에는 자습서의 이전 섹션에서 설명한 대로 웹앱을 만드는 동안 App Service 계획을 만드는 방법을 보여줍니다.
 
 1. 계획 선택 UI에서 **새로 만들기** 를 클릭하고 ASE 외부에서 일반적으로 하는 대로 계획에 이름을 제공합니다.
 2. 위치 선택에서 사용하려는 ASE를 선택합니다.
    
-    App Service Environment가 기본적으로 개인 배포 위치이기 때문에 위치에 표시됩니다. 
+    App Service Environment가 기본적으로 프라이빗 배포 위치이기 때문에 위치에 표시됩니다. 
    
     ![][2]
    

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700477"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
@@ -30,7 +30,7 @@ ms.locfileid: "64700477"
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
-- 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
+- 포털을 사용하는 경우 https://portal.azure.com 을 열고 Azure 계정으로 로그인합니다.
 - 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 - Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "64700477"
 1. **+ 리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 2. 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 선택합니다.
    - **이름**: 이름은 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
-   - **주소 공간**: 가상 네트워크의 주소 공간은 CIDR 표기법으로 지정된 하나 이상의 겹치지 않는 주소 범위로 구성됩니다. 정의하는 주소 범위는 공용 또는 개인 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 개인으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
+   - **주소 공간**: 가상 네트워크의 주소 공간은 CIDR 표기법으로 지정된 하나 이상의 겹치지 않는 주소 범위로 구성됩니다. 정의하는 주소 범위는 공용 또는 프라이빗 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 프라이빗으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
      - 224.0.0.0/4(멀티캐스트)
      - 255.255.255.255/32(브로드캐스트)
      - 127.0.0.0/8(루프백)
@@ -101,7 +101,7 @@ ms.locfileid: "64700477"
 
 ## <a name="add-or-remove-an-address-range"></a>주소 범위 추가 또는 제거
 
-가상 네트워크에 대한 주소 범위를 추가 및 제거할 수 있습니다. 주소 범위는 CIDR 표기법으로 지정해야 하며, 동일한 가상 네트워크 내에서 다른 주소 범위와 겹칠 수 없습니다. 정의하는 주소 범위는 공용 또는 개인 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 개인으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 
+가상 네트워크에 대한 주소 범위를 추가 및 제거할 수 있습니다. 주소 범위는 CIDR 표기법으로 지정해야 하며, 동일한 가상 네트워크 내에서 다른 주소 범위와 겹칠 수 없습니다. 정의하는 주소 범위는 공용 또는 프라이빗 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 프라이빗으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 
 
 연결된 서브넷이 없는 경우 가상 네트워크의 주소 범위를 줄일 수 있습니다. 그렇지 않으면, /16을 /8로 변경하는 경우처럼 주소 범위를 확장할 수만 있습니다. 작은 주소 범위로 시작한 후 나중에 확장하거나 범위를 더 추가할 수 있습니다.
 
@@ -138,7 +138,7 @@ ms.locfileid: "64700477"
 2. 가상 네트워크 목록에서 DNS 서버를 변경할 가상 네트워크를 선택합니다.
 3. **설정**에서 **DNS 서버**를 선택합니다.
 4. 다음 옵션 중 하나를 선택합니다.
-   - **기본값(Azure 제공)**: 모든 리소스 이름 및 개인 IP 주소가 Azure DNS 서버에 자동으로 등록됩니다. 동일한 가상 네트워크에 연결된 모든 리소스 간에 이름을 확인할 수 있습니다. 이 옵션을 사용하면 가상 네트워크에서 이름을 확인할 수 없습니다. 가상 네트워크 전체에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
+   - **기본값(Azure 제공)** : 모든 리소스 이름 및 개인 IP 주소가 Azure DNS 서버에 자동으로 등록됩니다. 동일한 가상 네트워크에 연결된 모든 리소스 간에 이름을 확인할 수 있습니다. 이 옵션을 사용하면 가상 네트워크에서 이름을 확인할 수 없습니다. 가상 네트워크 전체에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
    - **사용자 지정**: 가상 네트워크에 대한 Azure 제한까지 하나 이상의 서버를 추가할 수 있습니다. DNS 서버 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)을 참조하세요. 다음 옵션이 있습니다.
    - **주소 추가**: 가상 네트워크 DNS 서버 목록에 서버를 추가하고, 해당 DNS 서버를 Azure에 등록합니다. Azure에 DNS 서버를 이미 등록한 경우 목록에서 DNS 서버를 선택할 수 있습니다.
    - **주소 제거**: 제거하려는 서버 옆에 있는 **...** 를 선택한 후 **제거**를 선택합니다. 서버를 삭제하면 이 가상 네트워크 목록에서만 서버가 제거됩니다. DNS 서버는 다른 가상 네트워크에서 사용할 수 있도록 Azure에 등록된 상태로 유지됩니다.

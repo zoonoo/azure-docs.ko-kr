@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935776"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
@@ -112,11 +112,11 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오는 URL입니다.
 
-* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/입니다.
+* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /입니다.
 
-* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/plugins/servlet/saml/auth.
+* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /plugins/servlet/saml/auth.
 
-* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생*\<도메인: 포트 >*/plugins/servlet/saml/auth.
+* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /plugins/servlet/saml/auth.
 
 * **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
 
@@ -144,7 +144,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **인증서가 Azure AD에서 곧 만료되는 경우**: 추가 기능이 인증서의 자동 롤오버를 처리합니다. 인증서가 곧 만료되는 경우 새 인증서를 활성으로 표시하고 사용하지 않는 인증서를 삭제해야 합니다. 이 시나리오에서 사용자가 Jira에 로그인하려고 시도하면 플러그 인은 새 인증서를 페치하고 저장합니다.
 
-* **WebSudo를 사용하지 않으려는 경우(보안 관리자 세션 해제)**:
+* **WebSudo를 사용하지 않으려는 경우(보안 관리자 세션 해제)** :
 
   * Jira의 경우 보안 관리자 세션(즉, 관리 기능에 액세스하기 전에 암호 확인)이 기본적으로 사용됩니다. Jira 인스턴스에서 이 기능을 제거하려는 경우 jira-config.properties 파일에서 다음 줄을 지정합니다. `ira.websudo.is.disabled = true`
 

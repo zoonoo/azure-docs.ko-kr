@@ -7,8 +7,7 @@
       displayName: overview
       href: what-is-ml-studio.md
     - name: ML 제품 비교
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: 자습서
   items:
     - name: 첫 번째 실험 만들기

@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: include
-origin.date: 11/25/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 11/25/2018
+ms.author: victorh
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563394"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182833"
 ---
 ### <a name="record-names"></a>레코드 이름
 

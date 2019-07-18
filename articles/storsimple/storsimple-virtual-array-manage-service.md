@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116958"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple 가상 배열에 StorSimple 디바이스 관리자 서비스 배포
@@ -91,7 +91,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 가져오려면 다음 단계를 수행합니다.
 
 #### <a name="to-get-the-service-registration-key"></a>서비스 등록 키를 가져오려면
-1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 서비스 등록 키가 표시됩니다. 복사 아이콘을 사용하여 등록 키를 복사합니다. 
@@ -104,7 +104,7 @@ StorSimple 디바이스 관리자 서비스와 관련된 일반적인 태스크�
 서비스 등록 키를 다시 생성하려 다음 단계를 수행합니다.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>서비스 등록 키를 다시 생성하려면
-1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자** 블레이드에서 **관리 &gt;** **키**로 이동합니다.
    
    ![키 블레이드](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. **키** 블레이드에서 **다시 생성**을 클릭합니다.

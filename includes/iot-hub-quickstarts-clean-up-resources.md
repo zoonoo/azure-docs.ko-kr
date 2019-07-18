@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 94cd178b925b0b55f0ed6ed38ed821820bb1e072
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400129"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182314"
 ---
 다음 권장 문서를 계속 진행하려는 경우 지금까지 만든 리소스를 그대로 두고 다시 사용할 수 있습니다.
 

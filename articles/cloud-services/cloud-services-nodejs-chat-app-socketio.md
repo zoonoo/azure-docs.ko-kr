@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433204"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
@@ -32,9 +32,9 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
 
-*  [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * [Node.js](https://nodejs.org/download/)
-*  [Python 버전 2.7.10](https://www.python.org/)
+* [Python 버전 2.7.10](https://www.python.org/)
 
 ## <a name="create-a-cloud-service-project"></a>클라우드 서비스 프로젝트 만들기
 다음은 Socket.IO 애플리케이션을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
@@ -62,7 +62,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 통신을 제공
 
 1. **복제** 단추를 눌러 리포지토리의 로컬 복사본을 만듭니다. **ZIP** 단추를 눌러 프로젝트를 다운로드할 수도 있습니다.
    
-   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat을 보는 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
+   ![ZIP 다운로드 아이콘이 강조 표시된 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 을 보는 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. **examples\\chat** 디렉터리를 찾을 때까지 로컬 리포지토리의 디렉터리 구조를 탐색합니다. 이 디렉터리의 내용을 이전에 만든 **C:\\node\\chatapp\\WorkerRole1** 디렉터리로 복사합니다.
    
    ![보관 파일에서 압축을 푼 examples\\chat 디렉터리의 내용을 표시하는 탐색기][chat-contents]
@@ -113,7 +113,7 @@ Azure 에뮬레이터에서 애플리케이션을 테스트하기 전에 몇 가
    > 
    > AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7 다시 설치 하십시오-버전이 일치 하는지 확인 합니다.
 
-2. 브라우저를 열고 **http://127.0.0.1**로 이동합니다.
+2. 브라우저를 열고 **http://127.0.0.1** 로 이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
    

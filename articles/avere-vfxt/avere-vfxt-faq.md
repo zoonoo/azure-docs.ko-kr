@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595414"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure는 중요한 워크로드를 효율적으로 처리하기 �
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT는 스토리지 솔루션인가요?
 
-아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
+아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다.  Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT는 계층화 솔루션인가요?
 
@@ -204,7 +204,7 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 
 일반적으로 필요에 따라 추가 보안 vnet에서 구성할 수 있지만 몇 가지 제한 사항이 클러스터의 작동을 방해할 수 있습니다.
 
-예를 들어, vnet의 아웃 바운드 인터넷 액세스를 제한도 명시적으로 AzureCloud AzureConnectors에 대 한 액세스를 허용 하는 규칙을 추가 하지 않는 경우 클러스터에 대 한 문제가 발생 합니다. 이 상황에서 설명한 [GitHub에 대 한 보충 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)합니다.
+예를 들어, vnet의 아웃 바운드 인터넷 액세스를 제한도 명시적으로 AzureCloud에 대 한 액세스를 허용 하는 규칙을 추가 하지 않는 경우 클러스터에 대 한 문제가 발생 합니다. 이 상황에서 설명한 [GitHub에 대 한 보충 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)합니다.
 
 에 설명 된 대로 사용자 지정된 보안을 사용 하 여 도움말에 대 한 지원에 문의 [시스템을 사용 하 여 도움말을 보려면](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)합니다.
 
@@ -236,9 +236,9 @@ Avere vFXT는 스토리지가 아닙니다. 즉, 코어 파일러라고 하는 �
 
 모든 NFS 플랫폼에서 동일한 IETF 표준이 충족되지만 실제로는 각 구현마다 고유한 특성이 있습니다. 이러한 세부 정보는 Avere vFXT에서 스토리지 시스템과 상호 작용하는 방식에 영향을 줍니다. 지원되는 시스템은 마켓플레이스에서 가장 널리 사용되는 플랫폼입니다.
 
-### <a name="does-avere-vfxt-support-private-object-storage-such-as-swiftstack"></a>Avere vFXT에서 개인 개체 스토리지(예: SwiftStack)를 지원하나요?
+### <a name="does-avere-vfxt-support-private-object-storage-such-as-swiftstack"></a>Avere vFXT에서 프라이빗 개체 스토리지(예: SwiftStack)를 지원하나요?
 
-Avere vFXT는 개인 개체 저장소를 지원하지 않습니다.
+Avere vFXT는 프라이빗 개체 스토리지를 지원하지 않습니다.
 
 ### <a name="how-can-i-get-a-specific-storage-product-under-support"></a>지원되는 특정 저장소 제품을 얻으려면 어떻게 해야 하나요?
 

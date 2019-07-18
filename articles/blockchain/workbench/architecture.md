@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060911"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
@@ -45,7 +45,7 @@ Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이
 * 자체 스마트 계약을 업로드하고 배포합니다.
 * 특정 역할의 컨텍스트에서 스마트 계약에 대한 사용자 액세스 권한을 할당합니다.
 
-배포에 대한 자세한 내용은 [GitHub의 Azure Blockchain Workbench 샘플 클라이언트 애플리케이션](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client)을 참조하세요.
+배포에 대한 자세한 내용은 [GitHub의 Azure Blockchain Workbench 샘플 클라이언트 애플리케이션](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile)을 참조하세요.
 
 ## <a name="gateway-service-api"></a>게이트웨이 서비스 API
 
@@ -84,9 +84,9 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 ## <a name="transaction-builder-and-signer"></a>트랜잭션 작성기 및 서명자
 
-인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음, 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 개인 키는 Azure Key Vault에 저장됩니다.
+인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음, 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 프라이빗 키는 Azure Key Vault에 저장됩니다.
 
- Blockchain Workbench는 Key Vault에서 적절한 개인 키를 검색하고 Key Vault 외부에서 트랜잭션에 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
+ Blockchain Workbench는 Key Vault에서 적절한 프라이빗 키를 검색하고 Key Vault 외부에서 트랜잭션에 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
 
 ## <a name="transaction-routers-and-ledgers"></a>트랜잭션 라우터 및 원장
 

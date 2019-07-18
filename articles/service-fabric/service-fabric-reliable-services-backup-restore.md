@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723877"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
@@ -243,7 +243,7 @@ class MyCustomActorService : ActorService
 > 
 > 
 
-## <a name="under-the-hood-more-details-on-backup-and-restore"></a>내부 살펴보기: 백업 및 복원에 대한 자세한 내용 
+## <a name="under-the-hood-more-details-on-backup-and-restore"></a>내부 살펴보기: 백업 및 복원에 대한 자세한 내용
 다음은 백업 및 복원에 대한 자세한 내용입니다.
 
 ### <a name="backup"></a>Backup

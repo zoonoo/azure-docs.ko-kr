@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056732"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Hive 및 Apache Spark 통합
 
@@ -20,7 +20,7 @@ Apache Hive 웨어하우스 커넥터 HWC ()는 Apache Spark 및 Apache Hive를 
 
 Hive Warehouse 커넥터를 사용 하면 강력한 빅 데이터 응용 프로그램을 빌드하는 Hive 및 Spark의 고유한 기능을 활용할 수 있습니다. Apache Hive는 원자성, 일관성, 격리 및 내구성 (ACID)는 데이터베이스 트랜잭션에 대 한 지원을 제공 합니다. ACID에 대 한 자세한 정보 및 Hive의 트랜잭션이 [Hive 트랜잭션](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)합니다. 또한 hive Apache Ranger 및 낮은 대기 시간 분석 처리 Apache Spark에서 사용할 수 없는 통한 자세한 보안 제어를 제공합니다.
 
-Apache Spark, Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API에 있습니다. Apache Spark 및 Apache Hive 상호 운용성을 어렵게 만들 수 있는 별도 metastore가 Hortonworks Data Platform (HDP) 3.0 사용을 시작 합니다. Hive 웨어하우스 커넥터를 사용 하면 Spark 및 Hive를 함께 사용 하기 쉽습니다. HWC 라이브러리 LLAP 디먼에서 Spark 실행 기를 병렬로 더 효율적이 고 확장 가능한 표준 JDBC 연결할 Spark에서 Hive 사용 하 여 보다 쉽게 데이터를 로드 합니다.
+Apache Spark, Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API에 있습니다. HDInsight 4.0 부터는 2.3.1 Apache Spark 및 Apache Hive 3.1.0 경우 상호 운용성을 어렵게 만들 수 있는 별도 metastore Hive 웨어하우스 커넥터를 사용 하면 Spark 및 Hive를 함께 사용 하기 쉽습니다. HWC 라이브러리 LLAP 디먼에서 Spark 실행 기를 병렬로 더 효율적이 고 확장 가능한 표준 JDBC 연결할 Spark에서 Hive 사용 하 여 보다 쉽게 데이터를 로드 합니다.
 
 ![아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -239,5 +239,5 @@ Hive 테이블에 대 한 9999 localhost 포트에서 Spark 스트림에서 데�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight 대화형 쿼리 사용](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [HDInsight에서 대화형 쿼리 사용](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Zeppelin에 Livy를 사용 하 여 Hive 웨어하우스 커넥터와의 상호 작용 하는 예가 spark 제출 및 pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

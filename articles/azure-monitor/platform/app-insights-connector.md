@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606750"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -142,7 +142,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 애플리케이션에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
 
-피벗하려면 각 행의 끝에 표시되는 줄임표(**…**)를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
+피벗하려면 각 행의 끝에 표시되는 줄임표( **…** )를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
 
 >[!NOTE]
 >Azure Portal에서는 **Open in Application Insights**(Application Insights에서 열기)를 사용할 수 없습니다.
@@ -181,7 +181,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,9 +192,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 클라이언트 디바이스 |
 | ScreenResolution |   |
 | Continent | 요청이 시작된 대륙 |
-| 국가 | 요청이 시작된 국가 |
+| 국가 | 요청이 시작 된 국가/지역 |
 | Province | 요청이 시작된 시/도 또는 로캘 |
-| 도시 | 요청이 시작된 구/군/시 또는 동/면 |
+| City | 요청이 시작된 구/군/시 또는 동/면 |
 | isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. 사용자가 생성한 경우 True, 자동화된 방법인 경우 False입니다. |
 | SamplingRate | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | SampledCount | 100/(SamplingRate)입니다. 예를 들어 4 =&gt; 25%입니다. |
@@ -249,7 +249,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | 요청 |

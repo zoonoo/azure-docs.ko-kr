@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718991"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508067"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -24,7 +24,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview) 설치 합니다.
+* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -150,10 +150,6 @@ HTTP 액세스 권한 부여/해지와 같은 절차입니다. 클러스터에 H
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 PowerShell 스크립트에서는 클러스터에 대한 기본 저장소 계정 이름 및 관련 정보를 가져오는 방법을 보여 줍니다.
 
-> [!IMPORTANT]  
-> 에 대 한 값 `DefaultStorageAccount`, 및 `DefaultStorageContainer` 에서 반환 되지 않습니다 [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 때 [보안 전송](../storage/common/storage-require-secure-transfer.md) 저장소 계정에서 사용 하도록 설정 됩니다.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -197,10 +193,6 @@ $resourceGroupName = $cluster.ResourceGroup
 **Apache Hive 작업을 제출하려면**
 
 [PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
-
-**Apache Pig 작업을 제출하려면**
-
-[PowerShell을 사용하여 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-powershell.md)을 참조하세요.
 
 **Apache Sqoop 작업을 제출하려면**
 

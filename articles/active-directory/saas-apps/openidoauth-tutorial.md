@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780986"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497501"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -98,7 +98,25 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 다음 단계는 애플리케이션 개발자와 사용자에 대해 동의 경험이 어떻게 작동하는지를 보여줍니다.
 
-1. 리소스 또는 API에 액세스할 수 있는 특정 사용 권한을 요청해야 하는 웹 클라이언트 애플리케이션이 있다고 가정합니다. Azure Portal은 구성 시 권한 요청을 선언하는 데 사용됩니다. 다른 구성 설정과 마찬가지로 애플리케이션 Azure AD 등록의 일부입니다.
+1. 리소스 또는 API에 액세스할 수 있는 특정 사용 권한을 요청해야 하는 웹 클라이언트 애플리케이션이 있다고 가정합니다. Azure Portal은 구성 시 권한 요청을 선언하는 데 사용됩니다. 다른 구성 설정과 마찬가지로 애플리케이션 Azure AD 등록의 일부입니다. 권한 요청 경로의 경우 다음 단계를 수행합니다.
+
+    a. 메뉴의 왼쪽에서 **앱 등록**을 클릭하고 검색 상자에 애플리케이션 이름을 입력하여 애플리케이션을 엽니다.
+
+    ![그래프 API](./media/openidoauth-tutorial/application.png)
+
+    b. **API 권한 보기**를 클릭합니다.
+
+    ![그래프 API](./media/openidoauth-tutorial/api-permission.png)
+
+    다. **권한 추가**를 클릭합니다.
+
+    ![그래프 API](./media/openidoauth-tutorial/add-permission.png)
+
+    d. **Microsoft Graph**를 클릭합니다.
+
+    ![그래프 API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. **위임된 권한** 및 **애플리케이션 권한**에서 필수 옵션을 선택합니다.
 
     ![그래프 API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -106,7 +124,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 3. 사용자가 인증되지 않은 경우 Azure AD/authorize 엔드포인트는 로그인하라는 메시지를 표시합니다.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![인증](./media/openidoauth-tutorial/authentication.png)
 
 4. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 애플리케이션 동의를 부여했는지 여부에 따라 다릅니다.
 
@@ -118,12 +136,12 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>관리자 승인과 사용자 동의 간의 차이
 
-관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자를 표시하지 않도록 방지합니다. 관리자 역할이 있는 사용자는 Azure Portal에서 동의를 제공할 수 있습니다. 애플리케이션의 **설정** 페이지에서 **필요한 사용 권한** > **권한 부여**를 선택합니다.
+관리자로 테넌트의 모든 사용자를 대신하여 애플리케이션의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자를 표시하지 않도록 방지합니다. 관리자 역할이 있는 사용자는 Azure Portal에서 동의를 제공할 수 있습니다. 애플리케이션의 **설정** 페이지에서 **필요한 사용 권한** > **관리자 동의 부여**를 선택합니다.
 
 ![권한 부여 단추](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 애플리케이션)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
+> **관리자 동의 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 애플리케이션)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
 
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 애플리케이션이 애플리케이션 전용 사용 권한을 요청하고 사용자가 애플리케이션에 로그인을 시도하는 경우 오류 메시지가 나타납니다. 메시지는 사용자가 동의할 수 없음을 알립니다.
 

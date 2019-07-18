@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 78aed4fceab83d942927486cd7ae46a32dd6ca09
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66417747"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Site Recovery 구성 요소 (구성, 프로세스, 마스터 대상)에 대 한
 
@@ -28,7 +28,7 @@ Site Recovery는 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 **역할** | 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. | 아키텍처에 자세히 알아보려면 [VMware](vmware-azure-architecture.md) 하 고 [물리적 서버](physical-azure-architecture.md) Azure로 재해 복구 합니다.
 **VMware 요구 사항** | 온-프레미스 VMware Vm의 재해 복구를 위해 설치 하 고 구성 서버를 온-프레미스에서 항상 사용 가능한 VMware VM으로 실행 해야 합니다. | [에 대 한 자세한](vmware-azure-deploy-configuration-server.md#prerequisites) 필수 구성 요소입니다.
 **VMware 배포** | 다운로드 한 OVA 템플릿을 사용 하 여 구성 서버를 배포 하는 것이 좋습니다. 이 메서드는 제공 된 단순히 모든 요구 사항 및 필수 구성 요소를 준수 하는 구성 서버를 설정 하는 방법입니다.<br/><br/> 어떤 이유로 모르는 경우 OVA 템플릿을 사용 하는 VMware VM을 배포할 수를 설정할 수 있습니다 구성 서버 컴퓨터를 수동으로 물리적 컴퓨터 재해 복구를 위해 아래 설명 된 대로. | [배포](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) OVA 템플릿을 사용 하 여 합니다.
-**물리적 서버 요구 사항** | 온-프레미스 물리적 서버 재해 복구용 구성 서버 배포 수동으로. | [에 대 한 자세한](/physical-azure-set-up-source.md#prerequisites) 필수 구성 요소입니다.
+**물리적 서버 요구 사항** | 온-프레미스 물리적 서버 재해 복구용 구성 서버 배포 수동으로. | [에 대 한 자세한](physical-azure-set-up-source.md#prerequisites) 필수 구성 요소입니다.
 **물리적 서버 배포** | VMware VM으로 설치할 수 없거나, 물리적 서버에 설치할 수 있습니다. | [배포](physical-azure-set-up-source.md#set-up-the-source-environment) 구성 서버 수동으로.
 
 
@@ -51,5 +51,5 @@ Site Recovery는 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 
 
 ## <a name="next-steps"></a>다음 단계
-- 검토 합니다 [아키텍처](/vmware-azure-architecture.md) VMware Vm 및 물리적 서버의 재해 복구에 대 한 합니다.
+- 검토 합니다 [아키텍처](vmware-azure-architecture.md) VMware Vm 및 물리적 서버의 재해 복구에 대 한 합니다.
 - 검토 합니다 [요구 사항 및 필수 구성 요소](vmware-physical-azure-support-matrix.md) VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 합니다. 

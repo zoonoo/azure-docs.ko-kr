@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory B2C에서 사용자 액세스 관리 | Microsoft Docs
-description: Azure AD B2C를 사용하여 미성년자를 식별하고, 생년월일 및 국가 데이터를 수집하고, 애플리케이션의 사용 약관에 동의하는 방법을 알아봅니다.
+description: 미성년자를 식별, 생년월일 및 국가/지역 데이터의 날짜를 수집 하 고, Azure AD B2C를 사용 하 여 응용 프로그램에서 사용 약관에 동의 가져올 방법에 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66510562"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "64691096"
 
 - 미성년자 식별 및 애플리케이션에 대한 사용자 액세스 제어
 - 애플리케이션을 사용하는 미성년자에 대한 보호자의 동의 요구
-- 사용자의 생년월일 및 국가 데이터 수집
+- 사용자의 생년월일 및 국가/지역 데이터를 수집 합니다.
 - 사용 약관 계약 캡처 및 액세스 제한
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "64691096"
 
 - **서명되지 않은 JSON 토큰을 애플리케이션으로 보내기**: Azure AD B2C는 사용자가 미성년자라는 사실을 애플리케이션에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
 
-- **사용자 차단**: 사용자가 미성년자이고 보호자의 동의가 제공되지 않은 경우 Azure AD B2C에서 사용자에게 차단되었음을 알릴 수 있습니다. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
+- **사용자 차단**: 사용자가 부, 보호자의 동의 제공 하지 않은 경우 Azure AD B2C는 차단 된 사용자 알릴 수 있습니다. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
 
 ## <a name="get-parental-consent"></a>보호자 동의 얻기
 
@@ -48,9 +48,9 @@ ms.locfileid: "64691096"
 
 1. [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
 
-2. 애플리케이션에서 JSON 토큰을 처리하고, 보호자의 동의가 필요하다고 알리고 온라인으로 보호자의 동의를 요청하는 화면을 미성년자에게 표시합니다. 
+2. 응용 프로그램은 JSON 토큰을 처리 하 고 부를 알리는 보호자의 동의 필요 하다 고 온라인 부모의 동의 요청 하는 화면을 보여 줍니다. 
 
-3. Azure AD B2C에서 사용자가 정상적으로 로그인할 수 있는 로그인 경로를 보여 주고, **legalAgeGroupClassification = “minorWithParentalConsent”** 가 포함되도록 설정된 토큰을 애플리케이션에 발급합니다. 애플리케이션에서 보호자 이메일 주소를 수집하고 보호자가 성인인지 확인합니다. 이를 위해 주민 등록증, 면허증 확인 또는 신용 카드 증명과 같은 신뢰할 수 있는 자료를 사용합니다. 성공적으로 확인되면 애플리케이션에서 미성년자에게 Azure AD B2C 사용자 흐름을 사용하여 로그인하라는 메시지를 표시합니다. 동의가 거부되면(예: **legalAgeGroupClassification = “minorWithoutParentalConsent”**) Azure AD B2C에서 동의 프로세스를 다시 시작하기 위해 애플리케이션에 JSON 토큰(로그인 아님)을 반환합니다. 필요에 따라 미성년자 또는 성인이 등록 코드를 미성년자의 이메일 주소 또는 기록에 있는 성인의 이메일 주소로 보내서 미성년자의 계정에 다시 액세스할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다.
+3. Azure AD B2C에서 사용자가 정상적으로 로그인할 수 있는 로그인 경로를 보여 주고, **legalAgeGroupClassification = “minorWithParentalConsent”** 가 포함되도록 설정된 토큰을 애플리케이션에 발급합니다. 애플리케이션에서 보호자 이메일 주소를 수집하고 보호자가 성인인지 확인합니다. 이를 위해 주민 등록증, 면허증 확인 또는 신용 카드 증명과 같은 신뢰할 수 있는 자료를 사용합니다. 성공적으로 확인되면 애플리케이션에서 미성년자에게 Azure AD B2C 사용자 흐름을 사용하여 로그인하라는 메시지를 표시합니다. 동의가 거부되면(예: **legalAgeGroupClassification = “minorWithoutParentalConsent”** ) Azure AD B2C에서 동의 프로세스를 다시 시작하기 위해 애플리케이션에 JSON 토큰(로그인 아님)을 반환합니다. 필요에 따라 미성년자 또는 성인이 등록 코드를 미성년자의 이메일 주소 또는 기록에 있는 성인의 이메일 주소로 보내서 미성년자의 계정에 다시 액세스할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다.
 
 4. 애플리케이션이 미성년자에게 동의 철회 옵션을 제공합니다.
 
@@ -58,11 +58,11 @@ ms.locfileid: "64691096"
 
 **legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*처럼 긴 버전의 특성을 사용해야 합니다.
 
-## <a name="gather-date-of-birth-and-country-data"></a>생년월일 및 국가 데이터 수집
+## <a name="gather-date-of-birth-and-countryregion-data"></a>날짜의 생년월일 및 국가/지역 데이터를 수집 합니다.
 
-등록하는 동안 애플리케이션에서 Azure AD B2C를 사용하여 모든 사용자의 DOB(생년월일)와 국가 정보를 수집할 수 있습니다. 이 정보가 아직 없으면 애플리케이션에서 다음 인증(로그인) 프로세스 중에 사용자에게 요청할 수 있습니다. 사용자는 자신의 DOB 및 국가 정보를 제공하지 않으면 계속 진행할 수 없습니다. Azure AD B2C는 이 정보를 사용하여 해당 국가의 규제 기준에 따라 해당 개인이 미성년자로 간주되는지 여부를 결정합니다. 
+응용 프로그램 등록 하는 동안 모든 사용자의 날짜 (DOB) 생년월일 및 국가/지역 정보를 수집 하도록 Azure AD B2C에서 사용할 수 있습니다. 이 정보가 아직 없으면 애플리케이션에서 다음 인증(로그인) 프로세스 중에 사용자에게 요청할 수 있습니다. 사용자는 자신의 DOB 및 국가/지역 정보를 제공 하지 않고 계속할 수 없습니다. Azure AD B2C는 개별 해당 국가/지역의 규제 표준에 따라 미성년자로 간주 됩니다 있는지 여부를 결정 하는 정보를 사용 합니다. 
 
-사용자 지정된 사용자 흐름은 DOB 및 국가 정보를 수집하고, Azure AD B2C 클레임 변환을 사용하여 **ageGroup**을 판별하고 디렉터리에서 결과를 유지하거나 DOB 및 국가 정보를 직접 유지할 수 있습니다.
+사용자 지정 된 사용자 흐름 DOB를 수집할 수 있습니다 및 Azure AD B2C 클레임 결정할 변환 국가/지역 정보 및 사용 합니다 **연령대** 및 결과 유지 (또는 DOB 및 국가/지역 정보를 직접 유지)에 디렉터리입니다.
 
 다음 단계에서는 사용자의 생년월일에서 **ageGroup**을 계산하는 데 사용되는 논리를 보여 줍니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "64691096"
 
 4. 두 계산에서 모두 true를 반환하지 않으면 **Adult**를 반환합니다.
 
-애플리케이션이 DOB 또는 국가 데이터를 다른 방법으로 안정적으로 수집한 경우, 애플리케이션에서 Graph API를 사용하여 사용자 레코드를 이 정보로 업데이트할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램에 다른 방법으로 DOB 또는 국가/지역 데이터를 수집 안정적으로, 응용 프로그램이이 정보를 사용 하 여 사용자 레코드를 업데이트 하는 Graph API를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup**의 값을 **Adult**로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor**를 적절하게 설정합니다.

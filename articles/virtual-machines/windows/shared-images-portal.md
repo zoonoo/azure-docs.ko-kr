@@ -4,7 +4,7 @@ description: Azure portal을 사용 하 여 만들고 가상 머신 이미지를
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 50714f3fe6d30b4b93a0b42383b6f4634c86eafa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 475bf3d07ff619618339207b53d5bcc4c8b0ab06
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148063"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709140"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portal을 사용 하 여 공유 이미지 갤러리 만들기
 
@@ -41,9 +41,11 @@ ms.locfileid: "65148063"
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 데이터 디스크를 포함 하는 관리 되는 이미지, 데이터 디스크 크기가 1TB 보다 더 지정할 수 없습니다.
+
+이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
@@ -51,6 +53,9 @@ ms.locfileid: "65148063"
 ## <a name="create-vms-from-an-image"></a>이미지에서 VM 만들기
 
 이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. 
+
+> [!IMPORTANT]
+> 다른 azure 테 넌 트의 이미지에서 VM을 배포 하려면 포털을 사용할 수 없습니다. 테 넌 트 간에 공유 되는 이미지에서 VM을 만들려면 사용 해야 합니다 [Azure CLI](../linux/shared-images.md#create-a-vm) 하거나 [Powershell](shared-images.md#create-vms-from-an-image)합니다.
 
 이 예제에서는 *미국 동부* 데이터 센터에서 *myResourceGroup*에 *myVMfromImage*라는 VM을 만듭니다.
 
@@ -65,6 +70,7 @@ ms.locfileid: "65148063"
 1. 아래에 있는 VM에 원격 액세스를 허용 하려는 경우 **공용 인바운드 포트**, 선택 **선택한 포트를 허용** 선택한 후 **RDP (3389)** 드롭다운 목록에서. VM에 원격 액세스를 허용 하지 않으려는 경우 둡니다 **None** 에 대 한 선택한 **공용 인바운드 포트**합니다.
 1. 작업을 완료 하는 경우 선택 합니다 **검토 + 만들기** 페이지의 맨 위에 있는 단추입니다.
 1. VM이 유효성 검사를 통과 한 후 선택 **만들기** 배포를 시작 하려면 페이지 맨 아래에 있습니다.
+
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

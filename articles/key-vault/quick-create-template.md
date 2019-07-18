@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715996"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016470"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -61,10 +61,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * **구독**: Azure 구독을 선택합니다.
     * **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인**을 클릭합니다. 
     * **위치**: 위치를 선택합니다.  예: **미국 중부**
-    * **키 자격 증명 모음 이름**: 키 자격 증명 모음에 고유한 이름을 입력합니다.  
-    * **테넌트 ID**: 템플릿 함수가 자동으로 검색한 테넌트 ID입니다.  기본값을 변경하지 마십시오.
+    * **Key Vault 이름**: .vault.azure.net 네임스페이스 내에서 전역적으로 고유해야 하는 Key Vault의 이름을 입력합니다.  
+    * **테넌트 ID**: 템플릿 함수가 자동으로 검색한 테넌트 ID입니다.  기본값을 변경하지 마세요.
     * **AD 사용자 ID**: [필수 조건](#prerequisites)에서 검색한 Azure AD 사용자 개체 ID를 입력합니다.
-    * **비밀 이름**: 키 자격 증명 모음에 저장하는 비밀의 이름을 입력합니다.  예: **adminpassword**
+    * **비밀 이름**: 키 자격 증명 모음에 저장하는 비밀의 이름을 입력합니다.  예: **adminpassword**.
     * **비밀 값**: 비밀 값을 입력합니다.  암호를 저장할 경우 필수 조건에서 만든 생성된 암호를 사용하는 것이 좋습니다.
     * **위에 명시된 사용 약관에 동의함**: 선택합니다.
 3. **구매**를 선택합니다.

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870509"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272822"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 미리 보기에서 위임 된 액세스
 
@@ -25,7 +25,7 @@ Windows 가상 데스크톱 액세스 지원 역할 할당의 각 요소에 대�
     * 서비스 원칙
 * 역할 정의
     * 기본 제공 역할
-* 범위
+* Scope
     * 테 넌 트 그룹
     * 테 넌 트
     * 호스트 풀
@@ -42,11 +42,11 @@ Windows 가상 데스크톱에 위임 된 액세스에 사용자 및 서비스 �
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>역할 할당에 대 한 PowerShell cmdlet
 
-만들기, 보기 및 역할 할당을 편집 하려면 다음 cmdlet을 실행할 수 있습니다.
+만들기, 보기 및 역할 할당을 제거 하려면 다음 cmdlet을 실행할 수 있습니다.
 
 * **Get-RdsRoleAssignment** 역할 할당 목록을 표시 합니다.
 * **새 RdsRoleAssignment** 새 역할 할당을 만듭니다.
-* **집합 RdsRoleAssignment** 역할 할당을 편집 합니다.
+* **제거-RdsRoleAssignment** 역할 할당을 삭제 합니다.
 
 ### <a name="accepted-parameters"></a>허용 된 매개 변수
 

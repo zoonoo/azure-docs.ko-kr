@@ -4,22 +4,23 @@ description: 이 문서의 Azure Sentinel 작업할 때 있습니다 유용한 �
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d2dcb1eb9132e68bebbe84d81a4e4f17df79f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 601e4651962010f7ee94f2349deb57f60db7990c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615541"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621211"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Azure Sentinel 미리 보기를 사용 하 여 작업에 대 한 유용한 리소스
 

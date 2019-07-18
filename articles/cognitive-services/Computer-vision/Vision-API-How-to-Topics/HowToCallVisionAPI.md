@@ -1,5 +1,5 @@
 ---
-title: '예제: 분석 이미지 API 호출 - Computer Vision'
+title: '예제: 이미지 분석 API 호출 - Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 REST를 사용하여 Computer Vision API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
@@ -23,7 +23,7 @@ ms.locfileid: "60011246"
 이 가이드에서는 REST를 사용하여 Computer Vision API를 호출하는 방법을 보여 줍니다. 샘플은 Computer Vision API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST/GET 호출로 작성됩니다. 다음을 집중적으로 살펴보겠습니다.
 
 - “태그”, “설명” 및 “범주”를 가져오는 방법
-- “도메인별” 정보(유명인)를 가져오는 방법
+- “도메인 특정” 정보(유명인)를 가져오는 방법
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -164,9 +164,9 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 }
 ```
 
-필드 | Type | Content
+필드 | 유형 | 콘텐츠
 ------|------|------|
-태그들  | `object` | 태그 배열의 최상위 개체
+Tags  | `object` | 태그 배열의 최상위 개체
 tags[].Name | `string`  | 태그 분류자의 키워드
 tags[].Score    | `number`  | 신뢰도 점수, 0~1.
 description  | `object` | 설명의 최상위 개체.
@@ -174,7 +174,7 @@ description.tags[] |    `string`    | 태그 목록.  캡션을 생성하는 기
 description.captions[].text | `string`  | 이미지를 설명하는 구.
 description.captions[].confidence   | `number`  | 구의 신뢰도.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인별 모델의 JSON 출력 검색 및 이해
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인 특정 모델의 JSON 출력 검색 및 이해
 
 **옵션 1:** 범위 분석 - 제공된 모델만 분석
 
@@ -226,9 +226,9 @@ description.captions[].confidence   | `number`  | 구의 신뢰도.
 
 범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 people_ 및 people_group).
 
-필드   | Type  | Content
+필드   | 형식  | 콘텐츠
 ------|------|------|
-범주 | `object`   | 최상위 개체
+categories | `object`   | 최상위 개체
 categories[].name    | `string` | 86개 범주 분류의 이름
 categories[].score  | `number`  | 신뢰도 점수, 0~1
 categories[].detail  | `object?`      | 선택적 세부 정보 개체

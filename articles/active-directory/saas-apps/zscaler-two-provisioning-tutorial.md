@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 837014fde6962f64d7da023a001a4c41089a0097
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: jeedes
+ms.openlocfilehash: 0147f0bea30a13cea17baab8d40e550c0910a3fa
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578273"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672828"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>자습서: Zscaler Two에 대한 자동 사용자 프로비저닝 구성
 

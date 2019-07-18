@@ -5,19 +5,19 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d547c73137605e4666499b568bdcebce394935a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138751"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595236"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (공개 미리 보기)를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -66,7 +66,7 @@ AD FS에서 앱을 수신할 토큰 맞도록 그룹의 Azure Active Directory o
 
 Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Active Directory를 구성 하는 방법은 다음 두 단계가 있습니다.
 
-1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   1.2.70 버전 이전의 Azure AD Connect는 Active Directory에서 그룹 개체를 동기화 하지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
+1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   1\.2.70 버전 이전의 Azure AD Connect는 Active Directory에서 그룹 개체를 동기화 하지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
 
 2. **응용 프로그램 등록 토큰에서 그룹 클레임을 포함 하도록 Azure Active Directory에서 구성** 그룹 클레임 수 갤러리 또는 비 갤러리 SAML SSO 응용 프로그램의 경우 포털의 엔터프라이즈 응용 프로그램 섹션에서 구성 또는 응용 프로그램 등록 섹션에서 응용 프로그램 매니페스트를 사용합니다.  응용 프로그램 매니페스트 참조 "Azure Active Directory 응용 프로그램 등록 그룹 특성에 대 한 구성" 아래에서 그룹 클레임을 구성 합니다.
 
@@ -82,7 +82,7 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Activ
 
 ![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| 선택 | 설명 |
+| 선택 | Description |
 |----------|-------------|
 | **모든 그룹** | 보안 그룹 및 배포를 내보내는 나열 합니다.   사용자가 할당 하는 'wids' 클레임에 내보내지는 디렉터리 역할 및 역할 클레임에 내보내지는 사용자가 할당 하는 모든 응용 프로그램 역할에도 발생 합니다. |
 | **보안 그룹** | 사용자가 그룹 클레임에 속하는 보안 그룹을 내보냅니다. |
@@ -127,7 +127,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
    - "DistributionList"
    - "DirectoryRole"
 
-   예를 들면 다음과 같습니다.
+   예를 들어:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -137,7 +137,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 3. 그룹 이름을 구성에 대 한 선택적 클레임을 설정 합니다.
 
-   하려는 경우 토큰에서 그룹에 선택적 클레임 섹션에서 AD 그룹 특성 지정에 토큰 유형이 선택적 클레임을 적용 해야 하는 온-프레미스에서 요청한 선택적 클레임 및 필요한 추가 속성의 이름을 포함 합니다.  여러 토큰 형식은 나열할 수 있습니다.
+   선택적 클레임 섹션에서 AD 그룹 특성 지정에 토큰 유형이 선택적 클레임을 적용 해야 하는 온-프레미스에서 요청한 선택적 클레임 및 필요한 추가 속성의 이름을 포함 하는 토큰에 있는 그룹 원하는 경우입니다.  여러 토큰 형식은 나열할 수 있습니다.
 
    - OIDC ID 토큰에 대 한 idToken
    - OAuth/OIDC 액세스 토큰에 대 한 accessToken

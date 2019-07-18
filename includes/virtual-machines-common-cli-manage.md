@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387244"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182217"
 ---
 Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만들고 관리할 수 있습니다. 이 문서에서는 VM(가상 머신)을 만들고 관리하는 가장 일반적인 몇 가지 명령에 대해 자세히 설명합니다.
 
@@ -49,7 +49,7 @@ Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만�
 | VM에 데이터 디스크 추가 | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | VM에서 데이터 디스크 제거 | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | 디스크 크기 조정 | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
-| 디스크 스냅숏 | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| 디스크 스냅샷 | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
 | VM 이미지 만들기 | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
 | 이미지에서 VM 만들기 | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 

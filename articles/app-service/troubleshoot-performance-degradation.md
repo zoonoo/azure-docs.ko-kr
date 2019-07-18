@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128452"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
@@ -51,7 +51,7 @@ ms.locfileid: "62128452"
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. 애플리케이션 작동을 관찰 및 감시 
+### <a name="1-observe-and-monitor-application-behavior"></a>1. 애플리케이션 작동을 관찰 및 감시
 #### <a name="track-service-health"></a>서비스 상태를 추적합니다.
 Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure Portal](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](../monitoring-and-diagnostics/insights-service-health.md)을 참조하세요.
 
@@ -145,7 +145,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 * 진단 덤프
 * Powershell cmdlet 및 기본 DOS 명령을 실행할 수 있는 콘솔을 디버깅합니다.
 
-Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅숏이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
+Kudu의 또 다른 유용한 기능은 애플리케이션에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅샷이며 앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
 Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure DevOps 온라인 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
 

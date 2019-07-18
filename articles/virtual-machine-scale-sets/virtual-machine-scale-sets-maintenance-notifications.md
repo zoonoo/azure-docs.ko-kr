@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618458"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
@@ -201,7 +201,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
    - VM에 대한 유지 관리가 예약되어 있지 않습니다. VM이 더 이상 영향을 받지 않도록 유지 관리 웨이브가 종료되었거나, 취소되었거나, 수정되었을 수 있습니다.
    - VM 목록 보기에 **유지 관리** 열을 추가할 필요는 없습니다. 이 열을 기본 보기에 추가했지만 기본이 아닌 열을 표시하도록 보기를 구성한 경우 **유지 관리** 열을 VM 목록 보기에 수동으로 추가해야 합니다.
 
-**Q: 내 VM에 두 번째 유지 관리가 예약되었습니다. 그 이유는 무엇일까요?**
+**Q: 내 VM에 두 번째 유지 관리가 예약되었습니다. 이유**
 
 **A:** 여러 사용 사례에서 이미 유지 관리를 완료하고 재배포한 후에 VM에 대한 유지 관리가 예약됩니다.
    - 유지 관리 주기를 취소하고 다른 페이로드에서 다시 시작합니다. 오류가 발생한 페이로드를 탐지했을 수 있으며, 추가 페이로드를 배포하기만 하면 됩니다.

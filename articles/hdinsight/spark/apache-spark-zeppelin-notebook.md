@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 9fc18b11b24791c1e154d89d757408da4ab20539
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 219cdeea228ae3e334213a0f0654f904592cb09e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709558"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448735"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
 HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작업을 실행하는 데 사용할 수 있는 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook이 포함되어 있습니다. 이 문서에서는 HDInsight 클러스터에서 Zeppelin Notebook을 사용하는 방법에 대해 알아 봅니다.
 
-**필수 조건:**
+**사전 요구 사항:**
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -141,13 +141,13 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
 4. 위에서 입력한 키 값에 도달하는 방법을 이해하려면 여기를 참조하세요.
    
-    a. Maven Repository에서 패키지를 찾습니다. 이 자습서에서는 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)를 사용했습니다.
+    a. Maven Repository에서 패키지를 찾습니다. 이 문서에서는 사용한 [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)합니다.
    
     b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다.
    
     ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
    
-    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    c. 콜론( **:** )으로 구분된 세 개의 값을 연결합니다.
    
         com.databricks:spark-csv_2.10:1.4.0
 

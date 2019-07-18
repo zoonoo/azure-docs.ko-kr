@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335484"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
@@ -67,7 +67,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 | trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예.      |
 | trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예.      |
 
-## <a name="end-to-end-workflow"></a>종단 간 워크플로
+## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다.
 
@@ -76,7 +76,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
 
-위에서 언급한 종단 간 워크플로가 작동하려면 다음 두 개의 Azure Machine Learning 연결된 서비스를 만들어야 합니다.
+위에서 언급한 엔드투엔드 워크플로가 작동하려면 다음 두 개의 Azure Machine Learning 연결된 서비스를 만들어야 합니다.
 
 1. 학습 웹 서비스에 대한 Azure Machine Learning 연결된 서비스 - 일괄 처리 실행 작업에서 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명한 것과 동일한 방식으로 사용됩니다. 차이점은 학습 웹 서비스의 출력이 리소스 업데이트 작업에서 예측 웹 서비스를 업데이트하는 데 사용하는 iLearner 파일이라는 것입니다.
 2. 예측 웹 서비스의 리소스 업데이트 엔드포인트에 대한 Azure Machine Learning 연결된 서비스 - 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다.

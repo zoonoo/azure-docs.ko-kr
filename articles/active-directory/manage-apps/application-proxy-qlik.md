@@ -3,23 +3,23 @@ title: Azure AD 앱 프록시 및 Qlik Sense | Microsoft Docs
 description: Azure Portal에서 애플리케이션 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65859547"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -60,7 +60,9 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 애플리케이션을 테스트할 준비가 되었습니다. 애플리케이션 #1에 QlikSense를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.  
 
 ## <a name="additional-references"></a>추가 참조
-애플리케이션 프록시를 사용하여 Qlik Sense를 게시하는 방법에 대한 자세한 내용은 Qlik 커뮤니티 문서를 참조하세요. [Qlik Sense가 포함된 Kerberos 제한된 위임을 통해 통합 Windows 인증을 사용한 Azure AD](https://community.qlik.com/docs/DOC-20183).
+응용 프로그램 프록시를 사용 하 여 게시 Qlik Sense에 대 한 자세한 내용은 다음 Qlik 커뮤니티 문서를 참조 하세요. 
+- [Qlik Sense를 사용 하 여 Kerberos 제한 위임을 사용 하 여 통합 Windows 인증을 사용 하 여 azure AD](https://community.qlik.com/docs/DOC-20183)
+- [Azure AD 응용 프로그램 프록시를 통해 Qlik Sense 통합](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,7 +4,7 @@ description: Azure CLI를 사용하여 Azure Resource Manager 가상 머신에�
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bccdd5ab-5ccf-4760-9039-92c6eafb15bd
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: singhkay
-ms.openlocfilehash: c38d901be627d9ad2f18ebe708c7a1fcaa63cc15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kasing
+ms.openlocfilehash: 736a30fe83ff26cd1dd4f197de9e7db925b7243b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613923"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671365"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법
 

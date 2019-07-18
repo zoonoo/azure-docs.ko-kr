@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532121"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
@@ -21,7 +21,7 @@ Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가
 
 Azure Database for MySQL은 전체, 차등 및 트랜잭션 로그 백업을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-### <a name="backup-frequency"></a>Backup 주기
+### <a name="backup-frequency"></a>백업 빈도
 
 일반적으로 전체 백업은 매주 수행되고, 차등 백업은 하루에 두 번 수행되며, 트랜잭션 로그 백업은 5분마다 수행됩니다. 첫 번째 전체 백업은 서버를 만든 직후에 예약됩니다. 초기 백업은 복원된 대형 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다.
 

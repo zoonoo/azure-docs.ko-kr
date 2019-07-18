@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
 ms.openlocfilehash: 6fe0557aa90ec3345d4ca0c3d9292cab3435bb2f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118063"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedicated HSM 물리적 보안
@@ -49,7 +49,7 @@ Microsoft 엔지니어가 HSM 디바이스에서 사용하는 랙에 액세스�
 
 ## <a name="logical-level-security-considerations"></a>논리 수준 보안 고려 사항
 
-HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상 네트워크는 고객의 비공개 IUP 주소 공간입니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
+HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상 네트워크는 고객의 개인 IUP 주소 공간입니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

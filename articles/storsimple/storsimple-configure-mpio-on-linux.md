@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077844"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -56,11 +56,11 @@ Linux에서 다중 경로는 아래에 정리된 커널 구성 요소 및 사용
 
 multipath.conf에는 다섯 가지 섹션이 있습니다.
 
-- **시스템 수준 기본값** *(기본값)*: 시스템 수준 기본값을 재정의할 수 있습니다.
-- **장치 블랙 리스트에 올랐습니다** *(블랙 리스트)*: 장치 매퍼에서 제어 하지 말아야 하는 장치 목록을 지정할 수 있습니다.
-- **블랙 리스트 예외** *(blacklist_exceptions)*: 블랙 리스트에 나열 된 경우에 다중 경로 장치로 취급할 수를 특정 장치를 식별할 수 있습니다.
-- **저장소 컨트롤러 특정 설정** *(장치)*: 공급 업체 및 제품 정보를 포함 하는 장치에 적용 될 구성 설정을 지정할 수 있습니다.
-- **장치 특정 설정** *(다중 경로)*: 이 섹션에서는 개별 Lun에 대 한 구성 설정을 미세 조정 하기 위해 사용할 수 있습니다.
+- **시스템 수준 기본값** *(기본값)* : 시스템 수준 기본값을 재정의할 수 있습니다.
+- **장치 블랙 리스트에 올랐습니다** *(블랙 리스트)* : 장치 매퍼에서 제어 하지 말아야 하는 장치 목록을 지정할 수 있습니다.
+- **블랙 리스트 예외** *(blacklist_exceptions)* : 블랙 리스트에 나열 된 경우에 다중 경로 장치로 취급할 수를 특정 장치를 식별할 수 있습니다.
+- **저장소 컨트롤러 특정 설정** *(장치)* : 공급 업체 및 제품 정보를 포함 하는 장치에 적용 될 구성 설정을 지정할 수 있습니다.
+- **장치 특정 설정** *(다중 경로)* : 이 섹션에서는 개별 Lun에 대 한 구성 설정을 미세 조정 하기 위해 사용할 수 있습니다.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Linux 호스트에 연결된 StorSimple에서 다중 경로 구성
 고가용성 및 부하 분산을 위해 Linux 호스트에 연결된 StorSimple 디바이스를 구성할 수 있습니다. 예를 들어 Linux 호스트에 SAN에 연결된 두 개의 인터페이스가 있고 디바이스에 SAN에 연결된 두 개의 인터페이스가 있으면 이러한 인터페이스는 동일한 서브넷에 있고 사용 가능한 4개의 경로가 있습니다. 그러나 디바이스의 각 데이터 인터페이스 및 호스트 인터페이스가 다른 IP 서브넷에 있으면(또 라우팅할 수 없음) 2개의 경로만 사용할 수 있습니다. 다중 경로를 구성하여 자동으로 사용 가능한 모든 경로를 검색하고 해당 경로에 대한 부하를 분산하는 알고리즘을 선택하며 StorSimple 전용 볼륨에 특정 구성 설정을 적용한 다음 다중 경로를 설정 및 확인할 수 있습니다.
@@ -417,10 +417,10 @@ a. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
     dm-3 devnode blacklisted, unmonitored
 
 
-자세한 내용은 [다중 경로에 문제 해결 대화형 명령 사용](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)으로 이동하세요.
+자세한 내용은 [다중 경로 대 한 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)합니다.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 확인하라는 메시지가 표시되면  | 명령 | 설명 |
+| 확인하라는 메시지가 표시되면 | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |
@@ -438,12 +438,12 @@ a. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
 | &nbsp; |`chkconfig multipathd on` </br> 또는 </br> `mpathconf –with_chkconfig y` |부팅 시 시작되도록 다중 경로 디먼 설정 |
 | &nbsp; |`multipathd –k` |문제 해결을 위한 대화형 콘솔 시작 |
 | &nbsp; |`multipath –l` |다중 경로 연결 및 디바이스 나열 |
-| &nbsp; |`mpathconf --enable` | `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |`/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>다음 단계
 또한 Linux 호스트에서 MPIO를 구성했기 때문에 다음 CentoS 6.6 문서를 참조해야 할 수 있습니다.
 
-* [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [CentOS에 MPIO 설정](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux 교육 가이드](http://linux-training.be/linuxsys.pdf)
 

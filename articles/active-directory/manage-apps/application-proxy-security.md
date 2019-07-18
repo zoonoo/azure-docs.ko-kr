@@ -3,8 +3,8 @@ title: Azure AD 애플리케이션 프록시에 대한 보안 고려 사항 | Mi
 description: Azure AD 애플리케이션 프록시를 사용하는 경우 보안 고려 사항 설명
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108402"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -47,9 +47,9 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 네트워크 연결이 설정되기 전에 다양한 정책 제어를 적용합니다.
 
-[조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
+사용 하 여 [조건부 액세스](../conditional-access/overview.md), 백 엔드 응용 프로그램 액세스에 어떤 트래픽을 허용할지에 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
-또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
+또한 다른 보안 계층을 추가 하 고 사용자 인증, Multi-factor Authentication 정책을 구성 하려면 조건부 액세스를 사용할 수 있습니다. 또한 응용 프로그램 라우트할 수를 통해 실시간 모니터링 및 컨트롤을 제공 하도록 Azure AD 조건부 액세스를 통해 Microsoft Cloud App Security [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 하 고 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책
 
 ### <a name="traffic-termination"></a>트래픽 종료
 
@@ -144,13 +144,13 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용자는 인증을 위해 Azure AD STS로 리디렉션되고 다음 단계가 수행됩니다.
 
-1. 애플리케이션 프록시는 특정 애플리케이션에 대한 조건부 액세스 정책 요구 사항을 확인합니다. 이 단계에서는 애플리케이션에 사용자를 할당했는지 확인합니다. 2단계 인증이 필요한 경우 인증 시퀀스는 사용자에게 또 다른 인증 방법을 지정하라는 메시지를 표시합니다.
+1. 응용 프로그램 프록시는 특정 응용 프로그램에 대 한 조건부 액세스 정책 요구 사항을 확인합니다. 이 단계에서는 애플리케이션에 사용자를 할당했는지 확인합니다. 2단계 인증이 필요한 경우 인증 시퀀스는 사용자에게 또 다른 인증 방법을 지정하라는 메시지를 표시합니다.
 
 2. 모든 확인을 거친 후에 Azure AD STS에서 애플리케이션에 대해 서명된 토큰을 발급하고 사용자를 다시 애플리케이션 프록시 서비스로 리디렉션합니다.
 
 3. 애플리케이션 프록시는 토큰이 올바른 애플리케이션으로 발행되었는지 확인합니다. 토큰이 Azure AD에 의해 서명되었는지, 아직 유효한 기간 내에 있는지를 확인하는 등 다른 확인 작업도 수행합니다.
 
-4. 애플리케이션 프록시는 암호화된 인증 쿠키를 설정하여 애플리케이션에 대한 인증이 발생했음을 나타냅니다. 쿠키에는 Azure AD의 토큰 및 인증 기준이 되는 사용자 이름과 같은 다른 데이터를 기반으로 하는 만료 타임스탬프가 포함됩니다. 쿠키는 애플리케이션 프록시 서비스에만 알려진 개인 키를 사용하여 암호화됩니다.
+4. 애플리케이션 프록시는 암호화된 인증 쿠키를 설정하여 애플리케이션에 대한 인증이 발생했음을 나타냅니다. 쿠키에는 Azure AD의 토큰 및 인증 기준이 되는 사용자 이름과 같은 다른 데이터를 기반으로 하는 만료 타임스탬프가 포함됩니다. 쿠키는 애플리케이션 프록시 서비스에만 알려진 프라이빗 키를 사용하여 암호화됩니다.
 
 5. 애플리케이션 프록시는 사용자를 원래 요청된 URL로 다시 리디렉션합니다.
 

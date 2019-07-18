@@ -1,20 +1,19 @@
 ---
 title: '자습서: Apache Storm을 사용하여 Apache Kafka로 데이터 읽기 및 쓰기 - Azure HDInsight'
 description: HDInsight에서 Apache Storm 및 Apache Kafka를 사용하여 스트리밍 파이프라인을 만드는 방법을 알아봅니다. 이 자습서에서는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에서 데이터를 스트리밍합니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.date: 06/25/2019
+ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316952"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445516"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -39,7 +38,7 @@ ms.locfileid: "58316952"
 
 * Storm 솔루션(토폴로지) 빌드 및 배포 방법 이해. 특히, [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크를 사용하는 토폴로지에 대한 기본 지식이 필요합니다. 자세한 내용은 [Java에서 Apache Storm 토폴로지 만들기](./storm/apache-storm-develop-java-topology.md) 문서를 참조하세요.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 이상 \- HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -80,7 +79,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Storm 토폴로지 내에서 사용되는 튜플 데이터 구조에서 Kafka에 저장되는 필드로 매핑합니다.
 
 이러한 구성 요소는 `org.apache.storm : storm-kafka` 패키지에서 사용할 수 있습니다. Storm 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Storm 버전은 1.1.0입니다.
-또한 추가 Kafka 구성 요소를 포함하는 `org.apache.kafka : kafka_2.10` 패키지도 필요합니다. Kafka 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Kafka 버전은 0.10.0.0입니다.
+또한 추가 Kafka 구성 요소를 포함하는 `org.apache.kafka : kafka_2.10` 패키지도 필요합니다. Kafka 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Kafka 버전은 1.1.1입니다.
 
 다음 XML은 [Apache Maven](https://maven.apache.org/) 프로젝트에 대한 `pom.xml`의 종속성 선언입니다.
 
@@ -95,7 +94,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -392,7 +391,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿의 위치는 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**입니다. 이 템플릿은 다음 리소스를 만듭니다.
+    Azure Resource Manager 템플릿의 위치는 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** 입니다. 이 템플릿은 다음 리소스를 만듭니다.
     
     * Azure 리소스 그룹
     * Azure Virtual Network
@@ -630,15 +629,9 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]  
-> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
-> 
-> HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 [Apache Storm](https://storm.apache.org/) 토폴로지를 사용하여 HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 읽고 쓰는 방법을 알아보았습니다. 또한 HDInsight에서 사용되는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 호환 스토리지에 데이터를 저장하는 방법도 배웠습니다.
 
-HDInsight의 Kafka 사용에 대한 자세한 내용은 [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
-
-Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](storm/apache-storm-deploy-monitor-topology-linux.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [Apache Kafka 생산자 및 소비자 API 사용](kafka/apache-kafka-producer-consumer-api.md)

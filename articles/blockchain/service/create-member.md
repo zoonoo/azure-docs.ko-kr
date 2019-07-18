@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029941"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417502"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 만들기
 
@@ -40,11 +40,12 @@ Azure Blockchain Service는 정의된 컴퓨팅 및 스토리지 리소스 세�
     구독 | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     리소스 그룹 | 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     지역 | 위치는 컨소시엄의 모든 멤버에 대해 동일해야 합니다.
-    멤버 계정 암호 | 멤버 계정의 새 암호를 입력합니다. 멤버 계정 암호는 기본 인증을 사용하여 블록체인 멤버의 공용 엔드포인트를 인증할 때 사용됩니다.
+    멤버 계정 암호 | 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다.
     컨소시엄 이름 | 새 컨소시엄인 경우 고유한 이름을 입력합니다. 초대를 통해 컨소시엄에 참가하는 경우 이 값은 참가하는 컨소시엄입니다.
     설명 | 컨소시엄에 대한 설명입니다.
     프로토콜 |  미리 보기는 Quorum 프로토콜을 지원합니다.
     가격 | 새 서비스의 노드 구성입니다. **표준**을 선택합니다. 유효성 검사기 노드 2개와 트랜잭션 노드 1개가 기본 설정입니다.
+    트랜잭션 노드 암호 | 멤버의 기본 트랜잭션 노드에 대한 암호입니다. 블록체인 멤버의 기본 트랜잭션 노드 공용 엔드포인트에 연결할 때 기본 인증용 암호를 사용합니다.
 
 1. **만들기**를 선택하여 서버를 프로비저닝합니다. 프로비저닝에는 약 10분이 걸립니다.
 1. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택합니다.

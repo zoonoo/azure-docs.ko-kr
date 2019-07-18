@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins 일반적인 쿼리 패턴 | Microsoft Docs
 description: Azure Digital Twins 관리 API를 쿼리하는 일반적인 패턴에 대해 알아봅니다.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/09/2019
+ms.author: v-adgera
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924739"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722845"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법
 
@@ -238,4 +238,4 @@ ms.locfileid: "60924739"
 
 관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 참고하세요.
 
-모든 API 엔드포인트를 확인하려면 [Digital Twins Swagger를 사용하는 방법](./how-to-use-swagger.md)을 참조하세요.
+API 끝점에 대 한 자세한 내용은 [디지털 쌍 Swagger를 사용 하는 방법을](./how-to-use-swagger.md)합니다.

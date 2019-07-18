@@ -4,17 +4,17 @@ description: 변수 자산은 Azure Automation의 모든 runbook과 DSC 구성�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/01/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880267"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478060"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -28,7 +28,7 @@ ms.locfileid: "60880267"
 
 Automation 변수 유지 되므로 runbook 또는 DSC 구성에 실패 하는 경우에 사용할 수 있습니다. 이 동작에는 값을을 동일한 runbook 또는 DSC 구성 실행 되는 다음에 다른가 사용 또는 사용 되는 하나의 runbook에서 설정할 수 있습니다.
 
-변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다. 암호화 된 변수는 Azure Automation에 안전 하 게 저장 하 고 해당 값에서 검색할 수 없습니다는 [Get-azurermautomationvariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) Azure PowerShell 모듈의 일부로 제공 되는 cmdlet입니다. 오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다.
+변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다. 암호화 된 변수는 Azure Automation에 안전 하 게 저장 하 고 해당 값에서 검색할 수 없습니다는 [Get-azurermautomationvariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) Azure PowerShell 모듈의 일부로 제공 되는 cmdlet입니다. 오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다. 암호화 되지 않은 암호화 된 변수를 변경 하려는 경우 수 삭제 하며 다시으로 암호화 되지 않은 변수를 만듭니다.
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 시스템에서 관리하는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다. Azure Automation에서 이 프로세스를 관리합니다.
@@ -42,7 +42,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 다음은 Automation에서 사용할 수 있는 변수 형식의 목록입니다.
 
 * String
-* 정수 
+* Integer
 * DateTime
 * Boolean
 * Null
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>변수에서 복잡한 개체 설정 및 검색
-
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값으로 변수를 업데이트하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 머신을 시작합니다.
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>변수에서 컬렉션 설정 및 검색
-
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값 컬렉션과 함께 변수를 사용하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 여러 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-다음 코드에서는 변수에서 컬렉션을 검색하고 이를 사용하여 각 가상 머신을 시작합니다.
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>Python2에서 변수 설정 및 검색

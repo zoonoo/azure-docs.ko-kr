@@ -3,19 +3,19 @@ title: 언어 지원 - Bing News Search API
 titleSuffix: Azure Cognitive Services
 description: Bing News Search API에서 지원되는 자연 언어, 국가 및 지역 목록입니다.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66384979"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
 
@@ -50,12 +50,12 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |미국|영어|en-US|
 |영어|일반|en-WW|
 |영어|일반|en-XA|
-|남아프리카|영어|en-ZA|
+|남아프리카 공화국|영어|en-ZA|
 |아르헨티나|스페인어|es-AR|
 |칠레|스페인어|es-CL|
 |스페인|스페인어|es-ES|
 |멕시코|스페인어|es-MX|
-|미국|스페인어|es-US|
+|미국|스페인어|es (미국)|
 |스페인어|일반|es-XL|
 |핀란드|핀란드어|fi-FI|  
 |프랑스|프랑스어|fr-BE|
@@ -64,8 +64,8 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |스위스|프랑스어|fr-CH|
 |프랑스|프랑스어|fr-FR|  
 |이탈리아|이탈리아어|it-IT|
-|홍콩 특별 행정구|중국어 번체|zh-HK|  
-|대만|중국어 번체|zh-TW|
+|홍콩 특별 행정구|중국어(번체)|zh-HK|  
+|대만|중국어(번체)|zh-TW|
 |일본|일본어|ja-JP|  
 |한국|한국어|en-US|  
 |네덜란드|네덜란드어|nl-NL|  
@@ -90,7 +90,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |영어|일반|en-WW|
 |칠레|스페인어|es-CL|
 |멕시코|스페인어|es-MX|
-|미국|스페인어|es-US|
+|미국|스페인어|es (미국)|
 |핀란드|핀란드어|fi-FI|  
 |캐나다|프랑스어|fr-CA|
 |프랑스|프랑스어|fr-FR|  
@@ -137,7 +137,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|DE|  
 |홍콩 특별 행정구|HK|  
 |인도|IN|  
-|인도네시아|ID|  
+|인도네시아|id|  
 |이탈리아|IT|  
 |일본|JP|  
 |한국|KR|  
@@ -152,7 +152,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |필리핀|PH|  
 |러시아|RU|  
 |사우디아라비아|SA|  
-|남아프리카|ZA|  
+|남아프리카 공화국|ZA|  
 |스페인|ES|  
 |스웨덴|SE|  
 |스위스|CH|  
@@ -162,4 +162,4 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |미국|US|
 
 ## <a name="next-steps"></a>다음 단계
-Bing News Search 엔드포인트에 대한 자세한 내용은 [News Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)를 참조하세요.
+Bing News Search 엔드포인트에 대한 자세한 내용은 [News Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)를 참조하세요.

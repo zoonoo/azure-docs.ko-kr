@@ -3,16 +3,16 @@ title: 진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하�
 description: 일반적인 문제, 해결 방법 및 Azure Functions를 사용 하 여 Azure Cosmos DB 트리거를 사용 하는 경우 진단 단계
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66734510"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하는 경우 문제 해결
 
@@ -27,17 +27,19 @@ ms.locfileid: "60404699"
 
 이 문서는 항상 참조 Azure Functions V2 런타임이 언급 될 때마다 명시적으로 지정 하지 않는 한 합니다.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>트리거 및 바인딩을 별도로 Cosmos DB SDK 사용
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Azure Cosmos DB SDK를 독립적으로 사용
 
 확장 패키지의 핵심 기능에 Azure Cosmos DB 트리거 및 바인딩에 대 한 지원을 제공 하는 것입니다. 또한 합니다 [Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md), 트리거 및 바인딩을 사용 하지 않고 프로그래밍 방식으로 Azure Cosmos DB를 사용 하 여 상호 작용 하려는 경우 유용 합니다.
 
-하는 경우 Azure Cosmos DB SDK를 사용 하는 추가 하지 말아야 프로젝트에 다른 NuGet 패키지 참조를 확인 합니다. 대신 **Azure Functions 확장 패키지를 통해 해결 SDK 참조 하도록**합니다.
+하는 경우 Azure Cosmos DB SDK를 사용 하는 추가 하지 말아야 프로젝트에 다른 NuGet 패키지 참조를 확인 합니다. 대신 **Azure Functions 확장 패키지를 통해 해결 SDK 참조 하도록**합니다. 트리거 및 바인딩을 별도로 Azure Cosmos DB SDK 사용
 
 또한의 고유한 인스턴스를 수동으로 만들려는 경우 합니다 [Azure Cosmos DB SDK 클라이언트](./sql-api-sdk-dotnet-core.md), 클라이언트의 인스턴스를 하나만 갖는 패턴을 따라야 [Singleton 패턴 방식을 사용 하 여](../azure-functions/manage-connections.md#documentclient-code-example-c) . 이 프로세스는 작업에서 잠재적인 소켓 문제를 방지 합니다.
 
-## <a name="common-known-scenarios-and-workarounds"></a>알려진된 일반적인 시나리오 및 해결 방법
+## <a name="common-scenarios-and-workarounds"></a>일반적인 시나리오 및 해결 방법
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure 함수는 오류 메시지와 함께 실패 "중 하나는 소스 컬렉션 ' 컬렉션-name' (데이터베이스 ' 데이터베이스-name') 또는 임대 컬렉션 ' collection2-name' (데이터베이스 ' database2-name')가 없는 합니다. 두 컬렉션에는 수신기를 시작 하기 전에 존재 해야 합니다. 임대 컬렉션을 자동으로 만들려면 'CreateLeaseCollectionIfNotExists' to 'true' 설정 "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>오류 메시지 컬렉션을 사용 하 여 azure 함수 실패 없습니다.
+
+Azure 함수는 오류 메시지와 함께 실패 "중 하나는 소스 컬렉션 ' 컬렉션-name' (데이터베이스 ' 데이터베이스-name') 또는 임대 컬렉션 ' collection2-name' (데이터베이스 ' database2-name')가 없는 합니다. 두 컬렉션에는 수신기를 시작 하기 전에 존재 해야 합니다. 임대 컬렉션을 자동으로 만들려면 'CreateLeaseCollectionIfNotExists' to 'true' 설정 "
 
 즉, 하나 또는 둘 다가 필요한 작업 트리거에 대 한 Azure Cosmos 컨테이너의 존재 하지 않거나 Azure Function에 연결할 수 있습니다. **오류 자체가 알려 Azure Cosmos 데이터베이스 및 컨테이너는 트리거를 찾고** 구성을 기반으로 합니다.
 
@@ -78,13 +80,20 @@ Azure Function에 변경 내용을 받으면 해당 자주 처리 하 고 필요
 
 이 시나리오에서는 최선의 조치를 추가 하는 것 `try/catch blocks` 있습니다 항목의 특정 하위 집합에 대 한 모든 오류를 감지 하 고 적절 하 게 처리 하 여 변경 내용을 처리 루프 내에서 코드에 (보낼 다른 저장소에 대 한 추가 분석 또는 다시 시도)입니다. 
 
-> **Azure Cosmos DB 트리거를 기본적으로 없습니다 다시 시도 일괄 변경 내용 처리 되지 않은 예외가 발생 했습니다** 코드 실행 중입니다. 이 변경 내용을 대상에 도착 하지 않은 이유는 처리에 실패 한 것을 의미 합니다.
+> [!NOTE]
+> Azure Cosmos DB 트리거를 기본적으로 없습니다 다시 시도 하세요 변경 내용의 일괄 처리에 코드 실행 하는 동안 처리 되지 않은 예외가 발생 했습니다. 이 변경 내용을 대상에 도착 하지 않은 이유는 처리에 실패 한 것을 의미 합니다.
 
 트리거에 의해 일부 변경 내용이 전혀 받지 못해서에 가장 일반적인 시나리오를 찾아야 하는 경우 **다른 Azure Function 실행 되 고**입니다. Azure에 배포 된 Azure 함수를 다른 수 또는 개발자의 컴퓨터에서 로컬로 실행 하는 Azure 함수에 **동일한 구성을 정확 하 게** (동일한 모니터링 및 컨테이너 임대) 및이 Azure Function은 가로채기는 변경 내용 처리 하기 위해 Azure 함수를 예상할 수의 하위 집합입니다.
 
 또한 시나리오의 유효성을 검사할 수, Azure 함수 앱 인스턴스 개수를 알고 있는 경우를 실행 합니다. 임대 컨테이너를 검사 하 고 고유한 값에 포함 된 임대 항목 수를 계산 하는 경우는 `Owner` 속성에 함수 앱의 인스턴스 수와 동일 해야 합니다. 알려진된 Azure 함수 앱 인스턴스가 보다 더 많은 소유자 인 경우 이러한 추가 소유자 "도용" 변경 내용을 하나는 의미 합니다.
 
 이 상황을 적용할 쉬운 해결 방법 중 하나는 `LeaseCollectionPrefix/leaseCollectionPrefix` 새로운/다른 값을 사용 하 여 함수 또는 새 임대 컨테이너를 사용 하 여 테스트 또는 합니다.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>바인딩 IReadOnlyList를 사용 하 여 수행할 수 있습니다<Document> 또는 JArray
+
+Azure Functions 프로젝트 (또는 참조 프로젝트)에서 제공 하는 것 보다 다양 한 버전을 사용 하 여 Azure Cosmos DB SDK에 대 한 수동 NuGet 참조를 포함 하는 경우이 오류가 발생 합니다 [Azure Functions Cosmos DB 확장](./troubleshoot-changefeed-functions.md#dependencies)합니다.
+
+문제를 해결 하려면이 경우, Azure Functions Cosmos DB 확장 패키지를 통해 해결 추가한 및 Azure Cosmos DB SDK 참조를 사용 하는 수동 NuGet 참조를 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

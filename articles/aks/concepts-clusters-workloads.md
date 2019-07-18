@@ -2,21 +2,21 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 Kubernetes 기본 사항
 description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와 AKS(Azure Kubernetes Service)의 기능과의 관계에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467462"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616013"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
-컨테이너 기반 접근 방식을 사용 이동 하는 응용 프로그램 개발을 오케스트레이션 하 고 리소스를 관리할 필요가 중요 합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
+컨테이너 기반 방식으로 응용 프로그램을 개발함에 따라 리소스 관리와 오케스트레이션이 중요합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
 
 이 문서에서는 *클러스터 마스터*, *노드* 및 *노드 풀*과 같은 Kubernetes 핵심 인프라 구성 요소를 소개합니다. 리소스를 *네임스페이스*로 그룹화하는 방법과 함께 *Pod*, *배포* 및 *집합*과 같은 워크로드 리소스도 소개합니다.
 
@@ -54,7 +54,7 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 이 관리 되는 클러스터 마스터는 항상 사용 가능한 같은 구성 요소를 구성할 필요가 없습니다 의미 *etcd* 저장소 하지만 또한 클러스터 마스터 직접 액세스할 수 없습니다. Kubernetes로의 업그레이드는 Azure CLI 또는 Azure Portal을 통해 오케스트레이션되며, 클러스터 마스터, 다음으로 노드를 업그레이드합니다. 가능한 문제를 해결하기 위해 Azure Monitor 로그를 통해 클러스터 마스터 로그를 검토할 수 있습니다.
 
-클러스터 마스터를 특정 방식으로 구성해야 하거나 직접 액세스해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다.
+특정 방식으로 클러스터 마스터 구성에 직접 액세스 해야 하는 경우 사용자 고유의 Kubernetes 클러스터를 사용 하 여 배포할 수 있습니다 [aks 엔진][aks-engine]합니다.
 
 관련된 모범 사례를 참조 하세요 [클러스터 보안 및 AKS에서 업그레이드에 대 한 유용한][operator-best-practices-cluster-security]합니다.
 
@@ -70,9 +70,9 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 저장소(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 저장소가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 요구에 맞게 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
 
-AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수행 하는 수동 구성이 없습니다.
+AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019 기반입니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 진행해야 하는 구성은 없습니다. 에이전트 노드는 표준 virtual machines로 청구 되며, 사용 하는 VM 크기에 해야 할인 (포함 [Azure 예약][reservation-discounts]) 자동으로 적용 됩니다.
 
-다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어, Windows 컨테이너 또는 컨테이너 런타임을 모 비 이외의 사용 하려는 경우 사용할 수 있습니다 `aks-engine` 구성 하 고 현재 요구를 충족 하는 Kubernetes 클러스터를 배포 합니다.
+다른 호스트 OS에서 컨테이너 런타임 사용 하거나 사용자 지정 패키지를 포함 해야 하는 경우 사용자 고유의 Kubernetes 클러스터를 사용 하 여 배포할 수 있습니다 [aks 엔진][aks-engine]합니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하여 구성 옵션을 제공합니다. 예를 들어 모비(Moby) 이외의 컨테이너 런타임을 사용하려면 `aks-engine`을 사용하여 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 
@@ -83,7 +83,7 @@ AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux�
 
 이러한 예약은 애플리케이션에 사용 가능한 CPU 및 메모리 양이 노드 자체에 포함된 양보다 적게 표시될 수 있음을 의미합니다. 실행하는 애플리케이션 수로 인해 리소스 제약 조건이 있는 경우 이러한 예약을 통해 핵심 Kubernetes 구성 요소에 사용 가능한 CPU 및 메모리를 유지할 수 있습니다. 리소스 예약을 변경할 수 없습니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 - **표준 DS2 v2** 노드 크기에는 2개의 vCPU 및 7GiB 메모리가 포함됩니다.
     - 7GiB 메모리의 20%는 1.4GiB입니다.
@@ -99,9 +99,32 @@ AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux�
 
 ### <a name="node-pools"></a>노드 풀
 
-동일한 구성의 노드는 모두 *노드 풀*로 그룹화됩니다. Kubernetes 클러스터에는 하나 이상의 노드 풀이 포함됩니다. 노드의 초기 수와 크기는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의됩니다. AKS의 기본 노드 풀에는 에이전트 노드를 실행하는 기본 VM이 포함됩니다.
+동일한 구성의 노드는 모두 *노드 풀*로 그룹화됩니다. Kubernetes 클러스터에는 하나 이상의 노드 풀이 포함됩니다. 노드의 초기 수와 크기는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의됩니다. AKS의 기본 노드 풀에는 에이전트 노드를 실행하는 기본 VM이 포함됩니다. 여러 노드 풀 지원은 현재 AKS에서 미리 보기로 제공 됩니다.
 
-AKS 클러스터를 확장 또는 업그레이드할 때 기본 노드 풀에 대한 작업이 수행됩니다. 업그레이드 작업의 경우, 모든 노드가 성공적으로 업그레이드될 때까지 실행 중인 컨테이너는 노드 풀의 다른 노드에 예약됩니다.
+AKS 클러스터를 확장 또는 업그레이드할 때 기본 노드 풀에 대한 작업이 수행됩니다. 크기를 조정 하거나 특정 노드 풀을 업그레이드할 수도 있습니다. 업그레이드 작업의 경우, 모든 노드가 성공적으로 업그레이드될 때까지 실행 중인 컨테이너는 노드 풀의 다른 노드에 예약됩니다.
+
+AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [만들기 및 AKS 클러스터에 대 한 여러 노드 풀을 관리][use-multiple-node-pools]합니다.
+
+### <a name="node-selectors"></a>노드 선택기
+
+AKS 클러스터에서 여러 노드 풀을 포함하는 경우 지정된 리소스에 대해 사용할 노드 풀을 Kubernetes 스케줄러에게 알려주어야 할 수 있습니다. 예를 들어, 수신 컨트롤러는 Windows Server 노드에서 실행하지 않아야 합니다(현재 AKS에서 미리 보기). 노드 선택기를 사용하면 노드 OS와 같은 다양한 매개 변수를 정의하여 pod 예약 제어를 할 수 있습니다.
+
+다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용하여 Linux 노드 상의 NGINX 인스턴스를 예약합니다.
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Pod 예정인를 제어 하는 방법에 대 한 자세한 내용은 참조 하세요. [AKS에 고급 스케줄러 기능에 대 한 유용한][operator-best-practices-advanced-scheduler]합니다.
 
 ## <a name="pods"></a>Pod
 
@@ -109,7 +132,7 @@ Kubernetes는 *Pod*를 사용하여 애플리케이션의 인스턴스를 실행
 
 Pod를 만드는 경우 특정 양의 CPU 또는 메모리 리소스를 요청하는 *리소스 제한*을 정의할 수 있습니다. Kubernetes 스케줄러는 요구에 맞게 사용 가능한 리소스가 있는 노드에서 Pod가 실행되도록 예약하려고 시도합니다. 지정된 노드에서 기본 노드의 계산 리소스를 너무 많이 소비하지 못하도록 최대 리소스 제한을 지정할 수도 있습니다. Kubernetes 스케줄러에서 필요한 리소스와 허용되는 리소스를 파악하는 데 도움이 되도록 모든 Pod에 대한 리소스 제한을 포함하는 것이 좋습니다.
 
-자세한 내용은 [Kubernetes Pod][kubernetes-pods] 및 [Kubernetes Pod 수명 주기][kubernetes-pod-lifecycle]를 참조하세요.
+자세한 내용은 [Kubernetes pod][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle]합니다.
 
 Pod는 논리적인 리소스이지만, 컨테이너는 애플리케이션 워크로드가 실행되는 위치입니다. Pod는 일반적으로 사용 후 삭제 가능한 리소스이며, 개별적으로 예약된 Pod에는 Kubernetes에서 제공하는 고가용성 및 중복성 기능 중 일부가 누락됩니다. 대신, Pod는 일반적으로 배포 컨트롤러와 같은 Kubernetes *컨트롤러*에서 배포되고 관리됩니다.
 
@@ -117,13 +140,13 @@ Pod는 논리적인 리소스이지만, 컨테이너는 애플리케이션 워�
 
 *배포*는 Kubernetes 배포 컨트롤에서 관리되는 하나 이상의 동일한 Pod를 나타냅니다. 배포는 만들 *복제본*(Pod)의 수를 정의하고, Kubernetes 스케줄러는 Pod 또는 노드에 문제가 발생하면 추가 Pod가 정상 노드에 예약되도록 합니다.
 
-Pod, 사용된 컨테이너 이미지 또는 연결된 저장소의 구성을 변경하도록 배포를 업데이트할 수 있습니다. 배포 컨트롤러는 지정된 수의 복제본을 내보내거나 종료하고, 새 배포 정의에서 복제본을 만든 후에 배포의 모든 복제본이 업데이트될 때까지 프로세스를 계속 수행합니다.
+Pod나 사용된 컨테이너 이미지, 연결된 저장소의 구성을 변경하도록 배포를 업데이트할 수 있습니다. 배포 컨트롤러는 지정된 수의 복제본을 내보내거나 종료하고, 새 배포 정의에서 복제본을 만든 후에 배포의 모든 복제본이 업데이트될 때까지 프로세스를 계속 수행합니다.
 
-AKS의 상태 비저장 애플리케이션 대부분은 개별 Pod를 예약하는 것이 아니라 배포 모델을 사용해야 합니다. Kubernetes는 배포의 상태를 모니터링하여 필요한 수의 복제본이 클러스터 내에서 실행되는지 확인할 수 있습니다. 만 개별 pod를 예약할 때 pod에 문제가 발생 하며 현재 노드에 해당 문제가 발생 하는 경우에서 정상 노드로 다시 예약 되지 경우 다시 시작 되지 않습니다.
+AKS의 상태 비저장 애플리케이션 대부분은 개별 Pod를 예약하는 것이 아니라 배포 모델을 사용해야 합니다. Kubernetes는 배포의 상태를 모니터링하여 필요한 수의 복제본이 클러스터 내에서 실행되도록 할 수 있습니다. 개별 pod를 예약만 하는 경우, 문제가 발생하면 pod가 다시 시작되지 않고, 현재 노드에 문제가 발생할 경우 정상 노드에서 재예약이 되지 않습니다.
 
-애플리케이션에서 관리 결정을 위해 인스턴스의 쿼럼을 항상 사용할 수 있어야 하는 경우 업데이트 프로세스에서 해당 기능을 중단하지 않도록 합니다. *Pod 중단 예산*은 업데이트 또는 노드 업그레이드 중에 중단할 수 있는 배포의 복제본 수를 정의하는 데 사용할 수 있습니다. 예를 들어 배포에 *5*개의 복제본이 있는 경우 한 번에 하나의 복제본만 삭제/다시 예약되도록 포드 중단을 *4*로 정의할 수 있습니다. Pod 리소스 제한과 마찬가지로 항상 최소 개수의 복제본이 존재하도록 요구하는 애플리케이션에 Pod 중단 예산을 정의하는 것이 가장 좋습니다.
+애플리케이션에서 관리 결정을 위해 인스턴스의 쿼럼을 항상 사용할 수 있어야 하는 경우 업데이트 프로세스에서 해당 기능을 중단하지 않도록 합니다. *Pod 중단 예산*은 업데이트 또는 노드 업그레이드 중에 중단할 수 있는 배포의 복제본 수를 정의하는 데 사용할 수 있습니다. 예를 들어 배포에 *5*개의 복제본이 있는 경우 한 번에 하나의 복제본만 삭제/다시 예약되도록 Pod 중단을 *4*로 정의할 수 있습니다. Pod 리소스 제한과 마찬가지로 항상 최소 개수의 복제본이 존재하도록 요구하는 애플리케이션에 Pod 중단 예산을 정의하는 것이 가장 좋습니다.
 
-배포는 일반적으로 `kubectl create` 또는 `kubectl apply`를 사용하여 만들어지고 관리됩니다. 배포를 만들려면 매니페스트 파일을 YAML(YAML Ain't Markup Language) 형식으로 정의합니다. 다음 예제에서는 NGINX 웹 서버의 기본 배포를 만듭니다. 배포에서 *3*개의 복제본을 만들고 해당 *80* 포트가 컨테이너에서 열리도록 지정합니다. CPU 및 메모리에 대한 리소스 요청 및 제한도 정의됩니다.
+배포는 일반적으로 `kubectl create` 또는 `kubectl apply`를 사용하여 만들고 관리합니다. 배포를 만들려면 매니페스트 파일을 YAML(YAML Ain't Markup Language) 형식으로 정의합니다. 다음 예제에서는 NGINX 웹 서버의 기본 배포를 만듭니다. 배포에서 *3*개의 복제본을 만들고 해당 *80*번 포트가 컨테이너에서 열리도록 지정합니다. CPU 및 메모리에 대한 리소스 요청 및 제한도 정의합니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -156,23 +179,23 @@ spec:
 
 YAML 매니페스트 내에 부하 분산 장치와 같은 서비스를 포함시킴으로써 더 복잡한 애플리케이션을 만들 수 있습니다.
 
-자세한 내용은 [Kubernetes 배포][kubernetes-deployments]를 참조하세요.
+자세한 내용은 [Kubernetes 배포][kubernetes-deployments]합니다.
 
 ### <a name="package-management-with-helm"></a>Helm을 사용한 패키지 관리
 
-Kubernetes에서 애플리케이션을 관리하는 일반적인 방법은 [Helm][helm]을 사용하는 것입니다. 패키지 버전의 애플리케이션 코드와 Kubernetes YAML 매니페스트가 포함된 기존 공용 Helm *차트*를 빌드하고 사용하여 리소스를 배포할 수 있습니다. 이러한 Helm 차트는 로컬로 저장하거나 종종 [Azure Container Registry Helm 차트 리포지토리][acr-helm]와 같은 원격 저장소에 저장할 수 있습니다.
+Kubernetes에서 응용 프로그램을 관리 하는 일반적인 방법은 된 [Helm][helm]합니다. 패키지 버전의 애플리케이션 코드와 Kubernetes YAML 매니페스트가 포함된 기존 공용 Helm *차트*를 빌드하고 사용하여 리소스를 배포할 수 있습니다. 이러한 Helm 차트 또는 저장할 수 있습니다 로컬로, 종종 원격 리포지토리에서 같은 [Azure 컨테이너 레지스트리 Helm 차트 리포지토리][acr-helm]합니다.
 
-Helm을 사용하려면 *Tiller*라는 서버 구성 요소가 Kubernetes 클러스터에 설치되어 있어야 합니다. Tiller는 클러스터 내의 차트 설치를 관리합니다. Helm 클라이언트 자체는 컴퓨터에 로컬로 설치하거나 [Azure Cloud Shell][azure-cloud-shell] 내에서 사용할 수 있습니다. 클라이언트에서 Helm 차트를 검색하거나 만든 다음, Kubernetes 클러스터에 설치할 수 있습니다.
+Helm을 사용하려면 *Tiller*라는 서버 구성 요소가 Kubernetes 클러스터에 설치되어 있어야 합니다. Tiller는 클러스터 내의 차트 설치를 관리합니다. 자체 Helm 클라이언트를 컴퓨터에 로컬로 설치 되어 또는 내에서 사용할 수는 [Azure Cloud Shell][azure-cloud-shell]합니다. 클라이언트에서 Helm 차트를 검색하거나 만든 다음, Kubernetes 클러스터에 설치할 수 있습니다.
 
 ![Helm에는 클라이언트 구성 요소와 Kubernetes 클러스터 내에 리소스를 만드는 서버 쪽 Tiller 구성 요소가 포함됩니다.](media/concepts-clusters-workloads/use-helm.png)
 
-자세한 내용은 [AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치][aks-helm]를 참조하세요.
+자세한 내용은 [Azure Kubernetes Service (AKS)에서 Helm을 사용 하 여 응용 프로그램 설치][aks-helm]합니다.
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets 및 DaemonSets
 
 배포 컨트롤러는 Kubernetes 스케줄러를 사용하여 사용 가능한 리소스가 있는 사용 가능한 노드에서 지정된 수의 복제본을 실행합니다. 이러한 배포 방법은 상태 비저장 애플리케이션에는 충분하지만, 영구적인 명명 규칙이나 저장소가 필요한 애플리케이션에는 충분하지 않을 수 있습니다. 클러스터 내의 각 노드 또는 선택한 노드에 복제본이 있어야 하는 애플리케이션의 경우 배포 컨트롤러는 복제본이 노드 전체에 분산되는 방식을 확인하지 않습니다.
 
-이러한 유형의 애플리케이션을 관리할 수 있는 다음 두 가지 Kubernetes 리소스가 두 가지 있습니다.
+이러한 유형의 애플리케이션을 관리할 수 있는 두 가지 Kubernetes 리소스는 다음과 같습니다.
 
 - *StatefulSets* - 애플리케이션 상태를 저장소와 같은 개별 Pod 수명 주기 이상으로 유지합니다.
 - *DaemonSets* - Kubernetes 부트스트랩 프로세스의 초기에 각 노드에서 실행 중인 인스턴스를 확인합니다.
@@ -183,7 +206,7 @@ Helm을 사용하려면 *Tiller*라는 서버 구성 요소가 Kubernetes 클러
 
 `kind: StatefulSet`을 사용하여 애플리케이션을 YAML 형식으로 정의한 다음, StatefulSet 컨트롤러에서 필요한 복제본의 배포와 관리를 처리합니다. 데이터는 Azure Managed Disks 또는 Azure Files에서 제공되는 영구적 저장소에 기록됩니다. StatefulSet을 사용하면 StatefulSet이 삭제되는 경우에도 기본 영구적 저장소가 유지됩니다.
 
-자세한 내용은 [Kubernetes StatefulSets][kubernetes-statefulsets]를 참조하세요.
+자세한 내용은 [Kubernetes StatefulSets][kubernetes-statefulsets]합니다.
 
 StatefulSet의 복제본은 AKS 클러스터의 사용 가능한 모든 노드에서 예약되고 실행됩니다. Set에 있는 하나 이상의 Pod가 노드에서 실행되도록 하려면 DaemonSet을 대신 사용할 수 있습니다.
 
@@ -195,10 +218,10 @@ StatefulSet의 복제본은 AKS 클러스터의 사용 가능한 모든 노드�
 
 StatefulSet과 마찬가지로 DaemonSet은 `kind: DaemonSet`을 사용하여 YAML 정의의 일부로 정의됩니다.
 
-자세한 내용은 [Kubernetes DaemonSets][kubernetes-daemonset]를 참조하세요.
+자세한 내용은 [Kubernetes Daemonset][kubernetes-daemonset]합니다.
 
 > [!NOTE]
-> 사용 하는 경우는 [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)를 Daemonset 가상 노드에 pod를 만들지 것입니다.
+> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용하는 경우, Daemonset는 해당 가상 노드에 pod를 생성하지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 
@@ -212,17 +235,17 @@ AKS 클러스터를 만들 때 사용할 수 있는 네임스페이스는 다음
 - *kube-system* - 이 네임스페이스는 네트워크 기능(예: DNS 및 프록시) 또는 Kubernetes 대시보드와 같은 핵심 리소스가 있는 위치입니다. 일반적으로 사용자 고유의 애플리케이션은 이 네임스페이스에 배포하지 않습니다.
 - *kube-public* - 이 네임스페이스는 일반적으로 사용되지 않지만, 클러스터 전체에 표시되는 리소스에 사용할 수 있으며 모든 사용자가 볼 수 있습니다.
 
-자세한 내용은 [Kubernetes 네임스페이스][kubernetes-namespaces]를 참조하세요.
+자세한 내용은 [Kubernetes 네임 스페이스][kubernetes-namespaces]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Kubernetes 핵심 구성 요소 중 일부와 AKS 클러스터에 이를 적용하는 방법에 대해 설명하고 있습니다. Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Kubernetes/AKS 액세스 및 ID][aks-concepts-identity]
-- [Kubernetes/AKS 보안][aks-concepts-security]
-- [Kubernetes/AKS 가상 네트워크][aks-concepts-network]
-- [Kubernetes/AKS 저장소][aks-concepts-storage]
-- [Kubernetes/AKS 크기 조정][aks-concepts-scale]
+- [Kubernetes AKS 액세스 및 id][aks-concepts-identity]
+- [Kubernetes / AKS 보안][aks-concepts-security]
+- [Kubernetes / AKS 가상 네트워크][aks-concepts-network]
+- [Kubernetes / AKS 저장소][aks-concepts-storage]
+- [Kubernetes AKS 소수][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine
@@ -245,3 +268,6 @@ AKS 클러스터를 만들 때 사용할 수 있는 네임스페이스는 다음
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

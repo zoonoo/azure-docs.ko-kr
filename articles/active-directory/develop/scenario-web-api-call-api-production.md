@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074757"
 ---
 # <a name="web-api-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 웹 API를 프로덕션으로 이동
@@ -34,4 +34,4 @@ ms.locfileid: "65074757"
 
 | 샘플 | 플랫폼 | 설명 |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2.2 ASP.NET Core Web API 데스크톱 (WPF) | Microsoft id 플랫폼 (v2.0)를 사용 하 여 WPF 응용 프로그램에서 호출 자체는 Microsoft Graph 호출 2.2 ASP.NET Core Web API |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2\.2 ASP.NET Core Web API 데스크톱 (WPF) | Microsoft id 플랫폼 (v2.0)를 사용 하 여 WPF 응용 프로그램에서 호출 자체는 Microsoft Graph 호출 2.2 ASP.NET Core Web API |

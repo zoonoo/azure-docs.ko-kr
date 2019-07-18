@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091769"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594007"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 이 빠른 시작에서는 새로운 CDN 프로필 및 CDN 엔드포인트를 만들어서 Azure CDN(Content Delivery Network)을 사용하도록 설정합니다. 프로필과 엔드포인트를 만든 후에 고객에게 콘텐츠를 제공하기 시작할 수 있습니다.
@@ -53,7 +53,7 @@ CDN 프로필을 만든 후에 엔드포인트를 만드는 데 사용할 수 �
 
     | 설정 | 값 |
     | ------- | ----- |
-    | **Name** | 엔드포인트 호스트 이름에 *my-endpoint-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. 이 이름은 _&lt;엔드포인트 이름&gt;_.azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.|
+    | **Name** | 엔드포인트 호스트 이름에 *my-endpoint-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. 이 이름은 _&lt;엔드포인트 이름&gt;_ .azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.|
     | **원본 형식** | **저장소**를 선택합니다. | 
     | **원본 호스트 이름** | 호스트 이름에 *mystorageacct123.blob.core.windows.net*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력할 수 있습니다. |
     | **원본 경로** | 비워 둡니다. |

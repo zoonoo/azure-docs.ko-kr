@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005301"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520412"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑
 
@@ -24,7 +24,7 @@ ms.locfileid: "60005301"
 
 Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않습니다. 반대로, Azure 구독 소유자가 너무 많으면 손상된 소유자 계정을 통한 위반 가능성이 증가할 수 있습니다. 이 청사진을 사용하면 Azure 구독에 대한 소유자 수를 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당하여 Azure 구독 소유자 수를 적절하게 유지할 수 있습니다. 구독 소유자 권한을 관리하면 적절한 임무 분리를 구현하는 데 도움이 될 수 있습니다.
 
-- [미리 보기]: Audit minimum number of owners for subscription
+- [미리 보기]: Audit minimum number of owners for a subscription
 - [미리 보기]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 정보의 분류
@@ -144,7 +144,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 관리자 및 운영자 로그
 
-이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 합니다. 진단 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공합니다.
+이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 보장합니다. 진단 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공합니다.
 
 - [미리 보기]: Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - [미리 보기]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
@@ -156,7 +156,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 클럭 동기화
 
-이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 합니다. Azure 로그는 동기화된 내부 클록을 사용하여 리소스 간 이벤트의 시간 관련 레코드를 만듭니다.
+이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 보장합니다. Azure 로그는 동기화된 내부 클록을 사용하여 리소스 간 이벤트의 시간 관련 레코드를 만듭니다.
 
 - [미리 보기]: Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - [미리 보기]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
@@ -174,7 +174,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1261-management-of-technical-vulnerabilities"></a>A.12.6.1 기술 취약성 관리
 
-이 청사진은 Azure Security Center에서 누락된 시스템 업데이트, 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 5개를 할당하여 정보 시스템 취약성을 관리하는 데 도움이 됩니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
+이 청사진은 Azure Security Center에서 누락된 시스템 업데이트, 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 5개를 할당하여 정보 시스템 취약성 관리를 도와줍니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
 
 - [미리 보기]: Monitor missing Endpoint Protection in Azure Security Center
 - [미리 보기]: Monitor missing system updates in Azure Security Center
@@ -190,7 +190,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1311-network-controls"></a>A.13.1.1 네트워크 제어
 
-이 청사진은 관대한 규칙을 사용하여 네트워크 보안 그룹을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 네트워크를 관리하고 제어하는 데 도움이 됩니다. 너무 관대한 규칙은 원치 않는 네트워크 액세스를 허용할 수 있으며, 검토를 거쳐야 합니다. 또한 이 청사진은 보호되지 않는 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 세 개의 Azure Policy 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
+이 청사진은 관대한 규칙을 사용하여 네트워크 보안 그룹을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 네트워크를 관리하고 제어하는 데 도움이 됩니다. 너무 관대한 규칙은 원치 않는 네트워크 액세스를 허용할 수 있으며, 검토를 거쳐야 합니다. 또한 이 청사진은 보호되지 않는 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 Azure Policy 정의 3개를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
 
 - [미리 보기]: Monitor permissive network access in Azure Security Center
 - [미리 보기]: Monitor unprotected network endpoints in Azure Security Center

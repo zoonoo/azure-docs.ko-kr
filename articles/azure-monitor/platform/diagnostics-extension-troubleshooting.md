@@ -6,30 +6,30 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65471775"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
 
 ## <a name="logical-components"></a>논리적 구성 요소
-**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)**: Azure Diagnostics 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
+**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)** : Azure Diagnostics 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
 
-**진단 플러그 인(DiagnosticsPlugin.exe)**: 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
+**진단 플러그 인(DiagnosticsPlugin.exe)** : 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
 
-**모니터링 에이전트(MonAgent\*.exe 프로세스)**: 진단 데이터를 모니터링, 수집 및 전송합니다.  
+**모니터링 에이전트(MonAgent\*.exe 프로세스)** : 진단 데이터를 모니터링, 수집 및 전송합니다.  
 
 ## <a name="logartifact-paths"></a>로그/아티팩트 경로
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| 아티팩트 | path |
+| 아티팩트 | Path |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ ms.locfileid: "60395053"
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>가상 머신
-| 아티팩트 | path |
+| 아티팩트 | Path |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ ms.locfileid: "60395053"
 | **모니터링 에이전트 구성 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **상태 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure Diagnostics 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Packages |
+| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
@@ -124,7 +124,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
-- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  [https://msdn.microsoft.com/library/sk36c28t.aspx](https://msdn.microsoft.com/library/sk36c28t.aspx ) 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 누락된 추적 로그에 대한 자세한 정보를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
@@ -283,7 +283,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 Windows Azure Diagnostics 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다.
 
-.NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅숏에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
+.NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅샷에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
 **DiagnosticsPluginLauncher.exe**를 실행할 때 일반적으로 **255** 종료 코드로 매니페스트되지만, 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```

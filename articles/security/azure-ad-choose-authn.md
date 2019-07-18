@@ -4,17 +4,17 @@ description: 이 가이드는 CEO, CIO, CISO, CIA(Chief Identity Architects), �
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702298"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786689"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -81,7 +81,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
    * 다중 사이트 온-프레미스 인증 솔루션.
 5. Azure AD ID 보호는 선택한 로그인 방법에 관계 없이 *자격 증명이 유출된 사용자* 보고서를 제공해야 하므로 암호 해시 동기화가 필요합니다. 조직에서는 기본 로그인 방법이 실패하고 해당 방법이 오류 이벤트 전에 구성된 경우 암호 해시 동기화로 장애 조치(failover)할 수 있습니다.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD ID 보호에는 [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스가 필요합니다.
 
 ## <a name="detailed-considerations"></a>세부 고려 사항
@@ -94,14 +94,17 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 조직에서 원하는 경우, Azure AD Premium P2가 있으면 손실된 자격 증명 보고서 등의 Azure AD ID 보호 보고서에서 ID의 정보를 사용할 수 있습니다. Windows Hello 비즈니스에 [암호 해시 동기화를 사용 하는 경우 특정 요구 사항](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)합니다. [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) 암호 해시 동기화를 관리 되는 도메인에서 자신의 회사 자격 증명을 사용 하 여 사용자를 프로 비전 해야 합니다.
 
-    암호 해시 동기화와 함께 다단계 인증을 필요로 하는 조직은 Azure AD 다단계 인증을 사용해야 합니다. 이러한 조직은 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다.
+    Azure AD 다단계 인증을 사용 해야 하는 암호 해시 동기화를 사용 하 여 다단계 인증을 필요로 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다.
+
+> [!NOTE]
+> Azure AD 조건부 액세스 필요 [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) 라이선스.
 
 * **비즈니스 연속성**. 클라우드 인증과 함께 암호 해시 동기화를 사용하면 기본적으로 모든 Microsoft 데이터 센터로 확장되는 클라우드 서비스만큼 가용성이 높습니다. 연장된 기간 동안 암호 해시 동기화가 계속 작동하도록 하려면 보조 Azure AD Connect 서버를 대기 구성으로 준비 모드에서 배포하는 것이 좋습니다.
 
 * **고려 사항**. 암호 해시 동기화는 현재 온-프레미스 계정 상태에서 변경 내용을 즉시 적용하지 않습니다. 이 경우 사용자는 사용자 계정 상태가 Azure AD와 동기화될 때까지 클라우드 앱에 대한 액세스 권한을 가집니다. 조직에서는 관리자가 계정을 사용하지 않도록 설정하는 등 온-프레미스 사용자 계정 상태에 대한 대량 업데이트를 수행한 후 새 동기화 주기를 실행하여 이 제한을 해결하려고 할 수 있습니다.
 
 > [!NOTE]
-> 암호 만료 및 계정 잠김 상태는 현재, Azure AD Connect를 사용하여 Azure AD에 동기화되지 않습니다. 
+> 암호 만료 및 계정 잠김 상태는 현재, Azure AD Connect를 사용하여 Azure AD에 동기화되지 않습니다. 사용자의 암호를 변경 하는 경우 설정 합니다 *사용자는 다음 로그온 할 때 암호를 변경 해야* 플래그를 암호 해시를 동기화 할 수 없는 Azure AD Connect 사용 하 여 Azure AD 사용자가 암호를 변경할 때까지 합니다.
 
 배포 단계에 대해서는 [암호 해시 동기화 구현](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)을 참조하세요.
 
@@ -115,7 +118,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 로그인 시 통과 인증이 온-프레미스 계정 정책을 적용합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 사용자의 허용된 로그온 시간을 벗어난 상태인 경우 액세스가 거부됩니다. 
 
-    통과 인증과 함께 다단계 인증을 필요로 하는 조직은 Azure MFA(Multi-Factor Authentication)를 사용해야 합니다. 이러한 조직은 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
+    통과 인증을 사용 하 여 다단계 인증 해야 Azure Multi-factor Authentication (MFA)을 사용 해야 하는 조직 또는 [조건부 액세스 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)합니다. 이러한 조직은 페더레이션 의존 하는 타사 또는 온-프레미스 다단계 인증 메서드를 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
 * **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다. 
 
@@ -136,7 +139,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 * **고급 시나리오**. 페더레이션 인증 솔루션은 일반적으로 고객에게 Azure AD에서 기본적으로 지원되지 않는 인증 요구 사항이 있는 경우 필요합니다. 자세한 내용은 [올바른 로그인 옵션 선택](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/)을 참조하세요. 고려할 일반적인 요구 사항은 다음과 같습니다.
 
   * 스마트 카드 또는 인증서를 요구하는 인증
-  * 온-프레미스 MFA 서버 또는 타사 다단계 인증 공급자
+  * 온-프레미스 MFA 서버 또는 타사 다단계 공급자 페더레이션된 id 공급자를 요구 합니다.
   * 타사 인증 솔루션을 사용하는 인증. [Azure AD 페더레이션 호환성 목록](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility)을 참조하세요.
   * user@domain.com 등의 UPN(사용자 계정 이름) 대신 DOMAIN\username과 같은 sAMAccountName을 요구하는 로그인
 
@@ -181,15 +184,15 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|예|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |비즈니스용 Windows Hello가 지원되나요?|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Windows Server 2016 도메인 기능 수준 필요*|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[인증서 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
-|다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
+|다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스 *를 사용 하 여 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스 *를 사용 하 여 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스 *를 사용 하 여 사용자 지정 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |지원되는 사용자 계정 상태는 무엇인가요?|비활성화된 계정<br>(최대 30분 지연)|비활성화된 계정<br><br>계정 잠김<br><br>계정이 만료됨<br><br>암호 만료됨<br><br>로그인 시간|비활성화된 계정<br><br>계정 잠김<br><br>계정이 만료됨<br><br>암호 만료됨<br><br>로그인 시간|
-|조건부 액세스 옵션이란 무엇인가요?|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 클레임 규칙](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
+|조건부 액세스 옵션은 무엇입니까?|[Azure AD Premium을 사용 하 여 azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD Premium을 사용 하 여 azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD Premium을 사용 하 여 azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 클레임 규칙](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |레거시 프로토콜 차단이 지원되나요?|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[예](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |로그인 페이지에서 로고, 이미지 및 설명을 사용자 지정할 수 있나요?|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[손실된 자격 증명 보고서, Azure AD Premium P2 사용](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[타사 ID 시스템과 통합](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
-> 현재, Azure AD 조건부 액세스의 사용자 지정 컨트롤은 디바이스 등록을 지원하지 않습니다.
+> Azure AD 조건부 액세스의 사용자 지정 컨트롤 현재 장치 등록을 지원 하지 않습니다.
 
 ## <a name="recommendations"></a>권장 사항
 ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도록 만든 클라우드 앱 및 LOB(기간 업무) 앱에 사용자가 액세스할 수 있도록 해줍니다. 권한 있는 사용자가 생산성을 유지하고 악의적인 행위자가 조직의 중요한 데이터에 접근하지 못하도록 하기 위해 인증은 앱에 대한 액세스를 제어합니다.

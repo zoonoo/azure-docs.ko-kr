@@ -90,7 +90,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 키를 눌러 계속하면 샘플 프로그램이 저장소 컨테이너 및 파일을 삭제합니다. 
 
 > [!TIP]
-> [Azure Storage 탐색기](https://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+> [Azure Storage 탐색기](https://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage Explorer는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 >
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해

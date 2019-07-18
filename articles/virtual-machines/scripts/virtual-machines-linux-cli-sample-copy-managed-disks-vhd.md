@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 샘플 - 스토리지 계정에 관리 디스크 복사
-description: Azure CLI 샘플 - 관리 디스크를 스토리지 계정에 내보내거나 복사합니다.
+description: Azure CLI 샘플 - 관리 디스크를 스토리지 계정에 내보내기 또는 복사
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727137"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510866"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Azure CLI를 사용하여 관리 디스크를 스토리지 계정에 내보내기/복사
 
-이 스크립트는 관리 디스크의 기본 VHD를 같거나 다른 지역의 저장소 계정으로 내보냅니다. 먼저 관리 디스크의 SAS URI를 생성한 다음, 이를 사용하여 저장소 계정으로 VHD를 복사합니다. 이 스크립트를 사용하여 지역별 확장을 위해 관리 디스크를 복사합니다. 
+이 스크립트는 관리 디스크의 기본 VHD를 같거나 다른 지역의 저장소 계정으로 내보냅니다. 먼저 관리 디스크의 SAS URI를 생성한 다음, 이를 사용하여 저장소 계정으로 VHD를 복사합니다. 이 스크립트를 사용하여 지역별 확장을 위해 관리 디스크를 다른 지역으로 복사합니다. Azure Marketplace에서 관리 디스크의 VHD 파일을 게시하려는 경우 이 스크립트를 사용하여 스토리지 계정에 VHD 파일을 복사한 다음, 복사된 VHD의 SAS URI를 생성하여 Marketplace에 게시할 수 있습니다.   
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

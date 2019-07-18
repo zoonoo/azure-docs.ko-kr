@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TrustFrameworkPolicy 요소를 지정합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684140"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537043"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -116,7 +116,7 @@ ms.locfileid: "64684140"
 
 ## <a name="policy-execution"></a>정책 실행
 
-웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 애플리케이션이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 애플리케이션이 동일한 정책을 사용할 수 있습니다. 모든 애플리케이션은 클레임이 포함된 동일한 토큰을 수신하며 사용자가 동일한 사용자 경험을 진행합니다. 단일 애플리케이션이 여러 개의 정책을 사용할 수 있습니다.
+웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 애플리케이션이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 애플리케이션이 동일한 정책을 사용할 수 있습니다. 모든 응용 프로그램 클레임을 사용 하 여 동일한 토큰을 받고 거친 사용자가 동일한 사용자 경험 합니다. 단일 애플리케이션이 여러 개의 정책을 사용할 수 있습니다.
 
 RP 정책 파일 내에서 [UserJourney](userjourneys.md)를 가리키는 **DefaultUserJourney** 요소를 지정합니다. 일반적으로 사용자 경험은 기본 또는 확장 정책에서 정의됩니다.
 
@@ -132,13 +132,13 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 
 사용자 경험은 사용자가 진행하는 과정의 비즈니스 논리를 정의합니다. 각 사용자 경험은 인증 및 정보 수집의 측면에서 순서대로 일련의 작업을 수행하는 오케스트레이션 단계 집합입니다. 
 
-[스타터 팩](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 메일 주소 변경, 소셜 계정 연결 및 연결 해제 또는 암호 재설정과 같은 다른 시나리오에 대한 사용자 경험을 더 추가할 수 있습니다. 
+[스타터 팩](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 연결 및 소셜 계정 연결 해제와 같은 다른 시나리오에 대 한 자세한 사용자 경험을 추가할 수 있습니다. 
 
 오케스트레이션 단계는 [기술 프로필](technicalprofiles.md)을 호출할 수 있습니다. 기술 프로필은 다른 유형의 당사자와 통신하기 위한 기본 제공 메커니즘이 있는 프레임워크를 제공합니다. 예를 들어 기술 프로필은 다음 작업을 수행할 수 있습니다.
 
@@ -157,4 +157,3 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

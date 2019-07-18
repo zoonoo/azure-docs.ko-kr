@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse 릴리스 정보 2018년 7월 | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 릴리스 정보입니다.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/06/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 123198b21122a23d81794db0a5ca2051b15ee2e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 4ec90bef9228eccb9556d07bb5680deb00e2550e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65912177"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 7월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 7월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -44,7 +44,7 @@ SQL Data Warehouse는 스토리지와 계산이 분리된 고유한 아키텍처
 자세한 내용은 [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/)(가속화되고 유연한 복원 지점) 블로그 게시물을 참조하세요.
 
 ## <a name="20-minute-restorations"></a>20분 복원
-이제 SQL Data Warehouse는 데이터베이스 크기에 관계 없이, 모든 데이터 웨어하우스가 같은 지역 내에서 **20분 이내**에 복원될 것으로 제안합니다. 같은 논리적 서버로 복원되든, 같은 지역의 다른 논리적 서버로 복원되든, 이 복원 시간이 적용됩니다. 또한 복원 지점을 만드는 데 걸리는 시간을 줄이기 위해 스냅숏 프로세스가 개선되었습니다. 더 낮은 성능 수준(더 낮은 DWU 설정)에서는 스냅숏 생성 시간이 *2배 감소*됩니다.
+이제 SQL Data Warehouse는 데이터베이스 크기에 관계 없이, 모든 데이터 웨어하우스가 같은 지역 내에서 **20분 이내**에 복원될 것으로 제안합니다. 같은 논리적 서버로 복원되든, 같은 지역의 다른 논리적 서버로 복원되든, 이 복원 시간이 적용됩니다. 또한 복원 지점을 만드는 데 걸리는 시간을 줄이기 위해 스냅샷 프로세스가 개선되었습니다. 더 낮은 성능 수준(더 낮은 DWU 설정)에서는 스냅샷 생성 시간이 *2배 감소*됩니다.
 
 자세한 내용은 [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/)(가속화되고 유연한 복원 지점) 블로그 게시물을 참조하세요.
 

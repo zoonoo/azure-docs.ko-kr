@@ -56,7 +56,7 @@ ms.locfileid: "58882058"
 
 ## <a name="limiting-access-to-your-managed-instance"></a>관리되는 인스턴스에 대한 액세스 제한
 
-관리되는 인스턴스는 사설 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게 연결을 설정하려면 애플리케이션 또는 사용자가 관리형 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
+관리형 인스턴스는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게 연결을 설정하려면 애플리케이션 또는 사용자가 관리형 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
 
 > [!NOTE] 
 > 관리되는 인스턴스는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. 관리되는 인스턴스는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.
@@ -84,7 +84,7 @@ ms.locfileid: "58882058"
     GO
     ```
 
-    이 예제는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
+    다음 예제에서는 nativeuser@aadsqlmi.onmicrosoft.com 계정의 로그인을 만듭니다.
 
     ```sql
     USE master
@@ -122,7 +122,7 @@ ms.locfileid: "58882058"
 - 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
 - `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
-`sysadmin` 서버 역할에 로그인을 추가하려면:
+`sysadmin` 서버 역할에 로그인을 추가하려면
 
 1. 관리되는 인스턴스에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
@@ -154,7 +154,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     자세한 내용은 다음 문서를 참조하세요. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md)
+     자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](sql-database-ssms-mfa-authentication.md) 문서를 참조하세요.
 
 1. **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. 그러면 MFA(Multi-Factor Authentication) 로그인 창이 열립니다. Azure AD 암호를 사용하여 로그인합니다.
 
@@ -249,7 +249,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
 1. 그룹인 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만드는 것도 지원됩니다.
 
-    다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
+     다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
 
     ```sql
     USE MyMITestDB

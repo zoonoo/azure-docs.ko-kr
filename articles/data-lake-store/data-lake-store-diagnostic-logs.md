@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878757"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
@@ -116,12 +116,12 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
-| resourceId |String |작업이 수행되는 리소스의 ID |
+| ResourceId |String |작업이 수행되는 리소스의 ID |
 | category |String |로그 범주 예: **Requests** |
 | operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |String |작업의 상태, 예를 들어 200 |
 | callerIpAddress |String |요청한 클라이언트의 IP 주소 |
-| CorrelationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
+| correlationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
@@ -163,12 +163,12 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
-| resourceId |String |작업이 수행되는 리소스의 ID |
+| ResourceId |String |작업이 수행되는 리소스의 ID |
 | category |String |로그 범주 예: **Audit**. |
 | operationName |String |기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType |String |작업의 상태, 예를 들어 200 |
 | resultSignature |String |작업에 대한 추가 세부 정보입니다. |
-| CorrelationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
+| correlationId |String |관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 

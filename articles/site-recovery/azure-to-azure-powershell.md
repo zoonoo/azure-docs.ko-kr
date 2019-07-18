@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: f09a186ee5626718c7b5e1085dd75d8857e44bb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705165"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671896"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구를 설치 및 테스트하는 방법을 알아봅니다.
 
-다음 방법에 대해 알아봅니다.
+여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > - Recovery Services 자격 증명 모음을 만듭니다.
@@ -39,9 +39,9 @@ ms.locfileid: "64705165"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전 주의 사항:
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](azure-to-azure-support-matrix.md)을 검토합니다.
 - Azure PowerShell을 사용할 `Az` 모듈입니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>자격 증명 모음 컨텍스트 설정
 
-> [!TIP]
-> 대부분의 cmdlet에 대 한 편리한 별칭을 사용 하 여 Azure Site Recovery PowerShell 모듈 (Az.RecoveryServices 모듈)에 제공 됩니다. 모듈의 cmdlet 형태가  *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 형식의 별칭이 고  *\< 작업 >-**ASR**\<개체 >* 합니다. 이 문서에서는 읽기 쉽도록 cmdlet 별칭을 사용합니다.
 
-PowerShell 세션에 사용할 자격 증명 모음 컨텍스트를 설정합니다. 이를 수행하려면 자격 증명 모음 설정 파일을 다운로드하고 다운로드한 파일을 PowerShell 세션으로 가져와서 자격 증명 모음 컨텍스트를 설정합니다.
-
-설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
+PowerShell 세션에 사용할 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -160,6 +153,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+Azure로의 마이그레이션을, 새로 만든 자격 증명 모음 자격 증명 모음 컨텍스트를 설정할 수 있습니다. 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Azure Virtual Machines 복제를 시작하려면 자격 증명 모음을 준비합니다.
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>기본(원본) 지역을 나타내는 Site Recovery 패브릭 개체 만들기
@@ -412,7 +415,7 @@ $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccoun
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
@@ -607,6 +610,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 다시 보호가 완료 되 면 역방향 (미국 동부에 미국 서 부) 및 원본 지역으로 장애 복구에서 장애 조치를 시작할 수 있습니다.
+
+## <a name="disable-replication"></a>복제 사용 안 함
+
+제거-ASRReplicationProtectedItem cmdlet을 사용 하 여 복제를 해제할 수 있습니다.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>다음 단계
 보기는 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/az.RecoveryServices) 하려면 복구 계획 만들기 및 PowerShell 통해 복구 계획의 장애 조치 테스트 등의 다른 작업을 수행 하는 방법을 알아봅니다.

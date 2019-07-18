@@ -10,10 +10,10 @@ ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60871283"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
@@ -45,7 +45,7 @@ Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 
 
 3. 서비스 계정에 권한을 부여합니다. 
    
-    SQL Server 서비스 계정에 SSL 인증서의 개인 키에 대한 적절한 권한이 부여되었는지 확인합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils**를 사용할 수 있습니다.
+    SQL Server 서비스 계정에 SSL 인증서의 프라이빗 키에 대한 적절한 권한이 부여되었는지 확인합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils**를 사용할 수 있습니다.
     
 4. SQL Server 서비스를 다시 시작합니다.
 

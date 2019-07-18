@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: f9314355d3dce8d96b794cdb81ab9c3d77faab45
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65233846"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight는 Apache HBase에 대 한 쓰기를 가속
 

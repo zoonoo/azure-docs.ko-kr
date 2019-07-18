@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627043"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
@@ -131,7 +131,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 
 
-#### <a name="update-compromised-intermediate-certificates"></a>손상된 중간 인증서 업데이트 
+#### <a name="update-compromised-intermediate-certificates"></a>손상된 중간 인증서 업데이트
 
 1. **등록 그룹**을 클릭한 다음, 목록에서 그룹 이름을 클릭합니다. 
 
@@ -157,7 +157,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 나중에 보조 인증서도 만료 시점이 가까워져 배포가 필요한 경우 기본 구성을 사용하도록 전환할 수 있습니다. 기본 및 보조 인증서를 이런 식으로 회전하면 프로비전을 수행하는 디바이스에서 가동 중지 시간이 없게 됩니다. 
 
-#### <a name="update-expiring-root-ca-certificates"></a>만료 루트 CA 인증서 업데이트 
+#### <a name="update-expiring-root-ca-certificates"></a>만료 루트 CA 인증서 업데이트
 
 1. [확인된 CA 인증서 구성](how-to-verify-certificates.md)에서 설명한 단계에 따라 새 루트 CA 인증서를 추가 및 확인합니다.
 

@@ -4,17 +4,17 @@ description: Azure Automation의 자격 증명 자산은 runbook 또는 DSC 구�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44bc49d10c492822c1b5d30ad5794ac2522cb918
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499464"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478147"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
 
@@ -112,7 +112,7 @@ $password = $myCredential.GetNetworkCredential().Password
 사용 하 여 Azure에 인증 자격 증명을 사용할 수도 있습니다 [Connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount)합니다. 대부분의 상황을 사용할지는 [실행 계정](../manage-runas-account.md) 검색 하 고 [Get-automationconnection](../automation-connections.md)합니다.
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password

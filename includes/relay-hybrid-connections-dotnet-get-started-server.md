@@ -9,11 +9,11 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749733"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182438"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 

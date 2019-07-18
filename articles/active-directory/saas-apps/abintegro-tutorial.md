@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0319cef9048d3013325285b0b8ca3d4c8de5e841
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6300734964881eeb5427ef63436fa117c99038b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>자습서: Abintegro와 Azure Active Directory 통합
 

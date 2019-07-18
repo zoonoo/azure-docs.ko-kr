@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864816"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949562"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -72,7 +72,7 @@ Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱�
 
 
 1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az-appservice-plan-create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
-2. 웹앱을 만듭니다. [Azure Portal](/azure/app-service-web/web-sites-configure) 또는 다음 `az` Azure CLI 명령을 사용할 수 있습니다.
+2. 웹앱을 만듭니다. [Azure Portal](/azure/app-service/configure-common) 또는 다음 `az` Azure CLI 명령을 사용할 수 있습니다.
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
@@ -135,7 +135,7 @@ Linux의 Web Apps는 Docker를 사용하여 배포를 지원합니다. Docker를
 
 Linux에서 Web Apps는 Git 및 파일 업로드와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 애플리케이션 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
 
-Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 개인 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용하여 컨테이너 레지스트리를 만들 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
+Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 프라이빗 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용하여 컨테이너 레지스트리를 만들 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
 
 * [Linux에서 웹앱을 만듭니다](../app-service/containers/quickstart-nodejs.md).
 * Azure Container Registry는 오픈 소스 Docker Registry 버전 2.0에 기반하여 관리되는 [Docker Registry](https://docs.docker.com/registry/) 서비스입니다. [Azure Container Registry를 만듭니다](/azure/container-registry/container-registry-get-started-azure-cli). DockerHub를 사용할 수도 있습니다.

@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457384"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(사용되지 않음) Azure Container Service 애플리케이션에 공용 액세스를 사용하도록 설정
@@ -74,14 +74,14 @@ ACS [공용 에이전트 풀](container-service-mesos-marathon-ui.md#deploy-a-do
    | --- | --- |
    | 이름 |방화벽 규칙에 대한 설명이 포함된 이름입니다. |
    | 우선 순위 |규칙에 대한 우선순위입니다. 번호가 낮을수록 우선순위가 높습니다. |
-   | 원본 |이 규칙에 의해 허용 또는 거부될 IP 주소 범위를 제한합니다. 제한을 지정하지 않으려면 **모두** 를 사용합니다. |
+   | source |이 규칙에 의해 허용 또는 거부될 IP 주소 범위를 제한합니다. 제한을 지정하지 않으려면 **모두** 를 사용합니다. |
    | 부여 |이 보안 규칙을 위한 미리 정의된 서비스 집합을 선택합니다. 그렇지 않으면 **사용자 지정** 을 사용하여 직접 작성합니다. |
    | 프로토콜 |**TCP** 또는 **UDP**에 따라 트래픽을 제한합니다. 제한을 지정하지 않으려면 **모두** 를 사용합니다. |
    | 포트 범위 |**서비스**가 **사용자 지정**인 경우 이 규칙의 영향을 받는 포트 범위를 지정합니다. **80**과 같은 단일 포트 또는 **1024-1500**과 같은 범위를 사용할 수 있습니다. |
    | 액션(Action) |조건과 일치하는 트래픽을 허용 또는 거부합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[공용 및 개인 DC/OS 에이전트](container-service-dcos-agents.md)의 차이점에 대해 알아보세요.
+[공용 및 프라이빗 DC/OS 에이전트](container-service-dcos-agents.md)의 차이점에 대해 알아보세요.
 
 [DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.
 

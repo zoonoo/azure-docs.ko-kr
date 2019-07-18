@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Spatial Anchors를 사용하여 Android Unity 앱 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 Android 앱을 빌드하는 방법을 알아봅니다.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 642abfb99b40d67802b7194ad225ebcd2872a72b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994942"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135074"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android Unity 앱 만들기
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
-이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 Android Unity 앱을 만드는 방법을 다룹니다. Azure Spatial Anchors는 시간이 지남에 따라 디바이스에서 위치를 유지하는 객체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 ARCore Android 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
+이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 Unity Android 앱을 만드는 방법을 다룹니다. Azure Spatial Anchors는 시간이 지남에 따라 디바이스에서 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 ARCore Android 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
 
 이 문서에서 배울 내용은 다음과 같습니다.
 
@@ -43,9 +43,11 @@ ms.locfileid: "59994942"
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Unity에서 샘플 프로젝트 열기
+## <a name="download-and-open-the-unity-sample-project"></a>Unity 샘플 프로젝트 다운로드 및 열기
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 

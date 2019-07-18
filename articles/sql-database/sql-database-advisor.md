@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417586"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
@@ -79,7 +79,7 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 | SQL 오류 코드 | Message |
 | --- | --- |
-| 201 |프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다. |
+| 201 |프로시저 또는 함수 ' *'에서 매개 변수 '* '이(가) 필요하지만 제공되지 않았습니다. |
 | 207 |잘못된 열 이름: '*'. |
 | 208 |잘못된 개체 이름: '*'. |
 | 213 |제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |

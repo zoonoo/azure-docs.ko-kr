@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236938"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
@@ -56,10 +56,10 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | ParameterXml |XML 형식의 이벤트 매개 변수 값입니다. |
 | ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  이 값은 다른 에이전트 `AOI-<workspace ID>` |
 | RenderedDescription |매개 변수 값을 포함하는 이벤트 설명입니다. |
-| 원본 |이벤트의 원본입니다. |
+| source |이벤트의 원본입니다. |
 | SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Windows에서 이벤트가 만들어진 날짜 및 시간입니다. |
-| 사용자 이름 |이벤트를 로깅한 계정의 사용자 이름입니다. |
+| UserName |이벤트를 로깅한 계정의 사용자 이름입니다. |
 
 ## <a name="log-queries-with-windows-events"></a>Windows 이벤트로 로그 쿼리
 다음 표에서는 Windows 이벤트 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.

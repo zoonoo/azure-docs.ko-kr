@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680402"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342132"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -78,7 +78,7 @@ Azure 구독 또는 Cosmos DB 체험 계정:
 
 1. Visual Studio 2017에서 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
    
-1. **새 프로젝트** 대화 상자에서 **Visual C#** > **콘솔 앱(.NET Framework)** 을 차례로 선택하고, 프로젝트 이름을 *AzureCosmosDBApp*으로 지정한 다음, **확인**을 선택합니다.
+1. **새 프로젝트** 대화 상자에서 **Visual C#**  > **콘솔 앱(.NET Framework)** 을 차례로 선택하고, 프로젝트 이름을 *AzureCosmosDBApp*으로 지정한 다음, **확인**을 선택합니다.
    
    ![새 프로젝트 창의 스크린샷](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -130,11 +130,11 @@ Azure 구독 또는 Cosmos DB 체험 계정:
       
       ![Azure Portal에서 액세스 키 보기 및 복사](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하여 *Program.cs*의 `<your endpoint URL>`에 붙여넣습니다. 예:  
+   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하여 *Program.cs*의 `<your endpoint URL>`에 붙여넣습니다. 예: 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
-   1. **기본 키** 값을 복사하여 *Program.cs*의 `<your primary key>`에 붙여넣습니다. 예:  
+   1. **기본 키** 값을 복사하여 *Program.cs*의 `<your primary key>`에 붙여넣습니다. 예: 
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
@@ -145,6 +145,20 @@ Azure 구독 또는 Cosmos DB 체험 계정:
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   프록시 개체를 사용하여 Azure Cosmos DB에 연결하는 경우 대신, 다음 코드 블록을 사용하여 DocumentClient 개체를 만들어야 합니다. 이 문서의 샘플은 프록시 개체를 사용하지 않으므로 아래 예제에는 단순히 참조용입니다.
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. 다음 코드를 `Main` 메서드에 추가하여 `GetStartedDemo` 작업을 실행합니다. `Main` 메서드에서 예외를 catch하여 콘솔에 씁니다.
@@ -436,7 +450,7 @@ Azure Cosmos DB는 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼�
 
 ![NoSQL에서 C# 콘솔 애플리케이션을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-Azure Cosmos DB 쿼리의 범위가 이미 단일 컬렉션으로 지정되었으므로 SQL 쿼리의 [FROM](how-to-sql-query.md#FromClause) 키워드는 선택 사항입니다. `FROM Families f`를 `FROM root r` 또는 선택한 다른 변수 이름과 바꿀 수 있습니다. Azure Cosmos DB는 선택한 `Families`, `root` 또는 변수 이름에서 현재 컬렉션을 참조한다고 유추합니다.
+Azure Cosmos DB 쿼리의 범위가 이미 단일 컬렉션으로 지정되었으므로 SQL 쿼리의 [FROM](sql-query-from.md) 키워드는 선택 사항입니다. `FROM Families f`를 `FROM root r` 또는 선택한 다른 변수 이름과 바꿀 수 있습니다. Azure Cosmos DB는 선택한 `Families`, `root` 또는 변수 이름에서 현재 컬렉션을 참조한다고 유추합니다.
 
 ## <a id="ReplaceDocument"></a>JSON 문서 업데이트
 

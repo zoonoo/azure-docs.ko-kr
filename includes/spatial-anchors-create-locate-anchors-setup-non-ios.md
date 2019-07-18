@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: defdb89f2a9cf3ec270b0f728f90ba07b83d707b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235460"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181907"
 ---
 ## <a name="set-up-the-session"></a>세션 설정
 

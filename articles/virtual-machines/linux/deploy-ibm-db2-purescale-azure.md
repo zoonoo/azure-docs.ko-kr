@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716050"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
@@ -35,7 +35,7 @@ ms.locfileid: "60716050"
 이 리포지토리에는 Grafana 대시보드 설정용 스크립트도 있습니다. 대시보드를 사용하면 DB2에 포함된 오픈 소스 모니터링 및 경고 시스템인 Prometheus를 쿼리할 수 있습니다.
 
 > [!NOTE]
-> 클라이언트의 deploy.sh 스크립트는 비공개 SSH 키를 만들고 HTTPS를 통해 배포 템플릿에 전달합니다. 보안을 강화하기 위해 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 사용하여 비밀, 키 및 암호를 저장하는 것이 좋습니다.
+> 클라이언트의 deploy.sh 스크립트는 프라이빗 SSH 키를 만들고 HTTPS를 통해 배포 템플릿에 전달합니다. 보안을 강화하기 위해 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 사용하여 비밀, 키 및 암호를 저장하는 것이 좋습니다.
 
 ## <a name="how-the-deployment-script-works"></a>배포 스크립트 작동 방법
 

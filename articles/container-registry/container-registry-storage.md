@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827275"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 저장소
@@ -34,7 +34,7 @@ Azure는 지역 중복 저장소 체계를 사용하여 컨테이너 이미지�
 
 다음 표에서는 Azure Container Registry에 적용되는 컨테이너 이미지 및 저장소 제한에 대해 설명합니다.
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 | -------- | :---- |
 | 리포지토리 | 제한 없음 |
 | 이미지 | 제한 없음 |

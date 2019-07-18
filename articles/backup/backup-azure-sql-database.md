@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847291"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443020"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -51,14 +51,26 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 **지원되는 SQL Server 버전** | SQL Server 2017, SQL Server 2016, SQL Server 2014, SQL Server 2012<br/><br/> Enterprise, Standard, Web, Developer, Express
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
 
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>SQL Server 2008 및 SQL Server 2008 R2에 대한 지원
+
+Azure Backup은 최근에 [EOS SQL Sever](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support)(SQL Server 2008 및 SQL Server 2008 R2)에 대한 지원을 발표했습니다. 이 솔루션은 현재 EOS SQL Server용 미리 보기 상태이며 다음과 같은 구성을 지원합니다.
+
+1. Windows 2008 R2 SP1에서 실행되는 SQL Server 2008 및 SQL Server 2008 R2
+2. .NET Framework 4.5.2 이상을 VM에 설치해야 합니다.
+3. FCI 및 미러된 데이터베이스 백업은 지원되지 않습니다.
+
+일반 공급될 때까지는 사용자에게 이 기능에 대한 요금이 부과되지 않습니다. 이 버전에도 다른 모든 [기능 고려 사항 및 제한 사항](#feature-consideration-and-limitations)은 적용됩니다. [레지스트리 키](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) 설정이 포함된 SQL Server 2008 및 2008 R2에서 보호를 구성하기 전에 [필수 조건](backup-sql-server-database-azure-vms.md#prerequisites)을 참조하세요. (이 기능이 일반 공급되면 이 단계는 필요하지 않습니다.)
+
+
 ## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
 
 - SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
+- 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)에서 모두 지원됩니다.
 - SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
 - SQL Server **장애 조치(failover) 클러스터 인스턴스(FCI)** 및 SQL Server AlwaysOn 장애 조치(failover) 클러스터 인스턴스는 지원되지 않습니다.
-- 미러 데이터베이스와 데이터베이스 스냅숏에 대한 백업 및 복원 작업은 지원되지 않습니다.
+- 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 - 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
-- 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다. Azure Backup은 자격 증명 모음과 동일한 지역에 있는 모든 노드를 검색 및 보호할 수 있습니다. SQL Server Always On 가용성 그룹이 여러 Azure 지역에 걸쳐 있는 경우 주 노드가 있는 Azure 지역에서 백업을 설정합니다. 그러면 Azure Backup이 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 검색하고 보호할 수 있습니다.  
+- 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
 - Azure Backup은 **읽기 전용** 데이터베이스에 전체 백업 및 복사 전용 전체 백업만 지원합니다.
 - 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
 - 하나의 자격 증명 모음에 최대 **2,000**개의 SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
@@ -67,7 +79,13 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 - 서버당 보호할 수 있는 데이터베이스 수를 알 수 있도록 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해야 합니다. 이러한 수치를 직접 계산할 수 있도록 플래너를 개발하는 중이며, 조만간 게시할 예정입니다.
 - 가용성 그룹의 경우 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
+
+백업이 AG의 한 노드에서 구성되어 있는 것이 좋습니다. 백업은 항상 주 노드와 동일한 지역에서 구성되어야 합니다. 즉, 백업을 구성하는 지역에 항상 주 노드가 있어야 합니다. AG의 모든 노드가 백업이 구성되어 있는 곳과 동일한 지역에 있는 경우 문제가 없습니다.
+
+**지역 간 AG**
+- 백업 기본 설정에 관계 없이 백업이 구성되어 있는 곳과 동일한 지역에 있지 않은 노드에서는 백업이 일어나지 않습니다. 따라서 지역 간 백업은 지원되지 않습니다. 노드가 2개뿐이고 보조 노드가 다른 지역에 있는 경우, 백업은 계속 주 노드에서 발생합니다(백업 기본 설정이 ‘보조만’이 아닌 경우에 한 해).
+- 백업이 구성되어 있는 곳과 다른 지역으로 장애 조치(failover)가 발생하는 경우 장애 조치 지역의 노드에서 백업이 실패합니다.
 
 백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
 
@@ -107,9 +125,19 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 로그 |  주
 복사 전용 전체 |  주
 
-## <a name="fix-sql-sysadmin-permissions"></a>SQL sysadmin 권한 수정
+## <a name="set-vm-permissions"></a>VM 권한 설정
 
-  **UserErrorSQLNoSysadminMembership** 오류로 인해 권한을 수정해야 하는 경우 다음을 수행합니다.
+  SQL Server에서 검색을 실행하면 Azure Backup은 다음을 수행합니다.
+
+* AzureBackupWindowsWorkload 확장을 추가합니다.
+* 가상 머신에서 에서 데이터베이스를 검색하기 위해 NT SERVICE\AzureWLBackupPluginSvc 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다.
+* VM에서 실행 중인 데이터베이스를 검색하고 Azure Backup은 NT AUTHORITY\SYSTEM 계정을 사용합니다. 이 계정은 SQL에서 공용 로그인이어야 합니다.
+
+Azure Marketplace에서 SQL Server VM을 만들지 않았거나 SQL 2008 및 2008 R2를 사용 중인 경우, **UserErrorSQLNoSysadminMembership** 오류가 발생할 수 있습니다.
+
+Windows 2008 R2에서 실행되는 **SQL 2008** 및 **2008 R2**의 경우 권한을 부여하려면 [여기](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)를 참조하세요.
+
+다른 모든 버전의 경우 다음 단계에 따라 권한을 수정합니다.
 
   1. SQL Server sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
   2. SQL Server에서 **Security/Logins** 폴더를 엽니다.
@@ -136,9 +164,75 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
       ![배포 성공 메시지](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
+> [!NOTE]
+> SQL Server에 여러 개의 SQL Server 인스턴스가 설치되어 있는 경우 **NT Service\AzureWLBackupPluginSvc** 계정에 대한 sysadmin 권한을 모든 SQL 인스턴스에 추가해야 합니다.
+
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>SQL 2008 및 SQL 2008 R2에 대한 SQL sysadmin 권한 부여
+
+SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBackupPluginSvc** 로그인을 추가합니다.
+
+1. 개체 탐색기에서 SQL Server 인스턴스로 이동합니다.
+2. 보안 -> 로그인으로 이동합니다.
+3. 로그인을 마우스 오른쪽 단추로 클릭하고 *새 로그인…* 을 클릭합니다.
+
+    ![SSMS를 사용한 새 로그인](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. 일반 탭으로 이동하여 로그인 이름에 **NT AUTHORITY\SYSTEM**을 입력합니다.
+
+    ![SSMS의 로그인 이름](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. *서버 역할*로 이동하여 *public* 및 *sysadmin* 역할을 선택합니다.
+
+    ![SSMS에서 역할 선택](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. *상태*로 이동합니다. 데이터베이스 엔진 연결 권한을 허용(*Grant*)하고 로그인을 사용(*Enabled*)으로 설정합니다.
+
+    ![SSMS에서 권한 부여](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. 확인을 클릭합니다.
+8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
+9. 권한을 부여한 후 포털에서 **DB를 다시 검색**합니다. 자격 증명 모음 **->** 백업 인프라 **->** Azure VM의 워크로드:
+
+    ![Azure Portal에서 DB 다시 검색](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+또는 관리 모드에서 다음 PowerShell 명령을 실행하여 권한 부여를 자동화할 수 있습니다. 인스턴스 이름은 MSSQLSERVER로 기본 설정됩니다. 필요한 경우 스크립트에서 인스턴스 이름 인수를 변경합니다.
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)]
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Server 데이터베이스 백업에 대해 [자세히 알아봅니다](backup-sql-server-database-azure-vms.md).
-- 백업된 SQL Server 데이터베이스를 복원하는 방법을 [알아봅니다](restore-sql-database-azure-vm.md).
-- 백업된 SQL Server 데이터베이스를 관리하는 방법을 [알아봅니다](manage-monitor-sql-database-backup.md).
+* SQL Server 데이터베이스 백업에 대해 [자세히 알아봅니다](backup-sql-server-database-azure-vms.md).
+* 백업된 SQL Server 데이터베이스를 복원하는 방법을 [알아봅니다](restore-sql-database-azure-vm.md).
+* 백업된 SQL Server 데이터베이스를 관리하는 방법을 [알아봅니다](manage-monitor-sql-database-backup.md).

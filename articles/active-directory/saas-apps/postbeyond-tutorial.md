@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a2bfcdcef00889d12fb30cb6f16bf74e6ab2cbd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fb6c32870d7a0ef07a6616d5669325538e64b14c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>자습서: PostBeyond와 Azure Active Directory 통합
 

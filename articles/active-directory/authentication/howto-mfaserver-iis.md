@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b7f76211fe810ce1db53e5afaa307d90317464a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057398"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS 웹앱용 Azure Multi-Factor Authentication 서버 구성
 
 Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하여 Microsoft IIS 웹 애플리케이션과의 통합을 위한 IIS 인증을 사용하도록 설정하고 구성할 수 있습니다. Azure MFA 서버는 Azure Multi-Factor Authentication을 추가하기 위해 IIS 웹 서버에 요청하는 사항을 필터링할 수 있는 플러그인을 설치합니다. IIS 플러그인은 양식 기반 인증 및 통합 Windows HTTP 인증을 지원합니다. 신뢰할 수 있는 IP는 2단계 인증에서 내부 IP 주소를 제외하도록 구성할 수도 있습니다.
+
+> [!IMPORTANT]
+> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
 
 ![MFA 서버에서 IIS 인증](./media/howto-mfaserver-iis/iis.png)
 
@@ -76,4 +79,4 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.
 2. **추가**를 클릭합니다.
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
-4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인**을 클릭합니다. 이제 허용 목록이 추가되었습니다.
+4. IP 주소, IP 주소 범위 또는 허용 되어야 하는 서브넷을 입력 합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인**을 클릭합니다.

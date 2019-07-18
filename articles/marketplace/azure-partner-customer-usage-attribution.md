@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807188"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -20,7 +20,7 @@ Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하
 
 Microsoft는 이제 파트너가 Azure에 자사 소프트웨어를 배포한 고객의 Azure 사용량을 더 효율적으로 추적할 수 있는 유용한 방법을 제공합니다. 이 새 방법에서는 Azure Resource Manager를 사용하여 Azure 서비스의 배포를 오케스트레이션합니다.
 
-Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 개인 GitHub 리포지토리 및 일대일 고객 참여를 통해 연결을 구성할 수 있습니다. 고객 사용량 attribution 세 가지 배포 옵션을 지원합니다.
+Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지토리 및 일 대 일 고객 참여를 통해 연결을 구성할 수 있습니다. 고객 사용량 attribution 세 가지 배포 옵션을 지원합니다.
 
 - Azure Resource Manager 템플릿: 파트너는 파트너의 소프트웨어 실행을 위해 Azure 서비스를 배포 하려면 Resource Manager 템플릿을 사용 수 있습니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다.
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다.
@@ -208,7 +208,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CP
 
 템플릿이 수정되고 테스트 배포가 실행되면 다음 PowerShell 스크립트를 사용하여 배포하고 태그를 지정한 리소스를 검색합니다.
 
-이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. Resource Manager API 배포에는 이 스크립트가 적용되지 않습니다.
+이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. 스크립트는 리소스 관리자 API 또는 Terraform 배포에 적용 되지 않습니다.
 
 Azure에 로그인합니다. 스크립트를 실행하기 전에 확인하려는 배포가 있는 구독을 선택합니다. 배포의 구독 컨텍스트 내에서 스크립트를 실행합니다.
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>보고서
 
-파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 표시 하려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서를 사용 하 여 문제가 발생 하거나 로그인 하는 경우에 Get 지원 섹션의 지침에 따라 지원 요청을 만듭니다.
 
 보고서를 보려는 파트너 연결 유형 드롭다운 목록에서 추적 템플릿을 선택 합니다.
 
@@ -259,15 +259,21 @@ foreach ($deployment in $deployments){
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 템플릿 배포에 대한 알림
 
-이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
+이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 또는 API 배포 알림
 
-\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
+\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 
-Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필요한 경우 다음이 단계를 수행 합니다.
+문제를 경험한에 따라 지원 채널을 두 가지가 있습니다.
+
+파트너 센터 고객 사용량 attribution 보고서를 표시 하 여 로그인 등의 문제가 발생 하는 경우 여기에 파트너 센터 지원 팀을 사용 하 여 지원 요청을 만듭니다. [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
+고객 사용량 특성을 설정 하는 방법과 같은 Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 지원이 일반적으로 필요한 경우 아래 단계를 수행 합니다.
 
 1. [지원 페이지](https://go.microsoft.com/fwlink/?linkid=844975)로 이동합니다.
 
@@ -282,7 +288,7 @@ Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필
 
 1. **요청 시작**을 선택합니다.
 
-1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
+1. 다음 페이지에서 필요한 값을 입력합니다. 선택 **계속**합니다.
 
 1. 다음 페이지에서 필요한 값을 입력합니다.
 

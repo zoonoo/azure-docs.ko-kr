@@ -4,7 +4,7 @@ description: SAP HANA on Azure (큰 인스턴스)에 대 한 재해 복구 사�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.openlocfilehash: 6454c82e3d9c73d1b5a4b2224abf1ab63a798355
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987882"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709638"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -56,16 +56,16 @@ ms.locfileid: "64987882"
       `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
 
       출력에는 **hdbdaemon** 프로세스가 중지된 상태로 표시되고, 실행 중이거나 시작된 상태의 다른 HANA 프로세스는 표시되지 않습니다.
-1. 재해 복구 사이트를 복원하려는 스냅숏 이름 또는 SAP HANA 백업 ID를 결정합니다. 실제 재해 복구의 경우 이 스냅숏이 일반적으로 최신 스냅숏입니다. 손실된 데이터를 복구해야 하는 경우 이전 스냅숏을 선택하십시오.
+1. 재해 복구 사이트를 복원하려는 스냅샷 이름 또는 SAP HANA 백업 ID를 결정합니다. 실제 재해 복구의 경우 이 스냅샷이 일반적으로 최신 스냅샷입니다. 손실된 데이터를 복구해야 하는 경우 이전 스냅샷을 선택하십시오.
 1. 우선 순위가 높은 지원 요청을 통해 Azure 지원에 문의합니다. 스냅숏 또는 DR 사이트에서 HANA 백업 ID의 날짜 및 이름 사용 하 여 해당 스냅숏의 복원에 대 한 요청 합니다. 기본값은 작업 쪽에서 /hana/data 볼륨만 복원하는 것입니다. Hana/logbackups 볼륨 너무 하도록 하려는 경우에 구체적으로 명시 해야 합니다. */hana/shared 볼륨을 복원하지 마십시오.* 대신 global.ini 특정 파일을 선택 합니다 **.snapshot** PRD 용 /hana/shared 볼륨 디렉터리 및 하위 디렉터리를 다시 탑재/hana/후 합니다. 
 
    작업 쪽에서 다음 단계가 수행됩니다.
 
-   a. 프로덕션 볼륨에서 재해 복구 볼륨으로의 스냅숏 복제는 중지됩니다. 프로덕션 사이트의 중단으로 인해 재해 복구 절차를 수행해야 하는 경우 이러한 중단이 이미 발생했을 수 있습니다.
+   a. 프로덕션 볼륨에서 재해 복구 볼륨으로의 스냅샷 복제는 중지됩니다. 프로덕션 사이트의 중단으로 인해 재해 복구 절차를 수행해야 하는 경우 이러한 중단이 이미 발생했을 수 있습니다.
    
-   b. 선택한 백업 ID에 해당하는 스냅숏 또는 저장소 스냅숏 이름이 재해 복구 볼륨에 복원됩니다.
+   b. 선택한 백업 ID에 해당하는 스냅샷 또는 저장소 스냅샷 이름이 재해 복구 볼륨에 복원됩니다.
    
-   다. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
+   c. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
       
 1. 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재하십시오. 
 1. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
@@ -105,7 +105,7 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 
 실행 했습니다 SAP 프로덕션 워크 로드 동안 재해 복구 사이트에서. 프로덕션 사이트의 문제가 해결되면 프로덕션 사이트로 장애 복구(Failback)하려고 할 수 있습니다. 데이터가 손실되도록 할 수는 없으므로 프로덕션 사이트로 돌아가는 단계는 Azure 운영 팀의 SAP HANA와의 몇 가지 단계 및 긴밀한 협조가 필요합니다. 문제가 해결되었을 때 운영 팀이 프로덕션 사이트로 다시 동기화를 시작하도록 트리거하는 것은 사용자의 몫입니다.
 
-다음 단계를 수행하세요.
+다음 단계를 수행하십시오.
 
 1. Azure 운영 팀의 SAP HANA는 프로덕션 상태를 나타내는 재해 복구 저장소 볼륨에서 프로덕션 저장소 볼륨을 동기화하는 트리거를 가져옵니다. 이 상태에서 프로덕션 사이트에 있는 HANA 큰 인스턴스 단위가 종료됩니다.
 1. Azure 운영 팀의 SAP HANA는 복제를 모니터링 하 고 알리는 이러한 전에 포착은 확인 합니다.

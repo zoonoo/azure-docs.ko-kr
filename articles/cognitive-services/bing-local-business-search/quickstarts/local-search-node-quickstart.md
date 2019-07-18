@@ -3,18 +3,18 @@ title: 빠른 시작 - Node.js를 사용하여 Bing Local Business Search API에
 titleSuffix: Azure Cognitive Services
 description: Node.js에서 Bing Local Business Search API를 시작합니다.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: d649926a60d115c66a2763cef6b02b4aedbb962c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 07b238f900a7f0ba15ad7b37ba7e194567fa0f6a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761313"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592716"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Local Business Search API에 쿼리 보내기
 

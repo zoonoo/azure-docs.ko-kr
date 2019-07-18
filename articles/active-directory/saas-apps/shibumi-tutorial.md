@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 445e24732edc1bc7e4d1cfe3ff49a54115c7ea3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dc8c06d5c38092ee74367b40415f1fc2bb616633
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>자습서: Shibumi와 Azure Active Directory 통합
 

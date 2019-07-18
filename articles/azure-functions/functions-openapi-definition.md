@@ -1,98 +1,106 @@
 ---
-title: 함수에 대한 OpenAPI 정의 만들기 | Microsoft Docs
+title: Azure API Management를 사용하여 함수에 대한 OpenAPI 정의 만들기
 description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
 services: functions
 keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993170"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510464"
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
+# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Azure API Management를 사용하여 함수에 대한 OpenAPI 정의 만들기
 
-REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](https://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
+REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
 
-이 자습서에서는 풍차의 응급 복구가 비용 효율적인지 여부를 결정하는 함수를 만듭니다. 그런 다음 해당 함수가 다른 앱 및 서비스에서 호출될 수 있도록 함수 앱에 대한 OpenAPI 정의를 만듭니다.
+이 자습서에서는 풍차의 응급 복구가 비용 효율적인지 여부를 결정하는 함수를 만듭니다. 그런 다음, 해당 함수가 다른 앱 및 서비스에서 호출될 수 있도록 [Azure API Management](../api-management/api-management-key-concepts.md)를 사용하여 함수 앱에 대한 OpenAPI 정의를 만듭니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 함수 만들기
-> * OpenAPI 도구를 사용하여 OpenAPI 정의 생성
-> * 정의를 수정하여 추가 메타데이터 제공
+> * Azure API Management를 사용하여 OpenAPI 정의 생성
 > * 함수를 호출하여 정의 테스트
-
-> [!IMPORTANT]
-> OpenAPI 기능은 현재 미리 보기 상태이며 Azure Functions 런타임 1.x 버전에만 사용할 수 있습니다.
+> * OpenAPI 정의 다운로드
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 더 쉽게 리소스를 관리, 배포, 크기 조정 및 공유할 수 있습니다.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="set-the-functions-runtime-version"></a>Functions 런타임 버전 설정
-
-기본적으로 사용자가 만든 함수 앱은 런타임 2.x 버전을 사용합니다. 함수를 만들기 전에 런타임 버전을 1.x로 다시 설정해야 합니다.
-
-[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
-
 ## <a name="create-the-function"></a>함수 만들기
 
-이 자습서에서는 두 개의 매개 변수, 즉 터빈 복구 예상 시간(시)과 터빈 용량(킬로와트)을 사용하는 HTTP 트리거 함수를 사용합니다. 그런 후 이 함수는 복구 비용과 터빈이 24시간 후에 가져올 수 있는 수익을 계산합니다.
+이 자습서에서는 다음과 같은 두 개의 매개 변수를 사용하는 HTTP 트리거 함수를 사용합니다.
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 선택합니다. 함수 앱에서 첫 번째 함수이면 **사용자 지정 함수**를 선택합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다. 
+* 터빈 복구 예상 시간(시간)
+* 터빈 용량(킬로와트) 
 
-    ![Azure Portal에서 함수 빨리 시작하기 페이지](media/functions-openapi-definition/add-first-function.png)
+그런 후 이 함수는 복구 비용과 터빈이 24시간 후에 가져올 수 있는 수익을 계산합니다. [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수를 만들려면 다음을 수행합니다.
 
-1. 검색 필드에 `http`를 입력한 다음, HTTP 트리거 템플릿에 대해 **C#** 을 선택합니다. 
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 선택합니다. **포털 내** > **계속**을 선택합니다.
 
-    ![HTTP 트리거 선택](./media/functions-openapi-definition/select-http-trigger-portal.png)
+1. **추가 템플릿...** 을 선택한 다음, **템플릿 마침 및 보기**를 선택합니다.
 
-1. 함수 **이름**에 `TurbineRepair`를 입력하고 **[인증 수준](functions-bindings-http-webhook.md#http-auth)** 에 대해 `Function`을 선택한 후 **만들기**를 선택합니다.  
+1. HTTP 트리거를 선택하고, 함수 **이름**에 `TurbineRepair`를 입력하고, **[인증 수준](functions-bindings-http-webhook.md#http-auth)** 에 대해 `Function`을 선택한 다음, **만들기**를 선택합니다.  
 
-    ![HTTP 트리거 함수 만들기](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![OpenAPI에 대한 HTTP 함수 만들기](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. run.csx 파일 내용을 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
+1. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
 
     ```csharp
+    #r "Newtonsoft.Json"
+    
     using System.Net;
-
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
     const double revenuePerkW = 0.12;
     const double technicianCost = 250;
     const double turbineCost = 100;
-
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
-        int hours = data.hours;
-        int capacity = data.capacity;
-
-        //Formulas to calculate revenue and cost
-        double revenueOpportunity = capacity * revenuePerkW * 24;  
-        double costToFix = (hours * technicianCost) +  turbineCost;
+        // Get query strings if they exist
+        int tempVal;
+        int? hours = Int32.TryParse(req.Query["hours"], out tempVal) ? tempVal : (int?)null;
+        int? capacity = Int32.TryParse(req.Query["capacity"], out tempVal) ? tempVal : (int?)null;
+    
+        // Get request body
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+    
+        // Use request body if a query was not sent
+        capacity = capacity ?? data?.capacity;
+        hours = hours ?? data?.hours;
+    
+        // Return bad request if capacity or hours are not passed in
+        if (capacity == null || hours == null){
+            return new BadRequestObjectResult("Please pass capacity and hours on the query string or in the request body");
+        }
+        // Formulas to calculate revenue and cost
+        double? revenueOpportunity = capacity * revenuePerkW * 24;  
+        double? costToFix = (hours * technicianCost) +  turbineCost;
         string repairTurbine;
-
+    
         if (revenueOpportunity > costToFix){
             repairTurbine = "Yes";
         }
         else {
             repairTurbine = "No";
-        }
-
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        };
+    
+        return (ActionResult)new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix
@@ -100,7 +108,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
     }
     ```
 
-    이 함수 코드는 응급 복구가 비용 효율적인지 여부와 터빈이 나타내는 수익 기회 및 터빈 수리 비용을 나타내기 위해 `Yes` 또는 `No` 메시지를 반환합니다. 
+    이 함수 코드는 응급 복구가 비용 효율적인지 여부와 터빈이 나타내는 수익 기회 및 터빈 수리 비용을 나타내기 위해 `Yes` 또는 `No` 메시지를 반환합니다.
 
 1. 이 함수를 테스트하려면 오른쪽 끝의 **테스트**를 클릭하여 테스트 탭을 확장합니다. **요청 본문**에 다음 값을 입력한 다음 **실행**을 클릭합니다.
 
@@ -119,194 +127,78 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-이제 응급 복구 작업의 비용 효율성을 결정하는 함수가 만들어졌습니다. 다음으로 함수 앱에 대한 OpenAPI 정의를 생성하고 수정합니다.
+이제 응급 복구 작업의 비용 효율성을 결정하는 함수가 만들어졌습니다. 다음으로 함수 앱에 대한 OpenAPI 정의를 생성합니다.
 
 ## <a name="generate-the-openapi-definition"></a>OpenAPI 정의 생성
 
-이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 API Apps, [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](https://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다.
+이제 OpenAPI 정의를 생성할 준비가 되었습니다.
 
-1. API(이 경우 POST)에서 지원하는 *동사*만 선택합니다. 이를 통해 생성된 API 정의가 더 분명해집니다.
+1. 함수 앱을 선택한 다음, **플랫폼 기능**에서 **API Management**를 선택하고, **API Management**에서 **새로 만들기**를 선택합니다.
 
-    1. 새 HTTP 트리거 함수의 **통합** 탭에서 **허용된 HTTP 메서드**를 **선택한 메서드**로 변경합니다.
+    ![플랫폼 기능에서 API Management 선택](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-    1. **선택한 HTTP 메서드**에서 **POST**를 제외한 모든 옵션을 선택 취소하고 **저장**을 클릭합니다.
+1. 이미지 아래의 표에 지정된 API Management 설정을 사용합니다.
 
-        ![선택한 HTTP 메서드](media/functions-openapi-definition/selected-http-methods.png)
+    ![새 API Management 서비스 만들기](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-1. 함수 앱 이름(예: **function-demo-energy**) > **플랫폼 기능** > **API 정의**를 차례로 클릭합니다.
+    | 설정      | 제안 값  | 설명                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Name** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
+    | **구독** | 사용자의 구독 | 이 새 리소스가 만들어지는 구독입니다. |  
+    | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱과 동일한 리소스로, 사용자에 맞게 설정해야 합니다. |
+    | **위치**: | 미국 서부 | 미국 서부 위치를 선택합니다. |
+    | **조직 이름** | Contoso | 개발자 포털 및 이메일 알림에 사용되는 조직의 이름입니다. |
+    | **관리자 전자 메일** | 사용자 이메일 | API Management로부터 시스템 알림을 수신하는 이메일입니다. |
+    | **가격 책정 계층** | 소비(미리 보기) | 소비 계층은 미리 보기로 제공되며 모든 지역에 제공되는 것은 아닙니다. 전체 가격 책정 세부 정보는 [API Management 가격 책정 페이지](https://azure.microsoft.com/pricing/details/api-management/)를 참조하세요. |
 
-    ![API 정의](media/functions-openapi-definition/api-definition.png)
+1. **만들기**를 선택하여 API Management 인스턴스를 만듭니다. 몇 분 정도 소요될 수 있습니다.
 
-1. **API 정의** 탭에서 **함수**를 클릭합니다.
+1. **Application Insights 사용**을 선택하여 함수 애플리케이션과 동일한 위치에 로그를 보낸 다음, 나머지 기본 값을 수락하고 **링크 API**를 선택합니다.
 
-    ![API 정의 원본](media/functions-openapi-definition/api-definition-source.png)
+1. **TurbineRepair** 함수가 강조 표시된 상태로 **Azure Functions 가져오기**가 열립니다. **선택**을 선택하여 계속합니다.
 
-    이 단계에서는 함수 앱의 도메인에서 OpenAPI 파일을 호스팅하는 엔드포인트, [OpenAPI 편집기](https://editor.swagger.io)의 인라인 복사, API 정의 템플릿 생성기를 포함하여 함수 앱의 OpenAPI 옵션을 사용하도록 설정합니다.
+    ![Azure Functions를 API Management로 가져오기](media/functions-openapi-definition/import-function-openapi.png)
 
-1. **API 정의 템플릿 생성** > **저장**을 클릭합니다.
+1. **Function App에서 만들기** 페이지에서 기본값을 수락하고 **만들기**를 선택합니다.
 
-    ![API 정의 템플릿 생성](media/functions-openapi-definition/generate-template.png)
+    ![함수 앱에서 만들기](media/functions-openapi-definition/create-function-openapi.png)
 
-    Azure는 함수 앱에서 HTTP 트리거 함수를 검색하고 functions.json에서 해당 정보를 사용하여 OpenAPI 정의를 생성합니다. 생성되는 정의는 다음과 같습니다.
+API가 함수에 대해 만들어집니다.
 
-    ```yaml
-    swagger: '2.0'
-    info:
-    title: function-demo-energy.azurewebsites.net
-    version: 1.0.0
-    host: function-demo-energy.azurewebsites.net
-    basePath: /
-    schemes:
-    - https
-    - http
-    paths:
-    /api/TurbineRepair:
-        post:
-        operationId: /api/TurbineRepair/post
-        produces: []
-        consumes: []
-        parameters: []
-        description: >-
-            Replace with Operation Object
-            #https://swagger.io/specification/#operationObject
-        responses:
-            '200':
-            description: Success operation
-        security:
-            - apikeyQuery: []
-    definitions: {}
-    securityDefinitions:
-    apikeyQuery:
-        type: apiKey
-        name: code
-        in: query
+## <a name="test-the-api"></a>API 테스트
+
+OpenAPI 정의를 사용하기 전에 API가 작동하는지 확인해야 합니다.
+
+1. 함수의 **테스트** 탭에서 **게시** 작업을 선택합니다.
+
+1. **시간** 및 **용량**에 대한 값을 입력합니다.
+
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
     ```
 
-    이 정의는 전체 OpenAPI 정의가 되기 위해서는 더 많은 메타데이터가 필요하므로 _템플릿_으로 설명됩니다. 다음 단계에서 해당 정의를 수정합니다.
+1. **보내기**를 클릭한 다음, HTTP 응답을 봅니다.
 
-## <a name="modify-the-openapi-definition"></a>OpenAPI 정의 수정
+    ![테스트 함수 API](media/functions-openapi-definition/test-function-api-openapi.png)
 
-이제 템플릿 정의가 있으므로 API 작업 및 데이터 구조에 대한 추가 메타데이터를 제공하도록 수정합니다. **API 정의**에서 생성된 정의를 `post`부터 정의 가장 아래쪽까지 삭제하여 아래 콘텐츠에 붙여넣고 **저장**을 클릭합니다.
+## <a name="download-the-openapi-definition"></a>OpenAPI 정의 다운로드
 
-```yaml
-    post:
-      operationId: CalculateCosts
-      description: Determines if a technician should be sent for repair
-      summary: Calculates costs
-      x-ms-summary: Calculates costs
-      x-ms-visibility: important
-      produces:
-        - application/json
-      consumes:
-        - application/json
-      parameters:
-        - name: body
-          in: body
-          description: Hours and capacity used to calculate costs
-          x-ms-summary: Hours and capacity
-          x-ms-visibility: important
-          required: true
-          schema:
-            type: object
-            properties:
-              hours:
-                description: The amount of effort in hours required to conduct repair
-                type: number
-                x-ms-summary: Hours
-                x-ms-visibility: important
-              capacity:
-                description: The max output of a turbine in kilowatts
-                type: number
-                x-ms-summary: Capacity
-                x-ms-visibility: important
-      responses:
-        200:
-          description: Message with cost and revenue numbers
-          x-ms-summary: Message
-          schema:
-           type: object
-           properties:
-            message:
-              type: string
-              description: Returns Yes or No depending on calculations
-              x-ms-summary: Message 
-            revenueOpportunity:
-              type: string
-              description: The revenue opportunity cost
-              x-ms-summary: RevenueOpportunity 
-            costToFix:
-              type: string
-              description: The cost in $ to fix the turbine
-              x-ms-summary: CostToFix
-      security:
-        - apikeyQuery: []
-definitions: {}
-securityDefinitions:
-  apikeyQuery:
-    type: apiKey
-    name: code
-    in: query
-```
+API가 예상대로 작동하는 경우 OpenAPI 정의를 다운로드할 수 있습니다.
 
-이 경우 그냥 업데이트된 메타데이터에 붙여넣을 수도 있지만 기본 템플릿에서 어떤 유형의 수정을 수행했는지 이해하는 것이 중요합니다.
+1. 페이지 위쪽에서 **OpenAPI 정의 다운로드**를 선택합니다.
+   
+   ![OpenAPI 정의 다운로드](media/functions-openapi-definition/download-definition.png)
 
-* API가 JSON 형식으로 데이터를 생성하고 소비한다고 지정했습니다.
+2. 다운로드한 JSON 파일을 열고 정의를 검토합니다.
 
-* 이름 및 데이터 형식을 사용해서 필수 매개 변수를 지정했습니다.
-
-* 이름 및 데이터 형식을 사용해서 성공적인 응답에 대한 반환 값을 지정했습니다.
-
-* API, 해당 작업 및 매개 변수에 대해 친숙한 요약 및 설명을 제공했습니다. 이러한 점은 이 함수를 사용하게 될 사용자에게 중요합니다.
-
-* Microsoft Flow 및 Logic Apps의 UI에 사용되는 x-ms-summary 및 x-ms-visibility를 추가했습니다. 자세한 내용은 [Microsoft Flow의 사용자 지정 API에 대한 OpenAPI 확장](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)을 참조하세요.
-
-> [!NOTE]
-> 기본 인증 방법을 API 키로 지정하여 보안 정의 지정했습니다. 다른 유형의 인증을 사용하는 경우 정의의 이 섹션을 변경할 수 있습니다.
-
-API 작업 정의 방법에 대한 자세한 내용은 [Open API 사양](https://swagger.io/specification/#operationObject)을 참조하세요.
-
-## <a name="test-the-openapi-definition"></a>OpenAPI 정의 테스트
-
-API 정의를 사용하기 전에 Azure Functions UI에 테스트하는 것이 좋습니다.
-
-1. 함수의 **관리** 탭에 있는 **호스트 키** 아래에서 **기본** 키를 복사합니다.
-
-    ![API 키 복사](media/functions-openapi-definition/copy-api-key.png)
-
-    > [!NOTE]
-    >이 키를 테스트에 사용하고, 앱 또는 서비스에서 API를 호출할 때도 사용합니다.
-
-1. API 정의로 돌아갑니다. **function-demo-energy** > **플랫폼 기능** > **API 정의**.
-
-1. 오른쪽 창에서 **인증**을 클릭하고 복사한 API 키를 입력한 후 **인증**을 클릭합니다.
-
-    ![API 키로 인증](media/functions-openapi-definition/authenticate-api-key.png)
-
-1. 아래로 스크롤하여 **이 작업 시도**를 클릭합니다.
-
-    ![이 작업 시도](media/functions-openapi-definition/try-operation.png)
-
-1. **시간** 및 **용량** 값을 입력합니다.
-
-    ![매개 변수 입력](media/functions-openapi-definition/parameters.png)
-
-    UI가 API 정의의 설명을 사용하는 방법을 확인합니다.
-
-1. **요청 보내기**를 클릭하고 **다시 적용** 탭을 클릭하여 출력을 확인합니다.
-
-    ![요청 보내기](media/functions-openapi-definition/send-request.png)
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * Azure에서 함수 만들기
-> * OpenAPI 도구를 사용하여 OpenAPI 정의 생성
-> * 정의를 수정하여 추가 메타데이터 제공
-> * 함수를 호출하여 정의 테스트
-
-다음 항목으로 이동하여 만든 OpenAPI 정의를 사용하는 PowerApps 앱을 만드는 방법을 알아봅니다.
+API Management 통합을 사용하여 함수의 OpenAPI 정의를 생성했습니다. 이제 포털에서 API Management의 정의를 편집할 수 있습니다. 또한 [API Management에 대해 자세히 알아볼 수 있습니다](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [PowerApps에서 함수 호출](functions-powerapps-scenario.md)
+> [API Management에서 OpenAPI 정의 편집](../api-management/edit-api.md)

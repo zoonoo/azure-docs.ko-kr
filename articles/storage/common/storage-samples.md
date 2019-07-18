@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: c3bf695527db19513125d9190796c9b5df312aaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153496"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
@@ -63,7 +63,7 @@ C++ 샘플을 탐색하려면 [C++ Storage 클라이언트 라이브러리](http
 | 언어 | API 참조 | 소스 코드 |
 |----------|---------------|-------------|
 | .NET | [.NET 클라이언트 라이브러리 참조](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net) |
-| 자바 | [Java 클라이언트 라이브러리 참조](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
+| Java | [Java 클라이언트 라이브러리 참조](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/azure/azure-storage-java) |
 | Node.js | [Node.js 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-node) | [Node.js 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ 클라이언트 라이브러리 참조](https://azure.github.io/azure-storage-cpp/) | [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)|
 

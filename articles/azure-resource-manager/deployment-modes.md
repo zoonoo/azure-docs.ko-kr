@@ -1,22 +1,17 @@
 ---
 title: Azure Resource Manager 배포 모드 | Microsoft Docs
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550583"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508214"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -27,6 +22,8 @@ ms.locfileid: "60550583"
 ## <a name="complete-mode"></a>전체 모드
 
 전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 템플릿에 지정되었지만 [condition](resource-group-authoring-templates.md#condition)(조건)이 false로 평가되어 배포되지 않은 리소스는 삭제되지 않습니다.
+
+완료 모드를 사용 하 여 주의 [복사 루프](resource-group-create-multiple.md)합니다. 복사 루프를 해결 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 
 리소스 종류에서 전체 모드 삭제를 처리 하는 방법에 차이가 있습니다. 전체 모드로 배포된 템플릿에 없는 경우 부모 리소스가 자동으로 삭제됩니다. 일부 자식 리소스는 템플릿에 없더라도 자동으로 삭제되지 않습니다. 그러나 이러한 자식 리소스가 부모 리소스 삭제 되 면 삭제 됩니다. 
 
@@ -46,7 +43,9 @@ ms.locfileid: "60550583"
 
 ## <a name="incremental-mode"></a>증분 모드
 
-증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다. 증분 모드에서 리소스를 다시 배포할 때는 업데이트 중인 속성 값뿐만 아니라 리소스의 모든 속성 값을 지정합니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
+증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다.
+
+그러나 증분 모드에서 기존 리소스를 재배포 하는 경우 결과는 다릅니다. 뿐 아니라 업데이트 하는 리소스에 대 한 모든 속성을 지정 합니다. 지정 되지 않은 속성은 생각에 대 한 일반적인 오해가 변경 되지 않습니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
 
 ## <a name="example-result"></a>결과 예제
 

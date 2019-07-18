@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925872"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488656"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -56,7 +56,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>내 허브 또는 네임스페이스를 다른 계층으로 업그레이드하거나 다운그레이드하려면 어떻게 해야 합니까?
 
-**[Azure Portal]** > **Notification Hubs 네임스페이스** 또는 **Notification Hubs**로 이동합니다. 업데이트할 리소스를 선택하고 **가격 책정 계층**으로 이동합니다. 다음 요구 사항에 유의하세요.
+**[Azure Portal]**  > **Notification Hubs 네임스페이스** 또는 **Notification Hubs**로 이동합니다. 업데이트할 리소스를 선택하고 **가격 책정 계층**으로 이동합니다. 다음 요구 사항에 유의하세요.
 
 * 업데이트된 가격 책정 계층은 작업 중인 네임스페이스 내 *모든* 허브에 적용됩니다.
 * 디바이스 수가 다운그레이드하려는 계층의 한도를 초과하는 경우에는 디바이스를 삭제해야 다운그레이드할 수 있습니다.
@@ -69,13 +69,13 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="which-client-platforms-do-you-support"></a>어떤 클라이언트 플랫폼이 지원되나요?
 
-푸시 알림은 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 경유)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 Android), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)에서 지원됩니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
+푸시 알림을 지 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)합니다 [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 고 Android, 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)합니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
 Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디자인되었습니다. 전자 메일 또는 문자 메시지 기능은 제공하지 않습니다. 그러나 이러한 기능을 제공하는 타사 플랫폼을 Notification Hubs와 통합하여 [Mobile Apps]를 사용해 네이티브 푸시 알림을 보낼 수는 있습니다.
 
-또한 Notification Hubs는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼의 맨 위에서 SignalR을 사용하여 이를 구현할 수 있습니다. Chrome 샌드박스에서 브라우저 앱에 알림을 보내려면 [Chrome 앱 자습서]를 참조하세요.
+또한 Notification Hubs는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼의 맨 위에서 SignalR을 사용하여 이를 구현할 수 있습니다. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Mobile Apps와 Azure Notification Hubs는 어떻게 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
 
@@ -85,7 +85,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 
 지원되는 디바이스 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
-천만 개 이상의 등록된 디바이스에 대한 지원이 필요한 경우 직접 [문의](https://azure.microsoft.com/overview/contact-us/)하여 솔루션을 확장하도록 합니다.
+10 백만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우에 여러 허브에서 장치를 분할 해야 합니다.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>보낼 수 있는 푸시 알림 수는 몇 개인가요?
 
@@ -210,7 +210,6 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs 시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome 앱 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [백 엔드 등록 지침 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

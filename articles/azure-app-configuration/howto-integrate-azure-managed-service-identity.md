@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66393661"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>자습서: Azure 관리 ID와 통합
+# <a name="integrate-with-azure-managed-identities"></a>Azure 관리 ID와 통합
 
 Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하면 클라우드 애플리케이션에 대한 비밀 관리를 간소화할 수 있습니다. 관리 ID를 사용하면 실행되는 Azure 컴퓨팅 서비스에 대해 만들어진 서비스 주체를 사용하도록 코드를 설정할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
 
@@ -49,7 +49,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 포털에서 관리 ID를 설정하려면 먼저 애플리케이션을 정상적으로 만든 다음, 해당 기능을 사용하도록 설정합니다.
 
-1. 평소와 같이 [Azure Portal](https://aka.ms/azconfig/portal)에서 앱을 만듭니다. 포털에서 이동합니다.
+1. 평소와 같이 [Azure Portal](https://portal.azure.com)에서 앱을 만듭니다. 포털에서 이동합니다.
 
 2. 왼쪽 창에서 **설정** 그룹까지 아래로 스크롤하고 **ID**를 선택합니다.
 
@@ -59,7 +59,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 ## <a name="grant-access-to-app-configuration"></a>App Configuration에 대한 액세스 권한 부여
 
-1. [Azure Portal](https://aka.ms/azconfig/portal)에서 **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소를 선택합니다.
 
 2. **액세스 제어(IAM)** 를 선택합니다.
 
@@ -75,7 +75,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 
-1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. *\<service_endpoint>*(대괄호 포함)를 앱 구성 저장소의 URL로 바꿉니다.
+1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. *\<service_endpoint>* (대괄호 포함)를 앱 구성 저장소의 URL로 바꿉니다.
 
     ```json
     "AppConfig": {

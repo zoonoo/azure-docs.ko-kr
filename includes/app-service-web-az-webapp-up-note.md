@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: msangapu
 ms.custom: include file
 ms.openlocfilehash: 8b5be0a438d9c5bb1fd0596368327c53a2d6c31f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218263"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182879"
 ---
 > [!NOTE]
 > `az webapp up` 명령에는 다음 작업이 포함됩니다.

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448116"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 후에 확장은 기본 제공 기능으로 작동할 수 있습니다. PostgreSQL 확장에 대한 자세한 내용은  [관련 개체를 확장으로 패키지](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)를 참조하세요.
@@ -27,7 +27,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 자동으로 암호화된 암호에 대한 데이터 형식을 제공합니다. |
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
@@ -48,13 +48,13 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. (이 확장에 대한 설명은 아래를 참조하세요.) |
 > | [orafce](https://github.com/orafce/orafce) | 함수 및 상용 데이터베이스에서 에뮬레이트 되는 패키지의 하위 집합을 제공 합니다. |
 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Lexemes에서 악센트(분음 기호)를 제거하는 텍스트 검색 사전입니다. |
@@ -62,7 +62,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 특정 데이터 형식에 대해 B-트리 유사 동작을 구현하는 샘플 GIN 연산자 클래스를 제공합니다. |
 > | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | B-트리를 구현하는 GiST 인덱스 연산자 클래스를 제공합니다. |
@@ -70,7 +70,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 > | [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
@@ -78,7 +78,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
 > | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. |
@@ -93,7 +93,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
@@ -103,7 +103,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="time-series-extensions"></a>시계열 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [TimescaleDB](https://docs.timescale.com/latest) | 지원 자동화에 대 한 분할을 더 빠르게 수집 하 고 쿼리 하는 시계열 SQL 데이터베이스입니다. 시간 기반 분석 기능을 최적화를 제공 하 고 시계열 워크 로드에 대 한 PostgreSQL을 확장 합니다. TimescaleDB에서 개발 하는 및의 등록된 상표 [시간 간격, Inc.](https://www.timescale.com/) (이 확장에 대한 설명은 아래를 참조하세요.) |
 
@@ -115,48 +115,49 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을 기록할 때 서버 성능에 미치는 영향 사이에는 상충 관계가 있습니다. pg_stat_statements 확장을 적극적으로 사용하지 않는 경우에는 `pg_stat_statements.track`을 `none`으로 설정하는 것이 좋습니다. 일부 타사 모니터링 서비스가 pg_stat_statements에 기반하여 쿼리 성능 정보를 제공할 수 있으므로 여기에 해당하는 경우인지 여부를 확인하십시오.
 
 ## <a name="dblink-and-postgresfdw"></a>dblink 및 postgres_fdw
-dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하면 모든 Azure IP가 허용 목록이 추가됩니다.
+dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스 방문 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스 방문 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스 방문 허용"을 켜기로 설정하면 모든 Azure IP가 허용 목록에 추가됩니다.
 
-현재 PostgreSQL 용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다, 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고.
+다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외 하고, 현재 PostgreSQL 용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다.
+
+## <a name="uuid"></a>uuid
+사용 하려는 경우 `uuid_generate_v4()` uuid ossp 확장에서 사용 하 여 비교 것이 좋습니다. `gen_random_uuid()` 성능 개선을 위해 pgcrypto 확장 프로그램에서 제공 합니다.
+
 
 ## <a name="timescaledb"></a>TimescaleDB
-TimescaleDB는 시계열 데이터베이스는 PostgreSQL에 대 한 확장으로 패키지입니다. TimescaleDB 시간 지향적인 분석 기능을 최적화를 제공 하 고 시계열 작업용 Postgres를 확장 합니다.
+TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데이터베이스입니다. TimescaleDB는 시간 지향적인 분석 함수, 최적화를 제공하고 시계열 작업용 Postgres를 확장합니다.
 
-[TimescaleDB에 자세히 알아보려면](https://docs.timescale.com/latest)에서의 등록된 상표 [시간 간격, Inc.](https://www.timescale.com/)
+[Timescale, Inc.](https://www.timescale.com/)의 등록 상표인 [TimescaleDB에 대해 자세히 알아보세요](https://docs.timescale.com/latest).
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
-TimescaleDB를 설치 하려면 서버의 공유 미리 로드 라이브러리에 포함 해야 합니다. 미리 로드 라이브러리를 공유 하는 Postgres의 변경이 필요는 **서버를 다시 부팅** 적용 합니다.
+TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함해야 합니다. Postgres의 변경 `shared_preload_libraries` 매개 변수에 필요를 **서버를 다시 시작** 적용 합니다. 매개 변수를 사용 하 여 변경할 수 있습니다 합니다 [Azure portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)합니다.
 
 > [!NOTE]
 > TimescaleDB은 PostgreSQL 버전 9.6 및 10에 대 한 Azure Database에서 사용할 수 있습니다.
 
-사용 하 여 [Azure portal](https://portal.azure.com/):
+[Azure portal](https://portal.azure.com/) 사용:
 
 1. Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 보충 기사에서 선택 **서버 매개 변수**합니다.
+2. 사이드바에서 **서버 매개 변수**를 선택합니다.
 
 3. `shared_preload_libraries` 매개 변수를 검색합니다.
 
-4. 복사 하 고 다음 값으로 붙여 넣습니다. `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. 선택 **TimescaleDB**합니다.
 
-5. 선택 **저장할** 변경 내용을 유지 합니다. 변경 내용이 저장 되 면 알림을 받게 됩니다. 
+5. 변경 내용을 유지하기 위해 **저장**을 선택합니다. 변경 내용이 저장되면 알림을 받게 됩니다. 
 
-6. 알림 후 **다시 시작** 서버에 이러한 변경 내용을 적용 합니다. 서버를 다시 시작하는 방법을 알아보려면 [Azure Database for PostgreSQL 서버 다시 시작](howto-restart-server-portal.md)을 참조하세요.
+6. 알림 후 이러한 변경 내용을 적용하기 위해 서버를 **다시 시작**합니다. 서버를 다시 시작하는 방법을 알아보려면 [Azure Database for PostgreSQL 서버 다시 시작](howto-restart-server-portal.md)을 참조하세요.
 
 
-Postgres 데이터베이스의 TimescaleDB를 이제 사용할 수 있습니다. 데이터베이스에 연결 하 고 다음 명령을 실행 합니다.
+이제 Postgres 데이터베이스에서 TimescaleDB를 사용 설정할 수 있습니다. 데이터베이스에 연결하고 다음 명령을 실행합니다.
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> 오류가 발생 하는 경우 확인 했는지 [서버를 다시 시작](howto-restart-server-portal.md) shared_preload_libraries 저장 한 후입니다. 
+> 오류가 발생하는 경우 shared_preload_libraries를 저장한 후 [서버를 다시 시작](howto-restart-server-portal.md)했는지 확인합니다. 
 
-이제 TimescaleDB hypertable를 만들 수 있습니다 [처음부터](https://docs.timescale.com/getting-started/creating-hypertables) 마이그레이션하거나 [PostgreSQL에서 시계열 데이터를 기존](https://docs.timescale.com/getting-started/migrating-data)합니다.
+이제 TimescaleDB hypertable을 [처음부터](https://docs.timescale.com/getting-started/creating-hypertables) 만들거나  [PostgreSQL에서 기존 시계열 데이터](https://docs.timescale.com/getting-started/migrating-data)를 마이그레이션할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-사용하려는 확장이 표시되지 않으면 알려주세요. [고객 사용자 의견 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)에서 기존 요청에 투표하거나 새 사용자 의견 및 요청을 만드세요.
+사용하려는 확장이 표시되지 않으면 알려주세요. 새 피드백 요청을 만들거나 기존 요청에 투표 하세요 [피드백 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)합니다.

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 2ceb4aeac55bd555a41c29bd41b00c771490e5f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60425757"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -33,7 +33,7 @@ ms.locfileid: "60425757"
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 분기 VNet 연결
 
-Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNet 간의 사이트 간 VNet 연결을 설정합니다. 기본적으로 VPN 게이트웨이 및 Azure ExpressRoute 게이트웨이는 **65515**의 개인 ASN(자치 시스템 번호) 값을 사용합니다. VPN Gateway에서 ASN 값을 변경할 수 있습니다. 테스트 설정에서 분기 VNet VPN 게이트웨이의 ASN 값은 허브 VNet과 분기 VNet 간에 eBGP 라우팅을 지원하도록 **65516**으로 변경됩니다.
+Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNet 간의 사이트 간 VNet 연결을 설정합니다. 기본적으로 VPN 게이트웨이 및 Azure ExpressRoute 게이트웨이는 **65515**의 프라이빗 ASN(자치 시스템 번호) 값을 사용합니다. VPN Gateway에서 ASN 값을 변경할 수 있습니다. 테스트 설정에서 분기 VNet VPN 게이트웨이의 ASN 값은 허브 VNet과 분기 VNet 간에 eBGP 라우팅을 지원하도록 **65516**으로 변경됩니다.
 
 
 [![3]][3]
@@ -51,7 +51,7 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 [![5]][5]
 
-다음 목록은 ExpressRoute 개인 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. (Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용됩니다.) 사이트 간 VPN과 ExpressRoute 회로가 온-프레미스 네트워크를 Azure에 연결하기 위해 병렬로 구성되는 경우 Azure는 기본적으로 ExpressRoute 회로를 우선 순위로 지정합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
+다음 목록은 ExpressRoute 프라이빗 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. (Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용됩니다.) 사이트 간 VPN과 ExpressRoute 회로가 온-프레미스 네트워크를 Azure에 연결하기 위해 병렬로 구성되는 경우 Azure는 기본적으로 ExpressRoute 회로를 우선 순위로 지정합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
 
     interface TenGigabitEthernet0/0/0.300
      description Customer 30 private peering to Azure
@@ -168,7 +168,7 @@ ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다�
 
 ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. ExpressRoute Microsoft 피어링을 사용하여 터널 모드에서 사이트 간 IPsec VPN을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute Microsoft 피어링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조하세요. 
 
-Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 개인 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
+Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 프라이빗 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>ExpressRoute에 대한 안전한 장애 조치(failover) 경로인 사이트 간 VPN
 

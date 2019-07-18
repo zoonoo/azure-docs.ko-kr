@@ -264,7 +264,7 @@ END
    ![시작 페이지](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
 
 ## <a name="create-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기
-개인 네트워크(온-프레미스)의 데이터 저장소에서 Azure 데이터 저장소로 데이터를 이동할 때 온-프레미스 환경에 자체 호스팅 IR(통합 런타임)을 설치합니다. 자체 호스팅 IR은 개인 네트워크와 Azure 간에 데이터를 이동합니다. 
+프라이빗 네트워크(온-프레미스)의 데이터 저장소에서 Azure 데이터 저장소로 데이터를 이동할 때 온-프레미스 환경에 자체 호스팅 IR(통합 런타임)을 설치합니다. 자체 호스팅 IR은 프라이빗 네트워크와 Azure 간에 데이터를 이동합니다. 
 
 1. 왼쪽 창의 아래에서 **연결**을 클릭하고 **연결** 창의 **통합 런타임**으로 전환합니다. 
 
@@ -275,7 +275,7 @@ END
 1. **Integration Runtime 설정** 창에서 **데이터 이동을 수행하고 활동을 외부 계산으로 디스패치합니다**를 선택하고, **다음**을 클릭합니다. 
 
    ![통합 런타임 형식 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. **개인 네트워크**를 선택하고 **다음**을 클릭합니다. 
+1. **프라이빗 네트워크**를 선택하고 **다음**을 클릭합니다. 
 
    ![사설망 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
@@ -347,7 +347,7 @@ END
 
 ### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 세트** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
@@ -362,7 +362,7 @@ END
 
 
 ### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
-1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
@@ -394,7 +394,7 @@ END
 ### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
 이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
@@ -421,7 +421,7 @@ END
 
 ### <a name="create-the-pipeline"></a>파이프라인 만들기
 
-1. 왼쪽 창에서 **+(더하기)**, **파이프라인**을 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다.
 
     ![새 파이프라인 - 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
 1. **속성** 창의 **일반** 탭에서 **이름**에 대해 **IncrementalCopyPipeline**을 입력합니다. 

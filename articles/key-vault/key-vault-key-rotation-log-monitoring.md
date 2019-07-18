@@ -1,5 +1,5 @@
 ---
-title: 종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
+title: 엔드투엔드 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
 description: 키 회전을 설정 하 고 key vault 로그를 모니터링할 수 있도록이 방법 가이드를 사용 합니다.
 services: key-vault
 author: barclayn
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 785e60ddf54a3772ae7687b9d18477ef04707609
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 20a170963ff4a8ff9cb69d3397e66e12c1047d16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65561197"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
@@ -239,7 +239,7 @@ $SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $Storage
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 편집기 창에서 선택 **테스트 창** 스크립트를 테스트 합니다. 스크립트가 오류 없이 실행 한 후 선택할 수 있습니다 **게시**, 그런 다음 runbook 구성 창에서 runbook에 대 한 일정을 적용할 수 있습니다.

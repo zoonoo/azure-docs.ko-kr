@@ -3,8 +3,8 @@ title: Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준
 description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure AD에 추가할 때 발생하는 일반적인 프로토콜 호환성 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: asmalser
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65963182"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -37,9 +38,9 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 | **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  
 |---|---|---|
-| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예.  |  2018년 12월 18일 | 
-| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예.  | 2018년 12월 18일  | 
-|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예.  |  2018년 12월 18일  | 
+| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | 
+| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | 
+|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | 
 |  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>설명한 서비스 수정이 내 기존 SCIM 앱에 자동으로 적용되었나요?
@@ -57,10 +58,10 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 > [!NOTE]
 > 애플리케이션이 여전히 개발 중이고 Single Sign-On 또는 사용자 프로비저닝에 아직 배포되지 않은 경우, 가장 쉬운 해결 방법은 Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 애플리케이션 항목을 삭제하고 **애플리케이션 만들기 > 비갤러리** 옵션을 사용하여 애플리케이션의 새 항목을 추가하면 됩니다. 이는 아래 절차 실행의 대안입니다.
  
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
 3. 기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
-4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
+4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer 로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 프로비저닝 작업의 ID를 찾습니다. “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -97,10 +98,10 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 예. 수정 이전에 존재했던 이전 동작에 애플리케이션을 코딩한 경우 새 인스턴스를 배포해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 이전 동작을 표시하는 SCIM 프로비저닝 작업을 작성하는 방법에 대해 설명합니다.
  
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.
 3. 새 사용자 지정 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
-4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
+4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer 로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 앱의 프로비저닝 구성을 초기화합니다.
    “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
 

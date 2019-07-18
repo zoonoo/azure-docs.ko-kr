@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60936409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66240370"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -94,7 +94,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 ***DTU 기반 구매 모델 예***
 
- 200 eDTU 풀에서 S3 데이터베이스 3개의 비용을 줄이려면 최대 2개의 데이터베이스가 동시에 최대 사용률에 도달할 수 있습니다. 이러한 S3 데이터베이스 4개 중 2개 이상이 동시에 최대 사용률에 도달하는 경우 200 eDTU 이상으로 풀 크기를 조정해야 합니다. 풀 크기가 200 eDTU보다 크게 조정될 경우 단일 데이터베이스용 컴퓨팅 크기보다 낮은 비용을 유지하려면 풀에 S3 데이터베이스를 더 많이 추가해야 합니다.
+200 eDTU 풀에서 S3 데이터베이스 3개의 비용을 줄이려면 최대 2개의 데이터베이스가 동시에 최대 사용률에 도달할 수 있습니다. 이러한 S3 데이터베이스 4개 중 2개 이상이 동시에 최대 사용률에 도달하는 경우 200 eDTU 이상으로 풀 크기를 조정해야 합니다. 풀 크기가 200 eDTU보다 크게 조정될 경우 단일 데이터베이스용 컴퓨팅 크기보다 낮은 비용을 유지하려면 풀에 S3 데이터베이스를 더 많이 추가해야 합니다.
 
 예에서는 풀에 있는 다른 데이터베이스의 사용률을 고려 하지 않습니다. 모든 데이터베이스 시간에 특정된 시점에서 일부 사용률의 경우, 데이터베이스의 2/3(또는 67%) 보다 작은 사용률이 동시에 정점에 달할 수 있습니다.
 
@@ -132,7 +132,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>탄력적 작업 및 탄력적 풀
 
-풀을 통해 **[탄력적 작업](sql-database-elastic-jobs-overview.md)** 의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다. 시작하려면 [탄력적 작업 시작](sql-database-elastic-jobs-getting-started.md)을 참조하세요.
+풀을 통해 **[탄력적 작업](elastic-jobs-overview.md)** 의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다.
 
 여러 데이터베이스를 사용하기 위한 다른 데이터베이스 도구에 대한 자세한 내용은 [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)을 참조합니다.
 
@@ -142,7 +142,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 - **지정 시간 복원**
 
-  지정 시간 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 지정 시간으로 복원합니다.  [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
+  지정 시간 복원은 자동 데이터베이스 백업을 사용하여 풀에 있는 데이터베이스를 지정 시간으로 복원합니다. [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - **지역 복원**
 

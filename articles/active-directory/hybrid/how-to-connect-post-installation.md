@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571338"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
@@ -56,12 +56,12 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 동기화 작업을 실행 해야 할 경우이 수행할 수 있습니다.
 
 1. 마법사를 시작 하려면 Azure AD Connect 바탕 화면 바로 가기를 두 번 클릭 합니다.
-2. **Configure**를 클릭합니다.
+2. 클릭 **구성**합니다.
 3. 작업 화면에서 선택 합니다 **동기화 옵션 사용자 지정** 를 클릭 하 고 **다음**
 4. Azure AD 자격 증명 입력
 5. **다음**을 클릭합니다. **다음**을 클릭합니다.  **다음**을 클릭합니다.
 5.  에 **구성할 준비가** 화면에서 **구성이 완료 되 면 동기화 프로세스 시작** 확인란을 선택 합니다.
-6.  **Configure**를 클릭합니다.
+6.  클릭 **구성**합니다.
 
 Azure AD Connect 동기화 Scheduler에 대한 자세한 내용은 [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md)를 참조하세요.
 

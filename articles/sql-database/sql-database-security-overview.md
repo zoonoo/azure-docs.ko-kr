@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070192"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -100,9 +100,9 @@ SQL Database는 [전송 계층 보안](https://support.microsoft.com/help/313524
 
 Sql Server 암호화를 적용 (SSL/TLS)에서 항상 모든 연결에 대 한 합니다. 이렇게 하면 클라이언트와 서버 설정에 관계 없이 "전송"에서 모든 데이터가 암호화 됩니다 **Encrypt** 또는 **TrustServerCertificate** 연결 문자열에 있습니다.
 
-모범 사례로 권장 하는 문자열에 응용 프로그램의 연결에 암호화 된 연결이 지정 하 고 _**없습니다**_ 서버 인증서를 신뢰 합니다. 이렇게 하면를 서버 인증서를 확인 하려면 응용 프로그램 하 고 따라서 man 중간 형식 공격에서에 취약 하다에서 응용 프로그램을 방지 합니다.
+모범 사례로 권장 하는 문자열에 응용 프로그램의 연결에 암호화 된 연결이 지정 하 고 _**없습니다**_ 서버 인증서를 신뢰 합니다. 이 서버 인증서를 확인 하려면 응용 프로그램을 강제로 수행 하 고 따라서 man 중간 형식 공격에서에 취약 하다에서 응용 프로그램을 방지 합니다.
 
-예를 들어 ADO.NET 드라이버를 사용 하는 경우 이렇게 통해 **Encrypt = True** 하 고 **TrustServerCertificate = False**합니다. Azure portal에서 연결 문자열을 가져와야 하는 경우 올바른 설정을 해야 합니다.
+예를 들어 ADO.NET 드라이버를 사용 하는 경우 이렇게 통해 **Encrypt = True** 하 고 **TrustServerCertificate = False**합니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 
 > [!IMPORTANT]
 > 일부 타사 드라이버 기본적으로 TLS를 사용 하 여 또는 이전 버전의 TLS 사용 하지 않을 수 있습니다 (< 1.2) 작동 하기 위해. 이 경우 SQL Server 하더라도 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결할 수 있도록 보안 위험을 평가 하는 것이 좋습니다. 
@@ -125,17 +125,11 @@ Azure에서는 새로 만드는 모든 SQL Database가 기본적으로 암호화
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)는 신용 카드 번호, 주민 등록 번호 또는 _확인이 필요_한 데이터와 같이 특정 데이터베이스 열에 저장된 중요한 데이터를 액세스할 수 없도록 보호하는 기능입니다. 예를 들어 이 기능을 통해 데이터베이스에 액세스하여 관리 작업을 수행할 권한은 부여되었지만 업무상 암호화된 열의 특정 데이터에는 액세스할 필요가 없는 데이터베이스 관리자 또는 기타 권한 있는 사용자로부터 데이터를 보호할 수 있습니다. 데이터는 항상 암호화되므로 암호화 키 액세스 권한이 있는 클라이언트 애플리케이션에서 처리해야 하는 경우에만 암호화된 데이터의 암호가 해독됩니다.  암호화 키는 SQL에 표시되지 않으며 [Windows 인증서 저장소](sql-database-always-encrypted.md) 또는 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)에 저장할 수 있습니다.
 
-### <a name="masking"></a>마스킹
+### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
-
 SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database에서 잠재적으로 중요한 데이터를 자동으로 검색하고 애플리케이션 계층에 미치는 영향을 최소화하면서 이러한 필드를 마스킹할 수 있는 실행 가능한 권장 사항을 제공합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 시작을 참조하세요.
-
-#### <a name="static-data-masking"></a>정적 데이터 마스킹
-
-[정적 데이터 마스킹](/sql/relational-databases/security/static-data-masking)은 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 미리 보기 5 이상에서 사용 가능한 클라이언트 쪽 도구입니다.  사용자는 정적 데이터 마스킹을 통해 선택한 열의 데이터가 영구 마스킹된 데이터베이스의 복사본을 만들 수 있습니다. 사용 가능한 마스킹 기능에는 NULL 마스킹, 단일 값 마스킹, 순서 섞기/그룹 순서 섞기 마스킹, 문자열 복합 마스킹 등이 있습니다. 조직에 데이터의 마스킹된 복사본이 있으면 해당 복사본을 공유해 프로덕션 환경과 테스트 환경을 분리할 수 있습니다. 그러면 기타 모든 데이터베이스 특성이 충분히 보호된 상태로 중요한 데이터가 충분히 보호됩니다. 타사가 데이터베이스에 액세스해야 한다면 데이터베이스를 마스킹하는 것이 좋습니다.
 
 ## <a name="security-management"></a>보안 관리
 
@@ -156,6 +150,10 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 ### <a name="compliance"></a>준수
 
 Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
+
+### <a name="feature-restrictions"></a>기능 제한 사항
+
+기능 제한 사항 일부 형태의 SQL 삽입은 성공 하는 경우에 데이터베이스에 대 한 정보를 누출 되지 않도록 SQL 주입 공격을 방지 합니다. 자세한 내용은 [Azure SQL Database 기능 제한 사항](sql-database-feature-restrictions.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

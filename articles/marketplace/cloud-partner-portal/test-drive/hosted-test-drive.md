@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939990"
 ---
 # <a name="hosted-test-drive"></a>호스트형 시험 사용
@@ -41,7 +41,7 @@ ms.locfileid: "64939990"
 
 - **Test Drive 유형의**: 선택 \'Microsoft 호스트 된 (예: Dynamics 365 for Customer Engagement)' 옵션입니다. 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비전 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 나타냅니다.
 - **최대 동시 시험**: 이 필드 시간의 특정된 시점에서 활성 테스트 드라이브를 가질 수 있는 동시 사용자 수를 설정 합니다. 각 사용자는 시험 사용을 활성화할 때 Dynamics 라이선스를 사용하므로 여기서 설정하는 시험 사용 사용자 수 이상의 Dynamics 라이선스가 있는지 확인해야 합니다. 권장 값은 3~5입니다.
-- **테스트 드라이브 기간 (시간)**: 시험 사용에 대해 활성화 될 사용자가이 필드 시간 수를 설정 합니다. 이 시간이 지나면 사용자가 테넌트에서 프로비전 해제됩니다. 권장 값은 앱의 복잡도에 따라 2~24시간입니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
+- **테스트 드라이브 기간 (시간)** : 시험 사용에 대해 활성화 될 사용자가이 필드 시간 수를 설정 합니다. 이 시간이 지나면 사용자가 테넌트에서 프로비전 해제됩니다. 권장 값은 앱의 복잡도에 따라 2~24시간입니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
 - **인스턴스 URL**: Test Drive 사용자가 처음으로 탐색할 수 시험을 시작할 때 URL을 제공 합니다. 일반적으로는 앱과 샘플 데이터가 설치된 Dynamics 365 인스턴스의 URL입니다. 값 예: https:\//testdrive.crm.dynamics.com
 - **Azure AD 테 넌 트 ID**: Dynamics 365 인스턴스에 대 한 Azure 테 넌 트의 ID를 제공 합니다. 이 값을 검색하려면 Azure Portal에 로그인하여 \'Azure Active Directory\' -\> 메뉴 블레이드에서 속성 선택 -\> 디렉터리 ID를 복사합니다. 예제 값: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD 앱 ID**: 7 단계에서 만든 Azure AD 앱의 ID입니다. \ 예제 값: 53852862-a2ae-4e43-9461-faa49650a096

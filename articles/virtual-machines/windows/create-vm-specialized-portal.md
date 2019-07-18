@@ -4,7 +4,7 @@ description: Azure Portal의 VHD에서 새 Windows VM을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cadd4b16ab111f46e49429c6d99e0e692325b3b1
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402307"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718946"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VHD에서 VM 만들기
 
@@ -27,9 +27,9 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 
 - 사용할 VHD(가상 하드 디스크)가 이미 있거나 사용할 기존 VM에서 VHD를 복사하려는 경우, VHD를 새 VM에 OS 디스크로 *연결하여* 새 VM을 만들 수 있습니다. 
 
-- 삭제된 VM의 VHD에서 새 VM을 만들 수 있습니다. 예를 들어, 제대로 작동하지 않는 Azure VM이 있는 경우 해당 VM을 삭제하고 VHD를 사용하여 새 VM을 만들 수 있습니다. 동일한 VHD를 다시 사용하거나, 스냅숏을 만든 다음, 스냅숏에서 새로운 관리 디스크를 만들어 VHD의 복사본을 만들 수 있습니다. 스냅숏을 만드는 데는 몇 가지 추가 단계가 있지만 원본 VHD가 유지되고 대체(fallback)를 통해 제공됩니다.
+- 삭제된 VM의 VHD에서 새 VM을 만들 수 있습니다. 예를 들어, 제대로 작동하지 않는 Azure VM이 있는 경우 해당 VM을 삭제하고 VHD를 사용하여 새 VM을 만들 수 있습니다. 동일한 VHD를 다시 사용하거나, 스냅샷을 만든 다음, 스냅샷에서 새로운 관리 디스크를 만들어 VHD의 복사본을 만들 수 있습니다. 스냅샷을 만드는 데는 몇 가지 추가 단계가 있지만 원본 VHD가 유지되고 대체(fallback)를 통해 제공됩니다.
 
-- 클래식 VM 및 VHD를 사용하여 Resource Manager 배포 모델 및 관리 디스크를 사용하는 새 VM을 만듭니다. 최상의 결과를 위해 스냅숏을 만들기 전에 Azure Portal에서 클래식 VM을 **중지**합니다.
+- 클래식 VM 및 VHD를 사용하여 Resource Manager 배포 모델 및 관리 디스크를 사용하는 새 VM을 만듭니다. 최상의 결과를 위해 스냅샷을 만들기 전에 Azure Portal에서 클래식 VM을 **중지**합니다.
  
 - 온-프레미스 VHD를 업로드하고 새 VM에 연결하여 온-프레미스 VHD에서 Azure VM을 만들 수 있습니다. PowerShell 또는 다른 도구를 사용하여 VHD를 저장소 계정에 업로드한 다음, VHD에서 관리 디스크를 만듭니다. 자세한 내용은 [특수 VHD 업로드](create-vm-specialized.md#option-2-upload-a-specialized-vhd)를 참조하세요. 
 
@@ -38,24 +38,24 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 
 ## <a name="copy-a-disk"></a>디스크 복사
 
-스냅숏을 생성한 다음, 스냅숏에서 디스크를 만듭니다. 이 전략을 사용하면 원본 VHD를 대체(fallback)용으로 유지할 수 있습니다.
+스냅샷을 생성한 다음, 스냅샷에서 디스크를 만듭니다. 이 전략을 사용하면 원본 VHD를 대체(fallback)용으로 유지할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴에 있는 **모든 서비스**를 선택합니다.
 2. **모든 서비스** 검색 상자에 **디스크**를 입력한 다음, **디스크**를 선택하여 사용 가능한 디스크의 목록을 표시합니다.
 3. 사용하려는 디스크를 선택합니다. 디스크에 대한 **디스크** 페이지가 표시됩니다.
-4. 맨 위에 있는 메뉴에서 **스냅숏 만들기**를 선택합니다. 
-5. 스냅숏의 **이름**을 입력합니다.
-6. 스냅숏에 대한 **리소스 그룹**을 선택합니다. 기존 리소스 그룹을 사용하거나 새로 만들 수 있습니다.
+4. 맨 위에 있는 메뉴에서 **스냅샷 만들기**를 선택합니다. 
+5. 스냅샷의 **이름**을 입력합니다.
+6. 스냅샷에 대한 **리소스 그룹**을 선택합니다. 기존 리소스 그룹을 사용하거나 새로 만들 수 있습니다.
 7. **계정 유형**의 경우 **표준(HDD)** 또는 **프리미엄(SSD)** 저장소를 선택합니다.
-8. 완료되면 **만들기**를 선택하여 스냅숏을 만듭니다.
-9. 스냅숏이 만들어진 후 왼쪽 메뉴에서 **리소스 만들기**를 선택합니다.
+8. 완료되면 **만들기**를 선택하여 스냅샷을 만듭니다.
+9. 스냅샷이 만들어진 후 왼쪽 메뉴에서 **리소스 만들기**를 선택합니다.
 10. 검색 상자에 **관리 디스크**를 입력한 다음, 목록에서 **Managed Disks**를 선택합니다.
 11. **Managed Disks** 페이지에서 **만들기**를 선택합니다.
 12. 디스크에 사용할 **이름**을 입력합니다.
 13. 디스크에 대한 **리소스 그룹**을 선택합니다. 기존 리소스 그룹을 사용하거나 새로 만들 수 있습니다. 이 선택 항목은 디스크에서 VM을 만드는 경우의 리소스 그룹으로 사용됩니다.
 14. **계정 유형**의 경우 **표준(HDD)** 또는 **프리미엄(SSD)** 저장소를 선택합니다.
-15. **원본 유형**에서 **스냅숏**을 선택했는지 확인합니다.
-16. **원본 스냅숏** 드롭다운 목록에서 사용할 스냅숏을 선택합니다.
+15. **원본 유형**에서 **스냅샷**을 선택했는지 확인합니다.
+16. **원본 스냅샷** 드롭다운 목록에서 사용할 스냅샷을 선택합니다.
 17. 필요에 따라 기타 조정을 수행한 다음, **만들기**를 선택하여 디스크를 만듭니다.
 
 ## <a name="create-a-vm-from-a-disk"></a>디스크에서 VM 만들기

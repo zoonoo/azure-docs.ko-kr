@@ -2,18 +2,18 @@
 title: '자습서: 설치된 Azure Digital Twins에서 이벤트 분석 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트를 시각화하고 분석하는 방법을 알아봅니다.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542270"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484747"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
 
@@ -52,7 +52,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. Event Hubs 네임스페이스의 **이름**을 입력합니다. **가격 책정 계층**의 **표준**, **구독**, Digital Twins 인스턴스에 사용한 **리소스 그룹** 및 **위치**를 선택합니다. **만들기**를 선택합니다.
 
-1. Event Hubs 네임스페이스 배포의 **리소스**에서 네임스페이스를 선택합니다.
+1. Event Hubs 네임스페이스 배포에서 **개요** 창을 선택한 다음, **리소스로 이동**을 선택합니다.
 
     ![배포 이후 Event Hubs 네임스페이스](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -132,17 +132,19 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 새 **Time Series Insights** 리소스를 검색하여 선택합니다. **만들기**를 선택합니다.
 
-1. Time Series Insights 인스턴스의 **이름**을 입력하고 자신의 **구독**을 선택합니다. Digital Twins 인스턴스에 사용한 **리소스 그룹**을 선택하고, **위치**를 선택합니다. **만들기**를 선택합니다.
+1. Time Series Insights 인스턴스의 **이름**을 입력하고 자신의 **구독**을 선택합니다. Digital Twins 인스턴스에 사용한 **리소스 그룹**을 선택하고, **위치**를 선택합니다. 완료되면 **다음: 이벤트 원본** 단추 또는 **이벤트 원본** 탭을 선택합니다.
 
     ![Time Series Insights 인스턴스를 만드는 선택 영역](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. 인스턴스가 배포되면 Time Series Insights 환경을 연 다음, **이벤트 원본** 창을 엽니다. 맨 위에서 **추가** 단추를 선택하여 소비자 그룹을 추가합니다.
-
-1. **새 이벤트 원본을** 창에서 **이름**을 입력하고, 다른 값이 올바르게 선택되었는지 확인합니다. **이벤트 허브 정책 이름**으로 **ManageSend**를 선택한 다음, 이전 섹션에서 만든 소비자 그룹**을 이벤트 허브 소비자 그룹**으로 선택합니다. **만들기**를 선택합니다.
+1. **이벤트 원본** 탭에서 **이름**을 입력하고, **원본 유형**으로 **이벤트 허브**를 선택하고, 다른 값이 올바르게 선택되었는지 확인합니다. **이벤트 허브 액세스 정책 이름**으로 **ManageSend**를 선택한 다음, 이전 섹션에서 만든 소비자 그룹을 **이벤트 허브 소비자 그룹**으로 선택합니다. **검토 + 만들기**를 선택합니다.
 
     ![이벤트 원본을 생성하는 선택 영역](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Time Series Insights 환경의 **개요** 창을 열고, 맨 위에서 **환경으로 이동** 단추를 선택합니다. 데이터 액세스 경고가 표시되면 Time Series Insights 인스턴스에 대한 **데이터 액세스 정책** 창을 열고, **추가**를 선택하고, 역할로 **기여자**를 선택하고, 적절한 사용자를 선택합니다.
+1. **검토 + 만들기** 창에서 입력한 정보를 검토하고 **만들기**를 선택합니다.
+
+1. 배포 창에서 방금 만든 Time Series Insights 리소스를 선택합니다. Time Series Insights 환경에 대한 **개요** 창이 열립니다.
+
+1. 맨 위에서 **환경으로 이동** 단추를 선택합니다. 데이터 액세스 경고가 표시되면 Time Series Insights 인스턴스에 대한 **데이터 액세스 정책** 창을 열고, **추가**를 선택하고, 역할로 **기여자**를 선택하고, 적절한 사용자를 선택합니다.
 
 1. **환경으로 이동** 단추를 누르면 [Time Series Insights 탐색기](../time-series-insights/time-series-insights-explorer.md)가 열립니다. 이벤트가 하나도 표지되지 않으면 Digital Twins 샘플의 **device-connectivity** 프로젝트로 이동하고 `dotnet run` 명령을 실행하여 디바이스 이벤트를 시뮬레이션합니다.
 

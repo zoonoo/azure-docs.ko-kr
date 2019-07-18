@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
-ms.author: pareshmu
-ms.openlocfilehash: af8927ddaac4295a49d46f57a48225435dd59b29
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 07/10/2019
+ms.author: jaredr80
+ms.openlocfilehash: 21d06dfaecb0448194355f13978483779a2ff6be
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191150"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805691"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -46,11 +46,11 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **유럽** | 1 |프랑스 중부, 프랑스 남부, 북유럽, 유럽 서부, 영국 서부, 영국 남부 |암스테르담, Amsterdam2, 더블린, 프랑크푸르트, 런던, London2, 마르세유에, 뉴포트 (웨일스), 파리, 취리히 |
 | **북아메리카** | 1 |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 덴버, 라스베이거스, 로스앤젤레스, 마이애미, 뉴욕, 샌안토니오, 시애틀, 실리콘밸리, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 시티, 토론토 |
 | **아시아** | 2 |동아시아, 동남 아시아 |홍콩 특별 행정구, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
-| **오스트레일리아** | 2 |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 퍼스, 시드니 | 
 | **인도** | 2 |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
 | **일본** | 2 |일본 서부, 일본 동부 |오사카, 도쿄 |
+| **오세아니아** | 2 |오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 퍼스, 멜버른, 시드니 | 
 | **대한민국** | 2 |한국 중부, 한국 남부 |부산, 서울|
-| **UAE** | 3 | UAE Central, UAE North | 두바이 |
+| **UAE** | 3 | UAE Central, UAE North | Dubai, Dubai2 |
 | **남아프리카 공화국** | 3 |남아프리카 공화국 서 부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
 | **남미** | 3 |브라질 남부 |상파울루 |
 
@@ -70,83 +70,87 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 
 다음 테이블에서는 각 위치에 대한 연결 위치 및 서비스 공급자를 보여 줍니다. 서비스를 제공할 수 있는 서비스 공급자 및 위치를 보려면 [서비스 공급자별 위치](expressroute-locations.md#locations)를 참조하세요. 
 
+**Azure 지역** 는 것입니다 [ExpressRoute 로컬](expressroute-faqs.md) 각 피어 링 위치에 액세스할 수 있습니다. **해당 없음** ExpressRoute 로컬 사용할 수 없는 해당 피어 링 위치를 나타냅니다.
+
 
 ### <a name="production-azure"></a>프로덕션 Azure
-| **위치**: | **피어링 위치 소유자** | **서비스 공급자** |
-| --- | --- | --- |
-| **암스테르담** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **암스테르담2** | Interxion | DE-CIX Interxion |
-| **애틀랜타** | Equinix | Equinix, Megaport |
-| **부산** |LG CNS | LG CNS |
-| **캔버라** | CDC | CDC |
-| **캔버라2** | CDC | CDC |
-| **케이프타운** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **첸나이** | Tata Communications | Global CloudXchange(GCX), SIFY, Tata Communications |
-| **첸나이2** | Airtel | Airtel |
-| **시카고** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
-| **댈러스** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Verizon, Zayo|
-| **덴버** | CoreSite | CoreSite, Megaport, Zayo |
-| **Dubai** | Etisalat 아랍에미리트 | Etisalat 아랍에미리트 |
-| **더블린** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **프랑크푸르트** | Interxion | Interxion |
-| **Hong Kong SAR** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **요하네스버그** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **콸라룸푸르** | TIME dotCom | TIME dotCom |
-| **라스베이거스** | Switch | CenturyLink Cloud Connect, Megaport |
-| **런던** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **런던2** | Telehouse | IX 도달률, Equinix |
-| **로스앤젤레스** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **마르세유** |Interxion | Interxion |
-| **멜버른** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
-| **마이애미** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
-| **뭄바이** | Tata Communications | 의존성 Jio, global CloudXchange (GCX), Sify, Tata Communications |
-| **뭄바이2** | Airtel | Airtel, Sify, Vodafone Idea |
-| **뉴욕** | Equinix | Coresite, Equinix, InterCloud, Megaport, 패킷, Zayo 센추리 클라우드 연결 |
-| **뉴포트(웨일스)** | Next Generation Data | British Telecom, Level 3 Communications, Next Generation Data |
-| **오사카** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **파리** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo |
-| **퍼스** | NextDC | Megaport, NextDC |
-| **퀘벡 시티** | 4Degrees | Bell Canada, Megaport |
-| **샌안토니오** | CyrusOne | CenturyLink Cloud Connect, Megaport |
-| **상파울루** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
-| **시애틀** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
-| **서울** | KINX | KINX, LG CNS, Sejong Telecom |
-| **실리콘밸리** | Equinix | Aryaka 네트워크, AT & T NetBond, British Telecom 센추리 클라우드 연결, Comcast, Coresite, Equinix InterCloud, 패킷, PacketFabric, Level 3 Communications, Megaport, Orange, 스 프린트, Tata Communications, Verizon, Zayo IX 도달 |
-| **실리콘 Valley2** | Coresite | Coresite | 
-| **싱가포르** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
-| **Singapore2** | 글로벌 스위치 | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **시드니** | Equinix | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
-| **타이베이** | Chief Telecom | 최고 Telecom, FarEasTone |
-| **도쿄** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **토론토** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
-| **워싱턴 DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
-| **워싱턴 DC2** | Coresite | Coresite | 
-| **Zurich** | Interxion | Interxion |
+| **위치** | **피어링 위치 소유자** | **Azure 지역** | **서비스 공급자** |
+| --- | --- | --- | --- |
+| **암스테르담** | Equinix | 서유럽 | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
+| **암스테르담2** | Interxion | 서유럽 | DE CIX Interxion, Vodafone 센추리 클라우드 연결 |
+| **애틀랜타** | Equinix | n/a | Equinix, Megaport |
+| **오클랜드** | Vocus | n/a | Devoli, Kordia, Megaport |
+| **부산** |LG CNS | 한국 남부 | LG CNS |
+| **캔버라** | CDC | 오스트레일리아 중부 | CDC |
+| **캔버라2** | CDC | 오스트레일리아 중부 2| CDC |
+| **케이프타운** | Teraco | 남아프리카 서부 | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **첸나이** | Tata Communications | 인도 남부 | Global CloudXchange(GCX), SIFY, Tata Communications |
+| **첸나이2** | Airtel | 인도 남부 | Airtel |
+| **시카고** | Equinix | 미국 중북부 | Aryaka 네트워크 Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, 전역 PCCW 제한으로 스 프린트 Telia 운송 업체, Verizon, Zayo, AT & T NetBond, 센추리 클라우드 연결 |
+| **댈러스** | Equinix | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
+| **덴버** | CoreSite | 미국 중서부 | CoreSite, Megaport, Zayo |
+| **Dubai** | Etisalat 아랍에미리트 | 아랍에미리트 북부 | Etisalat 아랍에미리트 |
+| **Dubai2** | du datamena | 아랍에미리트 북부 | du datamena, Orixcom |
+| **더블린** | Equinix | 북유럽 | Colt, eir, Equinix, Interxion, Megaport |
+| **프랑크푸르트** | Interxion | n/a | DE-CIX Interxion |
+| **Hong Kong SAR** | Equinix | 동아시아 | 전역 PCCW 제한, Tata Communications Telia 운송 업체, Verizon, Chief Telecom, 중국 Telecom 전역, Equinix, Megaport, NTT 통신, 주황색 Aryaka 네트워크, British Telecom 센추리 클라우드 연결 |
+| **요하네스버그** | Teraco | 남아프리카 북부 | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **콸라룸푸르** | TIME dotCom | n/a | TIME dotCom |
+| **라스베이거스** | 스위치 | n/a | CenturyLink Cloud Connect, Megaport |
+| **런던** | Equinix | 영국 남부 | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
+| **런던2** | Telehouse | 영국 남부 | IX 도달률, Equinix |
+| **로스앤젤레스** | CoreSite | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
+| **마르세유** |Interxion | 프랑스 남부 | Interxion, DE-CIX 재규어 네트워크 |
+| **멜버른** | NextDC | 오스트레일리아 남동부 | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
+| **마이애미** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
+| **Montreal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |
+| **뭄바이** | Tata Communications | 인도 서부 | Global CloudXchange (GCX), 의존 Jio, Sify, Tata Communications, Verizon |
+| **뭄바이2** | Airtel | 인도 서부 | Airtel, Sify, Vodafone Idea |
+| **뉴욕** | Equinix | n/a | Coresite, Equinix, InterCloud, Megaport, 패킷, Zayo 센추리 클라우드 연결 |
+| **뉴포트(웨일스)** | Next Generation Data | 영국 서부 | British Telecom, Level 3 Communications Colt, 다음 세대 데이터 |
+| **오사카** | Equinix | 일본 서부 | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **파리** | Interxion | 프랑스 중부 | Colt, Equinix, Intercloud, Interxion, Orange, Telia 통신사 Zayo 센추리 클라우드 연결 |
+| **퍼스** | NextDC | n/a | Megaport, NextDC |
+| **퀘벡 시티** | 4Degrees | 캐나다 동부 | Bell Canada, Megaport |
+| **샌안토니오** | CyrusOne | 미국 중남부 | CenturyLink Cloud Connect, Megaport |
+| **상파울루** | Equinix | 브라질 남부 | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
+| **시애틀** | Equinix | 미국 서부 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
+| **서울** | KINX | 한국 중부 | KINX, LG CNS, Sejong Telecom |
+| **실리콘밸리** | Equinix | 미국 서부 | Aryaka 네트워크, AT & T NetBond, British Telecom 센추리 클라우드 연결, Comcast, Coresite, Equinix InterCloud, 패킷, PacketFabric, Level 3 Communications, Megaport, Orange, 스 프린트, Tata Communications, Verizon, Zayo IX 도달 |
+| **실리콘 Valley2** | Coresite | 미국 서부 | Coresite | 
+| **싱가포르** | Equinix | 동남아시아 | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
+| **Singapore2** | 글로벌 스위치 | 동남아시아 | Colt, Epsilon Global Communications, Megaport, SingTel |
+| **시드니** | Equinix | 오스트레일리아 동부 | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
+| **타이베이** | Chief Telecom | n/a | 최고 Telecom, FarEasTone |
+| **도쿄** | Equinix | 일본 동부 | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
+| **토론토** | Cologix | 캐나다 중부 | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
+| **워싱턴 DC** | Equinix | 미국 동부, 미국 동부 2 | Aryaka 네트워크 Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona 네트워크, NTT 통신, Orange, PacketFabric, 스 프린트, Tata AT & T NetBond, British Telecom, 센추리 클라우드 연결 통신, 운송 업체, Verizon, Zayo Telia |
+| **워싱턴 DC2** | Coresite | 미국 동부, 미국 동부 2 |Coresite | 
+| **Zurich** | Interxion | n/a | Intercloud, Interxion |
 
  **+** 는 서비스 예정을 나타냄
 
 ### <a name="national-cloud-environments"></a>국가별 클라우드 환경
 
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
-| **위치**: | **서비스 공급자** |
+| **위치** | **서비스 공급자** |
 | --- | --- |
 | **시카고** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Megaport, Verizon |
 | **뉴욕** |Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | AT&T NetBond, CenturyLink Cloud Connect |
+| **Phoenix** | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **샌안토니오** | CenturyLink Cloud Connect, Megaport |
 | **실리콘밸리** | Equinix, Level 3 Communications, Verizon |
 | **시애틀** | Equinix, Megaport |
-| **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Megaport, Verizon |
+| **워싱턴 DC** |AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>중국
-| **위치**: | **서비스 공급자** |
+| **위치** | **서비스 공급자** |
 | --- | --- |
 | **베이징** |China Telecom |
-| **베이징2** | GDS |
+| **베이징2** | 중국 Telecom, GDS |
 | **상하이** |China Telecom |
-| **상하이2** | GDS |
+| **상하이2** | 중국 Telecom, GDS |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
@@ -174,37 +178,38 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
   * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 의 단계에 따라 연결을 설정합니다.
 
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
-| **위치**: | **Exchange** | **연결 공급자** |
+| **위치** | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
 | **암스테르담** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
+| **애틀랜타** | Equinix| Crown 성
 | **케이프타운** | Teraco | MTN |
-| **시카고** | Equinix | Lightower, Windstream |
-| **댈러스** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
+| **시카고** | Equinix | Crown Castle, 스펙트럼 Enterprise Windstream |
+| **댈러스** | Equinix, Megaport | Axtel에서 C3ntro Telecom Cox Crown Castle 비즈니스 데이터 Foundry 스펙트럼 Enterprise Transtelco |
 | **프랑크푸르트** | Telecity | BICS, Cinia, Nianet, QSC AG |
 | **함부르크** | Equinix | 중국 |
 | **Hong Kong SAR** | Equinix | Chief, Macroview Telecom |
 | **요하네스버그** | Teraco | MTN |
 | **런던** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
-| **로스앤젤레스** | Equinix |Transtelco |
+| **로스앤젤레스** | Equinix |Crown Castle, 스펙트럼 Enterprise Transtelco |
 | **마드리드** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
-| **뉴욕** |Equinix, Megaport | Altice Business, Lightower, Webair |
+| **뉴욕** |Equinix, Megaport | Altice 비즈니스 Crown Castle 스펙트럼 Enterprise Webair |
 | **파리** | Equinix | Proximus |
 | **퀘벡 시티** | Megaport | Fibrenoire |
 | **상파울루** | Equinix | Venha Pra Nuvem |
 | **시애틀** |Equinix | Alaska Communications |
-| **실리콘밸리** |Equinix | Cox Business, Windstream |
+| **실리콘밸리** |Coresite, Equinix | Cox 비즈니스, 스펙트럼 Enterprise, Windstream, X2nsat Inc. |
 | **싱가포르** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **슬라우** | Equinix | HSO|
 | **시드니** | Megaport | Macquarie Telecom Group|
 | **도쿄** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **토론토** | Equinix | Airgate Technologies, Inc. Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
-| **워싱턴 DC** |Equinix | Altice Business, BICS, Cox Business, Gtt Communications Inc, Epsilon Telecommunications Limited, Lightower, Masergy, Windstream |
+| **토론토** | Equinix, Megaport | Airgate Technologies Inc., Beanfield Metroconnect, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
+| **워싱턴 DC** |Equinix | Altice 비즈니스, BICS, Cox 비즈니스, Crown Castle, Gtt 통신 Inc 엡실론 통신 제한, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 시스템 통합업체
-사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.
+사용자 요구에 맞도록 프라이빗 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.
 
-| **대륙** | **시스템 통합 업체** |
+| **Continent** | **시스템 통합 업체** |
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

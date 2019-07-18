@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505815"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
@@ -73,7 +73,7 @@ VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역
 ### <a name="workaround"></a>해결 방법
 
 Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사용하는 경우 새 버전으로 이동하는 것이 좋습니다. 특정 VM 크기에 대한 권장 사항을 참조하십시오.
-다른 VM 크기를 사용할 수 있는 옵션이 없으면 동일한 지역 내의 다른 지역에 배포합니다. 각 지역에서 사용 가능한 VM 크기에 대한 자세한 내용은 https://aka.ms/azure-regions를 참조하세요.
+다른 VM 크기를 사용할 수 있는 옵션이 없으면 동일한 지역 내의 다른 지역에 배포합니다. 각 지역에서 사용 가능한 VM 크기에 대한 자세한 내용은 https://aka.ms/azure-regions 를 참조하세요.
 
 가용성 영역을 사용하는 경우 요청한 VM 크기에 사용 가능한 용량이 있을 수 있는 지역 내의 다른 지역을 시도합니다.
 
@@ -96,7 +96,7 @@ Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원�
 
 ## <a name="background-information"></a>배경 정보
 ### <a name="how-allocation-works"></a>할당의 작동 원리
-Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이를 “클러스터에 고정”이라고 합니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다.  다이어그램 2는 기존 클라우드 서비스 CS_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
+Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이를 “클러스터에 고정”이라고 합니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 기존 클라우드 서비스 CS_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
 ![할당 다이어그램](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>할당 오류가 발생하는 이유

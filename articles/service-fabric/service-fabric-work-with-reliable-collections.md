@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506742"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>변경할 수 없는 데이터 형식을 정의하여 프로그래머 오류 방지
-이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 https://nuget.org에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
+이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 https://nuget.org 에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
 
 아래의 UserInfo 형식은 앞에서 설명한 권장 사항을 활용하는 변경할 수 없는 형식을 정의하는 방법을 보여줍니다.
 

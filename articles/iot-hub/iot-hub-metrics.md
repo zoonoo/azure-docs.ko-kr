@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 743e4c5bebefbf6727c49257551b8c958eb6f031
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6afebfe9a5db713e31fed0acd2e8ad7244f30037
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692548"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274928"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
 
@@ -60,12 +60,14 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|라우팅: Service Bus 큐에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 큐 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|라우팅: Service Bus 토픽에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 Service Bus 토픽 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|라우팅: Service Bus 토픽에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 Service Bus 토픽 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|라우팅: 메시지/이벤트에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 기본 제공 엔드포인트(메시지/이벤트)에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
-|d2c<br>.endpoints<br>.latency<br>. builtIn.events|라우팅: 메시지/이벤트에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 엔드포인트(메시지.이벤트)에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|라우팅: 메시지/이벤트에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 기본 제공 엔드포인트(메시지/이벤트)에 메시지를 성공적으로 배달한 횟수입니다. 이 메트릭은 라우팅을 사용 하면 작동을 시작 (https://aka.ms/iotrouting) IoT hub에 대 한 합니다.|차원 없음|
+|d2c<br>.endpoints<br>.latency<br>. builtIn.events|라우팅: 메시지/이벤트에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 기본 제공 엔드포인트(메시지.이벤트)에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다. 이 메트릭은 라우팅을 사용 하면 작동을 시작 (https://aka.ms/iotrouting) IoT hub에 대 한 합니다.|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.storage|라우팅: 저장소에 배달된 메시지|카운트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
 |d2c<br>.endpoints<br>.latency<br>.storage|라우팅: 저장소에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 저장소 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|라우팅: 저장소에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|라우팅: 저장소에 배달된 Blob|카운트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
+|EventGridDeliveries|Event Grid 배달 (미리 보기)|카운트|합계|IoT Hub 이벤트 수가 Event Grid에 게시 합니다. 성공 및 실패 한 요청 수에 대 한 결과 차원을 사용 하 여 합니다. EventType 차원 이벤트의 형식을 보여 줍니다 (https://aka.ms/ioteventgrid) 합니다. Where를 확인 하려면 요청에서 제공, EventType 차원을 사용 합니다.|결과 이벤트 유형|
+|EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|평균 대기 시간 (밀리초)에서 이벤트를 Event Grid에 게시 된 경우에 Iot Hub 이벤트가 생성 되었습니다. 이 수에는 모든 이벤트 형식 간의 평균입니다. EventType 차원을 사용 하 여 특정 유형의 이벤트의 대기 시간을 참조 하세요.|이벤트 유형|
 |d2c<br>.twin<br>.read<br>.success|디바이스에서의 성공한 쌍 읽기|카운트|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c<br>.twin<br>.read<br>.failure|디바이스에서의 실패한 쌍 읽기|카운트|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c<br>.twin<br>.read<br>.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
@@ -99,8 +101,7 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |jobs<br>.failed|실패한 작업|카운트|합계|실패한 모든 작업의 수입니다.|차원 없음|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|제한 오류 수|카운트|합계|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
 |dailyMessage<br>QuotaUsed|사용된 전체 메시지 수|카운트|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
-|deviceDataUsage|총 디바이스 데이터 사용량(사용되지 않음)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
-|deviceDataUsageV2|총 디바이스 데이터 사용(미리 보기)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
+|deviceDataUsage|총 장치 데이터 사용|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
 |totalDeviceCount|총 디바이스(미리 보기)|카운트|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
 |연결됨<br>DeviceCount|연결된 디바이스(미리 보기)|카운트|평균|IoT 허브에 연결된 디바이스 수|차원 없음|
 |구성|구성 메트릭|카운트|합계|구성 작업에 대한 메트릭|차원 없음|

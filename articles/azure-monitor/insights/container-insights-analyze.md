@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075408"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -26,10 +26,6 @@ ms.locfileid: "65148840"
 이 문서는 이러한 두 관점을 이해하고 검색된 문제를 신속하게 평가, 조사 및 해결하는 데 도움이 됩니다.
 
 컨테이너용 Azure Monitor를 사용하도록 설정하는 방법은 [컨테이너용 Azure Monitor 등록](container-insights-onboard.md)을 참조하세요.
-
-> [!IMPORTANT]
-> Windows Server 2019를 실행 하는 AKS 클러스터를 모니터링 하려면 컨테이너 지원에 대 한 azure Monitor는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Monitor는 Linux 및 Windows Server 2019 여러 구독에서 리소스 그룹 배포를 실행 하는 모든 모니터링 대상된 AKS 클러스터의 상태를 표시 하는 다중 클러스터 보기를 제공 합니다.  솔루션에서 모니터링되지 않는 것으로 식별된 AKS 클러스터도 보여줍니다. 즉시 클러스터 상태를 이해할 수 있으며, 여기서 노드 및 컨트롤러 성능 페이지로 드릴다운하거나 클러스터의 성능 차트로 이동할 수 있습니다.  모니터링되지 않는 것으로 식별된 AKS 클러스터의 경우 언제든지 해당 클러스터에 모니터링을 사용할 수 있습니다.  
 
@@ -65,7 +61,7 @@ Linux 클러스터에 비해 컨테이너에 대 한 Azure Monitor를 사용 하
 * **찾을 수 없음** - 이 솔루션의 워크로드를 포함하고 있는 작업 영역, 리소스 그룹 또는 구독이 삭제되었습니다.
 * **권한 없음** - 사용자에게 작업 영역의 데이터를 읽는 데 필요한 권한이 없습니다.
 * **오류** - 작업 영역에서 데이터를 읽으려고 시도하는 동안 오류가 발생했습니다.
-* **올바르게 구성되지 않음** - 지정된 작업 영역에서 컨테이너용 Azure Monitor가 올바르게 구성되지 않았습니다.
+* **잘못 구성 된** -지정된 된 작업 영역에서 컨테이너에 대 한 Azure Monitor를 올바르게 구성 되지 않았습니다.
 * **데이터 없음** - 최근 30분 동안 작업 영역에 데이터가 보고되지 않았습니다.
 
 전반적인 클러스터 상태를 계산 하는 상태 *최저* 세 가지 상태 중 하나라도 한 가지 예외로 – 세 가지 상태 *알 수 없는*, 전반적인 클러스터 상태 **알수없음**.  
@@ -95,7 +91,7 @@ Linux 클러스터에 비해 컨테이너에 대 한 Azure Monitor를 사용 하
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>AKS 클러스터에서 직접 성능 보기
 왼쪽 창에서 **인사이트**를 선택하여 AKS 클러스터에서 직접 컨테이너용 Azure Monitor에 액세스할 수 있습니다. AKS 클러스터에 대한 정보 보기는 다음 네 가지 관점으로 구성됩니다.
 
-- 프로비전
+- 클러스터
 - 노드 
 - Controllers  
 - 컨테이너
@@ -106,12 +102,12 @@ Linux 클러스터에 비해 컨테이너에 대 한 Azure Monitor를 사용 하
 
 성능 차트에는 네 가지 성능 메트릭이 표시됩니다.
 
-- **노드 CPU 사용률&nbsp;%**: 전체 클러스터의 관점에서 집계된 CPU 사용률을 보여줍니다. 차트 위에 있는 백분위 선택기에서 개별적이거나 결합된 **평균**, **최소**, **최대**, **50번째**, **90번째** 및 **95번째**를 선택하여 시간 범위에 대한 결과를 필터링할 수 있습니다. 
-- **노드 메모리 사용률&nbsp;%**: 전체 클러스터의 관점에서 집계된 메모리 사용률을 보여줍니다. 차트 위에 있는 백분위 선택기에서 개별적이거나 결합된 **평균**, **최소**, **최대**, **50번째**, **90번째** 및 **95번째**를 선택하여 시간 범위에 대한 결과를 필터링할 수 있습니다. 
+- **노드 CPU 사용률&nbsp;%** : 전체 클러스터의 관점에서 집계된 CPU 사용률을 보여줍니다. 차트 위에 있는 백분위 선택기에서 개별적이거나 결합된 **평균**, **최소**, **최대**, **50번째**, **90번째** 및 **95번째**를 선택하여 시간 범위에 대한 결과를 필터링할 수 있습니다. 
+- **노드 메모리 사용률&nbsp;%** : 전체 클러스터의 관점에서 집계된 메모리 사용률을 보여줍니다. 차트 위에 있는 백분위 선택기에서 개별적이거나 결합된 **평균**, **최소**, **최대**, **50번째**, **90번째** 및 **95번째**를 선택하여 시간 범위에 대한 결과를 필터링할 수 있습니다. 
 - **노드 수**: Kubernetes의 노드 수 및 상태입니다. 표시되는 클러스터 노드의 상태는 *모두*, *준비됨* 및 *준비되지 않음*이고 차트 위의 선택기에서 개별적이거나 결합되어 필터링될 수 있습니다. 
 - **활동 Pod 수**: Kubernetes의 Pod 수 및 상태입니다. 표시되는 Pod의 상태는 *모두*, *보류 중*, *실행 중* 및 *알 수 없음*이고 차트 위의 선택기에서 개별적이거나 결합되어 필터링될 수 있습니다. 
 
-왼쪽/오른쪽 화살표 키를 사용하여 차트의 각 데이터 요소를 따라 순환하고, 위쪽/아래쪽 화살표 키를 사용하여 백분위 수 줄을 따라 순환할 수 있습니다.
+왼쪽/오른쪽 화살표 키를 사용하여 차트의 각 데이터 요소를 따라 순환하고, 위쪽/아래쪽 화살표 키를 사용하여 백분위 수 줄을 따라 순환할 수 있습니다. 중 하나라도 차트의 오른쪽 위 모서리에서 고정 아이콘을 클릭 하는 선택한 차트를 마지막으로 본 마지막 Azure 대시보드에 고정 합니다. 대시보드에서 크기를 조정할 수 있으며 차트의 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택 하는 컨테이너에 대 한 Azure Monitor로 리디렉션됩니다 고의 올바른 범위 및 보기를 로드 합니다.
 
 컨테이너에 대 한 azure Monitor에서는 Azure Monitor [메트릭 탐색기](../platform/metrics-getting-started.md), 상관 관계를 지정 고유한 점도 차트를 만들 및 추세를 조사 하 고 수 있는 대시보드에 고정 합니다. 메트릭 탐색기에서 사용할 수도 있습니다 조건을 기반으로 메트릭을 시각화를 설정한 경우는 [메트릭 기반 경고 규칙](../platform/alerts-metric.md)합니다.  
 
@@ -274,6 +270,20 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 | ![마지막으로 보고된 실행 중 상태 아이콘](./media/container-insights-analyze/containers-grey-icon.png) | 하지만 마지막으로 보고된 실행 중 상태는 30분 넘게 응답되지 않았습니다.|  
 | ![종료됨 상태 아이콘](./media/container-insights-analyze/containers-terminated-icon.png) | 성공적으로 중지됨 또는 중지하지 못함|  
 | ![실패 상태 아이콘](./media/container-insights-analyze/containers-failed-icon.png) | 실패 상태 |  
+
+## <a name="disk-capacity-workbook"></a>디스크 용량 통합 문서
+통합 문서에 텍스트를 결합할 [쿼리를 기록](../log-query/query-language.md)를 [메트릭](../platform/data-platform-metrics.md), 및 풍부한 대화형 보고서에 매개 변수입니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
+
+컨테이너에 대 한 azure Monitor를 시작 하기 위한 통합 문서를 포함 **디스크 용량**합니다.  이 통합 문서는 다음과 같은 관점에서 컨테이너 내에서 노드를 제공 하는 각 디스크에 대 한 대화형 디스크 사용 현황 차트를 제공 합니다.
+
+- 모든 디스크에 대 한 디스크 % 사용
+- 모든 디스크의 사용 가능한 디스크 공간
+- 해당 % 사용 된 공간을 각 노드의 디스크에 대해 보여 주는 표를 % 추세 공간, 사용 가능한 디스크 공간 (GiB) 및 사용 가능한 디스크 공간 (GiB) 추세를 사용 합니다. % 사용 된 공간 및 사용 가능한 디스크 공간 (GiB)는 아래 테이블의 행을 선택 하면 
+
+선택 하 여이 통합 문서를 액세스할 **디스크 용량** 에서 **뷰 통합 문서** 드롭 다운 목록.  
+
+![통합 문서 드롭 다운 목록 보기](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 - 검토 합니다 [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고를 만들](container-insights-alerts.md) DevOps 또는 운영 프로세스 및 프로시저를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법. 

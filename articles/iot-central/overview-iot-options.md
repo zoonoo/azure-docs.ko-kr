@@ -3,18 +3,18 @@ title: Microsoft Azure IoT 옵션 | Microsoft Docs
 description: Azure IoT Central, IoT 솔루션 가속기 또는 IoT Hub를 사용하여 Azure IoT 솔루션을 구현하는 방법을 선택합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 571c703609bac2e4414baf19edc39cf5e9f8820a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 19ec7afeb71f0e9d5602f1c4ba1a2456162cdfae
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077397"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Azure IoT Central과 Azure IoT 옵션 비교
 
@@ -35,7 +35,7 @@ Azure IoT Hub는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에�
 
 ## <a name="compare-azure-iot-central-and-azure-iot-solution-accelerators"></a>Azure IoT Central과 Azure IoT 솔루션 가속기 비교
 
-Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. 모든 IoT 솔루션의 시작점으로 IoT Hub를 사용할 수 있습니다. 또한 IoT Hub를 사용하려면 Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용해서는 안 됩니다. IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다.
+Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 엔드투엔드 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. 모든 IoT 솔루션의 시작점으로 IoT Hub를 사용할 수 있습니다. 또한 IoT Hub를 사용하려면 Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용해서는 안 됩니다. IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다.
 
 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
 

@@ -49,6 +49,8 @@
           href: data-box-gateway-troubleshoot.md
     - name: 릴리스 정보
       items:
+        - name: 1905 - 현재
+          href: data-box-gateway-1905-release-notes.md
         - name: 일반 공급
           href: data-box-gateway-release-notes.md
 - name: Data Box Edge
@@ -67,8 +69,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4 - 추가, 공유에 연결'
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - 계산 구성
+        - name: 5A - 컴퓨팅 구성(단순)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B - 컴퓨팅 구성(고급)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: 개념
       items:
         - name: 요구 사항 검토
@@ -81,26 +85,34 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: 방법
       items:
-        - name: 관리 계산
-          href: data-box-edge-manage-compute.md
         - name: 'C# 모듈 개발'
           href: data-box-edge-create-iot-edge-module.md
-        - name: 공유 관리
-          href: data-box-edge-manage-shares.md
-        - name: 사용자 관리
-          href: data-box-edge-manage-users.md
-        - name: 대역폭 일정 관리
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: '전원, 액세스, 연결 관리'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: PowerShell을 통해 관리
-          href: data-box-edge-connect-powershell-interface.md
+        - name: 관리
+          items:
+            - name: Edge 컴퓨팅
+              href: data-box-edge-manage-compute.md
+            - name: Edge 컴퓨팅 네트워크
+              href: data-box-edge-extend-compute-access-modules.md
+            - name: 공유
+              href: data-box-edge-manage-shares.md
+            - name: 사용자
+              href: data-box-edge-manage-users.md
+            - name: 대역폭 일정
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: '전원, 액세스, 연결'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: PowerShell을 통해
+              href: data-box-edge-connect-powershell-interface.md
         - name: 문제 해결
           href: data-box-edge-troubleshoot.md
         - name: 모니터
           href: data-box-edge-monitor.md
+        - name: 디바이스 반환
+          href: data-box-edge-return-device.md
     - name: 릴리스 정보
       items:
+        - name: 1905 - 현재
+          href: data-box-gateway-1905-release-notes.md
         - name: 일반 공급
           href: data-box-gateway-release-notes.md
 - name: 리소스

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118731"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199291"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -31,9 +31,9 @@ ms.locfileid: "60118731"
 
 관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 저장소 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
-### <a name="integration-with-availability-zones"></a>가용성 영역을 사용 하 여 통합
+### <a name="integration-with-availability-zones"></a>가용성 영역과 통합
 
-관리 디스크 지원 [가용성 영역](../articles/availability-zones/az-overview.md), 데이터 센터 오류 로부터 응용 프로그램을 보호 하는 고가용성 제공을를 합니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다.
+관리 디스크는 [가용성 영역](../articles/availability-zones/az-overview.md)을 지원하며, 이것은 데이터 센터 오류로부터 애플리케이션을 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다.
 
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
@@ -45,13 +45,13 @@ ms.locfileid: "60118731"
 
 ## <a name="disk-roles"></a>디스크 역할
 
-Azure에는 세 가지 주 디스크 역할이 있습니다: 데이터 디스크, OS 디스크 및 임시 디스크. 이러한 역할에 가상 머신에 연결 된 디스크에 매핑됩니다.
+Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지 주요 디스크 역할이 있습니다. 이러한 역할은 가상 머신에 연결된 디스크에 매핑됩니다.
 
-![작업의 디스크 역할](media/virtual-machines-managed-disks-overview/disk-types.png)
+![실제 디스크 역할](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>데이터 디스크 
 
-데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 32,767 기가바이트로 (GiB) 용량입니다. 가상 머신의 크기에 따라 사용자가 해당 가상 머신에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
+데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 32,767GiB(기비바이트)입니다. 가상 머신의 크기에 따라 사용자가 해당 가상 머신에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
 
 ### <a name="os-disk"></a>OS 디스크
 
@@ -61,7 +61,7 @@ Azure에는 세 가지 주 디스크 역할이 있습니다: 데이터 디스크
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크에 데이터 손실 될 수 있습니다는 [유지 관리 이벤트가](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 이벤트 때나 있습니다 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)합니다. Azure Linux Vm에서 임시 디스크는 기본적으로 /dev/sdb 이며 Windows Vm에서 임시 디스크 e: 기본적으로 합니다. VM의 성공적인 표준 재부팅을 하는 동안 임시 디스크의 데이터가 유지 됩니다.
+모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. Azure Linux VM에서 임시 디스크는 기본적으로 /dev/sdb이며 Windows VM의 임시 디스크는 기본적으로 E:입니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.
 
 ## <a name="managed-disk-snapshots"></a>관리 디스크 스냅숏
 

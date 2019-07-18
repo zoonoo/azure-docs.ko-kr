@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: haroldw
 ms.openlocfilehash: 91b37753ae80596612eda9d3ccd34858691e35ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771552"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Azure Stack에서 OKD 또는 OpenShift Container Platform 배포
@@ -46,7 +46,7 @@ Resource Manager 템플릿을 사용하는 경우 적절한 분기(azurestack-re
 ```
 
 모든 옵션에 Red Hat 구독이 필요합니다. 배포하는 동안 Red Hat Enterprise Linux 인스턴스는 Red Hat 구독에 등록되고 OpenShift Container Platform에 대한 자격이 포함된 풀 ID에 연결됩니다.
-유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 또는 정품 인증 키, 조직 ID 및 풀 ID를 사용할 수 있습니다.  이 정보는 https://access.redhat.com에 로그인하여 확인할 수 있습니다.
+유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 또는 정품 인증 키, 조직 ID 및 풀 ID를 사용할 수 있습니다.  이 정보는 https://access.redhat.com 에 로그인하여 확인할 수 있습니다.
 
 ## <a name="azure-stack-prerequisites"></a>Azure Stack의 필수 구성 요소
 

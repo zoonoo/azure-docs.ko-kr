@@ -1,18 +1,19 @@
 ---
 title: Azure Maps 검색 서비스를 사용 하 여 효율적으로 검색 하는 방법 | Microsoft Docs
 description: Azure Maps 검색 서비스를 사용 하 여 검색에 대 한 모범 사례를 사용 하는 방법 알아보기
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c4347eb0f89c17a285aaa4b51760300b9c89aa7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205618"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617873"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용 하는 모범 사례
 
@@ -24,7 +25,7 @@ Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) 특정 위�
 * 주소 검색 응답 구조를 읽기
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 맵 서비스 API에 대한 호출을 생성하려면 맵 계정 및 키가 필요합니다. 계정 만들기 및 키 검색에 대한 자세한 내용은 [Azure Maps 계정 및 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요.
 
@@ -683,7 +684,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 }
 ```
 
-### <a name="geometry"></a>기하 도형
+### <a name="geometry"></a>기 하 도형
 
 응답 형식이 면 **기 하 도형**, 반환 되는 기 하 도형 ID를 포함할 수 있습니다는 **dataSources** "geometry" 및 "id" 아래에 있는 개체입니다. 예를 들어 [다각형 가져오기 서비스](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) 엔터티 집합에 대 한 도시 또는 공항 개요 등 GeoJSON 형식으로의 기 하 도형 데이터를 요청할 수 있습니다. 에 대해이 경계 데이터를 사용할 수 있습니다 [지 오 펜싱](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) 하거나 [기 하 도형 내에서 검색 poi로 향하는](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)합니다.
 

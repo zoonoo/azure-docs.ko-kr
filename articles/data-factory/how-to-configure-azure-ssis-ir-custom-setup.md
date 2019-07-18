@@ -13,17 +13,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711562"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
 Azure-SSIS IR(Integration Runtime)에 대한 사용자 지정 설정 인터페이스는 Azure-SSIS IR의 프로비전 또는 재구성 중에 자체 설정 단계를 추가하는 인터페이스를 제공합니다. 사용자 지정 설정을 사용하면 기본 운영 구성이나 환경을 변경하거나(예: 추가 Windows 서비스 시작 또는 파일 공유에 대한 액세스 자격 증명 유지) 추가 구성 요소(예: 어셈블리, 드라이버, 확장)를 Azure-SSIS IR의 각 노드에 설치할 수 있습니다.
 
-스크립트 및 관련 파일을 준비하고 Azure Storage 계정에서 Blob 컨테이너에 업로드하여 사용자 지정 설정을 구성할 수 있습니다.  Azure-SSIS IR을 프로비전 또는 다시 구성할 때 컨테이너에 대해 SAS(Shared Access Signature) URI(Uniform Resource Identifier)를 제공합니다. 그러면 각 Azure-SSIS IR 노드가 스크립트와 관련 파일을 컨테이너에서 다운로드하고 사용자 지정 설정을 상승된 권한으로 실행합니다. 사용자 지정 설정이 완료되면 각 노드가 실행의 표준 출력과 다른 로그를 컨테이너에 업로드합니다.
+스크립트 및 관련 파일을 준비하고 Azure Storage 계정에서 Blob 컨테이너에 업로드하여 사용자 지정 설정을 구성할 수 있습니다. Azure-SSIS IR을 프로비전 또는 다시 구성할 때 컨테이너에 대해 SAS(Shared Access Signature) URI(Uniform Resource Identifier)를 제공합니다. 그러면 각 Azure-SSIS IR 노드가 스크립트와 관련 파일을 컨테이너에서 다운로드하고 사용자 지정 설정을 상승된 권한으로 실행합니다. 사용자 지정 설정이 완료되면 각 노드가 실행의 표준 출력과 다른 로그를 컨테이너에 업로드합니다.
 
 무료 또는 라이선스 없는 구성 요소, 유료 또는 라이선스가 있는 구성 요소를 모두 설치할 수 있습니다. ISV인 경우 [Azure-SSIS IR에 대한 유료 또는 라이선스가 있는 구성 요소를 개발하는 방법](how-to-develop-azure-ssis-ir-licensed-components.md)을 참조하세요.
 
@@ -105,7 +105,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![공유 액세스 서명 입력](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다.  예를 들면 다음과 같습니다.
+      PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 Azure-SSIS IR을 시작하기 전에 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다. 예를 들면 다음과 같습니다.
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -162,7 +162,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
    ![사용자 시나리오 폴더의 폴더](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-   e. 이러한 사용자 지정 설정 샘플을 사용해 보려면 선택한 폴더의 콘텐츠를 복사하여 컨테이너에 붙여 넣습니다. PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다. 
+   e. 이러한 사용자 지정 설정 샘플을 사용해 보려면 선택한 폴더의 콘텐츠를 복사하여 컨테이너에 붙여 넣습니다. PowerShell로 Azure-SSIS IR을 프로비전 또는 다시 구성할 때 새 `SetupScriptContainerSasUri` 매개 변수에 대한 값으로 컨테이너의 SAS URI를 사용하여 `Set-AzDataFactoryV2IntegrationRuntime` cmdlet을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

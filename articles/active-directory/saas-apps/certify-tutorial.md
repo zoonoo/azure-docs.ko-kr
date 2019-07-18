@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3655b720b1d8bad7eb60f0be1192f9a200c75647
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 64dbf6afc3ffa57bfa9add72955967d0c73e63bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>자습서: Certify와 Azure Active Directory 통합
 

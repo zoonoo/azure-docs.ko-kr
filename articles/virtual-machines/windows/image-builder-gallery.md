@@ -5,14 +5,14 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
-ms.service: virtual-machines-widows
-manager: jeconnoc
-ms.openlocfilehash: 2453d37720bcf48b95b428cf78c6186de40b31aa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.service: virtual-machines-windows
+manager: gwallace
+ms.openlocfilehash: 164fc4d8ad567c75ed5029aaf26af260398f80ba
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160112"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722686"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들고 공유 이미지 갤러리에 배포 
 

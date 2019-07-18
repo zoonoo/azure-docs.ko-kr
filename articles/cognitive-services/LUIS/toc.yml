@@ -5,6 +5,8 @@
   items:
     - name: Language Understanding이란?
       href: what-is-luis.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 미리 빌드된 도메인 앱 빌드
@@ -29,7 +31,7 @@
               href: luis-get-started-cs-get-intent.md
             - name: Go
               href: luis-get-started-go-get-intent.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-get-intent.md
             - name: Node.js
               href: luis-get-started-node-get-intent.md
@@ -41,7 +43,7 @@
               href: luis-get-started-cs-add-utterance.md
             - name: Go
               href: luis-get-started-go-add-utterance.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: Node.js
               href: luis-get-started-node-add-utterance.md
@@ -83,12 +85,24 @@
           displayName: roles
         - name: 자유 형식 데이터 추출
           href: luis-tutorial-pattern-any.md
-    - name: 봇 사용
+    - name: 봇으로 사용
       items:
         - name: 'C# 사용'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. 기본 봇 만들기
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Application Insights에 원격 분석 추가
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Node.js 사용
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. 기본 봇 만들기
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Application Insights에 원격 분석 추가
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -105,7 +119,7 @@
       items:
         - name: 제작 주기
           href: luis-concept-app-iteration.md
-        - name: 공동 작업
+        - name: 협업
           displayName: 'shared, transfer, ownership, author, access, import'
           href: luis-concept-collaborator.md
         - name: 버전 관리
@@ -197,25 +211,7 @@
         - name: Bing Spell Check v7 사용
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
-          href: luis-tutorial-speech-to-intent.md
-        - name: 봇 사용
-          items:
-            - name: 웹앱 봇
-              items:
-                - name: Node.js
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
-                - name: 'C#'
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-csharp-tutorial-build-bot-framework-sample.md
-            - name: Application Insights
-              items:
-                - name: Node.js
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-function-appinsights.md
-                - name: 'C#'
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-bot-csharp-appinsights.md
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
     - name: 예측 정확도 개선
       items:
         - name: 대시보드 사용
@@ -262,7 +258,7 @@
           href: luis-migration-api-v1-to-v2.md
         - name: V3 REST API로 마이그레이션
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행
@@ -270,6 +266,8 @@
           href: luis-container-howto.md
         - name: 컨테이너 구성
           href: luis-container-configuration.md
+        - name: 컨테이너 인스턴스 사용
+          href: deploy-luis-on-container-instances.md
 - name: 참고 자료
   items:
     - name: 사용자 개인 정보
@@ -279,6 +277,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: 경계
       href: luis-boundaries.md
+    - name: 애플리케이션 설정
+      href: luis-reference-application-settings.md
     - name: 미리 작성된 엔터티 참조
       items:
         - name: 문화권별 엔터티
@@ -302,8 +302,10 @@
           href: luis-reference-prebuilt-keyphrase.md
         - name: Number 엔터티
           href: luis-reference-prebuilt-number.md
-        - name: 서수 엔터티
+        - name: Ordinal 엔터티
           href: luis-reference-prebuilt-ordinal.md
+        - name: Ordinal V2 엔터티
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Percentage 엔터티
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName 엔터티
@@ -318,15 +320,15 @@
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Azure CLI
-      href: 'https://aka.ms/az-cli-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: REST API
       items:
         - name: V2 REST API 작성
-          href: 'https://aka.ms/luis-authoring-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
         - name: 엔드포인트 V2 REST API
-          href: 'https://aka.ms/luis-endpoint-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP 코드
           displayName: '400, 401, 403, 409, 410, 414, 429'
           href: luis-reference-response-codes.md
@@ -350,7 +352,7 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
             - name: 참고 자료
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-        - name: 자바
+        - name: Java
           items:
             - name: Maven - 제작
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
@@ -399,12 +401,12 @@
 - name: 리소스
   items:
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 언어 및 지역 지원
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure 로드맵
-      href: 'https://aka.ms/luis-roadmap'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: 용어
       href: luis-glossary.md
     - name: 문제 해결
@@ -412,10 +414,12 @@
       displayName: 'FAQ, import'
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
-      href: 'https://aka.ms/luis-uservoice-forum'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: 검색
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 블로그

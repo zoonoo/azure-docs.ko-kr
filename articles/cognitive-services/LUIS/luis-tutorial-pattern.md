@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193741"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276040"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
@@ -197,7 +197,7 @@ ms.locfileid: "57193741"
 두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다. 
 
 ## <a name="template-utterances"></a>템플릿 발언
-Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예를 들면 다음과 같습니다.
+Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예:
 
 |발언|
 |--|

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516752"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
@@ -227,7 +227,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 다음과 같은 몇 가지에 대한 설명이 필요합니다.
 
-* 1.75의 비율이 합리적인지를 무엇이 결정했나요? Cluster Resource Manager는 충분한지 또는 추가 작업이 필요한지를 어떻게 확인하나요?
+* 1\.75의 비율이 합리적인지를 무엇이 결정했나요? Cluster Resource Manager는 충분한지 또는 추가 작업이 필요한지를 어떻게 확인하나요?
 * 언제 부하가 분산되나요?
 * 메모리의 가중치가 "높음"은 무슨 의미인가요?
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 521f8f29e2f8475ab7308f5646b94c6fc0f6a01f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398811"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
@@ -42,7 +42,7 @@ ms.locfileid: "60398811"
 
 부하 분산 장치를 배포하려면 다음 개체를 만들어야 합니다.
 
-* 프런트 엔드 IP 풀: 들어오는 모든 네트워크 트래픽에 대한 사설 IP 주소
+* 프런트 엔드 IP 풀: 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
 * 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스
 * 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성
 * 프로브 구성: 가상 머신에 대한 상태 프로브

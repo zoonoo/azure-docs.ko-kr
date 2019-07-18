@@ -10,15 +10,15 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/19/2019
 ms.author: robinsh
 ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719309"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
-![종단 간 다이어그램](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
+![엔드투엔드 다이어그램](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -78,7 +78,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
    ![Azure Portal에서 Service Bus 큐 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. 다시 합니다 **Service Bus Namespace** 창 아래에 있는 **엔터티**를 선택 **큐**합니다. 목록에서 Service Bus 큐를 열고 선택한 **공유 액세스 정책** > **+ 추가**합니다.
+1. 다시 합니다 **Service Bus Namespace** 창 아래에 있는 **엔터티**를 선택 **큐**합니다. 목록에서 Service Bus 큐를 열고 선택한 **공유 액세스 정책** >  **+ 추가**합니다.
 
 1. 검사 정책에 대 한 이름을 입력 **관리**를 선택한 후 **만들기**합니다.
 

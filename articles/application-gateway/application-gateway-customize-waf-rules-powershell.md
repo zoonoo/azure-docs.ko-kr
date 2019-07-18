@@ -4,15 +4,15 @@ description: 이 문서에서는 PowerShell을 통해 Application Gateway에서 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 03/11/2019
-ms.author: v-junlch
-ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 2/22/2019
+ms.author: victorh
+ms.topic: conceptual
+ms.openlocfilehash: 35114783f8f438a0890d59c05452f4f0b0dbb41b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831455"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618575"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell을 통해 웹 애플리케이션 방화벽 규칙 사용자 지정
 
@@ -113,5 +113,3 @@ CRS 3.x 관련:
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-
-<!-- Update_Description: code update -->

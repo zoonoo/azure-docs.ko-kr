@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 192db67f481f3a4c420c19be7ce1febe55342050
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd7b382e35191571af5a9d7ddd9884dff32e023d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>자습서: Gra-Pe와 Azure Active Directory 통합
 

@@ -1,10 +1,15 @@
 ---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
 ms.openlocfilehash: 8b4d2d9c8d6029ed7027e2e3d358ac7380897674
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182802"
 ---
 > [!div class="op_single_selector"]
 > * [개요](../articles/hdinsight/hadoop/hdinsight-use-sqoop.md)
@@ -13,4 +18,5 @@ ms.locfileid: "62125014"
 > * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-sqoop-powershell.md)
 > * [.NET](../articles/hdinsight/hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 > 
->
+> 
+

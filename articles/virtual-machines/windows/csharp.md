@@ -4,7 +4,7 @@ description: C# 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7eef9c4633b6064f2be251bc436c103f4e4a0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402044"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718707"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 C#을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -80,12 +80,12 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음과 같은 PowerShell 명령을 사용할 수 있습니다.
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 기존 문에 추가합니다.
+1. 사용자가 만든 프로젝트의 Program.cs 파일을 엽니다. 그런 다음 기존 문에 다음 using 문을 파일의 맨 위에 있는 추가 합니다.
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -95,7 +95,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     ```
 
-2. 관리 클라이언트를 만들려면 Main 메서드에 다음 코드를 추가합니다.
+2. 관리 클라이언트를 만들려면 다음 코드를 Main 메서드에 추가합니다.
 
     ```
     var credentials = SdkContext.AzureCredentialsFactory
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM에 데이터 디스크 추가
 
-가상 머신에 데이터 디스크를 추가하려면 Main 메서드에 다음 코드를 추가하여 크기가 2GB이고 LUN이 0이며 캐싱 형식이 읽기/쓰기인 데이터 디스크를 추가합니다.
+가상 머신에 데이터 디스크를 추가 하려면 Main 메서드에이 코드를 추가 합니다. 이 예제에서는 데이터 디스크를 lun이 0 이며 캐싱 형식이 읽기/쓰기 크기가 2GB를 추가 합니다.
 
 ```
 Console.WriteLine("Adding data disk to vm...");

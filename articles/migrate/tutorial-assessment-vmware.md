@@ -4,15 +4,15 @@ description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 06/10/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c16c7fdfdf3efe5518e2452871fdeace0a4a8526
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490323"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807947"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -56,7 +56,7 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 4. 새 리소스 그룹을 만듭니다.
 5. 프로젝트를 만들 지리를 지정한 다음, **만들기**를 클릭합니다. 다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계속 계획할 수 있습니다. 프로젝트에 대해 지정된 지리는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다.
 
-**Geography** | **저장 위치**
+**지리** | **스토리지 위치**
 --- | ---
 Azure Government | 미국 정부 버지니아
 아시아 | 동남아시아
@@ -98,10 +98,18 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 사용 예제: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
 
 #### <a name="continuous-discovery"></a>연속 검색
+
+  OVA 버전 1.0.10.15의 경우
+
+  **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | dfa1838b1e64f7cde51915927220cf48
+    SHA1 | 24bdbd9c37c7366567ff252db3a37a13dda9de42
+    SHA256 | e9f8f16ceb970c27dd068f5a5f7a4b2fd336f2820e9d6247d510ba6824e3f06c
 
   OVA 버전 1.0.10.11의 경우
 

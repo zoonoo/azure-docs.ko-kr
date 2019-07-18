@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: da56c06e215e02ee3eefe3d0552c962a8c59011e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: de39581f832c30c64a69797805df7e13ce47b439
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683480"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565873"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스에 대한 처리량 프로비전
 
@@ -34,6 +34,25 @@ ms.locfileid: "59683480"
 
 ![새 데이터베이스 대화 상자 스크린샷](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## <a name="provision-throughput-using-powershell"></a>PowerShell을 사용하여 처리량 프로비전
+
+```azurepowershell-interactive
+# Create a database and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$databaseResourceName = $accountName + "/sql/" + $databaseName
+
+$databaseProperties = @{
+    "resource"=@{ "id"=$databaseName };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $databaseResourceName -PropertyObject $databaseProperties
+```
+
 ## <a name="provision-throughput-using-net-sdk"></a>.NET SDK를 사용하여 처리량 프로비전
 
 > [!Note]
@@ -45,7 +64,7 @@ ms.locfileid: "59683480"
 //set the throughput for the database
 RequestOptions options = new RequestOptions
 {
-    OfferThroughput = 10000
+    OfferThroughput = 500
 };
 
 //create the database
@@ -57,8 +76,8 @@ await client.CreateDatabaseIfNotExistsAsync(
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
 ```csharp
-// Create a Cassandra keyspace and provision throughput of 10000 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=10000);
+// Create a Cassandra keyspace and provision throughput of 400 RU/s
+session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -66,6 +85,6 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 Azure Cosmos DB에서 프로비저닝된 처리량에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [전역적으로 프로비저닝된 처리량 크기 조정](scaling-throughput.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)

@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478609"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
@@ -110,8 +110,8 @@ properties-status ::=
 |`Blob`|중첩 XML 요소|Blob을 나타냅니다.|  
 |`Blob/BlobPath`|String|Blob의 URI입니다.|  
 |`Blob/FilePath`|String|드라이브의 파일에 대한 상대 경로입니다.|  
-|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
-|`Blob/Length`|정수 |바이트 단위인 Blob의 총 길이입니다.|  
+|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅샷 버전입니다.|  
+|`Blob/Length`|정수|바이트 단위인 Blob의 총 길이입니다.|  
 |`Blob/LastModified`|DateTime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
 |`Blob/ImportDisposition`|String|가져오기 작업에 대한 Blob의 가져오기 처리입니다.|  
 |`Blob/ImportDisposition/@Status`|특성, 문자열|가져오기 처리의 상태입니다.|  

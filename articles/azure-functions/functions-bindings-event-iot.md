@@ -4,19 +4,19 @@ description: Azure Functions에서 IoT 허브 바인딩을 사용 하는 방법�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e39a7b2c29ee541a9a104d681d25335496e5625b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104479"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480610"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure Functions에 대 한 azure IoT Hub 바인딩
 

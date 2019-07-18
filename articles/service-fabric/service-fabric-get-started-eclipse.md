@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60950352"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
@@ -126,7 +126,7 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
 애플리케이션을 클라우드에 게시하려면 다음 단계를 따르세요.
 
-1. 애플리케이션을 클라우드의 보안 클러스터에 게시하려면 X.509 인증서를 사용하여 클러스터와 통신해야 합니다. 테스트 및 개발 환경에서는 클러스터 인증서가 많이 사용됩니다. 프로덕션 환경에서는 클러스터 인증서와 구별되는 클라이언트 인증서를 사용해야 합니다. 두 인증서와 개인 키가 모두 필요합니다. 인증서(및 키) 파일은 PEM 형식이어야 합니다. 다음 openssl 명령을 사용하여 PFX 파일의 인증서 및 개인 키를 포함하는 PEM 파일을 만들 수 있습니다.
+1. 애플리케이션을 클라우드의 보안 클러스터에 게시하려면 X.509 인증서를 사용하여 클러스터와 통신해야 합니다. 테스트 및 개발 환경에서는 클러스터 인증서가 많이 사용됩니다. 프로덕션 환경에서는 클러스터 인증서와 구별되는 클라이언트 인증서를 사용해야 합니다. 두 인증서와 프라이빗 키가 모두 필요합니다. 인증서(및 키) 파일은 PEM 형식이어야 합니다. 다음 openssl 명령을 사용하여 PFX 파일의 인증서 및 프라이빗 키를 포함하는 PEM 파일을 만들 수 있습니다.
 
     ```bash
     openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password

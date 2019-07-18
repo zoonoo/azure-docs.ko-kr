@@ -11,18 +11,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4de308f57d59720610eb9ee30ab67b569a5656d5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724968"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442254"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-이 문서는 C# 스크립트(*.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
+이 문서는 C# 스크립트( *.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Visual Studio 클래스 라이브러리 프로젝트에서 C#을 사용](functions-develop-vs.md)하기 위한 지침을 찾고 있는 경우 [C# 개발자 참조](functions-dotnet-class-library.md)를 참조하세요.
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.csx)과 바인딩 구성 파일(function.json)이 있습니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 
@@ -363,11 +363,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 ## <a name="referencing-custom-assemblies"></a>사용자 지정 어셈블리 참조
 
-사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *전용* 어셈블리를 사용합니다.
+사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *프라이빗* 어셈블리를 사용합니다.
 
 * 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다.
 
-* 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
+* 프라이빗 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 프라이빗 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
 
 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 [패키지 관리](#using-nuget-packages)에 대한 섹션을 참조하세요.
 
@@ -376,7 +376,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 [host.json](functions-host-json.md)의 `watchDirectories` 목록에 해당 디렉터리를 추가합니다.
 
 ## <a name="using-nuget-packages"></a>NuGet 패키지 사용
-2.x에서 NuGet 패키지를 사용 하려면 C# 함수를 업로드를 *function.proj* 함수의 함수 앱의 파일 시스템 폴더에에서 파일입니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
+2\.x에서 NuGet 패키지를 사용 하려면 C# 함수를 업로드를 *function.proj* 함수의 함수 앱의 파일 시스템 폴더에에서 파일입니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,12 +390,12 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 </Project>
 ```
 
-사용자 지정 NuGet 피드를 사용하려면 Function App 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요. 
+사용자 지정 NuGet 피드를 사용하려면 함수 앱 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요. 
 
 > [!NOTE]
-> 1.x에서 C# 함수에서 NuGet 패키지를 사용 하 여 참조를 *project.json* 대신 파일을 *function.proj* 파일입니다.
+> 1\.x에서 C# 함수에서 NuGet 패키지를 사용 하 여 참조를 *project.json* 대신 파일을 *function.proj* 파일입니다.
 
-1.x 함수의 사용을 *project.json* 파일을 대신 합니다. 예로 *project.json* 파일: 
+1\.x 함수의 사용을 *project.json* 파일을 대신 합니다. 예로 *project.json* 파일: 
 
 ```json
 {

@@ -3,7 +3,7 @@ title: 단일 페이지 응용 프로그램 (웹 API 호출)-Microsoft id 플랫
 description: 단일 페이지 응용 프로그램 (웹 API 호출 하는 경우)을 빌드하는 방법을 알아봅니다
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/06/2019
-ms.author: CelesteDG
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f141a5374c0e794b264f6e0135ca3e15ff8359
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 77a4ed01ac55a1153a62c672b33056a543b912ed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545606"
 ---
 # <a name="single-page-application---call-a-web-api"></a>단일 페이지 응용 프로그램-web API 호출
 

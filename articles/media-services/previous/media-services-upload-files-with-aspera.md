@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827021"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure에서 Aspera Server On Demand 서비스를 사용하여 Media Services 계정에 파일 업로드 
@@ -42,7 +42,7 @@ Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.micros
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Windows Live ID
-* [Azure 계정](https://azure.microsoft.com) 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* [Azure 계정](https://azure.microsoft.com) 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오. 
 * [Azure Media Services 계정](media-services-portal-create-account.md)
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Azure용 Aspera On Demand 구매

@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Data Box Disk 반송 | Microsoft Docs
+title: Azure Data Box Disk 반송 자습서 | Microsoft Docs
 description: 이 자습서를 사용하여 Microsoft에 Azure Data Box Disk를 배송하는 방법 알아보기
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425953"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448206"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Disk 반환 및 Azure에 대한 데이터 업로드 확인
 
@@ -54,7 +54,12 @@ ms.locfileid: "59425953"
     - 디바이스에 레이블을 부착합니다.
 
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
-3. UPS를 사용하여 픽업을 예약합니다.
+3. UPS를 사용하여 픽업을 예약합니다. 픽업을 예약하려면 다음을 수행합니다.
+
+    - 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
+    - 통화에서 인쇄된 레이블에 표시된 대로 역방향 배송 추적 번호를 알려줍니다.
+    - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
+    - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
 
 
 ### <a name="pick-up-in-europe"></a>유럽에서 픽업
@@ -73,7 +78,7 @@ ms.locfileid: "59425953"
 
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
 3. DHL로 유럽에서 디바이스를 반환하는 경우 해당 웹 사이트를 방문하고 항공 화물 운송장 번호를 지정하여 DHL에서 픽업을 요청합니다.
-4. 국가 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.
+4. 국가/지역 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.
 
     ![DHL 반송 배송](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
@@ -83,7 +88,7 @@ ms.locfileid: "59425953"
 
 ### <a name="pick-up-in-asia-pacific-region"></a>아시아 태평양 지역에서 픽업
 
-이 지역에는 일본, 한국, 오스트레일리아에서의 픽업 지침이 포함되어 있습니다.
+이 지역에는 일본, 한국, 오스트레일리아 및 싱가포르에서의 픽업 지침이 포함되어 있습니다.
 
 #### <a name="pick-up-in-australia"></a>오스트레일리아에서 픽업
 
@@ -98,43 +103,64 @@ ms.locfileid: "59425953"
 
 #### <a name="pick-up-in-japan"></a>일본에서 픽업
 
-1. Japan Post Chakubarai의 반송 connote가 포함되어야 합니다.
-2. 회사 이름과 주소 정보를 보낸 사람 정보로 connote에 작성합니다.
-3. Japan Post 픽업 요청 번호인 0800-0800-111(무료 전화)로 전화합니다. 픽업 주소에 대한 7자리 우편 번호를 누른 다음, 가까운 우체국으로 전달합니다.
-    - 픽업 요청에 사용 가능한 시간은 각 우체국에 따라 다릅니다.
-    - Japan Post Chakubarai Yu-Pack으로 보내는 배송임을 알려줍니다.
-    - 포함된 Chakubarai connote를 사용합니다.
-4. Japan Post Chakubarai connote가 포함되지 않으면 이메일을 `Customerservice.JP@quantiumsolutions.com`의 *Quantum Solutions*에 보냅니다. *Quantium Solutions*에서 Japan Post에 픽업을 요청하고, 픽업 시 connote를 가져오도록 요청합니다.
-    - Japan Post에서 가져올 Chakubarai connote 비고란에 참조 번호를 기재합니다.
-    - 아래와 같은 배송 주소를 입력합니다.   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. 회사 이름과 주소 정보를 보낸 사람 정보로 탁송 운송장에 작성합니다.
+2. 다음 이메일 템플릿을 사용하여 Quantium Solutions에 이메일을 전송합니다.
 
-Chakubarai connote가 없으면 이메일을 통해 픽업을 요청할 수 있습니다. 이 픽업을 요청하려면 다음 이메일 템플릿을 사용합니다.
+    - Japan Post Chakubarai 탁송 운송장이 포함되지 않거나 누락된 경우 이를 이메일에서 언급해야 합니다. Quantium Solutions Japan은 Japan Post에 픽업 시 탁송 운송장을 가져올 것을 요청합니다.
+    - 주문이 여러 개 있는 경우 이메일을 보내 개별 픽업을 보장합니다.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. 픽업을 예약한 후 Quantium Solutions에서 이메일 확인을 수신합니다. 또한 이메일 확인에는 Chakubarai 탁송 운송장에 대한 정보가 포함되어 있습니다.
+
+필요한 경우 다음 정보로 Quantium Solutions 지원(일본어)에 문의할 수 있습니다. 
+
+- 이메일: Customerservice.JP@quantiumsolutions.com 
+- 전화: 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>한국에서 픽업
 
-1. 반송 connote가 포함되어야 합니다.
-2. 픽업을 요청하려면 다음을 수행합니다.
-    1. 근무 시간(오전 10시~오후 5시, 월요일~금요일)에는 *Quantium Solutions International*의 핫라인 070-8231-1418로 전화합니다. *Microsoft 픽업* 및 connote 번호를 인용하여 수집물을 준비합니다.  
-    2. 핫라인이 사용 중인 경우 *Microsoft 픽업*이라는 이메일 제목과 connote 번호가 포함된 이메일을 `microsoft@rocketparcel.com`에 보냅니다.
+1. 반송 탁송 운송장이 포함되어야 합니다.
+2. 탁송 운송장이 있는 경우 픽업을 요청합니다.
+    1. 근무 시간(오전 10시~오후 5시, 월요일~금요일)에는 *Quantium Solutions International*의 핫라인 070-8231-1418로 전화합니다. *Microsoft Azure 픽업* 및 서비스 요청 번호를 알려주고 수거를 준비합니다.  
+    2. 핫라인이 사용 중인 경우 *Microsoft Azure 픽업*이라는 이메일 제목과 참조용으로 서비스 요청 번호가 포함된 이메일을 `microsoft@rocketparcel.com`에 보냅니다.
     3. 택배 회사에서 수집을 위해 도착하지 않으면 *Quantium Solutions International* 핫라인으로 전화를 걸어 대체 예약을 요청합니다. 
+    4. 픽업 일정에 대한 이메일 확인 메시지를 받게 됩니다.
+3. 탁송 운송장이 없는 경우 이 단계를 수행합니다. 픽업을 요청하려면 다음을 수행합니다.
+    1. 근무 시간(오전 10시~오후 5시, 월요일~금요일)에는 *Quantium Solutions International*의 핫라인 070-8231-1418로 전화합니다. *Microsoft Azure 픽업* 및 서비스 요청 번호를 알려주고 수거를 준비합니다. 수집물을 준비하려면 새 탁송 운송장이 필요합니다. 보낸 사람(고객), 받는 사람 정보(Azure 데이터 센터) 및 참조 번호(서비스 요청 번호)를 제공합니다. 
+    2. 핫라인이 사용 중인 경우 *Microsoft Azure 픽업*이라는 이메일 제목과 참조용으로 서비스 요청 번호가 포함된 이메일을 `microsoft@rocketparcel.com`에 보냅니다.
+    3. 택배 회사에서 수집을 위해 도착하지 않으면 *Quantium Solutions International* 핫라인으로 전화를 걸어 대체 예약을 요청합니다. 
+    4. 전화를 통해 요청하는 경우 구두 확인 메시지를 받습니다.
+
+### <a name="pick-up-in-singapore"></a>싱가포르에서 픽업
+
+1. 포장용 레이블을 인쇄하고 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
+    - **개요 > 포장용 레이블 다운로드**로 이동합니다.
+
+        ![포장용 레이블 다운로드](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        이 작업은 아래 표시된 것처럼 반송 포장용 레이블을 다운로드합니다.
+
+        ![예제 포장용 레이블](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - 디바이스에 레이블을 부착합니다. 레이블이 보이는지 확인합니다.
+
+2. 픽업을 요청하려면 다음을 수행합니다.
+    - **SingPost** 핫라인 **6845 6485**로 근무 시간(월요일~금요일 오전 9시 ~ 오후 5시) 내에 연락합니다.  
+    - *Microsoft Azure 픽업* 및 서비스 요청 번호(반송 포장용 레이블의 추적 번호)를 알려주고 수거를 준비합니다. 
+    - 픽업 일정에 대한 구두 확인 메시지를 받게 됩니다. 
+    - 택배 회사에서 수거하러 오지 않으면 **SingPost** **6845 6485**로 전화를 걸어 대체 예약을 요청합니다. 
+3. 택배 회사에 전달합니다. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
@@ -151,6 +177,8 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 복사가 완료되면 주문 상태는 **완료됨**으로 업데이트됩니다.
 
 ![데이터 복사 완료됨](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+오류와 함께 복사가 완료되면 [업로드 오류 문제 해결](data-box-disk-troubleshoot-upload.md)을 참조하세요.
 
 원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다. 다음 위치에 데이터가 있을 수 있습니다.
 
@@ -179,9 +207,9 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 2. **Blob service > Blob 찾아보기**로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 저장소 계정에 만들어집니다.
     폴더 이름이 Azure 명명 규칙을 따르지 않는 경우 Azure에 대한 데이터 업로드가 실패합니다.
 
-4. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage 탐색기를 사용합니다. 디스크 임대 주문에 해당하는 저장소 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
+4. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. 디스크 임대 주문에 해당하는 저장소 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
 
-    ![Storage 탐색기에서 폴더 통계](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
+    ![Storage Explorer에서 폴더 통계](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Data Box Disk에서 데이터 지우기
 

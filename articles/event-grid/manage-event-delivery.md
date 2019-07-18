@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
 ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66119574"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 

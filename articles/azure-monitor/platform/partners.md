@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: cf06645ddcb825ca866d88a1f7724fd3b3e7987b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65774238"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -92,7 +92,7 @@ Datadog는 클라우드 규모의 애플리케이션을 위한 세계 선두의 
 
 ![DynaTrace Logo](./media/partners/dynatrace.png)
 
-Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. Dynatrace는 메트릭을 단순히 표시하는 것 외에도 전체 환경을 시각화합니다. 클라이언트 쪽에서 데이터베이스 계층으로의 트랜잭션을 보여 줍니다. Dynatrace는 문제와 완전 통합된 근본 원인 분석의 AI 기반 상관 관계를 제공하여 코드 및 데이터베이스에 대한 메서드 수준의 정보를 제시합니다. 이 정보를 통해 문제 해결과 성능 최적화가 훨씬 쉬워집니다.
+Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. Dynatrace는 메트릭을 단순히 표시하는 것 외에도 엔드투엔드 환경을 시각화합니다. 클라이언트 쪽에서 데이터베이스 계층으로의 트랜잭션을 보여 줍니다. Dynatrace는 문제와 완전 통합된 근본 원인 분석의 AI 기반 상관 관계를 제공하여 코드 및 데이터베이스에 대한 메서드 수준의 정보를 제시합니다. 이 정보를 통해 문제 해결과 성능 최적화가 훨씬 쉬워집니다.
 
 [설명서로 이동합니다.][dynatrace-doc]
 
@@ -242,7 +242,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 
 
 <!--Partner Documentation-->
-[alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
+[alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 설명서."
 [arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/

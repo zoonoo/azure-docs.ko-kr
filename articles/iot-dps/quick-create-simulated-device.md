@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500195"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908680"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 디바이스 프로비전
 
@@ -34,7 +34,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="prerequisites"></a>필수 조건
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 활성화된 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)
+* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상.
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 
@@ -129,8 +129,8 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 3. **등록 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
     - **메커니즘:** ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
-    - **인증 키:** *tpm_device_provision* 프로젝트를 실행하여 TPM 디바이스에 생성된 ‘인증 키’를 입력합니다.
-    - **등록 ID:** *tpm_device_provision* 프로젝트를 실행하여 TPM 디바이스에 생성된 ‘등록 ID’를 입력합니다.
+    - **인증 키:** *tpm_device_provision* 프로젝트를 실행하여 TPM 디바이스에 생성된 ‘인증 키’를 입력합니다. 
+    - **등록 ID:** *tpm_device_provision* 프로젝트를 실행하여 TPM 디바이스에 생성된 ‘등록 ID’를 입력합니다. 
     - **IoT Edge 디바이스:** **사용 안 함**을 선택합니다.
     - **IoT Hub 디바이스 ID:** **test-docs-device**를 입력하여 디바이스에 ID를 제공합니다.
 

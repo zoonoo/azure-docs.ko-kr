@@ -1,25 +1,25 @@
 ---
 title: PowerShell을 사용하여 Windows Virtual Desktop 미리 보기 서비스 주체 만들기 및 역할 할당 - Azure
-description: Windows Virtual Desktop 미리 보기에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법입니다.
+description: Windows Virtual Desktop 미리 보기에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400022"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206653"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
-서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop 미리 보기에서 서비스 주체를 만들 수 있습니다.
+서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop 미리 보기에서 다음 목적을 위해 서비스 주체를 만들 수 있습니다.
 
 - 특정 Windows Virtual Desktop 관리 작업 자동화
-- 모든 Windows Virtual Desktop Azure Resource Manager 템플릿을 실행하는 경우 MFA 필요 사용자 대신 자격 증명으로 사용
+- Windows Virtual Desktop에 대해 Azure Resource Manager 템플릿을 실행하는 경우 MFA 필요 사용자 대신 자격 증명으로 사용
 
 이 자습서에서는 다음 방법을 알아봅니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "58400022"
 
 ## <a name="prerequisites"></a>필수 조건
 
-서비스 주체 및 역할 할당을 만들기 전에 먼저 다음 세 가지 작업을 수행해야 합니다.
+서비스 주체를 만들고 역할 할당을 수행하기 전에 먼저 다음 세 가지 작업을 수행해야 합니다.
 
 1. AzureAD 모듈을 설치합니다. 모듈을 설치하려면 관리자 권한으로 PowerShell을 실행하고 다음 cmdlet을 실행합니다.
 
@@ -41,7 +41,6 @@ ms.locfileid: "58400022"
 2. 세션에 관련된 값으로 대체된 따옴표 안의 값으로 다음 cmdlet을 실행합니다.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,13 +67,12 @@ $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrin
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>서비스 주체를 사용하여 로그인
 
-서비스 주체에 대한 역할 할당을 만든 후 이제 서비스 주체가 다음 cmdlet을 실행하여 Windows Virtual Desktop에 로그인할 수 있도록 해야 합니다.
+서비스 주체에 대한 역할 할당을 만든 후 서비스 주체가 다음 cmdlet을 실행하여 Windows Virtual Desktop에 로그인할 수 있는지 확인합니다.
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
@@ -85,7 +83,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 ## <a name="view-your-credentials-in-powershell"></a>PowerShell에서 자격 증명 보기
 
-PowerShell 세션을 종료하기 전에 자격 증명을 확인하고 나중에 참조할 수 있도록 적어두어야 합니다. 암호는 이 PowerShell 세션을 닫은 후에는 검색할 수 없기 때문에 특히 중요합니다.
+PowerShell 세션을 종료하기 전에 자격 증명을 확인하고 나중에 참조할 수 있도록 적어 둡니다. 암호는 이 PowerShell 세션을 닫은 후에는 검색할 수 없기 때문에 특히 중요합니다.
 
 기록해야 하는 세 가지 자격 증명과 이를 가져오기 위해 실행해야 하는 cmdlet은 다음과 같습니다.
 
@@ -109,7 +107,7 @@ PowerShell 세션을 종료하기 전에 자격 증명을 확인하고 나중에
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 서비스 주체를 만들고 이를 사용하여 Windows Virtual Desktop에 로그인하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop 방법에 대한 연결을 계속 진행하세요.
+서비스 주체를 생성하고 Windows Virtual Desktop 테넌트에서 역할을 할당한 경우 호스트 풀을 만드는 데 사용할 수 있습니다. 호스트 풀에 대해 자세히 알아보려면 Windows Virtual Desktop에서 호스트 풀을 만드는 방법에 대한 자습서를 진행하세요.
 
-- [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
-- [Windows Virtual Desktop 미리 보기 웹 클라이언트에 연결](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Windows Virtual Desktop 호스트 풀 자습서](./create-host-pools-azure-marketplace.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅숏을 동일한 구독이나 다른 구독으로 복사(이동) | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅숏을 동일한 구독이나 다른 구독으로 복사(이동)
+title: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동) | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사(이동)
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -23,13 +23,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/02/2019
 ms.locfileid: "57249784"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크의 스냅숏을 동일한 구독이나 다른 구독으로 복사
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사
 
-이 스크립트는 관리 디스크의 스냅숏을 동일한 구독이나 다른 구독으로 복사합니다. 다음 시나리오에서 이 스크립트를 사용하세요.
+이 스크립트는 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사합니다. 다음 시나리오에서 이 스크립트를 사용하세요.
 
-1. Premium Storage(Premium_LRS)의 스냅숏을 Standard Storage(Standard_LRS 또는 Standard_ZRS)로 마이그레이션하여 비용을 절감합니다.
-1. 로컬 중복 저장소(Premium_LRS, Standard_LRS)의 스냅숏을 영역 중복 저장소(Standard_ZRS)로 마이그레이션하여 ZRS 스토리지의 높은 안정성을 누립니다.
-1. 더 오래 보존하기 위해 스냅숏을 같은 지역의 다른 구독으로 이동합니다.
+1. Premium Storage(Premium_LRS)의 스냅샷을 Standard Storage(Standard_LRS 또는 Standard_ZRS)로 마이그레이션하여 비용을 절감합니다.
+1. 로컬 중복 저장소(Premium_LRS, Standard_LRS)의 스냅샷을 영역 중복 저장소(Standard_ZRS)로 마이그레이션하여 ZRS 스토리지의 높은 안정성을 누립니다.
+1. 더 오래 보존하기 위해 스냅샷을 같은 지역의 다른 구독으로 이동합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -41,12 +41,12 @@ ms.locfileid: "57249784"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트에서는 다음 명령을 사용하여 원본 스냅숏의 ID를 사용하여 대상 구독에 스냅숏을 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트에서는 다음 명령을 사용하여 원본 스냅샷의 ID를 사용하여 대상 구독에 스냅샷을 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅숏의 이름 및 리소스 그룹 속성을 사용하여 스냅숏의 모든 속성을 가져옵니다. Id 속성은 스냅숏을 다른 구독으로 복사하는 데 사용됩니다.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | 부모 스냅숏의 Id와 이름을 사용하여 다른 구독에 스냅숏을 만들어 스냅숏을 복사합니다.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅샷의 이름 및 리소스 그룹 속성을 사용하여 스냅샷의 모든 속성을 가져옵니다. Id 속성은 스냅샷을 다른 구독으로 복사하는 데 사용됩니다.  |
+| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | 부모 스냅샷의 Id와 이름을 사용하여 다른 구독에 스냅샷을 만들어 스냅샷을 복사합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

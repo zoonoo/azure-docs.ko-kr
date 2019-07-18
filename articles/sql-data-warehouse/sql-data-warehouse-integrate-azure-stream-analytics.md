@@ -2,21 +2,20 @@
 title: SQL Data Warehouse와 함께 Azure Stream Analytics 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse와 함께 Azure Stream Analytics 사용을 위한 팁
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873277"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Azure Stream Analytics 사용
 Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
@@ -35,7 +34,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>작업 출력 지정: SQL Data Warehouse 데이터베이스
 ### <a name="step-1"></a>1단계
-Stream Analytics 작업에서 클릭 **출력** 클릭 한 다음 확인 하 고 페이지 맨 위에서 **추가**합니다.
+Stream Analytics 작업에서 페이지 맨 위의 **출력**을 클릭한 다음, **추가**를 클릭합니다.
 
 ### <a name="step-2"></a>2단계
 SQL Database를 선택 합니다.
@@ -61,7 +60,7 @@ SQL Database를 선택 합니다.
 ### <a name="step-4"></a>4단계:
 확인 단추를 클릭하여 이 작업 출력을 추가하고 Stream Analytics가 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
 
-데이터베이스에 연결에 성공 하면 포털에서 알림이 표시 됩니다. 데이터베이스에 연결을 테스트 하려면 테스트를 클릭할 수 있습니다.
+데이터베이스 연결에 성공하면 포털에서 알림이 표시됩니다. 데이터베이스 연결을 테스트하려면 테스트를 클릭할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse integration overview]를 참조하세요.
@@ -85,6 +84,4 @@ SQL Database를 선택 합니다.
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /stream-analytics/
-
-<!-- Update_Description: update meta properties, wording update -->
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

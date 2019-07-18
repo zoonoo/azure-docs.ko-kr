@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65955758"
 ---
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
+
 > [!NOTE]
 > 일부는 아래 지침 에서만 작동할 수 있습니다 Windows 또는 Linux App Services. 예를 들어, Linux App Services 기본적으로 64 비트 모드에서 실행 합니다.
 >
-
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 애플리케이션 성능 문제에 대한 FAQ(질문과 대답)가 있습니다.
 
@@ -161,7 +161,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 또한 64비트 환경에는 기본 또는 표준 서비스 계획이 필요합니다. 무료 및 공유 계획은 항상 32비트 환경에서 실행됩니다.
 
-자세한 내용은 [Azure App Service에서 웹앱 구성](web-sites-configure.md)을 참조하세요.
+자세한 내용은 [Azure App Service에서 웹앱 구성](configure-common.md)을 참조하세요.
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>230초 후 요청 시간이 초과되는 이유는 무엇인가요?
 

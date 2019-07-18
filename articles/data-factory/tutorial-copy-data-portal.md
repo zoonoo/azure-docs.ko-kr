@@ -53,7 +53,7 @@ ms.locfileid: "58447556"
     Jane,Doe
     ```
 
-1. Blob Storage에 **adftutorial**이라는 컨테이너를 만듭니다. 이 컨테이너에 **input**이라는 폴더를 만듭니다. 그런 다음 **emp.txt** 파일을 **input** 폴더에 업로드합니다. 이러한 작업을 수행하려면 Azure Portal 또는 [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구를 사용합니다.
+1. Blob Storage에 **adftutorial**이라는 컨테이너를 만듭니다. 이 컨테이너에 **input**이라는 폴더를 만듭니다. 그런 다음 **emp.txt** 파일을 **input** 폴더에 업로드합니다. 이러한 작업을 수행하려면 Azure Portal 또는 [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구를 사용합니다.
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 

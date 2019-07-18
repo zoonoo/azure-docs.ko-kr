@@ -51,7 +51,8 @@
     - name: 페이지 소식
       href: paging-news.md
     - name: 크기 조정 및 자르기 썸네일
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: API v5에서 v7로 업그레이드
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Visual Studio 작업
@@ -67,14 +68,14 @@
 - name: 참고 자료
   items:
     - name: Bing News Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
     - name: Bing News Search API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference'
     - name: SDK
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet'
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
@@ -109,3 +110,5 @@
       href: language-support.md
     - name: Bing News Search API에 대한 분석
       href: bing-news-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

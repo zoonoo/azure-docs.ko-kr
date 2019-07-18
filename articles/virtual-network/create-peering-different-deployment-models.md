@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud;anavin
 ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694721"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
@@ -30,7 +30,7 @@ ms.locfileid: "64694721"
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
+|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |같은 데이터 집합|
 |[둘 다 리소스 관리자](create-peering-different-subscriptions.md) |다름|
 |[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
@@ -84,7 +84,7 @@ Azure Portal, Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#
 Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니다. 아래의 아무 단계에서나 **사용해 보세요.** 단추를 클릭하거나, 로컬 컴퓨터에서 [클래식 CLI](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하고 명령을 실행하면 Azure Cloud Shell에서 단계를 완료할 수 있습니다.
 
 1. Cloud Shell을 사용하는 경우 Azure에 자동 로그인되므로 2단계로 건너뛰세요. 명령 세션을 열고 `azure login` 명령을 사용하여 Azure에 로그인합니다.
-2. `azure config mode asm` 명령을 입력하여 CLI를 서비스 관리 모드에서 실행합니다. 
+2. `azure config mode asm` 명령을 입력하여 CLI를 서비스 관리 모드에서 실행합니다.
 3. 다음 명령을 입력하여 가상 네트워크(클래식)를 만듭니다.
 
    ```azurecli-interactive

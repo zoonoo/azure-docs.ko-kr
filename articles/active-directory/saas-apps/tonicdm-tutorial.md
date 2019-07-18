@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 40409dbc860341e36501eec7ba77e2dd727c995e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>자습서: TonicDM과 Azure Active Directory 통합
 

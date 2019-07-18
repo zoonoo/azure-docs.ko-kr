@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256467"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204010"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>샘플 - Linux VM 내에 지정된 애플리케이션이 설치되어 있지 않은 경우 감사
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>샘플 - Linux VM 내에 지정된 애플리케이션이 설치되어 있지 않은 경우 감사
 
-이 정책 게스트 구성 이니셔티브는 Linux 가상 머신 내에 지정된 애플리케이션이 설치되어 있는지를 감사합니다. 이 기본 제공 이니셔티브의 ID는 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`입니다.
+이 정책 게스트 구성 이니셔티브는 지정된 애플리케이션이 Linux 가상 머신 내에 설치되어 있지 않은 경우 감사 이벤트를 생성합니다. 이 기본 제공 이니셔티브의 ID는 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`입니다.
 
 > [!IMPORTANT]
 > 모든 게스트 구성 이니셔티브는 **audit** 및 **deployIfNotExists** 정책 정의로 구성됩니다. 정책 정의 중 하나만 할당하면 게스트 구성이 제대로 작동하지 않습니다.
@@ -32,9 +32,9 @@ ms.locfileid: "59256467"
 
 이 [게스트 구성](../concepts/guest-configuration.md) 이니셔티브를 구성하는 정책은 다음과 같습니다.
 
-- [audit](#audit-definition) - 애플리케이션이 Linux VM 내부에 설치되어 있는지 감사합니다.
+- [감사](#audit-definition) - Linux VM 내에 애플리케이션이 설치되어 있지 않은 경우 감사
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) - VM 확장을 배포하여 애플리케이션이 Linux VM 내에 설치되어 있는지 감사합니다.
+- [deployIfNotExists](#deployIfNotExists-definition) - VM 확장을 배포하여 애플리케이션이 Linux VM 내에 설치되어 있지 않은 경우 감사
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>이니셔티브 정의
@@ -45,7 +45,9 @@ ms.locfileid: "59256467"
 
 ### <a name="initiative-parameters"></a>이니셔티브 매개 변수
 
-|이름 |형식 ||설명 | |---|---|| ---| | applicationName |문자열 |애플리케이션 이름입니다. 예를 들어 'python', 'powershell' 또는 쉼표로 구분 된 목록(예: 'python, powershell')입니다. 와일드카드 일치에 \*를 사용합니다(예: 'power\*').|
+|Name |Type |설명 |
+|---|---|---|
+|applicationName |문자열 |애플리케이션 이름. 예를 들어 'python', 'powershell' 또는 쉼표로 구분 된 목록(예: 'python, powershell')입니다. 와일드카드 일치에 \*를 사용합니다(예: 'power\*'). |
 
 PowerShell 또는 Azure CLI를 통해 할당을 만드는 경우 `-PolicyParameter`(PowerShell) 또는 `--params`(Azure CLI) 명령을 사용하여 매개 변수 값을 문자열로 또는 파일을 통해 JSON으로 전달할 수 있습니다.
 PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-PolicyParameterObject` 명령도 지원하는데, 여기서 **이름**은 매개 변수 이름이고 **값**은 할당 과정에 전달되는 단일 값 또는 값 배열입니다.
@@ -106,7 +108,7 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ### <a name="create-copy-of-audit-definition"></a>audit 정의의 복사본 만들기
 
-[![Azure에 Policy 샘플 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Azure Gov에 Policy 샘플 배포](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 이 단추를 사용하여 포털을 통해 배포하면 **audit** 정책 정의의 복사본이 만들어집니다.
@@ -114,7 +116,7 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>deployIfNotExists 정의의 복사본 만들기
 
-[![Azure에 Policy 샘플 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Azure Gov에 Policy 샘플 배포](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 이 단추를 사용하여 포털을 통해 배포하면 **deployIfNotExists** 정책 정의의 복사본이 만들어집니다. 쌍을 이루는 **audit** 정책 정의가 없으면 게스트 구성이 제대로 작동하지 않습니다.

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 8/29/2018
 ms.author: markgal
 ms.openlocfilehash: 56310b7356dd9e263238234cf3e28bd498fa70fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648344"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182559"
 ---
 ## <a name="upgrade-the-mars-agent"></a>MARS 에이전트 업그레이드
 

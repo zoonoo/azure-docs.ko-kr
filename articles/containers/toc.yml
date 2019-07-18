@@ -62,6 +62,19 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: Windows 컨테이너 정보
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
+    - name: Azure Red Hat OpenShift
+      href: 'https://docs.microsoft.com/azure/openshift/'
+      items:
+        - name: Azure Red Hat OpenShift란?
+          href: ../openshift/intro-openshift.md
+        - name: 자습서 - Azure Red Hat OpenShift 클러스터 만들기 및 관리
+          items:
+            - name: 1 - Azure Red Hat OpenShift 클러스터 만들기
+              href: ../openshift/tutorial-create-cluster.md
+            - name: 2 - Azure Red Hat OpenShift 클러스터 크기 조정
+              href: ../openshift/tutorial-scale-cluster.md
+            - name: 3- Azure Red Hat OpenShift 클러스터 삭제
+              href: ../openshift/tutorial-delete-cluster.md
     - name: 참고 자료
       items:
         - name: Azure Container Instances(az container)

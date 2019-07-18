@@ -3,8 +3,8 @@ title: Microsoft id 플랫폼 암시적 흐름을 사용 하 여 단일 페이�
 description: Microsoft id 플랫폼 구현을 암시적 흐름을 사용 하 여 단일 페이지 앱에 대 한 구성 웹 응용 프로그램.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112151"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482218"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft id 플랫폼 및 암시적 권한 부여 흐름
 
@@ -48,7 +48,7 @@ Microsoft id 플랫폼 끝점을 사용 하 여 사용자를 모두 개인 및 �
 
 아래 다이어그램에는 암시적 로그인 흐름의 전체적인 형태가 나와 있습니다. 다이어그램 아래의 섹션에서는 각 단계에 대해 더 자세히 설명합니다.
 
-![OpenID Connect 스윔 레인](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![암시적 로그인 흐름을 보여 주는 다이어그램](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize..를 클릭합니다.</a> 로그인하면 브라우저가 주소 표시줄에서 `id_token`과 함께 `https://localhost/myapp/`으로 리디렉션됩니다.
+> 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. 를 클릭합니다.</a> 로그인하면 브라우저가 주소 표시줄에서 `id_token` 과 함께 `https://localhost/myapp/` 으로 리디렉션됩니다.
 >
 
 | 매개 변수 |  | 설명 |
@@ -243,4 +243,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## <a name="next-steps"></a>다음 단계
 
-* [MSAL JS 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples)을 검토하여 코딩을 시작합니다.
+* [MSAL JS 샘플](sample-v2-code.md)을 검토하여 코딩을 시작합니다.

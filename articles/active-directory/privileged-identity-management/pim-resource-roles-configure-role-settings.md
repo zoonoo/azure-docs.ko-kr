@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288374"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476313"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM에서 Azure 리소스 역할 설정 구성
 
@@ -38,19 +38,19 @@ Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할�
 
 1. 관리하려는 리소스(예: 구독 또는 관리 그룹)를 클릭합니다.
 
-    ![관리할 Azure 리소스 목록](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![관리할 수 있는 리소스를 나열 하는 azure 리소스 페이지](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. **역할 설정**을 클릭합니다.
 
-    ![역할 설정](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Azure 리소스 역할을 나열 하는 역할 설정 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
-    ![역할 설정 정보](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![역할 설정 세부 정보 페이지 할당 및 활성화에 대 한 몇 가지 설정을 나열 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. **편집**을 클릭하여 역할 설정 창을 엽니다.
 
-    ![역할 설정 편집](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![할당 및 활성화 설정을 업데이트 하는 옵션을 사용 하 여 역할 설정 페이지를 편집 합니다.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     각 역할에 대한 역할 설정 페이지에서 몇 가지 설정을 구성할 수 있습니다.
 
@@ -75,7 +75,7 @@ Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할�
 > [!NOTE] 
 > 리소스 관리자는 지정된 종료 날짜가 있는 모든 할당을 갱신할 수 있습니다. 또한 멤버는 [역할 할당을 확장 또는 갱신](pim-resource-roles-renew-extend.md)하도록 셀프 서비스 요청을 시작할 수 있습니다.
 
-## <a name="require-multi-factor-authentication"></a>다단계 인증 기능 필요
+## <a name="require-multi-factor-authentication"></a>Multi-Factor Authentication 필요
 
 PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Authentication)의 선택적 적용을 제공합니다.
 
@@ -101,7 +101,7 @@ PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Au
 
 멤버가 활성 할당에 대해 또는 활성화될 때 근거를 입력하도록 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
 
-## <a name="require-approval-to-activate"></a>활성화하려면 승인이 필요함
+## <a name="require-approval-to-activate"></a>활성화할 승인 필요
 
 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 수행합니다.
 
@@ -109,7 +109,7 @@ PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Au
 
 1. **승인자 선택**을 클릭하여 멤버 또는 그룹 선택 창을 엽니다.
 
-    ![멤버 또는 그룹 선택](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![승인자를 선택 하는 멤버 또는 그룹 창 선택](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. 하나 이상의 멤버 또는 그룹을 선택하고 **선택**을 클릭합니다. 멤버 및 그룹의 조합을 추가할 수 있습니다. 하나 이상의 승인자를 선택해야 합니다. 기본 승인자가 없습니다.
 

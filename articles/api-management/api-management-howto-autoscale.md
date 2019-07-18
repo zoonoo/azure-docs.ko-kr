@@ -9,14 +9,13 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 06/20/2018
-ms.date: 12/31/2018
-ms.author: v-yiso
+ms.date: 06/20/2018
+ms.author: apimpm
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123470"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
@@ -79,7 +78,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 시간 집계      | 평균           |                                                                                                                                                                                                                                                                                 |
     | 메트릭 이름           | 용량          | 용량 메트릭은 Azure API Management 인스턴스의 리소스 사용을 반영하는 Azure API Management 메트릭입니다.                                                                                                                                                            |
     | 시간 조직 통계  | 평균           |                                                                                                                                                                                                                                                                                 |
-    | 연산자              | 초과      |                                                                                                                                                                                                                                                                                 |
+    | 연산자              | 다음보다 큼      |                                                                                                                                                                                                                                                                                 |
     | 임계값             | 80%               | 평균 용량 메트릭에 대한 임계값입니다.                                                                                                                                                                                                                                 |
     | 기간(분) | 30                | 용량 메트릭의 평균을 구하는 시간 간격은 사용 패턴에 따라 다릅니다. 시간이 길어질수록 반응은 더 원활해지며 일시적인 스파이크는 스케일 아웃 결정에 적은 영향을 미칩니다. 그러나 스케일 아웃 트리거는 지연됩니다. |
     | *작업*              |                   |                                                                                                                                                                                                                                                                                 |
@@ -106,7 +105,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 시간 집계      | 평균           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 메트릭 이름           | 용량          | 규모 확장 규칙에 사용한 것과 동일한 메트릭                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | 시간 조직 통계  | 평균           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | 연산자              | 다음보다 적음         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | 연산자              | 보다 작음         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 임계값             | 35%               | 규모 확장 규칙과 마찬가지로 이 값은 Azure API Management의 사용 패턴에 크게 의존합니다. |
     | 기간(분) | 30                | 규모 확장 규칙에 사용한 것과 동일한 값                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *작업*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

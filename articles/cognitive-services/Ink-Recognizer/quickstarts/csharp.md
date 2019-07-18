@@ -1,30 +1,31 @@
 ---
-title: '빠른 시작: 잉크 인식기 REST API를 사용 하 여 디지털 잉크를 인식 하 고C#'
-description: 디지털 잉크 스트로크를 인식 하려면 잉크 인식기 API를 사용 합니다.
+title: '빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식'
+titleSuffix: Azure Cognitive Services
+description: Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026785"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721252"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: 잉크 인식기 REST API를 사용 하 여 디지털 잉크를 인식 하 고C#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
 
-잉크 인식기 api 디지털 잉크 스트로크를 보내도록이 빠른 시작을 사용 합니다. 이 C# 응용 프로그램은 JSON 형식 잉크 스트로크 데이터를 포함 하는 API 요청을 보내고 응답을 가져옵니다.
+이 빠른 시작을 사용하여 디지털 잉크 스트로크를 Ink Recognizer API에 보내기 시작합니다. 이 C# 애플리케이션은 JSON 형식의 잉크 스트로크 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 
 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-일반적으로 디지털 잉크 입력 기능 앱에서 API를 호출 합니다. 이 빠른 시작이에서는 JSON 파일에서 다음 필기 샘플에 대 한 잉크 스트로크 데이터를 보냅니다.
+일반적으로 API는 디지털 잉크 입력 앱에서 호출합니다. 이 빠른 시작은 JSON 파일에서 다음 필기 샘플에 대한 잉크 스트로크 데이터를 보냅니다.
 
-![필기 문자의 이미지](../media/handwriting-sample.jpg)
+![필기 문자 이미지](../media/handwriting-sample.jpg)
 
 이 빠른 시작의 소스 코드는 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)에서 확인할 수 있습니다.
 
@@ -32,20 +33,20 @@ ms.locfileid: "65026785"
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Visual studio에서 NuGet 패키지로 Newtonsoft.Json을 설치 합니다.
-        1. 마우스 오른쪽 단추로 클릭는 **솔루션 관리자**
-        2.  **NuGet 패키지 관리...**
-        3. 검색할 `Newtonsoft.Json` 패키지 및 설치
-- Linux/MacOS를 사용 하는 경우이 응용 프로그램 실행할 수 있습니다 사용 하 여 [Mono](http://www.mono-project.com/)합니다.
+    - Visual Studio에서 Newtonsoft.Json을 NuGet 패키지로 설치하려면 다음을 수행합니다.
+        1. **솔루션 관리자**를 마우스 오른쪽 단추로 클릭합니다.
+        2. **NuGet 패키지 관리...**
+        3. `Newtonsoft.Json`을 검색하고 패키지를 설치합니다.
+- Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
-- 이 빠른 시작 예제 잉크 스트로크 데이터에서 찾을 수 있습니다 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)합니다.
+- 이 빠른 시작의 잉크 스트로크 데이터 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json)에서 찾을 수 있습니다.
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 
 ## <a name="create-a-new-application"></a>새 애플리케이션 만들기
 
-1. Visual Studio에서 새 콘솔 솔루션을 만들고 다음 패키지를 추가 합니다. 
+1. Visual Studio에서 새 콘솔 솔루션을 만들고 다음 패키지를 추가합니다. 
 
     ```csharp
     using System;
@@ -59,7 +60,7 @@ ms.locfileid: "65026785"
     using Newtonsoft.Json.Linq;
     ```
 
-2. 구독 키 및 끝점에 대 한 변수를 만듭니다. 다음은 URI 잉크 인식에 사용할 수 있습니다. 나중에 API를 만드는 서비스 끝점으로 추가 됩니다 URl을 요청 합니다.
+2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 잉크 인식에 사용할 수 있는 URI입니다. 나중에 API 요청 URl를 만드는 서비스 엔드포인트에 추가됩니다.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -75,11 +76,11 @@ ms.locfileid: "65026785"
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
 
-1. 라는 새 비동기 함수를 만들고 `Request` 위에서 만든 변수를 사용 합니다.
+1. 위에서 만든 변수를 사용하는 `Request`라는 새 비동기 함수를 만듭니다.
 
-2. 클라이언트의 보안 프로토콜 및 헤더 정보를 사용 하 여 설정 된 `HttpClient` 개체입니다. 구독 키를 추가 해야 합니다 `Ocp-Apim-Subscription-Key` 헤더입니다. 만든를 `StringContent` 요청에 대 한 개체입니다.
+2. `HttpClient` 개체를 사용하여 클라이언트의 보안 프로토콜과 헤더 정보를 설정합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가해야 합니다. 그런 다음, 요청에 대한 `StringContent` 개체를 만듭니다.
  
-3. 사용 하 여 요청을 보낼 `PutAsync()`합니다. 요청이 성공 하면 응답을 반환 합니다.  
+3. `PutAsync()`를 통해 요청을 보냅니다. 요청이 성공 하면 응답을 반환합니다.  
     
     ```csharp
     static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -101,11 +102,11 @@ ms.locfileid: "65026785"
     }
     ```
 
-## <a name="send-an-ink-recognition-request"></a>잉크 인식 요청을 보내기
+## <a name="send-an-ink-recognition-request"></a>잉크 인식 요청 보내기
 
-1. 라는 새 함수를 만들고 `recognizeInk()`합니다. 요청을 생성 하 고 호출 하 여 보낼는 `Request()` 끝점에 구독 키 API 및 디지털 잉크 스트로크 데이터에 대 한 URL 사용 하 여 함수입니다.
+1. `recognizeInk()`라는 새 함수를 만듭니다. 요청을 구성하고 엔드포인트, 구독 키, API용 URL 및 디지털 잉크 스트로크 데이터와 함께 `Request()` 함수를 호출하여 보냅니다.
 
-2. JSON 개체를 deserialize 하 고 콘솔에 작성 합니다. 
+2. JSON 개체를 deserialize하여 콘솔에 작성합니다. 
     
     ```csharp
     static void recognizeInk(string requestData){
@@ -122,9 +123,9 @@ ms.locfileid: "65026785"
     }
     ```
 
-## <a name="load-your-digital-ink-data"></a>디지털 잉크 데이터를 로드 합니다.
+## <a name="load-your-digital-ink-data"></a>디지털 잉크 데이터 로드
 
-호출 하는 함수 만들기 `LoadJson()` 잉크 데이터 JSON 파일을 로드 합니다. 사용 하 여는 `StreamReader` 및 `JsonTextReader` 만들려는 `JObject` 를 반환 합니다.
+`LoadJson()`이라는 함수를 만들어서 잉크 데이터 JSON 파일을 로드합니다. `StreamReader` 및 `JsonTextReader`를 사용하여 `JObject`를 만들고 반환합니다.
     
 ```csharp
 public static JObject LoadJson(string fileLocation){
@@ -139,11 +140,11 @@ public static JObject LoadJson(string fileLocation){
 }
 ```
 
-## <a name="send-the-api-request"></a>API 요청을 보내기
+## <a name="send-the-api-request"></a>API 요청 보내기
 
-1. 응용 프로그램의 main 메서드에서 위에서 만든 함수를 사용 하 여 JSON 데이터를 로드 합니다. 
+1. 애플리케이션의 main 메서드에서 위에서 만든 함수를 사용하여 JSON 데이터를 로드합니다. 
 
-2. 호출 된 `recognizeInk()` 위에서 만든 함수입니다. 사용 하 여 `System.Console.ReadKey()` 에 응용 프로그램을 실행 한 후 콘솔 창을 열어 둡니다.
+2. 위에서 만든 `recognizeInk()` 함수를 호출합니다. `System.Console.ReadKey()`를 사용하여 애플리케이션을 실행한 후 콘솔 창을 열어 둡니다.
     
     ```csharp
     static void Main(string[] args){
@@ -156,9 +157,9 @@ public static JObject LoadJson(string fileLocation){
         }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>응용 프로그램을 실행 하 고 응답을 보려면
+## <a name="run-the-application-and-view-the-response"></a>애플리케이션 실행 및 응답 보기
 
-애플리케이션을 실행합니다. 성공적인 응답은 JSON 형식으로 반환 됩니다. JSON 응답에서 찾을 수 있습니다 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)합니다.
+애플리케이션을 실행합니다. 성공 응답이 JSON 형식으로 반환됩니다. 또한 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -167,9 +168,9 @@ public static JObject LoadJson(string fileLocation){
 > [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-잉크 인식 API를 디지털 잉크 입력 기능 앱에서 작동 하는 방법을 보려면 하려면 GitHub에서 다음 샘플 응용 프로그램에서 확인을 수행 합니다.
-* [C#및 유니버설 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#및 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
+* [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 및 WPF(Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Javascript 웹 브라우저 앱](https://go.microsoft.com/fwlink/?linkid=2089908)       
 * [Java 및 Android 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089906)
 * [Swift 및 iOS 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089805)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cb6e2b1df062c3d056bd9a5aa0c1ff89f6636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60469114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083764"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Azure Active Directory의 관리 위임
 
@@ -87,7 +87,7 @@ Azure AD의 관리 액세스 권한이 아닌 Azure 리소스에 대한 액세�
 
 좀 더 세분화된 앱 액세스 위임의 경우 개별 엔터프라이즈 애플리케이션에 소유권을 할당할 수 있습니다. 이를 통해 애플리케이션 등록 소유자 할당에 대한 기존 지원을 보완할 수 있습니다. 소유권은 엔터프라이즈 응용 프로그램 블레이드에서 엔터프라이즈별 응용 프로그램 기준으로 할당됩니다. 이점은 소유자가 자신이 소유한 엔터프라이즈 애플리케이션만 관리할 수 있다는 것입니다. 예를 들어, Salesforce 애플리케이션의 소유자를 할당할 수 있으며, 해당 소유자는 다른 애플리케이션이 아닌 Salesforce에 대한 액세스 및 구성을 관리할 수 있습니다. 하나의 엔터프라이즈 애플리케이션에 많은 소유자가 있을 수 있으며 한 명의 사용자가 여러 엔터프라이즈 애플리케이션의 소유자일 수 있습니다. 앱 소유자 역할에는 다음 두 가지가 있습니다.
 
-* **엔터프라이즈 애플리케이션 소유자** 역할은 Single Sign-On 설정, 사용자 및 그룹 할당, 추가 소유자 추가를 비롯하사용자여 소유하는 엔터프라이즈 애플리케이션을 관리하는 능력을 부여합니다. 응용 프로그램 프록시 설정 또는 조건부 액세스를 관리하는 기능을 부여하지 않습니다.
+* **엔터프라이즈 애플리케이션 소유자** 역할은 Single Sign-On 설정, 사용자 및 그룹 할당, 추가 소유자 추가를 비롯하사용자여 소유하는 엔터프라이즈 애플리케이션을 관리하는 능력을 부여합니다. 응용 프로그램 프록시 설정 또는 조건부 액세스를 관리 하는 기능을 부여 하지 것입니다.
 * **애플리케이션 등록 소유자** 역할은 애플리케이션 매니페스트 및 추가 소유자 추가를 포함하여 사용자가 소유하는 앱의 애플리케이션 등록을 관리하는 능력을 부여합니다.
 
 ## <a name="develop-a-security-plan"></a>보안 계획 개발

@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160007"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659862"
 ---
 조직이 클라우드로 마이그레이션하고 배포 일관성을 확인 수 있게 하는 표준화 된 가상 머신 (VM) 이미지입니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 됩니다. 시간, 인프라 및 설치 프로그램을 고유한 이미징 파이프라인을 설정 하려면 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 간단한 구성을 제공, 서비스에 제출 및 이미지를 작성 및 배포 합니다.
  
-Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지 또는 Red Hat Enterprise Linux (RHEL) ISO 사용 하 여 시작 하 고 고유한 사용자 지정 추가 시작할 수 있습니다. Image Builder 빌드되므로 [HashiCorp Packer](https://packer.io/), 기존 Packer 셸 프로 비 저 너 스크립트를 가져올 수도 있습니다. 관리 되는 이미지로 (virtual-machines-common-shared-image-galleries.md) Azure 공유 이미지 갤러리 또는 VHD에 호스트 된 이미지를 하려는 지정할 수 있습니다.
+Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Windows 또는 Linux 기반 Azure Marketplace 이미지, 기존 사용자 지정 이미지 또는 Red Hat Enterprise Linux (RHEL) ISO 사용 하 여 시작 하 고 고유한 사용자 지정 추가 시작할 수 있습니다. Image Builder 빌드되므로 [HashiCorp Packer](https://packer.io/), 기존 Packer 셸 프로 비 저 너 스크립트를 가져올 수도 있습니다. 호스트에서 이미지를 하려는 지정할 수도 있습니다는 [Azure 공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), 관리 되는 이미지 또는 VHD.
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -35,7 +35,7 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하는 Window
 
 ## <a name="regions"></a>영역
 Azure 이미지 작성기 서비스는 이러한 지역에서 미리 보기로 제공 됩니다. 이러한 지역 외부에서 이미지를 배포할 수 있습니다.
-- 미국 동부
+- East US
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -50,6 +50,12 @@ AIB은 Azure Marketplace 기본 OS 이미지를 지원 해야 합니다.
 - Windows 2016
 - Windows 2019
 
+AIB RHEL ISO의 지원에 대 한 원본으로:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 Iso는 지원 되지 않지만 테스트 합니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -65,12 +71,12 @@ Azure 이미지 작성기는 Azure 리소스 공급자에서 액세스할 수 �
 ![Azure 이미지 작성기 프로세스의 개념적 그리기](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. .Json 파일로 이미지 템플릿을 만듭니다. 이.json 파일의 이미지 원본, 사용자 지정 및 배포에 대 한 정보를 포함합니다. 여러 예제에서 가지는 [Azure 이미지 작성기 GitHub 리포지토리](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)합니다.
-1. 서비스에 제출, 그러면 이미지 템플릿을 아티팩트 지정 하는 리소스 그룹에 만들어집니다. 이미지 작성기는 백그라운드에서 소스 이미지 또는 ISO 및 필요에 따라 스크립트를 다운로드 합니다. 이러한 형식으로 구독에서 자동으로 만들어지는 별도 리소스 그룹에 저장 됩니다. IT_<DestinationResourceGroup>_<TemplateName>. 
-1. 이미지 템플릿을 만든 후에 다음 이미지를 빌드할 수 있습니다. 백그라운드에서 이미지 작성기 사용 하 여 템플릿 및 소스 파일을 만듭니다 VM, 네트워크 및 저장소는 IT_<DestinationResourceGroup>_<TemplateName> 리소스 그룹입니다.
-1. 이미지 만들기의 일환으로, 이미지 작성기는 이미지를 배포 템플릿에 따라 그런 다음 삭제를 IT_의 추가 리소스<DestinationResourceGroup>_<TemplateName> 프로세스에 대해 생성 된 리소스 그룹입니다.
+1. 서비스에 제출, 그러면 이미지 템플릿을 아티팩트 지정 하는 리소스 그룹에 만들어집니다. 이미지 작성기는 백그라운드에서 소스 이미지 또는 ISO 및 필요에 따라 스크립트를 다운로드 합니다. 이러한 형식으로 구독에서 자동으로 만들어지는 별도 리소스 그룹에 저장 됩니다. IT_\<DestinationResourceGroup>_\<TemplateName>. 
+1. 이미지 템플릿을 만든 후에 다음 이미지를 빌드할 수 있습니다. 백그라운드에서 이미지 작성기 사용 하 여 템플릿 및 소스 파일을 만듭니다 VM, 네트워크 및 저장소는 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹입니다.
+1. 이미지 만들기의 일환으로, 이미지 작성기는 이미지를 배포 템플릿에 따라 그런 다음 삭제를 IT_의 추가 리소스\<DestinationResourceGroup > _\<TemplateName >에 대해 생성 된 리소스 그룹 프로세스입니다.
 
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 관리 되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포 하려면 Azure VM 이미지 작성기를 허용 하려면 "Azure 가상 머신 이미지 작성기" 서비스에 대 한 '참가자' 권한을 제공 해야 합니다 (앱 ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) 리소스 그룹입니다. 
 
@@ -95,7 +101,7 @@ az role assignment create \
  
 이미지 작성기는 VM에 대 한 필요한 네트워킹 및 D1v2 VM 크기와 저장소를 사용 하 여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스의 기간 동안 지속 및 Image Builder에서 이미지 만들기를 완료 한 후 삭제 됩니다. 
  
-Azure 이미지 작성기는 이미지를 배포를 선택한 영역에는 네트워크 송신 요금이 발생할 수 있습니다.
+Azure 이미지 작성기는 네트워크 송신 요금이 발생할 수 있음에 선택한 지역에 이미지를 배포 합니다.
  
 ## <a name="next-steps"></a>다음 단계 
  

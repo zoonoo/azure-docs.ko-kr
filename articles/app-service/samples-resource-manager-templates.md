@@ -50,6 +50,6 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 | [Azure Cache for Redis를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Azure Cache for Redis를 사용하여 App Service 앱을 배포합니다. |
 |**PowerApps용 App Service Environment**||
 | [App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | 가상 네트워크에 App Service Environment v2를 만듭니다. |
-| [ILB 주소로 App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | 개인 내부 부하 분산 장치 주소로 가상 네트워크에 App Service Environment v2를 만듭니다. |
+| [ILB 주소로 App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | 프라이빗 내부 부하 분산 장치 주소로 가상 네트워크에 App Service Environment v2를 만듭니다. |
 | [ILB App Service Environment 또는 ILB App Service Environment v2에 대한 기본 SSL 인증서 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-configure-default-ssl) | ILB App Service Environment 또는 ILB App Service Environment v2에 대한 기본 SSL 인증서를 구성합니다. |
 | | |

@@ -2,24 +2,25 @@
 title: IoT Hub에서 IoT용 Azure Security Center 서비스 사용 - 미리 보기 | Microsoft Docs
 description: IoT Hub에서 IoT용 Azure Security Center 서비스를 사용하도록 설정하는 방법을 알아봅니다.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f81fb7aeed1b704ebdd82c1f5b83c33a4b05e9ca
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010563"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617995"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 서비스 사용
 
@@ -30,7 +31,7 @@ ms.locfileid: "60010563"
 이 문서에서는 IoT Hub에서 IoT용 Azure Security Center(ASC) 미리 보기 서비스를 사용하도록 설정하는 방법에 대해 설명합니다.  
 
 > [!NOTE]
-> IoT용 Azure Security Center는 현재 표준 계층 이상의 IoT Hub만 지원합니다.
+> IoT용 Azure Security Center는 현재 표준 계층 IoT Hub만 지원합니다.
 > IoT용 Azure Security Center는 단일 허브 솔루션입니다. 여러 개의 허브가 필요한 경우 여러 개의 솔루션도 필요합니다. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>서비스를 사용하도록 설정하기 위한 필수 구성 요소
@@ -38,7 +39,12 @@ ms.locfileid: "60010563"
 - Log Analytics 작업 영역
   - IoT용 ASC는 기본적으로 **보안 경고** 및  **추천 사항**이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다. 
   - 추가 정보 유형인 **원시 이벤트**의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트**를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다. 
-- IoT Hub(표준 계층 이상)
+- IoT Hub(표준 계층)
+- [서비스 필수 구성 요소](service-prerequisites.md) 모두 충족 
+- 지원되는 서비스 지역
+  - 미국 중부
+  - 북유럽
+  - 동남아시아
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>IoT Hub에서 IoT용 ASC를 사용하도록 설정 
 
@@ -50,8 +56,7 @@ IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니�
 4. Log Analytics 작업 영역 세부 정보를 제공합니다. 
    - **원시 이벤트** 토글을 **켜기**로 전환하여 기본 스토리지 정보 유형 외에도 **원시 이벤트**를 저장하도록 선택합니다. 
    - **컬렉션 쌍** 토글을 **켜기**로 전환하여 **컬렉션 쌍**을 사용하도록 선택합니다. 
-5. **확인**을 클릭합니다. 
-6. **저장**을 클릭합니다. 
+5. **저장**을 클릭합니다. 
 
 축하합니다! IoT Hub에서 IoT용 ASC를 사용하도록 설정했습니다. 
 

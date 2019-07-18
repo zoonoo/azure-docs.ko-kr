@@ -4,17 +4,17 @@ description: Windows 가상 데스크톱 테 넌 트 환경을 설정 하는 경
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 06b955365ffc7c0a1dff93db95932d8696293e9f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927509"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605238"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows 가상 데스크톱 PowerShell
+# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 이 문서를 사용 하 여 Windows 가상 데스크톱을 사용 하 여 PowerShell을 사용 하는 경우 오류 및 문제 해결. 원격 데스크톱 서비스 PowerShell에 대 한 자세한 내용은 참조 하세요. [Windows 가상 데스크톱 Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/)합니다.
 

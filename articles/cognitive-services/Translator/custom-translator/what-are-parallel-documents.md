@@ -2,19 +2,19 @@
 title: 병렬 문서란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 하나의 문서에는 소스 언어의 문장이 포함되고, 다른 문서에는 이러한 문장을 대상 언어로 번역한 문장이 포함됩니다.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fa3abb9fc7b899fa5c74d6f1cd73ebbbb72b6047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776634"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447403"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
 
@@ -40,7 +40,7 @@ Microsoft에서는 Custom Translator에 업로드된 문서가 타사의 저작�
 
 프로젝트가 특정 도메인(범주)에 속하는 경우 문서는 해당 범주 내에서 용어가 일치해야 합니다. 결과 번역 시스템의 품질은 문장의 품질 및 문서 집합의 문장 수에 따라 달라집니다. 범주에 특정한 단어에 대한 다양한 용도의 더 많은 예제를 포함하면 할수록, 시스템은 번역하는 동안 더 나은 작업을 수행할 수 있습니다.
 
-업로드된 문서는 각 작업 영역에 대해 비공개이며, 원하는 만큼 많은 프로젝트나 학습에 사용할 수 있습니다. 문서에서 추출된 문장은 일반 유니코드 텍스트 파일로 리포지토리에 별도 저장되고 삭제하는 데 사용할 수 있습니다. Custom Translator를 문서 리포지토리로 사용하지 않습니다. 그렇지 않으면 업로드한 문서를 업로드한 형식으로 다운로드할 수 없습니다.
+업로드된 문서는 각 작업 영역에 대해 프라이빗이며, 원하는 만큼 많은 프로젝트나 학습에 사용할 수 있습니다. 문서에서 추출된 문장은 일반 유니코드 텍스트 파일로 리포지토리에 별도 저장되고 삭제하는 데 사용할 수 있습니다. Custom Translator를 문서 리포지토리로 사용하지 않습니다. 그렇지 않으면 업로드한 문서를 업로드한 형식으로 다운로드할 수 없습니다.
 
 
 

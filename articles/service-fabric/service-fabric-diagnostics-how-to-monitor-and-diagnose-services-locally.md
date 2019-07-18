@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392837"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
@@ -33,9 +33,9 @@ ms.locfileid: "60392837"
 ## <a name="event-tracing-for-windows"></a>Windows용 이벤트 추적
 [Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. ETW를 사용하면 다음과 같은 이점이 있습니다.
 
-* **ETW는 속도가 빠릅니다.**  코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
+* **ETW는 속도가 빠릅니다.** 코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
 * **ETW 추적은 로컬 개발 환경 및 실제 사용 클러스터 설정에서도 매끄럽게 작동합니다.** 즉, 실제 클러스터에 코드를 배포할 준비가 되었을 때 추적 코드를 다시 쓸 필요가 없습니다.
-* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.**  따라서 서비스 패브릭 시스템 추적으로 인터리브된 애플리케이션 추적을 볼 수 있습니다. 또한 기본 시스템에서 애플리케이션 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
+* **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.** 따라서 서비스 패브릭 시스템 추적으로 인터리브된 애플리케이션 추적을 볼 수 있습니다. 또한 기본 시스템에서 애플리케이션 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
 * **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.** Service Fabric을 통해 Visual Studio를 올바르게 구성하고 나면 ETW 이벤트가 Visual Studio의 진단 이벤트 보기에 표시됩니다. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기

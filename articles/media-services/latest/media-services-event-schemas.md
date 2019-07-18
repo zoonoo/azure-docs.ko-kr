@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d1e648a9ea33beb1347a4a635388ee04e46215b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449767"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -200,7 +200,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| outputs | 배열 | 작업 출력을 가져옵니다.|
+| outputs | Array | 작업 출력을 가져옵니다.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -456,7 +456,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다. |
-| bitrate | 정수 | 트랙의 비트 전송률입니다. |
+| bitrate | integer | 트랙의 비트 전송률입니다. |
 | timestamp | string | 데이터 청크의 타임스탬프가 삭제되었습니다. |
 | timescale | string | 타임스탬프의 시간 간격입니다. |
 | resultCode | string | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
@@ -496,7 +496,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | 정수 | 트랙의 비트 전송률입니다. |
+| bitrate | integer | 트랙의 비트 전송률입니다. |
 | ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |
 | encoderIp | string  | 인코더의 IP입니다. |
 | encoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
@@ -613,13 +613,13 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | 정수 | 트랙의 비트 전송률입니다. |
-| incomingBitrate | 정수 | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
+| bitrate | integer | 트랙의 비트 전송률입니다. |
+| incomingBitrate | integer | 인코더에서 들어오는 데이터 청크에 기반하여 계산된 비트 전송률입니다. |
 | lastTimestamp | string | 마지막 20초 동안 한 트랙에 대해 받은 최신 타임스탬프입니다. |
 | timescale | string | 타임스탬프가 표시되는 시간 간격입니다. |
-| overlapCount | 정수 | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
-| discontinuityCount | 정수 | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
-| nonIncreasingCount | 정수 | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
+| overlapCount | integer | 마지막 20초 동안 타임스탬프가 겹쳐진 데이터 청크의 수입니다. |
+| discontinuityCount | integer | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
+| nonIncreasingCount | integer | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
 | unexpectedBitrate | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
 | state | string | 라이브 이벤트의 상태입니다. |
 | healthy | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false이면 healthy가 true입니다. |
@@ -657,7 +657,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
-| bitrate | 정수 | 트랙의 비트 전송률입니다. |
+| bitrate | integer | 트랙의 비트 전송률입니다. |
 | previousTimestamp | string | 이전 조각의 타임스탬프입니다. |
 | newTimestamp | string | 현재 조각의 타임스탬프입니다. |
 | discontinuityGap | string | 위의 두 타임스탬프 사이의 간격입니다. |
@@ -669,12 +669,12 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | string | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
-| 제목 | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
+| topic | string | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
+| subject | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. 예: "Microsoft.Media.JobStateChange". |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | Media Services 이벤트 데이터입니다. |
+| data | object | Media Services 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 

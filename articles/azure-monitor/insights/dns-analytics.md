@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496494"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
@@ -174,7 +174,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
     b. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration**을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
 
-    다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange**를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
+    c. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange**를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
 
 1. **검색 쿼리 상자**에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
 

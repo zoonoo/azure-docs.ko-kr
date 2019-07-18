@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/23/2019
+ms.date: 6/6/2019
 ms.author: b-juche
-ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808869"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 만들기
 
@@ -69,7 +69,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. 클릭 **프로토콜**을 선택한 후 **NFS** 볼륨에 대 한 프로토콜 유형으로 합니다.   
+4. **프로토콜**을 클릭한 다음, **NFS**를 볼륨에 대한 프로토콜 유형으로 선택합니다.   
     * 지정 된 **file-path** 새 볼륨에 대 한 내보내기 경로 만드는 데 사용할 합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.
 
         파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
@@ -90,34 +90,36 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
 Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하기 전에 Active Directory 연결을 생성 해야 합니다. 
 
+### <a name="requirements-for-active-directory-connections"></a>Active Directory 연결에 대 한 요구 사항
+
+ Active Directory 연결에 대 한 요구 사항은 다음과 같습니다. 
+
+* 사용할 관리자 계정을 지정 하는 조직 구성 단위 (OU) 경로에 컴퓨터 계정을 만들 수 있어야 합니다.  
+
+* 적절 한 포트를 해당 하는 Windows Active Directory (AD) 서버에 열려 있어야 합니다.  
+    필요한 포트는 다음과 같습니다. 
+
+    |     서비스           |     포트     |     프로토콜     |
+    |-----------------------|--------------|------------------|
+    |    AD 웹 서비스    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    N/A       |    Echo Reply    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS 이름       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    보안 LDAP        |    636       |    TCP           |
+    |    보안 LDAP        |    3269      |    TCP           |
+    |    w32time            |    123       |    UDP           |
+
 ### <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
-
-1. 다음 requiements 충족 하는지 확인 합니다. 
-
-    * 사용할 관리자 계정을 지정 하는 조직 구성 단위 (OU) 경로에 컴퓨터 계정을 만들 수 있어야 합니다.
-    * 적절 한 포트를 해당 하는 Windows Active Directory (AD) 서버에 열려 있어야 합니다.  
-        필요한 포트는 다음과 같습니다. 
-
-        |     서비스           |     포트     |     Protocol     |
-        |-----------------------|--------------|------------------|
-        |    AD 웹 서비스    |    9389      |    TCP           |
-        |    DNS                |    53        |    TCP           |
-        |    DNS                |    53        |    UDP           |
-        |    ICMPv4             |    N/A       |    Echo Reply    |
-        |    Kerberos           |    464       |    TCP           |
-        |    Kerberos           |    464       |    UDP           |
-        |    Kerberos           |    88        |    TCP           |
-        |    Kerberos           |    88        |    UDP           |
-        |    LDAP               |    389       |    TCP           |
-        |    LDAP               |    389       |    UDP           |
-        |    LDAP               |    3268      |    TCP           |
-        |    NetBIOS 이름       |    138       |    UDP           |
-        |    SAM/LSA            |    445       |    TCP           |
-        |    SAM/LSA            |    445       |    UDP           |
-        |    보안 LDAP        |    636       |    TCP           |
-        |    보안 LDAP        |    3269      |    TCP           |
-        |    w32time            |    123       |    UDP           |
-
 
 1. NetApp 계정에서 클릭 **Active Directory 연결**, 클릭 **조인**합니다.  
 
@@ -125,10 +127,10 @@ Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하
 
 2. Active Directory 연결 창에서 다음 정보를 제공 합니다.
 
-    * **기본 DNS**   
-        기본 Active Directory Domain Services 사용에 대 한 Azure NetApp 파일에 대 한 도메인 컨트롤러 IP 주소입니다. 
-    * **보조 DNS**  
-        보조 Active Directory Domain Services 사용에 대 한 Azure NetApp 파일에 대 한 도메인 컨트롤러 IP 주소입니다. 
+    * **기본 DNS**  
+        Active Directory 도메인 가입 및 SMB 인증 작업에 필요한 DNS입니다. 
+    * **보조 DNS**   
+        중복 이름 서비스를 보장 하기 위한 보조 DNS 서버입니다. 
     * **도메인**  
         참가 하려는 프로그램 Active Directory Domain Services의 도메인 이름입니다.
     * **SMB 서버 (컴퓨터 계정) 접두사**  
@@ -142,7 +144,7 @@ Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하
         SMB 서버 컴퓨터 계정을 만들어지는 조직 구성 단위 (OU)에 대 한 LDAP 경로입니다. 즉, OU = 두 번째 수준, OU = 첫 번째 수준입니다. 
     * 자격 증명을 포함 하 여 **사용자 이름** 고 **암호**
 
-    ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Active Directory 가입](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. **조인**을 클릭합니다.  
 
@@ -204,5 +206,5 @@ Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하
 ## <a name="next-steps"></a>다음 단계  
 
 * [탑재 하거나 Windows 또는 Linux virtual machines에 대 한 볼륨을 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [NFS 볼륨에 대해 내보내기 정책을 구성 합니다.](azure-netapp-files-configure-export-policy.md)
+* [NFS 볼륨에 대한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

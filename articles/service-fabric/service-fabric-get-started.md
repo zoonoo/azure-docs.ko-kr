@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 463b05f57ce0c85ebf1732791cb024335103b780
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153609"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566049"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "65153609"
 > 
 > 
 
-Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
+빌드 및 실행 하려면 [Azure Service Fabric 응용 프로그램][1] Windows 개발 컴퓨터에 Service Fabric 런타임, SDK 및 도구를 설치 합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
@@ -39,11 +39,11 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* 윈도우 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:
-> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
+> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. 할 수 있습니다 [Windows PowerShell 5.0을 다운로드][powershell5-download] Microsoft 다운로드 센터에서.
 > - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
 >
 
@@ -69,9 +69,9 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 및 도구 3.3.658
-* Service Fabric 런타임 6.4.658
-* Visual Studio 2015 2.4.11116.1용 Service Fabric 도구
+* Service Fabric SDK 및 도구 3.4.641
+* Service Fabric 런타임 6.5.641
+* Visual Studio 2015 2.5.20615.1 용 Service Fabric 도구
 * Visual Studio 2017 15.9에는 Visual Studio 2.4.11024.1용 Service Fabric 도구가 포함되어 있습니다. 
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
@@ -99,7 +99,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
-[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
-[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
+[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
+[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
+[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395

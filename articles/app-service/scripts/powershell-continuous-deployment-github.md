@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7cd0366ff350995a1edf13476b4ad671d3bd3d3d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d60fc1afbd129471ba56dddb6e2d5beba5ca2330
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136492"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub의 연속 배포를 사용하여 웹앱 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "56114334"
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 또한 다음 사항을 확인합니다.
 
 - `az login` 명령을 사용하여 Azure와 연결했습니다.
-- 애플리케이션 코드는 사용자가 소유한 공용 또는 개인 GitHub 리포지토리에 있습니다.
+- 애플리케이션 코드는 사용자가 소유한 공용 또는 프라이빗 GitHub 리포지토리에 있습니다.
 - [GitHub 계정에서 액세스 토큰을 만들](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)었습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트

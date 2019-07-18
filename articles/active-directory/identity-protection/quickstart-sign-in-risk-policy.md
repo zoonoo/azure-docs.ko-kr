@@ -1,8 +1,8 @@
 ---
 title: 빠른 시작 - Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단 | Microsoft Docs
-description: 이 빠른 시작에서는 세션 위험에 따라 로그인을 차단하도록 Azure AD(Azure Active Directory) Identity Protection 로그인 위험 조건부 액세스 정책을 구성할 수 있는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 Azure Active Directory (Azure AD) Identity Protection 로그인 위험을 세션 위험 기반 로그인을 차단 하는 조건부 액세스 정책을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Identity Protection, 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: id 보호, Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,18 +17,18 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381827"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108796"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>빠른 시작: Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단  
 
-환경을 보호하려는 경우 의심스러운 사용자의 로그인을 차단할 수 있습니다. Azure AD(Azure Active Directory) Identity Protection은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 로그인 위험 수준이라는 계산된 값 형식으로 표시됩니다. 로그인 위험 조건을 설정하면 특정 로그인 위험 수준에 응답하도록 로그인 위험 조건부 액세스 정책을 구성할 수 있습니다. 
+환경을 보호하려는 경우 의심스러운 사용자의 로그인을 차단할 수 있습니다. Azure AD(Azure Active Directory) Identity Protection은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 로그인 위험 수준이라는 계산된 값 형식으로 표시됩니다. 로그인 위험 조건으로 설정 하면 로그인 위험이 특정 로그인 위험 수준에 응답 하는 조건부 액세스 정책을 구성할 수 있습니다. 
 
-이 빠른 시작에서는 중간 이상의 로그인 위험 수준이 검색된 경우 로그인을 차단하는 로그인 위험 조건부 액세스 정책을 구성하는 방법을 보여 줍니다. 
+이 빠른 시작에서는 로그인 위험을 로그인에는 보통 때 차단 하는 조건부 액세스 정책을 구성 하는 방법 및 수준 이상의 로그인 위험이 감지 되었습니다. 
 
 ![정책 만들기](./media/quickstart-sign-in-risk-policy/1004.png)
 
@@ -65,9 +65,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 시나리오는 Tor 브라우저에서의 로그인을 사용하여 감지된 **익명 IP 주소에서 로그인** 위험 이벤트를 생성합니다. 이 위험 이벤트의 위험 수준은 보통입니다. 이 위험 이벤트에 응답하려면 로그인 위험 조건을 보통으로 설정합니다. 
 
-이 섹션에서는 로그인 위험 조건부 액세스 정책을 만드는 방법을 설명합니다. 정책에서 다음을 설정합니다.
+이 섹션에서는 필요한 로그인 위험 조건부 액세스 정책을 만드는 방법을 보여 줍니다. 정책에서 다음을 설정합니다.
 
-|설정 |Value|
+|설정 |값|
 |---     | --- |
 | 사용자  | Alain Charon  |
 | 조건 | 로그인 위험, 중간 이상 |
@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
  
 
 
-**조건부 액세스 정책을 구성하려면:**
+**에 대 한 조건부 액세스 정책을 구성 하려면:**
 
 1. 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -112,14 +112,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="test-your-conditional-access-policy"></a>조건부 액세스 정책 테스트
 
-정책을 테스트하려면 Tor 브라우저를 사용하여 [Azure Portal](https://portal.azure.com)에 **Alan Charon**으로 로그인을 시도합니다. 조건부 액세스 정책에 따라 로그인 시도가 차단됩니다.
+정책을 테스트하려면 Tor 브라우저를 사용하여 [Azure Portal](https://portal.azure.com)에 **Alan Charon**으로 로그인을 시도합니다. 조건부 액세스 정책에 따라 로그인 시도 차단 되어야 합니다.
 
 ![Multi-Factor Authentication](./media/quickstart-sign-in-risk-policy/203.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 테스트 사용자와 Tor 브라우저를 삭제하고 로그인 위험 조건부 액세스 정책을 사용하지 않도록 설정합니다.
+더 이상 필요 없는, Tor 브라우저를 테스트 사용자를 삭제 하 고 로그인 위험 조건부 액세스 정책을 사용 하지 않도록 설정 합니다.
 
 - Azure AD 사용자를 삭제하는 방법을 모르면 [사용자를 추가하거나 삭제하는 방법](../fundamentals/add-users-azure-active-directory.md#delete-a-user)을 참조하세요.
 

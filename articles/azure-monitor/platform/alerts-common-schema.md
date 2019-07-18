@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.subservice: alerts
+ms.openlocfilehash: 91ec5aa42367f6caaa93aaf808fde504e92fbc04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776598"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594335"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -35,10 +35,10 @@ ms.locfileid: "60776598"
 
 일반 경고 스키마 주로 스스로 매니페스트 경고 알림에 합니다. 표시 되는 향상 된 사항은 다음과 같습니다.
 
-| 액션(Action) | 향상된 기능|
+| Action | 향상된 기능|
 |:---|:---|
 | sms | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
-| Email | 일관적이 고 자세한 전자 메일 템플릿을 쉽게 한눈에 문제를 진단할 수 있습니다. 포털에 영향을 받는 리소스 경고 인스턴스에 포함 된 딥 링크 빠르게 재구성 프로세스로 이동할 수 있는지 확인 합니다. |
+| EMail | 일관적이 고 자세한 전자 메일 템플릿을 쉽게 한눈에 문제를 진단할 수 있습니다. 포털에 영향을 받는 리소스 경고 인스턴스에 포함 된 딥 링크 빠르게 재구성 프로세스로 이동할 수 있는지 확인 합니다. |
 | 웹 후크/논리 앱/a z 함수/자동화 Runbook | 일관 된 JSON 구조 모든 경고 유형에 대해 여러 경고 유형의 통합을 쉽게 빌드할 수 있습니다. |
 
 새 스키마 가까운 미래에 다양 한 경고 사용 환경을 Azure portal과 Azure 모바일 앱에서 사용할 수도 됩니다. 
@@ -125,6 +125,7 @@ ms.locfileid: "60776598"
 ## <a name="next-steps"></a>다음 단계
 
 - [웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 공통 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
+- [모든 경고를 처리 하도록 경고 공통 스키마를 활용 하는 논리 앱을 만드는 방법에 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

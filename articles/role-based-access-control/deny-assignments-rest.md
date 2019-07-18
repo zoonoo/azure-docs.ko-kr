@@ -1,6 +1,6 @@
 ---
 title: REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열 - Azure | Microsoft Docs
-description: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션에 대한 거부 할당을 나열하는 방법을 알아봅니다.
+description: 나열 하는 방법은 사용자, 그룹 및 역할 기반 액세스 제어 (RBAC)를 사용 하 여 Azure 리소스 및 REST API에 대 한 응용 프로그램에 대 한 할당을 거부 합니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,22 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118297"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열
 
-[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 목록에 REST API를 사용 하는 방법을 설명 할당을 거부 합니다.
+[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 나열 하는 방법을 설명 REST API를 사용 하 여 할당을 거부 합니다.
 
 > [!NOTE]
-> 현재 자체 거부 할당을 추가할 수 있는 유일한 방법은 Azure Blueprints를 사용하는 것입니다. 자세한 내용은 [Azure Blueprints 리소스 잠금으로 새 리소스 보호](../governance/blueprints/tutorials/protect-new-resources.md)를 참조하세요.
+> 직접 만들 수 고유한 할당을 거부 합니다. 할당이 만들어진 거부 하는 방법에 대 한 정보를 참조 하세요 [할당이 거부](deny-assignments.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,11 +45,11 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{deny-assignment-id}* 를 검색하려는 거부 할당 식별자로 바꿉니다.
 
@@ -69,15 +69,15 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
-    | 필터 | 설명 |
+    | Filter | 설명 |
     | --- | --- |
     | (필터링 안 함) | 지정된 범위, 그 위 및 그 아래에 있는 모든 거부 할당을 나열합니다. |
     | `$filter=atScope()` | 지정된 범위 및 그 위에 있는 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
@@ -95,7 +95,7 @@ Deny 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 1. *{filter}* 를 거부 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다. 필터가 필요합니다.
 
-    | 필터 | 설명 |
+    | Filter | 설명 |
     | --- | --- |
     | `$filter=atScope()` | 루트 범위에 대한 거부 할당만 나열합니다. 하위 범위에 있는 거부 할당을 포함하지 않습니다. |
     | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | 지정된 이름의 거부 할당을 나열합니다. |

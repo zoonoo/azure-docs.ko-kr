@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557888"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
@@ -197,7 +197,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDocumentationTemplatesCurlForBasicAuth|기본 권한 부여를 사용할 경우: --user {username}:{password}|  
 |WebDocumentationTemplatesCurlValuesForPath|경로 매개 변수 값({...}로 표시), 구독 키 및 쿼리 매개 변수 값을 지정합니다.|  
 |WebDocumentationTemplatesDeveloperKey|구독 키를 지정합니다.|  
-|WebDocumentationTemplatesJavaApache|이 샘플에서는 HTTP 구성 요소의 Apache HTTP 클라이언트를 사용합니다(http://hc.apache.org/httpcomponents-client-ga/)).|  
+|WebDocumentationTemplatesJavaApache|이 샘플에서는 HTTP 구성 요소의 Apache HTTP 클라이언트를 사용합니다(http://hc.apache.org/httpcomponents-client-ga/) ).|  
 |WebDocumentationTemplatesOptionalParams|필요에 따라 선택적 매개 변수 값을 지정합니다.|  
 |WebDocumentationTemplatesPhpPackage|이 샘플에서는 HTTP_Request2 패키지를 사용합니다. (추가 정보: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|경로 매개 변수 값({...}로 표시)을 지정하고 필요한 경우 본문을 요청합니다.|  

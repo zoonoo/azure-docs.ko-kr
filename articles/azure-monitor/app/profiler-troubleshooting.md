@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731065"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341667"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -50,7 +50,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 * 앱이 .NET Framework 4.6에서 실행 중인지 확인합니다.
 * 웹앱이 ASP.NET Core 애플리케이션인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
 * 확인하려는 데이터가 생성된 지 2주 이상 지난 경우에는 시간 필터의 범위를 제한한 후에 다시 시도해 봅니다. 추적은 7일 후에 삭제됩니다.
-* 프록시 또는 방화벽이 https://gateway.azureserviceprofiler.net에 대한 액세스를 차단하지 않았는지 확인합니다.
+* 프록시 또는 방화벽이 [https://gateway.azureserviceprofiler.net](https://gateway.azureserviceprofiler.net ) 에 대한 액세스를 차단하지 않았는지 확인합니다.
 
 ### <a id="double-counting"></a>병렬 스레드에서 이중 계산
 
@@ -88,7 +88,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
       ![profiler-webjob-log]
 
-Profiler가 작동하지 않는 이유를 확인할 수 없으면 로그를 다운로드한 다음 지원을 받기 위해 Microsoft 팀에 전송할 수 있습니다. 
+Profiler를 작동 하지 않는 이유를 파악할 수 없는 경우 로그를 다운로드 하 고 지원이 필요한 경우 팀에 게 보낼 수 serviceprofilerhelp@microsoft.com입니다. 
     
 ### <a name="manual-installation"></a>수동 설치
 

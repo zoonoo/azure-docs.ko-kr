@@ -2,23 +2,22 @@
 title: Azure Backup에 대 한 일반적인 보안 특성
 description: Azure Backup을 평가하기 위한 일반적인 보안 특성 검사 목록
 services: backup
-documentationcenter: ''
-author: msmbaldwin
+author: utraghuv
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 595cc4eff70e2df4cb6d7f1d6a0c1a2748b34bf2
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680808"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565628"
 ---
-# <a name="common-security-attributes-for-azure-backup"></a>Azure Backup에 대 한 일반적인 보안 특성
+# <a name="security-attributes-for-azure-backup"></a>Azure Backup에 대 한 보안 특성
 
-보안은 Azure 서비스의 모든 측면에 통합됩니다. 이 문서에서는 Azure Backup에 기본 제공 되는 일반적인 보안 특성을 설명 합니다. 
+이 문서에서는 Azure Backup에 기본 제공 보안 특성을 설명 합니다. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -32,7 +31,7 @@ ms.locfileid: "64680808"
 | 열 수준 암호화 (Azure Data Services)| 아닙니다. |  |
 | API 호출 암호화| 예 |  |
 
-## <a name="network-segmentation"></a>네트워크 분할
+## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|

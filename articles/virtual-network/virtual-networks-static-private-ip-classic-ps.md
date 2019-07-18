@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fa82c2397b4c2601cdd943158054e1c8efb6b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1be2966cf568fc5101fb0d887f0d55a8a1876d0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65952490"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>PowerShell을 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
@@ -51,7 +51,7 @@ IP 주소 *192.168.1.101*을 *TestVnet*이라는 이름의 VNet에서 사용할 
     OperationStatus      : Succeeded
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
-아래의 PowerShell 스크립트는 *TestService*라는 새 클라우드 서비스를 만들고 Azure에서 이미지를 검색합니다. 그 다음에 이 이미지를 사용하여 새 클라우드 서비스에 *DNS01*이라는 VM을 만들고 이 VM을 *FrontEnd*라는 서브넷에 속하도록 설정하고 VM의 정적 내부 IP로 *192.168.1.7*을 설정합니다.
+아래의 PowerShell 스크립트는 *TestService*라는 새 클라우드 서비스를 만들고 Azure에서 이미지를 검색합니다. 그 다음에 이 이미지를 사용하여 새 클라우드 서비스에 *DNS01*이라는 VM을 만들고 이 VM을 *FrontEnd*라는 서브넷에 속하도록 설정하고 VM의 정적 개인 IP로 *192.168.1.7*을 설정합니다.
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -131,7 +131,7 @@ IP 주소 *192.168.1.101*을 *TestVnet*이라는 이름의 VNet에서 사용할 
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>운영 체제 내에서 IP 주소 설정
 
-반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure VM에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
+반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure 가상 머신에 할당된 프라이빗 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure VM에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.

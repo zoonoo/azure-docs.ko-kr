@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Data Box 주문 | Microsoft Docs
+title: Azure Data Box 주문 자습서 | Microsoft 설명서
 description: 배포 필수 구성 요소 및 Azure Data Box를 주문하는 방법을 알아봅니다
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834271"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604097"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -66,10 +66,10 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
     |---------|---------|
     |구독     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
     |전송 형식     | **Azure로 가져오기**를 선택합니다.        |
-    |원천 국가     |   현재 데이터가 있는 국가를 선택합니다.         |
+    |원천 국가     |   현재 데이터가 있는 국가/지역을 선택합니다.         |
     |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다.        |
 
-5. Data **Box**를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 786TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
+5. Data **Box**를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 80TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
       [![Data Box 옵션 1 선택](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

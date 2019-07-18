@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754755"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
 ([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지리적 재해 복구* 및 *지리적 복제*는 기업에 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-지역 재해 복구 기능은 Event Hubs 표준 SKU에 전역적으로 사용할 수 있습니다.
+지리적 재해 복구 기능은 Event Hubs 표준 및 전용 SKU에 대 한 전역적으로 사용할 수 있습니다. SKU의 동일한 계층에서 네임 스페이스 지역 쌍만을 수 있습니다 note 하십시오. 예를 들어 네임 스페이스는 전용 SKU 에서만에서 제공 되는 클러스터에 있는 경우 다른 클러스터에서 네임 스페이스와 연결할만 있습니다. 
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -47,7 +47,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 -  *메타데이터*: Event Hubs 및 소비자 그룹과 같은 엔터티 및 네임스페이스와 연결된 서비스의 해당 속성입니다. 엔터티 및 해당 설정만이 자동으로 복제됩니다. 메시지 및 이벤트는 복제되지 않습니다. 
 
--  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다.
+-  *장애 조치(Failover)* : 보조 네임스페이스를 활성화하는 프로세스입니다.
 
 ## <a name="setup-and-failover-flow"></a>흐름 설정 및 장애 조치
 
@@ -98,7 +98,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
  
 2. 데이터가 복제되지 않으면 현재 활성 세션이 복제되지 않습니다. 또한 중복 검색 및 예약된 메시지가 작동하지 않을 수 있습니다. 새 세션, 예약된 메시지 및 새 중복이 작동합니다. 
 
-3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)을 수행해야 합니다. 
+3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)을 수행해야 합니다. 
 
 4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다.
 

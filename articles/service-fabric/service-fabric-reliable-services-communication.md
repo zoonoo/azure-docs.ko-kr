@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 15b45cadc69830827952d87ffc2315b06b07b02c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124992"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
@@ -197,7 +197,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric은 클라이언트 및 기타 서비스가 서비스 이름별로 이 주소를 요청할 수 있게 해주는 API를 제공합니다. 서비스 주소가 정적이 아니기 때문에 중요합니다. 서비스는 리소스 균형 조정 및 가용성을 위한 클러스터 주변으로 이동됩니다. 이는 클라이언트가 서비스의 수신 대기 주소를 확인할 수 있도록 하는 메커니즘입니다.
 
 > [!NOTE]
-> C#의 경우는 [OWIN 자체 호스팅이 포함된 Service Fabric 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)에서 통신 수신기를 작성하는 방법에 대한 전체 연습을 참조합니다. Java의 경우는 HTTP 서버 구현을 직접 작성할 수 있습니다. https://github.com/Azure-Samples/service-fabric-java-getting-started에서 EchoServer 애플리케이션 예제를 참조합니다.
+> C#의 경우는 [OWIN 자체 호스팅이 포함된 Service Fabric 웹 API 서비스](service-fabric-reliable-services-communication-webapi.md)에서 통신 수신기를 작성하는 방법에 대한 전체 연습을 참조합니다. Java의 경우는 HTTP 서버 구현을 직접 작성할 수 있습니다. https://github.com/Azure-Samples/service-fabric-java-getting-started 에서 EchoServer 애플리케이션 예제를 참조합니다.
 >
 >
 

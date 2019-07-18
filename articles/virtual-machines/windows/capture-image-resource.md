@@ -4,7 +4,7 @@ description: Azure에서 일반화된 VM 또는 VHD의 관리 이미지를 만�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 75f1d9b945eab49fb633f2cd3f99f498e686bfab
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787949"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719349"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
 저장소 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
 
@@ -51,7 +51,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
    
 4. **종료 옵션**에서 **종료**를 선택합니다.
    
-5. **확인**을 선택합니다.
+5.           **확인**을 선택합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -173,9 +173,9 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell을 사용하여 스냅숏에서 이미지 만들기
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell을 사용하여 스냅샷에서 이미지 만들기
 
-다음 단계를 수행하면 일반화된 VM의 스냅숏에서 관리되는 이미지를 만들 수 있습니다.
+다음 단계를 수행하면 일반화된 VM의 스냅샷에서 관리되는 이미지를 만들 수 있습니다.
 
     
 1. 일부 변수를 만듭니다. 
@@ -187,7 +187,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     $imageName = "myImage"
     ```
 
-2. 스냅숏을 가져옵니다.
+2. 스냅샷을 가져옵니다.
 
    ```azurepowershell-interactive
    $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName

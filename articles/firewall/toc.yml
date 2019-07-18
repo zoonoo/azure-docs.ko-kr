@@ -39,19 +39,27 @@
   items:
     - name: Azure PowerShell을 사용하여 배포
       href: deploy-ps.md
+    - name: Azure CLI를 사용하여 배포
+      href: deploy-cli.md
     - name: 템플릿을 사용하여 배포
       href: deploy-template.md
+    - name: 여러 공용 IP를 사용하여 배포
+      href: deploy-multi-public-ip-powershell.md
+    - name: 가용성 영역을 사용하여 배포
+      href: deploy-availability-zone-powershell.md
     - name: 부하 분산 장치와 통합
       href: integrate-lb.md
+    - name: SQL FQDN을 사용한 애플리케이션 규칙
+      href: sql-fqdn-filtering.md
 - name: 참고 자료
   items:
     - name: Azure CLI
-      href: /cli/azure/network
+      href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET
       href: /dotnet/api
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'

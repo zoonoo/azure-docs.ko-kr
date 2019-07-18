@@ -2,7 +2,7 @@
 title: Azure Batch 태스크 실패 이벤트 | Microsoft Docs
 description: Batch 태스크 실패 이벤트에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/15/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: f37769ceb761b8c8bc4834568813bb1b7af7f66a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549991"
 ---
 # <a name="task-fail-event"></a>태스크 실패 이벤트
@@ -93,5 +92,3 @@ ms.locfileid: "60549991"
 |exitCode|Int32|태스크의 종료 코드입니다.|
 |retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|
 |requeueCount|Int32|사용자 요청으로 인해 Batch 서비스에서 태스크를 대기열에 다시 추가한 횟수입니다.<br /><br /> 사용자가 풀 크기 조정 또는 축소를 통해 풀에서 노드를 제거하거나 작업이 비활성화될 경우 사용자는 노드에서 실행 중인 태스크를 실행 대기열에 다시 추가하도록 지정할 수 있습니다. 이 개수는 태스크가 이러한 이유로 대기열에 다시 추가된 횟수를 추적합니다.|
-
-<!-- Update_Description: update metedata properties -->

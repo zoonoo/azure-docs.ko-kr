@@ -10,11 +10,11 @@ ms.author: banders
 manager: dougeby
 ms.custom: include file
 ms.openlocfilehash: 1ffa56caebf16b588dffaba249a844915f9f44c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027292"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181945"
 ---
 ## <a name="view-cost-data"></a>비용 데이터 보기
 

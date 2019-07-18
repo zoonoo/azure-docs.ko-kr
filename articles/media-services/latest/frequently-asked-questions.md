@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706158"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703889"
 ---
-# <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
+# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3에 대 한 질문과 대답
 
 이 문서에서는 AMS(Azure Media Services) v3에 대해 자주 묻는 질문과 대답을 제공합니다.
 
-## <a name="v3-apis"></a>v3 API
+## <a name="general"></a>일반
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure 역할 Azure Media Services 리소스에서 작업을 수행할 수 있습니까? 
 
@@ -45,6 +45,10 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>어떤 기능은 아직 Azure Media Services v3에서 사용할 수 있습니까?
 
 세부 정보를 참조 하세요 [v2 Api와 관련 하 여 간격을 기능](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)합니다.
+
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Media Services 계정 구독 간에 이동 하는 프로세스가 무엇 인가요?  
+
+자세한 내용은 참조 하세요 [구독을 사용 하 여 Media Services 계정을 이동할](media-services-account-concept.md)합니다.
 
 ## <a name="live-streaming"></a>라이브 스트리밍 
 
@@ -72,7 +76,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 
 구성 하는 데 사용 하 여 Azure Media Services Api 라이선스/키 배달 및 자산 암호화 (에서처럼 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [콘텐츠 보호 개요](content-protection-overview.md)
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
@@ -81,7 +85,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Azure Portal을 사용하여 v3 리소스를 관리할 수 있나요?
 
-현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 

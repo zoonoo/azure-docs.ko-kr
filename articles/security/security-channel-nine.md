@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: a5dfecd1dd004486a119122192eecac3e03fba80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478279"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64701125"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Channel 9의 Azure 보안 동영상
 [Channel 9](https://channel9.msdn.com/) 은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.

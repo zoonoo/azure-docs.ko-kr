@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366275"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
@@ -61,7 +61,7 @@ R의 경우 시작 메뉴나 바탕 화면에서, 또는 Visual Studio용 R 도�
 
 Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 설치된 Visual Studio Community Edition 같은 IDE를 사용할 수 있습니다. 기본적으로 Python 3.6에서만 루트 conda 환경이 PTVS에서 구성됩니다. Anaconda Python 2.7을 사용하려면 다음 단계를 수행해야 합니다.
 
-* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음, Visual Studio Community Edition에서 "**+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
+* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음, Visual Studio Community Edition에서 " **+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
 * 설명을 입력하고 Anaconda Python 2.7에 대해 환경 접두사 경로를 *c:\anaconda\envs\python2*로 설정합니다.
 * **자동 감지**를 클릭한 다음 **적용**을 클릭하여 환경을 저장합니다.
 
@@ -282,9 +282,9 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 ![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리가 이미 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조하세요.
-* Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
+* Azure Storage Explorer 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
-![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![스토리지 계정에 액세스하는 Azure Storage Explorer의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **VM에서 Azure Blob: AzCopy로 데이터 이동**
 
@@ -307,15 +307,15 @@ PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. �
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
 ```
 
-Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage 탐색기에 해당 파일이 표시될 것입니다.
+Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage Explorer에 해당 파일이 표시될 것입니다.
 
 ![업로드된 CSV 파일을 표시하는 스토리지 계정의 스크린샷](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob: Azure Storage 탐색기로 데이터 이동**
+**VM에서 Azure Blob: Azure Storage Explorer**
 
-Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
+Azure Storage Explorer를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage 탐색기에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage Explorer에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
 * **파일** 상자 오른쪽의 **...** 을 클릭하고, 파일 시스템에서 업로드할 파일을 하나 이상 선택하고 **업로드**를 클릭하여 파일 업로드를 시작합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Azure Blob: Machine Learning 판독기 모듈에서 데이터 읽기**
@@ -474,7 +474,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 ![Azure Portal에서 HDInsight 만들기의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-*  [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
+* [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
   
   * HDInsight 클러스터를 만들 때 만든 저장소 계정을 HDInsight 클러스터와 연결합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
 
@@ -590,7 +590,7 @@ for i in range(1,13):
   * AzCopy: 압축을 푼 CSV를 로컬 폴더에서 HDI 클러스터로 업로드
   * Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 
-데이터가 HDI 클러스터에 로드되면 Azure Storage를 탐색기에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
+데이터가 HDI 클러스터에 로드되면 Azure Storage Explorer에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
 
 **데이터 탐색: Python에서 Hive 쿼리**
 
@@ -849,7 +849,7 @@ DSVM에서 Azure Cosmos DB에 액세스하기 위한 다음과 같은 필수 조
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Power BI Desktop을 사용하여 보고서 및 대시보드 작성
 위의 Cosmos DB 예제에서 확인한 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../../cosmos-db/powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 다음과 같습니다.
 
-1. Power BI Desktop을 열고 "Get Data"를 수행합니다. URL을 https://cahandson.blob.core.windows.net/samples/volcano.json으로 지정합니다.
+1. Power BI Desktop을 열고 "Get Data"를 수행합니다. URL을 https://cahandson.blob.core.windows.net/samples/volcano.json 으로 지정합니다.
 2. 목록으로 가져온 JSON 레코드가 보일 것입니다.
 3. Power BI가 동일한 항목을 작업할 수 있도록 목록을 테이블로 변환합니다.
 4. 확장 아이콘(열 오른쪽에 "왼쪽 화살표와 오른쪽 화살표" 아이콘이 있는 아이콘)을 클릭하여 열을 확장합니다.
@@ -896,7 +896,7 @@ in
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. 가상 머신에 추가 도구 설치
 많은 일반적인 데이터 분석 요구를 해결할 수 있는 여러 도구가 DSVM에 미리 제공되어 있습니다. 따라서 환경을 하나씩 설치 및 구성할 필요가 없으므로 시간이 절약되고, 사용하는 리소스에 대해서만 지불하면 되므로 비용도 절감할 수 있습니다.
 
-사용자는 이 문서에서 프로파일링한 다른 Azure 데이터 및 분석 서비스를 활용하여 분석 환경을 강화할 수 있습니다. 하지만 경우에 따라 독점적 타사 도구를 비롯한 추가 도구가 필요할 수도 있습니다. 사용자에게는 가상 머신에 필요한 새 도구를 설치할 수 있는 모든 관리 액세스 권한이 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 ```conda``` 또는 ```pip```를 사용할 수 있습니다. R의 경우 R 콘솔에서 ```install.packages()```를 사용하거나 IDE를 사용한 다음 "**패키지** -> **패키지 설치...**"를 선택할 수 있습니다.
+사용자는 이 문서에서 프로파일링한 다른 Azure 데이터 및 분석 서비스를 활용하여 분석 환경을 강화할 수 있습니다. 하지만 경우에 따라 독점적 타사 도구를 비롯한 추가 도구가 필요할 수도 있습니다. 사용자에게는 가상 머신에 필요한 새 도구를 설치할 수 있는 모든 관리 액세스 권한이 있습니다. 또한 사전 설치되지 않은 추가 패키지를 Python 및 R에 설치할 수 있습니다. Python의 경우 ```conda``` 또는 ```pip```를 사용할 수 있습니다. R의 경우 R 콘솔에서 ```install.packages()```를 사용하거나 IDE를 사용한 다음 "**패키지** -> **패키지 설치...** "를 선택할 수 있습니다.
 
 ## <a name="summary"></a>요약
 이는 Microsoft 데이터 과학 Virtual Machine에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.

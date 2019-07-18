@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481870"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
@@ -62,7 +62,7 @@ StorSimple 지원 패키지는 StorSimple 디바이스 문제를 해결하는 �
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
        암호 및 암호화 암호에 대해 묻는 메시지가 나타납니다(지원 패키지가 암호화 되었기 때문에). 그러면 기본 폴더에 지원 패키지가 생성됩니다(디바이스 이름에 현재 날짜 및 시간이 추가됨).
-   * 암호로 보호되지 않은 공유의 경우 `-Credential` 매개 변수가 필요하지 않습니다. 다음을 입력합니다.
+   * 암호로 보호되지 않은 공유의 경우 `-Credential` 매개 변수가 필요하지 않습니다. 다음과 같이 입력합니다.
      
        `Export-HcsSupportPackage`
      

@@ -4,15 +4,15 @@ description: Windows 가상 데스크톱 테 넌 트 환경에서 클라이언�
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928049"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605289"
 ---
 # <a name="remote-desktop-client-connections"></a>원격 데스크톱 클라이언트 연결
 
@@ -28,9 +28,9 @@ Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사
 
 사용 하 여 **nslookup** DNS FQDN을 확인할 수를 확인 하려면:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Windows 7 또는 Windows 10 및 웹 클라이언트를 열 수는 경우 참조 확인에 대 한 원격 데스크톱 클라이언트와 같은 다른 클라이언트 연결을 시도 합니다.
 
@@ -54,7 +54,7 @@ Windows 7 또는 Windows 10 및 웹 클라이언트를 열 수는 경우 참조 
 
 1. 브라우저를 다시 시작 합니다.
 2. 일반 브라우저 쿠키입니다. 참조 [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)합니다.
-3. 일반 브라우저 캐시 합니다. 참조 [브라우저에 대 한 브라우저 캐시를 지우려면](https://binged.it/2RKyfdU)합니다.
+3. 브라우저 캐시를 지웁니다. 참조 [브라우저에 대 한 브라우저 캐시를 지우려면](https://binged.it/2RKyfdU)합니다.
 4. 비공개 모드로 브라우저를 엽니다.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>웹 클라이언트 응답 하지 않거나 연결 해제
@@ -74,7 +74,7 @@ Windows 7 또는 Windows 10 및 웹 클라이언트를 열 수는 경우 참조 
 1. 웹 클라이언트 URL이 올바른지 확인 합니다.
 2. URL에 연결 된 Windows 가상 데스크톱 환경에 대 한 자격 증명이 있는지 확인 합니다.
 3. 일반 브라우저 쿠키입니다. 참조 [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)합니다.
-4. 일반 브라우저 캐시 합니다. 참조 [브라우저에 대 한 브라우저 캐시를 지우려면](https://binged.it/2RKyfdU)합니다.
+4. 브라우저 캐시를 지웁니다. 참조 [브라우저에 대 한 브라우저 캐시를 지우려면](https://binged.it/2RKyfdU)합니다.
 5. 비공개 모드로 브라우저를 엽니다.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트에 응답 하지 않거나 열 수 없습니다.
@@ -108,24 +108,23 @@ Windows 7 및 Windows 10에 대 한 원격 데스크톱 클라이언트를 제�
 1. 사용자 이름 및 문제가 발생 하는 시간을 확인 합니다.
 2. 오픈 **PowerShell** 문제가 보고 된 위치는 Windows 가상 데스크톱 테 넌 트에 연결 하 고 있습니다.
 3. 사용 하 여 올바른 테 넌 트 연결 확인 **Get RdsTenant 합니다.**
-4. 필요한 경우 테 넌 트와 그룹 컨텍스트를 설정 **집합 RdsContext – TenantGroupt\<TenantGroup\>** 합니다.
-5. 사용 하 여 **Get RdsHostPool** 하 고 **Get RdsSessionHost** cmdlet는 문제 해결에서 수행 되는 올바른 호스트 풀을 확인 합니다.
-6. 지정 된 기간에 대 한 형식 연결의 모든 실패 한 작업 목록을 가져오려면 다음 명령을 실행 합니다.
+4. 사용 하 여 **Get RdsHostPool** 하 고 **Get RdsSessionHost** cmdlet는 문제 해결에서 수행 되는 올바른 호스트 풀을 확인 합니다.
+5. 지정 된 기간에 대 한 형식 연결의 모든 실패 한 작업 목록을 가져오려면 다음 명령을 실행 합니다.
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. 사용 하는 **ActivityId** 이전 cmdlet 출력에서 아래 명령을 실행 합니다.
+6. 사용 하는 **ActivityId** 이전 cmdlet 출력에서 아래 명령을 실행 합니다.
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. 명령은 아래에 표시 된 출력과 비슷한 출력을 생성 합니다. 사용 하 여 **ErrorCodeSymbolic** 하 고 **ErrorMessage** 근본 원인을 해결 합니다.
+7. 명령은 아래에 표시 된 출력과 비슷한 출력을 생성 합니다. 사용 하 여 **ErrorCodeSymbolic** 하 고 **ErrorMessage** 근본 원인을 해결 합니다.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -160,7 +159,7 @@ Windows 7 및 Windows 10에 대 한 원격 데스크톱 클라이언트를 제�
 
 문제 보고 사용자가 명령줄을 사용 하 여 응용 프로그램 그룹에 할당 되어 있는지 확인 합니다.
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

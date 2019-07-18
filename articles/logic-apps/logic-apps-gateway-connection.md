@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65546269"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -36,7 +36,7 @@ ms.locfileid: "60304183"
 
 * 게이트웨이 설치가 Azure의 게이트웨이 리소스에 아직 연결되어 있지 않아야 합니다. 게이트웨이 설치는 하나의 게이트웨이 리소스에만 연결할 수 있으며 이러한 연결은 게이트웨이 리소스를 만들고 게이트웨이 설치를 선택한 경우에만 수행됩니다. 이렇게 연결되면 다른 리소스에서는 해당 게이트웨이 설치를 사용할 수 없습니다.
 
-* Azure Portal에 로그인하고 게이트웨이 리소스를 만들 때는 게이트웨이를 설치하는 데 사용한 것과 동일한 [Auzre 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)과 함께 이전에 [온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md#requirements)할 때 사용한 것과 동일한 로그인 계정을 사용해야 합니다. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure Portal에 로그인하고 게이트웨이 리소스를 만들 때는 게이트웨이를 설치하는 데 사용한 것과 동일한 [Auzre 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)과 함께 이전에 [온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md#requirements)할 때 사용한 것과 동일한 로그인 계정을 사용해야 합니다. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
 * Azure Portal에서 게이트웨이 리소스를 만들고 유지 관리하려면 [Windows 서비스 계정](../logic-apps/logic-apps-gateway-install.md#windows-service-account)에 적어도 **기여자** 권한이 있어야 합니다. 온-프레미스 데이터 게이트웨이는 Windows 서비스로 실행되고 Windows 서비스 로그인 자격 증명에 `NT SERVICE\PBIEgwService`를 사용하도록 설정됩니다. 
 
@@ -68,7 +68,7 @@ ms.locfileid: "60304183"
    | **Name** | 게이트웨이 리소스의 이름입니다. | 
    | **구독** | 논리 앱과 동일한 구독이어야 하는 Azure 구독의 이름입니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기준으로 합니다. | 
    | **리소스 그룹** | 관련 리소스를 구성하기 위한 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. | 
-   | **위치**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
+   | **Location**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
    | **설치 이름** | 게이트웨이 설치가 선택되어 있지 않으면 이전에 설치한 게이트웨이를 선택합니다. | 
    | | | 
 

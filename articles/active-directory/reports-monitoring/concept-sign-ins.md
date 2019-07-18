@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107658"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -86,7 +86,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![로그인 활동](./media/concept-sign-ins/03.png "로그인 활동")
 
 > [!NOTE]
-> 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 로그인 레코드에 대한 **조건부 액세스** 탭을 클릭하여 조건부 액세스 상태를 검토하고 로그인에 적용된 정책의 세부 정보와 각 정책의 결과를 자세히 알아볼 수 있습니다. 
+> 고객에 게 모든 로그인 보고서를 통해 조건부 액세스 정책 문제 해결 이제 수 있습니다. 클릭 하 여 합니다 **조건부 액세스** 탭 로그인 레코드에 대 한 조건부 액세스 상태 및 세부 정보를 로그인 하 고 각 정책에 대 한 결과에 적용 되는 정책에 자세히 알아보기 고객에 게 검토할 수 있습니다.
 > 자세한 내용은 [모든 로그인의 CA 정보에 대한 질문과 대답](reports-faq.md#conditional-access)을 참조하세요.
 
 ![로그인 활동](./media/concept-sign-ins/ConditionalAccess.png "로그인 활동")
@@ -131,21 +131,28 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 
-로그인 보기에 다른 필드를 추가할 경우 이러한 필드가 자동으로 필터 목록에 추가됩니다. 예를 들어 **클라이언트 앱** 필드를 목록에 추가하면 다음 필드를 설정할 수 있는 또 다른 필터 옵션이 제공됩니다.
-
-- 브라우저      
-- Exchange ActiveSync(지원됨)               
-- Exchange ActiveSync(지원되지 않음)
-- 기타 클라이언트               
-    - IMAP
-    - MAPI
-    - 이전 버전의 Office 클라이언트
-    - POP
-    - SMTP
-
-
+로그인 보기에 다른 필드를 추가할 경우 이러한 필드가 자동으로 필터 목록에 추가됩니다. 예를 들어 **클라이언트 앱** 필드를 목록에 추가하면 다음 필드를 설정할 수 있는 또 다른 필터 옵션이 제공됩니다.  
 ![로그인 활동](./media/concept-sign-ins/12.png "로그인 활동")
 
+- **브라우저**  
+    이 필터는 모든 표시 이벤트는 로그인 시도 브라우저 흐름을 사용 하 여 수행 되었습니다.
+- **Exchange ActiveSync (지원 됨)**  
+    이 필터는 Exchange ActiveSync (EAS) 프로토콜을 시도한 iOS, Android 및 Windows Phone 등의 지원 되는 플랫폼에서 모든 로그인 시도 보여 줍니다.
+- **Exchange ActiveSync (지원 되지 않음)**  
+    이 필터는 EAS 프로토콜을 시도한 Linux 배포판 등 지원 되지 않는 플랫폼에서 모든 로그인 시도 보여 줍니다.
+- **모바일 앱 및 데스크톱 클라이언트** 이 필터는 모든 로그인 시도 브라우저 흐름을 사용 하지 않는 표시 합니다. 이 Windows 또는 MacOS에서 Office와 같은 데스크톱 클라이언트 앱 또는 모든 프로토콜을 사용 하 여 모든 플랫폼에서 모바일 앱을 수 있습니다.
+  
+- **다른 클라이언트**
+    - **IMAP**  
+        IMAP를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
+    - **MAPI**  
+        Office 2013에 ADAL이 사용 되 고은 MAPI를 사용 합니다.
+    - **이전 Office 클라이언트**  
+        Office 2013에 ADAL 해제 되어 없는 기본 구성, MAPI 또는 Office 2016 ADAL에 사용할 수 사용 합니다.
+    - **POP**  
+        POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
+    - **SMTP**  
+        전자 메일을 보내려면 SMTP를 사용 하 여 레거시 메일 클라이언트입니다.
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
@@ -164,7 +171,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - ID 보안 보호 개요
 - 사용자
 - 그룹
-- 엔터프라이즈 응용 프로그램
+- Enterprise 애플리케이션
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>ID 보안 보호에서 사용자 로그인 데이터
 
@@ -183,7 +190,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 항목을 클릭하면 로그인 작업에 대한 세부 정보가 표시됩니다.
 
-- 사용자 ID
+- User ID
 - 사용자
 - 사용자 이름
 - 애플리케이션 UI
@@ -192,7 +199,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - Location
 - IP 주소
 - Date
-- MFA 필요
+- 필요한 MFA
 - 로그인 상태
 
 > [!NOTE]

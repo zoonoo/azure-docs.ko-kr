@@ -9,15 +9,15 @@ keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490536"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444615"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
@@ -27,25 +27,26 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 ![Visual Studio 프로젝트의 Azure Functions 코드](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-이 확장은 현재 C#, JavaScript 및 Java 함수를 완벽하게 지원하며, Python 지원은 현재 미리 보기로 제공됩니다. 이 문서의 단계는 Azure Functions 프로젝트에 대해 선택하는 언어에 따라 달라질 수 있습니다. 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
+이 확장은 현재 C#, JavaScript 및 Java 함수를  지원하며, Python 지원은 현재 미리 보기로 제공됩니다. 이 문서와 다음 문서에 나오는 단계는 JavaScript 및 C# 함수만 지원합니다. Visual Studio Code를 사용하여 Python 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure Functions에 Python 배포](https://code.visualstudio.com/docs/python/tutorial-azure-functions)를 참조하세요. Visual Studio Code를 사용하여 PowerShell 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure에서 첫 번째 PowerShell 함수 만들기](functions-create-first-function-powershell.md)를 참조하세요. 
+
+확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나에 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다. 이 문서는 macOS(High Sierra)를 실행하는 디바이스에서 개발되고 테스트되었습니다.
+* [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나에 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다.
 
-* 아직 미리 보기 상태인 [Azure Functions 핵심 도구](functions-run-local.md#v2)의 2.x 버전을 설치합니다.
+* [Azure Functions Core Tools](functions-run-local.md#v2)의 버전 2.x를 설치합니다.
 
 * 선택한 언어에 대한 특정 요구 사항을 설치합니다.
 
-    | 언어 | 내선 번호 |
+    | 언어 | 요구 사항 |
     | -------- | --------- |
-    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Java에 대한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* 또한 Core 도구에서 필요합니다.
+    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,47 +54,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="create-an-http-triggered-function"></a>HTTP 트리거 함수 만들기
-
-1. **Azure: Functions**에서 함수 만들기 아이콘을 선택합니다.
-
-    ![함수 만들기](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. 함수 앱 프로젝트를 사용하여 폴더를 선택하고 **HTTP 트리거** 함수 템플릿을 선택합니다.
-
-    ![HTTP 트리거 템플릿 선택](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. 함수 이름에 `HTTPTrigger`를 입력하고 Enter 키를 누른 다음, **익명** 인증을 선택합니다.
-
-    ![익명 인증 선택](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    HTTP 트리거 함수에 대한 템플릿을 사용하여 선택한 언어로 함수가 만들어집니다.
-
-    ![Visual Studio Code에서 HTTP 트리거 함수 템플릿](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-function.json 파일을 수정하여 함수에 입력 및 출력을 추가할 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
-
-함수 프로젝트 및 HTTP로 트리거되는 함수를 만들었으니, 로컬 컴퓨터에서 이 함수를 테스트할 수 있습니다.
-
-## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
-
-Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure Functions 프로젝트를 실행할 수 있습니다. Visual Studio Code에서 처음으로 함수를 시작할 때 이러한 도구를 설치하도록 요구하는 메시지가 표시됩니다.  
-
-1. 함수를 테스트하려면 함수 코드에 중단점을 설정하고 F5 키를 눌러 함수 앱 프로젝트를 시작합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다.
-
-1. **터미널** 패널에서 HTTP 트리거 함수의 URL 엔드포인트를 복사합니다.
-
-    ![Azure 로컬 출력](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. HTTP 요청에 대한 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다. 중단점이 적중되는 경우 실행이 일시 중지됩니다.
-
-    ![Visual Studio Code에서 중단점을 적중하는 함수](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. 계속 실행하는 경우 다음과 같이 GET 요청에 대한 응답이 브라우저에 표시됩니다.
-
-    ![브라우저의 localhost 함수 응답](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. 디버깅을 중지하려면 Shift+F5를 누릅니다.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 
@@ -101,7 +62,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
+## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
 1. **출력** 패널에서 HTTP 트리거의 URL을 복사합니다. 이전처럼 이 URL 마지막에 `?name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행해야 합니다.
 
@@ -115,10 +76,10 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio Code를 사용하여 간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다. Azure Functions 핵심 도구를 사용하여 [터미널 또는 명령 프롬프트에서 로컬 테스트 및 디버깅](functions-run-local.md)하는 데 관한 자세한 내용을 알아볼 수도 있습니다.
+Visual Studio Code를 사용하여 간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다. 다음 문서에서는 출력 바인딩을 추가하여 해당 함수를 확장합니다. 이 바인딩은 HTTP 요청의 문자열을 Azure Queue Storage 큐의 메시지에 씁니다. 다음 문서에서는 만든 리소스 그룹을 제거하여 이러한 새 Azure 리소스를 정리하는 방법도 보여 줍니다.
 
 > [!div class="nextstepaction"]
-> [Application Insights 통합 사용](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [함수에 Azure Storage 큐 바인딩 추가](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Visual Studio Code용 Azure Functions 확장]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

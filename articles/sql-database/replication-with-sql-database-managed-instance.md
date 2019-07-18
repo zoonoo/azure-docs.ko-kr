@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926208"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357112"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
@@ -53,7 +53,7 @@ ms.locfileid: "64926208"
 
 지원:
 
-- Azure SQL Database의 SQL Server 온-프레미스 및 관리형 인스턴스의 트랜잭션 및 스냅숏 복제 조합.
+- Azure SQL Database의 SQL Server 온-프레미스 및 관리형 인스턴스의 트랜잭션 및 스냅샷 복제 조합.
 - 구독자는 온-프레미스 SQL Server 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 탄력적 풀에 풀링된 데이터베이스에 대 한 단일 데이터베이스/관리 되는 인스턴스 수 있습니다.
 - 단방향 또는 양방향 복제.
 
@@ -172,7 +172,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 연결된 된 서버를 추가 하는이 스크립트는 관리 되는 인스턴스는 로컬 게시자를 구성 하 고 SQL Server 에이전트에 대 한 작업 집합을 만듭니다. 

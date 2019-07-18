@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238371"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604298"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
@@ -39,7 +39,7 @@ Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-captu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/). 설치하는 동안 .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발 워크로드를 설치해야 합니다.
+- [Visual Studio 2019](https://www.visualstudio.com/vs/). 설치하는 동안 .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발 워크로드를 설치해야 합니다.
 - [Git 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) 다운로드. 샘플 솔루션에 포함된 구성 요소는 다음과 같습니다.
     - *WindTurbineDataGenerator* – 샘플 풍력 터빈 데이터를 캡처 지원 이벤트 허브로 보내는 간단한 게시자입니다.
     - *FunctionDWDumper* – Avro 파일이 Azure Storage Blob에 캡처될 때 Event Grid 알림을 받는 Azure Function입니다. Blob의 URI 경로를 받고, 해당 콘텐츠를 읽고, 이 데이터를 SQL Data Warehouse로 푸시합니다.
@@ -50,7 +50,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 이 [Azure Resource Manager �
 -   캡처 기능을 사용하도록 설정된 Event Hub
 -   캡처된 이벤트 데이터에 대한 저장소 계정
 -   Functions 앱 호스팅에 대한 Azure 앱 서비스 계획
--   캡처한 이벤트 파일을 처리하는 Function 앱
+-   캡처한 이벤트 파일을 처리하는 함수 앱
 -   Data Warehouse 호스팅용 SQL Server
 -   마이그레이션된 데이터 저장용 SQL Data Warehouse
 
@@ -106,13 +106,13 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Functions 앱에 코드 게시
 
-1. Visual Studio 2017(15.3.2 이상)에서 *EventHubsCaptureEventGridDemo.sln* 솔루션을 엽니다. 
+1. Visual Studio 2019에서 *EventHubsCaptureEventGridDemo.sln* 솔루션을 엽니다.
 
 1. 솔루션 탐색기에서 *FunctionEGDWDumper*를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
    ![함수 앱 게시](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. **Azure 함수 앱**과 **기존 항목 선택**을 차례로 선택합니다. **게시**를 선택합니다.
+1. **Azure Function App**과 **기존 항목 선택**을 차례로 선택합니다. **게시**를 선택합니다.
 
    ![대상 함수 앱](./media/store-captured-data-data-warehouse/pick-target.png)
 
@@ -146,7 +146,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    ![구독 만들기](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성  
-이제 Event Hub, SQL 데이터 웨어하우스, Azure Function App 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
+이제 Event Hub, SQL 데이터 웨어하우스, Azure 함수 앱 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
 
 1. Portal에서 이벤트 허브 네임스페이스를 선택합니다. **연결 문자열**을 선택합니다.
 

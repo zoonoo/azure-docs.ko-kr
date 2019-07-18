@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: daveba
 ms.openlocfilehash: 69170bbf8d1c6c4da3d8237820bd231a8da3ddd2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159872"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182373"
 ---
-이 기능을 사용 하는 무료 Azure 구독에 포함 합니다.
+이 기능은 무료이며 Azure 구독에 포함되어 있습니다.

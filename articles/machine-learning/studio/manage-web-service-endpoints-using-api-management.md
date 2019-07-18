@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347258"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
@@ -150,7 +150,7 @@ API를 만들려면:
 
 4. **요청 매개 변수**에 **작업 영역** 및 **서비스**를 입력하고, **apiversion**에 "2.0을 입력하고, **세부 정보**에 "true"를 입력합니다. AzureML 웹 서비스 대시보드에서 **작업 영역** 및 **서비스**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
-   **요청 헤더**에서 **헤더 추가**를 클릭하고, "콘텐츠 형식" 및 "application/json"을 입력합니다. **헤더 추가**를 다시 클릭하고, "인증" 및 "전달자 *\<사용자 서비스 API-KEY\>*"를 입력합니다. AzureML 웹 서비스 대시보드에서 API-KEY를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
+   **요청 헤더**에서 **헤더 추가**를 클릭하고, "콘텐츠 형식" 및 "application/json"을 입력합니다. **헤더 추가**를 다시 클릭하고, "인증" 및 "전달자 *\<사용자 서비스 API-KEY\>* "를 입력합니다. AzureML 웹 서비스 대시보드에서 API-KEY를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
    **요청 본문**에 `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`를 입력합니다.
 

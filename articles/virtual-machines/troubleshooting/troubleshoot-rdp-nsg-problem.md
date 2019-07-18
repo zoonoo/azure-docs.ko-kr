@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318938"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>NSG에서 사용하도록 설정하지 않은 RDP 포트로 인해 Azure VM에 연결할 수 없음
@@ -56,7 +56,7 @@ NSG에서 RDP 포트를 사용하도록 설정하려면 다음 단계를 수행�
 NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../../virtual-network/security-overview.md)을 참조하세요.
 
 > [!NOTE]
-> 3389 RDP 포트는 인터넷에 공개되어 있습니다. 따라서 이 포트는 테스트용으로만 사용하는 것이 좋습니다. 프로덕션 환경의 경우 VPN 또는 개인 연결을 사용하는 것이 좋습니다.
+> 3389 RDP 포트는 인터넷에 공개되어 있습니다. 따라서 이 포트는 테스트용으로만 사용하는 것이 좋습니다. 프로덕션 환경의 경우 VPN 또는 프라이빗 연결을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

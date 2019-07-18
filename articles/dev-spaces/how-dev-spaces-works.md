@@ -1,27 +1,26 @@
 ---
-title: Azure 개발 공간 작동 하 고는 하는 방법 구성
+title: Azure 개발 공간 구성과 작동
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687193"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670812"
 ---
-# <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
+# <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 구성과 작동
 
 Kubernetes 응용 프로그램을 개발 하는 것은 어려울 수 있습니다. Docker 및 Kubernetes 구성 파일을 해야합니다. 응용 프로그램을 로컬로 테스트 및 다른 종속 서비스와 상호 작용 하는 방법을 파악 해야 합니다. 개발 및 테스트 한 번에 여러 서비스 및 개발자 팀을 사용 하 여 처리 해야 합니다.
 
-Azure 개발 공간을 사용 하면 개발, 배포 하 고 직접 Azure Kubernetes Service (AKS)에서 Kubernetes 응용 프로그램을 디버그 합니다. Azure 개발 공간에는 팀을 개발 공간을 공유할 수 있습니다. 팀 개발 공간을 공유할 수 개별 팀 멤버를를 복제 하거나 종속성 또는 클러스터의 다른 응용 프로그램의 모형을 않고도 격리를 개발할 수 있습니다.
+Azure 개발 공간을 사용하면  직접 Azure Kubernetes Service(AKS)에서 Kubernetes 응용 프로그램을 개발, 배포하고 디버그할 수 있습니다. Azure 개발 공간에서는 또한 팀이 개발 공간을 공유할 수 있습니다. 팀 전체에 걸쳐 개발 공간을 공유하면 개별 팀 구성원이 클러스터의 종속성이나 다른 응용 프로그램을 복제하거나 모의하지 않고도 격리되어 개발할 수 있습니다.
 
 Azure 개발 공간 만들고, 배포, 실행 및 AKS에서 Kubernetes 응용 프로그램 디버깅에 대 한 구성 파일을 사용 합니다. 이 구성 파일은 응용 프로그램의 코드를 사용 하 여 있고 버전 제어 시스템에 추가할 수 있습니다.
 
@@ -29,7 +28,7 @@ Azure 개발 공간 만들고, 배포, 실행 및 AKS에서 Kubernetes 응용 �
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java](quickstart-java.md)
 * [.NET core CLI 및 Visual Studio Code를 사용 하 여](quickstart-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Azure 개발 공간의 작동 원리
@@ -41,7 +40,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 컨트롤러에는 다음 작업을 수행합니다.
 
 * 개발 공간 만들기 및 선택 영역을 관리합니다.
-* 응용 프로그램의 Helm 차트를 설치 하 고 Kubernetes 개체를 만듭니다.
+* 응용 프로그램의 Helm 차트를 설치하고 Kubernetes 개체를 만듭니다.
 * 응용 프로그램의 컨테이너 이미지를 빌드합니다.
 * AKS에 응용 프로그램을 배포합니다.
 * 소스 코드 변경 되 면 다시 시작 되 고 증분 빌드를 수행 합니다.
@@ -66,7 +65,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 클라이언트 쪽의 일환으로 명령줄에서 도구를 사용할 수는 `azds` 명령입니다. 또한 클라이언트 쪽 도구를 사용할 수 있습니다.
 
 * Visual Studio Code를 사용 하는 [Azure 개발 공간 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)합니다.
-* Visual Studio 2017 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)합니다.
+* Visual Studio [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)합니다.
 
 기본 흐름을 설정 하 고 Azure 개발 공간을 사용 하는 다음과 같습니다.
 1. Azure 개발 공간에 대 한 AKS 클러스터를 준비 합니다.
@@ -80,8 +79,8 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 ## <a name="prepare-your-aks-cluster"></a>AKS 클러스터를 준비 합니다.
 
 AKS 클러스터를 준비 하는 작업에 포함 됩니다.
-* 확인에 AKS 클러스터가 지역의 [Azure 개발 공백으로 지원](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)합니다.
-* 1.10.3 Kubernetes를 실행 하는 확인 이상.
+* 확인에 AKS 클러스터가 지역의 [Azure 개발 공백으로 지원][supported-regions]합니다.
+* 1\.10.3 Kubernetes를 실행 하는 확인 이상.
 * 사용 하 여 클러스터에서 Azure 개발 공간을 사용 하도록 설정 `az aks use-dev-spaces`
 
 만들기 및 Azure 개발 공간에 대 한 AKS 클러스터를 구성 하는 방법에 대 한 자세한 내용은 시작 가이드 중 하나를 참조 합니다.
@@ -133,7 +132,7 @@ azds prep --public
 
 `prep` 명령은 프로젝트의 파일에서 확인 하 고 Kubernetes에서 응용 프로그램을 실행 하는 것에 대 한 Dockerfile과 Helm 차트를 만들려고 시도 합니다. 현재는 `prep` 명령 언어를 사용 하 여 Dockerfile과 Helm 차트를 생성 합니다.
 
-* 자바
+* Java
 * Node.js
 * .NET Core
 
@@ -210,7 +209,7 @@ azds up
 1. 응용 프로그램에 대 한 컨테이너를 만듭니다.
 1. 응용 프로그램 개발 공간을 배포합니다.
 1. 구성 된 경우 응용 프로그램 끝점에 공개적으로 액세스할 수 있는 DNS 이름을 만듭니다.
-1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://locahost합니다.
+1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://localhost 합니다.
 1. Stdout 및 stderr을 클라이언트 쪽 도구에 전달합니다.
 
 
@@ -225,7 +224,7 @@ azds up
 1. 컨트롤러 대체 합니다 *$(tag)* 고유한 세션 ID 및 서비스에 대 한 Helm 차트 설치를 사용 하 여 Helm 차트에 자리 표시자입니다. Helm 차트에 고유한 세션 ID에 대 한 참조는 컨테이너를 사용 하면 추가 세션 요청에 다시 연결 하려면이 특정 세션에 대 한 AKS 클러스터에 배포 하 고 관련 정보입니다.
 1. Helm 차트를 설치 하는 동안 Kubernetes 웹 후크 입학 허가 서버 계측 및 프로젝트의 소스 코드에 대 한 액세스에 대 한 응용 프로그램 pod에 추가 컨테이너를 추가합니다. Devspaces 프록시와 devspaces-프록시-init 컨테이너 HTTP 추적 및 공간 라우팅을 제공 하기 위해 추가 됩니다. Devspaces 빌드 컨테이너 응용 프로그램의 컨테이너를 빌드하기 위한 Docker 인스턴스 및 프로젝트 소스 코드에 대 한 액세스를 사용 하 여 pod를 제공에 추가 됩니다.
 1. 응용 프로그램의 pod를 시작할 때 devspaces 빌드 컨테이너 및 devspaces-프록시-init 컨테이너 응용 프로그램 컨테이너 빌드에 사용 됩니다. 그런 다음 응용 프로그램 컨테이너 및 devspaces 프록시 컨테이너 시작 됩니다.
-1. Kubernetes 클라이언트 쪽 기능을 사용 하 여 응용 프로그램 컨테이너 시작 되 면 *포트 정방향* 를 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 하는 기능이 http://localhost합니다. 이 포트 전달을 개발 공간에서 서비스를 개발 컴퓨터를 연결합니다.
+1. Kubernetes 클라이언트 쪽 기능을 사용 하 여 응용 프로그램 컨테이너 시작 되 면 *포트 정방향* 를 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 하는 기능이 http://localhost 합니다. 이 포트 전달을 개발 공간에서 서비스를 개발 컴퓨터를 연결합니다.
 1. Pod의 모든 컨테이너를 시작한 서비스 실행 중입니다. 이 시점에서 클라이언트 쪽 기능을 HTTP 추적, stdout 및 stderr를 스트림 하기 시작 합니다. 이 정보는 개발자를 위한 클라이언트 쪽 기능으로 표시 됩니다.
 
 ### <a name="updating-a-running-service"></a>실행 중인 서비스 업데이트
@@ -272,13 +271,13 @@ Dockerfile, csproj 파일, Helm 차트의 일부 등 프로젝트 파일에 대 
 
 ### <a name="how-routing-works"></a>라우팅의 작동 원리
 
-개발자는 AKS을 기반으로 공백과에서는 동일한 [네트워킹 개념](../aks/concepts-network.md)합니다. Azure 개발 공간 역시 중앙 집중식 *ingressmanager* 서비스 및 AKS 클러스터에는 자체 수신 컨트롤러를 배포 합니다. 합니다 *ingressmanager* 서비스에서 모니터링 AKS 개발 공간을 사용 하 여 클러스터 및 응용 프로그램 pod에 라우팅에 대 한 수신 개체를 사용 하 여 클러스터에서 Azure 개발 공간 수신 컨트롤러를 보강 합니다. 각 pod에서 devspaces 프록시 컨테이너 추가 `azds-route-as` HTTP 헤더를 개발 공간 HTTP 트래픽에 대 한 URL을 기반으로 합니다. 예를 들어 URL로 요청 *http://azureuser.s.default.serviceA.fedcba09...azds.io* 사용 하 여 HTTP 헤더를 얻게 `azds-route-as: azureuser`합니다. Devspaces 프록시 컨테이너를 추가 하지 것입니다는 `azds-route-as` 이미 있는 경우 헤더입니다.
+개발자는 AKS을 기반으로 공백과에서는 동일한 [네트워킹 개념](../aks/concepts-network.md)합니다. Azure 개발 공간 역시 중앙 집중식 *ingressmanager* 서비스 및 AKS 클러스터에는 자체 수신 컨트롤러를 배포 합니다. 합니다 *ingressmanager* 서비스에서 모니터링 AKS 개발 공간을 사용 하 여 클러스터 및 응용 프로그램 pod에 라우팅에 대 한 수신 개체를 사용 하 여 클러스터에서 Azure 개발 공간 수신 컨트롤러를 보강 합니다. 각 pod에서 devspaces 프록시 컨테이너 추가 `azds-route-as` HTTP 헤더를 개발 공간 HTTP 트래픽에 대 한 URL을 기반으로 합니다. 예를 들어 URL로 요청 *http://azureuser.s.default.serviceA.fedcba09...azds.io* 사용 하 여 HTTP 헤더를 얻게 `azds-route-as: azureuser` 합니다. Devspaces 프록시 컨테이너를 추가 하지 것입니다는 `azds-route-as` 이미 있는 경우 헤더입니다.
 
 클러스터 외부에서 서비스에 대 한 HTTP 요청이 이루어지면 요청 수신 컨트롤러를 이동 합니다. 수신 컨트롤러는 해당 수신 개체 및 규칙에 따라 적절 한 pod에 직접 요청을 라우팅합니다. Pod에 devspaces 프록시 컨테이너는 요청을 받고 추가 `azds-route-as` 헤더 URL을 기반으로 한 후 응용 프로그램 컨테이너를 요청을 라우팅합니다.
 
 이루어지면 HTTP 요청을 서비스에 클러스터 내에서 다른 서비스에서 요청은 먼저 호출 하는 서비스의 devspaces 프록시 컨테이너를 통해 이동 합니다. HTTP 요청 및 검사에 살펴봅니다 devspaces 프록시 컨테이너를 `azds-route-as` 헤더입니다. 헤더에 따라 devspaces 프록시 컨테이너에서는 헤더 값을 사용 하 여 연결 된 서비스의 IP 주소를 찾습니다. IP 주소가 있으면 devspaces 프록시 컨테이너 다시 해당 IP 주소에 대 한 요청을 라우팅합니다. IP 주소가 없으면 devspaces 프록시 컨테이너 부모 응용 프로그램 컨테이너에 요청을 라우팅합니다.
 
-예를 들어, 응용 프로그램 *serviceA* 하 고 *serviceB* 이라는 부모 개발 공간으로 배포 됩니다 *기본*입니다. *serviceA* 의존 *serviceB* HTTP 호출 하 고 있습니다. Azure 사용자에 따라 자식 개발 공간을 만듭니다는 *기본* 호출 하는 공간 *azureuser*합니다. Azure 사용자는 또한 고유한 버전의 배포 *serviceA* 하위 공간에 해당 합니다. 요청을 하려고 하면 *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+예를 들어, 응용 프로그램 *serviceA* 하 고 *serviceB* 이라는 부모 개발 공간으로 배포 됩니다 *기본*입니다. *serviceA* 의존 *serviceB* HTTP 호출 하 고 있습니다. Azure 사용자에 따라 자식 개발 공간을 만듭니다는 *기본* 호출 하는 공간 *azureuser*합니다. Azure 사용자는 또한 고유한 버전의 배포 *serviceA* 하위 공간에 해당 합니다. 요청을 하려고 하면 *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure 개발 공간 라우팅](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +336,13 @@ Helm 차트를 설치할 때 Azure 개발 공간은 Helm 차트에서 값을 재
 
 위의 예에서 합니다 *install.set.replicaCount* 속성은 컨트롤러 개발 공간에서 실행 되도록 응용 프로그램의 인스턴스 수입니다. 시나리오에 따라이 값을 늘릴 수 있습니다 하지만 응용 프로그램 pod에 디버거를 연결에 영향을 줄 것입니다. 자세한 내용은 참조는 [문제 해결 문서](troubleshooting.md)합니다.
 
-컨테이너 이미지를로 생성 된 Helm 차트에서 *{{합니다. Values.image.repository}}:{{합니다. Values.image.tag}}* 합니다. 합니다 `azds.yaml` 파일은 정의 *install.set.image.tag* 속성을 *$(tag)* 기본적으로 값으로 사용 되는 *{{합니다. Values.image.tag}}* 합니다. 설정 하 여 합니다 *install.set.image.tag* Azure 개발 공간을 실행 하는 경우 고유한 방식으로 태그가 지정 되어야 하는 응용 프로그램에 대 한 컨테이너 이미지 수 있도록이 방식으로 속성입니다. 이 특정 예제의 이미지로 태그가 지정 됩니다  *<value from image.repository>: $(tag)* 합니다. 사용 해야 합니다 *$(tag)* 값으로 변수 *install.set.image.tag* 개발 공간에서 인식 하 고 AKS 클러스터에서 컨테이너를 찾습니다.
+컨테이너 이미지를로 생성 된 Helm 차트에서 *{{합니다. Values.image.repository}}:{{합니다. Values.image.tag}}* 합니다. 합니다 `azds.yaml` 파일은 정의 *install.set.image.tag* 속성을 *$(tag)* 기본적으로 값으로 사용 되는 *{{합니다. Values.image.tag}}* 합니다. 설정 하 여 합니다 *install.set.image.tag* Azure 개발 공간을 실행 하는 경우 고유한 방식으로 태그가 지정 되어야 하는 응용 프로그램에 대 한 컨테이너 이미지 수 있도록이 방식으로 속성입니다. 이 특정 예제의 이미지로 태그가 지정 됩니다  *\<image.repository 값 >: $(tag)* 합니다. 사용 해야 합니다 *$(tag)* 값으로 변수 *install.set.image.tag* 개발 공간에서 인식 하 고 AKS 클러스터에서 컨테이너를 찾습니다.
 
-위의 예에서 `azds.yaml` 정의 *install.set.ingress.hosts*합니다. 합니다 *install.set.ingress.hosts* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성을 사용 하도 *$(spacePrefix)*, *$(rootSpacePrefix)*, 및 *$(hostSuffix)* 는 컨트롤러에서 제공 되는 값입니다. 
+위의 예에서 `azds.yaml` 정의 *install.set.ingress.hosts*합니다. 합니다 *install.set.ingress.hosts* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성을 사용 하도 *$(spacePrefix)* , *$(rootSpacePrefix)* , 및 *$(hostSuffix)* 는 컨트롤러에서 제공 되는 값입니다. 
 
 합니다 *$(spacePrefix)* 형태는 자식 개발 공간으로 이름인 *SPACENAME.s*합니다. 합니다 *$(rootSpacePrefix)* 부모 공간의 이름입니다. 예를 들어 경우 *azureuser* 의 자식 공간이 *기본*의 값 *$(rootSpacePrefix)* 은 *기본* 값 *$(spacePrefix)* 됩니다 *azureuser.s*합니다. 공간 자식 공백, 없으면 *$(spacePrefix)* 비어 있습니다. 예를 들어 경우는 *기본* 공간에 대 한 값을 부모 공간이 없습니다 *$(rootSpacePrefix)* 됩니다 *기본* 값과 *$(spacePrefix)* 비어 있습니다. 합니다 *$(hostSuffix)* AKS 클러스터에서 실행 되는 Azure 개발 공간 수신 컨트롤러를 가리키는 DNS 접미사입니다. 이 DNS 접미사에 해당 하는 와일드 카드 DNS 항목을 예를 들어  *\*합니다. RANDOM_VALUE.eus.azds.io*, Azure 개발 공간 컨트롤러 AKS 클러스터에 추가 될 때 생성 된 합니다.
 
-위의 `azds.yaml` 파일을 업데이트할 수 있습니다 수도 *install.set.ingress.hosts* 응용 프로그램의 호스트 이름을 변경 합니다. 예를 들어 응용 프로그램의 호스트 이름을 단순화 하려고 한다고 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 에 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+위의 `azds.yaml` 파일을 업데이트할 수 있습니다 수도 *install.set.ingress.hosts* 응용 프로그램의 호스트 이름을 변경 합니다. 예를 들어 응용 프로그램의 호스트 이름을 단순화 하려고 한다고 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 에 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 응용 프로그램에 대 한 컨테이너를 작성 하려면 컨트롤러를 사용 하는 섹션 아래를 `azds.yaml` 구성 파일:
 
@@ -404,11 +403,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>코드 디버그
 
-Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Visual Studio 2017을 사용 하 여 개발 공간에서 직접 실행 중인 응용 프로그램을 디버깅할 수 있습니다. Visual Studio Code 및 Visual Studio 2017 개발자 공간에 연결, 응용 프로그램을 시작 하 고 디버거를 연결 하는 도구를 제공 합니다. 실행 한 후 `azds prep`, Visual Studio Code 또는 Visual Studio 2017에서 프로젝트를 열 수 있습니다. Visual Studio Code 또는 Visual Studio 2017에서는 실행 되지 않도록 별도 연결에 대 한 고유한 구성 파일을 생성 하는 `azds prep`합니다. Visual Studio Code 또는 Visual Studio 2017 내에서 중단점을 설정 하 고 수 개발 공간에 응용 프로그램을 시작 합니다.
+Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Visual Studio를 사용 하 여 개발 공간에서 직접 실행 중인 응용 프로그램을 디버깅할 수 있습니다. Visual Studio Code 및 Visual Studio 개발 공간에 연결, 응용 프로그램을 시작 하 고 디버거를 연결 하는 도구를 제공 합니다. 실행 한 후 `azds prep`, Visual Studio Code 또는 Visual Studio에서 프로젝트를 열 수 있습니다. Visual Studio Code 또는 Visual Studio에서 연결 하는 별도의 실행에 대 한 고유한 구성 파일을 생성 하는 `azds prep`합니다. Visual Studio Code 또는 Visual Studio 내에서 중단점을 설정 하 고 수 개발 공간에 응용 프로그램을 시작 합니다.
 
 ![코드 디버그](media/get-started-node/debug-configuration-nodejs2.png)
 
-시작 하 고 실행 하는 것 같은 방식으로 개발 공간에 연결 처리 디버깅에 대 한 Visual Studio Code 또는 Visual Studio 2017을 사용 하 여 응용 프로그램을 시작 하면 `azds up`합니다. Visual Studio Code 및 Visual Studio 2017의 클라이언트 쪽 도구는 또한 디버깅에 대 한 특정 정보를 사용 하 여 추가 매개 변수를 제공 합니다. 매개 변수는 디버거의 그림과 안에서 디버거의의 위치와 대상 위치 디버거 폴더를 탑재 하는 응용 프로그램의 컨테이너 내에서 디버거 이미지의 이름을 포함 합니다. 
+시작 하 고 실행 하는 것 같은 방식으로 개발 공간에 연결 처리 디버깅에 대 한 Visual Studio Code 또는 Visual Studio를 사용 하 여 응용 프로그램을 시작 하면 `azds up`합니다. Visual Studio Code 및 Visual Studio의 클라이언트 쪽 도구는 또한 디버깅에 대 한 특정 정보를 사용 하 여 추가 매개 변수를 제공 합니다. 매개 변수는 디버거의 그림과 안에서 디버거의의 위치와 대상 위치 디버거 폴더를 탑재 하는 응용 프로그램의 컨테이너 내에서 디버거 이미지의 이름을 포함 합니다.
 
 디버거 이미지는 클라이언트 쪽 도구에서 자동으로 결정 됩니다. Dockerfile 중 사용 된 것 처럼 메서드를 사용 하 고 실행 하는 경우 Helm 차트 생성 `azds prep`합니다. 사용 하 여 실행할 디버거 응용 프로그램의 이미지에 탑재 되 면 `azds exec`합니다.
 
@@ -420,7 +419,7 @@ Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Vi
 
 파생된 개발 공간 자체 응용 프로그램 및 부모 노드에서 해당 공유 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 파생된 개발 공간에 응용 프로그램에 대 한 경로 요청을 시도 하 고 부모 개발 영역에서 공유 응용 프로그램을 대체 하 여 라우팅 작동 합니다. 라우팅을 다시 대체 됩니다 최상위 공간에 공유 응용 프로그램에 응용 프로그램이 부모 공간에 없는 경우.
 
-예를 들면 다음과 같습니다.
+예:
 * 개발 공간이 *기본* 응용 프로그램이 *serviceA* 하 고 *serviceB* 합니다.
 * 개발 공간이 *azureuser* 에서 파생 됩니다 *기본*입니다.
 * 업데이트 된 버전의 *serviceA* 에 배포 됩니다 *azureuser*합니다.
@@ -433,12 +432,16 @@ Azure 개발 공간을 사용 하 여 시작 하려면 다음 빠른 시작을 �
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java](quickstart-java.md)
 * [.NET core CLI 및 Visual Studio Code를 사용 하 여](quickstart-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js](quickstart-nodejs.md)
 
 팀의 개발을 시작 하려면 다음 방법 문서를 참조 합니다.
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java-팀 개발](team-development-java.md)
 * [팀 개발-.NET Core CLI 및 Visual Studio Code를 사용 하 여](team-development-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET Core 개발 팀](team-development-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET Core 개발 팀](team-development-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js 개발 팀](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

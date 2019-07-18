@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444336"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 계산 컨텍스트 옵션
 
@@ -55,7 +55,7 @@ Azure HDInsight의 ML Services는 계산 컨텍스트를 설정하여 호출을 
 
 이러한 원칙을 감안하여 다음 섹션에서는 계산 컨텍스트 선택에 대한 몇 가지 일반적인 규칙을 제공합니다.
 
-### <a name="local"></a>Local
+### <a name="local"></a>로컬
 * 분석할 데이터 양이 적고 반복 분석이 필요하지 않은 경우 *local* 또는 *localpar*를 사용하여 분석 루틴으로 직접 스트림합니다.
 * 분석할 데이터의 양이 적거나 중간 크기이고 반복 분석이 필요한 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *local* 또는 *localpar*를 통해 분석합니다.
 
@@ -76,6 +76,5 @@ Azure HDInsight의 ML Services는 계산 컨텍스트를 설정하여 호출을 
 이 문서에서는 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봤습니다. HDInsight 클러스터에서 ML Services를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Apache Hadoop용 ML Services 개요](r-server-overview.md)
-* [Apache Hadoop용 ML Services 시작](r-server-get-started.md)
 * [HDInsight의 ML Services에 대한 Azure Storage 옵션](r-server-storage.md)
 

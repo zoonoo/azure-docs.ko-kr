@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2fad585e1d37694e37c219be210f9521dbbda3a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241642"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 
@@ -130,7 +130,7 @@ ms.locfileid: "60657755"
      > 
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 3. 제품 구독에서 요청 된 작업의 유형에 따라 처리 **작업** -예를 들어, 대금 청구, 추가 질문 등입니다.
-4. 사용자의 제품 구독을 마치면 [제품 구독을 위해 REST API를 호출]하여 사용자가 API Management 제품도 구독하도록 합니다.
+4. 사용자 쪽에서 제품 구독을 구독 하 여 API Management 제품에 대 한 사용자 [구독에 대 한 REST API를 호출합니다.]합니다.
 
 ## <a name="delegate-example-code"> </a> 예제 코드
 
@@ -184,9 +184,9 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[제품 구독을 위해 REST API를 호출]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
+[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
+[구독에 대 한 REST API를 호출합니다.]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code
 

@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66129490"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -122,7 +122,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
     </PerformanceCounters>
 ```
 
-마지막으로, 개인 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
+마지막으로, 프라이빗 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 

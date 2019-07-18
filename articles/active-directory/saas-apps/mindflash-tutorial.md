@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 571ab38dd52d83f1391b555bc4dfc8c091f1fd1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 97e38c62da74444f1f229f12e42d98e75a6e5073
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097195"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>자습서: Mindflash와 Azure Active Directory 통합
 

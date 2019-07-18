@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239946"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751790"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>빠른 시작: Notebook 만들기 및 공유
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239946"
 
      ![세부 내용이 채워진 새 프로젝트 팝업](media/quickstarts/new-project-popup.png)
 
-1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록 (**+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
+1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록 ( **+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "빈 새 프로젝트 및 Notebook 명령 추가")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. **새 Notebook 만들기** 팝업이 나타나면 *HelloWorldInPython.ipynb* (*.ipynb*은 IronPython (Jupyter) Notebook을 의미함) 같은 Notebook 파일 이름을 입력한 다음, **Python 3.6** 언어 (*커널*이라고도 함)를 선택합니다.
+1. **새 Notebook 만들기** 팝업이 나타나면 *HelloWorldInPython.ipynb* ( *.ipynb*은 IronPython (Jupyter) Notebook을 의미함) 같은 Notebook 파일 이름을 입력한 다음, **Python 3.6** 언어 (*커널*이라고도 함)를 선택합니다.
 
     ![새 Notebook 만들기 팝업](media/quickstarts/new-notebook-popup.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "60239946"
 
     ![Jupyter Notebook 도구 모음의 저장 아이콘](media/quickstarts/hello-results-save-icon.png)
 
-1. 선택 된 **파일** > **닫기 및 중지** 메뉴 명령을 브라우저 창을 닫고 서버를 중지 합니다.
+1. **파일** > **닫고 중지** 메뉴 명령을 선택하여 서버를 중지하고 브라우저 창을 닫습니다.
 
 ## <a name="share-the-notebook"></a>Notebook 공유
 

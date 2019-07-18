@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
 ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332230"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
@@ -40,7 +40,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 ## <a name="actions"></a>작업
 
-SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 대해 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지 전용입니다.
+SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 이 작업은 메시지가 일치된 이후 및 구독에 대해 선택되기 이전에 해당 메시지에서 수행됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 
 ## <a name="usage-patterns"></a>사용 패턴
 

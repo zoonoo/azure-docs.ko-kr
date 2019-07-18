@@ -5,15 +5,15 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c8e0902388572bc132830b5f263c188ee9337d2a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837527"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257116"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>그래프 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 
@@ -114,7 +114,7 @@ e.AddProperty("customProperty", "value");
 ## <a name="sample-application"></a>샘플 애플리케이션
 
 ### <a name="prerequisites"></a>필수 조건
-* Azure 개발 워크로드를 사용하는 Visual Studio 2017. [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
+* Azure 개발 워크로드를 사용하는 Visual Studio 2019. [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
 * Azure 구독. [여기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db)서 무료 Azure 계정을 만들 수 있습니다. 또는 Azure 구독 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)으로 Cosmos DB 데이터베이스를 만들 수 있습니다.
 * **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet)를 시작하는 방법을 보여줍니다.
 * Git. 자세한 내용은 [Git 다운로드 페이지](https://git-scm.com/downloads)를 참조하세요.

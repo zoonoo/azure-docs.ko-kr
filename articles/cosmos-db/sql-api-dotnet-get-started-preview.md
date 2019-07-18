@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 39e0932288b513aa1579945396dff1a7d2df77b3
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078638"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786227"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
 
@@ -60,7 +60,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 ## <a id="SetupVS"></a>2단계: Visual Studio 프로젝트 설정
 1. 컴퓨터에서 **Visual Studio 2017**을 엽니다.
 1. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-1. **새 프로젝트** 대화 상자에서 **Visual C#** / **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.
+1. **새 프로젝트** 대화 상자에서 **Visual C#**  / **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 지정한 다음, **확인**을 클릭합니다.
     ![새 프로젝트 창의 스크린샷](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
     
@@ -174,7 +174,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 축하합니다! Azure Cosmos DB 계정에 성공적으로 연결되었습니다. 
 
 ## <a name="step-4-create-a-database"></a>4단계: 데이터베이스 만들기
-``CosmosDatabases`` 클래스의 [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) 또는 [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) 함수를 사용하여 데이터베이스를 만들 수 있습니다. 데이터베이스는 여러 컨테이너에 분할된 항목의 논리적 컨테이너입니다.
+``CosmosDatabases`` 클래스의 [**CreateDatabaseIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) 또는 [**CreateDatabaseAsync**](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) 함수를 사용하여 데이터베이스를 만들 수 있습니다. 데이터베이스는 여러 컨테이너에 분할된 항목의 논리적 컨테이너입니다.
     
 1. **CreateDatabase** 메서드를 **GetStartedDemoAsync** 메서드 아래에 복사하여 붙여넣습니다. **CreateDatabase**는 ID가 ``FamilyDatabase``인 새 데이터베이스를 만들며, 아직 없는 경우 ``databaseId`` 필드에서 ID가 지정됩니다. 
 
@@ -291,7 +291,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 > 
 > 
 
-**CosmosContainers** 클래스의 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) 또는 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) 함수를 사용하여 컨테이너를 만들 수 있습니다. 컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 서버 쪽 애플리케이션 논리(예: 저장 프로시저, 사용자 정의 함수 및 트리거)로 구성됩니다.
+**CosmosContainers** 클래스의 [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) 또는 [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync) 함수를 사용하여 컨테이너를 만들 수 있습니다. 컨테이너는 항목(SQL API의 경우 JSON 문서) 및 관련 JavaScript 서버 쪽 애플리케이션 논리(예: 저장 프로시저, 사용자 정의 함수 및 트리거)로 구성됩니다.
 
 1. **CreateContainer** 메서드를 **CreateDatabase** 메서드 아래에 복사하여 붙여넣습니다. **CreateContainer**는 ID가 ``FamilyContainer``인 새 컨테이너를 만들며, 아직 없는 경우 ``containerId`` 필드에서 ID가 지정됩니다. 
 
@@ -326,7 +326,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 축하합니다! Azure Cosmos DB 컨테이너를 성공적으로 만들었습니다.  
 
 ## <a id="CreateDoc"></a>6단계: 컨테이너에 항목 추가
-항목은 **CosmosItems** 클래스의 [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB 컨테이너에 항목을 삽입할 수 있습니다.
+항목은 **CosmosItems** 클래스의 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB 컨테이너에 항목을 삽입할 수 있습니다.
 
 먼저 이 샘플에서는 Azure Cosmos DB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어야 합니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 문서에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다. 
 1. **Ctrl+Shift+A**를 선택하여 **새 항목 추가** 대화 상자를 엽니다. 프로젝트에 새 클래스인 **Family.cs**를 추가합니다. 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312398"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603351"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>빠른 시작: REST API 및 Ruby를 사용하여 이미지에서 얼굴 감지
 
@@ -74,7 +74,7 @@ puts response.body
 ruby faceDetection.rb
 ```
 
-콘솔에 출력된 감지된 얼굴 데이터의 JSON 문자열이 표시됩니다. 다음은 성공적인 JSON 응답의 예제입니다.
+콘솔에 출력된 감지된 얼굴 데이터의 JSON 문자열이 표시됩니다. 다음 텍스트는 성공적인 JSON 응답의 예제입니다.
 
 ```json
 [

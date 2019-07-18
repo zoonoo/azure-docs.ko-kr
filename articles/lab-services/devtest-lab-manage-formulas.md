@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562600"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
@@ -66,7 +66,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 8. **고급 설정** 탭으로 전환하고 다음 값을 지정합니다.
     - **가상 네트워크** - 가상 네트워크를 변경하려면 **Vnet 변경**을 선택합니다. 
     - **서브넷** - 서브넷을 변경하려면 **서브넷 변경**을 선택합니다. 
-    - **IP 주소 구성** - 공용, 개인 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 [Azure DevTest Labs에서 공유 IP 주소 이해](./devtest-lab-shared-ip.md)를 참조하세요.
+    - **IP 주소 구성** - 공용, 프라이빗 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 [Azure DevTest Labs에서 공유 IP 주소 이해](./devtest-lab-shared-ip.md)를 참조하세요.
     - **만료 날짜 및 시간** - VM이 자동으로 삭제되도록 VM에 대한 만료 날짜 및 시간을 지정합니다. 
     - **Make this machine claimable**(이 컴퓨터를 클레임 가능하도록 지정) - 컴퓨터를 "클레임 가능"하도록 지정하는 것은 생성 시 소유권을 할당하지 않는다는 것을 의미합니다. 대신 랩 사용자는 랩의 페이지에서 머신에 대한 소유권("클레임")을 가져올 수 있습니다.     
     - **클레임 할 수 있는 인스턴스 수가** -을 만들려는 클레임 할 수 있는 인스턴스의 수를 지정 합니다. 

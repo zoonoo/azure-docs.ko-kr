@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291911"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>예제: Azure Search에 대한 AdventureWorks Inventory 데이터베이스 모델링
@@ -43,7 +43,7 @@ Road-650 모델은 12가지 옵션이 있습니다. 일대다 엔터티 행을 �
 
 ## <a name="use-a-collection-data-type"></a>컬렉션 데이터 형식 사용
 
-"올바른 방법"은 데이터베이스 모델에서 직접 병렬이 없는 스키마 검색 기능을 활용하는 것입니다. **Collection(Edm.String)**. 매우 긴 (단일) 문자열 대신 개별 문자열 목록이 있는 경우에 컬렉션 데이터 형식이 사용됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
+"올바른 방법"은 데이터베이스 모델에서 직접 병렬이 없는 스키마 검색 기능을 활용하는 것입니다. **Collection(Edm.String)** . 매우 긴 (단일) 문자열 대신 개별 문자열 목록이 있는 경우에 컬렉션 데이터 형식이 사용됩니다. 태그 또는 키워드가 있는 경우 이 필드에 컬렉션 데이터 형식을 사용합니다.
 
 "색", "크기", "이미지"에 대한 **Collection(Edm.String)** 의 다중 값 인덱스 필드를 정의하면 중복 항목으로 인덱스를 오염시키지 않고 패싯 및 필터링을 위한 보조 정보가 보존됩니다. 마찬가지로, 숫자 Product 필드에 집계 함수를 적용하고, 모든 단일 제품 **listPrice** 대신 **minListPrice**를 인덱싱합니다.
 

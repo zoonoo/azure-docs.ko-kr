@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60404724"
 ---
 # <a name="analyzers-method"></a>Analyzers 메서드
 
@@ -32,15 +32,17 @@ ms.locfileid: "55878190"
 <br>
 
 ## <a name="response-parameters"></a>응답 매개 변수
-Name | Type | 설명
+
+이름 | 형식 | 설명
 -----|------|--------------
-언어 | 문자열 목록 | 이 분석기를 사용할 수 있는 2자로 된 ISO 언어 코드 목록.
-id   | string | 이 분석기의 고유 ID
-kind | string | 여기 있는 분석기의 다양한 형식
-사양 | string | 이 분석기에 사용되는 사양의 이름
-구현 | string | 이 분석기의 기반이 되는 모델 및/또는 알고리즘에 대한 설명
+languages | 문자열 목록 | 이 분석기를 사용할 수 있는 2자로 된 ISO 언어 코드 목록.
+id   | 문자열 | 이 분석기의 고유 ID
+kind | 문자열 | 여기 있는 분석기의 다양한 형식
+사양 | 문자열 | 이 분석기에 사용되는 사양의 이름
+구현 | 문자열 | 이 분석기의 기반이 되는 모델 및/또는 알고리즘에 대한 설명
 
 <br>
+
 ## <a name="example"></a>예
 GET/분석기
 

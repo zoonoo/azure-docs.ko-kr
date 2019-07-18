@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083796"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -56,6 +56,9 @@ ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 |
 사용자 만들기, 읽기, 업데이트 및 삭제 | 글로벌 관리자([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 모든 구성 읽기 | 전역 관리자 | 
 B2C 감사 로그 읽기 | 글로벌 관리자([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Azure AD B2C 전역 관리자에는 Azure AD 전역 관리자와 같은 권한이 없습니다. Azure AD B2C 전역 관리자 권한이 있는 경우에 Azure AD B2C 디렉터리를 Azure AD 디렉터리에 있는지 확인 합니다.
 
 ## <a name="company-branding"></a>회사 브랜딩
 
@@ -205,7 +208,7 @@ MFA 서비스 설정 관리 | 전역 관리자 |
 연락처 메서드를 다시 제공하도록 선택된 사용자 요구 | 인증 관리자 | 
 모든 저장된 디바이스에서 다단계 인증 복원  | 인증 관리자 | 
 
-## <a name="mfa-server"></a>MFA 서버 
+## <a name="mfa-server"></a>MFA 서버
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -267,7 +270,7 @@ Task | 최소 권한 역할 | 추가 역할
 인증 방법 구성 | 전역 관리자 | 
 모든 구성 읽기 | 전역 관리자 | 
 
-## <a name="security---conditional-access"></a>보안 - 조건부 액세스
+## <a name="security---conditional-access"></a>보안-조건부 액세스
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -338,7 +341,7 @@ Task | 최소 권한 역할 | 추가 역할
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-지원 티켓 제출 | 서비스 관리자 | 애플리케이션 관리자, 청구 관리자, 클라우드 애플리케이션 관리자, 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Information Protection 관리자, Intune 관리자, 비즈니스용 Skype 관리자, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 통신 관리자, 팀 관리자, 사용자 관리자, Workplace Analytics 관리자
+지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자가 Azure Information Protection 관리자, 관리자, 클라우드 응용 프로그램 관리자, 준수 관리자, Dynamics 365 관리자 데스크톱 분석 관리자, Exchange 관리자 암호를 청구 합니다. Intune 관리자, 비즈니스 관리자, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 통신 관리자, 팀 관리자, 사용자 관리자에 대 한 Skype 관리자 Workplace Analytics 관리자
 
 ## <a name="next-steps"></a>다음 단계
 

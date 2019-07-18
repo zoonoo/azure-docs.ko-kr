@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60902109"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795521"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -35,7 +35,7 @@ ms.locfileid: "60902109"
 
 ### <a name="email-on-exceptions"></a>예외에 대해 메일 보내기
 1. [예외 모니터링 설정](../../azure-monitor/app/asp-net-exceptions.md)
-2. [경고 설정](../../azure-monitor/app/alerts.md) 
+2. [경고 설정](../../azure-monitor/app/alerts.md)
 
 ### <a name="email-on-an-event-in-my-app"></a>내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
 특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../../azure-monitor/app/alerts.md)경고를 보낼 수 있습니다.
@@ -118,7 +118,7 @@ ms.locfileid: "60902109"
 ## <a name="modify-property-names-or-values"></a>속성 이름 또는 값 수정
 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
-## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열 
+## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열
 [특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.
@@ -137,16 +137,25 @@ ms.locfileid: "60902109"
 ## <a name="disable-telemetry"></a>원격 분석 사용 안 함
 서버로부터 원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작** 하려면:
 
-```
+### <a name="aspnet-classic-applications"></a>ASP.NET 클래식 응용 프로그램
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>다른 애플리케이션
+사용 하는 것은 권장 되지 `TelemetryConfiguration.Active` 콘솔 또는 ASP.NET Core 응용 프로그램에 단일 항목입니다.
+만든 경우 `TelemetryConfiguration` 인스턴스를 직접-설정 `DisableTelemetry` 에 `true`입니다.
 
+ASP.NET Core 응용 프로그램에 액세스할 수 있습니다 `TelemetryConfiguration` 인스턴스에서 사용 하 여 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)합니다. 자세한 내용은 참조 하세요 [ASP.NET Core 응용 프로그램에 대 한 application Insights](../../azure-monitor/app/asp-net-core.md) 문서.
 
-**선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정**하려면 [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기를 사용 하지 않도록 설정
+표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 사용 하지 않도록 설정할 수 있습니다.
+
+* **ASP.NET 응용 프로그램** -삭제 하거나에서 관련 줄을 주석 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core 응용 프로그램** -원격 분석 모듈 구성 옵션에 따라 [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>시스템 성능 카운터 보기
 메트릭 탐색기에서 표시할 수 있는 메트릭 중에는 시스템 성능 카운터 집합이 있습니다. 이름이 **서버** 인 미리 정의된 블레이드에서 그중 몇 가지를 표시합니다.

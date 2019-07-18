@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816233"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182710"
 ---
 1. `ToDoBroadcastReceiver`(이)라는 프로젝트에서 새 클래스를 만듭니다.
 2. **ToDoBroadcastReceiver** 클래스에 다음 using 문을 추가합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "42816233"
     이 클래스는 **GcmServiceBase**에서 파생되며 **Service** 특성이 이 클래스에 적용되어야 합니다.
 
     > [!NOTE]
-    > **GcmServiceBase** 클래스는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
+    > **GcmServiceBase** 클래스는 **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
 
 6. **OnRegistered** 이벤트 처리기를 재정의하는 **PushHandlerService** 클래스에 다음 코드를 추가합니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "42816233"
     }
     ```
 
-    이 메서드는 반환된 GCM 등록 ID를 사용하여 푸시 알림을 위해 Azure에 등록합니다. 생성된 후 등록에 태그만 추가할 수 있습니다. 자세한 내용은 [방법: 태그에 푸시를 사용하도록 설정하기 위해 디바이스 설치에 태그 추가](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)를 참조하세요.
+    이 메서드는 반환된 GCM 등록 ID를 사용하여 푸시 알림을 위해 Azure에 등록합니다. 생성된 후 등록에 태그만 추가할 수 있습니다. 자세한 내용은 [방법: 태그에 푸시를 사용 하도록 설정 하려면 장치 설치에 태그 추가](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)합니다.
 
 7. **PushHandlerService**의 **OnMessage** 메서드를 다음 코드로 재정의합니다.
 

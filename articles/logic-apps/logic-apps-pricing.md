@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598483"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190673"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598483"
 
 ## <a name="consumption-pricing-model"></a>소비 가격 책정 모델
 
-공용 또는 "전역" Azure Logic Apps 서비스에서 실행 되는 새 논리 앱에 대해 사용한 만큼에 대해서만 지불 합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱 정의에서 각 단계는 작업입니다. 예를 들어 동작은 같습니다. 
+공용 또는 "전역" Azure Logic Apps 서비스에서 실행 되는 새 논리 앱에 대해 사용한 만큼에 대해서만 지불 합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱 정의에서 각 단계는 작업입니다. 예를 들어 동작은 같습니다.
 
 * 트리거는 특별 한 동작입니다. 모든 논리 앱에는 첫 번째 단계로 트리거가 필요합니다.
 * "기본 제공" 또는 네이티브 작업 HTTP와 같은 Azure Functions 및 API Management를 호출
@@ -38,18 +38,22 @@ Azure Logic Apps는 논리 앱에서 실행 되는 모든 작업을 측정 합�
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 기본 제공 작업 및 표준 커넥터에 대 한 고정된 월별 가격을 지불 합니다. ISE에 원하는 만큼 많은 연결을 포함 하는 하나의 무료 엔터프라이즈 커넥터를도 포함 되어 있습니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다. 
+[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 지불 하는 [월 고정 가격](https://azure.microsoft.com/pricing/details/logic-apps) 기본 제공 작업 및 트리거 및 표준 커넥터에 대 한 합니다.
 
-ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다.
+ISE에는 또한 만큼 포함 하는 하나의 무료 엔터프라이즈 커넥터 *연결* 원하는 만큼 합니다. 추가 엔터프라이즈 커넥터에 대 한 사용량에 따라 요금이 청구 됩니다 합니다 [Enterprise 소비 가격](https://azure.microsoft.com/pricing/details/logic-apps)합니다. 만 일반적으로 엔터프라이즈 소비 가격 개 엔터프라이즈 커넥터를 사용할 수 있는 청구 됩니다. 공개 미리 보기 엔터프라이즈 커넥터 부과 됩니다 합니다 [표준 커넥터 속도](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 > [!NOTE]
-> ISE에는 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
+> ISE를, 기본 제공 트리거 및 작업 내에서 표시 합니다 **Core** 레이블을 지정 하 고 논리 앱으로 동일한 ISE에서 실행 합니다. 표준 및 표시 하는 엔터프라이즈 커넥터는 **ISE** 레이블 logic apps와 동일한 ISE에서 실행 합니다. ISE 레이블을 표시 하지는 커넥터 전역 Logic Apps 서비스에서 실행 합니다.
+
+ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. ISE에서 실행 되는 논리 앱에는 데이터 보존 비용 비용이 발생 하지 않습니다.
+
+특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 <a name="connectors"></a>
 
 ## <a name="connectors"></a>커넥터
 
-Azure Logic Apps 커넥터를 제공 하 여 논리 앱 액세스 앱, 서비스 및 클라우드 또는 온-프레미스 시스템을 도움말 [트리거](#triggers)를 [작업](#actions), 또는 둘 다. 커넥터는 Standard 또는 Enterprise로 분류 됩니다. 이러한 커넥터에 대 한 개요를 보려면 [Azure Logic Apps 용 커넥터](../connectors/apis-list.md)합니다. 다음 섹션에 대 한 청구 트리거 하는 방법에 대 한 자세한 정보를 제공 및 작업이 작동 합니다.
+Azure Logic Apps 커넥터를 제공 하 여 논리 앱 액세스 앱, 서비스 및 클라우드 또는 온-프레미스 시스템을 도움말 [트리거](#triggers)를 [작업](#actions), 또는 둘 다. 커넥터는 Standard 또는 Enterprise로 분류 됩니다. 이러한 커넥터에 대 한 개요를 보려면 [Azure Logic Apps 용 커넥터](../connectors/apis-list.md)합니다. 만들 수 없는 미리 빌드된 커넥터를 논리 앱에서 사용 하려면 REST Api에 대 한 사용할 수 있으면 [사용자 지정 커넥터](https://docs.microsoft.com/connectors/custom-connectors)는 단순히 래퍼입니다 해당 하는 REST Api입니다. 사용자 지정 커넥터는 표준 커넥터로 요금이 청구 됩니다. 다음 섹션에 대 한 청구 트리거 하는 방법에 대 한 자세한 정보를 제공 및 작업이 작동 합니다.
 
 <a name="triggers"></a>
 
@@ -85,14 +89,18 @@ Azure Logic Apps는 모든 성공 및 실패 한 작업 실행으로 측정합�
 
 ## <a name="integration-accounts"></a>통합 계정
 
-소비 가격에 적용 됩니다 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 고 수 있는 탐색, 개발, 테스트 합니다 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 하 고 [XML 처리](logic-apps-enterprise-integration-xml.md) 없이 Azure Logic Apps의 기능 추가 비용입니다.
+고정된 가격 책정 모델에 적용 됩니다 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 고 수 있는 탐색, 개발, 테스트 합니다 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 하 고 [XML 처리](logic-apps-enterprise-integration-xml.md) 없이 Azure Logic Apps의 기능 추가 비용입니다.
 각 Azure 지역에서 통합 계정이 있습니다. 각 통합 계정은 거래 업체, 규약, 맵, 스키마, 어셈블리, 인증서, 일괄 처리 구성 등을 포함하는 특정 [아티팩트 수](../logic-apps/logic-apps-limits-and-config.md)까지 저장할 수 있습니다.
 
-Azure Logic Apps에는 또한 지원 되는 Logic Apps SLA를 사용 하 여 기본 및 표준 통합 계정을 제공합니다. 기본 또는 표준 통합 계정을 사용할지 여부를 선택할 수 있습니다 하는 방법으로 다음과 같습니다.
+Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공합니다. 기본 및 표준 계층에서 지원 됩니다 Logic Apps 서비스 수준 계약 (SLA)에서 무료 계층은 SLA로 지원 되지 않으며 제한이 있지만 처리량 및 사용 현황.
 
-* 하려는 경우에 메시지 처리는 더 큰 비즈니스 엔터티를 사용 하 여 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할 기본 통합 계정을 사용 합니다.
+무료, 기본 또는 표준 통합 계정 간에 선택:
 
-* 더 복잡 한 B2B 관계를 관리할 수 있습니다 하는 엔터티 수를 늘려야 할 경우 표준 통합 계정을 사용 합니다.
+* **체험**: 프로덕션 시나리오 하지 예비 시나리오를 시도 하려는 경우에 대 한 합니다.
+
+* **기본**: 만 메시지 처리 하려는 경우 또는 소규모 비즈니스 파트너 역할을 사용 하 여 대규모 비즈니스 엔터티와 거래 파트너 관계가 있는 합니다.
+
+* **표준**: 더 복잡 한 B2B 관계 및 더 많은 수의 엔터티 해야 하는 경우 관리 합니다.
 
 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
@@ -100,7 +108,7 @@ Azure Logic Apps에는 또한 지원 되는 Logic Apps SLA를 사용 하 여 기
 
 ## <a name="data-retention"></a>데이터 보존
 
-논리 앱의 기반으로 모든 입력 및 출력 논리 앱의 실행된 기록에 저장 되는 요금이 청구 [보존 기간 실행](logic-apps-limits-and-config.md#run-duration-retention-limits)합니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
+논리 앱을 제외한를 논리 앱에 따라는 통합 서비스 환경 (ISE)에서 실행, 모든 입력 및 출력 논리 앱의 실행된 기록에 저장 되는 요금이 청구 됩니다 [보존 기간 실행](logic-apps-limits-and-config.md#run-duration-retention-limits)합니다. ISE에서 실행 되는 논리 앱에는 데이터 보존 비용 비용이 발생 하지 않습니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 를 논리 앱의 저장소 사용량을 모니터링할 수 있도록 하려면 다음을 수행할 수 있습니다.
 

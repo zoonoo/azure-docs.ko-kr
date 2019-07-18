@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66693304"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Terraform 상태를 Azure Storage에 저장
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 백 엔드를 사용하도록 Terraform을 구성하려면 Terraform 구성 내에서 *azurerm* 형식의 *백 엔드* 구성을 포함합니다. *storage_account_name*, *container_name* 및 *key* 값을 구성 블록에 추가합니다.
 
-다음 예제에서는 Terraform 백 엔드를 구성하고 Azure 리소스 그룹을 만듭니다. 해당 값을 사용자 환경의 값으로 바꿉니다.
+다음 예제는 Terraform 백 엔드를 구성 하 고 Azure 리소스 그룹을 만듭니다. 해당 값을 사용자 환경의 값으로 바꿉니다.
 
 ```json
 terraform {
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 상태 스토리지에 대한 Azure Storage Blob을 사용하는 경우 blob은 상태를 기록하는 모든 작업 전에 자동으로 잠겨 있습니다. 이 구성은 손상을 일으킬 수 있는 여러 동시 상태 작업을 방지합니다. 자세한 내용은 Terraform 설명서의 [상태 잠금][terraform-state-lock]을 참조하세요.
 
-Azure Portal 또는 기타 Azure 관리 도구를 통해 blob을 검토할 때는 잠겨져 있습니다.
+Azure 포털 또는 기타 Azure 관리 도구를 통해 blob를 검사 하는 경우에 잠금의 볼 수 있습니다.
 
 ![잠금을 사용한 Azure blob](media/terraform-backend/lock.png)
 

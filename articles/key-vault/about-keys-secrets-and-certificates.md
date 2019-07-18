@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708698"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703909"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -69,7 +69,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-위치:  
+각 항목이 나타내는 의미는 다음과 같습니다.  
 
 |||  
 |-|-|  
@@ -198,7 +198,7 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [데이터 형
 
 Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 역할을 하는 Key Vault 수준에서 제공됩니다. 키에 대한 액세스 제어 정책은 동일한 Key Vault의 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 키를 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 키를 적절하게 세분화하고 관리해야 합니다. 키 액세스 제어는 비밀 액세스 제어와 무관합니다.  
 
-자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에 허용되는 작업과 매우 비슷합니다.  
+자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에 허용 되는 작업을 밀접 하 게 반영 합니다.  서비스 사용자 키 자격 증명 모음에 대 한 액세스 권한을 부여 하는 일회성 작업 및 모든 Azure 구독에 대 한 동일한 상태로 유지 됩니다. 원하는 만큼 많은 인증서를 배포 하 고 사용할 수 있습니다. 
 
 - 키 관리 작업에 필요한 권한
   - *get*: 키의 공개 부분 및 해당 특성 읽기
@@ -284,7 +284,7 @@ Key Vault에서 관리되는 비밀에 대한 액세스 제어는 해당 비밀�
 Key Vault 인증서 지원은 x509 인증서 및 다음 동작의 관리를 위해 제공됩니다.  
 
 -   인증서 소유자는 Key Vault 만들기 프로세스 또는 기존 인증서의 가져오기를 통해 인증서를 만들 수 있습니다. 자체 서명된 인증서 및 인증 기관 생성 인증서가 모두 포함됩니다.
--   Key Vault 인증서 소유자는 개인 키 자료와 상호 작용하지 않고 X509 인증서의 안전한 저장 및 관리를 구현할 수 있습니다.  
+-   Key Vault 인증서 소유자는 프라이빗 키 자료와 상호 작용하지 않고 X509 인증서의 안전한 저장 및 관리를 구현할 수 있습니다.  
 -   인증서 소유자는 인증서의 수명 주기를 관리하도록 Key Vault를 지시하는 정책을 만들 수 있습니다.  
 -   인증서 소유자는 인증서의 만료 및 갱신이라는 수명 주기 이벤트에 대한 알림을 위해 연락처 정보를 제공할 수 있습니다.  
 -   선택한 발급자 - Key Vault 파트너 X509 인증서 공급자/인증서 기관을 통한 자동 갱신을 지원합니다.
@@ -302,7 +302,7 @@ Key Vault 인증서가 만들어지면 주소 지정 가능한 키와 암호도 
 
 ### <a name="exportable-or-non-exportable-key"></a>내보내기 가능/불가능 키
 
-Key Vault 인증서가 만들어지면 PFX 또는 PEM 형식의 개인 키를 사용하여 주소 지정 가능한 비밀에서 해당 인증서를 검색할 수 있습니다. 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시해야 합니다. 정책에서 내보낼 수 없다고 표시하는 경우 개인 키는 비밀로 검색될 때 값에 포함되지 않습니다.  
+Key Vault 인증서가 만들어지면 PFX 또는 PEM 형식의 프라이빗 키를 사용하여 주소 지정 가능한 비밀에서 해당 인증서를 검색할 수 있습니다. 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시해야 합니다. 정책에서 내보낼 수 없다고 표시하는 경우 프라이빗 키는 비밀로 검색될 때 값에 포함되지 않습니다.  
 
 주소 지정이 가능한 키는 내보낼 수 없는 KV 인증서와 더 관련이 있습니다. 주소 지정 가능한 KV 키의 작업은 KV 인증서를 만드는 데 사용되는 KV 인증서 정책의 *keyusage* 필드에서 매핑됩니다.  
 
@@ -330,7 +330,7 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 > [!Note] 
 > Key Vault 인증서가 만료되면 주소 지정 가능한 해당 키와 비밀이 작동하지 않게 됩니다.  
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>Tags
 
  클라이언트에서 지정하는 키 값 쌍의 사전이며, 키와 비밀의 태그와 비슷합니다.  
 
@@ -339,7 +339,7 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 
 ### <a name="certificate-policy"></a>인증서 정책
 
-인증서 정책에는 Key Vault 인증서의 수명 주기를 만들고 관리하는 방법에 대한 정보가 포함됩니다. 개인 키가 있는 인증서를 키 자격 증명 모음에 가져오면 x509 인증서를 읽어 기본 정책을 만듭니다.  
+인증서 정책에는 Key Vault 인증서의 수명 주기를 만들고 관리하는 방법에 대한 정보가 포함됩니다. 프라이빗 키가 있는 인증서를 키 자격 증명 모음에 가져오면 x509 인증서를 읽어 기본 정책을 만듭니다.  
 
 Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해야 합니다. 정책은 이 Key Vault 인증서 버전 또는 그 다음 Key Vault 인증서 버전을 만드는 방법을 지정합니다. 일단 정책이 설정되면 이후 버전에 대한 연속 만들기 작업에는 해당 정책이 필요하지 않습니다. Key Vault 인증서의 모든 버전에 대한 정책 인스턴스는 하나만 있습니다.  
 
@@ -363,14 +363,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| N/A |
+|DataEncipherment|encrypt, decrypt| 해당 사항 없음 |
 |DecipherOnly|decrypt| N/A  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|EncipherOnly|encrypt| N/A |
-|KeyCertSign|sign, verify|N/A|
+|EncipherOnly|encrypt| 해당 사항 없음 |
+|KeyCertSign|sign, verify|해당 사항 없음|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |NonRepudiation|sign, verify| N/A |
-|crlsign|sign, verify| N/A |
+|crlsign|sign, verify| 해당 사항 없음 |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 
@@ -473,8 +473,7 @@ Key Vault는 Azure 저장소 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 저장소 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 - [인증, 요청 및 응답](authentication-requests-and-responses.md)
-- [Key Vault 버전](key-vault-versions.md)
 - [Key Vault 개발자 가이드](/azure/key-vault/key-vault-developers-guide)

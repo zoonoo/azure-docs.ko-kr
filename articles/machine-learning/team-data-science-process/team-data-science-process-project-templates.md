@@ -12,10 +12,10 @@ ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253034"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
@@ -54,7 +54,7 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 ## <a name="repository-template"></a>리포지토리 템플릿
 
-이 [프로젝트 템플릿 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 사용하여 프로젝트 실행 및 공동 작업을 효율적으로 지원합니다. 이 리포지토리에서는 고유한 TDSP 프로젝트에 대해 사용할 수 있는 표준화된 디렉터리 구조 및 문서 템플릿을 제공합니다.
+이 [프로젝트 템플릿 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 사용하여 프로젝트 실행 및 협업을 효율적으로 지원합니다. 이 리포지토리에서는 고유한 TDSP 프로젝트에 대해 사용할 수 있는 표준화된 디렉터리 구조 및 문서 템플릿을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

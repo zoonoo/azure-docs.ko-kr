@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085034"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277464"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -188,9 +188,9 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
     
         ![Azure HDInsight 설정](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-hdinsight.png)
 
-이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 사설 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
+이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 개인 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
 
-1. Azure Portal에서 HDInsight가 있는 Virtual Network를 엽니다. 이름이 `nic-gateway-0`으로 시작하는 네트워크 인터페이스를 엽니다. 사설 IP 주소를 적어 둡니다. 예를 들어 10.6.0.15입니다. 
+1. Azure Portal에서 HDInsight가 있는 Virtual Network를 엽니다. 이름이 `nic-gateway-0`으로 시작하는 네트워크 인터페이스를 엽니다. 개인 IP 주소를 적어 둡니다. 예를 들어 10.6.0.15입니다. 
 2. Azure Virtual Network에 DNS 서버가 있는 경우 `https://<clustername>.azurehdinsight.net` HDInsight 클러스터 URL을 `10.6.0.15`로 확인할 수 있도록 DNS 레코드를 업데이트합니다. Azure Virtual Network에 DNS 서버가 없으면, 자체 호스팅 통합 런타임 노드로 등록된 모든 VM의 호스트 파일(C:\Windows\System32\drivers\etc)을 편집하여 다음과 비슷한 항목을 추가함으로써 이 문제를 일시적으로 해결할 수 있습니다. 
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
@@ -201,7 +201,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 다음 사항에 유의하세요.
 
 - **scriptPath**는 MyStorageLinkedService에 사용한 Azure Storage 계정의 Hive 스크립트 경로를 가리킵니다. 경로는 대/소문자를 구분합니다.
-- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
+- **output**은 Hive 스크립트에서 사용되는 인수입니다. `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리킵니다. 경로는 대/소문자를 구분합니다. 
 
 1. Data Factory UI의 왼쪽 창에서 **+(더하기)** 를 클릭하고, **파이프라인**을 클릭합니다. 
 
@@ -226,7 +226,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
         ![스크립트 설정](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. **스크립트 탭**에서 **고급** 섹션을 펼칩니다. 
     6. **매개 변수**에 대해 **스크립트에서 자동 채우기**를 클릭합니다. 
-    7. **출력** 매개 변수에 대한 값을 `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
+    7. **출력** 매개 변수에 대한 값을 `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 입력합니다. 예: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`
  
         ![스크립트 인수](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Data Factory에 아티팩트를 게시하려면 **게시**를 클릭합니다.

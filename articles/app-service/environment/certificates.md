@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba34638bbdb838adc6f1e61b1f8b07a6915815c0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766270"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540772"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
 
@@ -55,7 +55,7 @@ ASE를 만들고 포털 또는 하나의 템플릿에서 인증서를 하나의 
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+주체 이름 CN 형식의 있는지 확인 해야 인증서 서명 자체를 만들 때 {ASE_NAME_HERE} _InternalLoadBalancingASE =.
 
 ## <a name="application-certificates"></a>애플리케이션 인증서 
 
@@ -65,15 +65,15 @@ ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 �
 - IP 기반 SSL - 외부 ASE에서만 지원되며,  ILB ASE는 IP 기반 SSL을 지원하지 않습니다.
 - KeyVault 호스팅 인증서 
 
-이러한 인증서를 업로드하고 관리하기 위한 지침은 App Service SSL 자습서(https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
+이러한 인증서를 업로드하고 관리하기 위한 지침은 App Service SSL 자습서(https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl )에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
 
 ## <a name="tls-settings"></a>TLS 설정 
 
 TLS 설정은 앱 수준에서 구성할 수 있습니다.  
 
-## <a name="private-client-certificate"></a>개인 클라이언트 인증서 
+## <a name="private-client-certificate"></a>프라이빗 클라이언트 인증서 
 
-일반적인 사용 사례는 클라이언트-서버 모델에서 앱을 클라이언트로 구성하는 것입니다. 개인 CA 인증서를 사용하여 서버를 보호하는 경우 클라이언트 인증서를 앱에 업로드해야 합니다.  다음 지침에서는 앱이 실행되는 작업자의 신뢰 저장소(truststore)에 인증서를 로드합니다. 하나의 앱에 인증서를 로드하는 경우 인증서를 다시 업로드하지 않고 동일한 App Service 계획에서 다른 앱과 함께 사용할 수 있습니다.
+일반적인 사용 사례는 클라이언트-서버 모델에서 앱을 클라이언트로 구성하는 것입니다. 프라이빗 CA 인증서를 사용하여 서버를 보호하는 경우 클라이언트 인증서를 앱에 업로드해야 합니다.  다음 지침에서는 앱이 실행되는 작업자의 신뢰 저장소(truststore)에 인증서를 로드합니다. 하나의 앱에 인증서를 로드하는 경우 인증서를 다시 업로드하지 않고 동일한 App Service 계획에서 다른 앱과 함께 사용할 수 있습니다.
 
 ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 
@@ -85,7 +85,9 @@ ASE에서 인증서를 앱에 업로드하려면 다음을 수행합니다.
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서가 설정되었는지 확인하려면 Kudu 콘솔로 이동하여 PowerShell 디버그 콘솔에서 dir cert:\localmachine\root 명령을 실행합니다. 
+인증서는 해당 설정을 구성한 앱과 동일한 App Service 계획에 있는 모든 앱에서 사용할 수 있습니다. 다른 App Service 계획의 응용 프로그램에서 이 인증서를 사용할 수 있도록 하려면 해당 App Service 계획의 앱에서 앱 설정 작업을 반복해야 합니다. 인증서 설정 되어 있는지를 확인 하려면 Kudu 콘솔로 이동 하 고 PowerShell 디버그 콘솔에서 다음 명령을 실행:
+
+    dir cert:\localmachine\root
 
 테스트를 수행하려면 자체 서명된 인증서를 만들고 다음 PowerShell을 사용하여 *.cer* 파일을 생성할 수 있습니다. 
 

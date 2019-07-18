@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eb016f1a77d4166976c6a4d7aebd073550e8c2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 51fd45729a4e34fa1669f758c5a9c8f5cbec498f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>자습서: Workfront와 Azure Active Directory 통합
 

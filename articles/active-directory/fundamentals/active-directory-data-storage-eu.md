@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66235158"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Id 데이터는 Azure AD에서 Office 365 및 Azure 같은 Microsoft 온라인 서비스를 구독 하는 경우 조직에서 제공한 주소를 기반으로 하는 지리적 위치에 저장 됩니다. Id 데이터 저장 위치에 대 한 정보를 사용할 수 있습니다 합니다 [데이터가 어디에 있는?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft 보안 센터의 섹션입니다.

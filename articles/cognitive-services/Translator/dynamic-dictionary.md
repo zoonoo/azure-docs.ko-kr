@@ -3,27 +3,32 @@ title: 동적 사전 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API의 동적 사전 기능을 사용하는 방법입니다.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 0b4362d78ef105c249aafb4c6b203f69754a56c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: a815434cb8797acf6b92a8fe4a4f1ff69508975d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916600"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839225"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Translator Text API의 동적 사전 기능을 사용하는 방법
+# <a name="how-to-use-a-dynamic-dictionary"></a>동적 사전을 사용 하는 방법
 
 단어나 구에 적용할 번역을 이미 알고 있는 경우 요청 내에 태그로 제공할 수 있습니다. 동적 사전은 적절한 이름 및 제품 이름과 같은 복합 명사에 사용할 때만 안전합니다.
 
 **구문:**
 
 <mstrans:dictionary translation=”구 번역”>구</mstrans:dictionary>
+
+**요구 사항:**
+
+* `From` 및`To` 언어는 달라 야 합니다. 
+* 자동 검색 기능을 `From` 사용 하는 대신 API 번역 요청에 매개 변수를 포함 해야 합니다. 
 
 **예제: en-de:**
 

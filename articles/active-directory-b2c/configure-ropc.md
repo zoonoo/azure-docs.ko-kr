@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 구성 | Microsoft Docs
 description: Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715874"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807222"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -68,12 +68,12 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 키 | 값 |
+| Key | 값 |
 | --- | ----- |
-| username | leadiocl@outlook.com |
-| 암호 | Passxword1 |
-| grant_type | 암호 |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| userName 이름 | leadiocl@outlook.com |
+| password | Passxword1 |
+| grant_type | password |
+| 범위 | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | 토큰 id_token |
 
@@ -108,7 +108,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 키 | 값 |
+| Key | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -135,6 +135,8 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> Graph API를 통해 사용자를 만들 때 응용 프로그램 "openid", "offline_access" 및 Microsoft Graph에서 "프로필" 사용 권한이 해야 합니다.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>선호하는 네이티브 SDK 또는 앱 인증을 사용하여 구현
 

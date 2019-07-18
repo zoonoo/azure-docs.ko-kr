@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 49f77da5843bc2438ea7f82475b4faf753b66f09
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory 통합
 
@@ -120,7 +120,7 @@ StatusPage에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     | `https://<subdomain>.statuspage.io/sso/saml/consume`|
 
     > [!NOTE]
-    >  [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
+    > [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)에서 StatusPage 지원 팀에 문의하여 Single Sign-On을 구성하는 데 필요한 메타데이터를 요청합니다. 
     >
     > a. 메타데이터에서 발급자 값을 복사한 다음 **식별자** 텍스트 상자에 붙여넣습니다.
     >

@@ -17,10 +17,10 @@ ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
 ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60850087"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
@@ -63,9 +63,9 @@ az webapp log config -n sname -g rgname --web-server-logging filesystem
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 ```
 
-## <a name="using-docker-images-from-a-private-registry"></a>개인 레지스트리의 Docker 이미지 사용
+## <a name="using-docker-images-from-a-private-registry"></a>프라이빗 레지스트리의 Docker 이미지 사용
 
-개인 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
+프라이빗 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>

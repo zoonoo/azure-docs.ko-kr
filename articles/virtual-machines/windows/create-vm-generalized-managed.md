@@ -4,7 +4,7 @@ description: Resource Manager 배포 모델에서 Azure PowerShell 또는 Azure 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3ae730389b54fc1034bfac3ffdc7e56a2dc5f3fc
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205727"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718960"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -37,7 +37,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 5. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 완료되면 **확인**을 선택합니다. 기존 리소스 그룹에서 새 VM을 만들거나 **새로 만들기**를 선택하여 VM을 저장할 새 리소스 그룹을 만들 수 있습니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 
 7. **설정**에서 필요한 항목을 변경하고 **확인**을 선택합니다. 
-8. 요약 페이지에서 이미지 이름이 **개인 이미지** 아래 나열되어야 합니다. **확인**을 선택하여 가상 머신 배포를 시작합니다.
+8. 요약 페이지에서 이미지 이름이 **프라이빗 이미지** 아래 나열되어야 합니다. **확인**을 선택하여 가상 머신 배포를 시작합니다.
 
 
 ## <a name="use-powershell"></a>PowerShell 사용

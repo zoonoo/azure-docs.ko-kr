@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 42c961b81a254adef5e42c3c8916c9c081f548c8
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809828"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182709"
 ---
 1. 솔루션 뷰(또는 Visual Studio의 **솔루션 탐색기**)에서 **Components** 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components...** 를 클릭하고 **Google Cloud Messaging Client** 구성 요소를 검색하여 이를 프로젝트에 추가합니다.
 2. ToDoActivity.cs 프로젝트 파일을 열고 클래스에 다음 using 문을 추가합니다.

@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 배포를 위해 사전 및 사후
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/15/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94ec7c54e8e49685ad0289102f092516bcb0acfc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499854"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478247"
 ---
 # <a name="manage-pre-and-post-scripts"></a>관리 사전 및 사후 스크립트
 
@@ -30,9 +30,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
 
-사용하려는 스크립트를 선택합니다. 이 예에는 **UpdateManagement-TurnOnVms** Runbook이 사용되었습니다. Runbook을 선택하면 **스크립트 구성** 페이지가 열리고, 매개 변수 값을 제공하고, **사전 스크립트**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-
-![스크립트 구성](./media/pre-post-scripts/configure-script.png)
+사용하려는 스크립트를 선택합니다. 이 예에는 **UpdateManagement-TurnOnVms** Runbook이 사용되었습니다. Runbook을 선택 하는 경우는 **스크립트 구성** 페이지가 열립니다, 선택 **사전 스크립트**합니다. 완료되면 **확인**을 클릭합니다.
 
 **UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 그러나 **스크립트 유형**을 선택할 때는 **사후 스크립트**를 선택합니다.
 
@@ -66,11 +64,11 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 다른 개체 형식이 필요한 경우 Runbook에서 사용자 고유의 논리를 사용하여 다른 형식으로 캐스트할 수 있습니다.
 
-표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열이며, 사전 또는 사후 스크립트에 매개 변수가 정의되면 업데이트 배포에서 자동으로 전달됩니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여줍니다.
+표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열 하 고 사전 또는 사후 스크립트에 매개 변수를 정의 하는 경우이 자동으로 전달 되어 업데이트 배포 합니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여줍니다.
 
 ## <a name="stopping-a-deployment"></a>배포 중지
 
-수행 해야 하는 사전 스크립트 기반 배포를 중지 하려는 경우 [throw](automation-runbook-execution.md#throw) 예외입니다. 예외를 throw 하지 않습니다, 배포 및 사후 스크립트를 계속 실행 됩니다. 합니다 [예제 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) 갤러리에서이 수행할 수는 방법을 보여 줍니다. 다음은 해당 runbook에서 코드 조각을 합니다.
+사전 스크립트 기반 배포를 중지 하려는 경우 수행 해야 합니다 [throw](automation-runbook-execution.md#throw) 예외입니다. 예외를 throw 하지 않습니다, 배포 및 사후 스크립트를 계속 실행 됩니다. 합니다 [예제 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) 갤러리에서이 수행할 수는 방법을 보여 줍니다. 다음은 해당 runbook에서 코드 조각을 합니다.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -208,11 +206,11 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-machines"></a>컴퓨터와 상호 작용
 
-사전 및 사후 작업 runbook을 Automation 계정 및 배포의 컴퓨터에 직접적으로 실행합니다. 또한 사전 및 사후 작업 Azure 컨텍스트 내에서 실행 하 고 비 Azure 컴퓨터에 액세스할 수 없는 합니다. 다음 섹션에서는 Azure VM 또는 비 Azure 컴퓨터를 지 수의 상호 작용 컴퓨터 직접 보여 줍니다.
+사전 및 사후 작업 runbook을 Automation 계정 및 배포의 컴퓨터에 직접적으로 실행합니다. 또한 사전 및 사후 작업 Azure 컨텍스트 내에서 실행 하 고 비 Azure 컴퓨터에 액세스할 수 없는 합니다. 다음 섹션에서는 Azure VM 또는 비 Azure 컴퓨터를 사용 하는지 어떻게 상호 작용할 수 있습니다 컴퓨터 직접 보여 줍니다.
 
 ### <a name="interacting-with-azure-machines"></a>Azure 컴퓨터와 상호 작용
 
-사전 및 사후 작업은 runbook으로 실행 및 배포에 Azure Vm에서 고유 하 게 실행 되지 않습니다. Azure Vm을 사용 하 여 상호 작용에 다음 항목이 있어야 합니다.
+사전 및 사후 작업 runbook으로 실행 되 고 고유 하 게 배포의 Azure Vm에서 실행 되지 않습니다. Azure Vm을 사용 하 여 상호 작용에 다음 항목이 있어야 합니다.
 
 * 실행 계정
 * 실행 하려는 runbook
@@ -241,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>알려진 문제
 
-* 사전 및 사후 스크립트를 사용하는 경우 개체 또는 배열을 매개 변수에 전달할 수 없습니다. Runbook이 실패합니다.
+* 사전 및 사후 스크립트를 사용 하는 경우 부울 값, 개체 또는 배열 매개 변수를 전달할 수 없습니다. Runbook이 실패합니다. 지원 되는 형식의 전체 목록은 참조 하세요 [매개 변수](#passing-parameters)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632692"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 디바이스 관리자 서비스를 사용하여 저장소 계정 자격 증명 관리
@@ -86,7 +86,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     3. **스토리지 계정 선택키** 텍스트 상자에서 Azure Storage 계정 자격 증명의 기본 선택키를 지정합니다. 이 키를 가져오려면 Azure Storage 서비스로 이동하고 스토리지 계정 자격 증명을 선택한 다음 **계정 키 관리**를 클릭합니다. 이제 기본 선택키를 복사할 수 있습니다.
    
-    4. SSL을 사용하도록 설정하려면 **사용** 단추를 클릭하여 StorSimple 디바이스 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
+    4. SSL을 사용하도록 설정하려면 **사용** 단추를 클릭하여 StorSimple 디바이스 관리자 서비스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 단추를 클릭합니다.
    
     5. **추가**를 클릭합니다. 저장소 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 

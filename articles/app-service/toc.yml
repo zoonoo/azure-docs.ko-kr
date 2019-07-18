@@ -9,7 +9,7 @@
     - name: App Service Environment 정보
       href: environment/intro.md
     - name: 호스팅 옵션 비교
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: 빠른 시작
   expanded: true
   items:
@@ -70,14 +70,23 @@
     - name: OS 기능
       href: operating-system-functionality.md
     - name: 보안
-      href: overview-security.md
       items:
+        - name: 권장 사항
+          href: security-recommendations.md
         - name: 인증 및 권한 부여
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
+        - name: 보안 특성
+          href: app-service-security-attributes.md
+        - name: 보안 개요
+          href: overview-security.md
+    - name: 네트워킹 기능
+      href: networking-features.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
+    - name: 가상 네트워크 통합
+      href: web-sites-integrate-with-vnet.md
     - name: 하이브리드 연결
       href: app-service-hybrid-connections.md
     - name: Traffic Manager 통합
@@ -90,14 +99,16 @@
   items:
     - name: 앱 구성
       items:
-        - name: 앱 설정 사용
-          href: web-sites-configure.md
+        - name: 일반 설정 구성
+          href: configure-common.md
         - name: PHP 구성
           href: web-sites-php-configure.md
-        - name: Java 개발자 가이드
+        - name: Java 구성
           href: configure-language-java.md
         - name: 온-프레미스 리소스에 연결
           href: web-sites-integrate-with-vnet.md
+        - name: Azure Storage(컨테이너) 구성
+          href: configure-connect-to-azure-storage.md
     - name: Deploy to Azure
       items:
         - name: 앱 배포
@@ -180,7 +191,7 @@
           href: manage-backup.md
         - name: 백업 복원
           href: web-sites-restore.md
-        - name: 스냅숏 복원
+        - name: 스냅샷 복원
           href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md

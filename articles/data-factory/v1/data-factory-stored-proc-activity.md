@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61256021"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="변환 활동"]
 > * [Hive 작업](data-factory-hive-activity.md)
 > * [Pig 작업](data-factory-pig-activity.md)
 > * [MapReduce 작업](data-factory-map-reduce.md)
@@ -306,9 +306,9 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 | 작업의 이름 |예 |
+| name | 작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아닙니다. |
-| 형식 | 다음으로 설정되어야 합니다. **SqlServerStoredProcedure** | 예 |
+| type | 다음으로 설정되어야 합니다. **SqlServerStoredProcedure** | 예 |
 | inputs | 선택 사항입니다. 입력 데이터 세트를 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 세트를 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아닙니다. |
 | outputs | 저장 프로시저 작업에 대한 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 세트는 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server Database를 참조하는 **연결된 서비스**를 사용해야 합니다. <br/><br/>출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 세트는 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 세트**일 수 있습니다. |예 |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스, Azure SQL Data Warehouse 또는 SQL Server 데이터베이스의 저장 프로시저 이름을 지정합니다. |예 |

@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759341"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
-데이터 수집은 하나 이상의 원본에서 데이터 레코드를 로드하여 Azure 데이터 탐색기에서 테이블을 만들거나 업데이트하는 데 사용되는 프로세스입니다. 수집한 후에는 데이터를 쿼리에 사용할 수 있게 됩니다. 아래 다이어그램은 데이터 수집을 포함하여 Azure 데이터 탐색기 작업에 대한 종단 간 흐름을 보여줍니다.
+데이터 수집은 하나 이상의 원본에서 데이터 레코드를 로드하여 Azure 데이터 탐색기에서 테이블을 만들거나 업데이트하는 데 사용되는 프로세스입니다. 수집한 후에는 데이터를 쿼리에 사용할 수 있게 됩니다. 아래 다이어그램은 데이터 수집을 포함하여 Azure 데이터 탐색기 작업에 대한 엔드투엔드 흐름을 보여줍니다.
 
 ![데이터 흐름](media/ingest-data-overview/data-flow.png)
 

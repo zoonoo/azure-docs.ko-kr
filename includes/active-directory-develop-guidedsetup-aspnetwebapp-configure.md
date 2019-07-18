@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528533"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182811"
 ---
 ## <a name="register-your-application"></a>애플리케이션 등록
 

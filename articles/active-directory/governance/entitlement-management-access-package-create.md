@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad6570a3f30e40e4074502a8ce85bf739f58d3f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 1b5ff842d1645d2b47a436eca4fc8dc614a9fb63
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866434"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190370"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -44,17 +44,17 @@ ms.locfileid: "64866434"
 
 ## <a name="start-new-access-package"></a>새 액세스 패키지를 시작 합니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
-1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할**합니다.
+1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
 
-    ![Azure portal에서 자격 관리](./media/entitlement-management-shared/elm-access-packages.png)
+    ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/elm-access-packages.png)
 
-1. 클릭 **새 액세스 패키지**합니다.
+1. **새 액세스 패키지**를 클릭합니다.
 
 ## <a name="basics"></a>기본 사항
 
@@ -126,5 +126,6 @@ ms.locfileid: "64866434"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [편집 및 기존 액세스 패키지 관리](entitlement-management-access-package-edit.md)
+- [기존 액세스 패키지 편집 및 관리](entitlement-management-access-package-edit.md)
+- [카탈로그 소유자 또는 액세스 패키지 관리자를 추가 합니다.](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [만들기 및 카탈로그 관리](entitlement-management-catalog-create.md)

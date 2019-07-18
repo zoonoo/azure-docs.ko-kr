@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790081"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
@@ -39,7 +39,7 @@ ms.locfileid: "60790081"
 > * WCF 계약 구현
 > * 릴레이 서비스에 등록할 WCF 서비스 호스트 및 실행
 > * 서비스 계약에 대한 WCF 클라이언트 만들기
-> * WCF 클라이언트 구성 
+> * WCF 클라이언트 구성
 > * WCF 클라이언트 구현
 > * 애플리케이션 실행 
 
@@ -307,7 +307,7 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
     IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
     ```
 
-    이 단계에서는 애플리케이션이 프로젝트에 대한 ATOM 피드를 조사하여 공개적으로 찾을 수 있는 릴레이 서비스를 알립니다. **DiscoveryType**을 **private**해도 클라이언트는 여전히 서비스에 액세스할 수 있습니다. 그러나 릴레이 네임스페이스를 검색할 때는 서비스가 표시되지 않습니다. 대신 클라이언트 엔드포인트 경로를 미리 알고 있어야 합니다.
+    이 단계에서는 애플리케이션이 프로젝트에 대한 ATOM 피드를 조사하여 공개적으로 찾을 수 있는 릴레이 서비스를 알립니다. **DiscoveryType**을 **프라이빗**으로 설정해도 클라이언트는 여전히 서비스에 액세스할 수 있습니다. 그러나 릴레이 네임스페이스를 검색할 때는 서비스가 표시되지 않습니다. 대신 클라이언트 엔드포인트 경로를 미리 알고 있어야 합니다.
 5. 서비스 자격 증명을 App.config 파일에 정의된 서비스 엔드포인트에 적용합니다.
 
     ```csharp
@@ -484,9 +484,9 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="configure-the-wcf-client"></a>WCF 클라이언트 구성 
+## <a name="configure-the-wcf-client"></a>WCF 클라이언트 구성
 
-이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 애플리케이션의 App.config 파일을 만듭니다.  이 App.config 파일은 계약, 바인딩 및 엔드포인트의 이름을 정의합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
+이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 애플리케이션의 App.config 파일을 만듭니다. 이 App.config 파일은 계약, 바인딩 및 엔드포인트의 이름을 정의합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 1. 솔루션 탐색기의 **EchoClient** 프로젝트에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 2. `<appSettings>` 요소에서 자리 표시자를 이전 단계에서 복사한 서비스 네임스페이스 및 SAS 키의 이름으로 바꿉니다.
@@ -538,7 +538,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="implement-the-wcf-client"></a>WCF 클라이언트 구현
-이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 애플리케이션을 구현합니다.  서비스와 마찬가지로, 클라이언트는 Azure Relay 액세스와 많은 동일한 작업을 수행합니다.
+이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 애플리케이션을 구현합니다. 서비스와 마찬가지로, 클라이언트는 Azure Relay 액세스와 많은 동일한 작업을 수행합니다.
 
 1. 연결 모드를 설정합니다.
 2. 호스트 서비스를 찾는 URI를 만듭니다.
@@ -713,7 +713,7 @@ namespace Microsoft.ServiceBus.Samples
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. **EchoClient** 콘솔 창에서 이전에 서비스 애플리케이션에 입력한 동일한 정보를 입력합니다. 이전 단계에 따라 클라이언트 애플리케이션에 동일한 서비스 네임스페이스 및 SAS 키 값을 입력합니다.
-11. 이 값을 입력한 후 클라이언트가 서비스에 대한 채널을 열고 다음 콘솔 출력 예제에서 보이는 것처럼 여러 텍스트를 입력하라는 메시지가 표시됩니다. 
+11. 이 값을 입력한 후 클라이언트가 서비스에 대한 채널을 열고 다음 콘솔 출력 예제에서 보이는 것처럼 여러 텍스트를 입력하라는 메시지가 표시됩니다.
 
     `Enter text to echo (or [Enter] to exit):`
 

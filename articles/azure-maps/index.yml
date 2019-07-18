@@ -13,7 +13,7 @@ metadata:
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: 'Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 애플리케이션에 제공하는 데 사용할 수 있는 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 웹 및 Android SDK와 함께 맵, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지오펜싱, 맵 데이터 및 공간 작업을 위한 Azure One API 호환 REST API 세트로, 개발을 쉽고 유연하게 해주며, 여러 플랫폼 간에 이식이 가능하도록 해줍니다.'
+  description: 'Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 애플리케이션에 제공하는 데 사용할 수 있는 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 웹 및 Android SDK와 함께 맵, 검색, 라우팅, 트래픽, 표준 시간대, 이동성, 지리적 위치, 지오펜싱, 맵 데이터 및 공간 작업을 위한 Azure One API 호환 REST API 세트로, 개발을 쉽고 유연하게 해주며, 여러 플랫폼 간에 이식이 가능하도록 해줍니다.'
 sections:
   - title: 5분 빠른 시작
     items:
@@ -54,4 +54,4 @@ sections:
           - title: JavaScript
             html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">지도 컨트롤</a></p>'
           - title: REST (영문)
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">데이터 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">지리적 위치 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">공간 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">데이터 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">지리적 위치 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">모바일 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">공간 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>'

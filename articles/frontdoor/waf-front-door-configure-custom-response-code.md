@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 2d16893420f27caf4f8b00dc32069e3296d7c236
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459779"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165366"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답을 구성 합니다.
 
@@ -52,11 +52,11 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>사용자 지정 응답을 사용 하 여 새 WAF 정책 만들기 
 
-405로 메시지를 설정 하는 사용자 지정 응답 상태 코드를 사용 하 여 WAF 정책을 새로 만드는 예제는 다음과 같습니다 **차단 됩니다.** 사용 하 여 [새로 만들기-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy)합니다.
+405로 메시지를 설정 하는 사용자 지정 응답 상태 코드를 사용 하 여 WAF 정책을 새로 만드는 예제는 다음과 같습니다 **차단 됩니다.** 사용 하 여 [새로 만들기-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)합니다.
 
 ```azurepowershell
 # WAF policy setting
-New-AzFrontDoorFireWallPolicy `
+New-AzFrontDoorWafPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `
@@ -65,11 +65,11 @@ New-AzFrontDoorFireWallPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-사용자 지정 응답 코드 또는 응답 본문 설정을 기존 WAF 정책의 수정를 사용 하 여 [집합 AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor)합니다.
+사용자 지정 응답 코드 또는 응답 본문 설정을 기존 WAF 정책의 수정를 사용 하 여 [업데이트 AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy)합니다.
 
 ```azurepowershell
 # modify WAF response code
-Set-AzFrontDoorFireWallPolicy `
+Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `
@@ -79,7 +79,7 @@ Set-AzFrontDoorFireWallPolicy `
 
 ```azurepowershell
 # modify WAF response body
-Set-AzFrontDoorFireWallPolicy `
+Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"

@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
 ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865338"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "61473182"
 ---
 # <a name="what-is-project-url-preview"></a>Project URL Preview란?
 URL Preview 엔드포인트는 URL 쿼리 매개 변수를 사용하고 대상 리소스 이름, 간략한 설명 및 미리 보기에 표시할 이미지에 대한 링크로 JSON 응답을 반환합니다. 이 응답에는 URL이 성인, 해적판 또는 기타 불법 콘텐츠를 포함하는지 여부를 나타내는 [isFamilyFriendly](url-preview-reference.md#query-parameters) 플래그도 포함됩니다. 

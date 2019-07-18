@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60397280"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>낮음-보통 네트워크 대역폭에서 작은 데이터 세트의 데이터 전송
@@ -49,7 +49,7 @@ ms.locfileid: "60397280"
 
 다음 표에서는 주요 기능의 차이점을 요약해서 보여 줍니다.
 
-| 기능 | Azure Storage 탐색기 | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
+| 기능 | Azure Storage Explorer | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | 가용성 | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구 | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스 |
 | 그래픽 인터페이스 | 예. | 예 | 아니오 | 아닙니다. |

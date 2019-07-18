@@ -1,17 +1,21 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 대화형 쿼리
+- name: 개요
   items:
-    - name: HDInsight의 Apache Hadoop 구성 요소
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
-      maintainContext: true
-- name: 시작하기
-  items:
-    - name: 대화형 쿼리 시작
+    - name: HDInsight의 대화형 쿼리란?
       href: ./apache-interactive-query-get-started.md
+      maintainContext: true
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Apache Hive 쿼리 실행 - Apache Zeppelin
+      href: ./hdinsight-connect-hive-zeppelin.md
+- name: 자습서
+  items:
+    - name: 대화형 쿼리로 데이터 분석
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: 개념
+  items:
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
@@ -20,6 +24,9 @@
       maintainContext: true
 - name: 방법
   items:
+    - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
     - name: 클러스터 저장소 사용
       items:
         - name: Azure Storage 사용
@@ -37,9 +44,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: Apache Zeppelin 사용
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: Visual Studio용 도구
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -100,6 +104,9 @@
         - name: Apache Hadoop에 Power BI 연결
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
+        - name: PowerShell 및 ODBC를 사용하여 Hive 쿼리
+          href: apache-hive-query-odbc-driver-powershell.md
+          maintainContext: true
         - name: Apache Hadoop에 Excel 연결
           href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
           maintainContext: true
@@ -108,9 +115,6 @@
           maintainContext: true
         - name: 저장된 트윗 분석
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: 비행 지연 데이터 분석
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: 클러스터 확장
       items:
@@ -180,7 +184,7 @@
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: 주문형 클러스터 만들기
@@ -204,7 +208,7 @@
             - name: Azure PowerShell 사용
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
@@ -249,9 +253,6 @@
           maintainContext: true
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md
-          maintainContext: true
-        - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
-          href: apache-hive-migrate-workloads.md
           maintainContext: true
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md
@@ -319,12 +320,14 @@
       maintainContext: true
     - name: 네트워크 액세스
       items:
+        - name: HDInsight 가상 네트워크 아키텍처
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet의 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: 온-프레미스 네트워크와 HDInsight 연결
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Azure Monitor 로그를 사용한 모니터링
       items:
         - name: Azure Monitor 로그 사용

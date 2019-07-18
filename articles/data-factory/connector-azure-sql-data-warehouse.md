@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153431"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449585"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [현재 버전](connector-azure-sql-data-warehouse.md)
 
@@ -65,7 +65,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -132,24 +132,24 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** . 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
     - 애플리케이션 UI
     - 애플리케이션 키
     - 테넌트 ID
 
-2. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
+2. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** (아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
-3. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다.
+3. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** . 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다.
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다.
+4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다. PolyBase를 사용 하 여 데이터 로드에 대해 알아봅니다를 하려는 경우는 [필요한 데이터베이스 사용 권한](#required-database-permission)합니다.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    EXEC sp_addrolemember db_owner, [your application name];
     ```
 
 5. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
@@ -188,7 +188,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 관리 되는 id 인증을 사용 하려면 다음이 단계를 수행 합니다.
 
-1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
+1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** (아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
 2. **[포함 된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Data Factory 관리 서비스 Id에 대 한 합니다. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다. 
   
@@ -196,10 +196,10 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Data Factory 관리 서비스 Id에 필요한 권한을 부여** 하듯이 일반적으로 SQL 사용자 및 다른 사용자에 대 한 합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다.
+3. **Data Factory 관리 서비스 Id에 필요한 권한을 부여** 하듯이 일반적으로 SQL 사용자 및 다른 사용자에 대 한 합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다. PolyBase를 사용 하 여 데이터 로드에 대해 알아봅니다를 하려는 경우는 [필요한 데이터베이스 사용 권한](#required-database-permission)합니다.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
 5. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
@@ -227,7 +227,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 세트에서 지원하는 속성 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
 또는 Azure SQL Data Warehouse로 데이터를 복사 하는 다음 속성이 지원 됩니다.
 
@@ -375,7 +375,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | rejectValue | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. |아니오 |
 | rejectType | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니오 |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
-| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니오 |
+| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.<br><br>**참조 [문제 해결 팁](#polybase-troubleshooting) 이 설정은 관련이 있습니다.** | 아닙니다. |
 | writeBatchSize | SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행의 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아닙니다. |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아닙니다. |
 | preCopyScript | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아닙니다. |
@@ -400,10 +400,13 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)를 참조하세요.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](v1/data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 * 원본 데이터에 있으면 **Azure Blob, Azure Data Lake 저장소 Gen1 또는 Azure Data Lake 저장소 Gen2**, 및 **형식이 PolyBase 호환**, 복사 활동을 사용 하 여 Azure에 있도록 PolyBase를 직접 호출 SQL Data Warehouse 원본에서 데이터를 끌어옵니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
+
+>[!TIP]
+>에 대해 자세히 알아보세요 [PolyBase를 사용 하 여에 대 한 유용한](#best-practices-for-using-polybase)합니다.
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
@@ -418,9 +421,12 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Az
 
     | 지원 되는 원본 데이터 저장소 형식 | 지원 되는 원본 인증 유형 |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | 계정 키 인증 |
+    | [Azure Blob](connector-azure-blob-storage.md) | 계정 키 인증을 관리 되는 id 인증 |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | 서비스 주체 인증 |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 계정 키 인증 |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 계정 키 인증을 관리 되는 id 인증 |
+
+    >[!IMPORTANT]
+    >Azure Storage는 VNet 서비스 끝점으로 구성 됩니다, 관리 되는 id 인증-사용 해야 합니다 가리킵니다 [VNet 서비스 엔드포인트를 사용 하 여 Azure storage에 미치는](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. Data Factory에서 필요한 구성을 알아봅니다 [Azure Blob-관리 되는 id 인증](connector-azure-blob-storage.md#managed-identity) 하 고 [Azure Data Lake 저장소 Gen2-관리 되는 id 인증](connector-azure-data-lake-storage.md#managed-identity) 각각 섹션입니다.
 
 2. 합니다 **원본 데이터 형식이** 입니다 **Parquet**를 **ORC**, 또는 **구분 된 텍스트**, 다음 구성을 통해:
 
@@ -466,7 +472,10 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Az
 
 원본 데이터가 이전 섹션의 조건을 충족하지 않는 경우, 중간 준비 Azure Blob Storage 인스턴스를 통해 데이터 복사를 사용하도록 설정합니다. Azure Premium Storage일 수 없습니다. 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터에 대해 자동으로 변환을 실행합니다. 그런 다음 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요.
 
-이 기능을 사용하려면 중간 Blob Storage가 있는 Azure Storage 계정을 참조하는 [Azure Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 아래 코드에 표시된 대로 지정합니다.
+이 기능을 사용 하려면 만듭니다는 [Azure Blob Storage 연결 된 서비스](connector-azure-blob-storage.md#linked-service-properties) 참조 하는 중간 blob storage 사용 하 여 Azure storage 계정. 지정 된 `enableStaging` 및 `stagingSettings` 다음 코드에 나와 있는 것 처럼 복사 작업에 대 한 속성입니다.
+
+>[!IMPORTANT]
+>스테이징 Azure Storage를 VNet 서비스 엔드포인트로 구성 된 경우에 관리 되는 id 인증-을 사용 해야 가리킵니다 [VNet 서비스 엔드포인트를 사용 하 여 Azure storage를 사용 하 여 미치는](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. Data Factory에서 필요한 구성을 알아봅니다 [Azure Blob-관리 되는 id 인증](connector-azure-blob-storage.md#managed-identity)합니다.
 
 ```json
 "activities":[
@@ -515,9 +524,28 @@ PolyBase를 사용하려면 SQL Data Warehouse에 데이터를 로드하는 사�
 
 ### <a name="row-size-and-data-type-limits"></a>행 크기 및 데이터 형식 한도
 
-PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)에 로드할 수 없습니다. 자세한 내용은 [SQL Data Warehouse 서비스 용량 한도](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)를 참조하세요.
+PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR 또는 varbinary (max)를 사용할 수 없습니다. 자세한 내용은 [SQL Data Warehouse 서비스 용량 한도](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)를 참조하세요.
 
 원본 데이터에 1MB보다 큰 행이 있는 경우, 원본 테이블을 여러 개의 작은 테이블로 수직 분할하는 것이 좋습니다. 각 행의 최대 크기가 한도를 초과하지 않는지 확인합니다. 한도보다 작은 테이블은 PolyBase를 사용하여 로드하고 Azure SQL Data Warehouse에 병합할 수 있습니다.
+
+또는 이러한 넓은 열을 사용 하 여 데이터를 사용할 수 있습니다 PolyBase가 아닌 "PolyBase 허용" 해제 하 여 ADF를 사용 하 여 데이터를 로드 하도록 설정 합니다.
+
+### <a name="polybase-troubleshooting"></a>PolyBase 문제 해결
+
+**Decimal 열으로 로딩**
+
+원본 데이터를 텍스트 형식 또는 다른 비 PolyBase 호환 (단계적된 복사 및 PolyBase 사용)를 저장 하 고 SQL Data Warehouse Decimal 열에 로드 하는 빈 값이 포함 된 다음과 같은 오류가 도달할 수 있습니다.
+
+```
+ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
+```
+
+솔루션의 선택을 취소 하는 것 "**사용 유형 기본값**"-> PolyBase 설정 (false)로 복사 활동 sink의 옵션입니다. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)" PolyBase 텍스트 파일에서 데이터를 검색 하는 경우 구분 기호로 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 하는 PolyBase의 네이티브 구성 됩니다. 
+
+**기타**
+
+더 알려진된 PolyBase 문제에 대 한 참조 [Azure SQL Data Warehouse PolyBase 문제 해결 부하](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)합니다.
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
 
@@ -558,40 +586,38 @@ NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 
 
 Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL Data Warehouse 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
+>[!TIP]
+>가리킵니다 [테이블에서 Azure SQL Data Warehouse 데이터 형식](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) SQL DW에 대 한 문서 지원 데이터 형식 및 해결 방법 항목 지원 되지 않습니다.
+
 | Azure SQL Data Warehouse 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
 | bit | Boolean |
 | char | String, Char[] |
-| date | DateTime |
-| DateTime | DateTime |
-| datetime2 | DateTime |
+| date | Datetime |
+| Datetime | Datetime |
+| datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
-| Image | Byte[] |
+| image | Byte[] |
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |
-| ntext | String, Char[] |
 | numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datetime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object |
-| 텍스트 | String, Char[] |
-| time | TimeSpan |
-| timestamp | Byte[] |
+| 실시간 | TimeSpan |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
 | varchar | String, Char[] |
-| Xml | Xml |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md##supported-data-stores-and-formats)을 참조하세요.

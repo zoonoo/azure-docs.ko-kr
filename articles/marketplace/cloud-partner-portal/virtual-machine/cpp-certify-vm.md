@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: pabutler
 ms.openlocfilehash: 0dbf1abbb91f9e5c3bd2d042c57f87591d52c9cd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938491"
 ---
 # <a name="certify-your-vm-image"></a>VM 이미지 인증
@@ -43,7 +43,7 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 
      ![Linux VM 이미지의 암호 인증](./media/publishvm_026.png)
 
-3. 키 파일 기반 인증을 사용하는 경우 **VM DNS Name**, **사용자 이름** 및 **개인 키** 위치에 대한 값을 입력합니다.  필요에 따라 **전달 구**를 제공하거나 기본 **SSH 포트** 번호를 변경할 수 있습니다.
+3. 키 파일 기반 인증을 사용하는 경우 **VM DNS Name**, **사용자 이름** 및 **프라이빗 키** 위치에 대한 값을 입력합니다.  필요에 따라 **전달 구**를 제공하거나 기본 **SSH 포트** 번호를 변경할 수 있습니다.
 
      ![Linux VM 이미지의 파일 인증](./media/publishvm_027.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6752a2474f3629ad79f6a652bba475691b6a53e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 45e8f0d2e84a8c8879fb5d48c575906cfe31b53b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>자습서: Talent Palette와 Azure Active Directory 통합
 

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60581396"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
@@ -86,7 +86,7 @@ StorSimple Virtual Array에는 하루 중 지정된 시간(22:30)에 시작하�
    
      ![백업 작업 세부 정보](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. 백업이 완료되면 **관리 > Backup 카탈로그**로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅숏을 확인합니다.
+4. 백업이 완료되면 **관리 > Backup 카탈로그**로 이동합니다. 디바이스에서 모든 공유 또는 볼륨의 클라우드 스냅샷을 확인합니다.
    
     ![백업 완료됨](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 

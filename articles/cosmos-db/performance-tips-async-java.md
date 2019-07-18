@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa6ab58de09e26683cdd958ef77b0fa01d88e2e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60932921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66225581"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB 및 Async Java에 대한 성능 팁
 
@@ -162,12 +162,12 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```
 
-기타 플랫폼(Red Hat, Windows, Mac 등)의 경우 이러한 지침(https://netty.io/wiki/forked-tomcat-native.html)을 참조하세요.
+기타 플랫폼(Red Hat, Windows, Mac 등)의 경우 이러한 지침(https://netty.io/wiki/forked-tomcat-native.html )을 참조하세요.
 
 ## <a name="indexing-policy"></a>인덱싱 정책
  

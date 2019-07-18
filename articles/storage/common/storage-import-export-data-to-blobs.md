@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808592"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -58,7 +58,7 @@ ms.locfileid: "61479306"
 6.  디스크를 준비하려면 다음 명령을 실행합니다. **데이터 크기에 따라 몇 시간에서 며칠이 걸릴 수 있습니다.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     저널 파일이 도구를 실행한 폴더와 동일한 폴더에 만들어집니다. *.xml* 파일(도구를 실행하는 폴더)과 *drive-manifest.xml* 파일(데이터가 있는 폴더)의 두 개의 다른 파일도 만들어집니다.
     
@@ -68,12 +68,13 @@ ms.locfileid: "61479306"
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID입니다. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
-    |/sk:     |Azure Storage 계정 키입니다.         |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
     |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
+    |/blobtype:     |이 옵션 데이터를 가져오려는 blob 유형을 지정 합니다. 이 블록 blob에 대 한 `BlockBlob` 이므로 페이지 blob에 대 한 `PagaBlob`합니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
+    |/enablecontentmd5:     |옵션을 사용 하도록 설정 하면 MD5 계산 및로 설정 하면 `Content-md5` 각 blob의 속성입니다. 사용 하려는 경우에이 옵션을 사용 합니다 `Content-md5` 데이터를 Azure에 업로드 한 후 필드입니다. <br> 이 옵션 (발생 하는 기본적으로) 데이터 무결성 검사에 영향을 주지 않습니다. 설정은 데이터를 클라우드로 업로드 하는 데 걸리는 시간이 증가지 않습니다.          |
 7. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
     
     > [!IMPORTANT]
@@ -83,7 +84,7 @@ ms.locfileid: "61479306"
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 
-1. https://portal.azure.com/에 로그온합니다.
+1. [https://portal.azure.com/](https://portal.azure.com/ ) 에 로그온합니다.
 2. **모든 서비스 > 저장소 > 작업 가져오기/내보내기**로 차례로 이동합니다. 
     
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
@@ -114,7 +115,7 @@ ms.locfileid: "61479306"
 4. **반송 정보**에서:
 
    - 드롭다운 목록에서 운송업체를 선택합니다. 이외의 FedEx/DHL 운송 업체를 사용 하려는 경우 드롭다운 목록에서 기존 옵션을 선택 합니다. 연락처의 Azure 데이터 상자 작업 팀에서 `adbops@microsoft.com` 사용 하려는 운송 업체에 대 한 정보를 사용 하 여 합니다.
-   - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](http://www.dhl.com/) 운송업체 계정을 만듭니다.
+   - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
    - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다. 
         
        > [!TIP] 

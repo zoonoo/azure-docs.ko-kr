@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65800270"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 
@@ -35,6 +35,11 @@ ms.locfileid: "60402771"
 ## <a name="entity-level-expiration"></a>엔터티 수준 만료
 
 큐 또는 토픽에 전송된 모든 메시지는 [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) 속성을 사용해서 엔터티 수준에서 설정되는 기본 만료를 따릅니다. 이러한 기본 만료는 메시지 생성 동안 포털에서 설정되며 나중에 조정될 수 있습니다. [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)가 명시적으로 설정되지 않은 엔터티로 보낸 모든 메시지에는 기본 만료가 사용됩니다. 기본 만료는 **TimeToLive** 값의 최대값으로도 사용됩니다. **TimeToLive** 만료가 기본값보다 더 긴 메시지는 큐에 추가되기 전에 자동으로 **defaultMessageTimeToLive** 값으로 조정됩니다.
+
+> [!NOTE]
+> 기본값 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 조정 된 메시지에 대 한 값 [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) 달리 지정 되지 않은 경우.
+>
+> 메시징 엔터티 (큐 및 토픽)에 대 한 기본 만료 시간은 수도 [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) Service Bus 표준 및 프리미엄 계층에 대 한 합니다.  기본 계층에 대 한 기본 만료 시간은 14 일입니다.
 
 만료된 메시지는 [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 속성을 설정하거나 포털에서 해당 확인란을 선택하여 [배달 못 한 메시지 큐](service-bus-dead-letter-queues.md)로 선택적으로 이동할 수 있습니다. 이 옵션을 사용하지 않도록 설정하면 만료된 메시지가 삭제됩니다. 배달 못 한 메시지 큐로 이동되는 만료된 메시지는 브로커가 사용자 속성 섹션에 저장하는 [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) 속성(이 경우 [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq))을 평가하여 다른 배달 못 한 메시지와 구분할 수 있습니다.
 
@@ -65,7 +70,7 @@ Service Bus 큐, 토픽 및 구독을 임시 엔터티로 생성할 수 있습�
     - 큐 업데이트 없음  
     - 예약된 메시지 없음  
     - Browse/Peek 없음 
-- 주제  
+- 항목  
     - 전송 없음  
     - 토픽 업데이트 없음  
     - 예약된 메시지 없음 

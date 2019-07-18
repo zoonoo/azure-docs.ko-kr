@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051629"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -95,12 +95,19 @@ ms.locfileid: "64939902"
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
 - 미국 중서부
+- 미국 서부
 - 미국 서부 2
+- 미국 중남부
+- 미국 중부
 - 미국 동부
+- 미국 동부 2
 - 프랑스 중부
 - 서유럽
+- 유럽 북부
 - 영국 남부
+- 오스트레일리아 동부
 - 오스트레일리아 남동부
+- 동아시아
 - 동남아시아 
 - 한국 중부
 - 중앙 인도

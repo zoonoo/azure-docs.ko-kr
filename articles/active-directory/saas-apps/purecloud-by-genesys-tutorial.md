@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ac476e2a66f7fd1d315adb37258917b3ff47373f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory 통합
 
@@ -144,7 +144,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 7. 위에서 언급한 특성 외에도, PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
-    | Name | 원본 특성|
+    | 이름 | 원본 특성|
     | ---------------| --------------- |
     | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |

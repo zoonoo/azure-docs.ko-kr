@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704334"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
@@ -82,7 +82,7 @@ REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯�
 
 .NET SDK의 2.x 버전에 대한 자세한 내용은 [릴리스 정보](key-vault-dotnet2api-release-notes.md)를 참조하세요.
 
-#### <a name="java"></a>자바
+#### <a name="java"></a>Java
 
 [Key Vault용 Java SDK](/java/api/overview/azure/keyvault)
 
