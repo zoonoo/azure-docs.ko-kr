@@ -3,17 +3,17 @@ title: Azure IoT Central 앱의 디바이스 템플릿 버전 관리 이해 | Mi
 description: 새 버전을 만들어 라이브 연결된 디바이스에 영향을 주지 않고 디바이스 템플릿을 반복합니다.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509730"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848974"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 
@@ -56,7 +56,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 여러 버전의 디바이스 템플릿을 만들 수 있습니다. 시간이 지나면 이러한 디바이스 템플릿을 사용하는 연결된 디바이스가 여러 개 생깁니다. 한 버전의 디바이스 템플릿에서 다른 버전으로 디바이스를 마이그레이션할 수 있습니다. 다음 단계는 디바이스를 마이그레이션하는 방법을 설명합니다.
 
-1. 로 이동 합니다 **Device Explorer** 페이지입니다.
+1. **Device Explorer** 페이지로 이동 합니다.
 1. 다른 버전으로 마이그레이션할 디바이스를 선택합니다.
 1. **디바이스 마이그레이션**을 선택합니다.
 1. 디바이스를 마이그레이션할 버전 번호를 선택하고 **마이그레이션**을 선택합니다.

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: sdgilley
-ms.author: sgilleye
+ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d38a5066304a11ff2cd53a0168e51a0d74fda555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d9475b49b3ef8a2e672e1ce505a7d94d19cb14f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751486"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875318"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 ## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈

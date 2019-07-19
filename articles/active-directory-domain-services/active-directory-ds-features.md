@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e0f38ed8367f076c9f9c4da77440bb3e9603d514
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474236"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234207"
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD Domain Services
-## <a name="features"></a>기능
+# <a name="features-provided-by-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 제공 하는 기능
+
 다음 기능은 Azure AD Domain Services 관리되는 도메인에서 사용할 수 있습니다.
 
 * **간단한 배포 환경:** 몇 번의 클릭만으로 Azure AD 디렉터리에 Azure AD Domain Services를 사용하도록 설정할 수 있습니다. 관리되는 도메인에는 온-프레미스 디렉터리에서 동기화된 클라우드 전용 계정과 사용자 계정이 포함됩니다.
@@ -32,7 +32,7 @@ ms.locfileid: "67474236"
 * **사용자 지정 이름으로 도메인 만들기:** Azure AD Domain Services를 사용하여 사용자 지정 이름(예: ‘contoso100.com’)으로 도메인을 만들 수 있습니다. 확인된 또는 확인되지 않은 도메인 이름 중 하나를 사용할 수 있습니다. 필요에 따라 Azure AD 디렉터리에서 제공하는 기본 제공 도메인 접미사(예: '*.onmicrosoft.com')로 도메인을 만들 수도 있습니다.
 * **Azure AD와 통합:** Azure AD Domain Services에 대한 복제를 구성하거나 관리할 필요가 없습니다. Azure AD 디렉터리의 사용자 계정, 그룹 멤버 자격 및 사용자 자격 증명(암호)을 Azure AD Domain Services에서 자동으로 사용할 수 있습니다. Azure AD 테넌트 또는 온-프레미스 디렉터리에서 새 사용자, 그룹 또는 특성 변경 사항은 Azure AD Domain Services에 자동으로 동기화됩니다.
 * **NTLM 및 Kerberos 인증:** NTLM 및 Kerberos 인증 지원 기능을 사용하여 Windows 통합 인증을 사용하는 애플리케이션을 배포할 수 있습니다.
-* **회사 자격 증명/암호 사용:** Azure AD 테넌트의 사용자 암호가 Azure AD Domain Services에서 작동합니다. 사용자가 컴퓨터를 도메인에 가입 하려면 회사 자격 증명을 사용 하 고 대화형으로 또는 원격 데스크톱을 통해 로그인 하 고 관리 되는 도메인에 대해 인증할 수 있습니다.
+* **회사 자격 증명/암호 사용:** Azure AD 테넌트의 사용자 암호가 Azure AD Domain Services에서 작동합니다. 사용자는 회사 자격 증명을 사용 하 여 컴퓨터에 도메인 가입 하 고, 대화형으로 또는 원격 데스크톱을 통해 로그인 하 고, 관리 되는 도메인에 대해 인증할 수 있습니다.
 * **LDAP 바인딩 및 LDAP 읽기 지원:** LDAP 바인딩을 통해 Azure AD Domain Services에서 처리하는 도메인의 사용자를 인증하는 애플리케이션을 사용할 수 있습니다. 또한 LDAP 읽기 작업을 사용하여 디렉터리에서 사용자/컴퓨터 특성을 쿼리하는 애플리케이션도 Azure AD 도메인 서비스에서 작동할 수 있습니다.
 * **LDAPS(보안 LDAP):** LDAPS(보안 LDAP)를 통해 디렉터리에 대한 액세스를 사용하도록 설정할 수 있습니다. 보안 LDAP 액세스는 기본적으로 가상 네트워크 내에서 사용할 수 있습니다. 하지만 인터넷을 통한 보안 LDAP 액세스 또한 필요에 따라 사용할 수 있습니다.
 * **그룹 정책:** 사용자 계정과 도메인 가입 컴퓨터에서 필수 보안 정책을 준수하기 위해 사용자 및 컴퓨터 컨테이너마다 기본 제공 단일 GPO를 사용할 수 있습니다. [그룹 정책을 관리](manage-group-policy.md)하기 위해 자체 사용자 지정 GPO를 만든 후 사용자 지정 조직 구성 단위에 할당할 수도 있습니다.

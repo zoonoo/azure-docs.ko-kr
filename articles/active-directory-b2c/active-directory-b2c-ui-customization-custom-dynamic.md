@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a798b766d09428e7ebebc04d969d63a542de3808
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835709"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227213"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "67835709"
 
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요.
 
 >[!NOTE]
@@ -89,7 +89,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 ### <a name="step-22-add-the-mvc-view"></a>2\.2단계: MVC 뷰 추가
 1. Views/Home 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 클릭합니다.
 
-    ![Visual Studio에서 새 항목 메뉴 항목 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Visual Studio에서 새 항목 추가 메뉴 항목](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. **새 항목 추가 - Contoso.AADB2C.UI** 창에서 **웹 > ASP.NET**을 선택합니다.
 
@@ -99,7 +99,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 5. **추가**를 선택합니다.
 
-    ![강조 표시 하는 MVC 뷰 페이지를 사용 하 여 Visual Studio에서 새 항목 대화 상자 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![MVC 뷰 페이지가 강조 표시 된 Visual Studio의 새 항목 추가 대화 상자](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. *unified.cshtml* 파일이 열려 있지 않으면 파일을 두 번 클릭하여 연 다음 파일 콘텐츠를 지웁니다.
 
@@ -123,7 +123,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 `ID` 값 *background_background_image*가 포함된 `<img>` 요소를 찾은 다음, `src` 값을 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 또는 사용하려는 다른 배경 이미지로 바꿉니다.
 
-![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![custom background_background_image src 값이 있는 img 요소](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2\.4단계: MVC 컨트롤러에 보기 추가
 
@@ -174,7 +174,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. **설정** 섹션에서 **API** 섹션 아래 **CORS**를 선택합니다.
 
-    ![Azure portal에서 App Service 메뉴에서 강조 표시 하는 CORS 메뉴 항목](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![Azure Portal의 App Service 메뉴에 CORS 메뉴 항목이 강조 표시 됨](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. **CORS** 창의 **허용된 원본** 상자에 다음 중 하나를 수행합니다.
 
@@ -183,7 +183,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 4.           **저장**을 선택합니다.
 
-    ![허용 된 원본에서 강조 표시 된 별표를 사용 하 여 CORS 설정 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![허용 된 원본에서 별표가 강조 표시 된 CORS 설정 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
     **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다.
 
@@ -196,7 +196,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다.
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
-* 사용 중인 *절대 URL*와 같은 `https://yourdomain/content`, 모든 링크, CSS 콘텐츠 및 이미지에 대 한 합니다.
+* 모든 링크, CSS 콘텐츠 및 이미지에 `https://yourdomain/content`대해와 같은 *절대 url*을 사용 하 고 있습니다.
 
 ## <a name="step-5-configure-your-content-definition"></a>5단계: 콘텐츠 정의 구성
 `ContentDefinition`을 구성하려면 다음을 수행합니다.
@@ -213,7 +213,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 6. `LoadUri` 값을 _~/tenant/default/unified_에서 _https://<app_name>.azurewebsites.net/home/unified_로 변경합니다.
     사용자 지정 정책이 다음과 비슷해야 합니다.
 
-    ![LoadUri 요소 강조 표시를 사용 하 여 예제 XML 코드 조각](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+    ![LoadUri 요소가 강조 표시 된 예제 XML 코드 조각](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>6단계: 테넌트에 정책 업로드
 1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
@@ -292,7 +292,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
 2. `background_background_image` ID를 사용하여 `<img>` 요소를 찾고 `src` 값을 `@ViewData["background"]`로 바꿉니다.
 
-    ![src 값이 선택 된 img 요소 ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![src 값이 강조 표시 된 img 요소 ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
 ### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: 변경 내용 업로드 및 정책 게시
 1. Azure App Service에 Visual Studio 프로젝트를 게시합니다.
@@ -306,16 +306,16 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
 5. URI에 _campaignId_ 쿼리 문자열 매개 변수를 추가합니다. 예를 들어 다음 이미지와 같이 `&campaignId=hawaii`를 추가합니다.
 
-    ![CampaignId 쿼리 문자열 매개 변수를 강조 표시 된 URI](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![CampaignId 쿼리 문자열 매개 변수가 강조 표시 된 URI](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. **Enter**를 선택하여 하와이 배경 이미지를 표시합니다.
 
-    ![하와이 이미지 사용자 지정 배경 사용 하 여 등록에서 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![하와이 이미지 사용자 지정 배경으로 등록 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
 7. 값을 *도쿄*로 변경하고 **Enter**를 선택합니다.
     브라우저에 도쿄 배경이 표시됩니다.
 
-    ![도쿄 이미지 사용자 지정 배경 사용 하 여 등록에서 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![도쿄 이미지 사용자 지정 배경으로 등록 로그인 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## <a name="step-9-change-the-rest-of-the-user-journey"></a>9단계: 사용자 경험의 나머지 변경
 로그인 페이지에서 **지금 등록** 링크를 선택하면 브라우저는 정의한 이미지가 아닌 기본 배경 이미지를 표시합니다. 이 동작은 등록 또는 로그인 페이지만 변경했기 때문에 발생합니다. 나머지 자체 어설션 콘텐츠 정의를 변경하려면 다음을 수행하십시오.

@@ -4,72 +4,72 @@ description: Azure IoT Central 애플리케이션에서 Azure Blob Storage에 �
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464637"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849065"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
-이 문서에서는 주기적으로 데이터를 내보낼 Azure IoT Central의 연속 데이터 내보내기 기능을 사용 하는 방법을 설명 하 **Azure Blob storage 계정**합니다. Apache Avro 형식의 파일로 **측정값**, **디바이스** 및 **디바이스 템플릿**을 내보낼 수 있습니다. 내보낸 데이터는 Azure Machine Learning의 학습 모델 또는 Microsoft Power BI의 장기 추세 분석과 같은 콜드 경로 분석에 사용할 수 있습니다.
+이 문서에서는 Azure IoT Central의 연속 데이터 내보내기 기능을 사용 하 여 주기적으로 **Azure Blob storage 계정**으로 데이터를 내보내는 방법을 설명 합니다. Apache Avro 형식의 파일로 **측정값**, **디바이스** 및 **디바이스 템플릿**을 내보낼 수 있습니다. 내보낸 데이터는 Azure Machine Learning의 학습 모델 또는 Microsoft Power BI의 장기 추세 분석과 같은 콜드 경로 분석에 사용할 수 있습니다.
 
 > [!Note]
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - IoT Central 애플리케이션에서 관리자여야 함
 
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
 
-내보내려면 기존의 Storage가 없는 경우 다음이 단계를 수행 합니다.
+내보낼 기존 저장소가 없는 경우 다음 단계를 수행 합니다.
 
 ## <a name="create-storage-account"></a>Storage 계정 만들기
 
 1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. [Azure Storage 문서](https://aka.ms/blobdocscreatestorageaccount)에서 자세히 알아볼 수 있습니다.
 2. 계정 유형은 **범용** 또는 **Blob Storage** 중에 선택합니다.
-3. 구독을 선택하세요. 
+3. 구독을 선택합니다. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
 
-4. 스토리지 계정에 컨테이너를 만듭니다. 저장소 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 선택 **+ 컨테이너** 새 컨테이너를 만들려면 맨 위에 있는
+4. 스토리지 계정에 컨테이너를 만듭니다. 저장소 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 위쪽에서 **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
 
 
 ## <a name="set-up-continuous-data-export"></a>연속 데이터 내보내기 설정
 
-데이터를 내보낼 저장소 대상 했으므로 연속 데이터 내보내기 설정 하려면 다음이 단계를 수행 합니다. 
+이제 데이터를 내보낼 저장소 대상이 있으므로 다음 단계에 따라 연속 데이터 내보내기를 설정 합니다. 
 
 1. IoT Central 애플리케이션에 로그인합니다.
 
-2. 왼쪽된 메뉴에서 선택 **연속 데이터 내보내기**합니다.
+2. 왼쪽 메뉴에서 **연속 데이터 내보내기**를 선택 합니다.
 
     > [!Note]
     > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
     ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
 
-3. 선택 된 **+ 새로 만들기** 오른쪽 위에 있는 단추입니다. 선택할 **Azure Blob Storage** 내보내기의 대상으로 합니다. 
+3. 오른쪽 위에 있는 **+ 새로 만들기** 단추를 선택 합니다. 내보내기의 대상으로 **Azure Blob Storage** 를 선택 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
     ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
 
-4. 드롭다운 목록 상자에서 선택 하 **저장소 계정의 네임 스페이스**합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
+4. 드롭다운 목록 상자에서 **저장소 계정 네임 스페이스**를 선택 합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
     > [!NOTE] 
-    > 저장소 계정의 네임 스페이스에만 표시 됩니다는 **IoT Central 앱과 동일한 구독**합니다. 이 구독 외부의 대상으로 내보내려는 경우 **연결 문자열 입력**을 선택하고 5단계를 참조합니다.
+    > 저장소 계정 네임 스페이스는 **IoT Central 앱과 동일한 구독**에만 표시 됩니다. 이 구독 외부의 대상으로 내보내려는 경우 **연결 문자열 입력**을 선택하고 5단계를 참조합니다.
 
     > [!NOTE] 
     > 7일 평가판 앱의 경우 연결 문자열을 통해서만 연속 데이터 내보내기를 구성할 수 있습니다. 7일 평가판 앱에는 연결된 Azure 구독이 없기 때문입니다.
@@ -77,15 +77,15 @@ ms.locfileid: "65464637"
     ![새 cde 이벤트 허브 만들기](media/howto-export-data/export-create-blob.png)
 
 5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
-    - 저장소 계정에 Azure portal에서 저장소 계정으로 이동 합니다.
-        - 아래 **설정을**, 선택 **액세스 키**
+    - 저장소 계정 Azure Portal의 저장소 계정으로 이동 합니다.
+        - **설정**아래에서 **액세스 키** 를 선택 합니다.
         - key1 연결 문자열 또는 key2 연결 문자열 중 하나를 복사합니다.
  
 6. 드롭다운 목록 상자에서 컨테이너를 선택 합니다.
 
 7. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
 
-6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
+6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다.           **저장**을 선택합니다.
 
    ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "65464637"
 }
 ```
 
-### <a name="devices"></a>디바이스
+### <a name="devices"></a>장치
 
 연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅샷이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
 - IoT Central의 디바이스 `id`

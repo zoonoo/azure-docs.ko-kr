@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: vashan, rajraj, changov
-ms.openlocfilehash: a9e0f2620bf6ff163207fc16ee24a327936ec4bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: changov
+ms.reviewer: vashan, rajraj
+ms.openlocfilehash: 6ae14edb7fa6b44f7c3bb961ffbcceb26eb9dee3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709191"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875453"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
