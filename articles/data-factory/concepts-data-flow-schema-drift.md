@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722873"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314818"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mapping Data Flow 스키마 드리프트
 
@@ -25,7 +25,8 @@ ms.locfileid: "67722873"
 * 하드 코드된 필드 및 값 대신 데이터 패턴을 사용할 수 있는 변환 매개 변수 정의
 * 명명된 필드를 사용하는 대신 수신 필드와 일치하는 패턴을 이해하는 식 정의
 
-## <a name="how-to-implement-schema-drift"></a>스키마 드리프트를 구현 하는 방법
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>ADF 매핑 데이터 흐름에서 스키마 드리프트를 구현 하는 방법
+ADF는 데이터 흐름을 다시 컴파일할 필요 없이 일반 데이터 변환 논리를 작성할 수 있도록 실행에서 실행으로 변경 되는 유연한 스키마를 기본적으로 지원 합니다.
 
 * 원본 변환에서 “스키마 드리프트 허용” 선택
 
@@ -33,11 +34,13 @@ ms.locfileid: "67722873"
 
 * 이 옵션을 선택하면 Data Flow가 실행될 때마다 원본에서 모든 수신 필드를 읽고 전체 흐름을 거쳐 싱크로 전달합니다.
 
-* "자동 매핑"를 사용 하 여 모든 새 필드가 선택 접속 가져오고 대상에 연결 되도록 싱크 변환에서 모든 새 필드를 매핑할 해야 합니다.
+* 새로 검색 된 모든 열 (데이터베이스가 드리프트 열)은 기본적으로 문자열 데이터 형식으로 도착 합니다. ADF에서 원본의 데이터 형식을 자동으로 유추 하도록 하려면 원본 변환에서 "데이터베이스가 드리프트 열 유형 유추"를 선택 합니다.
+
+* "자동 매핑"을 사용 하 여 모든 새 필드를 대상에서 선택 하 고 배치 하 고 싱크에 "Allow Schema 드리프트"를 설정 하도록 싱크 변환의 모든 새 필드를 매핑해야 합니다.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* 간단한 원본 -> 싱크(즉, 복사) 매핑을 사용하면 해당 시나리오에서 새 필드가 도입될 때 모든 기능이 제대로 작동합니다.
+* 이러한 시나리오에서 간단한 소스-> 싱크 (복사) 매핑을 사용 하 여 새 필드를 도입할 때 모든 것이 작동 합니다.
 
 * 해당 워크플로에 스키마 드리프트를 처리하는 변환을 추가하려면 패턴 일치를 사용하여 이름, 형식 및 값을 기준으로 열을 일치시킬 수 있습니다.
 
@@ -67,9 +70,11 @@ Azure Data Factory Data Flow 샘플 “Taxi Demo”를 사용하여 이 작업�
 <img src="media/data-flow/taxidrift2.png" width="800">
 
 ## <a name="access-new-columns-downstream"></a>새 열 다운스트림 액세스
+열 패턴을 사용 하 여 새 열을 생성 하는 경우 다음 메서드를 사용 하 여 나중에 데이터 흐름 변환의 새 열에 액세스할 수 있습니다.
 
-열 패턴을 사용 하 여 새 열을 생성 하는 경우에 "byName" 식 함수를 사용 하 여 데이터 흐름 변환의 뒷부분에 나오는 이러한 새 열을 액세스할 수 있습니다.
+* "ByPosition"를 사용 하 여 위치 번호를 기준으로 새 열을 식별 합니다.
+* "ByName"를 사용 하 여 이름을 기준으로 새 열을 식별 합니다.
+* 열 패턴에서 "Name", "Stream", "Position" 또는 "Type"을 사용 하거나 새 열과 일치 하는 항목을 조합 하 여 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-에 [데이터 흐름 식 언어](data-flow-expression-functions.md) 열 패턴 및 스키마 드리프트 "byName" 및 "byPosition"를 포함 하 여 추가 기능을 찾을 수 있습니다.
+[데이터 흐름 식 언어](data-flow-expression-functions.md) 에서 열 패턴에 대 한 추가 기능 및 "byName" 및 "byPosition"를 포함 하는 스키마 드리프트를 찾을 수 있습니다.

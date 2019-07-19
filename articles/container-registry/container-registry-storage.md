@@ -3,16 +3,17 @@ title: Azure Container Registry의 이미지 저장소
 description: 보안, 중복성 및 용량을 포함하여 Docker 컨테이너 이미지가 Azure Container Registry에 저장되는 방식에 대한 세부 정보입니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827275"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310531"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 저장소
 
@@ -34,19 +35,19 @@ Azure는 지역 중복 저장소 체계를 사용하여 컨테이너 이미지�
 
 다음 표에서는 Azure Container Registry에 적용되는 컨테이너 이미지 및 저장소 제한에 대해 설명합니다.
 
-| Resource | 제한 |
+| 리소스 | 제한 |
 | -------- | :---- |
 | 리포지토리 | 제한 없음 |
 | 이미지 | 제한 없음 |
 | 레이어 | 제한 없음 |
-| 태그들 | 제한 없음|
-| Storage | 5TB |
+| Tags | 제한 없음|
+| 저장 공간 | 5TB |
 
 저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. 레지스트리 유지 관리 루틴의 일환으로 사용하지 않은 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*. 레지스트리 리소스를 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
 
 ## <a name="storage-cost"></a>저장소 비용
 
-가격 책정에 대한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
+가격 책정에 대 한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

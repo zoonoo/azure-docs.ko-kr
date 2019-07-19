@@ -3,17 +3,17 @@ title: IoT Central에서 애플리케이션 기본 설정 관리 | Microsoft Doc
 description: IoT Central에서 애플리케이션 및 개인 기본 설정을 관리하는 방법
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5c0dbcb1c1f483bd7499de08c9f1949adff415b
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236328"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850140"
 ---
 # <a name="manage-your-application-preferences"></a>애플리케이션 기본 설정 관리
 
@@ -23,11 +23,11 @@ IoT Central은 애플리케이션을 사용자 요구에 맞게 유연하게 사
 
 ## <a name="changing-language"></a>언어 변경
 
-IoT Central은 여러 언어에서 지원 됩니다. 사용 하 여 원하는 언어를 전환할 수 있습니다 합니다 **언어 선택기** 위쪽 탐색 모음에서 설정 아이콘입니다. 언어를 변경한 후 IoT Central 사항을 기억 하 고 모든 응용 프로그램에 적용 합니다. 이러한 대시보드 이미지가 아닌 지역화 된 응용 프로그램 내에서 사용자 지정 합니다.
+IoT Central는 여러 언어로 지원 됩니다. 위쪽 탐색 모음의 설정 아이콘에서 **언어 선택기** 를 사용 하 여 원하는 언어를 전환할 수 있습니다. 언어를 변경한 후에는 IoT Central 선택 항목을 기억 하 고 모든 응용 프로그램에 적용 합니다. 응용 프로그램 내에서 대시보드 이미지와 같은 사용자 지정은 지역화 되지 않습니다.
 
 ## <a name="changing-theme"></a>테마 변경
 
-밝은 테마와 어두운 테마가 모두 지원됩니다. 밝은 테마의 기본 상태인 동안에 위쪽 탐색 모음에서 설정 아이콘을 선택 하 여 테마를 변경할 수 있습니다.
+밝은 테마와 어두운 테마가 모두 지원됩니다. 밝은 테마는 기본값 이지만 위쪽 탐색 모음에서 설정 아이콘을 선택 하 여 테마를 변경할 수 있습니다.
 
 ![IoT Central 테마 선택](media/howto-manage-preferences/settings.png)
 
@@ -39,4 +39,4 @@ IoT Central은 여러 언어에서 지원 됩니다. 사용 하 여 원하는 �
 지금까지 Azure IoT Central에서 프로필을 관리하는 방법을 알아보았으므로 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [라이브 채팅 설정/해제](howto-show-hide-chat.md)
+> [라이브 채팅 전환](howto-show-hide-chat.md)

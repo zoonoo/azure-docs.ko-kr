@@ -1,24 +1,24 @@
 ---
 title: Event Hub에서 Azure Data Explorer로 데이터 수집
-description: 이 문서에서는 이벤트 허브에서 Azure 데이터 탐색기를 (부하) 데이터를 수집 하는 방법을 알아봅니다.
+description: 이 문서에서는 이벤트 허브에서 Azure 데이터 탐색기로 데이터를 수집 (로드) 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67621989"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311624"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Event Hub에서 Azure Data Explorer로 데이터 수집
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. [Event Hubs](/azure/event-hubs/event-hubs-about)에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 문서에서는 이벤트 허브 만들기, Azure Data Explorer 및 시스템을 통해 참조 데이터 흐름에서 연결 합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. [Event Hubs](/azure/event-hubs/event-hubs-about)에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 문서에서는 이벤트 허브를 만들고, Azure 데이터 탐색기에서 연결 하 고, 시스템을 통해 데이터 흐름을 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -34,7 +34,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
-이 문서에서는 샘플 데이터를 생성 하 고 이벤트 허브로 전송 합니다. 첫 단계에서는 이벤트 허브를 만듭니다. 이렇게 하려면 Azure Portal에서 Azure Resource Manager 템플릿을 사용합니다.
+이 문서에서는 샘플 데이터를 생성 하 고 이벤트 허브로 보냅니다. 첫 단계에서는 이벤트 허브를 만듭니다. 이렇게 하려면 Azure Portal에서 Azure Resource Manager 템플릿을 사용합니다.
 
 1. 이벤트 허브를 만들려면 다음 단추를 사용하여 배포를 시작합니다. 마우스 오른쪽 단추로 클릭하고 **새 창에서 열기**를 선택하면 이 문서의 나머지 단계를 수행할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     |---|---|---|
     | 구독 | 사용자의 구독 | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
     | 리소스 그룹 | *test-hub-rg* | 새 리소스 그룹을 만듭니다. |
-    | 위치 | *미국 서부* | 선택 *미국 서 부* 이 문서에 대 한 합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다. 최상의 성능을 위해 Kusto 클러스터와 동일한 위치에 Event Hub 네임스페이스를 만듭니다(처리량이 높은 Event Hub 네임스페이스에 가장 중요).
+    | 위치 | *미국 서부* | 이 문서에 대 한 *미국 서 부* 를 선택 합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다. 최상의 성능을 위해 Kusto 클러스터와 동일한 위치에 Event Hub 네임스페이스를 만듭니다(처리량이 높은 Event Hub 네임스페이스에 가장 중요).
     | 네임스페이스 이름 | 고유한 네임스페이스 이름 | 네임스페이스를 식별하는 고유한 이름을 선택합니다. 예를 들어 *mytestnamespace*를 선택합니다. 입력한 이름에 도메인 이름 *servicebus.windows.net*이 추가됩니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 이름은 문자로 시작하고 문자나 숫자로 끝나야 합니다. 값의 길이는 6자에서 50자 사이여야 합니다.
     | 이벤트 허브 이름 | *test-hub* | 이벤트 허브는 고유한 범위 지정 컨테이너 역할을 하는 네임스페이스 아래에 배치됩니다. 이벤트 허브 이름은 네임스페이스 내에서 고유해야 합니다. |
     | 소비자 그룹 이름 | *test-group* | 소비자 그룹을 사용하면 각기 별도의 이벤트 스트림 보기가 표시되는 여러 애플리케이션을 사용할 수 있습니다. |
@@ -187,7 +187,9 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     ![메시지 결과 집합](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다. 정책 대기 시간이 발생할 수 있으므로 기본적으로 5 분으로 구성 됩니다. 참조 [정책 일괄 처리](/azure/kusto/concepts/batchingpolicy) 집계 옵션에 대 한 합니다. 참조 [정책 스트리밍](/azure/kusto/concepts/streamingingestionpolicy) 없는 집계를 사용 하 여 수집 합니다.
+    > * Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다. 이 정책은 기본적으로 5 분 또는 500 MB의 데이터로 구성 되므로 대기 시간이 길어질 수 있습니다. 집계 옵션에 대 한 [일괄 처리 정책](/azure/kusto/concepts/batchingpolicy) 을 참조 하세요. 
+    > * 이벤트 허브 수집에는 10 초 또는 1mb의 이벤트 허브 응답 시간이 포함 됩니다. 
+    > * 스트리밍을 지원 하도록 테이블을 구성 하 고 응답 시간에서 지연 시간을 제거 합니다. [스트리밍 정책](/azure/kusto/concepts/streamingingestionpolicy)을 참조 하세요. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -205,4 +207,4 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)
+* [Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)

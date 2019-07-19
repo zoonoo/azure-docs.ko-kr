@@ -11,22 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 766208c01f27d2024025b7a202bc3724b4fc9fff
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703889"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311847"
 ---
-# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3에 대 한 질문과 대답
+# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
 이 문서에서는 AMS(Azure Media Services) v3에 대해 자주 묻는 질문과 대답을 제공합니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure 역할 Azure Media Services 리소스에서 작업을 수행할 수 있습니까? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure Media Services 리소스에 대 한 작업을 수행할 수 있는 Azure 역할은 무엇 인가요? 
 
-참조 [Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)](rbac-overview.md)합니다.
+[Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>미디어 예약 단위를 구성하려면 어떻게 할까요?
 
@@ -36,19 +36,19 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 
-[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. A [작업](https://docs.microsoft.com/rest/api/media/jobs) 적용 하려면 Media Services에 대 한 실제 요청입니다 합니다 **변환** 주어진된 입력된 비디오 또는 오디오 콘텐츠를 합니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
+[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. [작업](https://docs.microsoft.com/rest/api/media/jobs) 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
 
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
 페이지 매김을 사용할 때는 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다. 자세한 내용과 예제는 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
 
-### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>어떤 기능은 아직 Azure Media Services v3에서 사용할 수 있습니까?
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Azure Media Services v3에서 아직 사용할 수 없는 기능은 무엇입니까?
 
-세부 정보를 참조 하세요 [v2 Api와 관련 하 여 간격을 기능](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)합니다.
+자세한 내용은 [V2 api에 대 한 기능 간격](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)을 참조 하세요.
 
-### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Media Services 계정 구독 간에 이동 하는 프로세스가 무엇 인가요?  
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>구독 간에 Media Services 계정을 이동 하는 프로세스는 무엇 인가요?  
 
-자세한 내용은 참조 하세요 [구독을 사용 하 여 Media Services 계정을 이동할](media-services-account-concept.md)합니다.
+자세한 내용은 [구독 간 Media Services 계정 이동](media-services-account-concept.md)을 참조 하세요.
 
 ## <a name="live-streaming"></a>라이브 스트리밍 
 
@@ -60,9 +60,15 @@ Media Services v3 라이브 인코딩은 아직 라이브 스트리밍 도중에
 
 ## <a name="content-protection"></a>콘텐츠 보호
 
+### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>AES-128 암호화 되지 않은 키 암호화 또는 DRM 시스템을 사용 해야 하나요?
+
+고객들은 종종 AES 암호화 또는 DRM 시스템을 사용해야 할지 여부를 궁금해 합니다. 두 시스템 간의 주요 차이점은 AES 암호화를 사용 하는 경우 키가 전송 중에 암호화 되지만 추가 암호화 ("clear") 없이 암호화 되도록 콘텐츠 키가 TLS를 통해 클라이언트에 전송 된다는 것입니다. 따라서 콘텐츠를 해독 하는 데 사용 되는 키는 클라이언트 플레이어에서 액세스할 수 있으며, 클라이언트의 네트워크 추적에서 일반 텍스트로 볼 수 있습니다. AES-128 암호화 되지 않은 키 암호화는 뷰어가 신뢰할 수 있는 당사자 (예: 직원이 볼 수 있도록 회사 내에 배포 되는 회사 비디오 암호화) 인 사용 사례에 적합 합니다.
+
+PlayReady, Widevine 및와 같은 DRM 시스템은 모두 AES-128 암호화 되지 않은 키와 비교 하 여 콘텐츠를 암호 해독 하는 데 사용 되는 키에 대 한 추가 수준의 암호화를 제공 합니다. 콘텐츠 키는 TLS에서 제공 하는 전송 수준 암호화에 추가 하 여 DRM 런타임에 의해 보호 되는 키로 암호화 됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 사용 사례에 권장됩니다.
+
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>라이선스 또는 키를 요청하는 데 사용하기 전에 JWT 토큰을 가져올 수 있는 방법과 위치는 어떻게 되나요?
 
-1. 프로덕션 환경의 경우 HTTPS 요청 시 JWT 토큰을 발급하는 STS(보안 토큰 서비스)(웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
+1. 프로덕션의 경우 HTTPS 요청 시 JWT 토큰을 발급 하는 STS (보안 토큰 서비스) (웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
 2. 사용자가 인증되면 플레이어에서 이러한 토큰에 대해 STS에 요청하고 토큰의 값으로 할당해야 합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
 
 * 대칭 및 비대칭 키를 사용하여 STS를 실행하는 예제는 [https://aka.ms/jwt](https://aka.ms/jwt)를 참조하세요. 
@@ -74,12 +80,58 @@ Media Services v3 라이브 인코딩은 아직 라이브 스트리밍 도중에
 
 STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미엄 사용자", "기본 사용자", "평가판 사용자")을 추가합니다. JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 물론 ContentKeyPolicyRestriction에는 서로 다른 콘텐츠/자산에 해당하는 RequiredClaims가 있습니다.
 
-구성 하는 데 사용 하 여 Azure Media Services Api 라이선스/키 배달 및 자산 암호화 (에서처럼 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+[이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
 
 참조 항목:
 
 - [콘텐츠 보호 개요](content-protection-overview.md)
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
+
+### <a name="http-or-https"></a>HTTP 또는 HTTPS
+ASP.NET MVC 플레이어 응용 프로그램은 다음을 지원해야 합니다.
+
+* Azure AD를 통한 사용자 인증이 HTTPS를 사용해야 함
+* 클라이언트 및 Azure AD 간 JWT 교환이 HTTPS를 사용해야 함
+* Media Services에서 라이선스 배달이 제공된 경우 클라이언트에 의한 DRM 라이선스 획득 시 HTTPS를 사용해야 함. PlayReady 제품군은 라이선스 배달에 대한 HTTPS를 위임하지 않습니다. PlayReady 라이선스 서버가 Media Services 외부에 있는 경우 HTTP 또는 HTTPS를 사용할 수 있습니다.
+
+ASP.NET 플레이어 애플리케이션은 HTTPS를 사용하는 것이 가장 좋으므로 Media Player는 HTTPS를 사용하는 페이지에 있게 됩니다. 그러나 스트리밍의 경우 HTTP를 선호하므로 콘텐츠 혼합 문제를 고려해야 합니다.
+
+* 브라우저에서는 혼합 콘텐츠를 허용하지 않습니다. 하지만 Silverlight과 같은 플러그인, 부드러운 스트리밍을 위한 OSMF 플러그인 및 DASH는 허용합니다. 악성 JavaScript를 주입할 수 있는 위협으로 인해 고객 데이터가 위험해질 수 있으므로 혼합 콘텐츠는 보안 문제를 발생할 수 있습니다. 브라우저는 기본적으로 이 기능을 차단합니다. 이 문제를 해결하는 유일한 방법이 서버(원본) 쪽에서 HTTPS 또는 HTTP에 관계없이 모든 도메인을 허용하는 것입니다. 하지만 좋은 방법은 아닙니다.
+* 혼합 콘텐츠를 피해야 합니다. 플레이어 애플리케이션과 Media Player 둘 다 HTTP 또는 HTTPS를 사용해야 합니다. 혼합된 콘텐츠를 재생할 때 silverlightSS 기술은 혼합된 콘텐츠 경고를 지워야 합니다. flashSS 기술은 혼합된 콘텐츠 경고 없이 혼합된 콘텐츠를 처리합니다.
+* 스트리밍 엔드포인트가 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 엔드포인트를 만들어 사용하세요.
+
+### <a name="what-about-live-streaming"></a>라이브 스트리밍의 경우는 어떨까요?
+
+프로그램과 연결된 자산을 VOD 자산으로 처리하여 Media Services에서 라이브 스트리밍을 보호하는 데 정확히 동일한 디자인 및 구현을 사용할 수 있습니다. 라이브 콘텐츠의 다중 DRM 보호를 제공 하려면 자산을 라이브 출력과 연결 하기 전에 VOD 자산과 동일한 설정/처리를 자산에 적용 합니다.
+
+### <a name="what-about-license-servers-outside-media-services"></a>Media Services 외부에서 라이선스 서버는 어떨까요?
+
+고객들은 대체로 고유한 데이터 센터 또는 DRM 서비스 공급자가 호스트하는 형태로 라이선스 서버 팜에 투자할 수 있습니다. Media Services 콘텐츠 보호를 사용하면 하이브리드 모드로 작업할 수 있습니다. DRM 라이선스는 Media Services 외부 서버에서 제공되지만 콘텐츠는 Media Services에서 호스트되고 동적으로 보호될 수 있습니다. 이 경우 다음과 같은 변경을 고려하세요.
+
+* STS는 라이선스 서버 팜에서 허용되고 확인할 수 있는 토큰을 발급해야 합니다. 예를 들어 Axinom에서 제공하는 Widevine 라이선스 서버에는 자격 메시지를 포함하는 특정 JWT가 필요합니다. 따라서 이러한 JWT를 발급하는 STS가 있어야 합니다. 
+* 더 이상 Media Services에서 라이선스 배달 서비스를 구성하지 않아도 됩니다. ContentKeyPolicies를 구성할 때 라이선스 획득 URL(PlayReady, Widevine 및 FairPlay에 대해)을 제공해야 합니다.
+
+### <a name="what-if-i-want-to-use-a-custom-sts"></a>사용자 지정 STS를 사용하려면 어떻게 하나요?
+
+고객은 사용자 지정 STS를 사용하여 JWT를 제공하기로 선택할 수 있습니다. 그 이유는 다음과 같습니다.
+
+* 고객이 사용한 IDP에서 STS를 지원하지 않습니다. 이 경우 사용자 지정 STS가 옵션일 수 있습니다.
+* 고객은 STS를 고객의 구독자 청구 시스템과 통합하는 데 보다 유연하고 긴밀한 제어가 필요할 수 있습니다. 예를 들어 MVPD 작업자는 프리미엄, 기본 및 스포츠 등과 같은 여러 OTT 구독자 패키지를 제공할 수 있습니다. 이 작업자는 토큰의 클레임을 구독자의 패키지와 일치시켜 특정 패키지의 콘텐츠만 제공되도록 할 수 있습니다. 이 경우 사용자 지정 STS가 필요한 유연성 및 제어를 제공합니다.
+
+사용자 지정 STS를 사용할 때는 다음 두 가지를 변경해야 합니다.
+
+* 자산에 대한 라이선스 배달 서비스를 구성할 때 Azure AD의 현재 키 대신 사용자 지정 STS에서 확인에 사용한 보안 키를 지정해야 합니다. (자세한 내용은 아래 참조) 
+* JWT 토큰이 생성되면 Azure AD의 현재 X509 인증서의 프라이빗 키 대신 보안 키가 지정됩니다.
+
+두 가지 유형의 보안 키가 있습니다.
+
+* 대칭 키: JWT를 생성 및 확인하는 데 동일한 키가 사용됩니다.
+* 비대칭 키: JWT를 암호화/생성하는 데는 프라이빗 키가, 토큰을 확인하는 데는 공개 키가 사용되는 방식으로 X509 인증서에 공개-프라이빗 키 쌍이 사용됩니다.
+
+> [!NOTE]
+> 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
+> 
+> IDX10630: 서명을 위한 ‘System.IdentityModel.Tokens.X509AsymmetricSecurityKey’는 ‘2048’비트 이상이어야 합니다.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교 
 

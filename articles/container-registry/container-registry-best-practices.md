@@ -3,16 +3,17 @@ title: Azure Container Registry의 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787367"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309764"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -50,11 +51,11 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 Azure Container Instances와 같은 특정 호스트 유형으로 시험해 볼 수 있지만 완료되면 컨테이너 인스턴스를 삭제하려고 할 것입니다. 그러나 Azure Container Registry에 푸시한 이미지의 컬렉션은 유지하려고 할 수 있습니다. 레지스트리를 자체 리소스 그룹에 배치하여 컨테이너 인스턴스 리소스 그룹을 삭제할 때 레지스트리의 이미지의 컬렉션을 실수로 삭제의 위험을 최소화할 수 있습니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉 개별 인증과 서비스(또는 "헤드리스") 인증이 있습니다. 다음 표에서는 이러한 시나리오와 각 시나리오의 권장 인증 방법에 대해 간략하게 설명합니다.
 
-| Type | 예제 시나리오 | 권장 방법 |
+| 형식 | 예제 시나리오 | 권장 방법 |
 |---|---|---|
 | 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
@@ -63,9 +64,9 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 
 ## <a name="manage-registry-size"></a>레지스트리 크기 관리
 
-일반적인 시나리오에 맞게 각 [컨테이너 레지스트리 SKU][container-registry-skus]의 스토리지 제약 조건이 결정됩니다. **기본**은 시작하는 고객, **표준**은 대부분의 프로덕션 애플리케이션, **프리미엄**은 하이퍼스케일 성능 및 [지역 복제][container-registry-geo-replication] 시나리오에 적합합니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
+각 [container REGISTRY SKU][container-registry-skus] 의 저장소 제약 조건은 일반적인 시나리오에 맞게 설계 되었습니다. 시작 하기 위한 **기본** , 대부분의 프로덕션 응용 프로그램에 대 한 **표준** 및 하이퍼 규모의 성능 및 [지역에서 복제][container-registry-geo-replication]를 위한 **프리미엄** 입니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
-Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
+Azure CLI 명령 [az acr show-usage][az-acr-show-usage] 를 사용 하 여 레지스트리의 현재 크기를 표시 합니다.
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table

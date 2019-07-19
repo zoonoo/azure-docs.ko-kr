@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 68d0f4f85bc8879191784f038c74fafc40c422b7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: MT
+ms.openlocfilehash: 1e35ef9eab841878ecc147d7b22a82860f27e7d9
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604679"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297692"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -244,17 +244,19 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 | HRESULT | HRESULT(10진) | 오류 문자열 | 문제점 | 재구성 |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | 서버에서 계층화 된 파일에 액세스할 수 없습니다. 이 문제는 서버 끝점을 삭제 하기 전에 계층화 된 파일이 회수 되지 않은 경우에 발생 합니다. | 이 문제를 해결 하려면 [서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)을 참조 하세요. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 종속 폴더가 아직 동기화되지 않아 파일 또는 디렉터리 변경 내용을 동기화할 수 없습니다. 이 항목은 종속 변경 내용이 동기화된 후 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅샷을 만듭니다. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다. | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) 섹션을 참조하세요. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | 이 오류는 다음과 같은 이유로 발생할 수 있습니다. (예: NTFS EFS) 지원 되지 않는 솔루션으로 파일은 암호화, 파일이 삭제 보류 중 상태 또는 파일은 Dfs-r 읽기 전용 복제 폴더에 있습니다 | 파일은 지원 되지 않는 솔루션으로 암호화 하는 경우 파일의 암호 해독 및 지원 되는 암호화 솔루션을 사용 합니다. 지원 솔루션의 목록은 계획 가이드의 [암호화 솔루션](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)을 참조하세요. 파일이 삭제 보류 중 상태인 경우 열린 파일 핸들이 모두 닫히면 파일이 삭제됩니다. 파일을를 Dfs-r 읽기 전용 복제 폴더에 있는 경우에 Azure File Sync는 Dfs-r 읽기 전용 복제 폴더에 서버 끝점을 지원 하지 않습니다. 참조 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) 자세한 내용은 합니다.
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | 이 오류는 다음과 같은 이유로 발생할 수 있습니다. 파일은 지원 되지 않는 솔루션 (예: NTFS EFS)에 의해 암호화 되 고 파일은 삭제 보류 중 상태 이거나 파일이 DFS-R 읽기 전용 복제 폴더에 위치 합니다. | 지원 되지 않는 솔루션으로 파일을 암호화 하는 경우 파일의 암호를 해독 하 고 지원 되는 암호화 솔루션을 사용 합니다. 지원 솔루션의 목록은 계획 가이드의 [암호화 솔루션](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)을 참조하세요. 파일이 삭제 보류 중 상태인 경우 열린 파일 핸들이 모두 닫히면 파일이 삭제됩니다. 파일이 DFS-R 읽기 전용 복제 폴더에 있는 경우 Azure Files Sync는 DFS 읽기 전용 복제 폴더의 서버 끝점을 지원 하지 않습니다. 자세한 내용은 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) 를 참조 하세요.
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 
+
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
-경우는 **FileSyncErrorsReport.ps1** 오류 (오류 코드 0x8007007b) 지원 되지 않는 문자로 인해을 보여 주는 PowerShell 스크립트를 제거 하거나 오류가 발생할 경우 해당 파일 이름에 문자 이름을 변경 해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
+**FileSyncErrorsReport** PowerShell 스크립트가 지원 되지 않는 문자로 인 한 오류 (오류 코드 0x8007007b)를 표시 하는 경우 해당 파일 이름에서 오류 시 문자를 제거 하거나 이름을 변경 해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-cmdlet)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
 
 아래 표에서 Azure 파일 동기화에서 지원하지 않는 모든 유니코드 문자가 포함되어 있습니다.
 
@@ -300,7 +302,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 아무 조치도 필요 없습니다. 서버가 다시 시도합니다. 이 오류가 몇 시간 동안 지속되면 지원 요청을 만드세요.
 
-<a id="-2134364043"></a>**변경 내용 검색 후 복원 완료 될 때까지 동기화가 차단 되었습니다.**  
+<a id="-2134364043"></a>**변경 내용 검색 후 사후 복원이 완료 될 때까지 동기화가 차단 됩니다.**  
 
 | | |
 |-|-|
@@ -309,7 +311,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **오류 문자열** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **재구성 필요** | 아니요 |
 
-추가적인 조치가 필요하지 않습니다. 파일 또는 파일 공유 (클라우드 끝점)는 Azure Backup을 사용 하 여 복원 되 면 Azure 파일 공유에서 변경 내용을 검색 완료 될 때까지 동기화가 차단 되었습니다. 변경 내용 검색 복원을 완료 되 고 파일 공유의 파일 수를 기준으로 하는 기간 후에 즉시 실행 됩니다.
+추가적인 조치가 필요하지 않습니다. Azure Backup를 사용 하 여 파일 또는 파일 공유 (클라우드 끝점)를 복원 하는 경우 Azure 파일 공유에서 변경 검색이 완료 될 때까지 동기화가 차단 됩니다. 복원이 완료 되 고 기간이 파일 공유의 파일 수를 기반으로 하는 경우 변경 검색은 즉시 실행 됩니다.
 
 <a id="-2134364065"></a>**동기화에서 클라우드 엔드포인트에 지정된 Azure 파일 공유에 액세스할 수 없습니다.**  
 
@@ -736,7 +738,7 @@ if ($fileShare -eq $null) {
 1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다. 
 1. 목록에 **읽기 권한자 및 데이터 액세스** 역할과 함께 **하이브리드 파일 동기화 서비스**가 표시되는지 확인합니다. 
 
-    ![저장소 계정의 액세스 제어 탭에서 하이브리드 File Sync 서비스 서비스 주체의 스크린 샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![저장소 계정의 액세스 제어 탭에서 하이브리드 파일 동기화 서비스 서비스 주체의 스크린샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     **하이브리드 파일 동기화 서비스**가 목록에 표시되지 않는 경우 다음 단계를 수행합니다.
 
@@ -797,14 +799,14 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 
 다음 섹션에서는 클라우드 계층화 문제를 해결하고 클라우드 저장소 문제 또는 서버 문제인지 여부를 확인하는 방법에 대해 설명합니다.
 
-<a id="monitor-tiering-activity"></a>**서버의 계층화 작업을 모니터링하는 방법**  
+### <a name="how-to-monitor-tiering-activity-on-a-server"></a>서버에서 계층화 작업을 모니터링 하는 방법  
 서버의 계층화 작업을 모니터링하려면 이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9003, 9016 및 9029를 사용합니다.
 
 - 이벤트 ID 9003은 서버 엔드포인트에 대한 오류 분포를 제공합니다. 총 오류 수, ErrorCode 등을 예로 들 수 있습니다. 한 이벤트는 오류 코드별로 기록됩니다.
 - 이벤트 ID 9016은 볼륨에 대한 고스팅 결과를 제공합니다. 사용 가능한 공간 비율, 세션에서 고스팅된 파일 수, 고스팅에 실패한 파일 수 등을 예로 들 수 있습니다.
 - 이벤트 ID 9029는 서버 엔드포인트의 고스팅 세션 정보를 제공합니다. 세션에서 시도된 파일 수, 세션에서 계층화된 파일 수, 이미 계층화된 파일 수 등을 예로 들 수 있습니다.
 
-<a id="monitor-recall-activity"></a>**서버의 회수 작업을 모니터링하는 방법**  
+### <a name="how-to-monitor-recall-activity-on-a-server"></a>서버에서 회수 활동을 모니터링 하는 방법
 서버의 회수 작업을 모니터링하려면 이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006,9009 및 9059를 사용합니다.
 
 - 9005 이벤트 ID는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 액세스된 고유한 파일 수, 액세스에 실패한 고유한 파일 수 등을 예로 들 수 있습니다.
@@ -812,7 +814,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 - 이벤트 ID 9009는 서버 엔드포인트의 회수 세션 정보를 제공합니다. DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed 등을 예로 들 수 있습니다.
 - 이벤트 ID 9059는 서버 엔드포인트의 애플리케이션 회수 분포를 제공합니다. ShareId, Application Name, TotalEgressNetworkBytes 등을 예로 들 수 있습니다.
 
-<a id="files-fail-tiering"></a>**계층화에 실패한 파일의 문제 해결**  
+### <a name="how-to-troubleshoot-files-that-fail-to-tier"></a>계층화에 실패한 파일의 문제 해결 방법
 파일이 Azure Files로 계층화되지 못한 경우:
 
 1. 이벤트 뷰어에서 Applications and Services\Microsoft\FileSync\Agent 아래에 있는 원격 분석, 운영 및 진단 이벤트 로그를 검토합니다. 
@@ -828,7 +830,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 > [!NOTE]
 > 파일이 계층화에 실패하면 이벤트 ID 9003이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). 문제를 진단하기 위해 추가 정보가 필요한 경우 운영 및 진단 이벤트 로그를 사용해야 합니다.
 
-<a id="files-fail-recall"></a>**회수에 실패한 파일 문제 해결**  
+### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>회수에 실패한 파일의 문제 해결 방법  
 파일을 회수하지 못한 경우:
 1. 이벤트 뷰어에서 Applications and Services\Microsoft\FileSync\Agent 아래에 있는 원격 분석, 운영 및 진단 이벤트 로그를 검토합니다.
     1. Azure 파일 공유에 파일이 있는지 확인합니다.
@@ -840,7 +842,88 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 > [!NOTE]
 > 파일이 회수에 실패하면 이벤트 ID 9006이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). 문제를 진단하기 위해 추가 정보가 필요한 경우 운영 및 진단 이벤트 로그를 사용해야 합니다.
 
-<a id="files-unexpectedly-recalled"></a>**서버에서 예기치 않게 회수되는 파일 문제 해결**  
+### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음
+서버 끝점을 삭제 하기 전에 파일을 회수 하지 않으면 서버의 계층화 된 파일에 액세스할 수 없게 됩니다.
+
+계층화 된 파일에 액세스할 수 없는 경우 기록 되는 오류
+- 파일을 동기화 할 때 오류 코드-2147942467 (0x80070043-ERROR_BAD_NET_NAME)이 ItemResults 이벤트 로그에 기록 됩니다.
+- 파일을 회수할 때 오류 코드-2134376393 (0x80c80037-ECS_E_SYNC_SHARE_NOT_FOUND)이 대체 Allresults 이벤트 로그에 기록 됩니다.
+
+다음 조건이 충족 되 면 계층화 된 파일에 대 한 액세스를 복원할 수 있습니다.
+- 서버 끝점이 지난 30 일 이내에 삭제 되었습니다.
+- 클라우드 끝점이 삭제 되지 않았습니다. 
+- 파일 공유를 삭제 하지 않았습니다.
+- 동기화 그룹을 삭제 하지 않았습니다.
+
+위의 조건을 충족 하는 경우 30 일 이내에 동일한 동기화 그룹 내의 서버에서 동일한 경로에 서버 끝점을 다시 만들어 서버에 있는 파일에 대 한 액세스를 복원할 수 있습니다. 
+
+위의 조건이 충족 되지 않으면 서버에서 계층화 된 파일이 이제 분리 되기 때문에 액세스를 복원 하지 못할 수 있습니다. 분리 된 계층화 된 파일을 제거 하려면 아래 지침을 따르세요.
+
+**참고**
+- 서버에서 계층화 된 파일에 액세스할 수 없는 경우 Azure 파일 공유에 직접 액세스 하는 경우에도 전체 파일에 액세스할 수 있어야 합니다.
+- 나중에 분리 된 계층화 된 파일을 방지 하려면 서버 끝점을 삭제할 때 [서버 끝점 제거](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) 에 설명 된 단계를 따르세요.
+
+<a id="get-orphaned"></a>**분리 된 계층화 된 파일 목록을 가져오는 방법** 
+
+1. 에이전트 버전 v 5.1 이상이 설치 되어 Azure File Sync 확인 합니다.
+2. 다음 PowerShell 명령을 실행 하 여 분리 된 계층화 된 파일을 나열 합니다.
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. 파일이 삭제 된 후 백업에서 복원 해야 하는 경우에 OrphanTieredFiles 출력 파일을 저장 합니다.
+
+<a id="remove-orphaned"></a>**분리 된 계층화 된 파일을 제거 하는 방법** 
+
+*옵션 1: 분리 된 계층화 된 파일 삭제*
+
+이 옵션은 Windows Server에서 분리 된 계층화 된 파일을 삭제 하지만 30 일 후에는 다시 만들기로 인해 존재 하거나 다른 동기화 그룹에 연결 된 경우 서버 끝점을 제거 해야 합니다. 파일 충돌은 서버 끝점을 다시 만들기 전에 Windows Server 또는 Azure 파일 공유에서 파일이 업데이트 되는 경우에 발생 합니다.
+
+1. 에이전트 버전 v 5.1 이상이 설치 되어 Azure File Sync 확인 합니다.
+2. Azure 파일 공유 및 서버 끝점 위치를 백업 합니다.
+3. [서버 끝점 제거](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에서 서버 끝점을 제거 합니다 (있는 경우).
+
+> [!Warning]  
+> StorageSyncOrphanedTieredFiles cmdlet을 사용 하기 전에 서버 끝점을 제거 하지 않으면 서버에서 분리 된 계층화 된 파일을 삭제 하면 Azure 파일 공유에서 전체 파일이 삭제 됩니다. 
+
+4. 다음 PowerShell 명령을 실행 하 여 분리 된 계층화 된 파일을 나열 합니다.
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. 파일이 삭제 된 후 백업에서 복원 해야 하는 경우에 OrphanTieredFiles 출력 파일을 저장 합니다.
+6. 다음 PowerShell 명령을 실행 하 여 분리 된 계층화 된 파일을 삭제 합니다.
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**참고** 
+- Azure 파일 공유에 동기화 되지 않은 서버에서 수정 된 계층화 된 파일은 삭제 됩니다.
+- 액세스할 수 있는 (고아 아님) 계층화 된 파일은 삭제 되지 않습니다.
+- 계층화 되지 않은 파일은 서버에 유지 됩니다.
+
+7. 선택 사항: 3 단계에서 삭제 한 경우 서버 끝점을 다시 만듭니다.
+
+*옵션 2: Azure 파일 공유를 탑재 하 고 서버에서 분리 된 파일을 로컬로 복사 합니다.*
+
+이 옵션은 서버 끝점을 제거 하지 않아도 되지만 전체 파일을 로컬로 복사 하는 데 충분 한 디스크 공간이 필요 합니다.
+
+1. 분리 된 계층화 파일이 있는 Windows Server에서 Azure 파일 공유를 [탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) 합니다.
+2. 다음 PowerShell 명령을 실행 하 여 분리 된 계층화 된 파일을 나열 합니다.
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. OrphanTieredFiles 출력 파일을 사용 하 여 서버에서 분리 된 계층화 된 파일을 식별 합니다.
+4. Azure 파일 공유에서 Windows Server로 전체 파일을 복사 하 여 분리 된 계층화 된 파일을 덮어씁니다.
+
+### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>서버에서 예기치 않게 회수 되는 파일의 문제를 해결 하는 방법  
 바이러스 백신, 백업, 그리고 대량의 파일을 읽는 기타 애플리케이션은 오프라인 특성 건너뛰기 및 해당 파일의 내용 읽기 건너뛰기를 사용하지 않을 경우 의도치 않은 회수가 발생합니다. 이 옵션을 지원하는 제품에 대한 오프라인 파일 건너뛰기는 바이러스 백신 검사 또는 백업 작업 등을 수행하는 동안 의도치 않은 회수를 피하는 데 도움이 됩니다.
 
 오프라인 파일 읽기를 건너뛰도록 솔루션을 구성하는 방법은 소프트웨어 공급업체에 문의하세요.
@@ -863,7 +946,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 문제가 해결되지 않으면 AFSDiag 도구를 실행합니다.
 1. AFSDiag 출력이 저장될 디렉터리를 만듭니다(예: C:\output).
     > [!NOTE]
-    >AFSDiag 로그를 수집 하기 전에 출력 디렉터리에 있는 모든 콘텐츠가 삭제 됩니다. 데이터를 포함 하지 않는 출력 위치를 지정 합니다.
+    >AFSDiag는 로그를 수집 하기 전에 출력 디렉터리의 모든 내용을 삭제 합니다. 데이터를 포함 하지 않는 출력 위치를 지정 하십시오.
 2. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 실행합니다(각 명령 후 Enter 키 누름).
 
     ```powershell

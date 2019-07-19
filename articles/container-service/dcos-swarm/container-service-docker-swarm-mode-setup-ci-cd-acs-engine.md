@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
-ms.author: diegomrtnzg
+ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd502a308d6298dc2941461632a2832ac336c45c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430674"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849879"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -24,7 +24,7 @@ ms.locfileid: "60430674"
 
 요즘 클라우드를 위한 최신 애플리케이션을 개발할 때 어려운 문제 중 하나는 이러한 애플리케이션을 지속적으로 전달할 수 있다는 점입니다. 이 문서에서는 다음을 사용하여 전체 CI/CD(지속적인 통합 및 배포) 파이프라인을 구현하는 방법을 알아봅니다. 
 * Docker Swarm Mode의 Azure Container Service Engine
-* Azure 컨테이너 레지스트리
+* Azure Container Registry
 * Azure DevOps
 
 이 문서는 간단한 애플리케이션을 기반으로 [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)에서 사용할 수 있으며 ASP.NET Core를 사용하여 전개됩니다. 애플리케이션은 세 개의 웹 API 및 하나의 웹 프론트 엔드라는 네 개의 다른 서비스로 구성되어 있습니다.
@@ -46,7 +46,7 @@ Azure DevOps를 사용하여 Docker Swarm Mode 클러스터에서 이 애플리�
 7. 클러스터의 Docker Swarm Mode는 이미지의 최신 버전을 가져옵니다. 
 8. Docker Stack을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
@@ -129,7 +129,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* 프록시
+* Proxy (프록시)
 * RatingsApi
 * RecommendationsApi
 * ShopFront

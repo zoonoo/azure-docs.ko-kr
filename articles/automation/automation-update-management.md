@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bfec413430de588be6c4423702d41779a8426d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0c94e10a6f44a99c31e30c8f7df54e9441ce7a18
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477987"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311753"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
-Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리 하려면 Azure Automation에서 업데이트 관리 솔루션을 사용할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
+Azure Automation에서 업데이트 관리 솔루션을 사용 하 여 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
 Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사용하도록 설정할 수 있습니다. Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 머신에 대한 업데이트 관리](manage-update-multi.md)를 참조하세요. Azure Portal의 가상 머신 페이지에서 가상 머신에 대한 업데이트 관리를 사용할 수도 있습니다. 이 시나리오는 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 및 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 가상 머신에서 지원됩니다.
 
@@ -39,13 +39,13 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다.
 
-패키지를 출시 되 면 패치 평가 대 한 Linux 컴퓨터에 대 한 표시를 2 ~ 3 시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
+패키지가 릴리스되면 패치가 평가를 위해 Linux 컴퓨터에 표시 되는 데 2-3 시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
 
-컴퓨터에 업데이트 준수 검사가 완료 되 면 에이전트를 대량으로 Azure Monitor 로그의 정보를 전달 합니다. Windows 컴퓨터는 기본적으로 12시간마다 준수 검사가 실행됩니다.
+컴퓨터에서 업데이트 준수에 대 한 검사를 완료 한 후 에이전트는 Azure Monitor 로그에 정보를 대량으로 전달 합니다. Windows 컴퓨터는 기본적으로 12시간마다 준수 검사가 실행됩니다.
 
 검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 이내에 업데이트 준수 검사가 시작됩니다.
 
-Linux 컴퓨터에 대 한 준수 검사가 기본적으로 매시간 수행 됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
+Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
 솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 얼마나 최신 상태인지를 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 이 동작은 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터에서도 동일합니다.
 
@@ -54,15 +54,15 @@ Linux 컴퓨터에 대 한 준수 검사가 기본적으로 매시간 수행 됩
 
 예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다.
 
-예약된 된 배포 정의 또는 명시적으로 지정 하면 컴퓨터를 선택 하 여 적용 가능한 업데이트를 받는 대상 컴퓨터를 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md) 컴퓨터의 특정 집합의 로그 검색을 기반으로 하는 또는 [Azure 쿼리](#azure-machines) 지정된 조건에 따라 Azure Vm을 동적으로 선택 하는 합니다. 이러한 그룹은 다른 [범위 구성을](../azure-monitor/insights/solution-targeting.md)는 어떤 컴퓨터 솔루션을 사용 하도록 설정 하는 관리 팩을 가져올 결정 하는 데 사용 됩니다. 
+예약 된 배포는 컴퓨터를 명시적으로 지정 하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md) 또는 [Azure 쿼리](#azure-machines) 를 선택 하 여 해당 업데이트를 수신 하는 대상 컴퓨터를 정의 합니다. 지정 된 조건에 따라 Azure Vm을 동적으로 선택 합니다. 이러한 그룹은 솔루션을 사용 하도록 설정 하는 관리 팩을 가져오는 컴퓨터를 확인 하는 데에만 사용 되는 [범위 구성과](../azure-monitor/insights/solution-targeting.md)다릅니다. 
 
-또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이 기간에는 유지 관리 기간을 이라고 합니다. 유지 관리 기간이 10 분 동안 다시 부팅 해야 하 고 적절 한 다시 부팅 옵션을 선택한 경우 다시 부팅 예약 되어 있습니다. 예상 보다 오래 걸리는 패치 및 유지 관리 기간에 10 분 이내에 다시 부팅이 발생 하지 않습니다.
+또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이러한 기간을 유지 관리 기간 이라고 합니다. 다시 부팅이 필요 하 고 적절 한 재부팅 옵션을 선택한 경우 유지 관리 기간 10 분이 다시 부팅 되도록 예약 됩니다. 패치가 예상 보다 오래 걸리고 유지 관리 기간에 10 분 미만이 면 다시 부팅이 발생 하지 않습니다.
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 각 에이전트에서 하위 Runbook을 시작하여 필수 업데이트를 설치합니다.
 
 업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다. 설치 전에, 업데이트가 여전히 필요한지 확인하기 위한 검사가 수행됩니다. WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.
 
-둘 이상의 Log Analytics 작업 영역 (멀티 호 밍)에서 업데이트 관리를 위해 등록 하는 컴퓨터에 있는 지원 되지 않습니다.
+업데이트 관리에 대해 등록 된 컴퓨터가 둘 이상의 Log Analytics 작업 영역 (멀티 호 밍)에서 지원 되지 않습니다.
 
 ## <a name="clients"></a>클라이언트
 
@@ -74,7 +74,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상(Windows Server 2012 및 2016 포함)    |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다. CentOS에서 패치 분류 기반에 대 한 자세한 내용은 참조 하세요. [Linux 분류 업데이트](#linux-2)          |
+|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](#linux-2) 를 참조 하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
@@ -98,9 +98,9 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
 
-Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 정보를 참조 하세요 [Linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)합니다. Windows Log Analytics 에이전트를 설치 하는 방법에 대 한 정보를 참조 하세요 [Microsoft 모니터링 에이전트에 대 한 Windows](../log-analytics/log-analytics-windows-agent.md)합니다.
+Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 자세한 내용은 [linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조 하세요. Windows 용 Log Analytics 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [windows 용 Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md)을 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 권한에 대한 내용은 [역할 기반 액세스 - 업데이트 관리](automation-role-based-access-control.md#update-management)를 참조하세요.
 
@@ -125,12 +125,12 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 * 업데이트 배포 MP
 
 > [!NOTE]
-> 재정의에 경우 Operations Manager 1807 관리 그룹 작업 영역에 연결할 관리 그룹 수준에서 구성 하는 에이전트를 사용 하 여 표시 되도록 어셈블리를 가져오려고 현재 문제를 해결 **IsAutoRegistrationEnabled** 를 **True** 에 **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** 규칙입니다.
+> 관리 그룹 수준에서 구성 된 에이전트가 있는 Operations Manager 1807 관리 그룹을 작업 영역에 연결 하려는 경우이 그룹을 표시 하기 위해 최신 해결 방법은 **IsAutoRegistrationEnabled** 을 **True** 로 재정의 하는 것입니다. **Microsoft.intelligencepacks.updateassessment. eventmessage** 규칙.
 
-솔루션 관리 팩은 업데이트 하는 방법에 대 한 자세한 내용은 참조 하십시오 [Azure Monitor에 Operations Manager 연결 로그](../azure-monitor/platform/om-agents.md)합니다.
+솔루션 관리 팩을 업데이트 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그에 Operations Manager 연결](../azure-monitor/platform/om-agents.md)을 참조 하세요.
 
 > [!NOTE]
-> Operations Manger 에이전트가 있는 시스템을 업데이트 관리로 완전히 관리할 수 있으려면 에이전트를 Microsoft Monitoring Agent로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)을 참조하세요. Operations Manager를 사용 하 여 환경에 대 한 필요는 14 이상 System Center Operations Manager 2012 R2 UR 실행 합니다.
+> Operations Manger 에이전트가 있는 시스템을 업데이트 관리로 완전히 관리할 수 있으려면 에이전트를 Microsoft Monitoring Agent로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)을 참조하세요. Operations Manager를 사용 하는 환경의 경우 2012 R2 UR 14 이상 System Center Operations Manager를 실행 해야 합니다.
 
 ## <a name="onboard"></a>업데이트 관리 사용
 
@@ -143,7 +143,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
-몇 분 후 컴퓨터 직접 연결 된 Azure Monitor 로그를 사용 하 여 통신 하는지 확인 하려면 수 하나를 실행 하면 다음 로그 검색 합니다.
+직접 연결 된 컴퓨터가 Azure Monitor 로그와 통신 하 고 있는지 확인 하려면 몇 분 후에 다음 로그 검색 중 하나를 실행할 수 있습니다.
 
 #### <a name="linux"></a>Linux
 
@@ -159,12 +159,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Windows 컴퓨터에서 Azure Monitor 로그를 사용 하 여 에이전트가 연결을 확인 하려면 다음 정보를 검토할 수 있습니다.
+Windows 컴퓨터에서 다음 정보를 검토 하 여 에이전트와 Azure Monitor 로그의 연결을 확인할 수 있습니다.
 
 1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트가 다음 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Log Analytics 서비스에 성공적으로 연결되었습니다.**
 2. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
-에이전트가 통신할 수 없는 경우 Azure Monitor 로그 및 에이전트는 방화벽 또는 프록시 서버를 통해 인터넷과 통신, 방화벽을 확인 하도록 구성 된 또는 프록시 서버가 올바르게 구성 되어 있습니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
+에이전트가 Azure Monitor 로그와 통신할 수 없고 에이전트가 방화벽이 나 프록시 서버를 통해 인터넷과 통신 하도록 구성 된 경우 방화벽 또는 프록시 서버가 올바르게 구성 되었는지 확인 합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
 
 > [!NOTE]
 > Linux 시스템에서 프록시 또는 Log Analytics 게이트웨이와 통신하도록 구성되고 이 솔루션을 등록하는 경우, 다음 명령을 수행하여 omiuser 그룹 읽기 권한을 파일에 부여하도록 *proxy.conf* 권한을 업데이트하세요.
@@ -174,7 +174,7 @@ Windows 컴퓨터에서 Azure Monitor 로그를 사용 하 여 에이전트가 �
 
 평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그를 확인 하려면 참조 [Azure Monitor 로그를 사용 하 여 유효성을 검사 하는 Operations Manager 통합](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)합니다.
+Operations Manager 관리 그룹이 Azure Monitor 로그와 통신 하는지 확인 하려면 [Azure Monitor 로그와 Operations Manager 통합 유효성 검사](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)를 참조 하세요.
 
 ## <a name="data-collection"></a>데이터 수집
 
@@ -186,17 +186,17 @@ Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그�
 | --- | --- | --- |
 | Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
 관리되는 Windows 컴퓨터 각각에서 하루에 두 번 검사가 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다.
 
-검색은 관리 되는 각 Linux 컴퓨터에 대 한 매시간 수행 됩니다.
+검색은 각 관리 되는 Linux 컴퓨터에 대해 매시간 수행 됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 
-업데이트 관리를 사용 하는 컴퓨터에 대 한 Azure Monitor 로그 데이터 사용량 평균은 매월 약 25MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
+업데이트 관리를 사용 하는 컴퓨터의 평균 Azure Monitor 로그 데이터 사용량은 매월 약 25MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
 
 ## <a name="viewing-update-assessments"></a>업데이트 평가 보기
 
@@ -210,9 +210,9 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 ## <a name="install-updates"></a>업데이트 설치
 
-작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포를 만들려면 Automation 계정에 대 한 쓰기 액세스 및 배포의 대상으로 하는 모든 Azure Vm에 대 한 쓰기 액세스 해야 합니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)합니다.
+작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포를 만들려면 Automation 계정에 대 한 쓰기 액세스 권한을 보유 하 고 배포를 대상으로 하는 모든 Azure Vm에 대 한 쓰기 권한을 보유 해야 합니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대해 자세히 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조 하세요.
 
-업데이트 배포에 컴퓨터 그룹이 포함되면 일정을 만들 때 그룹 멤버 자격이 한 번만 평가됩니다. 이후의 그룹 변경 내용은 반영되지 않습니다. 이 사용 하이 여 해결 하기 위해 [동적 그룹](#using-dynamic-groups), 이러한 그룹은 배포 시 계산은 하며 Azure Vm 또는 비 Azure Vm에 대 한 저장된 된 검색에 대 한 쿼리에 의해 정의 됩니다.
+업데이트 배포에 컴퓨터 그룹이 포함되면 일정을 만들 때 그룹 멤버 자격이 한 번만 평가됩니다. 이후의 그룹 변경 내용은 반영되지 않습니다. 이러한 그룹 [을 사용 하](#using-dynamic-groups)여이를 해결 하기 위해 배포 시에 확인 되 고 azure vm에 대 한 쿼리 또는 비 azure vm에 대 한 저장 된 검색에 의해 정의 됩니다.
 
 > [!NOTE]
 > Azure Marketplace에서 배포된 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다. 이 동작은 이 솔루션을 추가하거나 작업 영역에 Windows 가상 머신을 추가해도 달라지지 않습니다. 이 솔루션을 사용하여 업데이트를 적극적으로 관리하지 않는 경우 기본 동작(업데이트 자동 적용)이 적용됩니다.
@@ -221,9 +221,9 @@ Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 
 
 Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise Linux) 이미지에서 만든 가상 머신은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다. 다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
-새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. 합니다 **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
+새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 배포 업데이트** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-| 자산 | Description |
+| 속성 | Description |
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
@@ -282,7 +282,7 @@ REST API에서 업데이트 배포를 보려면 [소프트웨어 업데이트 �
 |도구     | 하나 이상의 작업을 완료하는 데 도움이 되는 유틸리티 또는 기능입니다.        |
 |업데이트     | 현재 설치되어 있는 애플리케이션 또는 파일에 대한 업데이트입니다.        |
 
-### <a name="linux"></a>Linux
+### <a name="linux-2"></a>Linux
 
 |분류  |설명  |
 |---------|---------|
@@ -313,9 +313,9 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
-### <a name="disable-automatic-installation"></a>자동 설치를 사용 하지 않도록 설정
+### <a name="disable-automatic-installation"></a>자동 설치 사용 안 함
 
-Azure Vm에는 기본적으로 사용 하도록 설정 하는 업데이트의 자동 설치를 있습니다. 이 인해 업데이트가 업데이트 관리를 통해 설치를 예약 하기 전에 설치 될 수 있습니다. 설정 하 여이 동작을 비활성화할 수는 `NoAutoUpdate` 레지스트리 키를 `1`입니다. 다음 PowerShell 코드 조각은이 작업을 수행 하는 한 가지 방법은 보여 줍니다.
+Azure Vm은 기본적으로 사용 하도록 설정 된 업데이트를 자동으로 설치 합니다. 이렇게 하면 업데이트 관리에 의해 설치 되도록 예약 하기 전에 업데이트를 설치할 수 있습니다. `NoAutoUpdate` 레지스트리 키를로 설정 하 여이 동작을 `1`사용 하지 않도록 설정할 수 있습니다. 다음 PowerShell 코드 조각은이 작업을 수행 하는 한 가지 방법을 보여 줍니다.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -324,7 +324,7 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>다른 Microsoft 제품에 대한 업데이트 사용
 
-기본적으로 Windows 업데이트는 Windows용 업데이트만 제공합니다. 사용 하도록 설정 하면 **Windows를 업데이트 해도 다른 Microsoft 제품 업데이트 제공 me**, 보안 패치를 포함 하 여 SQL Server 또는 다른 첫 번째 타사 소프트웨어에 대 한 다른 제품에 대 한 업데이트로 제공 됩니다. 이 옵션은 그룹 정책을 통해 구성할 수 없습니다. 다른 타사 패치를 사용하도록 설정하려는 시스템에서 다음 PowerShell을 실행하면 업데이트 관리에 이 설정이 적용됩니다.
+기본적으로 Windows 업데이트는 Windows용 업데이트만 제공합니다. **Windows를 업데이트할 때 다른 Microsoft 제품에 대 한 업데이트 제공**을 사용 하도록 설정 하면 SQL Server 또는 다른 자사 소프트웨어에 대 한 보안 패치를 비롯 한 다른 제품에 대 한 업데이트가 제공 됩니다. 이 옵션은 그룹 정책을 통해 구성할 수 없습니다. 다른 타사 패치를 사용하도록 설정하려는 시스템에서 다음 PowerShell을 실행하면 업데이트 관리에 이 설정이 적용됩니다.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -335,8 +335,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Windows의 타사 패치
 
-업데이트 관리는 지원 되는 Windows 시스템을 패치 하는 로컬로 구성 된 업데이트 리포지토리에 의존 합니다. 이 WSUS 또는 Windows 업데이트입니다. [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-)(Updates Publisher)와 같은 도구를 사용하면 WSUS에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오에는 타사 소프트웨어를 사용 하 여 해당 업데이트 리포지토리로 System Center Configuration Manager를 사용 하는 패치 컴퓨터로 업데이트 관리할 수 있습니다. 업데이트 게시자 구성 방법을 알아보려면 [업데이트 게시자 설치](/sccm/sum/tools/install-updates-publisher)를 참조하세요.
+업데이트 관리는 로컬로 구성 된 업데이트 리포지토리를 사용 하 여 지원 되는 Windows 시스템을 패치 합니다. WSUS 또는 Windows 업데이트입니다. [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+)(Updates Publisher)와 같은 도구를 사용하면 WSUS에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용 하면 System Center Configuration Manager를 사용 하는 컴퓨터를 타사 소프트웨어를 사용 하 여 업데이트 리포지토리로 패치 업데이트 관리 수 있습니다. 업데이트 게시자 구성 방법을 알아보려면 [업데이트 게시자 설치](/sccm/sum/tools/install-updates-publisher)를 참조하세요.
 
 ## <a name="ports"></a>네트워크 계획
 
@@ -366,7 +366,7 @@ https://dev.loganalytics.io/).
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>단일 Azure VM 평가 쿼리(Windows)
 
-VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>누락 업데이트 요약
 
@@ -395,7 +395,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>단일 Azure VM 평가 쿼리(Linux)
 
-일부 Linux 배포판이를 [엔디언](https://en.wikipedia.org/wiki/Endianness) Azure Resource Manager 및 Azure Monitor 로그에 저장 된 것에서 제공 되는 VMUUID 값과 일치 하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>"
+일부 Linux 배포판의 경우 Azure Resource Manager에서 제공 하는 VMUUID 값 및 Azure Monitor 로그에 저장 되는 값과 [endian](https://en.wikipedia.org/wiki/Endianness) 일치 하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>누락 업데이트 요약
@@ -567,21 +567,21 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>동적 그룹을 사용 하 여
+## <a name="using-dynamic-groups"></a>동적 그룹 사용
 
-업데이트 관리 업데이트 배포에 대 한 Azure 또는 비 Azure Vm의 동적 그룹을 대상으로 하는 기능을 제공 합니다. 이러한 그룹은 컴퓨터를 추가 하려면 배포를 편집 해야 하므로 배포 시에 평가 됩니다.
+업데이트 관리은 업데이트 배포를 위해 Azure 또는 비 Azure Vm의 동적 그룹을 대상으로 할 수 있는 기능을 제공 합니다. 이러한 그룹은 배포 시 평가 되므로 컴퓨터를 추가 하기 위해 배포를 편집할 필요가 없습니다.
 
 > [!NOTE]
-> 업데이트 배포를 만들 때 적절 한 권한이 있어야 합니다. 자세한 내용은 참조 하세요 [업데이트 설치](#install-updates)합니다.
+> 업데이트 배포를 만들 때 적절 한 권한이 있어야 합니다. 자세히 알아보려면 [업데이트 설치](#install-updates)를 참조 하세요.
 
 ### <a name="azure-machines"></a>Azure 컴퓨터
 
-이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹 클래식 Vm을 사용 하 여 작동 하지 않습니다. 쿼리를 정의할 때 다음 항목을 함께 사용하여 동적 그룹을 채울 수 있습니다.
+이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹은 클래식 Vm에서 작동 하지 않습니다. 쿼리를 정의할 때 다음 항목을 함께 사용하여 동적 그룹을 채울 수 있습니다.
 
 * 구독
 * 리소스 그룹
 * 위치
-* 태그들
+* Tags
 
 ![그룹 선택](./media/automation-update-management/select-groups.png)
 
@@ -591,7 +591,7 @@ Update
 
 ### <a name="non-azure-machines"></a>비 Azure 컴퓨터
 
-비 azure 컴퓨터에 저장 된 검색 라고도 컴퓨터 그룹의 동적 그룹을 만드는 데 사용 됩니다. 저장된 된 검색을 만드는 방법에 알아보려면 참조 [컴퓨터 그룹을 만드는](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)합니다. 그룹에 생성 되 면 저장 된 검색의 목록에서 선택할 수 있습니다. 클릭 **미리 보기** 당시에 저장된 된 검색의 컴퓨터를 미리 보려면.
+비 Azure 컴퓨터의 경우에는 저장 된 검색을 컴퓨터 그룹이 라고도 하는 동적 그룹을 만드는 데 사용 됩니다. 저장 된 검색을 만드는 방법을 알아보려면 [컴퓨터 그룹 만들기](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)를 참조 하세요. 그룹을 만든 후에는 저장 된 검색 목록에서 선택할 수 있습니다. 해당 시점에 저장 된 검색에서 컴퓨터를 미리 보려면 **미리 보기** 를 클릭 합니다.
 
 ![그룹 선택](./media/automation-update-management/select-groups-2.png)
 
@@ -625,13 +625,13 @@ Red Hat Enterprise Linux에서 제외할 패키지 이름은 redhat-release-serv
 
 Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택할 수 있습니다. 그러면 지정된 조건에 맞는 머신에 적용되는 업데이트가 필터링됩니다. 이 필터는 업데이트가 배포될 때 컴퓨터에 로컬로 적용됩니다.
 
-업데이트 관리 업데이트 보강 클라우드에서으로 수행 하므로 몇 가지 업데이트 플래그를 지정할 수 업데이트 관리에서 보안의 영향을 주는 것으로 로컬 컴퓨터에는 해당 정보가 없는 경우에 합니다. 따라서 Linux 시스템에 중요 업데이트를 적용하면 해당 컴퓨터에 보안에 영향을 주는 것으로 표시되지 않은 일부 업데이트가 있을 수 있으며, 이 경우 업데이트가 적용되지 않습니다.
+업데이트 관리는 클라우드에서 업데이트 보강를 수행 하기 때문에 로컬 컴퓨터에 해당 정보가 없더라도 일부 업데이트는 업데이트 관리 보안에 영향을 주는 것으로 플래그가 지정 될 수 있습니다. 따라서 Linux 시스템에 중요 업데이트를 적용하면 해당 컴퓨터에 보안에 영향을 주는 것으로 표시되지 않은 일부 업데이트가 있을 수 있으며, 이 경우 업데이트가 적용되지 않습니다.
 
 그러나 업데이트 관리는 관련 업데이트에 대한 추가 정보가 있으므로 해당 컴퓨터를 호환되지 않는 것으로 보고할 수 있습니다.
 
 업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행해야 할 수도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
 
-## <a name="remove-a-vm-from-update-management"></a>업데이트 관리에서 VM을 제거 합니다.
+## <a name="remove-a-vm-from-update-management"></a>업데이트 관리에서 VM 제거
 
 업데이트 관리에서 VM을 제거하려면:
 
@@ -645,7 +645,7 @@ Windows 가상 머신에 대한 업데이트를 관리하는 방법을 알아보
 > [!div class="nextstepaction"]
 > [Azure Windows VM에 대한 업데이트 및 패치 관리](automation-tutorial-update-management.md)
 
-* 로그 검색을 사용 하 여 [Azure Monitor 로그](../log-analytics/log-analytics-log-searches.md) 자세한 업데이트 데이터를 볼 수 있습니다.
+* [Azure Monitor 로그](../log-analytics/log-analytics-log-searches.md) 의 로그 검색을 사용 하 여 자세한 업데이트 데이터를 확인 합니다.
 * 업데이트 배포 상태에 대한 [경고 만들기](automation-tutorial-update-management.md#configure-alerts).
 
 * REST API를 통해 업데이트 관리와 상호 작용하는 방법은 [소프트웨어 업데이트 구성](/rest/api/automation/softwareupdateconfigurations)을 참조하세요.

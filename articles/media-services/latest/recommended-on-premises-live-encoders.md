@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840133"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297731"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -61,7 +61,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
 
 > [!TIP]
->  여러 언어 (예를 들어: 하나 이상의 오디오 트랙이 영어 및 스페인어 하나의 오디오 트랙만)에서 라이브 이벤트를 스트리밍하는 경우 라이브 피드를 통과 라이브 이벤트를 보내도록 구성할 Media Excel 라이브 인코더를 사용 하 여이 수행할 수 있습니다.
+>  라이브 이벤트를 여러 언어로 스트리밍하는 경우 (예: 하나의 영어 오디오 트랙 및 하나의 스페인어 오디오 트랙) 라이브 피드를 통과 라이브 이벤트로 보내도록 구성 된 미디어 Excel 라이브 인코더를 사용 하 여이를 수행할 수 있습니다.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>온-프레미스 라이브 인코더 설정 구성
 
@@ -97,7 +97,7 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다. 
-13. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
+13. [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
 14. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 15. 각 샘플을 만든 후에 라이브 이벤트 상태를 다시 설정합니다.
 16. 인코더에서 지원하는 모든 구성에 대해 5-15단계를 반복합니다(광고 신호, 자막 또는 다른 인코딩 속도의 사용 여부와 관계없이).
@@ -116,18 +116,18 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다.
-13. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
+13. [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시합니다. 또는 라이브 세션 중에 미리 보기 URL을 통해 감시하고 유효성을 검사합니다.
 14. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 15. 각 샘플을 만든 후에 라이브 이벤트 상태를 다시 설정합니다.
 16. 인코더에서 지원하는 모든 구성에 대해 5-15단계를 반복합니다(광고 신호, 자막 또는 다른 인코딩 속도의 사용 여부와 관계없이).
 
 ### <a name="longevity-verification"></a>수명 확인
 
-11단계를 제외하고는 [통과 라이브 이벤트 확인](#pass-through-live-event-verification)과 동일한 단계를 따릅니다. <br/>10분 대신 1주 이상 라이브 인코더를 실행합니다. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시합니다.
+11단계를 제외하고는 [통과 라이브 이벤트 확인](#pass-through-live-event-verification)과 동일한 단계를 따릅니다. <br/>10분 대신 1주 이상 라이브 인코더를 실행합니다. [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시합니다.
 
 ### <a name="email-your-recorded-settings"></a>기록된 설정을 이메일로 보내기
 
-마지막으로, 메일을 통해 기록된 설정 및 라이브 보관 매개 변수를 amslived@microsoft.com의 Azure Media Services에 모든 자체 확인 검사가 통과되었다는 알림으로 보냅니다. 또한 후속 작업을 위해 연락처 정보를 기재해 주세요. 이 프로세스와 관련된 질문이 있는 경우 Azure Media Services 팀에 문의할 수 있습니다.
+마지막으로, 메일을 통해 기록된 설정 및 라이브 보관 매개 변수를 amshelp@microsoft.com의 Azure Media Services에 모든 자체 확인 검사가 통과되었다는 알림으로 보냅니다. 또한 후속 작업을 위해 연락처 정보를 기재해 주세요. 이 프로세스와 관련된 질문이 있는 경우 Azure Media Services 팀에 문의할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

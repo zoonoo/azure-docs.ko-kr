@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542544"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311801"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,63 +34,71 @@ ms.locfileid: "67542544"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
+## <a name="july-2019"></a>7 월 2019
+
+### <a name="content-protection"></a>콘텐츠 보호
+
+토큰 제한으로 보호 된 콘텐츠를 스트리밍하는 경우 최종 사용자는 키 배달 요청의 일부로 전송 되는 토큰을 가져와야 합니다. *토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 자세한 내용은 [토큰 재생 방지](content-protection-overview.md#token-replay-prevention)를 참조 하세요.
+
+이 기능은 현재 미국 중부 및 미국 서 부 중부에서 사용할 수 있습니다.
+
 ## <a name="june-2019"></a>2019년 6월
 
-### <a name="video-subclipping"></a>비디오 서브 클리핑
+### <a name="video-subclipping"></a>비디오 하위 클리핑
 
-이제 trim 또는 사용 하 여 인코딩할 때에 비디오를 서브 클립 수는 [작업](https://docs.microsoft.com/rest/api/media/jobs)합니다. 
+이제 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 
 
-이 기능을 사용 하 여 사용할 [변환](https://docs.microsoft.com/rest/api/media/transforms) 중 하나를 사용 하 여 빌드된 합니다 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 미리 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정입니다. 
+이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용 하 여 작성 된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms) 에 적용 됩니다. 
 
-예제를 참조 하세요.
+예를 참조 하세요.
 
-* [서브 클립.NET을 사용 하 여 비디오](subclip-video-dotnet-howto.md)
-* [서브 클립 REST 사용 하 여 비디오](subclip-video-rest-howto.md)
+* [.NET을 사용 하 여 비디오 하위 클립](subclip-video-dotnet-howto.md)
+* [REST를 사용 하 여 비디오 하위 클립](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>2019년 5월
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services 진단 로그 및 메트릭 용 azure 모니터링 지원
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services 진단 로그 및 메트릭에 대 한 Azure Monitor 지원
 
-이제 Media Services에서 원격 분석 데이터 emmited 보려는 Azure Monitor를 사용할 수 있습니다.
+이제 Azure Monitor를 사용 하 여 Media Services emmited 원격 분석 데이터를 볼 수 있습니다.
 
-* Azure Monitor 진단 로그를 사용 하 여 Media Services 키 배달 끝점에서 전송 요청을 모니터링 합니다. 
-* Media Services에서 내보내는 메트릭 모니터링 [스트리밍 끝점](streaming-endpoint-concept.md)합니다.   
+* Azure Monitor 진단 로그를 사용 하 여 Media Services 키 배달 끝점에서 보낸 요청을 모니터링 합니다. 
+* Media Services [스트리밍 끝점](streaming-endpoint-concept.md)에서 내보낸 메트릭을 모니터링 합니다.   
 
-자세한 내용은 참조 하세요 [Media Services 모니터링 메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md)합니다.
+자세한 내용은 [Media Services 메트릭 및 진단 로그 모니터링](media-services-metrics-diagnostic-logs.md)을 참조 하세요.
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>동적 패키징에서 다중 오디오 트랙을 지원합니다. 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>동적 패키징에서 지 원하는 다중 오디오 트랙 
 
-여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산을 스트리밍할 때 [동적 패키징](dynamic-packaging-overview.md) HLS 출력에 대 한 다중 오디오 트랙 이제 (버전 4 이상).
+여러 코덱 및 언어를 사용 하는 여러 오디오 트랙이 있는 자산을 스트리밍하는 경우 [동적 패키징](dynamic-packaging-overview.md) 은 이제 HLS 출력 (버전 4 이상)에 대 한 다중 오디오 트랙을 지원 합니다.
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>한국 지역 쌍은 Media Services에 대 한 열기 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>대한민국 지역 쌍이 Media Services에 대해 열려 있습니다. 
 
-Media Services는 이제 한국 중부 및 한국 남부 지역에서 사용할 수 있습니다. 
+Media Services는 대한민국 중부 및 대한민국 남부 지역에서 사용할 수 있습니다. 
 
-자세한 내용은 [클라우드와 Media Services v3 존재 하는 지역](azure-clouds-regions.md)합니다.
+자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
 
-### <a name="performance-improvements"></a>성능 개선
+### <a name="performance-improvements"></a>성능 향상
 
-Media Services 성능 향상을 포함 하는 추가 업데이트 합니다.
+Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니다.
 
-* 처리를 위해 지원 되는 최대 파일 크기 업데이트 되었습니다. 하세요 [할당량 및 제한 사항](limits-quotas-constraints.md)합니다.
-* [인코딩 속도 향상](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)합니다.
+* 처리를 위해 지원 되는 최대 파일 크기가 업데이트 되었습니다. , [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조 하세요.
+* [인코딩 속도 향상](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>2019년 4월
 
 ### <a name="new-presets"></a>새 사전 설정
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 기본 제공 분석기 미리 설정에 추가 되었습니다.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠를 인식 인코딩](cae-experimental.md)합니다. 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 가 기본 제공 분석기 사전 설정에 추가 되었습니다.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 가 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](cae-experimental.md)을 참조 하세요. 
 
-## <a name="march-2019"></a>2019 년 3 월
+## <a name="march-2019"></a>3 월 2019
 
-Dolby Atmos. 지원 이제 동적 패키징 자세한 내용은 [오디오 코덱 동적 패키징에서 지원](dynamic-packaging-overview.md#audio-codecs)합니다.
+동적 패키징은 이제 돌비 Atmos을 지원 합니다. 자세한 내용은 [동적 패키징에서 지 원하는 오디오 코덱](dynamic-packaging-overview.md#audio-codecs)을 참조 하세요.
 
-이제 스트리밍 로케이터가 만들어집니다를 적용할 자산 또는 계정 필터 목록을 지정할 수 있습니다. 자세한 내용은 [스트리밍 로케이터를 사용 하 여 필터를 연결](filters-concept.md#associating-filters-with-streaming-locator)합니다.
+이제 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 자세한 내용은 [스트리밍 로케이터를 사용 하 여 필터 연결](filters-concept.md#associating-filters-with-streaming-locator)을 참조 하세요.
 
 ## <a name="february-2019"></a>2019년 2월
 
-Media Services v3 이제 국가별 클라우드 Azure에서 지원 됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
+Media Services v3은 이제 Azure 국가별 클라우드에서 지원 됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
 
 Media Services에 대한 Azure Event Grid 스키마에 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 이벤트가 추가되었습니다.
 
@@ -236,7 +244,7 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ### <a name="net-sdk"></a>.NET SDK
 
-.NET SDK의 다음 기능은 다음과 같습니다.
+.NET SDK에는 다음과 같은 기능이 포함 되어 있습니다.
 
 * 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
 * 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.

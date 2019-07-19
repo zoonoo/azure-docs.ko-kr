@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/20/2019
-ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5726a11d37899517674d445711afda31731b901d
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303501"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305826"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL Database의 데이터베이스로 BACPAC 파일 가져오기
 
@@ -30,13 +30,12 @@ ms.locfileid: "67303501"
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Azure Portal의 BACPAC 파일에서 가져오기
 
-[Azure Portal](https://portal.azure.com)은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능‘만’ 지원합니다.  
+[Azure Portal](https://portal.azure.com)은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능*만* 지원합니다. 
+
+Azure PowerShell를 사용 하 여 BACPAC 파일에서 관리 되는 [인스턴스로](sql-database-managed-instance.md) 데이터베이스를 마이그레이션하는 것은 현재 지원 되지 않습니다. 대신 SQL Server Management Studio 또는 SQLPackage를 사용 해야 합니다.
 
 > [!NOTE]
-> [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure Portal을 사용하여 BACPAC 파일에서 인스턴스 데이터베이스로 데이터베이스를 마이그레이션하는 기능을 지원하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
-
-> [!NOTE]
-> 포털 또는 Powershell을 통해 전송 하는 가져오기/내보내기 요청을 처리 하는 컴퓨터는 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간 같은 크기를 사용 하 여 Db 마다 크게 다릅니다 및 걸릴 수 있습니다 최대 3 회 데이터베이스 크기의 합니다. 가져오기/내보내기 요청에 대해서만 실행 되는 컴퓨터에 450GB 로컬 디스크 공간이 없습니다. 일부 요청은,이로 인해 "공간이 충분 한 디스크에" 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage.exe를 실행 하는 것입니다. 가져오기/내보내기 150GB 보다 큰 데이터베이스를 사용 하 여 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 이 문제를 방지 하려면.
+> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 오류 `There is not enough space on the disk`와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
  
 1. Azure Portal을 사용하여 BACPAC 파일에서 새 단일 데이터베이스로 가져오려면 적절한 데이터베이스 서버 페이지를 연 다음, 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
 
@@ -82,16 +81,16 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>PowerShell을 사용하여 BACPAC 파일에서 단일 데이터베이스로 가져오기
 
 > [!NOTE]
-> [관리 되는 인스턴스](sql-database-managed-instance.md) Azure PowerShell을 사용 하 여 BACPAC 파일에서 인스턴스 데이터베이스에 데이터베이스를 마이그레이션 현재 지원 하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
+> [관리 되는 인스턴스는](sql-database-managed-instance.md) 현재 Azure PowerShell를 사용 하 여 데이터베이스를 BACPAC 파일에서 인스턴스 데이터베이스로 마이그레이션하는 것을 지원 하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
 > [!NOTE]
-> 포털 또는 Powershell을 통해 전송 하는 가져오기/내보내기 요청을 처리 하는 컴퓨터는 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간 같은 크기를 사용 하 여 Db 마다 크게 다릅니다 및 걸릴 수 있습니다 최대 3 회 데이터베이스 크기의 합니다. 가져오기/내보내기 요청에 대해서만 실행 되는 컴퓨터에 450GB 로컬 디스크 공간이 없습니다. 일부 요청은,이로 인해 "공간이 충분 한 디스크에" 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage.exe를 실행 하는 것입니다. 가져오기/내보내기 150GB 보다 큰 데이터베이스를 사용 하 여 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 이 문제를 방지 하려면.
+> 포털 또는 Powershell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 DacFX (데이터 계층 응용 프로그램 프레임 워크)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 동일한 Db에 따라 크게 달라 지 며 데이터베이스 크기는 최대 3 배까지 걸릴 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 "디스크 공간이 부족 합니다." 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 150GB 보다 큰 데이터베이스를 가져오거나 내보낼 때 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 를 사용 하 여이 문제를 방지 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-사용 합니다 [새로 만들기-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) Azure SQL Database 서비스에 데이터베이스 가져오기 요청을 제출 하는 cmdlet입니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
+[AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet을 사용 하 여 Azure SQL Database 서비스에 데이터베이스 가져오기 요청을 제출 합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
  ```powershell
  $importRequest = New-AzSqlDatabaseImport 
@@ -109,7 +108,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
  ```
 
- 사용할 수는 [Get AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet 가져오기의 진행 상황을 확인 합니다. 요청 직후에 cmdlet을 실행하면 대개 **상태: 진행 중**이 반환됩니다. **상태: 성공함**이 표시되면 가져오기가 완료된 것입니다.
+ [AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet을 사용 하 여 가져오기 진행 상태를 확인할 수 있습니다. 요청 직후에 cmdlet을 실행하면 대개 **상태: 진행 중**이 반환됩니다. **상태: 성공함**이 표시되면 가져오기가 완료된 것입니다.
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

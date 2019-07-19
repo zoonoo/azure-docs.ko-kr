@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657220"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846596"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 
@@ -57,7 +58,7 @@ ms.locfileid: "67657220"
    * **데이터 요금제** 는 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
 
      > [!IMPORTANT]
-     > 형식을 변경할 수 없습니다 **Unlimited** 하 **Metered**합니다.
+     > 형식을 **무제한** 에서 **요금제**로 변경할 수 없습니다.
 
    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 

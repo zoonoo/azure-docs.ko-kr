@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149891"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297008"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
-애플리케이션의 코드에 대한 추가 수정 없이 종속성으로 자동으로 검색되는 현재 지원되는 종속성 호출 목록은 아래와 같습니다. 통신 라이브러리, 저장소 클라이언트, 로깅 및 메트릭 라이브러리에 대한 나가는 호출뿐만 아니라 애플리케이션 프레임워크 및 서버에 들어오는 호출로 구성됩니다. Application Insights [애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) 및 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기에서 이러한 종속성을 시각화합니다. 종속성이 아래 목록에 없으면 [추적 종속성 호출](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 추적할 수 있습니다.
+애플리케이션의 코드에 대한 추가 수정 없이 종속성으로 자동으로 검색되는 현재 지원되는 종속성 호출 목록은 아래와 같습니다. Application Insights [애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) 및 [트랜잭션 진단](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) 보기에서 이러한 종속성을 시각화합니다. 종속성이 아래 목록에 없으면 [추적 종속성 호출](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 추적할 수 있습니다.
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ ms.locfileid: "65149891"
 | [ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Storage 클라이언트</b>|  |
 | ADO.NET | 4.5+ |
-| <b>로깅 라이브러리</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | NetStandard  1.3의 2.0.8+, .NET 4.5+의 2.0.6+ |
 
 ## <a name="java"></a>Java
 | 앱 서버 | 버전 |
@@ -79,7 +74,7 @@ ms.locfileid: "65149891"
 | <b>Storage 클라이언트</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
 | [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16 |
 | [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
 | [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>로깅 라이브러리</b> | |

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840150"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311816"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
 
@@ -24,13 +24,16 @@ Azure Media Player는 다양한 브라우저 및 디바이스의 Microsoft Azure
 
 Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Media Services에서 PlayReady 암호화 또는 AES 128비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
+> [!NOTE]
+> 암호화 된 콘텐츠를 위해 HTTPS 재생이 필요 합니다.
+
 [평가판 시작](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Azure Media Player 데모 페이지 사용
 
 ### <a name="start-using"></a>사용 시작
 
-[Azure Media Player 데모 페이지](http://aka.ms/azuremediaplayer)를 사용하여 Azure Media Services 샘플 또는 고유한 스트림을 재생할 수 있습니다.  
+[Azure Media Player 데모 페이지](https://aka.ms/azuremediaplayer)를 사용하여 Azure Media Services 샘플 또는 고유한 스트림을 재생할 수 있습니다.  
 
 새 비디오를 재생하려면 다른 URL을 붙여넣고 **업데이트** 키를 누릅니다.
 
@@ -40,7 +43,7 @@ Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>비디오 스트림의 진단 모니터링
 
-[Azure Media Player 데모 페이지](http://aka.ms/azuremediaplayer)를 사용하여 비디오 스트림의 진단을 모니터링할 수 있습니다. 
+[Azure Media Player 데모 페이지](https://aka.ms/azuremediaplayer)를 사용하여 비디오 스트림의 진단을 모니터링할 수 있습니다. 
 
 ![Azure Media Player 진단](./media/azure-media-player/diagnostics.png)
 

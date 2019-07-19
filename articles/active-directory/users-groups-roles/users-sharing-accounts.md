@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083745"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304368"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -67,7 +67,6 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 * 애플리케이션 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 애플리케이션](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/) 추가
 * 암호 SSO(Single Sign-On)에 대한 애플리케이션 구성
 * [그룹 기반 할당](groups-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
-* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 애플리케이션에서는 [Azure AD 자동 암호 롤오버](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 애플리케이션 보호](../authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](groups-self-service-management.md) 그룹 관리를 사용하여 애플리케이션에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
