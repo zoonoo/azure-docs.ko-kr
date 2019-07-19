@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: 개념
       items:
+        - name: 인증 기본 사항
+          href: authentication-scenarios.md
         - name: 인증 흐름 및 앱 시나리오
           href: authentication-flows-app-scenarios.md
         - name: 애플리케이션 시나리오
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: 인증 프로토콜
           items:
-            - name: 인증 기본 사항
-              href: authentication-scenarios.md
             - name: 애플리케이션 형식 및 OAuth2.0
               href: v2-app-types.md
             - name: OAuth 2.0 및 OpenID Connect 프로토콜
