@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
     |주소 공간|10.1.0.0/16|CIDR 표기법으로 된 가상 네트워크의 주소 범위입니다.|
     |구독|\<구독\>|사용할 Azure 구독을 선택합니다.|
     |리소스 그룹|databricks-quickstart|선택 **새로 만들기** 계정의 새 리소스 그룹 이름을 입력 합니다.|
-    |Location|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택 합니다. 사용자와 가장 가까운 위치를 사용합니다.|
+    |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다.|
     |서브넷 이름|기본값|가상 네트워크의 기본 서브넷의 이름을 선택 합니다.|
     |서브넷 주소 범위|10.1.0.0/24|CIDR 표기법의 서브넷의 주소 범위입니다. 가상 네트워크의 주소 공간에 포함 되어야 합니다. 사용 중인 서브넷의 주소 범위를 편집할 수 없습니다.|
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
     |작업 영역 이름|databricks-quickstart|Azure Databricks 작업 영역에 대 한 이름을 선택 합니다.|
     |구독|\<구독\>|사용할 Azure 구독을 선택합니다.|
     |리소스 그룹|databricks-quickstart|가상 네트워크에 사용한 동일한 리소스 그룹을 선택 합니다.|
-    |Location|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크와 동일한 위치를 선택 합니다.|
+    |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크와 동일한 위치를 선택합니다.|
     |가격 책정 계층|표준 또는 프리미엄 중에서 선택.|가격 책정 계층에 대한 자세한 내용은 [Databricks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조합니다.|
     |가상 네트워크에서 Azure Databricks 작업 영역 배포|예|이 설정을 통해 가상 네트워크에서 Azure Databricks 작업 영역을 배포할 수 있습니다.|
     |Virtual Network|databricks-quickstart|이전 섹션에서 만든 가상 네트워크를 선택 합니다.|
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 1. Azure Databricks 서비스로 돌아와서 **개요** 페이지에서 **작업 영역 시작**을 선택합니다.
 
-2. 선택 **클러스터** > **클러스터 만들기 +** 합니다. 같은 클러스터 이름, 만든 *databricks-빠른 시작-클러스터*, 나머지 기본 설정을 수락 합니다. **클러스터 만들기**를 선택합니다.
+2. **클러스터**  >  **+ 클러스터 만들기**를 선택합니다. 그런 다음 *databricks-quickstart-cluster* 같은 클러스터 이름을 생성하고, 나머지 기본 설정을 수락합니다. **클러스터 만들기**를 선택합니다.
 
     ![Azure Databricks 클러스터 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
