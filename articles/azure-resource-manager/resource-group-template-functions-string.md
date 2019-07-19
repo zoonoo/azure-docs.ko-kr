@@ -112,8 +112,8 @@ Base64 표현을 포함하는 문자열입니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tojson"></a>base64ToJson
