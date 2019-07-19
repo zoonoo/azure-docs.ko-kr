@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
-ms.author: kumud
-ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: e38cc4e6da574e0c3be490cf5d9cd929624343e5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475893"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275445"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -60,7 +60,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-내부 Load Balancer를 만듭니다 [az network lb 만듭니다](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 라는 **myLoadBalancer** 이라는 프런트 엔드 IP 구성을 포함 하는 **myFrontEnd**, 이라는 백 엔드 풀 **myBackEndPool** 개인 IP 주소와 연결 된 * * 10.0.0.7 합니다.
+**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기서는 개인 IP 주소와 연결 된 **myBackEndPool** 이라는 백 엔드 풀을 포함 합니다. 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

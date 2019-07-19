@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 영역 중복 프런트 엔드가 있는 공용 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
-ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147691"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274323"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI를 사용하여 모든 가용성 영역에 VM 부하 분산
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>영역 중복 공용 IP Standard 만들기
-인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. 영역 중복 공용 IP 주소를 사용 하 여 만드는 [az network public ip 만들기](/cli/azure/network/public-ip#az-network-public-ip-create)합니다. 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. [Az network 공용 ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용 하 여 영역 중복 공용 ip 주소를 만듭니다. 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
 
 다음 예제에서는 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 영역 중복 공용 IP 주소를 만듭니다.
 

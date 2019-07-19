@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443990"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227955"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
 이 문서에서는 AKS(Azure Kubernetes 클러스터)에 배포한 Azure Machine Learning Services에서 Azure Blob Storage로 입력 모델 데이터를 수집하는 방법을 확인할 수 있습니다. 
 
 데이터를 수집하도록 설정하면 이렇게 수집한 데이터는 다음과 같은 용도로 활용할 수 있습니다.
-* [모니터링 데이터 drifts](how-to-monitor-data-drift.md) 프로덕션 데이터 모델을 입력 한 대로
+* 프로덕션 데이터가 모델에 입력 되는 [데이터 상태가 모니터링](how-to-monitor-data-drift.md)
 
 * 모델을 다시 학습시키거나 최적화할 시기를 더 효율적으로 결정
 
@@ -48,7 +48,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 체험 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -218,7 +218,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
     [![DB 테이블](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터 위치를 업데이트합니다. 다음은 예제입니다.
+1. 데이터 위치를 업데이트합니다. 다음 예를 참조하세요.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

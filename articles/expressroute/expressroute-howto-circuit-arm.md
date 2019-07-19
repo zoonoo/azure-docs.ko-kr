@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: ganesr;cherylmc
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657315"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846631"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -45,7 +46,7 @@ ms.locfileid: "67657315"
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
-PowerShell cmdlet **Get AzExpressRouteServiceProvider** 이후 단계에서 사용 하 여이 정보를 반환 합니다.
+PowerShell cmdlet **AzExpressRouteServiceProvider** 는 이후 단계에서 사용할이 정보를 반환 합니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -90,7 +91,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. 모든 ExpressRoute 회로 나열
-사용자가 만든 모든 ExpressRoute 회로 목록을 가져오려면 실행 합니다 **Get AzExpressRouteCircuit** 명령:
+만든 모든 Express 경로 회로 목록을 가져오려면 **AzExpressRouteCircuit** 명령을 실행 합니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -216,7 +217,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>ExpressRoute 회로의 상태 가져오기
-사용 하 여 언제 든 지가이 정보를 검색할 수 있습니다 합니다 **Get AzExpressRouteCircuit** cmdlet. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+**AzExpressRouteCircuit** cmdlet을 사용 하 여 언제 든 지이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154780"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314803"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -30,7 +30,7 @@ ms.locfileid: "67154780"
 
 핵심 API는 `GetMetric`(.NET만 해당)과 같은 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
-| 방법 | 용도 |
+| 메서드 | 사용 대상 |
 | --- | --- |
 | [`TrackPageView`](#page-views) |페이지, 화면, 블레이드 또는 양식. |
 | [`TrackEvent`](#trackevent) |사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다. |
@@ -50,6 +50,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 * 프로젝트에 Application Insights SDK 추가:
 
   * [ASP.NET 프로젝트](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 프로젝트](../../azure-monitor/app/asp-net-core.md)
   * [Java 프로젝트](../../azure-monitor/app/java-get-started.md)
   * [Node.js 프로젝트](../../azure-monitor/app/nodejs.md)
   * [각 웹 페이지의 JavaScript](../../azure-monitor/app/javascript.md) 
@@ -85,7 +86,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -143,7 +144,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -153,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 분석](analytics.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
 
-[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 사용자 지정 이벤트의 정확한 수를 가져오려면 따라서 코드를 사용 해야 같은 `customEvents | summarize sum(itemCount)`합니다.
+[샘플링](../../azure-monitor/app/sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 사용자 지정 이벤트의 정확한 수를 가져오려면와 `customEvents | summarize sum(itemCount)`같은 코드를 사용 해야 합니다.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +250,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric는 메트릭 보내기는 기본 방법은 아닙니다. 메트릭은 전송되기 전에 항상 미리 집계되어야 합니다. GetMetric(..) 오버로드 중 하나를 사용하여 SDK 사전 집계 기능에 액세스하기 위한 메트릭 개체를 가져옵니다. 고유한 사전 집계 논리를 구현 하는 경우 결과 집계 보낼 trackmetric () 메서드를 사용할 수 있습니다. 애플리케이션이 전체 시간에서 집계를 수행하지 않고 모든 경우에 개별 원격 분석 항목을 전송해야 하는 경우에는 이벤트 원격 분석 사용 사례가 적용될 가능성이 높습니다. TelemetryClient.TrackEvent(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)를 참조하세요.
+> TelemetryClient 메트릭은 메트릭을 전송 하는 데 선호 되는 방법이 아닙니다. 메트릭은 전송되기 전에 항상 미리 집계되어야 합니다. GetMetric(..) 오버로드 중 하나를 사용하여 SDK 사전 집계 기능에 액세스하기 위한 메트릭 개체를 가져옵니다. 사용자 고유의 사전 집계 논리를 구현 하는 경우에는 지 수 메트릭 () 메서드를 사용 하 여 결과 집계를 보낼 수 있습니다. 애플리케이션이 전체 시간에서 집계를 수행하지 않고 모든 경우에 개별 원격 분석 항목을 전송해야 하는 경우에는 이벤트 원격 분석 사용 사례가 적용될 가능성이 높습니다. TelemetryClient.TrackEvent(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)를 참조하세요.
 
 Application Insights에서는 특정 이벤트에 연결되지 않은 메트릭을 차트로 작성할 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다. 메트릭을 사용할 경우 개별 측정값보다 변형 및 추세에 좀 더 관심을 갖게 되며 통계 차트가 유용합니다.
 
@@ -257,7 +258,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 * 단일 값. 애플리케이션에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다.
 
-* 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
+* 집계 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
 ### <a name="examples"></a>예
 
@@ -286,7 +287,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.JS*
+*Node.js*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -492,7 +493,7 @@ catch (ex)
 }
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 try
@@ -529,7 +530,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들어:
 
 ```kusto
 exceptions
@@ -563,7 +564,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.trackTrace({
@@ -592,7 +593,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
 
 *C#*
 
@@ -712,7 +713,7 @@ dependencies
 
 ## <a name="flushing-data"></a>데이터 플러시
 
-일반적으로 SDK는 데이터를 고정된 간격 (일반적으로 30 초) 또는 버퍼가 될 때마다 전체 (일반적으로 500 개 항목)을 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 애플리케이션에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
+일반적으로 SDK는 고정 된 간격 (일반적으로 30 초)으로 또는 버퍼가 가득 찬 경우 (일반적으로 500 항목)에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 애플리케이션에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
 
 *C#*
 
@@ -730,7 +731,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.flush();
@@ -833,7 +834,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -912,7 +913,7 @@ requests
 | summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game)
 ```
 
-다음에 유의합니다.
+다음 사항을 참고하세요.
 
 * customDimensions 또는 customMeasurements JSON에서 값을 추출하면 동적 유형이므로 `tostring` 또는 `todouble`로 캐스트해야 합니다.
 * [샘플링](../../azure-monitor/app/sampling.md)의 가능성을 고려하려면 `count()`가 아닌 `sum(itemCount)`을 사용해야 합니다.
@@ -950,7 +951,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();
@@ -999,7 +1000,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -1046,7 +1047,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 *선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -1082,9 +1083,9 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.JS*
+*Node.js*
 
-Node.js를 통해 내부 로깅을 사용 하 여 개발자 모드를 설정할 수 있습니다. `setInternalLogging` 설정 `maxBatchSize` 수집 되는 즉시 전송 될 원격 분석을 0으로 발생 합니다.
+Node.js의 경우를 통해 `setInternalLogging` 내부 로깅을 설정 하 고를 0으로 설정 `maxBatchSize` 하 여 개발자 모드를 사용 하도록 설정할 수 있습니다. 그러면 원격 분석이 수집 되는 즉시 전송 됩니다.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1155,7 +1156,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1205,7 +1206,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 * *Track_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
 
-    없음. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
+    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 * *포털에서 데이터를 가져오는 REST API가 있나요?*
 
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md ) 및 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)가 있습니다.

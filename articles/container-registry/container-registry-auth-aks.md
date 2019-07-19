@@ -3,22 +3,23 @@ title: Azure Kubernetes Service의 Azure Container Registry를 사용하여 인�
 description: Azure Active Directory 서비스 주체를 사용하여 Azure Kubernetes Service에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-service
 author: dlepow
+manager: gwallace
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754468"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310251"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
 AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 가지 Azure 서비스 간 인증을 위해 권장되는 구성에 대해 설명합니다.
 
-이러한 인증 방법 중 하나를 구성 해야 합니다. 가장 일반적인 방법은 하는 것 [AKS 서비스 주체를 사용 하 여 액세스를 부여](#grant-aks-access-to-acr)합니다. 특정 한 요구 사항이 하면 필요에 따라 [Kubernetes 비밀을 사용 하 여 액세스를 부여](#access-with-kubernetes-secret)합니다.
+이러한 인증 방법 중 하나를 구성 하기만 하면 됩니다. 가장 일반적인 방법은 [AKS 서비스 주체를 사용 하 여 액세스 권한을 부여](#grant-aks-access-to-acr)하는 것입니다. 특정 요구 사항이 있는 경우 필요에 따라 [Kubernetes 암호를 사용 하 여 액세스 권한을 부여할](#access-with-kubernetes-secret)수 있습니다.
 
 이 문서에서는 AKS 클러스터를 이미 만든 상태로 `kubectl` 명령줄 클라이언트로 클러스터에 액세스할 수 있다고 가정합니다.
 
@@ -73,7 +74,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-이제 AKS 클러스터가 컨테이너를 실행할 때 참조하는 Kubernetes [이미지 끌어오기 비밀][image-pull-secret]에 서비스 주체의 자격 증명을 저장할 수 있습니다.
+이제 서비스 주체의 자격 증명을 Kubernetes [이미지 풀 비밀][image-pull-secret]에 저장할 수 있습니다 .이 암호는 AKS 클러스터가 컨테이너를 실행할 때 참조할 수 있습니다.
 
 다음 **kubectl** 명령을 사용하여 Kubernetes 비밀을 만듭니다. `<acr-login-server>`를 Azure Container Registry의 정규화된 이름(“acrname.azurecr.io" 형식)으로 바꿉니다. `<service-principal-ID>` 및 `<service-principal-password>`를 이전 스크립트를 실행하여 획득한 값으로 바꿉니다. `<email-address>`를 올바른 형식의 이메일 주소로 바꿉니다.
 

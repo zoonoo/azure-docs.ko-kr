@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 분산 장치 TCP 유휴 시간 제한 구성
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734606"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274176"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
 
@@ -76,7 +76,7 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>부하 분산된 엔드포인트 집합에 대한 TCP 시간 제한 설정
 
-부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예를 들면 다음과 같습니다.
+부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예를 들어:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -119,7 +119,7 @@ Service Management API를 사용하여 TCP 유휴 시간 제한을 구성할 수
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ```xml
 <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">

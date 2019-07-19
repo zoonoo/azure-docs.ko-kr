@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584610"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852597"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Azure SQL Database의 Azure 유지 관리 이벤트 계획
 
@@ -41,7 +41,7 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="resource-health"></a>리소스 상태
 
-SQL 데이터베이스에 로그인 장애가 있으면, [Azure Portal](https://portal.azure.com)의 [Resource Health](../service-health/resource-health-overview.md#getting-started) 창에서 현재 상태를 확인하세요. 상태 기록 섹션에는 각 이벤트에 대한 가동 중지 시간 이유가 포함됩니다(가능한 경우).
+SQL 데이터베이스에 로그인 장애가 있으면, [Azure Portal](https://portal.azure.com)의 [Resource Health](../service-health/resource-health-overview.md#get-started) 창에서 현재 상태를 확인하세요. 상태 기록 섹션에는 각 이벤트에 대한 가동 중지 시간 이유가 포함됩니다(가능한 경우).
 
 
 ## <a name="next-steps"></a>다음 단계

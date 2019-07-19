@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: de4029d7c454ed590fdf974771d5f55c52590c93
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8e97a979c37af8ade51b4ff6ca4b2c5b4eec126e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839045"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232732"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -49,6 +49,9 @@ ms.locfileid: "67839045"
 
 * 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Windows 또는 Ubuntu를 실행하는 Mac 또는 PC
+* [쓸모](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [USB 용 adafHuzzah ESP8266 driver](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * Feather HUZZAH ESP8266을 연결할 무선 네트워크
 * 구성 도구를 다운로드하기 위한 인터넷 연결
 * [Arduino용 Visual Studio Code 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
@@ -156,7 +159,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 6. Visual Studio Code에서 `F1`을 입력합니다.
 
-7. 형식 **Arduino** 선택한 **Arduino: 보드 관리자**를 입력하고 선택합니다.
+7. **Arduino** 를 입력 하 **고 Arduino를 선택 합니다. 보드 관리자**를 입력하고 선택합니다.
 
 8. **Arduino: 보드 관리자** 탭에서 **추가 URL**을 클릭합니다.
 
@@ -180,7 +183,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
     ![esp8266 패키지가 설치됨](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 보드 구성**합니다.
+13. 을 `F1`입력 하 고 **Arduino** 를 입력 **한 다음 Arduino를 선택 합니다. 보드 구성**.
 
 14. **선택한 보드:** 에 대한 상자를 클릭하고 **esp8266**을 선택한 후 **Adafruit HUZZAH ESP8266(esp8266)** 을 선택합니다.
 
@@ -188,7 +191,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="install-necessary-libraries"></a>필요한 라이브러리 설치
 
-1. Visual Studio Code에서 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 라이브러리 관리자**합니다.
+1. Visual Studio Code에서를 입력 `F1`하 고 **Arduino** 를 입력 한 다음 **Arduino를 선택 합니다. 라이브러리 관리자**.
 
 2. 다음 라이브러리 이름을 하나씩 검색합니다. 찾은 각 라이브러리에 대해 **설치**를 클릭합니다.
    * `AzureIoTHub`
@@ -216,9 +219,9 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 샘플 애플리케이션 배포
 
-1. Visual Studio Code에서 클릭  **\<직렬 포트 선택 >** 상태 모음 및 Feather HUZZAH ESP8266에 대 한 직렬 포트를 클릭 합니다.
+1. Visual Studio Code에서 상태 표시줄의  **\<직렬 포트 > 선택** 을 클릭 한 다음 페더 HUZZAH ESP8266에 대 한 직렬 포트를 클릭 합니다.
 
-2. 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 업로드** 을 빌드하고 Feather HUZZAH ESP8266에 샘플 응용 프로그램을 배포 합니다.
+2. 을 `F1`입력 하 고 **Arduino** 를 입력 **한 다음 Arduino를 선택 합니다. 업로드** 하 여 샘플 응용 프로그램을 빌드하고 배포 하 여 HUZZAH ESP8266를 페더 합니다.
 
 ### <a name="enter-your-credentials"></a>자격 증명 입력
 
@@ -247,11 +250,11 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ![Arduino IDE의 최종 출력](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-장치에서 IoT hub에서 수신한 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 참조 하세요 [for Visual Studio Code 장치 및 IoT Hub 간에 메시지를 받고 보내는 데 사용 하 여 Azure IoT 도구](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)합니다.
+장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
 
-장치에서 보낸 데이터를 처리 하는 방법을 더 보려면, 다음 섹션을 진행 합니다.
+장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

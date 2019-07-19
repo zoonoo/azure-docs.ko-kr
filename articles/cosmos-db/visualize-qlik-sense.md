@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: eea4366ca19c01af1f79566a5ca6bcae8805b6c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242486"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985540"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Qlik Sense를 Azure Cosmos DB에 연결하고 데이터 시각화
 
@@ -34,7 +34,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 이 문서에서는 ODBC 커넥터를 사용하여 Cosmos DB SQL API에 연결하는 자세한 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 지침을 따르기 전에, 다음 리소스가 준비되었는지 확인합니다.
 
@@ -44,7 +44,7 @@ Qlik Sense는 여러 소스의 데이터를 단일 보기로 결합하는 데이
 
 * 빠른 시작 문서의 [계정 만들기](create-sql-api-dotnet.md#create-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다.
 
-* [데이터베이스 및 컬렉션 만들기](create-sql-api-dotnet.md#create-collection-database) – 컬렉션 처리량 값을 1000 RU/s로 설정할 수 있습니다. 
+* [데이터베이스 및 컬렉션 만들기](create-sql-api-java.md#add-a-container) – 컬렉션 처리량 값을 1000 RU/s로 설정할 수 있습니다. 
 
 * 샘플 비디오 게임 판매 데이터를 Cosmos DB 계정에 로드합니다. Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 데이터를 가져올 수 있습니다. 데이터를 [순차적](import-data.md#SQLSeqTarget)으로 또는 [대량으로 가져올 수 있습니다](import-data.md#SQLBulkTarget). Cosmos DB 계정으로 데이터를 가져올 때까지 약 3-5분이 걸립니다.
 

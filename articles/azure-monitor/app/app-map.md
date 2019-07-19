@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795670"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302566"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -36,7 +36,7 @@ ms.locfileid: "67795670"
 
 여러 수준의 관련된 애플리케이션 구성 요소의 전체 애플리케이션 토폴로지를 볼 수 있습니다. 구성 요소는 다른 Application Insights 리소스이거나 단일 리소스 내의 다른 역할일 수 있습니다. 앱은 Application Insights SDK가 설치된 서버 간에 수행된 HTTP 종속성 호출에 따라 구성 요소를 찾습니다. 
 
-이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. Application map을 처음 로드 하면이 구성 요소와 관련 된 구성 요소를 검색 쿼리 집합이 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다. 
+이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. 응용 프로그램 맵을 처음 로드할 때이 구성 요소와 관련 된 구성 요소를 검색 하기 위해 쿼리 집합이 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다. 
 
 "맵 구성 요소 업데이트"를 클릭하면 맵이 해당 시점까지 검색된 모든 구성 요소로 새로 고쳐집니다. 애플리케이션의 복잡성에 따라, 로드하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "67795670"
 
 ### <a name="go-to-details"></a>세부 정보로 이동
 
-선택 **세부 정보로** 호출 스택 수준까지 뷰를 제공할 수 있는 종단 간 트랜잭션 경험을 소개 합니다.
+**세부 정보로 이동** 을 선택 하 여 호출 스택 수준까지 뷰를 제공할 수 있는 종단 간 트랜잭션 환경을 탐색 합니다.
 
 ![세부 정보로 이동 단추 스크린샷](media/app-map/go-to-details.png)
 
@@ -92,11 +92,11 @@ ms.locfileid: "67795670"
 
 ## <a name="set-cloud-role-name"></a>클라우드 역할 이름 설정
 
-응용 프로그램 맵을 사용 하는 **클라우드 역할 이름** 맵에서 구성 요소를 식별 하는 속성입니다. Application Insights SDK 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다. 예를 들어, SDK 클라우드 역할 이름 속성에는 웹 사이트 이름 또는 서비스 역할 이름을 추가 합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름 재정의 및 Application Map에 표시 되는 내용 변경:
+응용 프로그램 맵은 **클라우드 역할 이름** 속성을 사용 하 여 맵의 구성 요소를 식별 합니다. Application Insights SDK는 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다. 예를 들어 SDK는 클라우드 역할 이름 속성에 웹 사이트 이름 또는 서비스 역할 이름을 추가 합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름을 재정의 하 고 응용 프로그램 맵에 표시 되는 항목을 변경 하려면:
 
 ### <a name="netnet-core"></a>.NET/.NET Core
 
-**아래와 같이 사용자 지정 TelemetryInitializer를 작성 합니다.**
+**아래와 같이 사용자 지정 TelemetryInitializer을 작성 합니다.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -119,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**ASP.NET 앱: 활성 TelemetryConfiguration 이니셜라이저 로드**
+**ASP.NET apps: 활성 TelemetryConfiguration에 이니셜라이저를 로드 합니다.**
 
-In ApplicationInsights.config :
+ApplicationInsights에서 다음을 수행 합니다.
 
 ```xml
     <ApplicationInsights>
@@ -133,7 +133,7 @@ In ApplicationInsights.config :
     </ApplicationInsights>
 ```
 
-ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 코드에서 이니셜라이저를 인스턴스화하는:
+웹 앱을 ASP.NET 하는 다른 방법은 코드에서 이니셜라이저를 인스턴스화하는 것입니다 (예: Global.aspx.cs).
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -147,11 +147,11 @@ ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 �
 ```
 
 > [!NOTE]
-> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> 또는를 사용 `ApplicationInsights.config`하여 이니셜라이저를추가하는것은ASP.NETCore응용프로그램에적합하지않습니다.`TelemetryConfiguration.Active` 
 
-**ASP.NET Core 앱: 이니셜라이저는 TelemetryConfiguration 로드 합니다.**
+**ASP.NET Core 앱: TelemetryConfiguration에 이니셜라이저 로드**
 
-에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. 클래스의 메서드에서`ConfigureServices` 이 작업을 수행 합니다. `Startup.cs`
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -189,15 +189,15 @@ Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경
 
 `spring.application.name=<name-of-app>`
 
-Spring Boot starter는 자동으로 클라우드 역할 이름 spring.application.name 속성에 대 한 입력 값에 할당 합니다.
+스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
 
-Java에 대 한 자세한 내용은 클라우드 역할을 구성 하는 방법과 상관 관계 이름을 아닌 SpringBoot 응용 프로그램 체크 아웃할 [섹션](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) 상관 관계에 있습니다.
+Java 상관 관계 및 SpringBoot 되지 않는 응용 프로그램에 대 한 클라우드 역할 이름을 구성 하는 방법에 대 한 자세한 내용은 상관 관계에서이 [섹션](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) 을 체크 아웃 합니다.
 
 ### <a name="clientbrowser-side-javascript"></a>클라이언트/브라우저 쪽 JavaScript
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
@@ -206,15 +206,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>응용 프로그램 맵의 컨텍스트 내에서 클라우드 역할 이름 이해
 
-생각 하는 방법에 관해서는 **클라우드 역할 이름**, 여러 클라우드 역할 이름에 있는 응용 프로그램 맵을 살펴보면 도움이 될 수 있습니다.
+**클라우드 역할 이름**에 대해 생각 하는 것과 같이 여러 개의 클라우드 역할 이름이 있는 응용 프로그램 맵을 살펴보면 도움이 될 수 있습니다.
 
 ![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
 
-위의 각 녹색 상자에 이름을 Application Map에 클라우드 역할 이름 값이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 합니다. 이 앱에 대해 해당 역할의 구성 되므로: `Authentication`, `acmefrontend`를 `Inventory Management`, `Payment Processing Worker Role`합니다. 
+위의 응용 프로그램 맵에서 녹색 상자에는이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 클라우드 역할 이름 값이 있습니다. 따라서이 앱의 `Authentication`역할은 `Inventory Management`, `acmefrontend`,, a `Payment Processing Worker Role`로 구성 됩니다. 
 
-이 앱의 경우 각 해당 클라우드 역할 이름 또한 나타냅니다 다른 고유한 Application Insights 리소스를 자체 계측 키를 사용 하 여 합니다. 이 응용 프로그램의 소유자가 각 네 개의 서로 다른 Application Insights 리소스에 대 한 액세스를 응용 프로그램 맵 이므로 기본 관계의 맵을 함께 연결할 수 있습니다.
+이 앱의 경우 각 클라우드 역할 이름은 고유한 계측 키가 있는 다른 고유한 Application Insights 리소스도 나타냅니다. 이 응용 프로그램의 소유자는 이러한 4 개의 서로 다른 Application Insights 리소스에 대해 액세스할 수 있으므로 응용 프로그램 맵은 기본 관계의 맵을 함께 연결할 수 있습니다.
 
-에 대 한 합니다 [공식 정의](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+[공식 정의](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93)의 경우:
 
 ```
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
@@ -226,11 +226,11 @@ appInsights.context.addTelemetryInitializer((envelope) => {
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-또는 **클라우드 역할 인스턴스** 시나리오에 유용할 수 있는 **클라우드 역할 이름** 알려 웹 프런트 엔드, 안에 있으면 문제가 있지만에서 프런트 엔드 웹 실행 중일 수 있습니다 여러 부하 분산 된 서버 Kusto 쿼리를 통해 심층적인 계층에서 드릴 없게 및 모든 웹 프런트 엔드 서버/인스턴스에 영향을 주는 문제는 아니면 하나만 매우 중요할 수 있습니다.
+또는 클라우드 역할 **이름이** 문제를 웹 프런트 엔드에 있는 것으로 알려주는 시나리오에서 클라우드 **역할 인스턴스** 를 사용할 수 있지만, 여러 부하 분산 된 서버에서 웹 프런트 엔드를 실행 하 여 다음을 수행할 수 있습니다. Kusto 쿼리를 통해 더 심층적으로 계층을 드릴 다운 하 고 문제가 모든 웹 프런트 엔드 서버/인스턴스에 영향을 주는지 아니면 하나만 매우 중요할 수 있는지 파악 합니다.
 
-클라우드 역할 인스턴스에 대 한 값을 재정의 하려는 경우 앱 실행 되 고 있는지를 컨테이너 화 된 환경에서 개별 서버 아는 하지 수 있는 충분 한 정보를 특정된 문제를 찾을 수 있습니다.
+앱이 특정 문제를 찾기에 충분 한 정보가 없을 수 있는 컨테이너 화 된 환경에서 앱이 실행 되는 경우 클라우드 역할 인스턴스의 값을 재정의 하는 것이 좋습니다.
 
-원격 분석 이니셜라이저를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [속성을 추가 합니다. ITelemetryInitializer 추가](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.
+원격 분석 이니셜라이저 [를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 속성 추가: ITelemetryInitializer 추가](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -246,23 +246,23 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 3. C#으로 Azure Functions를 사용하는 경우 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)로 업그레이드합니다.
 
-4. 확인 [클라우드 역할 이름](#set-cloud-role-name) 올바르게 구성 되어 있습니다.
+4. [클라우드 역할 이름이](#set-cloud-role-name) 올바르게 구성 되었는지 확인 합니다.
 
 5. 종속성이 누락된 경우 [자동 수집 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
 
-### <a name="too-many-nodes-on-the-map"></a>지도에 너무 많은 노드
+### <a name="too-many-nodes-on-the-map"></a>맵에 노드가 너무 많음
 
-응용 프로그램 맵 형식, 대상 및 클라우드 역할 이름 종속성 원격 분석에서 각 고유 조합에 대 한 종속성 노드와 요청 원격 분석에 있는 각 고유한 클라우드 역할 이름에 대 한 응용 프로그램 노드를 생성합니다. 원격 분석에서 10,000 개 보다 많은 노드가 없으면 응용 프로그램 맵 맵에 표시 되지 않습니다 있도록 모든 노드 및 링크를 가져올 수 없습니다. 이 경우 맵을 볼 때 경고 메시지가 표시 됩니다.
+응용 프로그램 맵은 요청 원격 분석에 있는 고유한 각 클라우드 역할 이름에 대 한 응용 프로그램 노드를 생성 하 고 종속성 원격 분석에서 형식, 대상 및 클라우드 역할 이름의 각 고유 조합에 대 한 종속성 노드를 생성 합니다. 원격 분석에 노드가 1만 개 이상 있는 경우 응용 프로그램 맵은 모든 노드와 링크를 인출할 수 없으므로 map이 완전 하지 않습니다. 이 경우 맵을 볼 때 경고 메시지가 표시 됩니다.
 
-또한 응용 프로그램 맵만 렌더링을 한 번에 최대 1,000 개의 별도 그룹화 되지 않은 노드를 지원 합니다. 응용 프로그램 맵 같은 형식 및 호출자가 종속성을 함께 그룹화 하 여 시각적 복잡성 감소 하지만 원격 분석에 너무 많은 고유한 클라우드 역할 이름 또는 너무 많은 종속성 종류, 그룹화 되지 충분 하 고 지도 할 수 없습니다. 렌더링 합니다.
+또한 응용 프로그램 맵은 한 번에 렌더링 된 분리 되지 않은 개별 노드를 최대 1000 개만 지원 합니다. 응용 프로그램 맵은 동일한 유형 및 호출자를 포함 하는 종속성을 그룹화 하 여 시각적 복잡성을 줄여 주지만 원격 분석에 고유한 클라우드 역할 이름이 너무 많거나 너무 많은 종속성 유형이 있는 경우에는 해당 그룹화에 충분 하지 않으며 지도에서 다음을 수행할 수 없습니다. 못하게.
 
-이 해결 하려면 클라우드 역할 이름, 종속성 유형 및 종속성 대상 필드를 올바르게 설정 하 여 계측을 변경 해야 합니다.
+이 문제를 해결 하려면 클라우드 역할 이름, 종속성 유형 및 종속성 대상 필드를 올바르게 설정 하도록 계측을 변경 해야 합니다.
 
-* 종속성 대상 종속성의 논리적 이름을 나타내야 합니다. 대부분의 경우 서버 또는 종속성의 리소스 이름에 동일 합니다. 예를 들어, HTTP 종속성의 경우 설정은 호스트 이름입니다. 고유 Id 또는 다른 요청에서을 변경 하는 매개 변수는 포함 하지 않아야 합니다.
+* 종속성 대상은 종속성의 논리적 이름을 나타내야 합니다. 대부분의 경우 종속성의 서버 또는 리소스 이름과 동일 합니다. 예를 들어 HTTP 종속성의 경우 호스트 이름으로 설정 됩니다. 한 요청에서 다른 요청으로 변경 되는 고유 Id 또는 매개 변수를 포함 해서는 안 됩니다.
 
-* 종속성 유형 종속성 논리 형식을 나타내야 합니다. 예를 들어, HTTP, SQL 또는 Azure Blob 형식은 일반적인 종속성입니다. 고유 Id는 포함 되지 않습니다.
+* 종속성 유형은 종속성의 논리적 유형을 나타내야 합니다. 예를 들어 HTTP, SQL 또는 Azure Blob은 일반적으로 종속성 유형입니다. 고유 Id를 포함 해서는 안 됩니다.
 
-* 클라우드 역할 이름의 용도에 설명 되어는 [구역 위에](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)합니다.
+* 클라우드 역할 이름의 용도는 [위의 섹션](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)에 설명 되어 있습니다.
 
 ## <a name="portal-feedback"></a>포털 사용자 의견
 

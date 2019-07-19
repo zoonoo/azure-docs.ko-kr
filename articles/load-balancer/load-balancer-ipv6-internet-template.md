@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, Azure Load Balancer, 이중 스택, 공용 IP, 기본 ipv6, 모바일, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216855"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275008"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -109,7 +109,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 이 문서에서 사용된 예제 템플릿에는 다음 변수 및 매개 변수가 들어 있습니다.
 
-| 매개 변수 / 변수 | 메모 |
+| 매개 변수 / 변수 | 참고 |
 | --- | --- |
 | adminUsername |가상 머신에 로그인하는 데 사용되는 관리자 계정의 이름을 지정합니다. |
 | adminPassword |가상 머신에 로그인하는 데 사용되는 관리자 계정의 비밀번호를 지정합니다. |

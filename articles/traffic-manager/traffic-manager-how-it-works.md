@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071178"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312141"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -69,6 +69,29 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
 재귀 DNS 서비스는 받는 DNS 응답을 캐시합니다. 클라이언트 디바이스의 DNS 확인자도 결과를 캐시합니다. 캐싱을 통해 후속 DNS 쿼리는 다른 이름 서버를 쿼리하는 대신 캐시의 데이터를 사용하여 더 신속하게 답변을 받을 수 있습니다. 캐시의 기간은 각 DNS 레코드의 'TTL(time-to-live)' 속성에 의해 결정됩니다. 짧은 값은 캐시가 빨리 만료되므로 Traffic Manager 이름 서버에 여러 차례의 왕복이 발생합니다. 긴 값은 실패한 엔드포인트에서 트래픽을 멀리 이동하는 데 더 긴 시간이 걸립니다. Traffic Manager를 사용하면 Traffic Manager DNS 응답에 사용되는 TTL을 0초에서 2,147,483,647초([RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)에 따른 최대 범위) 사이로 구성할 수 있으므로 애플리케이션의 요구에 가장 맞는 값을 선택할 수 있습니다.
 
+## <a name="faqs"></a>FAQ
+
+* [Traffic Manager 사용 하는 IP 주소는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [Traffic Manager를 사용 하 여 라우팅할 수 있는 트래픽 종류는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* ["고정" 세션을 지원할 Traffic Manager 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [Traffic Manager를 사용할 때 HTTP 오류가 표시 되는 이유는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [Traffic Manager를 사용할 때 성능에 미치는 영향은 무엇입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [Traffic Manager에서 사용할 수 있는 응용 프로그램 프로토콜은 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* ["Naked" 도메인 이름과 함께 Traffic Manager를 사용할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [DNS 쿼리를 처리할 때 클라이언트 서브넷 주소를 고려 Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [DNS TTL 이란 무엇 이며, 어떤 방법으로 내 사용자에 게 영향을 미칩니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [Traffic Manager 응답에 대 한 TTL을 설정할 수 있는 최대 또는 낮음](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [내 프로필에 들어오는 쿼리 볼륨을 어떻게 이해할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>다음 단계
 

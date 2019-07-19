@@ -1,23 +1,23 @@
 ---
-title: 허용 하거나 특정 조직-Azure Active Directory에 대 한 블록 초대 | Microsoft Docs
+title: 특정 조직에 대 한 초대 허용 또는 차단-Azure Active Directory | Microsoft Docs
 description: Azure Portal 또는 PowerShell을 사용하여 특정 도메인에서 B2B 사용자를 허용하거나 차단하는 액세스 또는 거부 목록을 설정하는 방법을 살펴봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113231"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233890"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -27,8 +27,9 @@ ms.locfileid: "67113231"
 
 - 허용 목록 또는 거부 목록을 만들 수 있습니다. 두 목록을 모두 설정할 수는 없습니다. 기본적으로 허용 목록에 없는 모든 도메인은 거부 목록에 있게 되고 반대의 경우도 마찬가지가 됩니다. 
 - 조직당 하나의 정책만 만들 수 있습니다. 더 많은 도메인을 포함하도록 정책을 업데이트하거나 정책을 삭제하고 새 정책을 만들 수도 있습니다. 
+- 허용 목록 또는 거부 목록에 추가할 수 있는 도메인 수는 정책 크기에 의해서만 제한 됩니다. 전체 정책의 최대 크기는 25KB (25000 자)입니다. 여기에는 허용 목록 또는 거부 목록과 다른 기능에 대해 구성 된 기타 매개 변수가 포함 됩니다.
 - 이 목록은 OneDrive for Business 및 SharePoint Online 허용/차단 목록과는 독립적으로 적용됩니다. SharePoint Online에서의 개별 파일 공유를 제한하려면 OneDrive for Business 및 SharePoint Online에 대한 허용 또는 거부 목록을 설정해야 합니다. 자세한 내용은 [SharePoint Online 및 OneDrive for Business에서 제한된 도메인 공유](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9)를 참조하세요.
-- 이 목록은 이미 초대를 사용한 외부 사용자에게는 적용되지 않습니다. 목록은 설정한 후에 시행됩니다. 사용자 초대가 대기 상태이며 해당 도메인을 차단하는 정책을 설정한 경우 해당 사용자가 초대를 사용하려 하면 실패하게 됩니다.
+- 이 목록은 이미 초대를 받은 외부 사용자에 게는 적용 되지 않습니다. 목록은 설정한 후에 시행됩니다. 사용자 초대가 대기 상태이며 해당 도메인을 차단하는 정책을 설정한 경우 해당 사용자가 초대를 사용하려 하면 실패하게 됩니다.
 
 ## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>포털에서 허용 또는 차단 목록 정책 설정
 
@@ -42,9 +43,9 @@ ms.locfileid: "67113231"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
-3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
-4. **공동 작업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
-5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들면 다음과 같습니다.
+3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
+4. **협업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
+5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
 
    ![추가된 도메인에 거부 옵션 표시](./media/allow-deny-list/DenyListSettings.png)
  
@@ -63,9 +64,9 @@ ms.locfileid: "67113231"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
-3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
-4. **공동 작업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
-5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들면 다음과 같습니다.
+3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
+4. **협업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
+5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
 
    ![추가된 도메인에 허용 옵션 표시](./media/allow-deny-list/AllowListSettings.png)
  
@@ -79,7 +80,7 @@ ms.locfileid: "67113231"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 조건
 
 PowerShell을 사용하여 허용 또는 거부 목록을 설정하려면 Azure Active Directory Module for Windows PowerShell의 미리 보기 버전을 설치해야 합니다. 특히 AzureADPreview module version 2.0.0.98 이상을 설치합니다.
 
@@ -136,19 +137,19 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
+허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
+정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
+정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -157,7 +158,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD B2B의 개요는 [Azure AD B2B 협업이란?](what-is-b2b.md)을 참조하세요.
-- 조건부 액세스 및 B2B 공동 작업에 대 한 정보를 참조 하세요 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)합니다.
+- 조건부 액세스 및 B2B 공동 작업에 대 한 자세한 내용은 [b2b 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조 하세요.
 
 
 

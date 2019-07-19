@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840123"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854237"
 ---
 # <a name="recommended-on-premises-encoders"></a>권장 온-프레미스 인코더
-Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널을 사용 하 여 온-프레미스 인코더를 사용 하려는 경우 인코더는 고품질 단일 비트 전송률 스트림을 출력으로 푸시 해야 합니다. 통과 채널을 사용 하 여 온-프레미스 인코더를 사용 하려는 경우 인코더는 다중 비트 전송률 스트림을 원하는 모든 출력 품질이 포함 된 출력으로 푸시 해야 합니다. 자세한 내용은 [인코더를 프레미스에 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)합니다.
+Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널에서 온-프레미스 인코더를 사용 하도록 선택 하는 경우 인코더는 고품질의 단일 비트 전송률 스트림을 출력으로 푸시 해야 합니다. 통과 채널에서 온-프레미스 인코더를 사용 하도록 선택 하는 경우 인코더는 다중 비트 전송률 스트림을 원하는 모든 출력 품질의 출력으로 푸시 해야 합니다. 자세한 내용은 온 [-프레미스 인코더를 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)을 참조 하세요.
 
 Azure Media Services는 RTMP이 출력으로 포함된 다음 라이브 인코더 중 하나를 사용하도록 권장합니다.
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services는 다중 비트 전송률 조각화된 MP4(부드러운 �
 > [!NOTE]
 > 라이브 인코더는 통과 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 구성에서는 클라이언트에 대한 적응 비트 전송률 스트리밍이 허용되지 않으므로 이 구성은 권장되지 않습니다.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>온-프레미스 인코더 파트너가 하는 방법
-온-프레미스 인코더 파트너가 Azure Media Services로 Media Services 인코더 기업 고객에 게 추천 하 여 제품을 승격 합니다. 온-프레미스 인코더 파트너가 되려면를 Media Services를 사용 하 여 온-프레미스 인코더의 호환성을 확인 해야 합니다. 이렇게 하려면 다음 확인을 완료하세요.
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>온-프레미스 인코더 파트너를 만드는 방법
+온-프레미스 인코더 파트너에 게는 Azure Media Services 기업 고객에 게 인코더를 제안 하 여 제품을 홍보 Media Services. 온-프레미스 인코더 파트너가 되기 위해서는 온-프레미스 인코더와 Media Services의 호환성을 확인 해야 합니다. 이렇게 하려면 다음 확인을 완료하세요.
 
 채널 확인 통과
 1. Azure Media Services 계정 만들기 또는 방문
@@ -54,7 +54,7 @@ Azure Media Services는 다중 비트 전송률 조각화된 MP4(부드러운 �
 4. 게시된 라이브 이벤트 만들기
 5. 약 10분 동안 라이브 인코더 실행
 6. 라이브 이벤트 중지
-7. 스트리밍 엔드포인트를 만들어 시작하고, [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시(하거나 6단계 전에 라이브 세션 동안 미리 보기 URL을 통해 감시하고 유효성 검사를 실시)합니다.
+7. 스트리밍 엔드포인트를 만들어 시작하고, [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시(하거나 6단계 전에 라이브 세션 동안 미리 보기 URL을 통해 감시하고 유효성 검사를 실시)합니다.
 8. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 9. 각 샘플을 만든 후 채널 상태를 다시 설정합니다.
 10. 인코더에서 지원되는 모든 구성에 대해 3-9단계 반복(광고 신호/자막/다른 인코딩 속도를 포함하거나 포함하지 않음)
@@ -66,7 +66,7 @@ Azure Media Services는 다중 비트 전송률 조각화된 MP4(부드러운 �
 4. 게시된 라이브 이벤트 만들기
 5. 약 10분 동안 라이브 인코더 실행
 6. 라이브 이벤트 중지
-7. 스트리밍 엔드포인트를 만들어 시작하고, [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시(하거나 6단계 전에 라이브 세션 동안 미리 보기 URL을 통해 감시하고 유효성 검사를 실시)합니다.
+7. 스트리밍 엔드포인트를 만들어 시작하고, [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 모든 품질 수준에서 결함이 표시되지 않도록 보관된 자산을 감시(하거나 6단계 전에 라이브 세션 동안 미리 보기 URL을 통해 감시하고 유효성 검사를 실시)합니다.
 8. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 9. 각 샘플을 만든 후 채널 상태를 다시 설정합니다.
 10. 인코더에서 지원되는 모든 구성에 대해 3-9단계 반복(광고 신호/자막/다양한 인코딩 속도를 포함하거나 포함하지 않음)
@@ -77,7 +77,7 @@ Azure Media Services는 다중 비트 전송률 조각화된 MP4(부드러운 �
 3. 다중 비트 전송률 라이브 스트림을 푸시하도록 인코더를 구성합니다.
 4. 게시된 라이브 이벤트 만들기
 5. 한 주 이상 라이브 인코더 실행
-6. [Azure Media Player](http://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시
+6. [Azure Media Player](https://aka.ms/azuremediaplayer) 같은 플레이어를 사용하여 재생 시 결함이 표시되지 않도록 때때로 라이브 스트리밍(또는 보관된 자산)을 감시
 7. 라이브 이벤트 중지
 8. 자산 ID, 라이브 보관의 게시된 스트리밍 URL, 라이브 인코더에서 사용되는 설정 및 버전을 기록합니다.
 

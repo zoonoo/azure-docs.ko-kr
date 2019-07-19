@@ -10,13 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender, yevbronsh
-ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: mahender
+ms.reviewer: yevbronsh
+ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827851"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297149"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -277,11 +278,11 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조] 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
 
 
-### <a name="using-the-azure-sdk-for-java"></a>Java 용 Azure SDK를 사용 하 여
+### <a name="using-the-azure-sdk-for-java"></a>Java 용 Azure SDK 사용
 
-Java 응용 프로그램 및 함수에 대 한 관리 되는 id를 사용 하는 가장 간단한 방법은 통해은 [Java 용 Azure SDK](https://github.com/Azure/azure-sdk-for-java)합니다. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+Java 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 [java 용 AZURE SDK](https://github.com/Azure/azure-sdk-for-java)를 사용 하는 것입니다. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
-1. 에 대 한 참조를 추가 합니다 [Azure SDK 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure)합니다. Maven 프로젝트에 대 한 코드이 조각을 추가할 수 있습니다는 `dependencies` 프로젝트의 POM 파일의 섹션:
+1. [AZURE SDK 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure)에 대 한 참조를 추가 합니다. Maven 프로젝트의 경우 프로젝트의 POM 파일 `dependencies` 섹션에이 코드 조각을 추가할 수 있습니다.
 
 ```xml
 <dependency>
@@ -291,7 +292,7 @@ Java 응용 프로그램 및 함수에 대 한 관리 되는 id를 사용 하는
 </dependency>
 ```
 
-2. 사용 된 `AppServiceMSICredentials` 인증에 대 한 개체입니다. 이 예제에서는 Azure Key Vault를 사용 하 여 작업에 대 한이 메커니즘을 사용할 수 있습니다 하는 방법을 보여 줍니다.
+2. 인증에 `AppServiceMSICredentials` 개체를 사용 합니다. 이 예에서는이 메커니즘을 사용 하 여 Azure Key Vault 작업을 수행할 수 있는 방법을 보여 줍니다.
 
 ```java
 import com.microsoft.azure.AzureEnvironment;
