@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799201"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305633"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -23,7 +23,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 * URL에서 비디오를 업로드합니다(기본 설정).
 * 비디오 파일을 요청 본문의 바이트 배열로 보냅니다.
-* 제공 하 여 기존 Azure Media Services 자산을 사용 합니다 [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (유료 계정 에서만 지원).
+* [자산 ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (유료 계정 에서만 지원 됨)를 제공 하 여 기존 Azure Media Services 자산을 사용 합니다.
 
 이 문서에서는 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용하여 URL에 따라 비디오를 업로드하고 인덱싱하는 방법을 보여 줍니다. 이 문서의 코드 샘플에는 바이트 배열을 업로드하는 방법을 보여 주는 주석 처리된 코드가 포함되어 있습니다. <br/>또한 이 문서에서는 API의 프로세스 및 출력을 변경하기 위해 API에 설정할 수 있는 몇 가지 매개 변수에 대해서도 설명합니다.
 
@@ -32,13 +32,13 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 ## <a name="uploading-considerations"></a>업로드 고려 사항
 
 - URL을 기반으로 하여 비디오를 업로드하는 경우(기본 설정) TLS 1.2 이상을 사용하여 엔드포인트를 보호해야 합니다.
-- URL 옵션을 사용 하 여 업로드 크기는 30GB로 제한
-- 요청 URL 길이 2048 자로 제한 됩니다.
+- URL 옵션이 포함 된 업로드 크기는 30GB로 제한 됩니다.
+- 요청 URL 길이는 2048 자로 제한 됩니다.
 - 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다.
 - 바이트 배열 옵션은 30분 후 시간 초과됩니다.
 - `videoURL` 매개 변수에 제공된 URL은 인코딩해야 합니다.
-- URL에서 인덱싱와 동일한 제한 사항이 Media Services 자산 인덱싱
-- Video Indexer는 단일 파일에 대해 4 시간의 최대 지속 시간 제한
+- 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
+- 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
@@ -60,24 +60,24 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |이름|설명|
+        |이름|Description|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
-    - 예제: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 비디오에서 식별된 사용자
-  - properties
+  - 속성
     
-      |이름|설명|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
       |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
       |personName|사람의 이름|
         
-    - 예제: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>메모
+#### <a name="notes"></a>참고
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
@@ -92,7 +92,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
-### <a name="priority"></a>우선 순위
+### <a name="priority"></a>priority
 
 비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **낮음**, **보통**(기본값), **높음**입니다.
 
@@ -284,11 +284,11 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|설명|
+|status code|ErrorType(응답 본문 내)|Description|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-[API에 의해 생성 된 Azure 비디오 인덱서 출력 검토](video-indexer-output-json-v2.md)
+[API에 의해 생성 된 Azure Video Indexer 출력 검사](video-indexer-output-json-v2.md)

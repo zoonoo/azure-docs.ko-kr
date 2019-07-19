@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Azure Active Directory 애플리케이션 프록시 배포 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Azure AD 응용 프로그램 프록시 배포 | Microsoft Docs'
 description: Azure Active Directory Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 사용
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e9ccbd81a8efeb69ea073d89edd6579a6d59699a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473620"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234166"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 배포
 Azure AD(Active Directory) 애플리케이션 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 애플리케이션을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 애플리케이션을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 애플리케이션 프록시를 사용하는 이러한 애플리케이션을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
@@ -29,7 +29,7 @@ Azure AD 애플리케이션 프록시를 처음 사용하는 경우 다음에 �
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 
 1. 유효한 **Azure 구독**.
@@ -86,7 +86,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
     ![문제 해결사 성공](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. 새롭게 설치된 커넥터가 Azure AD Directory의 애플리케이션 프록시 페이지에 나열됩니다.
 
-    ![](./media/app-proxy/app-proxy-connector-page.png)
+    ![Azure Portal에서 설치 된 커넥터를 사용할 수 있는 것으로 표시 합니다.](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > 커넥터를 여러 서버에 설치하도록 선택하면 Azure AD 애플리케이션 프록시를 통해 게시된 애플리케이션을 인증하는 데 고가용성을 보장할 수 있습니다. 관리되는 도메인에 가입된 다른 서버에 커넥터를 설치하려면 위에 나열된 것과 동일한 단계를 수행합니다.

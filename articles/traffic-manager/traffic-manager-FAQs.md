@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050956"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310273"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -31,7 +31,7 @@ ms.locfileid: "67050956"
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?
 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 프라이빗 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우 Traffic Manager를 이러한 트래픽에 사용할 수 없습니다.
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager는 '고정' 세션을 지원하나요?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>"고정" 세션을 지원할 Traffic Manager 있나요?
 
 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 엔드포인트로 보내기 위해 DNS 응답을 사용합니다. 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 엔드포인트에 연결합니다. 따라서 Traffic Manager는 클라이언트와 서비스 간에 HTTP 트래픽을 표시하지 않습니다.
 
@@ -57,9 +57,9 @@ Traffic Manager는 DNS 수준에서 애플리케이션과 통합하므로 추가
 
 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 Traffic Manager를 통해서가 아닌 애플리케이션 엔드포인트에 직접 연결됩니다. 따라서 이 연결에서는 모든 애플리케이션 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 애플리케이션 프로토콜을 사용하지 않고 Traffic Manager의 엔드포인트 상태 모니터링을 수행할 수 있습니다. 애플리케이션 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 엔드포인트가 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>"Naked" 도메인 이름과 함께 Traffic Manager를 사용할 수 있나요?
 
-예. Azure Traffic Manager 프로필을 참조 하 여 도메인 이름 apex에 대 한 별칭 레코드를 만드는 방법에 알아보려면 참조 [구성에 루트 도메인 이름을 Traffic Manager와 함께 지원 별칭 레코드](../dns/tutorial-alias-tm.md)합니다.
+예. Azure Traffic Manager 프로필을 참조 하는 도메인 이름 apex에 대 한 별칭 레코드를 만드는 방법을 알아보려면 Traffic Manager를 [사용 하 여 apex 도메인 이름을 지원 하도록 별칭 레코드 구성](../dns/tutorial-alias-tm.md)을 참조 하세요.
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요? 
 
@@ -356,7 +356,7 @@ Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 �
 Traffic Manager는 다음을 포함하는 인증서 유효성 검사를 제공할 수 없습니다.
 
 * 서버 쪽 인증서의 유효성이 검사되지 않습니다.
-* SNI 서버 쪽 인증서 유효성이 검사 되지 않습니다.
+* SNI 서버 쪽 인증서의 유효성이 검사 되지 않음
 * 클라이언트 인증서는 지원되지 않습니다.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>엔드포인트를 추가할 때 IP 주소 또는 DNS 이름을 사용하나요?
@@ -385,10 +385,10 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형|  제공된 응답|
 |--|--|--|
 |모두 |  A / AAAA / CNAME |  대상 엔드포인트| 
-|A |    A / CNAME | 대상 엔드포인트|
-|A |    AAAA |  NODATA |
+|변수를 잠그기 위한 |    A / CNAME | 대상 엔드포인트|
+|변수를 잠그기 위한 |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  대상 엔드포인트|
-|AAAA | A | NODATA |
+|AAAA | 변수를 잠그기 위한 | NODATA |
 |CNAME |    CNAME | 대상 엔드포인트|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -398,7 +398,7 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형 | 제공된 응답|
 |--|--|--|
 |모두 |  A와 AAAA의 혼합 | 대상 엔드포인트|
-|A |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
+|변수를 잠그기 위한 |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
 |AAAA   |A와 AAAA의 혼합|     형식 AAAA의 유일한 대상 엔드포인트|
 |CNAME |    A와 AAAA의 혼합 | NODATA |
 
@@ -406,9 +406,9 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 
 예, 다중값 형식 프로필은 중첩된 프로필에서 부모 프로필이 될 수 없다는 예외를 제외하고는 사용할 수 있습니다.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Traffic Manager 프로필에서 웹 응용 프로그램 끝점을 중지 하지만 받지 못하는 경우 모든 트래픽을 다시 시작한 후에 합니다. 이 문제를 어떻게 해결할 수 있나요?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>내 Traffic Manager 프로필에서 웹 응용 프로그램 끝점을 중지 했지만 다시 시작한 후에도 트래픽을 수신 하지 않습니다. 이 문제를 어떻게 해결할 수 있나요?
 
-Azure 웹 응용 프로그램 끝점 중지 되 면 Traffic Manager는 상태 검사를 중지 하 고 끝점 다시 시작 하는 것이 감지한 후에 상태 검사를 다시 시작 합니다. 이러한 지연을 방지하려면 엔드포인트를 다시 시작한 후에 Traffic Manager 프로필에서 해당 엔드포인트를 사용하지 않도록 설정한 후 다시 사용하도록 설정합니다.
+Azure 웹 응용 프로그램 끝점이 중지 되 면 상태 검사를 중지 하 고 끝점이 다시 시작 되었음을 감지한 후에만 상태 검사를 다시 시작 하 Traffic Manager. 이러한 지연을 방지하려면 엔드포인트를 다시 시작한 후에 Traffic Manager 프로필에서 해당 엔드포인트를 사용하지 않도록 설정한 후 다시 사용하도록 설정합니다.
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>애플리케이션에 HTTP 또는 HTTPS에 대한 지원이 없는 경우에도 Traffic Manager를 사용할 수 있나요?
 
@@ -494,7 +494,7 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 
 다음 테이블에서는 중첩 엔드포인트에 대한 Traffic Manager의 상태 검사 동작에 대해 설명합니다.
 
-| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 메모 |
+| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 참고 |
 | --- | --- | --- |
 | Disabled. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 엔드포인트 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 엔드포인트를 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
 | Degraded. 하나 이상의 자식 프로필 엔드포인트가 Degraded 상태입니다. |Online: 자식 프로필의 Online 엔드포인트 수가 MinChildEndpoints 값 이상입니다.<BR>CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 엔드포인트 수 합계가 MinChildEndpoints 값 이상입니다.<BR>Degraded: 그렇지 않은 경우 |트래픽이 CheckingEndpoint 상태의 엔드포인트로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 엔드포인트의 성능이 항상 저하됩니다. |

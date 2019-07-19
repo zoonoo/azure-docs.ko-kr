@@ -4,7 +4,7 @@ description: 단일 Azure Batch 작업에서 매우 많은 수의 작업을 효�
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 0aff792d7e005fb17ebec0715ca3ac7237fd7a71
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: f91d47e1f57fb74575fbdad0a76386b53fb38b1f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341002"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322516"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 
@@ -65,7 +65,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 다음 C# 코드 조각은 Batch .NET API를 사용하여 많은 수의 작업을 추가하는 경우에 구성하는 설정을 보여줍니다.
 
-작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예를 들면 다음과 같습니다.
+작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 또는 [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예를 들면 다음과 같습니다.
+) 메서드의 적절한 오버로드를 사용하여 작업(job)에 작업(task) 컬렉션을 추가합니다. 예를 들어:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -146,7 +146,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들면 다음과 같습니다.
+작업(task)의 컬렉션을 만들어 작업(job)에 추가합니다. 예를 들어:
 
 
 ```python

@@ -7,14 +7,14 @@ ms.service: storage
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
+ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 4b47af857fada453e36fcb0c23e6d89e5ad90e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54e91d4df1109b9ece1150f8b44665789e4dfce1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154352"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875880"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Continuous Integration 솔루션과 함께 Azure Storage 사용
 ## <a name="overview"></a>개요
@@ -35,7 +35,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
 * 고객 및 파트너가 빌드 아티팩트를 다운로드할 때의 성능
 * 익명 액세스, 만료 기반 공유 액세스 서명 액세스, 프라이빗 액세스 중에서 선택하여 사용자 액세스 정책 제어
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Hudson CI 솔루션으로 Blob service를 사용하려면 다음이 있어야 합니다.
 
 * Hudson 연속 통합 솔루션
@@ -65,7 +65,7 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
 3. **Available** 탭을 클릭합니다.
 4. **Others**를 클릭합니다.
 5. **아티팩트 업로더** 섹션에서 **Microsoft Azure Storage 플러그인**을 선택합니다.
-6. **Install**을 클릭합니다.
+6. **설치**를 클릭합니다.
 7. 설치가 완료되면 Hudson을 다시 시작합니다.
 
 ## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>Storage 계정을 사용하도록 Azure Storage 플러그 인을 구성하는 방법
@@ -77,13 +77,13 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
    
     b. [Azure Portal](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
    
-    다. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL** 에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 엔드포인트를 사용합니다.
+    c. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL** 에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 엔드포인트를 사용합니다.
    
     d. **Validate storage credentials** 를 클릭하여 스토리지 계정의 유효성을 검사합니다.
    
     e. [옵션] Hudson CI에 사용할 수 있는 추가 스토리지 계정이 있으면 **Add more storage accounts**를 클릭합니다.
    
-    f. **Save** 를 클릭하여 설정을 저장합니다.
+    f. 클릭 **저장할** 여 설정을 저장 합니다.
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>빌드 아티팩트를 저장소 계정으로 업로드하는 빌드 후 작업을 만드는 방법
 설명할 목적으로 우선 몇 개의 파일을 만들 작업을 만든 다음 그 파일을 저장소 계정에 업로드할 빌드 후 작업을 추가해야 합니다.
@@ -120,7 +120,7 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
     
     b. **저장소**를 클릭합니다.
     
-    다. Hudson에 사용할 저장소 계정 이름을 클릭합니다.
+    c. Hudson에 사용할 저장소 계정 이름을 클릭합니다.
     
     d. **컨테이너**를 클릭합니다.
     
@@ -134,7 +134,7 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
 1. 작업 구성의 **빌드** 섹션에서 **빌드 추가 단계**를 클릭하고 **Azure Blob Storage에서 다운로드**를 선택합니다.
 2. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 3. **Container name**에서 다운로드할 Blob이 있는 컨테이너의 이름을 지정합니다. 환경 변수를 사용할 수 있습니다.
-4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **프로젝트\\** * 이름의 시작 하는 모든 blob를 지정 하는 **프로젝트**합니다.
+4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **project\\** *는 이름이 **project**로 시작 하는 모든 blob을 지정 합니다.
 5. [옵션] **Download path**에서 Azure Blob Storage로부터 파일을 다운로드할 Hudson 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. **Download path**에 값을 제공하지 않으면 Azure Blob Storage의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.
 
 Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.
@@ -145,8 +145,8 @@ Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 �
 다음은 Blob service 구성 요소의 개요를 제공합니다.
 
 * **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
-* **컨테이너**: 컨테이너는 Blob 집합의 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
-* **Blob**: 임의 형식 및 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+* **컨테이너**: 컨테이너에서는 그룹화된 blob 집합을 제공합니다. 모든 blob는 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 컨테이너에는 개수에 제한 없이 blob를 저장할 수 있습니다.
+* **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 * **URL 형식**: 다음 URL 형식을 사용하여 Blob에 주소를 지정할 수 있습니다.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

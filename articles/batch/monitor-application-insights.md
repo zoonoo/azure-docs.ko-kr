@@ -3,7 +3,7 @@ title: Azure Application Insights로 Batch 모니터링 | Microsoft Docs
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595293"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322576"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
@@ -30,7 +30,7 @@ ms.locfileid: "65595293"
 > 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
 
 * [Batch 계정 및 연결된 저장소 계정](batch-account-create-portal.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604269"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875371"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -37,6 +37,7 @@ ms.locfileid: "65604269"
 
 ## <a name="can-i-use-application-insights-with-"></a>Application Insights와 같이 사용할 수 있나요...?
 
+* [Azure VM 또는 Azure virtual machine scale set의 IIS 서버에 있는 웹 앱](azure-vm-vmss-apps.md)
 * [IIS 서버의 웹앱 - 온-프레미스 또는 VM](asp-net.md)
 * [Java 웹앱](java-get-started.md)
 * [Node.js 앱](nodejs.md)
@@ -83,7 +84,7 @@ ms.locfileid: "65604269"
 
   * Web.config
   * packages.config
-* (새 프로젝트에만 해당 - [기존 프로젝트에 Application Insights를 추가한 경우][start] 이를 수동으로 수행해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
+* (새 프로젝트에만 해당- [기존 프로젝트에 Application Insights을 추가][start]하는 경우이 작업을 수동으로 수행 해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
 사용자의 애플리케이션 유형에 적합한 SDK는 [릴리스 정보](release-notes.md)를 참조하세요.
@@ -104,7 +105,7 @@ ms.locfileid: "65604269"
 * HTTP 요청
 * [종속성](asp-net-dependencies.md). 호출: SQL Database, 외부 서비스(Azure Cosmos DB, 테이블, Blob Storage 및 큐)에 대한 HTTP 호출. 
 * [예외](asp-net-exceptions.md) 및 스택 추적.
-* [성능 카운터](performance-counters.md) - [상태 모니터](monitor-performance-live-website-now.md), [Azure 모니터링](azure-web-apps.md) 또는 [Application Insights 수집 기록기](java-collectd.md)를 사용하는 경우입니다.
+* [성능 카운터](performance-counters.md) - [상태 모니터](monitor-performance-live-website-now.md)를 사용 하는 경우 [App Services에 대 한 azure 모니터링](azure-web-apps.md), [VM 또는 가상 머신 확장 집합에 대 한 azure 모니터링](azure-vm-vmss-apps.md)또는 [Application Insights collectd writer](java-collectd.md)를 사용 합니다.
 * 코딩하는 [사용자 지정 이벤트 및 메트릭](api-custom-events-metrics.md).
 * 적절한 수집기를 구성한 경우 [추적 로그](asp-net-trace-logs.md).
 
@@ -132,7 +133,7 @@ ms.locfileid: "65604269"
 
 [ASP.NET](api-filtering-sampling.md) 또는 [Java](java-filter-telemetry.md)에 대해 자세히 알아보세요.
 
-## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>어떻게 도시, 국가/지역 및 기타 지리적 위치 데이터 계산 되나요?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>도시, 국가/지역 및 기타 지리적 위치 데이터는 어떻게 계산 되나요?
 
 [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/)를 사용하여 웹 클라이언트의 IP 주소(IPv4 또는 IPv6)를 조회합니다.
 
@@ -145,7 +146,7 @@ ms.locfileid: "65604269"
 
 
 ## <a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
-[데이터 보존 및 개인 정보][data]를 살펴보십시오.
+[데이터 보존 및 개인 정보][data]를 살펴보세요.
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>개인 데이터를 원격 분석에 보낼 수 있나요?
 
@@ -153,7 +154,7 @@ ms.locfileid: "65604269"
 
 클라이언트 웹 주소의 **모든** 8진수는 지리적 위치 특성을 조회한 후에 항상 0으로 설정됩니다.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키 내 웹 페이지 원본에 표시 됩니다. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>내 계측 키는 내 웹 페이지 원본에서 볼 수 있습니다. 
 
 * 모니터링 솔루션에서 일반적으로 사용됩니다.
 * 데이터를 훔치는 데 사용할 수 없습니다.
@@ -162,7 +163,7 @@ ms.locfileid: "65604269"
 
 다음과 같이 할 수 있습니다.
 
-* 클라이언트와 서버 데이터에 대 한 두 개의 별도 계측 키 (별도 Application Insights 리소스)를 사용 합니다. 또는
+* 클라이언트 및 서버 데이터에 대해 두 개의 개별 계측 키 (별도의 Application Insights 리소스)를 사용 합니다. 또는
 * 서버에서 실행되는 프록시를 작성하고 웹 클라이언트에서 해당 프록시를 통해 데이터를 전송하도록 합니다.
 
 ## <a name="post"></a>진단 검색에서 POST 데이터를 어떻게 확인하나요?
@@ -210,7 +211,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 ```
 
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>자동화
 
 ### <a name="configuring-application-insights"></a>Application Insights 구성
 
@@ -290,10 +291,10 @@ _ApplicationIdProvider는 v2.6.0부터 사용 가능합니다._
 
 ### <a name="proxy-passthrough"></a>프록시 통과
 
-프록시 통과 컴퓨터 수준 또는 응용 프로그램 수준 구성 하 여 수행할 수 있습니다 프록시입니다.
-자세한 내용은 dotnet의 문서를 참조 [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)합니다.
+프록시 통과는 컴퓨터 수준 또는 응용 프로그램 수준 프록시를 구성 하 여 달성할 수 있습니다.
+자세한 내용은 [Defaultproxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)의 dotnet 문서를 참조 하세요.
  
- 예제 Web.config:
+ Web.config 예:
  ```xml
 <system.net>
     <defaultProxy>

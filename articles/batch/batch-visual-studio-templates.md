@@ -4,7 +4,7 @@ description: Visual Studio 프로젝트 템플릿을 통해 Azure Batch에서 �
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550077"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322768"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
 
@@ -52,13 +52,13 @@ Batch용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플�
 
 ![클라이언트 코드가 Batch 서비스와 상호 작용하는 방법을 보여 주는 다이어그램][diagram01]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Batch 템플릿을 사용하려면 다음이 필요합니다.
 
 * Visual Studio 2015가 설치된 컴퓨터. 일괄 처리 템플릿은 현재 Visual Studio 2015에 대해서만 지원됩니다.
-* [Visual Studio 갤러리][vs_gallery]에서 Visual Studio 확장으로 제공되는 Batch 템플릿. 템플릿을 얻는 방법은 두 가지입니다.
+* Visual studio [갤러리][vs_gallery] 에서 visual studio 확장으로 사용할 수 있는 배치 템플릿입니다. 템플릿을 얻는 방법은 두 가지입니다.
   
-  * Visual Studio에서 **확장 및 업데이트** 대화 상자를 사용하여 템플릿을 설치합니다(자세한 내용은 [Visual Studio 확장 찾기 및 사용][vs_find_use_ext] 참조). **확장 및 업데이트** 대화 상자에서 다음 두 확장을 검색하여 다운로드합니다.
+  * Visual Studio의 **확장 및 업데이트** 대화 상자를 사용 하 여 템플릿을 설치 합니다. 자세한 내용은 [Visual studio 확장 찾기 및 사용][vs_find_use_ext]을 참조 하세요. **확장 및 업데이트** 대화 상자에서 다음 두 확장을 검색하여 다운로드합니다.
     
     * Azure Batch 작업 관리자(작업 분할자 포함)
     * Azure Batch 태스크 프로세서
@@ -157,7 +157,7 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> `Split()` 메서드에서 주석이 지정된 섹션은 작업을 서로 다른 태스크로 분리하는 논리를 추가하여 수정하려는 작업 관리자 템플릿 코드의 유일한 섹션입니다. 템플릿의 다른 섹션을 수정하려는 경우 Batch가 작동하는 방식을 파악하고 몇 가지 [Batch 코드 샘플][github_samples]을 사용해 보세요.
+> `Split()` 메서드에서 주석이 지정된 섹션은 작업을 서로 다른 태스크로 분리하는 논리를 추가하여 수정하려는 작업 관리자 템플릿 코드의 유일한 섹션입니다. 템플릿의 다른 섹션을 수정 하려는 경우 Batch가 작동 하는 방식에 알아보기 하 고 몇 가지 [batch 코드 샘플][github_samples]을 사용해 보세요.
 > 
 > 
 
@@ -191,7 +191,7 @@ Split() 구현에서는 다음에 액세스할 수 있습니다.
 
 작업 관리자 템플릿으로 구현된 작업 관리자 태스크는 세 가지 가능한 종료 코드를 반환할 수 있습니다.
 
-| 코드 | 설명 |
+| 코드 | Description |
 | --- | --- |
 | 0 |작업 관리자가 성공적으로 완료되었습니다. 작업 분할자 코드가 완료될 때까지 실행되고 모든 태스크가 작업에 추가되었습니다. |
 | 1 |작업 관리자 태스크가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 JobManagerException으로 해석됩니다. |
@@ -371,7 +371,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 | 코드 | 설명 |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |태스크 프로세서가 완료될 때까지 실행됩니다. 사용자가 호출한 프로그램이 성공했음을 의미하는 것은 아니며 태스크 프로세서가 이를 성공적으로 호출했고 예외 없이 후처리를 수행했음만 의미합니다. 종료 코드의 의미는 호출한 프로그램에 따라 다르며 일반적으로 종료 코드 0은 프로그램이 성공했음을 의미하고 그 외의 종료 코드는 프로그램이 실패했음을 의미합니다. |
+| [ExitCode][process_exitcode] |태스크 프로세서가 완료될 때까지 실행됩니다. 사용자가 호출한 프로그램이 성공했음을 의미하는 것은 아니며 태스크 프로세서가 이를 성공적으로 호출했고 예외 없이 후처리를 수행했음만 의미합니다. 종료 코드의 의미는 호출한 프로그램에 따라 다르며 일반적으로 종료 코드 0은 프로그램이 성공했음을 의미하고 그 외의 종료 코드는 프로그램이 실패했음을 의미합니다. |
 | 1 |태스크 프로세서가 프로그램의 '예상된' 부분에서 예외로 인해 실패했습니다. 예외는 진단 정보 및 가능한 경우, 오류를 해결하기 위한 제안과 함께 `TaskProcessorException` 으로 해석됩니다. |
 | 2 |태스크 프로세서가 '예기치 않은' 예외로 인해 실패했습니다. 예외는 표준 출력에 기록되었지만 태스크 프로세서가 추가 진단 또는 재구성 정보를 추가할 수 없습니다. |
 
@@ -410,7 +410,7 @@ SAS와 함께 컨테이너 URL을 사용하는 것을 선호하는 경우 작업
 * Batch 계정 URL
 * Batch 계정 키
 
-배치 서비스에는 [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask]에서 `EnvironmentSettings` 속성을 사용하여 환경 설정을 작업 관리자 태스크로 전달하는 간단한 메커니즘이 있습니다.
+Batch 서비스에는 `EnvironmentSettings` [Microsoft][net_jobmanagertask]의 속성을 사용 하 여 환경 설정을 작업 관리자 태스크로 전달 하는 간단한 메커니즘이 있습니다.
 
 예를 들어 Batch 계정에 대한 `BatchClient` 인스턴스를 가져오려면 클라이언트 코드에서 Batch 계정에 대한 URL 및 공유 키 자격 증명을 환경 변수로 전달할 수 있습니다. 마찬가지로 Batch 계정에 연결되는 저장소 계정에 액세스하려면 저장소 계정 이름 및 저장소 계정 키를 환경 변수로 전달할 수 있습니다.
 
@@ -437,7 +437,7 @@ parameters.json이라는 리소스 파일을 찾고 있는 경우 이를 매개 
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>작업 유지 및 Azure Storage에 태스크 출력
-Batch 솔루션 개발 시 다른 유용한 도구는 [Azure Batch 파일 규칙][nuget_package]입니다. Batch .NET 애플리케이션에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure Batch 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
+Batch 솔루션 개발의 또 다른 유용한 도구는 [파일 규칙 Azure Batch][nuget_package]입니다. Batch .NET 애플리케이션에서 .NET 클래스 라이브러리(현재 미리 보기 상태)를 사용하면 Azure Storage 간에 태스크 출력을 쉽게 저장하고 검색할 수 있습니다. [Azure Batch 작업 및 태스크 출력 보관](batch-task-output.md) 에는 라이브러리 및 사용법에 대한 자세한 내용이 포함되어 있습니다.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

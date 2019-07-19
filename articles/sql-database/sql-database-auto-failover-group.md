@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: 229814b908861080ff56d6f4bcba25cc996f00ff
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.date: 07/18/2019
+ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228061"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325088"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -278,6 +278,9 @@ ms.locfileid: "68228061"
 
 > [!NOTE]
 > 장애 조치 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운그레이드하지 않는 것이 좋습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
+
+> [!IMPORTANT]
+> 장애 조치 (failover) 그룹의 구성원 인 Managed Instance 업그레이드 또는 다운 그레이드는 현재 지원 되지 않습니다.
 
 ## <a name="preventing-the-loss-of-critical-data"></a>중요한 데이터 손실 방지
 

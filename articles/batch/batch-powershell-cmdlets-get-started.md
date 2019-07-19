@@ -4,7 +4,7 @@ description: Batch 리소스를 관리하는 데 사용할 수 있는 Azure Powe
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a98a98eea1b5c2824c1c54169c5c71456f3a2a64
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 21930d5240225540159fa425d9d9fa518a1b19d5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704780"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323073"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -125,7 +125,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>Batch 풀 만들기
 
-Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정할 지원 되는 Linux 중 하나를 지정 하거나 또는 Windows VM 이미지에 나열 된 경우는 [Azure Virtual Machines Marketplace][vm_marketplace], 또는 사용자가 준비한 사용자 지정 이미지를 제공 합니다.
+Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정 하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열 된 지원 되는 Linux 또는 Windows VM 이미지 중 하나를 지정 하거나 사용자가 준비한 사용자 지정 이미지를 제공할 수 있습니다.
 
 **New-AzBatchPool**을 실행하는 경우 PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 

@@ -4,7 +4,7 @@ description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 �
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242628"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323620"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -91,7 +91,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 * 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다. 
 
-* 진단 로그를 보낼 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md), 하거나 수 있는 분석 하 여 Power BI 또는 Excel에서 분석을 위해 내보냅니다.
+* [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)에 진단 로그를 전송 하 여 분석 하거나 Power BI 또는 Excel에서 분석용으로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다. 
@@ -101,11 +101,11 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
 1. 포털에서 **모든 서비스** > **배치 계정**을 차례로 클릭한 다음, 배치 계정의 이름을 클릭합니다.
 2. **모니터링**에서 **진단 로그** > **진단 켜기**를 클릭합니다.
-3. **진단 설정**설정에 대 한 이름을 입력 하 고 로그 대상 (기존 저장소 계정, Event Hub 또는 Azure Monitor 로그)를 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
+3. **진단 설정**에서 설정의 이름을 입력 하 고 로그 대상 (기존 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그)을 선택 합니다. **ServiceLog**와 **AllMetrics** 중 하나를 선택하거나 두 개를 모두 선택합니다.
 
     저장소 계정을 선택하는 경우 필요에 따라 보존 정책을 설정합니다. 보존 일 수를 지정하지 않으면 데이터는 저장소 계정의 수명 동안 보존됩니다.
 
-4. **저장**을 클릭합니다.
+4. **Save**을 클릭합니다.
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 

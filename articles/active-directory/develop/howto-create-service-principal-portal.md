@@ -14,21 +14,21 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: seoapril2019
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd1534b3f966051104a3f3ee389fb047ab258fc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482817"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324671"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
-이 문서의 새 Azure Active Directory (Azure AD) 응용 프로그램 및 역할 기반 액세스 제어를 사용 하 여 사용할 수 있는 서비스 주체를 만드는 방법을 보여 줍니다. 리소스에 액세스하거나 리소스를 수정해야 하는 코드가 있는 경우 앱의 ID를 만들 수 있습니다. 이 ID를 서비스 주체라고 합니다. 서비스 주체에 필수 권한을 할당할 수 있습니다. 이 문서에서는 포털을 사용하여 서비스 주체를 만드는 방법을 보여 줍니다. 여기서는 애플리케이션을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 애플리케이션을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 애플리케이션에 대해 단일 테넌트 애플리케이션을 사용하게 됩니다.
+이 문서에서는 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory (Azure AD) 응용 프로그램 및 서비스 주체를 만드는 방법을 보여 줍니다. 리소스에 액세스하거나 리소스를 수정해야 하는 코드가 있는 경우 앱의 ID를 만들 수 있습니다. 이 ID를 서비스 주체라고 합니다. 서비스 주체에 필수 권한을 할당할 수 있습니다. 이 문서에서는 포털을 사용하여 서비스 주체를 만드는 방법을 보여 줍니다. 여기서는 애플리케이션을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 애플리케이션을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 애플리케이션에 대해 단일 테넌트 애플리케이션을 사용하게 됩니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만드는 대신 애플리케이션 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 코드에서 관리 되는 id 및 Azure AD 인증을 지 원하는 액세스 리소스를 지 원하는 서비스를 실행 하는 경우 관리 되는 id 수에 대 한 더 나은 옵션은입니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
+> 서비스 주체를 만드는 대신 애플리케이션 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 관리 id를 지원 하 고 Azure AD 인증을 지 원하는 리소스에 액세스 하는 서비스에서 코드를 실행 하는 경우 관리 되는 id가 더 나은 옵션입니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
 ## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "67482817"
 1. **Azure Active Directory**를 선택합니다.
 1. **앱 등록**을 선택합니다.
 1. **새 등록**을 선택합니다.
-1. 응용 프로그램을 이름을 지정 합니다. 지원 되는 계정을 선택를 결정 하는 응용 프로그램을 사용할 수 있는 사용자를 입력 합니다. 아래 **리디렉션 URI**를 선택 **웹** 를 만들려는 응용 프로그램 유형에 대 한 합니다. 액세스 토큰에 전송 되는 URI를 입력 합니다. [네이티브 애플리케이션](../manage-apps/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 다음 선택 **등록**합니다.
+1. 응용 프로그램의 이름을로 합니다. 응용 프로그램을 사용할 수 있는 사용자를 결정 하는 지원 되는 계정 유형을 선택 합니다. **URI 리디렉션**에서 만들려는 응용 프로그램 형식에 대해 **웹** 을 선택 합니다. 액세스 토큰이 전송 되는 URI를 입력 합니다. [네이티브 애플리케이션](../manage-apps/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 후 **등록**을 선택 합니다.
 
    ![응용 프로그램의 이름을 입력 합니다.](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -52,7 +52,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 1. 애플리케이션을 할당하려는 범위 수준으로 이동합니다. 예를 들어, 구독 범위에서 역할을 할당하려면 **모든 서비스** 및 **구독**을 선택합니다.
 
-   ![예를 들어 구독 범위에서 역할 할당](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![예를 들어 구독 범위에서 역할을 할당 합니다.](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. 애플리케이션을 할당할 특정 구독을 선택합니다.
 
@@ -76,43 +76,43 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 1. **Azure Active Directory**를 선택합니다.
 1. Azure AD의 **앱 등록**에서 애플리케이션을 선택합니다.
-1. 디렉터리 (테 넌 트) ID를 복사 하 고 응용 프로그램 코드에 저장 합니다.
+1. 디렉터리 (테 넌 트) ID를 복사 하 여 응용 프로그램 코드에 저장 합니다.
 
-    ![디렉터리 (테 넌 트 ID)를 복사 하 고 앱 코드에서 저장](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+    ![디렉터리 (테 넌 트 ID)를 복사 하 고 앱 코드에 저장 합니다.](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
-1. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다.
+1. **애플리케이션 ID**를 복사하고 애플리케이션 코드에 저장합니다.
 
-   ![응용 프로그램 (클라이언트) ID를 복사 합니다.](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![응용 프로그램 (클라이언트) ID 복사](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="certificates-and-secrets"></a>인증서 및 암호
-디먼 응용 프로그램 Azure AD로 인증 하도록 두 가지 형태의 자격 증명을 사용할 수 있습니다: 인증서 및 응용 프로그램 비밀입니다.  인증서를 사용 하는 것이 좋습니다 하지만 새 응용 프로그램 비밀을 만들 수도 있습니다.
+## <a name="certificates-and-secrets"></a>인증서 및 비밀
+디먼 응용 프로그램은 인증서 및 응용 프로그램 비밀 이라는 두 가지 형식의 자격 증명을 사용 하 여 Azure AD에 인증할 수 있습니다.  인증서를 사용 하는 것이 좋지만 새 응용 프로그램 암호를 만들 수도 있습니다.
 
 ### <a name="upload-a-certificate"></a>인증서 업로드
 
-있는 경우 기존 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 [New-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 컴퓨터에 사용자 인증서 저장소에 자체 서명 된 인증서를 만들려면 다음 매개 변수를 사용 하 여: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`합니다.  이 인증서를 사용 하 여 내보내기 합니다 [사용자 인증서 관리](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인에서 Windows 제어판에서 액세스할 수 있습니다.
+기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터 `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`의 사용자 인증서 저장소에 자체 서명 된 인증서를 만듭니다.  Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인 관리를 사용 하 여이 인증서를 내보냅니다.
 
-인증서를 업로드 합니다.
+인증서를 업로드 하려면:
 
-1. 선택 **인증서 및 비밀**합니다.
-1. 선택 **인증서 업로드** (기존 인증서 또는 자체 서명 된 인증서를 내보낸) 인증서를 선택 합니다.
+1. **인증서 & 암호**를 선택 합니다.
+1. **인증서 업로드** 를 선택 하 고 인증서 (기존 인증서 또는 내보낸 자체 서명 된 인증서)를 선택 합니다.
 
-    ![인증서 업로드를 선택 하 고 추가 하려는 항목 선택](./media/howto-create-service-principal-portal/upload-cert.png)
+    ![인증서 업로드를 선택 하 고 추가 하려는 인증서를 선택 합니다.](./media/howto-create-service-principal-portal/upload-cert.png)
 
 1. **추가**를 선택합니다.
 
-응용 프로그램 등록 포털에서 응용 프로그램을 사용 하 여 인증서를 등록 한 후 인증서를 사용 하도록 클라이언트 응용 프로그램 코드를 사용 하도록 설정 해야 합니다.
+응용 프로그램 등록 포털에서 응용 프로그램에 인증서를 등록 한 후에는 인증서를 사용 하도록 클라이언트 응용 프로그램 코드를 사용 하도록 설정 해야 합니다.
 
-### <a name="create-a-new-application-secret"></a>새 응용 프로그램 비밀 만들기
+### <a name="create-a-new-application-secret"></a>새 응용 프로그램 암호 만들기
 
-인증서를 사용 하지 않으려는 경우에 새 응용 프로그램 비밀을 만들 수 있습니다.
+인증서를 사용 하지 않도록 선택 하는 경우 새 응용 프로그램 암호를 만들 수 있습니다.
 
-1. 선택 **인증서 및 비밀**합니다.
-1. 선택 **클라이언트 암호에는 새 클라이언트 암호->** 합니다.
-1. 암호 및 기간에 대 한 설명을 제공 합니다. 을 완료 한 후 선택 **추가**합니다.
+1. **인증서 & 암호**를 선택 합니다.
+1. **클라이언트 암호-새 클라이언트 암호 >** 선택 합니다.
+1. 비밀에 대 한 설명과 기간을 제공 합니다. 완료 되 면 **추가**를 선택 합니다.
 
-   클라이언트 비밀을 저장 한 후 클라이언트 비밀의 값이 표시 됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   클라이언트 암호를 저장 한 후 클라이언트 암호 값이 표시 됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
-   ![이 작업을 나중에 검색할 수 없습니다 때문에 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
+   ![나중에 검색할 수 없기 때문에 비밀 값을 복사 합니다.](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
@@ -123,7 +123,7 @@ Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할�
 1. **Azure Active Directory**를 선택합니다.
 1. 역할을 기록해 둡니다. **사용자** 역할이 있는 경우 비관리자가 애플리케이션을 등록할 수 있는지 확인해야 합니다.
 
-   ![사용자의 역할을 찾습니다. 사용자 인 경우 관리자가 아닌 앱을 등록할 수 있는지 확인](./media/howto-create-service-principal-portal/view-user-info.png)
+   ![역할을 찾습니다. 사용자 인 경우 관리자가 아닌 사용자가 앱을 등록할 수 있는지 확인 합니다.](./media/howto-create-service-principal-portal/view-user-info.png)
 
 1. **사용자 설정**을 선택합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
@@ -136,17 +136,17 @@ Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 
 
 Azure 구독 권한을 확인하려면
 
-1. 오른쪽 위 모서리에서 계정을 선택 하 고 선택 **... 내 사용 권한->** 합니다.
+1. 오른쪽 위 모서리에서 계정을 선택 하 고 **...-> 내 사용 권한**을 선택 합니다.
 
    ![계정 및 사용자 권한 선택](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
 1. 드롭다운 목록에서 서비스 주체를 만들려는 구독을 선택합니다. 그런 다음, **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
 
-   ![서비스의 보안 주체를 만들려는 구독을 선택 합니다.](./media/howto-create-service-principal-portal/view-details.png)
+   ![서비스 사용자를 만들려는 구독을 선택 합니다.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. 선택 **역할 할당** 를 보고 할당 된 사용자 역할에 AD 앱 역할을 할당할 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에게는 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다.
+1. **역할 할당** 을 선택 하 여 할당 된 역할을 확인 하 고 역할에 AD 앱을 할당할 수 있는 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에게는 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다.
 
-   ![이 예제에서는 사용자가 소유자 역할에 할당을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![이 예제에서는 사용자가 소유자 역할에 할당 된 것을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>다음 단계
 

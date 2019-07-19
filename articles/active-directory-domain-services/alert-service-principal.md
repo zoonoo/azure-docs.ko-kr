@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: 서비스 주체 구성 문제 해결 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: 서비스 사용자 문제 해결 | Microsoft Docs'
 description: Azure AD Domain Services에 대한 서비스 주체 구성 문제 해결
 services: active-directory-ds
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b94fca6087da61fe10d6c80b3fe7cfb5798f2d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473907"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234135"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 잘못 된 서비스 주체 구성 문제 해결
 
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 서비스 주체 관련 구성 오류를 해결하고 문제를 해결합니다.
 

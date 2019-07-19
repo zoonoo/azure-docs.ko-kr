@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068821"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974615"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search에서 검색 결과 작업 방법
 이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 데이터 또는 정보를 검색 결과에 적용하는 페이지 관련 옵션은 Azure Search Service에 전송된 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정됩니다. 
@@ -25,7 +25,7 @@ REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 �
 몇 가지 코드 샘플에는 웹 프런트 엔드 인터페이스가 포함되어 있으며 다음에서 확인할 수 있습니다. [New York City 작업 데모 앱](https://azjobsdemo.azurewebsites.net/) 및 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)
 
 > [!NOTE]
-> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 참조 하세요. [Azure Search 서비스 REST](https://docs.microsoft.com/rest/api/searchservice)합니다.
+> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 [Azure Search 서비스 REST](https://docs.microsoft.com/rest/api/searchservice)를 참조 하세요.
 >
 
 ## <a name="total-hits-and-page-counts"></a>총 적중 수 및 페이지 수
@@ -34,21 +34,21 @@ REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 �
 
 ![][1]
 
-Azure Search에서는 `$count`, `$top` 및 `$skip` 매개 변수를 사용하여 이러한 값을 반환합니다. 합계에 대 한 샘플 요청 "온라인 카탈로그" 이라는 인덱스에 도달 하는 다음 예제와 반환 `@odata.count`:
+Azure Search에서는 `$count`, `$top` 및 `$skip` 매개 변수를 사용하여 이러한 값을 반환합니다. 다음 예에서는로 `@odata.count`반환 되는 "온라인-카탈로그" 라는 인덱스의 총 적중 횟수에 대 한 샘플 요청을 보여 줍니다.
 
     GET /indexes/online-catalog/docs?$count=true
 
 첫 페이지에서 시작하여 15개 그룹에 대한 문서를 검색하고, 총 적중 수도 표시합니다.
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 페이지 매김 결과에는 `$top`이(가) 일괄적으로 반환할 항목의 수를 지정하고 `$skip`은(는) 건너뛸 항목 수를 지정하는 `$top` 및 `$skip`이(가) 모두 필요합니다. 다음 예제에서는 각 페이지에서 `$skip` 매개 변수로 증분 점프하여 증가하는 다음 15개 항목을 보여줍니다.
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>레이아웃
 
@@ -56,7 +56,7 @@ Azure Search에서는 `$count`, `$top` 및 `$skip` 매개 변수를 사용하여
 
  ![][2]
 
-Azure Search를 사용 하 여 `$select` 및 [Search API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents) 이 환경을 구현 합니다.
+Azure Search에서 및 `$select` [검색 API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents) 을 사용 하 여이 환경을 구현 합니다.
 
 타일화된 레이아웃에 대한 필드의 하위 집합을 반환하는 방법:
 
@@ -96,7 +96,7 @@ Azure Search에서 정렬은 `"Sortable": true.`로 인덱싱되는 모든 필�
 
 ## <a name="filters-at-the-page-level"></a>페이지 수준의 필터
 
-솔루션 디자인에서 특정 유형의 콘텐츠 (예를 들어 온라인 소매 응용 프로그램 페이지의 위쪽에 부서 목록이 있는)에 대 한 전용된 검색 페이지를 포함 하는 경우 삽입할 수 있습니다는 [필터 식](search-filters.md) 는와함께**onClick** 이벤트를 미리 필터링 된 상태에서 페이지를 엽니다.
+솔루션 디자인에 특정 유형의 콘텐츠에 대 한 전용 검색 페이지가 포함 된 경우 (예: 페이지 맨 위에 부서를 포함 하는 온라인 소매점 응용 프로그램) **onClick** 이벤트와 함께 [필터 식을](search-filters.md) 삽입 하 여 다음을 수행할 수 있습니다. 미리 필터링 된 상태로 페이지를 엽니다.
 
 검색 식의 사용 여부에 관계 없이 필터를 보낼 수 있습니다. 예를 들어 다음 요청은 브랜드 이름으로 필터링하고 일치하는 문서만 반환합니다.
 

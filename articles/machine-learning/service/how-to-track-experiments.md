@@ -1,37 +1,38 @@
 ---
-title: 교육 실행 하는 동안 로그 메트릭
+title: 학습 실행 중의 로그 메트릭
 titleSuffix: Azure Machine Learning service
-description: 학습 스크립트에 로깅을 추가하는 방법, 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다. 실험을 추적할 수 있으며 모델 생성 프로세스를 향상 시키기 위해 메트릭을 모니터링할 수 있습니다.
+description: 실험을 추적 하 고 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킬 수 있습니다. 학습 스크립트에 로깅을 추가 하는 방법, 실험을 제출 하는 방법, 실행 중인 작업의 진행 상황을 확인 하는 방법 및 실행의 기록 된 결과를 보는 방법에 대해 알아봅니다.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297486"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847591"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 실행 중의 로그 메트릭
 
-이 문서에서는 학습 스크립트에 로깅 추가, 실험 실행을 제출, 실행, 모니터링 및 Azure Machine Learning 서비스에서 실행의 결과 확인 하는 방법에 알아봅니다. 실험을 추적 및 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 
+실험 및 모니터링 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅을 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 서비스에서 실행 한 결과를 확인 하는 방법에 대해 알아봅니다.
 
 ## <a name="list-of-training-metrics"></a>학습 메트릭 목록 
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
-|Type| Python 함수 | 메모|
+|형식| Python 함수 | 참고|
 |----|:----|:----|
 |스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
 |목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
 |행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
-|테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
+|Table|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
 |이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
 |실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
 |파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
@@ -48,15 +49,13 @@ ms.locfileid: "66297486"
 ## <a name="set-up-the-workspace"></a>작업 영역 설정
 로깅을 추가하고 실험을 제출하기 전에 작업 영역을 설정해야 합니다.
 
-1. 작업 영역을 로드합니다. 단계에 따라 작업 영역 구성을 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md#sdk)합니다.
+1. 작업 영역을 로드합니다. 작업 영역 구성 설정에 대 한 자세한 내용을 보려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md#sdk)의 단계를 따르세요.
 
    ```python
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
   
-   ws = Workspace(workspace_name = <<workspace_name>>,
-               subscription_id = <<subscription_id>>,
-               resource_group = <<resource_group>>)
+   ws = Workspace.from_config()
    ```
   
 ## <a name="option-1-use-startlogging"></a>옵션 1: start_logging 사용
@@ -92,38 +91,40 @@ ms.locfileid: "66297486"
 2. Azure Machine Learning 서비스 SDK를 사용하여 실험 추적을 추가하고 지속형 모델을 실험 실행 기록에 업로드합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
 
    ```python
-   # Get an experiment object from Azure Machine Learning
-   experiment = Experiment(workspace = ws, name = "train-within-notebook")
-  
-   # Create a run object in the experiment
-   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-   run.log('alpha', 0.03)
-
-   # Create, fit, and test the scikit-learn Ridge regression model
-   regression_model = Ridge(alpha=0.03)
-   regression_model.fit(data['train']['X'], data['train']['y'])
-   preds = regression_model.predict(data['test']['X'])
-
-   # Output the Mean Squared Error to the notebook and to the run
-   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-   run.log('mse', mean_squared_error(data['test']['y'], preds))
-
-   # Save the model to the outputs directory for capture
-   joblib.dump(value=regression_model, filename='outputs/model.pkl')
-
-   # Take a snapshot of the directory containing this notebook
-   run.take_snapshot('./')
-
-   # Complete the run
-   run.complete()
-  
+    # Get an experiment object from Azure Machine Learning
+    experiment = Experiment(workspace=ws, name="train-within-notebook")
+    
+    # Create a run object in the experiment
+    run =  experiment.start_logging()
+    # Log the algorithm parameter alpha to the run
+    run.log('alpha', 0.03)
+    
+    # Create, fit, and test the scikit-learn Ridge regression model
+    regression_model = Ridge(alpha=0.03)
+    regression_model.fit(data['train']['X'], data['train']['y'])
+    preds = regression_model.predict(data['test']['X'])
+    
+    # Output the Mean Squared Error to the notebook and to the run
+    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+    run.log('mse', mean_squared_error(data['test']['y'], preds))
+    
+    # Save the model to the outputs directory for capture
+    model_file_name = 'outputs/model.pkl'
+    
+    joblib.dump(value = regression_model, filename = model_file_name)
+    
+    # upload the model file explicitly into artifacts 
+    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+    
+    # Complete the run
+    run.complete()
    ```
 
-스크립트는 ```run.complete()```로 끝나며 실행이 완료됨으로 표시됩니다.  이 함수는 일반적으로 대화형 노트북 시나리오에서 사용됩니다.
+    스크립트는 ```run.complete()```로 끝나며 실행이 완료됨으로 표시됩니다.  이 함수는 일반적으로 대화형 노트북 시나리오에서 사용됩니다.
 
 ## <a name="option-2-use-scriptrunconfig"></a>옵션 2: ScriptRunConfig 사용
 
-[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 실행 하는 스크립트에 대 한 구성 설정에 대 한 클래스입니다. 이 옵션을 사용하면 완료 알림을 받거나 모니터링할 시각적 위젯을 가져오는 모니터링 코드를 추가할 수 있습니다.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 는 스크립트 실행에 대 한 구성을 설정 하기 위한 클래스입니다. 이 옵션을 사용하면 완료 알림을 받거나 모니터링할 시각적 위젯을 가져오는 모니터링 코드를 추가할 수 있습니다.
 
 이 예제에서는 위의 기본 sklearn Ridge 모델을 확장합니다. 실험의 실행에서 메트릭 및 학습된 모델을 캡처하기 위해 모델의 알파 값을 스윕하는 간단한 매개 변수 스윕을 수행합니다. 예제는 사용자 관리 환경에 대해 로컬로 실행됩니다. 
 
@@ -196,30 +197,31 @@ ms.locfileid: "66297486"
 3. 사용자 관리 로컬 환경을 구성합니다.
 
    ```python
-   from azureml.core.runconfig import RunConfiguration
-
+   from azureml.core import Environment
+    
    # Editing a run configuration property on-fly.
-   run_config_user_managed = RunConfiguration()
-
-   run_config_user_managed.environment.python.user_managed_dependencies = True
-
+   user_managed_env = Environment("user-managed-env")
+    
+   user_managed_env.python.user_managed_dependencies = True
+    
    # You can choose a specific Python environment by pointing to a Python path 
-   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. ```train.py``` 스크립트를 제출하여 사용자 관리 환경에서 실행합니다. 이 스크립트 폴더 전체는 ```mylib.py``` 파일을 포함하여 학습을 위해 제출됩니다.
 
    ```python
    from azureml.core import ScriptRunConfig
-  
-   experiment = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-   run = experiment.submit(src)
+    
+   exp = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory='./', script='train.py')
+   src.run_config.environment = user_managed_env
+   run = exp.submit(src)
    ```
 
 ## <a name="manage-a-run"></a>실행 관리
 
-합니다 [시작, 모니터링 및 교육 실행 취소](how-to-manage-runs.md) 문서 실험을 관리 하는 방법에 대 한 특정 Azure Machine Learning 워크플로 강조 표시 합니다.
+[학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md) 문서는 실험을 관리 하는 방법에 대 한 특정 Azure Machine Learning 워크플로를 강조 표시 합니다.
 
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 
@@ -233,9 +235,9 @@ ms.locfileid: "66297486"
    RunDetails(run).show()
    ```
 
-   ![Jupyter 노트북 위젯의 스크린샷](./media/how-to-track-experiments/widgets.PNG)
+   ![Jupyter 노트북 위젯의 스크린샷](./media/how-to-track-experiments/run-details-widget.png)
 
-2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 대체 `<<experiment_name>>` 적절 한 실험 이름:
+2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 를 `<<experiment_name>>` 적절 한 실험 이름으로 바꿉니다.
 
    ``` 
    from azureml.widgets import RunDetails
@@ -270,7 +272,7 @@ ms.locfileid: "66297486"
 
 실행 링크를 클릭하면 Azure Portal의 실행 세부 정보 페이지로 바로 이동합니다. 여기서는 실험에 기록된 모든 속성, 추적된 메트릭, 이미지 및 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
 
-  ![Azure Portal의 실행 세부 정보](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Azure Portal의 실행 세부 정보](./media/how-to-track-experiments/run-details-page.png)
 
 또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
 
@@ -302,19 +304,19 @@ ms.locfileid: "66297486"
 
 1. 작업 영역의 맨 왼쪽 패널에서 **실험**을 선택합니다.
 
-   ![실험 메뉴 스크린샷](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+   ![실험 메뉴 스크린샷](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
 
 1. 관심 있는 실험을 선택합니다.
 
-   ![실험 목록](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+   ![실험 목록](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
 
 1. 테이블에서 실행 번호를 선택합니다.
 
-   ![실험 실행](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![실험 실행](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
 
 1. 테이블에서 자세히 살펴보려는 모델의 반복 번호를 선택합니다.
 
-   ![실험 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![실험 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
 
 
 
@@ -334,9 +336,9 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화된 ML에서 올바르게 분류된 레이블은 녹색으로 표시되고 잘못 분류된 레이블은 빨간색으로 표시됩니다. 원의 크기는 해당 bin의 샘플 수를 나타냅니다. 또한 각 예측된 레이블 및 각 올바른 레이블의 빈도 개수가 인접한 막대형 차트에 제공됩니다. 
 
-예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-예 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+예제 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 #### <a name="precision-recall-chart"></a>정밀도-리콜 차트
@@ -345,17 +347,17 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 정밀도라는 용어는 분류자가 모든 인스턴스에 올바른 레이블을 지정할 수 있는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다. 정밀도-리콜 곡선은 이러한 두 개념 간의 관계를 표시합니다. 모델이 100% 정밀도와 100% 정확도를 갖는 것이 이상적입니다.
 
-예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
 
-예 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+예제 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
 
 #### <a name="roc"></a>ROC
 
 ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 레이블 및 잘못 분류된 레이블의 플롯입니다. ROC 곡선은 가양성 레이블을 표시하지 않으므로 바이어스가 높은 데이터 세트에서 모델을 학습할 때는 제공하는 정보가 적을 수 있습니다.
 
-예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
 
-예 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+예제 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
 
 #### <a name="lift-curve"></a>리프트 곡선
 
@@ -363,9 +365,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 사용하지 않을 경우와 비교해서 모델을 사용할 경우 예상할 수 있는 성능 향상을 보여 줍니다. 
 
-예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
 
-예 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+예제 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
 
 #### <a name="gains-curve"></a>게인 곡선
 
@@ -373,9 +375,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 누적 게인 차트를 사용하면 모델에서 원하는 게인에 해당하는 백분율을 사용하여 분류 경계를 선택하는 데 도움이 됩니다. 이 정보는 동반되는 리프트 차트의 결과를 살펴보는 또 다른 방법을 제공합니다.
 
-예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
 
-예 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+예제 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
 
 #### <a name="calibration-plot"></a>보정 플롯
 
@@ -383,9 +385,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다. 잘 보정된 모델은 y=x 선과 일치하며, 이 경우 해당 예측의 신뢰도가 상당히 높음을 의미합니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다.
 
-예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
 
-예 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+예제 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ### <a name="regression"></a>회귀
 Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 회귀 모델에 대해 다음 차트를 볼 수 있습니다. 
@@ -400,9 +402,9 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 각 실행 후에 각 회귀 모델에 대한 예측 대 실제 그래프를 확인할 수 있습니다. 데이터 개인 정보를 보호하기 위해 값은 함께 bin 처리되고 각 bin의 크기가 차트 영역의 아래쪽에 막대형 그래프로 표시됩니다. 밝은 음영 영역을 통해 오차 범위를 표시하는 예측 모델과 모델의 이상적인 값을 비교할 수 있습니다.
 
-예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
 
-예 2: 예측 정확도가 높은 회귀 모델 ![예측 정확도가 높은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+예제 2: 예측 정확도가 높은 회귀 모델 ![예측 정확도가 높은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a>
 
@@ -410,15 +412,15 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 나머지는 관찰된 y - 예측된 y를 나타냅니다. 바이어스가 낮은 오차 범위를 표시하려면 나머지 히스토그램의 모양이 0을 중심으로 하는 벨 곡선이어야 합니다. 
 
-예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
 
-예 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+예제 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>모델 설명 기능 및 기능 중요도
 
 기능 중요도는 각 기능이 모델 구성에서 얼마나 중요했는지를 나타내는 점수를 제공합니다. 모델 전체 및 예측 모델의 클래스별로 기능 중요도 점수를 검토할 수 있습니다. 각 클래스 및 전체와 비교해서 기능별로 중요도를 확인할 수 있습니다.
 
-![기능 설명 기능](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+![기능 설명 기능](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>노트북 예제
 이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.

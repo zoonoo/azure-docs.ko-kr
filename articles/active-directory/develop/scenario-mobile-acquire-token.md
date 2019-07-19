@@ -1,9 +1,9 @@
 ---
-title: 호출 웹 Api 앱에 대 한 토큰을 가져오는 되는 모바일 앱 | Microsoft id 플랫폼
-description: 웹 Api (응용 프로그램에 대 한 토큰을 가져오는)를 호출 하는 모바일 앱을 빌드하는 방법을 알아봅니다
+title: 웹 Api를 호출 하는 모바일 앱-앱에 대 한 토큰을 가져오는 중 | Microsoft id 플랫폼
+description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기 (앱에 대 한 토큰 가져오기)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111138"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320900"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>모바일 앱 웹 Api를 호출 하는 토큰을 가져옵니다.
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>웹 Api를 호출 하는 모바일 앱-토큰 가져오기
 
-보호를 호출 하기 전에 웹 Api 앱 액세스 토큰이 필요 합니다. 이 문서에서는 Microsoft 인증 라이브러리 (MSAL)를 사용 하 여 토큰을 가져오는 과정을 안내 합니다.
+보호 되는 웹 Api 호출을 시작 하기 전에 앱에 액세스 토큰이 필요 합니다. 이 문서에서는 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰을 가져오는 과정을 안내 합니다.
 
-## <a name="scopes-to-request"></a>요청에 범위
+## <a name="scopes-to-request"></a>요청할 범위
 
-토큰을 요청 하는 경우 범위를 정의 해야 합니다. 범위는 앱에 액세스할 수 있는 데이터를 결정 합니다.  
+토큰을 요청 하는 경우 범위를 정의 해야 합니다. 범위는 앱이 액세스할 수 있는 데이터를 결정 합니다.  
 
-가장 쉬운 방법은 원하는 웹 API를 결합 하는 것 `App ID URI` 범위를 사용 하 여 `.default`입니다. 이렇게 앱 포털에서 모든 범위를 설정 해야 하는 Microsoft id 플랫폼을 알려 줍니다.
+가장 쉬운 방법은 원하는 web API `App ID URI` 를 범위 `.default`와 결합 하는 것입니다. 이렇게 하면 앱이 포털에서 모든 범위를 설정 해야 한다는 Microsoft id 플랫폼이 Microsoft id 플랫폼에 알려 줍니다.
 
 #### <a name="android"></a>Android
 ```Java
@@ -52,7 +52,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### <a name="via-msal"></a>Via MSAL
 
-MSAL에 앱을을 자동으로 하 고 대화형으로 토큰을 획득할 수 있습니다. 이러한 메서드 호출 및 MSAL 요청된 범위에 대 한 액세스 토큰을 반환 합니다. 올바른 패턴은 자동 요청을 수행 하 고 대화형 요청으로 대체 하는 것입니다.
+MSAL을 사용 하면 앱에서 토큰을 자동으로 및 대화형으로 가져올 수 있습니다. 이러한 메서드를 호출 하기만 하면 MSAL이 요청 된 범위에 대 한 액세스 토큰을 반환 합니다. 올바른 패턴은 자동 요청을 수행 하 고 대화형 요청으로 대체 하는 것입니다.
 
 #### <a name="android"></a>Android
 
@@ -163,9 +163,9 @@ catch(MsalUiRequiredException e)
 
 ### <a name="via-the-protocol"></a>프로토콜을 통해
 
-직접 프로토콜을 사용 하 여 없는 것이 좋습니다. 이렇게 하면 응용 프로그램 일부에서 single sign-on (SSO), 장치 관리 및 조건부 액세스 시나리오를 지원 하지 않습니다.
+프로토콜을 직접 사용 하지 않는 것이 좋습니다. 이렇게 하면 앱에서 일부 SSO (single sign-on), 장치 관리 및 조건부 액세스 시나리오를 지원 하지 않습니다.
 
-두 요청을 수행 해야 하는 프로토콜을 사용 하 여 모바일 앱에 대 한 토큰을 가져오려고 하는 경우: 권한 부여 코드를 가져오고 토큰과 교환 합니다.
+프로토콜을 사용 하 여 모바일 앱에 대 한 토큰을 가져오는 경우 두 요청을 수행 해야 합니다. 권한 부여 코드를 가져오고 토큰에 대해 교환 합니다.
 
 #### <a name="get-authorization-code"></a>인증 코드 가져오기
 

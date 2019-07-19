@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
-ms.author: vidarmsft
-ms.openlocfilehash: 8c82170cf9cff1870739bb13db9ac0e348a46c07
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: alkohli
+ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443058"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875386"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 
@@ -37,7 +37,7 @@ Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅샷 
 ## <a name="supported-azure-site-recovery-deployment-options"></a>지원되는 Azure Site Recovery 배포 옵션
 고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 머신)으로 배포한 다음 StorSimple 저장소의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 저장소의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
 
    - Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
@@ -93,7 +93,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
       
 1. **다음**을 클릭합니다.
 1. **Terms of Agreement(계약 조건)** 에 동의하고 **다음**을 클릭합니다.
-1. **Finish**를 클릭합니다.
+1. **마침**을 클릭합니다.
 1. StorSimple 저장소의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
    
    1. 온-프레미스 VM에서 Windows 키+Q를 누르고 **iSCSI**를 검색합니다.
@@ -170,7 +170,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    
 1. 자동화 계정에서 **변수** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
 
-   - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL입니다. 사용 하 여 가져올 **Get AzEnvironment | Select-object Name, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL입니다. Get-AzEnvironment를 사용 하 여 가져오기 **| -Object Name, ResourceManagerUrl cmdlet을 선택** 합니다.
    - _RecoveryPlanName_ **-ResourceGroupName**: StorSimple 리소스가 있는 Resource Manager 그룹입니다.
    - _RecoveryPlanName_ **-ManagerName**: StorSimple 디바이스가 있는 StorSimple 리소스입니다.
    - _RecoveryPlanName_ **-DeviceName**: 장애 조치해야 하는 StorSimple 디바이스입니다.
@@ -321,7 +321,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    
    ![장애 복구(failback) 시작](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 ### <a name="capacity-planning-and-readiness-assessment"></a>용량 계획 및 준비 평가
 #### <a name="hyper-v-site"></a>Hyper-V 사이트
 [User Capacity planner tool(사용자 Capacity Planner 도구)](https://www.microsoft.com/download/details.aspx?id=39057) 을 사용하여 Hyper-V 복제본 환경에 대한 서버, 저장소 및 네트워크 인프라를 디자인합니다.

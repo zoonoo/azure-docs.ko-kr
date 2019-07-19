@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294086"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867720"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -58,7 +58,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-스마트 검색 알림은 기본적으로 사용되도록 설정되며 [Application Insights 리소스에 대해 액세스 권한이 있는 소유자, 기고자 및 읽기 권한자](../../azure-monitor/app/resources-roles-access-control.md)에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
+스마트 검색 알림은 기본적으로 사용 하도록 설정 되며, Application Insights 리소스가 있는 구독에 대 한 [모니터링 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [모니터링 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 액세스 권한이 있는 사용자에 게 전송 됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
   ![스마트 검색 설정](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -183,7 +183,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)
+* [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)
 * [분석](../../azure-monitor/log-query/get-started-portal.md)
 * [분석 스마트 진단](../../azure-monitor/app/analytics.md)
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617982"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871950"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 적절한 수의 장애 도메인 선택
 가상 머신 확장 집합은 영역 없는 Azure 지역에서 기본적으로 5개의 장애 도메인으로 만들어집니다. 가상 머신 확장 집합의 영역 배포를 지원하는 지역에서 장애 도메인의 기본 개수는 영역별로 1개입니다. 이 경우 FD=1은 확장 집합에 속하는 VM 인스턴스가 최선의 결과를 얻기 위해 여러 랙에 걸쳐 분산될 것임을 의미합니다.
@@ -47,4 +47,4 @@ az vmss create \
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
-- Azure 환경의 [가용성 및 중복성 기능](../virtual-machines/windows/regions-and-availability.md)에 대해 자세히 알아봅니다.
+- Azure 환경의 [가용성 및 중복성 기능](../virtual-machines/windows/availability.md)에 대해 자세히 알아봅니다.

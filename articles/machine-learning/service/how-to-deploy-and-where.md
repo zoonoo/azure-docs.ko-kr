@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260338"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327045"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -115,6 +115,10 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 
 웹 서비스로 배포 하려면 유추 구성 (`InferenceConfig`) 및 배포 구성을 만들어야 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다. 유추 구성에서는 모델을 제공 하는 데 필요한 스크립트와 종속성을 지정 합니다. 배포 구성에서 계산 대상에 모델을 제공 하는 방법에 대 한 세부 정보를 지정 합니다.
 
+> [!IMPORTANT]
+> Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 외부에 저장 된 데이터에 액세스 하기 위해 배포 된 모델이 필요한 경우 (예: Azure Storage 계정에서) 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
+>
+> 시나리오에 사용할 수 있는 또 다른 대안은 점수를 매길 때 데이터 저장소에 대 한 액세스를 제공 하는 [일괄 처리 예측](how-to-run-batch-predictions.md)입니다.
 
 ### <a id="script"></a> 1. 항목 스크립트 & 종속성 정의
 
@@ -364,7 +368,7 @@ CLI를 사용 하 여 모델을 프로 파일링 하려면 [az ml model profile]
 
     `deploymentconfig.json` 문서의 항목은 [localwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
-    | JSON 엔터티 | 메서드 매개 변수 | Description |
+    | JSON 엔터티 | 메서드 매개 변수 | 설명 |
     | ----- | ----- | ----- |
     | `computeType` | NA | 계산 대상. Local의 경우 값은 이어야 `local`합니다. |
     | `port` | `port` | 서비스의 HTTP 끝점을 노출할 로컬 포트입니다. |

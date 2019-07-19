@@ -3,23 +3,24 @@ title: Azure Container Instances에서 emptyDir 볼륨 탑재
 description: Azure Container Instances에서 컨테이너 그룹에 있는 컨테이너 간에 데이터를 공유하기 위해 emptyDir 볼륨을 탑재하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0dbe26ff1e00e1912cfd63e8383695ca794dd037
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657627"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325457"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container Instances에서 emptyDir 볼륨 탑재
 
 Azure Container Instances 컨테이너 그룹의 컨테이너 간에 데이터를 공유하기 위해 *emptyDir* 볼륨을 탑재하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 현재 *emptyDir* 볼륨 탑재는 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하는 중, 하는 동안에에서 현재 플랫폼의 차이점을 찾을 수 있습니다 합니다 [개요](container-instances-overview.md#linux-and-windows-containers)합니다.
+> 현재 *emptyDir* 볼륨 탑재는 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
 
 ## <a name="emptydir-volume"></a>emptyDir 볼륨
 

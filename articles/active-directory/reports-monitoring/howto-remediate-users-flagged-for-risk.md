@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서 | Microsoft Docs
+title: Azure Active Directory 포털에서 위험 플래그가 지정 된 사용자 | Microsoft Docs
 description: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서에 대해 알아보기
 services: active-directory
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286668"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276561"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -46,7 +46,7 @@ Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azur
 
 Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
 
-액세스 하는 **위험 플래그가 지정 된 사용자** Microsoft 365 관리 센터에서 보고서:
+Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** 보고서에 액세스 하려면 다음을 수행 합니다.
 
 1.  왼쪽 탐색 메뉴에서 **관리 센터**를 선택합니다. 
 2.  **Azure AD**를 선택합니다.

@@ -3,7 +3,7 @@ title: Azure Batch 모니터링 | Microsoft Docs
 description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진단 로그 및 기타 모니터링 기능에 대해 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128858"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322444"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -41,7 +41,7 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 ## <a name="batch-resource-monitoring"></a>Batch 리소스 모니터링
 
-Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들면 다음과 같습니다.
+Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어:
 
 * [상태별 태스크 및 계산 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)

@@ -3,23 +3,24 @@ title: Azure Container Instances에서 gitRepo 볼륨 탑재
 description: gitRepo 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e8afa9e14941920cdcfb984e6660bdc666240716
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657595"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325449"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
 
 *gitRepo* 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 
 > [!NOTE]
-> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하는 중, 하는 동안에에서 현재 플랫폼의 차이점을 찾을 수 있습니다 합니다 [개요](container-instances-overview.md#linux-and-windows-containers)합니다.
+> *gitRepo* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
 
 ## <a name="gitrepo-volume"></a>gitRepo 볼륨
 
@@ -35,9 +36,9 @@ ms.locfileid: "67657595"
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>GitRepo 볼륨 탑재: Azure CLI
 
-로 컨테이너 인스턴스를 배포할 때 gitRepo 볼륨을 탑재 하려면 합니다 [Azure CLI](/cli/azure)지정 합니다 `--gitrepo-url` 및 `--gitrepo-mount-path` 매개 변수를를 [az 컨테이너 만들기][az-container-create] 명령. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
+[Azure CLI](/cli/azure)를 사용 하 여 컨테이너 인스턴스를 배포할 때 gitrepo 볼륨을 탑재 하려면 `--gitrepo-url` [az container create][az-container-create] 명령에 및 `--gitrepo-mount-path` 매개 변수를 제공 합니다. 선택적으로 복제할 볼륨 내 디렉터리(`--gitrepo-dir`)와 복제된 수정 작업의 커밋 해시(`--gitrepo-revision`)를 지정할 수 있습니다.
 
-이 예제 명령은 복제 Microsoft [aci helloworld][aci-helloworld] 샘플 응용 프로그램을 `/mnt/aci-helloworld` 에서 컨테이너 인스턴스:
+이 예제 명령은 Microsoft [aci-helloworld][aci-helloworld] 샘플 응용 프로그램 `/mnt/aci-helloworld` 을 컨테이너 인스턴스의에 복제 합니다.
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +51,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-GitRepo 볼륨이 탑재 되었는지 확인 하려면 사용 하 여 컨테이너에서 셸을 시작 [az container exec][az-container-exec] 및 디렉터리를 나열 합니다.
+GitRepo 볼륨이 탑재 되었는지 확인 하려면 [az container exec][az-container-exec] 를 사용 하 여 컨테이너에서 셸을 시작 하 고 디렉터리를 나열 합니다.
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
@@ -100,7 +101,7 @@ GitHub 및 Azure Repos의 개인용 액세스 토큰에 대한 자세한 내용�
 
 GitHub: [명령줄에 대 한 개인용 액세스 토큰 만들기][pat-github]
 
-Azure Repos: [액세스를 인증에 대 한 개인용 액세스 토큰 만들기][pat-repos]
+Azure Repos: [액세스를 인증 하는 개인 액세스 토큰 만들기][pat-repos]
 
 ## <a name="next-steps"></a>다음 단계
 

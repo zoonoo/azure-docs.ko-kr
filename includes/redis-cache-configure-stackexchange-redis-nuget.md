@@ -1,20 +1,20 @@
 ---
-author: wesmc7777
+author: yegu-ms
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
-ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: yegu
+ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182774"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286262"
 ---
 .NET 애플리케이션은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 애플리케이션의 구성을 단순화하는 NuGet 패키지를 사용하여 Visual Studio에서 구성할 수 있습니다. 
 
 > [!NOTE]
-> 자세한 내용은 [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) GitHub 페이지 및 [StackExchange.Azure Cache for Redis 클라이언트 설명서](http://github.com/StackExchange/StackExchange.Redis#documentation)를 참조하세요.
+> 자세한 내용은 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub 페이지 및 [StackExchange.Azure Cache for Redis 클라이언트 설명서](https://github.com/StackExchange/StackExchange.Redis#documentation)를 참조하세요.
 >
 >
 

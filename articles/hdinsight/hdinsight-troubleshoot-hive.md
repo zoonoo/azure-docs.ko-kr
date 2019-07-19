@@ -4,15 +4,15 @@ description: Apache Hive 및 Azure HDInsight 작업에 대한 일반적인 질�
 keywords: Azure HDInsight, Hive, FAQ, 문제 해결 가이드, 일반적인 질문
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712488"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875939"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
 
@@ -42,7 +42,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다른 경우 변경 내용을 반영하도록 생성된 alltables.sql 파일을 수동으로 편집할 수 있습니다.
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -71,7 +71,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hiveserver2.log 
    ```
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -98,7 +98,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    hive -hiveconf hive.root.logger=ALL,console 
    ```
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
@@ -138,7 +138,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
     - **VertexLevelCriticalPathAnalyzer**: DAG의 꼭짓점 수준에서 중요 경로를 찾습니다.
 
 
-### <a name="additional-reading"></a>추가 참조 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 

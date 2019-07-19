@@ -3,7 +3,7 @@ title: 컨테이너 워크로드 - Azure Batch | Microsoft Docs
 description: Azure Batch에서 컨테이너 이미지의 애플리케이션을 실행하는 방법을 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: cfd00ad124db33cec8e30e8e1bb701388ee71838
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: edf4ce2be451672ecbd4f732c3110617dc122ca0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340236"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323596"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -28,7 +28,7 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 컨테이너를 사용하면 환경 및 종속 파일을 관리할 필요없이 Batch 작업을 실행하여 애플리케이션을 쉽게 실행할 수 있습니다. 컨테이너는 애플리케이션을 다양한 환경에서 실행될 수 있는 이식이 가능한 일체형 경량 단위로 배포합니다. 예를 들어, 컨테이너를 로컬로 빌드 및 테스트한 다음, Azure의 레지스트리 또는 다른 위치로 컨테이너 이미지를 업로드할 수 있습니다. 컨테이너 배포 모델은 애플리케이션을 호스트하는 어느 곳이든 애플리케이션의 런타임 환경이 항상 올바르게 설치 및 구성되도록 합니다. Batch의 컨테이너 기반 작업은 리소스 파일 및 출력 파일 관리, 애플리케이션 패키지 등 컨테이너가 아닌 작업의 기능을 활용할 수도 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **SDK 버전**: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
     * Batch REST API 버전 2017-09-01.6.0

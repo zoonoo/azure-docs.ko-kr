@@ -3,17 +3,17 @@ title: Azure Container Registry 콘텐츠 서식
 description: Azure Container Registry에서 지원되는 콘텐츠 서식에 대해 알아봅니다.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: danlep
-ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c804dd7b73ea4a51c02c8b342a4ac60d992ec7c5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827462"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310687"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
@@ -29,11 +29,11 @@ Azure Container Registry에서 프라이빗 리포지토리를 사용하여 다�
 
 ## <a name="oci-images"></a>OCI 이미지
 
-Azure Container Registry에 충족 하는 이미지도 지원 합니다 [Open Container Initiative OCI () 이미지 포맷 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)합니다. 패키징 형식 포함 [특이성 이미지 형식 (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/)합니다.
+Azure Container Registry은 [OCI (Open Container 이니셔티브) 이미지 형식 사양을](https://github.com/opencontainers/image-spec/blob/master/spec.md)만족 하는 이미지도 지원 합니다. 패키지 형식에는 [SIF (특이성 Image Format)](https://www.sylabs.io/2018/03/sif-containing-your-containers/)가 포함 됩니다.
 
 ## <a name="helm-charts"></a>Helm 차트
 
-Azure Container Registry에 대 한 리포지토리를 호스트할 수 있습니다 [Helm 차트](https://helm.sh/)를 신속 하 게 관리 및 Kubernetes에 대 한 응용 프로그램을 배포 하는 데 사용 하는 패키징 형식을 합니다. [Helm 클라이언트](https://docs.helm.sh/using_helm/#installing-helm) 버전 2.11.0 이상이 지원됩니다.
+Kubernetes에 대 한 응용 프로그램을 신속 하 게 관리 하 고 배포 하는 데 사용 되는 패키징 형식인 [투구 차트](https://helm.sh/)의 리포지토리를 호스트할 수 Azure Container Registry. [Helm 클라이언트](https://docs.helm.sh/using_helm/#installing-helm) 버전 2.11.0 이상이 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

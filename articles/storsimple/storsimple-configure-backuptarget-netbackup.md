@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
-ms.author: hkanna
-ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: matd
+ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725287"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876202"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>NetBackup에서 백업 대상으로 StorSimple 구성
 
@@ -300,7 +300,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 다음은 GFS 회전 일정(4주, 매월 및 매년)의 예입니다.
 
-| 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
+| 빈도/백업 유형 | 모든 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
 | 매월  | 토요일  |   |
@@ -316,7 +316,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
    ![NetBackup 관리 콘솔 - 새 정책 만들기](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. **새 정책 추가** 대화 상자에서 정책 이름을 입력한 다음 **정책 구성 마법사 사용** 확인란을 선택합니다. **확인**을 선택합니다.
+2. **새 정책 추가** 대화 상자에서 정책 이름을 입력한 다음 **정책 구성 마법사 사용** 확인란을 선택합니다.           **확인**을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 정책 추가 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
@@ -360,7 +360,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
     ![NetBackup 관리 콘솔 - 시작 창 변경](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. **확인**을 선택합니다.
+14.           **확인**을 선택합니다.
 
 15. 각 증분 백업에 대해 10-14단계를 반복합니다. 만든 백업 각각에 대해 적절한 볼륨과 일정을 선택합니다.
 
@@ -408,10 +408,10 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| 주 | 모든 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
-| 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
-| 2주차 | StorSimple 2-4주 |   |   |   |   |   |
+| 1 주 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
+| 2 주 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 매월 | StorSimple 매월 |   |   |   |   |   |
@@ -436,7 +436,7 @@ NetBackup은 저장소와 미디어 관리를 위해 다양한 옵션을 제공�
 
 2. 스냅샷의 이름을 입력한 다음, **추가**를 선택합니다.
 
-3. **새 작업** 대화 상자의 **속성** 탭에서 **작업**에 대해 **Backup**을 선택합니다. **대상 저장소**, **보존 유형** 및 **보존 기간**에 대해 원하는 값을 선택합니다. **확인**을 선택합니다.
+3. **새 작업** 대화 상자의 **속성** 탭에서 **작업**에 대해 **Backup**을 선택합니다. **대상 저장소**, **보존 유형** 및 **보존 기간**에 대해 원하는 값을 선택합니다.           **확인**을 선택합니다.
 
    ![NetBackup 관리 콘솔 - 새 작업 대화 상자](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
@@ -529,13 +529,13 @@ StorSimple 디바이스에서 복원하면 모든 블록 저장소 디바이스�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 메모 |
+| 시나리오 | 영향 | 복구 방법 | 참고 |
 |---|---|---|---|
 | StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | NetBackup 서버 오류 | Backup 및 복원 작업이 중단됩니다. | 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 NetBackup 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 NetBackup 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그가 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 이 문서에서는 다음 문서를 참조했습니다.
 

@@ -1,43 +1,44 @@
 ---
-title: Azure Container Registry의 레지스트리 상태 확인
-description: 로컬 Docker 구성 및 레지스트리에 대 한 연결을 포함 하 여 Azure container registry를 사용 하는 경우 일반적인 문제를 식별 하는 빠른 진단 명령을 실행 하는 방법 알아보기
+title: Azure Container Registry에서 레지스트리 상태를 확인 합니다.
+description: 로컬 Docker 구성 및 레지스트리에 대 한 연결을 포함 하 여 Azure container registry를 사용할 때 일반적인 문제를 식별 하는 빠른 진단 명령을 실행 하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 3e5b5467f9fa25e23f6661c6630d346aa85e2205
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555099"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309726"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Azure container registry의 상태를 확인 합니다.
 
-Azure container registry를 사용 하는 경우에 따라 문제를 발생할 수 있습니다. 예를 들어 로컬 환경에서 Docker 사용 하 여 문제로 인해 컨테이너 이미지를 끌어올 수 없습니다. 또는 네트워크 문제가 있습니다 레지스트리에 연결 하지 못할 수 있습니다. 
+Azure container registry를 사용 하는 경우 가끔 문제가 발생할 수 있습니다. 예를 들어 로컬 환경의 Docker 문제로 인해 컨테이너 이미지를 끌어올 수 없습니다. 또는 네트워크 문제로 인해 레지스트리에 연결 하지 못할 수 있습니다. 
 
-첫 번째 진단 단계를 실행 합니다 [상태 확인 az acr][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]합니다.
+첫 번째 진단 단계로 [az acr check 상태][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]를 실행 합니다.
 
-## <a name="run-az-acr-check-health"></a>Az acr 확인 상태를 실행 합니다.
+## <a name="run-az-acr-check-health"></a>실행 az acr check-health
 
-다음 예제를 실행 하는 다양 한 방법 표시는 `az acr check-health` 명령입니다.
+다음 예제에서는 `az acr check-health` 명령을 실행 하는 다양 한 방법을 보여 줍니다.
 
 > [!NOTE]
-> Azure Cloud Shell의 명령은 실행 하는 경우 로컬 환경 확인 하지 않습니다. 그러나 대상 레지스트리에 대 한 액세스를 확인할 수 있습니다.
+> Azure Cloud Shell에서 명령을 실행 하면 로컬 환경이 선택 되지 않습니다. 그러나 대상 레지스트리에 대 한 액세스를 확인할 수 있습니다.
 
-### <a name="check-the-environment-only"></a>환경에만 확인 합니다.
+### <a name="check-the-environment-only"></a>환경만 확인
 
-로컬 Docker를 확인 하려면 데몬, CLI 버전 및 Helm 클라이언트 구성에 추가 매개 변수 없이 명령을 실행 합니다.
+로컬 Docker 디먼, CLI 버전 및 투구 클라이언트 구성을 확인 하려면 추가 매개 변수 없이 명령을 실행 합니다.
 
 ```azurecli
 az acr check-health
 ```
 
-### <a name="check-the-environment-and-a-target-registry"></a>환경 및 대상 레지스트리를 확인 합니다.
+### <a name="check-the-environment-and-a-target-registry"></a>환경 및 대상 레지스트리 확인
 
-로컬 환경 검사를 수행할 뿐만 아니라는 레지스트리에 대 한 액세스를 확인, 대상 레지스트리의 이름으로 전달 합니다. 예를 들면 다음과 같습니다.
+레지스트리에 대 한 액세스를 확인 하 고 로컬 환경 검사를 수행 하려면 대상 레지스트리의 이름을 전달 합니다. 예:
 
 ```azurecli
 az acr check-health --name myregistry
@@ -45,9 +46,9 @@ az acr check-health --name myregistry
 
 ## <a name="error-reporting"></a>오류 보고
 
-이 명령은 표준 출력에 정보를 기록합니다. 문제가 발견 되는 오류 코드 및 설명을 제공 합니다. 코드 및 가능한 해결 방법에 대 한 자세한 내용은 참조는 [오류 참조](container-registry-health-error-reference.md)합니다.
+명령은 표준 출력에 정보를 기록 합니다. 문제가 감지 되 면 오류 코드 및 설명을 제공 합니다. 코드 및 가능한 해결 방법에 대 한 자세한 내용은 [오류 참조](container-registry-health-error-reference.md)를 참조 하세요.
 
-기본적으로 명령은 오류를 발견할 때마다 중지 합니다. 또한 명령을 실행할 수 있습니다는 모든 상태 검사에 대 한 출력 제공 되도록 오류가 발견 되는 경우에 합니다. 추가 된 `--ignore-errors` 다음 예와에서 같이 매개 변수:
+기본적으로 오류를 발견할 때마다 명령이 중지 됩니다. 오류가 발견 되더라도 모든 상태 검사에 대 한 출력을 제공 하도록 명령을 실행할 수도 있습니다. 다음 예제 `--ignore-errors` 와 같이 매개 변수를 추가 합니다.
 
 ```azurecli
 # Check environment only
@@ -78,9 +79,9 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## <a name="next-steps"></a>다음 단계
 
-반환 된 오류 코드에 대 한 자세한를 [상태 확인 az acr][az-acr-check-health] 명령을 참조 하세요를 [상태 확인 오류 참조](container-registry-health-error-reference.md)합니다.
+[Az acr check 상태][az-acr-check-health] 명령에서 반환 하는 오류 코드에 대 한 자세한 내용은 [상태 검사 오류 참조](container-registry-health-error-reference.md)를 참조 하세요.
 
-참조 된 [FAQ](container-registry-faq.md) 질문과 대답 및 Azure Container Registry에 대 한 알려진된 기타 문제에 대 한 합니다.
+Azure Container Registry에 대 한 질문과 대답 및 기타 알려진 문제에 대 한 [FAQ](container-registry-faq.md) 를 참조 하세요.
 
 
 

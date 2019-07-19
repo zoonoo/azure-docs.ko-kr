@@ -3,7 +3,7 @@ title: Batch에서 계산 집약적인 Azure VM 사용 | Microsoft Docs
 description: Azure Batch 풀에서 HPC 및 GPU VM 크기를 활용하는 방법
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776527"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323345"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
-특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 예를 들면 다음과 같습니다.
+특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 예를 들어:
 
 * 다중 인스턴스 [MPI 워크로드](batch-mpi.md)를 실행하려면 RDMA(Remote Direct Memory Access)에 대한 네트워크 인터페이스가 있는 H 시리즈 또는 기타 크기를 선택합니다. 이러한 크기는 MPI 애플리케이션을 가속화할 수 있는 노드 간 통신에 대한 InfiniBand 네트워크에 연결합니다. 
 
@@ -46,8 +46,8 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, NCv3, NDv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버 | N/A | 
-| [NV, NVv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID 드라이버 | N/A |
+| [NC, NCv2, NCv3, NDv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버 | 해당 사항 없음 | 
+| [NV, NVv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID 드라이버 | 해당 사항 없음 |
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
 
@@ -75,7 +75,7 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 Batch 풀에 대해 특별한 VM 크기를 구성하려면 필수 소프트웨어 또는 드라이버를 설치하는 몇 가지 옵션이 있습니다.
 
-* 가상 머신 구성의 풀인 경우 드라이버 및 소프트웨어가 미리 설치되어 미리 구성된 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 이미지를 선택합니다. 예제: 
+* 가상 머신 구성의 풀인 경우 드라이버 및 소프트웨어가 미리 설치되어 미리 구성된 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 이미지를 선택합니다. 예를 들면 다음과 같습니다. 
 
   * [CentOS 기반 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) - RDMA 드라이버 및 Intel MPI 5.1 포함
 

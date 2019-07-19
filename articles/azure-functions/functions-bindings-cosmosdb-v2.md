@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 1a505fc5ef09fe9842e72488843155af7c0888cb
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b0f8b5efcf7e22a3f9d98d5c812ba4821a8b2124
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480811"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254778"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
-> [!div class="op_single_selector" title1="사용 하는 Azure Functions 런타임의 버전을 선택 합니다. "]
+> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
@@ -196,7 +196,7 @@ Java 코드는 다음과 같습니다.
 ```
 
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  이 주석은 기본 Java 형식, pojos 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
 
 
 트리거 건너뛰기 예제
@@ -256,7 +256,7 @@ Java 코드는 다음과 같습니다.
 
 다음 표에서는 *function.json* 파일 및 `CosmosDBTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** || `cosmosDBTrigger`로 설정해야 합니다. |
 |**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
@@ -627,7 +627,7 @@ namespace CosmosDBSamplesV2
 
 ### <a name="input---c-script-examples"></a>입력 - C# 스크립트 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * [큐 트리거, 문자열에서 ID 조회](#queue-trigger-look-up-id-from-string-c-script)
 * [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
@@ -1454,7 +1454,7 @@ F# 코드는 다음과 같습니다.
 
 ### <a name="input---java-examples"></a>입력 - Java 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * [HTTP 트리거, 쿼리 문자열에서 ID 조회 - 문자열 매개 변수](#http-trigger-look-up-id-from-query-string---string-parameter-java)
 * [HTTP 트리거, 쿼리 문자열에서 ID 조회 - POJO 매개 변수](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
@@ -1529,7 +1529,7 @@ public class DocByIdFromQueryString {
 }
  ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  이 주석은 기본 Java 형식, pojos 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회 - POJO 매개 변수(Java)
 
@@ -1712,14 +1712,14 @@ public class DocsFromRouteSqlQuery {
 
 다음 표에서는 *function.json* 파일 및 `CosmosDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**     || `cosmosDB`로 설정해야 합니다.        |
 |**direction**     || `in`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
-|**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
+|**ID**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
 |**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다.|
@@ -1752,7 +1752,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 
 ### <a name="output---c-examples"></a>출력 - C# 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * 큐 트리거, 하나의 문서 쓰기
 * 큐 트리거, IAsyncCollector를 사용하여 문서 쓰기
@@ -1846,7 +1846,7 @@ namespace CosmosDBSamplesV2
 
 ### <a name="output---c-script-examples"></a>출력 - C# 스크립트 예제
 
-이 섹션에는 다음 예제가 포함되어 있습니다.
+이 섹션에서는 다음과 같은 예를 보여 줍니다.
 
 * 큐 트리거, 하나의 문서 쓰기
 * 큐 트리거, IAsyncCollector를 사용하여 문서 쓰기
@@ -2297,7 +2297,7 @@ public String cosmosDbQueryById(
 
 다음 표에서는 *function.json* 파일 및 `CosmosDB` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type**     || `cosmosDB`로 설정해야 합니다.        |
 |**direction**     || `out`로 설정해야 합니다.         |
@@ -2345,11 +2345,11 @@ public String cosmosDbQueryById(
 }
 ```  
 
-|자산  |Default | 설명 |
+|속성  |Default | Description |
 |---------|---------|---------| 
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |Protocol|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 
-|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.| 
+|leasePrefix|n/a|앱의 모든 함수에서 사용할 접두사를 임대합니다.| 
 
 ## <a name="next-steps"></a>다음 단계
 

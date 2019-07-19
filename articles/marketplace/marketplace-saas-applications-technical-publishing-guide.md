@@ -6,13 +6,13 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445738"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876527"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -25,14 +25,14 @@ SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다.
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
 | AppSource | 예(연락처) | 예(PowerBI/Dynamics) |
-| Azure 마켓플레이스 | 아닙니다. | 예(SaaS 앱) |   
+| Azure 마켓플레이스 | 아니요 | 예(SaaS 앱) |   
 
 **나열:**  나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 트랜잭션 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
 **평가판/트랜잭션:**  고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
-| **문의처** | 예 | 아닙니다. |  
+| **문의처** | 예 | 아니요 |  
 | **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
 | **SaaS 앱**| 예 | 예(Azure AD 통합) |     
 
@@ -94,7 +94,7 @@ SaaS 애플리케이션에 대한 기술 요구 사항은 간단합니다. 게�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
-Microsoft Azure AD 사용 하 여 모든 Marketplace 사용자를 인증 합니다. 인증된 된 사용자가 Marketplace에서 평가판 목록을 통해 평가판 환경으로 리디렉션되는지를 프로 비전 할 수는 사용자 직접 평가판으로 요구 하지 않고 있으므로 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
+Microsoft는 Azure AD를 사용 하 여 모든 Marketplace 사용자를 인증 하므로 인증 된 사용자가 Marketplace에서 평가판 목록을 클릭 하 고 체험 환경으로 리디렉션되는 경우, 사용자는 추가 로그인 단계입니다. 인증 중에 Azure AD에서 앱이 수신하는 토큰에는 앱에서 사용자 계정을 만드는 데 사용할 수 있는 귀중한 사용자 정보가 포함되어 있으므로, 프로비전 환경을 자동화하고 변환 가능성을 높일 수 있습니다. 토큰에 대한 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클릭 인증을 사용할 수 있습니다.  
 * 고객이 Marketplace의 환경에서 평가판으로 간단히 전환할 수 있습니다.  
@@ -104,7 +104,7 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-단일 테 넌 트 또는 다중 테 넌 트 응용 프로그램 인지에 따라 몇 가지에서에 Azure AD 통합을 인증 하 고 처음 접하는 지 여부를를 Azure AD 페더레이션된 single sign-on (SSO) 또는 이미 지원 합니다.  
+응용 프로그램이 단일 테 넌 트 인지 다중 테 넌 트 인지 여부, Azure AD 페더레이션된 SSO (single sign-on)를 처음 접하는 지 또는 이미 지원 하는지 여부에 따라 몇 가지 방법으로 Azure AD 통합을 인증 합니다.  
 
 **다중 테넌트 애플리케이션의 경우:**  
 
@@ -138,7 +138,7 @@ Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하�
 | 구독 API | SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. |  
 
 >[!Note]
->클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](./cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
+>이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](./cloud-solution-providers.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 아직 수행하지 않았다면
