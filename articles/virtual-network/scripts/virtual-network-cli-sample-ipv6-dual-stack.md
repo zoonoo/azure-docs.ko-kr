@@ -1,7 +1,7 @@
 ---
-title: Azure CLI 스크립트 샘플-IPv6 구성 virtual network 끝점 (미리 보기)
+title: Azure CLI 스크립트 샘플-IPv6 가상 네트워크 끝점 구성 (미리 보기)
 titlesuffix: Azure Virtual Network
-description: Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 끝점을 사용 하도록 설정
+description: Azure Virtual Network에서 Azure CLI를 사용 하 여 IPv6 끝점 사용
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,31 +12,33 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63761453"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248895"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>가상 네트워크 스크립트 예제 (미리 보기)에 있는 IPv6 끝점을 구성 합니다.
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Virtual network 스크립트 샘플에서 IPv6 끝점 구성 (미리 보기)
 
-이 문서에서는 이중 스택 서브넷, 이중 (i p v 4 + IPv6) 프런트 엔드 구성 된 이중 IP 구성이 nic가 있는 Vm 사용 하 여 부하 분산 장치를 사용 하 여 이중 스택 가상 네트워크를 포함 하는 Azure에서 이중 스택 (i p v 4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip입니다.
+이 문서에서는 이중 스택 서브넷을 사용 하는 이중 스택 (IPv4 + IPv6) 응용 프로그램을 포함 하는 Azure의 이중 스택 (ipv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다. 이중 IP 구성이 있는 Nic를 사용 하는 Vm과 이중 (IPv4 + IPv6) 프런트 엔드 구성이 포함 된 부하 분산 장치를 포함 합니다. 이중 네트워크 보안 그룹 규칙 및 이중 공용 Ip
 
 Azure [Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Azure CLI 설치에서 스크립트를 실행할 수 있습니다. CLI를 로컬로 사용하는 경우 이 스크립트는 2.0.28 이상 버전을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
-Azure 가상 네트워크 기능에 대 한 IPv6를 사용 하려면 다음과 같은 구독에 한 번만 구성 해야 합니다.
+## <a name="prerequisites"></a>전제 조건
+Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 구독을 한 번만 구성 해야 합니다.
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 Azure CLI 명령을 실행 하 여 등록 상태를 확인할 수 있습니다.
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 등록이 완료되면 다음 명령을 실행합니다.
 
@@ -271,7 +273,7 @@ az group delete --name <resourcegroupname> --yes
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 머신, 가용성 집합, 부하 분산 장치 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Azure Virtual Network 및 서브넷을 만듭니다. |

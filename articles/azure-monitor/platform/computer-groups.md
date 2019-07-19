@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740997"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320685"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 컴퓨터 그룹
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
 Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/log-query-overview.md)의 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -28,7 +28,7 @@ Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/l
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 방법 | 설명 |
+| 메서드 | Description |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
@@ -53,11 +53,11 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 자산 | Description |
+| 속성 | Description |
 |:---|:---|
 | 이름   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
-| Category       | 포털에서 쿼리를 구성할 범주입니다. |
+| 범주       | 포털에서 쿼리를 구성할 범주입니다. |
 
 
 ### <a name="active-directory"></a>Active Directory
@@ -84,7 +84,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 WS
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 구성 관리자 컬렉션 멤버 자격을 가져오도록 Azure Monitor를 구성하면 각 컬렉션에 대한 컴퓨터 그룹을 만듭니다.  컬렉션 멤버 자격 정보는 컴퓨터 그룹을 최신 상태로 유지하기 위해 3시간 마다 검색됩니다. 
 
-구성 관리자 컬렉션을 가져오려면 먼저 [Configuration Manager를 Azure Monitor에 연결](collect-sccm.md)해야 합니다.  그런 다음, Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 가져오기를 구성할 수 있습니다.  **컴퓨터 그룹**, **SCCM**, 및 **구성 관리자 컬렉션 멤버 자격 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
+구성 관리자 컬렉션을 가져오려면 먼저 [Configuration Manager를 Azure Monitor에 연결](collect-sccm.md)해야 합니다.  
 
 ![SCCM의 컴퓨터 그룹](media/computer-groups/configure-sccm.png)
 
@@ -125,7 +125,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 �
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

@@ -1,47 +1,48 @@
 ---
-title: 자습서-Azure Container Instances-다중 컨테이너 그룹 배포 템플릿
-description: 이 자습서에서는 Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 사용 하 여 Azure Container Instances에서 여러 컨테이너를 사용 하 여 컨테이너 그룹을 배포 하는 방법을 알아봅니다.
+title: 자습서-Azure Container Instances 템플릿을 통해 다중 컨테이너 그룹 배포
+description: 이 자습서에서는 Azure CLI에 Azure Resource Manager 템플릿을 사용 하 여 Azure Container Instances에 여러 컨테이너가 있는 컨테이너 그룹을 배포 하는 방법에 대해 알아봅니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f769beda1654dc9f58ecff733741fb1ab9118031
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7438b5a91d3bf0ce8330e33bc1c849a8b0329c6f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152296"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325906"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>자습서: Resource Manager 템플릿을 사용 하 여 다중 컨테이너 그룹 배포
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [리소스 관리자](container-instances-multi-container-group.md)
 
-Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 유용한 로깅, 모니터링 또는 기타 구성에 대 한 응용 프로그램 사이드카를 빌드할 때 서비스는 두 번째 연결 된 프로세스를 필요로 하는 위치.
+Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 로깅, 모니터링 또는 서비스가 두 번째 연결 된 프로세스를 필요로 하는 기타 구성에 대해 사이드카 응용 프로그램을 빌드할 때 유용 합니다.
 
-이 자습서에서는 Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 간단한 2-컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > * 다중 컨테이너 그룹 템플릿 구성
 > * 컨테이너 그룹 배포
 > * 컨테이너 로그 보기
 
-컨테이너 그룹을 사용 하 여 추가 Azure 서비스 리소스 (예: Azure Files 공유 또는 가상 네트워크)를 배포 해야 할 경우 Resource Manager 템플릿은 시나리오에 대 한 즉시 맞게 수 있습니다. 
+컨테이너 그룹을 사용 하 여 추가 Azure 서비스 리소스 (예: Azure Files 공유 또는 가상 네트워크)를 배포 해야 하는 경우 시나리오에 대 한 리소스 관리자 템플릿을 쉽게 수정할 수 있습니다. 
 
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="configure-a-template"></a>템플릿 구성
 
-라는 새 파일에 다음 JSON을 복사 하 여 시작 `azuredeploy.json`합니다. Azure Cloud Shell에서 작업 디렉터리에 파일을 만들려면 Visual Studio Code를 사용할 수 있습니다.
+다음 JSON을 이라는 `azuredeploy.json`새 파일에 복사 하 여 시작 합니다. Azure Cloud Shell에서 Visual Studio Code를 사용 하 여 작업 디렉터리에 파일을 만들 수 있습니다.
 
 ```
 code azuredeploy.json
@@ -135,7 +136,7 @@ code azuredeploy.json
 }
 ```
 
-프라이빗 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구성은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
+프라이빗 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구현은 [ACI 리소스 관리자 템플릿 참조][template-reference] 설명서를 참조 하세요.
 
 ```JSON
 "imageRegistryCredentials": [
@@ -165,7 +166,7 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 
 ## <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
+배포 상태를 보려면 다음 [az container show][az-container-show] 명령을 사용 합니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
@@ -181,13 +182,13 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>컨테이너 로그 보기
 
-[az container logs][az-container-logs] 명령을 사용하여 컨테이너의 로그 출력을 확인합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제는 `aci-tutorial-app` 컨테이너를 지정 합니다.
+[Az container logs][az-container-logs] 명령을 사용 하 여 컨테이너의 로그 출력을 확인 합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제 `aci-tutorial-app` 에서는 컨테이너를 지정 합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-출력
+출력:
 
 ```bash
 listening on port 80
@@ -196,13 +197,13 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-사이드카 컨테이너에 대 한 로그를 보려면 지정 하는 유사한 명령을 실행 합니다 `aci-tutorial-sidecar` 컨테이너입니다.
+사이드카 컨테이너에 대 한 로그를 보려면 `aci-tutorial-sidecar` 컨테이너를 지정 하는 비슷한 명령을 실행 합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-출력
+출력:
 
 ```bash
 Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
@@ -222,20 +223,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. 경고를 트리거하는 HTTP 응답 코드 이외의 다른 수신 된 경우이 사이드카 예제를 확장할 수 있습니다 `200 OK`합니다.
+위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. 이 사이드카 예제는 이외의 `200 OK`HTTP 응답 코드를 받은 경우 경고를 트리거하기 위해 확장할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Container Instances에서 다중 컨테이너 그룹을 배포 하는 Azure Resource Manager 템플릿을 사용 합니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Container Instances에서 Azure Resource Manager 템플릿을 사용 하 여 다중 컨테이너 그룹을 배포 했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 다중 컨테이너 그룹 템플릿 구성
 > * 컨테이너 그룹 배포
 > * 컨테이너 로그 보기
 
-추가 템플릿 샘플을 보려면 [Azure Container Instances에 대 한 Azure Resource Manager 템플릿](container-instances-samples-rm.md)합니다.
+추가 템플릿 샘플은 [Azure Container Instances Azure Resource Manager 템플릿](container-instances-samples-rm.md)을 참조 하세요.
 
-사용 하 여 다중 컨테이너 그룹을 지정할 수도 있습니다는 [YAML 파일](container-instances-multi-container-yaml.md)합니다. YAML 형식의 더 간결한 특성상 YAML 파일을 사용 하 여 배포는 배포에만 컨테이너 인스턴스를 포함 하는 경우 적합 합니다.
+[Yaml 파일](container-instances-multi-container-yaml.md)을 사용 하 여 다중 컨테이너 그룹을 지정할 수도 있습니다. YAML 형식의 보다 간결한 특성으로 인해, 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일을 사용 하 여 배포 하는 것이 좋습니다.
 
 
 <!-- LINKS - Internal -->

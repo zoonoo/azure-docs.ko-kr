@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6634b674037b48ff9ef9690144ef5274f31a6ea8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752562"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227974"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -41,7 +41,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 다음 표에는 Azure에서 사용할 수 있는 가장 중요한 유형의 로그가 나와 있습니다.
 
-| 로그 범주 | 로그 형식 | 사용 현황 | 통합 |
+| 로그 범주 | 로그 형식 | 사용법 | 통합 |
 | ------------ | -------- | ------ | ----------- |
 |[활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|   구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터|    리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor, [스트림](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
@@ -50,7 +50,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 |[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅(저장소 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 저장소 계정과 관련된 문제를 진단합니다.|   REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 형식(규칙에 따라 아웃바운드 및 인바운드 흐름 표시)|네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 표시합니다.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|   여러 플랫폼에서 웹 개발자를 위한 APM(애플리케이션 성능 모니터링) 서비스를 제공합니다.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|데이터 처리/보안 경고|    Azure Security Center 경고, 로그 및 Azure Monitor 경고|    보안 정보 및 경고를 제공합니다.|  REST API, JSON|
+|데이터 처리/보안 경고|    경고 Azure Security Center, Azure Monitor 로그 경고|    보안 정보 및 경고를 제공합니다.|  REST API, JSON|
 
 ### <a name="activity-logs"></a>활동 로그
 
@@ -78,7 +78,7 @@ Azure Portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure
 
 * PowerShell Cmdlet, Azure CLI 또는 REST API를 통해 쿼리합니다.
 
-* 로그 프로필을 사용 하 여 활동 로그 내보내기 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)합니다.
+* 로그 프로필을 사용 하 여 활동 로그를 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)로 내보냅니다.
 
 로그를 내보내는 저장소와 동일한 구독에 있지 않은 저장소 계정 또는 [이벤트 허브 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)를 사용할 수 있습니다. 설정을 구성하는 사용자는 두 구독 모두에 대해 적절한 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 액세스 권한을 가지고 있어야 합니다.
 
@@ -96,15 +96,15 @@ Azure 진단 로그는 Azure Portal, PowerShell, Azure CLI 및 REST API와 같�
 
 * 타사 서비스 또는 사용자 지정 분석 솔루션(예: [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/))에서 수집할 수 있도록 진단 로그를 [이벤트 허브로 스트림](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs)합니다.
 
-* 사용 하 여 분석 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)합니다.
+* [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)를 사용 하 여 분석 합니다.
 
 **지원되는 서비스, 진단 로그에 대한 스키마 및 지원되는 리소스 종류별 로그 범주**
 
 
-| 서비스 | 스키마 및 설명서 | 리소스 종류 | Category |
+| 서비스 | 스키마 및 설명서 | 리소스 종류 | 범주 |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [부하 분산 장치 (미리 보기)에 대 한 azure Monitor 로그](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|네트워크 보안 그룹|[네트워크 보안 그룹에 대 한 azure Monitor 로그](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Load Balancer에 대 한 Azure Monitor 로그 (미리 보기)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|네트워크 보안 그룹|[네트워크 보안 그룹에 대 한 Azure Monitor 로그](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Azure Application Gateway|[Application Gateway에 대한 진단 로깅](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Key Vault 로그](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[검색 트래픽 분석 설정 및 사용](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -112,7 +112,7 @@ Azure 진단 로그는 Azure Portal, PowerShell, Azure CLI 및 REST API와 같�
 |Azure 데이터 레이크 분석|[Data Lake Analytics에 대한 진단 로그 액세스](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|감사<br>요청|
 |Azure Logic Apps|[Logic Apps B2B 사용자 지정 추적 스키마](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Azure Batch 진단 로그](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Automation|[Azure Automation에 대 한 azure Monitor 로그](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Azure Automation|[Azure Automation에 대 한 Azure Monitor 로그](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Event Hubs 진단 로그](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure Stream Analytics|[작업 진단 로그](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|실행<br>작성|
 |Azure Service Bus|[Service Bus 진단 로그](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -139,7 +139,7 @@ Azure AD(Azure Active Directory)에는 사용자의 디렉터리에 대한 보�
 
 이러한 보고서의 데이터는 SIEM(보안 정보 및 이벤트 관리) 시스템, 감사 및 비즈니스 인텔리전스 도구와 같은 애플리케이션에 유용할 수 있습니다. Azure AD Reporting API는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 이러한 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)는 다양한 프로그래밍 언어와 도구에서 호출할 수 있습니다.
 
-Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
+Azure AD 감사 보고서의 이벤트 보존은 테 넌 트와 연결 된 라이선스의 유형에 따라 7-90 일 마다 다릅니다. 
 
 > [!Note]
 > 보고서 보존에 대한 자세한 내용은 [Azure AD 보고서 보존 정책](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention)을 참조하세요.
@@ -216,7 +216,7 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 
 **진단 로그**
 
-정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 및 storage 계정에서 로그 및 이벤트 허브 또는 Azure Monitor 로그로 전송 됩니다. 로그는 리소스 상태에 대한 인사이트를 제공하며, Power BI 및 Azure Monitor 로그와 같은 도구에서 볼 수 있습니다. 진단 로그를 보는 방법에 알아보려면 참조 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)합니다.
+정기적이 고 갑작스런 이벤트는 네트워크 리소스에 의해 생성 되 고 저장소 계정에 기록 되며 이벤트 허브 또는 Azure Monitor 로그로 전송 됩니다. 로그는 리소스 상태에 대한 인사이트를 제공하며, Power BI 및 Azure Monitor 로그와 같은 도구에서 볼 수 있습니다. 진단 로그를 보는 방법에 대 한 자세한 내용은 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)를 참조 하세요.
 
 ![진단 로그](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -274,7 +274,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 다음 표에서는 통합 시나리오를 나열하고 설명합니다.
 
-| 통합 시나리오 | 설명 |
+| 통합 시나리오 | Description |
 | --------------------- | :---------- |
 |[애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|주요 메트릭 및 경고가 포함된 앱의 구성 요소입니다.|
 |[인스턴스 데이터에 대한 진단 검색](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| 요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.|
@@ -302,39 +302,39 @@ Azure Security Center 위협 탐지는 Azure 리소스, 네트워크 및 연결�
 
 * **변칙 탐지**: 통계적 프로파일링을 사용하여 기록 초기 계획을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
 
-많은 보안 운영 및 사고 대응 팀에서는 보안 경고를 심사하고 조사하기 위한 시작 지점으로서 SIEM 솔루션을 사용합니다. Azure 로그 통합을 사용 하 여 Security Center 경고 및 Azure 진단 및 감사 로그, Azure Monitor 로그 또는 SIEM 솔루션과 거의 실시간으로 수집한 가상 머신 보안 이벤트를 동기화 할 수 있습니다.
+많은 보안 운영 및 사고 대응 팀에서는 보안 경고를 심사하고 조사하기 위한 시작 지점으로서 SIEM 솔루션을 사용합니다. Azure Log Integration를 사용 하 여 Azure 진단 및 감사 로그에 수집 된 경고와 가상 머신 보안 이벤트를 거의 실시간으로 Azure Monitor 로그 또는 SIEM 솔루션과 Security Center 동기화 할 수 있습니다.
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-Azure Monitor 로그는 생성 되는 클라우드 리소스에서 온-프레미스 환경의 데이터 수집 및 분석 하도록 도와주는 Azure의 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 관계없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석함으로써 실시간 인사이트를 제공합니다.
+Azure Monitor 로그는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성 된 데이터를 수집 하 고 분석 하는 데 도움이 되는 Azure의 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 관계없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석함으로써 실시간 인사이트를 제공합니다.
 
 ![Azure Monitor 로그 다이어그램](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Azure Monitor의 중앙 로그를 Azure에 호스트 된 Log Analytics 작업 영역에서은입니다. Azure Monitor 로그 데이터 원본을 구성 하 고 구독에 솔루션을 추가 하 여 연결 된 원본에서 작업 영역에서 데이터를 수집 합니다. 데이터 원본과 솔루션은 각각 서로 다른 레코드 종류를 만들며, 각 레코드 종류에는 고유한 속성 집합이 있습니다. 그러나 원본과 솔루션은 여전히 작업 영역에 대한 쿼리에서 함께 분석될 수 있습니다. 이 기능을 사용하면 동일한 도구와 방법을 사용하여 다양한 원본에서 수집한 다양한 데이터로 작업할 수 있습니다.
+Azure Monitor 로그의 중앙에는 Azure에서 호스트 되는 Log Analytics 작업 영역이 있습니다. Azure Monitor 로그는 데이터 원본을 구성 하 고 구독에 솔루션을 추가 하 여 연결 된 원본에서 작업 영역의 데이터를 수집 합니다. 데이터 원본과 솔루션은 각각 서로 다른 레코드 종류를 만들며, 각 레코드 종류에는 고유한 속성 집합이 있습니다. 그러나 원본과 솔루션은 여전히 작업 영역에 대한 쿼리에서 함께 분석될 수 있습니다. 이 기능을 사용하면 동일한 도구와 방법을 사용하여 다양한 원본에서 수집한 다양한 데이터로 작업할 수 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-연결 된 원본은 컴퓨터 및 Azure Monitor 로그에서 수집 되는 데이터를 생성 하는 다른 리소스입니다. 원본에는 직접 연결된 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 및 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 컴퓨터에 설치된 에이전트 또는 [연결된 System Center Operations Manager 관리 그룹](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)의 에이전트가 포함될 수 있습니다. Azure Monitor 로그에서 데이터를 수집할 수도 있습니다는 [Azure storage 계정](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)합니다.
+연결 된 원본은 Azure Monitor 로그에 의해 수집 된 데이터를 생성 하는 컴퓨터 및 기타 리소스입니다. 원본에는 직접 연결된 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 및 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 컴퓨터에 설치된 에이전트 또는 [연결된 System Center Operations Manager 관리 그룹](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)의 에이전트가 포함될 수 있습니다. Azure Monitor 로그는 [Azure 저장소 계정](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)에서 데이터를 수집할 수도 있습니다.
 
 [데이터 원본](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources)은 연결된 원본 각각에서 수집되는 다양한 종류의 데이터입니다. 원본에는 [IIS 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) 및 [사용자 지정 텍스트 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs)와 같은 원본뿐만 아니라 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) 및 Linux 에이전트의 이벤트와 [성능 데이터](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)도 포함됩니다. 수집할 각 데이터 원본을 구성하면 각 연결된 원본에 구성이 자동으로 전달됩니다.
 
 [Azure 서비스에 대한 로그와 메트릭을 수집](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)하는 네 가지 방법은 다음과 같습니다.
 
-* Azure Monitor 로그에 직접 azure 진단 (**진단** 표에)
+* Azure Monitor 로그에 직접 Azure 진단 (다음 표의**진단** )
 
-* Azure Monitor를 Azure storage에 azure 진단 로그 (**저장소** 표에)
+* Azure storage에 Azure 진단 하 여 로그 Azure Monitor (다음 표의**저장소** )
 
 * Azure 서비스용 커넥터(다음 표의 **커넥터**)
 
-* 수집 하 고 그런 다음 Azure Monitor 로그 (다음 테이블에 나열 되지 않은 서비스에 대 한 빈 셀)에 데이터를 게시 하는 스크립트
+* Azure Monitor 로그에 데이터를 수집 하 고 게시 하는 스크립트 (다음 표의 빈 셀 및 나열 되지 않은 서비스의 경우)
 
-| 서비스 | 리소스 종류 | 로그 | 메트릭 | 해결 방법 |
+| 서비스 | 리소스 종류 | 로그 | metrics | 솔루션 |
 | :------ | :------------ | :--- | :------ | :------- |
 |Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  진단|진단|    [Azure 애플리케이션](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     커넥터|  커넥터|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [커넥터(미리 보기)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Azure Automation 계정| Microsoft.Automation/<br>AutomationAccounts|    진단||       [자세한 정보](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Azure Automation 계정| Microsoft.Automation/<br>AutomationAccounts|    진단||       [추가 정보](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch 계정|  Microsoft.Batch/<br>batchAccounts|  진단|    진단||
-|클래식 Cloud Services||       Storage||       [자세한 정보](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|클래식 Cloud Services||       저장 공간||       [추가 정보](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>계정|       진단|||
 |Azure 데이터 레이크 분석| Microsoft.DataLakeAnalytics/<br>계정|   진단|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>계정|   진단|||
@@ -348,16 +348,16 @@ Azure Monitor의 중앙 로그를 Azure에 호스트 된 Log Analytics 작업 �
 |복구 자격 증명|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Search 서비스|   Microsoft.Search/<br>searchServices|    진단|    진단||
 |Service Bus 네임스페이스| Microsoft.ServiceBus/<br>namespaces|    진단|진단|    [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Storage||    [Service Fabric 분석(미리 보기)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       저장 공간||    [Service Fabric 분석(미리 보기)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL(v12)| Microsoft.Sql/<br>servers/<br>데이터베이스||       진단||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
-|Storage|||         스크립트| [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  내선 번호|  내선 번호||
+|저장 공간|||         스크립트| [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Azure Virtual Machines|    Microsoft.Compute/<br>virtualMachines|  확장명|  확장명||
 ||||진단||
 |가상 머신 크기 집합|    Microsoft.Compute/<br>virtualMachines    ||진단||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |웹 서버 팜|Microsoft.Web/<br>serverfarms||   진단
-|웹 사이트|  Microsoft.Web/<br>sites ||      진단|    [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|웹 사이트|  Microsoft.Web/<br>sites ||      진단|    [추가 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slots||||
 
 
@@ -371,7 +371,7 @@ Log Integration은 Windows 가상 머신, Azure 활동 로그, Azure Security Ce
 
 Log Integration은 현재 Windows 가상 머신의 Azure 활동 로그 및 Windows 이벤트 로그를 Azure 구독, Azure Security Center 경고, Azure 진단 로그 및 Azure AD 감사 로그와 통합할 수 있도록 지원합니다.
 
-| 로그 형식 | Azure Monitor 로그 지원 JSON (Splunk, ArcSight, 및 IBM QRadar) |
+| 로그 형식 | JSON을 지 원하는 Azure Monitor 로그 (Splunk, ArcSight 및 IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
 |Azure AD 감사 로그|   예|
 |활동 로그| 예|
@@ -387,7 +387,7 @@ SIEM에 대한 통합 시나리오는 다음과 같습니다.
 
 * [Azure Log Integration FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): 이 문서는 Azure 로그 통합에 대한 질문에 답변합니다.
 
-* [Security Center 경고와 Azure Log Integration의 통합](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Azure Monitor 로그 또는 SIEM 솔루션과 Azure 감사 로그 및이 문서에서는 Security Center 경고, Azure 진단 로그에서 수집 하는 가상 머신 보안 이벤트를 동기화 하는 방법을 설명 합니다.
+* [Security Center 경고와 Azure Log Integration의 통합](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): 이 문서에서는 Azure Monitor 로그 또는 SIEM 솔루션과 함께 Azure 진단 로그에 수집 된 가상 머신 보안 이벤트 및 azure 감사 로그를 Security Center 경고와 동기화 하는 방법을 설명 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

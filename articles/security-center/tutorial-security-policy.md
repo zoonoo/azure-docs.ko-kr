@@ -1,6 +1,6 @@
 ---
 title: 보안 정책 작업 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center에서 보안 정책을 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Security Center에서 보안 정책을 사용 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551714"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314913"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -32,7 +32,7 @@ PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [�
 > Security Center와 Azure Policy의 통합이 시작되었습니다. 기존 고객의 경우 Security Center의 이전 보안 정책이 더 이상 사용되지 않으며 새로운 기본 제공 이니셔티브로 자동 마이그레이션됩니다. 새로운 이니셔티브가 Azure Policy에 포함되어 있다는 점을 제외하면 이러한 변경은 리소스나 환경에 영향을 주지 않습니다.
 
 ## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어, 개인 데이터 또는 고객 데이터와 같은 규제 된 데이터를 사용 하는 응용 프로그램에는 다른 작업 보다 더 높은 수준의 보안 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../governance/policy/overview.md)에서 정책을 설정합니다.
+보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 데이터 또는 고객 데이터와 같이 규제 된 데이터를 사용 하는 응용 프로그램은 다른 워크 로드 보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../governance/policy/overview.md)에서 정책을 설정합니다.
 
 보안 정책에 따라 Azure Security Center에서 얻는 보안 권장 사항이 결정됩니다. 잠재적인 취약성을 식별하고 위협을 완화하는 데 도움이 되려면 보안 권장 사항 규정 준수를 모니터링할 수 있습니다. 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조하세요.
 
@@ -71,7 +71,7 @@ Security Center에서 보안 정책을 보려면
    **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
 
    > [!NOTE]
-   > - Security Center 대시보드는 **정책 관리** 아래에 표시된 구독 수보다 **구독 적용 범위** 아래에 더 많은 구독 수를 표시할 수 있습니다. 구독 적용 범위는 표준, 무료 및 "포함 안 된" 구독 수를 표시합니다. "포함 안 된" 구독은 Security Center를 사용하도록 설정하지 않고 **정책 관리** 아래에 표시되지도 않습니다.
+   > Security Center 대시보드는 **정책 관리** 아래에 표시된 구독 수보다 **구독 적용 범위** 아래에 더 많은 구독 수를 표시할 수 있습니다. 구독 적용 범위는 표준, 무료 및 "포함 안 된" 구독 수를 표시합니다. "포함 안 된" 구독은 Security Center를 사용하도록 설정하지 않고 **정책 관리** 아래에 표시되지도 않습니다.
    >
 
 2. 확인하려는 구독 또는 관리 그룹의 정책을 선택합니다.
@@ -84,39 +84,39 @@ Security Center에서 보안 정책을 보려면
    ![정책 화면](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - 할당된 정책을 보는 경우 여러 할당을 확인할 수 있으며 각 할당이 자체적으로 구성되는 방법도 확인할 수 있습니다.
+> 할당된 정책을 보는 경우 여러 할당을 확인할 수 있으며 각 할당이 자체적으로 구성되는 방법도 확인할 수 있습니다.
 
 ## <a name="edit-security-policies"></a>보안 정책 편집
-[Azure Policy](../governance/policy/tutorials/create-and-manage.md)에서 각 Azure 구독 및 관리 그룹에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정하려면 구독 또는 포함된 관리 그룹의 소유자, 참가자 또는 보안 관리자여야 합니다.
+[Azure Policy](../governance/policy/tutorials/create-and-manage.md)에서 각 Azure 구독 및 관리 그룹에 대한 기본 보안 정책을 편집할 수 있습니다. 보안 정책을 수정 하려면 구독 또는 포함 하는 관리 그룹의 소유자 또는 보안 관리자 여야 합니다.
 
 Azure Policy에서 보안 정책을 편집하는 방법에 대한 지침은 [규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)를 참조하세요.
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다. 다음 예제는 REST API를 사용하여 편집하는 지침을 제공합니다.
 
 
-## <a name="disable-security-policies"></a>보안 정책을 사용 하지 않도록 설정
-기본 보안 정책 환경에 관련 되지 않은 권장을 생성 하는 경우에 권장을 전송 하는 정책 정의 사용 하지 않도록 설정 하 여 중지할 수 있습니다.
-권장 사항에 대 한 자세한 내용은 참조 [보안 권장 사항 관리](security-center-recommendations.md)합니다.
+## <a name="disable-security-policies"></a>보안 정책 사용 안 함
+기본 보안 정책에서 사용자 환경과 관련이 없는 권장 사항을 생성 하는 경우 권장 사항을 보내는 정책 정의를 사용 하지 않도록 설정 하 여 중지할 수 있습니다.
+권장 사항에 대 한 자세한 내용은 [보안 권장 사항 관리](security-center-recommendations.md)를 참조 하세요.
 
-1. Security Center에서에서 합니다 **정책 및 규정 준수** 섹션에서 클릭 **보안 정책**합니다.
+1. Security Center의 **정책 & 준수** 섹션에서 **보안 정책**을 클릭 합니다.
 
    ![정책 관리](./media/tutorial-security-policy/policy-management.png)
 
-2. 권장 사항을 사용 하지 않도록 설정 하려는 구독 또는 관리 그룹을 클릭 합니다.
+2. 권장 사항을 사용 하지 않도록 설정할 구독 또는 관리 그룹을 클릭 합니다.
 
    > [!Note]
-   > 해당 구독에 관리 그룹에 해당 정책을 적용 됩니다는 기억 합니다. 따라서 구독의 정책을 사용 하지 않도록 설정 하 고 구독이 계속 동일한 정책을 사용 하는 관리 그룹에 속하는 경우 다음은 계속 나타나면 정책 권장 사항입니다. 정책 관리 수준에서 적용 됩니다 및 권장 사항을 여전히 생성 됩니다.
+   > 관리 그룹은 해당 정책을 해당 구독에 적용 합니다. 따라서 구독의 정책을 사용 하지 않도록 설정 하 고 구독이 동일한 정책을 계속 사용 하는 관리 그룹에 속하는 경우 정책 권장 사항을 계속 받게 됩니다. 정책은 여전히 관리 수준에서 적용 되며 권장 사항은 계속 생성 됩니다.
 
-1. 할당된 정책을 클릭 합니다.
+1. 할당 된 정책을 클릭 합니다.
 
    ![정책 사용 안 함](./media/tutorial-security-policy/security-policy.png)
 
-1. 에 **매개 변수** 섹션에서 검색을 사용 하지 않으려면 원하는 것이 좋습니다를 호출 하는 정책에 대 한 드롭다운 목록에서 선택 **사용 안 함**
+1. **매개 변수** 섹션에서 사용 하지 않도록 설정할 권장 사항을 호출 하는 정책을 검색 하 고 드롭다운 목록에서 **사용 안 함** 을 선택 합니다.
 
    ![정책 사용 안 함](./media/tutorial-security-policy/disable-policy.png)
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
    > [!Note]
-   > 사용 안 함 정책 변경이 적용 되려면 최대 12 시간이 걸릴 수 있습니다.
+   > 정책 사용 안 함 변경을 적용 하는 데 최대 12 시간이 걸릴 수 있습니다.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>REST API를 사용하여 보안 정책 구성
@@ -125,11 +125,11 @@ Azure Policy와 네이티브 통합의 일환으로, Azure Security Center를 �
 
 Azure Policy의 중요 개념: 
 
-- A **정책 정의** 규칙이 
+- **정책 정의** 는 규칙입니다. 
 
-- **이니셔티브** 컬렉션인 정책 정의 (규칙) 
+- **이니셔티브** 는 정책 정의 (규칙)의 컬렉션입니다. 
 
-- **할당** 이니셔티브 또는 정책의 특정 범위 (관리 그룹, 구독 등)에 응용 프로그램은 
+- **할당** 은 특정 범위 (관리 그룹, 구독 등)에 대 한 이니셔티브 또는 정책의 응용 프로그램입니다. 
 
 Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 대한 할당을 만들어야 합니다.  
 
@@ -145,6 +145,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 
 이 예제는 구독 또는 관리 그룹에 기본 제공 Security Center 이니셔티브를 할당하는 방법을 보여줍니다.
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -169,6 +170,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
     } 
 
     } 
+ ```
 
 이 예제는 다음 정책을 사용하지 않도록 설정하고, 기본 제공 Security Center 이니셔티브를 구독에 할당하는 방법을 보여줍니다. 
 
@@ -178,16 +180,16 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 
 - 엔드포인트 보호("endpointProtectionMonitoringEffect") 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
-    요청 본문 (JSON) 
+    Request Body (JSON) 
     
     { 
     
       "properties":{ 
     
-    "displayName": "Azure Security Center에서 모니터링 사용", 
+    "displayName":"Enable Monitoring in Azure Security Center", 
     
     "metadata":{ 
     
@@ -210,12 +212,12 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
      } 
     
     } 
-
+ ```
 이 예제는 할당을 제거하는 방법을 보여줍니다.
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### 정책 이름 참조 <a name="policy-names"></a>
 

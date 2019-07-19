@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리되는 도메인에서 그룹 정책 관리 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: 그룹 정책 관리 | Microsoft Docs'
 description: Azure Active Directory Domain Services 관리되는 도메인에서 그룹 정책 관리
 services: active-directory-ds
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c7b32885fdb3cf4f3e584c916d6b234fff54bfc4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473094"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234037"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리
 Azure Active Directory Domain Services는 'AADDC 사용자' 및 'AADDC 컴퓨터' 컨테이너에 대한 기본 제공 GPO(그룹 정책 개체)를 포함합니다. 이러한 기본 제공 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다. 또한 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 자체 사용자 지정 OU를 만들 수 있습니다. 사용자 지정 GPO을 만들고 이러한 사용자 지정 OU에 연결할 수도 있습니다. 'AAD DC 관리자' 그룹에 속한 사용자에게 관리되는 도메인에 대한 그룹 정책 관리 권한이 부여됩니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 
 1. 유효한 **Azure 구독**.
@@ -128,5 +128,5 @@ Windows Server 가상 머신을 프로비전하기 위한 첫 번째 작업은 �
 ## <a name="related-content"></a>관련 내용
 * [Azure AD 도메인 서비스 - 시작 가이드](create-instance.md)
 * [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Azure AD Domain Services 도메인을 관리 합니다.](manage-domain.md)
+* [Azure AD Domain Services 도메인 관리](manage-domain.md)
 * [그룹 정책 관리 콘솔](https://technet.microsoft.com/library/cc753298.aspx)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706198"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277967"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -42,7 +42,7 @@ ms.locfileid: "67706198"
 이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
-릴레이 가격 책정에 대 한 자세한 내용은 참조는 [하이브리드 연결과 WCF 릴레이][Pricing overview] Service Bus 가격 책정 세부 정보 페이지에는 테이블입니다. 페이지에 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+릴레이 가격에 대 한 자세한 내용은 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이][Pricing overview] Service Bus 표를 참조 하세요. 페이지에 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>하이브리드 연결의 요금은 어떻게 청구되나요?
 하이브리드 연결에 대한 세 가지 예제 청구 시나리오는 다음과 같습니다.
@@ -125,10 +125,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Azure Relay API에 의해 생성된 일부 예외 및 수행할 수 있는 권장 조치는 무엇인가요?
-일반적인 예외 및 수행할 수 있는 제안 된 작업의 설명을 참조 하세요 [릴레이 예외][Relay exceptions]합니다.
+일반적인 예외 및 수행할 수 있는 권장 작업에 대 한 설명은 [릴레이 예외][Relay exceptions]를 참조 하세요.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어를 사용하여 서명을 생성할 수 있나요?
-공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java, C에서 직접 서명을 생성 하는 방법에 대 한 내용은 및 C#를 참조 하세요 [공유 액세스 서명 사용한 Service Bus 인증][Shared Access Signatures]합니다.
+공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 C#에서 사용자 고유의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하는 Service Bus 인증][Shared Access Signatures]을 참조 하세요.
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 엔드포인트를 허용 목록에 추가할 수 있나요?
 예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 Azure Relay 서비스에 연결합니다. 고객은 DNS 허용 목록을 지원하는 방화벽에 `*.servicebus.windows.net`에 대한 항목을 추가할 수 있습니다.

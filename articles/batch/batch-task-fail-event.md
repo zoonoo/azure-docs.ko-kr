@@ -3,7 +3,7 @@ title: Azure Batch 태스크 실패 이벤트 | Microsoft Docs
 description: Batch 태스크 실패 이벤트에 대한 참조입니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: f37769ceb761b8c8bc4834568813bb1b7af7f66a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68c57fbf510d923c4c87bc180a935965a511dc26
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549991"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322908"
 ---
 # <a name="task-fail-event"></a>태스크 실패 이벤트
 
@@ -52,7 +52,7 @@ ms.locfileid: "60549991"
 }
 ```
 
-|요소 이름|Type|메모|
+|요소 이름|형식|참고|
 |------------------|----------|-----------|
 |jobId|String|태스크가 포함된 작업의 ID입니다.|
 |id|String|태스크의 ID입니다.|
@@ -65,27 +65,27 @@ ms.locfileid: "60549991"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|요소 이름|Type|메모|
+|요소 이름|형식|참고|
 |------------------|----------|-----------|
 |poolId|String|태스크가 실행된 풀의 ID입니다.|
 |nodeId|String|태스크가 실행된 노드의 ID입니다.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|요소 이름|Type|메모|
+|요소 이름|형식|참고|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|태스크에 필요한 계산 노드 수입니다.|
 
 ###  <a name="constraints"></a> constraints
 
-|요소 이름|Type|메모|
+|요소 이름|형식|참고|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|태스크를 다시 시도할 수 있는 최대 횟수입니다. 종료 코드가 0이 아니면 Batch 서비스가 태스크를 다시 시도합니다.<br /><br /> 이 값은 구체적으로 재시도 횟수를 제어합니다. Batch 서비스는 태스크를 한 번 시도한 후 이 한도까지 다시 시도할 수 있습니다. 예를 들어 최대 재시도 횟수가 3일 경우 Batch는 최대 4회까지 태스크를 시도합니다(초기 시도 1회와 재시도 3회).<br /><br /> 최대 재시도 횟수가 0일 경우 Batch 서비스는 태스크를 다시 시도하지 않습니다.<br /><br /> 최대 재시도 횟수가 -1일 경우 Batch 서비스는 태스크를 무제한으로 다시 시도합니다.<br /><br /> 기본값은 0(재시도 안 함)입니다.|
 
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|요소 이름|Type|메모|
+|요소 이름|형식|참고|
 |------------------|----------|-----------|
 |startTime|DateTime|태스크가 실행되기 시작한 시간입니다. 'Running'은 **실행 중** 상태에 해당하므로 태스크가 리소스 파일 또는 애플리케이션 패키지를 지정할 경우 시작 시간에는 태스크가 이를 다운로드 또는 배포하기 시작한 시간이 반영됩니다.  태스크가 다시 시작되거나 다시 시도된 경우 이는 태스크가 실행을 시작한 가장 최근의 시간을 나타냅니다.|
 |endTime|DateTime|태스크가 완료된 시간입니다.|

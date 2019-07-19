@@ -8,26 +8,27 @@ manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148324f293c36b88657f50a7405d85210b62dcc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544625"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321237"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -159,13 +160,13 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     | 역할 이름  | user.assignedroles |
 
     >[!NOTE]
-    >역할 클레임 값이 null 인 경우 다음 Azure AD는 보내지이 값이 토큰에 및 디자인에 따라 기본입니다.
+    >역할 클레임 값이 null 이면 Azure AD는이 값을 토큰에 전송 하지 않으며이는 기본적으로 디자인 기준으로 합니다.
 
-    a. 클릭 **편집할** 열려면 아이콘 **사용자 특성 및 클레임** 대화 합니다.
+    a. **편집** 아이콘을 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
 
       !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. 에 **사용자 클레임을 관리할** 대화 상자에서 클릭 하 여 SAML 토큰 특성을 추가할 **추가 새 클레임**.
+    b. **사용자 클레임 관리** 대화 상자에서 **새 클레임 추가**를 클릭 하 여 SAML 토큰 특성을 추가 합니다.
 
       !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -177,7 +178,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
-    f. **저장**을 선택합니다.
+    f.           **저장**을 선택합니다.
 
 10. ID 공급자로 시작한 Single Sign-On에서 애플리케이션을 테스트하려면 [액세스 패널](https://myapps.microsoft.com)에 로그인하고 애플리케이션 타일을 선택합니다. SAML 토큰에서 지정한 클레임 이름의 사용자에게 할당된 모든 역할이 표시됩니다.
 

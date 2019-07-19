@@ -4,7 +4,7 @@ description: Azure Batch의 Linux 또는 Windows 풀에서 계산 노드의 Azur
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 914bc11736b08dab6b334307dc188b5d153c7331
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8c9d041648408b05b7cd160d5aea9dfb33ac061d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341314"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322375"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
@@ -52,7 +52,7 @@ ms.locfileid: "67341314"
 예를 들어, 각 작업 명령줄의 일부로 파일 공유를 탑재하려면 `net use` 명령을 포함합니다. 파일 공유를 탑재하려면 다음 자격 증명이 필요합니다.
 
 * **사용자 이름**: AZURE\\\<storageaccountname\>, 예: AZURE\\*mystorageaccountname*
-* **암호**: <StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
+* **암호**: \<StorageAccountKeyWhichEnds in = = > (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 *S:* 드라이브로 탑재합니다.
 
@@ -129,7 +129,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 그런 다음, `mount` 명령을 실행하여 파일 공유를 탑재하여 다음 자격 증명을 제공합니다.
 
 * **사용자 이름**: \<storageaccountname\>, 예: *mystorageaccountname*
-* **암호**: <StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
+* **암호**: \<StorageAccountKeyWhichEnds in = = > (예: *XXXXXXXXXXXXXXXXXXXXX = =* )
 
 다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 */mnt/MyAzureFileShare*에 탑재합니다. 
 

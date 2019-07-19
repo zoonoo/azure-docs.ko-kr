@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
+ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204429"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298523"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67204429"
 >
 >
 
-Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스를 온-프레미스 Vm을 백업 동일, 몇 가지 제한 사항이 있지만 Azure에서 MABS를 배포 합니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
+Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스는 온-프레미스에서 Vm을 백업 하는 것과 동일 하지만 Azure에서 MABS를 배포 하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
@@ -42,12 +42,12 @@ Azure Backup 서버는 DPM(Data Protection Manager)에서 대부분의 워크로
 Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Server를 설정하는 것입니다. 서버는 Azure 또는 온-프레미스에 있을 수 있습니다.
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
-Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 Standard_A4_v2 4 개 코어와 8GB RAM입니다.
+Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4 개 코어와 8gb RAM이 있는 Standard_A4_v2.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 ### <a name="using-an-on-premises-server"></a>온-프레미스 서버 사용
-Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM 또는 실제 호스트에서 서버를 실행할 수 있습니다. 서버 하드웨어에 대 한 권장된 최소 요구 사항은 2 코어 및 8GB RAM입니다. 지원되는 운영 체제는 다음 표에 나열되어 있습니다.
+Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM 또는 실제 호스트에서 서버를 실행할 수 있습니다. 서버 하드웨어에 대 한 권장 최소 요구 사항은 2 코어와 8gb RAM입니다. 지원되는 운영 체제는 다음 표에 나열되어 있습니다.
 
 | 운영 체제 | 플랫폼 | SKU |
 |:--- | --- |:--- |
@@ -141,7 +141,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 모든 파일을 다운로드한 후에 **MicrosoftAzureBackupInstaller.exe**를 클릭합니다. 사용자가 지정한 위치에 설치 파일을 추출하는 **Microsoft Azure Backup 설정 마법사** 가 시작됩니다. 마법사를 계속 진행하고 **추출** 단추를 클릭하여 추출 프로세스를 시작합니다.
 
 > [!WARNING]
-> 설치 파일을 추출 하려면 4GB 이상 사용 가능한 공간이 필요 합니다.
+> 설치 파일을 추출 하려면 최소 4gb의 사용 가능한 공간이 필요 합니다.
 >
 >
 
@@ -247,15 +247,15 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
 
   > [!IMPORTANT]
-  > - 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름이어야 합니다. 이전 저장소 풀 및 Data Protection Manager 데이터베이스를 사용하여 복구 지점을 유지하려는 경우 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
-  > - Data Protection Manager 데이터베이스의 백업을 만들어야 합니다. 데이터베이스를 복원해야 합니다.
+  > - 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름이어야 합니다. 이전 저장소 풀 및 MABS 데이터베이스 (DPMDB)를 사용 하 여 복구 지점은 보존 하려면 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
+  > - MABS 데이터베이스 (DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원해야 합니다.
 
 1. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
 2. 원래 Azure Backup Server를 종료하거나 끕니다.
 3. 활성 디렉터리에서 컴퓨터 계정을 다시 설정합니다.
 4. 새 컴퓨터에 Server 2016을 설치하고 원래 Azure Backup Server와 동일한 컴퓨터 이름으로 지정합니다.
 5. 도메인 조인
-6. Azure Backup 서버 V2 이상 설치(DPM 스토리지 풀 디스크를 이전 서버에서 이동 및 가져오기)
+6. Azure Backup server V2 이상 설치 (이전 서버에서 MABS 저장소 풀 디스크를 이동 하 고 가져오기)
 7. 1단계에서 가져온 DPMDB를 복원합니다.
 8. 저장소를 원래 백업 서버에서 새 서버로 연결합니다.
 9. SQL에서 DPMDB 복원
@@ -263,28 +263,28 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
     경로 예: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Azure backup을 실행 하는 DPMSYNC-SYNC
+11. Azure backup에서 DPMSYNC-SYNC를 실행 합니다.
 
-    DPMSYNC-Reallocatereplica를 실행 한 다음 이전 것을 옮기는 대신 DPM 저장소 풀에 새 디스크를 추가한 경우
+    이전 저장소를 이동 하는 대신 DPM 저장소 풀에 새 디스크를 추가한 경우 DPMSYNC-Reallocatereplica를 실행 합니다.
 
 ## <a name="network-connectivity"></a>네트워크 연결
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
 
-이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독의 상태를 확인 하 고 관리 하에 로그인 합니다 [구독 포털](https://account.windowsazure.com/Subscriptions)합니다.
+이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인 하 고 관리 하려면 [구독 포털](https://account.windowsazure.com/Subscriptions)에 로그인 합니다.
 
 Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하여 제공된 백업/복원 기능에 미치는 영향을 알아볼 수 있습니다.
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용됨 |허용됨 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |Allowed |허용됨 |허용됨 |Allowed |
+| 연결됨 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |Allowed |Allowed |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
-방화벽 또는 프록시를 Azure에 대 한 액세스를 방지 하는 경우 방화벽/프록시 프로필에서 다음 도메인 주소를 허용 해야 합니다.
+Azure에 대 한 액세스를 차단 하는 방화벽이 나 프록시가 있는 경우 방화벽/프록시 프로필에서 다음과 같은 도메인 주소를 허용 해야 합니다.
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
