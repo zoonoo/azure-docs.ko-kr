@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/15/2019
+ms.openlocfilehash: a1ff1449b5cc63c16035f8785662f250a008fbc1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299379"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305526"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -30,7 +30,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 ## <a name="cluster-setup-methods"></a>클러스터 설정 방법
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK) | 
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -49,8 +49,9 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 * [리소스 그룹 이름](#resource-group-name)
 * [클러스터 유형 및 구성](#cluster-types) 
-* 클러스터 로그인 및 SSH 사용자 이름
-* [Location](#location):
+* [클러스터 이름](#cluster-name)
+* [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
+* [위치](#location)
 
 ## <a name="resource-group-name"></a>리소스 그룹 이름
 
@@ -76,12 +77,31 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 ### <a name="hdinsight-version"></a>HDInsight 버전
 이 클러스터에 대한 HDInsight 버전을 선택합니다. 자세한 내용은 [지원되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
 
+## <a name="cluster-name"></a>클러스터 이름
+
+HDInsight 클러스터 이름에는 다음과 같은 제한 사항이 있습니다.
+- 허용 되는 문자: a-z, 0-9, a-z 
+- 최대 길이: 59
+- 예약 된 이름: 앱
+- 고유 해야 함
+- 처음 6 자는 VNET 내에서 고유 해야 합니다.
 
 ## <a name="cluster-login-and-ssh-username"></a>클러스터 로그인 및 SSH 사용자 이름
 HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같은 두 개의 사용자 계정을 구성할 수 있습니다.
 
 * HTTP 사용자: 기본 사용자 이름은 *admin*입니다. Azure Portal에서 기본 구성을 사용합니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
 * SSH 사용자: SSH를 통해 클러스터에 연결하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
+HTTP 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
+- 허용 되는 특수 문자: _ 및 @ 
+- 허용 되지 않는 문자: #;. "'\/,: '! *? $ ({}) [] < > | &--= +% ~ ^ space
+- 최대 길이: 20
+
+SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
+- 허용 되는 특수 문자: _ 및 @ 
+- 허용 되지 않는 문자: #;. "'\/,: '! *? $ ({}) [] < > | &--= +% ~ ^ space
+- 최대 길이: 64
+- 예약 된 이름: hadoop, users, oozie, hive, mapred, ambari-qa, 사육 사, tez, hdfs, sqoop, yarn, hcat, ams, hbase, 스톰, 관리자, 관리자, 사용자, user1, 테스트, 사용자 이름, test1, user3, 1, 1, 123, a, actuser, adm, 2, aspnet, backup, console 게스트, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 엔터프라이즈 보안 패키지를 사용하면 Active Directory 및 Apache Ranger와 HDInsight를 통합할 수 있습니다. Enterprise Security Package를 사용하여 여러 사용자를 만들 수 있습니다.
 
@@ -154,12 +174,12 @@ HDInsight 애플리케이션 대부분은 빈 Edge 노드에 설치됩니다.  �
 ### <a name="number-of-nodes-for-each-cluster-type"></a>각 클러스터 유형에 대한 노드 수
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| Type | 노드 | 다이어그램 |
+| 형식 | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |![HDInsight Storm 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |헤드 노드 (2), 작업자 노드 (1 +), ZooKeeper 노드 (3) (A1 ZooKeeper VM 크기에 대 한 무료) |![HDInsight Spark 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |헤드 노드 (2), 작업자 노드 (1 +), 사육 사 노드 (3) (A1 사육 전 VM 크기의 경우 무료) |![HDInsight Spark 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 자세한 내용은 "HDInsight에서 사용하는 Hadoop 구성 요소 및 버전"에서 [클러스터의 기본 노드 구성 및 가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)를 참조하세요.
 
@@ -168,13 +188,13 @@ HDInsight 클러스터의 비용은 노드 수와 노드에 대한 가상 머신
 클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다.
 * Hadoop 클러스터 유형 기본값: 
     * *헤드 노드* 2개  
-    * 4 개의 *작업자 노드*
+    * *작업자 노드* 4 개
 * Storm 클러스터 유형 기본값: 
     * *Nimbus 노드* 2개
     * *ZooKeeper 노드* 3개
     * *감독자 노드* 4개 
 
-HDInsight 아웃만 하려는 경우에 하나의 작업자 노드를 사용 하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
+HDInsight를 사용해 보려는 경우에는 하나의 작업자 노드를 사용 하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 
 > [!NOTE]  
 > 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 [Azure Billing Support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)에 문의하세요.
@@ -191,7 +211,7 @@ HDInsight 아웃만 하려는 경우에 하나의 작업자 노드를 사용 하
 다른 SDK를 사용하여 클러스터를 만들거나 Azure PowerShell을 사용하는 동안 VM을 지정하기 위해 사용해야 하는 값을 확인하려면 [HDInsight 클러스터에 사용할 VM 크기](../cloud-services/cloud-services-sizes-specs.md#size-tables)를 참조하세요. 이 연결된 문서에서 테이블의 **크기** 열의 값을 사용합니다.
 
 > [!IMPORTANT]  
-> 32 개 작업자 노드 클러스터의 경우 최소한 8 개의 코어와 14GB RAM 가진 헤드 노드 크기를 선택 해야 합니다.
+> 클러스터에서 32 개 이상의 작업자 노드를 필요로 하는 경우 최소 8 개의 코어와 14GB RAM을 가진 헤드 노드 크기를 선택 해야 합니다.
 
 자세한 내용은 [가상 머신의 크기](../virtual-machines/windows/sizes.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.   
 

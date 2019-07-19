@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
-ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038850"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875094"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 애플리케이션 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -259,7 +259,7 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예를 들면 다음과 같습니다.
+        PFX 파일이 암호로 보호되어 있는 경우 `-passin` 매개 변수에 해당 암호를 포함합니다. 예:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

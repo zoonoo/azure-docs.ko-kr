@@ -4,7 +4,7 @@ description: 클라우드 풀에서 자동 크기 조정을 사용하면 풀의 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118114"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323761"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
@@ -40,7 +40,7 @@ Azure Batch는 정의한 매개 변수에 따라 풀을 자동으로 크기 조�
 >
 
 ## <a name="automatic-scaling-formulas"></a>자동 크기 조정 수식
-자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(Batch REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(Batch .NET)에 할당됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 계산 노드 수를 결정하는 수식을 사용합니다. 수식 문자열은 8KB를 초과할 수 없고, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며, 줄 바꿈과 주석을 포함할 수 있습니다.
+자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성 (Batch .net)에 할당 됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 계산 노드 수를 결정하는 수식을 사용합니다. 수식 문자열은 8KB를 초과할 수 없고, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며, 줄 바꿈과 주석을 포함할 수 있습니다.
 
 자동 크기 조정 수식은 Batch 자동 크기 조정 "언어"로 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(Batch 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
@@ -59,10 +59,11 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 
 노드의 목표 수는 풀에 있는 해당 노드 형식의 현재 수보다 높거나, 낮거나, 같을 수 있습니다. Batch는 풀의 자동 크기 조정 수식을 특정 간격([자동 크기 조정 간격](#automatic-scaling-interval) 참조)으로 평가합니다. Batch는 풀에 있는 각 노드 형식의 목표 수를 크기 조정 수식에서 평가할 때 지정하는 수로 조정합니다.
 
-### <a name="sample-autoscale-formula"></a>샘플 자동 크기 조정 수식
+### <a name="sample-autoscale-formulas"></a>샘플 자동 크기 조정 수식
 
-다음은 대부분의 시나리오에 맞게 조정할 수 있는 자동 크기 조정 수식의 예제입니다. 예제 수식에서 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 필요에 따라 조정할 수 있습니다. 이 수식은 전용 노드를 크기 조정하지만 우선 순위가 낮은 노드를 크기 조정하는 데 적용되도록 수정할 수 있습니다. 
+다음은 대부분의 시나리오에서 작동 하도록 조정할 수 있는 두 가지 자동 크기 조정 수식의 예입니다. 예제 수식 `startingNumberOfVMs` `maxNumberofVMs` 에서 변수와 변수는 필요에 맞게 조정할 수 있습니다.
 
+#### <a name="pending-tasks"></a>보류 중인 작업
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
@@ -73,7 +74,18 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 
 이 자동 크기 조정 수식을 사용하면 풀은 단일 VM으로 처음에 생성됩니다. `$PendingTasks` 메트릭은 실행 중이거나 큐에 대기 중인 작업의 수를 정의합니다. 수식은 지난 180초 동안 보류 중인 작업의 평균 수를 찾고 이에 따라 `$TargetDedicatedNodes` 변수를 설정합니다. 수식은 전용 노드의 목표 수가 25개 VM을 절대로 초과하지 않도록 합니다. 새 작업이 제출되면 풀은 자동으로 증가합니다. 작업이 완료되면 VM은 하나씩 비워지고 자동 크기 조정 수식은 풀을 축소합니다.
 
-## <a name="variables"></a>variables
+이 수식은 전용 노드를 크기 조정하지만 우선 순위가 낮은 노드를 크기 조정하는 데 적용되도록 수정할 수 있습니다.
+
+#### <a name="preempted-nodes"></a>선점 노드 
+```
+maxNumberofVMs = 25;
+$TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
+$TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+```
+
+이 예에서는 우선 순위가 낮은 25 개 노드로 시작 하는 풀을 만듭니다. 낮은 우선 순위의 노드가 선점 될 때마다 전용 노드로 대체 됩니다. 첫 번째 예제와 같이 변수는 `maxNumberofVMs` 풀이 25 개의 vm을 초과 하지 않도록 합니다. 이 예제는 우선 순위가 낮은 Vm을 활용 하는 동시에 풀의 수명 동안 고정 된 수의 preemptions 발생 하도록 보장 하는 데 유용 합니다.
+
+## <a name="variables"></a>변수
 자동 크기 조정 수식에는 **서비스 정의** 및 **사용자 정의** 변수를 모두 사용할 수 있습니다. 서비스 정의 변수는 Batch 서비스에 기본 제공되어 있습니다. 서비스 정의 변수 일부는 읽기-쓰기이고, 일부는 읽기 전용입니다. 사용자 정의 변수는 사용자가 정의한 변수입니다. 이전 섹션에 나온 예제 수식에서 `$TargetDedicatedNodes` 및 `$PendingTasks`는 서비스 정의 변수입니다. 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 사용자 정의 변수입니다.
 
 > [!NOTE]
@@ -85,11 +97,11 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 
 다음과 같은 서비스 정의 변수의 값을 가져오고 설정하여 풀의 계산 노드 수를 관리할 수 있습니다.
 
-| 읽기-쓰기 서비스 정의 변수 | 설명 |
+| 읽기-쓰기 서비스 정의 변수 | Description |
 | --- | --- |
 | $TargetDedicatedNodes |풀에 대한 전용 계산 노드의 대상 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 전용 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 전용 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. <br /><br /> 목표가 배치 계정 노드 또는 코어 할당량을 초과하는 경우 Batch 서비스 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다. 목표가 구독의 공유 코어 할당량을 초과하는 경우 사용자 구독 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다.|
 | $TargetLowPriorityNodes |풀에 대한 우선 순위가 낮은 계산 노드의 목표 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 우선 순위가 낮은 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 우선 순위가 낮은 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. 목표가 Batch 계정 노드 또는 코어 할당량을 초과하는 경우 풀에서 해당 목표에 도달하지 못할 수도 있습니다. <br /><br /> 우선 순위가 낮은 계산 노드에 대한 자세한 내용은 [Batch(미리 보기)에서 낮은 우선 순위 VM 사용](batch-low-pri-vms.md)을 참조하세요. |
-| $NodeDeallocationOption |풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은 다음과 같습니다.<ul><li>**requeue** - 태스크를 즉시 종료하고 일정을 재조정하도록 작업 큐에 다시 배치합니다.<li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다.<li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
+| $NodeDeallocationOption |풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은<ul><li>**requeue** - 태스크를 즉시 종료하고 일정을 재조정하도록 작업 큐에 다시 배치합니다.<li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다.<li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
 
 이러한 서비스 정의 변수의 값을 가져와서 Batch 서비스의 메트릭을 기반으로 하여 조정할 수 있습니다.
 
@@ -126,7 +138,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 * double
 * doubleVec
 * doubleVecList
-* 문자열
+* string
 * timestamp--타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
 
   * year
@@ -152,7 +164,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ## <a name="operations"></a>작업
 이전 섹션에서 나열된 형식에서 허용되는 연산은 다음과 같습니다.
 
-| 작업(Operation) | 지원되는 연산자 | 결과 형식 |
+| 연산 | 지원되는 연산자 | 결과 형식 |
 | --- | --- | --- |
 | double *operator* double |+, -, *, / |double |
 | double *operator* timeinterval |* |timeinterval |
@@ -173,7 +185,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 
 3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0은 **false**입니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 이러한 미리 정의된 **함수** 는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
 
 | 함수 | 반환 형식 | 설명 |
@@ -198,7 +210,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
-앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들면 다음과 같습니다.
+앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들어:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -211,13 +223,13 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| 방법 | 설명 |
+| 메서드 | 설명 |
 | --- | --- |
 | GetSample() |`GetSample()` 메서드는 데이터 샘플의 벡터를 반환합니다.<br/><br/>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.<ul><li>`doubleVec GetSample(double count)`<br/>수집한 최근 샘플에서 가져올 샘플 수를 지정합니다.<br/><br/>`GetSample(1)`은 사용 가능한 마지막 샘플을 반환합니다. 그러나 `$CPUPercent`와 같은 메트릭의 경우 샘플이 수집된 *시기*를 알 수 없기 때문에 이 메서드를 사용해서는 안 됩니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 그러한 경우 아래에 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>샘플 데이터를 수집하기 위한 시간 프레임을 지정합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`은 지난 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 20개 샘플을 반환합니다. 그러나 내역의 마지막 분을 사용할 수 없으면 샘플 18개만 반환될 것입니다. 이 경우 다음과 같습니다.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`은 샘플의 90%만 사용할 수 있으므로 실패합니다.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`은 성공합니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>시작 시간과 종료 시간을 사용하여 데이터를 수집하기 위한 시간 프레임을 지정합니다.<br/><br/>위에서 언급했듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. `GetSample` 메서드를 사용할 때 이 지연을 고려해 보세요. 아래 `GetSamplePercent` 참조 |
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예를 들면 다음과 같습니다.<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>샘플, 샘플 비율 및 *GetSample()* 메서드
 자동 크기 조정 수식의 핵심 작업은 작업 및 리소스 메트릭 데이터를 가져오고 데이터를 기반으로 풀 크기를 조정하는 것입니다. 따라서 자동 크기 조정 수식이 메트릭 데이터(샘플)과 상호 작용하는 방식을 명확히 이해해야 합니다.
@@ -242,7 +254,7 @@ Batch 서비스는 정기적으로 작업 및 리소스 메트릭의 샘플을 �
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예를 들면 다음과 같습니다.
+위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -259,7 +271,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 또한 샘플 가용성에 지연 시간이 있을 수 있으므로 시간 범위를 1분 이상인 돌아보기 시작 시간으로 지정하는 것이 중요합니다. 샘플이 시스템을 통해 전파되는 데 약 1분 정도가 걸리므로 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용하지 못할 수도 있습니다. 다시 `GetSample()`라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
 
 > [!IMPORTANT]
-> **자동 크기 조정 수식의 `GetSample(1)`*만* 신뢰하지 않는** 것이 **좋습니다**. `GetSample(1)`은 기본적으로 Batch 서비스에 “경과한 시간에 관계 없이 마지막 샘플을 제공하도록” 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
+> **자동 크기 조정 수식의 `GetSample(1)` *만* 신뢰하지 않는** 것이 **좋습니다**. `GetSample(1)`은 기본적으로 Batch 서비스에 “경과한 시간에 관계 없이 마지막 샘플을 제공하도록” 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
 >
 >
 
@@ -272,7 +284,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
     <th>설명</th>
   </tr>
   <tr>
-    <td><b>리소스</b></td>
+    <td><b>Resource</b></td>
     <td><p>리소스 메트릭은 CPU, 대역폭, 계산 노드의 메모리 사용량 및 노드 수를 기반으로 합니다.</p>
         <p> 이러한 서비스 정의 변수는 노드 수에 기반하여 조정하는 데 유용합니다.</p>
     <p><ul>
@@ -280,7 +292,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
             <li>$TargetLowPriorityNodes</li>
             <li>$CurrentDedicatedNodes</li>
             <li>$CurrentLowPriorityNodes</li>
-            <li>$preemptedNodeCount</li>
+            <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
     <p>이러한 서비스 정의 변수는 노드 리소스 사용량에 기반하여 조정하는 데 유용합니다.</p>
@@ -297,7 +309,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>Task</b></td>
+    <td><b>태스크</b></td>
     <td><p>작업 메트릭은 활성, 보류 중 및 완료됨과 같은 작업 상태를 기반으로 합니다. 다음 서비스 정의 변수는 노드 작업 메트릭에 기반하여 풀 크기를 조정하는 데 유용합니다.</p>
     <p><ul>
       <li>$ActiveTasks</li>
@@ -362,7 +374,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 4. (선택 사항) [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 속성을 설정합니다(기본값: 15 분).
 5. [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 또는 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)로 풀을 커밋합니다.
 
-다음 코드 조각에서는 .NET에서 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 전용 노드의 목표 수를 월요일에는 5로, 그 외 다른 요일에는 1로 설정합니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 코드 조각과 이 문서의 다른 C# 코드 조각에서 `myBatchClient`는 [BatchClient][net_batchclient] 클래스의 올바르게 초기화된 인스턴스입니다.
+다음 코드 조각에서는 .NET에서 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 전용 노드의 목표 수를 월요일에는 5로, 그 외 다른 요일에는 1로 설정합니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 문서의 다른 코드 조각과 C# 이 문서의 `myBatchClient` 다른 코드 조각은 [batchclient][net_batchclient] 클래스의 올바르게 초기화 된 인스턴스입니다.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -376,7 +388,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 자동 크기 조정 가능한 풀을 만들 때는 **CreatePool**에 대한 호출에서 _targetDedicatedNodes_ 매개 변수 또는 _targetLowPriorityNodes_ 매개 변수를 지정하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다. 또한 자동 크기 조정 가능한 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync] 사용) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 설정한 다음 풀의 크기를 조정합니다.
+> 자동 크기 조정 가능한 풀을 만들 때는 **CreatePool**에 대한 호출에서 _targetDedicatedNodes_ 매개 변수 또는 _targetLowPriorityNodes_ 매개 변수를 지정하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다. 또한 자동 크기 조정 가능한 풀의 크기를 수동으로 조정 하려면 (예를 들어 [Batchclient. ResizePoolAsync][net_poolops_resizepoolasync]) 먼저 풀에서 자동 크기 조정을 **사용 하지 않도록 설정** 하 고 크기를 조정 합니다.
 >
 >
 
@@ -386,7 +398,7 @@ Batch .NET 외에도 다른 [Batch SDK](batch-apis-tools.md#azure-accounts-for-b
 ### <a name="automatic-scaling-interval"></a>자동 크기 조정 간격
 기본적으로 Batch 서비스는 15분마다 자동 크기 조정 수식에 따라 풀의 크기를 조정합니다. 이 간격은 다음 풀 속성을 사용하여 구성할 수 있습니다.
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [Cloudpool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .net)
 * [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
 최소 간격은 5분이고 최대 간격은 168시간입니다. 이 범위를 벗어나는 간격을 지정하면 Batch 서비스에서 잘못된 요청(400) 오류를 반환합니다.
@@ -398,9 +410,9 @@ Batch .NET 외에도 다른 [Batch SDK](batch-apis-tools.md#azure-accounts-for-b
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>기존 풀에서 자동 크기 조정 사용
 
-Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 예를 들면 다음과 같습니다.
+Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 예를 들어:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync](Batch .NET)
+* [Batchclient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .net)
 * [풀에서 자동 크기 조정 사용][rest_enableautoscale] (REST API)
 
 기존 풀에서 자동 크기 조정을 사용하도록 설정하는 경우 다음 사항에 유의하세요.
@@ -416,7 +428,7 @@ Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 �
 >
 >
 
-이 C# 코드 조각에서 다음과 같이 [Batch .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하도록 설정합니다.
+이 C# 코드 조각은 [Batch .net][net_api] 라이브러리를 사용 하 여 기존 풀에서 자동 크기 조정을 사용 하도록 설정 합니다.
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -463,7 +475,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
     이 REST API 요청에서 풀 ID는 URI에 지정하고, 자동 크기 조정 수식은 요청 본문의 *autoScaleFormula* 요소에 지정합니다. 작업 응답에는 수식과 관련이 있을 수 있는 오류 정보가 포함됩니다.
 
-이 [Batch .NET][net_api] 코드 조각에서는 자동 크기 조정 수식을 평가합니다. 풀에서 자동 크기 조정을 사용할 수 없으면 먼저 풀에서 이 기능을 사용할 수 있도록 설정해야 합니다.
+이 [Batch .net][net_api] 코드 조각에서는 자동 크기 조정 수식을 평가 합니다. 풀에서 자동 크기 조정을 사용할 수 없으면 먼저 풀에서 이 기능을 사용할 수 있도록 설정해야 합니다.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -592,7 +604,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>예 2: 작업 기반 조정
+### <a name="example-2-task-based-adjustment"></a>예제 2: 작업 기반 조정
 이 예에서는 풀 크기는 큐에 있는 작업의 수에 따라 조정 됩니다. 주석과 줄 바꿈은 모두 수식 문자열에 허용됩니다.
 
 ```csharp
@@ -611,8 +623,8 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>예 3: 병렬 작업용 계정
-이 예제에서는 작업의 수에 따라 풀 크기를 조정합니다. 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode][net_maxtasks] 값을 고려합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
+### <a name="example-3-accounting-for-parallel-tasks"></a>예제 3: 병렬 작업용 계정
+이 예제에서는 작업의 수에 따라 풀 크기를 조정합니다. 또한이 수식은 풀에 대해 설정 된 [cloudpool.maxtaskspercomputenode][net_maxtasks] 값을 고려 합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past

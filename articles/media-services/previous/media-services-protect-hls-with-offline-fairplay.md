@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: dwgeo
+ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935397"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871651"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
 
-> [!div class="op_single_selector" title1="사용 하는 Media Services의 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Media Services의 버전을 선택 합니다."]
 > * [버전 3](../latest/offline-fairplay-for-ios.md)
 > * [버전 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
 
@@ -42,7 +43,7 @@ Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [�
 다양한 스트리밍 프로토콜을 통한 온라인 스트리밍에 대한 콘텐츠를 보호하는 것 외에도, 보호된 콘텐츠에 대한 오프 라인 모드 또한 자주 요청되는 기능입니다. 다음 시나리오에 대해 오프라인 모드 지원이 필요합니다.
 
 * 인터넷 연결을 사용할 수 없을 경우(예: 여행 중) 재생합니다.
-* 일부 콘텐츠 공급자에는 국가/지역의 테두리 너머로 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 원하는 국가/지역 외부에서 여행 중 콘텐츠를 보고 하는 경우 오프 라인 다운로드가 필요 합니다.
+* 일부 콘텐츠 공급자는 국가/지역 테두리를 넘어 DRM 라이선스 배달을 허용 하지 않을 수 있습니다. 사용자가 국가/지역 외부로 여행 하는 동안 콘텐츠를 시청 하려는 경우 오프 라인 다운로드가 필요 합니다.
 * 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한 됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
 
 이 문서에서는 iOS 10 이상을 실행하는 디바이스를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.

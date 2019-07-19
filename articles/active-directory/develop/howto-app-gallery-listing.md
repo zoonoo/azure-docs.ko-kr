@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482960"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324718"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
-이 문서에서는 Azure AD 응용 프로그램 갤러리에서 응용 프로그램 목록에서 single sign-on (SSO)를 구현 하 고 목록을 관리 하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD 응용 프로그램 갤러리에서 응용 프로그램을 나열 하 고 SSO (single sign-on)를 구현 하 고 목록을 관리 하는 방법을 보여 줍니다.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
@@ -38,7 +38,7 @@ ms.locfileid: "67482960"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - SCIM를 사용하는 고객은 동일한 앱에 프로비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 페더레이션 애플리케이션(Open ID 및 SAML/WS-Fed)의 경우 애플리케이션은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 애플리케이션은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "67482960"
 - 자동 사용자 프로비전 요청의 경우 SAML 2.0/WS-Fed를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 애플리케이션이 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
 
 >[!NOTE]
->에서는 포털에서 새 요청을 가져오는 중지 되므로 많은 수의 SCIM 커넥터 요청을 사용 하 여 실행. 추가 공지가 있을 때까지 요청 기다려 주세요. 에서는 이러한 지연 시간 및이 일으킨 불편 정말 죄송 합니다.
+>너무 많은 SCIM 커넥터 요청을 실행 중 이므로 포털에서 새 요청을 중지 하 고 있습니다. 추가 공지가 있을 때까지 요청을 보관 하세요. 이러한 지연 및이로 인해 발생 하는 불편을 정말 수 있습니다.
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
@@ -113,25 +113,25 @@ Azure AD 앱 갤러리에서 기존 애플리케이션을 업데이트 또는 �
     * Azure AD 갤러리에서 기존 애플리케이션을 제거하려는 경우 **기존 애플리케이션 목록 제거**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
-## <a name="listing-requests-by-customers"></a>고객 요청 나열
+## <a name="listing-requests-by-customers"></a>고객 별 요청 나열
 
-고객을 클릭 하 여 응용 프로그램을 나열 요청을 제출할 수 있습니다 **고객이 응용 프로그램 요청** -> **새 요청을 제출**합니다.
+고객은 고객이 -> **새 요청을 제출**하는 **앱 요청**을 클릭 하 여 응용 프로그램 나열 요청을 제출할 수 있습니다.
 
-![고객 요청을 보여 줍니다 앱 타일](./media/howto-app-gallery-listing/customer-submit-request.png)
+![고객이 요청한 앱 타일을 표시 합니다.](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-고객의 흐름에 요청 된 응용 프로그램-다음과 같습니다.
+다음은 고객이 요청한 응용 프로그램의 흐름입니다.
 
-![고객을 보여 줍니다 앱 흐름 요청](./media/howto-app-gallery-listing/customer-request.png)
+![고객이 요청한 앱 흐름을 표시 합니다.](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>타임라인
 
 갤러리에서 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 7~10일입니다.
 
-   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임 라인](./media/howto-app-gallery-listing/timeline.png)
+   ![SAML 응용 프로그램을 갤러리에 나열 하는 타임 라인](./media/howto-app-gallery-listing/timeline.png)
 
 갤러리에서 OpenID Connect 애플리케이션을 나열하는 프로세스의 타임라인은 영업일을 기준으로 2~5일입니다.
 
-   ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임 라인](./media/howto-app-gallery-listing/timeline2.png)
+   ![SAML 응용 프로그램을 갤러리에 나열 하는 타임 라인](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>에스컬레이션
 

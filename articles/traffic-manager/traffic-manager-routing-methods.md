@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 9068cb0dad742ac6e5eeae0b3a1b801d08d4734c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071005"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320082"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -122,6 +122,28 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 - 쿼리가 해당 프로필에 매핑이 없는 지리적 지역에서 수행된 경우 Traffic Manager는 NODATA 응답을 반환합니다. 따라서 고객은 이상적으로 중첩 형식이며, 자식 프로필 내에 두 개 이상의 엔드포인트가 있고, **전 세계** 지역이 할당되어 있는 하나의 엔드포인트와 함께 지리적 라우팅을 사용하는 것이 좋습니다. 이렇게 하면 지역에 매핑되지 않는 IP 주소도 처리됩니다.
 
 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)에 설명된 대로 Traffic Manager는 클라이언트에서 직접 DNS 쿼리를 수신하지 않습니다. 대신, DNS 쿼리는 클라이언트를 사용하도록 구성한 재귀 DNS 서비스에서 제공됩니다. 따라서 지역을 결정하는 데 사용되는 IP 주소는 클라이언트의 IP 주소가 아니라 재귀 DNS 서비스의 IP 주소입니다. 실제로 이 IP 주소는 클라이언트에 유용한 프록시입니다.
+
+### <a name="faqs"></a>FAQ
+
+* [지리적 라우팅이 유용한 몇 가지 사용 사례는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+
+* [성능 라우팅 방법 또는 지리적 라우팅 메서드를 사용 해야 하는지 결정 어떻게 할까요??](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+
+* [지리적 라우팅 Traffic Manager에서 지 원하는 지역은 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+
+* [Traffic manager는 사용자가 쿼리 하는 위치를 어떻게 결정 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+
+* [Traffic Manager는 모든 경우에 사용자의 정확한 지리적 위치를 올바르게 확인할 수 있는지 확인 해야 합니다.](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+
+* [끝점이 지리적 라우팅에 대해 구성 된 것과 동일한 지역에 물리적으로 있어야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+
+* [지리적 라우팅을 수행 하도록 구성 되지 않은 프로필의 끝점에 지리적 지역을 할당할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+
+* [기존 프로필의 라우팅 방법을 지리적으로 변경 하려고 할 때 오류가 발생 하는 이유는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+
+* [지리적 라우팅을 사용 하는 프로필 아래에서 끝점 대신 중첩 프로필을 만드는 것이 좋습니다.](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+
+* [이 라우팅 유형을 지 원하는 API 버전에 대 한 제한이 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name = "multivalue"></a>다중값 트래픽 라우팅 방법
 **다중값** 트래픽 라우팅 방법을 사용하면 단일 DNS 쿼리 응답에 정상 상태의 여러 엔드포인트를 가져올 수 있습니다. 이를 통해 호출자는 반환된 엔드포인트가 응답하지 않을 때 다른 엔드포인트와 클라이언트 쪽 재시도를 수행할 수 있습니다. 이 패턴은 서비스의 가용성을 향상시키고 새 DNS 쿼리와 관련된 대기 시간을 줄여 정상 상태의 엔드포인트를 얻을 수 있습니다. 다중값 라우팅 방법은 ‘외부’ 유형의 모든 엔드포인트가 IPv4 또는 IPv6 주소로 지정된 경우에만 작동합니다. 쿼리가 이 프로필에 대해 수신되면 정상 상태의 모든 엔드포인트가 반환되고, 구성 가능한 최대 반환 수 제한이 적용됩니다.

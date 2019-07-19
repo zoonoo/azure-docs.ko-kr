@@ -1,6 +1,6 @@
 ---
 title: 'Azure 상태 모니터 v2 API 참조: 구성 설정 | Microsoft Docs'
-description: 상태 모니터 v2 API 참조입니다. Set-ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스 또는 Azure Vm에서 호스트 하는 ASP.NET 웹 앱에서 작동 합니다.
+description: V2 API 참조를 상태 모니터 합니다. Set-ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,48 +12,43 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e63d935b3c11766c4981ffb035dd45ad4019797c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f3a55caba13b3b96884d446e0750d9fb67a343df
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807079"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326288"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v040-alpha"></a>상태 모니터 v2 API: 집합-ApplicationInsightsMonitoringConfig (v0.4.0 알파)
+# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>상태 모니터 v2 API: ApplicationInsightsMonitoringConfig
 
-이 문서에서는의 구성원임을 확인 하는 cmdlet을 설명 합니다 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
+이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-> [!IMPORTANT]
-> 상태 모니터 v2는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 하지 않습니다. 일부 기능은 지원 되지 않는, 및 일부 기능이 제한 될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+## <a name="description"></a>설명
 
-## <a name="description"></a>Description
-
-전체 설치를 다시 수행 하지 않고 구성 파일을 설정 합니다.
-변경 내용을 적용 하려면 IIS를 다시 시작 합니다.
+전체를 다시 설치 하지 않고 구성 파일을 설정 합니다.
+IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 
 > [!IMPORTANT] 
-> 이 cmdlet은 관리자 권한으로 PowerShell 세션에 필요합니다.
+> 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
 
 ## <a name="examples"></a>예
 
-### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하 여 예제
-이 예제에서는 현재 컴퓨터의 모든 앱 단일 계측 키를 할당 됩니다.
+### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
+이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-an-instrumentation-key-map"></a>계측 키 지도와 예제
+### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
 이 예제에서:
-- `MachineFilter` 현재 컴퓨터를 사용 하 여 일치 하는 `'.*'` 와일드 카드입니다.
-- `AppFilter='WebAppExclude'` 제공 된 `null` 계측 키입니다. 지정된 된 응용 프로그램을 계측할 수 없습니다.
-- `AppFilter='WebAppOne'` 고유 계측 키를 지정 된 앱을 할당합니다.
-- `AppFilter='WebAppTwo'` 고유 계측 키를 지정 된 앱을 할당합니다.
-- 마지막으로, `AppFilter` 도 사용 된 `'.*'` 이전 규칙에 의해 일치 되지 않습니다 하 고 기본 계측 키를 할당 하는 모든 웹 앱에 맞게 와일드 카드입니다.
-- 공백을은 가독성을 위해 추가 됩니다.
+- `MachineFilter`와일드 카드를 `'.*'` 사용 하 여 현재 컴퓨터와 일치 합니다.
+- `AppFilter='WebAppExclude'`계측 키 `null` 를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
+- `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
+- 마지막으로는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다. `AppFilter`
+- 가독성을 위해 공백을 추가 합니다.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -68,37 +63,37 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ## <a name="parameters"></a>매개 변수
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
-**필수** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용 하기 위해 단일 계측 키를 제공 합니다.
+**필수** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**필수** 이 매개 변수를 사용 하 여 각 앱에서 사용 하는 계측 키를 매핑하는 방법과 여러 계측 키를 제공 합니다.
-설정 하 여 여러 컴퓨터에 대 한 단일 설치 스크립트를 만들 수 있습니다 `MachineFilter`합니다.
+**필수** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
+을 설정 `MachineFilter`하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 앱 규칙에서 제공 되는 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 해야 하 고 가장 일반적인 규칙입니다.
+> 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.
 
 #### <a name="schema"></a>스키마
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** 는 반드시 C# VM 이름 또는 컴퓨터 regex.
-    - '. *'는 모두 일치
-    - 'ComputerName' 지정한 이름 가진 컴퓨터에만 일치 합니다.
-- **AppFilter** 는 반드시 C# VM 이름 또는 컴퓨터 regex.
-    - '. *'는 모두 일치
-    - 'ApplicationName' 지정 된 이름의 IIS 앱만 일치 합니다.
-- **InstrumentationKey** 이전 두 필터와 일치 하는 앱의 모니터링을 사용 하도록 설정 해야 합니다.
-    - 모니터링을 제외 하는 규칙을 정의 하려는 경우에 null이 값을 둡니다.
+- **Machinefilter** 는 컴퓨터 또는 C# VM 이름의 필수 regex입니다.
+    - '. * '는 모두 일치 합니다.
+    - ' ComputerName '은 지정한 이름을 가진 컴퓨터에만 일치 합니다.
+- **Appfilter** 는 컴퓨터 또는 C# VM 이름의 필수 regex입니다.
+    - '. * '는 모두 일치 합니다.
+    - ' ApplicationName '은 지정 된 이름의 IIS 앱에만 일치 합니다.
+- **InstrumentationKey** 는 위의 두 필터와 일치 하는 앱의 모니터링을 사용 하도록 설정 하는 데 필요 합니다.
+    - 모니터링을 제외 하는 규칙을 정의 하려면이 값을 null로 둡니다.
 
 
 ### <a name="-verbose"></a>-Verbose
-**일반적인 매개 변수입니다.** 자세한 로그를 표시 하려면이 스위치를 사용 합니다.
+**일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 표시 합니다.
 
 
 ## <a name="output"></a>출력
 
-기본적으로 출력이 없습니다.
+기본적으로 출력은 없습니다.
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>자세한 정보 표시의 예제 출력-InstrumentationKey를 통해 구성 파일 설정
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>-InstrumentationKey를 통해 구성 파일을 설정 하는 방법의 예제 세부 정보 출력
 
 ```
 VERBOSE: Operation: InstallWithIkey
@@ -110,7 +105,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>자세한 정보 표시의 예제 출력-InstrumentationKeyMap 통해 구성 파일 설정
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>-InstrumentationKeyMap를 통해 구성 파일을 설정 하는 방법의 예제 세부 정보 출력
 
 ```
 VERBOSE: Operation: InstallWithIkeyMap
@@ -127,17 +122,17 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md) 성능 모니터링을 사용 합니다.
-- [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md) 문제를 진단 합니다.
-- [Analytics를 사용 하 여](../../azure-monitor/app/analytics.md) 자세한 고급 쿼리 합니다.
-- [대시보드를 만들](../../azure-monitor/app/overview-dashboard.md)합니다.
+ - [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md) 하 여 성능 및 사용량을 모니터링 합니다.
+- [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
+- 고급 쿼리를 위해 [분석을 사용](../../azure-monitor/app/analytics.md) 합니다.
+- [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
  
  원격 분석 더 추가:
- - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되도록 합니다.
-- [웹 클라이언트 원격 분석 추가](../../azure-monitor/app/javascript.md) 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-- [코드에 Application Insights SDK 추가](../../azure-monitor/app/asp-net.md) 추적을 삽입 하 고 호출을 기록 하므로
+ - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되는지 확인 합니다.
+- 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
+- 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가 합니다](../../azure-monitor/app/asp-net.md) .
  
- 상태 모니터 v2 사용 하 여 더 수행 합니다.
- - 가이드를 사용 하 여 [해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.
- - [구성 가져오기](status-monitor-v2-api-get-config.md) 설정을 올바르게 기록 된를 확인 합니다.
- - [상태를 가져오려면](status-monitor-v2-api-get-status.md) 모니터링 검사 합니다.
+ 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ - [구성을 가져와서](status-monitor-v2-api-get-config.md) 설정이 올바르게 기록 되었는지 확인 합니다.
+ - 모니터링을 검사할 [상태를 가져옵니다](status-monitor-v2-api-get-status.md) .

@@ -4,7 +4,7 @@ description: 작업 수준 준비 태스크를 사용하여 Azure Batch 계산 �
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75ff3bdf7a0900c32feb7090e0c24af748080a76
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776211"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323493"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 계산 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -29,9 +29,9 @@ ms.locfileid: "60776211"
 ## <a name="what-are-job-preparation-and-release-tasks"></a>작업 준비 및 해제 태스크에 대한 정의
 작업 태스크가 실행되기 전에 하나 이상의 태스크를 실행하도록 예약된 모든 계산 노드에서 작업 준비 태스크가 실행됩니다. 작업이 완료되면 하나 이상의 태스크를 실행한 풀의 각 노드에서 작업 릴리스 태스크가 실행됩니다. 일반 Batch 태스크처럼 작업 준비 또는 해제 태스크가 실행될 때 호출되는 명령줄을 지정할 수 있습니다.
 
-작업 준비 및 해제 태스크는 파일([리소스 파일][net_job_prep_resourcefiles]) 다운로드, 관리자 권한 실행, 사용자 지정 환경 변수, 최대 실행 기간, 재시도 횟수 및 파일 보존 시간과 같은 익숙한 Batch 태스크 기능을 제공합니다.
+작업 준비 및 해제 태스크는 파일 다운로드 ([리소스 파일][net_job_prep_resourcefiles]), 관리자 권한 실행, 사용자 지정 환경 변수, 최대 실행 기간, 재시도 횟수 및 파일 보존 시간과 같은 익숙한 Batch 태스크 기능을 제공 합니다.
 
-다음 섹션에서는 [Batch .NET][api_net] 라이브러리에 있는 [JobPreparationTask][net_job_prep]와 [JobReleaseTask][net_job_release] 클래스를 사용하는 방법을 알아봅니다.
+다음 섹션에서는 [Batch .net][api_net] 라이브러리에 있는 [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] 클래스를 사용 하는 방법에 대해 알아봅니다.
 
 > [!TIP]
 > 계산 노드 풀이 작업 실행 간에 지속되고 여러 작업에서 사용되는 "공유 풀" 환경에서는 작업 준비 및 해제 태스크가 특히 유용합니다.
@@ -51,7 +51,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 
 **로그 보존**
 
-태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 애플리케이션에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이런 경우 **작업 릴리스 태스크**를 사용하여 [Azure Storage][azure_storage] 계정에 이 데이터를 압축하고 업로드합니다.
+태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 애플리케이션에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이 경우 **작업 릴리스 태스크** 를 사용 하 여이 데이터를 압축 하 고 [Azure Storage][azure_storage] 계정에 업로드 합니다.
 
 > [!TIP]
 > 로그 및 기타 작업과 태스크 출력 데이터를 유지하는 다른 방법은 [Azure Batch File Conventions](batch-task-output.md) 라이브러리를 사용하는 것입니다.
@@ -64,7 +64,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 작업 준비 태스크는 태스크를 실행하도록 예약된 노드에서만 실행됩니다. 노드에 태스크를 할당하지 않은 경우 준비 태스크가 불필요하게 실행되지 않도록 방지합니다. 이는 작업에 대한 태스크 수가 풀의 노드 수보다 작은 경우에 발생할 수 있습니다. 이 방식은 [동시 태스크 실행](batch-parallel-node-tasks.md) 을 활성화할 때도 적용되며, 이는 태스크 개수가 가능한 총 동시 태스크 개수보다 작으면 노드 일부를 유휴 상태로 남겨둡니다. 유휴 노드에서 작업 준비 태스크를 실행하지 않으면 데이터 전송 요금에 적은 비용을 투자할 수 있습니다.
 
 > [!NOTE]
-> JobPreparationTask는 각 작업을 시작할 때 실행되지만 StartTask는 먼저 계산 노드를 풀과 조인하거나 다시 시작할 때만 실행된다는 점에서 [JobPreparationTask][net_job_prep_cloudjob]은 [CloudPool.StartTask][pool_starttask]와 다릅니다.
+> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] 에서 JobPreparationTask는 각 작업을 시작할 때 실행 되는 반면 starttask는 먼저 계산 노드가 풀에 조인 하거나 다시 시작할 때만 실행 됩니다.
 > 
 > 
 
@@ -77,9 +77,9 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Batch .NET을 사용한 작업 준비 및 릴리스 태스크
-작업 준비 태스크를 사용하려면 [JobPreparationTask][net_job_prep] 개체를 작업의 [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성에 할당합니다. 마찬가지로 [JobReleaseTask][net_job_release]를 초기화하고 작업의 [CloudJob.JobReleaseTask][net_job_prep_cloudjob] 속성을 할당하여 작업의 릴리스 태스크를 설정합니다.
+작업 준비 태스크를 사용 하려면 [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] 속성을 할당 합니다. 마찬가지로, [JobReleaseTask][net_job_release] 를 초기화 하 고 작업의 [cloudjob. JobReleaseTask][net_job_prep_cloudjob] 속성에 할당 하 여 작업의 릴리스 작업을 설정 합니다.
 
-이 코드 조각에서 `myBatchClient`는 완전히 [BatchClient][net_batch_client]의 인스턴스이고 `myPool`은 Batch 계정에 있는 기존 풀입니다.
+이 코드 조각에서는 `myBatchClient` `myPool` [batchclient][net_batch_client]의 인스턴스이고,는 Batch 계정 내의 기존 풀입니다.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -105,7 +105,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-위에서 설명했듯이 작업이 종료되거나 삭제될 때 해제 태스크가 실행됩니다. [JobOperations.TerminateJobAsync][net_job_terminate]를 통해 작업을 종료합니다. [JobOperations.DeleteJobAsync][net_job_delete]를 통해 작업을 삭제합니다. 일반적으로 작업의 태스크들이 완료되거나 정의한 시간 제한에 도달했을 때 작업을 종료하거나 삭제합니다.
+위에서 설명했듯이 작업이 종료되거나 삭제될 때 해제 태스크가 실행됩니다. [JobOperations. joboperations.terminatejobasync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]를 사용 하 여 작업을 종료 합니다. 일반적으로 작업의 태스크들이 완료되거나 정의한 시간 제한에 도달했을 때 작업을 종료하거나 삭제합니다.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -116,7 +116,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>GitHub의 코드 샘플
-작동 중인 작업 준비 및 해제 태스크를 보려면 GitHub의 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인합니다. 이 콘솔 애플리케이션은 다음을 수행합니다.
+작업 준비 및 릴리스 작업의 작동을 확인 하려면 GitHub의 [Jobpreprelease][job_prep_release_sample] 샘플 프로젝트를 확인 하세요. 이 콘솔 애플리케이션은 다음을 수행합니다.
 
 1. 노드가 두 개인 풀을 만듭니다.
 2. 작업 준비, 릴리스 및 표준 태스크를 사용하여 작업을 만듭니다.
@@ -178,7 +178,7 @@ Sample complete, hit ENTER to exit...
 > 
 
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Azure 포털에서 작업 준비 및 해제 태스크 검사
-샘플 애플리케이션을 실행할 때 [Azure Portal][portal]을 사용하면 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정한 공유 텍스트 파일을 다운로드할 수도 있습니다.
+예제 응용 프로그램을 실행할 때 [Azure Portal][portal] 를 사용 하 여 작업 및 해당 태스크의 속성을 확인 하거나 작업의 태스크에 의해 수정 된 공유 텍스트 파일을 다운로드할 수도 있습니다.
 
 다음은 샘플 애플리케이션을 실행한 후에 Azure Portal에서 **준비 태스크 블레이드**를 보여 주는 스크린샷입니다. 작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다.
 
@@ -191,7 +191,7 @@ Sample complete, hit ENTER to exit...
 ### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
 아래의 MSDN 포럼 게시물에서는 작업을 실행하기 위해 노드를 준비하는 여러 가지 방법을 간략히 제공합니다.
 
-[Batch 계산 노드에서의 애플리케이션 설치 및 데이터 스테이징][forum_post]
+[일괄 처리 계산 노드에 응용 프로그램 설치 및 데이터 준비][forum_post]
 
 Azure Batch 팀 멤버 중 하나에서 작성하고 애플리케이션과 데이터를 계산 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
 

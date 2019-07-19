@@ -48,6 +48,6 @@
     - name: 제품 사용자 의견
       href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
     - name: 가격
-      href: 'https://azure.microsoft.com/pricing'
+      href: 'https://azure.microsoft.com/pricing/details/data-share/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-share'

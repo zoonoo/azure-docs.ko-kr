@@ -1,6 +1,6 @@
 ---
-title: 만들기, 보기 및 관리 로그를 사용 하 여 Azure Monitor 경고 | Microsoft Docs
-description: Azure 모니터를 사용 하 여 작성, 보기 및 Azure에서 로그 경고 규칙을 관리 합니다.
+title: Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리 Microsoft Docs
+description: Azure Monitor를 사용 하 여 Azure에서 로그 경고 규칙을 작성 하 고, 보고, 관리할 수 있습니다.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ee4f89885bd10a116963d42e87766bcd05cc0b4
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427457"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852735"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -23,16 +23,17 @@ ms.locfileid: "66427457"
 - 조건: 신호에서 표시될 때 작업을 트리거해야 하는 특정 조건 또는 논리
 - 작업: 알림의 받는 사람에게 보내는 특정 호출 - 이메일, SMS, 웹후크 등
 
-용어 **로그 경고** 신호는 로그 쿼리에서 경고를 설명 하는 [Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 하거나 [Application Insights](../app/analytics.md)합니다. [로그 경고 - 개요](alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
+[Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 또는 [Application Insights](../app/analytics.md)에서 신호가 로그 쿼리 인 경고를 설명 하는 용어 **로그 경고** 입니다. [로그 경고 - 개요](alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 인기 있는 로그 데이터를 [Log Analytics 작업 영역을](../../azure-monitor/learn/tutorial-viewdata.md) 이기도 이제 Azure Monitor에서 메트릭 플랫폼에서 사용할 수 있습니다. 세부 정보 보기는 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
+> 이제 [Log Analytics 작업 영역의](../../azure-monitor/learn/tutorial-viewdata.md) 인기 있는 로그 데이터를 Azure Monitor의 메트릭 플랫폼 에서도 사용할 수 있습니다. 세부 정보 보기는 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Azure Portal에서 로그 경고 관리
 
 자세한 다음 내용은 Azure Portal 인터페이스를 통해 로그 경고를 사용하기 위한 단계별 가이드입니다.
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Azure Portal을 통해 로그 경고 규칙 만들기
+
 1. [포털](https://portal.azure.com/)에서 **모니터**를 선택하고 모니터 섹션 아래에서 **경고**를 선택합니다.
 
     ![모니터링](media/alerts-log/AlertsPreviewMenu.png)
@@ -48,7 +49,6 @@ ms.locfileid: "66427457"
 1. **리소스 선택** 링크를 사용하고 리소스를 선택하여 대상을 지정하여 경고 조건을 정의합니다. _구독_, _리소스 종류_ 및 필요한 _리소스_를 선택하여 필터링합니다.
 
    > [!NOTE]
-   > 
    > 로그 경고 만들기의 경우 진행하기 전에 선택한 리소스에 대해 사용 가능한 **로그** 신호를 확인합니다.
    >  ![리소스 선택](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "66427457"
 
    > [!NOTE]
    > 
-   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 자세한 내용은에서 사용 가능한 쿼리 저장을 사용 하 여 사용자는 Analytics에서 쿼리를 완료 하 고 다음 경고에서 나중에 사용할 저장할 수 있도록 [Azure Monitor에서 로그 쿼리를 사용 하 여](../log-query/log-query-overview.md) 또는 [application insights 분석의 공유 쿼리 ](../log-query/log-query-overview.md).
+   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 분석에서 쿼리를 완벽 하 게 수행한 다음 나중에 사용 하기 위해 저장할 수 있습니다. 자세한 내용은 [application insights 분석의 Azure Monitor 또는 공유 쿼리](../log-query/log-query-overview.md)를 [사용 하 여 로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 사용 가능한 쿼리 저장을 참조 하세요.
 
 1. *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 
@@ -142,7 +142,6 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
     "variables": {
         "alertLocation": "southcentralus",
         "alertName": "samplelogalert",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
         "alertDescription": "Sample log search alert",
         "alertStatus": "true",
         "alertSource":{
@@ -172,7 +171,6 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescription')]",
             "enabled": "[variables('alertStatus')]",
@@ -204,9 +202,6 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 
 ```
 
-> [!IMPORTANT]
-> 대상 리소스를 사용할 수 있는 숨겨진 링크를 사용 하 여 태그 필드는 사용의 필수 [예약 된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿.
-
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 
 
@@ -226,7 +221,6 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
         "alertName": "sample log alert",
         "alertDescr": "Sample log search alert",
         "alertStatus": "true",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "alertSource":{
             "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
             "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
@@ -263,7 +257,6 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescr')]",
             "enabled": "[variables('alertStatus')]",
@@ -304,40 +297,40 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 ```
 
 > [!IMPORTANT]
-> 대상 리소스를 사용할 수 있는 숨겨진 링크를 사용 하 여 태그 필드는 사용의 필수 [예약 된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿. 로그 경고에 리소스 간 쿼리를 사용하는 경우 [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) 사용은 반드시 필요하며 사용자는 시작된 리소스의 목록에 액세스할 수 있어야 합니다.
+> 로그 경고에 리소스 간 쿼리를 사용하는 경우 [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) 사용은 반드시 필요하며 사용자는 시작된 리소스의 목록에 액세스할 수 있어야 합니다.
 
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 
-## <a name="managing-log-alerts-using-powershell"></a>PowerShell을 사용 하 여 로그 경고를 관리 합니다.
+## <a name="managing-log-alerts-using-powershell"></a>PowerShell을 사용 하 여 로그 경고 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor- [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API 및 Azure Resource Manager REST API와 완전히 호환 됩니다. 아래에 나열 된 PowerShell cmdlet을 활용 하 여 사용할 수 및 합니다 [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)합니다.
+Azure Monitor [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 는 REST API 이며 Azure Resource Manager REST API와 완전히 호환 됩니다. 아래에 나열 된 PowerShell cmdlet은 [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 활용 하는 데 사용할 수 있습니다.
 
-1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : 새 로그 경고 규칙을 만들려면 Powershell cmdlet입니다.
-1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : 기존 로그 경고 규칙을 업데이트 하는 Powershell cmdlet.
-1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Powershell cmdlet을 만들거나 로그 경고에 대 한 원본 매개 변수를 지정 하는 개체를 업데이트 합니다. 입력으로 사용 [새로 만들기-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 하 고 [집합 AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): 만들기 또는 업데이트 하려면 Powershell cmdlet는 로그 경고에 대 한 일정 매개 변수를 지정 하는 개체입니다. 입력으로 사용 [새로 만들기-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 하 고 [집합 AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Powershell cmdlet을 만들거나 로그 경고에 대 한 작업 매개 변수를 지정 하는 개체를 업데이트 합니다. 입력으로 사용 [새로 만들기-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 하 고 [집합 AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : 만들기 또는 업데이트 작업을 지정 하는 개체에 대 한 Powershell cmdlet는 로그 경고에 대 한 매개 변수를 그룹화 합니다. 입력으로 사용할 [새로 만들기-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : 만들기 또는 업데이트 하려면 Powershell cmdlet에는 로그 경고에 대 한 트리거 조건 매개 변수 지정 개체입니다. 입력으로 사용할 [새로 만들기-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : 만들기 또는 업데이트에 대 한 메트릭 트리거 조건 매개 변수를 지정 하는 개체에 대 한 Powershell cmdlet [메트릭 측정 형식 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)합니다. 입력으로 사용할 [새로 만들기-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
-1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : 목록에서 기존 Powershell cmdlet 로그 경고 규칙 또는 특정 로그 경고 규칙
-1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : Powershell cmdlet을 사용 하도록 설정 하거나 로그 경고 규칙을 사용 하지 않도록 설정
-1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): 기존 로그 경고 규칙을 삭제 하려면 Powershell cmdlet
+1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Powershell cmdlet을 통해 새 로그 경고 규칙을 만듭니다.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Powershell cmdlet을 통해 기존 로그 경고 규칙을 업데이트 합니다.
+1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : 로그 경고에 대 한 원본 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. AzScheduledQueryRule 및 [AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet [의](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 입력으로 사용 됩니다.
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): 로그 경고에 대 한 일정 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. AzScheduledQueryRule 및 [AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet [의](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 입력으로 사용 됩니다.
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : 로그 경고에 대 한 작업 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. AzScheduledQueryRule 및 [AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet [의](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) 입력으로 사용 됩니다.
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : 로그 경고에 대 한 작업 그룹 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. [AzScheduledQueryRuleAlertingAction cmdlet의](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) 입력으로 사용 됩니다.
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : 로그 경고에 대 한 트리거 조건 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. [AzScheduledQueryRuleAlertingAction cmdlet의](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) 입력으로 사용 됩니다.
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : 메트릭 [측정 유형 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)에 대 한 메트릭 트리거 조건 매개 변수를 지정 하는 개체를 만들거나 업데이트 하는 Powershell cmdlet입니다. [AzScheduledQueryRuleTriggerCondition cmdlet의](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) 입력으로 사용 됩니다.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : 기존 로그 경고 규칙 또는 특정 로그 경고 규칙을 나열 하는 Powershell cmdlet
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : 로그 경고 규칙을 사용 하거나 사용 하지 않도록 설정 하는 Powershell cmdlet
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): 기존 로그 경고 규칙을 삭제 하는 Powershell cmdlet
 
 > [!NOTE]
-> ScheduledQueryRules PowerShell cmdlet에는 자체 생성 된 규칙 cmdlet만 관리할 수 있습니다 하거나 Azure Monitor-를 사용 하 여 [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)합니다. 로그 경고 규칙 레거시를 사용 하 여 만든 [Log Analytics 경고 API](api-alerts.md) 와의 레거시 템플릿을 [Log Analytics 저장 된 검색 및 경고](../insights/solutions-resources-searches-alerts.md) ScheduledQueryRules PowerShell cmdlet을 사용 하 여 관리할 수 있습니다 설정한 후에 사용자 [Log Analytics 경고에 대 한 API 기본 설정 전환](alerts-log-api-switch.md)합니다.
+> ScheduledQueryRules PowerShell cmdlet은 cmdlet 자체 또는 Azure Monitor [예약 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 사용 하 여 만든 규칙만 관리할 수 있습니다. 레거시 [Log Analytics 경고 api](api-alerts.md) 를 사용 하 여 만든 로그 경고 규칙 및 저장 된 검색에 대 한 레거시 템플릿 [Log Analytics 저장 된 검색 및 경고](../insights/solutions-resources-searches-alerts.md) 는 사용자가 [log에 대 한 API 기본 설정을 사용 하 여 ScheduledQueryRules PowerShell cmdlet 분석 경고](alerts-log-api-switch.md).
 
-## <a name="managing-log-alerts-using-cli-or-api"></a>CLI 또는 API를 사용 하 여 로그 경고를 관리 합니다.
+## <a name="managing-log-alerts-using-cli-or-api"></a>CLI 또는 API를 사용 하 여 로그 경고 관리
 
-Azure Monitor- [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API 및 Azure Resource Manager REST API와 완전히 호환 됩니다. 따라서 Azure CLI에 대 한 Resource Manager 명령을 사용 하 여 Powershell을 통해 사용할 수 있습니다.
+Azure Monitor [예약 된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 는 REST API 이며 Azure Resource Manager REST API와 완전히 호환 됩니다. 따라서 Azure CLI에 대 한 리소스 관리자 명령을 사용 하 여 Powershell을 통해 사용할 수 있습니다.
 
 
 > [!NOTE]
 > Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
-로그 경고 현재 없는 전용된 CLI 명령은 현재; 하지만 아래와 같이 사용할 수 있는 Azure Resource Manager CLI 명령을 통해 앞에 표시 된 리소스 템플릿 (sampleScheduledQueryRule.json) 샘플에 대 한 리소스 템플릿 섹션에서:
+현재 로그 경고에 전용 CLI 명령이 없습니다. 그러나 아래에 설명 된 것 처럼 리소스 템플릿 섹션의 앞에 표시 된 샘플 리소스 템플릿 (sampleScheduledQueryRule)에 대 한 Azure Resource Manager CLI 명령을 통해 사용할 수 있습니다.
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
@@ -350,4 +343,4 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 * [Azure Alerts의 로그 경고](../../azure-monitor/platform/alerts-unified-log.md)에 대해 알아보기
 * [로그 경고에 대한 웹후크 작업](../../azure-monitor/platform/alerts-log-webhook.md) 이해
 * [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
-* 에 대해 자세히 알아보세요 [쿼리를 로깅](../log-query/log-query-overview.md)합니다.
+* [로그 쿼리에](../log-query/log-query-overview.md)대해 자세히 알아보세요.

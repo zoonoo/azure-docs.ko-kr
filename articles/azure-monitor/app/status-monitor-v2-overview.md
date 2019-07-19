@@ -1,6 +1,6 @@
 ---
 title: Azure 상태 모니터 v2 개요 | Microsoft Docs
-description: 상태 모니터 v2 간략히 설명 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스 또는 Azure Vm에서 호스트 하는 ASP.NET 웹 앱에서 작동 합니다.
+description: 상태 모니터 v2의 개요입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,33 +12,30 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734152"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326243"
 ---
 # <a name="status-monitor-v2"></a>상태 모니터 v2
 
-상태 모니터 v2는 PowerShell 모듈에 게시 합니다 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)합니다.
-대체 [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)합니다.
-모듈의 IIS를 사용 하 여 호스트 되는.NET 웹 앱 코드 계측을 제공 합니다.
-원격 분석을 할 수 있는 Azure portal로 전송 됩니다 [모니터](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 앱.
-
-> [!IMPORTANT]
-> 상태 모니터 v2는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 하지 않습니다. 일부 기능은 지원 되지 않는, 및 일부 기능이 제한 될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+상태 모니터 v2는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)에 게시 된 PowerShell 모듈입니다.
+[상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)를 대체 합니다.
+이 모듈은 IIS를 사용 하 여 호스트 되는 .NET 웹 앱의 코드 없는 계측을 제공 합니다.
+원격 분석은 앱을 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 수 있는 Azure Portal 전송 됩니다.
 
 ## <a name="powershell-gallery"></a>PowerShell 갤러리
 
-PowerShell 갤러리는 여기: https://www.powershellgallery.com/packages/Az.ApplicationMonitor 합니다.
+상태 모니터 v2는에 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 있습니다.
+
+![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>지침
-- 참조 된 [지침 시작](status-monitor-v2-get-started.md) 간결한 코드 샘플을 사용 하 여 시작 하려면.
-- 참조 된 [상세 지침](status-monitor-v2-detailed-instructions.md) 시작 하는 방법에 자세히입니다.
+- 간결한 코드 샘플을 가져오려면 [시작 지침](status-monitor-v2-get-started.md) 을 참조 하세요.
+- 시작 하는 방법에 대 한 심층 [정보는 자세한 지침](status-monitor-v2-detailed-instructions.md) 을 참조 하세요.
 
 ## <a name="powershell-api-reference"></a>PowerShell API 참조
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
@@ -48,6 +45,7 @@ PowerShell 갤러리는 여기: https://www.powershellgallery.com/packages/Az.Ap
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 - [문제 해결](status-monitor-v2-troubleshoot.md)
@@ -56,18 +54,18 @@ PowerShell 갤러리는 여기: https://www.powershellgallery.com/packages/Az.Ap
 
 ## <a name="faq"></a>FAQ
 
-- 상태 모니터 v2 프록시 설치를 지원 하나요?
+- V2 상태 모니터 프록시 설치를 지원 하나요?
 
-  *예*합니다. 상태 모니터 v2를 다운로드 하는 방법은 여러 가지입니다. 컴퓨터에 인터넷 액세스를 등록할 수 있습니다 PowerShell 갤러리를 사용 하 여 `-Proxy` 매개 변수입니다.
-모듈을 수동으로 다운로드할 수 있으며 컴퓨터에 설치 하거나 직접 사용 합니다.
-이러한 각 옵션에 설명 되어는 [상세 지침](status-monitor-v2-detailed-instructions.md)합니다.
+  *예*. 상태 모니터 v2를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 매개 변수를 사용 `-Proxy` 하 여 PowerShell 갤러리에 등록할 수 있습니다.
+또한 모듈을 수동으로 다운로드 하 고 컴퓨터에 설치 하거나 직접 사용할 수 있습니다.
+이러한 각 옵션에 대 한 [자세한 지침은](status-monitor-v2-detailed-instructions.md)을 참조 하십시오.
   
-- 사용 성공 했는지 어떻게 확인 합니까?
+- 성공적으로 작동 하 고 있는지 확인 어떻게 할까요??
 
-   활성화에 성공 했는지 확인 cmdlet이 있습니다.
-사용 하는 것이 좋습니다 [라이브 메트릭](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 는 앱 원격 분석을 전송 하는 경우 쉽게 확인할 수 있습니다.
+   성공적으로 수행 되었는지 확인 하는 cmdlet이 없습니다.
+앱에서 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하려면 [라이브 메트릭을](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 사용 하는 것이 좋습니다.
 
-   사용할 수도 있습니다 [Log Analytics](../log-query/get-started-portal.md) 현재 원격 분석을 보내는 모든 클라우드 역할을 나열 하려면:
+   [Log Analytics](../log-query/get-started-portal.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
    ```Kusto
    union * | summarize count() by cloud_RoleName, cloud_RoleInstance
    ```
@@ -76,14 +74,14 @@ PowerShell 갤러리는 여기: https://www.powershellgallery.com/packages/Az.Ap
 
 원격 분석 보기:
 
-* [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md) 성능 모니터링을 사용 합니다.
-* [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md) 문제를 진단 합니다.
-* [Analytics를 사용 하 여](../../azure-monitor/app/analytics.md) 자세한 고급 쿼리 합니다.
-* [대시보드를 만들](../../azure-monitor/app/overview-dashboard.md)합니다.
+* [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md) 하 여 성능 및 사용량을 모니터링 합니다.
+* [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
+* 고급 쿼리를 위해 [분석을 사용](../../azure-monitor/app/analytics.md) 합니다.
+* [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
 
 원격 분석 더 추가:
 
-* [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되도록 합니다.
-* [웹 클라이언트 원격 분석 추가](../../azure-monitor/app/javascript.md) 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-* [코드에 Application Insights SDK 추가](../../azure-monitor/app/asp-net.md) 추적을 삽입 하 고 호출을 기록할 수 있도록 합니다.
+* [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되는지 확인 합니다.
+* 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
+* 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
 

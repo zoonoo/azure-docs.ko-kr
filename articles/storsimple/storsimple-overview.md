@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
-ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: timlt
+ms.openlocfilehash: 5a3800cfdf36bdc2e042eec860310a508204ba11
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630209"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876447"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
 ## <a name="overview"></a>개요
@@ -58,7 +58,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 * **StorSimple 디바이스 관리자 서비스** – 단일 웹 인터페이스에서 StorSimple 디바이스 또는 StorSimple Cloud Appliance를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple 디바이스 관리자 서비스를 사용하여 서비스를 만들고 관리하고, 디바이스를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 * **StorSimple용 Windows PowerShell** – StorSimple 디바이스를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 디바이스를 등록하고, 디바이스에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 디바이스 문제를 해결하고 디바이스 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 * **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0#azure)를 참조하세요.
-* **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다.
+* **StorSimple Snapshot Manager** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다.
 * **SharePoint용 StorSimple 어댑터** – SharePoint 중앙 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
 아래 다이어그램은 Microsoft Azure StorSimple 아키텍처 및 구성 요소에 대한 상위 레벨 보기를 제공합니다.
@@ -205,17 +205,17 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 ## <a name="storsimple-workload-summary"></a>StorSimple 워크로드 요약
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-| 시나리오 | 워크로드 | 지원됨 | 제한 | Version |
+| 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
 | 협업 |파일 공유 |예 | |모든 버전 |
-| 협업 |분산 파일 공유 |예 | |모든 버전 |
-| 협업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
+| 공동 작업 |분산 파일 공유 |예 | |모든 버전 |
+| 공동 작업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 보관 |단순 파일 보관 |예 | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
-| Backup |기본 대상 백업 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 3 이상 |
-| Backup |보조 대상 백업 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 3 이상 |
+| 백업 |기본 대상 백업 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 3 이상 |
+| 백업 |보조 대상 백업 |예* |StorSimple 디바이스가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 3 이상 |
 
 *예&#42; - 솔루션 지침 및 제한 사항이 적용됩니다.*
 
@@ -232,7 +232,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 다음은 StorSimple 지원 인프라 구성 요소의 목록입니다.
 
-| 시나리오 | 워크로드 | 지원됨 | 제한 | Version |
+| 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
 | 일반 |Express 경로 |예 | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
@@ -249,13 +249,13 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 | Backup 대상 |Veeam |Veeam v 9 이상 |[Veaam에서 백업 대상인 StorSimple](storsimple-configure-backup-target-veeam.md)|
 | Backup 대상 |Veritas Backup Exec |Backup Exec 16 이상 |[Backup Exec에서 백업 대상으로 StorSimple 구성](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup 대상 |Veritas NetBackup |NetBackup 7.7.x 이상  |[NetBackup에서 백업 대상인 StorSimple](storsimple-configure-backuptarget-netbackup.md)|
-| 전역 파일 공유 <br></br> 협업 |Talon  |[Talon을 사용하는 StorSimple](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| 전역 파일 공유 <br></br> 공동 작업 |Talon  |[Talon을 사용하는 StorSimple](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple 용어
 Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정의를 검토하는 것이 좋습니다.
 
 ### <a name="key-terms-and-definitions"></a>주요 용어 및 정의
-| 용어(머리글자어 또는 약어) | 설명 |
+| 용어(머리글자어 또는 약어) | Description |
 | --- | --- |
 | 액세스 제어 레코드(ACR) |연결할 수 있는 호스트를 결정하는, Microsoft Azure StorSimple 디바이스의 볼륨과 연결된 레코드입니다. 이 결정은 StorSimple 디바이스에 연결하는 호스트의 IQN(iSCSI 정규화된 이름)(ACR에 포함됨)을 기반으로 합니다. |
 | AES-256 |클라우드에 출입할 때 데이터를 암호화하기 위한 256비트 AES(Advanced Encryption Standard) 알고리즘입니다. |
