@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916754"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312087"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -45,12 +45,14 @@ ms.locfileid: "64916754"
 NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 세계에 모든 곳에 있는 네트워크와 애플리케이션 간의 연결을 모니터링할 수 있습니다.
 * 서유럽
 * 미국 중서부
-* 미국 동부
+* East US
 * 일본 동부
 * 동남아시아
 * 오스트레일리아 동남부
 * 영국 남부
+* 인도 중부
 * 미국 버지니아 주 정부
+
 
 ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)에 제공됩니다.
 
@@ -59,7 +61,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-기본 프로세스에서 에이전트를 설치 하는 데 [Azure Monitor에 연결 하는 Windows 컴퓨터](../platform/agent-windows.md) 하 고 [Azure Monitor에 Operations Manager 연결](../platform/om-agents.md)합니다.
+기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor에](../platform/agent-windows.md) 에이전트를 설치 하 고 [Operations Manager Azure Monitor에 연결](../platform/om-agents.md)합니다.
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
@@ -83,7 +85,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
 
     >[!NOTE]
-    > 실행할 필요가 합니다 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) 서비스 연결 모니터에 대 한 PowerShell 스크립트입니다.
+    > 서비스 연결 모니터에 대해 [Enablerules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
 
     
 
@@ -101,7 +103,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. 에 설명 된 프로세스를 사용할 수도 있습니다 [솔루션 갤러리에서 Azure Monitor 추가 솔루션](../../azure-monitor/insights/solutions.md)합니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3. 솔 *루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 
@@ -117,15 +119,15 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
    ![서비스 연결 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute 모니터**: **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 개인 피어링을 검색합니다. 
+   **ExpressRoute 모니터**: **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 프라이빗 피어링을 검색합니다. 
 
    ![ExpressRoute 모니터 보기](media/network-performance-monitor/npm-express-route.png)
 
-   검색이 완료 되 면 검색 된 회로 및 피어 링을 테이블에 나열 됩니다. 
+   검색이 완료 되 면 검색 된 회로 및 피어 링이 표에 나열 됩니다. 
 
    ![네트워크 성능 모니터 구성 페이지](media/network-performance-monitor/npm-private-peerings.png)
     
-이러한 회로 및 피어 링에 대 한 모니터링은 처음에 사용할 수 없는 상태입니다. 모니터링 하려는 각 리소스를 선택 하 고 오른쪽에서 세부 정보 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
+이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
 설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
@@ -146,7 +148,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 1. 모니터링하거나 모니터링을 중지하려는 노드를 선택 또는 선택 취소합니다. 
 2. 필요에 맞게 **모니터링에 사용**을 선택하거나 선택 취소합니다. 
-3. **저장**을 선택합니다. 
+3.           **저장**을 선택합니다. 
 
 
 원하는 기능 구성:
@@ -168,7 +170,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
  
 
  
-이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터는 Azure Monitor에서 Log Analytics 작업 영역에 업로드 되기 전에 에이전트가 약 3 분 동안 집계 됩니다.
+이 솔루션은 가상 트랜잭션을 사용하여 네트워크 상태를 평가합니다. 네트워크의 다양한 지점에 설치된 Log Analytics 에이전트는 TCP 패킷 또는 ICMP Echo를 서로 교환합니다. 에이전트가 TCP 패킷을 사용할지 또는 ICMP Echo를 사용할지는 모니터링을 위해 선택한 프로토콜에 따라 달라집니다. 이 과정에서 에이전트는 왕복 시간과 패킷 손실(있는 경우)을 확인합니다. 또한 각 에이전트는 다른 에이전트에 대해 정기적으로 추적 경로를 수행하여 네트워크에서 테스트가 필요한 다양한 경로를 모두 찾아냅니다. 에이전트는 이 데이터를 사용하여 네트워크 대기 시간 및 패킷 손실 수치를 추론할 수 있습니다. 테스트는 5초마다 반복됩니다. 데이터는 에이전트가 Azure Monitor의 Log Analytics 작업 영역에 업로드 되기 전에 약 3 분 동안 집계 됩니다.
 
 
 
@@ -241,29 +243,29 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 ![토폴로지 맵](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리
+## <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
 
-모든 데이터는 네트워크 성능 모니터 대시보드를 통해 그래픽으로 노출 하 고 드릴 다운 페이지를 고유 하 게 제공 됩니다 [쿼리를 로깅](../log-query/log-query-overview.md)합니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
+네트워크 성능 모니터 대시보드 및 드릴 다운 페이지를 통해 그래픽으로 노출 되는 모든 데이터는 [로그 쿼리에서](../log-query/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>,
 
 네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
 
-즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
+즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용하여 관리됩니다.  
 
 Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
-1. Azure portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
+1. Azure Portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
 2. 네트워크 성능 모니터 솔루션 타일을 클릭합니다. 
 3. [구성]으로 이동합니다.  
 4. 경고를 만들려는 테스트를 선택하고 아래에 설명된 단계를 따릅니다.
 
-Azure portal 통해 경고를 만드는 NPM 사용자 인 경우:  
+Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
 2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
-경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 트리거되는이 쿼리는 기본적으로 5 분 마다입니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.
+경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5 분 마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.
 알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 별도로 청구됩니다.
 
 
