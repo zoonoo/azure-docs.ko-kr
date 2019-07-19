@@ -10,32 +10,32 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752940"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876419"
 ---
-# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>로드 하 고 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 읽거나
-이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법을 알아봅니다.  SDK는 다음을 비롯한 여러 데이터 수집 기능을 지원합니다.
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터 로드 및 읽기
+이 문서에서는 Azure Machine Learning Data Prep SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법에 대해 알아봅니다.  SDK는 다음을 비롯한 여러 데이터 수집 기능을 지원합니다.
 
 * 구문 분석 매개 변수 유추(인코딩, 구분 기호, 헤더)를 사용하여 다양한 파일 형식에서 로드
 * 파일 로드 동안 유추를 사용한 형식 변환
 * MS SQL Server 및 Azure Data Lake Storage에 대한 연결 지원
 
 > [!Important]
-> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)는 데이터 탐색 및 준비 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
-> 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
+> 새 솔루션을 빌드하는 경우 데이터 탐색 및 준비를 위해 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)을 사용해 보세요. 데이터 집합은 AI 솔루션의 데이터 집합을 관리 하기 위한 확장 된 기능을 제공 하는 다음 버전의 데이터 준비 SDK입니다.
 
-다음 표에서 다양 한 일반적인 파일 형식에서 데이터를 로드 하기 위한 사용 되는 함수를 보여 줍니다.
+
+다음 표에서는 일반 파일 형식에서 데이터를 로드 하는 데 사용 되는 함수를 선택 하는 방법을 보여 줍니다.
 
 | 파일 형식 | 함수 | 참조 링크 |
 |-------|-------|-------|
-|모두|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
-|Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
+|임의의 값|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|텍스트|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |고정 폭|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
@@ -57,7 +57,7 @@ dflow = dprep.auto_read_file(path='./data/any-file.txt')
 * 파일 맨 위에 있는 빈 레코드 건너뛰기
 * 머리글 행 유추 및 설정
 
-또는 미리 입력 하 고 구문을 분석 하는 방식으로 명시적으로 제어 하려면 파일을 알고 있는 경우 파일에 관한 함수를 사용 합니다.
+또는 미리 파일 형식을 확인 하 고 구문 분석 방법을 명시적으로 제어 하려는 경우에는 파일 특정 함수를 사용 합니다.
 
 ## <a name="load-text-line-data"></a>텍스트 줄 데이터 로드
 
@@ -68,7 +68,7 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||줄|
+||선|
 |----|-----|
 |0|날짜 \|\| 최소 온도 \|\| 최대 온도|
 |1|2015-07-1 \|\|  -4.1 \|\|  10.0|
@@ -93,8 +93,8 @@ dflow.head(5)
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|1|앨라배마|1|101710|Hale County|10171002158| |
-|2|앨라배마|1|101710|Hale County|10171002162| |
+|1|ALABAMA|1|101710|Hale County|10171002158| |
+|2|ALABAMA|1|101710|Hale County|10171002162| |
 
 
 로드하는 동안 줄을 제외하려면 `skip_rows` 매개 변수를 정의합니다. 이 매개 변수는 CSV 파일에서 내림차순으로(1부터 시작하는 인덱스 사용) 행 로드를 건너뜁니다.
@@ -107,15 +107,15 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|앨라배마|1|101710|Hale County|10171002158|29|
-|1|앨라배마|1|101710|Hale County|10171002162|40 |
+|0|ALABAMA|1|101710|Hale County|10171002158|29|
+|1|ALABAMA|1|101710|Hale County|10171002162|40 |
 
 다음 코드를 실행하여 열 데이터 형식을 표시합니다.
 
 ```python
 dflow.dtypes
 ```
-출력
+출력:
 
     stnam                     object
     fipst                     object
@@ -128,13 +128,13 @@ dflow.dtypes
 
 기본적으로 Azure Machine Learning Data Prep SDK는 사용자의 데이터 형식을 변경하지 않습니다. 읽고 있는 데이터 원본은 텍스트 파일이므로 SDK는 모든 값을 문자열로 읽습니다. 예를 들어, 숫자 열은 번호로 구문 분석해야 합니다. `inference_arguments` 매개 변수를 `InferenceArguments.current_culture()`로 설정하여 파일 읽기 동안 열 형식을 자동으로 유추하고 변환합니다.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
 dflow.dtypes
 ```
-출력
+출력:
 
     stnam                      object
     fipst                     float64
@@ -162,7 +162,7 @@ dflow.head(5)
 |0|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
 |1|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
 |2|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
-|3|순위|제목|Studio|전 세계|국내 / %|열1|해외 / %|열2|연도 ^| |
+|3|RANK|제목|스튜디오|전 세계|국내 / %|열1|해외 / %|열2|연도 ^| |
 |4|1|아바타|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 출력은 두 번째 시트의 데이터에서 머리글 앞의 3개 행이 비어 있음을 보여줍니다. `read_excel()` 함수는 행을 건너뛰고 헤더를 사용하기 위한 선택적 매개 변수를 포함합니다. 다음 코드를 실행하여 처음 세 개의 행을 건너뛰고 네 번째 행을 머리글로 사용합니다.
@@ -171,14 +171,14 @@ dflow.head(5)
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||순위|제목|Studio|전 세계|국내 / %|열1|해외 / %|열2|연도 ^|
+||RANK|제목|스튜디오|전 세계|국내 / %|열1|해외 / %|열2|연도 ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|아바타|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|타이타닉|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
 
 ## <a name="load-fixed-width-data-files"></a>고정 너비 데이터 파일 로드
 
-고정 너비 파일을 로드 하려면 문자 오프셋의 목록을 지정할 수 있습니다. 첫 번째 열은 항상 0 오프셋에서 시작한다고 가정합니다.
+고정 너비 파일을 로드 하려면 문자 오프셋 목록을 지정 합니다. 첫 번째 열은 항상 0 오프셋에서 시작한다고 가정합니다.
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -207,7 +207,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 ## <a name="load-sql-data"></a>SQL 데이터 로드
 
-SDK는 SQL 원본에서 데이터를 로드할 수도 있습니다. 현재 Microsoft SQL Server만 지원됩니다. SQL server에서 데이터를 읽을 만들려면를 [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) 연결 매개 변수를 포함 하는 개체입니다. 암호 매개 변수 `MSSQLDataSource` 허용 된 [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) 개체입니다. 다음 두 가지 방법으로 비밀 개체를 빌드할 수 있습니다.
+SDK는 SQL 원본에서 데이터를 로드할 수도 있습니다. 현재 Microsoft SQL Server만 지원됩니다. SQL server에서 데이터를 읽으려면 연결 매개 변수를 [`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) 포함 하는 개체를 만듭니다. 의 `MSSQLDataSource` password 매개 변수는 개체 [`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) 를 허용 합니다. 다음 두 가지 방법으로 비밀 개체를 빌드할 수 있습니다.
 
 * 실행 엔진을 사용하여 비밀 및 해당 값을 등록합니다.
 * `dprep.create_secret("[SECRET-ID]")`를 사용하여 `id`만 있는 비밀을 만듭니다(비밀 값이 실행 환경에 이미 등록되어 있는 경우).
@@ -228,11 +228,11 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|이름|ProductNumber|색|StandardCost|ListPrice|크기|무게|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|이름|ProductNumber|색|StandardCost|ListPrice|크기|Weight|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
-|0|680|HL Road Frame - Black, 58|FR-R92B-58|검은색|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
-|1|706|HL Road Frame - Red, 58|FR-R92R-58|빨간색|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
-|2|707|Sport-100 Helmet, Red|HL-U509-R|빨간색|13.0863|34.99|없음|없음|35|33|2005-07-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
+|0|680|HL Road Frame - Black, 58|FR-R92B-58|검정|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
+|1|706|HL Road Frame - Red, 58|FR-R92R-58|빨강|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
+|2|707|Sport-100 Helmet, Red|HL-U509-R|빨강|13.0863|34.99|없음|없음|35|33|2005-07-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
 
 
 ## <a name="use-azure-data-lake-storage"></a>Azure Data Lake Storage 사용
@@ -294,7 +294,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>OAuth 액세스 토큰 획득
 
-`adal` 패키지를 사용하여(`pip install adal`) MSFT 테넌트에서 인증 컨텍스트를 만들고 OAuth 액세스 토큰을 획득합니다. ADLS에 대 한 토큰 요청에 리소스에 대 한 있어야 ' https:\//datalake.azure.net', 대부분의 다른 Azure 리소스와에서는 달리 합니다.
+`adal` 패키지를 사용하여(`pip install adal`) MSFT 테넌트에서 인증 컨텍스트를 만들고 OAuth 액세스 토큰을 획득합니다. ADLS의 경우 토큰 요청의 리소스는 ' https:\//datalake.azure.net '에 대 한 것 이어야 합니다 .이는 대부분의 다른 azure 리소스와 다릅니다.
 
 ```python
 import adal
@@ -306,7 +306,7 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|웹 사이트|street|city|군|
+||FMID|MarketName|웹 사이트|street|city|국가|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||댄빌|칼레도니아|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|파르마|카이어호가|
@@ -316,4 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Machine Learning 데이터 준비 SDK 참조 [자습서](tutorial-data-prep.md) 특정 시나리오를 해결 하는 예
+* 특정 시나리오를 해결 하는 방법에 대 한 예제는 데이터 준비 SDK [자습서](tutorial-data-prep.md) Azure Machine Learning를 참조 하세요.

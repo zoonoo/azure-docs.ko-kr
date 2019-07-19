@@ -1,5 +1,5 @@
 ---
-title: Java JMS Service Bus API와 함께 AMQP 1.0을 사용 하는 방법 | Microsoft Docs
+title: Java JMS Service Bus API에서 AMQP 1.0를 사용 하는 방법 | Microsoft Docs
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310964"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318451"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -51,7 +51,7 @@ Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 A
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
 JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 확인되는 두 가지 유형의 JMS 개체는 ConnectionFactory 및 Destination입니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
-```
+```TEXT
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
@@ -301,7 +301,7 @@ public class JmsQueueQuickstart {
 공유 액세스 정책의 **연결 문자열**을 전달하여 애플리케이션을 실행합니다.
 애플리케이션을 실행하면 다음과 같은 양식 출력이 표시됩니다.
 
-```
+```Output
 > mvn clean package
 >java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
 
@@ -333,7 +333,7 @@ Closing queue client.
 ## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>AMQP 처리 및 Service Bus 작업 매핑
 다음은 AMQP 처리가 Service Bus 작업으로 변환되는 방법입니다.
 
-```
+```Output
 ACCEPTED = 1; -> Complete()
 REJECTED = 2; -> DeadLetter()
 RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS 항목 vs입니다. Service Bus 토픽
-Azure Service Bus 토픽 및 구독을 통해 메시지 서비스 JMS (Java) API 사용 하 여 기능을 수신 및 기본 송신을 제공 합니다. Service Bus 토픽 JMS 항목 다르며 몇 조정이 필요한 경우에 Api 준수 하는 JMS 사용 하 여 다른 메시지 broker에서 응용 프로그램을 이식 하는 경우 편리 하 게 선택 하는 것입니다. 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 토픽 및 Service Bus 토픽
+JMS (Java Message Service) API를 통해 Azure Service Bus 토픽 및 구독을 사용 하면 기본 송신 및 수신 기능이 제공 됩니다. Jms 규격 Api를 사용 하 여 다른 메시지 브로커의 응용 프로그램을 이식 하는 경우에는 Service Bus 항목이 JMS 항목과 다르며 몇 가지 조정이 필요 하더라도 편리 합니다. 
 
-Azure Service Bus 토픽 인터페이스를 통해 Azure 리소스 관리, Azure 명령줄 도구 또는 Azure portal을 통해 관리 되는 구독을 명명 된, 공유, 지 속성으로 메시지를 라우팅합니다. 각 구독에 필터 조건을 포함할 수는 각각 최대 2000 개의 선택 규칙 및 SQL 필터, 메타 데이터 변환 작업을 수도 있습니다. 각 필터 조건 일치 tehj 구독을 복사할 수는 입력된 메시지를 선택 합니다.  
+Azure Service Bus 항목은 Azure 리소스 관리 인터페이스, Azure 명령줄 도구 또는 Azure Portal를 통해 관리 되는 명명 된 공유 및 지 속성 구독으로 메시지를 라우팅합니다. 각 구독은 최대 2000 개의 선택 규칙을 허용 합니다. 각 규칙에는 필터 조건이 있고 SQL 필터의 경우 메타 데이터 변환 동작도 있습니다. 각 필터 조건 일치는 tehj subscription으로 복사할 입력 메시지를 선택 합니다.  
 
-구독에서 메시지를 수신 하는 것은 동일한 큐에서 메시지를 수신 합니다. 각 구독에 자동으로 다른 큐 또는 토픽에 메시지를 전달 하는 기능 뿐만 아니라 연결 된 배달 못 한 편지 큐를 있습니다. 
+구독에서 메시지를 받는 것은 큐에서 메시지를 수신 하는 것과 동일 합니다. 각 구독에는 연결 된 배달 못 한 편지 큐가 있고 메시지를 다른 큐 나 항목에 자동으로 전달 하는 기능이 있습니다. 
 
-항목에서는 JMS 클라이언트에서 동적으로 필요에 따라 메시지 선택기를 사용 하 여 필터링 되는 메시지를 허용 하는 영구 및 비영구 구독자를 만들 수를 허용 합니다. Service Bus에서 공유 되지 않는 이러한 엔터티를 사용 하는 것이 없습니다. 그러나 Service Bus에 대 한 SQL 필터 규칙 구문을 JMS에서 지 원하는 메시지 선택기 구문은 매우 비슷합니다. 
+JMS 토픽을 사용 하면 클라이언트가 메시지 선택기를 사용 하 여 메시지를 필터링 할 수 있도록 지 속성 및 내구성 있는 구독자를 동적으로 만들 수 있습니다. 이러한 공유 되지 않는 엔터티는 Service Bus 지원 되지 않습니다. 그러나 Service Bus의 SQL 필터 규칙 구문은 JMS에서 지 원하는 메시지 선택기 구문과 매우 유사 합니다. 
 
-이 샘플에 표시 된 대로 JMS 항목 게시자 쪽은 Service Bus와 호환 되지만 동적 구독자 없습니다. Service Bus를 사용 하 여 다음과 같은 토폴로지 관련 JMS Api는 사용 하는 것이 없습니다. 
+JMS 토픽 게시자 쪽은이 샘플에 표시 된 것 처럼 Service Bus와 호환 되지만 동적 구독자는 그렇지 않습니다. 다음 토폴로지 관련 JMS Api는 Service Bus에서 지원 되지 않습니다. 
 
 ## <a name="unsupported-features-and-restrictions"></a>지원되지 않는 기능 및 제한
 Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.

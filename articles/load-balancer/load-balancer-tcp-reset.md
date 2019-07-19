@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 유휴 시간 초과 시 양방향 TCP RST 패킷이 포함된 Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413853"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274149"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "65413853"
 ![Load Balancer TCP 재설정](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->TCP 유휴 시간 제한 기능 재설정을 사용 하 여 load Balancer는이 이번에 공개 미리 보기로 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>유휴 시간 제한 기능에서 TCP 재설정을 사용 하는 Load Balancer은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
  
 이 기본 동작을 변경하고 인바운드 NAT 규칙, 부하 분산 규칙 및 [아웃바운드 규칙](https://aka.ms/lboutboundrules)에서 유휴 시간 초과 시 TCP 재설정 보내기를 사용하도록 설정합니다.  규칙에서 사용하도록 설정하면 Load Balancer는 모든 일치 흐름의 유휴 시간 초과 시 클라이언트 및 서버 엔드포인트 둘 다에 양방향 TCP 재설정(TCP RST 패킷)을 보냅니다.
 
@@ -74,7 +74,7 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 ## <a name="limitations"></a>제한 사항
 
 - 포털은 TCP 재설정을 구성하거나 보는 데 사용할 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
-- TCP RST만 설정 되었음 상태의 TCP 연결 하는 동안 전송 됩니다.
+- Tcp RST 설정 된 상태에서 TCP 연결 중에만 전송 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

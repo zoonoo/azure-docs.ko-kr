@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061207"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226833"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 사용 하 여 [자동으로 계측 요청, 종속성 추적 및 수집 성능 카운터](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고 [코드를 작성할] [ api] 앱을 사용 하 여 사용자가 수행할 추적 합니다. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집](auto-collect-dependencies.md#java)하 고, 성능 문제 및 예외를 진단 [하 고,][api] 앱을 사용 하 여 사용자가 수행 하는 작업을 추적 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
@@ -91,7 +91,7 @@ Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Eclipse를 사용하여 동적 웹 프로젝트를 만드는 경우...
-[Java 플러그인용 Application Insights SDK][eclipse]를 사용합니다. 참고: 이 플러그 인을 사용하여 Application insights를 신속하게 실행하더라도(Maven/Gradle을 사용하지 않는다고 가정함)종속성 관리 시스템이 아닙니다. 이와 같이 플러그 인을 업데이트하더라도 프로젝트에 Application Insights 라이브러리를 자동으로 업데이트하지 않습니다.
+[Java 용 APPLICATION INSIGHTS SDK 플러그][eclipse]인을 사용 합니다. 참고: 이 플러그 인을 사용하여 Application insights를 신속하게 실행하더라도(Maven/Gradle을 사용하지 않는다고 가정함)종속성 관리 시스템이 아닙니다. 이와 같이 플러그 인을 업데이트하더라도 프로젝트에 Application Insights 라이브러리를 자동으로 업데이트하지 않습니다.
 
 * *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `version:'2.0.n'`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트하려면* 프로젝트의 종속성을 새로 고칩니다.
@@ -169,6 +169,8 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+[라이브 메트릭은](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 코드에서 계측 키를 읽는 것을 지원 하지 않습니다.
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
@@ -310,7 +312,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 차트를 클릭하면 더 자세한 집계된 메트릭을 볼 수 있습니다.
 
-![차트를 사용 하 여 application Insights 오류 창](./media/java-get-started/006-barcharts.png)
+![차트를 사용 하 여 Application Insights 오류 창](./media/java-get-started/006-barcharts.png)
 
 > Application Insights는 MVC 애플리케이션에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 >
@@ -319,7 +321,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ### <a name="instance-data"></a>인스턴스 데이터
 특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
 
-![특정 샘플 보기로 드릴](./media/java-get-started/007-instance.png)
+![특정 샘플 뷰로 드릴](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
 더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../../azure-monitor/app/analytics.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
@@ -342,9 +344,9 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (스프링 부팅)
 
-Windows에서 실행 중인 spring Boot 앱에는 Azure App Service에서 실행 하려면 추가 구성이 필요 합니다. 수정할 **web.config** 다음 줄을 추가 합니다.
+Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **Web.config** 를 수정 하 고 다음을 추가 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,11 +362,11 @@ Windows에서 실행 중인 spring Boot 앱에는 Azure App Service에서 실행
 ```
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
-처리 되지 않은 예외를 자동으로 수집 됩니다.
+처리 되지 않은 예외가 자동으로 수집 됩니다.
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 trackException()에 대한 호출을 삽입합니다][apiexceptions].
+* [코드에 대 한 호출을 코드에 삽입][apiexceptions]합니다.
 * [서버에 Java 에이전트를 설치합니다](java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
@@ -379,9 +381,9 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
 ## <a name="performance-counters"></a>성능 카운터
-오픈 **조사**를 **메트릭**성능 카운터의 범위를 참조 하세요.
+**조사**, **메트릭**을 열고 다양 한 성능 카운터를 확인 합니다.
 
-![선택한 프로세스 전용 바이트를 사용 하 여 메트릭 창 스크린샷](./media/java-get-started/011-perf-counters.png)
+![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
 성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
@@ -434,51 +436,27 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 ### <a name="unix-performance-counters"></a>Unix 성능 카운터
 * [Application Insights 플러그 인과 함께 collectd를 설치](java-collectd.md) 하여 광범위한 시스템 및 네트워크 데이터를 얻을 수 있습니다.
 
-## <a name="local-forwarder"></a>로컬 전달자
-
-[로컬 전달자](https://docs.microsoft.com/azure/application-insights/local-forwarder)는 다양한 SDK 및 프레임워크에서 Application Insights 또는 [OpenCensus](https://opencensus.io/) 원격 분석을 수집하고 Application Insights로 경로를 지정하는 에이전트입니다. Windows 및 Linux에서 실행할 수 있습니다.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-SpringBoot 스타터를 사용하는 경우 구성 파일(application.properties)에 다음을 추가합니다.
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-기본값은 SpringBoot application.properties 및 applicationinsights.xml 구성에 모두 동일합니다.
-
 ## <a name="get-user-and-session-data"></a>사용자 및 세션 데이터 가져오기
 이제 웹 서버에서 원격 분석을 보내려 합니다. 애플리케이션을 전체적으로 파악하기 위해 모니터링을 추가할 수 있습니다.
 
-* [웹 페이지에 원격 분석을 추가][usage]하여 페이지 보기 및 사용자 메트릭을 모니터링합니다.
-* [웹 테스트를 설정][availability]하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
+* [웹 페이지에 원격 분석을 추가][usage] 하여 페이지 보기 및 사용자 메트릭을 모니터링합니다.
+* [웹 테스트를 설정][availability] 하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 
 ## <a name="capture-log-traces"></a>로그 추적 캡처
-Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레임워크에서 로그를 분리 및 분할할 수 있습니다. HTTP 요청 및 기타 원격 분석과 로그를 연관지을 수 있습니다. [방법을 알아봅니다][javalogs].
+Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레임워크에서 로그를 분리 및 분할할 수 있습니다. HTTP 요청 및 기타 원격 분석과 로그를 연관지을 수 있습니다. [방법을 알아보세요][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>사용자 고유의 원격 분석 전송
 이제 SDK를 설치한 했으므로 API를 사용하여 사용자 고유의 원격 분석을 전송할 수 있습니다.
 
-* [사용자 지정 이벤트 및 메트릭을 추적][api]하여 사용자가 애플리케이션으로 수행하는 것을 알아볼 수 있습니다.
+* 사용자 [지정 이벤트 및 메트릭을 추적][api] 하 여 사용자가 응용 프로그램으로 수행 하는 작업을 알아보세요.
 * [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 
 ## <a name="availability-web-tests"></a>가용성 웹 테스트
 Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다.
 
-[가용성 웹 테스트를 설정 하는 방법을 자세히 알아봅니다.][availability]
+[가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

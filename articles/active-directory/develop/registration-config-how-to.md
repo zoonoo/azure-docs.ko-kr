@@ -1,5 +1,5 @@
 ---
-title: 지정된 API에 대한 사용 권한을 선택하는 방법 | Microsoft Docs
+title: 끝점 구성 | Microsoft Docs
 description: 개발 중이거나 Azure AD에 등록 중인 사용자 지정 애플리케이션의 인증 엔드포인트를 찾는 방법입니다.
 services: active-directory
 documentationcenter: ''
@@ -7,20 +7,21 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcfeec7e90f1c582a11889619811330bcf488bbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6547266b92cbeee2754871d4cdca7a2de261fc8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545908"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325360"
 ---
 # <a name="how-to-configure-endpoints"></a>엔드포인트 구성 방법
 

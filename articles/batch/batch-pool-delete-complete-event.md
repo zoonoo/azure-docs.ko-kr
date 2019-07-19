@@ -3,7 +3,7 @@ title: Azure Batch 풀 삭제 완료 이벤트 | Microsoft Docs
 description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd32554866d1e2130fd0833adc1b286fb6bc07a5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775766"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323235"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
 
@@ -33,7 +33,7 @@ ms.locfileid: "60775766"
 }
 ```
 
-|요소|형식|메모|
+|요소|형식|참고|
 |-------------|----------|-----------|
 |id|String|풀의 ID입니다.|
 |startTime|DateTime|풀 삭제가 시작된 시간입니다.|

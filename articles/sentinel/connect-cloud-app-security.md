@@ -1,6 +1,6 @@
 ---
-title: Cloud App Security 데이터 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
-description: Cloud App Security 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
+title: Azure 센티널 Preview에 Cloud App Security 데이터 연결 | Microsoft Docs
+description: Azure 센티널에 Cloud App Security 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4e75c9003103e267e864a98c7ee5c1bef2176bae
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92de4120d73af70c5de013488344a15ba46513c7
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612402"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881077"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
@@ -28,7 +28,7 @@ ms.locfileid: "67612402"
 > Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-로그를 스트리밍하려면 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) 번의 클릭으로 Azure Sentinel에 있습니다. 이 연결을 통해 Azure Sentinel에 Cloud App Security에서 경고를 스트리밍할 수 있습니다. 
+한 번의 클릭으로 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) 에서 Azure 센티널로 로그를 스트리밍할 수 있습니다. 이 연결을 통해 Cloud App Security에서 Azure 센티널로 경고를 스트리밍할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -36,18 +36,18 @@ ms.locfileid: "67612402"
 
 ## <a name="connect-to-cloud-app-security"></a>Cloud App Security에 연결
 
-Cloud App Security에 이미 있는 경우 인지 확인 [네트워크에서 사용 하도록 설정](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)합니다.
-Cloud App Security 배포 되 고 데이터를 수집, 경고 데이터를 쉽게 수행할 수 있으면 Azure Sentinel로 스트림할 수 있습니다.
+Cloud App Security 이미 있는 경우 [네트워크에서 사용 하도록 설정](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)되었는지 확인 합니다.
+Cloud App Security 배포 하 고 데이터를 수집 경고 데이터를 Azure 센티널로 쉽게 스트리밍할 수 있습니다.
 
 
-1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Cloud App Security** 바둑판식으로 배열 합니다.
+1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Cloud App Security** 타일을 클릭 합니다.
 
 2. **연결**을 클릭합니다.
 
-3. Log Analytics에서 관련 스키마를 사용 하 여 Cloud App Security 경고, 검색 **SecurityAlert**합니다.
+3. Cloud App Security 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 Microsoft Cloud App Security를 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+이 문서에서는 Microsoft Cloud App Security를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.

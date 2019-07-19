@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: jdial
-ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: jeconnoc
+ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425415"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872448"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
 
@@ -49,9 +49,9 @@ ms.locfileid: "60425415"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 해야 Azure PowerShell 모듈 버전 1.0.0 이상. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure에 로그인해야 합니다.
 
-사용 하 여 제한에 대해 사용량을 볼 [Get AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)합니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
+[AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)를 사용 하 여 제한에 대 한 사용량을 확인 하세요. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

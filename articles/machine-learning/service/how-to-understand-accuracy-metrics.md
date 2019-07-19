@@ -1,34 +1,44 @@
 ---
-title: 자동화 된 기계 학습의 정확도 메트릭 학습
+title: 자동화 된 ML에서 정확도 메트릭 학습
 titleSuffix: Azure Machine Learning service
-description: 각 프로그램 실행에 대 한 정확도 메트릭을 학습 하는 자동화 된 컴퓨터에 알아봅니다.
+description: 각 실행에 대 한 자동화 된 기계 학습 정확도 메트릭에 대해 알아봅니다.
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313276"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297906"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>메트릭 사용 하 여 자동화 된 기계 학습에서 학습 정확도 평가 합니다.
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>메트릭을 사용 하 여 자동화 된 ML의 학습 정확도 평가
 
-여러 가지 방법으로 각 실행된 반복에 대 한 학습 정확도 메트릭을 볼 수 있습니다.
+이 문서에서는 Azure Machine Learning의 자동화 된 ml 모델에 사용할 수 있는 다양 한 메트릭에 대해 알아봅니다. 
 
-* 사용 하 여 [Jupyter 위젯](how-to-track-experiments.md#view-run-details)
-* 사용 하 여 [는 `get_metrics()` 함수](how-to-track-experiments.md#query-run-metrics) 에서 `Run` 개체
-* 보기 [Azure portal에서 실험 메트릭](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+여러 가지 방법으로 각 실행 반복의 학습 정확도 메트릭을 볼 수 있습니다.
+* [Jupyter 위젯](how-to-track-experiments.md#view-run-details) 사용
+* 모든`Run` 개체에서 [ 함수사용`get_metrics()` ](how-to-track-experiments.md#query-run-metrics)
+* [Azure Portal의 실험 메트릭](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal) 보기
+
+## <a name="prerequisites"></a>필수 구성 요소
+ 
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+ 
+* SDK 또는 Azure Portal에서 자동화 된 machine learning 실험을 만듭니다.
+ 
+    * SDK를 사용 하 여 [분류 모델](how-to-auto-train-remote.md) 또는 [회귀 모델](tutorial-auto-train-models.md) 작성
+    * 적절 한 데이터를 업로드 하 여 분류 또는 회귀 모델을 만들려면 [Azure Portal](how-to-create-portal-experiments.md) 를 사용 합니다.
 
 ## <a name="classification-metrics"></a>분류 메트릭
 
-다음 메트릭은 분류 작업에 대 한 실행된 각 반복에 저장 됩니다.
+다음 메트릭은 분류 태스크에 대 한 각 실행 반복에 저장 됩니다.
 
-|메트릭|설명|계산|추가 매개 변수
+|메트릭|Description|계산|추가 매개 변수
 --|--|--|--|
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Micro(마이크로)는 각 클래스의 참 긍정과 거짓 긍정을 결합하여 전역적으로 컴퓨팅됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -53,7 +63,7 @@ weighted_accuracy|Weighted accuracy(가중 정확도)는 각 예제에 제공된
 
 ## <a name="regression-and-forecasting-metrics"></a>회귀 및 예측 메트릭
 
-다음 메트릭은 회귀 또는 예측 작업에 대 한 실행된 각 반복에 저장 됩니다.
+회귀 또는 예측 작업에 대해 각 실행 반복에 다음 메트릭이 저장 됩니다.
 
 |메트릭|설명|계산|추가 매개 변수
 --|--|--|--|
@@ -68,3 +78,7 @@ root_mean_squared_error|Root mean squared error(제곱 평균 오차)는 목표�
 normalized_root_mean_squared_error|Normalized root mean squared error(정규화된 제곱 평균 오차)는 제곱 평균 오차를 데이터 범위로 나눈 것입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|데이터 범위로 나누기|
 root_mean_squared_log_error|Root mean squared log error(제곱 평균 로그 오차)는 예상 제곱 로그 오차의 제곱근입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|없음|
 normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(정규화된 제곱 평균 로그 오차)는 제곱 평균 로그 오차를 데이터 범위로 나눈 것입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|데이터 범위로 나누기|
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Machine Learning에서 [자동화 된 ml](concept-automated-ml.md) 에 대해 자세히 알아보세요.

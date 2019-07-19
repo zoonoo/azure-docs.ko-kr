@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/24/2019
+ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: de068563e50da4510343572fd641aadd93157073
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442880"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868650"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -48,28 +48,28 @@ ms.locfileid: "67442880"
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 |
 | [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
-| [Application Insights 스냅숏 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
+| [Application Insights 스냅샷 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
 | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
-| [Avere 참가자](#avere-contributor) | 수 만들고 Avere vFXT 클러스터를 관리 합니다. |
-| [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터 관리에 사용 |
-| [Azure Event Hubs 데이터 소유자 (미리 보기)](#azure-event-hubs-data-owner-preview) | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
-| [Azure Event Hubs 데이터 수신자 (미리 보기)](#azure-event-hubs-data-receiver-preview) | 사용 하면 Azure Event Hubs 리소스에 액세스 합니다. |
-| [Azure Event Hubs 데이터 보낸 사람 (미리 보기)](#azure-event-hubs-data-sender-preview) | Azure Event Hubs 리소스에 대 한 송신 액세스를 허용 합니다. |
+| [Avere 기여자](#avere-contributor) | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. |
+| [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. |
+| [Azure Event Hubs 데이터 소유자 (미리 보기)](#azure-event-hubs-data-owner-preview) | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. |
+| [Azure Event Hubs 데이터 수신기 (미리 보기)](#azure-event-hubs-data-receiver-preview) | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. |
+| [Azure Event Hubs 데이터 발신자 (미리 보기)](#azure-event-hubs-data-sender-preview) | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. |
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
-| [Azure Maps 데이터 판독기 (미리 보기)](#azure-maps-data-reader-preview) | Azure 지도 계정에서 지도 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. |
-| [Azure Service Bus 데이터 소유자 (미리 보기)](#azure-service-bus-data-owner-preview) | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
-| [Azure Service Bus 데이터 수신기 (미리 보기)](#azure-service-bus-data-receiver-preview) | 사용 하면 Azure Service Bus 리소스에 액세스 합니다. |
-| [Azure Service Bus 데이터 보낸 사람 (미리 보기)](#azure-service-bus-data-sender-preview) | Azure Service Bus 리소스에 대 한 송신 액세스를 허용합니다. |
+| [데이터 판독기 Azure Maps (미리 보기)](#azure-maps-data-reader-preview) | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. |
+| [Azure Service Bus 데이터 소유자 (미리 보기)](#azure-service-bus-data-owner-preview) | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
+| [Azure Service Bus 데이터 수신기 (미리 보기)](#azure-service-bus-data-receiver-preview) | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
+| [Azure Service Bus 데이터 발신자 (미리 보기)](#azure-service-bus-data-sender-preview) | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
-| [Backup 기여자](#backup-contributor) | 관리할 수 있습니다. 백업 서비스 하지만 수 없습니다 자격 증명 모음 만들고 다른 사람에 게 액세스 권한을 부여합니다 |
+| [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
 | [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [블록 체인 멤버 노드 액세스 (미리 보기)](#blockchain-member-node-access-preview) | 블록체인 멤버 노드에 대한 권한 허용 |
+| [Blockchain 구성원 노드 액세스 (미리 보기)](#blockchain-member-node-access-preview) | Blockchain 멤버 노드에 대 한 액세스를 허용 합니다. |
 | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
@@ -79,10 +79,10 @@ ms.locfileid: "67442880"
 | [클래식 저장소 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
 | [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [Cognitive Services 기여자](#cognitive-services-contributor) | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
-| [Cognitive Services 데이터 판독기 (미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. |
+| [데이터 판독기 Cognitive Services (미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. |
 | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
 | [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
-| [Cosmos DB 연산자](#cosmos-db-operator) | Azure Cosmos DB 계정은 하지만에 데이터를 액세스를 관리할 수 있습니다. 계정 키 및 연결 문자열에 대 한 액세스를 차단합니다. |
+| [Cosmos DB 연산자](#cosmos-db-operator) | 에서는 Azure Cosmos DB 계정을 관리할 수 있지만 데이터에 액세스할 수는 없습니다. 계정 키 및 연결 문자열에 대 한 액세스를 금지 합니다. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
 | [Cost Management 기여자](#cost-management-contributor) | 비용을 확인하고 비용 구성(예: 예산, 내보내기)을 관리할 수 있음 |
 | [Cost Management 읽기 권한자](#cost-management-reader) | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
@@ -96,15 +96,15 @@ ms.locfileid: "67442880"
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
 | [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
 | [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
-| [HDInsight 클러스터 연산자](#hdinsight-cluster-operator) | 읽기 및 HDInsight 클러스터 구성을 수정할 수 있습니다. |
+| [HDInsight 클러스터 운영자](#hdinsight-cluster-operator) | HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. |
 | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
 | [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. |
 | [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
-| [논리 앱 기여자](#logic-app-contributor) | 있습니다 logic apps를 관리 하지만에 대 한 액세스를 변경 하지. |
-| [논리 앱 운영자](#logic-app-operator) | 읽기, 사용 및 logic apps를 사용 하지 않도록 설정 하지만 하지 편집 또는 업데이트할 수 있습니다. |
+| [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 해당 앱에 대 한 액세스 권한은 변경할 수 없습니다. |
+| [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고 사용 하지 않도록 설정할 수 있지만 편집 하거나 업데이트할 수는 없습니다. |
 | [관리되는 애플리케이션 운영자 역할](#managed-application-operator-role) | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. |
 | [Managed Applications 읽기 권한자](#managed-applications-reader) | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. |
 | [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
@@ -127,22 +127,22 @@ ms.locfileid: "67442880"
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
-| [공간 앵커 계정 기여자](#spatial-anchors-account-contributor) | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
-| [공간 앵커 계정 소유자](#spatial-anchors-account-owner) | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
-| [공간 앵커 계정 판독기](#spatial-anchors-account-reader) | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
+| [공간 앵커 계정 기여자](#spatial-anchors-account-contributor) | 계정의 공간 앵커를 관리할 수 있지만 삭제할 수는 없습니다. |
+| [공간 앵커 계정 소유자](#spatial-anchors-account-owner) | 삭제를 포함 하 여 계정의 공간 앵커를 관리할 수 있습니다. |
+| [공간 앵커 계정 판독기](#spatial-anchors-account-reader) | 계정의 공간 앵커 속성을 찾고 읽을 수 있습니다. |
 | [SQL DB 기여자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
-| [SQL 관리 인스턴스에 참가자](#sql-managed-instance-contributor) | SQL 관리 되는 인스턴스를 관리 하는 데 필요한 수 있습니다 네트워크 구성에 있지만 다른 사용자에 게 액세스할 수 없습니다. |
+| [SQL Managed Instance 기여자](#sql-managed-instance-contributor) | SQL 관리 되는 인스턴스 및 필요한 네트워크 구성을 관리할 수 있지만 다른 사용자에 게는 액세스할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
-| [Storage 계정 기여자](#storage-account-contributor) | 저장소 계정으로 관리할 수 있습니다. 저장소 계정에는 데이터에 대 한 액세스를 제공 하지 않습니다. |
-| [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 허용 목록 및 저장소 계정 액세스 키 다시 생성 합니다. |
-| [Storage Blob 데이터 기여자](#storage-blob-data-contributor) | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage Blob 데이터 소유자](#storage-blob-data-owner) | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage Blob 데이터 읽기 권한자](#storage-blob-data-reader) | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage 큐 데이터 기여자](#storage-queue-data-contributor) | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage 큐 데이터 메시지 처리기](#storage-queue-data-message-processor) | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-| [Storage 큐 데이터 판독기](#storage-queue-data-reader) | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
+| [Storage 계정 기여자](#storage-account-contributor) | 저장소 계정 관리를 허용 합니다. 공유 키 권한 부여를 통해 데이터에 액세스 하는 데 사용할 수 있는 계정 키에 대 한 액세스를 제공 합니다. |
+| [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 액세스 키를 나열 하 고 다시 생성 하도록 허용 합니다. |
+| [Storage Blob 데이터 기여자](#storage-blob-data-contributor) | 컨테이너 및 blob Azure Storage 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [Storage Blob 데이터 소유자](#storage-blob-data-owner) | POSIX 액세스 제어 할당을 포함 하 여 Azure Storage blob 컨테이너 및 데이터에 대 한 모든 권한을 제공 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [Storage Blob 데이터 읽기 권한자](#storage-blob-data-reader) | 컨테이너 및 blob Azure Storage 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [저장소 큐 데이터 기여자](#storage-queue-data-contributor) | Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [저장소 큐 데이터 메시지 처리기](#storage-queue-data-message-processor) | Azure Storage 큐에서 메시지를 피킹 (peeking) 하 고 검색 하 고 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [저장소 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+| [저장소 큐 데이터 판독기](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
 | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
 | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
@@ -162,11 +162,11 @@ ms.locfileid: "67442880"
 > | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="contributor"></a>참가자
 > [!div class="mx-tableFixed"]
@@ -183,9 +183,9 @@ ms.locfileid: "67442880"
 > | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 또는 업데이트 |
 > | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 아티팩트 삭제 |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="reader"></a>판독기
 > [!div class="mx-tableFixed"]
@@ -196,26 +196,26 @@ ms.locfileid: "67442880"
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrdelete"></a>AcrDelete
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | acr 삭제 |
-> | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | **ID** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **actions** |  |
-> | Microsoft.ContainerRegistry/registries/artifacts/delete | 컨테이너 레지스트리에 있는 아티팩트를 삭제 합니다. |
+> | Microsoft.ContainerRegistry/registries/artifacts/delete | 컨테이너 레지스트리에서 아티팩트를 삭제 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -226,42 +226,42 @@ ms.locfileid: "67442880"
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | acr pull |
-> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **ID** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | acr push |
-> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **ID** | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -272,11 +272,11 @@ ms.locfileid: "67442880"
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -288,18 +288,18 @@ ms.locfileid: "67442880"
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-contributor"></a>API Management 서비스 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 서비스 및 API를 관리할 수 있습니다. |
-> | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
+> | **ID** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **actions** |  |
 > | Microsoft.ApiManagement/service/* | API Management 서비스 만들기 및 관리 |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
@@ -309,11 +309,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-operator-role"></a>API Management 서비스 운영자 역할
 > [!div class="mx-tableFixed"]
@@ -338,11 +338,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키를 가져옵니다. |
+> | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키 가져오기 |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="api-management-service-reader-role"></a>Azure API Management 읽기 권한자 역할
 > [!div class="mx-tableFixed"]
@@ -360,11 +360,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키를 가져옵니다. |
+> | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키 가져오기 |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="application-insights-component-contributor"></a>Application Insights 구성 요소 참가자
 > [!div class="mx-tableFixed"]
@@ -382,18 +382,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅샷 디버거
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
-> | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | **ID** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -402,11 +402,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="automation-job-operator"></a>Automation 작업 연산자
 > [!div class="mx-tableFixed"]
@@ -429,11 +429,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="automation-operator"></a>Automation 운영자
 > [!div class="mx-tableFixed"]
@@ -452,7 +452,7 @@ ms.locfileid: "67442880"
 > | Microsoft.Automation/automationAccounts/jobs/write | Azure Automation 작업을 만듭니다. |
 > | Microsoft.Automation/automationAccounts/jobSchedules/read | Azure Automation 작업 일정을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/jobSchedules/write | Azure Automation 작업 일정을 만듭니다. |
-> | Microsoft.Automation/automationAccounts/linkedWorkspace/read | 자동화 계정에 연결된 작업 영역을 가져옵니다. |
+> | Microsoft.Automation/automationAccounts/linkedWorkspace/read | 자동화 계정에 연결된 작업 영역 가져오기 |
 > | Microsoft.Automation/automationAccounts/read | Azure Automation 계정을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Azure Automation Runbook을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/schedules/read | Azure Automation 일정 자산을 가져옵니다. |
@@ -464,11 +464,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="automation-runbook-operator"></a>Automation Runbook 연산자
 > [!div class="mx-tableFixed"]
@@ -484,18 +484,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="avere-contributor"></a>Avere 참가자
+## <a name="avere-contributor"></a>Avere 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 수 만들고 Avere vFXT 클러스터를 관리 합니다. |
-> | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | **설명** | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. |
+> | **ID** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/*/read |  |
@@ -506,9 +506,9 @@ ms.locfileid: "67442880"
 > | Microsoft.Network/networkInterfaces/* |  |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/subnets/read | 가상 네트워크 서브넷 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -517,179 +517,179 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | 리소스 그룹에 대한 리소스를 가져옵니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="avere-operator"></a>Avere 연산자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Avere vFXT 클러스터에서 클러스터 관리에 사용 |
-> | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | **설명** | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. |
+> | **ID** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | **actions** |  |
 > | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/subnets/read | 가상 네트워크 서브넷 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 목록을 반환합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기의 결과를 반환합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs 데이터 소유자 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **설명** | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. |
+> | **ID** | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | **actions** |  |
 > | Microsoft.EventHub/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.EventHub/* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs 데이터 수신자 (미리 보기)
+## <a name="azure-event-hubs-data-receiver-preview"></a>Azure Event Hubs 데이터 수신기 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 사용 하면 Azure Event Hubs 리소스에 액세스 합니다. |
-> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **설명** | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. |
+> | **ID** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | **actions** |  |
 > | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.EventHub/*/receive/action |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs 데이터 보낸 사람 (미리 보기)
+## <a name="azure-event-hubs-data-sender-preview"></a>Azure Event Hubs 데이터 발신자 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Event Hubs 리소스에 대 한 송신 액세스를 허용 합니다. |
-> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **설명** | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. |
+> | **ID** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | **actions** |  |
 > | Microsoft.EventHub/*/eventhubs/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.EventHub/*/send/action |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service 클러스터 관리자 역할
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 클러스터 관리자 자격 증명 작업을 나열합니다. |
-> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **ID** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Service 클러스터 사용자 역할
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 클러스터 사용자 자격 증명 작업을 나열합니다. |
-> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **ID** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-maps-data-reader-preview"></a>Azure Maps 데이터 판독기(미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure 지도 계정에서 지도 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. |
-> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **설명** | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. |
+> | **ID** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus 데이터 소유자 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **설명** | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
+> | **ID** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.ServiceBus/* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus 데이터 수신기 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 사용 하면 Azure Service Bus 리소스에 액세스 합니다. |
-> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **설명** | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
+> | **ID** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/*/queues/read |  |
 > | Microsoft.ServiceBus/*/topics/read |  |
 > | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.ServiceBus/*/receive/action |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus 데이터 보낸 사람 (미리 보기)
+## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus 데이터 발신자 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Service Bus 리소스에 대 한 송신 액세스를 허용합니다. |
-> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **설명** | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
+> | **ID** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/*/queues/read |  |
 > | Microsoft.ServiceBus/*/topics/read |  |
 > | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.ServiceBus/*/send/action |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 등록 소유자
 > [!div class="mx-tableFixed"]
@@ -702,18 +702,18 @@ ms.locfileid: "67442880"
 > | Microsoft.AzureStack/registrations/products/read | Azure Stack Marketplace 제품의 속성 가져오기 |
 > | Microsoft.AzureStack/registrations/read | Azure Stack 등록의 속성 가져오기 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="backup-contributor"></a>Backup 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
-> | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
+> | **설명** | 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. |
+> | **ID** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -758,11 +758,11 @@ ms.locfileid: "67442880"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="backup-operator"></a>Backup 운영자
 > [!div class="mx-tableFixed"]
@@ -798,7 +798,7 @@ ms.locfileid: "67442880"
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Recovery Services의 보호된 항목 및 보호된 서버에 대한 요약을 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | 리소스 인증서 업데이트 작업은 리소스/저장소 자격 증명 인증서를 업데이트합니다. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
-> | Microsoft.RecoveryServices/Vaults/extendedInformation/write | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/extendedInformation/write | 확장 정보 가져오기 작업에서는 ?자격 증명 모음? 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Recovery Services 자격 증명 모음에 대한 경고를 받습니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | 자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
@@ -829,11 +829,11 @@ ms.locfileid: "67442880"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="backup-reader"></a>Backup 읽기 권한자
 > [!div class="mx-tableFixed"]
@@ -881,18 +881,18 @@ ms.locfileid: "67442880"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="billing-reader"></a>청구 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 결제 데이터에 대해 읽기 권한 허용 |
-> | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
+> | **ID** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Billing/*/read | 대금 청구 정보 읽기 |
@@ -902,11 +902,11 @@ ms.locfileid: "67442880"
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="biztalk-contributor"></a>BizTalk 참가자
 > [!div class="mx-tableFixed"]
@@ -923,26 +923,26 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="blockchain-member-node-access-preview"></a>블록체인 멤버 노드 액세스(미리 보기)
+## <a name="blockchain-member-node-access-preview"></a>Blockchain 구성원 노드 액세스 (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 블록체인 멤버 노드에 대한 권한 허용 |
-> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **설명** | Blockchain 멤버 노드에 대 한 액세스를 허용 합니다. |
+> | **ID** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **actions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 기존 블록 체인 멤버 트랜잭션 노드를 나열 하거나 가져옵니다. |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 기존 Blockchain 구성원 트랜잭션 노드를 가져오거나 나열 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | 블록 체인 멤버 트랜잭션 노드에 연결합니다. |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Blockchain 구성원 트랜잭션 노드에 연결 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>CD 엔드포인트 참가자
 > [!div class="mx-tableFixed"]
@@ -960,11 +960,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cdn-endpoint-reader"></a>CDN 엔드포인트 독자
 > [!div class="mx-tableFixed"]
@@ -982,11 +982,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cdn-profile-contributor"></a>CDN 프로필 참가자
 > [!div class="mx-tableFixed"]
@@ -1004,11 +1004,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cdn-profile-reader"></a>CDN 프로필 독자
 > [!div class="mx-tableFixed"]
@@ -1026,11 +1026,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="classic-network-contributor"></a>클래식 네트워크 참가자
 > [!div class="mx-tableFixed"]
@@ -1047,11 +1047,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="classic-storage-account-contributor"></a>클래식 Storage 계정 참가자
 > [!div class="mx-tableFixed"]
@@ -1068,11 +1068,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>클래식 저장소 계정 키 운영자 서비스 역할
 > [!div class="mx-tableFixed"]
@@ -1084,11 +1084,11 @@ ms.locfileid: "67442880"
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | 저장소 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | 저장소 계정에 대한 기존 액세스 키를 다시 생성합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>클래식 Virtual Machine 참가자
 > [!div class="mx-tableFixed"]
@@ -1115,18 +1115,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cognitive-services-contributor"></a>Cognitive Services 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
-> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **ID** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.CognitiveServices/* |  |
@@ -1146,33 +1146,33 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services 데이터 판독기(미리 보기)
+## <a name="cognitive-services-data-reader-preview"></a>데이터 판독기 Cognitive Services (미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services 데이터를 읽을 수 있습니다. |
-> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **ID** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cognitive-services-user"></a>Cognitive Services 사용자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
-> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **ID** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | 키를 나열합니다. |
@@ -1188,11 +1188,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB 계정 독자 역할
 > [!div class="mx-tableFixed"]
@@ -1209,18 +1209,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cosmos-db-operator"></a>Cosmos DB 연산자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Cosmos DB 계정은 하지만에 데이터를 액세스를 관리할 수 있습니다. 계정 키 및 연결 문자열에 대 한 액세스를 차단합니다. |
-> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **설명** | 에서는 Azure Cosmos DB 계정을 관리할 수 있지만 데이터에 액세스할 수는 없습니다. 계정 키 및 연결 문자열에 대 한 액세스를 금지 합니다. |
+> | **ID** | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | **actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -1235,32 +1235,32 @@ ms.locfileid: "67442880"
 > | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
-> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **ID** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
 > | **actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | 복원 요청 제출 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cost-management-contributor"></a>Cost Management 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 비용을 확인하고 비용 구성(예: 예산, 내보내기)을 관리할 수 있음 |
-> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **ID** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | **actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
@@ -1270,19 +1270,20 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Advisor/configurations/read | 구성 가져오기 |
 > | Microsoft.Advisor/recommendations/read | 권장 사항을 읽습니다. |
+> | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="cost-management-reader"></a>Cost Management 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
-> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **ID** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | **actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
@@ -1292,19 +1293,20 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Advisor/configurations/read | 구성 가져오기 |
 > | Microsoft.Advisor/recommendations/read | 권장 사항을 읽습니다. |
+> | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="data-box-contributor"></a>Data Box 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
-> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **ID** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1313,18 +1315,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="data-box-reader"></a>Data Box 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. |
-> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **ID** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Databox/*/read |  |
@@ -1335,18 +1337,18 @@ ms.locfileid: "67442880"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="data-factory-contributor"></a>Data Factory 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
-> | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
+> | **ID** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
@@ -1357,11 +1359,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics 개발자
 > [!div class="mx-tableFixed"]
@@ -1394,9 +1396,9 @@ ms.locfileid: "67442880"
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 계산 정책을 만들거나 업데이트합니다. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 계산 정책을 삭제합니다. |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="data-purger"></a>데이터 제거자
 > [!div class="mx-tableFixed"]
@@ -1410,18 +1412,18 @@ ms.locfileid: "67442880"
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | 작업 영역에서 지정된 데이터를 삭제합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="devtest-labs-user"></a>DevTest Lab 사용자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
-> | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | **ID** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/availabilitySets/read | 가용성 집합의 속성을 가져옵니다. |
@@ -1433,7 +1435,7 @@ ms.locfileid: "67442880"
 > | Microsoft.DevTestLab/*/read | 랩의 속성 읽기 |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | 랩에서 임의 클레임 가능 가상 머신을 클레임합니다. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | 랩에 가상 머신을 만듭니다. |
-> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | 현재 사용자를 랩에 대 한 올바른 프로필을 확인 합니다. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | 현재 사용자가 랩에서 유효한 프로필을 갖고 있는지 확인 합니다. |
 > | Microsoft.DevTestLab/labs/formulas/delete | 수식을 삭제합니다. |
 > | Microsoft.DevTestLab/labs/formulas/read | 수식을 읽습니다. |
 > | Microsoft.DevTestLab/labs/formulas/write | 수식을 추가하거나 수정합니다. |
@@ -1441,16 +1443,16 @@ ms.locfileid: "67442880"
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | 기존 가상 머신의 소유권을 가져옵니다. |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | 해당 시작/중지 일정이 있는 경우 이를 나열합니다. |
 > | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | 가상 머신에 대한 RDP 파일의 콘텐츠를 나타내는 문자열을 가져옵니다. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/networkInterfaces/*/read | 네트워크 인터페이스(예: 네트워크 인터페이스의 일부인 모든 부하 분산 장치)의 속성 읽기 |
-> | Microsoft.Network/networkInterfaces/join/action | 네트워크 인터페이스를 가상 컴퓨터를 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/networkInterfaces/join/action | 가상 컴퓨터를 네트워크 인터페이스에 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
 > | Microsoft.Network/publicIPAddresses/*/read | 공용 IP 주소의 속성 읽기 |
-> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
 > | Microsoft.Resources/deployments/read | 배포를 가져오거나 나열합니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -1458,9 +1460,9 @@ ms.locfileid: "67442880"
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | 가상 머신이 업데이트될 수 있는 사용 가능한 크기를 나열합니다. |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="dns-zone-contributor"></a>DNS 영역 참가자
 > [!div class="mx-tableFixed"]
@@ -1477,11 +1479,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="documentdb-account-contributor"></a>DocumentDB 계정 참가자
 > [!div class="mx-tableFixed"]
@@ -1498,18 +1500,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
-> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **ID** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/* |  |
@@ -1521,42 +1523,42 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독을 읽을 수 있습니다. |
-> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **ID** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-> | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription을 읽습니다. |
+> | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription 읽기 |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 전역 이벤트 구독을 나열합니다. |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | 지역 이벤트 구독을 나열합니다. |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 항목 유형별로 지역 이벤트 구독을 나열합니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="hdinsight-cluster-operator"></a>HDInsight 클러스터 연산자
+## <a name="hdinsight-cluster-operator"></a>HDInsight 클러스터 운영자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기 및 HDInsight 클러스터 구성을 수정할 수 있습니다. |
-> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **설명** | HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. |
+> | **ID** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | **actions** |  |
 > | Microsoft.HDInsight/*/read |  |
-> | Microsoft.HDInsight/clusters/getGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정을 가져옵니다. |
-> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정을 업데이트합니다 |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 가져오기 |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 업데이트 |
 > | Microsoft.HDInsight/clusters/configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
@@ -1564,28 +1566,28 @@ ms.locfileid: "67442880"
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight 도메인 서비스 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
-> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **ID** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | **actions** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>지능형 시스템 계정 참가자
 > [!div class="mx-tableFixed"]
@@ -1602,11 +1604,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="key-vault-contributor"></a>Key Vault 참가자
 > [!div class="mx-tableFixed"]
@@ -1625,9 +1627,9 @@ ms.locfileid: "67442880"
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | 일시 삭제된 Key Vault를 제거합니다. |
 > | Microsoft.KeyVault/hsmPools/* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="lab-creator"></a>랩 작성자
 > [!div class="mx-tableFixed"]
@@ -1644,11 +1646,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="log-analytics-contributor"></a>Log Analytics 참가자
 > [!div class="mx-tableFixed"]
@@ -1671,11 +1673,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="log-analytics-reader"></a>Log Analytics 독자
 > [!div class="mx-tableFixed"]
@@ -1691,16 +1693,16 @@ ms.locfileid: "67442880"
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="logic-app-contributor"></a>논리 앱 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 있습니다 logic apps를 관리 하지만에 대 한 액세스를 변경 하지. |
-> | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | **설명** | 논리 앱을 관리할 수 있지만 해당 앱에 대 한 액세스 권한은 변경할 수 없습니다. |
+> | **ID** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 저장소 계정의 액세스 키를 나열합니다. |
@@ -1723,18 +1725,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
 > | Microsoft.Web/sites/functions/listSecrets/action | 비밀 Web Apps 함수를 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="logic-app-operator"></a>논리 앱 운영자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기, 사용 및 logic apps를 사용 하지 않도록 설정 하지만 하지 편집 또는 업데이트할 수 있습니다. |
-> | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | **설명** | 논리 앱을 읽고 사용 하지 않도록 설정할 수 있지만 편집 하거나 업데이트할 수는 없습니다. |
+> | **ID** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/*/read | Insights 경고 규칙을 읽습니다. |
@@ -1753,45 +1755,45 @@ ms.locfileid: "67442880"
 > | Microsoft.Web/customApis/*/read | 사용자 지정 API를 읽습니다. |
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="managed-application-operator-role"></a>관리되는 애플리케이션 운영자 역할
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. |
-> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **ID** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="managed-applications-reader"></a>Managed Applications 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. |
-> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **ID** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="managed-identity-contributor"></a>관리 ID 참가자
 > [!div class="mx-tableFixed"]
@@ -1809,11 +1811,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="managed-identity-operator"></a>관리 ID 운영자
 > [!div class="mx-tableFixed"]
@@ -1830,18 +1832,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="management-group-contributor"></a>관리 그룹 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 관리 그룹 참가자 역할 |
-> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **ID** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
 > | **actions** |  |
 > | Microsoft.Management/managementGroups/delete | 관리 그룹을 삭제합니다. |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
@@ -1849,26 +1851,26 @@ ms.locfileid: "67442880"
 > | Microsoft.Management/managementGroups/subscriptions/write | 기존 구독을 관리 그룹과 연결합니다. |
 > | Microsoft.Management/managementGroups/write | 관리 그룹을 만들거나 업데이트합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="management-group-reader"></a>관리 그룹 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 관리 그룹 읽기 권한자 역할 |
-> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **ID** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **actions** |  |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="monitoring-contributor"></a>Monitoring Contributor
 > [!div class="mx-tableFixed"]
@@ -1893,54 +1895,55 @@ ms.locfileid: "67442880"
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Application Insights 웹 테스트 읽기/쓰기/삭제 |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 읽기/쓰기/삭제 log analytics 솔루션 팩 |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | 읽기/쓰기/삭제 log analytics 저장 된 검색 합니다. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log analytics 솔루션 팩을 읽고 쓰고 삭제 합니다. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Log analytics 저장 된 검색을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 읽기/쓰기/삭제 log analytics 저장소 정보 구성 |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Log analytics 저장소 정보 구성을 읽고 쓰고 삭제 합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | AlertsManagement/smartDetectorAlertRules/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>모니터링 메트릭 게시자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Azure 리소스에 대한 게시 메트릭 사용 |
-> | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | **ID** | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | **actions** |  |
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | 메트릭을 작성합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="monitoring-reader"></a>Monitoring Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 모든 모니터링 데이터(메트릭, 로그 등)를 읽을 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+> | **설명** | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="network-contributor"></a>네트워크 참가자
 > [!div class="mx-tableFixed"]
@@ -1957,11 +1960,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>NewRelic APM 계정 참가자
 > [!div class="mx-tableFixed"]
@@ -1978,11 +1981,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="reader-and-data-access"></a>읽기 권한자 및 데이터 액세스
 > [!div class="mx-tableFixed"]
@@ -1995,11 +1998,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Storage/storageAccounts/ListAccountSas/action | 지정된 저장소 계정에 대한 계정 SAS 토큰을 반환합니다. |
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="redis-cache-contributor"></a>Redis Cache 참가자
 > [!div class="mx-tableFixed"]
@@ -2016,11 +2019,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>리소스 정책 참가자(미리 보기)
 > [!div class="mx-tableFixed"]
@@ -2036,11 +2039,11 @@ ms.locfileid: "67442880"
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Scheduler 작업 컬렉션 참가자
 > [!div class="mx-tableFixed"]
@@ -2057,11 +2060,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Scheduler/jobcollections/* | 스케줄러 작업 컬렉션 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="search-service-contributor"></a>Search 서비스 참가자
 > [!div class="mx-tableFixed"]
@@ -2078,18 +2081,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Search/searchServices/* | 검색 서비스 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="security-admin"></a>보안 관리자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
-> | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | **ID** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
@@ -2103,18 +2106,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="security-manager-legacy"></a>보안 관리자(레거시)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
-> | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | **ID** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicCompute/*/read | 클래식 가상 머신에 대한 구성 정보 읽기 |
@@ -2127,18 +2130,18 @@ ms.locfileid: "67442880"
 > | Microsoft.Security/* | 보안 구성 요소 및 정책 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="security-reader"></a>보안 판독기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
-> | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | **ID** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -2149,11 +2152,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery 참가자
 > [!div class="mx-tableFixed"]
@@ -2190,11 +2193,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-operator"></a>Site Recovery 운영자
 > [!div class="mx-tableFixed"]
@@ -2261,11 +2264,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="site-recovery-reader"></a>Site Recovery 구독자
 > [!div class="mx-tableFixed"]
@@ -2306,70 +2309,70 @@ ms.locfileid: "67442880"
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="spatial-anchors-account-contributor"></a>Spatial Anchors 계정 참가자
+## <a name="spatial-anchors-account-contributor"></a>공간 앵커 계정 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
-> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **설명** | 계정의 공간 앵커를 관리할 수 있지만 삭제할 수는 없습니다. |
+> | **ID** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 공간 앵커 만들기 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 주변 공간 앵커 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커의 속성을 가져옵니다. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커 찾기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 진단 데이터를 제출 하 여 Azure 공간 앵커 서비스의 품질 향상 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 공간 앵커 속성 업데이트 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="spatial-anchors-account-owner"></a>Spatial Anchors 계정 소유자
+## <a name="spatial-anchors-account-owner"></a>공간 앵커 계정 소유자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
-> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **설명** | 삭제를 포함 하 여 계정의 공간 앵커를 관리할 수 있습니다. |
+> | **ID** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 공간 앵커 만들기 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | 공간 앵커를 삭제 합니다. |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | 공간 앵커 삭제 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 주변 공간 앵커 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커의 속성을 가져옵니다. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커 찾기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 진단 데이터를 제출 하 여 Azure 공간 앵커 서비스의 품질 향상 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 공간 앵커 속성 업데이트 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="spatial-anchors-account-reader"></a>Spatial Anchors 계정 판독기
+## <a name="spatial-anchors-account-reader"></a>공간 앵커 계정 판독기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
-> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **설명** | 계정의 공간 앵커 속성을 찾고 읽을 수 있습니다. |
+> | **ID** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 주변 공간 앵커 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커의 속성을 가져옵니다. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커 찾기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 진단 데이터를 제출 하 여 Azure 공간 앵커 서비스의 품질 향상 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="sql-db-contributor"></a>SQL DB 참가자
 > [!div class="mx-tableFixed"]
@@ -2415,16 +2418,16 @@ ms.locfileid: "67442880"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="sql-managed-instance-contributor"></a>SQL 관리 인스턴스에 참가자
+## <a name="sql-managed-instance-contributor"></a>SQL Managed Instance 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | SQL 관리 되는 인스턴스를 관리 하는 데 필요한 수 있습니다 네트워크 구성에 있지만 다른 사용자에 게 액세스할 수 없습니다. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **설명** | SQL 관리 되는 인스턴스 및 필요한 네트워크 구성을 관리할 수 있지만 다른 사용자에 게는 액세스할 수 없습니다. |
+> | **ID** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | **actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -2441,11 +2444,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Insights/metrics/read | 메트릭 읽기 |
 > | Microsoft.Insights/metricDefinitions/read | 메트릭 정의 읽기 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="sql-security-manager"></a>SQL 보안 관리자
 > [!div class="mx-tableFixed"]
@@ -2456,7 +2459,7 @@ ms.locfileid: "67442880"
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | Microsoft 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 했어야 하지 않습니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -2496,11 +2499,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="sql-server-contributor"></a>SQL Server 참가자
 > [!div class="mx-tableFixed"]
@@ -2549,162 +2552,162 @@ ms.locfileid: "67442880"
 > | Microsoft.Sql/servers/securityAlertPolicies/* | SQL 서버 보안 경고 정책 편집 |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="storage-account-contributor"></a>Storage 계정 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 저장소 계정으로 관리할 수 있습니다. 공유 키 인증을 통해 데이터에 액세스 하는 계정 키에 대 한 액세스를 제공 합니다. |
-> | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
+> | **설명** | 저장소 계정 관리를 허용 합니다. 공유 키 권한 부여를 통해 데이터에 액세스 하는 데 사용할 수 있는 계정 키에 대 한 액세스를 제공 합니다. |
+> | **ID** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 모든 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/diagnosticSettings/* | 진단 설정 관리 |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 했어야 하지 않습니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Storage/storageAccounts/* | 저장소 계정 만들기 및 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>저장소 계정 키 운영자 서비스 역할
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 허용 목록 및 저장소 계정 액세스 키 다시 생성 합니다. |
-> | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
+> | **설명** | 저장소 계정 액세스 키를 나열 하 고 다시 생성 하도록 허용 합니다. |
+> | **ID** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **actions** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 된 저장소 계정에 대 한 액세스 키를 반환 합니다. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 된 저장소 계정에 대 한 액세스 키 다시 생성 합니다. |
+> | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 저장소 계정에 대한 액세스 키를 다시 생성합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-blob-data-contributor"></a>Storage Blob 데이터 Contributor
+## <a name="storage-blob-data-contributor"></a>저장소 Blob 데이터 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **설명** | 컨테이너 및 blob Azure Storage 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | 컨테이너의 메타 데이터 또는 속성을 수정 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob을 삭제합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 blob의 목록을 반환 합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob에 작성 합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 blob 목록을 반환 합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob에 씁니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-blob-data-owner"></a>Storage Blob 데이터 소유자
+## <a name="storage-blob-data-owner"></a>저장소 Blob 데이터 소유자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | **설명** | POSIX 액세스 제어 할당을 포함 하 여 Azure Storage blob 컨테이너 및 데이터에 대 한 모든 권한을 제공 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 전체 권한입니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 모든 권한 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Blob에 대 한 전체 권한입니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | Blob에 대 한 모든 권한 |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-blob-data-reader"></a>Storage Blob 데이터 Reader
+## <a name="storage-blob-data-reader"></a>저장소 Blob 데이터 판독기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **설명** | 컨테이너 및 blob Azure Storage 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 blob의 목록을 반환 합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 blob 목록을 반환 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-queue-data-contributor"></a>Storage 큐 데이터 Contributor
+## <a name="storage-queue-data-contributor"></a>저장소 큐 데이터 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **설명** | Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | 큐 메타 데이터 또는 속성을 수정 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 큐에서 하나 이상의 메시지를 삭제 합니다. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 보기 또는 큐에서 하나 이상의 메시지를 검색 합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 큐에서 하나 이상의 메시지를 피킹 (peeking) 하거나 검색 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 큐에 메시지를 추가 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-queue-data-message-processor"></a>Storage 큐 데이터 메시지 프로세서
+## <a name="storage-queue-data-message-processor"></a>저장소 큐 데이터 메시지 처리기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **설명** | Azure Storage 큐에서 메시지를 피킹 (peeking) 하 고 검색 하 고 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지를 보기 합니다. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 검색 하 고 메시지를 삭제 합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지를 미리 봅니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 메시지를 검색 하 고 삭제 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-queue-data-message-sender"></a>Storage 큐 데이터 메시지 보낸 사람
+## <a name="storage-queue-data-message-sender"></a>저장소 큐 데이터 메시지 보낸 사람
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **actions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 큐에 메시지를 추가 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
-## <a name="storage-queue-data-reader"></a>Storage 큐 데이터 Reader
+## <a name="storage-queue-data-reader"></a>저장소 큐 데이터 판독기
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
-> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **설명** | Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
+> | **ID** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 보기 또는 큐에서 하나 이상의 메시지를 검색 합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 큐에서 하나 이상의 메시지를 피킹 (peeking) 하거나 검색 합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="support-request-contributor"></a>지원 요청 참가자
 > [!div class="mx-tableFixed"]
@@ -2717,11 +2720,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="traffic-manager-contributor"></a>Traffic Manager 참가자
 > [!div class="mx-tableFixed"]
@@ -2738,11 +2741,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="user-access-administrator"></a>사용자 액세스 관리자
 > [!div class="mx-tableFixed"]
@@ -2755,11 +2758,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Authorization/* | 권한 부여 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>가상 머신 관리자 로그인
 > [!div class="mx-tableFixed"]
@@ -2774,19 +2777,19 @@ ms.locfileid: "67442880"
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인합니다. |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 가상 머신에 Windows 관리자 또는 Linux 루트 사용자 권한으로 로그인합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-contributor"></a>가상 머신 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
-> | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | **ID** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Compute/availabilitySets/* | 계산 가용성 집합 만들기 및 관리 |
@@ -2795,20 +2798,20 @@ ms.locfileid: "67442880"
 > | Microsoft.Compute/virtualMachineScaleSets/* | 가상 머신 크기 집합 만들기 및 관리 |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 응용 프로그램 게이트웨이 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 조인 하는 부하 분산 장치 인바운드 NAT 풀 합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Network/loadBalancers/probes/join/action | 부하 분산 장치 프로브 사용을 허용합니다. 예를 들어 이 권한이 있으면 VM 확장 집합의 healthProbe 속성이 프로브를 참조할 수 있습니다. 진행 되지 않습니다. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 응용 프로그램 게이트웨이 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 부하 분산 장치 인바운드 NAT 풀을 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인 합니다. 했어야 하지 않습니다. |
+> | Microsoft.Network/loadBalancers/probes/join/action | 부하 분산 장치 프로브 사용을 허용합니다. 예를 들어 이 권한이 있으면 VM 확장 집합의 healthProbe 속성이 프로브를 참조할 수 있습니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | Microsoft.Network/locations/* | 네트워크 위치 만들기 및 관리 |
 > | Microsoft.Network/networkInterfaces/* | 네트워크 인터페이스 만들기 및 관리 |
-> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/networkSecurityGroups/read | 네트워크 보안 그룹 정의를 가져옵니다. |
-> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
@@ -2827,11 +2830,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="virtual-machine-user-login"></a>가상 머신 사용자 로그인
 > [!div class="mx-tableFixed"]
@@ -2846,11 +2849,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인합니다. |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="web-plan-contributor"></a>웹 계획 참가자
 > [!div class="mx-tableFixed"]
@@ -2866,13 +2869,13 @@ ms.locfileid: "67442880"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Web/serverFarms/* | 서버 팜 만들기 및 관리 |
-> | Microsoft.Web/hostingEnvironments/Join/Action | App Service Environment를 조인합니다. |
+> | Microsoft.Web/hostingEnvironments/Join/Action | App Service Environment를 조인 합니다. |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="website-contributor"></a>웹 사이트 참가자
 > [!div class="mx-tableFixed"]
@@ -2894,11 +2897,11 @@ ms.locfileid: "67442880"
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
 > | Microsoft.Web/sites/* | 웹 사이트 만들기 및 관리(사이트 만들기도 관련 App Service 계획에 대한 쓰기 권한이 필요) |
 > | **NotActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 > | **NotDataActions** |  |
-> | *없음* |  |
+> | *none* |  |
 
 ## <a name="next-steps"></a>다음 단계
 

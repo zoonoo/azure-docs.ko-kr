@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: edprice
+ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716050"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871890"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Azure에서 IBM DB2 pureScale 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "60716050"
 
 마이그레이션에 사용되는 단계를 진행하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에서 설치 스크립트를 참조하세요. 이러한 스크립트는 일반적인 중간 크기의 OLTP(온라인 트랜잭션 처리) 워크로드용 아키텍처를 기준으로 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 이 아키텍처를 배포하려면 GitHub의 [DB2onAzure](https://aka.ms/db2onazure) 리포지토리에 있는 deploy.sh 스크립트를 다운로드하여 실행합니다.
 
@@ -82,9 +82,9 @@ GitHub 리포지토리에는 DB2 pureScale 설치용 자동 스크립트를 생�
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 시작                   |                                              | 새 설치                                                                                           |
 | 제품 선택          |                                              | DB2 버전 11.1.3.3. DB2 pureScale이 포함된 Server Edition                                              |
-| 구성             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| Configuration             | 디렉터리                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | 설치 유형 선택                 | 일반                                                                                               |
-|                           | IBM 사용 약관에 동의함                     | 선택                                                                                               |
+|                           | IBM 사용 약관에 동의함                     | 선택한 상태                                                                                               |
 | 인스턴스 소유자            | 인스턴스, 사용자 이름에 대한 기존 사용자        | DB2sdin1                                                                                              |
 | 펜스된 사용자               | 기존 사용자, 사용자 이름                     | DB2sdin1                                                                                              |
 | 클러스터 파일 시스템       | 공유 디스크 파티션 디바이스 경로            | /dev/dm-2                                                                                             |

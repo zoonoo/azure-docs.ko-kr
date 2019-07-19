@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595505"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249263"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 
@@ -51,8 +51,8 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 상태 관리자는 원격 리소스로 취급되므로 모의되어야 합니다. 상태 관리자를 모의하는 경우 상태 관리자에 저장되는 내용을 추적하여 읽고 확인할 수 있도록 기본 메모리 내 저장소가 필요합니다. 이 작업을 수행하는 간단한 방법은 각 신뢰할 수 있는 컬렉션 유형의 모의 인스턴스를 만드는 것입니다. 해당 모의 개체 내에서 해당 컬렉션에 대해 수행되는 작업에 가깝게 조정되는 데이터 형식을 사용합니다. 다음은 신뢰할 수 있는 각 컬렉션에 대해 제안되는 몇 가지 데이터 형식입니다.
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<t >-> system.object\<>
+- IReliableConcurrentQueue\<t > > system.collections.concurrent.concurrentqueue\<t >
 
 #### <a name="many-state-manager-instances-single-storage"></a>여러 상태 관리자 인스턴스, 단일 저장소
 앞서 언급한 것처럼 상태 관리자 및 신뢰할 수 있는 컬렉션은 원격 리소스로 처리되어야 합니다. 따라서 이러한 리소스는 단위 테스트 내에서 모의되어야 합니다. 그러나 상태 저장 서비스의 여러 인스턴스를 실행하는 경우 여러 다른 상태 저장 서비스 인스턴스에서 모의된 각 상태 관리자를 동기화 상태로 유지하는 일은 어려울 수 있습니다. 상태 저장 서비스가 클러스터에서 실행되는 경우 Service Fabric은 각 보조 복제본의 상태 관리자를 주 복제본과 일관되게 유지하려고 합니다. 따라서 역할 변경을 시뮬레이트할 수 있도록 테스트도 동일하게 진행되어야 합니다.

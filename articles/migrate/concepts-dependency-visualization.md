@@ -1,37 +1,47 @@
 ---
 title: Azure Migrate의 종속성 시각화 | Microsoft Docs
-description: Azure Migrate 서비스의 평가 계산에 대한 개요를 제공합니다.
+description: 에서 서버 평가 서비스의 평가 계산에 대 한 개요를 제공 Azure Migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/18/2019
+ms.author: hamusa
+ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201564"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312216"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
-[Azure Migrate](migrate-overview.md) 서비스는 Azure로의 마이그레이션에 대한 온-프레미스 컴퓨터 그룹을 평가합니다. Azure Migrate의 종속성 시각화 기능을 사용하면 그룹을 만들 수 있습니다. 이 문서에서는 이 기능에 대한 정보를 제공합니다.
+Azure Migrate: 서버 평가는 Azure로 마이그레이션하기 위한 온-프레미스 컴퓨터의 그룹을 평가 합니다. 서버 평가에서 종속성 시각화 기능을 사용 하 여 그룹을 만들 수 있습니다. 이 문서에서는 이 기능에 대한 정보를 제공합니다.
 
 > [!NOTE]
 > Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
 
 ## <a name="overview"></a>개요
 
-Azure Migrate의 종속성 시각화를 사용하면 마이그레이션 평가용으로 신뢰도가 높은 그룹을 만들 수 있습니다. 종속성 시각화를 통해 컴퓨터의 네트워크 종속성을 확인할 수 있으며, Azure로 함께 마이그레이션해야 하는 관련 컴퓨터를 파악할 수 있습니다. 이 기능은 애플리케이션의 일부분이어서 Azure로 함께 마이그레이션해야 하는 컴퓨터가 확실치 않은 시나리오에서 유용합니다.
+서버 평가에서 종속성 시각화를 사용 하면 마이그레이션 평가를 위한 신뢰도 높은 그룹을 만들 수 있습니다. 종속성 시각화를 사용 하 여 컴퓨터의 네트워크 종속성을 확인 하 고 Azure에 함께 마이그레이션해야 하는 관련 컴퓨터를 식별할 수 있습니다. 이 기능은 애플리케이션의 일부분이어서 Azure로 함께 마이그레이션해야 하는 컴퓨터가 확실치 않은 시나리오에서 유용합니다.
 
-## <a name="how-does-it-work"></a>어떻게 작동합니까?
+## <a name="before-you-start"></a>시작하기 전에
+
+- Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
+- 프로젝트를 이미 만든 경우 Azure Migrate을 [추가](how-to-assess.md) 했는지 확인 합니다. 서버 평가 도구입니다.
+- Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가. [자세히 알아보기](migrate-appliance.md).
+
+## <a name="how-does-it-work"></a>작동 원리
 
 Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../operations-management-suite/operations-management-suite-service-map.md)의 [서비스 맵](../log-analytics/log-analytics-overview.md) 솔루션을 사용합니다.
 - 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다.
-- 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
-- 프로젝트에 Log Analytics 작업 영역을 연결하려면 프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하고 **구성 필요**를 클릭합니다.
-
-    ![Log Analytics 작업 영역 연결](./media/concepts-dependency-visualization/associate-workspace.png)
+- Azure Migrate 프로젝트를 만든 구독과 동일한 구독 에서만 작업 영역을 만들거나 연결할 수 있습니다.
+- 프로젝트에 Log Analytics 작업 영역을 연결 하려면 다음을 수행 합니다.
+    1. **서버** 탭의 Azure Migrate에서 **다음을 수행 합니다. 서버 평가** 타일에서 **개요**를 클릭 합니다.
+    2. **개요**에서 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
+    3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
+    4. **작업 영역 구성**에서 새 작업 영역을 만들지 아니면 기존 작업 영역을 사용할지를 지정 합니다.
+    
+    ![작업 영역 추가](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - 작업 영역을 연결하는 동안 새 작업 영역을 만들거나 기존 작업 영역을 연결하는 옵션이 제공됩니다.
   - 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
@@ -47,15 +57,15 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
 
 종속성 시각화를 사용하려면 분석할 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다.  
 
-- 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다.
-- 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다.
+- 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다. MMA 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) .
+- 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다. 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) .
 - 또한 인터넷에 연결되지 않은 머신이 있으면 해당 머신에 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
 
 종속성 시각화를 사용하지 않는다면 평가하려는 머신에 이러한 에이전트가 필요하지 않습니다.
 
 ## <a name="do-i-need-to-pay-for-it"></a>요금이 발생하나요?
 
-Azure Migrate는 추가 요금 없이 사용할 수 있습니다. Azure Migrate의 종속성 시각화 기능을 사용 하려면 서비스 맵이 있어야 하며, 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다. Azure Migrate의 종속성 시각화 기능은 Azure Migrate 사용 시작일부터 180일 동안 무료로 제공됩니다.
+종속성 시각화 기능은 추가 비용 없이 사용할 수 있습니다. 서버 평가에서 종속성 시각화 기능을 사용 하려면 서비스 맵 필요 하며, Log Analytics 작업 영역 (신규 또는 기존)을 Azure Migrate 프로젝트와 연결 해야 합니다. 서버 평가에서 종속성 시각화 기능은 처음 180 일간 무료로 제공 됩니다.
 
 1. 이 Log Analytics 작업 영역 내에서 서비스 맵 이외의 다른 솔루션을 사용하면 [표준 Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 요금이 발생합니다.
 2. 추가 비용 없이 마이그레이션 시나리오를 지원하기 위해, Azure Migrate 프로젝트와 Log Analytics 작업 영역을 연결한 날로부터 180일 동안은 서비스 맵 솔루션에서 요금이 부과되지 않습니다. 180일 후에는 표준 Log Analytics 요금이 적용됩니다.
@@ -71,10 +81,10 @@ Azure Migrate 프로젝트가 삭제될 때 작업 영역은 함께 삭제되지
 
 ## <a name="how-do-i-manage-the-workspace"></a>작업 영역은 어떻게 관리하나요?
 
-Azure Migrate 외부에서 Log Analytics 작업 영역을 사용할 수 있습니다. 작업 영역이 생성된 마이그레이션 프로젝트를 삭제해도 작업 영역은 삭제되지 않습니다. 작업 영역이 더 이상 필요 없는 경우 수동으로 [작업 영역을 삭제](../azure-monitor/platform/manage-access.md)해야 합니다.
+Azure Migrate 외부에서 Log Analytics 작업 영역을 사용할 수 있습니다. 만든 Azure Migrate 프로젝트를 삭제 하는 경우에는 삭제 되지 않습니다. 작업 영역이 더 이상 필요 없는 경우 수동으로 [작업 영역을 삭제](../azure-monitor/platform/manage-access.md)해야 합니다.
 
-마이그레이션 프로젝트를 삭제하지 않는 한 Azure Migrate가 만든 작업 영역을 삭제하지 마세요. 작업 영역을 삭제하면 종속성 시각화 기능이 정상적으로 작동하지 않습니다.
+Azure Migrate 프로젝트를 삭제 하지 않으면 Azure Migrate으로 만든 작업 영역을 삭제 하지 마세요. 작업 영역을 삭제하면 종속성 시각화 기능이 정상적으로 작동하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [컴퓨터 종속성을 사용하여 컴퓨터 그룹화](how-to-create-group-machine-dependencies.md)
-- 종속성 시각화 관련 FAQ를 [자세히 확인](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)해 보세요.
+- 종속성 시각화 관련 FAQ를 [자세히 확인](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization)해 보세요.

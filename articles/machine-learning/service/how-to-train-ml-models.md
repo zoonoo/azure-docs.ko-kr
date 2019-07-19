@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85be0abb9437a648135fe852e357596c8ff91dc3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0080c8ac5e957912c5fd59a7051619ee60bd914c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840106"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260062"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -59,7 +59,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 매개 변수 | Description
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 머신에서 원격 컴퓨팅으로 복사됩니다. 
-`script_params`| 학습 스크립트에 명령줄 인수를 지정 하는 사전 `entry_script`, 형식의 < 명령줄 인수를 값 > 쌍입니다. Verbose 플래그를 지정 하려면 `script_params`를 사용 하 여 `<command-line argument, "">`입니다.
+`script_params`| 학습 스크립트 `entry_script`에 대 한 명령줄 인수를 `<command-line argument, value>` 쌍 형식으로 지정 하는 사전입니다. 에서 `script_params`자세한 정보 플래그를 지정 하려면를 `<command-line argument, "">`사용 합니다.
 `compute_target`| 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상입니다. AmlCompute 클러스터가 일반적으로 사용되는 대상이기는 하지만 Azure VM 또는 로컬 컴퓨터와 같은 다른 컴퓨팅 대상 유형을 선택할 수도 있습니다.
 `entry_script`| 원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages`| conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다.  
@@ -120,18 +120,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+## <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
 
 ## <a name="examples"></a>예
-스 티 메이 터 패턴의 기본 사항을 보여 주는 notebook을 참조 하세요.
+평가기 패턴의 기본 사항을 보여 주는 노트북은 다음을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Scikit을 학습 하는 노트북에 대 한-내용은 평가기를 사용 하 여 모델에 알아봅니다.
+평가기를 사용 하 여 scikit 모델을 학습 하는 노트북은 다음을 참조 하세요.
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-심층 학습-프레임 워크 특정 추정을 사용 하 여 모델을 학습에서 notebook을 참조 하세요.
+심층 학습 프레임 워크 관련 추정을 사용 하 여 학습 모델에 대 한 노트북은 다음을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
