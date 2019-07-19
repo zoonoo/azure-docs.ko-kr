@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "66241618"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277440"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링
 
@@ -48,9 +48,13 @@ ms.locfileid: "66241618"
 4. **메트릭** 페이지에 총 요청에 대한 세부 정보가 표시됩니다. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
+
+> [!NOTE]
+> Azure Monitor의 클래식 경고는 2019 년 8 월 31 일에 사용 중지 됩니다. Azure Portal는 기존 경고 규칙을 마이그레이션하는 [마이그레이션 도구](../azure-monitor/platform/alerts-using-migration-tool.md) 를 제공 합니다. 그러나 Azure Cosmos DB 메트릭에 대 한 모든 클래식 경고를 마이그레이션할 수 있는 것은 아닙니다. 몇 가지 예외가 있습니다. 마이그레이션할 수 없는 클래식 경고 목록은 [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) 문서를 참조 하세요. 
+
 1. [Azure Portal](https://portal.azure.com/)에서 **모든 서비스** 및 **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴에서 **경고 규칙**을 클릭하여 경고 규칙 페이지를 엽니다.  
-   ![선택한 경고 규칙 파트의 스크린샷](./media/monitor-accounts/madocdb10.5.png)
+   ![선택한 경고 규칙 부분의 스크린샷](./media/monitor-accounts/madocdb10.5.png)
 3. **경고 규칙** 페이지에서 **경고 추가**를 클릭합니다.  
    ![경고 추가 단추가 강조 표시된 경고 규칙 페이지의 스크린샷](./media/monitor-accounts/madocdb11.png)
 4. **경고 규칙 추가** 페이지에서 다음을 지정합니다.
@@ -61,7 +65,7 @@ ms.locfileid: "66241618"
    * 경고가 활성화되는 시기를 결정하는 조건, 임계값 및 기간. 예를 들어 서버 오류가 지난 15분 동안 5개보다 많습니다.
    * 경고가 발생할 때 서비스 관리자 및 공동 관리자에게 메일을 보낼지 여부
    * 경고 알림에 대한 추가 메일 주소  
-     ![추가 경고 규칙 페이지의 스크린샷](./media/monitor-accounts/madocdb12.png)
+     ![경고 규칙 추가 페이지의 스크린샷](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>프로그래밍 방식으로 Azure Cosmos DB 모니터링
 포털에서 제공되는 계정 수준 메트릭(예: 계정 저장소 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.

@@ -1,6 +1,6 @@
 ---
-title: 디먼 앱 웹 Api 호출 (앱 구성)-Microsoft id 플랫폼
-description: 디먼 앱을 빌드하는 방법을 알아봅니다 호출 web Api (응용 프로그램 구성)는
+title: 웹 Api를 호출 하는 디먼 앱 (앱 구성)-Microsoft identity platform
+description: 웹 Api (앱 구성)를 호출 하는 디먼 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,63 +12,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 705545fd5167087be1a001c45f58907d6ff225e8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055758"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277835"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데몬 앱
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
-웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법에 알아봅니다.
+웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법을 알아봅니다.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>MSAL 라이브러리 지원 디먼 앱
+## <a name="msal-libraries-supporting-daemon-apps"></a>디먼 앱을 지 원하는 MSAL 라이브러리
 
 디먼 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
 
-  MSAL 라이브러리 | 설명
+  MSAL 라이브러리 | Description
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 디먼 응용 프로그램을 빌드하는 지원 되는 플랫폼은.NET Framework 및.NET Core 플랫폼 (UWP 없습니다, Xamarin.iOS 및 Xamarin.Android 플랫폼으로 하는 데 공용 클라이언트 응용 프로그램 빌드)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 진행 중-공개 미리 보기에서 개발
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 디먼 응용 프로그램을 빌드하는 데 지원 되는 플랫폼은 .NET Framework 및 .NET Core 플랫폼 (UWP, Xamarin.ios 및 Xamarin이 아님, 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되는 플랫폼)입니다.
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 개발 진행 중-공개 미리 보기
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 개발 진행 중-공개 미리 보기
 
 ## <a name="configuration-of-the-authority"></a>인증 기관 구성
 
-디먼 응용 프로그램은 위임 된 권한만 하지만 응용 프로그램 사용 권한을 사용 하지 마십시오는 자신의 *지원 되는 계정 유형* 일 수 없습니다 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정 ( 예를 들어, Skype, Xbox, Outlook.com)* 합니다. 실제로 Microsoft 개인 계정에 대 한 디먼 응용 프로그램에 동의할 수 없는 테 넌 트 관리자가 있습니다. 선택 해야 *내 조직에서 계정을* 또는 *조직에서 계정을*합니다.
+디먼 응용 프로그램은 위임 된 권한을 사용 하지 않지만 응용 프로그램 사용 권한은 지원 되는 *계정 유형은* *조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox,)의 계정일 수 없습니다. Outlook.com)* . 실제로 Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 부여 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
 
-따라서 응용 프로그램 구성에 지정 된 인증 기관에는 테 넌 트 ed (테 넌 트 ID 또는 조직과 연결 된 도메인 이름 지정) 이어야 합니다.
+따라서 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 
-다중 테 넌 트 도구를 제공 하 고 ISV 인 경우 사용할 수 있습니다 `organizations`합니다. 하지만 관리자 동의 부여 하는 방법에 고객에 게 설명 해야 염두에서에 둡니다. 참조 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 세부 정보에 대 한 합니다. 또한 현재는 MSAL의 제한 사항은 `organizations` 클라이언트 자격 증명이 응용 프로그램 비밀 (인증서 제외) 하는 경우에 허용 됩니다. 참조 [MSAL.NET 버그 #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우에는를 사용할 `organizations`수 있습니다. 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 을 참조 하세요. 또한 현재 msal `organizations` 에는 클라이언트 자격 증명이 인증서가 아닌 응용 프로그램 암호 인 경우에만 허용 되는 제한 사항이 있습니다. [MSAL.NET 버그 #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891) 를 참조 하세요.
 
 ## <a name="application-configuration-and-instantiation"></a>응용 프로그램 구성 및 인스턴스화
 
-MSAL 라이브러리에 있는 클라이언트 자격 증명 (암호 또는 인증서)는 기밀 클라이언트 응용 프로그램 생성 매개 변수로 전달 됩니다.
+MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증서)은 기밀 클라이언트 응용 프로그램 생성의 매개 변수로 전달 됩니다.
 
 > [!IMPORTANT]
-> 응용 프로그램은 콘솔 응용 프로그램을 하는 경우에 디먼 응용 프로그램인 경우 서비스로 실행 해야 기밀 클라이언트 응용 프로그램입니다.
+> 응용 프로그램이 서비스로 실행 되는 콘솔 응용 프로그램 이더라도 디먼 응용 프로그램의 경우 기밀 클라이언트 응용 프로그램 이어야 합니다.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-추가 된 [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) 응용 프로그램에 NuGet 패키지.
+[IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 응용 프로그램에 추가 합니다.
 
-MSAL.NET 네임 스페이스를 사용 합니다.
+MSAL.NET 네임 스페이스 사용
 
 ```CSharp
 using Microsoft.Identity.Client;
 ```
 
-디먼 응용 프로그램에서 제공 하는 프로그램 `IConfidentialClientApplication`
+디먼 응용 프로그램은`IConfidentialClientApplication`
 
 ```CSharp
 IConfidentialClientApplication app;
 ```
 
-응용 프로그램 비밀을 사용 하 여 응용 프로그램을 빌드하는 코드를 다음과 같습니다.
+응용 프로그램 암호를 사용 하 여 응용 프로그램을 빌드하는 코드는 다음과 같습니다.
 
 ```CSharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
@@ -77,7 +77,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-인증서를 사용 하 여 응용 프로그램을 빌드하는 코드를 다음과 같습니다.
+인증서를 사용 하 여 응용 프로그램을 빌드하는 코드는 다음과 같습니다.
 
 ```CSharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
@@ -86,6 +86,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
+마지막으로 클라이언트 암호 또는 인증서 대신, 기밀 클라이언트 응용 프로그램은 클라이언트 어설션을 사용 하 여 해당 id를 증명할 수도 있습니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md) 자세히 설명 되어 있습니다.
+
 
 ### <a name="msalpython"></a>MSAL.Python
 
@@ -120,4 +123,4 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [디먼 앱-앱에 대 한 토큰을 얻기](./scenario-daemon-acquire-token.md)
+> [앱에 대 한 디먼 앱 획득 토큰](./scenario-daemon-acquire-token.md)

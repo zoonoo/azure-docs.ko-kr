@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254719"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234726"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
 
@@ -25,7 +25,7 @@ Microsoft Azure Backup Server 버전 3(MABS V3)은 최신 업그레이드이며,
 MABS V2에서 MBS(Modern Backup Storage)를 사용하여 워크로드 인식 스토리지를 발표했습니다. 여기에서 스토리지 속성에 따라 특정 스토리지로 백업할 특정 워크로드를 구성합니다. 그러나 구성 후 최적화된 리소스 사용률을 위해 특정 데이터 원본의 백업을 다른 스토리지로 이동해야 함을 알 수 있습니다. MABS V3은 백업을 마이그레이션하고 이를 [3단계](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/)로 다른 볼륨에 저장하도록 구성하는 기능을 제공합니다.
 
 ## <a name="prevent-unexpected-data-loss"></a>예기치 않은 데이터 손실 방지
-기업에서 MABS는 관리자 팀에서 관리됩니다. 백업에 사용해야 하는 스토리지에 대한 지침이 있지만 백업 스토리지로 MABS에 지정된 올바르지 않은 볼륨은 중요한 데이터 손실을 발생시킬 수 있습니다. MABS V3과 함께 [이러한 PowerShell cmdlet](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion)을 사용하여 스토리지에 사용할 수 없는 것으로 해당 볼륨을 구성하여 이러한 시나리오를 방지할 수 있습니다.
+기업에서 MABS는 관리자 팀에서 관리됩니다. 백업에 사용해야 하는 스토리지에 대한 지침이 있지만 백업 스토리지로 MABS에 지정된 올바르지 않은 볼륨은 중요한 데이터 손실을 발생시킬 수 있습니다. MABS V3과 함께 [이러한 PowerShell cmdlet](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage)을 사용하여 스토리지에 사용할 수 없는 것으로 해당 볼륨을 구성하여 이러한 시나리오를 방지할 수 있습니다.
 
 ## <a name="custom-size-allocation"></a>사용자 지정 크기 할당
 MBS(Modern Backup Storage)는 필요한 경우 스토리지를 얇게 소비합니다. 이렇게 하기 위해 MABS는 보호를 위해 구성된 경우 백업 중인 데이터의 크기를 계산합니다. 그러나 파일 서버의 경우와 같이 많은 파일 및 폴더가 함께 백업되는 경우 크기 계산에 시간이 오래 걸릴 수 있습니다. MABS V3을 사용하여 각 파일의 크기를 계산하는 대신 기본값으로 볼륨 크기를 적용하도록 MABS를 구성하여 시간을 절약할 수 있습니다.
@@ -54,7 +54,7 @@ MABS V3은 정식 릴리스이며, Windows Server 2016, Windows Server 2019에 �
 
 
 > [!NOTE]
-> 
+>
 > MABS에는 System Center Data Protection Manager와 동일한 코드베이스가 있습니다. MABS v3은 Data Protection Manager 1807에 해당합니다.
 
 ## <a name="next-steps"></a>다음 단계

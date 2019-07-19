@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: b21c5c517b1f4a1cbcbf2028a079793c70996d58
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473112"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234014"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.  
 1. 유효한 **Azure 구독**.
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
@@ -57,15 +57,16 @@ Ubuntu 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업�
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
 SSH 터미널에서 /etc/hosts 파일을 편집하고 컴퓨터의 IP 주소 및 호스트 이름을 업데이트합니다.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 호스트 파일에 다음 값을 입력합니다.
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
+
 여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-ubuntu'는 관리되는 도메인에 가입한 Ubuntu 가상 머신의 호스트 이름입니다.
 
 
@@ -74,12 +75,13 @@ sudo vi /etc/hosts
 
 1.  SSH 터미널에서 다음 명령을 입력하여 저장소에서 패키지 목록을 다운로드합니다. 이 명령은 패키지 목록을 업데이트하여 최신 버전의 패키지 및 해당 종속성에 대한 정보를 가져옵니다.
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. 필수 패키지를 설치하려면 다음 명령을 입력합니다.
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
@@ -87,27 +89,26 @@ sudo vi /etc/hosts
 
     > [!TIP]
     > 관리되는 도메인의 이름이 contoso100.com이면 CONTOSO100.COM을 영역으로 입력합니다. 영역 이름을 대문자로 지정해야 합니다.
-    >
-    >
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Linux 가상 머신에서 NTP(Network Time Protocol) 설정 구성
 Ubuntu VM의 날짜 및 시간은 관리되는 도메인과 동기화해야 합니다. /etc/ntp.conf 파일에 관리되는 도메인의 NTP 호스트 이름을 추가합니다.
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
 ntp.conf 파일에서 다음 값을 입력하고 파일을 저장합니다.
 
-```
+```console
 server contoso100.com
 ```
+
 여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다.
 
 이제 Ubuntu VM의 날짜 및 시간을 NTP 서버와 동기화하고 NTP 서비스를 시작합니다.
 
-```
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -119,7 +120,7 @@ sudo systemctl start ntp
 
 1. AAD 도메인 서비스 관리되는 도메인을 검색합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -136,7 +137,7 @@ sudo systemctl start ntp
     > * 도메인 이름을 대문자로 지정하지 않으면 kinit가 실패합니다.
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -144,9 +145,8 @@ sudo systemctl start ntp
 
     > [!TIP]
     > 이전 단계에서 지정한 동일한 사용자 계정을 사용합니다.
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
@@ -155,29 +155,34 @@ sudo systemctl start ntp
 
 ## <a name="update-the-sssd-configuration-and-restart-the-service"></a>SSSD 구성 업데이트 및 서비스 다시 시작
 1. SSH 터미널에서 다음 명령을 입력합니다. sssd.conf 파일을 열어 다음과 같이 변경합니다.
-    ```
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
 2. **use_fully_qualified_names = True** 줄을 주석으로 처리하고 파일을 저장합니다.
-    ```
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
 3. SSSD 서비스를 다시 시작합니다.
-    ```
+    
+    ```console
     sudo service sssd restart
     ```
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>자동 홈 디렉터리 생성 구성
 사용자가 로그인한 후에 홈 디렉터리의 자동 생성을 활성화하려면 PuTTY 터미널에서 다음 명령을 입력합니다.
-```
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
 'session optional pam_sss.so' 아래의 이 파일에 다음 줄을 추가하고 저장합니다.
-```
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
@@ -186,17 +191,20 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 Ubuntu VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
 
 1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 Ubuntu 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
 2. SSH 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. SSH 터미널에서 다음 명령을 입력하여 그룹 멤버 자격이 올바르게 확인되었는지 확인합니다.
-    ```
+    
+    ```console
     id
     ```
 
@@ -205,12 +213,14 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 Ubuntu VM에서 멤버에게 'AAD DC Administrators' 그룹 관리 권한을 부여할 수 있습니다. sudo 파일은 /etc/sudoers에 있습니다. sudoers에 추가된 AD 그룹의 멤버는 sudo를 수행할 수 있습니다.
 
 1. SSH 터미널에서 superuser 권한으로 로그인했는지 확인합니다. VM을 만드는 동안 지정한 로컬 관리자 계정을 사용할 수 있습니다. 다음 명령을 실행합니다.
-    ```
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
 2. /etc/sudoers 파일에 다음 항목을 추가하고 저장합니다.
-    ```
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```

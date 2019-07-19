@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954406"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986247"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,10 +35,10 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | 예. | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아닙니다. |
-|Java|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
-|Python|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
-|Node/JS|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+| .NET | NA | 예 | 아니오 | 아니요 | 예 | 아니요 |
+|Java|NA|예|아니오|아니요|예|아니요|
+|Python|NA|예|아니오|아니요|예|아니요|
+|Node/JS|NA|예|아니오|아니요|예|아니요|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
@@ -58,7 +58,7 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>변경 피드 및 _etag, _lsn 또는 _ts
 
-_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드만;에 대 한 추가 되는 일괄 처리 ID 트랜잭션 ID를 나타내므로 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 항목의 버전에 대해 알려주는 동시성 컨트롤에 사용되는 반면 ETag는 피드 시퀀싱에 사용됩니다.
+_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드에만 추가 되는 일괄 처리 ID입니다. 트랜잭션 ID를 나타냅니다. 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 항목의 버전에 대해 알려주는 동시성 컨트롤에 사용되는 반면 ETag는 피드 시퀀싱에 사용됩니다.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>변경 피드 사용 사례 및 시나리오
 
@@ -93,8 +93,8 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 다음 옵션을 통해 변경 피드를 사용하여 작업할 수 있습니다.
 
-* [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md)
-* [변경 피드 프로세서 라이브러리와 함께 변경 피드 사용](change-feed-processor.md) 
+* [Azure Functions로 변경 피드 사용](change-feed-functions.md)
+* [변경 피드 프로세서와 함께 변경 피드 사용](change-feed-processor.md) 
 
 변경 피드는 컨테이너 내에서 각 논리 파티션 키에 대해 사용할 수 있으며, 아래 이미지와 같이 한 명 이상의 소비자에게 배포하여 병렬 처리할 수 있습니다.
 
@@ -108,7 +108,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 * 변경 피드는 컨테이너 내의 항목에 수행된 삽입 및 업데이트 작업을 포함합니다. 삭제 대신 항목(예: 문서) 내에서 "soft-delete" 플래그를 설정하여 삭제를 캡처할 수 있습니다. 또는 [TTL 기능](time-to-live.md)을 사용하여 항목에 대한 제한된 만료 기간을 설정할 수 있습니다. 예를 들어 24시간 및 삭제를 캡처하는 해당 속성의 값을 사용합니다. 이 솔루션을 사용하여 TTL 만료 기간보다 짧은 시간 간격 내에 변경 내용을 처리해야 합니다. 
 
-* 각 항목에 대한 변경 내용이 정확히 한 번 변경 피드에 표시되고, 클라이언트는 검사점 논리를 관리해야 합니다. 검사점 관리의 복잡성을 방지하려는 경우 변경 피드 프로세서 라이브러리는 자동 검사점 및 “최소 한 번” 의미 체계를 제공합니다. [변경 피드 프로세서 라이브러리와 함께 변경 피드 사용](change-feed-processor.md)을 참조하세요.
+* 각 항목에 대한 변경 내용이 정확히 한 번 변경 피드에 표시되고, 클라이언트는 검사점 논리를 관리해야 합니다. 검사점 관리의 복잡성을 방지 하려는 경우 변경 피드 프로세서는 자동 검사점 및 "최소 한 번" 의미 체계를 제공 합니다. 변경 [피드 프로세서와 함께 변경 피드 사용을](change-feed-processor.md)참조 하세요.
 
 * 지정된 항목에 대한 가장 최근의 변경 내용만이 변경 로그에 포함됩니다. 중간 변경 내용을 사용할 수 없습니다.
 
@@ -118,12 +118,12 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 * Azure Cosmos 컨테이너의 모든 논리 파티션 키에 대해 변경 내용을 동시에 사용할 수 있습니다. 이 기능을 사용하면 대규모 컨테이너의 변경 내용을 여러 소비자에 의해 병렬로 처리할 수 있습니다.
 
-* 응용 프로그램에서 동일한 컨테이너에 여러 변경 피드를 동시에 요청할 수 있습니다. 초기 시작점을 제공하기 위해 ChangeFeedOptions.StartTime을 사용할 수 있습니다. 예를 들어 지정된 클록 시간에 해당하는 연속 토큰을 찾을 수 있습니다. ContinuationToken을 지정할 경우 이것이 StartTime 및 StartFromBeginning 값보다 우선합니다. ChangeFeedOptions.StartTime의 정확도는 5초입니다. 
+* 응용 프로그램은 동일한 컨테이너에서 동시에 여러 변경 피드를 요청할 수 있습니다. 초기 시작점을 제공하기 위해 ChangeFeedOptions.StartTime을 사용할 수 있습니다. 예를 들어 지정된 클록 시간에 해당하는 연속 토큰을 찾을 수 있습니다. ContinuationToken을 지정할 경우 이것이 StartTime 및 StartFromBeginning 값보다 우선합니다. ChangeFeedOptions.StartTime의 정확도는 5초입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 다음 문서에서 변경 피드에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드를 읽는 옵션](read-change-feed.md)
-* [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md)
-* [변경 피드 프로세서 라이브러리 사용](change-feed-processor.md)
+* [Azure Functions로 변경 피드 사용](change-feed-functions.md)
+* [변경 피드 프로세서 사용](change-feed-processor.md)

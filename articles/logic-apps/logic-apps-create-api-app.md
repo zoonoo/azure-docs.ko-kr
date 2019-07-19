@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681874"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273216"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
-Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 이상의 기본 제공 커넥터](../connectors/apis-list.md)를 제공하지만, 커넥터로 사용할 수 없는 API, 시스템 및 서비스를 호출하는 것이 좋을 수도 있습니다. 논리 앱에서 사용할 동작과 트리거를 제공하는 자체 API는 직접 만들 수 있습니다. 논리 앱 워크플로에서 호출할 수 있는 API를 직접 만들려는 다른 이유는 다음가 같습니다.
+Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 개의 커넥터](../connectors/apis-list.md) 를 제공 하지만, 커넥터로 사용할 수 없는 api, 시스템 및 서비스를 호출 하는 것이 좋습니다. 논리 앱에서 사용할 동작과 트리거를 제공하는 자체 API는 직접 만들 수 있습니다. 논리 앱 워크플로에서 호출할 수 있는 API를 직접 만들려는 다른 이유는 다음가 같습니다.
 
 * 현재의 시스템 통합 및 데이터 통합 워크플로를 확장합니다.
 * 고객이 서비스를 사용하여 전문적이거나 개인적인 작업을 관리할 수 있도록 지원합니다.
@@ -175,7 +175,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 | 요청에 `triggerState`가 있습니까? | API 응답 | 
 | -------------------------------- | -------------| 
-| 아닙니다. | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
+| 아니요 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
 | 예 | `triggerState`에 대한 `DateTime` 이후에 추가된 파일에 대한 서비스를 확인합니다. | 
 ||| 
 

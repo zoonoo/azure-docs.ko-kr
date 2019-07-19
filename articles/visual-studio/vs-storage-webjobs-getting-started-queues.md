@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391238"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248969"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +190,7 @@ public static void GracefulShutdownDemo(
 새 큐 메시지를 만드는 함수를 작성하려면 **Queue** 특성을 사용합니다. **QueueTrigger**와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#how-to-set-configuration-options)할 수 있습니다.
 
 ### <a name="string-queue-messages"></a>문자열 큐 메시지
-다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수는 이 섹션의 뒷부분에 나와 있는 것처럼 **IAsyncCollector<T>** 를 사용합니다.
+다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **>\<iasynccollector T** 를 사용 합니다.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 개의 메시지를 만들려면 다음 예제와 같이 출력 큐의 매개 변수 유형을 **ICollector<T>** 또는 **IAsyncCollector<T>** 로 설정합니다.
+여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **\<ICollector T >** 또는 **\<iasynccollector t >** 에 대 한 매개 변수 형식을 설정 합니다.
 
 ```csharp
 public static void CreateQueueMessages(

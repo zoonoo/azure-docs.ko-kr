@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
-ms.author: v-dabosl
-ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: barclayn
+ms.openlocfilehash: 80ce352a9033b2da1db16643d07eab9eff70eb0a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586606"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875676"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>보안 이벤트 지원 티켓을 로그하는 방법
 
@@ -32,7 +32,7 @@ ms.locfileid: "60586606"
 
     i. 문제 및/또는 취약성은 무엇인가요?
 
-    ii. 취약점, 주시기 CVE (mitre.org) 하거나 CVSS3 v3 계산기 (https://www.first.org/cvss/calculator/3.0) 합니다.
+    ii. 취약성에 대해 CVE (mitre.org) 또는 CVSS3 v3 계산기 ()https://www.first.org/cvss/calculator/3.0) 를 입력 하세요.
 
     iii. 해결 방법 또는 위험 완화가 있나요? 있다면 수정 단계를 제공해 주세요.
 

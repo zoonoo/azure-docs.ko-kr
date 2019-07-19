@@ -8,19 +8,20 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: d68e957ece5c634ed1ce069218df717a4fe0952f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541041"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261259"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API용 Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
+> * [.NET](sql-api-sdk-dotnet-standard.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -34,46 +35,42 @@ ms.locfileid: "67541041"
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
 |**API 설명서**|[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**샘플**|[.NET 코드 샘플](sql-api-dotnet-samples.md)|
+|**샘플**|[.NET 코드 샘플](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**시작**|[Azure Cosmos DB .NET SDK 시작](sql-api-get-started.md)|
 |**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
 |**현재 지원되는 프레임워크**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* 공개 미리 보기용 .NET SDK [버전 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)의 미리 보기 1.
-* .NET Framework 4.6.1 이상 및 .NET Core 2.0 이상을 지원하는 대상 .NET Standard
-* 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델 
-* 스트림 지원 
-* 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage 
+> [!NOTE]
+> .NET Framework를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
 
 ### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
 
-* SDK의 System.Net.Http 버전은 이제 NuGet 패키지에 정의 됩니다.
-* 원래 하나가 실패할 경우 다른 지역으로 대체 (fallback)에 대 한 쓰기 요청을 허용 합니다.
+* SDK의 시스템 .Net. Http 버전은 이제 NuGet 패키지에 정의 된 것과 일치 합니다.
+* 원본에 실패 하는 경우 다른 지역에 대 한 쓰기 요청을 허용 합니다.
 * 쓰기 요청에 대 한 세션 다시 시도 정책을 추가 합니다.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
+* 빈 페이지를 발생 시킨 쿼리의 추적 경합 상태를 수정 합니다.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* LINQ 쿼리에 대 한 전체 자릿수 크기를 늘렸습니다.
-* CompositePath "," CompositePathSortOrder "," SpatialSpec "," SpatialType "및" PartitionKeyDefinitionVersion 새 클래스 추가
-* DocumentCollection에 추가 된 TimeToLivePropertyPath
-* 추가 CompositeIndexes 및 SpatialIndexes IndexPolicy
-* PartitionKeyDefinition에 버전 추가
-* PartitionKey를 None 추가
+* LINQ 쿼리에 대 한 10 진수 전체 자릿수 크기를 늘립니다.
+* 새 클래스 CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType 및 Keydefinitionversion 추가
+* DocumentCollection에 TimeToLivePropertyPath 추가
+* CompositeIndexes 및 SpatialIndexes를 IndexPolicy에 추가 했습니다.
+* 파티션 추가 된 버전
+* PartitionKey에 None 추가
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * 추가 IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint ConnectionPolicy에 있습니다.
+ * IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint를 ConnectionPolicy에 추가 했습니다.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* 진단 개선 사항
+* 진단 기능 향상
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -346,7 +343,7 @@ ms.locfileid: "67541041"
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * 인덱싱 정책 수정 지원이 추가되었습니다.
   * DocumentClient의 새로운 ReplaceDocumentCollectionAsync 메서드
-  * 인덱스 정책 변경 진행률을 추적하기 위한 ResourceResponse<T>의 새로운 IndexTransformationProgress 속성
+  * 인덱스 정책 변경 진행률을\<추적 하기 위한 ResourceResponse T >의 새 IndexTransformationProgress 속성
   * 이제 DocumentCollection.IndexingPolicy를 변경할 수 있음
 * 공간 인덱싱 및 쿼리 지원이 추가되었습니다.
   * 점 및 다각형과 같은 공간 형식을 직렬화/역직렬화하기 위한 새로운 Microsoft.Azure.Documents.Spatial 네임스페이스
@@ -382,12 +379,12 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 <br/>
 
-| Version | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.5.1](#2.5.1) |2019 년 7 월 2 일 |--- |
-| [2.4.1](#2.4.1) |2019 년 6 월 20 일 |--- |
-| [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
-| [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
+| [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
+| [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
+| [2.4.0](#2.4.0) |5 월 5 일, 2019 |--- |
+| [2.3.0](#2.3.0) |4 월 4 일, 2019 |--- |
 | [2.2.3](#2.2.3) |2019 년 2 월 11 일 |--- |
 | [2.2.2](#2.2.2) |2019년 2월 6일 |--- |
 | [2.2.1](#2.2.1) |2018년 12월 24일 |--- |
@@ -448,6 +445,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
 

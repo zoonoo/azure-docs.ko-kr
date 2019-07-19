@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
-ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: matd
+ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724515"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876793"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
@@ -310,7 +310,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 다음은 GFS 회전 일정(4주, 매월 및 매년)의 예입니다.
 
-| 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
+| 빈도/백업 유형 | 모든 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
 | 매월  | 토요일  |   |
@@ -381,10 +381,10 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| 주 | 모든 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
-| 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
-| 2주차 | StorSimple 2-4주 |   |   |   |   |   |
+| 1 주 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
+| 2 주 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 매월 | StorSimple 매월 |   |   |   |   |   |
@@ -415,7 +415,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 및 복제 옵션](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
-6.  **확인**을 선택합니다.
+6.            **확인**을 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 백업 정의 속성 및 복제 옵션](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
@@ -472,13 +472,13 @@ StorSimple 디바이스에서 복원하면 모든 블록 저장소 디바이스�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 메모 |
+| 시나리오 | 영향 | 복구 방법 | 참고 |
 |---|---|---|---|
 | StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 이 문서에서는 다음 문서를 참조했습니다.
 

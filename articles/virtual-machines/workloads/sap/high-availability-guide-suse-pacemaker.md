@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 46044c061cca24714d1a951e28cf01ca29f14a7e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707215"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228358"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -84,7 +84,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-**`nfs`** NFS 클러스터를 식별 하는 데 사용 됩니다 **ascsnw1** 의 ASCS 클러스터를 식별 하는 데 사용 됩니다 **NW1**하십시오 **dbnw1** 의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다 **NW1** , **nfs 0** 하 고 **nfs 1** NFS 클러스터 노드의 호스트 이름에는 **nw1-xscs-0** 및 **nw1-xscs-1**의 호스트 이름이 합니다 **NW1** ASCS 클러스터 노드 및 **nw1-db-0** 및 **nw1-db-1** 데이터베이스의 호스트 클러스터 노드가 합니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+**`nfs`** 는 NFS 클러스터를 식별 하는 데 사용 되며, **ascsnw1** 는 **n w 1**의 ascs 클러스터를 식별 하는 데 사용 되 고, **dbnw1** 는 **n w 1**의 데이터베이스 클러스터를 식별 하는 데 사용 되며, **nfs-0** 및 **nfs-1** 은 nfs 클러스터 노드의 **호스트 이름입니다. n w 1-0** 및 **n w 1-xscs-1** 은 **n w 1** ascs 클러스터 노드의 호스트 이름이 고, **n w 1-0** 및 **n w 1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   만들기는 `softdog` 구성 파일
+   `softdog` 구성 파일 만들기
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ o- / ...........................................................................
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  운영 체제 구성
+1. **[A]** 운영 체제 구성
 
    경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
 
@@ -348,9 +348,9 @@ o- / ...........................................................................
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  HA 클러스터에 대 한 azure로 클라우드-netconfig 구성
+1. **[A]** 클라우드-netconfig 구성-HA 클러스터용 azure
 
-   (Pacemaker VIP 할당을 제어 해야) 가상 IP 주소를 제거할 클라우드 네트워크 플러그 인을 방지 하려면 아래 표시 된 대로 네트워크 인터페이스에 대 한 구성 파일을 변경 합니다. 자세한 내용은 참조 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)합니다. 
+   아래와 같이 네트워크 인터페이스에 대 한 구성 파일을 변경 하 여 클라우드 네트워크 플러그 인에서 가상 IP 주소를 제거 하지 않도록 합니다 (Pacemaker는 VIP 할당을 제어 해야 함). 자세한 내용은 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)을 참조 하세요. 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -448,7 +448,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [이 문서에서는 Linux 용][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]합니다. 또한 매개 변수 mcastaddr을 제거했는지 확인합니다.
+   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 or [Windows][virtual-machines-windows-maintenance] [Linux에 대 한이 문서][virtual-machines-linux-maintenance] 를 참조 하세요. 또한 매개 변수 mcastaddr을 제거했는지 확인합니다.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ o- / ...........................................................................
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. [https://portal.azure.com](https://portal.azure.com)으로 이동
+1. [https://resources.azure.com](<https://portal.azure.com>) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
-1. 추가를 클릭합니다.
-1. 이름을 입력하고 애플리케이션 유형 “웹앱/API”를 선택한 후, 로그온 URL(예: http\://localhost)을 입력하고 만들기 클릭
-1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
-1. 새 앱을 선택하고 설정 탭에서 키 클릭
-1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
+1. 새 등록을 클릭 합니다.
+1. 이름을 입력 하 고 "이 조직 디렉터리에만 있는 계정"을 선택 합니다. 
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:/slocallocalhost)을 입력 한 다음 추가를 클릭 합니다.\/  
+   로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
+1. 인증서 및 암호를 선택 하 고 새 클라이언트 암호를 클릭 합니다.
+1. 새 키에 대 한 설명을 입력 하 고 "기간 제한 없음"을 선택 하 고 추가를 클릭 합니다.
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
+1. 개요를 선택 합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -576,16 +577,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약 된 이벤트에 대 한 pacemaker 구성
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약 된 이벤트에 대 한 Pacemaker 구성
 
-Azure 제품 [예정 된 이벤트](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)합니다. 예약 된 이벤트 메타 데이터 서비스를 통해 제공 되 고 VM 종료, VM 다시 배포 등과 같은 이벤트에 대 한 준비 하려면 응용 프로그램에 대 한 시간을 허용 합니다. 리소스 에이전트 **[azure-이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 예약 된 이벤트에 대 한 모니터. 이벤트 검색 되 면 에이전트는 영향을 받는 VM에서 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 합니다. Pacemaker 리소스를 추가 하는 달성 하기 위해 구성 되어야 합니다. 
+Azure는 [예약 된 이벤트](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)를 제공 합니다. 예약 된 이벤트는 메타 데이터 서비스를 통해 제공 되며 응용 프로그램이 VM 종료, VM 다시 배포 등의 이벤트를 준비할 수 있는 시간을 허용 합니다. 리소스 에이전트 **[azure 이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** 는 예약 된 azure 이벤트를 모니터링 합니다. 이벤트가 검색 되 면 에이전트는 영향을 받는 VM의 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 시도 합니다. 이렇게 하려면 추가 Pacemaker 리소스를 구성 해야 합니다. 
 
-1. **[A]**  설치 된 **azure-이벤트** 에이전트입니다. 
+1. **[A]** **azure 이벤트** 에이전트를 설치 합니다. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Pacemaker에 리소스를 구성 합니다. 
+2. **[1]** Pacemaker에서 리소스를 구성 합니다. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,17 +601,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > 또는 유지 관리 모드에서 클러스터를 배치 하는 경우 azure-이벤트 에이전트에 대 한 Pacemaker 리소스를 구성한 후 같은 경고 메시지가 표시 될 수 있습니다.  
-     경고: cib 부트스트랩 옵션: 알 수 없는 특성 ' hostName_  <strong>hostname</strong>'  
-     경고: cib 부트스트랩 옵션: ' azure events_globalPullState' 알 수 없는 특성  
-     경고: cib 부트스트랩 옵션: 알 수 없는 특성 ' hostName_ <strong>hostname</strong>'  
+   > Azure events agent에 대해 Pacemaker 리소스를 구성한 후 클러스터를 유지 관리 모드로 설정 하거나 유지 하는 경우 다음과 같은 경고 메시지가 표시 될 수 있습니다.  
+     경고: cib: 알 수 없는 ' hostName_ <strong>hostName</strong>' 특성  
+     경고: cib: 알 수 없는 ' azure-events_globalPullState ' 특성  
+     경고: cib: 알 수 없는 ' hostName_ <strong>hostName</strong>' 특성  
    > 이러한 경고 메시지는 무시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Virtual Machines 계획 및 SAP에 대 한 구현][planning-guide]
-* [SAP 용 azure Virtual Machines 배포][deployment-guide]
-* [SAP 용 azure Virtual Machines DBMS 배포][dbms-guide]
-* [SUSE Linux Enterprise Server의 Azure Vm에 있는 NFS의 고가용성][sles-nfs-guide]
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SUSE Linux Enterprise Server에서 Azure Vm의 NFS에 대 한 고가용성][sles-nfs-guide]
 * [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sles-guide]
-* 고가용성 및 Azure Vm에서 SAP HANA의 재해 복구에 대 한 계획을 설정 하는 방법에 알아보려면 참조 [의 SAP HANA 고가용성 Azure Virtual Machines (Vm)에서][sap-hana-ha]
+* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.

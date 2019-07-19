@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0f87b122f81fbd04767354e623dcb808466ee1be
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 508d13356a7dd221b0767a0cedd60b4f1402baf4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673436"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286217"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -32,9 +32,9 @@ NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우는 선택적임)
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID 드라이버
 
-Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 VM 또는 가상 애플리케이션에 대해 NVIDIA GRID 드라이버 설치 관리자를 재배포합니다. Azure NV VM에서 다음 표에 나열된 운영 체제에만 이러한 GRID 드라이버를 설치합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
+Microsoft는 가상 워크스테이션 또는 가상 응용 프로그램에 사용 되는 NV 및 NVv3 시리즈 Vm에 대 한 NVIDIA GRID 드라이버 설치 관리자를 재배포 합니다. 다음 표에 나열 된 운영 체제에만 Azure NV 시리즈 Vm에 이러한 그리드 드라이버를 설치 합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 (최대 1809 버전입니다. 패치가 적용 되지 않은/1809의 패치 수준 0은 지원 되지 않습니다.) | [표 (425.31) 8.0](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
-| Windows Server 2012 R2 | [표 (425.31) 8.0](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |
+| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [표 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [표 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

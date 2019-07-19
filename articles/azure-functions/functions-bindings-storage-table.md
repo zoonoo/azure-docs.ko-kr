@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5c3049b5f9f7607b9b75f3bee48b6ccd44601b15
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654257"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254751"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -493,13 +493,13 @@ public int run(
 
 ## <a name="input---java-annotations"></a>입력 - Java 주석
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  이 주석은 기본 Java 형식, pojos 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다. 
 
 ## <a name="input---configuration"></a>입력 - 구성
 
 다음 표에서는 *function.json* 파일 및 `Table` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 |**type** | n/a | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -759,7 +759,7 @@ public static MyPoco TableOutput(
 
 다음 표에서는 *function.json* 파일 및 `Table` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 |**type** | n/a | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | n/a | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |

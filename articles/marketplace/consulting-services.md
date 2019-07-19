@@ -6,13 +6,13 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
-ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964124"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876688"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -41,7 +41,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 > [!TIP]
 > Azure Marketplace 상점에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이러한 옵션을 선택합니다. AppSource에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "Power Apps"를 선택하여 이 옵션을 선택합니다.
 
-## <a name="eligible-partners-and-supported-countriesregions"></a>적합 한 파트너 및 지원 되는 국가/지역
+## <a name="eligible-partners-and-supported-countriesregions"></a>적격 파트너 및 지원 되는 국가/지역
 
 파트너 자신들의 서비스와 관련된 영역의 **실버 또는 골드 역량**이 필요합니다. 
 
@@ -67,7 +67,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 <b> 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/membership/competencies)을 참조하세요. </b>
  
 
-**SI 파트너는 다음 18 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.**
+**SI 파트너는 다음 18 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.**
 
 |적격 국가/지역 |   |   |   |
 |---------|----------|----------|----------|
@@ -77,7 +77,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 |덴마크   |이탈리아   |     노르웨이          |미국 |
 |핀란드   |일본   |     폴란드          
 
-컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 다른 국가/지역에 대 한 카탈로그 라이브 의미 있는 지나면 되 고 경쟁력 있는 서비스 제품의 엄선 된 파트너가 제출 있고 Microsoft에서 승인 합니다.
+컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 다른 국가/지역에 대 한 카탈로그는 파트너 및 Microsoft에서 승인한 서비스 제공을 포함 하 여 제공 되는 다양 한 서비스를 제공 합니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법
 먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
@@ -117,7 +117,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 3. **제출**: 지침에 나열된 필수 정보를 입력합니다. 모든 콘텐츠 및 지원 자료는 영어로 제출해야 합니다. 
 4. **검토**: 마케팅 및 편집 팀에서 제출을 검토하고 가독성, 문법 및 효율성에 최적화합니다. 
 5. **준비**: 제출이 검토를 위해 준비됩니다. 
-6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Marketplace에 게시될 준비가 끝난 것입니다. 목록의 게시 날짜는 제품에 지정 된 국가/지역에 따라 달라 집니다. 선택한 국가/지역에 대 한 카탈로그 인 경우 이미 라이브 Azure Marketplace 또는 AppSource에서 몇 시간 내에 목록이 표시 됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
+6. **게시**: 제출자와 Microsoft가 준비된 콘텐츠에 만족하면 목록이 Marketplace에 게시될 준비가 끝난 것입니다. 목록의 라이브 이동 날짜는 제품에 지정 된 국가/지역에 따라 달라 집니다. 선택한 국가/지역에 대 한 카탈로그가 이미 Azure Marketplace 또는 AppSource에 있으면 목록에 몇 시간 이내에 표시 됩니다. 그렇지 않으면 카탈로그가 게시되는 즉시 목록이 표시됩니다.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>솔루션 목록 및 콘텐츠 검토 기준
 제품은 다음 5개 서비스 형식 중 하나여야 합니다(둘 이상을 나열할 수 있음). 
@@ -136,7 +136,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 
 제목 필드는 50자로 제한되며, 검색 엔진 최적화를 극대화하기 위한 제품의 기간과 서비스 유형을 전달해야 합니다. 필요한 형식은 다음과 같습니다. 이름: 기간 형식
 
-예제:
+예를 들면 다음과 같습니다.
 
 
 |샘플 제목  |올바른 형식  |

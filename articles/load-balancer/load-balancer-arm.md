@@ -3,20 +3,20 @@ title: 부하 분산 장치에 대한 Azure Resource Manager 지원 | Microsoft 
 description: Azure Resource Manager와 함께 부하 분산 장치용 PowerShell을 사용합니다. 부하 분산 장치에 템플릿을 사용합니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 839b607b7787d51151401737848a46d7b66229dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888995"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275481"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Load Balancer에 대한 Azure Resource Manager 지원 사용
 
@@ -30,9 +30,9 @@ Resource Manager를 사용하는 경우 Azure Load Balancer에 다음과 같은 
 
 * 프런트 엔드 IP 구성 - 부하 분산 장치는 VIP(가상 IP)라고도 하는 프런트 엔드 IP 주소를 하나 이상 포함할 수 있습니다. 이러한 IP 주소는 트래픽에 대한 수신으로 사용됩니다.
 * 백 엔드 주소 풀 - 부하가 분산될 가상 머신 NIC(네트워크 인터페이스 카드)와 연결된 IP 주소입니다.
-* 부하 분산 규칙-규칙 속성에 지정 된 프런트 엔드 IP와 포트 조합을 백 엔드 IP 주소의 조합 및 포트 조합은 매핑합니다. 부하 분산 장치 하나에 여러 부하 분산 규칙이 포함될 수 있습니다. 각 규칙은 프런트 엔드 IP와 포트 및 백 엔드 IP와 Vm과 연결 된 포트의 조합입니다.
+* 부하 분산 규칙-규칙 속성은 지정 된 프런트 엔드 IP 및 포트 조합을 백 엔드 IP 주소와 포트 조합 집합에 매핑합니다. 부하 분산 장치 하나에 여러 부하 분산 규칙이 포함될 수 있습니다. 각 규칙은 Vm과 연결 된 프런트 엔드 IP와 포트 및 백 엔드 IP와 포트의 조합입니다.
 * 검색 - 검색을 사용하여 VM 인스턴스의 상태를 추적할 수 있습니다. 상태 검색에 실패하면 해당 VM 인스턴스는 자동으로 회전에서 제외됩니다.
-* 인바운드 NAT 규칙-NAT 정의 인바운드 트래픽이 프런트 엔드 IP를 통해 전송 규칙 및 백 엔드 IP에 분산 합니다.
+* 인바운드 NAT 규칙-프런트 엔드 IP를 통해 이동 하 여 백 엔드 IP에 분산 되는 인바운드 트래픽을 정의 하는 NAT 규칙입니다.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 

@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: b6cff24e5a7812a88673d80476819e51e6f5da35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: 4170f79e8eaca44260e81c85c1a3a7571720ec7f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125071"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876122"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
 구성할 수 있는 설정은 다음과 같습니다.
-- C#: [FabricTransportRemotingSettings](
+- C#:  [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 

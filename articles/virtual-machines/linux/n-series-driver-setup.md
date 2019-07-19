@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6c8bdb27e9e976a7a490c2a824e994242378641
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671200"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278315"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -170,9 +170,9 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>NV 또는 NVv2 시리즈 VM에 GRID 드라이버 설치
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>NV 또는 NVv3 시리즈 Vm에 그리드 드라이버 설치
 
-NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 VM에 대한 SSH 연결을 확인하고 Linux 배포에 필요한 단계를 수행합니다. 
+NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 VM에 SSH 연결을 설정 하 고 Linux 배포에 대 한 단계를 수행 합니다. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,8 +188,10 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면에 파일을 만듭니다 `/etc/modprobe.d` 라는 `nouveau.conf` 다음 내용으로:
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -226,8 +228,15 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+   
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+ 
+   ```
+   FeatureType=0
+   ```
+10. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 또는 Red Hat Enterprise Linux 
@@ -242,9 +251,11 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면에 파일을 만듭니다 `/etc/modprobe.d` 라는 `nouveau.conf` 다음 내용으로:
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -290,8 +301,15 @@ NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 V
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+ 
+   ```
+   FeatureType=0
+   ```
+10. VM 다시 부팅하고 계속해서 설치를 확인합니다.
+
 
 ### <a name="verify-driver-installation"></a>드라이버 설치 확인
 

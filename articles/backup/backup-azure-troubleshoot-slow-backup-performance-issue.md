@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
 ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/18/2019
 ms.locfileid: "67704930"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
@@ -132,7 +132,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup 방해
 Windows 시스템 내의 다른 프로세스가 Azure Backup 에이전트 프로세스의 성능에 부정적인 영향을 미치는 경우가 확인되었습니다. 예를 들어 Azure Backup 에이전트 및 다른 프로그램을 함께 사용하여 데이터를 백업하거나 바이러스 백신 소프트웨어가 실행되고 있고 백업할 파일이 잠겨 있는 경우 파일을 여러 번 잠그면서 경합이 발생할 수 있습니다. 이 경우 백업이 실패하거나 작업이 예상보다 오래 걸릴 수 있습니다.
 
 이 시나리오에서 가장 좋은 방법은 다른 백업 프로그램을 해제하고 Azure Backup 에이전트의 백업 시간이 달라지는지 확인하는 것입니다. 일반적으로 여러 개의 백업이 동시에 실행되지 않도록 하는 것만으로도 백업이 서로 영향을 주지 않도록 할 수 있습니다.
@@ -145,7 +145,7 @@ Windows 시스템 내의 다른 프로세스가 Azure Backup 에이전트 프로
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: Azure 가상 머신에서 실행 되는 backup 에이전트
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: Azure 가상 머신에서 실행 중인 백업 에이전트
 VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실행할 때보다 성능이 더 느려집니다. 이것은 IOPS 제한 때문으로 예상됩니다.  그러나 백업되는 데이터 드라이브를 Azure Premium Storage로 전환하여 성능을 최적화할 수 있습니다. 이 문제를 해결하기 위해 계속 노력 중이며, 이후 릴리스에서 수정 사항을 사용할 수 있게 될 것입니다.
 
 <a id="cause4"></a>

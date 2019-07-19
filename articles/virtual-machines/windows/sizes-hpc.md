@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck;amverma
-ms.openlocfilehash: 62c6bb906d9c9935be2da148f24d5285cbf0ed67
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: amverma
+ms.reviewer: jonbeck
+ms.openlocfilehash: 6fd08ca912c14a50064f4b6da18334d8bf9df0ca
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710333"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871599"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -31,20 +32,20 @@ ms.locfileid: "67710333"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **운영 체제** -모든 위의 HPC 시리즈 Vm에서 Windows Server 2016 합니다. Windows Server 2012 R2, Windows Server 2012 에서도 지원 됩니다 SR-IOV 사용 하도록 설정한 Vm (HB 및 HC에 따라서 제외).
+* **운영** 체제-위의 모든 HPC 시리즈 vm에서 Windows Server 2016. Windows Server 2012 R2, Windows Server 2012는 SR-IOV를 사용 하지 않는 Vm (HB 및 HC 제외) 에서도 지원 됩니다.
 
-* **MPI** -The SR-IOV (HB, HC) Azure에서 사용 가능한 VM 크기 Mellanox OFED 사용할 MPI의 거의 모든 버전을 허용 합니다.
-비 SR-IOV 설정 된 Vm에서 지원 되는 MPI 구현 인스턴스 간 통신에 Microsoft Network Direct (ND) 인터페이스를 사용 합니다. 따라서만 Microsoft MPI (MS-MPI) 2012 R2 이상 및 Intel MPI 5.x 버전에서 지원 됩니다. 이상 버전 (2017, 2018) Intel MPI 런타임 라이브러리 수 또는 Azure RDMA 드라이버와 호환 되지 않을 수 있습니다.
+* **Mpi** -AZURE에서 sr-iov를 사용 하도록 설정 된 VM 크기 (hb, HC)는 모든 MPI의 모든 버전을 Mellanox OFED와 함께 사용할 수 있습니다.
+SR-IOV를 사용할 수 없는 Vm에서 지원 되는 MPI 구현은 Microsoft Network Direct (ND) 인터페이스를 사용 하 여 인스턴스 간에 통신 합니다. 따라서 Microsoft MPI (MS MPI) 2012 R2 이상 및 Intel MPI 5.x 버전만 지원 됩니다. Intel MPI 런타임 라이브러리의 이후 버전 (2017, 2018)은 Azure RDMA 드라이버와 호환 될 수도 있고 그렇지 않을 수도 있습니다.
 
-* **InfiniBandDriverWindows VM 확장** -RDMA 지원 Vm에서는 InfiniBand를 사용 하도록 설정 하려면 InfiniBandDriverWindows 확장을 추가 합니다. 이 Windows VM 확장 Windows Network Direct 드라이버 SR-IOV vm에 또는 RDMA 연결에 대 한 SR-IOV vm OFED Mellanox 드라이버를 설치합니다.
-A8 및 A9 인스턴스와 특정 배포에서는 HpcVmDrivers 확장이 자동으로 추가 됩니다. 참고는 HpcVmDrivers VM 확장 되지 않습니다. 이 업데이트 되지 않습니다. VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용할 수 있습니다. 
+* **INFINIBANDDRIVERWINDOWS vm 확장** -RDMA 지원 Vm에서 InfiniBandDriverWindows 확장을 추가 하 여 InfiniBand를 사용 하도록 설정 합니다. 이 Windows VM 확장은 RDMA 연결에 Windows 네트워크 직접 드라이버 (SR-IOV가 아닌 Vm) 또는 Mellanox OFED 드라이버 (SR-IOV Vm)를 설치 합니다.
+A8 및 A9 인스턴스의 특정 배포에서 HpcVmDrivers 확장이 자동으로 추가 됩니다. HpcVmDrivers VM 확장은 더 이상 사용 되지 않습니다. 업데이트 되지 않습니다. VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용할 수 있습니다. 
 
-  다음 명령은 이라는 기존 RDMA 지원 VM에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치 *myVM* 이라는 리소스 그룹에 배포 된 *myResourceGroup* 합니다 에서 *미국 서 부* 지역:
+  다음 명령은 *미국 서 부* 지역에 *myvm* 이라는 리소스 그룹에 배포 된 *MYVM* 이라는 기존 RDMA 지원 VM에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치 합니다.
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
   ```
-  또는 Azure Resource Manager 템플릿에 다음 JSON 요소를 사용 하 여 간편한 배포를 위해 VM 확장을 포함할 수 있습니다.
+  또는 편리한 배포를 위해 다음 JSON 요소를 사용 하 여 VM 확장을 Azure Resource Manager 템플릿에 포함할 수 있습니다.
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
@@ -53,7 +54,7 @@ A8 및 A9 인스턴스와 특정 배포에서는 HpcVmDrivers 확장이 자동�
   } 
   ```
 
-  다음 명령은 기존 VM 확장 집합의 모든 RDMA 지원 Vm에서 최신 버전 1.0 InfiniBandDriverWindows 확장 설치 *myVMSS* 이라는 리소스 그룹에 배포 된 *myResourceGroup*:
+  다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 vm 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치 합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -73,9 +74,9 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 * **가상 머신** - Azure Resource Manager 배포 모델을 사용하는 경우 동일한 가용성 집합에서 RDMA 가능 HPC VM을 배포합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다. 
 
-* **가상 머신 확장 집합** -가상 머신 확장 집합을 단일 배치 그룹으로 배포를 제한 하는 것을 확인 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 
+* **Virtual machine scale sets** -가상 머신 확장 집합에서 배포를 단일 배치 그룹으로 제한 해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 
 
-* **가상 머신 간에 MPI** -MPI 통신 virtual machines (Vm) 사이 필요한 경우 Vm은 동일한 가용성 집합 또는 확인 가상 머신을 동일한 경우 확장 집합입니다.
+* **가상 컴퓨터 간의 mpi** -Mpi 통신이 vm (가상 컴퓨터) 간에 필요한 경우 vm이 동일한 가용성 집합 또는 가상 컴퓨터의 동일한 확장 집합에 있는지 확인 합니다.
 
 * **Azure CycleCloud** - [Azure CycleCloud](/azure/cyclecloud/)에서 HPC 클러스터를 만들어서 Windows 노드에서 MPI 작업을 실행합니다.
 

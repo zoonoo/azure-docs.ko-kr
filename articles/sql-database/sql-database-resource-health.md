@@ -12,18 +12,18 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61483065"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854356"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
 
 ## <a name="overview"></a>개요
 
-SQL Database용 [Resource Health](../service-health/resource-health-overview.md#getting-started)는 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
+SQL Database용 [Resource Health](../service-health/resource-health-overview.md#get-started)는 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
 
 ![개요](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 

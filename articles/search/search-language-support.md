@@ -6,69 +6,52 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/11/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cc9f271c1c79f34ba62fa22d6ce4fd6bf16738f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025259"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854411"
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search에서 다국어 문서에 대한 인덱스 만들기
-> [!div class="op_single_selector"]
->
-> * [포털](search-language-support.md)
-> * [REST (영문)](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
->
->
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Azure Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 
-인덱스 정의의 검색 가능한 필드에서 한 가지 속성만 설정하면 간단히 언어 분석기를 활용할 수 있습니다. 이제 포털에서 이 단계를 수행할 수 있습니다.
+인덱스는 여러 언어의 콘텐츠를 포함 하는 필드를 포함할 수 있습니다. 예를 들어 언어별 문자열의 개별 필드를 만들 수 있습니다. 인덱싱 및 쿼리 중에 최상의 결과를 위해 적절 한 언어 규칙을 제공 하는 언어 분석기를 할당 합니다. 
 
-다음은 사용자가 인덱스 스키마를 정의할 수 있는 Azure Search의 Azure Portal 블레이드의 스크린샷입니다. 이 블레이드로부터 사용자가 모든 필드를 만들고 각각에 대한 분석기 속성을 설정할 수 있습니다.
+Azure Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개별 필드에 할당할 수 있는 많은 언어 분석기를 제공 합니다. 이 문서에 설명 된 대로 포털에서 언어 분석기를 지정할 수도 있습니다.
 
-> [!IMPORTANT]
-> 처음부터 새 인덱스를 만들거나 새 필드를 기존 인덱스에 추가할 때처럼 필드 정의 중에 언어 분석기를 설정하기만 하면 됩니다. 필드를 만들 때 분석기를 포함한 모든 속성을 완전히 지정했는지 확인합니다. 변경 내용을 저장한 후에는 속성을 편집하거나 분석기 형식을 변경할 수 없습니다.
->
->
+## <a name="add-analyzers-to-fields"></a>필드에 분석기 추가
 
-## <a name="define-a-new-field-definition"></a>새 필드 정의
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 검색 서비스의 서비스 블레이드를 엽니다.
-2. 서비스 대시보드 위쪽의 명령 모음에 있는 **인덱스 추가** 를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
-3. 언어 분석기 선택을 위한 분석기 탭 등, 인덱스 스키마 정의 옵션을 제공하는 필드 블레이드가 나타납니다.
-4. 필드에서 이름을 입력하고 데이터 형식을 선택하며 필드를 전체 텍스트 검색 가능, 검색 결과에서 검색 가능, 패싯 탐색 구조에서 사용 가능, 정렬 가능 등으로 표시하는 속성을 설정하여 필드 정의를 시작합니다.
-5. 다음 필드로 이동하기 전에 **분석기** 탭을 엽니다.
+언어 분석기는 필드가 생성 될 때 지정 됩니다. 기존 필드 정의에 분석기를 추가 하려면 인덱스를 덮어쓰거나 다시 로드 하거나 원래와 동일 하지만 분석기 할당을 사용 하 여 새 필드를 만들어야 합니다. 그러면 사용 하지 않는 필드를 편리 하 게 삭제할 수 있습니다.
 
-![][1]
-*분석기를 선택하려면 필드 블레이드의 분석기 탭을 클릭합니다.*
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 검색 서비스를 찾습니다.
+1. 서비스 대시보드 위쪽의 명령 모음에 있는 **인덱스 추가** 를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
+1. 이름을 제공 하 여 필드 정의를 시작 합니다.
+1. Edm. String 데이터 형식을 선택 합니다. 문자열 필드만 전체 텍스트 검색 가능입니다.
+1. **검색 가능한** 특성을 설정 하 여 Analyzer 속성을 사용 하도록 설정 합니다. 언어 분석기를 사용 하려면 필드가 텍스트를 기반으로 해야 합니다.
+1. 사용 가능한 분석기 중 하나를 선택 합니다. 
 
-## <a name="choose-an-analyzer"></a>분석기 선택
-1. 스크롤하여 정의하는 필드를 찾습니다.
-2. 필드를 **검색 가능**으로 표시하지 않은 경우 지금 확인란을 클릭하여 검색 가능으로 표시합니다.
-3. 분석기 영역을 클릭하여 사용 가능한 분석기 목록을 표시합니다.
-4. 사용할 분석기를 선택합니다.
+![필드 정의 중 언어 분석기 할당](media/search-language-support/select-analyzer.png "필드 정의 중 언어 분석기 할당")
 
-![][2]
-*각 필드에 대해 지원되는 분석기 중 하나를 선택합니다.*
+기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
 
-기본적으로 모든 검색 가능 필드에서는 언어 중립적인 [표준 Lucene 분석기](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용합니다. 지원되는 전체 분석기 목록을 보려면 [Azure Search의 언어 지원](https://msdn.microsoft.com/library/azure/dn879793.aspx)을 참조하세요.
+포털에서 분석기는 그대로 사용 하기 위한 것입니다. 사용자 지정 또는 필터 및 토크 나이저의 특정 구성이 필요한 경우 코드에서 [사용자 지정 분석기를 만들어야](index-add-custom-analyzers.md) 합니다. 포털에서 사용자 지정 분석기를 선택 하거나 구성 하는 기능을 지원 하지 않습니다.
 
-필드에 대해 언어 분석기를 선택한 후에는 해당 필드의 모든 인덱싱 및 검색 요청에 해당 분석기를 사용합니다. 다른 분석기를 사용하는 여러 필드에 대해 쿼리가 실행된 경우 이 쿼리는 각 필드에 부합하는 분석기를 통해 독립적으로 처리됩니다.
+## <a name="query-language-specific-fields"></a>쿼리 언어별 필드
 
-전세계의 많은 웹 및 모바일 애플리케이션 서버 사용자가 각기 다른 언어를 사용합니다. 지원되는 각각의 언어에 대해 필드를 만들면 이러한 시나리오를 위한 인덱스를 정의할 수 있습니다.
-
-![][3]
-*지원되는 각 언어에 대한 설명 필드가 있는 인덱스 정의*
+필드에 대해 언어 분석기를 선택한 후에는 해당 필드의 모든 인덱싱 및 검색 요청에 해당 분석기를 사용합니다. 여러 분석기를 사용 하 여 여러 필드에 대해 쿼리를 실행 하는 경우 쿼리는 각 필드에 대해 할당 된 분석기에 의해 독립적으로 처리 됩니다.
 
 쿼리를 실행한 에이전트의 언어를 아는 경우 검색 요청의 범위를 **searchFields** 쿼리 매개 변수를 사용하여 특정 필드로 지정할 수 있습니다. 다음 쿼리는 폴란드어로 된 설명에 대해서만 실행됩니다.
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2019-05-06`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-**탐색기 검색** 을 사용하여 위에 표시된 것과 유사한 쿼리를 붙여 넣으면 포털에서 인덱스를 쿼리할 수 있습니다. 탐색기 검색은 서비스 블레이드의 명령 모음에서 사용할 수 있습니다. 세부 정보는 [포털에서 Azure Search 인덱스 쿼리](search-explorer.md) 를 참조하세요.
+[**검색 탐색기**](search-explorer.md) 를 사용 하 여 위에서 설명한 것과 비슷한 쿼리를 붙여넣어 포털에서 인덱스를 쿼리할 수 있습니다.
 
-간혹 쿼리를 실행한 에이전트의 언어를 알지 못할 수 있습니다. 이 경우 모든 필드에 대해 동시에 쿼리를 실행할 수 있습니다. 필요한 경우 [평가 프로필](https://msdn.microsoft.com/library/azure/dn798928.aspx)을 사용하여 특정 언어로 된 결과에 대한 우선 순위를 정의할 수 있습니다. 아래 예에서는 영어 설명에서 찾은 일치 항목이 폴란드 및 프랑스어 항목 일치보다 상대적으로 높은 점수를 받게 됩니다.
+## <a name="boost-language-specific-fields"></a>언어별 필드 향상
+
+간혹 쿼리를 실행한 에이전트의 언어를 알지 못할 수 있습니다. 이 경우 모든 필드에 대해 동시에 쿼리를 실행할 수 있습니다. 필요한 경우 [평가 프로필](index-add-scoring-profiles.md)을 사용하여 특정 언어로 된 결과에 대한 우선 순위를 정의할 수 있습니다. 아래 예에서는 영어 설명에서 찾은 일치 항목이 폴란드 및 프랑스어 항목 일치보다 상대적으로 높은 점수를 받게 됩니다.
 
     "scoringProfiles": [
       {
@@ -81,9 +64,6 @@ ms.locfileid: "65025259"
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
-.NET 개발자인 경우 [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
+## <a name="next-steps"></a>다음 단계
 
-<!-- Image References -->
-[1]: ./media/search-language-support/AnalyzerTab.png
-[2]: ./media/search-language-support/SelectAnalyzer.png
-[3]: ./media/search-language-support/IndexDefinition.png
+.NET 개발자 인 경우 [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다. 

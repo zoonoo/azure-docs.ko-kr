@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: jdial
-ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: timlt
+ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60624449"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295568"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>다중 계층 애플리케이션을 위한 네트워크 만들기
 
@@ -48,7 +48,7 @@ az group delete --name MyResourceGroup --yes
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 네트워크 및 네트워크 보안 그룹을 만듭니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](/cli/azure/network/vnet) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |

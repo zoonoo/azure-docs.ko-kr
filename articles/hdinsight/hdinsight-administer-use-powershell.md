@@ -7,20 +7,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
-ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.author: tyfox
+ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508067"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873926"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 관리 하는 방법을 알아봅니다 [Apache Hadoop](https://hadoop.apache.org/) Az Azure PowerShell 모듈을 사용 하 여 Azure HDInsight에서 클러스터. HDInsight PowerShell cmdlet의 목록에 대 한 참조를 [Az.HDInsight 참조](https://docs.microsoft.com/powershell/module/az.hdinsight)합니다.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell Az module을 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리 하는 방법에 대해 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [Az. hdinsight 참조](https://docs.microsoft.com/powershell/module/az.hdinsight)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
@@ -142,7 +142,7 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-액세스 권한의 부여/해지는 포털을 통해서도 수행할 수 있습니다. 참조 [Azure portal을 사용 하 여 HDInsight에서 Apache Hadoop 관리 클러스터](hdinsight-administer-use-portal-linux.md)합니다.
+액세스 권한의 부여/해지는 포털을 통해서도 수행할 수 있습니다. [Azure Portal를 사용 하 여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조 하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 HTTP 액세스 권한 부여/해지와 같은 절차입니다. 클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
@@ -204,7 +204,7 @@ $resourceGroupName = $cluster.ResourceGroup
 
 ## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
 
-참조 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)합니다.
+[HDInsight에 데이터 업로드를](hdinsight-upload-data.md)참조 하세요.
 
 ## <a name="see-also"></a>관련 항목
 

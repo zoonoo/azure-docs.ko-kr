@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e19df7c50ca9d2c57ab385a567f4911b200c5e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510884"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227139"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD(Azure Active Directory) B2C 애플리케이션에 사용자 고유의 JavaScript 클라이언트 쪽 코드를 추가할 수 있습니다. JavaScript 응용 프로그램을 사용 하려면 요소를 추가 해야 합니다 하 [사용자 지정 정책](active-directory-b2c-overview-custom.md)를 선택를 [페이지 계약](page-contract.md)를 사용 하 여 [b2clogin.com](b2clogin.md) 요청에서. 이 문서에서는 스크립트 실행을 사용 하도록 설정 하려면 사용자 지정 정책을 변경 하는 방법을 설명 합니다.
+Azure AD(Azure Active Directory) B2C 애플리케이션에 사용자 고유의 JavaScript 클라이언트 쪽 코드를 추가할 수 있습니다. 응용 프로그램에 대해 JavaScript를 사용 하도록 설정 하려면 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에 요소를 추가 하 고, [페이지 레이아웃](page-layout.md)을 선택 하 고, 요청에 [b2clogin.com](b2clogin.md) 를 사용 해야 합니다. 이 문서에서는 사용자 지정 정책을 변경 하 여 스크립트 실행을 사용 하도록 설정 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 사용자 흐름에 대 한 JavaScript를 사용 하도록 설정 하려는 경우 참조 [JavaScript 및 페이지에는 Azure Active Directory B2C에서 버전 계약](user-flow-javascript-overview.md)합니다.
+> 사용자 흐름에 JavaScript를 사용 하도록 설정 하려면 [Azure Active Directory B2C의 javascript 및 페이지 레이아웃 버전](user-flow-javascript-overview.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-응용 프로그램의 사용자 인터페이스 요소에 대 한 페이지 계약을 선택 합니다. JavaScript를 사용하려면 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 계약 버전을 정의해야 합니다.
+응용 프로그램의 사용자 인터페이스 요소에 대 한 페이지 레이아웃을 선택 합니다. JavaScript를 사용 하려는 경우 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 레이아웃 버전을 정의 해야 합니다.
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution 요소 추가
 
@@ -143,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-코드에서 `termsOfUseUrl`을 해당 사용 약관 링크로 바꿉니다. 디렉터리 라는 새 사용자 특성을 만듭니다 **termsOfUse** 한 다음이 포함 **termsOfUse** 사용자 특성입니다.
+코드에서 `termsOfUseUrl`을 해당 사용 약관 링크로 바꿉니다. 디렉터리에 대해 **termsOfUse** 라는 새 사용자 특성을 만든 다음 **termsOfUse** 를 사용자 특성으로 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

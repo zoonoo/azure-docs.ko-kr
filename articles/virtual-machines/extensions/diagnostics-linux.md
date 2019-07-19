@@ -8,13 +8,13 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710402"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871919"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -49,10 +49,10 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
-* **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+* **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
 * 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
@@ -146,7 +146,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
 
-![이미지](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 생성된 SAS를 storageAccountSasToken 필드에 복사하고 앞의 물음표("?")를 제거합니다.
 
@@ -169,8 +169,8 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 
 요소 | 값
 ------- | -----
-이름 | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
-형식 | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
+name | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
+type | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
 Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 JsonBlob을 지원합니다.
 
@@ -254,10 +254,10 @@ mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 �
 
 요소 | 값
 ------- | -----
-eventVolume | (선택 사항) 저장소 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 지정하지 않으면 기본값 `"Medium"`입니다.
+eventVolume | (선택 사항) 저장소 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 기본값은 지정 하지 않으면 `"Medium"`합니다.
 sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬렉션 간의 기본 간격입니다. 지원되는 가장 작은 샘플 속도는 15초입니다. 지정하지 않으면 기본값 `15`입니다.
 
-#### <a name="metrics"></a>메트릭
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {
@@ -271,7 +271,7 @@ sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬�
 
 요소 | 값
 ------- | -----
-ResourceId | VM 또는 VM이 속한 가상 머신 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
+resourceId | VM 또는 VM이 속한 가상 머신 확장 집합의 Azure Resource Manager 리소스 ID입니다. JsonBlob 싱크가 구성에 사용되는 경우 이 설정도 지정해야 합니다.
 scheduledTransferPeriod | 집계 메트릭이 계산되어 Azure Metrics로 전송되는 빈도이며 IS 8601 시간 간격으로 표시됩니다. 최소 전송 기간은 60초, 즉 PT1M입니다. 하나 이상의 scheduledTransferPeriod를 지정해야 합니다.
 
 performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 카운터에 명시적으로 정의된 샘플 속도로 수집됩니다. 예제와 같이 여러 scheduledTransferPeriod 빈도가 나타날 경우 각 집계는 독립적으로 계산됩니다.
@@ -311,12 +311,12 @@ performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 �
 
 요소 | 값
 ------- | -----
-sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예: `"EHsink1, myjsonsink"`.
-형식 | 메트릭의 실제 공급자를 식별합니다.
+sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예를 들어, `"EHsink1, myjsonsink"` 같은 형식입니다.
+type | 메트릭의 실제 공급자를 식별합니다.
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
-condition | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
+조건 | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
 sampleRate | 이 메트릭의 원시 샘플이 수집되는 속도를 설정하는 IS 8601 간격입니다. 설정하지 않은 경우 컬렉션 간격은 [sampleRateInSeconds](#ladcfg) 값으로 설정됩니다. 지원되는 최소 샘플 속도는 15초(PT15S)입니다.
 단위 | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
 displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결된 로캘 설정에서 지정된 언어)입니다. LAD는 이 필드를 무시합니다.
@@ -502,7 +502,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 파일 시스템에서 집계된 값을 얻을 수 있습니다. `"condition": 'Name="/mnt"'`로 설정하면 특정 탑재된 파일 시스템(예: "/mnt")에 대한 값을 얻을 수 있습니다. 
 
-**참고**: JSON 대신 Azure Portal을 사용 하는 경우 올바른 조건 필드 형식은 Name ='/ mnt'
+**참고**: JSON 대신 Azure Portal을 사용 하는 경우 올바른 조건 필드 형식은 Name = '/mnt '입니다.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 
@@ -688,7 +688,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합니다.
 
-![이미지](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
@@ -697,11 +697,11 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Microsoft Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage 탐색기").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Microsoft Azure Storage Explore의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
+Microsoft Azure Storage 탐색기의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
-![이미지](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
 

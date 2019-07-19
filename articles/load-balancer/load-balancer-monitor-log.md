@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 공용 기본 Load Balancer에 대한 경고 이벤트 및 상태 프로브 상태 로깅을 사용하도록 설정하는 방법에 대해 알아보기
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
-ms.author: kumud
-ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861172"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274811"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 부하 분산 장치에 대 한 azure Monitor 로그
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer에 대 한 Azure Monitor 로그
 
 >[!IMPORTANT] 
 >Azure Load Balancer는 다음의 두 가지 형식을 지원합니다. 기본 및 표준 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 Azure Monitor에서 다차원 메트릭을 통해 원격 분석을 노출하는 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
@@ -32,7 +32,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
 * **상태 프로브 로그:** 상태 프로브 오류 때문에 부하 분산 장치에서 요청을 받지 않는 백 엔드 풀에 있는 인스턴스의 수와 같은 상태 프로브에서 발견한 문제를 보기 위해 이 로그를 사용할 수 있습니다. 상태 프로브 상태가 변경되는 경우에 이 로그가 기록됩니다.
 
 > [!IMPORTANT]
-> Azure Monitor 로그 현재 공용 기본 부하 분산 장치에 대해서만 작동 합니다. 로그는 Resource Manager 배포 모델에 배포된 리소스에서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+> Azure Monitor 로그는 현재 공용 기본 부하 분산 장치에 대해서만 작동 합니다. 로그는 Resource Manager 배포 모델에 배포된 리소스에서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -53,7 +53,7 @@ Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다�
 5. **진단** 창의 **상태** 아래에서 **설정**을 선택합니다.
 6. **Storage 계정**을 클릭합니다.
 7. **로그** 아래에서 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 슬라이더를 사용하여 이벤트 로그에 저장된 이벤트 데이터를 유지할 날짜 수를 결정합니다. 
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 
 진단은 지정된 스토리지 계정의 Table Storage에 저장됩니다. 로그가 저장되지 않는 경우 이는 관련 로그가 생성되지 않기 때문입니다.
 
@@ -143,7 +143,7 @@ JSON 출력은 경고가 생성된 부하 분산 장치에 대한 이유를 설�
 > [!TIP]
 > Visual Studio 및 C# 상수와 변수의 값 변경에 대한 기본 개념을 잘 알고 있으면 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter) 를 사용할 수 있습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Power BI를 사용하여 Azure 감사 로그 시각화](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) 블로그 게시물.
 * [Power BI 등에서 Azure 감사 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) 블로그 게시물.

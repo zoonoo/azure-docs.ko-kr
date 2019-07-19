@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390837"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260756"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
 일부 코드 조각에서는 **Table** 특성이 수동으로 호출된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
 
 ## <a name="how-to-add-entities-to-a-table"></a>테이블에 엔터티를 추가하는 방법
-테이블에 엔터티를 추가하려면 **ICollector<T>** 또는 **IAsyncCollector<T>** 매개 변수와 함께 **Table** 특성을 사용합니다(여기서 **T**는 추가하려는 엔터티의 스키마를 지정). 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
+테이블에 엔터티를 추가 하려면 **ICollector\<T >** 또는 **\<iasynccollector t >** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **T** 는 추가 하려는 엔터티의 스키마를 지정 합니다. 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
 
 다음 코드 샘플은 **Person** 엔터티를 *Ingress*라는 테이블에 추가합니다.
 
@@ -79,7 +79,7 @@ Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **Cl
 ![수신 함수 완료](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>테이블에서 여러 엔터티를 읽는 방법
-테이블을 읽으려면 **IQueryable<T>** 매개 변수와 함께 **Table** 특성을 사용합니다. 여기서 **T** 유형은 **TableEntity**에서 파생되거나 **ITableEntity**를 구현합니다.
+테이블을 읽으려면 **IQueryable\<t >** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **t** 형식은 **tableentity** 에서 파생 되거나 **itableentity**를 구현 합니다.
 
 다음 코드 샘플은 **Ingress** 테이블에서 모든 행을 읽고 기록합니다.
 

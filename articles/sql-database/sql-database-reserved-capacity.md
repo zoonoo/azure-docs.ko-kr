@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/01/2019
-ms.openlocfilehash: 8c4fd3d49b4df3b3d18802e49d51aa54c0b58333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 07/15/2019
+ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566173"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233044"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
@@ -28,7 +28,7 @@ ms.locfileid: "67566173"
 
 [Azure Portal](https://portal.azure.com)에서 Azure SQL Database 예약된 용량을 구매할 수 있습니다. SQL Database 예약된 용량을 구입하려면 다음을 수행합니다.
 
-- 하나 이상의 Enterprise 또는 종 량 제 요금으로 개별 구독에 대 한 소유자 역할을 포함 해야 합니다.
+- 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 또는 해당 설정을 사용하지 않도록 설정한 경우 사용자가 구독에 대한 EA 관리자여야 합니다.
 - CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트가 SQL Database 예약된 용량을 구매할 수 있습니다.
 
@@ -44,21 +44,21 @@ ms.locfileid: "67566173"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
-3. 선택 **추가** 를 구매 예약 창에서 선택한 **SQL Database** SQL Database에 대 한 새 예약을 구입할 수 있습니다.
-4. 입력 하 고 필수 필드입니다. 선택한 특성과 일치하는 기존 또는 새 단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스는 예약 용량 할인을 받을 수 있습니다. 할인을 받는 실제 SQL Database 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
-    ![SQL Database를 제출 하기 전의 스크린샷 예약 용량 구입](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+3. **추가** 를 선택한 다음 구매 예약 창에서 **SQL Database** 을 선택 하 여 SQL Database에 대 한 새 예약을 구매 합니다.
+4. Fill-필수 필드입니다. 선택한 특성과 일치하는 기존 또는 새 단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스는 예약 용량 할인을 받을 수 있습니다. 할인을 받는 실제 SQL Database 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
+    ![SQL Database 예약 된 용량 구매를 제출 하기 전의 스크린샷](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-다음 표에서 필수 필드를 설명합니다.
+다음 표에서는 필수 필드에 대해 설명 합니다.
 
-| 필드      | 설명|
+| 필드      | Description|
 |------------|--------------|
-|구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는-0148 Ms-azr) 또는 종 량 제 가격으로 개별 규약 (번호를 제공 합니다. MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격을 사용 하 여 개별 구독에 대 한 요금은 구독에 신용 카드 또는 청구서 지불 방법으로 요금이 청구 됩니다.|
-|Scope       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <br/><br/>**공유**, vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독**, vCore 예약 할인이이 구독의 SQL Database 인스턴스에 적용 됩니다. <br/><br/>**단일 리소스 그룹**, 선택한 구독 및 해당 구독 내에서 선택한 리소스 그룹에 SQL Database 인스턴스에 예약 할인이 적용 됩니다.|
-|지역      |SQL Database 예약된 용량 예약에 포함되는 Azure 지역입니다.|
-|배포 유형|예약을 구매할 SQL 리소스 종류입니다.|
+|구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 가격의 개별 계약 (제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|
+|범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <br/><br/>**공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독**-이 구독의 SQL Database 인스턴스에 vcore 예약 할인이 적용 됩니다. <br/><br/>**단일 리소스 그룹**-예약 할인이 선택한 구독의 SQL Database 인스턴스 및 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.|
+|Region      |SQL Database 예약된 용량 예약에 포함되는 Azure 지역입니다.|
+|RootFile|예약을 구매할 SQL 리소스 종류입니다.|
 |성능 계층|SQL Database 인스턴스에 대한 서비스 계층입니다.
 |용어        |1년 또는 3년입니다.|
-|수량    |SQL Database 예약된 용량 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 SQL Database 인스턴스의 수입니다. 예를 들어 미국 동부 지역에서 10개의 SQL Database 인스턴스를 실행 중인 경우 실행 중인 모든 머신에 대한 혜택을 극대화하려면 수량을 10으로 지정할 수 있습니다. |
+|수량    |SQL Database 예약 된 용량 예약 내에서 구매한 계산 리소스의 양입니다. 수량은 선택한 Azure 지역 및 성능 계층의 많은 vCores로, 예약 되 고 청구 할인이 적용 됩니다. 예를 들어 미국 동부 지역에서 Gen5 16 vCores의 총 계산 용량을 사용 하 여 SQL Database 인스턴스를 실행 하는 경우 모든 인스턴스에 대 한 혜택을 극대화 하기 위해 수량을 16으로 지정 합니다. |
 
 1. **비용** 섹션에서 SQL Database 예약된 용량 예약의 비용을 검토합니다.
 1. **구매**를 선택합니다.
@@ -70,7 +70,7 @@ SQL Database 예약된 용량 예약을 취소해야 하는 경우 12%의 조기
 
 SQL Database 예약된 용량 예약을 다른 지역, 배포 유형, 성능 계층 또는 기간으로 변경해야 하는 경우 같거나 더 큰 값인 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 1 또는 3년 기간은 새 예약을 만들 때 시작합니다. 교환을 요청하려면 Azure Portal의 예약으로 이동하고, **교환**을 선택하여 지원 요청을 만듭니다.
 
-Exchange 또는 환불 예약 하는 방법에 대 한 자세한 내용은 참조 하세요. [예약 교환 및 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)합니다.
+예약을 교환 하거나 환불 하는 방법에 대 한 자세한 내용은 [예약 교환 및 환불](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조 하세요.
 
 ## <a name="vcore-size-flexibility"></a>vCore 크기 유연성
 

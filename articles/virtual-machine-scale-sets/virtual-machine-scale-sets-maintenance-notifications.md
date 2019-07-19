@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618458"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849743"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -80,7 +80,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **가상 머신 확장 집합**을 선택합니다.
 3. **가상 머신 확장 집합** 아래에서 **열 편집**을 선택하여 사용 가능한 열 목록을 엽니다.
-4. **사용 가능한 열** 섹션에서 **셀프 서비스 유지 관리**를 선택한 다음, **선택한 열** 목록으로 이동합니다. **적용**을 선택합니다.  
+4. **사용 가능한 열** 섹션에서 **셀프 서비스 유지 관리**를 선택한 다음, **선택한 열** 목록으로 이동합니다.           **적용**을 선택합니다.  
 
     **셀프 서비스 유지 관리** 항목을 더 쉽게 찾으려면 **사용 가능한 열** 섹션의 드롭다운 옵션을 **모두**에서  **속성**으로 변경할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 | 값 | 설명 |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
-| 아닙니다. | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
+| 아니요 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
 | - | 가상 머신 확장 집합이 계획된 유지 관리 웨이브에 속하지 않습니다.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
@@ -127,9 +127,14 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus**로 반환되는 속성은 다음과 같습니다. 
 
-| 값 | 설명 |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | 이 이번에 유지 관리를 시작할 vm 수 있는지 여부를 나타냅니다. | | PreMaintenanceWindowStartTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 시작 합니다. | | PreMaintenanceWindowEndTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 종료 합니다. | | MaintenanceWindowStartTime | Azure가 VM에서 유지 관리를 시작 하는 예약 된 유지 관리 시작 | | MaintenanceWindowEndTime | Azure가 VM에서 유지 관리를 시작 하는 유지 관리 예약 기간의 종료 합니다. | | LastOperationResultCode | VM에서 유지 관리를 시작 하려면 마지막 시도의 결과입니다. |
+| 값 | 설명   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
+| PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
+| PreMaintenanceWindowEndTime           | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 종료 시간입니다. |
+| MaintenanceWindowStartTime            | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 시작 시간입니다. |
+| MaintenanceWindowEndTime              | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 종료 시간입니다. |
+| LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. |
 
 
 
@@ -153,9 +158,14 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 **MaintenanceRedeployStatus**로 각 VM 인스턴스에 대해 반환되는 속성은 다음과 같습니다. 
 
-| 값 | 설명 |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | 이 이번에 유지 관리를 시작할 vm 수 있는지 여부를 나타냅니다. | | PreMaintenanceWindowStartTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 시작 합니다. | | PreMaintenanceWindowEndTime | 유지 관리 셀프 서비스 기간이 VM에서 유지 관리를 시작할 수 때 종료 합니다. | | MaintenanceWindowStartTime | Azure가 VM에서 유지 관리를 시작 하는 예약 된 유지 관리 시작 | | MaintenanceWindowEndTime | Azure가 VM에서 유지 관리를 시작 하는 유지 관리 예약 기간의 종료 합니다. | | LastOperationResultCode | VM에서 유지 관리를 시작 하려면 마지막 시도의 결과입니다. |
+| 값 | 설명   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
+| PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
+| PreMaintenanceWindowEndTime           | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 종료 시간입니다. |
+| MaintenanceWindowStartTime            | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 시작 시간입니다. |
+| MaintenanceWindowEndTime              | Azure가 VM에서 유지 관리를 시작하는 예약된 유지 관리 기간의 종료 시간입니다. |
+| LastOperationResultCode               | VM에서 유지 관리를 시작하는 마지막 시도의 결과입니다. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>CLI를 사용하여 VM 인스턴스에서 유지 관리 시작
@@ -176,7 +186,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** 가용성 집합이나 가상 머신 확장 집합에 배포된 가상 머신은 업데이트 도메인을 사용합니다. 유지 관리를 수행할 때 Azure는 업데이트 도메인 제약 조건을 준수하고 동일한 가용성 집합 내의 다른 업데이트 도메인에서 VM을 다시 부팅하지 않습니다. 또한 Azure는 다음 VM 그룹으로 이동하기 전에 30분 이상 기다립니다. 
 
-고가용성에 대한 자세한 내용은 [Azure에서 가상 머신의 지역 및 가용성](../virtual-machines/windows/regions-and-availability.md)을 참조하세요.
+고가용성에 대한 자세한 내용은 [Azure에서 가상 머신의 지역 및 가용성](../virtual-machines/windows/availability.md)을 참조하세요.
 
 **Q: 계획된 유지 관리에 관한 알림을 받으려면 어떻게 해야 하나요?**
 

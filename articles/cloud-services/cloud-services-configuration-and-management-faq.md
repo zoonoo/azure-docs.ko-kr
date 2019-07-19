@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337428"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254416"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -28,7 +28,7 @@ ms.locfileid: "60337428"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificates**
+**인증서**
 
 - [내 클라우드 서비스 SSL 인증서의 인증서 체인이 완료되지 않은 이유는 무엇인가요?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - ["확장을 위한 Windows Azure Tools 암호화 인증서"의 목적은 무엇인가요?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
@@ -50,7 +50,7 @@ ms.locfileid: "60337428"
 - [Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?](#how-to-enable-http2-on-cloud-services-vm)
 
-**권한**
+**사용 권한**
 
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 다음 오류가 표시됩니다. 인증 오류가 발생했습니다(코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -109,7 +109,7 @@ CSR은 텍스트 파일일 뿐입니다. 인증서를 궁극적으로 사용하�
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?
 
-이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세한 내용은 체크 아웃 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)합니다.
+이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
 - [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -143,7 +143,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
 다음 옵션을 통해 WAD(Windows Azure Diagnostics) 로깅을 활성화할 수 있습니다.
 1. [Visual Studio에서 활성화](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [.NET 코드를 통해 사용 하도록 설정](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [.NET 코드를 통해 사용](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Powershell을 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
@@ -196,7 +196,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 5. 서버를 다시 시작합니다.
 6. **기본 웹 사이트**로 이동하여 **바인딩**에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 - [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [비디오: Windows 10의 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -212,7 +212,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
 Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 액세스 제어) 모델을 지원하지 않습니다.
@@ -231,7 +231,7 @@ Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 �
 1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 선택합니다.
 2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username**을 사용합니다.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>X 인스턴스 이상 확장할 수 없습니다.
 사용자의 Azure 구독은 사용할 수 있는 코어 수를 제한합니다. 사용 가능한 모든 코어를 사용하는 경우 크기 조정은 작동하지 않습니다. 예를 들어 100개의 코어 제한이 있으면 클라우드 서비스에 대한 100개의 A1 크기 가상 머신 인스턴스나 50개의 A2 크기 가상 머신 인스턴스를 생성할 수 있습니다.
@@ -250,7 +250,7 @@ Cloud Services용 Application Insights를 사용하도록 설정하는 방법에
 
 Cloud Services용 Azure Diagnostics 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
 
-## <a name="generic"></a>일반
+## <a name="generic"></a>제네릭
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>"nosniff"를 내 웹 사이트에 추가하려면 어떻게 할까요?
 클라이언트가 MIME 형식을 스니핑하지 않도록 하려면 *web.config* 파일에 설정을 추가합니다.
@@ -282,7 +282,7 @@ IIS에서 설정으로도 추가할 수 있습니다. [일반적인 시작 작�
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>클라우드 서비스 VM의 드라이브에 사용 가능한 디스크 공간이 거의 표시되지 않는 이유는 무엇인가요?
 이 동작은 정상적이며 애플리케이션에 문제가 발생하지 않아야 합니다. 저널은 Azure PaaS VM에서 %approot% 드라이브에 설정되며 이 기능은 기본적으로 파일이 차지하는 공간의 두 배를 사용합니다. 그러나 이를 사소하게 만드는 몇 가지 사항이 있습니다.
 
-%approot% 드라이브 크기는 <.cspkg 크기 + 최대 저널 크기 + 여유 공간의 여백> 또는 1.5GB 중 더 큰 값으로 계산됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
+% Approot% 드라이브 크기는 .cspkg \<+ 최대 저널 크기 + 여유 공간 > 또는 1.5 GB 중 더 큰 값의 크기로 계산 됩니다. VM의 크기는 이 계산과 관련이 없습니다. (VM 크기는 임시 C: 드라이브의 크기에 영향을 줍니다.) 
 
 %approot% 드라이브에 작성하도록 지원되지 않습니다. Azure VM에 작성하는 경우 임시 LocalStorage 리소스에서 수행해야 합니다(또는 Blob Storage, Azure Files 등과 같은 다른 옵션). 따라서 %approot% 폴더에서 사용 가능한 공간의 크기는 의미가 없습니다. 애플리케이션을 %approot% 드라이브에 작성하는지 확실하지 않은 경우 몇 일 동안 서비스를 실행한 다음, "이전" 및 "이후" 크기를 비교할 수 있습니다. 
 

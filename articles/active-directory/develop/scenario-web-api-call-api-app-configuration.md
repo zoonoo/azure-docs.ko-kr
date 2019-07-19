@@ -1,6 +1,6 @@
 ---
-title: 웹 API는 호출 다운스트림 웹 Api (응용 프로그램의 코드 구성)-Microsoft id 플랫폼
-description: Web API 호출 web Api (응용 프로그램의 코드 구성)를 빌드하는 방법을 알아봅니다
+title: 다운스트림 웹 Api를 호출 하는 web API (앱의 코드 구성)-Microsoft identity platform
+description: 웹 Api를 호출 하는 web API를 빌드하는 방법 알아보기 (앱 코드 구성)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a5f6189ee000550c4a46d778f571a0272da491d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785065"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276670"
 ---
-# <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 API 호출 웹 Api 코드 구성 되는
+# <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 API-코드 구성
 
-Web API를 등록 한 후에 응용 프로그램에 대 한 코드를 구성할 수 있습니다.
+Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성할 수 있습니다.
 
-웹 API를 보호 하는 데 사용 된 코드를 기반으로 다운스트림 웹 Api 호출에 web API를 구성 하는 코드입니다. 자세한 내용은 참조 하세요. [보호 된 웹 API-앱 구성](scenario-protected-web-api-app-configuration.md)합니다.
+Web api를 보호 하는 데 사용 되는 코드를 기반으로 다운스트림 웹 api를 호출 하도록 web API를 구성 하는 코드입니다. 자세한 내용은 [보호 된 웹 API-앱 구성](scenario-protected-web-api-app-configuration.md)을 참조 하세요.
 
-## <a name="code-subscribed-to-ontokenvalidated"></a>OnTokenValidated 구독할 코드
+## <a name="code-subscribed-to-ontokenvalidated"></a>OnTokenValidated 검사 된 코드
 
-모든 보호 된 web Api에 대 한 코드 구성을 기반으로 구독에 API를 호출할 때 수신 되는 전달자 토큰의 유효성을 검사 해야 합니다.
+모든 보호 된 웹 Api에 대 한 코드 구성 위에는 API가 호출 될 때 수신 되는 전달자 토큰의 유효성 검사를 구독 해야 합니다.
 
 ```CSharp
 /// <summary>
@@ -67,14 +67,14 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 
 ## <a name="on-behalf-of-flow"></a>On-Behalf-Of 흐름
 
-AddAccountToCacheFromJwt() 메서드 해야합니다.
+AddAccountToCacheFromJwt () 메서드는 다음을 수행 해야 합니다.
 
-- MSAL 기밀 클라이언트 응용 프로그램을 인스턴스화하십시오.
-- 호출 `AcquireTokenOnBehalf` 동일한 사용자에 있지만 다운스트림 API를 호출 하는 API에 대 한 전달자 토큰에 대 한 web API 용 클라이언트에서 획득 하는 전달자 토큰을 교환할 수 있습니다.
+- MSAL 기밀 클라이언트 응용 프로그램을 인스턴스화합니다.
+- 을 `AcquireTokenOnBehalf` 호출 하 여 클라이언트에서 web API에 대해 획득 한 전달자 토큰을 동일한 사용자에 대 한 전달자 토큰에 대해 교환 하지만 api는 다운스트림 api를 호출 합니다.
 
 ### <a name="instantiate-a-confidential-client-application"></a>기밀 클라이언트 응용 프로그램 인스턴스화
 
-보호 된 web API를 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)를 제공 하므로이 흐름은 기밀 클라이언트 흐름에서 사용할 수 있습니다만 합니다 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 를 통해를 `WithClientSecret` 또는 `WithCertificate`메서드를 각각.
+이 흐름은 기밀 클라이언트 흐름 에서만 사용할 수 있으므로 보호 된 웹 API는 `WithClientSecret` 또는 `WithCertificate` 메서드를 통해 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)을 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 에 제공 합니다. 각기.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -94,15 +94,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
-### <a name="how-to-call-on-behalf-of"></a>대신-의 호출 하는 방법
+마지막으로, 클라이언트 암호 또는 인증서 대신, 기밀 클라이언트 응용 프로그램은 클라이언트 어설션을 사용 하 여 해당 id를 증명할 수도 있습니다.
+이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md) 자세히 설명 되어 있습니다.
 
-대신-의 (OBO) 호출을 호출 하 여 수행할 합니다 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 메서드를 `IConfidentialClientApplication` 인터페이스입니다.
+### <a name="how-to-call-on-behalf-of"></a>대신를 호출 하는 방법
 
-`ClientAssertion` 자체 클라이언트에서 web API에서 받은 전달자 토큰에서 빌드됩니다. 가지 [두 명의 생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), 및 모든 종류의 사용자 어설션 사용 하는 JWT 전달자 토큰을 사용 하는 (다른 유형의 보안 토큰 형식을 다음 라는 추가 매개 변수에서 지정 `assertionType`).
+(Obo) 호출은 `IConfidentialClientApplication` 인터페이스에서 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 메서드를 호출 하 여 수행 됩니다.
+
+는 `UserAssertion` 자체 클라이언트에서 web API가 받은 전달자 토큰을 기반으로 빌드됩니다. JWT 전달자 토큰을 사용 하는 생성자와 다른 종류의 사용자 어설션을 사용 하는 [생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)가 있습니다. 다른 종류의 보안 토큰은 라는 `assertionType`추가 매개 변수에 지정 됩니다.
 
 ![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-실제로 OBO 흐름은 자주 사용 하 여 다운스트림 API에 대 한 토큰을 획득 하 여 web API의 다른 부분에서 나중에 호출할 수 있도록 MSAL.NET 사용자 토큰 캐시에 저장 합니다 [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 의 ``AcquireTokenOnSilent`` 다운스트림 Api를 호출 합니다. 필요한 경우이 토큰을 새로 고치 효과가 있습니다.
+실제로는 obo flow를 사용 하 여 다운스트림 api에 대 한 토큰을 획득 하 고 MSAL.NET 사용자 토큰 캐시에 저장 하 여 web API의 다른 부분이 나중에의 ``AcquireTokenOnSilent`` [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 를 호출 하 여 다운스트림 api를 호출할 수 있도록 하는 경우가 많습니다. 필요한 경우이 호출은 토큰을 새로 고치는 효과를 가집니다.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -140,7 +143,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 ## <a name="protocol"></a>프로토콜
 
-대신-의 프로토콜에 대 한 자세한 내용은 참조 하세요. [Microsoft id 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+대/소문자를 구분 하는 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 For flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

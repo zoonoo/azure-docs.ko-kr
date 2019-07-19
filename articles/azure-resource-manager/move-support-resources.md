@@ -6,17 +6,17 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721106"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226810"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
-이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특별 한 조건에 대 한 정보를 제공 합니다.
+이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.
 
-리소스 공급자 네임 스페이스를 이동 합니다.
+리소스 공급자 네임 스페이스로 이동 합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -187,7 +187,7 @@ ms.locfileid: "67721106"
 | gateways | 아니요 | 아니요 |
 
 > [!IMPORTANT]
-> 참조 [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)합니다.
+> [App Service 이동 가이드](./move-limitations/app-service-move-limitations.md)를 참조 하세요.
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -202,7 +202,7 @@ ms.locfileid: "67721106"
 | automationaccounts/runbooks | 예 | 예 |
 
 > [!IMPORTANT]
-> Runbook은 Automation 계정으로 동일한 리소스 그룹에 있어야 합니다.
+> Runbook은 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -263,7 +263,7 @@ ms.locfileid: "67721106"
 | redis | 예 | 예 |
 
 > [!IMPORTANT]
-> Redis 인스턴스에 대 한 Azure 캐시를 가상 네트워크를 사용 하 여 구성 된 경우 인스턴스를 다른 구독으로 이동할 수 없습니다. 참조 [가상 네트워크 이동 제한 사항](./move-limitations/virtual-network-move-limitations.md)합니다.
+> Azure Cache for Redis 인스턴스가 가상 네트워크를 사용 하 여 구성 된 경우 인스턴스를 다른 구독으로 이동할 수 없습니다. [가상 네트워크 이동 제한 사항](./move-limitations/virtual-network-move-limitations.md)을 참조 하세요.
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -277,7 +277,7 @@ ms.locfileid: "67721106"
 | certificateorders | 예 | 예 |
 
 > [!IMPORTANT]
-> 참조 [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)합니다.
+> [App Service 이동 가이드](./move-limitations/app-service-move-limitations.md)를 참조 하세요.
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -286,7 +286,7 @@ ms.locfileid: "67721106"
 | virtualmachines | 예 | 아니요 |
 
 > [!IMPORTANT]
-> 참조 [클래식 배포 지침 이동](./move-limitations/classic-model-move-limitations.md)합니다. 해당 시나리오에 특정 작업을 사용 하 여 구독에서 클래식 배포 리소스를 이동할 수 있습니다.
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조 하세요. 클래식 배포 리소스는 해당 시나리오와 관련 된 작업으로 구독 간에 이동할 수 있습니다.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -296,7 +296,7 @@ ms.locfileid: "67721106"
 | virtualnetworks | 아니요 | 아니요 |
 
 > [!IMPORTANT]
-> 참조 [클래식 배포 지침 이동](./move-limitations/classic-model-move-limitations.md)합니다. 해당 시나리오에 특정 작업을 사용 하 여 구독에서 클래식 배포 리소스를 이동할 수 있습니다.
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조 하세요. 클래식 배포 리소스는 해당 시나리오와 관련 된 작업으로 구독 간에 이동할 수 있습니다.
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -304,7 +304,7 @@ ms.locfileid: "67721106"
 | storageaccounts | 예 | 아니요 |
 
 > [!IMPORTANT]
-> 참조 [클래식 배포 지침 이동](./move-limitations/classic-model-move-limitations.md)합니다. 해당 시나리오에 특정 작업을 사용 하 여 구독에서 클래식 배포 리소스를 이동할 수 있습니다.
+> [클래식 배포 이동 지침](./move-limitations/classic-model-move-limitations.md)을 참조 하세요. 클래식 배포 리소스는 해당 시나리오와 관련 된 작업으로 구독 간에 이동할 수 있습니다.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -332,7 +332,7 @@ ms.locfileid: "67721106"
 | virtualmachinescalesets | 예 | 예 |
 
 > [!IMPORTANT]
-> 참조 [가상 머신 이동 지침](./move-limitations/virtual-machines-move-limitations.md)합니다.
+> [Virtual Machines 이동 가이드](./move-limitations/virtual-machines-move-limitations.md)를 참조 하세요.
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -558,7 +558,7 @@ ms.locfileid: "67721106"
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 컴퓨터 | 아니요 | 아니요 |
+| 머신의 | 아니요 | 아니요 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -588,7 +588,7 @@ ms.locfileid: "67721106"
 | workbooks | 예 | 예 |
 
 > [!IMPORTANT]
-> 새 구독으로 이동 되었는지 확인을 초과 하지 않는지 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)합니다.
+> 새 구독으로의 이동이 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)을 초과 하지 않는지 확인 합니다.
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -608,7 +608,7 @@ ms.locfileid: "67721106"
 | vaults | 예 | 예 |
 
 > [!IMPORTANT]
-> 디스크 암호화에 사용할 Key Vault는 동일한 구독에 있거나 여러 구독에 리소스 그룹으로 이동할 수 없습니다.
+> 디스크 암호화에 사용 되는 키 자격 증명 모음은 동일한 구독의 리소스 그룹 또는 구독 간에 이동할 수 없습니다.
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -732,7 +732,7 @@ ms.locfileid: "67721106"
 | expressrouteports | 아니요 | 아니요 |
 | frontdoors | 아니요 | 아니요 |
 | frontdoorwebapplicationfirewallpolicies | 아니요 | 아니요 |
-| loadbalancers | 예-기본 SKU<br>아니요-표준 SKU | 예-기본 SKU<br>아니요-표준 SKU |
+| loadbalancers | 예-기본 SKU<br>안 함-표준 SKU | 예-기본 SKU<br>안 함-표준 SKU |
 | localnetworkgateways | 예 | 예 |
 | natgateways | 예 | 예 |
 | networkintentpolicies | 예 | 예 |
@@ -748,7 +748,7 @@ ms.locfileid: "67721106"
 | privatednszones/virtualnetworklinks | 예 | 예 |
 | privateendpoints | 아니요 | 아니요 |
 | privatelinkservices | 아니요 | 아니요 |
-| publicipaddresses | 예-기본 SKU<br>아니요-표준 SKU | 예-기본 SKU<br>아니요-표준 SKU |
+| publicipaddresses | 예-기본 SKU<br>안 함-표준 SKU | 예-기본 SKU<br>안 함-표준 SKU |
 | publicipprefixes | 예 | 예 |
 | routefilters | 아니요 | 아니요 |
 | routetables | 예 | 예 |
@@ -765,7 +765,7 @@ ms.locfileid: "67721106"
 | webapplicationfirewallpolicies | 예 | 예 |
 
 > [!IMPORTANT]
-> 참조 [가상 네트워크 이동 지침](./move-limitations/virtual-network-move-limitations.md)합니다.
+> [가상 네트워크 이동 지침](./move-limitations/virtual-network-move-limitations.md)을 참조 하세요.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -779,7 +779,7 @@ ms.locfileid: "67721106"
 | workspaces | 예 | 예 |
 
 > [!IMPORTANT]
-> 새 구독으로 이동 되었는지 확인을 초과 하지 않는지 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)합니다.
+> 새 구독으로의 이동이 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)을 초과 하지 않는지 확인 합니다.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -824,7 +824,7 @@ ms.locfileid: "67721106"
 | vaults | 예 | 예 |
 
 > [!IMPORTANT]
-> 참조 [Recovery Services 이동 지침](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)합니다.
+> [Recovery Services 이동 가이드](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)를 참조 하세요.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -848,7 +848,7 @@ ms.locfileid: "67721106"
 | searchservices | 예 | 예 |
 
 > [!IMPORTANT]
-> 한 번에 서로 다른 지역에 여러 검색 리소스를 이동할 수 없습니다. 대신 별도 작업으로 이동합니다.
+> 한 번의 작업으로 다른 지역에 있는 여러 검색 리소스를 이동할 수 없습니다. 대신 별도 작업으로 이동합니다.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -899,7 +899,7 @@ ms.locfileid: "67721106"
 | siterecoveryvault | 아니요 | 아니요 |
 
 > [!IMPORTANT]
-> 참조 [Recovery Services 이동 지침](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)합니다.
+> [Recovery Services 이동 가이드](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)를 참조 하세요.
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -913,16 +913,16 @@ ms.locfileid: "67721106"
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| instancepools | 예 | 예 |
-| managedinstances | 예 | 예 |
-| managedinstances/databases | 예 | 예 |
+| instancepools | 아니요 | 아니요 |
+| managedinstances | 아니요 | 아니요 |
+| managedinstances/databases | 아니요 | 아니요 |
 | servers | 예 | 예 |
 | servers/databases | 예 | 예 |
 | servers/elasticpools | 예 | 예 |
 | virtualclusters | 예 | 예 |
 
 > [!IMPORTANT]
-> 데이터베이스 및 서버를 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
+> 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -971,7 +971,7 @@ ms.locfileid: "67721106"
 | streamingjobs | 예 | 예 |
 
 > [!IMPORTANT]
-> Stream Analytics 작업에서 실행 하는 경우 이동할 수 없는 상태입니다.
+> Stream Analytics 작업은 실행 중 상태일 때 이동할 수 없습니다.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -998,7 +998,7 @@ ms.locfileid: "67721106"
 ## <a name="microsofttoken"></a>Microsoft.Token
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| 저장소 | 아니요 | 아니요 |
+| 정보가 | 아니요 | 아니요 |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -1013,7 +1013,7 @@ ms.locfileid: "67721106"
 | account/project | 예 | 예 |
 
 > [!IMPORTANT]
-> Azure DevOps에 대 한 구독을 변경 하려면을 참조 하세요 [대금 청구에 사용 되는 Azure 구독을 변경할](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)합니다.
+> Azure DevOps에 대 한 구독을 변경 하려면 [청구에 사용 되는 azure 구독 변경](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)을 참조 하세요.
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | 리소스 종류 | 리소스 그룹 | 구독 |
@@ -1036,7 +1036,7 @@ ms.locfileid: "67721106"
 | sites/slots | 예 | 예 |
 
 > [!IMPORTANT]
-> 참조 [App Service 이동 지침](./move-limitations/app-service-move-limitations.md)합니다.
+> [App Service 이동 가이드](./move-limitations/app-service-move-limitations.md)를 참조 하세요.
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 리소스 종류 | 리소스 그룹 | 구독 |

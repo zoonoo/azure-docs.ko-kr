@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: TomShinder
-ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: tomsh
+ms.openlocfilehash: 7fb8a1fe844a6fbbb2c5259b4aa7f63edd7cc237
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445420"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876402"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안을 유지하는 모범 사례
 이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 응용 프로그램 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.

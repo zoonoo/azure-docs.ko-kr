@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: lyrana
-ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: lyhughes
+ms.openlocfilehash: 114edc072524552fab35e9cad6fc85573c4e8d0e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533830"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846545"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>API에 연결 및 인증
 
@@ -25,11 +25,11 @@ Azure AD 개요의 경우 단계별 가이드, 개념 및 빠른 시작은 [기�
 
 Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types)는 다음과 같습니다.
 
-* 단일 페이지 응용 프로그램 (SPA): 사용자를 Azure AD에서 보호 되는 단일 페이지 응용 프로그램에 로그인 해야 합니다.
-* 웹 브라우저-웹 응용 프로그램: 사용자를 Azure AD에서 보호 되는 웹 응용 프로그램에 로그인 해야 합니다.
-* 웹 API에 네이티브 응용 프로그램: 휴대폰, 태블릿 또는 PC에서 실행 되는 네이티브 응용 프로그램을 Azure AD에서 보호 되는 웹 API 로부터 리소스를 가져오려면 사용자를 인증 해야 합니다.
+* SPA (단일 페이지 응용 프로그램): 사용자는 Azure AD로 보호 되는 단일 페이지 응용 프로그램에 로그인 해야 합니다.
+* 웹 브라우저-웹 응용 프로그램: 사용자가 Azure AD로 보호 되는 웹 응용 프로그램에 로그인 해야 합니다.
+* 웹 API에 대 한 네이티브 응용 프로그램: 휴대폰, 태블릿 또는 PC에서 실행 되는 네이티브 응용 프로그램은 Azure AD로 보호 되는 web API에서 리소스를 가져오기 위해 사용자를 인증 해야 합니다.
 * 웹 응용 프로그램-web API: 웹 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
-* 디먼 또는 서버 응용 프로그램-web API: 디먼 응용 프로그램 또는 없는 웹 서버 응용 프로그램이 Azure AD에서 보호 하는 웹 API 로부터 리소스를 가져와야 UI 필요 합니다.
+* 웹 API에 대 한 디먼 또는 서버 응용 프로그램: 웹 UI가 없는 데몬 응용 프로그램 또는 서버 응용 프로그램은 Azure AD로 보호 되는 web API에서 리소스를 가져와야 합니다.
 
 Windows Azure 인증 라이브러리는 Active Directory 토큰을 획득하는 여러 가지 방법을 제공합니다. 라이브러리 및 코드 샘플에 대한 세부 사항은 [이 문서](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki)를 참조하세요.
 

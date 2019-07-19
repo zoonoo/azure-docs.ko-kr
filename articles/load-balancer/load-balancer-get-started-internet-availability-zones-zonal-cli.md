@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3b89c11c11276781ec63367247601fccfd2fa858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 663567f6e3b078c1cb2afc60c3aaa9fcfb7af4dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122195"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275250"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 

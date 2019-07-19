@@ -1,5 +1,5 @@
 ---
-title: Virtual machine 제품에 대 한 가격 책정 | Azure Marketplace
+title: Virtual machine 제품의 가격 책정 | Azure Marketplace
 description: 가상 머신 제품의 가격을 지정하는 세 가지 방법에 대해 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935752"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868755"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 ==================================
@@ -34,21 +34,31 @@ ms.locfileid: "64935752"
             "currency": "USD",
                 "individually": 
                 {
-                    "sharedcore": 2,
+                    "sharedcore": 1,
                     "1core": 2,
-                    "2core": 3,
-                    "4core": 4,
-                    "6core": 5,
+                    "2core": 2,
+                    "4core": 2,
+                    "6core": 2,
                     "8core": 2,
+                    "10core": 4,
                     "12core": 4,
                     "16core": 4,
                     "20core": 4,
                     "24core": 4,
-                    "32core": 4,
-                    "36core": 4,
-                    "40core": 4,
-                    "64core": 4,
-                    "128core": 4
+                    "32core": 6,
+                    "36core": 6,
+                    "40core": 6,
+                    "44core": 6,
+                    "48core": 10,
+                    "60core": 10,
+                    "64core": 10,
+                    "72core": 10,
+                    "80core": 12,
+                    "96core": 12,
+                    "120core": 15,
+                    "128core": 15,
+                    "208core": 20,
+                    "416core": 30
                 }
         }
         ...
@@ -90,12 +100,18 @@ ms.locfileid: "64935752"
      }
 ```
 
+<a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
+---------------------------
+
+VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다.  게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
+
+
 <a name="regions"></a>영역
 -------
 
 다음 표에는 사용자 지정 코어 가격을 지정할 수 있는 지역 및 해당하는 통화 코드가 나와 있습니다.
 
-| **지역** | **Name**             | **통화 코드** |
+| **Region** | **이름**             | **통화 코드** |
 |------------|----------------------|-------------------|
 | DZ         | 알제리              | DZD               |
 | AR         | 아르헨티나            | ARS               |
@@ -136,7 +152,7 @@ ms.locfileid: "64935752"
 | JO         | 요르단               | JOD               |
 | KZ         | 카자흐스탄           | KZT               |
 | KE         | 케냐                | KES               |
-| KR         | 한국                | KRW               |
+| KR         | 대한민국                | KRW               |
 | KW         | 쿠웨이트               | KWD               |
 | LV         | 라트비아               | EUR               |
 | LI         | 리히텐슈타인        | CHF               |
@@ -164,7 +180,7 @@ ms.locfileid: "64935752"
 | QA         | 카타르                | QAR               |
 | RO         | 루마니아              | RON               |
 | RU         | 러시아               | RUB               |
-| SA         | 사우디아라비아         | SAR               |
+| SA         | 사우디아라비아         | 특별 행정구               |
 | RS         | 세르비아               | RSD               |
 | SG         | 싱가포르            | SGD               |
 | SK         | 슬로바키아             | EUR               |

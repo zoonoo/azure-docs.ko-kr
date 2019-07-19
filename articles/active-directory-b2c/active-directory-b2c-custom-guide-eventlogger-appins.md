@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507547"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227242"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -36,7 +36,7 @@ Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine
 
 Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기록하는 이벤트를 통합할 수 있습니다. Application Insights는 짧은 시간 안에 이벤트 및 세션을 사용할 수 있게 하며, 많은 시각화, 내보내기 및 분석 도구를 제공합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 이 문서에서는 사용자 지정 정책 시작 팩을 사용하고 있다고 가정합니다. 하지만 시작 팩은 필요하지 않습니다.
 
@@ -109,7 +109,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 테이블은 세션을 열고 이벤트를 게시하는 데 사용되는 기술 프로필을 정의합니다.
 
-| 기술 프로필 | Task |
+| 기술 프로필 | 태스크 |
 | ----------------- | -----|
 | AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. | 
 | AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. | 
@@ -166,7 +166,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 ```
 
 > [!IMPORTANT]
-> `ApplicationInsights-Common` 기술 프로필의 계측 키를 Application Insights 리소스에서 제공하는 GUID로 변경합니다.
+> `AzureInsights-Common` 기술 프로필의 계측 키를 Application Insights 리소스에서 제공하는 GUID로 변경합니다.
 
 ## <a name="add-the-technical-profiles-as-orchestration-steps"></a>오케스트레이션 단계로 기술 프로필 추가
 

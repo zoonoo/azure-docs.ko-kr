@@ -1,6 +1,6 @@
 ---
 title: Azure AD에서 부실 디바이스를 관리하는 방법 | Microsoft Docs
-description: Azure Active Directory에서 등록 된 장치의 데이터베이스에서 오래 된 장치를 제거 하는 방법에 알아봅니다.
+description: Azure Active Directory에서 등록 된 장치 데이터베이스에서 오래 된 장치를 제거 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481646"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867249"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
@@ -43,7 +43,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 활동 타임스탬프의 평가는 디바이스의 인증 시도를 통해 트리거됩니다. Azure AD에서 평가하는 활동 타임스탬프는 다음과 같습니다.
 
-- 요구 하는 조건부 액세스 정책 [관리 되는 장치](../conditional-access/require-managed-devices.md) 하거나 [승인 된 클라이언트 앱](../conditional-access/app-based-conditional-access.md) 트리거 되었습니다.
+- [관리 되는 장치](../conditional-access/require-managed-devices.md) 또는 [승인 된 클라이언트 앱](../conditional-access/app-based-conditional-access.md) 을 요구 하는 조건부 액세스 정책이 트리거 되었습니다.
 - Azure AD 또는 하이브리드 Azure AD에 조인된 Windows 10 디바이스가 네트워크에서 활성 상태로 있습니다. 
 - Intune 관리 디바이스가 서비스에 체크 인했습니다.
 
@@ -129,7 +129,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-장치 수가 많은 디렉터리에 있는 경우 반환 된 장치 수를 줄이기 위해 타임 스탬프 필터를 사용 합니다. 특정 날짜보다 오래된 타임스탬프가 있는 모든 디바이스를 가져오고 반환된 데이터를 CSV 파일에 저장하려면 다음을 수행합니다. 
+디렉터리에 많은 수의 장치가 있는 경우 타임 스탬프 필터를 사용 하 여 반환 된 장치의 수를 좁힙니다. 특정 날짜보다 오래된 타임스탬프가 있는 모든 디바이스를 가져오고 반환된 데이터를 CSV 파일에 저장하려면 다음을 수행합니다. 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -145,6 +145,13 @@ Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, Devi
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>BitLocker 키에 대해 걱정해야 하는 이유는 무엇인가요?
 
 구성된 Windows 10 디바이스용 BitLocker 키는 Azure AD의 디바이스 개체에 저장됩니다. 이로 인해 부실 디바이스가 삭제되면 이 디바이스에 저장된 BitLocker 키도 삭제됩니다. 따라서 부실 디바이스를 삭제하려면 먼저 정리 정책이 디바이스의 실제 수명 주기와 일치하는지 여부를 결정해야 합니다. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Windows Autopilot 장치에 대해 걱정 해야 하는 이유는 무엇 인가요?
+
+Azure AD 장치가 Windows Autopilot 개체와 연결 된 경우 나중에 장치를 다시 용도 하는 경우 다음과 같은 세 가지 시나리오가 발생할 수 있습니다.
+- 흰색 글러브을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
+- Windows Autopilot 자동 배포 모드 배포를 사용 하는 경우 연결 하는 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다.  이는 "가짜" 장치가 자격 증명 없이 Azure AD에 가입 하려고 시도 하는 것을 확인 하는 보안 메커니즘입니다. 실패는 ZTKEYKEYA를 표시 합니다.
+- Windows Autopilot white 글러브 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. 백그라운드에서 흰색 글러브 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 적용 합니다.
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>조인된 모든 유형의 디바이스를 확인하려면 어떻게 할까요?
 

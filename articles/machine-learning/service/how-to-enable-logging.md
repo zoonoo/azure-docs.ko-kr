@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
-ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/12/2019
+ms.openlocfilehash: f93fdcbea103259e493399ae479cf001c1ff68db
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819264"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868817"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning Service에서 로깅 사용
 
@@ -27,7 +27,7 @@ Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 �
 > * 배포된 모델
 > * Python `logging` 설정
 
-[Azure Machine Learning Service 작업 영역을 만듭니다](setup-create-workspace.md). 사용 된 [가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 자세한 SDK.
+[Azure Machine Learning Service 작업 영역을 만듭니다](setup-create-workspace.md). SDK에 대 한 자세한 내용은 [가이드를 참조](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 하십시오.
 
 ## <a name="training-models-and-compute-target-logging"></a>모델 학습 및 컴퓨팅 대상 로깅
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-에 대 한 참조 설명서를 참조 합니다 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 추가 로깅 기능에 대 한 클래스입니다.
+추가 로깅 함수는 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) 클래스에 대 한 참조 설명서를 참조 하세요.
 
 학습 진행 중 애플리케이션 상태의 로컬 로깅을 사용하려면 `show_output` 매개 변수를 사용합니다. 자세한 정보 로깅을 사용하면 학습 프로세스의 세부 정보와 원격 리소스 또는 컴퓨팅 대상에 대한 정보를 확인할 수 있습니다. 실험 제출 시 로깅을 사용하려면 다음 코드를 사용합니다.
 
@@ -90,9 +90,10 @@ compute.wait_for_completion(show_output=True)
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```

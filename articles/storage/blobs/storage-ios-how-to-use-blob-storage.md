@@ -10,12 +10,12 @@ ms.date: 11/20/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 87651aa1fd44a831e94a00b5871faaae51f2f6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d44dabe68900aa45b076f44cc38ed85d6938afa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148303"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249944"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -80,7 +80,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 #import <AZSClient/AZSClient.h>
 ```
 
-Swift를 사용하는 경우에 브리징 헤더를 만들고 <AZSClient/AZSClient.h>를 가져와야 합니다.
+Swift를 사용 하는 경우 브리징 헤더를 만들고 z/z를 가져와야 \<> 합니다.
 
 1. 헤더 파일 `Bridging-Header.h`를 만들고 위의 import 문을 추가합니다.
 2. *빌드 설정* 탭으로 이동하고 *Objective-C 브리징 헤더*를 검색합니다.
@@ -130,7 +130,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 ## <a name="set-container-permissions"></a>컨테이너 사용 권한 설정
 기본적으로 컨테이너의 사용 권한은 **프라이빗** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
 
-* **개인**: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
+* **프라이빗**: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
 * **Blob**: 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 * **컨테이너**: 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 템플릿을 사용하여 Resource Manager에서 공용 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122221"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275285"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>템플릿을 사용하여 공용 부하 분산 장치 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "66122221"
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. 실행 합니다 **새로 만들기-AzResourceGroupDeployment** 템플릿을 사용 하 여 리소스 그룹을 만드는 cmdlet입니다.
+2. **AzResourceGroupDeployment** cmdlet을 실행 하 여 템플릿을 사용 하 여 리소스 그룹을 만듭니다.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

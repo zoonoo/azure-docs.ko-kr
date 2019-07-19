@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: willzhan; johndeu
+ms.openlocfilehash: 66c69552157df957e572a3af092131a3b7e560d5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701024"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871701"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
@@ -35,7 +36,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
     > [!NOTE]
     > **서비스 주체**는 Azure Media Services에 연결하는 대다수 애플리케이션에 사용하는 것이 좋은 모범 사례입니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 인증 정보 가져오기
@@ -46,7 +47,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 하지만 Access Control 인증은 2018년 6월 1일부로 사용 중단되었습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
@@ -61,7 +62,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-|설정|예|설명|
+|설정|예제|설명|
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|

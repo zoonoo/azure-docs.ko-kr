@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255689"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875295"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -66,15 +66,16 @@ ms.locfileid: "66255689"
                                                     <div class="cardText">
                                                         <h3>새로운 기능</h3>
                                                         <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Azure VM 및 Azure virtual machine scale set 응용 프로그램에 대 한 코드 없는 모니터링</a><br>
                                                             <a href="./app/kubernetes.md">Kubernetes 응용 프로그램 모니터링</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">IIS 응용 프로그램에 대 한 상태 모니터 v2</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">IIS 앱에 대 한 상태 모니터 v2</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>빠른 시작</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
-                                                            <a href="./learn/nodejs-quick-start.md">Node.JS</a><br>
+                                                            <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">브라우저/클라이언트 쪽 모니터링</a>
@@ -146,6 +147,7 @@ ms.locfileid: "66255689"
                                                             <a href="./app/asp-net.md">자세한 모니터링 구성</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">상태 모니터</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service 모니터링</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">VM 및 가상 머신 확장 집합 응용 프로그램 모니터링</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">오픈 소스 .NET SDK GitHub 리포지토리</a>
                                                         </p>

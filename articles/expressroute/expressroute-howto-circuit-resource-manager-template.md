@@ -1,20 +1,21 @@
 ---
-title: ExpressRoute 회로 Resource Manager 템플릿을 만듭니다. Azure | Microsoft Docs
-description: 만들기, 프로 비전, 삭제 및 ExpressRoute 회로 프로 비전 해제 합니다.
+title: Express 경로 회로 리소스 관리자 템플릿을 만듭니다. Azure | Microsoft Docs
+description: Express 경로 회로를 만들고, 프로 비전 하 고, 삭제 하 고, 프로 비전 해제 합니다.
 services: expressroute;azure-resource-manager
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: bf56145d0a8cd3b01d0d74fcaf3348c1916cee5a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: cherylmc
+ms.reviewer: ganesr
+ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659685"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849229"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 ExpressRoute 회로 만들기
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -25,7 +26,7 @@ ms.locfileid: "67659685"
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
-Azure PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 ExpressRoute 회로 만드는 방법에 알아봅니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/expressroutecircuits)를 참조하세요.
+Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 Express 경로 회로를 만드는 방법에 대해 알아봅니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/expressroutecircuits)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
@@ -35,15 +36,15 @@ Azure PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 �
 
 ## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 
-[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/) 에 Resource Manager 템플릿의 좋은 컬렉션이 있습니다. 중 하나를 사용 합니다 [기존 템플릿을](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) ExpressRoute 회로 만드는 합니다.
+[Azure 빠른 시작 템플릿에](https://azure.microsoft.com/resources/templates/) 는 리소스 관리자 템플릿 컬렉션이 있습니다. [기존 템플릿](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) 중 하나를 사용 하 여 express 경로 회로를 만듭니다.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
-관련 템플릿을 보려면를 선택 [여기](https://azure.microsoft.com/resources/templates/?term=expressroute)합니다.
+더 많은 관련 템플릿을 보려면 [여기](https://azure.microsoft.com/resources/templates/?term=expressroute)를 선택 합니다.
 
-템플릿을 배포 하 여 ExpressRoute 회로 만들려면:
+템플릿을 배포 하 여 Express 경로 회로를 만들려면 다음을 수행 합니다.
 
-1. 선택 **사용해** 에서 다음 코드 블록을 및 Azure Cloud shell에 로그인 하 고 지침을 따릅니다.
+1. 다음 코드 블록에서 **시도** 를 선택 하 고 지침에 따라 Azure Cloud shell에 로그인 합니다.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -70,18 +71,18 @@ Azure PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 �
      > [!IMPORTANT]
      > 피어링 위치는 Microsoft와 피어링하는 [물리적 위치](expressroute-locations.md)를 나타냅니다. 이 위치는 Azure Network Resource Provider가 있는 지리적 위치를 참조하는 "Location" 속성에 **연결되지 않습니다** . 이 속성에 연결되지 않는 대신 회로의 피어링 위치와 지리적으로 가까운 네트워크 리소스 공급자를 선택 하는 것이 좋습니다.
 
-    리소스 그룹 이름은 사용 하 여 service bus 네임 스페이스 이름 **rg** 추가 합니다.
+    리소스 그룹 이름은 **rg** 추가 된 service bus 네임 스페이스 이름입니다.
 
 2. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-3. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 선택 **붙여넣기**합니다.
+3. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
-이벤트 허브를 만들려면 몇 분 정도 걸립니다.
+이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 
-이 자습서에서 템플릿을 배포 하려면 azure PowerShell이 사용 됩니다. 다른 템플릿 배포 방법에 대 한 참조.
+이 자습서에서는 Azure PowerShell를 사용 하 여 템플릿을 배포 합니다. 다른 템플릿 배포 방법은 다음을 참조 하세요.
 
-* [Azure portal을 사용 하 여](../azure-resource-manager/resource-group-template-deploy-portal.md)입니다.
-* [Azure CLI를 사용 하 여](../azure-resource-manager/resource-group-template-deploy-cli.md)입니다.
-* [REST API를 사용 하 여](../azure-resource-manager/resource-group-template-deploy-rest.md)입니다.
+* [Azure Portal를 사용](../azure-resource-manager/resource-group-template-deploy-portal.md)합니다.
+* [Azure CLI 사용](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [REST API 사용](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
 
@@ -91,7 +92,7 @@ Azure PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 �
 * ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
 * 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
 
-다음 PowerShell 명령을 실행 하 여 ExpressRoute 회로 삭제할 수 있습니다.
+다음 PowerShell 명령을 실행 하 여 Express 경로 회로를 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 $circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"

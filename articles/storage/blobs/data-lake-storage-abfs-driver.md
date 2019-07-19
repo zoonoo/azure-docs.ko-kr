@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 50d39aa3c6341e61e383c5584ab2992e3fea3189
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696134"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278081"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>ABFS(Azure Blob 파일 시스템) 드라이버: Hadoop 전용 Azure Storage 드라이버
 
@@ -55,11 +55,11 @@ ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애�
 
 ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](https://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
 
-지원되는 모든 구성 항목의 세부 정보는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)에 나와 있습니다.
+지원되는 모든 구성 항목의 세부 정보는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)에 나와 있습니다.
 
 ### <a name="hadoop-documentation"></a>Hadoop 설명서
 
-ABFS 드라이버는 [Hadoop 공식 설명서](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md)에 충분히 설명돼 있습니다.
+ABFS 드라이버는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)에 충분히 설명돼 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
