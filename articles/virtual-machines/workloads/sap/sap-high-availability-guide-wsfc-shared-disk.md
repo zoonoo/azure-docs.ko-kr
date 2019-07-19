@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7c2b52a0dff08b7fe80d46f878a93d8d0741982c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709040"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249146"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -192,10 +192,10 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 
 장애 조치(failover) 클러스터는 함께 작동하여 애플리케이션 및 서비스의 가용성을 높이는 1+n개 독립 서버(노드) 그룹입니다. 노드에 장애가 발생하는 경우 Windows Server 장애 조치(Failover) 클러스터링은 애플리케이션 및 서비스를 제공하기 위해 발생할 수 있으며 정상 클러스터를 유지 관리하는 장애 횟수를 계산합니다. 장애 조치 클러스터링을 달성하기 위해 여러 다른 쿼럼 모드 중에서 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 작업을 시작하기 전에 다음 문서를 검토하세요.
 
-* [Azure Virtual Machines 고가용성 아키텍처 및 SAP NetWeaver에 대 한 시나리오][sap-high-availability-architecture-scenarios]
+* [Azure Virtual Machines SAP NetWeaver에 대 한 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
 
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링
@@ -210,7 +210,7 @@ Azure Load Balancer 서비스는 Azure에서 ‘내부 부하 분산 장치’�
 
 클러스터 노드를 포함하는 리소스 그룹에 부하 분산 장치를 배포합니다. 그런 후 내부 부하 분산 장치의 프로브 포트를 사용하여 필요한 모든 포트 전달 규칙을 구성합니다. 클라이언트는 가상 호스트 이름을 통해 연결할 수 있습니다. DNS 서버는 클러스터 IP 주소를 확인하고 내부 부하 분산 장치는 클러스터의 활성 노드에 대한 포트 전달을 처리합니다.
 
-![그림 1: Windows 장애 조치 클러스터링 공유 디스크 없이 Azure에서 구성][sap-ha-guide-figure-1001]
+![그림 1: 공유 디스크 없이 Azure의 Windows 장애 조치 (failover) 클러스터링 구성][sap-ha-guide-figure-1001]
 
 _**그림 1:** 공유 디스크를 사용하지 않는 Azure에서 Windows Server 장애 조치(Failover) 클러스터링 구성_
 
@@ -220,7 +220,7 @@ Windows에서 SAP ASCS/SCS 인스턴스에는 SAP 중앙 서비스, SAP 메시�
 SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
 
 * SAP 중앙 서비스에는 다음이 포함됩니다.
-    * 두 개의 프로세스인 메시지 및 인큐 서버와 이러한 두 프로세스에 액세스하는 데 사용되는 <ASCS/SCS 호스트 이름>
+    * 두 프로세스, 메시지 및 큐에 넣기 서버, \<ascs/SCS 가상 호스트 이름 >, 이러한 두 프로세스에 액세스 하는 데 사용 됩니다.
     * 파일 구조: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
@@ -228,29 +228,29 @@ SAP ASCS/SCS 인스턴스에는 다음과 같은 구성 요소가 있습니다.
   * 파일 구조: S:\usr\sap\\&lt;SID&gt;\SYS\...
   * 다음 UNC 경로를 사용하여 이러한 글로벌 S:\usr\sap\\&lt;SID&gt;\SYS\. 파일에 액세스할 수 있도록 하는 sapmnt 파일 공유
 
-    \\\\&lt;ASCS/SCS 가상 호스트 이름&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\\>ascs/SCS 가상 호스트 이름 \sapmnt\\&lt;SID&gt;\sys\..를 < 합니다.
 
 
-![그림 2: 프로세스, 파일 구조 및 SAP ASCS/SCS 인스턴스의 전역 호스트 sapmnt 파일 공유][sap-ha-guide-figure-8001]
+![그림 2: SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유][sap-ha-guide-figure-8001]
 
-_**그림 2:** 프로세스, 파일 구조 및 SAP ASCS/SCS 인스턴스의 전역 호스트 sapmnt 파일 공유_
+_**그림 2:** SAP ASCS/SCS 인스턴스의 프로세스, 파일 구조 및 글로벌 호스트 sapmnt 파일 공유_
 
 높은 가용성 설정에서 SAP ASCS/SCS 인스턴스를 클러스터링합니다. *클러스터형 공유 디스크*(이 예제에서 S 드라이브)를 사용하여 SAP ASCS/SCS 및 SAP 글로벌 호스트 파일을 배치합니다.
 
-![그림 3: 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8002]
+![그림 3: 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8002]
 
-_**그림 3:** 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처_
+_**그림 3:** 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
 
 > [!IMPORTANT]
 > 이러한 두 구성 요소가 동일한 SAP ASCS/SCS 인스턴스에서 실행됩니다.
->* SAP 메시지 및 인큐 서버 프로세스에 액세스하고 sapmnt 파일 공유를 통해 SAP 글로벌 호스트 파일에 액세스하는 데 동일한 <ASCS/SCS 가상 호스트 이름>이 사용됩니다.
+>* Sapmnt 파일 공유를 통해 sap 메시지 및 큐에 넣기 서버 프로세스와 sap 글로벌 호스트 파일에 액세스 하는 데 사용 되는 ascs/SCS가상호스트이름>합니다.\<
 >* 동일한 클러스터 공유 디스크 S가 공유됩니다.
 >
 
 
-![그림 4: 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8003]
+![그림 4: 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처][sap-ha-guide-figure-8003]
 
-_**그림 4:** 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처_
+_**그림 4:** 공유 디스크를 사용 하는 SAP ASCS/SCS HA 아키텍처_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>SIOS DataKeeper를 사용한 Azure의 공유 디스크
 
@@ -266,9 +266,9 @@ _**그림 4:** 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처_
 
 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
-![그림 5: Windows Server 장애 조치 클러스터링 SIOS DataKeeper를 사용 하 여 Azure에서 구성][sap-ha-guide-figure-1002]
+![그림 5: SIOS DataKeeper를 사용 하는 Azure의 Windows Server 장애 조치 (failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 
-_**그림 5:** Windows 장애 조치 클러스터링 SIOS DataKeeper를 사용 하 여 Azure에서 구성_
+_**그림 5:** SIOS DataKeeper를 사용 하는 Azure의 Windows 장애 조치 (failover) 클러스터링 구성_
 
 > [!NOTE]
 > SQL Server와 같은 일부 DBMS 제품에서는 가용성을 높이기 위해 공유 디스크를 사용할 필요가 없습니다. SQL Server AlwaysOn은 한 클러스터 노드의 로컬 디스크에서 다른 클러스터 노드의 로컬 디스크로 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 Windows 클러스터 구성에는 공유 디스크가 필요하지 않습니다.
@@ -276,6 +276,6 @@ _**그림 5:** Windows 장애 조치 클러스터링 SIOS DataKeeper를 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 클러스터 및 공유 디스크를 사용 하 여 SAP HA를 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 SAP HA 용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [SAP NetWeaver HA 설치는 Windows 장애 조치 클러스터에 SAP ASCS/SCS 인스턴스에 대 한 공유 디스크][sap-high-availability-installation-wsfc-shared-disk]
+* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 (failover) 클러스터 및 공유 디스크에 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]

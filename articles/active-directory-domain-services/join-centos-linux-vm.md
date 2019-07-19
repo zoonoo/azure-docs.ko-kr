@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d34f6c9ea014759ec2ba310786cd524ff69094af
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473334"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234089"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Azure에서 CentOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 1. 유효한 **Azure 구독**.
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
@@ -57,24 +57,25 @@ CentOS 가상 머신이 Azure에서 프로비전되었습니다. 다음 작업�
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux 가상 컴퓨터에서 호스트 파일 구성
 SSH 터미널에서 /etc/hosts 파일을 편집하고 컴퓨터의 IP 주소 및 호스트 이름을 업데이트합니다.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 호스트 파일에 다음 값을 입력합니다.
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
+
 여기서 'contoso100.com'은 관리되는 도메인의 DNS 도메인 이름입니다. 'contoso-centos'는 관리되는 도메인에 가입한 CentOS 가상 컴퓨터의 호스트 이름입니다.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux 가상 머신에 필요한 패키지 설치
 다음으로 가상 머신에서 도메인 가입에 필요한 패키지를 설치합니다. SSH 터미널에서 필수 패키지를 설치하려면 다음 명령을 입력합니다.
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux 가상 컴퓨터를 관리되는 도메인에 가입
@@ -82,7 +83,7 @@ sudo vi /etc/hosts
 
 1. AAD 도메인 서비스 관리되는 도메인을 검색합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ sudo vi /etc/hosts
     > [!TIP]
     > * 'AAD DC Administrators' 그룹에 속한 사용자를 지정해야 합니다.
     > * 도메인 이름을 대문자로 지정하지 않으면 kinit가 실패합니다.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ sudo vi /etc/hosts
 
     > [!TIP]
     > 이전 단계에서 지정한 동일한 사용자 계정을 사용합니다.
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ sudo vi /etc/hosts
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 확인합니다. 다른 SSH 연결을 사용하여 도메인에 가입된 CentOS VM에 연결합니다. 도메인 사용자 계정을 사용하고 사용자 계정이 올바른지 확인합니다.
 
 1. SSH 터미널에서 다음 명령을 입력하고 SSH를 사용하여 도메인에 가입된 CentOS 가상 머신에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
 2. SSH 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
-    ```
+   
+    ```console
     pwd
     ```
 
 3. SSH 터미널에서 다음 명령을 입력하여 그룹 멤버 자격이 올바르게 확인되었는지 확인합니다.
-    ```
+    
+    ```console
     id
     ```
 

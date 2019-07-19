@@ -1,6 +1,6 @@
 ---
 title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
-description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합
+description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통합
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,32 +13,36 @@ ms.topic: conceptual
 ms.date: 07/06/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 100f1f8875dd53f954e99c50f0bc5b9cd3fee31b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617810"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990069"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>언어 - Application Insights 팀에서 공식적으로 지원
+# <a name="languages---officially-supported-by-application-insights-team"></a>언어-Application Insights 팀에서 공식적으로 지원
+
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript 웹 페이지](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="languages---community-supported"></a>언어 - 커뮤니티 지원
+## <a name="community-sdks"></a>커뮤니티 Sdk
 
-원래 Microsoft에서 제작한 많은 커뮤니티 지원 Application Insights Sdk의 여러 가지가 있습니다. 커뮤니티 지원 Sdk는 Microsoft에서 공식적으로 유지 되지 않습니다 및 공식적으로 지원 되는 목록에 있지 않은 모든 SDK에 대 한 지원을 제공 하지 못합니다. 이러한 Sdk는 실험적인 라고 하며 프로덕션 용도로 권장 되지 않습니다.
+수많은 커뮤니티 Azure 애플리케이션 Insights Sdk가 있으며,이 중 상당수는 처음에 Microsoft에서 작성 한 것입니다. 커뮤니티 Sdk는 Microsoft에서 공식적으로 유지 관리 되지 않습니다. 공식적으로 지원 되는 목록에 없는 SDK에 대 한 지원을 제공할 수 없습니다. 이러한 Sdk는 실험적으로 간주 되며 프로덕션 환경에서 사용 하지 않는 것이 좋습니다.
 
 ## <a name="platforms-and-frameworks"></a>플랫폼 및 프레임워크
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포 된 응용 프로그램에 대 한 계측 (코드 없는, 에이전트 기반)
+* [Azure VM 및 Azure 가상 머신 확장 집합](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - 이미 운영 중인 앱용](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* 웹 및 작업자 역할을 모두 포함 하는 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측 (Sdk)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android)(App Center)
-* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) (웹 및 작업자 역할)
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)

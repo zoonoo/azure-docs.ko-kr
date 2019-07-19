@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca461f3be740c3b0bac18795991bb721a5305240
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611530"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261913"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -79,10 +79,10 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 시스템 할당 | Preview | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | Preview | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-사용 하 여 관리 되는 id를 사용 하려면 다음 목록을 참조 하십시오 [Azure 청사진](../../governance/blueprints/overview.md):
+[Azure 청사진](../../governance/blueprints/overview.md)에서 관리 되는 id를 사용 하려면 다음 목록을 참조 하세요.
 
-- [Azure portal-blueprint 할당](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [REST API-blueprint 할당](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Azure Portal 청사진 할당](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [REST API 청사진 할당](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Azure 기능
 
@@ -155,7 +155,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 | 시스템 할당 | 사용 가능 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 | 사용자 할당 | Preview | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
-Azure 컨테이너 레지스트리 작업에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (지역에서 사용 가능한 경우).
+Azure Container Registry 작업에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
@@ -165,10 +165,10 @@ Azure AD 인증을 지원하며, Azure 리소스에 대해 관리 ID를 사용�
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
-Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 하세요.
+Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을 참조 하세요.
 
-- [Azure portal 통해 액세스를 할당 합니다.](howto-assign-access-portal.md)
-- [Powershell 통해 액세스 할당](howto-assign-access-powershell.md)
+- [Azure Portal를 통해 액세스 할당](howto-assign-access-portal.md)
+- [Powershell을 통해 액세스 할당](howto-assign-access-powershell.md)
 - [Azure CLI를 통해 액세스 할당](howto-assign-access-CLI.md)
 - [Azure Resource Manager 템플릿을 통해 액세스 할당](../../role-based-access-control/role-assignments-template.md)
 
@@ -228,10 +228,10 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 
 | 클라우드 | 리소스 ID | Status |
 |--------|------------|--------|
-| Azure 글로벌 | `https://storage.azure.com/` | 사용 가능 |
-| Azure Government | `https://storage.azure.com/` | 사용 가능 |
-| Azure Germany | `https://storage.azure.com/` | 사용 가능 |
-| Azure China 21Vianet | `https://storage.azure.com/` | 사용 가능 |
+| Azure 글로벌 | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 사용 가능 |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 사용 가능 |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 사용 가능 |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 사용 가능 |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

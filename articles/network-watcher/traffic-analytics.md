@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;kumud
-ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: yagup
+ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051673"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872483"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -44,8 +45,8 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 - **NSG(네트워크 보안 그룹)** : Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
-- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석을 기반으로 Azure Monitor 로그를 사용 하 여 빌드됩니다. 같은 응용 프로그램을 모니터링 합니다. 자세한 내용은 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
-- **Log Analytics 작업 영역**: Azure Monitor 로그, Azure 계정에 관련 된 데이터가 저장 된 인스턴스. Log Analytics 작업 영역에 대 한 자세한 내용은 참조 하세요. [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
+- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석과 같은 모니터링 응용 프로그램은 Azure Monitor 로그를 기반으로 사용 하 여 빌드됩니다. 자세한 내용은 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
+- **Log Analytics 작업 영역**: Azure 계정과 관련 된 데이터가 저장 되는 Azure Monitor 로그의 인스턴스입니다. Log Analytics 작업 영역에 대 한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
 - **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리
@@ -60,7 +61,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 * 캐나다 중부
 * 미국 중서부
-* 미국 동부
+* East US
 * 미국 동부 2
 * 미국 중북부
 * 미국 중남부
@@ -69,7 +70,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 미국 서부 2
 * 프랑스 중부
 * 서유럽
-* 유럽 북부
+* 북유럽
 * 브라질 남부
 * 영국 서부
 * 영국 남부
@@ -78,23 +79,23 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 동아시아
 * 동남아시아
 * 한국 중부
-* 중앙 인도
+* 인도 중부
 * 인도 남부
 * 일본 동부 
 * 일본 서부
-* US Gov 버지니아
+* 미국 정부 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 캐나다 중부
 * 미국 중서부
-* 미국 동부
+* East US
 * 미국 동부 2
 * 미국 중남부
 * 미국 서부
 * 미국 서부 2
 * 미국 중부
 * 프랑스 중부
-* 유럽 북부
+* 북유럽
 * 서유럽
 * 영국 남부
 * 오스트레일리아 동부
@@ -102,11 +103,11 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 동아시아
 * 동남아시아
 * 한국 중부
-* 중앙 인도
+* 인도 중부
 * 일본 동부
-* US Gov 버지니아
+* 미국 정부 버지니아
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
@@ -114,9 +115,9 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |
-|Resource Manager   | 소유자                  |
+|리소스 관리자   | 소유자                  |
 |                   | 참가자            |
-|                   | 구독자                 |
+|                   | 판독기                 |
 |                   | 네트워크 참가자    |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
@@ -172,20 +173,20 @@ New-AzStorageAccount `
 그림에 나와 있는 것처럼 다음 옵션을 선택합니다.
 
 1. *상태*에 대해 **켜기**를 선택합니다.
-2. 선택 *버전 2* 에 대 한 **흐름 로그 버전**합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
+2. **흐름 로그 버전**에 대해 *버전 2* 를 선택 합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
 3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다.
 4. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
 5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
 6. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
     트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 유럽 서부의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
-7. **저장**을 선택합니다.
+7.           **저장**을 선택합니다.
 
     ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터 작업 영역으로 전송 됩니다, 그리고 하므로 현지법 및 규정 국가/지역에서 작업 영역이 있는 지역에 데이터 저장을 허용 하는지 확인 하세요.
+트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송 되므로 해당 국가/지역의 지역 법률 및 규정에 따라 작업 영역이 있는 지역에 데이터 저장소가 허용 되는지 확인 합니다.
 
-사용 하 여 트래픽 분석을 구성할 수도 있습니다는 [집합 AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell의 PowerShell cmdlet. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet을 사용 하 여 트래픽 분석을 구성할 수도 있습니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
@@ -277,13 +278,13 @@ New-AzStorageAccount `
 
     ![트래픽 분포를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- 지역 지도 데이터 센터와 같은 매개 변수를 선택할 수 있는 상단 리본을 보여 줍니다 (배포 된/없는-배포/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 및 국가/지역을 활성 무해/악성 트래픽에 기여 배포:
+- 지역 지도에는 데이터 센터 (배포 됨/배포 안 함/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 및 활성에 대해 무해/악성 트래픽을 기여 하는 국가/지역 등의 매개 변수를 선택할 수 있는 위쪽 리본 메뉴가 표시 됩니다. 배포가
 
     ![활성 배포를 표시하는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- 지역 지도 데이터 센터에 국가 및 대륙에 파란색 (무해 트래픽) 및 빨간색 (악성 트래픽) 선 색이 지정 된 통신에서 트래픽 분포를 보여 줍니다.
+- 지리 맵은 파란색 (무해 한 트래픽) 및 빨간색 (악성 트래픽) 색으로 통신 하는 국가/지역 및 대륙의 데이터 센터에 대 한 트래픽 분포를 보여 줍니다.
 
-    ![국가 및 대륙의 트래픽 분포를 보여주는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![국가/지역 및 대륙에 대 한 트래픽 분포를 보여주는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![로그 검색의 트래픽 분포에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -300,7 +301,7 @@ New-AzStorageAccount `
     ![가상 네트워크 분포를 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - 가상 네트워크 토폴로지는 가상 네트워크(상호 가상 네트워크 연결/활성/비활성), 외부 연결, 활성 흐름, 가상 네트워크의 악의적 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 표시합니다.
-- 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 형식 (vnet 간, IntraVNET, 및 등), 흐름 방향 (인바운드, 아웃 바운드), 흐름 상태 흐름 (허용, 차단) Vnet (대상 및 연결), 연결 유형 (피어 링 또는 게이트웨이-P2S 및 S2S), 및 NSG. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
+- 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 흐름 유형 (InterVNet, IntraVNET 등), 흐름 방향 (인바운드, 아웃 바운드), 흐름 상태 (허용 됨, 차단 됨), Vnet (대상 및 연결), 연결 유형 (피어 링 또는 게이트웨이-P2S 및 S2S) 및 NSG가 있습니다. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
 - 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
 
     ![트래픽 분포 및 흐름 세부 정보를 표시하는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -372,4 +373,4 @@ New-AzStorageAccount `
 ## <a name="next-steps"></a>다음 단계
 
 - 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
-- 트래픽 분석의 세부 정보를 처리 하 고 스키마를 이해 하려면 참조 [트래픽 분석 스키마](traffic-analytics-schema.md)합니다.
+- 트래픽 분석의 스키마 및 처리 세부 정보를 이해 하려면 [트래픽 분석 스키마](traffic-analytics-schema.md)를 참조 하세요.
