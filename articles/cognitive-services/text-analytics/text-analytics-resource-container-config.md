@@ -51,7 +51,7 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
 
-|필수| 이름 | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
@@ -73,13 +73,13 @@ BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라�
 
 ## <a name="mount-settings"></a>탑재 설정
 
-바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
+바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 데이터를 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
-Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
+Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 입력 또는 출력 탑재를 사용하지 않습니다. 
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
-|옵션| 이름 | 데이터 형식 | 설명 |
+|옵션| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Text Analytics 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -95,9 +95,9 @@ BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라�
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
-| 자리표시자 | 값 | 형식 또는 예 |
+| Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{BILLING_KEY} | 끝점 키를 `Cognitive Services` 리소스는 Azure에서 사용 가능한 `Cognitive Services` [키] 페이지입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | Azure `Cognitive Services` [키] 페이지에서 사용 가능한 `Cognitive Services` 리소스의 끝점 키. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 청구 끝점 값은 Azure의 `Cognitive Services` 개요 페이지에서 사용 가능합니다.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
