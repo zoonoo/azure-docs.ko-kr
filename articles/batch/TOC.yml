@@ -61,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: Batch Management .NET을 사용하여 배치 계정 관리
           href: batch-management-dotnet.md
+        - name: 비용 분석 및 예산
+          href: budget.md
     - name: Azure AD를 사용하여 인증
       items:
         - name: Batch 서비스 포함 Azure AD

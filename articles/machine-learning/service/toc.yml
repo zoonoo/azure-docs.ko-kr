@@ -217,8 +217,8 @@
         - name: 예측 모델 자동 학습
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: 정확도 메트릭 보기
-          href: how-to-understand-accuracy-metrics.md
+        - name: 차트 및 메트릭 이해
+          href: how-to-understand-automated-ml.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법

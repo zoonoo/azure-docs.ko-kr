@@ -41,6 +41,8 @@
           href: logic-apps-create-logic-apps-from-templates.md
         - name: BizTalk Services에서 마이그레이션
           href: logic-apps-move-from-mabs.md
+        - name: Microsoft Flow에서 흐름을 내보내고 Azure Logic Apps에 배포
+          href: export-from-microsoft-flow-logic-app-template.md
         - name: 워크플로 실행 제어
           items:
             - name: 조건문

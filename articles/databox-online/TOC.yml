@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: 문제 해결
           href: data-box-gateway-troubleshoot.md
+        - name: Microsoft 지원에 문의
+          href: data-box-edge-contact-microsoft-support.md
     - name: 릴리스 정보
       items:
         - name: 1905 - 현재
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: 문제 해결
           href: data-box-edge-troubleshoot.md
+        - name: Microsoft 지원에 문의
+          href: data-box-edge-contact-microsoft-support.md
         - name: 모니터
           href: data-box-edge-monitor.md
-        - name: 디바이스 반환
+        - name: 디바이스 반환 또는 바꾸기
           href: data-box-edge-return-device.md
     - name: 릴리스 정보
       items:

@@ -13,7 +13,7 @@ ms.date: 06/20/2019
 ms.author: dapine
 ms.openlocfilehash: 604b17bc3d4696ff0bf2be1759a53927a531fe13
 ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/20/2019
 ms.locfileid: "67296013"
@@ -98,7 +98,7 @@ BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라�
 | 자리표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 |{BILLING_KEY} | 끝점 키를 `Cognitive Services` 리소스는 Azure에서 사용 가능한 `Cognitive Services` [키] 페이지입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 청구 끝점 값은 Azure에서 사용할 수 있는 `Cognitive Services` 개요 페이지.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{BILLING_ENDPOINT_URI} | 청구 끝점 값은 Azure의 `Cognitive Services` 개요 페이지에서 사용 가능합니다.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
@@ -106,7 +106,7 @@ BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라�
 
 ## <a name="key-phrase-extraction-container-docker-examples"></a>핵심 문구 추출 컨테이너 docker 예제
 
-다음 docker 예제를 사용 하는 핵심 문구 추출 컨테이너에 대 한입니다. 
+다음 docker 예제는 핵심 문구 추출 컨테이너에 해당합니다. 
 
 ### <a name="basic-example"></a>기본 예제 
 
