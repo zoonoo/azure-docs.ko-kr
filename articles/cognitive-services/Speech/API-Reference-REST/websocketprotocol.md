@@ -311,7 +311,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | Path | `telemetry` |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
 | Content-Type | `application/json` |
-| 본문 | 회차에 관한 클라이언트 정보를 포함하는 JSON 구조 |
+| Body | 회차에 관한 클라이언트 정보를 포함하는 JSON 구조 |
 
 `telemetry` 메시지의 본문에 대한 스키마는 [원격 분석 스키마](#telemetry-schema) 섹션에서 정의합니다.
 
