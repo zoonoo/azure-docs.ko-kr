@@ -175,7 +175,7 @@ Content-Length: 0
 | 필드 | 설명 |
 |----|----|
 | WebSocket 메시지 인코딩 | 텍스트 |
-| 본문 | JSON 구조인 페이로드 |
+| Body | JSON 구조인 페이로드 |
 
 #### <a name="required-message-headers"></a>필요한 메시지 헤더
 
@@ -244,7 +244,7 @@ Content-Length: 0
 | 필드 | 설명 |
 |-------------|----------------|
 | WebSocket 메시지 인코딩 | 이진 |
-| 본문 | 오디오 청크에 대한 이진 데이터입니다. 최대 크기는 8,192바이트입니다. |
+| Body | 오디오 청크에 대한 이진 데이터입니다. 최대 크기는 8,192바이트입니다. |
 
 #### <a name="required-message-headers"></a>필요한 메시지 헤더
 
@@ -332,7 +332,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| 본문 | 음성 시작이 검색된 경우 조건에 관한 정보를 포함하는 JSON 구조입니다. 이 구조의 *오프셋* 필드는 스트림의 시작을 기준으로 오디오 스트림에서 음성이 검색된 시간의 오프셋(100나노초 단위)을 지정합니다. |
+| Body | 음성 시작이 검색된 경우 조건에 관한 정보를 포함하는 JSON 구조입니다. 이 구조의 *오프셋* 필드는 스트림의 시작을 기준으로 오디오 스트림에서 음성이 검색된 시간의 오프셋(100나노초 단위)을 지정합니다. |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -358,7 +358,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | Path | `speech.hypothesis` |
 | X-RequestId | "대시 없는" 형식의 UUID |
 | Content-Type | application/json |
-| 본문 | 음성 가설 JSON 구조 |
+| Body | 음성 가설 JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -389,7 +389,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.phrase` |
 | Content-Type | application/json |
-| 본문 | 음성 구 JSON 구조 |
+| Body | 음성 구 JSON 구조 |
 
 음성 구 JSON 스키마는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration` 필드를 포함합니다. 이러한 필드에 대한 자세한 내용은 [전사 응답](../concepts.md#transcription-responses)을 참조하세요.
 
@@ -416,7 +416,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.endDetected` |
-| 본문 | 음성 끝이 검색된 시간의 오프셋을 포함하는 JSON 구조입니다. 오프셋은 인식을 위해 사용한 오디오의 시작에서 100나노초 단위 오프셋으로 나타냅니다. |
+| Body | 음성 끝이 검색된 시간의 오프셋을 포함하는 JSON 구조입니다. 오프셋은 인식을 위해 사용한 오디오의 시작에서 100나노초 단위 오프셋으로 나타냅니다. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -442,7 +442,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
-| 본문 | JSON 구조 |
+| Body | JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -468,7 +468,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `turn.end` |
-| 본문 | 없음 |
+| Body | 없음 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
