@@ -104,7 +104,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint). 
+1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
@@ -113,7 +113,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 | 구분 | 값 |
 |-------------|-------|
 |{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure portal의 `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure에서 사용할 수 있는 `Cognitive Services` 개요 페이지. <br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. <br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `text/analytics/v2.0` 라우팅을 끝점 URI로 추가해야 합니다.
 

@@ -73,7 +73,7 @@ ms.locfileid: "67604882"
 
 ### <a name="request-body"></a>요청 본문
 
-본문에는 필요 하지 않습니다. `GET` 이 끝점에 요청 합니다.
+이 끝점에 대한 `GET` 요청에는 본문이 필요하지 않습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 
