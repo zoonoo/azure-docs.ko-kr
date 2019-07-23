@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508212"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835690"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 원시 클라이언트 애플리케이션에서 인증을 사용하도록 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "66508212"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다. 
+- [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
 - **.NET 데스크톱 개발**과 **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
 ## <a name="add-the-native-client-application"></a>원시 클라이언트 애플리케이션 추가
@@ -83,12 +83,12 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
 1. **로그인**을 클릭하여 사용자로 등록합니다. 여기서는 **B2C_1_signupsignin1** 사용자 흐름을 사용합니다.
-2. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록** 링크를 클릭합니다. 
+2. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록** 링크를 클릭합니다.
 3. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
-    유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다. 
+    유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
-    ![등록 워크플로](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![로그인/등록 워크플로의 일부로 표시되는 등록 페이지](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. **만들기**를 클릭하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
 

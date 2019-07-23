@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086618"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277541"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>자습서: 일반적인 의도 및 엔터티 식별
 
@@ -61,7 +61,7 @@ LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미�
    * Utilities.StartOver
    * Utilities.Stop
 
-     이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 
+     이러한 의도는 대화에서 사용자가 어디에 있고 무엇을 하려 하는지 확인하는 데 유용합니다. 이러한 의도에는 엔터티 사용 현황이 포함됩니다. number, ordinal 및 Utilities.DirectionalReference 등의 엔터티가 LUIS 앱에 자동으로 추가됩니다. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>일반적인 데이터 형식 추출에 도움이 되도록 미리 빌드된 엔터티 추가

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428325"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304230"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 다음 단계를 수행합니다.
@@ -235,7 +235,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
         ![함수에 대한 게시 프로필 가져오기](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. 프로젝트의 폴더에 파일을 저장합니다. 
 4. Visual Studio에서 **SBEventGridIntegration**을 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다. 
-5. **게시** 페이지에서 *시작**을 선택합니다. 
+5. **게시** 페이지에서 **시작**을 선택합니다. 
 6. **게시 대상 선택** 페이지에서 다음 단계를 수행하고 **프로필 가져오기**를 선택합니다. 
 
     ![Visual Studio - 프로필 가져오기 단추](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

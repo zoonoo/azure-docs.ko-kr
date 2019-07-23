@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788365"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838437"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>자습서: Azure Data Share 미리 보기를 사용하여 데이터 수락 및 받기
 
@@ -31,6 +31,8 @@ ms.locfileid: "67788365"
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다. 
 * 데이터 공유 초대: " **<yourdataprovider@domain.com>** 이(가) 보낸 Azure Data Share 초대"라는 제목이 있는 Microsoft Azure의 초대입니다.
+* 스토리지 계정에 역할 할당을 추가할 수 있는 권한. 이 권한은 *Microsoft.Authorization/role assignments/write* 권한에 있습니다. 이 권한은 소유자 역할에 있습니다. 
+* Microsoft.DataShare에 대한 리소스 공급자 등록. 이 작업을 수행하는 방법에 대한 자세한 내용은 [Azure 리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 설명서를 참조하세요. 
 
 > [!IMPORTANT]
 > Azure Data Share를 수락하고 받으려면 먼저 Microsoft.DataShare 리소스 공급자를 등록해야 하며 데이터를 수락하는 스토리지 계정의 소유자여야 합니다. [Azure Data Share 미리 보기의 문제 해결](data-share-troubleshoot.md)에서 설명하는 지침에 따라 데이터 공유 리소스 공급자를 등록하고 자신을 스토리지 계정의 소유자로 추가합니다. 

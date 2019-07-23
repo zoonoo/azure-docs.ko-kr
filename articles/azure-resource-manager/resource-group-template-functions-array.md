@@ -128,8 +128,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |아닙니다. |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
+| arg1 |예 |int, string, array, 또는 object |null인지 테스트할 첫 번째 값입니다. |
+| 추가 인수 |아닙니다. |int, string, array, 또는 object |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -190,7 +190,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | stringOutput | String | 기본값 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | 배열 | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -476,10 +476,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| stringArray | 배열 | ["a", "b", "c"] |
-| intArray | 배열 | [1, 2, 3] |
-| objectArray | 배열 | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | 배열 | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -702,7 +702,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | 배열 | ["two", "three"] |
+| arrayOutput | Array | ["two", "three"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1115,7 +1115,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| rangeOutput | 배열 | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1195,7 +1195,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | 문자열 | two three |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -1276,7 +1276,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 배열 | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | 문자열 | on |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -1356,7 +1356,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | 배열 | ["one", "two", "three", "four"] |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 

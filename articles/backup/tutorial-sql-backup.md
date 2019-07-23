@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203489"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305219"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -143,19 +143,19 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
     ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5.  **백업 정책 선택**에서 정책을 선택한 다음,  **확인**을 클릭합니다.
+5. **백업 정책 선택**에서 정책을 선택한 다음, **확인**을 클릭합니다.
 
-   - 기본 정책 HourlyLogBackup.
+   - 기본 정책 HourlyLogBackup.
    - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
    - RPO(복구 지점 목표) 및 보존 범위를 기반으로 새 정책을 정의합니다.
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6.  **백업 메뉴**에서  **백업 사용**을 선택합니다.
+6. **백업 메뉴**에서 **백업 사용**을 선택합니다.
 
     ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. 포털의  **알림**  영역에서 구성 진행률을 추적합니다.
+7. 포털의 **알림** 영역에서 구성 진행률을 추적합니다.
 
     ![알림 영역](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -245,5 +245,5 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 > [!div class="nextstepaction"]
 > [Azure VM에서 SQL Server 데이터베이스 복원](./restore-sql-database-azure-vm.md)
- 
+ 
 

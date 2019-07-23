@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 71fc32fb34ae67f6d3a4de556da8b107574cc920
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7c9385078b1f9b42847cf627cf49ac16158d6b52
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603520"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276425"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-ruby"></a>빠른 시작: Computer Vision REST API 및 Ruby를 사용하여 인쇄된 텍스트(OCR) 추출
 
@@ -33,8 +33,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음과 같이 변경합니다.
+1. 아래 코드를 텍스트 편집기에 복사합니다.
+1. 코드를 다음과 같이 변경합니다.
     1. `<Subscription Key>`를 구독 키로 바꿉니다.
     1. 필요한 경우 `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr`를, 구독 키를 가져온 Azure 지역의 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`를 인쇄 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.

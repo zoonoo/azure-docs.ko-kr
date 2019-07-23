@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: fbab8502c088c2ae7a4b8e87285d7e4cac1de4c0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543640"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807397"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
@@ -42,7 +42,7 @@ ms.locfileid: "67543640"
 
 2. 페이지에서 모든 필드의 선택을 취소하고 다음 값을 선택합니다.
 
-   | 이름 | 값 |
+   | Name | 값 |
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
@@ -59,6 +59,8 @@ HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 �
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
+
+    계속하려면 yes 또는 no를 입력하라는 메시지가 표시되면 명령 프롬프트에 yes를 입력하고 Enter 키를 누릅니다. 입력하는 동안 텍스트는 창에 표시되지 않습니다.
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. `CLUSTERNAME`을 HDInsight 클러스터의 이름으로 바꾸어 아래 명령을 편집합니다. 다음 명령을 입력합니다.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112282"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275999"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 
@@ -74,31 +74,22 @@ ms.locfileid: "58112282"
     
     [![엔터티 보기 설정/해제가 강조 표시된 엔드포인트 발화 검토의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    이 발화(`I'm looking for a job with Natural Language Processing`)는 올바른 의도에 있지 않습니다. 
+
+    발화가 잘못 예측된 이유는 **GetJobInformation**의 7개 발화와 비교하여 **ApplyForJob** 의도에 21개 발화가 있기 때문입니다. 더 많은 발화가 있는 의도가 더 높은 예측성을 갖습니다. 의도 전반에서 발화의 개수와 품질에 균형을 유지하는 것이 중요합니다.
+
+1.  이 발화를 정렬하려면 올바른 의도를 선택하고 그 안에서 작업 엔터티를 표시합니다. 녹색 확인란을 선택하여 변경된 발화를 앱에 추가합니다. 
+
     |발화|올바른 의도|누락된 엔터티|
     |:--|:--|:--|
-    |자연어 처리의 작업을 찾고 있습니다|GetJobInfo|작업 - "자연어 처리"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|작업 - "자연어 처리"|
 
-    이 발언은 올바른 의도에 있지 않으며 점수가 50% 미만입니다. **GetJobInformation** 의도에 7개의 발언이 있는 것에 비해 **ApplyForJob** 의도에는 21개의 발언이 있습니다. 엔드포인트 발언을 올바르게 정렬하는 것과 함께 더 많은 발언을 **GetJobInformation** 의도에 추가해야 합니다. 이는 스스로 완료하도록 연습으로 남겨둡니다. **None** 의도를 제외한 각 의도에는 대략적으로 예제와 동일한 수의 발언이 있어야 합니다. **None** 의도에는 앱의 총 발언의 10%가 있어야 합니다. 
+    발화를 추가하면 발화가 **엔드포인트 발화 검토**에서 **GetJobInformation** 의도로 이동합니다. 엔드포인트 발언은 이제 해당 의도에 대한 예제 발언이 되었습니다. 
 
-1. `I'm looking for a job with Natual Language Processing` 의도의 경우, **정렬된 의도** 열에서 올바른 의도인 **GetJobInformation**를 선택합니다. 
-
-    [![발화를 의도에 맞추는 엔드포인트 발화 검토의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. 동일한 발언에서 `Natural Language Processing`에 대한 엔터티는 keyPhrase입니다. 이는 대신 **작업** 엔터티여야 합니다. `Natural Language Processing`을(를) 선택한 다음, 목록에서 **작업** 엔터티를 선택합니다.
-
-    [![발화의 엔터티에 레이블을 지정하는 엔드포인트 발화 검토의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. 같은 줄에서 **정렬된 의도에 추가** 열에서 원으로 표시된 확인 표시를 선택합니다. 
-
-    [![의도에서 발화 맞춤을 종료하는 스크린샷](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    이 작업은 발언을 **Review endpoint utterances**에서 **GetJobInformation** 의도로 이동합니다. 엔드포인트 발언은 이제 해당 의도에 대한 예제 발언이 되었습니다. 
+    이 발화를 올바르게 정렬하는 것과 함께 더 많은 발화를 **GetJobInformation** 의도에 추가해야 합니다. 이는 스스로 완료하도록 연습으로 남겨둡니다. **None** 의도를 제외한 각 의도에는 대략적으로 예제와 동일한 수의 발언이 있어야 합니다. **None** 의도에는 앱의 총 발언의 10%가 있어야 합니다. 
 
 1. 이 의도에서 남은 발언을 검토하고, 발언에 레이블을 지정하고, 올바르지 않은 경우 **정렬된 의도**를 수정합니다.
-
-1. 모든 발언이 정확하면 각 행의 확인란을 선택한 다음, **추가 선택**을 선택하여 발언을 올바르게 맞춥니다. 
-
-    [![정렬된 의도에 대해 나머지 발화를 종료하는 스크린샷](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. 목록에는 더 이상 이런 발언이 없어야 합니다. 발언이 여전히 표시되는 경우, 목록이 빌 때까지 의도를 수정하고, 누락된 엔터티에 레이블을 지정하여 계속 작업합니다. 
 

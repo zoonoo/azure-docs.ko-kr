@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788455"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838434"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>자습서: Azure Data Share 미리 보기를 사용하여 데이터 공유
 
@@ -29,6 +29,8 @@ ms.locfileid: "67788455"
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다.
+* 스토리지 계정에 역할 할당을 추가할 수 있는 권한. 이 권한은 *Microsoft.Authorization/role assignments/write* 권한에 있습니다. 이 권한은 소유자 역할에 있습니다. 
+* 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -48,9 +50,9 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 이름 | *datashareacount* | 데이터 공유 계정의 이름을 지정합니다. |
-    | 구독 | 사용자의 구독 | 데이터 공유 계정에 사용할 Azure 구독을 선택합니다.|
-    | 리소스 그룹 | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
+    | Name | *datashareacount* | 데이터 공유 계정의 이름을 지정합니다. |
+    | Subscription | 사용자의 구독 | 데이터 공유 계정에 사용할 Azure 구독을 선택합니다.|
+    | Resource group | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 동부 2* | 데이터 공유 계정에 대한 지역을 선택합니다.
     | | |
 

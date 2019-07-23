@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542993"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828028"
 ---
 # <a name="tutorial-mount-the-cluster"></a>자습서: 클러스터 탑재
 
@@ -43,7 +43,7 @@ ms.locfileid: "67542993"
 
 더 간단한 소규모 설치 방법은 스크립트를 사용하여 클라이언트 탑재 시 전체 범위에 IP 주소를 할당하는 것입니다. 
 
-다른 부하 분산 방법은 크거나 복잡한 시스템에 적합할 수 있습니다. Microsoft 담당자에게 문의하거나 지원 요청을 열어 도움을 받으세요. (Azure Load Balancer는 현재 Azure FXT Edge Filer에서 *지원되지 않습니다*.)
+다른 부하 분산 방법은 크거나 복잡한 시스템에 적합할 수 있습니다. Microsoft 담당자에게 문의하거나 [지원 요청](fxt-support-ticket.md)을 열어 도움을 받으세요. (Azure Load Balancer는 현재 Azure FXT Edge Filer에서 *지원되지 않습니다*.)
 
 ## <a name="create-the-mount-command"></a>mount 명령 만들기 
 

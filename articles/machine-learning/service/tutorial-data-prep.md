@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: sihhu
-ms.author: MayMSFT
+author: MayMSFT
+ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 55bece47ad2a9965e5137ad720631d9b5f5add48
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474713"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297879"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -112,6 +112,9 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
+
+> [!Note]
+> 이 동일한 예제의 URL은 전체 URL이 아닙니다. 대신 BLOB의 demo 폴더를 말합니다. 일부 데이터에 대한 전체 URL은 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv 입니다.
 
 `Dataflow` 개체는 데이터 프레임과 비슷하며, 데이터에 대한 일련의 지연 평가된 변경할 수 없는 작업을 나타냅니다. 사용 가능한 다른 변환 및 필터링 메서드를 호출하여 작업을 추가할 수 있습니다. `Dataflow`에 작업을 추가한 결과는 항상 새로운 `Dataflow` 개체입니다.
 

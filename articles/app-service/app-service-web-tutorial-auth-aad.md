@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fff2469269d8f60f837f0af444e16928a9212bb0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139020"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67866575"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -90,29 +90,29 @@ dotnet run
 
 ### <a name="create-azure-resources"></a>Azure 리소스 만들기
 
-Cloud Shell에서 다음 명령을 실행하여 웹앱 두 개를 만듭니다. _&lt;front\_end\_app\_name>_ 및 _&lt;back\_end\_app\_name>_ 을 두 개의 전역적으로 고유한 앱 이름(유효한 문자: `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Azure App Service에서 CORS를 사용한 RESTful API](app-service-web-tutorial-rest-api.md)를 참조하세요.
+Cloud Shell에서 다음 명령을 실행하여 웹앱 두 개를 만듭니다. _\<front-end-app-name>_ 및 _\<back-end-app-name>_ 을 두 개의 전역적으로 고유한 앱 이름(유효한 문자: `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Azure App Service에서 CORS를 사용한 RESTful API](app-service-web-tutorial-rest-api.md)를 참조하세요.
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
 az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
 ```
 
 > [!NOTE]
-> 프런트 엔드 앱과 백 엔드 앱에 대한 Git 원격 URL을 저장합니다. 이것은 `az webapp create`의 출력에 표시됩니다.
+> 프런트 엔드 및 백 엔드 앱에 대한 Git 원격 URL을 저장합니다. 이것은 `az webapp create`의 출력에 표시됩니다.
 >
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창  으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.
+로컬 터미널 창  으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _\<deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
 git push backend master
 ```
 
-로컬 터미널 창에서 다음과 같은 Git 명령을 실행하여 동일한 코드를 프런트 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-front-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다.
+로컬 터미널 창에서 다음과 같은 Git 명령을 실행하여 동일한 코드를 프런트 엔드 앱에 배포합니다. _\<deploymentLocalGitUrl-of-front-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다.
 
 ```bash
 git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
@@ -124,8 +124,8 @@ git push frontend master
 브라우저에서 다음 URL로 이동하여 두 개의 앱이 작동하는지 확인합니다.
 
 ```
-http://<back_end_app_name>.azurewebsites.net
-http://<front_end_app_name>.azurewebsites.net
+http://<back-end-app-name>.azurewebsites.net
+http://<front-end-app-name>.azurewebsites.net
 ```
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/azure-run.png)
@@ -141,11 +141,11 @@ http://<front_end_app_name>.azurewebsites.net
 
 ### <a name="modify-front-end-code"></a>프런트 엔드 코드 수정
 
-로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
+로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _\<back-end-app-name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
-private static readonly string _remoteUrl = "https://<back_end_app_name>.azurewebsites.net";
+private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
 ```
 
 `GetAll()` 메서드를 찾아서 중괄호 안의 코드를 다음과 같이 바꿉니다.
@@ -204,9 +204,9 @@ git push frontend master
 
 ### <a name="check-your-changes"></a>변경 내용 확인
 
-`http://<front_end_app_name>.azurewebsites.net`으로 이동하여 `from front end 1` 및 `from front end 2` 등의 몇 가지 항목을 추가합니다.
+`http://<front-end-app-name>.azurewebsites.net`으로 이동하여 `from front end 1` 및 `from front end 2` 등의 몇 가지 항목을 추가합니다.
 
-`http://<back_end_app_name>.azurewebsites.net`으로 이동하여 프런트 엔드 앱에서 추가된 항목을 확인합니다. `from back end 1` 및 `from back end 2` 등과 같은 몇 가지 항목을 추가한 다음 프런트 엔드 앱을 새로 고쳐서 변경 내용이 반영되는지 확인합니다.
+`http://<back-end-app-name>.azurewebsites.net`으로 이동하여 프런트 엔드 앱에서 추가된 항목을 확인합니다. `from back end 1` 및 `from back end 2` 등과 같은 몇 가지 항목을 추가한 다음 프런트 엔드 앱을 새로 고쳐서 변경 내용이 반영되는지 확인합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/remote-api-call-run.png)
 
@@ -218,7 +218,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  _\<back-end-app-name>_ 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -234,7 +234,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 **인증/권한 부여** 페이지에서 **저장**을 클릭합니다. 
 
-`Successfully saved the Auth Settings for <back_end_app_name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
+`Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
 
 **Azure Active Directory**를 다시 클릭한 다음, **애플리케이션 관리**를 클릭합니다.
 
@@ -246,7 +246,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **애플리케이션 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
 
-원하는 경우 `http://<front_end_app_name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
+원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
 
 - 프런트 엔드에 백 엔드 액세스 권한 부여
 - 사용 가능한 토큰을 반환하도록 App Service 구성
@@ -267,7 +267,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 **API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택** 을 클릭합니다.
 
-**[ _&lt;AD\_application\_name>_ 에 액세스]** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
+**액세스 _\<AD-application-name>_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
@@ -279,7 +279,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-왼쪽 브라우저에서 **구독** >  **[ _&lt;your\_subscription>_ ]**  > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** >  **[ _\<front\_end\_app\_name>_ ]**  > **구성** > **authsettings** 를 클릭합니다.
+왼쪽 브라우저에서 **구독** >  **_\<your-subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** >  **_\<front-end-app-name>_**  > **구성** > **authsettings**를 클릭합니다.
 
 **authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 
@@ -327,7 +327,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-`https://<front_end_app_name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의**를 클릭합니다.
+`https://<front-end-app-name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의**를 클릭합니다.
 
 이제 이전과 같이 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다. 유일한 차이점은 이제 두 앱이 App Service 인증 및 권한 부여로 보호된다는 점입니다(서비스 간 호출 포함).
 
@@ -345,10 +345,10 @@ git push frontend master
 
 ### <a name="configure-cors"></a>CORS 구성
 
-Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _\<back\_end\_app\_name>_ 및 _\<front\_end\_app\_name>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _\<back-end-app-name>_ 및 _\<front-end-app-name>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
-az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
+az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
 ```
 
 이 단계는 인증 및 권한 부여와 관련이 없습니다. 하지만 브라우저에서 Angular.js 앱의 도메인 간 API 호출을 허용하려면 필요합니다. 자세한 내용은 [CORS 기능 추가](app-service-web-tutorial-rest-api.md#add-cors-functionality)를 참조하세요.
@@ -357,7 +357,7 @@ az resource update --name web --resource-group myAuthResourceGroup --namespace M
 
 로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
 
-51번 줄에서 `apiEndpoint` 변수를 백 엔드 앱의 URL(`https://<back_end_app_name>.azurewebsites.net`)로 설정합니다. _\<back\_end\_app\_name>_ 을 App Service의 앱 이름으로 바꿉니다.
+51번 줄에서 `apiEndpoint` 변수를 백 엔드 앱의 URL(`https://<back-end-app-name>.azurewebsites.net`)로 설정합니다. _\<back-end-app-name>_ 을 App Service의 앱 이름으로 바꿉니다.
 
 로컬 리포지토리에서 _wwwroot/app/scripts/todoListSvc.js_를 열고 `apiEndpoint`가 모든 API 호출 앞에 추가되었는지 확인합니다. 이제 Angular.js 앱에서 백 엔드 API를 호출합니다. 
 
@@ -411,7 +411,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-`https://<front_end_app_name>.azurewebsites.net`으로 다시 이동합니다. 이제 Angular.js 앱에서 직접 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다.
+`https://<front-end-app-name>.azurewebsites.net`으로 다시 이동합니다. 이제 Angular.js 앱에서 직접 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다.
 
 축하합니다! 이제 클라이언트 코드가 인증된 사용자 대신 백 엔드 데이터에 액세스할 수 있습니다.
 

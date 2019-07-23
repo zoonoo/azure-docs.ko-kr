@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722267"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253457"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -29,14 +29,14 @@ Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 �
 
 ## <a name="how-does-personalizer-work"></a>Personalizer의 작동 원리
 
-Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 높은 순위를 지정할 작업을 검색합니다. 클라이언트 애플리케이션은 가능한 작업 목록 및 해당 정보와 컨텍스트 정보를 제공하며, 여기에는 사용자, 디바이스 등에 대한 정보가 포함될 수 있습니다. Personalizer는 수행할 작업을 결정합니다. 클라이언트 애플리케이션은 선택된 작업을 사용할 때 Personalizer에 보상 점수의 형태로 피드백을 제공합니다. 피드백 루프가 완료되면 Personalizer는 향후 순위에 사용되는 자체 모델을 자동으로 업데이트합니다.
+Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 높은 순위를 지정할 작업을 검색합니다. 클라이언트 애플리케이션은 가능한 작업 목록 및 해당 정보와 컨텍스트 정보를 제공하며, 여기에는 사용자, 디바이스 등에 대한 정보가 포함될 수 있습니다. Personalizer는 수행할 작업을 결정합니다. 클라이언트 애플리케이션은 선택된 작업을 사용할 때 Personalizer에 보상 점수의 형태로 피드백을 제공합니다. 피드백을 받은 후 Personalizer는 향후 순위에 사용되는 자체 모델을 자동으로 업데이트합니다.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Personalizer를 사용하려면 어떻게 할까요?
 
 ![Personalizer를 사용하여 사용자에게 표시할 비디오 선택](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. 앱에서 개인 설정할 환경을 선택합니다.
-1. Azure Portal에서 개인 설정 서비스를 만들고 구성합니다.
+1. Azure Portal에서 개인 설정 서비스의 인스턴스를 만들고 구성합니다. 각 인스턴스는 Personalizer 루프입니다.
 1. SDK를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. 
 1. 클라이언트 애플리케이션에서, Personalizer가 선택한 작업을 사용자에게 표시합니다.
 1. SDK를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이것이 _보상 점수_이며, 일반적으로 -1부터 1 사이입니다.
