@@ -56,7 +56,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
 [저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse 또는 SQL Server
-[U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
+[U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [사용자 지정 코드](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
