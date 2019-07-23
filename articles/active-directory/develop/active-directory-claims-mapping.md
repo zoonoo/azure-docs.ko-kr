@@ -17,7 +17,7 @@ ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
 ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68324997"
@@ -160,7 +160,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | request_nonce |
 | resource |
 | role |
-| role |
+| roles |
 | 범위 |
 | scp |
 | sid |

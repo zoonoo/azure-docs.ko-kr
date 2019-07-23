@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: 위험 정책 구성
           href: howto-configure-risk-policies.md
-        - name: 검색 정확도 향상
-          href: howto-improve-detection-accuracy.md
         - name: FAQ 및 알려진 문제
           href: known-issues.md
 - name: 참고 자료
