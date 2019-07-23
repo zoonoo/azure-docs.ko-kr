@@ -43,13 +43,13 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대 한 값을 지정 해야 하 고 값은 _에 대 한 유효한 끝점 URI 여야_Cognitive Services_ Azure에서 리소스입니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure의 _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
 * Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
 
-BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
+다음 BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 끝점 URI로 라우팅할 `text/analytics/v2.0`을 추가해야 합니다.
 
 |필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
@@ -91,7 +91,7 @@ Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기
 * **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
 * **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 
-BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.
+다음 BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 끝점 URI로 라우팅할 `text/analytics/v2.0`을 추가해야 합니다.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 

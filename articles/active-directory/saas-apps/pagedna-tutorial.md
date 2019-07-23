@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095088"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>자습서: PageDNA와 Azure Active Directory 통합
 
@@ -171,7 +171,7 @@ PageDNA 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 PageDNA에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 사용자 Britta Simon에게 PageDNA에 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** > **PageDNA**를 선택합니다.
 
@@ -212,3 +212,4 @@ My Apps 포털에서**PageDNA**를 선택하면 SSO를 설정한 PageDNA 구독�
 * [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

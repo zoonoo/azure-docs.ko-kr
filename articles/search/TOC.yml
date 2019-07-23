@@ -334,8 +334,6 @@
           href: cognitive-search-skill-keyphrases.md
         - name: 언어 검색
           href: cognitive-search-skill-language-detection.md
-        - name: 명명된 엔터티 인식
-          href: cognitive-search-skill-named-entity-recognition.md
         - name: 엔터티 인식
           href: cognitive-search-skill-entity-recognition.md
         - name: 텍스트 병합기
@@ -344,6 +342,8 @@
           href: cognitive-search-skill-textsplit.md
         - name: 데이터
           href: cognitive-search-skill-sentiment.md
+        - name: 텍스트 번역(미리 보기)
+          href: cognitive-search-skill-text-translation.md
         - name: 이미지 분석
           href: cognitive-search-skill-image-analysis.md
         - name: OCR
@@ -352,12 +352,15 @@
           href: cognitive-search-skill-shaper.md
         - name: 조건부
           href: cognitive-search-skill-conditional.md
-        - name: 사용되지 않는 기술
-          href: cognitive-search-skill-deprecated.md
     - name: 사용자 지정 기술
       items:
         - name: 사용자 지정 Web API
           href: cognitive-search-custom-skill-web-api.md
+    - name: 사용되지 않는 기술
+      href: cognitive-search-skill-deprecated.md
+      items:
+        - name: 명명된 엔터티 인식
+          href: cognitive-search-skill-named-entity-recognition.md
 - name: 리소스
   items:
     - name: Azure 커뮤니티 지원

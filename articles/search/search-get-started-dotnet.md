@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/09/2019
-ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/11/2019
+ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798764"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847087"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#으로 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -35,11 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
+이 빠른 시작에 필요한 서비스와 도구는 다음과 같습니다.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
-
-+ 샘플 인덱스 및 문서가 이 항목에 제공되며, 빠른 시작을 위한 [Visual Studio 솔루션](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart)에도 제공됩니다.
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
@@ -195,11 +193,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     }
     ```
 
-    필드의 특성은 필드가 애플리케이션에서 사용되는 방식을 결정합니다. 예를 들어 전체 텍스트 검색에 포함되어야 하는 모든 필드에는 `IsSearchable` 특성을 할당해야 합니다. .NET SDK에서 기본값은 명시적으로 활성화되지 않은 필드 동작을 비활성화하는 것입니다.
+    필드의 특성은 필드가 애플리케이션에서 사용되는 방식을 결정합니다. 예를 들어 전체 텍스트 검색에 포함되어야 하는 모든 필드에는 `IsSearchable` 특성을 할당해야 합니다. 
+    
+    > [!NOTE]
+    > .NET SDK에서 필드에는 명시적으로 [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) 및 [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet) 특성이 사용되어야 합니다. 이 동작은 데이터 형식에 따라 특성을 암시적으로 사용하도록 설정하는 REST API와는 대조적입니다(예를 들어 단순 문자열 필드는 자동으로 검색 가능함).
 
     `string` 형식의 인덱스에는 정확히 하나의 필드가 각 문서를 고유하게 식별하는 키(*key*) 필드여야 합니다. 이 스키마에서 키는 `HotelId`입니다.
 
-    이 인덱스에서 설명 필드는 선택적 분석기 속성을 사용합니다. 이 속성은 기본 표준 Lucene 분석기를 재정의하려는 경우 지정합니다. `description_fr` 필드는 프랑스어 텍스트를 저장하기 때문에 프랑스어 Lucene 분석기([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))를 사용합니다. `description`은 선택적 Microsoft 언어 분석기([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet))를 사용합니다.
+    이 인덱스에서 설명 필드는 선택적 [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) 속성을 사용합니다. 이 속성은 기본 표준 Lucene 분석기를 재정의하려는 경우 지정합니다. `description_fr` 필드는 프랑스어 텍스트를 저장하기 때문에 프랑스어 Lucene 분석기([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))를 사용합니다. `description`은 선택적 Microsoft 언어 분석기([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet))를 사용합니다.
 
 1. Program.cs에서 애플리케이션의 구성 파일 (appsettings.json)에 저장되는 값을 사용하여 서비스에 연결되는 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 클래스 인스턴스를 만듭니다. 
 

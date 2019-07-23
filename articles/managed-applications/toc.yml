@@ -27,8 +27,10 @@
           href: tutorial-custom-providers-create.md
     - name: 정의 파일 만들기
       href: publish-service-catalog-app.md
-    - name: 마켓플레이스 응용 프로그램 게시
+    - name: 마켓플레이스 애플리케이션 게시
       href: publish-marketplace-app.md
+    - name: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
+      href: tutorial-create-managed-app-with-custom-provider.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -83,6 +85,14 @@
           href: custom-providers-proxy-cache-resource-endpoint-reference.md
         - name: 사용자 지정 공급자 RESTful 엔드포인트 참조
           href: reference-custom-providers-csharp-endpoint.md
+    - name: 애플리케이션 아티팩트
+      items:
+        - name: 사용자 인터페이스 요소
+          href: reference-createuidefinition-artifact.md
+        - name: 배포 템플릿
+          href: reference-main-template-artifact.md
+        - name: 정의 보기
+          href: reference-view-definition-artifact.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

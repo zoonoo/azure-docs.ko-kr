@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547307"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854011"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>Azure App Service에서 사용자 지정 Linux 컨테이너 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "59547307"
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../overview.md)을 만듭니다. `<app name>`을 전역적으로 고유한 앱 이름으로 바꾸어야 합니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../overview.md)을 만듭니다. `<app name>`을 전역적으로 고유한 앱 이름으로 바꿔야 합니다(유효한 문자는 `a-z`, `0-9` 및 `-`임).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

@@ -53,6 +53,8 @@
       href: functions-twitter-email.md
     - name: 서버를 사용하지 않는 API 만들기
       href: functions-create-serverless-api.md
+    - name: VS Code로 Python 함수 개발
+      href: tutorial-vs-code-serverless-python.md
     - name: OpenAPI 정의 만들기
       href: functions-openapi-definition.md
     - name: 가상 네트워크에 연결

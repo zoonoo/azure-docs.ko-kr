@@ -4,14 +4,14 @@ description: Azure 관리형 애플리케이션에 대한 개념을 설명합니
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479813"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234748"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 애플리케이션 개요
 
@@ -68,6 +68,8 @@ IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션�
 ### <a name="managed-resource-group"></a>관리되는 리소스 그룹
 
 이 리소스 그룹은 관리되는 애플리케이션에 필요한 모든 리소스를 갖습니다. 예를 들어 이 리소스 그룹에는 솔루션에 대한 가상 머신, 저장소 계정 및 가상 네트워크가 포함됩니다. 소비자는 관리되는 애플리케이션에 대한 개별 리소스를 관리하지 않으므로 이 리소스 그룹에 제한적으로 액세스할 수 있습니다. 이 리소스 그룹에 대한 게시자의 액세스는 관리되는 애플리케이션 정의에서 지정한 역할에 해당합니다. 예를 들어 게시자는 이 리소스 그룹에 대해 소유자 또는 참가자 역할을 요청할 수 있습니다. 액세스는 영구적이거나 특정 시간으로 제한됩니다.
+
+[Marketplace에 관리형 애플리케이션](publish-marketplace-app.md)을 게시할 때 게시자는 관리형 리소스 그룹의 리소스에 대해 특정 작업을 수행하는 기능을 소비자에게 부여할 수 있습니다. 예를 들어 게시자는 소비자가 가상 머신을 다시 시작할 수 있도록 지정할 수 있습니다. 읽기 작업 이외의 다른 모든 작업은 여전히 거부됩니다.
 
 소비자가 관리되는 애플리케이션을 삭제하면 관리되는 리소스 그룹도 삭제됩니다.
 

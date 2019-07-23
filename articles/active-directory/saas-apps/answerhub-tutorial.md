@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106936"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -193,7 +193,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Britta Simon에게 AnswerHub에 대한 액세스를 허용하여 Azure AD Single Sign-On을 사용하도록 설정합니다.
+이 섹션에서는 사용자 Britta Simon에게 AnswerHub에 대한 액세스 권한을 부여하여 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
 **Azure AD 테스트 사용자를 할당하려면:**
 

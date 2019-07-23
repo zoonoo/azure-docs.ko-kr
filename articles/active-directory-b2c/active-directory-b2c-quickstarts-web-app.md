@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0e38a431970613f34ee3af0fdb0eb55c5ad344bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509736"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835473"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션에 대한 로그인 설정
 
@@ -25,7 +25,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/) 
+- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
 - Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
 - GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹 응용 프로그램을 복제합니다.
 
@@ -41,8 +41,8 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 ## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 애플리케이션 실행
 
 1. 샘플 애플리케이션 프로젝트 폴더에서 Visual Studio를 통해 **B2C-WebAPI-DotNet.sln** 솔루션을 엽니다.
-2. 이 빠른 시작에서는 **TaskWebApp** 및 **TaskService** 프로젝트를 동시에 실행합니다. 솔루션 탐색기에서 **B2C-WebAPI-DotNet** 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. 
-3. **여러 시작 프로젝트**를 선택하고 두 프로젝트의 **동작**을 **시작**으로 변경합니다. 
+2. 이 빠른 시작에서는 **TaskWebApp** 및 **TaskService** 프로젝트를 동시에 실행합니다. 솔루션 탐색기에서 **B2C-WebAPI-DotNet** 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
+3. **여러 시작 프로젝트**를 선택하고 두 프로젝트의 **동작**을 **시작**으로 변경합니다.
 4. **확인**을 클릭합니다.
 5. **F5** 키를 눌러 두 응용 프로그램을 모두 디버깅합니다. 각 응용 프로그램은 고유한 브라우저 탭에서 열립니다.
 
@@ -51,41 +51,41 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 
-1. ASP.NET 웹 응용 프로그램에서 **등록/로그인**을 클릭하여 워크플로를 시작합니다.
+1. ASP.NET 웹 애플리케이션에서 **등록/로그인**을 클릭하여 워크플로를 시작합니다.
 
-    ![샘플 ASP.NET 웹앱](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
+    ![등록/로그인 링크가 강조 표시된 브라우저의 샘플 ASP.NET 웹앱](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
     이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다.
 
 2. Azure AD B2C는 샘플 웹 애플리케이션용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
-    ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+    ![ID 공급자 단추를 표시하는 로그인 또는 등록 페이지](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다.
 
 3. ID 공급자에 대한 로그인 프로세스를 완료합니다.
 
 ## <a name="edit-your-profile"></a>프로필 편집
 
-Azure Active Directory B2C에는 사용자가 프로필을 업데이트할 수 있는 기능이 있습니다. 웹앱 샘플은 워크플로에 Azure AD B2C 프로필 편집 사용자 흐름을 사용합니다. 
+Azure Active Directory B2C에는 사용자가 프로필을 업데이트할 수 있는 기능이 있습니다. 웹앱 샘플은 워크플로에 Azure AD B2C 프로필 편집 사용자 흐름을 사용합니다.
 
-1. 응용 프로그램 메뉴 모음에서 프로필 이름을 클릭하고, **프로필 편집**을 선택하여 앞에서 만든 프로필을 편집합니다.
+1. 애플리케이션 메뉴 모음에서 프로필 이름을 클릭하고, **프로필 편집**을 선택하여 앞에서 만든 프로필을 편집합니다.
 
-    ![프로필 편집](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+    ![프로필 편집 링크가 강조 표시된 브라우저의 샘플 웹앱](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. **표시 이름** 또는 **구/군/시**를 변경한 다음, **계속**을 클릭하여 프로필을 업데이트합니다. 
+2. **표시 이름** 또는 **구/군/시**를 변경한 다음, **계속**을 클릭하여 프로필을 업데이트합니다.
 
     변경된 내용은 웹 애플리케이션 홈 페이지의 오른쪽 위에 표시됩니다.
 
 ## <a name="access-a-protected-api-resource"></a>보호된 API 리소스 액세스
 
-1. **할 일 목록**을 클릭하여 할 일 목록 항목을 입력하고 수정합니다. 
+1. **할 일 목록**을 클릭하여 할 일 목록 항목을 입력하고 수정합니다.
 
 2. **새 항목** 텍스트 상자에 텍스트를 입력합니다. **추가**를 클릭하여 할 일 목록 항목을 추가하는 Azure AD B2C 보호 Web API를 호출합니다.
 
-    ![할 일 목록 항목 추가](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ![할 일 목록 항목 추가를 포함하는 브라우저의 샘플 웹앱](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
-    ASP.NET 웹 응용 프로그램에는 사용자의 할 일 목록 항목에 대한 작업을 수행하기 위해 보호된 웹 API 리소스에 대한 요청에 Azure AD 액세스 토큰을 포함합니다.
+    ASP.NET 웹 애플리케이션에는 사용자의 할 일 목록 항목에 대한 작업을 수행하기 위해 보호된 웹 API 리소스에 대한 요청에 Azure AD 액세스 토큰을 포함합니다.
 
 Azure AD B2C 사용자 계정을 사용하여 Azure AD B2C 보안 웹 API에 대한 권한이 있는 호출을 만들었습니다.
 

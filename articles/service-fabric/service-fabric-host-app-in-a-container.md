@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119054"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228111"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -41,12 +41,12 @@ ms.locfileid: "66119054"
 1. Azure 구독이 없는 경우 [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Windows 10에서 컨테이너를 실행할 수 있도록 [Windows용 Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)를 설치합니다.
 3. [Service Fabric 런타임 버전 6.2 이상](service-fabric-get-started.md) 및 [Service Fabric SDK 버전 3.1](service-fabric-get-started.md) 이상을 설치합니다.
-4. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.7](https://www.visualstudio.com/) 이상을 설치합니다.
-5. [Azure PowerShell][link-azure-powershell-install]을 설치합니다.
+4. **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 16.1](https://www.visualstudio.com/) 이상을 설치합니다.
+5. [Azure Powershell][link-azure-powershell-install] 설치
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter를 다운로드하여 실행
-[Fabrikam Fiber CallCenter][link-fabrikam-github] 애플리케이션 예제를 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
+[Fabrikam Fiber CallCenter][link-fabrikam-github] 샘플 애플리케이션을 다운로드합니다.  **다운로드 보관** 링크를 클릭합니다.  *fabrikam.zip* 파일의 *sourceCode* 디렉터리에서 *sourceCode.zip* 파일을 추출한 다음, 컴퓨터에 *VS2015* 디렉터리를 추출합니다.
 
 Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 

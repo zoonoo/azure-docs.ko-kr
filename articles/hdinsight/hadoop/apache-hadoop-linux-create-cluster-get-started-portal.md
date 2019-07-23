@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459506"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805574"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -41,12 +41,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |자산  |설명  |
     |---------|---------|
     |클러스터 이름   | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
-    |구독    |  Azure 구독을 선택합니다. |
+    |Subscription    |  Azure 구독을 선택합니다. |
     |클러스터 유형     | 지금은 이 항목을 건너뜁니다. 이 항목은 이 절차의 다음 단계에서 입력합니다.|
     |클러스터 로그인 사용자 이름 및 암호    | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
     |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
     |SSH에 클러스터 로그인 암호 사용| 클러스터 로그인 사용자에 대해 입력한 것과 동일한 암호를 SSH 사용자에 사용하려면 이 확인란을 선택합니다.|
-    |리소스 그룹     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
+    |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
     |위치    | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
 
     ![HDInsight Linux에서 클러스터의 기본 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "HDInsight 클러스터를 만들기 위한 기본 값 제공")
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |---------|---------|
     |기본 스토리지 유형    | 이 문서에서는 Azure 스토리지를 선택하여 기본 스토리지 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Storage를 기본 스토리지로 사용할 수 있습니다. |
     |선택 방법     |  이 문서에서는 **내 구독**을 선택하여 Azure 구독에서 저장소 계정을 사용합니다. 다른 구독에서 저장소 계정을 사용하려면 **액세스 키**를 선택한 다음, 해당 계정에 대한 액세스 키를 입력합니다. |
-    |스토리지 계정 선택   | **스토리지 계정 선택**을 선택하여 기존 스토리지 계정을 선택하거나, **새로 만들기**를 선택합니다.|
+    |스토리지 계정 선택   | **스토리지 계정 선택**을 선택하여 기존 스토리지 계정을 선택하거나, **새로 만들기**를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
 
     다른 모든 기본값을 그대로 사용하고 **다음**을 선택하여 요약 페이지로 이동합니다.
 

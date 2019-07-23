@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509786"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835349"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다. 
+1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다.
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -56,25 +56,25 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 1. **로그인**을 클릭하여 워크플로를 시작합니다.
 
-    ![브라우저의 샘플 앱](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![브라우저에 표시된 단일 페이지 애플리케이션 샘플 앱](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다. 
+    이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다.
 
 2. Azure AD B2C는 샘플 웹앱용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
-    ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![ID 공급자 단추를 표시하는 로그인 또는 등록 페이지](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다.
 
 3. ID 공급자에 대한 로그인 프로세스를 완료합니다.
 
 ## <a name="access-a-protected-api-resource"></a>보호된 API 리소스 액세스
 
-**웹 API 호출**을 클릭하여 웹 API 호출에서 반환된 표시 이름을 JSON 개체로 지정합니다. 
+**웹 API 호출**을 클릭하여 웹 API 호출에서 반환된 표시 이름을 JSON 개체로 지정합니다.
 
-![웹 API 응답](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![웹 API 응답을 보여 주는 브라우저의 샘플 애플리케이션](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-샘플 단일 페이지 응용 프로그램은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
+샘플 단일 페이지 애플리케이션은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

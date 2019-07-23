@@ -1,5 +1,5 @@
 ---
-title: .NET을 사용하여 Azure Data Factory 만들기 | Microsoft Docs
+title: .NET SDK를 사용하여 Azure Data Factory 만들기
 description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
 documentationcenter: ''
@@ -11,33 +11,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eff3ea74f8514bb09cc1674dc0de38e13963ac0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 24cba4b02bb046a16db04635a1bf5ef4f6b619a6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64865885"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234517"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-dot-net.md)
 
-이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요. 
+이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
 
-이 문서의 연습에서는 Visual Studio 2017을 사용합니다. 또한 Visual Studio 2013 또는 2015를 사용할 수 있습니다.
+이 문서의 연습에서는 Visual Studio 2019를 사용합니다. Visual Studio 2013, 2015 또는 2017에 대한 절차는 약간 다릅니다.
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
 
@@ -45,31 +43,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
 
-[이 아티클](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
+*방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기*의 섹션에서 다음 작업을 수행하기 위한 지침을 따릅니다.
 
-1. **Azure Active Directory 애플리케이션을 만듭니다**. 이 자습서에서 만드는.NET 애플리케이션을 나타내는 Microsoft Azure Active Directory에 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
-2. **애플리케이션 ID** 및 **인증 키**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이러한 값을 적어둡니다. 
-3. **테넌트 ID**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이 값을 적어둡니다.
-4. 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
+1. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에서 이 자습서에서 만드는 .NET 애플리케이션을 나타내는 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
+2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID**를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
+3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)에서 **인증 키**를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
+4. [역할에 애플리케이션 할당](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role)에서 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
+다음으로, Visual Studio에서 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
-2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
-3. 오른쪽의 프로젝트 형식 목록에서 **Visual C#** -> **콘솔 앱(.NET Framework)** 을 차례로 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
-4. 이름에 **ADFv2QuickStart**를 입력합니다.
-5. **확인**을 클릭하여 프로젝트를 만듭니다.
+2. 시작 창에서 **새 프로젝트 만들기** > **콘솔 앱(.NET Framework)** 을 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
+3. **프로젝트 이름**에 **ADFv2QuickStart**를 입력합니다.
+4. **만들기**를 선택하여 프로젝트를 만듭니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-1. **도구** -> **NuGet 패키지 관리자** -> **패키지 관리자 콘솔**을 클릭합니다.
-2. **패키지 관리자 콘솔**에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
+1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
+2. **패키지 관리자 콘솔** 페이지에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
-    Install-Package Microsoft.Azure.Management.ResourceManager
+    Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
@@ -88,39 +85,46 @@ Visual Studio 2013/2015/2017을 사용하여 C# .NET 콘솔 애플리케이션�
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 고유한 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 고유한 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 컴퓨팅 기능(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
-    ```csharp
-    // Set variables
-    string tenantID = "<your tenant ID>";
-    string applicationId = "<your application ID>";
-    string authenticationKey = "<your authentication key for the application>";
-    string subscriptionId = "<your subscription ID where the data factory resides>";
-    string resourceGroup = "<your resource group where the data factory resides>";
-    string region = "East US 2";
-    string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
-    string storageAccount = "<your storage account name to copy data>";
-    string storageKey = "<your storage account key>";
-    // specify the container and input folder from which all files need to be copied to the output folder. 
-    string inputBlobPath = "<the path to existing blob(s) to copy data from, e.g. containername/foldername>";
-    //specify the contains and output folder where the files are copied
-    string outputBlobPath = "<the blob path to copy data to, e.g. containername/foldername>";
+   ```csharp
+   // Set variables
+   string tenantID = "<your tenant ID>";
+   string applicationId = "<your application ID>";
+   string authenticationKey = "<your authentication key for the application>";
+   string subscriptionId = "<your subscription ID where the data factory resides>";
+   string resourceGroup = "<your resource group where the data factory resides>";
+   string region = "<the location of your resource group>";
+   string dataFactoryName = 
+       "<specify the name of data factory to create. It must be globally unique.>";
+   string storageAccount = "<your storage account name to copy data>";
+   string storageKey = "<your storage account key>";
+   // specify the container and input folder from which all files 
+   // need to be copied to the output folder. 
+   string inputBlobPath =
+       "<path to existing blob(s) to copy data from, e.g. containername/inputdir>";
+   //specify the contains and output folder where the files are copied
+   string outputBlobPath =
+       "<the blob path to copy data to, e.g. containername/outputdir>";
 
-    string storageLinkedServiceName = "AzureStorageLinkedService";  // name of the Azure Storage linked service
-    string blobDatasetName = "BlobDataset";             // name of the blob dataset
-    string pipelineName = "Adfv2QuickStartPipeline";    // name of the pipeline
-    ```
+   // name of the Azure Storage linked service, blob dataset, and the pipeline
+   string storageLinkedServiceName = "AzureStorageLinkedService";
+   string blobDatasetName = "BlobDataset";
+   string pipelineName = "Adfv2QuickStartPipeline";
+   ```
 
 3. **Main** 메서드에 **DataFactoryManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다.
 
-    ```csharp
-    // Authenticate and create a data factory management client
-    var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
-    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-    AuthenticationResult result = context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
-    ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
-    var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
-    ```
+   ```csharp
+   // Authenticate and create a data factory management client
+   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
+   AuthenticationResult result = context.AcquireTokenAsync(
+       "https://management.azure.com/", cc).Result;
+   ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
+   var client = new DataFactoryManagementClient(cred) {
+       SubscriptionId = subscriptionId };
+   ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -135,9 +139,11 @@ Factory dataFactory = new Factory
     Identity = new FactoryIdentity()
 };
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
-Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
+Console.WriteLine(
+    SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
 
-while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState == "PendingCreation")
+while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
+       "PendingCreation")
 {
     System.Threading.Thread.Sleep(1000);
 }
@@ -156,11 +162,15 @@ Console.WriteLine("Creating linked service " + storageLinkedServiceName + "...")
 LinkedServiceResource storageLinkedService = new LinkedServiceResource(
     new AzureStorageLinkedService
     {
-        ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
+        ConnectionString = new SecureString(
+            "DefaultEndpointsProtocol=https;AccountName=" + storageAccount +
+            ";AccountKey=" + storageKey)
     }
 );
-client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
-Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
+client.LinkedServices.CreateOrUpdate(
+    resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
+Console.WriteLine(SafeJsonConvert.SerializeObject(
+    storageLinkedService, client.SerializationSettings));
 ```
 
 ## <a name="create-a-dataset"></a>데이터 세트 만들기
@@ -183,12 +193,13 @@ DatasetResource blobDataset = new DatasetResource(
         Parameters = new Dictionary<string, ParameterSpecification>
         {
             { "path", new ParameterSpecification { Type = ParameterType.String } }
-
         }
     }
 );
-client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
-Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+client.Datasets.CreateOrUpdate(
+    resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
+Console.WriteLine(
+    SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
 ```
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
@@ -257,7 +268,9 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(
+    resourceGroup, dataFactoryName, pipelineName, parameters: parameters
+).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -265,42 +278,45 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 1. **Main** 메서드에 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 상태를 검사합니다.
 
-    ```csharp
-    // Monitor the pipeline run
-    Console.WriteLine("Checking pipeline run status...");
-    PipelineRun pipelineRun;
-    while (true)
-    {
-        pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
-        Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
-            System.Threading.Thread.Sleep(15000);
-        else
-            break;
-    }
-    ```
+   ```csharp
+   // Monitor the pipeline run
+   Console.WriteLine("Checking pipeline run status...");
+   PipelineRun pipelineRun;
+   while (true)
+   {
+       pipelineRun = client.PipelineRuns.Get(
+           resourceGroup, dataFactoryName, runResponse.RunId);
+       Console.WriteLine("Status: " + pipelineRun.Status);
+       if (pipelineRun.Status == "InProgress")
+           System.Threading.Thread.Sleep(15000);
+       else
+           break;
+   }
+   ```
 
-2. **Main** 메서드에 복사 작업 실행 세부 정보(예: 읽고/쓴 데이터의 크기)를 검색하는 다음 코드를 추가합니다.
+2. **Main** 메서드에 복사 작업 실행 세부 정보(예: 읽거나 쓴 데이터의 크기)를 검색하는 다음 코드를 추가합니다.
 
-    ```csharp
-    // Check the copy activity run details
-    Console.WriteLine("Checking copy activity run details...");
+   ```csharp
+   // Check the copy activity run details
+   Console.WriteLine("Checking copy activity run details...");
 
-    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
-    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
-    if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(queryResponse.Value.First().Output);
-    else
-        Console.WriteLine(queryResponse.Value.First().Error);
-    Console.WriteLine("\nPress any key to exit...");
-    Console.ReadKey();
-    ```
+   RunFilterParameters filterParams = new RunFilterParameters(
+       DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+   ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
+       resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
+   if (pipelineRun.Status == "Succeeded")
+       Console.WriteLine(queryResponse.Value.First().Output);
+   else
+       Console.WriteLine(queryResponse.Value.First().Error);
+   Console.WriteLine("\nPress any key to exit...");
+   Console.ReadKey();
+   ```
 
 ## <a name="run-the-code"></a>코드 실행
 
 애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
-콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
+콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터 읽기/쓰기 크기를 포함하는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음, [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
 
 ### <a name="sample-output"></a>샘플 출력
 
@@ -412,23 +428,19 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>출력 확인
 
-파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
+파이프라인은 자동으로 **adftutorial** Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음, 입력 폴더에서 출력 폴더로 **emp.txt** 파일을 복사합니다. 
 
-1. Azure Portal의 **adftutorial** 컨테이너 페이지에서 출력 폴더를 보려면 **새로 고침**을 클릭합니다. 
-    
-    ![새로 고침](media/quickstart-create-data-factory-dot-net/output-refresh.png)
-2. 폴더 목록에서 **출력**을 클릭합니다. 
-2. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
-
-    ![새로 고침](media/quickstart-create-data-factory-dot-net/output-file.png)
+1. Azure Portal에서 위의 [Blob 컨테이너에 대한 입력 폴더 및 파일 추가](#add-an-input-folder-and-file-for-the-blob-container) 섹션에서 중지했던 **adftutorial** 컨테이너 페이지에 있는 **새로 고침**을 선택하여 출력 폴더를 참조하세요. 
+2. 폴더 목록에서 **출력**을 선택합니다.
+3. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 데이터 팩터리를 프로그래밍 방식으로 삭제하려면 프로그램에 다음 코드 줄을 추가합니다. 
 
 ```csharp
-            Console.WriteLine("Deleting the data factory");
-            client.Factories.Delete(resourceGroup, dataFactoryName);
+Console.WriteLine("Deleting the data factory");
+client.Factories.Delete(resourceGroup, dataFactoryName);
 ```
 
 ## <a name="next-steps"></a>다음 단계
