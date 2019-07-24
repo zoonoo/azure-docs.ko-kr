@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302381"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304755"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드투엔드 지침을 찾고 계신가요? 다음 배포 계획은 보다 일반적인 Azure AD 기능을 성공적으로 출시하기 위해 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 안내합니다. 
@@ -26,42 +26,42 @@ Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드�
 
 문서에 대한 피드백을 주시면 감사하겠습니다. 이 문서가 도움이 되었는지 조사하는 이 짧은 [설문 조사](https://aka.ms/deploymentplanfeedback)에 참여해 주세요. 
 
-## <a name="include-the-right-stakeholders"></a>오른쪽 이해 관계자를 포함 합니다.
+## <a name="include-the-right-stakeholders"></a>올바른 관련자 포함
 
-배포 하는 새로운 기능에 대 한 계획 수립부터 때 조직 전체에서 주요 이해 관계자를 포함 해야 합니다. 식별 하 고 사용자 또는 사용자에 게 다음 역할 중 각 수행 하 고 프로젝트에 참여를 결정 하기 위해 작업을 문서화 하는 것이 좋습니다.  
+새 기능에 대 한 배포 계획을 시작할 때 조직 전반에 주요 관련자를 포함 하는 것이 중요 합니다. 다음의 각 역할을 수행 하는 사람 또는 사람을 식별 하 고 문서화 하는 것이 좋습니다. 이러한 역할을 사용 하 여 프로젝트의 참여를 확인 하는 것이 좋습니다.  
 
-역할은 다음과 같습니다. 
+역할에는 다음이 포함 될 수 있습니다. 
 
-|역할 |설명 |
+|역할 |Description |
 |-|-|
-|최종 사용자|대표 사용자 그룹에 기능을 구현할 수 있습니다. 종종 파일럿 프로그램의 변경 내용을 미리 봅니다.
-|IT 지원 관리자|IT 지원 조직이 지원 담당자에 게 기술 지원팀의 관점에서이 변경의 지원 가능성에 입력을 제공할 수 있습니다.  
-|Identity 설계자 또는 Azure 전역 관리자|관리 팀 담당자를 identity 조직의 핵심 id 관리 인프라를 사용 하 여이 변경 정렬 되는 방법을 정의 해야 합니다.|
-|응용 프로그램 비즈니스 소유자 |액세스 관리를 포함할 수 있는 영향을 받는 응용 프로그램의 전반적인 비즈니스 소유자입니다.  사용자 환경 및 최종 사용자의 관점에서이 변경의 유용성에 입력을 제공할 수도 있습니다.
-|보안 소유자|계획을 해제 하는 로그인 할 수 있는 보안 팀의 담당자는 조직의 보안 요구 사항을 충족 합니다.|
-|준수 관리자|회사를 사용 하 여 규정 준수, 업계 또는 정부 요구 사항 책임이 조직 내의 사람입니다.|
+|최종 사용자|기능이 구현 될 사용자의 담당자 그룹입니다. 자주 파일럿 프로그램의 변경 내용을 미리 봅니다.
+|IT 지원 관리자|기술 지원팀 관점에서이 변경의 지원 가능성에 대 한 입력을 제공할 수 있는 조직 담당자를 지원 합니다.  
+|Id 설계자 또는 Azure 전역 관리자|Id 관리 팀 담당자는 조직의 핵심 id 관리 인프라에 이러한 변경을 적용 하는 방법을 정의 합니다.|
+|응용 프로그램 비즈니스 소유자 |영향을 받는 응용 프로그램의 전반적인 비즈니스 소유자입니다. 여기에는 액세스 관리 작업이 포함 될 수 있습니다.  최종 사용자의 관점에서 이러한 변경의 사용자 환경 및 유용성에 대 한 입력을 제공할 수도 있습니다.
+|보안 소유자|보안 팀에서 조직의 보안 요구 사항을 충족 하는 계획을 받을 수 있는 담당자입니다.|
+|준수 관리자|조직 내 사용자는 회사, 산업 또는 정부 요구 사항을 준수 하는지 확인 해야 합니다.|
 
-**참여 수준이 포함 될 수 있습니다.**
+**참여 수준에는 다음이 포함 될 수 있습니다.**
 
-- **R**esponsible 프로젝트 계획 및 결과 구현 합니다. 
+- 프로젝트 계획 및 결과 구현에 대 한 **R**esponsible 
 
-- **A**pproval 프로젝트 계획 및 결과 
+- 프로젝트 계획 및 결과의 pproval 
 
-- **C**ontributor 프로젝트 계획 및 결과 
+- 프로젝트 계획 및 결과에 대 한 **C**ontributor 
 
-- **I**nformed 프로젝트 계획 및 결과
+- 프로젝트 계획 및 결과의 형식입니다.
  
 ## <a name="deployment-plans"></a>배포 계획
 
 
 
-|시나리오 |설명 |
+|시나리오 |Description |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.|
-|[조건부 액세스](https://aka.ms/deploymentplans/ca)|조건부 액세스를 사용 하 여 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자에 대 한 자동화 된 액세스 제어 결정을 구현할 수 있습니다.|
-|[셀프 서비스 암호 재설정](https://aka.ms/SSPRDPDownload)|셀프 서비스 암호 재설정을 사용하면 사용자가 필요할 때 필요한 장소에서 관리자 개입 없이 자신의 암호를 재설정할 수 있습니다.|
+|[조건부 액세스](https://aka.ms/deploymentplans/ca)|조건부 액세스를 사용 하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자에 대 한 자동화 된 액세스 제어 결정을 구현할 수 있습니다.|
+|[셀프 서비스 암호 재설정](https://aka.ms/deploymentplans/sspr)|셀프 서비스 암호 재설정을 사용하면 사용자가 필요할 때 필요한 장소에서 관리자 개입 없이 자신의 암호를 재설정할 수 있습니다.|
 |[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD PIM(Privileged Identity Management)을 사용하면 Azure AD, Azure 리소스 및 기타 Microsoft 온라인 서비스 간에 권한 있는 관리자 역할을 관리할 수 있습니다. PIM은 권한 있는 역할의 악성 활동을 실시간으로 식별, 발견 및 방지할 수 있도록 Just-In-Time 액세스, 요청 승인 워크플로 및 완전히 통합된 액세스 검토와 같은 솔루션을 제공합니다.|
-|[Single Sign-On](https://aka.ms/SSODPDownload)|Single Sign-On은 단일 사용자 계정을 사용하여 한 번만 로그인하면 비즈니스 수행에 필요한 모든 앱과 리소스에 액세스할 수 있게 해줍니다. 로그인한 후에는 다시 인증(예: 암호 입력)할 필요 없이 Microsoft Office에서 SalesForce로, Box로 이동할 수 있습니다.|
+|[Single Sign-On](https://aka.ms/deploymentplans/sso)|Single Sign-On은 단일 사용자 계정을 사용하여 한 번만 로그인하면 비즈니스 수행에 필요한 모든 앱과 리소스에 액세스할 수 있게 해줍니다. 로그인한 후에는 다시 인증(예: 암호 입력)할 필요 없이 Microsoft Office에서 SalesForce로, Box로 이동할 수 있습니다.|
 |[매끄러운 SSO](https://aka.ms/SeamlessSSODPDownload)|Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 켜면 사용자가 Azure AD에 로그인하기 위해 암호를 입력할 필요가 없으며, 일반적으로 사용자 이름도 입력할 필요가 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다.|
 |[액세스 패널](https://aka.ms/AccessPanelDPDownload)|사용자에게 모든 응용 프로그램을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 새 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 이러한 리소스에 대한 액세스를 관리하는 기능과 같은 셀프 서비스 기능을 통해 생산성을 높일 수 있습니다.|
 |[암호 해시 동기화에 ADFS 사용](https://aka.ms/deploymentplans/adfs2phs)|암호 해시 동기화를 사용하면 사용자 암호의 해시가 온-프레미스 Active Directory에서 Azure AD로 동기화되므로, 온-프레미스 Active Directory와 상호 작용 없이 Azure AD가 사용자를 인증할 수 있습니다.|

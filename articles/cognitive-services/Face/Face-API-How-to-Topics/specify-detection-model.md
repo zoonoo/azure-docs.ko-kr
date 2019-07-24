@@ -1,7 +1,7 @@
 ---
-title: Face API-감지 모델을 지정 하는 방법
+title: 검색 모델을 지정 하는 방법-Face API
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure의 Face API 응용 프로그램을 사용 하는 얼굴 감지 모델을 선택 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Face API 응용 프로그램에서 사용할 얼굴 감지 모델을 선택 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,54 +10,53 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592935"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249626"
 ---
 # <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
-이 가이드에서는 Azure의 Face API에 대 한 얼굴 감지 모델을 지정 하는 방법을 보여 줍니다.
+이 가이드에서는 Azure Face API에 대 한 얼굴 검색 모델을 지정 하는 방법을 보여 줍니다.
 
-Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 작업을 수행합니다. 고객 의견 및 연구의 발전에 따라 모델의 정확도를 계속 개선할 것이며 모델 업데이트로 이러한 개선사항을 전달할 것입니다. 개발자가 사용할 수 있습니다; 원하는 얼굴 감지 모델의 버전을 지정 하는 옵션 해당 사용 사례에 가장 적합 한 모델을 선택할 수 있습니다.
+Face API는 기계 학습 모델을 사용하여 이미지의 사람 얼굴에 작업을 수행합니다. 고객 의견 및 연구의 발전에 따라 모델의 정확도를 계속 개선할 것이며 모델 업데이트로 이러한 개선사항을 전달할 것입니다. 개발자는 사용할 얼굴 검색 모델의 버전을 지정 하는 옵션을 사용할 수 있습니다. 사용 사례에 가장 잘 맞는 모델을 선택할 수 있습니다.
 
-에 읽기 특정 얼굴 작업에서 얼굴 감지 모델을 지정 하는 방법을 알아봅니다. Face API 얼굴 이미지 데이터의 다른 형식으로 변환 될 때마다 얼굴 감지를 사용 합니다.
+특정 얼굴 작업에서 얼굴 검색 모델을 지정 하는 방법에 대해 자세히 알아보세요. Face API은 얼굴의 이미지를 다른 형태의 데이터로 변환할 때마다 얼굴 감지를 사용 합니다.
 
-모르는 경우 최신 모델을 사용 해야 하는지 여부를 건너뜁니다 합니다 [여러 모델 평가](#evaluate-different-models) 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과 비교 하는 섹션입니다.
+최신 모델을 사용 해야 하는지 확실 하지 않은 경우 [다른 모델 평가](#evaluate-different-models) 섹션으로 건너뛰어 새 모델을 평가 하 고 현재 데이터 집합을 사용 하 여 결과를 비교 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-AI 얼굴 감지의 개념에 익숙해야 합니다. 가 아닌 경우 얼굴 감지 개념 가이드 또는 방법 가이드를 참조 하세요.
+AI 얼굴 감지의 개념에 대해 잘 알고 있어야 합니다. 그렇지 않은 경우 얼굴 검색 개념 가이드 또는 방법 가이드를 참조 하세요.
 
 * [얼굴 검색 개념](../concepts/face-detection.md)
 * [이미지에서 얼굴을 감지 하는 방법](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>지정된 모델을 사용하여 얼굴 감지
 
-얼굴 감지 얼굴의 경계 상자 위치를 찾아서 해당 visual 랜드마크를 식별 합니다. 발생 하는 기능을 추출 하 고 나중에 사용할 수를 저장 합니다 [인식](../concepts/face-recognition.md) 작업 합니다.
+얼굴 검색은 인간 얼굴의 경계 상자 위치를 찾고 해당 시각적 랜드마크 식별 합니다. 얼굴 기능을 추출 하 고 나중에 [인식](../concepts/face-recognition.md) 작업에 사용 하기 위해 저장 합니다.
 
-사용 하는 경우는 [직면-검색] API를 사용 하 여 모델 버전을 지정할 수 있습니다는 `detectionModel` 매개 변수입니다. 사용 가능한 값은 다음과 같습니다.
+[얼굴 검색] API를 사용 하는 경우 `detectionModel` 매개 변수를 사용 하 여 모델 버전을 할당할 수 있습니다. 사용 가능한 값은 다음과 같습니다.
 
 * `detection_01`
 * `detection_02`
 
-요청 URL에 대 한 합니다 [직면-검색] REST API는 다음과 같이 표시 됩니다.
+[얼굴 검색] REST API에 대 한 요청 URL은 다음과 같습니다.
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-클라이언트 라이브러리를 사용 하는 경우에 값을 할당할 수 있습니다 `detectionModel` 적절 한 문자열을 전달 하 여 합니다. 담당자를 지정 하지 않으면 API 기본 모델 버전을 사용 합니다 (`detection_01`). .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
+클라이언트 라이브러리를 사용 하는 경우 적절 한 문자열을 전달 하 여 `detectionModel` 에 대 한 값을 할당할 수 있습니다. 할당 되지 않은 상태로 두면 API는 기본 모델 버전 (`detection_01`)을 사용 합니다. .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
 
-## <a name="add-face-to-person-with-specified-model"></a>지정 된 모델을 사용 하 여 사람의 얼굴 추가
+## <a name="add-face-to-person-with-specified-model"></a>지정 된 모델의 사용자에 게 얼굴 추가
 
-Face API는 이미지에서 얼굴 데이터를 추출 하 고 사용 하 여를 연결할 수는 **Person** 개체를 [PersonGroup 사람-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. 이 API 호출에서 감지 모델에서와 같이 동일한 방식으로 지정할 수 있습니다 [직면-검색]합니다.
+Face API는 이미지에서 얼굴 데이터를 추출 하 고 [PersonGroup face (Add face)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API를 통해 **person** 개체와 연결할 수 있습니다. 이 API 호출에서는 [얼굴 검색]와 동일한 방법으로 검색 모델을 지정할 수 있습니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -72,14 +71,14 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-이 코드를 만듭니다를 **PersonGroup** ID를 사용 하 여 `mypersongroupid` 추가 **Person** 되도록 합니다. 이 얼굴을 추가 하는 다음 **Person** 사용 하는 `detection_02` 모델. 지정 하지 않으면 합니다 *detectionModel* 매개 변수를 API에는 기본 모델은 사용할지 `detection_01`합니다.
+이 코드는 ID  `mypersongroupid` 를 사용 하 여 PersonGroup를 만들고 여기에 **사람** 을 추가 합니다. 그런 다음 `detection_02` 모델을 사용 하 여이 **사용자** 에 게 얼굴을 추가 합니다. *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 `detection_01`사용 합니다.
 
 > [!NOTE]
-> 모든 얼굴에 대 한 동일한 감지 모델을 사용할 필요가 없습니다를 **Person** 개체를 비교할 새 얼굴을 감지 하는 경우 동일한 감지 모델을 사용할 필요가 **Person** 개체 (에 [직면-식별] 예를 들어 API).
+> **Person** 개체의 모든 면에 대해 동일한 검색 모델을 사용할 필요는 없으며, **개인** 개체와 비교할 새 얼굴을 검색할 때 동일한 검색 모델을 사용할 필요가 없습니다 (예: [얼굴 식별] API).
 
-## <a name="add-face-to-facelist-with-specified-model"></a>지정 된 모델을 사용 하 여 얼굴 FaceList 추가
+## <a name="add-face-to-facelist-with-specified-model"></a>지정 된 모델을 사용 하 여 FaceList에 얼굴 추가
 
-얼굴을 추가 하면 기존 감지 모델을 지정할 수도 있습니다 **FaceList** 개체입니다. .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
+또한 기존 **FaceList** 개체에 얼굴을 추가할 때 검색 모델을 지정할 수 있습니다. .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
 ```csharp
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
@@ -88,33 +87,33 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-이 코드를 만듭니다는 **FaceList** 호출 `My face collection` 얼굴을 사용 하 여 추가 된 `detection_02` 모델. 지정 하지 않으면 합니다 *detectionModel* 매개 변수를 API에는 기본 모델은 사용할지 `detection_01`합니다.
+이 코드는 `My face collection` 라는 **FaceList** 를 만들고 `detection_02` 모델을 사용 하 여 얼굴을 추가 합니다. *DetectionModel* 매개 변수를 지정 하지 않으면 API는 기본 모델인를 `detection_01`사용 합니다.
 
 > [!NOTE]
-> 모든 얼굴에 대 한 동일한 감지 모델을 사용할 필요가 없습니다를 **FaceList** 비교할 새 얼굴을 감지 하는 경우 동일한 검색 모델을 사용 하는 것이 필요가 없습니다 개체에 **FaceList** 개체입니다.
+> **FaceList** 개체의 모든 면에 대해 동일한 검색 모델을 사용할 필요가 없으며 **FaceList** 개체와 비교할 새 얼굴을 검색할 때 동일한 검색 모델을 사용할 필요가 없습니다.
 
-## <a name="evaluate-different-models"></a>여러 모델 평가
+## <a name="evaluate-different-models"></a>다른 모델 평가
 
-다른 얼굴 검색 모델은 다양 한 작업에 최적화 됩니다. 차이점에 대 한 개요는 다음 표를 참조 하세요.
+여러 가지 표면 검색 모델은 여러 작업에 최적화 되어 있습니다. 차이점에 대 한 개요는 다음 표를 참조 하세요.
 
 |**detection_01**  |**detection_02**  |
 |---------|---------|
-|모든 얼굴 감지 작업에 대해 기본 선택입니다. | 2019 년 5 월에 모든 얼굴 감지 작업에서 필요에 따라 사용 가능한 릴리스.
-|소형, 측면, 또는 얼굴을 흐리게 표시에 대 한 최적화 되지 않습니다.  | 작은, 쪽-보기 및 얼굴을 흐리게 표시에 대 한 정확도 향상된 합니다. |
-|반환 얼굴 검색 호출에서 지정 하는 경우 특성 (머리 포즈, 연령, 감정, 및 등). |  얼굴 특성을 반환 하지 않습니다.     |
-|검색 호출에서 지정 하는 경우 반환 랜드마크에 직면 합니다.   | 얼굴 랜드마크를 반환 하지 않습니다.  |
+|모든 얼굴 검색 작업에 대 한 기본 선택입니다. | 2019 년 5 월에 출시 되었으며 선택적으로 모든 얼굴 검색 작업에서 사용할 수 있습니다.
+|작은, 사이드 보기 또는 흐린 면에서 최적화 되지 않았습니다.  | 작은, 사이드 보기 및 흐린 면에서 정확도가 향상 되었습니다. |
+|검색 호출에 지정 된 경우 face 특성 (head 포즈, age, emotion 등)을 반환 합니다. |  는 face 특성을 반환 하지 않습니다.     |
+|검색 호출에 지정 된 경우 face 랜드마크을 반환 합니다.   | 는 face 랜드마크을 반환 하지 않습니다.  |
 
-성능을 비교 하는 가장 좋은 방법은 합니다 `detection_01` 고 `detection_02` 모델에 샘플 데이터 집합을 사용 하는 것입니다. 호출 것이 좋습니다 합니다 [직면-검색] API는 다양 한 이미지에서 특히 이미지를 보려면 어려운 얼굴 또는 많은 얼굴의 각 검색 모델을 사용 하 여 합니다. 각 모델을 반환 하는 얼굴 수에 주의 합니다.
+`detection_01` 및`detection_02` 모델의 성능을 비교 하는 가장 좋은 방법은 샘플 데이터 집합에서 사용 하는 것입니다. 각 검색 모델을 사용 하 여 다양 한 이미지, 특히 표시 하기 어려운 여러 얼굴 또는 얼굴의 이미지에 대해 [얼굴 검색] API를 호출 하는 것이 좋습니다. 각 모델에서 반환 하는 얼굴 수에 주의 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 다른 Face Api를 사용 하는 검색 모델을 지정 하는 방법을 알아보았습니다. 다음으로, 얼굴 감지를 사용하는 것을 시작하는 빠른 시작을 수행합니다.
+이 문서에서는 다른 얼굴 Api와 함께 사용할 검색 모델을 지정 하는 방법을 배웠습니다. 다음으로, 얼굴 감지를 사용하는 것을 시작하는 빠른 시작을 수행합니다.
 
-* [(.NET SDK) 이미지에서 얼굴 감지](../quickstarts/csharp-detect-sdk.md)
+* [이미지에서 얼굴 감지 (.NET SDK)](../quickstarts/csharp-detect-sdk.md)
 
-[직면-검색]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
+[얼굴 검색]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
-[직면-식별]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
+[얼굴 식별]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
 [Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
 [PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246

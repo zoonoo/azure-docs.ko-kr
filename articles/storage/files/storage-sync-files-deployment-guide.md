@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: MT
+ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606117"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327134"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -21,11 +21,11 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* Azure File Sync를 배포 하려는 동일한 지역에 Azure 파일 공유 합니다. 참조 항목:
+* Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 참조 항목:
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
 * Azure 파일 동기화와 동기화할 Windows Server 또는 Windows Server 클러스터의 지원되는 인스턴스가 하나 이상 있어야 합니다. 지원되는 Windows Server 버전에 대한 자세한 내용은 [Windows Server와의 상호 운용성](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)을 참조하세요.
-* Az PowerShell 모듈을 PowerShell 5.1 또는 PowerShell 6 +를 사용 하 여 사용할 수 있습니다. 하지만 서버 등록 cmdlet을 항상 실행 해야 Windows Server 인스턴스에서 있습니다 비 Windows 시스템을 포함 한 모든 지원 되는 시스템에서 Azure File sync Az PowerShell 모듈을 사용할 수 있습니다 (이렇게 하려면 직접 또는 PowerShell을 통해 등록 됩니다. 원격 서비스)입니다. Windows Server 2012 R2에서 확인할 수 있습니다를 실행 하는 최소 PowerShell 5.1. \* 의 값을 확인 하 여 합니다 **PSVersion** 의 속성을 **$PSVersionTable** 개체:
+* Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell을 통해 수행할 수 있습니다. remoting). Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. $PSVersionTable 개체의 **PSVersion** 속성 값을 확인 합니다.  \*
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,30 +33,30 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
     Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 R2에 대해 다운로드하고 설치할 적절한 패키지는 **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**입니다. 
 
-    PowerShell 6 + 지원 되는 모든 시스템에서 사용할 수 있으며를 통해 다운로드할 수 해당 [GitHub 페이지](https://github.com/PowerShell/PowerShell#get-powershell)합니다. 
+    PowerShell 6 +는 지원 되는 모든 시스템에서 사용할 수 있으며 [GitHub 페이지](https://github.com/PowerShell/PowerShell#get-powershell)를 통해 다운로드할 수 있습니다. 
 
     > [!Important]  
-    > PowerShell에서 직접 등록 하는 것이 아니라 서버 등록 UI를 사용 하려는 경우 PowerShell 5.1을 사용 해야 합니다.
+    > PowerShell에서 직접 등록 하는 대신 서버 등록 UI를 사용할 계획인 경우 PowerShell 5.1을 사용 해야 합니다.
 
-* PowerShell 5.1을 사용 하 여에서 확인을 선택한 경우 최소한.NET 4.7.2 설치 됩니다. 에 대해 자세히 알아보세요 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 시스템에 있습니다.
+* PowerShell 5.1을 사용 하기로 한 경우 .NET 4.7.2 이상 버전이 설치 되어 있는지 확인 합니다. 시스템의 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 에 대해 자세히 알아보세요.
 
     > [!Important]  
-    > .NET 4.7.2+를 설치 하는 Windows Server Core에서 사용 하 여 설치 해야 합니다 `quiet` 및 `norestart` 플래그 또는 설치 하지 못합니다. 예를 들어.NET 4.8를 설치 하는 경우 명령은 다음과 같이 보입니다.
+    > Windows Server Core에 .net 4.7.2 +를 설치 하는 경우 `quiet` 및 `norestart` 플래그를 사용 하 여 설치 해야 합니다. 그렇지 않으면 설치에 실패 합니다. 예를 들어 .NET 4.8을 설치 하는 경우 명령은 다음과 같습니다.
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* Az PowerShell 모듈을 여기의 지침에 따라 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
+* Az PowerShell module: 여기에 설명 된 지침에 따라 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
      
     > [!Note]  
-    > 이제 Az.StorageSync 모듈 Az PowerShell 모듈을 설치할 때 자동으로 설치 되었습니다.
+    > 이제 az PowerShell module을 설치 하면 Microsoft.storagesync 모듈이 자동으로 설치 됩니다.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 > [!Note]  
-> Windows Server Core에서 Azure File Sync를 배포 하는 경우이 단계를 건너뛸 수 있습니다.
+> Windows Server Core에 Azure File Sync을 배포 하는 경우이 단계를 건너뛸 수 있습니다.
 
 1. [서버 관리자]를 엽니다.
 2. **로컬 서버**를 클릭합니다.  
@@ -98,7 +98,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 > 저장소 동기화 서비스는 배포된 구독 및 리소스 그룹에서 액세스 권한을 상속합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
-저장소 동기화 서비스를 배포 하려면로 이동 합니다 [Azure portal](https://portal.azure.com/), 클릭 *리소스 만들기* Azure File sync를 검색 하 고 합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
+저장소 동기화 서비스를 배포 하려면 [Azure Portal](https://portal.azure.com/)으로 이동 하 여 *리소스 만들기* 를 클릭 한 다음 Azure File Sync를 검색 합니다. 검색 결과에서 **Azure 파일 동기화**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
 
@@ -110,7 +110,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 작업이 끝나면 **만들기**를 선택하여 저장소 동기화 서비스를 배포합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-바꿉니다 **< Az_Region >** 를 **< RG_Name >** , 및 **< my_storage_sync_service >** 고유한 값을 사용 하 여를 사용 하 여 다음 명령 수 만들기 및 배포를 저장소 동기화 서비스:
+**< Az_Region >** , **< RG_Name >** 및 **< my_storage_sync_service >** 를 고유한 값으로 바꾼 후 다음 명령 수를 사용 하 여 저장소 동기화 서비스를 만들고 배포 합니다.
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -357,6 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
+## <a name="configure-firewall-and-vnet-settings"></a>방화벽 및 VNet 설정 구성
+
+### <a name="portal"></a>포털
+방화벽 및 가상 네트워크 설정에서 작동 하도록 Azure File sync를 구성 하려면 다음을 수행 합니다.
+
+1. Azure Portal에서 보안을 설정 하려는 저장소 계정으로 이동 합니다.
+1. Lefthand 메뉴에서 **방화벽 및 가상 네트워크** 단추를 선택 합니다.
+1. **액세스 허용에서** **선택한 네트워크** 를 선택 합니다.
+1. 해당 하는 섹션 아래에 서버 IP 또는 가상 네트워크가 나열 되어 있는지 확인 합니다.
+1. **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용** 이 선택 되어 있는지 확인 합니다.
+1. **저장**을 선택하여 설정을 저장합니다.
+
+
 ## <a name="onboarding-with-azure-file-sync"></a>Azure 파일 동기화를 사용한 온보딩
 전체 파일 충실도와 ACL(액세스 제어 목록)을 유지하면서 가동 중지 시간 없이 Azure 파일 동기화에 처음 온보딩하는 권장 단계는 다음과 같습니다.
  
@@ -375,13 +388,13 @@ if ($cloudTieringDesired) {
  
 초기 온보딩을 위한 추가 저장소가 없으며 기존 공유에 연결하려는 경우 Azure 파일 공유의 데이터를 사전 시드할 수 있습니다. 이 접근 방법은 가동 중지 시간이 허용되고 초기 온보딩 프로세스 중에 서버 공유의 데이터가 변경되지 않는 것이 확실한 경우에만 사용하는 것이 좋습니다. 
  
-1. 온보딩 프로세스 중에 서버의 데이터를 변경할 수 없도록 합니다.
-2. SMB를 통한 데이터 전송 도구(예: Robocopy, 직접 SMB 복사)를 사용하여 서버 데이터로 Azure 파일 공유를 사전 시드합니다. AzCopy는 SMB를 통해 데이터를 업로드하지 않으므로 사전 시드에 사용할 수 없습니다.
+1. 온 보 딩 프로세스 중에 서버에 있는 데이터가 변경 되지 않도록 합니다.
+2. SMB를 통한 데이터 전송 도구 (예: Robocopy, 직접 SMB 복사)를 사용 하 여 Azure 파일 공유를 서버 데이터와 미리 시드 합니다. AzCopy는 SMB를 통해 데이터를 업로드하지 않으므로 사전 시드에 사용할 수 없습니다.
 3. 원하는 서버 엔드포인트에서 기존 공유를 가리켜 Azure 파일 동기화 토폴로지를 만듭니다.
 4. 모든 엔드포인트에서 동기화가 조정 프로세스를 완료하도록 합니다. 
 5. 조정이 완료되면 변경 내용을 위해 공유를 열 수 있습니다.
  
-현재 사전 시드 방법에는 다음과 같은 몇 가지 제한 사항이 있습니다. 
+현재 사전 시드 방법에는 몇 가지 제한 사항이 있습니다. 
 - 파일의 전체 충실도가 유지되지 않습니다. 예를 들어 파일의 ACL과 타임스탬프가 유실됩니다.
 - 동기화 토폴로지가 완전히 작동되어 실행하기 전의 서버 데이터 변경으로 인해 서버 엔드포인트에서 충돌이 발생할 수 있습니다.  
 - 클라우드 엔드포인트가 생성된 후 Azure 파일 동기화는 초기 동기화를 시작하기 전에 클라우드의 파일을 검색하는 프로세스를 실행합니다. 이 프로세스를 완료하는 데 걸리는 시간은 네트워크 속도, 사용 가능한 대역폭, 파일 및 폴더 수와 같은 다양한 요인에 따라 달라집니다. 미리 보기 릴리스의 대략적인 추정에서 검색 프로세스는 약 10개 파일/초의 속도로 실행됩니다. 따라서 클라우드에 데이터를 사전 시드할 경우 사전 시드가 빠르게 실행되더라도 시스템이 정상적으로 실행되기까지 오랜 시간이 걸릴 수 있습니다.

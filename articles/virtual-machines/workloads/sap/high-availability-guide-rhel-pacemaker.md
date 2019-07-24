@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc703f02ecf5dbaf5eb69e8e20918415e76ba469
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992141"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228368"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -39,8 +39,8 @@ ms.locfileid: "65992141"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!NOTE]
-> Red Hat Enterprise Linux의 Pacemaker는 Azure Fence Agent를 사용하여 필요한 경우 클러스터 노드를 펜싱합니다. 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 최대 15분이 걸릴 수 있습니다. 자세한 내용은 [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)(RHEL 고가용성 클러스터 멤버로 실행되는 Azure VM이 펜싱되는 데 시간이 너무 오래 걸리거나 VM이 종료되기 전에 펜싱이 실패함/시간 초과됨)을 참조하세요.
+> [!TIP]
+> Red Hat Enterprise Linux의 Pacemaker는 Azure Fence Agent를 사용하여 필요한 경우 클러스터 노드를 펜싱합니다. 새 버전의 Azure Fence 에이전트가 사용 가능 하 고 장애 조치 (failover)가 더 이상 필요 하지 않습니다. 리소스 중지가 실패 하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우에는 더 이상 필요 하지 않습니다. 자세한 내용은 [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)(RHEL 고가용성 클러스터 멤버로 실행되는 Azure VM이 펜싱되는 데 시간이 너무 오래 걸리거나 VM이 종료되기 전에 펜싱이 실패함/시간 초과됨)을 참조하세요.
 
 다음 SAP Note 및 문서를 먼저 읽어 보세요.
 
@@ -57,17 +57,18 @@ ms.locfileid: "65992141"
 * SAP Note [2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
-* [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
-* [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines 배포 (이 문서)][deployment-guide]
+* [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101)(Pacemaker 클러스터의 SAP HANA 시스템 복제)
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
-* Azure 특정 RHEL 설명서:
+* Azure 관련 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
+  * [Pacemaker의 RHEL 7.6에서 독립 실행형 큐에 넣기 서버 2 (ENSA2)를 사용 하 여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>클러스터 설치
 
@@ -85,7 +86,7 @@ ms.locfileid: "65992141"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Azure Marketplace PAYG RHEL 이미지에는 풀을 연결 하면 됩니다 효과적으로 두 번 청구 RHEL 사용량에 대 한: 종 량 제 이미지에 한 번씩 및 한 번 연결 풀에서 RHEL 자격에 대 한 합니다. 이 문제를 완화 하려면 Azure BYOS RHEL를 이미지 이제 제공 합니다. 자세한 내용은 [여기](https://aka.ms/rhel-byos)합니다.
+   풀을 Azure Marketplace PAYG RHEL 이미지에 연결 하면 RHEL 사용에 대 한 비용이 효과적으로 두 배 청구 됩니다. PAYG 이미지에 대해 한 번, 연결한 풀의 RHEL 자격에 대해 한 번입니다. 이를 완화 하기 위해 Azure는 이제 BYOS RHEL 이미지를 제공 합니다. 자세한 내용은 [여기](https://aka.ms/rhel-byos)에 있습니다.
 
 1. **[A]** SAP 리포지토리에 RHEL 사용
 
@@ -94,12 +95,25 @@ ms.locfileid: "65992141"
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
 1. **[A]** RHEL HA 추가 기능 설치
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   </code></pre>
+
+   > [!IMPORTANT]
+   > 더 빠른 장애 조치 (failover) 시간을 활용 하기 위해 고객에 게 더 빠른 장애 조치 (failover)를 수행 하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 다음 버전의 Azure Fence 에이전트 (또는 이후 버전)를 권장 합니다.  
+   > RHEL 7.6: fence-agents-4.2.1 -11 el7 _ 6.8  
+   > RHEL 7.5: fence-agents-4.0.11 -86 el7 _ 5.8  
+   > RHEL 7.4: fence-agents-4.0.11 -66 el7 _ 4.12 문제점  
+   > 자세한 내용은 [RHEL 고가용성 클러스터 구성원으로 실행 되는 AZURE vm을 친 하는 데 시간이 오래 걸리고, VM이 종료 되기 전에 실패/시간 초과 될 수 있음](https://access.redhat.com/solutions/3408711) 을 참조 하세요.
+
+   Azure fence 에이전트의 버전을 확인 합니다. 필요한 경우 위에 명시 된 것 보다 이전 버전 또는 같은 버전으로 업데이트 합니다.
+   <pre><code># Check the version of the Azure Fence Agent
+    sudo yum info fence-agents-azure-arm
    </code></pre>
 
 1. **[A]** 호스트 이름 확인 설정
@@ -141,7 +155,7 @@ ms.locfileid: "65992141"
 
 1. **[1]** Pacemaker 클러스터 만들기
 
-   다음 명령을 실행하여 노드를 인증하고 클러스터를 만듭니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 설정합니다. 자세한 내용은 [Linux에 대한 이 문서][virtual-machines-linux-maintenance]를 참조하세요.
+   다음 명령을 실행하여 노드를 인증하고 클러스터를 만듭니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 설정합니다. 자세한 내용은 [Linux에 대 한이 문서][virtual-machines-linux-maintenance]를 참조 하세요.
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -180,16 +194,18 @@ ms.locfileid: "65992141"
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. <https://portal.azure.com>으로 이동합니다.
-1. 속성 및 여 Directory ID 기록으로 이동 하 여 Azure Active Directory 블레이드를 엽니다 이 ID는 **테넌트 ID**입니다.
+1. [https://resources.azure.com](<https://portal.azure.com>) 으로 이동합니다.
+1. Azure Active Directory 블레이드 열기  
+   속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
-1. 추가를 클릭합니다.
-1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예: http:\//localhost) 만들기를 클릭 합니다.
-1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
-1. 새 앱을 선택하고 설정 탭에서 키 클릭
-1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
+1. 새 등록을 클릭 합니다.
+1. 이름을 입력 하 고 "이 조직 디렉터리에만 있는 계정"을 선택 합니다. 
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:/slocallocalhost)을 입력 한 다음 추가를 클릭 합니다.\/  
+   로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
+1. 인증서 및 암호를 선택 하 고 새 클라이언트 암호를 클릭 합니다.
+1. 새 키에 대 한 설명을 입력 하 고 "기간 제한 없음"을 선택 하 고 추가를 클릭 합니다.
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
+1. 개요를 선택 합니다. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -221,7 +237,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 
-1. https://portal.azure.com 으로 이동합니다.
+1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
@@ -254,7 +270,7 @@ sudo pcs property set stonith-timeout=900
 
 ## <a name="next-steps"></a>다음 단계
 
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
