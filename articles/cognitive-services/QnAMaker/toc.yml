@@ -156,8 +156,8 @@
         - name: 학습 API
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: FAQ
-      href: faqs.md
+    - name: 문제 해결
+      href: troubleshooting.md
     - name: 제한
       href: limits.md
     - name: 용어

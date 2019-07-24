@@ -7,7 +7,6 @@
     - name: 용어 변경
       href: terminology.md
 - name: 빠른 시작
-  expanded: true
   items:
     - name: 응용 프로그램
       items:
@@ -96,9 +95,9 @@
           href: platform/personal-data-mgmt.md
         - name: '애플리케이션 데이터 수집, 보존 및 저장'
           href: app/data-retention-privacy.md
-    - name: 인시던트에 대응
+    - name: 경고
       items:
-        - name: 경고
+        - name: 개요
           href: platform/alerts-overview.md
         - name: 클래식 경고
           href: platform/alerts-classic.overview.md
@@ -114,8 +113,6 @@
           href: platform/alerts-action-rules.md
         - name: 스마트 그룹
           href: platform/alerts-smartgroups-overview.md
-        - name: 자동 크기 조정
-          href: platform/autoscale-overview.md
         - name: 변경 분석
           href: app/change-analysis.md
     - name: 데이터 가상화
@@ -954,6 +951,8 @@
       items:
         - name: 자동 크기 조정
           items:
+            - name: 개요
+              href: platform/autoscale-overview.md
             - name: 연습
               href: platform/autoscale-get-started.md
             - name: 설정
