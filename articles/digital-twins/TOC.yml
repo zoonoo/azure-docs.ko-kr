@@ -5,6 +5,7 @@
     - name: Azure Digital Twins 정보
       href: about-digital-twins.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 사용 가능한 공간 찾기
       href: quickstart-view-occupancy-dotnet.md

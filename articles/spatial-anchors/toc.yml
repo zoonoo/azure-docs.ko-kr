@@ -5,6 +5,7 @@
     - name: Spatial Anchors 정보
       href: overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Unity 앱 만들기
       href: unity-overview.yml
