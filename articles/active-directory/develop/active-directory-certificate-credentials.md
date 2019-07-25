@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 
 | 매개 변수 |  설명 |
 | --- | --- |
-| `aud` | Audience: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**이어야 함 |
+| `aud` | Audience:  **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** 이어야 함 |
 | `exp` | 만료 날짜: 토큰이 만료되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | `iss` | 발급자: client_id(클라이언트 서비스의 애플리케이션 ID)여야 함 |
 | `jti` | GUID: JWT ID |

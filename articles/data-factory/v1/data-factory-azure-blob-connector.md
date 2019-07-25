@@ -319,7 +319,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 }
 ```
 
-##### <a name="destination-blob-storage-linked-service"></a>Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 Enter 또는 y를 클릭하고 이전 단계에서 만든 파일의 *전체 경로와 이름을 입력합니다.
+##### <a name="destination-blob-storage-linked-service"></a>Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 Enter 또는 y를 클릭하고 이전 단계에서 만든 파일의 전체 경로와 이름을 입력합니다.
 
 ```json
 {

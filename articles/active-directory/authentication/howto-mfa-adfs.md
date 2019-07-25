@@ -58,8 +58,8 @@ ms.locfileid: "67113468"
 
 1. AD FS 관리를 엽니다.
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
-3. 마우스 오른쪽 단추로 클릭 **Microsoft Office 365 Id 플랫폼** 선택한 **클레임 규칙 편집... ** 
-    ![ADFS 콘솔-클레임 규칙 편집](./media/howto-mfa-adfs/trustedip1.png)
+3. 마우스 오른쪽 단추로 클릭 **Microsoft Office 365 Id 플랫폼** 선택한 **클레임 규칙 편집...** 
+   ![ADFS 콘솔-클레임 규칙 편집](./media/howto-mfa-adfs/trustedip1.png)
 4. 발급 변환 규칙에서 클릭 **규칙 추가.** 
     ![클레임 규칙 추가](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
