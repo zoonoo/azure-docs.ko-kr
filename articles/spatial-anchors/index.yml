@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Azure Spatial Anchors를 사용하여 앱을 설정, 관리, 빌드 및 배포하는 방법에 대해 알아봅니다.'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Unity에서 공유.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Azure Cosmos DB를 사용하여 Unity에서 공유.</a>
