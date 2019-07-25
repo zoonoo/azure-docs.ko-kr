@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: 생성
       items:
-        - name: 단일 데이터베이스 - 포털
+        - name: 단일 데이터베이스
           href: sql-database-single-database-get-started.md
         - name: 단일 데이터베이스 - 템플릿
           displayName: 'Azure Resource Manager template, ARM'
@@ -91,10 +91,18 @@
       items:
         - name: DMS를 사용하여 단일/풀링된 데이터베이스로 마이그레이션
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: 장애 조치(failover) 그룹 추가
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: 지리적으로 분산된 데이터베이스 구현
           href: sql-database-implement-geo-distributed-database.md
+        - name: 활성 지역 복제 구성
+          href: sql-database-active-geo-replication-portal.md
         - name: Azure SQL 데이터 동기화 설정
           href: sql-database-get-started-sql-data-sync.md
+    - name: 탄력적 풀
+      items:
+        - name: 장애 조치(failover) 그룹 추가
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: 관리되는 인스턴스
       items:
         - name: DMS를 사용하여 온라인 마이그레이션
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: 자동 장애 조치 그룹
               href: sql-database-auto-failover-group.md
-            - name: 활성 지역 복제 구성 - 포털
-              href: sql-database-active-geo-replication-portal.md
             - name: 복제본에 대한 보안 구성
               href: sql-database-geo-replication-security-config.md
         - name: 데이터베이스 복구 옵션
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 데이터 로드 및 이동
       items:
+        - name: 새 지역으로 리소스 이동
+          href: sql-database-move-resources-across-regions.md
         - name: Azure 내에서 데이터베이스 복사
           href: sql-database-copy.md
         - name: BACPAC 파일에서 데이터베이스 가져오기

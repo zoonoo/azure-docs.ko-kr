@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4605fd0296af6ac3c0d37c52c93d8a4a0903232b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 38181a4ccd5b651bc3268cff1fa998aa9ac2e6d2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165210"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444537"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션
 
@@ -23,3 +23,14 @@ CloudSimple의 Azure VMware 솔루션을 시작합니다. CloudSimple을 사용�
 - [CloudSimple 프라이빗 클라우드 개요](cloudsimple-private-cloud.md)를 선택하여 CloudSimple 프라이빗 클라우드 솔루션에 대해 자세히 알아보세요.
 - [노드](cloudsimple-node.md)를 선택하여 CloudSimple 노드에 대해 자세히 알아보세요.
 - [초기화 및 프로비전 용량](quickstart-create-cloudsimple-service.md)을 선택하여 CloudSimple의 Azure VMware 솔루션을 시작하세요.
+
+| 한눈에 개념 보기     | 리소스                    | 목적                                                                       | 관리         |
+|--------------------------|-----------------------------|-------------------------------------------------------------------------------|--------------------|
+| **서비스 만들기**     | CloudSimple 서비스         | CloudSimple Service Edge 네트워크 구성                                    | Azure portal       |
+|                          | CloudSimple 노드            | CloudSimple 서비스에서 사용할 용량 프로비저닝                          | Azure portal       |
+| **서비스 사용**  | 프라이빗 클라우드               | VMware 환경 만들기                                                    | CloudSimple 포털 |
+|                          | VLAN/서브넷                 | VMware 사용을 위한 언더레이 네트워크 만들기                               | CloudSimple 포털 |
+|                          | 방화벽 테이블              | 언더레이 네트워크에서 남/북 및 동/서 보안 규칙 구성 | CloudSimple 포털 |
+|                          | 공용 IP 주소           | VMware 워크로드용 공용 주소 가져오기                           | CloudSimple 포털 |
+|                          | Azure 연결            | 온-프레미스 또는 Azure의 가상 네트워크에 대한 연결 설정         | CloudSimple 포털 |
+| **통합 관리**   | CloudSimple Virtual Machine | Azure Portal에서 VMware Virtual Machines 관리                                | Azure portal       |

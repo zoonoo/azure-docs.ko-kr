@@ -6,6 +6,12 @@
       href: home.md
 - name: 빠른 시작
   items:
+    - name: 웹 포털 사용
+      items:
+        - name: 분류자 빌드
+          href: getting-started-build-a-classifier.md
+        - name: 개체 감지기 빌드
+          href: get-started-build-detector.md
     - name: .NET SDK 사용
       items:
         - name: 이미지 분류
@@ -42,8 +48,6 @@
       href: logo-detector-mobile.md
 - name: 방법 가이드
   items:
-    - name: 분류자 빌드
-      href: getting-started-build-a-classifier.md
     - name: 모델 테스트
       href: test-your-model.md
     - name: 분류자 개선

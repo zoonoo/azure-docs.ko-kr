@@ -122,10 +122,12 @@
               href: application-gateway-end-to-end-ssl-powershell.md
         - name: 인증서 관리
           items:
-            - name: 허용 목록 백 엔드에 대한 인증서 만들기
+            - name: 백 엔드용 인증서
               href: certificates-for-backend-authentication.md
             - name: 인증서 갱신
               href: renew-certificates.md
+            - name: 자체 서명된 인증서 생성
+              href: self-signed-certificates.md
         - name: SSL 정책
           items:
             - name: SSL 정책 구성

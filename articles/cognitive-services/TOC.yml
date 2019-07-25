@@ -5,6 +5,8 @@
   items:
     - name: Cognitive Services란?
       href: Welcome.md
+    - name: Cognitive Services 및 기계 학습
+      href: cognitive-services-and-machine-learning.md
     - name: 언어 지원
       href: language-support.md
 - name: 컨테이너 지원

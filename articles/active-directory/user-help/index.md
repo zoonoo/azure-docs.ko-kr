@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861806"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383103"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
-이 콘텐츠는 보안 정보, 2단계 인증의 설정 및 사용, 자신의 암호 재설정 방법 학습, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.
+이 콘텐츠는 보안 정보 및 2단계 인증의 설정 및 사용, 자신의 암호 재설정, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ ms.locfileid: "60861806"
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">인증자 앱 설정</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">문자 메시지 설정</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">전화 통화 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">보안 키 설정</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">로그인 방법</a>
                         </p>
                     </div>

@@ -21,6 +21,8 @@
       href: compare-video-indexer-with-media-services-presets.md
     - name: 여러 테넌트 관리
       href: manage-multiple-tenants.md
+    - name: 언어 식별 모델
+      href: language-identification-model.md
     - name: 콘텐츠 모델 사용자 지정
       items:
         - name: 개요

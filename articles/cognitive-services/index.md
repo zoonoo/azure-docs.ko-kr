@@ -7,18 +7,19 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/20/2019
+ms.date: 07/22/2019
 ms.topic: hub-page
-ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ad403b58a0f6aad37e9d8d547d269b9f45566559
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295396"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442833"
 ---
 <div id="main" class="v2">
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
+        <p> 각 서비스에는 완전 학습된 모델부터 완전 사용자 지정 가능한 모델에 이르기까지 자체 <a href="/azure/cognitive-services/language-support">언어 지원</a> 및 <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">데이터 모델 요구 사항</a>이 있습니다. 
 
 
 <h2>Cognitive Services API</h2>
@@ -123,6 +124,25 @@ ms.locfileid: "67295396"
                             <div class="cardText">
                                 <h3>Cognitive Services란?</h3>
                                 <p>Azure Cognitive Services 및 다른 API를 사용하여 지능형 앱을 빌드하는 방법을 알아봅니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services 및 기계 학습</h3>
+                                <p>Azure Cognitive Services가 기계 학습을 위한 다른 Azure 제품과 어디에 적합한지 알아봅니다.</p>
                             </div>
                         </div>
                     </div>

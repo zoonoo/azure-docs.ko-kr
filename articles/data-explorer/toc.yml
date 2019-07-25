@@ -98,8 +98,6 @@
           href: sisense.md
     - name: 관리
       items:
-        - name: 데이터베이스 권한 관리
-          href: manage-database-permissions.md
         - name: 클러스터 상태 확인
           href: check-cluster-health.md
         - name: 클러스터 VM SKU 선택
@@ -108,6 +106,10 @@
           href: manage-cluster-horizontal-scaling.md
         - name: 클러스터 수직적 크기 조정 관리
           href: manage-cluster-vertical-scaling.md
+        - name: 클러스터 보안 관리
+          href: manage-cluster-security.md
+        - name: 데이터베이스 권한 관리
+          href: manage-database-permissions.md
         - name: 데이터 삭제
           href: delete-data.md
         - name: 중복 데이터 처리

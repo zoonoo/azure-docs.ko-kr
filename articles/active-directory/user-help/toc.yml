@@ -74,6 +74,8 @@
           href: security-info-setup-text-msg.md
         - name: 전화 통화 설정
           href: security-info-setup-phone-number.md
+        - name: 보안 키 설정
+          href: security-info-setup-security-key.md
         - name: 이메일 설정
           href: security-info-setup-email.md
         - name: 보안 질문 설정

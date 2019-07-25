@@ -100,6 +100,8 @@
               href: backup-mabs-unattended-install.md
         - name: 워크로드 보호
           items:
+            - name: Hyper-V 가상 머신 백업
+              href: back-up-hyper-v-virtual-machines-mabs.md
             - name: VMware 서버
               href: backup-azure-backup-server-vmware.md
             - name: Exchange

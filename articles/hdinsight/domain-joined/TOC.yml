@@ -32,8 +32,14 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: 네트워크 액세스
       items:
-        - name: Azure VNet의 HDInsight
-          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: HDInsight 가상 네트워크 아키텍처
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: HDInsight용 VNET 계획
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: HDInsight용 VNET 만들기
+          href: ../hdinsight-create-virtual-network.md
+        - name: NSG 및 UDR에 필요한 IP 주소
+          href: ../hdinsight-management-ip-addresses.md
         - name: 온-프레미스 네트워크와 HDInsight 연결
           href: ../connect-on-premises-network.md
         - name: Azure VNet에서 Apache HBase 클러스터 만들기

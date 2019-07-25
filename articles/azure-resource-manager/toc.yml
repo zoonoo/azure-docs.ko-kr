@@ -63,18 +63,18 @@
       href: template-best-practices.md
     - name: 클라우드 일관성을 위한 템플릿
       href: templates-cloud-consistency.md
-    - name: 리소스 공급자 및 형식
-      href: resource-manager-supported-services.md
-    - name: 배포 관리자
-      displayName: adm
-      href: deployment-manager-overview.md
-    - name: 배포 관리자 상태 검사
-      displayName: adm
-      href: deployment-manager-health-check.md
     - name: 배포 모드
       href: deployment-modes.md
     - name: 리소스 삭제
       href: resource-group-delete.md
+    - name: 배포 관리자
+      items:
+        - name: 개요
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: 상태 확인
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
     - name: Resource Manager 및 클래식 배포
       href: resource-manager-deployment-model.md
     - name: Azure 공통 보안 특성
@@ -228,6 +228,8 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Windows 배포 문제
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+    - name: 리소스 공급자 및 형식
+      href: resource-manager-supported-services.md
     - name: 제한 요청
       href: resource-manager-request-limits.md
     - name: 비동기 작업 추적

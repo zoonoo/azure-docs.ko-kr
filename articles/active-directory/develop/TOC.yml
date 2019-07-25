@@ -193,6 +193,18 @@
                   href: scenario-mobile-overview.md
                 - name: 앱 등록
                   href: scenario-mobile-app-registration.md
+                - name: 코드 구성
+                  href: scenario-mobile-app-configuration.md
+                - name: 모바일 플랫폼별 구성
+                  items:
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Android의 시스템 브라우저
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: 범용 Windows 플랫폼
+                      href: msal-net-uwp-considerations.md
                 - name: 앱용 토큰 획득
                   href: scenario-mobile-acquire-token.md
                 - name: 웹 API 호출
@@ -255,14 +267,6 @@
                   items:
                     - name: 웹 브라우저
                       href: msal-net-web-browsers.md
-                    - name: Xamarin Android
-                      href: msal-net-xamarin-android-considerations.md
-                    - name: Android의 시스템 브라우저
-                      href: msal-net-system-browser-android-considerations.md
-                    - name: Xamarin iOS
-                      href: msal-net-xamarin-ios-considerations.md
-                    - name: 범용 Windows 플랫폼
-                      href: msal-net-uwp-considerations.md
                 - name: MSAL.js
                   items:
                     - name: IE를 사용한 고려 사항

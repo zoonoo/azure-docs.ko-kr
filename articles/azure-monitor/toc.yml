@@ -398,6 +398,8 @@
               items:
                 - name: Access Control
                   href: app/resources-roles-access-control.md
+                - name: IP 주소 수집
+                  href: app/ip-collection.md
                 - name: 샘플링
                   displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
                   href: app/sampling.md
