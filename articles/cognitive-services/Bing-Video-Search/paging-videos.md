@@ -1,6 +1,6 @@
 ---
 title: 사용 가능한 비디오를 통해 페이징하는 방법 - Bing Video Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Video Search API에서 반환되는 모든 비디오를 페이징하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3570d8772734595c6707ca8103006867a8eb47a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386398"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500715"
 ---
 # <a name="paging-through-video-search-results"></a>비디오 검색 결과를 통한 페이징
 
@@ -42,7 +42,7 @@ Bing Video Search API는 쿼리에서 찾은 모든 검색 결과의 하위 집�
 사용 가능한 비디오를 페이징하려면 요청을 보낼 때 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
   
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 |`count`     | 응답에서 반환할 결과의 수를 지정합니다. 응답에서 요청할 수 있는 최대 결과 수는 100개입니다. 기본값은 10입니다. 제공되는 실제 수는 요청된 수보다 작을 수 있습니다.        |
 |`offset`     | 건너뛸 결과의 수를 지정합니다. `offset`은 0부터 시작하며 (`totalEstimatedMatches` - `count`)보다 작아야 합니다.          |

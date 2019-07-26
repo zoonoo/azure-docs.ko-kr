@@ -1,19 +1,18 @@
 ---
 title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813118"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465116"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 저장소 추가
 
@@ -75,9 +74,9 @@ Backup Server에 볼륨을 추가하려면 **관리** 창에서 저장소를 다
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Azure Backup Server에서 저장소 풀에 있는 볼륨의 속성을 업데이트 하는 Update-dpmdiskstorage PowerShell cmdlet을 사용 하 여 워크 로드 인식 저장소를 설정할 수 있습니다. 
+Azure Backup Server에서 저장소 풀의 볼륨 속성을 업데이트 하는 PowerShell cmdlet 업데이트-DPMDiskStorage를 사용 하 여 워크 로드 인식 저장소를 설정할 수 있습니다. 
 
-구문
+구문:
 
 `Parameter Set: Volume`
 

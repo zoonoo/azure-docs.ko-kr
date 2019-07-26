@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296049"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501428"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -202,14 +202,14 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 - LRS/ZRS to GRS는 더 큰 파일 공유 미리 보기에 구독이 수락 된 후 생성 된 새 저장소 계정에서 사용할 수 없습니다.
 
 
-### <a name="regional-availability"></a>국가별 가용성
+### <a name="regional-availability"></a>지역별 가용성
 
 표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
 |Region  |지원 되는 중복성  |기존 저장소 계정 지원  |
 |---------|---------|---------|
 |동남 아시아     |LRS|아니요         |
-|서유럽     |LRS|아니요         |
+|유럽 서부     |LRS, ZRS|아니요         |
 |미국 서부 2     |LRS, ZRS|아니요         |
 
 새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.

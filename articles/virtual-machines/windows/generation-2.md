@@ -1,5 +1,5 @@
 ---
-title: 2 세대 Vm (미리 보기)에 대 한 azure 지원 | Microsoft Docs
+title: 2 세대 Vm에 대 한 Azure 지원 (미리 보기) | Microsoft Docs
 description: 2 세대 Vm에 대 한 Azure 지원 개요
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,139 +14,142 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7cd938369cdc4f4ca711a442d89cd6ef3d6d08e8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722720"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477093"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 개의 Vm (미리 보기)을 생성에 대 한 지원
+# <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
 > [!IMPORTANT]
-> Azure 2 세대 Vm에 대 한 지원은 현재 미리 보기로 제공에서 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
+> 2 세대 Vm에 대 한 Azure 지원은 현재 미리 보기 상태입니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-2 세대 가상 컴퓨터 (Vm)에 대 한 지원이 Azure에서 미리 보기로 제공 됩니다. 따라서 고려 사항을 검토 합니다 페이지 세대를 선택 하기 전에 만든 후 가상 머신의 세대를 변경할 수 없습니다 하 합니다. 
+이제 Azure의 미리 보기에서 2 세대 Vm (가상 머신)에 대 한 지원이 제공 됩니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터의 세대를 변경할 수 없으므로 세대를 선택 하기 전에이 페이지에 대 한 고려 사항을 검토 하세요. 
 
-2 세대 Vm 1 세대 Vm에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능 향상 된 메모리를 Intel 소프트웨어 Guard Extensions (Intel SGX) 등이 영구 메모리 (vPMEM)를 가상화 합니다. 2 세대 Vm에는 또한 Azure에서 아직 지원 되지 않는 일부 기능이 있으며 자세한 내용은 참조는 [기능과](#features-and-capabilities) 섹션입니다.
+2 세대 Vm은 1 세대 Vm에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능에는 메모리 증가, intel SGX (Software Guard Extensions) 및 vPMEM (가상화 된 영구 메모리)가 포함 됩니다. 또한 2 세대 Vm에는 아직 Azure에서 지원 되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 [기능 및](#features-and-capabilities) 기능 섹션을 참조 하세요.
 
-2 세대 Vm 1 Vm 세대에서 사용 된 BIOS 기반 아키텍처 대신 새 부트 UEFI 기반 아키텍처를 사용 합니다. 1 세대 Vm에 비해 2 세대 Vm 수를 개선 부팅 및 설치 시간이. 2 세대 Vm 개요 및 1 세대와 2 세대 간의 차이점 중 일부에 대 한 참조 [Hyper-v에 1 또는 2 세대 가상 컴퓨터를 만들 해야?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)합니다.
+2 세대 Vm은 1 세대 Vm에서 사용 하는 BIOS 기반 아키텍처가 아닌 새로운 UEFI 기반 부팅 아키텍처를 사용 합니다. 1 세대 Vm과 비교할 때 2 세대 Vm은 부팅 및 설치 시간을 향상 시킬 수 있습니다. 2 세대 Vm의 개요와 1 세대와 2 세대 간의 차이점에 대 한 개요는 [hyper-v에서 1 세대 또는 2 세대 가상 머신을 만들어야 하나요?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조 하세요.
 
 ## <a name="generation-2-vm-sizes"></a>2 세대 VM 크기
 
-1 세대 Vm은 Azure에서 모든 VM 크기에서 지원 됩니다. Azure는 이제 다음 선택한 VM 시리즈에 대 한 2 세대 지원 미리 보기를 제공합니다.
+1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다. 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 미리 보기 2 세대 지원을 제공 합니다.
 
-* [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 고 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
-* [Esv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
-* [Fsv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
+* [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
+* [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+* [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
+* [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
-* [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 고 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
+* [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Mv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
+* [NCv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) 및 [NCv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
+* [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
 
-## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace에서 2 세대 VM 이미지
+## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2 세대 VM 이미지
 
-2 세대 Vm에는 다음 Marketplace 이미지를 지원합니다.
+2 세대 Vm은 다음 Marketplace 이미지를 지원 합니다.
 
 * Windows Server 2019 Datacenter
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 vs입니다. Azure 2 세대 Vm
+## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 및 Azure 2 세대 Vm
 
-현재 azure는 온-프레미스 Hyper-v 지원 2 세대 Vm에 대 한 기능 중 일부를 지원 하지 않습니다.
+Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하는 기능 중 일부를 지원 하지 않습니다.
 
-| 2 세대 기능                | 온-프레미스 Hyper-v가 설치 | Azure |
+| 2 세대 기능                | 온-프레미스 Hyper-v | Azure |
 |-------------------------------------|---------------------|-------|
 | 보안 부팅                         | :heavy_check_mark:  | :x:   |
-| 보호 된 VM                         | :heavy_check_mark:  | :x:   |
+| 차폐 VM                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | :x:   |
-| 가상화 기반 보안 (VBS) | :heavy_check_mark:  | :x:   |
+| VBS (가상화 기반 보안) | :heavy_check_mark:  | :x:   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
 ## <a name="features-and-capabilities"></a>특징과 기능
 
-### <a name="generation-1-vs-generation-2-features"></a>1 세대와 2 세대 기능 비교
+### <a name="generation-1-vs-generation-2-features"></a>1 세대와 2 세대의 기능 비교
 
 | 기능 | 1세대 | 2 세대 |
 |---------|--------------|--------------|
 | 부팅             | PCAT                      | UEFI                               |
 | 디스크 컨트롤러 | IDE                       | SCSI                               |
-| VM 크기         | 모든 VM 크기 | Premium storage 지원 Vm만 |
+| VM 크기         | 모든 VM 크기 | Premium storage를 지 원하는 Vm만 |
 
-### <a name="generation-1-vs-generation-2-capabilities"></a>1 세대와 2 세대 기능 비교
+### <a name="generation-1-vs-generation-2-capabilities"></a>1 세대와 2 세대의 기능 비교
 
 | 기능 | 1세대 | 2 세대 |
 |------------|--------------|--------------|
-| OS 디스크 > 2TB                    | :x:                        | :heavy_check_mark: |
-| 사용자 지정 디스크/이미지/swap OS         | :heavy_check_mark:         | :heavy_check_mark: |
+| OS 디스크 > 2tb                    | :x:                        | :heavy_check_mark: |
+| 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark:         | :heavy_check_mark: |
 | 가상 머신 확장 집합 지원 | :heavy_check_mark:         | :heavy_check_mark: |
 | ASR/backup                        | :heavy_check_mark:         | :x:                |
 | 공유 이미지 갤러리              | :heavy_check_mark:         | :x:                |
 | Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
 
-## <a name="creating-a-generation-2-vm"></a>만들기 2 세대 VM
+## <a name="creating-a-generation-2-vm"></a>2 세대 VM 만들기
 
 ### <a name="marketplace-image"></a>Marketplace 이미지
 
-Azure portal 또는 Azure CLI에서 만들 수 있습니다 세대 2 Vm UEFI 부팅을 지 원하는 Marketplace 이미지에서.
+Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-`windowsserver-gen2preview` 제품 Windows 2 세대 이미지에 대해서만 포함 되어 있습니다. 이 패키징 1 세대 및 2 세대 이미지에 대 한 혼동을 방지할 수 있습니다. 2 세대를 만들려면 VM을 선택 **이미지** 에서 제공 하 고 VM을 만드는 표준 프로세스를 따릅니다.
+이 `windowsserver-gen2preview` 제품에는 Windows 2 세대 이미지만 포함 되어 있습니다. 이 패키징은 1 세대와 2 세대 이미지 간의 혼동을 방지 합니다. 2 세대 VM을 만들려면이 제품에서 **이미지** 를 선택 하 고 표준 프로세스에 따라 vm을 만듭니다.
 
-현재 Marketplace는 다음 Windows 생성을 2 이미지 제공합니다.
+현재 Marketplace는 다음과 같은 Windows 생성 2 이미지를 제공 합니다.
 
 * 2019-datacenter-gen2
 * 2016-datacenter-gen2
 * 2012-r2-datacenter-gen2
 * 2012-datacenter-gen2
 
-참조 된 [기능과](#features-and-capabilities) 지원 되는 Marketplace 이미지의 최신 목록에 대 한 섹션입니다.
+지원 되는 Marketplace 이미지의 최신 목록은 [기능 및 기능](#features-and-capabilities) 섹션을 참조 하세요.
 
 ### <a name="managed-image-or-managed-disk"></a>관리 되는 이미지 또는 관리 디스크
 
-2 세대를 만들면 관리 되는 이미지 또는 1 세대 만든 동일한 방식으로 관리 되는 디스크에서 VM VM.
+1 세대 VM을 만드는 것과 같은 방법으로 관리 되는 이미지 또는 관리 디스크에서 2 세대 VM을 만들 수 있습니다.
 
-### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+### <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-작업을 가상 머신 확장 집합을 사용 하 여 2 개의 Vm 생성으로 만들 수도 있습니다. Azure CLI를 사용 하 여 Azure 확장 세대 2 Vm 만들기를 설정 합니다.
+또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-* **모든 Azure 지역에서 사용할 수 있는 2 개의 Vm 세대를 인가요?**  
-    예. 전부는 아니지만 [2 세대 VM 크기](#generation-2-vm-sizes) 모든 지역에서 사용할 수 있습니다. 세대 2 VM은 VM 크기의 가용성에 따라 달라 집니다의 가용성입니다.
+* **모든 Azure 지역에서 2 세대 Vm을 사용할 수 있나요?**  
+    예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
 
-* **사이 차이가 있는 가격은 1 세대와 2 개의 Vm?**  
+* **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
    아니요.
 
-* **OS 디스크 크기를 늘리려면 어떻게 해야 합니까?**  
-  2TB 보다 큰 OS 디스크는 새로운 2 세대 Vm입니다. 기본적으로 OS 디스크는 2 세대 Vm에 대 한 2TB 보다 작습니다. 권장 되는 최대 4TB의 디스크 크기를 늘릴 수 있습니다. Azure CLI 또는 Azure portal을 사용 하 여 OS 디스크 크기를 늘립니다. 프로그래밍 방식으로 디스크를 확장 하는 방법에 대 한 정보를 참조 하세요 [디스크 크기 조정](expand-os-disk.md)합니다.
+* **OS 디스크 크기를 늘릴 어떻게 할까요? 있나요?**  
+  2tb 보다 큰 OS 디스크는 2 세대 Vm에 대 한 새로운 것입니다. 기본적으로 OS 디스크는 2 세대 Vm의 경우 2tb 보다 작습니다. 최대 4 TB까지 디스크 크기를 늘릴 수 있습니다. Azure CLI 또는 Azure Portal를 사용 하 여 OS 디스크 크기를 늘립니다. 디스크를 프로그래밍 방식으로 확장 하는 방법에 대 한 자세한 내용은 [디스크 크기 조정](expand-os-disk.md)을 참조 하세요.
 
-  Azure portal에서 OS 디스크 크기를 늘리려면:
+  Azure Portal에서 OS 디스크 크기를 늘리려면 다음을 수행 하십시오.
 
-  1. Azure portal에서 VM 속성 페이지로 이동 합니다.
-  1. 종료 하 고 VM을 할당 취소를 선택 합니다 **중지** 단추입니다.
-  1. 에 **디스크** 섹션을 증가 시킬 OS 디스크를 선택 합니다.
-  1. 에 **디스크** 섹션에서 **구성**, 및 업데이트를 **크기** 원하는 값으로.
-  1. VM 속성 페이지로 이동 하 고 **시작** VM.
+  1. Azure Portal에서 VM 속성 페이지로 이동 합니다.
+  1. VM을 종료 하 고 할당을 취소 하려면 **중지** 단추를 선택 합니다.
+  1. **디스크** 섹션에서 증가 시킬 OS 디스크를 선택 합니다.
+  1. **디스크** 섹션에서 **구성**을 선택 하 고 **크기** 를 원하는 값으로 업데이트 합니다.
+  1. VM 속성 페이지로 돌아가서 VM을 **시작** 합니다.
   
-  2TB 보다 큰 OS 디스크에 대 한 경고를 볼 수 있습니다. 경고는 2 세대 Vm에 적용 되지 않습니다. 그러나 4TB 보다 큰 OS 디스크 크기는 *권장 되지 않습니다.*
+  2tb 보다 큰 OS 디스크에 대 한 경고가 표시 될 수 있습니다. 이 경고는 2 세대 Vm에는 적용 되지 않습니다. 그러나 4 TB 보다 큰 OS 디스크 크기는 *권장 되지 않습니다.*
 
-* **세대 2 Vm 지원 가속화 된 네트워킹?**  
-    예. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 VM 만들기](../../virtual-network/create-vm-accelerated-networking-cli.md)합니다.
+* **2 세대 Vm은 가속화 네트워킹을 지원 하나요?**  
+    예. 자세한 내용은 [가속화 된 네트워킹을 사용 하 여 VM 만들기](../../virtual-network/create-vm-accelerated-networking-cli.md)를 참조 하세요.
 
-* **VHDX는 2 세대에서 지원 됩니까?**  
-    아니요, 2 세대 Vm VHD만 지원합니다.
+* **VHDX는 2 세대에서 지원 되나요?**  
+    아니요, 2 세대 Vm은 VHD만 지원 합니다.
 
-* **2 세대 Vm Azure Ultra 디스크 저장소를 지원 하나요?**  
+* **2 세대 Vm은 Azure Ultra 디스크 저장소을 지원 하나요?**  
     예.
 
-* **마이그레이션할 수는 VM 1 세대에서 2 세대로?**  
-    아니요, 만든 후 VM의 세대를 변경할 수 없습니다. VM 세대 사이 전환 해야 할 경우 다른 세대의 새 VM을 만듭니다.
+* **1 세대에서 2 세대로 VM을 마이그레이션할 수 있나요?**  
+    아니요, VM을 만든 후에는 VM의 세대를 변경할 수 없습니다. VM 세대 간을 전환 해야 하는 경우 다른 세대의 새 VM을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 에 대 한 자세한 [hyper-v에서 2 세대 가상 컴퓨터](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)합니다.
+* [Hyper-v의 2 세대 가상 컴퓨터](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.
 
-* 에 대해 알아봅니다 하는 방법 [VHD를 준비](prepare-for-upload-vhd-image.md) 온-프레미스 시스템에서 Azure에 업로드 합니다.
+* 온-프레미스 시스템에서 Azure로 업로드할 [VHD를 준비](prepare-for-upload-vhd-image.md) 하는 방법을 알아봅니다.

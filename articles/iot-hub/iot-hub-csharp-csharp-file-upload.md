@@ -9,24 +9,24 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 79288f2204030790b2308905d90ff8e035fe2dd9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621859"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403206"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>.NET을 사용하여 디바이스에서 IoT Hub가 있는 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서의 코드 기반을 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서 IoT Hub의 파일 업로드 기능을 사용 하는 방법을 보여 줍니다. 이 항목에서는 다음 방법을 설명합니다.
+이 자습서에서는 IoT Hub의 파일 업로드 기능을 사용 하는 방법을 보여 주기 위해 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서의 코드를 기반으로 합니다. 이 항목에서는 다음 방법을 설명합니다.
 
 * 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 
 * IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-합니다 [IoT hub에 장치에서 원격 분석을 보내고](quickstart-send-telemetry-dotnet.md) 빠른 시작 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서 IoT의 기본적인 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. 허브입니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
+[장치에서 IoT hub로 원격 분석 전송 빠른 시작](quickstart-send-telemetry-dotnet.md) 및 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서에서는 IoT Hub의 기본 장치-클라우드 및 클라우드-장치 메시징 기능을 보여 줍니다. [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서에서는 장치-클라우드 메시지를 Azure Blob Storage에 안정적으로 저장하는 방법에 대해 설명합니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예를 들어:
 
 * 이미지가 포함된 대형 파일
 * 비디오
@@ -37,7 +37,7 @@ ms.locfileid: "67621859"
 
 이 자습서의 끝 부분에서 다음의 두 .NET 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice**에서 만든 앱의 수정된 된 버전의 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 저장소에 파일을 업로드합니다.
+* **SimulatedDevice** [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 자습서에서 만든 앱의 수정 된 버전입니다. 이 앱은 IoT Hub에서 제공하는 SAS URI를 사용하여 저장소에 파일을 업로드합니다.
 
 * **ReadFileUploadNotification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "67621859"
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는에서 만든 장치 앱을 수정 하 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 하 여 IoT hub 로부터 클라우드-장치 메시지를 수신 합니다.
+이 섹션에서는 IoT Hub에서 클라우드-장치 메시지를 수신 하기 위해 [IoT Hub를 사용 하 여 클라우드-장치 메시지 보내기](iot-hub-csharp-csharp-c2d.md) 에서 만든 장치 앱을 수정 합니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **추가**를 클릭하고 **기존 항목**을 클릭합니다. 이미지 파일을 찾아 프로젝트에 포함합니다. 이 자습서에서는 이미지 이름을 `image.jpg`로 지정한다고 가정합니다.
 
@@ -98,6 +98,12 @@ ms.locfileid: "67621859"
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+이 문서에서는 [장치에서 iot hub로 원격 분석 전송](quickstart-send-telemetry-dotnet.md)에서 만든 iot hub에서 파일 업로드 알림 메시지를 수신 하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신 하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub은이 사용 권한을 부여 하는 **서비스** 라는 공유 액세스 정책으로 만들어집니다.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>파일 업로드 알림 수신
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 .NET 콘솔 앱을 작성합니다.
@@ -118,7 +124,7 @@ ms.locfileid: "67621859"
     using Microsoft.Azure.Devices;
     ```
 
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 [디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-dotnet.md)의 IoT 허브 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 `{iot hub connection string}` 값을 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다.
 
     ```csharp
     static ServiceClient serviceClient;

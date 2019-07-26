@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924643"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444346"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -89,9 +89,9 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 서비스 관리자를 변경하는 방법에는 두 가지가 있습니다. **Azure Portal** 또는 **계정 센터**에서 변경할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오 지원 되는지 확인 합니다.
+1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오가 지원 되는지 확인 합니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -109,7 +109,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 ### <a name="account-center"></a>계정 센터
 
-1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오 지원 되는지 확인 합니다.
+1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오가 지원 되는지 확인 합니다.
 
 1. [계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
 
@@ -129,12 +129,12 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 각 구독은 Azure AD 디렉터리와 연결됩니다. 구독이 연결된 디렉터리를 찾으려면 Azure Portal에서 **구독**을 열고 구독을 선택하여 해당 디렉터리를 확인합니다.
 
-회사 또는 학교 계정으로 로그인하는 경우 해당 조직의 다른 계정을 서비스 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자로 추가할 수 있지만 john@notcontoso.com이 contoso.com 디렉터리에 있지 않으면 john@notcontoso.com은 추가할 수 없습니다. 회사 또는 학교 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자로 계속 추가할 수 있습니다.
+회사 또는 학교 계정으로 로그인하는 경우 해당 조직의 다른 계정을 서비스 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자로 추가할 수 있지만 john@notcontoso.com이 contoso.com 디렉터리에 있지 않으면 john@notcontoso.com은 추가할 수 없습니다. 회사 또는 학교 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자로 계속 추가할 수 있습니다. Azure 구독 당 서비스 관리자는 하나만 있을 수 있습니다.
 
   | 로그인 방법 | Microsoft 계정 사용자를 서비스 관리자로 추가하나요? | 서비스 관리자와 동일한 조직에 회사 또는 학교 계정을 추가하나요? | 다른 조직의 회사 또는 학교 계정을 서비스 관리자로 추가하나요? |
   | --- | --- | --- | --- |
-  |  Microsoft 계정 |예 |아니오 |아닙니다. |
-  |  회사 또는 학교 계정 |예 |예 |아닙니다. |
+  |  Microsoft 계정 |예 |아니오 |아니요 |
+  |  회사 또는 학교 계정 |예 |예 |아니요 |
 
 ## <a name="view-the-account-administrator"></a>계정 관리자 보기
 

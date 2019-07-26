@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight의 Spark 구조적 스트리밍
 description: HDInsight Spark 클러스터에서 Spark 구조적 스트리밍 애플리케이션을 사용하는 방법입니다.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hrasheed
+ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711331"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441905"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 

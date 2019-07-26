@@ -1,19 +1,18 @@
 ---
 title: Azure Backup - Azure Import/Export 서비스를 사용한 오프라인 백업 또는 초기 시드 작업
 description: Azure Backup이 Azure Import/Export 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155312"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466782"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -43,7 +42,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 MARS 에이전트](https://aka.ms/azurebackup_agent)를 사용한 오프라인 파일 및 폴더 백업에만 적용됩니다. System Center DPM 또는 Azure Backup Server를 사용하여 워크로드에 대한 오프라인 백업을 수행하려면 [이 문서](backup-azure-backup-server-import-export-.md)를 참조하세요. 
@@ -76,7 +75,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
    입력에 대한 설명은 다음과 같습니다.
 
     * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 스토리지 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
-    * **Azure Resource Manager 스토리지 계정**: Resource Manager 형식 저장소 계정 (범용 v1 또는 범용 v2) 모든 Azure 구독에서의 이름입니다.
+    * **Azure Resource Manager 스토리지 계정**: 모든 Azure 구독의 리소스 관리자 유형 저장소 계정 (범용 v1 또는 범용 v2) 이름입니다.
     * **Azure Storage 컨테이너**: Recovery Services 자격 증명 모음에 복사되기 전에 백업 데이터를 가져올 Azure Storage 계정의 대상 스토리지 Blob 이름입니다.
     * **Azure 구독 ID**: Azure Storage 계정이 만들어지는 Azure 구독의 ID입니다.
     * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure로 보낸 데이터의 전송을 추적하는 고유한 이름입니다. 

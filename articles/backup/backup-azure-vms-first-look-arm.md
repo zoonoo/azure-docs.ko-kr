@@ -1,19 +1,18 @@
 ---
 title: Azure Backup 서비스를 사용하여 VM 설정에서 Azure VM 백업
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업하는 방법 알아보기
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 994762098027f7051591b8bf89bfa5cb7c380373
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442993"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465268"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -66,14 +65,14 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
    ![백업 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. Backup을 사용 하도록 설정한 후 초기 백업을 실행 합니다. 초기 백업을 즉시 시작하거나, 백업 일정에 따라 시작될 때까지 기다릴 수 있습니다.
+10. 백업을 사용 하도록 설정 하면 초기 백업이 실행 됩니다. 초기 백업을 즉시 시작하거나, 백업 일정에 따라 시작될 때까지 기다릴 수 있습니다.
     - 초기 백업이 완료될 때까지 **마지막 백업 상태**는 **경고(초기 백업 보류 중)** 으로 표시됩니다.
     - 예약된 다음 백업이 실행될 시기를 보려면 백업 정책 이름을 클릭합니다.
 
 
 > [!NOTE]
-> Azure Backup 서비스는 명명 형식 사용 하 여 스냅숏을 저장 하려면 (VM 리소스 그룹)을 제외한 별도 리소스 그룹을 만듭니다 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터를 Azure 가상 머신 백업 정책의 "보존 인스턴트 복구 스냅숏" 섹션에서 지정 된 대로 일 기간에 대 한 유지 됩니다. 이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
-제한 정책을 다시 백업 실패를 유발에 리소스 지점 컬렉션을 만들 차단 하는 대로도이 리소스 그룹 이름/태그 제한에서 제외 해야 합니다.
+> Azure Backup 서비스는 명명 형식 (예: **AzureBackupRG_geography_number** )을 사용 하 여 스냅숏을 저장 하기 위해 VM 리소스 그룹 이외의 별도 리소스 그룹을 만듭니다. AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 "즉시 복구 스냅숏 유지" 섹션에 지정 된 기간 (일) 동안 보존 됩니다. 이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
+또한이 리소스 그룹은 모든 이름/태그 제한에서 제외 되어야 합니다. 제한 정책에 따라 다시 백업 오류가 발생 하 여 리소스 지점 컬렉션 만들기가 차단 됩니다.
 
 
 ## <a name="run-a-backup-immediately"></a>백업 즉시 실행

@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 테이블 인덱싱 | Microsoft Azure
 description: Azure SQL Data Warehouse의 테이블 인덱싱을 사용하기 위한 권장 사항 및 예제입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851659"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479851"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 인덱싱
 
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 쿼리를 실행했으면 데이터를 확인하고 결과를 분석할 수 있습니다. 다음 표는 행 그룹 분석에서 확인할 내용에 대해 설명합니다.
 
-| 열 | 이 데이터를 사용하는 방법 |
+| Column | 이 데이터를 사용하는 방법 |
 | --- | --- |
 | [table_partition_count] |테이블이 분할되어 있으면 열려 있는 행 그룹의 숫자가 더 많을 것입니다. 이론상으로는 분산의 각 파티션에 열려 있는 행 그룹이 연결될 수 있습니다. 분석할 때 이 점을 고려해야 합니다. 분할된 작은 테이블의 경우 압축 성능이 향상되도록 파티션을 모두 제거하여 최적화할 수 있습니다. |
 | [row_count_total] |테이블에 대한 전체 행 개수입니다. 예를 들어 압축된 상태에서 행의 비율을 계산하는 데 이 값을 사용할 수 있습니다. |
@@ -210,7 +210,7 @@ SQL Data Warehouse로 유입되는 작은 부하는 지속적인 부하라고도
 
 ### <a name="too-many-partitions"></a>너무 많은 파티션
 
-클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블 파티션 수가 100 분할할 경우 테이블을 클러스터형된 columnstore 인덱스의 이점을 활용 하도록 6 십억 이상 행이 필요 (60 개의 배포판 *100 개 파티션* 1 백만 행). 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
+클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블을 100 파티션으로 분할 하는 경우 클러스터형 columnstore 인덱스 (60 배포판 *100 파티션* 100만 행)를 활용 하려면 테이블에 60억 행 이상이 필요 합니다. 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
 
 테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터형 columnstore 인덱스로 테이블을 다시 작성합니다.
 
@@ -228,7 +228,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 상위 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 
-1 단계의 사용자 (예: LoadUser) 인 더 높은 리소스 클래스를 사용 하 여 이제으로 로그인 하 고 ALTER INDEX 문을 실행 합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
+1 단계의 사용자 (예: LoadUser)로 로그인 합니다 .이 사용자는 이제 더 높은 리소스 클래스를 사용 하 고 ALTER INDEX 문을 실행 합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
 또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 전환할 필요가 없습니다.
 

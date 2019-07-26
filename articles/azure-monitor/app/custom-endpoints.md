@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor-Azure Application Insights 재정의 기본 SDK 끝점 | Microsoft Docs
-description: Azure Government와 같은 지역에 대 한 기본 Azure Application Insights SDK 끝점을 수정 합니다.
+title: Azure Monitor-Azure 애플리케이션 Insights 기본 SDK 끝점 재정의 | Microsoft Docs
+description: Azure Government와 같은 영역에 대 한 기본 Azure 애플리케이션 Insights SDK 끝점을 수정 합니다.
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
@@ -9,25 +9,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/24/2019
 ms.author: mbullwin
-ms.openlocfilehash: d086815373b84c0f2a70144a505108875fc04981
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443315"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478811"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점을 재정의 하는 application Insights
+ # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
-데이터를 보내려면 Application Insights에서 특정 지역에 기본 끝점 주소를 재정의 해야 합니다. 각 SDK에는이 문서에 설명 되어 있는 모든 다른 약간 수정 해야 합니다. 이러한 변경 내용에 대 한 자리 표시자 값을 바꾸고 샘플 코드를 조정 해야 `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, 및 `Profile_Query_Endpoint_address` 특정 지역에 대 한 실제 끝점 주소를 사용 합니다. 이 문서의 끝이이 구성이 필요한 경우 지역에 대 한 끝점 주소에 대 한 링크를 포함 합니다.
+Application Insights에서 특정 지역으로 데이터를 보내려면 기본 끝점 주소를 재정의 해야 합니다. 각 SDK에는 약간 다른 수정이 필요 하며,이에 대해서는이 문서에 설명 되어 있습니다. 이러한 변경을 수행 하려면 샘플 코드를 조정 하 고, `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address`및 `Profile_Query_Endpoint_address` 에 대 한 자리 표시자 값을 특정 지역의 실제 끝점 주소로 바꾸어야 합니다. 이 문서의 끝에는이 구성이 필요한 지역의 끝점 주소에 대 한 링크가 포함 되어 있습니다.
 
-## <a name="sdk-code-changes"></a>SDK 코드 변경 내용
+## <a name="sdk-code-changes"></a>SDK 코드 변경
 
-### <a name="net-with-applicationinsightsconfig"></a>Applicationinsights.config 사용 하 여.NET
+### <a name="net-with-applicationinsightsconfig"></a>Applicationinsights .config를 사용 하는 .NET
 
 > [!NOTE]
-> Applicationinsights.config 파일은 SDK에 업그레이드를 언제 든 지에 자동으로 덮어씁니다. SDK 업그레이드를 수행한 후 지역 특정 끝점 값을 다시 입력 해야 합니다.
+> SDK 업그레이드가 수행 될 때마다 applicationinsights .config 파일을 자동으로 덮어씁니다. SDK 업그레이드를 수행한 후에는 지역별 끝점 값을 다시 입력 해야 합니다.
 
 ```xml
 <ApplicationInsights>
@@ -51,7 +51,7 @@ ms.locfileid: "67443315"
 
 ### <a name="net-core"></a>.NET Core
 
-다음과 같이 기본 끝점을 조정 하기 위해 프로젝트에서 appsettings.json 파일을 수정 합니다.
+다음과 같이 프로젝트에서 appsettings 파일을 수정 하 여 기본 끝점을 조정 합니다.
 
 ```json
 "ApplicationInsights": {
@@ -62,7 +62,7 @@ ms.locfileid: "67443315"
   }
 ```
 
-라이브 메트릭 및 프로필 쿼리 끝점에 대 한 값은 코드를 통해만 설정할 수 있습니다. 코드를 통해 모든 끝점의 기본 값을 재정의 하려면 다음과 같이 변경에 `ConfigureServices` 메서드는 `Startup.cs` 파일:
+라이브 메트릭 및 프로필 쿼리 끝점에 대 한 값은 코드를 통해서만 설정할 수 있습니다. 코드를 통해 모든 끝점 값의 기본값을 재정의 하려면 `ConfigureServices` `Startup.cs` 파일의 메서드에서 다음과 같이 변경 합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 ### <a name="java"></a>Java
 
-기본 끝점 주소를 변경 하도록 applicationinsights.xml 파일을 수정 합니다.
+Applicationinsights .xml 파일을 수정 하 여 기본 끝점 주소를 변경 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -106,7 +106,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 ### <a name="spring-boot"></a>Spring Boot
 
-수정 된 `application.properties` 파일을 추가 합니다.
+파일을 `application.properties` 수정 하 고 다음을 추가 합니다.
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -146,23 +146,23 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-## <a name="regions-that-require-endpoint-modification"></a>끝점 수정 해야 하는 지역
+## <a name="regions-that-require-endpoint-modification"></a>끝점을 수정 해야 하는 영역
 
-현재는 끝점 수정 해야 하는 유일한 지역이 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) 하 고 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)합니다.
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
 
-|지역 |  엔드포인트 이름 | 값 |
+|Region |  끝점 이름 | 값 |
 |-----------------|:------------|:-------------|
-| Azure China | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure China | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure 중국 | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure 중국 | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure 중국 | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
 > [!NOTE]
-> 코드 없는 에이전트/확장 기반의 Azure App Services에 대 한 모니터링 **현재 지원 되지 않습니다** 이러한 지역에서. 이 기능은 사용할 수 있게 하는 즉시이 문서에서는 업데이트 됩니다.
+> Azure 앱 Services에 대 한 코드 없는 agent/extension 기반 모니터링은 현재 이러한 지역에서 **지원 되지** 않습니다. 이 기능을 사용할 수 있게 되 면이 문서가 업데이트 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Government에 대 한 사용자 지정 수정에 대 한 자세한 내용은 참조에 대 한 자세한 지침은 [Azure 모니터링 및 관리](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)합니다.
-- Azure 중국에 대 한 자세한 내용은 참조는 [Azure 중국 플레이 북](https://docs.microsoft.com/azure/china/)합니다.
+- Azure Government에 대 한 사용자 지정 수정 사항에 대해 자세히 알아보려면 [Azure 모니터링 및 관리](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)에 대 한 자세한 지침을 참조 하세요.
+- Azure 중국에 대해 자세히 알아보려면 [Azure 중국 플레이 북](https://docs.microsoft.com/azure/china/)를 참조 하세요.

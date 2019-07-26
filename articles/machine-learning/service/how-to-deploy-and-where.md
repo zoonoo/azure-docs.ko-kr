@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327045"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358827"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -140,7 +140,7 @@ Azure Machine Learning 서비스 외부에서 학습 한 모델을 사용 하는
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
-``` 
+```
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>필드 자동 Swagger 스키마 생성
 
@@ -190,6 +190,7 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
+
 def init():
     global model
     # note here "sklearn_regression_model.pkl" is the name of the model registered under
@@ -198,8 +199,10 @@ def init():
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
 output_sample = np.array([3726.995])
+
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -230,19 +233,27 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
+
 def init():
     global model
-    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # replace model_name with your actual model name, if needed
+    model_path = Model.get_model_path('model_name')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = pd.DataFrame(data=[{
-              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
-              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
-              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
-            }])
 
-output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data
+    "input_name_2": "value2",
+    # This is a integer type sample. Use the data type that reflects this column in your data
+    "input_name_3": 3
+}])
+
+# This is a integer type sample. Use the data type that reflects the expected result
+output_sample = np.array([0])
+
 
 @input_schema('data', PandasParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -268,7 +279,7 @@ def run(data):
 유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 다음 예제에서는 유추 구성을 만드는 방법을 보여 줍니다. 이 구성은 런타임, 항목 스크립트 및 conda 환경 파일 (선택 사항)을 지정 합니다.
 
 ```python
-inference_config = InferenceConfig(runtime= "python",
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
@@ -279,32 +290,9 @@ inference_config = InferenceConfig(runtime= "python",
 
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig의 CLI 예제
 
-다음 JSON 문서는 machine learning CLI에서 사용 하기 위한 유추 구성의 예제입니다.
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
 
-```JSON
-{
-   "entryScript": "x/y/score.py",
-   "runtime": "python",
-   "condaFile": "env/myenv.yml",
-   "sourceDirectory":"C:/abc",
-}
-```
-
-이 파일에서 유효한 엔터티는 다음과 같습니다.
-
-* __entryScript__: 이미지에 대해 실행할 코드를 포함 하는 로컬 파일의 경로입니다.
-* __런타임__: 이미지에 사용할 런타임입니다. 현재 지원 되는 런타임은 ' py ' 및 ' python '입니다.
-* __condaFile__ (선택 사항): 이미지에 사용할 conda 환경 정의가 포함 된 로컬 파일의 경로입니다.
-* __extraDockerFileSteps__ (선택 사항): 이미지를 설정할 때 실행할 추가 Docker 단계가 포함 된 로컬 파일의 경로입니다.
-* __Sourcedirectory__ (선택 사항): 이미지를 만들 모든 파일이 포함 된 폴더의 경로입니다.
-* __enableGpu__ (선택 사항): 이미지에서 GPU 지원을 사용할지 여부입니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning 계산, Azure Virtual Machines 및 Azure Kubernetes 서비스와 같은 Microsoft Azure 서비스에서 사용 해야 합니다. 기본값은 False입니다.
-* __Baseimage__ (선택 사항): 기본 이미지로 사용 되는 사용자 지정 이미지입니다. 기본 이미지를 지정 하지 않으면 지정 된 런타임 매개 변수를 기반으로 기본 이미지가 사용 됩니다.
-* __baseImageRegistry__ (선택 사항): 기본 이미지를 포함 하는 이미지 레지스트리
-* __Cudaversion__ (선택 사항): GPU 지원이 필요한 이미지에 대해 설치 하는 VERDA의 버전입니다. GPU 이미지는 Azure Container Instances, Azure Machine Learning 계산, Azure Virtual Machines 및 Azure Kubernetes 서비스와 같은 Microsoft Azure 서비스에서 사용 해야 합니다. 지원 되는 버전은 9.0, 9.1 및 10.0입니다. ' Enable_gpu '이 설정 된 경우 기본값은 ' 9.1 '입니다.
-
-이러한 엔터티는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스에 대 한 매개 변수에 매핑됩니다.
-
-다음 명령에서는 CLI를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
+다음 명령은 CLI를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
@@ -312,7 +300,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 이 예제에서 구성에는 다음 항목이 포함 됩니다.
 
-* 유추에 필요한 자산을 포함 하는 디렉터리입니다.
 * 이 모델에는 Python이 필요 합니다.
 * 배포 된 서비스로 전송 되는 웹 요청을 처리 하는 데 사용 되는 [항목 스크립트](#script)
 * 유추에 필요한 Python 패키지를 설명 하는 conda 파일입니다.
@@ -330,7 +317,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 | 계산 대상 | 배포 구성 예 |
 | ----- | ----- |
 | 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 다음 섹션에서는 배포 구성을 만든 다음이를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
@@ -366,21 +353,7 @@ CLI를 사용 하 여 모델을 프로 파일링 하려면 [az ml model profile]
   az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    `deploymentconfig.json` 문서의 항목은 [localwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
-
-    | JSON 엔터티 | 메서드 매개 변수 | 설명 |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 계산 대상. Local의 경우 값은 이어야 `local`합니다. |
-    | `port` | `port` | 서비스의 HTTP 끝점을 노출할 로컬 포트입니다. |
-
-    다음 JSON은 CLI에서 사용할 수 있는 배포 구성의 예입니다.
-
-    ```json
-    {
-        "computeType": "local",
-        "port": 32267
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 ### <a id="aci"></a>Azure Container Instances (DEVTEST)
 
@@ -407,38 +380,7 @@ ACI의 할당량 및 지역 가용성을 보려면 [Azure Container Instances의
     az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
     ```
 
-    `deploymentconfig.json` 문서의 항목은 [aciwebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
-
-    | JSON 엔터티 | 메서드 매개 변수 | Description |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 계산 대상. ACI의 경우 값은 이어야 `ACI`합니다. |
-    | `containerResourceRequirements` | NA | 컨테이너에 할당 된 CPU 및 메모리에 대 한 구성 요소를 포함 합니다. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | 이 웹 서비스에 할당할 CPU 코어 수입니다. 기본값과`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 이 웹 서비스에 할당할 메모리 양 (GB)입니다. 기본`0.5` |
-    | `location` | `location` | 이 웹 서비스를 배포할 Azure 지역입니다. 지정 하지 않으면 작업 영역 위치가 사용 됩니다. 사용 가능한 지역에 대 한 자세한 내용은 다음을 참조 하세요. [ACI 지역](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-    | `authEnabled` | `auth_enabled` | 이 웹 서비스에 대 한 인증을 사용할지 여부입니다. 기본값은 False입니다. |
-    | `sslEnabled` | `ssl_enabled` | 이 웹 서비스에 대해 SSL을 사용 하도록 설정할지 여부입니다. 기본값은 False입니다. |
-    | `appInsightsEnabled` | `enable_app_insights` | 이 웹 서비스에 대해 AppInsights를 사용 하도록 설정할지 여부입니다. 기본값은 False입니다. |
-    | `sslCertificate` | `ssl_cert_pem_file` | SSL을 사용 하는 경우 필요한 인증서 파일 |
-    | `sslKey` | `ssl_key_pem_file` | SSL을 사용 하는 경우 필요한 키 파일 |
-    | `cname` | `ssl_cname` | SSL을 사용 하는 경우에 대 한 cname |
-    | `dnsNameLabel` | `dns_name_label` | 점수 매기기 끝점의 dns 이름 레이블입니다. 지정 하지 않으면 점수 매기기 끝점에 대해 고유한 dns 이름 레이블이 생성 됩니다. |
-
-    다음 JSON은 CLI에서 사용할 수 있는 배포 구성의 예입니다.
-
-    ```json
-    {
-        "computeType": "aci",
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        },
-        "authEnabled": true,
-        "sslEnabled": false,
-        "appInsightsEnabled": false
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
 + **VS Code 사용**
 
@@ -476,65 +418,7 @@ AKS 클러스터가 이미 연결 되어 있는 경우에는 배포할 수 있�
   az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    `deploymentconfig.json` 문서의 항목은 [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
-
-    | JSON 엔터티 | 메서드 매개 변수 | Description |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 계산 대상. AKS의 경우이 값은 여야 `aks`합니다. |
-    | `autoScaler` | NA | 자동 크기 조정에 대 한 구성 요소를 포함 합니다. Autoscaler 표를 참조 하세요. |
-    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | 웹 서비스에 자동 크기 조정을 사용할지 여부입니다. `numReplicas`이면 이고 = , 그렇지`False`않으면입니다. `0` `True` |
-    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | 이 웹 서비스의 크기를 자동으로 조정 하는 데 사용할 최소 컨테이너 수입니다. 기본값은 `1`입니다. |
-    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | 이 웹 서비스의 자동 크기를 자동으로 조정 하는 데 사용할 최대 컨테이너 수입니다. 기본값은 `10`입니다. |
-    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Autoscaler이이 웹 서비스의 크기를 조정 하는 빈도입니다. 기본값은 `1`입니다. |
-    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Autoscaler이이 웹 서비스에 대 한 유지 관리를 시도 하는 대상 사용률 (100의 백분율)입니다. 기본값은 `70`입니다. |
-    | `dataCollection` | NA | 데이터 컬렉션에 대 한 구성 요소를 포함 합니다. |
-    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 웹 서비스에 대해 모델 데이터 수집을 사용 하도록 설정할지 여부입니다. 기본값은 `False`입니다. |
-    | `authEnabled` | `auth_enabled` | 웹 서비스에 대 한 인증을 사용할지 여부입니다. 기본값은 `True`입니다. |
-    | `containerResourceRequirements` | NA | 컨테이너에 할당 된 CPU 및 메모리에 대 한 구성 요소를 포함 합니다. |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | 이 웹 서비스에 할당할 CPU 코어 수입니다. 기본값과`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 이 웹 서비스에 할당할 메모리 양 (GB)입니다. 기본`0.5` |
-    | `appInsightsEnabled` | `enable_app_insights` | 웹 서비스에 대 한 Application Insights 로깅을 사용할지 여부입니다. 기본값은 `False`입니다. |
-    | `scoringTimeoutMs` | `scoring_timeout_ms` | 웹 서비스에 대 한 점수 매기기 호출에 적용 되는 시간 제한입니다. 기본값은 `60000`입니다. |
-    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | 이 웹 서비스에 대 한 노드당 최대 동시 요청 수입니다. 기본값은 `1`입니다. |
-    | `maxQueueWaitMs` | `max_request_wait_time` | 503 오류가 반환 되기까지 요청을 큐에 유지 하는 최대 시간 (밀리초)입니다. 기본값은 `500`입니다. |
-    | `numReplicas` | `num_replicas` | 이 웹 서비스에 할당할 컨테이너 수입니다. 기본값은 없습니다. 이 매개 변수를 설정 하지 않으면 기본적으로 autoscaler가 사용 됩니다. |
-    | `keys` | NA | 키에 대 한 구성 요소를 포함 합니다. |
-    | &emsp;&emsp;`primaryKey` | `primary_key` | 이 웹 서비스에 사용할 기본 인증 키 |
-    | &emsp;&emsp;`secondaryKey` | `secondary_key` | 이 웹 서비스에 사용할 보조 인증 키 |
-    | `gpuCores` | `gpu_cores` | 이 웹 서비스에 할당할 GPU 코어의 수입니다. 기본값은 1입니다. |
-    | `livenessProbeRequirements` | NA | 선거의 프로브 요구 사항에 대 한 구성 요소를 포함 합니다. |
-    | &emsp;&emsp;`periodSeconds` | `period_seconds` | 선거의 프로브를 수행 하는 빈도 (초)입니다. 기본값은 10 초입니다. 최소값은 1입니다. |
-    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | 컨테이너를 시작한 후 선거의 프로브를 시작 하는 시간 (초)입니다. 기본값은 310입니다. |
-    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | 선거의 프로브 시간이 초과 되는 시간 (초)입니다. 기본값은 2 초입니다. 최소값은 1입니다. |
-    | &emsp;&emsp;`successThreshold` | `success_threshold` | 선거의 프로브가 실패 한 후 성공으로 간주 되는 최소 연속 성공입니다. 기본값은 1입니다. 최소값은 1입니다. |
-    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Pod가 시작 되 고 선거의 프로브가 실패 하면 Kubernetes는 포기 하기 전에 카운터가 failurethreshold 시간을 시도 합니다. 기본값은 3입니다. 최소값은 1입니다. |
-    | `namespace` | `namespace` | 웹 서비스가 배포 되는 Kubernetes 네임 스페이스입니다. 최대 63 소문자 영숫자 (' 으로만 구성-a'-'z ', ' 0 '-' 9 ') 및 하이픈 ('-') 문자. 첫 번째 및 마지막 문자는 하이픈을 사용할 수 없습니다. |
-
-    다음 JSON은 CLI에서 사용할 수 있는 배포 구성의 예입니다.
-
-    ```json
-    {
-        "computeType": "aks",
-        "autoScaler":
-        {
-            "autoscaleEnabled": true,
-            "minReplicas": 1,
-            "maxReplicas": 3,
-            "refreshPeriodInSeconds": 1,
-            "targetUtilization": 70
-        },
-        "dataCollection":
-        {
-            "storageEnabled": true
-        },
-        "authEnabled": true,
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        }
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 + **VS Code 사용**
 
@@ -566,12 +450,12 @@ prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws,
-                                    name = aks_name,
-                                    provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 
 # Wait for the create process to complete
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 ```
 
 Azure Machine Learning SDK 외부에서 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
@@ -609,8 +493,8 @@ cluster_name = 'mycluster'
 # attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 #                                         cluster_name = cluster_name,
 #                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name)
+attach_config = AksCompute.attach_configuration(resource_group=resource_group,
+                                                cluster_name=cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
@@ -629,19 +513,20 @@ Python에서 서비스를 호출 하는 방법의 예는 다음과 같습니다.
 import requests
 import json
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
 
 print(headers)
-    
+
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+response = requests.post(
+    service.scoring_uri, data=test_sample, headers=headers)
 print(response.status_code)
 print(response.elapsed)
 print(response.json())
@@ -668,18 +553,18 @@ from azureml.core.webservice import Webservice
 from azureml.core.model import Model
 
 # register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
+new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
+                           model_name="sklearn_mnist",
+                           tags={"key": "0.1"},
+                           description="test",
+                           workspace=ws)
 
 service_name = 'myservice'
 # Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
+service = Webservice(name=service_name, workspace=ws)
 
 # Update to new model(s)
-service.update(models = [new_model])
+service.update(models=[new_model])
 print(service.state)
 print(service.get_logs())
 ```

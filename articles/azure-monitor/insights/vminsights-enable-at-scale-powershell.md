@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 또는 Resource Manager 템플릿을 사용 하 여 Vm (미리 보기)에 대 한 Azure Monitor를 사용 하도록 설정 | Microsoft Docs
-description: 이 문서에서는 하나의 Vm에 대 한 Azure Monitor을 사용 하는 방법에 대해 설명 합니다. 또는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 더 많은 Azure 가상 머신 또는 가상 머신 확장을 설정 합니다.
+title: Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용 Microsoft Docs
+description: 이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 하나 이상의 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,39 +11,39 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: magoedte
-ms.openlocfilehash: ff284ea0adf6021ace84cd6a41f0a0e4e987a9c8
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 1025041ae69f2048a6c5396aaebb50b5fa884f86
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144240"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444164"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 Resource Manager 템플릿을 사용 하 여 Vm (미리 보기)에 대 한 Azure Monitor를 사용 하도록 설정
+# <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 Azure virtual machines에 대 한 Vm (미리 보기)에 대 한 Azure Monitor를 사용 하도록 설정 하는 방법에 설명 하거나 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 가상 머신 확장 집합. 이 프로세스의 끝은 성공적으로 시작 가상 머신의 모든 모니터링 및 모든 성능 또는 가용성 문제 발생 하는 경우에 대해 알아봅니다.
+이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor (미리 보기)를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 완료 되 면 모든 가상 컴퓨터를 성공적으로 모니터링 하 고 성능 또는 가용성 문제가 발생 하 고 있는지 확인 하 게 됩니다.
 
 ## <a name="set-up-a-log-analytics-workspace"></a>Log Analytics 작업 영역 설정 
 
-Log Analytics 작업 영역에 없는 경우 새로 만들려면 해야 합니다. 제안 된 방법을 검토 합니다 [필수 구성 요소](vminsights-enable-overview.md#log-analytics) 구성 하는 단계를 진행 하기 전에 섹션입니다. 그런 다음 Azure Resource Manager 템플릿 메서드를 사용 하 여 Vm에 대 한 Azure Monitor의 배포를 완료할 수 있습니다.
+Log Analytics 작업 영역이 없는 경우 새로 만들어야 합니다. 구성 단계를 계속 하기 전에 [필수 조건](vminsights-enable-overview.md#log-analytics) 섹션에서 제안 하는 방법을 검토 합니다. 그런 다음 Azure Resource Manager 템플릿 메서드를 사용 하 여 VM용 Azure Monitor 배포를 완료할 수 있습니다.
 
 ### <a name="enable-performance-counters"></a>성능 카운터 사용하도록 설정
 
-솔루션에서 참조되는 Log Analytics 작업 영역이 솔루션에 필요한 성능 카운터를 수집하도록 구성되지 않은 경우 사용하도록 설정해야 합니다. 두 가지 방법 중 하나로 수행할 수 있습니다.
+솔루션에서 참조되는 Log Analytics 작업 영역이 솔루션에 필요한 성능 카운터를 수집하도록 구성되지 않은 경우 사용하도록 설정해야 합니다. 다음 두 가지 방법 중 하나로 수행할 수 있습니다.
 * 수동으로([Log Analytics의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/platform/data-sources-performance-counters.md)에 설명되어 있음)
-* 다운로드에서 사용할 수 있는 PowerShell 스크립트를 실행 하 여 [Azure PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
+* [Azure PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1) 에서 사용할 수 있는 PowerShell 스크립트를 다운로드 하 여 실행 합니다.
 
 ### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>ServiceMap 및 InfrastructureInsights 솔루션 설치
 이 방법은 Log Analytics 작업 영역에 솔루션 구성 요소를 사용하도록 구성을 지정하는 JSON 템플릿을 포함합니다.
 
-템플릿을 사용 하 여 리소스를 배포 하는 방법을 모 르 참조:
+템플릿을 사용 하 여 리소스를 배포 하는 방법을 모르는 경우 다음을 참조 하세요.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI를 사용 하려면 먼저를 설치 하 여 로컬로 CLI를 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 를 설치 하거나 업그레이드 Azure CLI 참조 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
@@ -121,7 +121,7 @@ Azure CLI를 사용 하려면 먼저를 설치 하 여 로컬로 CLI를 사용 �
         New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
         ```
 
-        구성 변경을 완료 하려면 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 결과 포함 하는 다음 메시지가 나타납니다.
+        구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
         ```powershell
         provisioningState       : Succeeded
@@ -135,54 +135,54 @@ Azure CLI를 사용 하려면 먼저를 설치 하 여 로컬로 CLI를 사용 �
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
         ```
 
-        구성 변경을 완료 하려면 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 결과 포함 하는 메시지가 표시 됩니다.
+        구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
         ```azurecli
         provisioningState       : Succeeded
         ```
 
-## <a name="enable-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정
-가상 머신과 가상 머신 확장 집합에 온 보 딩에 대 한 예제에서는 Azure Resource Manager 템플릿 작성 했습니다. 이러한 템플릿은 모니터링이 설정 되어 있는 새 리소스를 만들고 기존 리소스에서 모니터링을 사용 하 여 시나리오를 포함 합니다.
+## <a name="enable-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 사용
+가상 머신 및 가상 머신 확장 집합을 등록 하기 위한 예제 Azure Resource Manager 템플릿을 만들었습니다. 이러한 템플릿에는 기존 리소스에 대 한 모니터링을 사용 하도록 설정 하 고 모니터링을 사용 하는 새 리소스를 만드는 데 사용할 수 있는 시나리오가 포함 되어 있습니다.
 
 >[!NOTE]
->템플릿을 등록 상태가 될 리소스와 동일한 리소스 그룹에 배포 해야 합니다.
+>이 템플릿은 보드에서 가져올 리소스와 동일한 리소스 그룹에 배포 해야 합니다.
 
-템플릿을 사용 하 여 리소스를 배포 하는 방법을 모 르 참조:
+템플릿을 사용 하 여 리소스를 배포 하는 방법을 모르는 경우 다음을 참조 하세요.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI를 사용 하려면 먼저를 설치 하 여 로컬로 CLI를 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 를 설치 하거나 업그레이드 Azure CLI 참조 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI을 설치 하거나 업그레이드 하려면 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 ### <a name="download-templates"></a>템플릿 다운로드
 
-Azure Resource Manager 템플릿 수 있는 보관 파일 (.zip)에 제공 됩니다 [다운로드](https://aka.ms/VmInsightsARMTemplates) GitHub 리포지토리에서에서. 파일의 내용을 템플릿 및 매개 변수 파일을 사용 하 여 각 배포 시나리오를 나타내는 폴더를 포함 합니다. 실행 하기 전에 매개 변수 파일을 수정 하 고 필요한 값을 지정 합니다. 특정 요구 사항을 지원 하도록 사용자 지정 하려면 필요 하지 않은 경우에 템플릿 파일을 수정 하지 마세요. 매개 변수 파일을 수정한 후에이 문서의 뒷부분에 설명 된 다음 메서드를 사용 하 여 배포할 수 있습니다. 
+Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드할](https://aka.ms/VmInsightsARMTemplates) 수 있는 보관 파일 (.zip)로 제공 됩니다. 파일의 내용에는 템플릿 및 매개 변수 파일을 사용 하 여 각 배포 시나리오를 나타내는 폴더가 포함 됩니다. 실행 하기 전에 매개 변수 파일을 수정 하 고 필요한 값을 지정 합니다. 특정 요구 사항을 지원 하도록 사용자 지정 해야 하는 경우가 아니면 템플릿 파일을 수정 하지 마세요. 매개 변수 파일을 수정한 후에는이 문서의 뒷부분에 설명 된 다음 방법을 사용 하 여 배포할 수 있습니다. 
 
-다운로드 파일에는 다양 한 시나리오에 대 한 다음 템플릿을 포함 됩니다.
+다운로드 파일에는 다양 한 시나리오에 대 한 다음 템플릿이 포함 되어 있습니다.
 
-- **ExistingVmOnboarding** 템플릿 가상 머신이 이미 있는 경우 Vm에 대 한 Azure Monitor를 사용 합니다.
-- **NewVmOnboarding** 템플릿 가상 컴퓨터를 만들고 모니터링 하는 Vm에 대 한 Azure Monitor를 사용 하도록 설정 합니다.
-- **ExistingVmssOnboarding** 템플릿 가상 머신 확장 집합이 이미 있는 경우 Vm에 대 한 Azure Monitor를 사용 합니다.
-- **NewVmssOnboarding** 템플릿 가상 머신 확장 집합을 만들고 모니터링 하는 Vm에 대 한 Azure Monitor를 사용 하도록 설정 합니다.
-- **ConfigureWorksapce** 템플릿은 솔루션와 Linux 및 Windows 운영 체제 성능 카운터 컬렉션을 사용 하 여 Vm에 대 한 Azure Monitor를 지원 하기 위해 Log Analytics 작업 영역을 구성 합니다.
+- **Existingvmonboarding** 템플릿을 사용 하면 가상 머신이 이미 있는 경우 VM용 Azure Monitor 수 있습니다.
+- **Newvmonboarding** 템플릿은 가상 머신을 만들고 VM용 Azure Monitor 모니터링 하는 데 사용 됩니다.
+- **Existingvmssonboarding 보 딩** 템플릿을 사용 하면 가상 머신 확장 집합이 이미 있는 경우 VM용 Azure Monitor 수 있습니다.
+- **Newvmssonboarding** 템플릿은 가상 머신 확장 집합을 만들고 VM용 Azure Monitor를 모니터링 하는 데 사용 됩니다.
+- **ConfigureWorksapce** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM용 Azure Monitor을 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 >[!NOTE]
->가상 머신 확장 집합 이미 있던 업그레이드 정책 설정 되어 있으면 **수동**에 대 한 Vm에 대 한 Azure Monitor를 사용할 수 없습니다 실행 한 후 기본적으로 인스턴스를 **ExistingVmssOnboarding** Azure Resource Manager 템플릿입니다. 수동으로 인스턴스를 업그레이드 해야 합니다.
+>가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동**으로 설정 된 경우에는 **Existingvmssonboarding 보 딩** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM용 Azure Monitor 사용 되지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
 
 ### <a name="deploy-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 배포
 
-다음 단계를 사용 하면 Azure PowerShell을 사용 하 여 모니터링할 수 있습니다.
+다음 단계에서는 Azure PowerShell를 사용 하 여 모니터링을 사용 하도록 설정 합니다.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
 ```
-구성 변경을 완료 하려면 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 결과 포함 하는 다음 메시지가 나타납니다.
+구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
 ```powershell
 provisioningState       : Succeeded
 ```
 ### <a name="deploy-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
-다음 단계를 사용 하면 Azure CLI를 사용 하 여 모니터링할 수 있습니다.
+다음 단계에서는 Azure CLI를 사용 하 여 모니터링을 사용 하도록 설정 합니다.
 
 ```azurecli
 az login
@@ -198,15 +198,15 @@ provisioningState       : Succeeded
 
 ## <a name="enable-with-powershell"></a>PowerShell을 통해 사용하도록 설정
 
-Azure Monitor Vm에 대 한 여러 Vm 또는 가상 머신 확장 집합을 사용 하려면 PowerShell 스크립트를 사용 하 여 [설치 VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)합니다. Azure PowerShell 갤러리의 제품은입니다. 이 스크립트를 반복 합니다.
+여러 Vm 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하려면 PowerShell 스크립트 [Install-VMInsights.](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)p s 1을 사용 합니다. Azure PowerShell 갤러리에서 사용할 수 있습니다. 이 스크립트는 다음을 반복 합니다.
 
-- 모든 가상 머신과 가상 머신 확장 집합에서 구독 합니다.
-- 지정 된 범위가 지정 된 리소스 그룹 *ResourceGroup*합니다. 
-- 지정 된 단일 VM 또는 가상 머신 확장 집합 *이름을*입니다.
+- 구독에서 모든 가상 머신 및 가상 머신 확장 집합입니다.
+- *ResourceGroup*으로 지정 된 범위 지정 리소스 그룹입니다. 
+- *이름*으로 지정 된 단일 VM 또는 가상 머신 확장 집합입니다.
 
-각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장이 설치 되지 않은 경우 스크립트를 다시 설치 하려고 시도 합니다. VM 확장이 설치 된 경우 스크립트는 Log Analytics 및 Dependency Agent VM 확장을 설치 합니다.
+각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장을 설치 하지 않은 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 된 경우 스크립트는 Log Analytics 및 Dependency Agent VM 확장을 설치 합니다.
 
-이 스크립트에서는 Azure PowerShell 모듈 Az 버전 1.0.0 이상. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+호환성 별칭을 `Enable-AzureRM` 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 
@@ -361,9 +361,9 @@ Failed: (0)
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 컴퓨터에 대 한 모니터링이 활성화 했으므로이 정보는 Vm에 대 한 Azure Monitor를 사용 하 여 분석을 위해 사용할 수 있습니다.
+이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
  
-- 상태 기능을 사용 하는 방법에 알아보려면 참조 [Vm 상태에 대 한 Azure Monitor 뷰](vminsights-health.md)합니다. 
+- 상태 기능을 사용 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조 하세요. 
 - 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요. 
-- 병목 현상 및 VM의 성능으로 전체적인 사용률을 확인 하려면 [Azure VM 성능 보기](vminsights-performance.md)합니다. 
+- VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE Vm 성능 보기](vminsights-performance.md)를 참조 하세요. 
 - 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.

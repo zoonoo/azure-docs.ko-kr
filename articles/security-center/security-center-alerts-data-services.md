@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295830"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501476"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Azure Security Center에서 데이터 서비스에 대 한 위협 감지
 
@@ -27,12 +27,13 @@ ms.locfileid: "68295830"
 
 * [Azure SQL Database 및 SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Azure SQL Database 및 SQL Data Warehouse<a name="data-sql"></a>
 
 SQL 위협 감지는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다. Security Center SQL 감사 로그를 분석 하 고 SQL 엔진에서 기본적으로 실행 됩니다.
 
-|경고|Description|
+|알림|설명|
 |---|---|
 |**SQL 삽입에 대 한 취약성**|응용 프로그램이 데이터베이스에서 잘못 된 SQL 문을 생성 했습니다. 이는 SQL 삽입 공격에 대 한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다. 즉, 응용 프로그램 코드의 결함으로 잘못 된 SQL 문을 생성 했습니다. 또는 응용 프로그램 코드 또는 저장 프로시저는 SQL 삽입에 악용 될 수 있는 잘못 된 SQL 문을 생성할 때 사용자 입력을 삭제 하지 않았습니다.|
 |**잠재적인 SQL 삽입**|SQL 삽입에 취약 한 식별 된 응용 프로그램에 대해 활성 익스플로잇이 발생 했습니다. 즉 공격자가 취약 한 응용 프로그램 코드 또는 저장 프로시저를 사용 하 여 악성 SQL 문을 삽입 하려고 합니다.|
@@ -46,7 +47,7 @@ SQL 위협 검색 경고에 대 한 자세한 내용은[Azure SQL Database 위�
 ## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
-> Azure Storage에 대 한 Advanced Threat Protection은 현재 Blob Storage 에서만 사용할 수 있습니다. 
+> Azure Storage에 대 한 Advanced Threat Protection은 현재 Blob Storage 에서만 사용할 수 있습니다.
 
 Azure Storage를 위한 Advanced Threat Protection은 스토리지 계정에 대한 비정상적이며 잠재적으로 유해한 액세스 또는 악용 시도를 탐지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 보호 계층을 사용 하면 보안 전문가로 서는 안 되며 보안 모니터링 시스템을 관리할 필요 없이 위협을 해결할 수 있습니다.
 
@@ -54,7 +55,7 @@ Security Center는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청에
 
 > [!div class="mx-tableFixed"]
 
-|경고|Description|
+|알림|Description|
 |---|---|
 |**비정상적인 위치 액세스 변칙**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 발생 하는 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 되며 리소스가 손상 되었으며 현재 외부 RDP 끝점의 무작위 사용을 위해 사용 되 고 있음을 나타낼 수 있습니다. 이러한 유형의 활동으로 인해 외부 엔터티가 IP에 악성 플래그를 설정할 수 있습니다.|
 |**응용 프로그램 액세스 변칙**|비정상적인 응용 프로그램이이 저장소 계정에 액세스 했음을 나타냅니다. 공격자가 새 응용 프로그램을 사용 하 여 저장소 계정에 액세스 하는 것이 원인일 수 있습니다.|
@@ -70,3 +71,14 @@ Security Center는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청에
 >Azure Storage에 대 한 Advanced Threat Protection은 현재 Azure 정부 및 소 버린 클라우드 지역에서 사용할 수 없습니다.
 
 저장소에 대 한 경고에 대 한 자세한 내용은 [Azure Storage 고급 위협 방지](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) 문서를 참조 하 고 보호 경고 섹션을 검토 하세요.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+다음 경고는 Azure Cosmos DB 계정을 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도로 생성 됩니다.
+
+|알림|Description|
+|---|---|
+|**비정상적인 위치에서 액세스**|Cosmos DB 계정에 대 한 액세스 패턴이 변경 되었음을 나타냅니다. 누군가가 최근 활동에 비해 익숙하지 않은 IP 주소에서이 계정에 액세스 했습니다. 공격자가 Cosmos DB 계정에 액세스 했거나 합법적인 사용자가 새롭고 비정상적인 지리적 위치에서 Cosmos DB 계정에 액세스 했습니다. 예를 들어 원격에서 새 응용 프로그램 또는 개발자 유지 관리를 수행 합니다.|
+|**비정상적인 데이터 반출**|Cosmos DB 계정에서 데이터 추출 패턴이 변경 되었음을 나타냅니다. 누군가가 최근 활동에 비해 비정상적인 양의 데이터를 추출 했습니다. 공격자가 Cosmos DB 데이터베이스에서 많은 양의 데이터를 추출 했습니다. 예: 데이터의 데이터 전송/누출, 무단 전송 또는 합법적인 사용자 또는 응용 프로그램이 컨테이너에서 비정상적으로 많은 양의 데이터를 추출 했습니다. 예: 유지 관리 백업 작업.|
+
+자세한 내용은 [Azure Cosmos DB에 대 한 Advanced Threat Protection](../cosmos-db/cosmos-db-advanced-threat-protection.md)을 참조 하세요.

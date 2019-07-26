@@ -3,23 +3,17 @@ title: Cloud Services 및 관리 인증서 | Microsoft Docs
 description: Microsoft Azure에서 인증서를 만들고 사용하는 방법 알아보기
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: gwallace
+ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593059"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359203"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
@@ -39,7 +33,7 @@ Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비�
 서비스 인증서는 서비스와 별도로 관리할 수 있으며 다른 개인이 관리할 수도 있습니다. 예를 들어 개발자는 IT 관리자가 이전에 Azure로 업로드한 인증서를 참조하는 서비스 패키지를 업로드할 수 있습니다. IT 관리자는 새 서비스 패키지를 업로드할 필요 없이 서비스 구성을 변경하는 해당 인증서를 관리하고 갱신할 수 있습니다. 새 서비스 패키지 없이 업데이트가 가능한 이유는 인증서의 논리적 이름과 저장소 이름 및 위치는 서비스 정의 파일에 있고 인증서 지문은 서비스 구성 파일에 지정되어 있기 때문입니다. 인증서를 업데이트하려면 새 인증서를 업로드하고 서비스 구성 파일의 지문 값을 변경하기만 하면 됩니다.
 
 >[!Note]
->합니다 [Cloud Services FAQ-구성 및 관리](cloud-services-configuration-and-management-faq.md) 문서에 인증서에 대 한 몇 가지 유용한 정보가 있습니다.
+>[CLOUD SERVICES FAQ-구성 및 관리](cloud-services-configuration-and-management-faq.md) 문서에는 인증서에 대 한 몇 가지 유용한 정보가 있습니다.
 
 ## <a name="what-are-management-certificates"></a>관리 인증서란 무엇인가요?
 관리 인증서를 사용하면 클래식 배포 모델로 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 클라우드 서비스와는 실제로 관련이 없습니다. 

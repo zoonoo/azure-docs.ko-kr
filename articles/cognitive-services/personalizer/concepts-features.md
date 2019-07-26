@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253595"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423278"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -34,8 +34,8 @@ Personalizer는 작업 및 컨텍스트에 대해 전송할 수 있는 기능을
 * 일부 작업을 일부 작업에 대해 보내고 다른 작업에 대해서는 보내지 않을 수 있습니다(없는 경우). 예를 들어 TV 시리즈에는 동영상에 없는 특성이 있을 수 있습니다.
 * 일부 기능은 일부 시간에만 사용 가능할 수 있습니다. 예를 들어 모바일 애플리케이션은 웹 페이지보다 더 많은 기능을 제공할 수 있습니다. 
 * 시간이 경과함에 따라 컨텍스트 및 작업에 관한 기능을 추가 및 제거할 수 있습니다. Personalizer는 사용 가능한 정보에서 학습을 계속합니다.
-* 컨텍스트에 대해 적어도 한 개의 기능이 있어야 합니다. Personalizer는 비어 있는 컨텍스트를 지원하지 않습니다. 언제나 고정된 컨텍스트만 보내는 경우 Personalizer는 작업의 기능에 관한 순위에 대해서만 작업을 선택합니다. 
-* Personalizer는 언제든지 모든 사람에게 가장 적합한 작업을 선택하려고 합니다.
+* 컨텍스트에 대해 적어도 한 개의 기능이 있어야 합니다. Personalizer는 비어 있는 컨텍스트를 지원하지 않습니다. 언제나 고정된 컨텍스트만 보내는 경우 Personalizer는 작업의 기능에 관한 순위에 대해서만 작업을 선택합니다.
+* 범주 기능의 경우에는 가능한 값을 정의할 필요가 없으며 숫자 값의 범위를 미리 정의할 필요가 없습니다.
 
 ## <a name="supported-feature-types"></a>지원되는 기능 형식
 
@@ -133,7 +133,7 @@ AI 및 즉시 실행할 수 있는 Cognitive Services는 Personalizer에 매우 
 
 AI 서비스를 사용하여 항목을 미리 처리하면 맞춤화에 유용할 가능성이 있는 정보를 자동으로 추출할 수 있습니다.
 
-예:
+예를 들어:
 
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)를 통해 동영상 파일을 실행하여 장면 요소, 텍스트, 감정 및 기타 많은 특성을 추출할 수 있습니다. 그런 다음, 원본 항목 메타데이터에 없었던 특성을 반영하도록 해당 특성을 더 정교하게 만들 수 있습니다. 
 * 개체 감지를 통해 이미지를 반영하고 감정을 통해 얼굴을 반영할 수 있는 식입니다.
@@ -168,7 +168,7 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 다음은 몇 가지 예입니다.
 
-|용도|Action|
+|용도|작업|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트에 대한 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|

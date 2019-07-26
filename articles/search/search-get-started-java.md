@@ -1,6 +1,6 @@
 ---
-title: 'Java 빠른 시작: 만들기, 로드 및 Azure Search REST Api-Azure Search를 사용 하 여 인덱스를 쿼리 합니다.'
-description: 인덱스를 만들고, 데이터를 로드, Java 및 Azure Search REST Api를 사용 하 여 쿼리를 실행 하는 방법을 설명 합니다.
+title: '빠른 시작: Java에서 Azure Search 인덱스 만들기'
+description: Java 및 Azure Search REST Api를 사용 하 여 인덱스를 만들고, 데이터를 로드 하 고, 쿼리를 실행 하는 방법을 설명 합니다.
 services: search
 author: jj09
 manager: jlembicz
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450096"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489779"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>빠른 시작: Java에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "67450096"
 ## <a name="about-the-data"></a>데이터 정보
 이 샘플 애플리케이션에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 애플리케이션을 빌드합니다.
 
-이 응용 프로그램에는 **SearchServlet.java** 프로그램 빌드 및 사용 하 여 인덱스를 로드는 [인덱서](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문, Azure SQL Database에서 필터링 된 USGS 데이터 집합을 검색 합니다. 온라인 데이터 원본에 대한 미리 정의된 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 데이터 액세스 측면에서 추가 구성은 필요하지 않습니다.
+이 응용 프로그램에서 **Searchservlet. java** 프로그램은 Azure SQL Database에서 필터링 된 USGS 데이터 집합을 검색 하 여 [인덱서](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용 하 여 인덱스를 작성 하 고 로드 합니다. 온라인 데이터 원본에 대한 미리 정의된 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 데이터 액세스 측면에서 추가 구성은 필요하지 않습니다.
 
 > [!NOTE]
 > 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 세트에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않으며 이 코드를 수정하여 더 큰 데이터 세트를 사용할 수 있습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
@@ -51,20 +51,20 @@ ms.locfileid: "67450096"
 * SearchServiceClient.java: HTTP 요청을 처리합니다.
 * SearchServiceHelper.java: 정적 메서드를 제공하는 도우미 클래스입니다.
 * Document.java: 데이터 모델을 제공합니다.
-* config.properties: 검색 서비스 URL을 설정 하 고 `api-key`
+* config.properties: 검색 서비스 URL을 설정 합니다.`api-key`
 * pom.xml: Maven 종속성입니다.
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>서비스 이름을 찾지 및 `api-key` Azure Search 서비스
-Azure Search에 대 한 모든 REST API 호출 서비스 URL을 제공 해야 및 `api-key`합니다. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>서비스 이름 및 `api-key` Azure Search 서비스를 찾습니다.
+Azure Search에 대 한 모든 REST API 호출은 서비스 URL 및 `api-key`를 제공 해야 합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 점프 모음에서 **Search 서비스**를 클릭하여 구독에 프로비전된 Azure Search 서비스를 모두 나열합니다.
 3. 사용하려는 서비스를 선택합니다.
 4. 서비스 대시보드에 필수 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
    
-      ![][3]
+      ![서비스 대시보드에서 관리 키에 액세스 하는 방법을 보여 주는 스크린샷][3]
 5. 서비스 URL 및 관리 키를 복사합니다. 나중에 **config.properties** 파일에 추가할 때 필요합니다.
 
 ## <a name="download-the-sample-files"></a>샘플 파일 다운로드
@@ -77,32 +77,32 @@ Azure Search에 대 한 모든 REST API 호출 서비스 URL을 제공 해야 �
 ## <a name="import-project"></a>프로젝트 가져오기
 1. Eclipse에서 **File** > **Import** > **General** > **Existing Projects into Workspace**를 선택합니다.
    
-    ![][4]
+    ![기존 프로젝트를 가져오는 방법을 보여 주는 스크린샷][4]
 2. **Select root directory**에서 샘플 파일이 들어 있는 폴더를 찾습니다. .project 폴더가 포함된 폴더를 선택합니다. **Projects** 목록에 선택한 항목으로 프로젝트가 표시됩니다.
    
-    ![][12]
-3. **Finish**를 클릭합니다.
+    ![프로젝트 가져오기 창의 프로젝트 목록을 보여 주는 스크린샷][12]
+3. **마침**을 클릭합니다.
 4. **Project Explorer** 를 사용하여 파일을 보고 편집합니다. 아직 열지 않은 경우 **Window** > **Show View** > **Project Explorer**를 클릭하거나 바로 가기를 사용하여 엽니다.
 
-## <a name="configure-the-service-url-and-api-key"></a>서비스 URL을 구성 하 고 `api-key`
-1. **프로젝트 탐색기**를 두 번 클릭 **config.properties** 서버 이름이 포함 된 구성 설정을 편집 하 고 `api-key`.
-2. 서비스 URL을 확인할 수 있었던이 문서의 앞부분에서 단계를 참조 및 `api-key` 에 [Azure portal](https://portal.azure.com)에 입력할 값을 가져오려면 **config.properties**합니다.
-3. **config.properties**, "API 키"로 대체 합니다 `api-key` 서비스에 대 한 합니다. 다음으로 서비스 이름(URL https://servicename.search.windows.net) 의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
+## <a name="configure-the-service-url-and-api-key"></a>서비스 URL을 구성 합니다.`api-key`
+1. **프로젝트 탐색기**에서 구성 **. 속성** 을 두 번 클릭 하 여 서버 이름 및 `api-key`를 포함 하는 구성 설정을 편집 합니다.
+2. 이 문서의 앞 부분에서 서비스 URL 및 `api-key` [Azure Portal](https://portal.azure.com)에 있는 단계를 참조 하 여 이제 **config. 속성**에 입력 하는 값을 가져옵니다.
+3. **구성 속성**에서 "API 키"를 서비스 `api-key` 의로 바꿉니다. 다음으로 서비스 이름(URL https://servicename.search.windows.net) 의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
    
-    ![][5]
+    ![API 키를 바꾸는 방법을 보여 주는 스크린샷][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>프로젝트, 빌드 및 런타임 환경 구성
 1. Eclipse의 Project Explorer에서 프로젝트 > **Properties** > **Project Facets**를 마우스 오른쪽 단추로 클릭합니다.
 2. **Dynamic Web Module**, **Java** 및 **JavaScript**를 선택합니다.
    
-    ![][6]
+    ![프로젝트에 대 한 프로젝트 패싯을 선택 하는 방법을 보여 주는 스크린샷][6]
 3. **적용**을 클릭합니다.
 4. **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..** 를 선택합니다.
 5. Apache를 확장하고 이전에 설치한 Apache Tomcat 서버의 버전을 선택합니다. 예제 시스템에는 버전 8이 설치되어 있습니다.
    
-    ![][7]
+    ![런타임 환경 창에서 Apache Tomcat의 버전을 선택할 수 있는 위치를 보여 주는 스크린샷][7]
 6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\Program Files\Apache Software Foundation\Tomcat *버전*입니다.
-7. **Finish**를 클릭합니다.
+7. **마침**을 클릭합니다.
 8. **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**를 선택합니다.
 9. **Add JRE**에서 **Standard VM**을 선택합니다.
 10. **다음**을 클릭합니다.
@@ -110,17 +110,17 @@ Azure Search에 대 한 모든 REST API 호출 서비스 URL을 제공 해야 �
 12. **Program Files** > **Java**로 이동하여 이전에 설치한 JDK를 선택합니다. JDK를 JRE로 선택해야 합니다.
 13. Installed JREs에서 **JDK**를 선택합니다. 설정은 다음 스크린샷과 유사해야 합니다.
     
-    ![][9]
+    ![설치 된 JRE로 JDK를 선택 하는 방법을 보여 주는 스크린샷][9]
 14. 필요에 따라 **Window** > **Web Browser** > **Internet Explorer**를 선택하여 외부 브라우저 창에서 애플리케이션을 엽니다. 외부 브라우저를 사용하면 웹 애플리케이션 환경이 향상됩니다.
     
-    ![][8]
+    ![Internet Explorer를 외부 탐색 창으로 선택 하는 방법을 보여 주는 스크린샷][8]
 
 이제 구성 작업을 완료했습니다. 다음으로, 프로젝트를 빌드 및 실행합니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 1. Project Explorer에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **Run As** > **Maven build...** 를 선택하여 프로젝트를 구성합니다.
    
-    ![][10]
+    ![프로젝트 탐색기 창에서 Maven 빌드를 선택 하는 방법을 보여 주는 스크린샷][10]
 2. Edit Configuration에서 Goals에 "clean install"을 입력하고 **Run**을 클릭합니다.
 
 콘솔 창에 상태 메시지가 출력됩니다. 오류 없이 빌드에 성공했음을 나타내는 BUILD SUCCESS가 표시되어야 합니다.
@@ -147,7 +147,7 @@ USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되
 
 검색 용어를 입력하면 검색 엔진이 실행됩니다. 지역 이름을 입력해 봅니다. “Roger Williams”는 Rhode Island의 최초 주지사였습니다. 유명한 공원, 빌딩 및 학교가 그의 이름을 따라 이름을 지었습니다.
 
-![][11]
+![USGS 데이터를 검색 하는 방법을 보여 주는 스크린샷][11]
 
 다음과 같은 용어를 입력해 볼 수도 있습니다.
 

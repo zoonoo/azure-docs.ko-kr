@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a0da8b932d2efe88391991286ede2858440e4465
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 1cc2849ffe55fff737993140a1d0f18182820eff
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232637"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498577"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "68232637"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워크 옵션 및 고려 사항에 대 한 자세한 내용은 [Kubernetes 및 AKS의 네트워크 개념][aks-network-concepts]을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -106,7 +106,7 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 
 **Kubernetes DNS 서비스 IP 주소**:  클러스터의 DNS 서비스에 대한 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다. .1과 같은 주소 범위의 첫 번째 IP 주소를 사용하지 마세요. 서브넷 범위의 첫 번째 주소는 *kubernetes.default.svc.cluster.local* 주소에 사용됩니다.
 
-**Docker 브리지 주소**: Docker 브리지에 할당할 IP 주소 및 넷마스크입니다. AKS 노드는 Docker 브리지를 통해 기본 관리 플랫폼과 통신할 수 있습니다. 이 IP 주소는 클러스터의 가상 네트워크 IP 주소 범위 내에 속하지 않아야 하고 네트워크에서 사용 중인 다른 주소 범위와 겹쳐서는 안 됩니다.
+**Docker 브리지 주소**: Docker 브리지 네트워크 주소는 모든 Docker 설치에 있는 기본 *docker0* 브리지 네트워크 주소를 나타냅니다. *Docker0* BRIDGE는 AKS 클러스터 또는 pod 자체에서 사용 되지 않지만 AKS 클러스터 내에서 *docker 빌드와* 같은 시나리오를 계속 지원 하려면이 주소를 설정 해야 합니다. 달리 Docker는 다른 CIDRs와 충돌할 수 있는 서브넷을 자동으로 선택 하기 때문에 Docker 브리지 네트워크 주소에 대 한 CIDR을 선택 해야 합니다. 클러스터의 서비스 CIDR 및 pod CIDR을 포함 하 여 네트워크에서 CIDRs의 나머지 부분과 충돌 하지 않는 주소 공간을 선택 해야 합니다.
 
 ## <a name="configure-networking---cli"></a>네트워킹 구성 - CLI
 
@@ -186,7 +186,7 @@ AKS의 네트워킹에 대한 자세한 내용은 다음 문서를 참조하세�
 
 [AKS 엔진 (Azure Kubernetes Service Engine)][aks-engine] 은 Azure에서 Kubernetes 클러스터를 배포 하는 데 사용할 수 있는 Azure Resource Manager 템플릿을 생성 하는 오픈 소스 프로젝트입니다.
 
-AKS 엔진을 사용 하 여 만든 Kubernetes 클러스터는 [kubenet][kubenet] and [Azure CNI][cni-networking] 플러그 인을 모두 지원 합니다. 따라서 AKS 엔진은 두 네트워킹 시나리오를 모두 지원합니다.
+AKS 엔진을 사용 하 여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 및 [Azure cni][cni-networking] 플러그 인을 모두 지원 합니다. 따라서 AKS 엔진은 두 네트워킹 시나리오를 모두 지원합니다.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png

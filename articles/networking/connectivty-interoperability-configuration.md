@@ -10,24 +10,24 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 2ceb4aeac55bd555a41c29bd41b00c771490e5f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425757"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335933"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
 
-이 문서에서는 [테스트 설정][Setup]의 구성 세부 정보를 설명합니다. 테스트 설정은 Azure 네트워킹 서비스가 제어 평면 수준 및 데이터 평면 수준에서 상호 운용하는 방법을 분석하도록 도와줍니다.
+이 문서에서는 [테스트 설정][Setup]에 대 한 구성 세부 정보를 설명 합니다. 테스트 설정은 Azure 네트워킹 서비스가 제어 평면 수준 및 데이터 평면 수준에서 상호 운용하는 방법을 분석하도록 도와줍니다.
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>VNet 피어링을 사용하여 스포크 VNet 연결
 
-다음 그림은 스포크 VNet(가상 네트워크)의 Azure Virtual Network 피어링 세부 정보를 보여줍니다. 두 개의 VNet 간에 피어링을 설정하는 방법을 알아보려면 [VNet 피어링 관리][VNet-Config]를 참조하세요. 스포크 VNet이 허브 VNet에 연결된 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용**을 선택합니다.
+다음 그림은 스포크 VNet(가상 네트워크)의 Azure Virtual Network 피어링 세부 정보를 보여줍니다. 두 Vnet 간에 피어 링을 설정 하는 방법에 대 한 자세한 내용은 [VNet 피어 링 관리][VNet-Config]를 참조 하세요. 스포크 VNet이 허브 VNet에 연결된 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용**을 선택합니다.
 
 [![1]][1]
 
-다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 스포크 VNet이 허브 VNet 게이트웨이를 사용하도록 하려면 **원격 게이트웨이 사용**을 선택합니다.
+다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 허브 게이트웨이를 사용 하도록 스포크 VNet을 허용 하려면 **게이트웨이 전송 허용**을 선택 합니다.
 
 [![2]][2]
 
@@ -166,7 +166,7 @@ ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다�
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>ExpressRoute를 통한 사이트 간 VPN
 
-ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. ExpressRoute Microsoft 피어링을 사용하여 터널 모드에서 사이트 간 IPsec VPN을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute Microsoft 피어링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조하세요. 
+ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. Express 경로 Microsoft 피어 링을 사용 하 여 터널 모드에서 사이트 간 IPsec VPN을 구성 하는 방법에 대 한 자세한 내용은 [express 경로 microsoft 피어 링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조 하세요. 
 
 Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 프라이빗 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
 
@@ -174,13 +174,13 @@ Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 �
 
 ExpressRoute는 고가용성을 보장하기 위해 중복 회로 쌍으로 제공됩니다. 다른 Azure 지역에서 지역 중복 ExpressRoute 연결을 구성할 수 있습니다. 또한 테스트 설정에서 설명한 것처럼, Azure 지역 내에서 ExpressRoute 연결에 대한 장애 조치(failover) 경로를 만드는 데 사이트 간 VPN을 사용할 수 있습니다. ExpressRoute 및 사이트 간 VPN을 통해 동일한 접두사를 보급하는 경우 Azure는 ExpressRoute를 우선 순위로 지정합니다. ExpressRoute와 사이트 간 VPN 간의 비대칭 라우팅을 방지하기 위해 온-프레미스 네트워크 구성도 사이트 간 VPN 연결을 사용하기 전에 ExpressRoute 연결을 사용하여 교환해야 합니다.
 
-ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute 및 사이트 간 공존][ExR-S2S-CoEx]을 참조하세요.
+Express 경로 및 사이트 간 VPN에 대 한 공존할 수 있는 연결을 구성 하는 방법에 대 한 자세한 내용은 [express 경로 및 사이트 간 공존][ExR-S2S-CoEx]을 참조 하십시오.
 
 ## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>백 엔드 연결을 스포크 VNet 및 분기 위치로 확장
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>VNet 피어링을 사용하여 스포크 VNet 연결
 
-허브와 스포크 VNet 아키텍처는 널리 사용됩니다. 허브는 스포크 VNet 간 및 온-프레미스 네트워크에 대해 중앙 연결 지점 역할을 하는 Azure의 VNet입니다. 스포크는 허브와 피어링하는 VNet이며 워크로드를 격리하는 데 사용할 수 있습니다. 트래픽은 ExpressRoute 또는 VPN 연결을 통해 온-프레미스 데이터 센터와 허브 사이를 흐릅니다. 아키텍처에 대한 자세한 내용은 [Azure에서 허브-스포크 네트워크 토폴로지 구현][Hub-n-Spoke]을 참조하세요.
+허브와 스포크 VNet 아키텍처는 널리 사용됩니다. 허브는 스포크 VNet 간 및 온-프레미스 네트워크에 대해 중앙 연결 지점 역할을 하는 Azure의 VNet입니다. 스포크는 허브와 피어링하는 VNet이며 워크로드를 격리하는 데 사용할 수 있습니다. 트래픽은 ExpressRoute 또는 VPN 연결을 통해 온-프레미스 데이터 센터와 허브 사이를 흐릅니다. 아키텍처에 대 한 자세한 내용은 [Azure에서 허브-스포크 네트워크 토폴로지 구현][Hub-n-Spoke]을 참조 하세요.
 
 지역 내의 VNet 피어링에서 스포크 VNet은 허브 VNet 게이트웨이(VPN과 ExpressRoute 게이트웨이 모두)를 사용하여 원격 네트워크와 통신할 수 있습니다.
 
@@ -188,15 +188,15 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 서로 다른 지역에 있는 분기 VNet 및 온-프레미스 네트워크를 허브 VNet을 통해 서로 통신하도록 할 수 있습니다. 이 구성에 대한 네이티브 Azure 솔루션은 VPN을 사용하는 사이트 간 VPN 연결입니다. 대안은 허브의 라우팅에 대해 NVA(네트워크 가상 어플라이언스)를 사용하는 것입니다.
 
-자세한 내용은 [VPN Gateway란?][VPN] 및 [고가용성 NVA 배포][Deploy-NVA]를 참조하세요.
+자세한 내용은 [VPN Gateway 란?][VPN] 을 참조 하세요. and [Deploy a highly available NVA][Deploy-NVA].
 
 ## <a name="next-steps"></a>다음 단계
 
-테스트 설정의 [제어 평면 분석][Control-Analysis] 및 토폴로지에서 다른 VNet 또는 VLAN의 보기에 대해 알아봅니다.
+토폴로지의 다양 한 Vnet 또는 Vlan에 대 한 테스트 설정 및 보기의 [제어 평면 분석][Control-Analysis] 에 대해 알아봅니다.
 
-테스트 설정의 [제어 평면 분석][Data-Analysis] 및 Azure 네트워크 모니터링 기능 보기에 대해 알아봅니다.
+테스트 설정 및 Azure 네트워크 모니터링 기능 보기의 [데이터 평면 분석][Data-Analysis] 에 대해 알아봅니다.
 
-다음에 대해 [ExpressRoute FAQ][ExR-FAQ]를 참조하세요.
+Express 경로 [FAQ][ExR-FAQ] 를 참조 하십시오.
 -   ExpressRoute 게이트웨이에 연결할 수 있는 ExpressRoute 회로 개수를 알아봅니다.
 -   ExpressRoute 회로에 연결할 수 있는 ExpressRoute 게이트웨이 개수를 알아봅니다.
 -   ExpressRoute의 다른 크기 조정 제한 사항에 대해 알아봅니다.

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 7/12/2019
+ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5a2ec72f835b720e0c760069b58ef8f092aedcb2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: de0482f49e919d0cbb500e9ee8b27ccf8287fb99
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875841"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489561"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,6 +25,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | Status |
 |----|----------------------|--------------|------------------|
+| 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019 년 7 월 24 일 | 지원 됨- [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | 7 월 2019 업데이트 롤업- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019 년 7 월 12 일 | 지원 됨- [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | 지원됨 |
 | 6 월 2019 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨 |
@@ -41,10 +42,18 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 2018년 9월 업데이트 롤업 | 3.3.0.0 | 2018년 9월 24일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 2018년 8월 업데이트 롤업 | 3.2.0.0 | 2018년 8월 15일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
 | 일반 공급 | 3.1.0.0 | 2018년 7월 19일 | 지원됨 - 에이전트 버전은 2019년 7월 19일에 만료됩니다. |
-| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
+| 만료된 에이전트 | 1.1.0.0 - 3.0.13.0 | 해당 사항 없음 | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-7200"></a>에이전트 버전 7.2.0.0
+다음 릴리스 정보는 2019 년 7 월 24 일에 릴리스된 Azure File Sync 에이전트의 버전 7.2.0.0에 대 한 것입니다. 이러한 메모는 버전 7.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- 프록시 구성이 null 인 경우 저장소 동기화 에이전트 (Filedataservice Csvc)가 충돌 합니다.
+- 서버 끝점은 서버에서 여러 끝점의 이름이 같은 경우 BCDR를 시작 합니다 (오류 0x80c80257-ECS_E_BCDR_IN_PROGRESS).
+- 클라우드 계층화 안정성 향상.
 
 ## <a name="agent-version-7100"></a>에이전트 버전 7.1.0.0
 다음 릴리스 정보는 2019 년 7 월 12 일에 릴리스된 Azure File Sync 에이전트의 버전 7.1.0.0에 대 한 것입니다. 이러한 메모는 버전 7.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.

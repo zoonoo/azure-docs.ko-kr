@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312179"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489009"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -21,7 +21,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 Apache Hive batch 작�
 Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는 플랫폼에 Spark & Hive 도구를 설치할 수 있습니다. 아래에서 다양한 플랫폼에 대한 필수 조건을 찾을 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
@@ -83,9 +83,9 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 ## <a name="link-a-cluster"></a>클러스터 연결
 
-### <a name="link-azure-hdinsight"></a>링크나 Azure HDInsight
+### <a name="link-azure-hdinsight"></a>링크: Azure HDInsight
 
-[Apache Ambari](https://ambari.apache.org/) 관리형 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
+[Apache Ambari](https://ambari.apache.org/) 관리형 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 Spark/Hive를 **입력 합니다. Link a Cluster**를 입력합니다.
 
@@ -109,7 +109,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호가 사용됩니다.  
 
 
-### <a name="link-generic-livy-endpoint"></a>링크나 일반 Livy 엔드포인트
+### <a name="link-generic-livy-endpoint"></a>링크: 일반 Livy 엔드포인트
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 Spark/Hive를 **입력 합니다. Link a Cluster**를 입력합니다.
 

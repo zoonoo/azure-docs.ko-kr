@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4049f76fdbe4745f3c75c74bc49d8fecc43fb2cf
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952040"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347696"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
 **명명된 엔터티 인식** 기술은 텍스트에서 명명된 엔터티를 추출합니다. 사용 가능한 엔터티는 `person`, `location` 및 `organization` 형식을 포함합니다.
 
 > [!IMPORTANT]
-> 명명 된 엔터티 인식 기술은 이제 사용 되지 않습니다. 바뀝니다 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)합니다. 2019 년 2 월 15 일에 지원이 중지 하 고 API는 2019 년 5 월 2 일에 제품에서 제거 되었습니다. 권장 사항을 따르십시오 [cognitive search 기술 사용 되지 않는](cognitive-search-skill-deprecated.md) 지원 되는 기술으로 마이그레이션하려 합니다.
+> 명명 된 엔터티 인식 기술은 이제 [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)로 대체 되었습니다. 2019 년 2 월 15 일에 중지 된 지원은 2019 년 5 월 2 일에 제품에서 제거 되었습니다. 지원 [되지 않는 인식 검색 기술](cognitive-search-skill-deprecated.md) 의 권장 사항에 따라 지원 되는 기술로 마이그레이션합니다.
 
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "65952040"
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5만 자 여야 합니다. 핵심 구문 추출기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md) 사용을 고려합니다.
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -43,20 +43,20 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| 범주    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`입니다. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
+| categories    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`입니다. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 |defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 다음 언어 `de, en, es, fr, it`가 지원됩니다.|
 | minimumPrecision  | 0에서 1 사이의 숫자입니다. 전체 자릿수가 이 값보다 낮은 경우 엔터티가 반환되지 않습니다. 기본값은 0입니다.|
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 이름 입력      | 설명                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
 | text          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름     | 설명                   |
+| 출력 이름     | Description                   |
 |---------------|-------------------------------|
 | persons      | 각 문자열이 사람 이름을 나타내는 경우 문자열 배열입니다. |
 | locations  | 각 문자열이 위치를 나타내는 경우 문자열 배열입니다. |
@@ -156,7 +156,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 ## <a name="error-cases"></a>오류 사례
 문서에 대한 언어 코드가 지원되지 않는 경우 오류가 반환되고 엔터티가 추출되지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

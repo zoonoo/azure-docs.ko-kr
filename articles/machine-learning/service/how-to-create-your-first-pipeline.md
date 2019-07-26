@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1e45f89cd557281399c86ae75898d99e0d4d381
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 57047069e196ab887824311374719cf2b210fe1d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327001"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361036"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -62,9 +62,9 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ```python
 # Default datastore (Azure blob storage)
-def_data_store = ws.get_default_datastore() 
+def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this 
+# The above call is equivalent to this
 def_data_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
@@ -76,7 +76,7 @@ def_file_store = Datastore(ws, "workspacefileblobstore")
 ```python
 def_blob_store.upload_files(
     ["./data/20news.pkl"],
-    target_path="20newsgroups", 
+    target_path="20newsgroups",
     overwrite=True)
 ```
 
@@ -113,7 +113,7 @@ Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__�
 
 * Azure Machine Learning 컴퓨팅
 * Azure Databricks 
-* Azure 데이터 레이크 분석
+* Azure Data Lake Analytics
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 
@@ -130,17 +130,19 @@ if compute_name in ws.compute_targets:
         print('Found compute target: ' + compute_name)
 else:
     print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # STANDARD_NC6 is GPU-enabled
-                                                                min_nodes = 0, 
-                                                                max_nodes = 4)
-     # create the compute target
-    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # Can poll for a minimum number of nodes and for a specific timeout. 
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size=vm_size,  # STANDARD_NC6 is GPU-enabled
+                                                                min_nodes=0,
+                                                                max_nodes=4)
+    # create the compute target
+    compute_target = ComputeTarget.create(
+        ws, compute_name, provisioning_config)
+
+    # Can poll for a minimum number of nodes and for a specific timeout.
     # If no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current cluster status, use the 'status' property    
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=20)
+
+    # For a more detailed view of current cluster status, use the 'status' property
     print(compute_target.status.serialize())
 ```
 
@@ -163,13 +165,18 @@ import os
 from azureml.core.compute import ComputeTarget, DatabricksCompute
 from azureml.exceptions import ComputeTargetException
 
-databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
-databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
-databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+databricks_compute_name = os.environ.get(
+    "AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get(
+    "AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get(
+    "AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get(
+    "AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
-    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    databricks_compute = ComputeTarget(
+        workspace=ws, name=databricks_compute_name)
     print('Compute target already exists')
 except ComputeTargetException:
     print('compute not found')
@@ -178,15 +185,15 @@ except ComputeTargetException:
     print('databricks_access_token {}'.format(databricks_access_token))
 
     # Create attach config
-    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
-                                                           workspace_name = databricks_workspace_name,
-                                                           access_token = databricks_access_token)
+    attach_config = DatabricksCompute.attach_configuration(resource_group=databricks_resource_group,
+                                                           workspace_name=databricks_workspace_name,
+                                                           access_token=databricks_access_token)
     databricks_compute = ComputeTarget.attach(
-             ws,
-             databricks_compute_name,
-             attach_config
-         )
-    
+        ws,
+        databricks_compute_name,
+        attach_config
+    )
+
     databricks_compute.wait_for_completion(True)
 ```
 
@@ -212,9 +219,12 @@ from azureml.core.compute import ComputeTarget, AdlaCompute
 from azureml.exceptions import ComputeTargetException
 
 
-adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
-adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+adla_compute_name = os.environ.get(
+    "AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get(
+    "AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get(
+    "AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -225,15 +235,15 @@ except ComputeTargetException:
     print('adla_resource_id {}'.format(adla_resource_group))
     print('adla_account_name {}'.format(adla_account_name))
     # create attach config
-    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
-                                                     account_name = adla_account_name)
+    attach_config = AdlaCompute.attach_configuration(resource_group=adla_resource_group,
+                                                     account_name=adla_account_name)
     # Attach ADLA
     adla_compute = ComputeTarget.attach(
-             ws,
-             adla_compute_name,
-             attach_config
-         )
-    
+        ws,
+        adla_compute_name,
+        attach_config
+    )
+
     adla_compute.wait_for_completion(True)
 ```
 
@@ -366,10 +376,10 @@ pipeline_run1.wait_for_completion()
 이전 파이프라인의 실행을 호출하려면 [AzureCliAuthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)에 설명된 대로 Azure Active Directory 인증 헤더 토큰이 필요합니다. [Azure Machine Learning에서 인증](https://aka.ms/pl-restep-auth) 노트북에서 자세한 내용을 알아보세요.
 
 ```python
-response = requests.post(published_pipeline1.endpoint, 
-    headers=aad_token, 
-    json={"ExperimentName": "My_Pipeline",
-        "ParameterAssignments": {"pipeline_arg": 20}})
+response = requests.post(published_pipeline1.endpoint,
+                         headers=aad_token,
+                         json={"ExperimentName": "My_Pipeline",
+                               "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
 ## <a name="view-results"></a>결과 보기
@@ -392,12 +402,12 @@ response = requests.post(published_pipeline1.endpoint,
 기본적 `allow-reuse` 으로 단계를 사용 하 고 주 스크립트 파일만 해시 합니다. 따라서 지정 된 단계의 스크립트가 동일 (`script_name`, 입력 및 매개 변수) 상태로 유지 되는 경우 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다. .  
 
 ```python
-step = PythonScriptStep(name="Hello World", 
-                        script_name="hello_world.py",  
-                        compute_target=aml_compute,  
-                        source_directory= source_directory, 
-                        allow_reuse=False, 
-                        hash_paths=['hello_world.ipynb']) 
+step = PythonScriptStep(name="Hello World",
+                        script_name="hello_world.py",
+                        compute_target=aml_compute,
+                        source_directory=source_directory,
+                        allow_reuse=False,
+                        hash_paths=['hello_world.ipynb'])
 ```
  
 

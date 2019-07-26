@@ -1,5 +1,5 @@
 ---
-title: Azure AD 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(공개 미리 보기)
+title: Azure AD 테 넌 트에서 앱에 대 한 클레임 사용자 지정 (공개 미리 보기)
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324997"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381058"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -46,7 +46,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 토큰에 사용되는 시기와 방법을 정의하는 특정 클레임 집합이 있습니다.
 
-| 클레임 집합 | 설명 |
+| 클레임 집합 | Description |
 |---|---|
 | 핵심 클레임 집합 | 정책에 관계없이 모든 토큰에 포함됩니다. 또한 이러한 클레임은 제한된 것으로 간주되며 수정할 수 없습니다. |
 | 기본 클레임 집합 | 핵심 클레임 집합뿐 아니라 토큰에서 기본적으로 내보내지는 클레임을 포함합니다. 클레임 매핑 정책을 사용하여 기본 클레임을 생략하거나 수정할 수 있습니다. |
@@ -179,7 +179,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| userName 이름 |
+| username 이름 |
 | uti |
 | ver |
 | verified_primary_email |
@@ -362,7 +362,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 |TransformationMethod|예상 입력|예상 출력|설명|
 |-----|-----|-----|-----|
-|Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
+|참여|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
 |ExtractMailPrefix|메일|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
 
 **InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목의 데이터를 변환에 전달합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
@@ -386,7 +386,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
-|Source|ID|Description|
+|Source|ID|설명|
 |-----|-----|-----|
 | 사용자 | 메일|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|
@@ -413,7 +413,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | TransformationMethod | Restrictions |
 | ----- | ----- |
 | ExtractMailPrefix | 없음 |
-| Join | 조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다. |
+| 참여 | 조인되는 접미사는 리소스 테넌트의 확인된 도메인이어야 합니다. |
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 

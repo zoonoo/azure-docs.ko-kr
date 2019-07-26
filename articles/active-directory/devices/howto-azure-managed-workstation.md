@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227261"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377498"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>안전 하 고 Azure로 관리 되는 워크스테이션 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "68227261"
 > [!NOTE]
 > 요구 사항에 따라 필요에 따라 프로필을 적용 합니다. Intune에서 할당 하 여 다른 프로필로 이동할 수 있습니다.
 
-| 프로필 | 낮음 | 향상된 | 높음 | 특수화 | 보안 | 격리 |
+| 프로필 | 낮음 | 향상된 | 높음 | 전문화됨 | 보안됨 | 격리 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Azure AD의 사용자 | 예 | 예 | 예 | 예 | 예 | 예 |
 | Intune 관리 | 예 | 예 | 예 | 예 | 예 | 예 |
@@ -231,12 +231,12 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 
 | 프로필 | 다운로드 위치 | Filename |
 | --- | --- | --- |
-| 낮은 보안 | 해당 사항 없음 |  해당 사항 없음 |
+| 낮은 보안 | 해당 사항 없음 |  N/A |
 | 향상된 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809). p s 1 |
 | 높은 수준의 보안  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809) ps1 |
-| 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
+| 전문화됨 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
 | 특수 규정 준수 * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
-| 보안 | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
+| 보안됨 | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
 \*특수 한 규정 준수는 NCSC Windows10 SecurityBaseline에 제공 된 특수 구성을 적용 하는 스크립트입니다.
 
@@ -245,7 +245,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 * 스크립트에서 만든 Intune 장치 구성 프로필을 찾을 수 있는 위치는 다음과 같습니다.  > **장치 구성** > 프로필을 Azure PortalMicrosoftIntune합니다. > 
 * 스크립트에서 만든 Intune 장치 준수 정책을 찾을 수 있는 위치는 다음과 같습니다.  > **Microsoft Intune** **장치**준수정책을AzurePortal합니다 > . > 
 
-스크립트에서 변경한 내용을 검토 하려면 프로필을 내보낼 수 있습니다. 이러한 방식으로 SECCON 설명서에 설명 된 대로 필요할 수 있는 추가 강화를 결정할 수 있습니다.
+스크립트에서 변경한 내용을 검토 하려면 프로필을 내보낼 수 있습니다. 이러한 방식으로 [Seccon 설명서](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework)에 설명 된 대로 필요할 수 있는 추가 강화를 결정할 수 있습니다.
 
 [DeviceConfiguration gid uhub 리포지토리에서](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) intune `DeviceConfiguration_Export.ps1` 데이터 내보내기 스크립트를 실행 하 여 현재 intune 프로필을 모두 내보냅니다.
 

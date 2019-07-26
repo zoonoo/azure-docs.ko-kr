@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 T-SQL 뷰 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 뷰 사용을 위한 팁입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595493"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479517"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 뷰
 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 뷰 사용을 위한 팁입니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "67595493"
 
 
 > [!IMPORTANT]
-> 새 구체화 된 뷰 구문을 보려면 [CREATE 구체화 된 뷰 AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)합니다.  자세한 내용은 참조는 [릴리스](/azure/sql-data-warehouse/release-notes-10-0-10106-0)합니다.
+> [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)에서 새로운 구체화 된 뷰 구문을 참조 하세요.  자세한 내용은 [릴리스 정보](/azure/sql-data-warehouse/release-notes-10-0-10106-0)를 참조 하세요.
 >
 
 

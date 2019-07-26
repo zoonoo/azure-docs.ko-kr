@@ -1,7 +1,6 @@
 ---
 title: Microsoft Azure Backup Server v3 릴리스 정보
 description: 이 문서에서는 MABS v3에 대해 알려진 문제 및 해결 방법에 대한 정보를 제공합니다.
-services: backup
 author: JYOTHIRMAISURI
 manager: vvithal
 ms.service: backup
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 39f91838a3b5ae360c47d38b22f63e6d94e8850f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e0bcdeeda2f8517b85059817669c19d66c723902
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655762"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465076"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 이 문서에서는 MABS(Microsoft Azure Backup Server) V3에 대해 알려진 문제와 해결 방법을 제공합니다.

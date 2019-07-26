@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search에 대해 호스트된 UI 구성 | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Custom Search에 대해 호스트된 UI를 구성하고 통합합니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae073e10331f07d9863da1d4ed97533f95b87c86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386761"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405054"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 

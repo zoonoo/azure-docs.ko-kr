@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873089"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348484"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 
@@ -50,12 +50,12 @@ ms.locfileid: "60873089"
     ![][IOS2]
 5. `Notifications.cs`에서 다음 using 문을 추가합니다.
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. 전체 `Notifications` 클래스를 다음 코드로 업데이트합니다. 자리 표시자를 알림 허브 자격 증명 및 이미지 파일 이름으로 바꿔야 합니다.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +105,7 @@ ms.locfileid: "60873089"
 
 7. `NotificationsController.cs`에서 ‘NotificationsController’를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 디바이스에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);
@@ -369,7 +369,7 @@ ms.locfileid: "60873089"
     }
     ```
 
-## <a name="run-the-application"></a>애플리케이션 실행
+## <a name="run-the-application"></a>응용 프로그램 실행
 
 1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 인증에 대해 동일한 값의 사용자 이름과 암호를 입력하고 **로그인**을 클릭합니다.

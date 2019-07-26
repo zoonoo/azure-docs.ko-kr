@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 40a783f702db580618d49fa34a1dae67e3e067da
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327061"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335981"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -57,9 +57,9 @@ ms.locfileid: "68327061"
 
   각 ISE SKU는 총 통합 계정 5 개로 제한 됩니다. 추가 비용을 위해 ISE SKU에 따라 더 많은 통합 계정을 사용할 수 있습니다.
 
-  * **프리미엄 SKU**: 최대 4 개의 표준 계정, 무료 또는 기본 계정 없음
+  * **프리미엄 SKU**: 최대 4 개의 표준 계정. 무료 또는 기본 계정이 없습니다.
 
-  * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정, 기본 계정 없음
+  * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정. 기본 계정이 없습니다.
 
 통합 계정 제한에 대 한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다. 
 

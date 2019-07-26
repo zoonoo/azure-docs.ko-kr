@@ -1,78 +1,98 @@
 ---
-title: Azure Application Gateway-포털을 사용 하 여 앱 서비스 웹 앱 같은 다중 테 넌 트 앱으로 트래픽 관리
-description: 이 문서에서는 Azure App service web apps를 기존 또는 새 application gateway에서 백 엔드 풀의 구성원으로 구성 하는 방법에 지침을 제공 합니다.
+title: Azure 애플리케이션 게이트웨이-포털을 사용 하 여 App service web apps와 같은 다중 테 넌 트 앱에 대 한 트래픽 관리
+description: 이 문서에서는 기존 또는 새 응용 프로그램 게이트웨이에서 백 엔드 풀의 멤버로 Azure 앱 서비스 웹 앱을 구성 하는 방법에 대 한 지침을 제공 합니다.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: absha
-ms.openlocfilehash: 4dae04c14f9132c54dcc0575ccb2841a4742a626
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831223"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370421"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
-응용 프로그램 게이트웨이 사용 하는 Azure App service 웹 앱 또는 기타 다중 테 넌 트 서비스는 백 엔드 풀 구성원으로 가질 수 있습니다. 
+App service는 전용 배포가 아닌 다중 테 넌 트 서비스 이므로 들어오는 요청의 호스트 헤더를 사용 하 여 올바른 app service 끝점에 대 한 요청을 확인 합니다. 일반적으로 응용 프로그램의 DNS 이름은 app service 앞단에 application gateway와 연결 된 DNS 이름으로, 백엔드 app service의 도메인 이름과 다릅니다. 따라서 application gateway에서 받은 원래 요청의 호스트 헤더는 백 엔드 서비스의 호스트 이름과 동일 하지 않습니다. 이 때문에 응용 프로그램 게이트웨이에서 백 엔드에 대 한 요청에 있는 호스트 헤더를 백 엔드 서비스의 호스트 이름으로 변경 하지 않는 한 다중 테 넌 트 백 엔드는 해당 요청을 올바른 끝점으로 확인할 수 없습니다.
+
+Application Gateway는 요청이 Application Gateway에서 `Pick host name from backend address` 백 엔드로 라우팅될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 하는 스위치를 제공 합니다. 이 기능을 사용 하면 Azure app service 및 API management와 같은 다중 테 넌 트 백 엔드를 지원할 수 있습니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
-> - 백 엔드 풀 만들기 및 App Service에 추가
-> - 사용 하도록 설정 하는 "Hostname 선택" 스위치를 사용 하 여 HTTP 설정 및 사용자 지정 프로브 만들기
+> - 백 엔드 풀을 만들고 여기에 App Service 추가
+> - "호스트 선택" 스위치를 사용 하 여 HTTP 설정 및 사용자 지정 프로브 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 응용 프로그램 게이트웨이: 기존 application gateway가 없는 경우 참조 하는 방법을 [응용 프로그램 게이트웨이 만들기](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- 앱 서비스: 기존 App service가 없는 경우 [App service 설명서](https://docs.microsoft.com/azure/app-service/)합니다.
+- Application gateway: 기존 application gateway가 없는 경우 [응용 프로그램 게이트웨이를 만드는](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) 방법을 참조 하세요.
+- 앱 서비스: 기존 App service가 없는 경우 [app service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조 하세요.
 
-## <a name="add-app-service-as-backend-pool"></a>App service 백 엔드 풀 추가
+## <a name="add-app-service-as-backend-pool"></a>백 엔드 풀로 App service 추가
 
-1. Azure portal에서 application gateway의 구성 보기를 엽니다.
+1. Azure Portal에서 application gateway의 구성 뷰를 엽니다.
 
-2. 아래 **백 엔드 풀**, 클릭 **추가** 새 백 엔드 풀 만들기.
+2. **백 엔드 풀**에서 **추가** 를 클릭 하 여 새 백 엔드 풀을 만듭니다.
 
-3. 백 엔드 풀에 적합 한 이름을 제공 합니다. 
+3. 백 엔드 풀에 적절 한 이름을 제공 합니다. 
 
-4. 아래 **대상**드롭다운 목록을 클릭 하 고 선택 **App Services** 옵션으로 제공 합니다.
+4. **대상**에서 드롭다운을 클릭 하 고 옵션으로 **App Services** 를 선택 합니다.
 
-5. 바로 아래 드롭다운을 **대상** 에 App Services 목록이 있는 드롭다운이 나타납니다. 이 드롭다운 목록에서 추가 클릭 하 고 백 엔드 풀 멤버로 추가 하려는 App Service를 선택 합니다.
+5. **대상** 드롭다운 바로 아래에 App Services 목록이 포함 된 드롭다운이 표시 됩니다. 이 드롭다운에서 백 엔드 풀 멤버로 추가 하려는 App Service를 선택 하 고 추가를 클릭 합니다.
 
    ![App service 백 엔드](./media/configure-web-app-portal/backendpool.png)
+   
+   > [!NOTE]
+   > 드롭다운은 Application Gateway와 동일한 구독에 있는 앱 서비스만 채웁니다. Application Gateway이 아닌 다른 구독에 있는 앱 서비스를 사용 하려는 경우 **대상** 드롭다운에서 **App Services** 를 선택 하는 대신 **IP 주소 또는 호스트 이름** 옵션을 선택 하 고 다음을 입력 합니다. 호스트 이름 (예: azurewebsites.net)를 다운로드 합니다.
 
-## <a name="create-http-settings-for-app-service"></a>App service 용 HTTP 설정 만들기
+## <a name="create-http-settings-for-app-service"></a>App service에 대 한 HTTP 설정 만들기
 
-1. 아래 **Http-settings**, 클릭 **추가** 새 HTTP 설정을 만들어야 합니다.
+1. **Http 설정**에서 **추가** 를 클릭 하 여 새 http 설정을 만듭니다.
 
-2. HTTP 설정에 대 한 이름을 입력 하 고 사용자의 요구 사항에 따라 쿠키 기반 선호도 사용 하지 않도록 설정 하거나 설정할 수 있습니다.
+2. HTTP 설정의 이름을 입력 하 고 요구 사항에 따라 쿠키 기반 선호도를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-3. 사용 사례에 따라 HTTP 또는 HTTPS 프로토콜을 선택 합니다. 
+3. 사용 사례에 따라 프로토콜을 HTTP 또는 HTTPS로 선택 합니다. 
 
-4. 확인란 **App Service에 대해 사용 하 여** 켜 집니다 및 합니다 **선택 호스트 이름에서 백 엔드 주소를 사용 하 여 프로브를 만듭니다** 및 **백 엔드 주소에서 호스트 이름을 선택** 옵션입니다. 이 옵션은 또한 사용 하도록 설정 하는 스위치를 사용 하 여 프로브를 자동으로 만들기 하 고이 HTTP 설정에 연결 합니다.
+   > [!NOTE]
+   > HTTPS를 선택 하는 경우 app service가 신뢰할 수 있는 Azure 서비스 이므로 app service 백 엔드를 허용 목록 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 업로드할 필요가 없습니다.
 
-5. 클릭 **확인** HTTP 설정을 만들어야 합니다.
+4. **App Service에 사용할** 확인란을 선택 합니다. 스위치 `Create a probe with pick host name from backend address` 및`Pick host name from backend address` 는 자동으로 사용 하도록 설정 됩니다.`Pick host name from backend address` 는 요청이 Application Gateway에서 백 엔드로 전달 될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 합니다.  
+
+   `Create a probe with pick host name from backend address`에서 자동으로 상태 프로브를 만들고이를이 HTTP 설정에 연결 합니다. 이 HTTP 설정에 대해 다른 상태 프로브를 만들 필요가 없습니다. 상태 프로브 목록에 이름이 <HTTP Setting name> <Unique GUID> 인 새 프로브가 추가 되었으며 이미 스위치가 `Pick host name from backend http settings enabled`있는지 확인할 수 있습니다.
+
+   이미 하나 이상의 http 설정이 App service에 사용 되 고 있는 경우 해당 http 설정이 사용자가 만드는 항목에서 사용 하는 것과 동일한 프로토콜을 사용 하는 경우 `Create a probe with pick host name from backend address` 스위치 대신 c 중 하나를 선택할 수 있는 드롭다운이 표시 됩니다. u 프로브. 이는 app service를 사용 하 여 HTTP 설정이 이미 있으므로 스위치 `Pick host name from backend http settings enabled` 를 포함 하는 상태 프로브도 존재 하기 때문입니다. 드롭다운에서 해당 사용자 지정 프로브를 선택 합니다.
+
+5. **확인** 을 클릭 하 여 HTTP 설정을 만듭니다.
 
    ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
 
    ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
 
+
+
 ## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>수신기, 백 엔드 풀 및 HTTP 설정을 연결 하는 규칙 만들기
 
-1. 아래 **규칙**, 클릭 **기본** 새 기본 규칙을 만들려고 합니다.
+1. **규칙**에서 **기본** 을 클릭 하 여 새 기본 규칙을 만듭니다.
 
-2. 적절 한 이름을 제공 하 고 App service에 대 한 들어오는 요청을 수락 됩니다 하는 수신기를 선택 합니다.
+2. 적절 한 이름을 제공 하 고 App service에 대 한 들어오는 요청을 수락 하는 수신기를 선택 합니다.
 
-3. 에 **백 엔드 풀** 드롭다운에서 위에서 만든 백 엔드 풀을 선택 합니다.
+3. **백 엔드 풀** 드롭다운에서 위에서 만든 백 엔드 풀을 선택 합니다.
 
-4. 에 **HTTP 설정** 드롭다운에서 위에서 만든를 설정 하는 HTTP를 선택 합니다.
+4. **Http 설정** 드롭다운에서 위에서 만든 http 설정을 선택 합니다.
 
-5. 클릭 **확인** 이 규칙을 저장 합니다.
+5. **확인** 을 클릭 하 여이 규칙을 저장 합니다.
 
    ![규칙](./media/configure-web-app-portal/rule.png)
+
+## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>App service의 상대 경로로 리디렉션하는 경우 추가 구성
+
+App service가 상대 경로 (예: contoso.azurewebsites.net/path1에서 contoso.azurewebsites.net/path2로 리디렉션)로 리디렉션하는 리디렉션 응답을 클라이언트에 게 보내는 경우 해당 응답의 location 헤더에 동일한 호스트 이름을 사용 합니다. 응용 프로그램 게이트웨이에서 받은 요청에 있는 것입니다. 따라서 클라이언트는 application gateway (contoso.com/path2)를 통하지 않고 contoso.azurewebsites.net/path2에 직접 요청을 만듭니다. Application gateway를 무시 하는 것은 바람직하지 않습니다.
+
+사용 사례에서 응용 프로그램 서비스가 클라이언트에 리디렉션 응답을 보내야 하는 경우에는 추가 단계를 수행 하 여 [위치 헤더를 다시 작성](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)해야 합니다.
 
 ## <a name="restrict-access"></a>액세스 제한
 
@@ -82,6 +102,4 @@ ms.locfileid: "60831223"
 
 ## <a name="next-steps"></a>다음 단계
 
-App service 및 application gateway와 다른 다중 테 넌 트 지원에 대 한 자세한 내용은 참조 하세요 [응용 프로그램 게이트웨이 사용 하 여 다중 테 넌 트 서비스 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)합니다.
-
-App service의 URL로 리디렉션됩니다. App service에서 응답을 하는 경우 참조 하는 방법 [App service의 URL 문제에 대 한 리디렉션을 문제 해결](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url)합니다.
+Application gateway를 사용 하 여 App service 및 기타 다중 테 넌 트 지원에 대 한 자세한 내용은 [application gateway를 사용 하 여 다중 테 넌 트 서비스 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)을 참조 하세요.

@@ -13,14 +13,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473824"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382419"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 다운로드 및 설치
+
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
@@ -32,17 +33,18 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 - **휴대폰 로그인** 2단계 인증 버전을 통해 암호를 요구하지 않고 모바일 디바이스에서 사용자 이름과 지문, 얼굴 또는 PIN을 사용하여 로그인할 수 있습니다.
 
-- **코드를 생성 합니다.** 인증자 앱을 지원하는 다른 계정에 대한 코드 생성기로서,
+- **코드 생성.** 인증자 앱을 지원하는 다른 계정에 대한 코드 생성기로서,
 
 > [!Important]
 > Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 계정에 사용할 수 있으며 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원합니다.
-> 
+>
 > 조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
 > 
 > [!NOTE]
 > 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요.  Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
 
 ## <a name="download-and-install-the-app"></a>앱 다운로드 및 설치
+
 운영 체제에 따라 최신 버전의 Microsoft Authenticator 앱을 설치합니다.
 
 - **Google Android** Android 디바이스에서 Google Play로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator)합니다.
@@ -50,7 +52,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 - **Apple iOS** Apple iOS 디바이스에서 App Store로 이동하여 [Microsoft Authenticator 앱을 다운로드 및 설치](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)합니다.
 
 >[!Important]
->수 없는 경우 현재 모바일 장치에 접속할 수 있습니다 Microsoft Authenticator 앱을 직접 다운로드 링크를 보내 합니다 [Microsoft Authenticator 페이지](https://www.microsoft.com/en-us/account/authenticator)합니다.
+>현재 모바일 장치에 있지 않은 경우에도 [Microsoft Authenticator 페이지](https://www.microsoft.com/en-us/account/authenticator)에서 다운로드 링크를 보내 Microsoft Authenticator 앱을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

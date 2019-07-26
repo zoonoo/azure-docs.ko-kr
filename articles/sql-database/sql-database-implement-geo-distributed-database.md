@@ -12,34 +12,34 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338992"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444518"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지리적으로 분산된 데이터베이스 구현
 
-Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법에 대해 알아봅니다.
+Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
 
 > [!div class="checklist"]
 > - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치
+> - 테스트 장애 조치(failover)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Azure SQL 데이터베이스입니다. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
+- Azure SQL Database의 단일 데이터베이스. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
   - [포털](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -297,7 +297,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    ...
    ```
 
-## <a name="test-failover"></a>테스트 장애 조치
+## <a name="test-failover"></a>테스트 장애 조치(failover)
 
 다음 스크립트를 실행하여 장애 조치(failover) 시뮬레이션을 진행한 다음 애플리케이션 결과를 관찰합니다. 데이터베이스 마이그레이션 중에 일부 삽입과 선택이 실패하는 방식을 잘 살펴봅니다.
 
@@ -337,9 +337,9 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
 > [!div class="checklist"]
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치
+> - 테스트 장애 조치(failover)
 
 DMS를 사용한 마이그레이션 방법을 설명하는 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)
+> [DMS를 사용하여 Azure SQL 데이터베이스 관리 인스턴스로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)

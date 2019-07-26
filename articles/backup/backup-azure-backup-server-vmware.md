@@ -1,19 +1,18 @@
 ---
 title: Azure Backup Server를 사용하여 VMware VM 백업
 description: Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VMware VM을 백업할 수 있습니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adb8cb6a5740b7d09848c792093ea62f69f521a7
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789613"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466806"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -39,7 +38,7 @@ ms.locfileid: "65789613"
 
 ### <a name="before-you-start"></a>시작하기 전에
 
-- HTTPS를 사용 하지 않을 수 있습니다 [모든 VMware 서버에 대 한 HTTPS 인증서 유효성 검사를 사용 하지 않도록 설정](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)합니다.
+- HTTPS를 사용 하지 않으려는 경우 [모든 VMware 서버에 대해 https 인증서 유효성 검사를 사용 하지 않도록 설정할](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 처음 이 작업을 수행할 때는 연결이 안전하지 않으며 다음 메시지가 표시됩니다.
 - Azure Backup Server에서 백업을 처리하는 방법을 파악하는 것이 중요합니다.
     - 첫 번째 단계로 Azure Backup Server는 데이터를 로컬 디스크 스토리지에 백업합니다. Azure Backup Server가 보호된 데이터에 대한 디스크 복구 지점을 저장하는 디스크 및 볼륨 세트인 스토리지 풀이 Azure Backup Server에서 사용됩니다. 스토리지 풀은 DAS(직접 연결된 스토리지), 파이버 채널 SAN, iSCSI 스토리지 디바이스 또는 SAN일 수 있습니다. VMware VM 데이터를 로컬로 백업하기에 충분한 스토리지가 있는지 확인하는 것이 중요합니다.
@@ -101,7 +100,7 @@ ms.locfileid: "65789613"
 
 
 
-### <a name="disable-https-certificate-validation"></a>HTTPS 인증서 유효성 검사를 사용 하지 않도록 설정
+### <a name="disable-https-certificate-validation"></a>HTTPS 인증서 유효성 검사 사용 안 함
 
 조직 내에 보안 경계가 있고 VMware 서버와 Azure Backup Server 머신 간에 HTTPS 프로토콜을 사용하지 않으려는 경우 다음과 같이 HTTPS를 사용하지 않도록 설정합니다.
 1. 다음 텍스트를 복사하여 .txt 파일에 붙여넣습니다.
@@ -171,7 +170,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![사용자 및 그룹 옵션](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    합니다 **vCenter 사용자 및 그룹** 패널을 표시 합니다.
+    **VCenter 사용자 및 그룹** 패널이 나타납니다.
 
 
 2. **vCenter 사용자 및 그룹** 패널에서 **사용자** 탭을 선택한 다음 사용자 추가 아이콘(+ 기호)을 클릭합니다.
@@ -222,7 +221,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Azure Backup Server 자격 증명 관리 대화 상자](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. **인증서 추가**에서 새 자격 증명의 이름과 설명을 입력하고 VMware 서버에서 정의한 사용자 이름과 암호를 지정합니다. Contoso Vcenter 자격 증명이란 이름은 이 절차에서 자격 증명을 식별하는 데 사용됩니다.  VMware 서버와 Azure Backup Server가 있는 도메인이 동일하지 않으면 사용자 이름에 도메인을 지정합니다.
+4. **인증서 추가**에서 새 자격 증명의 이름과 설명을 입력하고 VMware 서버에서 정의한 사용자 이름과 암호를 지정합니다. Contoso Vcenter 자격 증명이란 이름은 이 절차에서 자격 증명을 식별하는 데 사용됩니다. VMware 서버와 Azure Backup Server가 있는 도메인이 동일하지 않으면 사용자 이름에 도메인을 지정합니다.
 
     ![Azure Backup Server 자격 증명 추가 대화 상자](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -255,7 +254,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **Next** 를 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그리고 **다음**을 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -287,15 +286,15 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 > 백업할 VM(또는 VM 폴더)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
+1. **그룹 구성원 선택**에서 > 백업할 VM(또는 VM 폴더)을 선택합니다. 그리고 **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
-1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이 기능은 VM에 대해 중복 복구 지점이 생성되지 않도록 합니다. .
+1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이 기능은 VM에 대해 중복 복구 지점이 생성되지 않도록 합니다. 을 선택합니다.
 
      ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **Next** 를 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그리고 **다음**을 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -326,17 +325,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
      ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그리고 **다음**을 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **Next** 를 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그리고 **다음**을 클릭합니다.
 
       ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **Next** 를 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그리고 **다음**을 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
       ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
@@ -355,11 +354,11 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
-에 백업 vSphere 6.7 다음을 수행 합니다.
+VSphere 6.7를 백업 하려면 다음을 수행 합니다.
 
 - DPM 서버에서 TLS 1.2 사용
   >[!Note]
-  >VMWare 6.7 이상 통신 프로토콜로 TLS를 사용 했습니다.
+  >VMWare 6.7는 TLS를 통신 프로토콜로 사용 하도록 설정 했습니다.
 
 - 다음과 같이 레지스트리 키를 설정 합니다.  
 

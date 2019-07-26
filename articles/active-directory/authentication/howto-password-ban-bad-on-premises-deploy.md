@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319740"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346895"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -135,11 +135,11 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
         ```
 
         > [!NOTE]
-        > Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 아래 해결 방법 중 하나를 사용 합니다. MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
+        > 계정에 대해 Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
         >
-        > Azure 계정이 MFA를 요구 하도록 특별히 구성 된 경우 MFA를 요구 하지 않는 다른 계정을 대신 사용할 수 있습니다.
+        > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나, Azure 장치 등록 MFA 요구 사항을 일시적으로 완화 시킬 수도 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다. 등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
         >
-        > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 MFA를 요구 하지 않는 다른 계정을 사용 하거나 Azure 장치 등록 MFA 요구 사항을 일시적으로 완화할 수 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다.  등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
+        > MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
 
        현재는 이후 기능을 위해 예약 된 *-ForestCredential* 매개 변수를 지정할 필요가 없습니다.
 
@@ -179,11 +179,11 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
         ```
 
         > [!NOTE]
-        > Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 아래 해결 방법 중 하나를 사용 합니다. MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
+        > 계정에 대해 Azure Multi-factor Authentication이 필요한 경우이 모드는 실패 합니다. 이 경우 이전 두 인증 모드 중 하나를 사용 하거나 대신 MFA를 요구 하지 않는 다른 계정을 사용 합니다.
         >
-        > Azure 계정이 MFA를 요구 하도록 특별히 구성 된 경우 MFA를 요구 하지 않는 다른 계정을 대신 사용할 수 있습니다.
+        > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 이전 두 인증 모드 중 하나를 사용 하 여 MFA를 지 원하는 다른 계정을 사용 하거나, Azure 장치 등록 MFA 요구 사항을 일시적으로 완화 시킬 수도 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다. 등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
         >
-        > Azure AD 암호 보호에서 다루는 Azure 장치 등록이 MFA를 전역적으로 요구 하도록 구성 된 경우 MFA가 필요할 수도 있습니다. 이 문제를 해결 하려면 MFA를 요구 하지 않는 다른 계정을 사용 하거나 Azure 장치 등록 MFA 요구 사항을 일시적으로 완화할 수 있습니다. 이렇게 하려면 Azure 관리 포털로 이동한 다음 Azure Active Directory, 장치, 장치 설정으로 이동한 후 "Multi-factor Auth를 통해 장치를 연결 하도록 요구"를 아니요로 설정 합니다.  등록이 완료 되 면이 설정을 다시 [예]로 다시 구성 해야 합니다.
+        > MFA 요구 사항은 테스트 목적 으로만 무시 하는 것이 좋습니다.
 
        이러한 예제는 현재 로그인 한 사용자가 루트 도메인의 Active Directory 도메인 관리자 이기도 한 경우에만 성공 합니다. 그렇지 않은 경우 *-ForestCredential* 매개 변수를 통해 대체 도메인 자격 증명을 제공할 수 있습니다.
 

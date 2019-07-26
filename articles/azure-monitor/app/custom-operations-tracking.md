@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798339"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498348"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -210,7 +210,7 @@ public async Task Process(BrokeredMessage message)
 다음 예제에서는 [Azure Storage 큐](../../storage/queues/storage-dotnet-how-to-use-queues.md) 작업을 추적하고 생산자, 소비자 및 Azure Storage 간의 원격 분석 상관 관계를 지정하는 방법을 보여 줍니다. 
 
 Storage 큐에는 HTTP API가 있습니다. 큐에 대한 모든 호출은 HTTP 요청에 대한 Application Insights 종속성 수집기에서 추적됩니다.
-참조할 수 있습니다, 다른 유형의 응용 프로그램을 사용 하 여 ASP.NET 및 ASP.NET Core 응용 프로그램을 기본적으로 구성 된 [콘솔 응용 프로그램 설명서](../../azure-monitor/app/console.md)
+ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며 다른 종류의 응용 프로그램을 사용 하 여 [콘솔 응용 프로그램 설명서](../../azure-monitor/app/console.md) 를 참조할 수 있습니다.
 
 또한 Application Insights 작업 ID와 Storage 요청 ID 사이의 상관 관계를 지정할 수도 있습니다. Storage 요청 클라이언트와 서버 요청 ID를 설정하고 가져 오는 방법에 대한 자세한 내용은 [Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)을 참조하세요.
 
@@ -484,6 +484,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights 작업 vs System.web. 작업
+`System.Diagnostics.Activity`분산 추적 컨텍스트를 나타내며, 프레임 워크 및 라이브러리에서 프로세스 내부 및 외부에 컨텍스트를 만들고 전파 하 고 원격 분석 항목의 상관 관계를 적용 하는 데 사용 됩니다. 활동은 프레임 워크 `System.Diagnostics.DiagnosticSource` /라이브러리 간의 알림 메커니즘과 함께 작동 하 여 관심 있는 이벤트 (들어오거나 나가는 요청, 예외 등)에 대해 알립니다.
+
+활동은 Application Insights의 최고 수준의 시민 이며, 자동 종속성과 요청 수집은 이벤트와 함께 사용 `DiagnosticSource` 하는 것이 매우 많습니다. 응용 프로그램에서 작업을 만드는 경우 Application Insights 원격 분석이 생성 되지 않습니다. Application Insights는 DiagnosticSource 이벤트를 받고 작업을 원격 분석으로 변환 하는 이벤트 이름 및 페이로드를 알고 있어야 합니다.
+
+각 Application Insights 작업 (요청 또는 종속성)에 `Activity` 는이 `StartOperation` 포함 됩니다 .가 호출 되 면 아래에 작업이 생성 됩니다. `StartOperation`는 요청 또는 종속성 원격 분석을 수동으로 추적 하 고 모든 것이 상관 관계를 유지 하는 데 권장 되는 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

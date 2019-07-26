@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: 인증
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services 리소스에 대한 요청을 인증하는 세 가지 방법으로 구독 키, 전달자 토큰 또는 다중 서비스 구독이 있습니다. 이 문서에서는 각 방법과 요청을 수행하는 방법을 알아봅니다.
 services: cognitive-services
@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435927"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467532"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -23,22 +23,23 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 * [단일 서비스 구독 키로 인증](#authenticate-with-a-single-service-subscription-key)
 * [다중 서비스 구독 키로 인증](#authenticate-with-a-multi-service-subscription-key)
 * [토큰으로 인증](#authenticate-with-an-authentication-token)
+* [AAD (Azure Active Directory를 사용 하 여 인증](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 내에 설정할 수 있도록 안내하는 [Azure에서 Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md) 가이드가 있습니다.
 
-구독 키를 가져올 수 있습니다는 [Azure portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) 계정에 작성 하거나 활성화 한 후를 [평가판](https://azure.microsoft.com/try/cognitive-services/my-apis)합니다.
+계정을 만들거나 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/my-apis)을 활성화 한 후 [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 에서 구독 키를 가져올 수 있습니다.
 
 ## <a name="authentication-headers"></a>인증 헤더
 
 Azure Cognitive Services에서 사용할 수 있는 인증 헤더를 빠르게 살펴보겠습니다.
 
-| 헤더 | 설명 |
+| 헤더 | Description |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | 특정 서비스에 대한 구독 키 또는 다중 서비스 구독 키를 사용하여 인증하려면 이 헤더를 사용합니다. |
 | Ocp-Apim-Subscription-Region | 이 헤더는 [Translator Text API](./Translator/reference/v3-0-reference.md)에서 다중 서비스 구독 키를 사용하는 경우에만 필요합니다. 이 헤더를 사용하여 구독 지역을 지정합니다. |
-| 권한 부여 | 인증 토큰을 사용하는 경우 이 헤더를 사용합니다. 토큰 교환을 수행하는 단계는 다음 섹션에서 자세히 설명합니다. 제공되는 값은 `Bearer <TOKEN>` 형식을 따릅니다. |
+| Authorization | 인증 토큰을 사용하는 경우 이 헤더를 사용합니다. 토큰 교환을 수행하는 단계는 다음 섹션에서 자세히 설명합니다. 제공되는 값은 `Bearer <TOKEN>` 형식을 따릅니다. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>단일 서비스 구독 키로 인증
 
@@ -75,7 +76,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-다중 서비스 구독 키를 사용하여 `api.cognitive.microsoft.com`에 대한 요청을 수행하는 경우 URL에 지역을 포함시켜야 합니다. 예: `westus.api.cognitive.microsoft.com`
+다중 서비스 구독 키를 사용하여 `api.cognitive.microsoft.com`에 대한 요청을 수행하는 경우 URL에 지역을 포함시켜야 합니다. 예를 들어 `westus.api.cognitive.microsoft.com`을 참조하십시오.
 
 Translator Text API에서 다중 서비스 구독 키를 사용하는 경우 `Ocp-Apim-Subscription-Region` 헤더에서 구독 지역을 지정해야 합니다.
 
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## <a name="see-also"></a>참고 항목
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
+## <a name="see-also"></a>참고자료
 
 * [Cognitive Services란?](welcome.md)
 * [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [계정 만들기](cognitive-services-apis-create-account.md)
+* [사용자 지정 하위 도메인](cognitive-services-custom-subdomains.md)

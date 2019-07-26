@@ -3,19 +3,19 @@ title: 지원 및 도움말 옵션
 titlesuffix: Azure Cognitive Services
 description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606273"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404793"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
@@ -85,7 +85,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-기능 요청, 버그 보고서를 만드는 또는 일반 질문을 게시 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
+버그 보고서를 작성 하거나 기능 요청을 하거나 일반적인 질문을 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
 
 **버그 설명**
 

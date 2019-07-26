@@ -1,6 +1,6 @@
 ---
-title: Single sign-on-비 갤러리 응용 프로그램-Microsoft id 플랫폼 | Microsoft Docs
-description: Microsoft id 플랫폼 (Azure AD)의 비 갤러리 응용 프로그램에서 single sign-on (SSO) 구성
+title: SAML single sign-on-비 갤러리 응용 프로그램-Microsoft identity platform | Microsoft Docs
+description: Microsoft id 플랫폼 (Azure AD)에서 비 갤러리 응용 프로그램에 SSO (single sign-on) 구성
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,252 +8,159 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 057fa4dc9080ea0216765d89fa6f9d54c60ccec1
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807645"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422715"
 ---
-# <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 비 갤러리 응용 프로그램에서 single sign-on 구성
+# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 SAML 기반 single sign-on 구성
 
-이 문서는 Microsoft identity 플랫폼 앱 갤러리에 없는 응용 프로그램에서 single sign-on을 구성 하는 작업을 할당할 수 있는 기능에 대 한 *코드를 작성 하지 않고도*합니다.
-
-이 문서 대신 코드를 통해 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 참고 자료를 찾는다면 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
-
-Microsoft identity 플랫폼 응용 프로그램 갤러리에 설명 된 대로 Microsoft id 플랫폼을 사용 하 여에서 single sign-on의 형식을 지 원하는 것으로 알려진 응용 프로그램의 목록을 제공 [이 문서에서는](what-is-single-sign-on.md)합니다. (조직의 IT 전문가 또는 시스템 통합자인 경우)연결할 애플리케이션을 찾으면 Azure Portal에 나와 있는 단계별 지침에 따라 Single Sign-On을 사용하도록 설정할 수 있습니다.
-
-사용권 계약에 따라 다음과 같은 기능을 사용할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
-
-- 와 같은 최신 프로토콜을 사용 하는 응용 프로그램의 셀프 서비스 통합 [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 에서 사용자를 인증을 위한 토큰을 가져올 [Microsoft Graph](https://graph.microsoft.com)합니다.
-- 지 원하는 응용 프로그램의 셀프 서비스 통합 [Assertion Markup Language (SAML (Security) 2.0](https://wikipedia.org/wiki/SAML_2.0) id 공급자 (SP 시작 또는 IdP에서 시작한)
-- [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)를 사용하는 HTML 기반 로그인 페이지가 있는 모든 웹 애플리케이션의 셀프 서비스 통합
-- 연결을 사용 하는 응용 프로그램의 셀프 서비스는 [Cross-domain Identity Management (SCIM) 프로토콜에 대 한 사용자 프로 비전 시스템](use-scim-to-provision-users-and-groups.md)
-- [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sign-on)에서 애플리케이션에 대한 링크를 추가하는 기능
-
-온 보 딩 응용 프로그램을 Azure AD 응용 프로그램 갤러리에 아직를 가진 경우에 이러한 기능을 사용 하는 서비스 (SaaS) 응용 프로그램으로 소프트웨어의 셀프 서비스 통합을 포함할 수 있습니다. 다른 기능은 조직의 클라우드 또는 온-프레미스에서 제어 하는 서버에 배포 된 타사 웹 응용 프로그램을 셀프 서비스로 통합 합니다.
-
-라고도 *앱 통합 템플릿*, 이러한 기능은 SAML, SCIM 또는 폼 기반 인증을 지 원하는 응용 프로그램에 대 한 표준 기반 연결점을 제공 합니다. 유연한 옵션 및 다양 한 응용 프로그램을 사용 하 여 호환성에 대 한 설정을 포함 합니다.
-
-## <a name="adding-an-unlisted-application"></a>목록에 없는 애플리케이션 추가
-
-Microsoft id 플랫폼 응용 프로그램을 등록 하는 두 가지 메커니즘을 제공 합니다.
-
-와 같은 최신 프로토콜을 사용 하는 응용 프로그램 [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) 사용 하 여 등록은 해당 사용자를 인증 하는 [응용 프로그램 등록 포털](../develop/quickstart-register-app.md)합니다.
-
-응용 프로그램의 다른 모든 형식을 사용 하 여 등록 [인증 메커니즘을 지원](what-is-single-sign-on.md)같은 [SAML](../develop/single-sign-on-saml-protocol.md) 프로토콜을 사용 합니다 **엔터프라이즈 응용 프로그램** 연결 블레이드 Microsoft id 플랫폼을 사용 하 여 합니다.
-
-앱 통합 템플릿을 사용 하 여 목록에 없는 응용 프로그램에 연결 하려면 다음이 단계를 수행 합니다.
-
-1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 Microsoft id 플랫폼 관리자 계정을 사용 하 여 합니다.
-1. 선택 **엔터프라이즈 응용 프로그램** > **새 응용 프로그램**합니다.
-1. (선택 사항 이지만 권장 됨) 에 **갤러리에서 추가** 검색 상자에서 응용 프로그램의 표시 이름을 입력 합니다. 응용 프로그램 검색 결과에 나타나면 선택 하 고이 절차의 나머지를 건너뜁니다.
-1. 선택 **비 갤러리 응용 프로그램**합니다. 합니다 **사용자 고유의 응용 프로그램을 추가** 페이지가 나타납니다.
-
-   ![추가 사용자 고유의 응용 프로그램 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-
-1. 새 응용 프로그램에 대 한 표시 이름을 입력 합니다.
-1. **추가**를 선택합니다.
-
-이러한 방식으로 응용 프로그램을 추가 하 여 미리 통합 된 응용 프로그램에 대 한를 사용할 수 있는 유사한 환경을 제공 합니다. 먼저 선택 **Single sign on** 응용 프로그램의 사이드바에서. 다음 페이지 (**single sign-on 방법을 선택**) SSO를 구성 하는 것에 대 한 옵션을 제공 합니다.
-
-- **SAML**
-- **암호 기반**
-- **연결됨**
-
-![Select single sign-on 방법 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
-
-이러한 옵션에 대 한 자세한 내용은이 문서의 다음 섹션을 참조 하세요.
-
-## <a name="saml-based-single-sign-on"></a>SAML 기반 Single Sign-On
-
-선택 된 **SAML** 응용 프로그램에 SAML 기반 인증을 구성 하는 옵션입니다. (이 옵션이 필요는 응용 프로그램이 SAML 2.0을 지원 합니다.) 합니다 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지가 나타납니다.
-
-![Single sign-on SAML 페이지를 사용 하 여 집합을 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
-
-이 페이지에는 5 개의 다른 머리글에 있습니다.
-
-| 번호 머리글 | 제목 이름 | 이 머리글의 요약을 참조 하세요. |
-| --- | --- | --- |
-| 1 | **기본 SAML 구성** | [기본 SAML 구성을 입력 합니다.](#enter-basic-saml-configuration) |
-| 2 | **사용자 특성 및 클레임** | [검토 또는 SAML 토큰에서 발급 된 클레임 사용자 지정](#review-or-customize-the-claims-issued-in-the-saml-token) |
-| 3 | **SAML 서명 인증서** | [검토 인증서 만료 데이터, 상태 및 전자 메일 알림](#review-certificate-expiration-data-status-and-email-notification) |
-| 4 | **설정 \<응용 프로그램 이름 >** | [대상 응용 프로그램 설정](#set-up-target-application) |
-| 5 | **Single sign-on을 테스트 \<응용 프로그램 이름 >** | [SAML 응용 프로그램 테스트](#test-the-saml-application) |
-
-이제 계속 하기 전에 응용 프로그램의 SAML 기능을 사용 하는 방법에 정보를 수집 합니다. 응용 프로그램과 Azure AD 간에 SSO를 구성 하려면 다음 섹션을 완료 합니다.
-
-### <a name="enter-basic-saml-configuration"></a>기본 SAML 구성 입력
-
-Azure AD를 설정 하려면로 이동 합니다 **기본 SAML 구성** 제목과 선택 해당 **편집** 아이콘 (연필). 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
-
-![기본 SAML 구성 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
-
-다음 두 필드를이 필요 합니다.
-
-- **식별자**합니다. 이 값에서 single sign-on이 되 고 구성 된 응용 프로그램을 고유 하 게 식별 해야 합니다. 이 값을 찾을 수 있습니다를 **발급자** 요소에는 **AuthnRequest** 응용 프로그램에서 보낸 (SAML 요청). 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 **엔터티 ID** 로 표시됩니다. 항목에 대 한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인 합니다. 해당 **엔터티 ID** 또는 **대상** 값이 있습니다.
-
-  다음 코드에서는 하는 방법을 **식별자** 하거나 **발급자** 응용 프로그램이 Azure AD로 전송 하는 SAML 요청에 표시 됩니다.
-
-  ```xml
-  <samlp:AuthnRequest
-  xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-  ID="id6c1c178c166d486687be4aaf5e482730"
-  Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
-  </samlp:AuthnRequest>
-  ```
-
-- **회신 URL**합니다. 회신 URL은 응용 프로그램이 SAML 토큰을 수신 해야 하는 위치입니다. 이 URL은 어설션 소비자 서비스 (ACS) URL 라고도 합니다. SAML 토큰 회신 URL 또는 ACS URL에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 확인합니다.
-
-  회신 Url을 여러 개를 구성 하려면 다음 PowerShell 스크립트를 사용할 수 있습니다.
-
-  ```powershell
-  $sp = Get-AzureADServicePrincipal -SearchString "<Exact app name>"
-  $app = Get-AzureADApplication -SearchString "<Exact app name>"
-  $urllist = New-Object "System.Collections.Generic.List[String]"
-  $urllist.Add("<reply URL 1>")
-  $urllist.Add("<reply URL 2>")
-  $urllist.Add("<reply URL 3>")
-  Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls $urllist
-  Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls $urllist
-  ```
-
-다음 세 가지 필드는 선택 사항:
-
-- **로그온 URL (SP에서 시작한만)** 합니다. 이 값이 응용이 프로그램에 로그인 할 사용자의 이동 위치를 나타냅니다. 응용 프로그램을 SP에서 시작한 SSO를 수행 하는 경우 다음 사용자가이 URL로 이동할 때 SP가 필요한 리디렉션을 Azure AD를 인증 하 고 사용자를 로그인 합니다. 이 필드를 지정 하는 경우 Azure AD는 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작 하려면이 URL을 사용 합니다. 이 필드를 생략 하면 Azure AD 대신 수행 IdP 시작 로그온 Office 365, Azure AD 액세스 패널 또는 Azure AD SSO URL에서 응용 프로그램 시작 중 (에서 복사할 수 있습니다 합니다 **대시보드** 페이지).
-
-- **릴레이 상태**합니다. 응용 프로그램이 인증 후 사용자를 리디렉션할 위치를 지시 하는 saml에서 릴레이 상태를 지정할 수 있습니다. 값은 URL 또는 URL을 응용 프로그램 내의 특정 위치로 사용자를 사용 하는 경로입니다.
-
-- **로그아웃 URL** 이 값은 응용 프로그램에 SAML 로그 아웃 응답을 보내는 데 있습니다.
-
-자세한 내용은 [Single sign-on SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)합니다.
-
-### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>SAML 토큰에 발급된 클레임 검토 또는 사용자 지정
-
-사용자가 응용 프로그램을 인증 하면 Azure AD 응용 프로그램을 SAML 토큰을 발급 정보 (또는 클레임)를 사용 하 여 고유 하 게 식별 하는 사용자에 대 한 합니다. 기본적으로이 정보에는 사용자의 사용자 이름, 전자 메일 주소, 이름 및 성을 포함 됩니다.
-
-확인 하거나 응용 프로그램에 SAML 토큰에 전송 된 클레임을 편집 합니다.
-
-- 로 이동 합니다 **사용자 특성 및 클레임** 제목과 선택 합니다 **편집** 아이콘. 합니다 **사용자 특성 및 클레임** 페이지가 나타납니다.
-
-![사용자 특성 및 클레임 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
-
-두 가지 이유로 SAML 토큰에서 발급 된 클레임을 편집 해야 합니다.
-
-- 애플리케이션에 다른 클레임 URI 또는 클레임 값 집합이 필요합니다.
-- 응용 프로그램에 필요 합니다 **이름 식별자 값** Microsoft id 플랫폼에 저장 된 사용자 이름 (라고도 사용자 주체 이름) 이외의 것으로 주장할 합니다.
-
-자세한 내용은 [방법: 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)합니다.
-
-### <a name="review-certificate-expiration-data-status-and-email-notification"></a>인증서 만료 데이터, 상태 및 이메일 알림 검토
-
-갤러리 또는 비 갤러리 응용 프로그램을 만들면 Azure AD는 생성 날짜 로부터 3 년이 지나면 만료 되는 응용 프로그램별 인증서를 만듭니다. Azure AD 및 애플리케이션 간 신뢰를 설정하려면 이 인증서가 필요합니다. 인증서 형식에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다.
-
-Azure AD에서 활성 주에서 직접 Base64 또는 원시 형식으로 인증서를 다운로드할 수 있습니다 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지입니다. 또는 응용 프로그램 메타 데이터 XML 파일을 다운로드 하거나 앱 페더레이션 메타 데이터 URL을 사용 하 여 활성 인증서를 가져올 수 있습니다.
-
-보거나, 만들거나, (활성 또는 비활성) 인증서를 다운로드로 이동 합니다 **SAML 서명 인증서** 머리글을 선택 합니다 **편집** 아이콘입니다. 합니다 **SAML 서명 인증서** 나타납니다.
-
-![SAML 서명 인증서 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
-
-인증서에 다음이 있는지 확인합니다.
-
-- *원하는 만료 날짜입니다.* 미래의 최대 3 년에 대 한 만료 날짜를 구성할 수 있습니다.
-- *원하는 인증서에 대 한 활성 상태가 됩니다.* 상태가 **비활성**, 상태를 변경할 **활성**합니다. 상태를 변경 하려면 원하는 인증서의 행을 마우스 오른쪽 단추로 클릭 하 고 선택 **인증서를 활성화**합니다.
-- *올바른 서명 옵션 및 알고리즘입니다.*
-- *올바른 알림 전자 메일 주소입니다.* 활성 인증서 만료 날짜에 가까운 경우 Azure AD는이 필드에 구성 된 전자 메일 주소로 알림의 보냅니다.  
-
-자세한 내용은 [페더레이션된 single sign-on에 대 한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 하 고 [고급 인증서 서명 옵션 SAML 토큰에서](certificate-signing-options.md)합니다.
-
-### <a name="set-up-target-application"></a>대상 애플리케이션 설정
-
-SSO에 대 한 응용 프로그램을 구성 하려면 응용 프로그램의 설명서를 찾습니다. 설명서를 찾으려면에서로 이동 합니다 **설정 \<응용 프로그램 이름 >** 제목과 선택 **단계별 지침을 보려면**합니다. 설명서에 표시 된 **sign on 구성** 페이지입니다. 해당 페이지에 작성 방법을 안내 합니다 **로그인 URL**를 **Azure AD 식별자**, 및 **로그 아웃 URL** 값을 **설정 \<응용 프로그램 이름 >** 제목입니다.
-
-필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 합니다 **로그인 URL** 하 고 **로그 아웃 URL** 둘 다 Azure AD의 인스턴스에 대 한 SAML 요청 처리 끝점 인 동일한 끝점으로 해결 하는 값입니다. 합니다 **Azure AD 식별자** 의 값인 합니다 **발급자** 응용 프로그램에 발급 된 SAML 토큰에서.
-
-### <a name="assign-users-and-groups-to-your-saml-application"></a>SAML 애플리케이션에 사용자 및 그룹 할당
-
-SAML 기반 id 공급자로 Azure AD를 사용 하도록 응용 프로그램을 구성한 후에 거의 테스트할 준비가 되었습니다. 보안 컨트롤로 Azure AD만 Azure AD 사용자에 게 액세스 권한을 부여한 경우에 응용 프로그램에 로그인 할 사용자를 허용 하는 토큰을 발급 합니다. 사용자가 직접 또는 그룹 멤버 자격을 통해 액세스할 수 있습니다.
-
-새 사용자 또는 그룹에 할당할 응용 프로그램:
-
-1. 응용 프로그램 보충 기사에서 선택 **사용자 및 그룹**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 현재 할당 된 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
-1. 선택 **사용자 추가**합니다. 합니다 **할당 추가** 페이지가 나타납니다.
-1. 선택 **사용자 및 그룹 (\<번호 > 선택한)** 합니다. 합니다 **사용자 및 그룹** 사용 가능한 사용자 및 그룹 목록을 보여 주는 페이지가 나타납니다.
-1. 형식 또는 스크롤 사용자 또는 목록에서 할당 하려는 그룹을 찾을 수 있습니다.
-1. 각 사용자 또는 그룹을 추가 하 고 다음을 선택 합니다 **선택** 단추입니다. 합니다 **사용자 및 그룹** 페이지 사라집니다.
-1. 에 **할당 추가** 페이지에서 **할당**합니다. 합니다  **\<응용 프로그램 이름 >-사용자 및 그룹** 페이지가 목록에 표시 된 추가 사용자에 게 표시 됩니다.
-
-   ![응용 프로그램 사용자 및 그룹 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
-
-이 목록에서 다음을 수행할 수 있습니다.
-
-- 사용자를 제거 합니다.
-- 해당 역할을 편집 합니다.
-- 사용자가 사용자의 액세스 패널 내에서 응용 프로그램에 인증할 수 있도록 자격 증명 (사용자 이름 및 암호)을 업데이트 합니다.
-
-편집 하거나 한 번에 여러 사용자 또는 그룹을 제거할 수 있습니다.
-
-사용자 토큰을 발급 하도록 Azure AD를 허용 사용자를 할당 합니다. 또한 이 애플리케이션의 타일이 사용자의 액세스 패널에 표시되도록 합니다. 응용 프로그램 타일을 사용자가 Office 365를 사용 하는 경우 Office 365 응용 프로그램 실행에도 나타납니다.
+[갤러리 앱](add-gallery-app.md) 또는 [비 갤러리 웹 앱](add-non-gallery-app.md) 을 Azure AD 엔터프라이즈 응용 프로그램에 추가 하는 경우에 사용할 수 있는 single sign-on 옵션 중 하나는 [SAML 기반 single sign-on](what-is-single-sign-on.md#saml-sso)입니다. SAML 프로토콜 중 하나를 사용 하 여 인증 하는 응용 프로그램의 경우 가능 하면 항상 SAML을 선택 합니다. SAML Single Sign-On을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. 사용자가 SAML 클레임에서 정의한 규칙에 따라 특정 응용 프로그램 역할에 사용자를 매핑할 수 있습니다. 이 문서에서는 비 갤러리 앱에 대해 SAML 기반 single sign-on을 구성 하는 방법을 설명 합니다. 
 
 > [!NOTE]
-> 애플리케이션에 **구성** 탭의 **로고 업로드** 단추를 사용하여 애플리케이션에 대한 타일 로고를 업로드할 수 있습니다.
+> 갤러리 앱을 추가 하 시겠습니까? [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md) 에서 단계별 설치 지침을 확인 합니다.
 
-### <a name="test-the-saml-application"></a>SAML 애플리케이션 테스트
+코드를 작성 하지 않고 비 갤러리 응용 프로그램에 대해 SAML single sign-on을 구성 하려면 구독 또는 Azure AD Premium 있어야 하 고 응용 프로그램이 SAML 2.0을 지원 해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
-SAML 응용 프로그램을 테스트 하기 전에 있어야 이미 Azure AD 사용 하 여 응용 프로그램을 설정 하 고 응용 프로그램에 사용자 또는 그룹을 할당 합니다. SAML 응용 프로그램을 테스트 하려면 다음을 선택 **Single sign on**, 수를 반환 하는 **SAML 기반 로그온** 페이지입니다. (다른 SSO 메서드를 적용 하는 경우 선택할 **single sign-on 모드를 변경할** > **SAML** 너무.) 그런 다음 합니다 **single sign-on 테스트 \<응용 프로그램 이름 >** 을 선택 **테스트**합니다. 자세한 내용은 [디버그 SAML 기반 single sign에서 Azure Active Directory 응용 프로그램에](../develop/howto-v1-debug-saml-sso-issues.md)입니다.
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-## <a name="password-single-sign-on"></a>암호 SSO(Single sign-on)
+응용 프로그램을 Azure AD 테 넌 트에 추가 하지 않은 경우 [비 갤러리 앱 추가](add-non-gallery-app.md)를 참조 하세요.
 
-구성 하려면이 옵션을 선택 [암호 기반 single sign on](what-is-single-sign-on.md) HTML 로그인 페이지를 사용 하 여 웹 응용 프로그램에 대 한 합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 또한 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유 해야 하는 시나리오에도 유용 합니다.
+## <a name="step-1-edit-the-basic-saml-configuration"></a>1단계. 기본 SAML 구성 편집
 
-선택한 후 **암호 기반**, 응용 프로그램의 웹 기반 로그인 페이지의 URL을 입력 하 라는 메시지가 나타납니다.
+1. [Azure Portal](https://portal.azure.com)에 Azure AD 테넌트의 클라우드 애플리케이션 관리자 또는 애플리케이션 관리자로 로그인합니다.
 
-![로그온 URL을 입력 하려면 로그온 URL 페이지를 보여 줍니다.](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램** 으로 이동 하 여 목록에서 응용 프로그램을 선택 합니다. 
+   
+   - 응용 프로그램을 검색 하려면 **응용 프로그램 종류** 메뉴에서 **모든 응용 프로그램**을 선택 하 고 **적용**을 선택 합니다. 검색 상자에 응용 프로그램의 이름을 입력 한 다음 결과에서 응용 프로그램을 선택 합니다.
 
-다음이 단계를 수행 합니다.
+3. **관리** 섹션 아래에서 **Single Sign-On**을 선택합니다. 
 
-1. URL을 입력 합니다. 이 문자열에는 사용자 이름 입력된 필드를 포함 하는 페이지 여야 합니다.
-1.           **저장**을 선택합니다. Azure AD는 사용자 이름 및 암호 입력에 대 한 로그인 페이지를 구문 분석 하려고 시도 합니다.
-1. Azure AD의 시도가 실패 하면 구문 분석 하는 경우 선택 **구성 \<응용 프로그램 이름 > 암호 Single sign-on 설정** 표시할 합니다 **sign on 구성** 페이지입니다. (시도가 성공 하면 무시할 수 있습니다이 절차의 나머지.)
-1. 선택 **로그인 필드 수동 검색**합니다. 로그인 필드 수동 검색 설명 하는 추가 지침이 표시 됩니다.
+4. **SAML**을 선택 합니다. **SAML로 Single Sign-On 설정 - 미리 보기** 페이지가 표시됩니다.
 
-   ![암호 기반 single sign-on의 수동 구성](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
+   ![1 단계 기본 SAML 구성 편집](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
 
-1. 선택 **로그인 필드 캡처**합니다. 메시지를 보여 주는 새 탭에는 캡처 상태 페이지가 열립니다 **메타 데이터 캡처가 현재 진행 중인**합니다.
-1. 경우는 **액세스 패널 확장 필요** 선택 상자는 새 탭에 표시 됩니다 **지금 설치** 설치 하는 **내 앱 보안 로그인 확장** 브라우저 확장 합니다. (브라우저 확장을 Microsoft Edge, Chrome 또는 Firefox 필요합니다.) 설치, 시작 및 확장을 사용 하도록 설정 및 캡처 상태 페이지를 새로 고칩니다.
+5. 기본 SAML 구성 옵션을 편집하려면 **기본 SAML 구성** 섹션의 오른쪽 위 모서리에 있는 **편집** 아이콘(연필 모양)을 선택합니다.
 
-   그런 다음 브라우저 확장을 입력 한 URL을 표시 하는 다른 탭을 엽니다.
+1. 다음 설정을 입력합니다. 응용 프로그램 공급 업체에서 값을 가져와야 합니다. 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
 
-1. 입력 한 URL 사용 하 여 탭에서 로그인 프로세스를 진행 합니다. 사용자 이름 및 암호 필드를 입력 하 고 로그인을 시도 합니다. (필요가 올바른 암호를 제공 합니다.)
+    | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | 설명 |
+    |:--|:--|:--|:--|
+    | **식별자 (엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 응용 프로그램을 고유 하 게 식별 합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. *응용 프로그램에서 보낸 **AuthnRequest** (SAML 요청)에서이 값을 **발급자** 요소로 찾을 수 있습니다.* |
+    | **회신 URL** | Optional | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용 하 여 여러 회신 Url을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대 한 추가 회신 Url이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 Url (로컬 호스트 및 공용 Url)을 지정할 수 있습니다. |
+    | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 또는 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 비어 있는 경우 Azure AD는 사용자가 Office 365, Azure AD 액세스 패널 또는 Azure AD SSO URL에서 응용 프로그램을 시작할 때 IdP 시작 로그온을 수행 합니다.|
+    | **릴레이 상태** | Optional | Optional | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
+    | **로그아웃 URL** | Optional | Optional | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
 
-   캡처된 로그인 필드를 저장 하 라는 메시지가 됩니다.
+자세한 내용은 [Single SIGN-ON SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조 하세요.
 
-1.           **확인**을 선택합니다. 탭을 닫습니다, 메시지를 사용 하 여 캡처 상태 페이지를 업데이트 하는 브라우저 확장을 **응용 프로그램에 대 한 메타 데이터가 업데이트 된**, 및 해당 브라우저 탭도 닫습니다.
-1. Azure ad에서 **sign on 구성** 페이지에서 **앱에 성공적으로 로그인 적용할 수 있었으며,** .
-1.           **확인**을 선택합니다.
+## <a name="step-2-configure-user-attributes-and-claims"></a>2단계. 사용자 특성 및 클레임 구성 
 
-로그인 페이지의 캡처를 후 사용자 및 그룹을 할당할 수 있습니다 및 일반 마찬가지로 자격 증명 정책을 설정할 수 있습니다 [암호 SSO 응용 프로그램](what-is-single-sign-on.md)합니다.
+사용자가 응용 프로그램에 인증할 때 Azure AD는 응용 프로그램을 고유 하 게 식별 하는 사용자에 대 한 정보 (또는 클레임)가 있는 SAML 토큰을 발급 합니다. 기본적으로이 정보는 사용자의 사용자 이름, 전자 메일 주소, 이름 및 성을 포함 합니다. 예를 들어 응용 프로그램에 특정 클레임 값 이나 username 이외의 **이름** 형식이 필요한 경우 이러한 클레임을 사용자 지정 해야 할 수 있습니다. 갤러리 앱에 대 한 요구 사항은 [응용 프로그램 관련 자습서](../saas-apps/tutorial-list.md)에서 설명 하거나 응용 프로그램 공급 업체에 문의 하세요. 사용자 특성 및 클레임을 구성 하는 일반적인 단계는 아래에 설명 되어 있습니다.
 
-> [!NOTE]
-> 애플리케이션에 **구성** 탭의 **로고 업로드** 단추를 사용하여 애플리케이션에 대한 타일 로고를 업로드할 수 있습니다.
+1. **사용자 특성 및 클레임** 섹션에서 오른쪽 위 모퉁이에 있는 **편집** 아이콘 (연필)을 선택 합니다.
 
-## <a name="existing-single-sign-on"></a>기존 Single Sign-On
+   ![2 단계 사용자 특성 및 클레임 구성](media/configure-single-sign-on-non-gallery-applications/step-two-user-attributes-claims.png)
 
-조직의 Azure AD 액세스 패널 또는 Office 365 포털에서 응용 프로그램에 대 한 링크를 추가 하려면이 옵션을 선택 합니다. 인증을 위해 Azure AD 대신 현재 Active Directory Federation Services (또는 다른 페더레이션 서비스)를 사용 하는 사용자 지정 웹 응용 프로그램에 대 한 링크를 추가 하려면이 메서드를 사용할 수 있습니다. 혹은 사용자의 액세스 패널에 표시하려는 특정 SharePoint 페이지 또는 다른 웹 페이지에 딥 링크를 추가할 수 있습니다.
+2. **이름 식별자 값**을 확인 합니다. 기본값은 *principalname*입니다. 사용자 ID는 애플리케이션 내에서 각 사용자를 고유하게 식별합니다. 예를 들어 이메일 주소가 사용자 이름 및 고유 식별자 모두인 경우 값을 *user.mail*로 설정합니다.
 
-선택한 후 **연결 된**, 연결할 응용 프로그램의 URL을 입력 하 라는 메시지가 나타납니다. URL을 입력 하 고 선택 **저장할**합니다. 응용 프로그램의 표시에 응용 프로그램에 사용자 및 그룹을 할당할 수 있습니다 합니다 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](end-user-experiences.md) 해당 사용자에 대 한 합니다.
+3. **이름 식별자 값**을 수정하려면 **이름 식별자 값** 필드에 대한 **편집** 아이콘(연필 모양)을 선택합니다. 필요에 따라 식별자 형식과 원본을 적절하게 변경합니다. 자세한 내용은 [NameId 편집](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid)을 참조 하세요. 완료되면 변경 내용을 저장합니다. 
+ 
+4. 그룹 클레임을 구성 하려면 **클레임 필드에서 반환 된 그룹** 에 대 한 **편집** 아이콘을 선택 합니다. 자세한 내용은 [그룹 클레임 구성](../hybrid/how-to-connect-fed-group-claims.md)을 참조 하세요.
 
-> [!NOTE]
-> 애플리케이션에 **구성** 탭의 **로고 업로드** 단추를 사용하여 애플리케이션에 대한 타일 로고를 업로드할 수 있습니다.
+5. 클레임을 추가하려면 페이지의 위쪽에서 **새 클레임 추가**를 선택합니다. **이름**을 입력하고 적절한 원본을 선택합니다. **특성** 원본을 선택하는 경우 사용하려는 **원본 특성**을 선택해야 합니다. **번역** 원본을 선택하는 경우 사용하려는 **변환** 및 **매개 변수 1**을 선택해야 합니다. 자세한 내용은 [응용 프로그램별 클레임 추가](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims)를 참조 하세요. 완료되면 변경 내용을 저장합니다. 
 
-## <a name="related-articles"></a>관련 문서
+6.           **저장**을 선택합니다. 테이블에 새 클레임이 표시됩니다.
 
-- [방법: 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)
-- [Azure Active Directory의 응용 프로그램에 SAML 기반 single sign on 디버그](../develop/howto-v1-debug-saml-sso-issues.md)
-- [Microsoft id 플랫폼 (이전 Azure Active Directory 개발자 용)](../develop/index.yml)
+   > [!NOTE]
+   > Azure AD에서 응용 프로그램에 대 한 SAML 토큰을 사용자 지정 하는 다른 방법은 다음 리소스를 참조 하세요.
+   >- Azure Portal를 통해 사용자 지정 역할을 만들려면 [역할 클레임 구성](../develop/active-directory-enterprise-app-role-management.md)을 참조 하세요.
+   >- PowerShell을 통해 클레임을 사용자 지정 하려면 [클레임 사용자 지정-PowerShell](../develop/active-directory-claims-mapping.md)을 참조 하세요.
+   >- 응용 프로그램에 대 한 선택적 클레임을 구성 하도록 응용 프로그램 매니페스트를 수정 하려면 [선택적 클레임 구성](../develop/active-directory-optional-claims.md)을 참조 하세요.
+   >- 새로 고침 토큰, 액세스 토큰, 세션 토큰 및 ID 토큰에 대 한 토큰 수명 정책을 설정 하려면 [토큰 수명 구성](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요. 또는 Azure AD 조건부 액세스를 통해 인증 세션을 제한 하려면 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106)을 참조 하세요.
+
+## <a name="step-3-manage-the-saml-signing-certificate"></a>3단계. SAML 서명 인증서 관리
+
+Azure AD는 인증서를 사용 하 여 응용 프로그램에 보내는 SAML 토큰에 서명 합니다. Azure AD 및 애플리케이션 간 신뢰를 설정하려면 이 인증서가 필요합니다. 인증서 형식에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 자세한 내용은 SAML 토큰에서 페더레이션된 single sign-on 및 [고급 인증서 서명 옵션](certificate-signing-options.md) [에 대 한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 를 참조 하세요.
+
+Azure AD에서 활성 인증서를 사용 하는 기본 **Single Sign-on 설정 SAML** 페이지에서 바로 Base64 또는 원시 형식으로 다운로드할 수 있습니다. 또는 응용 프로그램 메타 데이터 XML 파일을 다운로드 하거나 앱 페더레이션 메타 데이터 URL을 사용 하 여 활성 인증서를 가져올 수 있습니다. 인증서 (활성 또는 비활성)를 보거나 만들거나 다운로드 하려면 다음 단계를 수행 합니다.
+
+1. **SAML 서명 인증서** 섹션으로 이동 합니다. 
+
+   ![3 단계 SAML 서명 인증서 관리](./media/configure-single-sign-on-non-gallery-applications/step-three-certificate.png)
+
+2. 인증서에 다음이 있는지 확인합니다.
+
+   - *원하는 만료 날짜입니다.* 만료 날짜는 최대 3 년 이후까지 구성할 수 있습니다.
+   - *원하는 인증서의 활성 상태입니다.* 상태가 **비활성**이면 상태를 **활성**으로 변경 합니다. 상태를 변경 하려면 원하는 인증서의 행을 마우스 오른쪽 단추로 클릭 하 고 **인증서를 활성 상태로 만들기**를 선택 합니다.
+   - *올바른 서명 옵션 및 알고리즘입니다.*
+   - *올바른 알림 전자 메일 주소입니다.* 활성 인증서가 만료 날짜에 가까워지면 Azure AD는이 필드에 구성 된 전자 메일 주소로 알림을 보냅니다.
+
+2. 인증서를 다운로드 하려면 Base64 형식, 원시 형식 또는 페더레이션 메타 데이터 XML에 대 한 옵션 중 하나를 선택 합니다. 또한 Azure AD는 응용 프로그램에 특정 한 형식 `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`으로 된 메타 데이터에 액세스할 수 있는 **앱 페더레이션 메타 데이터 Url** 을 제공 합니다.
+
+3. 인증서를 관리, 만들기 또는 가져오려면 **SAML 서명 인증서** 섹션의 오른쪽 위 모퉁이에 있는 **편집** 아이콘 (연필)을 선택 합니다.
+
+   ![SAML 서명 인증서](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+
+
+   다음 작업 중 하나를 수행 합니다.
+
+   - 새 인증서를 만들려면 **새 인증서**를 선택 하 고 **만료 날짜**를 선택한 다음 **저장**을 선택 합니다. 인증서를 활성화 하려면 상황에 맞는 메뉴 ( **...** )를 선택 하 고 **인증서를 활성 상태로 만들기**를 선택 합니다.
+   - 개인 키 및 pfx 자격 증명을 사용 하 여 인증서를 업로드 하려면 **인증서 가져오기** 를 선택 하 고 인증서로 이동 합니다. **PFX 암호**를 입력 한 다음 **추가**를 선택 합니다.  
+   - 고급 인증서 서명 옵션을 구성 하려면 다음 옵션을 사용 합니다. 이러한 옵션에 대 한 설명은 [고급 인증서 서명 옵션](certificate-signing-options.md) 문서를 참조 하세요.
+      - **서명 옵션** 드롭다운 목록에서 **saml 응답 서명**, **saml 어설션 서명**또는 **saml 응답 및 어설션 서명**을 선택 합니다.
+      - **서명 알고리즘** 드롭다운 목록에서 **sha-1** 또는 **sha-256**을 선택 합니다.
+   - 활성 인증서의 만료 날짜가 임박 했을 때 추가 사용자에 게 알리려면 **알림 전자 메일 주소** 필드에 전자 메일 주소를 입력 합니다.
+
+4. 변경한 경우 **SAML 서명 인증서** 섹션의 위쪽에서 **저장** 을 선택 합니다. 
+
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>4단계. Azure AD를 사용하도록 애플리케이션 설정
+
+**ApplicationName \<> 설정** 섹션에는 Azure AD를 SAML id 공급자로 사용 하도록 응용 프로그램에 구성 해야 하는 값이 나열 됩니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면  **\<응용 프로그램 이름 설정 >** 제목으로 이동 하 고 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온 구성** 페이지에 표시 됩니다. 이 페이지 **에서는 \<응용 프로그램 이름 설정 >** 제목의 **로그인 url**, **Azure AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
+
+1. **\<applicationName> 설정** 섹션까지 아래로 스크롤합니다. 
+   
+   ![4 단계 응용 프로그램 설정](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
+
+1. 필요에 따라이 섹션의 각 행에서 값을 복사 하 고 응용 프로그램에 값을 추가 하기 위한 응용 프로그램 관련 지침을 따릅니다. 갤러리 앱의 경우 단계별 **지침 보기**를 선택 하 여 설명서를 볼 수 있습니다. 
+   - **로그인 url** 및 **로그 아웃 url** 값은 모두 Azure AD의 인스턴스에 대 한 SAML 요청 처리 끝점과 동일한 끝점으로 확인 됩니다. 
+   - **AZURE AD 식별자** 는 응용 프로그램에 발급 된 SAML 토큰의 **발급자** 값입니다.
+2. 모든 값을 해당 필드에 붙여넣은 다음, **저장**을 선택합니다.
+
+## <a name="step-5-validate-single-sign-on"></a>5단계. Single sign-on 유효성 검사
+
+Azure AD를 SAML 기반 id 공급자로 사용 하도록 응용 프로그램을 구성한 후에는 설정을 테스트 하 여 계정에 대 한 single sign-on이 작동 하는지 확인할 수 있습니다. 
+
+2. **<applicationName>을(를) 사용하여 Single Sign-On 유효성 검사** 섹션으로 스크롤합니다.
+
+   ![5 단계 single sign-on 유효성 검사](media/configure-single-sign-on-non-gallery-applications/step-five-validate.png)
+
+3. **유효성 검사**를 선택합니다. 테스트 옵션이 표시됩니다.
+
+4. **현재 사용자로 로그인**을 선택합니다. 
+
+로그온에 성공 하면 SAML 응용 프로그램에 사용자 및 그룹을 할당할 준비가 된 것입니다.
+오류 메시지가 표시 되 면 다음 단계를 완료 합니다.
+
+1. 세부 정보를 **어떤 오류인 것 같습니까?** 상자에 복사하고 붙여넣습니다.
+
+    ![해결 지침 가져오기](media/configure-single-sign-on-portal/error-guidance.png)
+
+2. **해결 지침 가져오기**를 선택합니다. 근본 원인 및 해결 지침이 표시됩니다.  이 예제에서 사용자는 애플리케이션에 할당되지 않았습니다.
+
+3. 해결 지침을 읽은 다음, 가능한 경우 문제를 해결합니다.
+
+4. 성공적으로 완료될 때까지 테스트를 다시 실행합니다.
+
+자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 SAML 기반 single Sign-on 디버그](../develop/howto-v1-debug-saml-sso-issues.md)를 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [응용 프로그램에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
+- [자동 사용자 계정 프로 비전 구성](configure-automatic-user-provisioning-portal.md)

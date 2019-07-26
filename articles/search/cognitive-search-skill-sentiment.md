@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f52f5200f33d11db44d94b5a5f26d246f711e224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f950bea4ea32ecc95b1721c6930903c3afaee848
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023799"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347662"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
@@ -33,7 +33,7 @@ ms.locfileid: "65023799"
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>데이터 제한
-레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 5000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5000 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
@@ -46,14 +46,14 @@ Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="skill-inputs"></a>기술 입력 
 
-| 입력 이름 | 설명 |
+| 입력 이름 | Description |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 "en"입니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md)을 참조합니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름 | 설명 |
+| 출력 이름 | Description |
 |--------------------|-------------|
 | score에 대한 임계값 수준 보기 | 분석된 텍스트의 감성를 나타내는 0과 1 사이의 값입니다. 값 0에 가까우면 부정적 감정이고, 0.5에 가까우면 중립적 감성이고, 1에 가까우면 긍정적인 감성입니다.|
 
@@ -114,13 +114,13 @@ Microsoft.Skills.Text.SentimentSkill
 }
 ```
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 비어 있는 경우 해당 레코드에 대해 감성 점수는 반환되지 않습니다.
 
 ## <a name="error-cases"></a>오류 사례
 언어가 지원되지 않는 경우 오류가 발생하고 감성 점수는 반환되지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

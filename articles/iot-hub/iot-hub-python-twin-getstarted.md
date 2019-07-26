@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
-ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53e3d32497c7aae6c584d23b9baddbaeaf1bd822
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569254"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405870"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -31,31 +31,33 @@ ms.locfileid: "64569254"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Python 2.x 또는 3.x](https://www.python.org/downloads/)합니다. 설치 프로그램의 요구 사항에 따라 32비트 또는 64비트 설치를 사용해야 합니다. 설치하는 동안 메시지가 나타나면 플랫폼별 환경 변수에 Python을 추가해야 합니다. Python 2.x를 사용하는 경우 [*pip* Python 패키지 관리 시스템을 설치 또는 업그레이드](https://pip.pypa.io/en/stable/installing/)해야 할 수 있습니다.
+* [Python 2.x 또는](https://www.python.org/downloads/)3.x. 설치 프로그램의 요구 사항에 따라 32비트 또는 64비트 설치를 사용해야 합니다. 설치하는 동안 메시지가 나타나면 플랫폼별 환경 변수에 Python을 추가해야 합니다. Python 2.x를 사용하는 경우 [*pip* Python 패키지 관리 시스템을 설치 또는 업그레이드](https://pip.pypa.io/en/stable/installing/)해야 할 수 있습니다.
 
 * Windows OS를 사용하는 경우 Python에서 네이티브 DLL을 사용하기 위해 [Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/confirmation.aspx?id=48145)가 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 > [!NOTE]
-> `azure-iothub-service-client` 및 `azure-iothub-device-client`에 대한 *pip* 패키지는 현재 Windows OS에만 사용할 수 있습니다. Linux/Mac OS를 참조 하십시오에서 Linux 및 Mac OS에 해당 섹션에는 [Python 용 개발 환경 준비](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) 게시 합니다.
+> `azure-iothub-service-client` 및 `azure-iothub-device-client`에 대한 *pip* 패키지는 현재 Windows OS에만 사용할 수 있습니다. Linux/Mac OS의 경우 [Python 용 개발 환경 준비](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) 게시물의 linux 및 Mac OS 관련 섹션을 참조 하세요.
 >
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
+
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
-이 섹션에서는 연결 된 장치 쌍에 위치 메타 데이터를 추가 하는 Python 콘솔 앱을 만든 사용자 **{장치 ID}** 합니다. 그런 다음 IoT Hub에 저장된 디바이스 쌍을 쿼리하여 Redmond에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
+이 섹션에서는 **{장치 ID}** 와 연결 된 장치 쌍에 위치 메타 데이터를 추가 하는 Python 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 디바이스 쌍을 쿼리하여 Redmond에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK**를 설치합니다. SDK를 설치한 후 명령 프롬프트를 닫습니다.
 
@@ -74,7 +76,7 @@ ms.locfileid: "64569254"
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. 에 대 한 자리 표시자를 대체 하는 다음 코드를 추가 `[IoTHub Connection String]` 고 `[Device Id]` IoT hub 및 이전 섹션에서 만든 장치 ID에 대 한 연결 문자열을 사용 합니다.
+4. `[IoTHub Connection String]` 및`[Device Id]` 에 대 한 자리 표시자를 이전 섹션에서 만든 IoT hub의 연결 문자열 및 장치 ID로 대체 하 여 다음 코드를 추가 합니다.
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -157,7 +159,7 @@ ms.locfileid: "64569254"
 
 ## <a name="create-the-device-app"></a>디바이스 앱 만들기
 
-이 섹션에서는로 허브에 연결 하는 Python 콘솔 앱을 만든 사용자 **{장치 ID}** , 해당 장치 쌍의 reported 셀룰러 네트워크를 사용 하 여 연결 된 정보를 포함 하는 속성을 업데이트 합니다.
+이 섹션에서는 **{장치 ID}** 로 허브에 연결 하는 Python 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용 하 여 연결 된 정보를 포함 하도록 장치 쌍의 보고 된 속성을 업데이트 합니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK**를 설치합니다. SDK를 설치한 후 명령 프롬프트를 닫습니다.
 
@@ -264,7 +266,7 @@ ms.locfileid: "64569254"
     python AddTagsAndQuery.py
     ```
 
-    이 시간에 **{장치 ID}** 쿼리 결과 모두 표시 됩니다.
+    이번에는 **{장치 ID}가** 두 쿼리 결과에 모두 나타나야 합니다.
 
     ![두 번째 쿼리](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
@@ -276,6 +278,6 @@ ms.locfileid: "64569254"
 
 * [IoT Hub 시작](quickstart-send-telemetry-python.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
-* 장치 쌍의 desired 속성을 사용 하 여 장치를 구성 합니다 [사용 하 여 장치를 구성 하는 속성을 원하는](tutorial-device-twins.md) 자습서입니다.
+* [Desired 속성을 사용](tutorial-device-twins.md) 하 여 장치 구성 자습서에서 장치 쌍의 desired 속성을 사용 하 여 장치를 구성 합니다.
 
-* 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬을 켬) 장치를 제어 합니다 [직접 메서드를 사용 하 여](quickstart-control-device-python.md) 자습서입니다.
+* [직접 메서드 사용](quickstart-control-device-python.md) 자습서를 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬 켜기) 장치를 제어 합니다.

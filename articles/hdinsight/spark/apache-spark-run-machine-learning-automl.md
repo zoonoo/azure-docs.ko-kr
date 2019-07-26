@@ -7,30 +7,30 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 5135de0fc87af227073f96c653d928ace1a50fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917049"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68354865"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에서 AutoML(자동화된 기계 학습)을 사용하여 Azure Machine Learning 워크로드 실행
 
-Azure Machine Learning 단순화 하 고 빌드, 학습 및 기계 학습 모델의 배포를 가속화 합니다. 자동화 된 컴퓨터 (AutoML) 학습는 정의 된 대상 기능을 제공 하는 학습 데이터를 사용 하 여 시작 하 고 알고리즘 및 자동으로 학습 점수를 기반으로 데이터에 대 한 최상의 모델을 선택 하 고 기능 선택의 조합이 될 때까지 반복 합니다. HDInsight에는 고객이 수백 개의 노드에 클러스터를 프로 비전 할 수 있습니다. AutoML HDInsight 클러스터에서 Spark에서 실행 되는 스케일 아웃 방식으로 교육 작업을 실행 하 고 병렬로 여러 교육 작업을 실행할 수 이러한 노드에서 계산 용량을 사용할 수 있습니다. 이 다른 빅 데이터 워크 로드를 사용 하 여 계산을 공유 하는 동안 AutoML 실험을 실행할 수가 있습니다.
+Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 간소화 하 고 가속화 합니다. 자동 기계 학습 (AutoML)에서 정의 된 대상 기능이 있는 학습 데이터로 시작한 다음, 학습 점수에 따라 데이터에 대 한 최상의 모델을 자동으로 선택 하기 위해 알고리즘 및 기능 선택의 조합을 반복 합니다. HDInsight를 통해 고객은 수백 개의 노드가 있는 클러스터를 프로 비전 할 수 있습니다. HDInsight 클러스터의 Spark에서 실행 되는 AutoML을 통해 사용자는 이러한 노드에서 계산 용량을 사용 하 여 교육 작업을 실행 하 고 여러 학습 작업을 동시에 실행할 수 있습니다. 이를 통해 사용자는 다른 빅 데이터 워크 로드와 계산을 공유 하는 동안 AutoML 실험을 실행할 수 있습니다.
  
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Azure Machine Learning 설치
 
-자동화 된 기계 학습의 일반 자습서를 참조 하세요. [자습서: 자동화된 기계 학습을 사용하여 모델 빌드](../../machine-learning/service/tutorial-auto-train-models.md)를 참조하세요.
-AzureML AutoML SDK와 함께 사전 설치 된 모든 새 HDInsight Spark 클러스터 제공 됩니다. 이 사용 하 여 AutoML에 HDInsight 사용 하 여 시작할 수 있습니다 [샘플 Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)합니다. 이 Jupyter 노트는 단순한 분류 문제에 자동화된 기계 학습 분류자를 사용하는 방법을 보여 줍니다.
+자동화 된 기계 학습에 대 한 일반적인 자습서 [를 보려면 자습서: 자동화된 기계 학습을 사용하여 모델 빌드](../../machine-learning/service/tutorial-auto-train-models.md)를 참조하세요.
+모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK를 사용 하 여 사전 설치 됩니다. 이 [샘플 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)을 사용 하 여 HDInsight에서 automl을 시작할 수 있습니다. 이 Jupyter 노트는 단순한 분류 문제에 자동화된 기계 학습 분류자를 사용하는 방법을 보여 줍니다.
 
 > [!Note]
 > Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. 설치된 Jupyter 노트는 PySpark3 커널을 사용하여 실행해야 합니다.
 
-또는 AutoML도 사용 하 여 Zeppelin notebook을 사용할 수 있습니다.
+또는 Zeppelin 노트북을 사용 하 여 AutoML도 사용할 수 있습니다.
 
 > [!Note]
-> Zeppelin에는 [알려진 문제](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) PySpark3 여기서 올바른 버전의 Python 선택 하지 않습니다. 문서화 된 해결을 사용 하십시오.
+> Zeppelin에는 PySpark3에서 올바른 버전의 Python을 선택 하지 않는 [알려진 문제가](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html) 있습니다. 문서화 된 해결 방법을 사용 하세요.
 
 ## <a name="authentication-for-workspace"></a>작업 영역 인증
 
@@ -41,16 +41,16 @@ AzureML AutoML SDK와 함께 사전 설치 된 모든 새 HDInsight Spark 클러
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
-                tenant_id = '<Azure Tenant ID>',
-                service_principal_id = '<Azure AD Application ID>',
-                service_principal_password = '<Azure AD Application Key>'
-                )
+    tenant_id='<Azure Tenant ID>',
+    service_principal_id='<Azure AD Application ID>',
+    service_principal_password='<Azure AD Application Key>'
+)
 ```
 다음 코드 조각은 **Azure AD 사용자**를 사용하여 인증 토큰을 만듭니다.
 
 ```python
 from azure.common.credentials import UserPassCredentials
-credentials = UserPassCredentials('user@domain.com','my_smart_password')
+credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 ```
 
 ## <a name="loading-dataset"></a>데이터 세트 로드
@@ -60,19 +60,21 @@ Spark의 자동화된 기계 학습은 데이터에 대해 느리게 평가되�
 ```python
 import azureml.dataprep as dprep
 
-dataflow_public = dprep.read_csv(path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
+dataflow_public = dprep.read_csv(
+    path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
 
-dataflow_with_token = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dataflow_with_token = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 ```
 
 또한 일회성 등록을 사용하여 작업 영역에 데이터 저장소를 등록할 수 있습니다.
 
 ## <a name="experiment-submission"></a>실험 제출
 
-에 [자동화 된 machine learning 구성이](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), 속성 `spark_context` 분산된 모드에서 실행할 패키지를 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
+자동화 된 [machine learning 구성](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)에서는 패키지를 분산 `spark_context` 모드에서 실행 하도록 속성을 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자동화 된 기계 학습의 동기에 대 한 자세한 내용은 참조 하세요. [Microsoft를 사용 하 여 속도 릴리스 모델에 machine learning 자동화 된!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* Azure ML 자동화 된 기계 학습 기능을 사용 하 여에 대 한 자세한 내용은 참조 하세요. [새 Azure Machine Learning 서비스에 기계 학습 기능을 자동화](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* 자동화 된 machine learning의 동기에 대 한 자세한 내용은 [Microsoft의 자동화 된 machine learning을 사용 하 여 모델 릴리스](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (영문)를 참조 하세요.
+* Azure ML 자동화 ML 기능을 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning service의 새로운 자동화 된 기계 학습 기능](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) 을 참조 하세요.
 * [Microsoft Research의 AutoML 프로젝트](https://www.microsoft.com/research/project/automl/)

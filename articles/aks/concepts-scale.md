@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074033"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424196"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -29,7 +29,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 실행할 때 계산 �
 
 복제본(Pod) 및 노드의 크기를 수동으로 조정하면서 애플리케이션이 사용 가능한 리소스 및 상태 변화에 대응하는 방식을 테스트할 수 있습니다. 또한 리소스 크기를 수동으로 조정하여 고정 비용을 유지하기 위해 사용할 고정된 리소스 양(예: 노드 수)을 정의할 수도 있습니다. 수동으로 크기를 조정하려면 복제본 또는 노드 수를 정의합니다. 그러면 Kubernetes API가 추가 Pod 생성 또는 노드 드레이닝을 예약합니다.
 
-Pod 및 노드 크기를 수동으로 조정하려면 [AKS에서 애플리케이션 크기 조정][aks-scale]을 참조하세요.
+Pod 및 노드를 수동으로 확장 하는 작업을 시작 하려면 [AKS에서 응용 프로그램 크기 조정][aks-scale]을 참조 하세요.
 
 ## <a name="horizontal-pod-autoscaler"></a>Horizontal Pod Autoscaler
 
@@ -39,7 +39,7 @@ Kubernetes는 HPA(Horizontal Pod Autoscaler)를 사용하여 리소스 수요를
 
 지정된 배포에 대한 Horizontal Pod Autoscaler를 구성하는 경우 실행할 수 있는 최소 및 최대 복제본 수를 정의합니다. 또한 모니터링하고 크기 조정 결정의 기준으로 사용할 메트릭(예: CPU 사용량)도 정의합니다.
 
-AKS에서 Horizontal Pod Autoscaler를 시작하려면 [AKS에서 Pod 자동 크기 조정][aks-hpa]을 참조하세요.
+AKS에서 수평 pod autoscaler을 시작 하려면 [AKS에서 자동 크기 조정 pod][aks-hpa]를 참조 하세요.
 
 ### <a name="cooldown-of-scaling-events"></a>크기 조정 이벤트 휴지
 
@@ -57,9 +57,9 @@ Pod 요구 사항 변경에 응답하기 위해 Kubernetes에는 노드 풀의 �
 
 클러스터 자동 크기 조정기는 일반적으로 Horizontal Pod Autoscaler와 함께 사용됩니다. 이러한 기능을 함께 사용할 경우 Horizontal Pod Autoscaler는 애플리케이션 요구를 기준으로 Pod의 수를 늘리거나 줄이고, 클러스터 자동 크기 조정기는 해당 추가 Pod를 실행하는 데 필요한 만큼 노드 수를 조정합니다.
 
-Autoscaler 클러스터는 단일 노드 풀을 사용하여 AKS 클러스터의 미리 보기에서만 테스트해야 합니다.
+클러스터 autoscaler는 AKS 클러스터의 미리 보기 에서만 테스트 해야 합니다.
 
-AKS에서 클러스터 크기 조정기를 시작하려면 [AKS의 클러스터 자동 크기 조정기][aks-cluster-autoscaler]를 참조하세요.
+AKS에서 클러스터 autoscaler을 시작 하려면 [AKS의 Cluster autoscaler][aks-cluster-autoscaler]를 참조 하십시오.
 
 ### <a name="scale-up-events"></a>규모 확장 이벤트
 
@@ -91,16 +91,16 @@ ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴�
 
 ## <a name="next-steps"></a>다음 단계
 
-애플리케이션 크기 조정을 시작하려면 먼저 [Azure CLI를 사용하여 AKS 클러스터를 만들기 위한 빠른 시작][aks-quickstart]을 따릅니다. 그런 다음, AKS 클러스터에서 애플리케이션 크기를 수동 또는 자동으로 조정할 수 있습니다.
+응용 프로그램 크기 조정을 시작 하려면 먼저 빠른 시작을 따라 [Azure CLI를 사용 하 여 AKS 클러스터를 만듭니다][aks-quickstart]. 그런 다음, AKS 클러스터에서 애플리케이션 크기를 수동 또는 자동으로 조정할 수 있습니다.
 
-- 수동으로 [Pod][aks-manually-scale-pods] 또는 [노드][aks-manually-scale-nodes] 크기 조정
-- [Horizontal Pod Autoscaler][aks-hpa] 사용
-- [클러스터 자동 크기 조정기][aks-cluster-autoscaler] 사용
+- 수동으로 [pod][aks-manually-scale-pods] 크기 조정 or [nodes][aks-manually-scale-nodes]
+- [수평 pod autoscaler][aks-hpa] 사용
+- [클러스터 autoscaler][aks-cluster-autoscaler] 사용
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Kubernetes/AKS 클러스터 및 워크로드][aks-concepts-clusters-workloads]
-- [Kubernetes/AKS 액세스 및 ID][aks-concepts-identity]
+- [Kubernetes/AKS 클러스터 및 워크 로드][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS 액세스 및 id][aks-concepts-identity]
 - [Kubernetes/AKS 보안][aks-concepts-security]
 - [Kubernetes/AKS 가상 네트워크][aks-concepts-network]
 - [Kubernetes/AKS 저장소][aks-concepts-storage]

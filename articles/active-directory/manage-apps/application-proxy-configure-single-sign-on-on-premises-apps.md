@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 응용 프로그램 프록시 (미리 보기)를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML single sign-on | Microsoft Docs
+title: Azure AD 앱 프록시가 있는 온-프레미스 앱에 대 한 SAML single sign-on | Microsoft Docs
 description: SAML 인증을 사용 하 여 보호 되는 온-프레미스 응용 프로그램에 single sign-on을 제공 하는 방법에 대해 알아봅니다. 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱에 대 한 원격 액세스를 제공 합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f4ab79a9fc9b8fec26cce98d9a878b6fa2a0c3
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853740"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421260"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>응용 프로그램 프록시 (미리 보기)를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML single sign-on
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML single sign-on
 
 SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (single sign-on)를 제공 하 고 응용 프로그램 프록시를 통해 이러한 응용 프로그램에 대 한 원격 액세스를 제공할 수 있습니다. SAML single sign-on을 사용 하는 경우 Azure ad (Azure Active Directory)는 사용자의 Azure AD 계정을 사용 하 여 응용 프로그램을 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. 사용자가 SAML 클레임에서 정의한 규칙에 따라 특정 응용 프로그램 역할에 사용자를 매핑할 수도 있습니다. 사용자는 SAML SSO 외에도 응용 프로그램 프록시를 사용 하도록 설정 하 여 응용 프로그램에 대 한 외부 액세스와 원활한 SSO 환경을 제공 합니다.
 
@@ -49,7 +49,7 @@ SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (sin
 
 5. Single sign-on 방법으로 **SAML** 을 선택 합니다.
 
-6. 먼저 회사 네트워크에서 작업 하는 동안 SAML SSO를 설정 합니다. SAML을 **사용 하 여 Single Sign-on 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. [기본 saml 구성 입력](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) 의 단계에 따라 응용 프로그램에 대 한 saml 기반 인증을 구성 합니다.
+6. 먼저 회사 네트워크에서 작업 하는 동안 SAML SSO를 설정 합니다. SAML을 **사용 하 여 Single Sign-on 설정** 페이지에서 **기본 SAML 구성** 제목으로 이동 하 여 **편집** 아이콘 (연필)을 선택 합니다. [기본 saml 구성 입력](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) 의 단계에 따라 응용 프로그램에 대 한 saml 기반 인증을 구성 합니다.
 
 7. 응용 프로그램에 사용자를 한 명 이상 추가 하 고 테스트 계정에 응용 프로그램에 대 한 액세스 권한이 있는지 확인 합니다. 회사 네트워크에 연결 되어 있는 동안 테스트 계정을 사용 하 여 응용 프로그램에 single sign-on이 있는지 확인 합니다. 
 

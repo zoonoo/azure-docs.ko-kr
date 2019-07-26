@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제 | Microsoft Docs
+title: Azure AD 갤러리 앱에 대해 페더레이션된 single sign-on을 구성 하는 문제 | Microsoft Docs
 description: Azure AD 애플리케이션 갤러리에 나열된 애플리케이션의 SAML을 사용하여 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554fb73ea7bf4f866eda3e9f3d629f871cb5e582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781158"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381212"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -70,7 +70,7 @@ ms.locfileid: "65781158"
 
     * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
-값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
+값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 할 수 있습니다.
 
 -   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 

@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b692c593dc134d9b24faeb9de8d3cd2e9a3521b6
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb5d2c693047dd0aa53430ba531dfd246cc77be9
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190199"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422538"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -144,7 +145,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
   
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
-   2. **저장**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
+   2. **Save**을 클릭합니다. 테이블에 새 특성이 표시됩니다.
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Azure AD 메타데이터 또는 인증서 다운로드
 

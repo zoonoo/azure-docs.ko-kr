@@ -4,15 +4,15 @@ description: Azure Data Share 미리 보기와 관련된 문제를 해결하는 
 services: data-share
 author: joannapea
 ms.service: data-share
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: c02f72d6a327c4dcb94ac8844005613cfe316986
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
-ms.translationtype: HT
+ms.openlocfilehash: 386a5e34dccafa61859cd13c3e0ad88cd3a7ffac
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838389"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421456"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Azure Data Share 미리 보기의 일반적인 문제 해결
 
@@ -49,7 +49,7 @@ ms.locfileid: "67838389"
 
 ![권한 오류](media/error-write-privilege.png)
 
-새 데이터 공유를 만들거나 새 데이터 공유를 받을 때 위의 오류 중 하나 이상을 받는다면, 스토리지 계정에 대한 권한이 부족하기 때문입니다. 필요한 권한은 *Microsoft.Authorization/role assignments/write*이며, 이 권한은 스토리지 소유자 역할에 있거나 사용자 지정 역할에 할당할 수 있습니다. 스토리지 계정을 만들었더라도 자동으로 스토리지 계정의 소유자가 되지는 않습니다. 다음 단계에 따라 자신에게 스토리지 계정의 소유자 권한을 부여할 수 있습니다. 또는, 자신을 추가할 수 있는 이 권한을 사용하여 사용자 지정 역할을 만들 수 있습니다.  
+새 데이터 공유를 만들거나 새 데이터 공유를 받을 때 위의 오류 메시지 중 하나 이상을 받는다면 스토리지 계정에 대한 권한이 부족하기 때문입니다. 필요한 권한은 *Microsoft.Authorization/role assignments/write*이며, 이 권한은 스토리지 소유자 역할에 있거나 사용자 지정 역할에 할당할 수 있습니다. 스토리지 계정을 만들었더라도 자동으로 스토리지 계정의 소유자가 되지는 않습니다. 다음 단계에 따라 자신에게 스토리지 계정의 소유자 권한을 부여할 수 있습니다. 또는, 자신을 추가할 수 있는 이 권한을 사용하여 사용자 지정 역할을 만들 수 있습니다.  
 
 1. Azure Portal에서 스토리지 계정으로 이동합니다.
 1. **액세스 제어(IAM)** 를 선택합니다.

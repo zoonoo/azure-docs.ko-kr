@@ -4,14 +4,14 @@ description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480131"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467724"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-위도 및 경도 정보가 없는 실제 주소나 도시 또는 국가/지역과 같은 위치 이름이 있는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
+위도 및 경도 정보가 없지만 실제 주소 또는 위치 이름 (예: 도시 또는 국가/지역)을 사용 하는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
 
 ## <a name="querying-spatial-types"></a>공간 형식 쿼리
 지리 공간 데이터를 삽입하는 방법을 살펴보았으며, 이제 SQL 및 LINQ에서 Azure Cosmos DB를 사용하여 이 데이터를 쿼리하는 방법을 살펴보겠습니다.
@@ -150,7 +150,7 @@ await client.CreateDocumentAsync(
 ### <a name="spatial-sql-built-in-functions"></a>공간 SQL 기본 제공 함수
 Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대한 자세한 내용은 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요.
 
-|**사용 현황**|**설명**|
+|**Usage**|**설명**|
 |---|---|
 | ST_DISTANCE(spatial_expr, spatial_expr) | 두 GeoJSON Point, Polygon 또는 LineString 식 사이의 거리를 반환합니다.|
 |ST_WITHIN(spatial_expr, spatial_expr) | 첫 번째 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 GeoJSON 개체(Point, Polygon 또는 LineString) 내에 있는지를 나타내는 부울 식을 반환합니다.|
@@ -160,7 +160,7 @@ Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geos
 
 공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30km 이내에 있는 모든 제품군 문서를 반환하는 쿼리는 다음과 같습니다. 
 
-**쿼리**
+**데이터 집합 속성**
 
     SELECT f.id 
     FROM Families f 
@@ -178,7 +178,7 @@ ST_WITHIN을 사용하여 점이 다각형 내에 있는지 여부를 확인할 
 
 ST_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. 즉, 다각형에 구멍이 포함되지 않아야 합니다. 
 
-**쿼리**
+**데이터 집합 속성**
 
     SELECT * 
     FROM Families f 
@@ -200,7 +200,7 @@ ST_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
 
 Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB에서 다각형 또는 선을 인덱싱한 다음, 지정된 점이 포함된 영역을 쿼리할 수 있습니다. 이 패턴은 일반적으로 특정 시점(예: 지정된 영역에 트럭이 출입한 시점)을 식별하기 위해 물류에서 사용됩니다. 
 
-**쿼리**
+**데이터 집합 속성**
 
     SELECT * 
     FROM Areas a 
@@ -219,7 +219,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
 
 ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST_ISVALID는 부울 값만 반환하고 ST_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
-**쿼리**
+**데이터 집합 속성**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -231,7 +231,7 @@ ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 
 
 이러한 함수를 사용하여 다각형의 유효성을 검사할 수도 있습니다. 예를 들어 여기서는 ST_ISVALIDDETAILED를 사용하여 닫혀 있지 않은 다각형의 유효성을 검사합니다. 
 
-**쿼리**
+**데이터 집합 속성**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
         [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 

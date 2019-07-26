@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 47578d5b6bb4a0094ba1a2e9e7dc7f92d0b0e231
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e7dea69b507117ba8a3765b5e9bc1fad46be4c53
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607099"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444202"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure Virtual Machines의 SQL Server 릴리스 정보
 
@@ -31,12 +31,11 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **새 SQL IaaS 설치 모드** | SQL IaaS 확장을 설치할 수 됩니다 [경량 모드](virtual-machines-windows-sql-server-agent-extension.md) SQL Server 서비스를 다시 시작 해야 합니다.  |
-| **SQL Server edition 수정** | 이제 변경할 수 있습니다 합니다 [edition 속성](virtual-machines-windows-sql-change-edition.md) SQL Server VM에 대 한 합니다. |
-| **SQL VM RP 변경** | 할 수 있습니다 [SQL Server VM에 SQL VM 리소스 공급자 등록](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) -도 [Windows 2008 이미지](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms) -새 SQL IaaS 모드를 사용 하 여 합니다. |
-| **AHUB를 사용 하 여 BYOL 이미지** | BYOL 이미지 marketplace에서 배포 이제 전환할 수 해당 [라이선스 형식에 '종 량 제'](virtual-machines-windows-sql-ahb.md#remarks)합니다.| 
+| **새 SQL IaaS 설치 모드** | 이제 SQL Server 서비스를 다시 시작 하지 않도록 [경량 모드로](virtual-machines-windows-sql-server-agent-extension.md) SQL IaaS 확장을 설치할 수 있습니다.  |
+| **SQL Server 버전 수정** | 이제 SQL Server VM의 [버전 속성](virtual-machines-windows-sql-change-edition.md) 을 변경할 수 있습니다. |
+| **SQL VM RP 변경 내용** | 새 SQL IaaS 모드를 사용 하 여 [Windows 2008 이미지](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms) 를 포함 하 [는 sql VM 리소스 공급자를](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 사용 하 여 SQL Server VM를 등록할 수 있습니다. |
+| **AHUB를 사용 하는 BYOL 이미지** | Marketplace에서 배포 된 BYOL 이미지는 이제 [라이선스 유형을 ' PAYG '로](virtual-machines-windows-sql-ahb.md#remarks)전환할 수 있습니다.| 
 | &nbsp; | &nbsp; |
-
 
 
 ## <a name="may-2019"></a>2019년 5월
@@ -45,14 +44,14 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **Azure portal에서 새 SQL VM 관리** | Azure portal에서 SQL Server VM을 관리 하는 새로운 방법이 되었습니다. 자세한 내용은 [Azure portal에서 SQL Server VM 관리](virtual-machines-windows-sql-manage-portal.md)합니다.  | 
+| **Azure Portal의 새 SQL VM 관리** | 이제 Azure Portal에서 SQL Server VM를 관리 하는 새로운 방법이 있습니다. 자세한 내용은 [Azure Portal에서 SQL Server VM 관리](virtual-machines-windows-sql-manage-portal.md)를 참조 하세요.  |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>설명서 개선
 
 | 설명서 | 세부 정보 |
 | --- | --- |
-| **새 SQL VM 포털 관리** | 새 SQL VM 관리 포털 환경과 십 문서가 업데이트 되었습니다. | 
+| **새 SQL VM 포털 관리** | 문서 약 수십 개는 새로운 SQL VM 관리 포털 환경으로 업데이트 되었습니다. | 
 | &nbsp; | &nbsp; |
 
 
@@ -64,17 +63,17 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **SQL Server 2008/2008R2에 대해서는 지원 확장** | [지원을 확장할](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server 2008 및 SQL Server 2008 R2 마이그레이션 *으로-는* Azure VM에 있습니다. | 
+| **SQL Server 2008/2008 r 2 R2 지원 확장** | 있는 *그대로* Azure VM으로 마이그레이션하여 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 [지원을 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md) 합니다. | 
 | &nbsp; | &nbsp; |
 
 
-## <a name="march-2019"></a>2019 년 3 월
+## <a name="march-2019"></a>3 월 2019
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **사용자 지정 이미지 지원 가능성** | 이제 설치할 수 있습니다는 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 사용자 지정 운영 체제 및 SQL 이미지를 제공 하는 제한 된 기능의 [융통성 있는 라이선스](virtual-machines-windows-sql-ahb.md)합니다. 로 라이선스 유형을 'AHUB'으로 지정할 SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록 하는 경우 그렇지 않은 경우 등록이 실패 합니다. | 
-| **명명 된 인스턴스 지원 가능성** | 사용할 수 있습니다 합니다 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 기본 인스턴스에 제대로 제거 된 경우 명명된 된 인스턴스를 사용 하 여 합니다. | 
-| **포털의 향상 된 기능** | SQL Server VM을 배포 하기 위한 Azure portal 환경은 유용성을 향상 시키기 개선 되었습니다 했습니다. 자세한 내용은 참조는 brief [빠른 시작](quickstart-sql-vm-create-portal.md) 보다 정확 하 게 하 고 [방법](virtual-machines-windows-portal-sql-server-provision.md) SQL Server VM을 배포 하는 가이드입니다.|
+| **사용자 지정 이미지 지원 가능성** | 이제 [유연한 라이선스](virtual-machines-windows-sql-ahb.md)의 제한 된 기능을 제공 하는 사용자 지정 OS 및 sql 이미지에 [sql IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 을 설치할 수 있습니다. SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록할 때 라이선스 유형을 ' AHUB '로 지정 합니다. 그렇지 않으면 등록이 실패 합니다. | 
+| **명명 된 인스턴스 지원 가능성** | 이제 기본 인스턴스가 제대로 제거 된 경우 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 을 명명 된 인스턴스와 함께 사용할 수 있습니다. | 
+| **포털 기능 향상** | SQL Server VM 배포에 대 한 Azure Portal 환경은 유용성을 개선 하기 위해 개선 된 되었습니다. 자세한 내용은 간략 한 [빠른](quickstart-sql-vm-create-portal.md) 시작 및 더 철저 한 [방법](virtual-machines-windows-portal-sql-server-provision.md) 가이드를 참조 하 여 SQL Server VM 배포를 참조 하세요.|
 | &nbsp; | &nbsp; |
 
 
@@ -82,8 +81,8 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **포털 개선** | 가져오기-사용자-라이선스를 사용 하 여 종 량 제에서 SQL Server VM에 대 한 라이선스 모델을 변경할 수는 이제는 [Azure portal](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider)|
-|**Azure SQL VM CLI를 사용 하 여 AG 배포 간소화** | 이제 이전에 Azure에서 SQL Server VM에 가용성 그룹 배포 보다는 것이 쉽습니다. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) 레코드 시간에 모두 명령줄에서에서 WSFC, ILB와 AG 수신기를 만들 수 있습니다. 자세한 내용은 [SQL Server Azure VM에 대 한 Always On 가용성 그룹을 구성 하려면 사용 하 여 Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)합니다. | 
+| **포털 개선** | 이제를 사용 하 여 SQL Server VM에 대 한 라이선스 모델을 종 량 제로 변경 하 여 사용자 라이선스를 제공할 수 있습니다 [Azure Portal](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider)|
+|**Azure SQL VM CLI를 사용 하 여 AG 배포 간소화** | 이제 Azure의 SQL Server VM에 가용성 그룹을 배포 하는 것이 더 쉬워졌습니다. [AZURE SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) 를 사용 하면 명령줄에서 WSFC, ILB 및 AG 수신기를 모두 만들 수 있습니다. 자세한 내용은 azure [SQL VM CLI를 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](virtual-machines-windows-sql-availability-group-cli.md)참조 하세요. | 
 | &nbsp; | &nbsp; |
 
 
@@ -92,8 +91,8 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 | **새 SQL 클러스터 그룹 리소스 공급자** | Windows 장애 조치(failover) 클러스터의 메타데이터를 정의하는 새 리소스 공급자(Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups)입니다. SQL Server VM을 *SqlVirtualMachineGroups*에 연결하면 Windows 장애 조치(failover) 클러스터 서비스가 부트스트랩되고 VM이 클러스터에 연결됩니다.  |
-|**Azure 빠른 시작 템플릿을 사용하여 가용성 그룹 배포 설정 자동화** |이제 Windows 장애 조치(failover) 클러스터를 만들고, SQL Server VM을 해당 클러스터에 연결하고, 수신기를 만들고, 두 Azure 빠른 시작 템플릿을 사용하여 내부 Load Balancer를 구성할 수 있습니다. 자세한 내용은 [SQL Server Azure VM에 대 한 Always On 가용성 그룹을 구성 하려면 Azure 빠른 시작 템플릿을 사용 하 여](virtual-machines-windows-sql-availability-group-quickstart-template.md)입니다. | 
-| **자동 SQL VM 리소스 공급자 등록** | 이번 달 이후에 배포되는 SQL Server VM은 새로운 SQL Server 리소스 공급자에 자동으로 등록됩니다. 이번 달 이전에 배포된 SQL Server VM은 계속해서 수동으로 등록해야 합니다. 자세한 내용은 [SQL VM 리소스 공급자를 사용 하 여 기존 SQL VM을 등록](virtual-machines-windows-sql-register-with-resource-provider.md)합니다.|
+|**Azure 빠른 시작 템플릿을 사용하여 가용성 그룹 배포 설정 자동화** |이제 Windows 장애 조치(failover) 클러스터를 만들고, SQL Server VM을 해당 클러스터에 연결하고, 수신기를 만들고, 두 Azure 빠른 시작 템플릿을 사용하여 내부 Load Balancer를 구성할 수 있습니다. 자세한 내용은 [Azure 빠른 시작 템플릿을 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](virtual-machines-windows-sql-availability-group-quickstart-template.md)참조 하세요. | 
+| **자동 SQL VM 리소스 공급자 등록** | 이번 달 이후에 배포되는 SQL Server VM은 새로운 SQL Server 리소스 공급자에 자동으로 등록됩니다. 이번 달 이전에 배포된 SQL Server VM은 계속해서 수동으로 등록해야 합니다. 자세한 내용은 [SQL vm 리소스 공급자를 사용 하 여 기존 SQL Vm 등록](virtual-machines-windows-sql-register-with-resource-provider.md)을 참조 하세요.|
 | &nbsp; | &nbsp; |
 
 

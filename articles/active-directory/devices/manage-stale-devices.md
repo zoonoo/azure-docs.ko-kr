@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867249"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499826"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
@@ -70,7 +70,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가 할당된 계정이 필요합니다.
 
 - 전역 관리자
-- 클라우드 디바이스 관리자(현재 새 역할 출시!)
+- 클라우드 디바이스 관리자
 - Intune 서비스 관리자
 
 정리 정책에서 필요한 역할이 할당된 계정을 선택합니다. 

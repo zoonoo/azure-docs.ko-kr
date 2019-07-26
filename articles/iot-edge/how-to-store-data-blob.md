@@ -10,25 +10,28 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c90a0351c8c71f4fcafa58a422cc3566a0b29b03
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c5a27a8016202f7f8c9e256eaf6b3077fbef295b
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850089"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414522"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
-IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 Blob Storage 모듈은 Azure 블록 Blob 서비스처럼 작동하지만, 블록 Blob은 IoT Edge 장치에 로컬로 저장됩니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다.
+IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 blob storage 모듈은 블록 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure block blob service 처럼 동작 합니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
 
-이 모듈은 **deviceToCloudUpload** 및 **deviceautodelete** 기능과 함께 제공 됩니다.
+이 모듈은 데이터를 처리 하거나 클라우드로 전송할 수 있을 때까지 데이터를 로컬로 저장 해야 하는 시나리오에서 유용 합니다. 이 데이터는 비디오, 이미지, 재무 데이터, 병원 데이터 또는 기타 구조화 되지 않은 데이터 일 수 있습니다.
+
 > [!NOTE]
 > IoT Edge의 Azure Blob Storage는 현재 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)입니다.
 
 비디오에서 빠른 소개 보기
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
 
-**deviceToCloudUpload** 은 일시적 인터넷 연결 지원을 통해 로컬 blob 저장소에서 Azure로 데이터를 자동으로 업로드할 수 있는 구성 가능한 기능입니다. 다음 작업을 수행할 수 있습니다.
+이 모듈은 **deviceToCloudUpload** 및 **deviceautodelete** 기능과 함께 제공 됩니다.
+
+**deviceToCloudUpload** 는 구성 가능한 기능입니다. 이 함수는 임시 인터넷 연결을 지원 하 여 로컬 blob 저장소에서 Azure로 데이터를 자동으로 업로드 합니다. 다음 작업을 수행할 수 있습니다.
 
 - DeviceToCloudUpload 기능을 설정/해제 합니다.
 - NewestFirst 또는 OldestFirst와 같이 Azure에 데이터를 복사 하는 순서를 선택 합니다.
@@ -44,17 +47,14 @@ IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft
 
 Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전원 오류)가 발생 하면 모듈이 다시 온라인 상태가 되 면 업로드에 대 한 모든 블록이 다시 업로드 됩니다.
 
-**Deviceautodelete** 는 지정 된 기간 (분 단위)이 만료 되 면 모듈이 로컬 저장소에서 blob을 자동으로 삭제 하는 구성 가능한 기능입니다. 다음 작업을 수행할 수 있습니다.
+**Deviceautodelete** 는 구성 가능한 기능입니다. 이 함수는 지정 된 기간 (분 단위)이 만료 될 때 로컬 저장소에서 blob을 자동으로 삭제 합니다. 다음 작업을 수행할 수 있습니다.
 
 - DeviceAutoDelete 기능을 설정/해제 합니다.
 - Blob이 자동으로 삭제 되는 시간 (분)을 지정 합니다 (deleteAfterMinutes).
-- DeleteAfterMinutes 값이 만료 된 경우 업로드할 때 blob을 유지 하는 기능을 선택 합니다.
+- DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
-이 모듈을 사용 하는 좋은 예는 비디오, 이미지, 재무 데이터, 병원 데이터, 로컬로 저장 해야 하는 모든 데이터 등의 데이터를 로컬로 저장 하거나 클라우드로 전송할 수 있는 시나리오입니다.
 
-이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure IoT Edge 디바이스:
 
@@ -65,8 +65,8 @@ Azure IoT Edge 디바이스:
   | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
   | ---------------- | ----- | ----- | ---- |
   | Raspbian-stretch | 아니요 | 예 | 아니요 |  
-  | Ubuntu Server 16.04 | 예 | 아니요 | 예 (Azure IoT Edge 1.0.8를 사용 하 여 [설치](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) 가능 [-rc1 이상](https://github.com/Azure/azure-iotedge/releases)) |
-  | Ubuntu Server 18.04 | 예 | 아니요 | 예 (Azure IoT Edge 1.0.8를 사용 하 여 [설치](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) 가능 [-rc1 이상](https://github.com/Azure/azure-iotedge/releases)) |
+  | Ubuntu Server 16.04 | 예 | 아니요 | 예 |
+  | Ubuntu Server 18.04 | 예 | 아니요 | 예 |
   | Windows 10 IoT Enterprise, 빌드 17763 | 예 | 아니오 | 아니요 |
   | Windows Server 2019, 빌드 17763 | 예 | 아니오 | 아니요 |
   
@@ -77,7 +77,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload 및 deviceAutoDelete 속성
 
-Desired 속성을 사용 하 여 deviceToCloudUploadProperties 및 deviceAutoDeleteProperties를 설정 합니다. 배포 하는 동안 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. 값이 올바르게 전파 되도록 및 `reported configuration` `configurationValidation` 의 "모듈 쌍"을 확인 하는 것이 좋습니다.
+모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. 값이 올바르게 전파 되도록 및 `reported configuration` `configurationValidation` 의 "모듈 쌍"을 확인 하는 것이 좋습니다.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
@@ -85,11 +85,11 @@ Desired 속성을 사용 하 여 deviceToCloudUploadProperties 및 deviceAutoDel
 
 | 필드 | 가능한 값 | 설명 | 환경 변수 |
 | ----- | ----- | ---- | ---- |
-| uploadOn | true, false | 기본적 `false`으로이 옵션을 설정 하려면로 설정 합니다.`true`| `deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로로 `OldestFirst`설정 됩니다. 순서는 Blob의 마지막 수정 시간에 의해 결정 됩니다. | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| uploadOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. | `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst` 로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 의해 결정 됩니다. | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 Azure Storage 계정을 지정할 수 있는 연결 문자열입니다. , `Azure Storage Account Name` ,`Azure Storage Account Key` 를`End point suffix`지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`자동 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
-| deleteAfterUpload | true, false | 기본적으로로 `false`설정 됩니다. 로 `true`설정 되 면 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+| deleteAfterUpload | true, false | 기본적으로 `false` 로 설정 됩니다. 로 `true`설정 되 면 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
@@ -98,7 +98,7 @@ Desired 속성을 사용 하 여 deviceToCloudUploadProperties 및 deviceAutoDel
 
 | 필드 | 가능한 값 | 설명 | 환경 변수 |
 | ----- | ----- | ---- | ---- |
-| deleteOn | true, false | 기본적 `false`으로이 옵션을 설정 하려면로 설정 합니다.`true`| `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. | `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈이 로컬 저장소에서 blob을 자동으로 삭제 합니다. | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | 기본적으로로 `true`설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 `false` 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고: 이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
@@ -113,7 +113,7 @@ Desired 속성을 사용 하 여 deviceToCloudUploadProperties 및 deviceAutoDel
 만드는 저장소 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 저장소 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
 
 - IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
-- IoT Edge 모듈의 Azure Blob Storage가 실행 되는 위치와 다른 장치에서 실행 되는 외부 모듈 또는 응용 프로그램의 경우 네트워크 설정에 따라 외부 모듈 또는 응용 프로그램의 데이터 트래픽이 장치에 도달할 수 있습니다. IoT Edge 모듈에서 Azure Blob Storage를 실행 하는 경우 Blob 끝점은 다음 중 하나입니다.
+- 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
   - `http://<device IP >:11002/<account name>`
   - `http://<IoT Edge device hostname>:11002/<account name>`
   - `http://<fully qualified domain name>:11002/<account name>`
@@ -147,11 +147,11 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
    > [!NOTE]
    > 이 모듈은 페이지 blob을 지원 하지 않습니다.
 
-1. 데이터를 업로드 하는 Azure storage 계정을 연결 하도록 선택할 수 있습니다. 로컬 저장소 계정 및 Azure storage 계정 모두에 대 한 단일 보기를 제공 합니다.
+1. Storage 탐색기에서 Azure storage 계정을 연결 하도록 선택할 수 있습니다. 이 구성은 로컬 저장소 계정 및 Azure storage 계정 모두에 대 한 단일 보기를 제공 합니다.
 
 ## <a name="supported-storage-operations"></a>지원되는 저장소 작업
 
-IoT Edge의 blob storage 모듈은 동일한 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다. 이후 릴리스는 고객의 요구에 따라 다릅니다.
+IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다. 
 
 IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하지 않기 때문에이 섹션에는 각 작업의 상태가 나열 됩니다.
 
@@ -174,7 +174,7 @@ IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하
 
 - 컨테이너 만들기 및 삭제
 - 컨테이너 속성 및 메타데이터 가져오기
-- Blob 나열
+- BLOB 나열
 - 컨테이너 ACL 가져오기 및 설정
 - 컨테이너 메타데이터 설정
 

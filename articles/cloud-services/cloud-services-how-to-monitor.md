@@ -3,23 +3,17 @@ title: Azure 클라우드 서비스 모니터링 | Microsoft Docs
 description: Azure 클라우드 서비스에 포함되는 모니터링 기능과 사용 가능한 일부 옵션에 대해 설명합니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432913"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359104"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
@@ -45,7 +39,7 @@ ms.locfileid: "61432913"
 각 역할을 만들 때 Visual Studio는 역할에 Azure Diagnostics 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
 * 사용자 지정 성능 카운터
-* 애플리케이션 로그
+* 응용 프로그램 로그
 * Windows 이벤트 로그
 * .NET 이벤트 원본
 * IIS 로그

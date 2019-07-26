@@ -1,24 +1,23 @@
 ---
 title: Azure Backup 모니터링 경고 FAQ
 description: '다음의 일반적인 질문에 대한 답변: Azure Backup 모니터링 경고'
-services: backup
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: srinathv
-ms.openlocfilehash: bb684f65539b4429862b2dce0e378d8f659d2975
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705038"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465852"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 이 문서에서는 Azure 모니터링 경고에 대 한 일반적인 질문에 답변 합니다.
 
-## <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
+## <a name="configure-azure-backup-reports"></a>Azure Backup 구성 보고서
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>보고 데이터가 스토리지 계정으로 전송되기 시작했는지 확인하려면 어떻게 할까요?
 구성한 저장소 계정으로 이동한 다음 컨테이너를 선택합니다. 컨테이너에 insights-logs-azurebackupreport에 대한 항목이 있으면 보고 데이터가 흐르기 시작한 것입니다.

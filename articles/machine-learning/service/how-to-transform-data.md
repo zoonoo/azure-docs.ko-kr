@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 08cf646d63e1a295a1bc2ff28180983cc462f084
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297916"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360923"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|날짜|블록|IUCR|Primary Type|설명|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
+||ID|Case Number|Case Category|날짜|블록|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|위도|경도|위치|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -106,9 +106,9 @@ dflow.head(3)
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
@@ -130,7 +130,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -156,7 +156,8 @@ Azure Machine Learning Data Prep SDK의 고급 도구 중 하나는 원하는 �
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -170,9 +171,11 @@ dflow.head(4)
 날짜와 시간이 'Mar 10, 2018 | 2AM-4AM' 형식인 데이터 세트와 이 파일을 조인해야 하는 경우를 가정해 보겠습니다.
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -207,7 +210,8 @@ builder.preview(skip=30, count=5)
 여기서 생성된 프로그램에는 문제가 있습니다. 파생 프로그램은 위에서 제공한 예제 하나만을 기준으로 하므로 날짜를 “일/월/년”으로 구문 분석했는데, 여기서는 날짜를 다른 형식으로 표시해야 하기 때문입니다. 이 문제를 해결 하려면 특정 레코드 인덱스를 대상으로 지정 하 고 `add_example()` `builder` 변수에 함수를 사용 하는 다른 예를 제공 합니다.
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -235,7 +239,8 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|없음|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
@@ -277,14 +282,15 @@ SDK에는 열 또는 [`drop_columns()`](https://docs.microsoft.com/python/api/az
 ### <a name="initial-setup"></a>초기 설치
 
 > [!Note]
-> 이 동일한 예제의 URL은 전체 URL이 아닙니다. 대신 blob의 demo 폴더를 참조 합니다. 데이터의 전체 URL은입니다. https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+> 이 동일한 예제의 URL은 전체 URL이 아닙니다. 대신 BLOB의 demo 폴더를 말합니다. 데이터의 전체 URL은입니다. https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 자습서에서 수행 하는 작업은 폴더 내의 모든 파일을 로드 하 고 결과를 green_df_raw 및 yellow_df_raw로 집계 하는 것입니다.
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -319,7 +325,8 @@ dflow.head(2)
 `ColumnSelector` 식을 사용하여 regex 식과 일치하는 열을 삭제합니다. 이 예제에서는 `Column*|.*longitude|.*latitude` 식과 일치하는 열을 모두 삭제합니다.
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -360,7 +367,8 @@ dflow.head(2)
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -375,9 +383,10 @@ dflow.head(2)
 > `lpep_pickup_datetime` 및 `Lpep_dropoff_datetime`은 먼저 datetime으로 변환되므로 식을 작성하여 다른 datetime 값과 비교할 수 있습니다.
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -412,28 +421,31 @@ dflow.head(2)
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158| |
-|1|ALABAMA|1|101710|Hale County|10171002162| |
+|0|앨라배마|1|101710|Hale County|10171002158| |
+|1|앨라배마|1|101710|Hale County|10171002162| |
 
 데이터 집합을 축소 하 고 열 제거, 값 대체 및 형식 변환을 포함 하 여 몇 가지 기본 변환 작업을 수행 합니다.
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|없음|
-|1|ALABAMA|Hale County|1.017100e+10|없음|
+|0|앨라배마|Hale County|1.017100e+10|없음|
+|1|앨라배마|Hale County|1.017100e+10|없음|
 
 다음 필터를 사용하여 null 값을 찾습니다.
 
@@ -443,8 +455,8 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|없음|
-|1|ALABAMA|Hale County|1.017100e+10|없음|
+|0|앨라배마|Hale County|1.017100e+10|없음|
+|1|앨라배마|Hale County|1.017100e+10|없음|
 
 ### <a name="transform-partition"></a>파티션 변환
 
@@ -463,8 +475,8 @@ df.head(2)
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|1.017100e+10|0.0|
+|0|앨라배마|Hale County|1.017100e+10|0.0|
+|1|앨라배마|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>새 스크립트 열
 
@@ -482,8 +494,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|앨라배마|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|1|앨라배마|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### <a name="new-script-filter"></a>새 스크립트 필터
 
@@ -500,8 +512,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+|0|앨라배마|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
+|1|앨라배마|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
 ## <a name="next-steps"></a>다음 단계
 

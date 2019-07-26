@@ -9,23 +9,23 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416147"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385561"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
 
 논리 앱에서 로그인하지 않고도 다른 Azure AD(Active Directory) 테넌트의 리소스에 액세스하고 ID를 인증하려는 경우에는 자격 증명 또는 비밀이 아닌 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)(이전 명칭: MSI(관리 서비스 ID))를 사용할 수 있습니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. 이 문서에서는 논리 앱용 시스템 할당 관리 ID를 설정하고 사용할 수 있는 방법을 설명합니다. 관리 ID에 대한 자세한 내용은 [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 > [!NOTE]
-> 논리 앱만 관리 되는 id를 지 원하는 커넥터를 사용 하 여 관리 되는 id를 사용할 수 있습니다. 현재 HTTP 커넥터만 관리 되는 id를 지원합니다.
+> 논리 앱은 관리 되는 id를 지 원하는 커넥터에서 관리 id를 사용할 수 있습니다. 현재는 HTTP 커넥터만 관리 되는 id를 지원 합니다.
 >
 > 현재는 각 Azure 구독에 시스템 할당 관리 ID를 사용하는 논리 앱 워크플로를 10개까지 포함할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독, 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험판 Azure 계정에 등록하세요</a>.
 
@@ -43,7 +43,7 @@ ms.locfileid: "65416147"
 
 <a name="azure-portal"></a>
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려면 논리 앱의 ID 설정에서 **시스템 할당** 설정을 켭니다.
 
@@ -59,7 +59,7 @@ Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려�
 
    ![개체 ID에 대한 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 자산 | 값 | 설명 | 
+   | 속성 | 값 | 설명 | 
    |----------|-------|-------------| 
    | **개체 ID** | <*identity-resource-ID*> | Azure AD 테넌트의 논리 앱에 대한 시스템 할당 관리 ID를 나타내는 GUID(Globally Unique Identifier) | 
    ||| 
@@ -68,7 +68,7 @@ Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려�
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-논리 앱과 같은 Azure 리소스의 생성 및 배포를 자동화하려는 경우 [Azure Resource Manager 템플릿](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)을 사용할 수 있습니다. 템플릿을 통해 논리 앱용 시스템 할당 관리 ID를 생성하려면 배포 템플릿의 논리 앱 워크플로 정의에 `"identity"` 요소 및 `"type"` 속성을 추가합니다. 
+논리 앱과 같은 Azure 리소스의 생성 및 배포를 자동화하려는 경우 [Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)을 사용할 수 있습니다. 템플릿을 통해 논리 앱용 시스템 할당 관리 ID를 생성하려면 배포 템플릿의 논리 앱 워크플로 정의에 `"identity"` 요소 및 `"type"` 속성을 추가합니다. 
 
 ```json
 "identity": {
@@ -76,7 +76,7 @@ Azure Portal을 통해 논리 앱에 시스템 할당 관리 ID를 사용하려�
 }
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```json
 {
@@ -111,7 +111,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 }
 ```
 
-| 자산 | 값 | 설명 | 
+| 속성 | 값 | Description | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Azure AD 테넌트의 논리 앱을 나타내는 GUID(Globally Unique Identifier)이며 가끔 "개체 ID" 또는 `objectID`로 표시됨 | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | 논리 앱이 멤버로 속해 있는 Azure AD 테넌트를 나타내는 GUID(Globally Unique Identifier). Azure AD 테넌트 내부에서 서비스 주체는 논리 앱 인스턴스와 이름이 같습니다. | 
@@ -132,7 +132,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 1. Azure Portal에서 관리 ID에 액세스 권한을 할당하려는 Azure 리소스로 이동합니다. 
 
-1. 리소스 메뉴에서 선택 **액세스 제어 (IAM)** 합니다. 도구 모음에서 선택 **추가** > **역할 할당 추가**합니다.
+1. 리소스 메뉴에서 **Access control (IAM)** 을 선택 합니다. 도구 모음에서 **추가** > **역할 할당**추가를 선택 합니다.
 
    ![역할 할당 추가](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
@@ -182,7 +182,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 논리 앱을 삭제하면 Azure AD에서 논리 앱의 시스템 할당 ID가 자동으로 제거됩니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal을 통해 논리 앱에 대한 시스템 할당 관리 ID를 제거하려면 논리 앱의 ID 설정에서 **시스템 할당** 설정을 끕니다.
 

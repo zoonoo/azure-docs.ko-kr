@@ -1,7 +1,6 @@
 ---
 title: Azure Backup Server로 시스템 상태 보호 및 완전 복구로 복원
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 keywords: ''
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
-ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116178"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465043"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 
@@ -29,12 +28,12 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 다음 표에는 백업 및 복구할 수 있는 항목이 요약되어 있습니다. 시스템 상태 및 BMR로 보호할 수 있는 앱 버전에 대한 자세한 내용은 [Azure Backup Server로 백업할 수 있는 항목](backup-mabs-protection-matrix.md)을 참조하세요.
 
-|Backup|문제|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
+|백업|문제점|Azure Backup Server 백업에서 복구|시스템 상태 백업에서 복구|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아닙니다.|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니요|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|
@@ -51,7 +50,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 
 시스템 상태 백업이 실행되면 Backup Server에서는 Windows Server 백업과 통신하여 서버의 시스템 상태 백업을 요청합니다. 기본적으로 Backup Server 및 Windows Server 백업에서는 최대 사용 가능한 공간이 있는 드라이브를 사용합니다. 이 드라이브에 대한 정보는 PSDataSourceConfig.xml 파일에 저장됩니다. Windows Server Backup에서는 백업에 이 드라이브를 사용합니다.
 
-Backup Server에서 상태 백업에 사용하는 드라이브를 사용자 지정할 수 있습니다. 보호된 서버에서 C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources로 이동합니다. 편집을 위해 PSDataSourceConfig.xml 파일을 엽니다. 드라이브 문자의 \<FilesToProtect\> 값을 변경합니다. 파일을 저장하고 닫습니다. 컴퓨터의 시스템 상태를 보호하도록 설정된 보호 그룹이 있는 경우 일관성 확인을 실행합니다. 경고가 생성되면 경고에서 **보호 그룹 수정**을 선택하고 마법사를 완료합니다. 그다음에 추가적인 일관성 확인을 실행합니다.
+Backup Server에서 상태 백업에 사용하는 드라이브를 사용자 지정할 수 있습니다. 보호된 서버에서 C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources로 이동합니다. 편집을 위해 PSDataSourceConfig.xml 파일을 엽니다. 드라이브 문자의 \<FilesToProtect\> 값을 변경합니다. 파일을 저장한 후 닫습니다. 컴퓨터의 시스템 상태를 보호하도록 설정된 보호 그룹이 있는 경우 일관성 확인을 실행합니다. 경고가 생성되면 경고에서 **보호 그룹 수정**을 선택하고 마법사를 완료합니다. 그다음에 추가적인 일관성 확인을 실행합니다.
 
 보호 서버가 클러스터에 있는 경우에는 클러스터 드라이브를 최대 사용 가능한 공간이 있는 드라이브로 선택할 수 있습니다. 해당 드라이브 소유권이 다른 노드로 전환되고 시스템 상태 백업이 실행되면 해당 드라이브를 사용할 수 없고 백업에 실패합니다. 이 시나리오에서는 로컬 드라이브를 가리키도록 PSDataSourceConfig.xml을 수정합니다.
 
@@ -94,9 +93,9 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
     BMR 보호에서 시스템 상태 보호로 변경할 경우 보호된 컴퓨터에 공간이 필요합니다. 이는 시스템 상태 보호는 먼저 복제본을 로컬 컴퓨터에 쓰고 나서 Backup Server 컴퓨터로 전송하기 때문입니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-1.  **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+1.  **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 참조 항목:
     * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 

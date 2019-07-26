@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597424"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403943"
 ---
 # <a name="get-started-with-device-twins-node"></a>디바이스 쌍 시작(Node)
 
@@ -31,7 +31,7 @@ ms.locfileid: "65597424"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 10.0.x 이상.
+* Node.js 버전 10.0. x 이상
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
@@ -39,11 +39,13 @@ ms.locfileid: "65597424"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
@@ -63,7 +65,7 @@ ms.locfileid: "65597424"
 
 3. 텍스트 편집기를 사용하여 **addtagsandqueryapp** 폴더에 새 **AddTagsAndQuery.js** 파일을 만듭니다.
 
-4. 다음 코드를 **AddTagsAndQuery.js** 파일에 추가하고 허브를 만들 때 복사한 IoT Hub 연결 문자열을 사용해 **{iot hub 연결 문자열}** 자리 표시자를 대체합니다.
+4. **AddTagsAndQuery** 파일에 다음 코드를 추가 하 고 **{iot hub 연결 문자열}** 자리 표시자 값을 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
    ``` javascript
         'use strict';
@@ -136,7 +138,7 @@ ms.locfileid: "65597424"
 
    **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
    
-    ![쿼리 결과에서 하나의 장치를 참조 하세요.](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![쿼리 결과에서 하나의 장치 확인](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 디바이스 앱을 만듭니다.
 
@@ -216,7 +218,7 @@ ms.locfileid: "65597424"
 
     이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
 
-    ![MyDeviceId 쿼리 결과 모두 표시](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![두 쿼리 결과에 myDeviceId 표시](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -224,8 +226,8 @@ ms.locfileid: "65597424"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* 사용 하 여 장치에서 원격 분석을 전송 합니다 [IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서
+* [IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서를 사용 하 여 장치에서 원격 분석을 보냅니다.
 
 * [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 자습서를 참조하여 디바이스 쌍의 desired 속성을 사용하여 디바이스 구성,
 
-* 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬을 켬) 장치를 제어 합니다 [직접 메서드를 사용 하 여](quickstart-control-device-node.md) 자습서입니다.
+* [직접 메서드 사용](quickstart-control-device-node.md) 자습서를 사용 하 여 대화형으로 (예: 사용자 제어 앱에서 팬 켜기) 장치를 제어 합니다.

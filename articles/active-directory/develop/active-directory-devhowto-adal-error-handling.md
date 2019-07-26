@@ -1,5 +1,5 @@
 ---
-title: ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
+title: ADAL (Azure AD 인증 Library) 클라이언트에 대 한 오류 처리 모범 사례
 description: ADAL 클라이언트 애플리케이션에 대한 오류 처리 지침 및 모범 사례를 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1d478bbb2f8645703299c8fe37c2117f492c3f8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0e3ef8e32c3472f7a3861250f1845ce2e60ac868
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324822"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381002"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
