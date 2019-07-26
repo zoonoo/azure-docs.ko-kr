@@ -1,5 +1,5 @@
 ---
-title: 그룹-Azure Active Directory에 대 한 라이선스 할당 문제 해결 | Microsoft Docs
+title: 그룹에 대한 라이선스 할당 문제 해결 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스를 사용할 때 라이선스 할당 문제를 식별하고 해결하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4060c90af3825122c871696a5555e8579d0ad0a
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358097"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359987"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -39,20 +39,20 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 2. 알림을 선택하면 영향을 받는 모든 사용자 목록이 열립니다. 자세한 내용을 보려면 개별적으로 각 사용자를 선택하면 됩니다.
 
-   ![라이선스 오류 상태인 그룹의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![그룹 라이선스 오류 상태의 사용자 목록](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
 
-   ![개요 및 오류 상태인 그룹에 대 한 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![오류 상태의 그룹에 대 한 개요 및 정보](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. 오류가 발생한 모든 그룹의 목록을 보려면 상자를 선택합니다. 자세한 내용은 각 그룹을 선택하면 됩니다.
 
-   ![개요 및 오류 그룹의 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![오류가 있는 그룹 개요 및 목록](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 다음 섹션에서는 잠재적인 문제 및 문제 해결 방법을 설명합니다.
 
-## <a name="not-enough-licenses"></a>라이선스 부족
+## <a name="not-enough-licenses"></a>라이선스가 부족함
 
 **문제:** 그룹에 지정된 제품 중 하나에 사용 가능한 라이선스가 충분하지 않습니다. 제품에 대한 추가 라이선스를 구매하거나 다른 사용자 또는 그룹에서 사용하지 않는 라이선스를 해제해야 합니다.
 
@@ -113,9 +113,9 @@ Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일�
 
 ## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 메일 및 ProxyAddresses 특성 변경
 
-**문제:** 사용자 또는 그룹에 라이선스 할당을 업데이트 하는 동안 일부 사용자의 Azure AD 메일 및 ProxyAddresses 특성 증명이 변경 되었는지 확인할 수 있습니다.
+**문제:** 사용자 또는 그룹에 대 한 라이선스 할당을 업데이트 하는 동안 일부 사용자의 Azure AD Mail 및 ProxyAddresses 특성이 변경 되는 것을 볼 수 있습니다.
 
-프록시 주소 트리거될 수를 계산 하는 사용자 원인에 대 한 라이선스 할당을 업데이트 하는 사용자 특성을 변경할 수 있습니다. 변경의 정확한 이유를 이해 하 고 문제를 해결 하려면이 문서를 참조 [Azure AD에서 proxyAddresses 특성이 채워지는 방법을](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)합니다.
+사용자에 대 한 라이선스 할당을 업데이트 하면 프록시 주소 계산이 트리거되어 사용자 특성을 변경할 수 있습니다. 변경의 정확한 원인을 이해 하 고 문제를 해결 하려면 [AZURE AD에서 proxyAddresses 특성을 채우는 방법](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)에 대 한이 문서를 참조 하세요.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>한 그룹에 두 개 이상의 제품 라이선스가 있으면 어떻게 되나요?
 

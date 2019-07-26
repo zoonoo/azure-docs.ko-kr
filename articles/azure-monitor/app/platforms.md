@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: dd2fb0c9ef157e3706ca3d902f7feebaf4c2f279
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990069"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478904"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>언어-Application Insights 팀에서 공식적으로 지원
+# <a name="supported-languages"></a>지원되는 언어
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [JavaScript 웹 페이지](../../azure-monitor/app/javascript.md)
+* [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="community-sdks"></a>커뮤니티 Sdk
+## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
-수많은 커뮤니티 Azure 애플리케이션 Insights Sdk가 있으며,이 중 상당수는 처음에 Microsoft에서 작성 한 것입니다. 커뮤니티 Sdk는 Microsoft에서 공식적으로 유지 관리 되지 않습니다. 공식적으로 지원 되는 목록에 없는 SDK에 대 한 지원을 제공할 수 없습니다. 이러한 Sdk는 실험적으로 간주 되며 프로덕션 환경에서 사용 하지 않는 것이 좋습니다.
-
-## <a name="platforms-and-frameworks"></a>플랫폼 및 프레임워크
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포 된 응용 프로그램에 대 한 계측 (코드 없는, 에이전트 기반)
 * [Azure VM 및 Azure 가상 머신 확장 집합](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -59,3 +56,7 @@ ms.locfileid: "67990069"
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
+
+## <a name="unsupported-community-sdks"></a>지원 되지 않는 커뮤니티 Sdk
+
+많은 커뮤니티 Application Insights Sdk가 있습니다. 커뮤니티 Sdk는 Microsoft에서 공식적으로 지원/유지 관리 되지 않습니다. 공식적으로 지원 되는 목록에 없는 SDK에 대 한 지원을 제공할 수 없습니다. 

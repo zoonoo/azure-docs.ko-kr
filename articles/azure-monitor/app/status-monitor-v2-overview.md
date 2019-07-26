@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326243"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333693"
 ---
 # <a name="status-monitor-v2"></a>상태 모니터 v2
 
@@ -62,13 +62,13 @@ ms.locfileid: "68326243"
   
 - 성공적으로 작동 하 고 있는지 확인 어떻게 할까요??
 
-   성공적으로 수행 되었는지 확인 하는 cmdlet이 없습니다.
-앱에서 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하려면 [라이브 메트릭을](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 사용 하는 것이 좋습니다.
+  - [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet을 사용 하 여 사용이 성공 했는지 확인할 수 있습니다.
+  - 앱에서 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하려면 [라이브 메트릭을](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 사용 하는 것이 좋습니다.
 
-   [Log Analytics](../log-query/get-started-portal.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - [Log Analytics](../log-query/get-started-portal.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>다음 단계
 

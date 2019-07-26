@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구'
 description: Azure 가상 머신 복구 지점에서 파일 복구
-services: backup
 author: pvrk
 manager: shivamg
 keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240216"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465661"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -67,16 +66,16 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
     - download.microsoft.com
     - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (에 대 한 Azure 공용 지역)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (에 대 한 Azure 중국)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (에 대 한 Azure US Government)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (에 대 한 Azure Germany)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (Azure 공용 geos의 경우)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (Azure 미국 정부의 경우)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (Azure 독일의 경우)
     - 아웃바운드 포트 3260
 
 > [!Note]
 > 
-> * 다운로드 한 스크립트 파일 이름 합니다 **지역 이름** URL에서를 입력 하도록 합니다. 에 대 한 예를 들어: 다운로드 한 스크립트 이름을 사용 하 여 시작 \'VMname\'\_\'geoname\'_\'GUID\', ContosoVM_wcus_12345678 같은...<br><br>
-> * Url "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> * 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예를 들면 다음과 같습니다. 다운로드 \'한 스크립트 이름은 VMname\_\'geoname _GUID\'(예:ContosoVM_wcus_12345678...)로시작합니다.\'\'\'<br><br>
+> * URL은 "https:/pod01-rec2.wcus.backup.windowsazure.com\/"입니다.
 
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
@@ -187,7 +186,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2016    | 윈도우 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -207,13 +206,13 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | openSUSE | 42.2 이상 |
 
 > [!Note]
-> SLES 12 SP4 OS를 사용 하 여 컴퓨터에서 파일 복구 스크립트를 실행 중인 몇 가지 문제가 발견 했습니다. SLES 팀을 사용 하 여 조사 중입니다.
-> 현재, 실행 파일 복구 스크립트를 SLES 12 SP2 및 SP3 운영 체제 버전을 사용 하 여 컴퓨터에서 작동 합니다.
+> SLES 12 SP4 OS를 사용 하는 컴퓨터에서 파일 복구 스크립트를 실행 하는 동안 몇 가지 문제가 발견 되었습니다. SLES 팀을 사용 하 여 조사 합니다.
+> 현재 SLES 12 SP2 및 SP3 OS 버전을 사용 하는 컴퓨터에서 파일 복구 스크립트를 실행 하 고 있습니다.
 >
 
 스크립트는 복구 지점에 안전하게 연결하고 실행하기 위해 Python 및 bash 구성 요소가 필요합니다.
 
-|구성 요소 | Version  |
+|구성 요소 | 버전  |
 | --------------- | ---- |
 | bash | 4 이상 |
 | python | 2.6.6 이상  |
@@ -223,7 +222,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 가상 머신에서 파일을 복구하는 동안 문제가 생기는 경우 다음 표에서 추가 정보를 확인하세요.
 
-| 오류 메시지/시나리오 | 가능한 원인 | 권장 작업 |
+| 오류 메시지/시나리오 | 가능한 원인 | 권장 조치 |
 | ------------------------ | -------------- | ------------------ |
 | Exe 출력: *대상에 연결하는 동안 예외가 발생했습니다.* |스크립트가 복구 지점에 액세스할 수 없습니다.    | 컴퓨터가 이전 액세스 요구 사항을 충족하는지 확인하세요. |  
 | Exe 출력: *iSCSI 세션을 통해 대상이 이미 로그인되었습니다.* | 동일한 컴퓨터에서 스크립트가 이미 실행되었고 드라이브가 연결되었습니다. | 복구 지점의 볼륨이 이미 연결되었습니다. 원래 VM과 동일한 드라이브 문자로 탑재되지 않을 수 있습니다. 파일 탐색기에서 사용 가능한 모든 볼륨을 탐색하여 파일을 찾습니다. |
@@ -235,38 +234,38 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 ## <a name="security"></a>보안
 
-이 섹션에서는 사용자가 기능의 보안 측면을 인식 되도록 Azure VM 백업 으로부터 파일 복구가의 구현을 위해 다양 한 보안 조치를 설명 합니다.
+이 섹션에서는 Azure VM 백업에서 파일 복구를 구현 하는 데 사용 되는 다양 한 보안 방법에 대해 설명 합니다 .이를 통해 사용자는 기능의 보안 측면을 인식 합니다.
 
 ### <a name="feature-flow"></a>기능 흐름
 
-이 기능 전체 VM 또는 VM을 복원 하지 않고도 VM 데이터를 액세스 하기 위해 작성 된 디스크에 최소 단계입니다. VM 데이터에 대 한 액세스 (아래 표시 된 것 처럼 실행 하는 경우 복구 볼륨을 탑재)는 스크립트를 통해 제공 되 고 모든 보안 구현의 토대를 형성 하므로
+이 기능은 전체 VM 또는 VM 디스크를 복원할 필요 없이 최소한의 단계로 VM 데이터에 액세스 하기 위해 만들어졌습니다. VM 데이터에 대 한 액세스는 스크립트 (아래와 같이 실행 될 때 복구 볼륨을 탑재)에서 제공 하므로 모든 보안 구현의 cornerstone을 형성 합니다.
 
   ![보안 기능 흐름](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
 ### <a name="security-implementations"></a>보안 구현
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점 (하는 스크립트를 생성할 수)를 선택 합니다.
+#### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점 선택 (스크립트를 생성할 수 있는 사람)
 
-스크립트에 대 한 액세스는 제공 VM 데이터를 처음부터 생성할 수 있는 사용자를 제어 하는 것이 중요 합니다. Azure portal에 로그인 해야 하 고 해야 하나 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 스크립트를 생성 하는 일을 할 수 있습니다.
+이 스크립트는 VM 데이터에 대 한 액세스를 제공 하며, 처음에이를 생성할 수 있는 사람을 제어 하는 것이 중요 합니다. 하나는 Azure Portal에 로그인 해야 하며, 스크립트를 생성할 수 있도록 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
 
-파일 복구 VM 복원 및 디스크 복원에 대 한 동일한 수준의 필요에 따라 권한 부여 해야합니다. 즉, 권한이 있는 사용자만 수 뷰 VM 데이터 스크립트를 생성할 수 있습니다.
+파일 복구에는 VM 복원 및 디스크 복원에 필요한 것과 동일한 수준의 권한 부여가 필요 합니다. 즉, 권한 있는 사용자만 VM 데이터를 볼 수 있습니다.
 
-생성된 된 스크립트는 Azure Backup 서비스에 대 한 공식 Microsoft 인증서로 서명 됩니다. 스크립트를 사용 하 여 변조 있음을 나타내고 서명이 손상 된 OS에서 스크립트를 실행 하려고 잠재적 위험으로 강조 표시 됩니다.
+생성 된 스크립트는 Azure Backup 서비스용 공식 Microsoft 인증서를 사용 하 여 서명 됩니다. 스크립트를 조작 하면 서명이 중단 되 고 스크립트 실행 시도는 OS의 잠재적인 위험으로 강조 표시 됩니다.
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>탑재 복구 볼륨 (하는 스크립트를 실행할 수 있음)
+#### <a name="mount-recovery-volume-who-can-run-script"></a>복구 볼륨 탑재 (스크립트를 실행할 수 있는 사람)
 
-관리자만 스크립트를 실행할 수 및 관리자 모드에서 실행 해야 합니다. 스크립트는만 미리 생성 된 일련의 단계를 실행 하 고 외부 소스에서 입력을 허용 하지 않습니다.
+관리자만 스크립트를 실행할 수 있으며 관리자 모드에서 실행 해야 합니다. 이 스크립트는 미리 생성 된 단계 집합만 실행 하며 외부 원본의 입력을 허용 하지 않습니다.
 
-스크립트를 실행 하려면만에 나와 있는 권한 있는 사용자에 게 스크립트의 생성 시점에 Azure portal 또는 PowerShell/CLI 암호 하나 필요 합니다. 이 스크립트를 다운로드 하는 권한 있는 사용자는도 스크립트를 실행 하는 일을 담당 하는 것입니다.
+스크립트를 실행 하려면 Azure Portal 또는 PowerShell/CLI에서 스크립트를 생성할 때 권한 있는 사용자 에게만 표시 되는 암호가 필요 합니다. 이는 스크립트를 다운로드 하는 권한 있는 사용자도 스크립트 실행을 담당 하도록 하기 위한 것입니다.
 
 #### <a name="browse-files-and-folders"></a>파일 및 폴더 찾아보기
 
-스크립트 파일 및 폴더를 이동할 컴퓨터에서 iSCSI 초기자를 사용 하 고 iSCSI 대상으로 구성 된 복구 지점에 연결. 다음 시나리오 중 하나 또는 모든 구성 요소를 모방/스푸핑 시도 하나 있는 가정할 수 있습니다.
+이 스크립트는 파일 및 폴더를 찾아보기 위해 컴퓨터의 iSCSI 초기자를 사용 하 고 iSCSI 대상으로 구성 된 복구 지점에 연결 합니다. 여기서는/모든 구성 요소를 모방/스푸핑 하려고 하는 시나리오를 가정할 수 있습니다.
 
-각 구성 요소를 인증 하는 다른 있도록 상호 CHAP 인증 메커니즘을 사용 합니다. 즉, iscsi 및 스크립트를 실행 하는 컴퓨터에 연결 되어야 가짜 대상에 연결 하는 가짜 초기자에 대 한 매우 어렵습니다.
+각 구성 요소가 서로를 인증 하도록 상호 CHAP 인증 메커니즘을 사용 합니다. 즉, 가짜 초기자가 iSCSI 대상에 연결 하는 것은 매우 어렵고 스크립트가 실행 되는 컴퓨터에는 가짜 대상이 연결 됩니다.
 
-복구 서비스와 컴퓨터 간의 데이터 흐름은 TCP를 통한 보안 SSL 터널을 작성 하 여 보호 됩니다 ([TLS 1.2가 지원 되어야](#system-requirements) 스크립트를 실행 하는 컴퓨터에서)
+복구 서비스와 컴퓨터 간의 데이터 흐름은 TCP를 통한 보안 SSL 터널을 구축 하 여 보호 됩니다.[TLS 1.2](#system-requirements) 는 스크립트가 실행 되는 컴퓨터에서 지원 되어야 합니다.
 
-모든 파일 액세스 제어 목록 (ACL)는 부모/백업 VM에 탑재 된 파일 시스템에도 유지 됩니다.
+부모/백업 VM에 있는 모든 ACL (파일 Access Control 목록)은 탑재 된 파일 시스템에도 유지 됩니다.
 
-스크립트는 복구 지점에 대 한 읽기 전용으로 액세스할 하 고 12 시간 동안만 유효 합니다. 이전에 대 한 액세스를 제거 하려는 경우 Azure Portal/PowerShell/CLI에 로그인 하 고 수행 합니다 **디스크를 분리** 해당 특정 복구 지점에 대 한 합니다. 스크립트를 즉시 무효화 됩니다.
+스크립트는 복구 지점에 대 한 읽기 전용 액세스 권한을 제공 하며 12 시간 동안만 유효 합니다. 사용자가 이전에 액세스를 제거 하려는 경우 Azure Portal/PowerShell/CLI에 로그인 하 고 해당 특정 복구 지점에 대해 **분리 된 디스크** 를 수행 합니다. 스크립트가 즉시 무효화 됩니다.

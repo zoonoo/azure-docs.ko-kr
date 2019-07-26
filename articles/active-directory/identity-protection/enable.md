@@ -2,27 +2,21 @@
 title: Azure Active Directory ID 보호 활성화 | Microsoft Docs
 description: Azure Active Directory ID 보호를 활성화하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d33c5c3fe970ee8e5d70e0ba358462d5bdf2bbd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 304ba16985d5abfc4d385b3f1150cfa544c20b2a
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295112"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335513"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호 활성화
 
@@ -58,4 +52,3 @@ Azure Active Directory ID 보호는 Azure AD(Azure Active Directory)의 기능�
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-

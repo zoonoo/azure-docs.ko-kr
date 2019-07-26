@@ -2,29 +2,24 @@
 title: Azure AD ID 보호를 사용하는 로그인 환경 | Microsoft Docs
 description: ID 보호가 완화되었거나 사용자를 재구성한 경우 또는 정책에서 다단계 인증을 요구하는 경우의 사용자 환경에 대한 개요를 제공합니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295299"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335486"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
+
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
 
 * 사용자에게 다단계 인증 등록 요구
@@ -104,11 +99,11 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 ![수정](./media/flows/104.png "수정")
 
-## <a name="reset-password"></a>암호 재설정
+## <a name="reset-password"></a>암호 다시 설정
 손상된 사용자가 로그인할 수 없으면 관리자가 해당 사용자에게 임시 암호를 생성할 수 있습니다. 사용자는 다음 로그인 시 자신의 암호를 변경해야 합니다.
 
 ![수정](./media/flows/160.png "수정")
 
-## <a name="see-also"></a>참고 항목
-* [Azure Active Directory ID 보호](../active-directory-identityprotection.md) 
+## <a name="see-also"></a>참고자료
 
+* [Azure Active Directory ID 보호](../active-directory-identityprotection.md) 

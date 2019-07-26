@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
-ms.translationtype: HT
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310273"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335801"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -438,7 +438,7 @@ Traffic Manager 모니터링 설정은 프로필 수준별로 지정됩니다. �
 Traffic Manager를 사용하면 시작하는 HTTP(S) 상태 검사에서 사용자 지정 헤더를 내 엔드포인트에 지정할 수 있습니다. 사용자 지정 헤더를 지정하려는 경우 프로필 수준에서 수행하거나(모든 엔드포인트에 적용 가능) 엔드포인트 수준에서 지정할 수 있습니다. 헤더가 두 수준 모두에서 정의되면 엔드포인트 수준에서 지정된 헤더는 프로필 수준의 헤더를 재정의합니다.
 이에 대한 일반적인 사용 사례는 Traffic Manager 요청이 다중 테넌트 환경에서 호스트된 엔드포인트로 올바르게 라우팅되도록 호스트 헤더를 지정하는 것입니다. 또 다른 사용 사례는 엔드포인트의 HTTP(S) 요청 로그에서 Traffic Manager 요청을 식별하는 것입니다.
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>엔드포인트 상태 검사에 어떤 호스트 헤더가 사용되나요?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>엔드포인트 상태 검사에 어떤 호스트 헤더가 사용되나요?
 
 제공된 사용자 지정 호스트 헤더 설정이 없는 경우 Traffic Manager에서 사용된 호스트 헤더는 프로필에서 구성된 엔드포인트 대상의 DNS 이름(사용 가능한 경우)입니다.
 

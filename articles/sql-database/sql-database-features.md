@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 7f5b4cfa8b61259987fc7a6d1f1556af52160519
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261047"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371716"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -48,21 +48,21 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [기본 제공 함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) 참조 | 
 | [BULK INSERT 문](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | 예, 하지만 Azure Blob storage에서 원본으로만 가능 합니다. | 예, 하지만 원본으로 Azure Blob Storage 에서만 [차이점](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset)을 참조 하세요. |
 | [인증서 및 비대칭 키](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | 예. 및 `BACKUP` `CREATE` 작업에 대 한 파일 시스템에 액세스 하지 않습니다. | 예. 및 `CREATE` 작업용 파일 시스템에 대 `BACKUP` 한 액세스 권한이 없는 경우 [인증서 차이점](sql-database-managed-instance-transact-sql-information.md#certificates)을 참조 하세요. | 
-| [Change data capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 아니요 | 예 |
+| [변경 데이터 캡처-CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 아니요 | 예 |
 | [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | 예 |예 |
 | [데이터 정렬 - 데이터베이스](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | 예 | 예 |
 | [데이터 정렬 - 서버/인스턴스](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요, 기본 논리 서버 데이터 `SQL_Latin1_General_CP1_CI_AS` 정렬이 항상 사용 됩니다. | 예. [인스턴스를 만들](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) 때 설정할 수 있으며 나중에 업데이트할 수 없습니다. |
 | [Columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 예 - [프리미엄 계층, 표준 계층 - S3 이상, 범용 계층 및 중요 비즈니스 계층](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |예 |
-| [CLR(공용 언어 런타임)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 아니요 | 예, 하지만 `CREATE ASSEMBLY` 문에서 파일 시스템에 액세스 하지 않습니다. [CLR 차이점](sql-database-managed-instance-transact-sql-information.md#clr) 을 참조 하세요. |
+| [CLR (공용 언어 런타임)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 아니요 | 예, 하지만 `CREATE ASSEMBLY` 문에서 파일 시스템에 액세스 하지 않습니다. [CLR 차이점](sql-database-managed-instance-transact-sql-information.md#clr) 을 참조 하세요. |
 | [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 예 | 현재 지정 [시간 복원을 비롯 한 복원의 결함으로 인 한](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database)것이 아닙니다. 곧 수정 될 오류입니다. |
 | [포함된 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | 예 | 예 |
 | [흐름 제어 언어 키워드](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 예 | 예 |
 | [자격 증명](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | 예, 하지만 [데이터베이스 범위 자격 증명만](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | 예, 하지만 **Azure Key Vault** `SHARED ACCESS SIGNATURE` 만 지원 됩니다. [자세한](sql-database-managed-instance-transact-sql-information.md#credential) 내용은 |
-| [데이터베이스 간 쿼리](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-overview.md) 참조 | 예. 추가적으로 [탄력적 쿼리](sql-database-elastic-query-overview.md) |
+| [데이터베이스 간/세 부분으로 구성 되는 이름 쿼리](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-overview.md) 참조 | 예. 추가적으로 [탄력적 쿼리](sql-database-elastic-query-overview.md) |
 | [데이터베이스 간 트랜잭션](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 | 예, 인스턴스 내에 있습니다. 인스턴스 간 쿼리에 대 한 [연결 된 서버 차이점](sql-database-managed-instance-transact-sql-information.md#linked-servers) 을 참조 하세요. |
 | [커서](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | 예 |예 |
 | [데이터 압축](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | 예 |예 |
-| [데이터베이스 메일](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 아니요 | 예 |
+| [데이터베이스 메일-DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 아니요 | 예 |
 | [데이터베이스 미러링](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 아니요 | [아니오](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
 | [데이터베이스 구성 설정](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | 예 | 예 |
 | [데이터베이스 스냅숏](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 아니요 | 아니요 |
@@ -78,11 +78,11 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[예](sql-database-dynamic-data-masking-get-started.md)| [예](sql-database-dynamic-data-masking-get-started.md) |
 | [이벤트 알림](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 아니요 - [경고](sql-database-insights-alerts-portal.md) 참조 | 아니요 |
 | [식](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |예 | 예 |
-| [확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](sql-database-managed-instance-transact-sql-information.md#extended-events) 참조 |
+| [확장 이벤트 (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](sql-database-managed-instance-transact-sql-information.md#extended-events) 참조 |
 | [확장 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 아니요 | 아니요 |
 | [파일 및 파일 그룹](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 | 예. 파일 경로는 자동으로 할당 되며 `ALTER DATABASE ADD FILE` [문에서](sql-database-managed-instance-transact-sql-information.md#alter-database-statement)파일 위치를 지정할 수 없습니다.  |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 | [아니오](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
-| [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) . |
+| [전체 텍스트 검색 (FT)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) . |
 | [함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) 참조 |
 | [그래프 처리 중](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 예 | 예 |
 | [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 계층 및 중요 비즈니스 계층만](sql-database-in-memory.md) | 예 - [중요 비즈니스용 계층만 해당](sql-database-managed-instance.md) |
@@ -111,7 +111,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [리소스 관리자](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 아니요 | 예 |
 | [RESTORE 문](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 아니요 | 예, Azure Blob Storage에 `FROM URL` 배치 된 백업 파일에 대 한 필수 옵션을 사용 합니다. [복원 차이점](sql-database-managed-instance-transact-sql-information.md#restore-statement) 을 참조 하세요. |
 | [백업에서 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 자동 백업에서만 - [SQL Database 복구](sql-database-recovery-using-backups.md) 참조 | 자동화 된 백업에서 [SQL Database 복구](sql-database-recovery-using-backups.md) 및 Azure Blob Storage에 배치 된 전체 백업에서 [백업 차이점](sql-database-managed-instance-transact-sql-information.md#backup) 참조 |
-| [데이터베이스를 SQL Server으로 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 아니요. | 아니요. Managed Instance에서 사용 되는 SQL Server 데이터베이스 엔진은 온-프레미스에서 사용 되는 SQL Server의 RTM 버전 보다 더 높습니다. |
+| [데이터베이스를 SQL Server으로 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 아니요. 네이티브 복원 대신 BACPAC 또는 BCP를 사용 합니다. | 아니요. Managed Instance에서 사용 되는 SQL Server 데이터베이스 엔진은 온-프레미스에서 사용 되는 SQL Server의 RTM 버전 보다 더 높습니다. 대신 BACPAC, BCP 또는 트랜잭션 복제를 사용 하십시오. |
 | [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | 예 | 예 |
 | [의미 체계 검색](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | 아니요 | 아니요 |
 | [시퀀스 번호](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | 예 | 예 |
@@ -130,7 +130,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [임시 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | 로컬 및 데이터베이스 범위 전역 임시 테이블 | 로컬 및 인스턴스 범위 전역 임시 테이블 |
 | [임시 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [예](sql-database-temporal-tables.md) | [예](sql-database-temporal-tables.md) |
 | 표준 시간대 선택 | 아니요 | [예](sql-database-managed-instance-timezone.md), Managed Instance 만들어질 때 구성 해야 합니다. |
-| 위협 감지|  [예](sql-database-threat-detection.md)|[예](sql-database-managed-instance-threat-detection.md)|
+| 위협 검색|  [예](sql-database-threat-detection.md)|[예](sql-database-managed-instance-threat-detection.md)|
 | [추적 플래그](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 아니요 | 아니요 |
 | [트랜잭션 복제자](sql-database-managed-instance-transactional-replication.md) | 예, [트랜잭션 및 스냅숏 복제 구독자만](sql-database-single-database-migrate.md) 해당 | 예, [공개 미리 보기](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)상태입니다. [여기](sql-database-managed-instance-transact-sql-information.md#replication)에서 제약 조건을 참조 하세요. |
 | [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 예 | 예 |
@@ -148,11 +148,9 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [공개 미리 보기 상태](sql-database-auto-failover-group.md)|
 | [Azure Resource Health](/azure/service-health/resource-health-overview) | 예 | 아니요 |
 | [DMS(데이터 마이그레이션 서비스)](https://docs.microsoft.com/sql/dma/dma-overview) | 예 | 예 |
-| [DQS(Data Quality Services)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | 아니요 | 아니요 |
 | [지역 복원](sql-database-recovery-using-backups.md#geo-restore) | 예-대규모 이외의 모든 서비스 계층 | 예- [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)를 사용 합니다. |
 | [하이퍼 확장 아키텍처](sql-database-service-tier-hyperscale.md) | 예 | 아니요 |
 | [장기 백업 보존-LTR](sql-database-long-term-retention.md) | 예, 자동으로 최대 10 년 동안 백업을 유지 합니다. | 아직 없습니다. 임시 `COPY_ONLY` 해결 방법으로 [수동 백업을](sql-database-managed-instance-transact-sql-information.md#backup) 사용 합니다. |
-| [MDS(Master Data Services)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 아니요 | 아니요 |
 | [정책 기반 관리](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 아니요 | 아니요 |
 | 리소스 풀 | 예, [탄력적 풀](sql-database-elastic-pool.md) 로 | 기본 제공 - 단일 Managed Instance는 동일한 리소스 풀을 공유하는 여러 데이터베이스를 유지할 수 있습니다. |
 | 규모 확장 또는 축소 (온라인) | 예, 최소 가동 중지 시간으로 DTU 또는 예약 vCores 또는 max storage를 변경할 수 있습니다. | 예, 최소 가동 중지 시간으로 예약 된 vCores 또는 max storage를 변경할 수 있습니다. | 
@@ -165,7 +163,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [SSAS(SQL Server Analysis Services)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. |
 | [SSIS(SQL Server Integration Services)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 예, ADF(Azure Data Factory) 환경의 관리 SSIS를 사용합니다. 여기서 패키지는 Azure SQL Database에서 호스트되는 SSISDB에 저장되고 Azure SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. <br/><br/>SQL Database 서버 및 Managed Instance의 SSIS 기능을 비교하려면 [Azure SQL Database 단일 데이터베이스/탄력적 풀 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. | 예, ADF(Azure Data Factory) 환경의 관리 SSIS를 사용합니다. 여기서 패키지는 Managed Instance에서 호스트되는 SSISDB에 저장되고 Azure SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. <br/><br/>SQL Database 및 Managed Instance의 SSIS 기능을 비교하려면 [Azure SQL Database 단일 데이터베이스/탄력적 풀 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. |
 | [SSRS(SQL Server Reporting Services)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | 아니요 - [Power BI 참조](https://docs.microsoft.com/power-bi/) | 아니요 - [Power BI 참조](https://docs.microsoft.com/power-bi/) |
-| [Query Performance Insights](sql-database-query-performance.md) | 예 | 아니요. SQL Server Management Studio 및 Azure Data Studio에서 기본 제공 보고서를 사용 합니다. |
+| [QPI (Query Performance Insights)](sql-database-query-performance.md) | 예 | 아니요. SQL Server Management Studio 및 Azure Data Studio에서 기본 제공 보고서를 사용 합니다. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | 일부는 [VNet 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 제한 된 액세스를 가능 하 게 합니다. | 예, Managed Instance 고객의 VNet에 삽입 됩니다. [서브넷](sql-database-managed-instance-transact-sql-information.md#subnet) 및 [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) 참조 |
 
 ## <a name="tools"></a>Tools
@@ -176,10 +174,12 @@ Azure SQL database는 데이터를 관리 하는 데 사용할 수 있는 다양
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | 예 | 예 |
 | [BACPAC 파일(내보내기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 - [SQL Database 내보내기](sql-database-export.md) 참조 | 예 - [SQL Database 내보내기](sql-database-export.md) 참조 |
 | [BACPAC 파일(가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 예 - [SQL Database 가져오기](sql-database-import.md) 참조 | 예 - [SQL Database 가져오기](sql-database-import.md) 참조 |
+| [DQS(Data Quality Services)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | 아니요 | 아니요 |
+| [MDS(Master Data Services)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 아니요 | 아니요 |
 | [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | 예 | 예 |
 | [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [버전 18.0 이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server 프로파일러](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 |
-| [System Center-Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 아니요 |
+| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 

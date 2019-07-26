@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28a3183114db206e55814d1b25eaef37a2819c1d
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463007"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68495149"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -30,6 +30,7 @@ ms.locfileid: "61463007"
 [2562184]: https://launchpad.support.sap.com/#/notes/2562184
 [2628497]: https://launchpad.support.sap.com/#/notes/2628497
 [2445033]: https://launchpad.support.sap.com/#/notes/2445033
+[2815988]: https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -66,18 +67,18 @@ SAP LaMa는 많은 고객이 SAP 환경을 운영 및 모니터링하는 데 사
 * 새 VM을 배포할 때 및 SAP 인스턴스가 준비가 되지 않은 경우에는 별도의 서브넷을 사용하며 IP 주소가 "도용"되지 않도록 동적 IP 주소를 사용하지 않습니다.  
   SAP LaMa에서도 사용되는 서브넷에 동적 IP 주소 할당을 사용하면 SAP LaMa를 통한 SAP 시스템 준비에 실패할 수 있습니다. SAP 시스템이 준비되지 않으면 IP 주소가 예약되지 않으며 다른 가상 머신에 할당될 수 있습니다.
 
-* 관리 호스트에 로그온하는 경우 파일 시스템이 마운트 해제되지 않도록 차단하지 마십시오  
-  Linux 가상 머신에 로그온하여 작업 디렉터리를 마운트 포인트의 디렉터리(예: /usr/sap/AH1/ASCS00/exe)로 변경하면 볼륨을 마운트 해제할 수 없으며 재배치 또는 준비 취소가 실패합니다.
+* 관리 호스트에 로그인 하는 경우 파일 시스템이 분리 되지 않도록 차단 해야 합니다.  
+  Linux 가상 머신에 로그인 하 고 작업 디렉터리를 탑재 지점의 디렉터리 (예:/usr/sap/AH1/ASCS00/exe로 변경 하는 경우 볼륨을 분리할 수 없으며 위치 변경 또는 unprepare 실패 합니다.
 
 ## <a name="set-up-azure-connector-for-sap-lama"></a>SAP LaMa용 Azure 커넥터 설정
 
 Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최신 지원 패키지 및 패치를 항상 설치하는 것이 좋습니다. Azure 커넥터는 서비스 주체를 사용하여 Microsoft Azure에 대한 권한 부여합니다. 다음 단계에 따라 SAP LaMa(Landscape Management)에 대한 서비스 주체를 생성합니다.
 
-1. https://portal.azure.com 으로 이동합니다.
+1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 추가를 클릭합니다.
-1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예: http:\//localhost) 만들기를 클릭 하 고
+1. 이름을 입력 하 고, 응용 프로그램 유형 "웹 앱/a p i"를 선택 하 고, 로그온 URL (예\/: http:/localhost)을 입력 하 고 만들기를 클릭 합니다.
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키를 클릭합니다.
 1. 새 키의 설명을 입력하고 “무기한”을 선택한 다음, 저장을 클릭합니다.
@@ -86,7 +87,7 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 액세스하려면 서비스 주체에 권한을 부여해야 합니다.
 
-1. https://portal.azure.com 으로 이동합니다.
+1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
 1. 리소스 그룹 블레이드를 엽니다.
 1. 사용하려는 리소스 그룹을 선택합니다.
 1. 액세스 제어(IAM) 클릭
@@ -226,7 +227,7 @@ SAP LaMa는 SQL Server 자체를 재배치할 수 없습니다. 따라서 데이
 
 아래 예제에서는 시스템 ID HN1로 SAP HANA를 설치하고 시스템 ID AH1로 SAP NetWeaver 시스템을 설치한다고 가정합니다. 가상 호스트 이름은 HANA 인스턴스의 경우 hn1-db이고 SAP NetWeaver 시스템에 사용되는 HANA 테넌트는 ah1-db이며 SAP NetWeaver ASCS는 ah1-ascs이고 첫 번째 SAP NetWeaver Application Server는 ah1-di-0입니다.
 
-#### <a name="install-sap-netweaver-ascs-for-sap-hana"></a>SAP HANA용 SAP NetWeaver ASCS 설치
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-using-azure-managed-disks"></a>Azure Managed Disks를 사용 하 여 SAP HANA에 대 한 SAP NetWeaver ASCS 설치
 
 SAP SWPM(Software Provisioning Manager)을 시작하기 전에 ASCS의 가상 호스트 이름의 IP 주소를 마운트해야 합니다. 권장되는 방식은 sapacext를 사용하는 것입니다. sapacext를 사용하여 IP 주소를 마운트하는 경우에는 다시 부팅한 후 IP 주소를 다시 마운트해야 합니다.
 
@@ -251,6 +252,93 @@ SWPM을 실행하고 *ASCS 인스턴스 호스트 이름*에 *ah1-ascs*를 사�
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
+
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-on-azure-netappfiles-anf-beta"></a>Azure NetAppFiles (ANF) BETA에서 SAP HANA 용 SAP NetWeaver ASCS 설치
+
+> [!NOTE]
+> 이 기능은 아직 GA 되지 않습니다. 자세한 내용은 SAP Note [2815988] (미리 보기 고객만 표시 됨)를 참조 하세요.
+구성 요소 BC-VCM-HYPERV에서 SAP 인시던트를 열고 Azure NetApp Files 미리 보기를 위해 LaMa 저장소 어댑터에 가입 요청
+
+ANF는 Azure 용 NFS를 제공 합니다. SAP LaMa의 컨텍스트에서는이를 통해 ASCS (ABAP Central Services) 인스턴스 및 후속 응용 프로그램 서버 설치를 간소화 합니다. 이전에 ASCS 인스턴스는 NFS 서버 역할을 수행 하 고 acosprep/nfs_paths 매개 변수를 SAP Hostagent의 host_profile에 추가 해야 했습니다.
+
+#### <a name="anf-is-currently-available-in-these-regions"></a>ANF는 현재 다음 지역에서 사용할 수 있습니다.
+
+오스트레일리아 동부, 미국 중부, 미국 동부, 미국 동부 2, 서유럽, 미국 중 북부, 유럽 서부 및 미국 서 부 2
+
+#### <a name="network-requirements"></a>네트워크 요구 사항
+
+ANF에는 SAP 서버와 동일한 VNET의 일부 여야 하는 위임 된 서브넷이 필요 합니다. 이러한 구성에 대 한 예제는 다음과 같습니다.
+이 화면에서는 VNET 및 첫 번째 서브넷을 만드는 방법을 보여 줍니다.
+
+![SAP LaMa Azure ANF에 대 한 가상 네트워크 만들기 ](media/lama/sap-lama-createvn-50.png)
+
+다음 단계에서는 Microsoft .Net 앱/볼륨에 대해 위임 된 서브넷을 만듭니다.
+
+![SAP LaMa 위임 된 서브넷 추가 ](media/lama/sap-lama-addsubnet-50.png)
+
+![SAP LaMa 서브넷 목록 ](media/lama/sap-lama-subnets.png)
+
+이제 Azure Portal 내에서 NetApp 계정을 만들어야 합니다.
+
+![SAP LaMa NetApp 계정 만들기 ](media/lama/sap-lama-create-netappaccount-50.png)
+
+![SAP LaMa NetApp 계정이 만들어짐 ](media/lama/sap-lama-netappaccount.png)
+
+NetApp 계정 내에서 용량 풀은 각 풀의 디스크 크기와 유형을 지정 합니다.
+
+![SAP LaMa NetApp capacity pool 만들기 ](media/lama/sap-lama-capacitypool-50.png)
+
+![SAP LaMa NetApp 용량 풀이 만들어짐 ](media/lama/sap-lama-capacitypool-list.png)
+
+이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의\<경우/sapmnt/sid\>,/usr/sap/\<sid\> 및/home/\<sid\>adm과 같은 탑재를 수행 해야 합니다. 중앙 전송 디렉터리에 대 한 선택적/usr/sap/trans으로, 한 곳의 모든 시스템에서 최소 사용 됩니다.
+
+> [!NOTE]
+> 베타 단계에서 볼륨 이름은 구독 내에서 고유 해야 합니다.
+
+![SAP LaMa 볼륨 1 만들기 ](media/lama/sap-lama-createvolume-80.png)
+
+![SAP LaMa 볼륨 만들기 2 ](media/lama/sap-lama-createvolume2-80.png)
+
+![SAP LaMa 볼륨 3 만들기 ](media/lama/sap-lama-createvolume3-80.png)
+
+다른 볼륨에 대해서도 이러한 단계를 반복 해야 합니다.
+
+![만든 볼륨의 SAP LaMa 목록 ](media/lama/sap-lama-volumes.png)
+
+이제 이러한 볼륨을 SAP SWPM을 사용 하 여 초기 설치를 수행 하는 시스템에 탑재 해야 합니다.
+
+먼저 탑재 위치를 만들어야 합니다. 이 경우 SID는 AN1 이므로 다음 명령을 실행 해야 합니다.
+
+```bash
+mkdir -p /home/an1adm
+mkdir -p /sapmnt/AN1
+mkdir -p /usr/sap/AN1
+mkdir -p /usr/sap/trans
+```
+다음 명령을 사용 하 여 ANF 볼륨을 탑재 합니다.
+
+```bash
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+```
+탑재 명령은 포털에서 파생 될 수도 있습니다. 로컬 탑재 지점은 조정 해야 합니다.
+
+Df-h 명령을 사용 하 여 확인 합니다.
+
+![SAP LaMa 탑재 지점의 OS 수준 ](media/lama/sap-lama-mounts.png)
+
+이제 SWPM을 사용 하 여 설치를 수행 해야 합니다.
+
+인스턴스 하나 이상에 대해 동일한 단계를 수행 해야 합니다.
+
+설치가 완료 되 면 SAP LaMa 내에서 시스템을 검색 해야 합니다.
+
+탑재 지점은 ASCS 및 AS 인스턴스에 대해 다음과 같이 표시 됩니다.
+
+![LaMa ](media/lama/sap-lama-ascs.png) 의 SAP LaMa 탑재 위치 (예: IP 주소와 내보내기 경로가 이전에 사용한 것과 다릅니다.
+
 
 #### <a name="install-sap-hana"></a>SAP HANA 설치
 
@@ -352,7 +440,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 * SELECT 권한이 거부됨
   * [Microsoft][ODBC SQL Server Driver][SQL Server]'log_shipping_primary_databases', database 'msdb', schema 'dbo' 개체에 대한 SELECT 권한이 거부되었습니다. [SOAPFaultException]  
   'log_shipping_primary_databases', database 'msdb', schema 'dbo' 개체에 대한 SELECT 권한이 거부되었습니다.
-  * 해결 방법  
+  * 솔루션  
     *NT AUTHORITY\SYSTEM*이 SQL Server에 액세스할 수 있는지 확인합니다. SAP Note [2562184]를 참조하세요.
 
 
@@ -362,79 +450,79 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 로그 뷰어를 확인하세요.  
     com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: ID가 'RuntimeHDBConnectionValidator'인 유효성 검사기의 예외(Validation: 'VALIDATION_HDB_USERSTORE'): hdbuserstore를 검색할 수 없습니다.  
     HANA userstore가 올바른 위치에 있지 않습니다.
-  * 해결 방법  
+  * 솔루션  
     /usr/sap/AH1/hdbclient/install/installation.ini가 올바른지 확인합니다.
 
 ### <a name="errors-and-warnings-during-a-system-copy"></a>시스템 복사 중 오류 및 경고
 
 * 시스템 프로비전 단계의 유효성을 검사하는 중 오류가 발생했습니다.
   * 원인: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 해결 방법  
+  * 솔루션  
     원본 HANA 시스템의 모든 데이터베이스를 백업합니다.
 
 * 시스템 복사 단계 데이터베이스 인스턴스의 시작(*Start*)
   * 호스트 에이전트 작업 '000D3A282BC91EE8A1D76CF1F92E2944' 실패(OperationException. FaultCode: '127', 메시지: '명령을 실행하지 못했습니다. : [Microsoft][ODBC SQL Server Driver][SQL Server]사용자에게 'AS2' 데이터베이스를 변경할 권한이 없거나, 데이터베이스가 없거나, 데이터베이스가 액세스 검사를 허용하지 않는 상태입니다.')
-  * 해결 방법  
+  * 솔루션  
     *NT AUTHORITY\SYSTEM*이 SQL Server에 액세스할 수 있는지 확인합니다. SAP Note [2562184]를 참조하세요.
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>시스템 복제 중 오류 및 경고
 
 * ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
   * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다.  프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
-  * 해결 방법  
+  * 솔루션  
    ASCS/SCS의 sapmnt 공유에 SAP_AS1_GlobalAdmin에 대한 전체 액세스 권한이 있는지 확인합니다.
 
 * *Enable Startup Protection for Clone*(복제에 대한 시작 보호 사용) 단계의 오류
   * '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 파일을 열지 못했습니다. 원인: 해당하는 파일이나 디렉터리가 없습니다.
-  * 해결 방법  
+  * 솔루션  
     애플리케이션 서버의 컴퓨터 계정에 프로필에 대한 쓰기 권한이 필요합니다.
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>시스템 복제 생성 중 오류 및 경고
 
 * 시스템 복제 생성을 클릭하면 예외 발생
   * 원인: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException   Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 해결 방법  
+  * 솔루션  
     sapacext를 `<hanasid`>adm으로 실행할 수 있는지 테스트합니다.
 
 * 저장소 단계에서 전체 복사본을 사용할 수 없는 경우 오류 발생
   * 경로 IStorageCopyData.storageVolumeCopyList:1 및 필드 targetStorageSystemId에 대한 컨텍스트 특성 메시지를 보고할 때 오류가 발생했습니다.
-  * 해결 방법  
+  * 솔루션  
     단계의 경고를 무시하고 다시 시도하세요. 이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.
 
 ### <a name="errors-and-warnings-during-relocate"></a>재배치 중 오류 및 경고
 
 * nfs 다시 내보내기에 경로 '/usr/sap/AH1'이 허용되지 않습니다.
   * 자세한 내용은 SAP Note [2628497]을 참조하세요.
-  * 해결 방법  
+  * 솔루션  
     ASCS 내보내기를 ASCS HostAgent 프로필에 추가합니다. SAP Note [2628497]을 참조하세요.
 
 * ASCS 재배치 시 기능이 구현되지 않음
   * 명령 출력: exportfs: host:/usr/sap/AX1: 구현되지 않는 기능입니다.
-  * 해결 방법  
+  * 솔루션  
     재배치 대상 가상 머신에 NFS 서버 서비스가 활성화되어 있는지 확인합니다.
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Application Server 설치 중 오류 및 경고
 
 * SAPinst 단계: getProfileDir 실행 중 오류 발생
   * 오류: (단계에서 보고한 마지막 오류: 모듈 호출에서 ESAPinstException catch됨: 단계 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir'의 유효성 검사기가 오류를 보고함: 노드 \\\as1-ascs\sapmnt\AS1\SYS\profile이 없습니다. SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askUnicode 실행 중 오류 발생
   * 오류: (단계에서 보고한 마지막 오류: 모듈 호출에서 ESAPinstException catch됨: 단계 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode'의 유효성 검사기가 오류를 보고함: SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
-  * 해결 방법  
+  * 솔루션  
     최근 SAP 커널을 사용하는 경우, SWPM은 ASCS의 메시지 서버를 사용하여 시스템이 더 이상 유니코드 시스템인지 여부를 확인할 수 없습니다. 자세한 내용은 SAP Note [2445033]을 참조하세요.  
     이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.  
     이 문제를 해결하려면 SAP 시스템의 기본 프로필에서 프로필 매개 변수 OS_UNICODE=uc를 설정합니다.
 
 * SAPinst 단계: dCheckGivenServer 실행 중 오류 발생
   * SAPinst 단계: dCheckGivenServer 실행 중 오류 발생" version="1.0" ERROR: (단계에서 보고한 마지막 오류: \<p> 사용자가 설치를 취소했습니다. \</p>
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: checkClient 실행 중 오류 발생
   * SAPinst 단계: checkClient 실행 중 오류 발생" version="1.0" ERROR: (단계에서 보고한 마지막 오류: \<p> 사용자가 설치를 취소했습니다. \</p>)
-  * 해결 방법  
+  * 솔루션  
     애플리케이션 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
 
 * SAPinst 단계: copyScripts 실행 중 오류 발생
@@ -452,7 +540,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
   syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
   syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
-  * 해결 방법  
+  * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askPasswords 실행 중 오류 발생
@@ -471,11 +559,11 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
   iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
   synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
-  * 해결 방법  
+  * 솔루션  
     *Isolation*(격리) 단계에서 호스트를 추가하여 VM에서 도메인 컨트롤러로의 통신을 허용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure의 SAP HANA 운영 가이드][hana-ops-guide]
-* [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
-* [SAP용 Azure Virtual Machines 배포][deployment-guide]
-* [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [Azure 운영 가이드의 SAP HANA][hana-ops-guide]
+* [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
+* [SAP 용 Azure Virtual Machines 배포][deployment-guide]
+* [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]

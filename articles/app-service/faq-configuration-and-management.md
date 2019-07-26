@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720018"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489444"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -152,12 +152,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 이 예외는 수정된 하이브리드 연결 관리자의 문제로 인해 야기되었습니다. 이 문제를 해결하려면 [하이브리드 연결 관리자를 업데이트](https://go.microsoft.com/fwlink/?LinkID=841308)해야 합니다.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 어떻게 추가하거나 편집할 수 있나요?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>URL 다시 쓰기 규칙을 추가 어떻게 할까요??
 
-URL 다시 쓰기 규칙을 추가하거나 편집하려면:
-
-1. App Service 웹앱에 연결하도록 IIS(인터넷 정보 서비스) 관리자를 설정합니다. IIS 관리자를 App Service에 연결하는 방법을 알아보려면 [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/)(IIS 관리자를 사용하여 Azure Websites 원격 관리)를 참조하세요.
-2. IIS 관리자에서 URL 다시 쓰기 규칙을 추가하거나 편집합니다. URL 다시 쓰기 규칙을 추가하거나 편집하는 방법을 알아보려면 [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)(URL 다시 쓰기 모듈에 대한 다시 쓰기 규칙 만들기)을 참조하세요.
+URL 다시 쓰기 규칙을 추가 하려면 **wwwroot** 폴더에 관련 된 구성 항목을 사용 하 여 web.config 파일을 만듭니다. 자세한 내용은 Azure 앱 Services를 [참조 하십시오. URL 재작성](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)이해.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>App Service에 대한 인바운드 트래픽을 제어하려면 어떻게 하나요?
 

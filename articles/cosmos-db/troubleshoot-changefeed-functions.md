@@ -1,26 +1,26 @@
 ---
-title: Azure Functions에서 Azure Cosmos DB 트리거를 사용할 때의 문제 진단 및 해결
-description: Azure Functions와 함께 Azure Cosmos DB 트리거를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계
+title: Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
+description: Cosmos DB에 대 한 Azure Functions 트리거를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250025"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335742"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Azure Functions에서 Azure Cosmos DB 트리거를 사용할 때의 문제 진단 및 해결
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
-이 문서에서는 Azure Functions와 함께 [Azure Cosmos DB 트리거](change-feed-functions.md) 를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계를 다룹니다.
+이 문서에서는 [Cosmos DB에 대 한 Azure Functions 트리거](change-feed-functions.md)를 사용 하는 경우 일반적인 문제, 해결 방법 및 진단 단계를 다룹니다.
 
 ## <a name="dependencies"></a>종속성
 
-Azure Cosmos DB 트리거와 바인딩은 기본 Azure Functions 런타임에 대 한 확장 패키지에 따라 달라 집니다. 발생할 수 있는 잠재적인 문제를 해결할 수 있는 수정 사항 및 새로운 기능을 포함할 수 있으므로 항상 이러한 패키지를 업데이트 된 상태로 유지 합니다.
+Cosmos DB에 대 한 Azure Functions 트리거와 바인딩은 기본 Azure Functions 런타임에 대 한 확장 패키지에 종속 됩니다. 발생할 수 있는 잠재적인 문제를 해결할 수 있는 수정 사항 및 새로운 기능을 포함할 수 있으므로 항상 이러한 패키지를 업데이트 된 상태로 유지 합니다.
 
 * Azure Functions v 2의 경우 [WebJobs. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)를 참조 하세요.
 * Azure Functions V1은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB)를 참조 하세요.
@@ -29,7 +29,7 @@ Azure Cosmos DB 트리거와 바인딩은 기본 Azure Functions 런타임에 �
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>독립적으로 Azure Cosmos DB SDK 사용
 
-확장 패키지의 핵심 기능은 Azure Cosmos DB 트리거와 바인딩을 지원 하기 위한 것입니다. 여기에는 트리거와 바인딩을 사용 하지 않고 프로그래밍 방식으로 Azure Cosmos DB와 상호 작용 하려는 경우에 유용한 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md)도 포함 되어 있습니다.
+확장 패키지의 핵심 기능은 Cosmos DB에 대 한 Azure Functions 트리거와 바인딩을 지원 하기 위한 것입니다. 여기에는 트리거와 바인딩을 사용 하지 않고 프로그래밍 방식으로 Azure Cosmos DB와 상호 작용 하려는 경우에 유용한 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md)도 포함 되어 있습니다.
 
 Azure Cosmos DB SDK를 사용 하려면 다른 NuGet 패키지 참조를 프로젝트에 추가 하지 않아야 합니다. 대신 **Azure Functions의 확장 패키지를 통해 SDK 참조를 확인 하도록**합니다. 트리거 및 바인딩과 별도로 Azure Cosmos DB SDK 사용
 
@@ -81,7 +81,7 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 이 시나리오에서 가장 좋은 방법은 코드에를 추가 하 고 `try/catch blocks` 변경 내용을 처리 중인 루프 내에 추가 하 여 항목의 특정 하위 집합에 대 한 오류를 감지 하 고 적절 하 게 처리 하는 것입니다 (추가 하기 위해 다른 저장소로 보내기). 분석 또는 다시 시도). 
 
 > [!NOTE]
-> 코드를 실행 하는 동안 처리 되지 않은 예외가 발생 한 경우 기본적으로 Azure Cosmos DB 트리거는 변경 내용 일괄 처리를 다시 시도 하지 않습니다. 즉, 변경 내용이 대상에 도착 하지 않은 이유는 처리에 실패 하기 때문입니다.
+> 코드를 실행 하는 동안 처리 되지 않은 예외가 발생 하면 기본적으로 Cosmos DB에 대 한 Azure Functions 트리거가 변경 내용 일괄 처리를 다시 시도 하지 않습니다. 즉, 변경 내용이 대상에 도착 하지 않은 이유는 처리에 실패 하기 때문입니다.
 
 트리거에서 일부 변경 내용이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행**되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 변경 내용의 하위 집합을 도용 합니다. Azure 함수를 처리할 것으로 간주 합니다.
 

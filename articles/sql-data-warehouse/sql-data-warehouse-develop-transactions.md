@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 트랜잭션 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861743"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479602"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
 
-## <a name="what-to-expect"></a>예상 프로그램
+## <a name="what-to-expect"></a>필요한 항목
 예상한 것처럼 SQL Data Warehouse는 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL Data Warehouse의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다. 
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
@@ -34,9 +34,9 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-## <a name="gen2"></a>2세대
+## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | (GB) 배포당 용량 | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -48,16 +48,16 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 | DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
 | DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
 | DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW5000c |37.5 |60 |2250 |150,000,000 |9,000,000,000 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
-| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+| DW7500c |56.25 |60 |3375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4500 |300,000,000 |180억 |
+| DW15000c |112.5 |60 |6750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13500 |900,000,000 |54,000,000,000 |
 
-## <a name="gen1"></a>1세대
+## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | (GB) 배포당 용량 | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

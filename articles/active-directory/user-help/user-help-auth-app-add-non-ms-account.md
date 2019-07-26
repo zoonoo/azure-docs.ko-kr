@@ -12,20 +12,22 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: effe48c859e711f0efc41c1a4d651e5d15d5ada9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473909"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382617"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
+
 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가합니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
 
 >[!Important]
 >계정을 추가하려면 Microsoft Authenticator 앱을 다운로드하여 설치해야 합니다. [앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 아직 진행하지 않은 경우 지금 진행하세요.
 
 ## <a name="add-personal-accounts"></a>개인 계정 추가
+
 일반적으로 모든 개인 계정에 대해 다음 단계를 수행해야 합니다.
 
 1. 계정에 로그인한 다음, 사용 중인 디바이스나 컴퓨터를 통해 2단계 인증을 설정합니다.
@@ -35,6 +37,7 @@ ms.locfileid: "60473909"
 이 문서에서는 Facebook, Google, GitHub 및 Amazon 계정용 프로세스를 설명하지만 Instagram, Netflix, Adobe 등의 기타 앱에서도 동일한 프로세스를 수행하면 됩니다.
 
 ## <a name="add-your-google-account"></a>Google 계정 추가
+
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Google 계정을 추가합니다.
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
@@ -70,6 +73,7 @@ ms.locfileid: "60473909"
     >2단계 인증 및 Google 계정에 대한 자세한 내용은 [2단계 인증 설정](https://support.google.com/accounts/answer/185839) 및 [2단계 인증에 대해 자세히 알아보기](https://www.google.com/landing/2step/help.html)를 참조하세요.
 
 ## <a name="add-your-facebook-account"></a>Facebook 계정 추가
+
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Facebook 계정을 추가합니다.
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
@@ -109,6 +113,7 @@ ms.locfileid: "60473909"
     >2단계 인증 및 Facebook 계정에 대한 자세한 내용은 [2단계 인증의 정의와 작동 방식](https://www.facebook.com/help/148233965247823)을 참조하세요.
 
 ## <a name="add-your-github-account"></a>GitHub 계정 추가
+
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 GitHub 계정을 추가합니다.
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
@@ -137,7 +142,7 @@ ms.locfileid: "60473909"
 
 5. **계정 이름**을 입력하고(예: GitHub), 4단계의 **비밀 키**를 입력한 다음, **마침**을 선택합니다.
 
-4. 컴퓨터의 **2단계 인증** 페이지에서, 앱에 제공된 GitHub 계정용 6자리 확인 코드를 입력한 다음, **사용**을 선택합니다.
+6. 컴퓨터의 **2단계 인증** 페이지에서, 앱에 제공된 GitHub 계정용 6자리 확인 코드를 입력한 다음, **사용**을 선택합니다.
 
     앱의 **계정** 페이지에 사용자 계정 이름 및 6자리 확인 코드가 표시됩니다. 보안 수준을 높이기 위해 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다.
 
@@ -145,6 +150,7 @@ ms.locfileid: "60473909"
     >2단계 인증 및 GitHub 계정에 대한 자세한 내용은 [2단계 인증 정보](https://help.github.com/articles/about-two-factor-authentication/)를 참조하세요.
 
 ## <a name="add-your-amazon-account"></a>Amazon 계정 추가
+
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Amazon 계정을 추가합니다.
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
@@ -168,23 +174,22 @@ ms.locfileid: "60473909"
     >[!Note]
     >카메라가 올바르게 작동하지 않으면 QR 코드 및 URL을 수동으로 입력할 수 있습니다.
 
-5. 디바이스의 Microsoft Authenticator 앱 **계정** 페이지를 검토하여 계정 정보가 올바르며 6자리 확인 코드가 연결되어 있는지 확인합니다.
+7. 디바이스의 Microsoft Authenticator 앱 **계정** 페이지를 검토하여 계정 정보가 올바르며 6자리 확인 코드가 연결되어 있는지 확인합니다.
 
     보안 수준을 높이기 위해 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다.
 
-6. 컴퓨터의 **코드를 받을 방법 선택** 페이지에서 앱에 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
+8. 컴퓨터의 **코드를 받을 방법 선택** 페이지에서 앱에 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-7. 문자 메시지 등의 백업 확인 방법을 추가하는 등 나머지 등록 프로세스를 완료하고, **코드 전송**을 선택합니다.
+9. 문자 메시지 등의 백업 확인 방법을 추가하는 등 나머지 등록 프로세스를 완료하고, **코드 전송**을 선택합니다.
 
-8. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
+10. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-9. [거의 완료됨] 페이지에서 컴퓨터를 신뢰할 수 있는 디바이스로 설정할지 여부를 결정한 다음, **완료. 2단계 인증 설정**을 선택합니다.
+11. **거의 완료** 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 **선택 합니다. 2단계 인증 설정**을 선택합니다.
 
     **고급 보안 설정** 페이지가 나타나고, 업데이트된 2단계 인증 세부 정보가 표시됩니다.
 
     >[!NOTE]
     >2단계 인증 및 Amazon 계정에 대한 자세한 내용은 [2단계 인증 정보](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) 및 [2단계 인증을 사용하여 로그인](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440)을 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 보안 제품과 Security Center 통합 | Microsoft Docs
+title: Azure Security Center에서 Azure 보안 제품 통합 | Microsoft Docs
 description: 이 항목에서는 Azure Security Center와 통합 된 Azure 보안 제품을 제공 합니다.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 847748d1c56221119d8f74a2aee716ee08448e28
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295747"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335811"
 ---
-# <a name="security-center-integration-with-azure-security-products-in-asc"></a>ASC의 Azure 보안 제품과 Security Center 통합
+# <a name="integration-of-azure-security-products-in-azure-security-center"></a>Azure Security Center에서 Azure 보안 제품 통합
 
 Security Center은 고객에 게 결과를 등록 하 여 Security Center 하 고 통합 된 방식으로 볼 수 있는 추가 Microsoft 라이선스를 제공 합니다.
 
@@ -46,7 +46,7 @@ DDoS Protection 표준은 다음 유형의 공격을 완화할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
 
-|경고|Description|
+|알림|Description|
 |---|---|
 |**대규모 공격 감지 됨**|이 공격의 목표는 상당한 양의 합법적인 트래픽으로 네트워크 계층을 초과 하는 것입니다. 여기에는 UDP 서비스 장애, 증폭 서비스 장애 및 기타 스푸핑된 패킷 서비스 장애가 포함됩니다. DDoS Protection 표준은 자동으로 Azure의 글로벌 네트워크 규모를 사용하여 이러한 잠재적인 멀티 기가바이트 공격을 흡수하고 스크럽하여 완화시킵니다.|
 |**프로토콜 공격 감지 됨**|이러한 공격은 계층 3 및 계층 4 프로토콜 스택의 취약점을 악용 하 여 대상을 액세스할 수 없게 렌더링 합니다. SYN 서비스 장애 공격, 리플렉션 공격 및 기타 프로토콜 공격이 여기에 포함됩니다. DDoS Protection 표준은 클라이언트와의 상호 작용을 통해 악성 트래픽과 정상 트래픽을 구분하고 악성 트래픽을 차단하여 이러한 공격을 완화합니다.|

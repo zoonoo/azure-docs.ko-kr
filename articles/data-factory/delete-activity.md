@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 606cab09debf760d1b101390b2a19a1a090bb4c3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
-ms.translationtype: HT
+ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234558"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335657"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory의 삭제 작업
 
@@ -86,7 +86,7 @@ Azure Data Factory에서 삭제 작업을 사용 하 여 온-프레미스 저장
 | maxConcurrentConnections | 폴더 또는 파일 삭제를 위해 동시에 스토리지 저장소에 연결할 수 있는 연결 수입니다.   |  아니요. 기본값은 `1`입니다. |
 | enablelogging | 삭제된 폴더 또는 파일 이름을 기록해야 하는지 여부를 나타냅니다. true이면 로그 파일을 읽어 삭제 작업 동작을 추적할 수 있도록 로그 파일을 저장할 스토리지 계정을 추가로 제공해야 합니다. | 아니요 |
 | logStorageSettings | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업으로 삭제한 폴더 또는 파일 이름이 들어 있는 로그 파일을 저장할 위치를 지정할 수 있는 스토리지 속성 그룹입니다. | 아니요 |
-| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업에 의해 삭제 된 폴더 또는 파일 이름이 포함 된 로그 파일을 저장 하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 의 연결 된 서비스입니다. | 아니요 |
+| linkedServiceName | enablelogging = true일 때만 해당됩니다.<br/><br/>삭제 작업에 의해 삭제 된 폴더 또는 파일 이름이 포함 된 로그 파일을 저장 하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 의 연결 된 서비스입니다. 이는 삭제 작업에 사용 된 것과 동일한 형식의 Integration Runtime 구성 하 여 파일을 삭제 해야 합니다. | 아니요 |
 | path | enablelogging = true일 때만 해당됩니다.<br/><br/>스토리지 계정에 로그 파일을 저장할 경로입니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요 |
 
 ## <a name="monitoring"></a>모니터링
