@@ -3,19 +3,19 @@ title: 병렬 워크로드 실행 - Azure Batch Python
 description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 364599c6eb555d1ec72e84c998ae0c4e9a43929b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341610"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321842"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 

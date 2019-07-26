@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3d088da4c771c828db9788817e424c4d89586dd6
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986143"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356451"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -153,10 +153,12 @@ while (query.hasMoreResults()) {
 [Python SDK](https://pypi.org/project/azure-cosmos/)의 `CosmosClient` 개체는 마지막으로 실행된 작업의 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 다음과 같이 `x-ms-request-charge` 키 아래에서 확인할 수 있습니다.
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 

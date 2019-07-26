@@ -1,19 +1,18 @@
 ---
 title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
-services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: eec30ec8ff85f2d9a2ba78da2872b081e90c9e33
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c44819bfda2f48195c25ad6be7608383162f3c61
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240156"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467106"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure 파일 공유 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure 파일 공유 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.

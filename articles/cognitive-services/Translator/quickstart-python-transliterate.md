@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704337"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348738"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 음역
 
@@ -24,7 +24,7 @@ ms.locfileid: "67704337"
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 >[!TIP]
-> 모든 코드를 한 번에 보려면 이 샘플의 소스 코드를 [GitHub]()에서 사용할 수 있습니다.
+> 모든 코드를 한꺼번에 볼 수 있도록 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)에 이 샘플의 소스 코드가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

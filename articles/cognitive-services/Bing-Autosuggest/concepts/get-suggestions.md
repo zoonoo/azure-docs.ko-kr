@@ -1,6 +1,6 @@
 ---
 title: Bing Autosuggest API를 사용한 검색어 제안
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Autosuggest API 사용 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 7cd81a937a3fe24e16e3f77e38686378aa28e10a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1fc2311610dd45025ddb71cdf005a6e87381ee95
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382691"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405390"
 ---
 # <a name="suggesting-query-terms"></a>쿼리 용어 제안
 

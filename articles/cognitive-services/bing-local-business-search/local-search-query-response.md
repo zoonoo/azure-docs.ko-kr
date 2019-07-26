@@ -1,20 +1,20 @@
 ---
-title: Bing Local Business Search API 쿼리 및 응답 보내기 및 사용 | Microsoft Docs
+title: Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Bing Local Business Search API를 통해 검색 쿼리를 보내고 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: cf622f658208ab85fe0a0670a0e034bd58a5047d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: MT
+ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849931"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423431"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "67849931"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들어:
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -60,7 +60,7 @@ API에서 반환된 JSON 결과는 다음 특성을 포함합니다.
 * entityPresentationInfo
 * 지역
 * id
-* name
+* 이름
 * routeablePoint
 * telephone
 * url

@@ -272,6 +272,8 @@
         - name: 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced Threat Protection
         - name: 보안 특성
           href: cosmos-db-security-attributes.md
     - name: 엔터프라이즈 준비

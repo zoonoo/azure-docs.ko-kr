@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Java를 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Java를 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: a8b25252e861d707568876f75aadd6f436441f8f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1f7d9620198042adc7f96e7c4aaa269f73870df0
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389431"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478990"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

@@ -1,6 +1,6 @@
 ---
 title: Bing Video Search API란?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Video Search API를 사용하여 웹을 통해 비디오를 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 4f3a52590a9a0c50bdc87f87792027333fc5269f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867856"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500159"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 

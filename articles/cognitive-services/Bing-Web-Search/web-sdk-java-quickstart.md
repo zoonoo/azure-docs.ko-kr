@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863783"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500976"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
@@ -127,7 +127,7 @@ import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject
 import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
 
-Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예를 들면 다음과 같습니다.
+Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예:
 
 ```java
 package com.bingwebsearch.app
@@ -300,4 +300,4 @@ mvn compile exec:java
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Java SDK 참조](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Azure Java SDK 참조](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

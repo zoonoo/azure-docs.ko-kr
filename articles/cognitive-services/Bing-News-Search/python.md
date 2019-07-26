@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python 및 Bing News Search REST API를 사용하여 뉴스 검색 수행'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Python을 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f8912e38e063a93a90b2e7877aad538fbfd4044d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2fc67cbfedccd69ff9063b0575ae51197eceb09d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338994"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423689"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>빠른 시작: Python 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

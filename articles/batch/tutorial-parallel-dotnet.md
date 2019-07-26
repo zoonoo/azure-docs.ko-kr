@@ -3,7 +3,7 @@ title: 병렬 워크로드 실행 - Azure Batch .NET
 description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595251"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321865"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -37,7 +37,7 @@ ms.locfileid: "65595251"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017 이상](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)
+* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017 이상](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 `BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예:
 
 ```csharp
 // Batch account credentials

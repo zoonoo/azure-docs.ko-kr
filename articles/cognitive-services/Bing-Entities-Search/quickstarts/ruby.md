@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Ruby를 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Ruby를 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b5653ffbfeb22bc59c48dd92b558178fcd89b2de
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e470173dc9e747547ff5085f3c804fb18c0c3594
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384511"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423938"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>빠른 시작: Ruby를 통해 Bing Entity Search API 사용
 

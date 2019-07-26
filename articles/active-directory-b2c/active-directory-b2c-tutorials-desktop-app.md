@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835690"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347156"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 원시 클라이언트 애플리케이션에서 인증을 사용하도록 설정
 
@@ -65,14 +65,14 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 1. Visual Studio에서 `active-directory-b2c-wpf` 솔루션을 엽니다.
 2. `active-directory-b2c-wpf` 프로젝트에서 **App.xaml.cs** 파일을 열고 다음과 같이 업데이트합니다.
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. **PolicySignUpSignIn** 변수를 생성한 사용자 흐름의 이름으로 업데이트합니다.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 

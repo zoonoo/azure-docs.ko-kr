@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0a434246791e73e24af1ffe7abd722f5265ca5b6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462375"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489869"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -38,8 +38,6 @@ ms.locfileid: "67462375"
 * IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
 
 * Azure Toolkit for IntelliJ.  [Azure Toolkit for IntelliJ 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)를 참조하세요.
-
-* WINUTILS.EXE.  [Windows의 Hadoop 실행 문제](https://wiki.apache.org/hadoop/WindowsProblems)를 참조하세요.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>IntelliJ IDEA용 Scala 플러그 인 설치
 
@@ -173,7 +171,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 ### <a name="link-a-cluster"></a>클러스터 연결
 
-Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 연결할 수 있습니다. 마찬가지로, 도메인에 가입된 HDInsight 클러스터의 경우, user1@contoso.com과 같이 도메인 및 사용자 이름을 사용하여 연결할 수 있습니다. 또한 Livy 서비스 클러스터를 연결할 수 있습니다.
+Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 연결할 수 있습니다. 마찬가지로, 도메인에 가입된 HDInsight 클러스터의 경우, `user1@contoso.com`과 같이 도메인 및 사용자 이름을 사용하여 연결할 수 있습니다. 또한 Livy 서비스 클러스터를 연결할 수 있습니다.
 
 1. 메뉴 모음에서 **보기** > **도구 창** > **Azure 탐색기**로 이동합니다.
 

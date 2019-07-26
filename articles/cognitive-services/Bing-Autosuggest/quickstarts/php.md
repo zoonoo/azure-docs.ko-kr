@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 PHP로 검색 쿼리 제안'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9b93714883ca4558925ac64c360db7bc395ff8f4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6bbd9e5f0f1c9f26a8af756dd3c9bce666168079
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390388"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405287"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>빠른 시작: Bing Autosuggest REST API 및 PHP로 검색 쿼리 제안
 

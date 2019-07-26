@@ -1,6 +1,6 @@
 ---
 title: Bing News Search API를 사용하여 뉴스 검색
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 일반적인 뉴스, 최신 항목 및 헤드라인에 대한 검색 쿼리를 보내는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274159"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423881"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Bing News Search API를 사용하여 뉴스 검색
 

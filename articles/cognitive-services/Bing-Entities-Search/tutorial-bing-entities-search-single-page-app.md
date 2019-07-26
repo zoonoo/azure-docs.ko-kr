@@ -1,6 +1,6 @@
 ---
 title: '자습서: Bing Entity Search 단일 페이지 웹앱'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 단일 페이지 웹 애플리케이션에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406369"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423981"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -247,7 +247,7 @@ function bingMapsCallback(response) {
 }
 ```
 
-Bing Entity Search 쿼리에는 위도 및 경도와 함께, 위치 정보의 정밀도를 나타내는 반경가 필요합니다. Bing 지도 응답에 제공된 경계 상자를 사용하여 반경을 계산합니다. 경계 상자는 전체 위치를 둘러싸는 사각형입니다. 예를 들어 사용자가 `NYC`를 입력하는 경우 결과에는 뉴욕시의 대략적인 중심 좌표와 도시를 둘러싸는 경계 상자가 포함됩니다. 
+Bing Entity Search 쿼리에는 위도 및 경도와 함께, 위치 정보의 정밀도를 나타내는 반경  가 필요합니다. Bing 지도 응답에 제공된 경계 상자  를 사용하여 반경을 계산합니다. 경계 상자는 전체 위치를 둘러싸는 사각형입니다. 예를 들어 사용자가 `NYC`를 입력하는 경우 결과에는 뉴욕시의 대략적인 중심 좌표와 도시를 둘러싸는 경계 상자가 포함됩니다. 
 
 먼저 `haversineDistance()` 함수(표시되지 않음)를 사용하여 기본 좌표에서 경계 상자의 네 모서리까지의 거리를 각각 계산합니다. 이 네 개의 거리 중 가장 큰 값을 반경으로 사용합니다. 최소 반경은 1킬로미터입니다. 이 값은 응답에 경계 상자가 제공되지 않은 경우 기본값으로도 사용됩니다.
 
@@ -404,7 +404,7 @@ Bing Entity Search API[에서는 지정된 순서로 결과를 표시해야 합�
 
 | | |
 |-|-|
-|`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는 전체 답변 컬렉션(예: `Entities`)의 `id`와 일치합니다.
+|`id`|`id`는 URL처럼 보이지만 링크에 사용하면 안 됩니다. 순위 결과의 `id` 형식은 답변 컬렉션의 검색 결과 항목 또는  전체 답변 컬렉션(예: `Entities`)의 `id`와 일치합니다.
 |`answerType`<br>`resultIndex`|`answerType`은 결과가 포함된 최상위 답변 컬렉션(예: `Entities`)을 나타냅니다. `resultIndex`는 해당 컬렉션 내의 결과 인덱스를 나타냅니다. `resultIndex`가 생략된 경우 순위 결과는 전체 컬렉션을 나타냅니다.
 
 > [!NOTE]
@@ -432,7 +432,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>결과 항목 렌더링
 
-JavaScript 코드에는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러 함수가 포함된 `searchItemRenderers` 개체가 있습니다.
+JavaScript 코드에는 각 종류의 검색 결과에 대해 HTML을 생성하는 렌더러  함수가 포함된 `searchItemRenderers` 개체가 있습니다.
 
 ```javascript
 searchItemRenderers = { 
@@ -535,7 +535,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
 다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
 
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 

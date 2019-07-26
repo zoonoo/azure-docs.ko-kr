@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507760"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347136"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 ASP.NET Web API로의 액세스 권한 부여
 
@@ -91,13 +91,13 @@ ms.locfileid: "66507760"
 2. **TaskWebApp** 프로젝트에서 **Web.config**를 엽니다.
 3. API를 로컬로 실행하려면 **api:TaskServiceUrl**에 대한 localhost 설정을 사용합니다. Web.config를 다음과 같이 변경합니다. 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. API의 URI를 구성합니다. 이는 웹 애플리케이션에서 API를 요청하는 데 사용하는 URI입니다. 또한 요청된 권한도 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -108,25 +108,25 @@ ms.locfileid: "66507760"
 1. **TaskService** 프로젝트에서 **Web.config**를 엽니다.
 2. 테넌트를 사용하도록 API를 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. 클라이언트 ID를 API에 대해 등록된 애플리케이션 ID로 설정합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. 등록 및 로그인 사용자 흐름의 이름으로 사용자 흐름 설정을 업데이트합니다.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. 포털에서 만든 범위와 일치하도록 범위 설정을 구성합니다.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```

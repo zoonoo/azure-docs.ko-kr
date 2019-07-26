@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3510c0505a5a3c1353642baf5060a83d13fdd43a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808113"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348393"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -104,7 +104,7 @@ Azure Migrate를 사용하려면 VM을 Azure로 마이그레이션할 수 있도
 **작업** | **세부 정보** | **지침**
 --- | --- | ---
 Azure VM의 Windows 볼륨에서 온-프레미스 VM과 동일한 드라이브 문자 할당을 사용하는지 확인합니다. | SAN 정책을 [모두 온라인]으로 구성합니다. | 1. 관리자 계정으로 VM에 로그인하고, 명령 창을 엽니다.<br/> 2. **diskpart**를 입력하여 Diskpart 유틸리티를 실행합니다.<br/> 3. **SAN POLICY=OnlineAll**을 입력합니다.<br/> 4. Exit를 입력하여 Diskpart를 종료하고, 명령 프롬프트를 닫습니다.
-Azure VM에 Azure 직렬 액세스 콘솔 사용 | 이렇게 하면 문제 해결에 도움이 됩니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅되며, 이는 새 VM의 다시 부팅에 해당합니다. | [이 지침](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console#enable-serial-console-in-custom-or-older-images)에 따라 사용하도록 설정합니다.
+Azure VM에 Azure 직렬 액세스 콘솔 사용 | 이렇게 하면 문제 해결에 도움이 됩니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅되며, 이는 새 VM의 다시 부팅에 해당합니다. | [이 지침](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console)에 따라 사용하도록 설정합니다.
 Hyper-V 게스트 통합 설치 | Windows Server 2003을 실행하는 머신을 마이그레이션하는 경우 VM 운영 체제에 Hyper-V 게스트 Integration Services를 설치합니다. | [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 원격 데스크톱 | VM에서 원격 데스크톱을 사용하도록 설정하고, Windows 방화벽에서 모든 네트워크 프로필의 원격 데스크톱 액세스를 차단하지 않는지 확인합니다. | [자세히 알아보기](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 
@@ -161,7 +161,7 @@ Azure에서 Linux VM을 실행하기 위해 이러한 단계를 설명하고 인
 
 8. **컴퓨팅**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 집합을 검토합니다. VM은 [Azure 요구 사항](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)을 준수해야 합니다.
 
-    - **VM 크기**: 평가 추천 사항을 사용하는 경우 VM 크기 드롭다운에 추천 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
+    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에 권장 크기가 포함됩니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다. 
     - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다. 
     - **가용성 집합**: 마이그레이션 후에 VM이 Azure 가용성 집합에 있어야 하는 경우 해당 집합을 지정합니다. 이 집합은 마이그레이션을 위해 지정한 대상 리소스 그룹에 있어야 합니다.
 
@@ -198,7 +198,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 
 작업 상태는 포털 알림에서 추적할 수 있습니다.
 
-**Azure Migrate: 서버 마이그레이션**에서 **서버 복제 중**을 클릭하여 복제 상태를 모니터링할 수 있습니다.
+**서버 복제 중**을 **Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.
 ![복제 모니터링](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 
@@ -207,7 +207,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
 
-델타 복제가 시작되면 전체 마이그레이션을 Azure로 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
+델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
 - 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
@@ -229,7 +229,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.
 
-    ![테스트 마이그레이션 정리](./media/tutorial-migrate-vmware/clean-up.png)
+    ![마이그레이션 정리](./media/tutorial-migrate-vmware/clean-up.png)
 
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
@@ -258,7 +258,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
 8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다. 
 
-## <a name="post-migration-best-practices"></a>마이그레이션 후 모범 사례
+## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 
 - 복원력 개선:
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).

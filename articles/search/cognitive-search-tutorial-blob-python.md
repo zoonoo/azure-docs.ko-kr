@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b1166e0acdbc9371b1c7ca2361fc6ebb7479b6a7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672079"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359397"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출
 
@@ -104,11 +104,11 @@ from pprint import pprint
 다음으로, 데이터 원본, 인덱스, 인덱서 및 기술 세트의 이름을 정의합니다. 이 자습서의 이름을 설정하려면 이 스크립트를 실행합니다.
 
 ```python
-#Define the names for the data source, skillset, index and indexer
-datasource_name="cogsrch-py-datasource"
-skillset_name="cogsrch-py-skillset"
-index_name="cogsrch-py-index"
-indexer_name="cogsrch-py-indexer"
+# Define the names for the data source, skillset, index and indexer
+datasource_name = "cogsrch-py-datasource"
+skillset_name = "cogsrch-py-skillset"
+index_name = "cogsrch-py-index"
+indexer_name = "cogsrch-py-indexer"
 ```
 
 > [!Tip]
@@ -117,10 +117,10 @@ indexer_name="cogsrch-py-indexer"
 다음 스크립트에서 검색 서비스에 대한 자리 표시자(YOUR-SEARCH-SERVICE-NAME)와 관리자 API 키에 대한 자리 표시자(YOUR-ADMIN-API-KEY)를 바꾼 후 이를 실행하여 검색 서비스 엔드포인트를 설정합니다.
 
 ```python
-#Setup the endpoint
+# Setup the endpoint
 endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
 headers = {'Content-Type': 'application/json',
-        'api-key': '<YOUR-ADMIN-API-KEY>' }
+           'api-key': '<YOUR-ADMIN-API-KEY>'}
 params = {
     'api-version': '2019-05-06'
 }
@@ -133,21 +133,22 @@ params = {
 다음 스크립트에서는 자리 표시자 YOUR-BLOB-RESOURCE-CONNECTION-STRING을 이전 단계에서 만든 BLOB의 연결 문자열로 바꿉니다. 그런 다음, 스크립트를 실행하여 `cogsrch-py-datasource`라는 데이터 원본을 만듭니다.
 
 ```python
-#Create a data source
+# Create a data source
 datasourceConnectionString = "<YOUR-BLOB-RESOURCE-CONNECTION-STRING>"
 datasource_payload = {
     "name": datasource_name,
     "description": "Demo files to demonstrate cognitive search capabilities.",
     "type": "azureblob",
     "credentials": {
-    "connectionString": datasourceConnectionString
-   },
+        "connectionString": datasourceConnectionString
+    },
     "container": {
-     "name": "basic-demo-data-pr"
-   }
+        "name": "basic-demo-data-pr"
+    }
 }
-r = requests.put( endpoint + "/datasources/" + datasource_name, data=json.dumps(datasource_payload), headers=headers, params=params )
-print (r.status_code)
+r = requests.put(endpoint + "/datasources/" + datasource_name,
+                 data=json.dumps(datasource_payload), headers=headers, params=params)
+print(r.status_code)
 ```
 
 요청이 성공을 확인하는 201 상태 코드를 반환해야 합니다.
@@ -172,85 +173,86 @@ Azure Portal의 검색 서비스 대시보드 페이지에서 **데이터 원본
 `cogsrch-py-skillset`라는 기술 세트를 만들려면 다음 스크립트를 실행합니다.
 
 ```python
-#Create a skillset
+# Create a skillset
 skillset_payload = {
-  "name": skillset_name,
-  "description":
-  "Extract entities, detect language and extract key-phrases",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
+    "name": skillset_name,
+    "description":
+    "Extract entities, detect language and extract key-phrases",
+    "skills":
+    [
         {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations", "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "languageCode",
-          "targetName": "languageCode"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages",
-      "maximumPageLength": 4000,
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
+            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+            "categories": ["Organization"],
+            "defaultLanguageCode": "en",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "organizations", "targetName": "organizations"
+                }
+            ]
         },
         {
-          "name": "languageCode",
-          "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "textItems",
-          "targetName": "pages"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/pages/*",
-      "inputs": [
-        {
-          "name": "text", "source": "/document/pages/*"
+            "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "languageCode",
+                    "targetName": "languageCode"
+                }
+            ]
         },
         {
-          "name":"languageCode", "source": "/document/languageCode"
-        }
-      ],
-      "outputs": [
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "textSplitMode": "pages",
+            "maximumPageLength": 4000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/content"
+                },
+                {
+                    "name": "languageCode",
+                    "source": "/document/languageCode"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
         {
-          "name": "keyPhrases",
-          "targetName": "keyPhrases"
+            "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+            "context": "/document/pages/*",
+            "inputs": [
+                {
+                    "name": "text", "source": "/document/pages/*"
+                },
+                {
+                    "name": "languageCode", "source": "/document/languageCode"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "keyPhrases",
+                    "targetName": "keyPhrases"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 
-r = requests.put(endpoint + "/skillsets/" + skillset_name, data=json.dumps(skillset_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/skillsets/" + skillset_name,
+                 data=json.dumps(skillset_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -281,53 +283,54 @@ print(r.status_code)
 `cogsrch-py-index`라는 인덱스를 만들려면 이 스크립트를 실행합니다.
 
 ```python
-#Create an index
+# Create an index
 index_payload = {
     "name": index_name,
     "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
+        {
+            "name": "id",
+            "type": "Edm.String",
+            "key": "true",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false",
+            "sortable": "true"
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "sortable": "false",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "languageCode",
+            "type": "Edm.String",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "keyPhrases",
+            "type": "Collection(Edm.String)",
+            "searchable": "true",
+            "filterable": "false",
+            "facetable": "false"
+        },
+        {
+            "name": "organizations",
+            "type": "Collection(Edm.String)",
+            "searchable": "true",
+            "sortable": "false",
+            "filterable": "false",
+            "facetable": "false"
+        }
+    ]
 }
 
-r = requests.put(endpoint + "/indexes/" + index_name, data=json.dumps(index_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/indexes/" + index_name,
+                 data=json.dumps(index_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -354,46 +357,47 @@ indexer_payload = {
     "dataSourceName": datasource_name,
     "targetIndexName": index_name,
     "skillsetName": skillset_name,
-    "fieldMappings" : [
+    "fieldMappings": [
+        {
+            "sourceFieldName": "metadata_storage_path",
+            "targetFieldName": "id",
+            "mappingFunction":
+            {"name": "base64Encode"}
+        },
+        {
+            "sourceFieldName": "content",
+            "targetFieldName": "content"
+        }
+    ],
+    "outputFieldMappings":
+    [
+        {
+            "sourceFieldName": "/document/organizations",
+            "targetFieldName": "organizations"
+        },
+        {
+            "sourceFieldName": "/document/pages/*/keyPhrases/*",
+            "targetFieldName": "keyPhrases"
+        },
+        {
+            "sourceFieldName": "/document/languageCode",
+            "targetFieldName": "languageCode"
+        }
+    ],
+    "parameters":
     {
-      "sourceFieldName" : "metadata_storage_path",
-      "targetFieldName" : "id",
-      "mappingFunction" :
-        { "name" : "base64Encode" }
-    },
-    {
-      "sourceFieldName" : "content",
-      "targetFieldName" : "content"
+        "maxFailedItems": -1,
+        "maxFailedItemsPerBatch": -1,
+        "configuration":
+        {
+            "dataToExtract": "contentAndMetadata",
+            "imageAction": "generateNormalizedImages"
+        }
     }
-  ],
-   "outputFieldMappings" :
-  [
-    {
-      "sourceFieldName" : "/document/organizations",
-      "targetFieldName" : "organizations"
-    },
-    {
-      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
-      "targetFieldName" : "keyPhrases"
-    },
-    {
-      "sourceFieldName": "/document/languageCode",
-      "targetFieldName": "languageCode"
-    }
-  ],
-   "parameters":
-  {
-    "maxFailedItems":-1,
-    "maxFailedItemsPerBatch":-1,
-    "configuration":
-    {
-      "dataToExtract": "contentAndMetadata",
-      "imageAction": "generateNormalizedImages"
-    }
-  }
 }
 
-r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer_payload), headers=headers, params=params)
+r = requests.put(endpoint + "/indexers/" + indexer_name,
+                 data=json.dumps(indexer_payload), headers=headers, params=params)
 print(r.status_code)
 ```
 
@@ -419,8 +423,9 @@ print(r.status_code)
 인덱서가 정의되면 사용자가 요청을 제출할 때 인덱서가 자동으로 실행됩니다. 사용자가 정의한 인식 기술에 따라 인덱싱이 예상보다 오래 걸릴 수 있습니다. 인덱서 처리가 완료되었는지 확인하려면 다음 스크립트를 실행합니다.
 
 ```python
-#Get indexer status
-r = requests.get(endpoint + "/indexers/" + indexer_name + "/status", headers=headers,params=params)
+# Get indexer status
+r = requests.get(endpoint + "/indexers/" + indexer_name +
+                 "/status", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -439,8 +444,9 @@ pprint(json.dumps(r.json(), indent=1))
 확인 단계로 모든 필드에 대한 인덱스를 쿼리합니다.
 
 ```python
-#Query the index for all fields
-r = requests.get(endpoint + "/indexes/" + index_name, headers=headers,params=params)
+# Query the index for all fields
+r = requests.get(endpoint + "/indexes/" + index_name,
+                 headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -453,8 +459,9 @@ pprint(json.dumps(r.json(), indent=1))
 `organizations`처럼 단일 필드의 모든 콘텐츠를 반환하도록 `"*"`에 대한 두 번째 쿼리를 제출합니다.
 
 ```python
-#Query the index to return the contents of organizations
-r = requests.get(endpoint + "/indexes/" + index_name + "/docs?&search=*&$select=organizations", headers=headers, params=params)
+# Query the index to return the contents of organizations
+r = requests.get(endpoint + "/indexes/" + index_name +
+                 "/docs?&search=*&$select=organizations", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
@@ -484,8 +491,9 @@ pprint(json.dumps(r.json(), indent=1))
 스크립트를 사용하여 삭제할 수도 있습니다. 다음 스크립트는 생성된 기술 세트를 삭제합니다. 인덱스, 인덱서 및 데이터 원본을 삭제하는 요청을 쉽게 수정할 수 있습니다.
 
 ```python
-#delete the skillset
-r = requests.delete(endpoint + "/skillsets/" + skillset_name, headers=headers, params=params)
+# delete the skillset
+r = requests.delete(endpoint + "/skillsets/" + skillset_name,
+                    headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 

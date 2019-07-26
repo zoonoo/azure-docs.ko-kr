@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9eccb4ca505dac312dd22123a3585863c67f3ad7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798463"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359862"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -193,9 +193,9 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
     | 키 | 값 |
     |---|---|
-    | TestAppSettings:BackgroundColor | green |
-    | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | lightGray |
+    | TestApp:Settings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
 
 6. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용이 반영되려면 브라우저 페이지를 두 번 이상 새로 고쳐야 할 수 있습니다.
 
