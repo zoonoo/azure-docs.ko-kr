@@ -1,19 +1,18 @@
 ---
 title: Azure Stack VM에서 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e7fceb63e6013ca09e8c2e2db18d6795f61273
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848763"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465089"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
 Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
@@ -133,7 +132,7 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 2. 백업 인프라 클릭
 3. 백업 관리 서버 보기
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
 - [SharePoint 팜 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

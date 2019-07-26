@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 775e1abe1f3d6412171b8ff5427fd905e37480b5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240370"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489680"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -172,7 +172,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사용률을 모니터링할 수 있습니다. 탄력적 풀에 일련의 내용을 변경하는 동시에 모든 변경 내용을 전송할 수도 있습니다. 이러한 변경 내용에는 데이터베이스 추가 또는 제거, 탄력적 풀 설정 변경, 데이터베이스 설정 변경이 포함됩니다.
 
-탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음 내용이 포함됩니다.
+탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음을 포함합니다.
 
 - 탄력적 풀의 리소스 사용을 보여주는 모니터링 차트
 - 사용 가능한 경우 탄력적 풀에 대한 최근 경고 및 권장 사항
@@ -205,19 +205,19 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart를 사용 하면 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 하는 매월 1,000 개의 새 Azure SQL 데이터베이스의 속도로 비즈니스 서비스를 신속 하 게 확장 합니다.
+  SnelStart는 Azure SQL Database에서 탄력적 풀을 사용 하 여 매월 1000 개의 새 Azure SQL Database의 속도로 비즈니스 서비스를 빠르게 확장 했습니다.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco를 사용 하면 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 하는 수천 개의 클라우드에서 테 넌 트에 대 한 프로 비전 및 확장 서비스 신속 하 게 합니다.
+  Umbraco는 Azure SQL Database에서 탄력적 풀을 사용 하 여 클라우드에서 수천 개의 테 넌 트에 대해 서비스를 신속 하 게 프로 비전 하 고 확장 합니다.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko/CSI 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시키기 위해 Azure SQL Database를 사용 하 여 탄력적 풀을 사용 합니다.
+  Daxko/CSI는 Azure SQL Database에서 탄력적 풀을 사용 하 여 개발 주기를 가속화 하 고 고객 서비스 및 성능을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
+- 탄력적 풀의 크기를 조정하려면 [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md) 및 [탄력적 풀 크기 조정 - 샘플 코드](scripts/sql-database-monitor-and-scale-pool-powershell.md)를 참조하세요.
 - 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 - 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 - 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.

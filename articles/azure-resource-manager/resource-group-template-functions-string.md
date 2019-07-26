@@ -177,8 +177,8 @@ JSON 개체입니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -242,8 +242,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
-| toStringOutput | 문자열 | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="concat"></a>concat
@@ -290,7 +290,7 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
@@ -466,8 +466,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | 문자열 | Hello, World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -521,8 +521,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | 문자열 | Hello, World! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -704,8 +704,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | one |
-| stringOutput | 문자열 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 ## <a name="format"></a>format
 
@@ -717,7 +717,7 @@ base64 표현을 문자열로 변환합니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| formatString | 예 | 문자열 | 합성 형식 문자열입니다. |
+| formatString | 예 | String | 합성 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
 | 추가 인수 | 아닙니다. | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
 
@@ -945,8 +945,8 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | 문자열 | three |
-| stringOutput | 문자열 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastindexof
 
@@ -1119,7 +1119,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | String | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 다음 예제에서는 저장소 계정에 대 한 고유한 이름을 만들기 위해 newGuid 함수를 사용 합니다. 이 템플릿은 저장소 계정 짧은 시간 동안 존재 및 다시 배포 하지는 테스트 환경용 적합할 수 있습니다.
 
@@ -1162,7 +1162,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| nameOutput | 문자열 | storagenziwvyru7uxie |
+| nameOutput | String | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1213,7 +1213,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | 문자열 | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>바꾸기
 
@@ -1265,7 +1265,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| firstOutput | 문자열 | 1231231234 |
+| firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
@@ -1334,7 +1334,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["three"] |
-| stringOutput | 문자열 | two three |
+| stringOutput | String | two three |
 
 ## <a name="split"></a>split
 
@@ -1461,7 +1461,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-## <a name="string"></a>문자열
+## <a name="string"></a>String
 
 `string(valueToConvert)`
 
@@ -1528,9 +1528,9 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 문자열 | {“valueA”:10,“valueB”:“Example Text”} |
-| arrayOutput | 문자열 | [“a”,“b”,“c”] |
-| intOutput | 문자열 | 5 |
+| objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
+| arrayOutput | String | [“a”,“b”,“c”] |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1591,7 +1591,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| substringOutput | 문자열 | two |
+| substringOutput | String | two |
 
 ## <a name="take"></a>take
 
@@ -1659,7 +1659,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | 배열 | ["one", "two"] |
-| stringOutput | 문자열 | 날짜 |
+| stringOutput | String | 날짜 |
 
 ## <a name="tolower"></a>toLower
 
@@ -1709,8 +1709,8 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | 문자열 | one two three |
-| toUpperOutput | 문자열 | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1760,8 +1760,8 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | 문자열 | one two three |
-| toUpperOutput | 문자열 | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="trim"></a>trim
 
@@ -1807,7 +1807,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| return | 문자열 | one two three |
+| return | String | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1948,7 +1948,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
@@ -2003,7 +2003,7 @@ URI로 인코딩된 값의 문자열입니다.
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
@@ -2058,7 +2058,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
@@ -2071,7 +2071,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| format |아닙니다. |문자열 |문자열로 변환할 URI 인코딩 값입니다. 사용 하 여 [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 하거나 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)합니다. |
+| format |아닙니다. |String |문자열로 변환할 URI 인코딩 값입니다. 사용 하 여 [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 하거나 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)합니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -2130,9 +2130,9 @@ UtcNow 함수에 대 한 기본값을 사용 하는 템플릿을 다시 배포 �
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| utcOutput | 문자열 | 20190305T175318Z |
-| utcShortOutput | 문자열 | 03/05/2019 |
-| utcCustomOutput | 문자열 | 3 5 |
+| utcOutput | String | 20190305T175318Z |
+| utcShortOutput | String | 03/05/2019 |
+| utcCustomOutput | String | 3 5 |
 
 다음 예제에서는 태그 값을 설정 하는 경우 함수에서 값을 사용 하는 방법을 보여 줍니다.
 

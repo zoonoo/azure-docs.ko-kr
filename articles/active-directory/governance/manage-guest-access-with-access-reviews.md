@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory-액세스 검토로 게스트 액세스 관리 | Microsoft Docs
+title: 액세스 검토를 사용 하 여 게스트 액세스 관리-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 액세스 검토를 사용하여 게스트 사용자를 그룹 구성원으로 또는 애플리케이션에 할당된 사용자로 관리합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/13/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472906"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499454"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -33,15 +33,15 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/wh
 > [!NOTE]
 > 이 문서에서는 게스트 사용자의 액세스 검토에 중점을 둡니다. 게스트 뿐 아니라 모든 사용자의 액세스를 검토하려는 경우 [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할의 사용자의 구성원 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-how-to-start-security-review.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P2
 
-자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
+자세한 내용은 [어떤 사용자에 게 라이선스가 있어야 하나요?](access-reviews-overview.md#which-users-must-have-licenses)를 참조 하세요.
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 
-먼저 전역 관리자 또는 사용자 관리자로 이동 합니다 [Identity 거 버 넌 스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 액세스 검토는 조직에 대 한 준비가 되었는지 확인 합니다.
+먼저 전역 관리자 또는 사용자 관리자는 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 이동 하 여 조직에 대 한 액세스 검토가 준비 되었는지 확인 합니다.
 
 Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오를 지원합니다.
 
@@ -58,11 +58,11 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 액세스 검토를 사용하여 그룹에 초대되고 추가된 사용자가 계속 액세스해야 하는지 확인할 수 있습니다. 게스트에게 해당 그룹에서 자신의 구성원 자격을 검토하도록 쉽게 요청할 수 있습니다.
 
-1. 그룹에 대 한 액세스 검토를 만들려면 해당 구성원이 직접 검토 하 고 게스트 사용자 구성원만 포함 하도록 검토를 선택 합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
+1. 그룹에 대 한 액세스 검토를 만들려면 게스트 사용자 구성원만 포함 하도록 검토를 선택 하 고 해당 구성원은 자신을 검토 합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 
-2. 각 게스트에게 자신의 구성원 자격을 검토하도록 요청합니다. 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 액세스 검토에 대한 링크가 포함된 전자 메일을 받게 됩니다. Azure AD 하는 방법에 대 한 게스트에 대 한 지침은 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
+2. 각 게스트에게 자신의 구성원 자격을 검토하도록 요청합니다. 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 액세스 검토에 대한 링크가 포함된 전자 메일을 받게 됩니다. Azure AD에는 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 방법에 대 한 게스트 지침이 있습니다.
 
-3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
+3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
 
 4. 지속적인 액세스에 대한 자신의 요구 사항을 거부한 사용자 외에도 응답하지 않은 사용자를 제거할 수 있습니다. 응답하지 않은 사용자는 더 이상 메일을 수신하지 못할 수 있습니다.
 
@@ -72,21 +72,21 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 그룹 소유자와 같은 스폰서에게 지속적인 그룹 구성원 자격에 대한 게스트의 요구 사항을 검토하도록 요청할 수 있습니다.
 
-1. 그룹에 대 한 액세스 검토를 만들려면 게스트 사용자 구성원만 포함 하도록 검토를 선택 합니다. 그런 후 한 명 이상의 검토자를 지정합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
+1. 그룹에 대 한 액세스 검토를 만들려면 게스트 사용자 구성원만 포함 하도록 검토를 선택 합니다. 그런 후 한 명 이상의 검토자를 지정합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 
-2. 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 전자 메일에서에서 받은 링크를 사용 하 여 Azure AD 액세스 패널에 있는 이러한 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
+2. 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD에서 액세스 패널에 대 한 링크를 사용 하 여 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 전자 메일을 받습니다.
 
-3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
+3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
 
 ### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>게스트에게 애플리케이션에 대한 자신의 액세스를 검토하도록 요청
 
 액세스 검토를 사용하여 특정 애플리케이션에 초대된 사용자가 계속 액세스해야 하는지 확인할 수 있습니다. 게스트에게 자신의 액세스 요구 사항을 검토하도록 쉽게 요청할 수 있습니다.
 
-1. 응용 프로그램에 대 한 액세스 검토를 만들려면 사용자가 자신의 액세스 검토는 및 게스트만 포함 하도록 검토를 선택 합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
+1. 응용 프로그램에 대 한 액세스 검토를 만들려면 게스트만 포함 하 고 사용자가 자신의 액세스를 검토 하도록 검토를 선택 합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 
-2. 각 게스트에게 애플리케이션에 대한 자신의 액세스를 검토하도록 요청 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 이메일을 받게 됩니다. 이 이메일에는 조직의 액세스 패널의 액세스 검토로 연결되는 링크가 포함되어 있습니다. Azure AD 하는 방법에 대 한 게스트에 대 한 지침은 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
+2. 각 게스트에게 애플리케이션에 대한 자신의 액세스를 검토하도록 요청 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 이메일을 받게 됩니다. 이 이메일에는 조직의 액세스 패널의 액세스 검토로 연결되는 링크가 포함되어 있습니다. Azure AD에는 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 방법에 대 한 게스트 지침이 있습니다.
 
-3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
+3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
 
 4. 지속적인 액세스에 대한 자신의 요구 사항을 거부한 사용자 외에도 응답하지 않은 게스트 사용자를 제거할 수 있습니다. 응답하지 않은 사용자는 더 이상 메일을 수신하지 못할 수 있습니다. 참여하도록 선택되지 않은 게스트 사용자, 특히 최근에 초대되지 않은 사용자도 제거할 수 있습니다. 해당 사용자는 초대를 수락하지 않았으므로 애플리케이션에 대한 액세스 권한이 없습니다. 
 
@@ -94,11 +94,11 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 애플리케이션 소유자와 같은 스폰서에게 지속적인 애플리케이션 액세스에 대한 게스트의 요구 사항을 검토하도록 요청할 수 있습니다.
 
-1. 응용 프로그램에 대 한 액세스 검토를 만들려면, 게스트만 포함 하도록 검토를 선택 합니다. 그런 후 한 명 이상의 사용자를 검토자로 지정합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
+1. 응용 프로그램에 대 한 액세스 검토를 만들려면 게스트만 포함 하도록 검토를 선택 합니다. 그런 후 한 명 이상의 사용자를 검토자로 지정합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 
-2. 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 전자 메일에서에서 받은 링크를 사용 하 여 Azure AD 액세스 패널에 있는 이러한 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.
+2. 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD에서 액세스 패널에 대 한 링크를 사용 하 여 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 전자 메일을 받습니다.
 
-3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
+3. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
 
 ### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>게스트에게 자신의 일반적 액세스 요구 사항을 검토하도록 요청
 
@@ -109,17 +109,17 @@ Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오�
 
 1. 적합한 그룹이 아직 없는 경우 Azure AD에 해당 게스트를 구성원으로 하는 보안 그룹을 만듭니다. 예를 들어 수동으로 유지 관리되는 게스트의 구성원 자격으로 그룹을 만들 수 있습니다. 또는 UserType 특성 값이 Guest인 Contoso 테넌트의 사용자에 대해 "Contoso 게스트"와 같은 이름으로 동적 그룹을 만들 수도 있습니다.  효율성을 위해 그룹이 주요 게스트인지 확인합니다. 멤버 사용자는 검토할 필요가 없으므로 멤버 사용자가 있는 그룹은 선택하지 않도록 합니다.  또한 그룹의 멤버인 게스트 사용자는 그룹의 다른 멤버를 볼 수 있습니다.
 
-2. 해당 그룹에 대 한 액세스 검토를 만들려면 직접 구성원이 되도록 검토자를 선택 합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)합니다.
+2. 해당 그룹에 대 한 액세스 검토를 만들려면 멤버 자체로 검토자를 선택 합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
 
-3. 각 게스트에게 자신의 구성원 자격을 검토하도록 요청합니다. 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 조직의 액세스 패널에 있는 액세스 검토에 대한 링크가 포함된 전자 메일을 받게 됩니다. Azure AD 하는 방법에 대 한 게스트에 대 한 지침은 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다.  자신의 초대를 수락하지 않은 게스트는 검토 결과에서 “알림을 받지 않음”으로 표시됩니다.
+3. 각 게스트에게 자신의 구성원 자격을 검토하도록 요청합니다. 기본적으로 초대를 수락한 각 게스트는 Azure AD에서 조직의 액세스 패널에 있는 액세스 검토에 대한 링크가 포함된 전자 메일을 받게 됩니다. Azure AD에는 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 방법에 대 한 게스트 지침이 있습니다.  자신의 초대를 수락하지 않은 게스트는 검토 결과에서 “알림을 받지 않음”으로 표시됩니다.
 
-4. 검토자가 입력을 제공하면 액세스 검토를 중지합니다. 자세한 내용은 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md)합니다.
+4. 검토자가 입력을 제공하면 액세스 검토를 중지합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
 
 5. 거부되었거나 검토를 완료하지 않았거나 이전에 초대를 수락하지 않은 게스트에 대한 게스트 액세스를 제거합니다. 게스트 중 일부가 검토에 참여하도록 선택되었거나 이전에 초대를 수락하지 않았던 연락처인 경우, Azure Portal 또는 PowerShell을 사용하여 해당 계정을 사용하지 않도록 설정할 수 있습니다. 게스트가 더 이상 액세스할 필요가 없고 연락처가 아닌 경우, Azure Portal 또는 PowerShell을 사용하여 사용자 개체를 디렉터리에서 제거하여 게스트 사용자 개체를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)
+[그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)
 
 
 

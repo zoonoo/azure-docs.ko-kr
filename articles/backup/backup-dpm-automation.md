@@ -1,19 +1,18 @@
 ---
 title: Azure Backup - PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127742"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465143"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 
@@ -42,7 +41,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-시작 하려면 [최신 Azure PowerShell을 다운로드](/powershell/azure/install-az-ps)합니다.
+시작 하려면 [최신 Azure PowerShell를 다운로드](/powershell/azure/install-az-ps)하세요.
 
 PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있습니다.
 
@@ -68,7 +67,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. 사용 하 여는 **새로 만들기-AzRecoveryServicesVault** cmdlet을 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
+3. **AzRecoveryServicesVault** cmdlet을 사용 하 여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -88,9 +87,9 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-사용 하 여 **Get AzRecoveryServicesVault** 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**AzRecoveryServicesVault** 를 사용 하 여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
-Get-AzRecoveryServicesVault 명령을 실행 하 고 구독의 모든 자격 증명 모음이 나열 됩니다.
+AzRecoveryServicesVault 및 구독의 모든 자격 증명 모음이 나열 된 명령을 실행 합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -121,7 +120,7 @@ MARSAgentInstaller.exe /q
 
 설치된 프로그램 목록에 에이전트가 표시됩니다. 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
 
-![에이전트 설치됨](./media/backup-dpm-automation/installed-agent-listing.png)
+![에이전트가 설치됨](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>설치 옵션
 
@@ -274,7 +273,7 @@ DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-이제 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 볼륨에 대 한 필터링이 예제의 *d:\\*  백업을 위해 구성 하려는 합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한* ```$MPG``` 보호 그룹 개체를 사용해야 합니다.
+이제 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet을 사용하여 ```$server```에서 데이터 원본 목록을 가져옵니다. 이 예제에서는 백업을 위해 구성 하려는 *D:\\*  볼륨을 필터링 합니다. 그런 다음 이 데이터 원본은 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet을 사용하여 보호 그룹에 추가됩니다. 추가하려면 *수정 가능한* ```$MPG``` 보호 그룹 개체를 사용해야 합니다.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327134"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371161"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 참조 항목:
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
@@ -357,18 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
-## <a name="configure-firewall-and-vnet-settings"></a>방화벽 및 VNet 설정 구성
+## <a name="configure-firewall-and-virtual-network-settings"></a>방화벽 및 가상 네트워크 설정 구성
 
 ### <a name="portal"></a>포털
 방화벽 및 가상 네트워크 설정에서 작동 하도록 Azure File sync를 구성 하려면 다음을 수행 합니다.
 
 1. Azure Portal에서 보안을 설정 하려는 저장소 계정으로 이동 합니다.
-1. Lefthand 메뉴에서 **방화벽 및 가상 네트워크** 단추를 선택 합니다.
+1. 왼쪽 메뉴에서 **방화벽 및 가상 네트워크** 단추를 선택 합니다.
 1. **액세스 허용에서** **선택한 네트워크** 를 선택 합니다.
 1. 해당 하는 섹션 아래에 서버 IP 또는 가상 네트워크가 나열 되어 있는지 확인 합니다.
 1. **신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용** 이 선택 되어 있는지 확인 합니다.
 1. **저장**을 선택하여 설정을 저장합니다.
 
+![Azure File sync를 사용 하도록 방화벽 및 가상 네트워크 설정 구성](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Azure 파일 동기화를 사용한 온보딩
 전체 파일 충실도와 ACL(액세스 제어 목록)을 유지하면서 가동 중지 시간 없이 Azure 파일 동기화에 처음 온보딩하는 권장 단계는 다음과 같습니다.

@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fa5e8a1f51284d93f51a1a197e2612f356b8b0d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: MT
+ms.openlocfilehash: c9b481e63ecf7a92af679c0f32d4b3ab71486021
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228278"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360801"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -554,7 +554,7 @@ Managed Instance에서 사용할 수 있는 오류 로그는 지속 되지 않�
 
 동일한 인스턴스 내에서 동일한 트랜잭션 범위에서 두 개의 쿼리를 두 개의 데이터베이스로 보내면 .net의 클래스가작동하지않습니다.`TransactionScope`
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))

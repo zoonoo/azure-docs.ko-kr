@@ -142,7 +142,7 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 HTTPS URL_은 ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 HTTPS URL_은 ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1*** 을 사용합니다.
 
 **Linux**
 

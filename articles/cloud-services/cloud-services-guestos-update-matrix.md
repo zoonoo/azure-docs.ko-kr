@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321416"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405547"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. *Azure 게스트 OS 업데이트 설정* 의 설명에 따라 [자동][Azure Guest OS Update Settings]게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -110,7 +110,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-5-releases"></a>제품군 5 릴리스
 **Windows Server 2016**
 
-설치된 .NET Framework: 3.5, 4.6.2, 4.7.2
+설치된 .NET Framework: 3.5, 4.6
 
 > [!NOTE]
 > OS 제품군 5의 RDP 암호는 10자 이상이어야 합니다.

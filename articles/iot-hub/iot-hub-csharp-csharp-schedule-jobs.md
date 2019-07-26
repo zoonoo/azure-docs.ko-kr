@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aceb90dbaf87ba621837c047eb114bc9be4b822e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864472"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402682"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>작업 예약 및 브로드캐스트(.NET/.NET)
 
@@ -29,9 +29,9 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이러한 각 기능에 대한 자세한 내용은 다음을 참조하세요.
 
-* 디바이스 쌍 및 속성: [장치 쌍 시작](iot-hub-csharp-csharp-twin-getstarted.md) 고 [자습서: 장치 쌍 속성 사용 방법](tutorial-device-twins.md)
+* 디바이스 쌍 및 속성: [장치 쌍 시작](iot-hub-csharp-csharp-twin-getstarted.md) 및 [자습서: 장치 쌍 속성을 사용 하는 방법](tutorial-device-twins.md)
 
-* 직접 메서드: [IoT Hub 개발자 가이드-직접 메서드](iot-hub-devguide-direct-methods.md) 고 [자습서: 직접 메서드 사용](quickstart-control-device-dotnet.md)
+* 직접 메서드: [IoT Hub 개발자 가이드-직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -49,16 +49,12 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 있습니다.
+* Visual Studio.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
@@ -151,6 +147,12 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults) 문서에 제시된 대로 재시도 정책(예: 연결 다시 시도)을 구현해야 합니다.
 > 
 
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>직접 메서드를 호출하고 디바이스 쌍의 업데이트를 전송하기 위한 작업 예약
 
 이 섹션에서는 작업을 사용하여 **LockDoor** 직접 메서드를 호출하고 원하는 속성 업데이트를 여러 디바이스에 전송하는 .NET 콘솔 앱(C# 사용)을 만듭니다.
@@ -179,7 +181,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     using System.Threading.Tasks;
     ```
 
-6. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자를 이전 섹션에서 만든 허브 및 디바이스 이름의 IoT Hub 연결 문자열로 바꿉니다.
+6. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자를 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string) 의 이전에 복사한 IoT Hub 연결 문자열 및 장치의 이름으로 바꿉니다.
 
     ```csharp
     static JobClient jobClient;
@@ -291,6 +293,6 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-IoT Hub 및 장치 관리 패턴 같은 원격 무선 펌웨어 업데이트 시작 작업을 계속 하려면 읽기 [자습서: 펌웨어 업데이트를 수행 하는 방법을](tutorial-firmware-update.md)합니다.
+무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 자습서를 참조 [하세요. 펌웨어 업데이트](tutorial-firmware-update.md)를 수행 하는 방법
 
 Azure IoT Edge로 AI를 에지 디바이스에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)을 참조하세요.

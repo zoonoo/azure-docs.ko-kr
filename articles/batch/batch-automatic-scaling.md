@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323761"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500035"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
@@ -40,7 +40,7 @@ Azure Batch는 정의한 매개 변수에 따라 풀을 자동으로 크기 조�
 >
 
 ## <a name="automatic-scaling-formulas"></a>자동 크기 조정 수식
-자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성 (Batch .net)에 할당 됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 계산 노드 수를 결정하는 수식을 사용합니다. 수식 문자열은 8KB를 초과할 수 없고, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며, 줄 바꿈과 주석을 포함할 수 있습니다.
+자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] 요소 (batch REST) 또는 [Cloudpool. AutoScaleFormula][net_cloudpool_autoscaleformula] 속성 (batch .net)에 할당 됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 계산 노드 수를 결정하는 수식을 사용합니다. 수식 문자열은 8KB를 초과할 수 없고, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며, 줄 바꿈과 주석을 포함할 수 있습니다.
 
 자동 크기 조정 수식은 Batch 자동 크기 조정 "언어"로 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(Batch 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
@@ -63,7 +63,7 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 
 다음은 대부분의 시나리오에서 작동 하도록 조정할 수 있는 두 가지 자동 크기 조정 수식의 예입니다. 예제 수식 `startingNumberOfVMs` `maxNumberofVMs` 에서 변수와 변수는 필요에 맞게 조정할 수 있습니다.
 
-#### <a name="pending-tasks"></a>보류 중인 작업
+#### <a name="pending-tasks"></a>작업 보류 중
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
@@ -188,7 +188,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 ## <a name="functions"></a>함수
 이러한 미리 정의된 **함수** 는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
 
-| 함수 | 반환 형식 | 설명 |
+| 함수 | 반환 형식 | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |doubleVecList에 있는 모든 값의 평균 값을 반환합니다. |
 | len(doubleVecList) |double |doubleVecList에서 만든 벡터의 길이를 반환합니다. |
@@ -210,7 +210,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
-앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들어:
+앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -229,7 +229,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예를 들어:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>샘플, 샘플 비율 및 *GetSample()* 메서드
 자동 크기 조정 수식의 핵심 작업은 작업 및 리소스 메트릭 데이터를 가져오고 데이터를 기반으로 풀 크기를 조정하는 것입니다. 따라서 자동 크기 조정 수식이 메트릭 데이터(샘플)과 상호 작용하는 방식을 명확히 이해해야 합니다.
@@ -254,7 +254,7 @@ Batch 서비스는 정기적으로 작업 및 리소스 메트릭의 샘플을 �
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예:
+위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예를 들어:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>.NET으로 자동 크기 조정 가능한 풀 만들기
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Batch Sdk를 사용 하 여 자동 크기 조정 가능한 풀 만들기
+
+Batch [sdk](batch-apis-tools.md#azure-accounts-for-batch-development), batch [REST API](https://docs.microsoft.com/rest/api/batchservice/) [BATCH PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)및 [batch CLI](batch-cli-get-started.md)중 하나를 사용 하 여 풀 자동 크기 조정을 구성할 수 있습니다. 이 섹션에서는 .NET 및 Python에 대 한 예제를 볼 수 있습니다.
+
+### <a name="net"></a>.NET
 
 .NET에서 자동 크기 조정 가능한 풀을 만들려면 다음 단계를 수행합니다.
 
 1. [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool)을 사용하여 풀을 만듭니다.
-2. [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) 속성을 `true`로 설정합니다.
-3. 자동 크기 조정 수식을 사용하여 [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) 속성을 설정합니다.
-4. (선택 사항) [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 속성을 설정합니다(기본값: 15 분).
-5. [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 또는 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)로 풀을 커밋합니다.
+1. [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) 속성을 `true`로 설정합니다.
+1. 자동 크기 조정 수식을 사용하여 [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) 속성을 설정합니다.
+1. (선택 사항) [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 속성을 설정합니다(기본값: 15 분).
+1. [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 또는 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)로 풀을 커밋합니다.
 
 다음 코드 조각에서는 .NET에서 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 전용 노드의 목표 수를 월요일에는 5로, 그 외 다른 요일에는 1로 설정합니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 문서의 다른 코드 조각과 C# 이 문서의 `myBatchClient` 다른 코드 조각은 [batchclient][net_batchclient] 클래스의 올바르게 초기화 된 인스턴스입니다.
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-Batch .NET 외에도 다른 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development), [Batch REST](https://docs.microsoft.com/rest/api/batchservice/), [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 및 [Batch CLI](batch-cli-get-started.md) 중 하나를 사용하여 자동 크기 조정을 구성할 수 있습니다.
+#### <a name="automatic-scaling-interval"></a>자동 크기 조정 간격
 
-
-### <a name="automatic-scaling-interval"></a>자동 크기 조정 간격
 기본적으로 Batch 서비스는 15분마다 자동 크기 조정 수식에 따라 풀의 크기를 조정합니다. 이 간격은 다음 풀 속성을 사용하여 구성할 수 있습니다.
 
 * [Cloudpool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .net)
@@ -405,6 +407,50 @@ Batch .NET 외에도 다른 [Batch SDK](batch-apis-tools.md#azure-accounts-for-b
 
 > [!NOTE]
 > 자동 크기 조정은 현재 1분 미만의 변경 내용에 응답하지 않지만 워크로드를 실행하면 점차적으로 풀의 크기를 조정합니다.
+>
+>
+
+### <a name="python"></a>Python
+
+마찬가지로 다음과 같이 Python SDK를 사용 하 여 자동 크기 조정 가능한 풀을 만들 수 있습니다.
+
+1. 풀을 만들고 해당 구성을 지정 합니다.
+1. 서비스 클라이언트에 풀을 추가 합니다.
+1. 작성 하는 수식을 사용 하 여 풀에서 자동 크기 조정을 사용 하도록 설정 합니다.
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> Python SDK 사용에 대 한 추가 예제는 GitHub의 [Batch Python 빠른 시작 리포지토리](https://github.com/Azure-Samples/batch-python-quickstart) 에서 찾을 수 있습니다.
 >
 >
 
