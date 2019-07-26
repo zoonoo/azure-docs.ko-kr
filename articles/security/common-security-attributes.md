@@ -1,6 +1,6 @@
 ---
 title: Azure 서비스에 대 한 보안 특성
-description: Azure Service Fabric을 평가하기 위한 일반적인 보안 특성에 대한 검사 목록입니다.
+description: Azure 서비스 평가를 위한 보안 특성의 검사 목록
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -9,18 +9,27 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d45e28175412b574432adb59cf700568c9a7fb39
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0010273d41769c57144fdde63e47c528f313a228
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304260"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443360"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure 서비스에 대 한 보안 특성
 
-이 문서는 선택한 Azure 서비스에 대 한 일반적인 보안 특성을 수집 합니다. 
+이 문서는 선택한 Azure 서비스에 대 한 보안 특성을 수집 합니다. 보안 특성은 Azure 서비스의 품질 또는 기능입니다. 이 서비스는 보안 취약성을 예방, 감지 및 대응 하는 서비스의 기능에 기여 합니다.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+보안 특성은 다음과 같이 분류됩니다.
+* 예방
+* 네트워크 구분
+* 감지
+* Id 및 액세스 관리에 대 한 지원
+* 감사 내역
+* 액세스 제어(사용하는 경우)
+* 구성 관리(사용하는 경우)
+
+각 범주에 "예" 또는 "아니요"를 표시 하 여 특성이 사용 되는지 여부를 나타냅니다. 일부 서비스의 경우 해당 되지 않는 특성에 대해 "N/A"를 표시 합니다. 또한 특성에 대 한 추가 정보를 제공 하는 참고 사항 또는 링크도 제공 될 것입니다.
 
 ## <a name="api-managementapi-managementapi-management-security-attributesmd"></a>[API Management](../api-management/api-management-security-attributes.md)
 
@@ -31,7 +40,7 @@ ms.locfileid: "68304260"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 인증서, 키 및 비밀 이름이 지정 된 값과 같은 중요 한 데이터는 서비스 인스턴스 키 당 서비스 관리로 암호화 됩니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | [Express 경로](../expressroute/index.yml) 및 VNet 암호화는 [Azure 네트워킹](../virtual-network/index.yml)에서 제공 됩니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 | 모든 암호화 키는 서비스 인스턴스당 서비스 관리 됩니다. |
-| 열 수준 암호화 (Azure Data Services)| N/A | |
+| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
 | API 호출 암호화| 예 | 관리 평면 호출은 TLS를 통해 [Azure Resource Manager](../azure-resource-manager/index.yml) 를 통해 수행 됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다.  데이터 평면 호출은 TLS를 사용 하 고 지원 되는 인증 메커니즘 (예: 클라이언트 인증서 또는 JWT) 중 하나를 사용 하 여 보안을 설정할 수 있습니다.
  |
 
@@ -170,7 +179,7 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
 | 제어 및 관리 평면 로깅 및 감사| 예 | 활동 로그는 리소스에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)을 노출 합니다. 작업 [로그 보기를 참조 하 여 리소스에 대 한 작업을 감사](../azure-resource-manager/resource-group-audit.md)합니다. |
-| 데이터 평면 로깅 및 감사| 해당 사항 없음 | |
+| 데이터 평면 로깅 및 감사| N/A | |
 
 ### <a name="configuration-management"></a>구성 관리
 
@@ -234,9 +243,9 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 예 | 모든 Cosmos DB 데이터베이스와 백업은 기본적으로 암호화 됩니다. [Azure Cosmos DB의 데이터 암호화를](../cosmos-db/database-encryption-at-rest.md)참조 하세요. 고객 관리 키를 사용 하는 서버 쪽 암호화는 지원 되지 않습니다. |
-| 전송 중 암호화 (예: Express 경로 암호화, Vnet 암호화 및 VNet-VNet 암호화)| 예 | 전송 시 모든 Azure Cosmos DB 데이터가 암호화 됩니다. |
-| 암호화 키 처리(CMK, BYOK 등)| 아니요 |  |
-| 열 수준 암호화(Azure Data Services)| 예 | 테이블 API Premium 에서만. 모든 Api에서이 기능을 지 원하는 것은 아닙니다. Azure Cosmos DB [소개를 참조 하세요. Table API](../cosmos-db/table-introduction.md). |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | 전송 시 모든 Azure Cosmos DB 데이터가 암호화 됩니다. |
+| 암호화 키 처리 (CMK, BYOK 등)| 아니요 |  |
+| 열 수준 암호화 (Azure Data Services)| 예 | 테이블 API Premium 에서만. 모든 Api에서이 기능을 지 원하는 것은 아닙니다. Azure Cosmos DB [소개를 참조 하세요. Table API](../cosmos-db/table-introduction.md). |
 | API 호출 암호화| 예 | Azure Cosmos DB에 대 한 모든 연결은 HTTPS를 지원 합니다. Azure Cosmos DB는 TLS 1.2 연결도 지원 하지만 아직 적용 되지 않습니다. 고객이 더 낮은 수준의 TLS를 종료 하는 경우 Cosmos DB에 연결 하도록 보장할 수 있습니다.  |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -244,9 +253,9 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 서비스 엔드포인트 지원| 예 |  |
-| vNET 삽입 지원| 예 | VNet 서비스 끝점을 사용 하 여 가상 네트워크 (VNet)의 특정 서브넷 에서만 액세스할 수 있도록 Azure Cosmos DB 계정을 구성할 수 있습니다. 또한 VNet 액세스와 방화벽 규칙을 결합할 수 있습니다.  [가상 네트워크에서 Azure Cosmos DB 액세스를](../cosmos-db/vnet-service-endpoint.md)참조 하세요. |
+| VNet 삽입 지원| 예 | VNet 서비스 끝점을 사용 하 여 가상 네트워크 (VNet)의 특정 서브넷 에서만 액세스할 수 있도록 Azure Cosmos DB 계정을 구성할 수 있습니다. 또한 VNet 액세스와 방화벽 규칙을 결합할 수 있습니다.  [가상 네트워크에서 Azure Cosmos DB 액세스를](../cosmos-db/VNet-service-endpoint.md)참조 하세요. |
 | 네트워크 격리 및 방화벽 지원| 예 | 방화벽 지원을 통해 승인 된 IP 주소 집합, IP 주소 및/또는 클라우드 서비스 에서만 액세스할 수 있도록 Azure Cosmos 계정을 구성할 수 있습니다. [Azure Cosmos DB에서 IP 방화벽 구성을](../cosmos-db/how-to-configure-firewall.md)참조 하세요.|
-| 강제 터널링 지원 | 예 | 가상 컴퓨터가 있는 VNET의 클라이언트 쪽에서 구성할 수 있습니다.   |
+| 강제 터널링 지원| 예 | 가상 컴퓨터가 있는 VNet의 클라이언트 쪽에서 구성할 수 있습니다.   |
 
 ### <a name="detection"></a>감지
 
@@ -265,7 +274,7 @@ ms.locfileid: "68304260"
 
 | 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
-| 컨트롤/관리 계획 로깅 및 감사| 예 | 방화벽, Vnet, 키 액세스, IAM 등의 계정 수준 작업에 대 한 Azure 활동 로그입니다. |
+| 제어 및 관리 평면 로깅 및 감사| 예 | 방화벽, Vnet, 키 액세스, IAM 등의 계정 수준 작업에 대 한 Azure 활동 로그입니다. |
 | 데이터 평면 로깅 및 감사 | 예 | 컨테이너 만들기, 처리량 프로 비전, 인덱싱 정책 및 문서에 대 한 CRUD 작업과 같은 컨테이너 수준 작업에 대 한 진단 모니터링 로깅입니다. |
 
 ### <a name="configuration-management"></a>구성 관리
@@ -298,7 +307,7 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 서비스 엔드포인트 지원| 예 |  |
-| vNET 삽입 지원| 아니요 | |
+| VNet 삽입 지원| 아니요 | |
 | 네트워크 격리 및 방화벽 지원| 예 |  |
 | 강제 터널링 지원| 아니요 |  |
 
@@ -338,18 +347,18 @@ ms.locfileid: "68304260"
 |---|---|--|
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  해당 사항 없음 | Express 경로는 고객 데이터를 저장 하지 않습니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 아니요 | |
-| 암호화 키 처리 (CMK, BYOK 등)| 해당 사항 없음 |  |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
+| 암호화 키 처리 (CMK, BYOK 등)| N/A |  |
+| 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예 | [Azure Resource Manager](../azure-resource-manager/index.yml) 및 HTTPS를 통해 |
 
 ### <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 서비스 엔드포인트 지원| N/A |  |
-| vNET 삽입 지원| 해당 사항 없음 | |
+| 서비스 엔드포인트 지원| 해당 사항 없음 |  |
+| VNet 삽입 지원| 해당 사항 없음 | |
 | 네트워크 격리 및 방화벽 지원| 예 | 각 고객은 자체 라우팅 도메인에 포함 되 고 자체 VNet으로 터널링 됩니다. |
-| 강제 터널링 지원| 해당 사항 없음 | Via Border Gateway Protocol (BGP). |
+| 강제 터널링 지원| N/A | Via Border Gateway Protocol (BGP). |
 
 ### <a name="detection"></a>감지
 
@@ -388,7 +397,7 @@ ms.locfileid: "68304260"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 예 | 모든 개체가 암호화됩니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 예 | 고객은 해당 Key Vault의 모든 키를 제어 합니다. HSM (하드웨어 보안 모듈) 지원 키가 지정 된 경우 FIPS 수준 2 HSM은 키, 인증서 또는 암호를 보호 합니다. |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 |  |
+| 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -436,7 +445,7 @@ ms.locfileid: "68304260"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 해당 사항 없음 | |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 해당 사항 없음 | |
 | 암호화 키 처리 (CMK, BYOK 등)| 해당 사항 없음 | |
-| 열 수준 암호화 (Azure Data Services)| N/A | |
+| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
 | API 호출 암호화| 예 | [Azure Resource Manager](../azure-resource-manager/index.yml)를 통해. |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -444,8 +453,8 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 서비스 엔드포인트 지원| 해당 사항 없음 | |
-| VNet 삽입 지원| N/A | 을 선택합니다. |
-| 네트워크 격리 및 방화벽 지원| 해당 사항 없음 |  |
+| VNet 삽입 지원| 해당 사항 없음 | 을 선택합니다. |
+| 네트워크 격리 및 방화벽 지원| N/A |  |
 | 강제 터널링 지원| 해당 사항 없음 | |
 
 ### <a name="detection"></a>감지
@@ -459,7 +468,7 @@ ms.locfileid: "68304260"
 | 보안 특성 | 예/아니요 | 참고|
 |---|---|--|
 | 인증| N/A |  |
-| Authorization| 해당 사항 없음 |  |
+| Authorization| N/A |  |
 
 ### <a name="audit-trail"></a>감사 내역
 
@@ -483,7 +492,7 @@ ms.locfileid: "68304260"
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) |  기본적으로 서버 쪽 암호화에 대 한 예입니다. | 고객 관리 키 및 BYOK는 아직 지원 되지 않습니다. 클라이언트 쪽 암호화는 클라이언트의 책임입니다. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화) | 예 | 표준 HTTPS/TLS 메커니즘을 지원 합니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 |   |
-| 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
+| 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예 | API 호출은 [Azure Resource Manager](../azure-resource-manager/index.yml) 및 HTTPS를 통해 수행 됩니다. |
 
 ### <a name="network-segmentation"></a>네트워크 구분
@@ -692,7 +701,7 @@ SQL Database에는 [단일 데이터베이스](../sql-database/sql-database-sing
 | 서비스 엔드포인트 지원| 예 |  |
 | VNet 삽입 지원| 해당 사항 없음 |  |
 | 네트워크 격리 및 방화벽 지원| 예 | |
-| 강제 터널링 지원| 해당 사항 없음 |  |
+| 강제 터널링 지원| N/A |  |
 
 ### <a name="detection"></a>감지
 
@@ -730,7 +739,7 @@ SQL Database에는 [단일 데이터베이스](../sql-database/sql-database-sing
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 예 | [Azure에서 Linux 가상 머신을 암호화](/azure/virtual-machines/linux/encrypt-disks) 하 고 [Windows VM에서 가상 디스크를 암호화](/azure/virtual-machines/windows/encrypt-disks)하는 방법을 참조 하세요. |
-| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](/azure/expressroute) 경로 및 VNET 암호화를 지원 합니다. [Vm의 전송 중 암호화를](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)참조 하세요. |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](/azure/expressroute) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)참조 하세요. |
 | 암호화 키 처리 (CMK, BYOK 등)| 예 | 고객 관리 키는 지원 되는 Azure 암호화 시나리오입니다. [Azure 암호화 개요](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)를 참조 하세요.|
 | 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
 | API 호출 암호화| 예 | HTTPS 및 SSL을 통해. |
@@ -778,7 +787,7 @@ SQL Database에는 [단일 데이터베이스](../sql-database/sql-database-sing
 
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
-| 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | 해당 사항 없음 | VPN gateway에서 고객 데이터를 전송 하 고 고객 데이터를 저장 하지 않음 |
+| 미사용 암호화 (서버 쪽 암호화, 고객이 관리 하는 키를 사용 하는 서버 쪽 암호화 및 기타 암호화 기능) | N/A | VPN gateway에서 고객 데이터를 전송 하 고 고객 데이터를 저장 하지 않음 |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | VPN gateway는 Azure VPN 게이트웨이와 고객 온-프레미스 VPN 장치 (S2S) 또는 VPN 클라이언트 (P2S) 간에 고객 패킷을 암호화 합니다. VPN 게이트웨이는 VNet 간 암호화도 지원 합니다. |
 | 암호화 키 처리 (CMK, BYOK 등)| 아니요 | 사용자가 지정한 미리 공유한 키는 미사용 시 암호화 됩니다. 하지만 CMK와는 아직 통합 되지 않았습니다. |
 | 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |
@@ -789,7 +798,7 @@ SQL Database에는 [단일 데이터베이스](../sql-database/sql-database-sing
 | 보안 특성 | 예/아니요 | 참고 |
 |---|---|--|
 | 서비스 엔드포인트 지원| N/A | |
-| VNet 삽입 지원| N/A | 을 선택합니다. |
+| VNet 삽입 지원| 해당 사항 없음 | 을 선택합니다. |
 | 네트워크 격리 및 방화벽 지원| 예 | VPN 게이트웨이는 각 고객에 대 한 전용 VM 인스턴스입니다 Virtual Network  |
 | 강제 터널링 지원| 예 |  |
 

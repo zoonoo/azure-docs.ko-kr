@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278164"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478338"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
 
-첫 번째 단계에서 AKS 클러스터를 만든 경우 *1.13.5* 의가 `--kubernetes-version` 지정 되었습니다. *Mynodepool* 을 Kubernetes *1.13.7*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks node pool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
+첫 번째 단계에서 AKS 클러스터를 만든 경우 *1.13.5* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 초기 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 데는 여러 가지 명령이 있습니다. 명령은 개별 노드 풀을 업그레이드 하는 데 사용 되는 `az aks nodepool upgrade` 동안 제어 평면을 업그레이드 하는 데 사용 됩니다. `az aks upgrade`
+
+*Mynodepool* 을 Kubernetes *1.13.7*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks node pool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> 컨트롤 평면을 *1.13.7*로 업그레이드 하려면를 실행 `az aks upgrade -k 1.13.7`합니다.
 
 [Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.13.7*에 대 한 *업그레이드* 상태임을 보여 줍니다.
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 노드를 지정 된 버전으로 업그레이드 하는 데 몇 분 정도 걸립니다.
 
 AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 응용 프로그램 작동 시간을 유지 하기 위해 노드 풀 간에 pod 일정을 예약할 수 있습니다.
+
+> [!NOTE]
+> Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y*로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6*에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 클러스터를 만드는 동안 초기 노드 풀 뿐만 아니라 제어 평면의 Kubernetes 버전이 설정 되어 있습니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있지만 다음과 같은 제한 사항이 적용 됩니다.
+> 
+> * 노드 풀 버전은 제어 평면과 동일한 주 버전을 포함 해야 합니다.
+> * 노드 풀 버전은 제어 평면 버전 보다 한 부 버전이 될 수 있습니다.
+> * 노드 풀 버전은 다른 두 제약 조건을 준수 하는 한 모든 패치 버전이 될 수 있습니다.
+> 
+> Kubernetes 버전의 제어 평면을 업그레이드 하려면를 사용 `az aks upgrade`합니다. 클러스터에 노드 풀이 `az aks upgrade` 하나만 있는 경우이 명령은 노드 풀의 Kubernetes 버전도 업그레이드 합니다.
 
 ## <a name="scale-a-node-pool"></a>노드 풀 크기 조정
 
@@ -271,7 +285,7 @@ aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.5
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
 * **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
-* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다. 
+* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.
 
 고급 Kubernetes 예약 기능을 사용 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][taints-tolerations] 를 참조 하세요.
 

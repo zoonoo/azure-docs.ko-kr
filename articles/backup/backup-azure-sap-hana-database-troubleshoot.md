@@ -1,25 +1,24 @@
 ---
 title: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 동안 발생 하는 오류 문제 해결 Microsoft Docs
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
-services: backup
 author: pvrk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: pullabhk
-ms.openlocfilehash: 32e814ea83f30b48af5ce507ce250f37a34390da
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 221b669c141681749709d6a5a406c78499f21032
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249484"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465485"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
 이 문서에서는 Azure virtual machines의 SAP HANA 데이터베이스 백업에 대 한 문제 해결 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [필수 구성](backup-azure-sap-hana-database.md#prerequisites)요소의 일부로 HANA가 설치 된 가상 머신에서 preregistration 스크립트가 실행 되었는지 확인 합니다.
 
@@ -61,12 +60,12 @@ Preregistration 스크립트에서 수행 하는 작업은 다음과 같습니�
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-데이터| 오류 메시지 | 가능한 원인 | 권장 작업 |
+데이터| 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
 | HANA 시스템에 연결 하지 못했습니다. 시스템이 실행 중인지 확인 합니다.| HANA 데이터베이스가 다운 되었으므로 Azure Backup 서비스에서 HANA에 연결할 수 없습니다. 또는 HANA가 실행 중이지만 Azure Backup 서비스의 연결을 허용 하지 않습니다. | HANA 데이터베이스 또는 서비스가 다운 되었는지 확인 합니다. HANA 데이터베이스 또는 서비스가 실행 중인 경우 [모든 권한이 설정 되어](#setting-up-permissions)있는지 확인 합니다. 키가 없는 경우 preregistration 스크립트를 다시 실행 하 여 새 키를 만듭니다. |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| 오류 메시지 | 가능한 원인 | 권장 작업 |
+| 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
 | 잘못 된 Backint 구성이 검색 되었습니다. 보호를 중지 하 고 데이터베이스를 다시 구성 하십시오.| Azure Backup에 대해 backInt 매개 변수가 잘못 지정 되었습니다. | [매개 변수가 설정 되어](#setting-up-backint-parameters)있는지 여부를 확인 합니다. 호스트에 backInt 기반 매개 변수가 있는 경우 해당 매개 변수를 제거 합니다. 매개 변수가 호스트 수준에 없지만 데이터베이스 수준에서 수동으로 수정 된 경우 앞에서 설명한 대로 적절 한 값으로 되돌립니다. 또는 Azure Portal에서 **보호 중지를 실행 하 고 백업 데이터를 보존** 한 후 **백업 다시 시작**을 선택 합니다.|

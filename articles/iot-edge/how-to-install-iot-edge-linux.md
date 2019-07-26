@@ -1,57 +1,59 @@
 ---
 title: Linux에 Azure IoT Edge 설치 | Microsoft Docs
-description: Ubuntu를 실행하는 Linux AMD64 디바이스에서 Azure IoT Edge 설치 지침
+description: Ubuntu 또는 Raspbian를 실행 하는 Linux 장치에 대 한 설치 지침 Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 822efe2534d49c0995a672232107cc322e547989
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bb23ee1e51be178f93e05b728f7b8c2e9bb18e0d
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227502"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414484"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
+# <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
-Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
+Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 자세히 알아보려면 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조 하세요.
 
-자세히 알아보려면 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조 하세요.
+이 문서에는 X64, ARM32 또는 ARM64 Linux 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다. 설치 패키지는 Ubuntu Server 16.04, Ubuntu Server 18.04 및 Raspbian Stretch에 대해 제공 됩니다. 지원 되는 Linux 운영 체제 및 아키텍처 목록은 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
 
-이 문서에는 Ubuntu Linux x64 (Intel/AMD) IoT Edge 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다. 지원 되는 AMD64 운영 체제 목록은 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
+>[!NOTE]
+>ARM64 장치에 대 한 지원은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다.
 
 > [!NOTE]
 > Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
-## <a name="install-the-latest-version"></a>최신 버전 설치
+## <a name="install-the-latest-runtime-version"></a>최신 런타임 버전 설치
 
-다음 섹션을 사용 하 여 최신 버전의 Azure IoT Edge 서비스를 장치에 설치 합니다. 
+다음 섹션을 사용 하 여 최신 버전의 Azure IoT Edge runtime을 장치에 설치 합니다. 
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Microsoft 키 및 소프트웨어 리포지토리 피드 등록
 
 IoT Edge 런타임 설치를 위해 장치를 준비 합니다.
 
+리포지토리 구성을 설치 합니다. 장치 운영 체제와 일치 하는 **16.04** 또는 **18.04** 명령을 선택 합니다.
 
-리포지토리 구성을 설치 합니다. Ubuntu 릴리스를 위한 적절 한 **16.04** 또는 **18.04** 코드 조각을 선택 합니다.
-
-> [!NOTE]
-> Ubuntu 버전의 올바른 코드 상자에서 코드 조각을 선택 했는지 확인 합니다.
-
-* **Ubuntu 16.04**:
+* **Ubuntu Server 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* **Ubuntu 18.04**:
+* **Ubuntu Server 18.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
-   
+
+* **Raspbian Stretch**:
+   ```bash
+   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+   ```
+
 생성 된 목록을 복사 합니다.
 
    ```bash
@@ -87,17 +89,7 @@ Moby CLI(명령줄 인터페이스)를 설치합니다. CLI는 개발에 유용�
    sudo apt-get install moby-cli
    ```
 
-#### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Moby 호환성을 위한 Linux 커널 확인
-
-많은 임베디드 장치 제조업체는 컨테이너 런타임 호환성에 필요한 기능이 없을 수 있는 사용자 지정 Linux 커널을 포함 하는 장치 이미지를 제공 합니다. 권장 [Moby](https://github.com/moby/moby) 컨테이너 런타임을 설치할 때 문제가 발생 하는 경우 다음을 통해 공식 [Moby GitHub 리포지토리에](https://github.com/moby/moby) 제공 된 [체크 인](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) 스크립트를 사용 하 여 Linux 커널 구성 문제를 해결할 수 있습니다. 장치에서 다음 명령을 실행 합니다.
-
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   chmod +x check-config.sh
-   ./check-config.sh
-   ```
-
-그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. `Generally Necessary` 및`Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 사용 하도록 설정할 수 있습니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고이에 따라 커널을 다시 빌드해야 합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 식별 된 기능이 성공적으로 설정 되었는지 확인 합니다.
+Moby 컨테이너 런타임을 설치할 때 오류가 발생 하는 경우이 문서의 뒷부분에서 설명 하는 단계에 따라 [moby 호환성에 대해 Linux 커널을 확인](#verify-your-linux-kernel-for-moby-compatibility)합니다. 
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
@@ -117,17 +109,17 @@ Apt 업데이트를 수행 합니다.
    sudo apt-get install iotedge
    ```
 
-IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [Azure IoT Edge 보안 디먼 구성](#configure-the-azure-iot-edge-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
+IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. [Azure IoT Edge 보안 디먼 구성](#configure-the-security-daemon) 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
 
-## <a name="install-a-specific-version"></a>특정 버전 설치
+## <a name="install-a-specific-runtime-version"></a>특정 런타임 버전 설치
 
-Azure IoT Edge의 특정 버전을 설치 하려면 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 모든 IoT Edge 구성 요소를 장치에 가져옵니다. Moby 엔진과 CLI, libiothsm 및 IoT Edge security daemon.
+특정 버전의 Azure IoT Edge 런타임을 설치 하려는 경우 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 모든 IoT Edge 구성 요소를 장치에 가져옵니다. Moby 엔진과 CLI, libiothsm 및 IoT Edge security daemon.
 
 1. [Azure IoT Edge 릴리스로](https://github.com/Azure/azure-iotedge/releases)이동 하 고 대상으로 지정할 릴리스 버전을 찾습니다. 
 
 2. 해당 버전에 대 한 **자산** 섹션을 확장 합니다.
 
-3. 지정 된 릴리스에서 Moby 엔진이 업데이트 될 수도 있고 업데이트 되지 않을 수도 있습니다. **Moby-엔진** 및 **moby-cli**로 시작 하는 파일이 표시 되는 경우 다음 명령을 사용 하 여 해당 구성 요소를 업데이트 합니다. Moby 파일이 표시 되지 않고 장치에 아직 Moby가 설치 되어 있지 않은 경우 찾을 때까지 이전 릴리스 자산을 다시 방문 하세요. 
+3. 지정 된 릴리스에서 Moby 엔진이 업데이트 될 수도 있고 업데이트 되지 않을 수도 있습니다. **Moby-엔진** 및 **moby-cli**로 시작 하는 파일이 표시 되는 경우 다음 명령을 사용 하 여 해당 구성 요소를 업데이트 합니다. Moby 파일이 표시 되지 않으면 최신 버전을 찾을 때까지 이전 릴리스 자산을 다시 방문 하세요. 
 
    1. IoT Edge 장치의 아키텍처와 일치 하는 **moby 엔진** 파일을 찾습니다. 파일 링크를 마우스 오른쪽 단추로 클릭 하 고 링크 주소를 복사 합니다.
 
@@ -165,7 +157,7 @@ Azure IoT Edge의 특정 버전을 설치 하려면 IoT Edge GitHub 리포지토
 
 IoT Edge 성공적으로 설치 되 면 구성 파일을 업데이트 하 라는 메시지가 출력에 표시 됩니다. 다음 섹션의 단계에 따라 장치 프로 비전을 완료 합니다. 
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
+## <a name="configure-the-security-daemon"></a>보안 디먼 구성
 
 물리적 디바이스를 Azure IoT Hub에 있는 디바이스 ID와 연결하도록 IoT Edge 런타임을 구성합니다.
 
@@ -271,13 +263,26 @@ journalctl -u iotedge --no-pager --no-full
 sudo iotedge list
 ```
 
-## <a name="tips-and-suggestions"></a>팁 및 제안 사항
+## <a name="tips-and-troubleshooting"></a>팁 및 문제 해결
 
 `iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 `iotedge` 명령 앞에 **sudo**를 사용합니다.
 
 리소스가 제한된 디바이스에서는 [문제 해결 가이드](troubleshoot.md)의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
 
 프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
+
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Moby 호환성을 위한 Linux 커널 확인
+
+많은 임베디드 장치 제조업체는 컨테이너 런타임 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함 하는 장치 이미지를 제공 합니다. 권장 되는 Moby 컨테이너 런타임을 설치 하는 동안 문제가 발생 하는 경우 공식 [Moby GitHub 리포지토리에서](https://github.com/moby/moby) [확인-구성](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) 스크립트를 사용 하 여 Linux 커널 구성 문제를 해결할 수 있습니다. 장치에서 다음 명령을 실행 하 여 커널 구성을 확인 합니다.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. `Generally Necessary` 및`Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 해당 기능을 사용 하도록 설정 합니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
+
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
 

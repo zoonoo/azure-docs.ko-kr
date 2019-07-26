@@ -1,19 +1,18 @@
 ---
 title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: Azure Recovery Services 자격 증명 모음에서 작업 및 경고를 관리합니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705131"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466363"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -97,7 +96,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 기본적으로 **최근 발생 시간**을 제외한 모든 세부 정보가 보고서에 표시됩니다.
 
-* 경고
+* 알림
 * Backup 항목
 * 보호된 서버
 * Severity
@@ -156,7 +155,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ## <a name="manage-backup-items"></a>Backup 항목 관리
 
-Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. [자세한](backup-overview.md#what-can-i-back-up) 를 백업 하는 방법에 대 한 합니다. 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
+Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업할 수 있는 항목에 [대해 자세히 알아보세요](backup-overview.md#what-can-i-back-up) . 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
 
 ![Backup 항목 타일](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -237,7 +236,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * 진행 중
 * 실패
 * Canceled
-* 경고와 함께 완료됨
+* 완료되었으나 경고가 발생함
 
 #### <a name="start-time"></a>시작 시간
 

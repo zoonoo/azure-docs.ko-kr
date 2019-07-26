@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 GROUP BY 옵션 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b158048929d3db8672d76027666331448a91a0a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861795"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479644"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL Data Warehouse의 GROUP BY 옵션
 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
@@ -50,7 +50,7 @@ GROUP BY ROLLUP (
 ROLLUP을 사용하여, 앞의 예제는 다음과 같은 집계를 요청합니다.
 
 * 국가 및 지역
-* 국가
+* Country
 * 총합계
 
 ROLLUP을 대체하고 동일한 결과를 반환하려면 UNION ALL을 사용하고 필요한 집계를 명시적으로 지정합니다.

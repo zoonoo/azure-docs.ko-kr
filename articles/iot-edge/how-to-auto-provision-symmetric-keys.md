@@ -1,5 +1,5 @@
 ---
-title: 대칭 키 증명을 사용 하 여 DPS로 장치 자동 프로 비전-Azure IoT Edge | Microsoft Docs
+title: 대칭 키 증명을 사용 하는 DPS Autoprovision 장치-Azure IoT Edge | Microsoft Docs
 description: 대칭 키 증명을 사용 하 여 장치 프로 비전 서비스와 Azure IoT Edge에 대 한 자동 장치 프로 비전 테스트
 author: kgremban
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275735"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414597"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -165,8 +165,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 장치의 아키텍처에 대 한 지침을 따르세요. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
 
-* [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
-* [Linux에 Azure IoT Edge 런타임 설치 (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
 
 대칭 키 프로 비전에 대 한 구성 파일의 섹션은 다음과 같습니다.
 
@@ -188,7 +187,7 @@ provisioning:
 
 지침에 따라 파생 된 장치 키를 생성 한 장치에 IoT Edge 런타임을 설치 합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
 
-[IoT Edge 설치 및 자동으로 프로비전](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Windows에서 IoT Edge 설치 및 자동 프로 비전](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

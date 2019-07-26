@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1bf66fdb18398aaf233980ee7f2fd45fe1cc543b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 47d3018015d05d0587e841c216a5eb89f2a0ae20
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260504"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414558"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -64,7 +64,7 @@ IoT Edge 장치가 Windows 또는 Linux에서 실행 되는지 여부에 관계 
 
 ### <a name="linux"></a>Linux
 
-Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다.
+Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자가 구성 되 면 일반적인 방법으로 [Linux에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md) 의 지침을 따르세요.
 
 ### <a name="windows"></a>Windows
 

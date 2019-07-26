@@ -1,25 +1,24 @@
 ---
 title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: PowerShell을 사용하여 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
-services: backup
 author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: shivamg
-ms.openlocfilehash: f29acfc58c281622973f2f16ea36763a78751ed0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5533b52ab984510b0e860f7fdfded8ac9005e5a8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704924"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465245"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure Backup을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## <a name="install-azure-powershell"></a>Azure Powershell 설치
+## <a name="install-azure-powershell"></a>Azure PowerShell 설치
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 시작 하려면 [최신 PowerShell 릴리스를 설치](/powershell/azure/install-az-ps)합니다.
@@ -40,7 +39,7 @@ ms.locfileid: "67704924"
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. 사용 하 여는 **새로 만들기-AzRecoveryServicesVault** cmdlet을 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
+3. **AzRecoveryServicesVault** cmdlet을 사용 하 여 새 자격 증명 모음을 만듭니다. 리소스 그룹에 사용된 동일한 위치를 자격 증명 모음에도 지정해야 합니다.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +59,9 @@ ms.locfileid: "67704924"
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-사용 하 여 **Get AzRecoveryServicesVault** 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**AzRecoveryServicesVault** 를 사용 하 여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 만들어졌는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
-명령을 실행 합니다 **Get AzRecoveryServicesVault**, 구독의 모든 자격 증명 모음이 나열 됩니다.
+**AzRecoveryServicesVault**및 구독의 모든 자격 증명 모음이 나열 된 명령을 실행 합니다.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -104,7 +103,7 @@ MARSAgentInstaller.exe /q
 
 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
 
-![에이전트 설치됨](./media/backup-client-automation/installed-agent-listing.png)
+![에이전트가 설치됨](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>설치 옵션
 
@@ -200,7 +199,7 @@ Server properties updated successfully.
 
 Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
-선택 하 여 보안 pin을 생성 해야 합니다 **생성**아래에 있는 **설정** > **속성** > **보안 PIN** 에 **Recovery Services 자격 증명 모음** Azure 포털의 섹션입니다. 그런 다음이를 사용 하 여는 `generatedPIN` 명령에서:
+Azure Portal의 **Recovery Services 자격 증명 모음** 섹션에 있는 **설정** > **속성** > **보안 pin** 아래에서 **생성**을 선택 하 여 보안 pin을 생성 해야 합니다. 그런 다음 명령에서로이 `generatedPIN` 를 사용 합니다.
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -393,7 +392,7 @@ PolicyState     : Valid
 ```
 ## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>MABS 에이전트에서 Windows Server 시스템 상태 백업
 
-이 섹션에서는 MABS 에이전트에서 시스템 상태를 설정 하는 PowerShell 명령을 다룹니다.
+이 섹션에서는 MABS 에이전트에서 시스템 상태를 설정 하는 PowerShell 명령에 대해 설명 합니다.
 
 ### <a name="schedule"></a>일정
 ```powershell
@@ -412,7 +411,7 @@ $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -Retention
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
  ```
 
-### <a name="verifying-the-policy"></a>정책 확인
+### <a name="verifying-the-policy"></a>정책을 확인 하는 중
 
 ```powershell
 Get-OBSystemStatePolicy

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61222062"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414620"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -25,7 +25,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 ![다이어그램 - 개발 및 프로덕션을 위한 CI 및 CD 분기](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) 수 있습니다.
 * 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](how-to-visual-studio-develop-csharp-module.md)의 단계를 따릅니다.
@@ -47,7 +47,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 >
 >자세한 내용은 [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline)(빌드 파이프라인 만들기)을 참조하세요.
 
-1. Azure DevOps 조직 로그인 (**https:\//dev.azure.com/{your 조직} /** ) 하 고 IoT Edge 솔루션 리포지토리를 포함 하는 프로젝트를 엽니다.
+1. Azure devops 조직 (**https:\//dev.azure.com/{your 조직**)에 로그인 하 고 IoT Edge 솔루션 리포지토리가 포함 된 프로젝트를 엽니다.
 
    이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다. 해당 리포지토리에는 **filtermodule** 모듈의 코드가 있는 **IoTEdgeSolution**이 포함됩니다. 
 
@@ -73,7 +73,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
    * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
 
-   * Linux 컨테이너용 플랫폼 arm32v7에서 모듈을 빌드하려는 경우에는 [Linux에서 자체 호스팅 에이전트를 설치](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)해야 합니다.
+   * Platform arm32v7 또는 arm64 for Linux 컨테이너에서 모듈을 빌드하려면 [linux에서 자체 호스트 된 에이전트를 설정](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/)해야 합니다.
     
      ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
@@ -103,7 +103,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
    모듈 이미지를 호스트하는 컨테이너 레지스트리가 여러 개 있는 경우 이 작업을 복제하고 다른 컨테이너 레지스트리를 선택한 다음, 고급 설정의 **모듈 무시**를 사용하여 이 특정 레지스트리에 해당되지 않는 이미지를 무시해야 합니다.
 
-8. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 빌드 작업에서 생성된 배포 파일의 파일 경로를 제공합니다. 빌드 모듈 작업에서 설정한 출력 변수와 일치하도록 **게시할 경로** 값을 설정합니다. 예: `$(edge.DEPLOYMENT_FILE_PATH)`. 다른 값은 기본값으로 그대로 둡니다. 
+8. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 빌드 작업에서 생성된 배포 파일의 파일 경로를 제공합니다. 빌드 모듈 작업에서 설정한 출력 변수와 일치하도록 **게시할 경로** 값을 설정합니다. `$(edge.DEPLOYMENT_FILE_PATH)` )을 입력합니다. 다른 값은 기본값으로 그대로 둡니다. 
 
 9. **트리거** 탭을 열고 **연속 통합 사용** 상자를 선택합니다. 코드를 포함하는 분기가 포함되어 있는지 확인합니다.
 

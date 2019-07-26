@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e5e7ae02cfdc921d593d204151ac501c8c8ee80
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ROBOTS: NOINDEX
+ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807668"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424256"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
 
@@ -42,7 +43,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 다음 기능은 Azure AD에서 이전 4개의 애플리케이션 형식 중 하나에서 지원됩니다.
 
-- **빠른 시작** – [간단한 배포 단계](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)를 수행하여 신속하게 애플리케이션 시작
+- **빠른** 시작 – [간단한 배포 단계](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started) 를 수행 하 여 신속 하 게 응용 프로그램으로 이동
 
 - **일반 속성 관리** – 애플리케이션에 [직접 딥 링크](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) 가져오기, 애플리케이션의 [브랜딩 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) 또는 모든 사용자에 대한 [애플리케이션을 사용하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
@@ -62,7 +63,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 다음 표는 이전 각 애플리케이션 형식에서 지원하는 서로 다른 Single Sign-On 및 프로비전 모드를 설명합니다. 이 테이블을 사용하여 특정 목표를 지원하기 위해 추가해야 하는 애플리케이션을 이해할 수 있습니다.
 
-  ![표: SSO 다르고 각 앱 유형에 서 지원 되는 모드를 프로 비전](./media/choose-application-type/table1.png)
+  ![테이블: 각 앱 유형에 서 지원 되는 다양 한 SSO 및 프로 비전 모드](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Single Sign-On 모드를 선택하는 방법
 
@@ -105,7 +106,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>애플리케이션의 Single Sign-On 모드를 설정하는 방법
 
-응용 프로그램의 single sign-on 모드를 설정 하려면 다음이 지침을 따릅니다.
+응용 프로그램의 single sign-on 모드를 설정 하려면 다음 지침을 따르세요.
 
 1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 1. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.

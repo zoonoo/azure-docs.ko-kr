@@ -1,23 +1,22 @@
 ---
 title: Windows Server 또는 Windows 컴퓨터로 Azure의 데이터 복원
 description: Azure에 저장된 데이터를 Windows Server 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460256"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465674"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 Windows에 파일 복원
 
-이 문서에서는 백업 자격 증명 모음에서 데이터를 복원하는 방법을 설명합니다. 데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 다음을 수행할 수 있습니다.
+이 문서에서는 백업 자격 증명 모음에서 데이터를 복원하는 방법을 설명합니다. 데이터를 복원하려면 MARS(Microsoft Azure Recovery Services) 에이전트에서 데이터 복구 마법사를 사용합니다. 다음을 할 수 있습니다.
 
 * 백업을 수행한 동일한 컴퓨터에 데이터를 복원합니다.
 * 다른 컴퓨터에 데이터를 복원합니다.
@@ -48,7 +47,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구 마법사 시작 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. 에 **복구 모드 선택** 페이지에서 **개별 파일 및 폴더** > **다음**합니다.
+4. **복구 모드 선택** 페이지에서 **개별 파일 및 폴더** > **다음**을 선택 합니다.
 
     ![데이터 복구 마법사 복구 모드 선택 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -97,7 +96,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 * *샘플 자격 증명 모음* – 원본 머신 및 대상 머신이 등록된 Recovery Services 자격 증명 모음입니다. <br/>
 
 > [!NOTE]
-> 이전 버전의 운영 체제를 실행하는 대상 머신으로 백업을 복원할 수 없습니다. 예를 들어, Windows 7 컴퓨터에서 가져온 백업은 Windows 7 (또는 이상) 컴퓨터에 복원할 수 있습니다. Windows 8 컴퓨터에서 가져온 백업은 Windows 7 컴퓨터로 복원될 수 없습니다.
+> 이전 버전의 운영 체제를 실행하는 대상 머신으로 백업을 복원할 수 없습니다. 예를 들어 windows 7 컴퓨터에서 가져온 백업은 Windows 7 이상 컴퓨터에서 복원할 수 있습니다. Windows 8 컴퓨터에서 가져온 백업은 Windows 7 컴퓨터로 복원될 수 없습니다.
 >
 >
 

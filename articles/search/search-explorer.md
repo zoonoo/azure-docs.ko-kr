@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024034"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414232"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search에서 데이터를 쿼리하기 위한 검색 탐색기 
 
@@ -85,7 +85,7 @@ ms.locfileid: "65024034"
 Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환합니다. 일치하는 문서의 다음 세트를 가져오려면 **$top=100,&$skip=50**을 추가하여 결과 세트를 100개 문서로 늘리고(기본값: 50개, 최대값: 1,000개) 처음 50개 문서를 건너뜁니다. 순위가 지정된 결과를 얻으려면 쿼리 용어 또는 식과 같은 검색 조건을 제공해야 합니다. 검색 결과에 더 깊게 도달할수록 검색 점수가 줄어듭니다.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **결과**
@@ -94,13 +94,25 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>필터 식(보다 큼, 보다 작음, 같음)
 
-자유 텍스트 검색이 아니라 정확한 조건을 지정하려는 경우 **$filter** 매개 변수를 사용합니다. 이 예제에서는 3보다 큰 침실을 검색합니다. `search=seattle condo&$filter=beds gt 3&$count=true`
+자유 텍스트 검색이 아니라 정확한 조건을 지정하려는 경우 **$filter** 매개 변수를 사용합니다. 이 예에서는 3 보다 큰 침실를 검색 합니다.
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **결과**
 
    ![필터 식](./media/search-explorer/search-explorer-example-filter.png "필터링 기준")
 
 ## <a name="order-by-expressions"></a>Order-by 식
 
-검색 점수 이외의 필드를 기준으로 결과를 정렬하려면 **$orderby**를 추가합니다. 이 출력을 테스트하는 데 사용할 수 있는 예제 식은 `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`입니다.
+검색 점수 이외의 필드를 기준으로 결과를 정렬하려면 **$orderby**를 추가합니다. 이를 테스트 하는 데 사용할 수 있는 식 예제는 다음과 같습니다.
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **결과**
 
    ![Orderby 식](./media/search-explorer/search-explorer-example-ordery.png "정렬 순서 변경")
 

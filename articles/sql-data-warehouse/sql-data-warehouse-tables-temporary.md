@@ -2,7 +2,7 @@
 title: SQL Data Warehouse의 임시 테이블 | Microsoft Docs
 description: 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 32830039c62f7ff68137e704b2562269fd4ad2c7
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466123"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479821"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 임시 테이블
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
@@ -24,7 +24,7 @@ ms.locfileid: "67466123"
 특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 임시 테이블은 Microsoft Azure SQL Data Warehouse의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 저장소 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
 ## <a name="create-a-temporary-table"></a>임시 테이블 만들기
-임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예를 들면 다음과 같습니다.
+임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예를 들어:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -180,7 +180,7 @@ FROM    t1
 GO
 ```
 
-이 단계에서 발생 하는 유일한 작업은 #stats_ddl DDL 문으로 임시 테이블을 생성 하는 저장된 프로시저를 만드는 것입니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL Data Warehouse에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL Data Warehouse 임시 테이블을 사용할 수 있습니다. 다음 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
+이 단계에서는 DDL 문을 사용 하 여 임시 테이블 #stats_ddl을 생성 하는 저장 프로시저를 생성 하는 작업만 수행 했습니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL Data Warehouse에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL Data Warehouse 임시 테이블을 사용할 수 있습니다. 다음 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
