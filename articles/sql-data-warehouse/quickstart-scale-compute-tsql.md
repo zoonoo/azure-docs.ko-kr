@@ -2,24 +2,24 @@
 title: '빠른 시작: Azure SQL Data Warehouse에서 컴퓨팅 확장 - T-SQL | Microsoft Docs'
 description: T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 계산 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b5f3eb8a8e323add287dba8d9c590e89ea4e1fa7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460355"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479226"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 조정
 
-T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절약을 위해 다시 축소할 수 있습니다. 
+T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 계산 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![서버 연결](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. **Connect**를 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
 5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 다음 **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
@@ -92,7 +92,7 @@ SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807561"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477190"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory 테넌트 애플리케이션 보기
 
@@ -79,4 +79,4 @@ Azure AD 테넌트 애플리케이션은 Azure Portal의 **엔터프라이즈 �
 원하는 애플리케이션을 찾았으니, 계속해서 [테넌트에 더 많은 애플리케이션을 추가](add-application-portal.md)할 수 있습니다. 또는 애플리케이션을 선택하여 속성 및 구성 옵션을 살펴보거나 편집할 수 있습니다. 예를 들어 Single Sign-On을 구성할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Single Sign-on 구성](configure-single-sign-on-portal.md)
+> [Single Sign-on 구성](configure-single-sign-on-non-gallery-applications.md)

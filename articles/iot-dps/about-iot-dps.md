@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051471"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360306"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service로 디바이스 프로비전
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
@@ -108,8 +108,9 @@ Device Provisioning Service의 서비스 수준 계약은 99.9%이며, [SLA를 �
 ## <a name="quotas"></a>할당량
 각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독당 현재 한도 기준은 구독당 10개 Device Provisioning Service입니다.
 
-할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+할당량 제한에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소

@@ -7,16 +7,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 4de8f68e0384742cea4ce50ccd23a7455b186893
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048744"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360227"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 쿼리
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 [Python에 대한 데이터 클라이언트 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이 라이브러리를 사용하여 코드에서 데이터를 쿼리할 수 있습니다. 이 빠른 시작에서는 학습을 지원하기 위해 설정한 ‘도움말 클러스터’에 대한 테이블에 연결합니다. 그런 다음, 해당 클러스터에 대한 테이블을 쿼리하고 결과를 반환합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 [Python에 대한 데이터 클라이언트 라이브러리](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)를 제공합니다. 이 라이브러리를 사용하여 코드에서 데이터를 쿼리할 수 있습니다. 이 빠른 시작에서는 학습을 지원하기 위해 설정한 ‘도움말 클러스터’에 대한 테이블에 연결합니다.  그런 다음, 해당 클러스터에 대한 테이블을 쿼리하고 결과를 반환합니다.
 
 이 빠른 시작은 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)으로 사용할 수도 있습니다.
 
@@ -62,23 +62,24 @@ https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```python
 AAD_TENANT_ID = "<TenantId>"
 KUSTO_CLUSTER = "https://help.kusto.windows.net/"
-KUSTO_DATABASE  = "Samples"
+KUSTO_DATABASE = "Samples"
 ```
 
 이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. [AAD 애플리케이션 인증서](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [AAD 애플리케이션 키](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) 및 [AAD 사용자와 암호](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)를 사용할 수도 있습니다.
 
 ```python
-KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
+KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_CLUSTER)
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Azure 데이터 탐색기에 연결하고 쿼리 실행
 
-클러스터에 대해 쿼리를 실행하고 출력을 데이터 프레임에 저장합니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요. 단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다.
+클러스터에 대해 쿼리를 실행하고 출력을 데이터 프레임에 저장합니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. 로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 F3W4VWZDM 코드를 입력하여 인증하세요.  단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다.
 
 ```python
-KUSTO_CLIENT  = KustoClient(KCSB)
-KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
+KUSTO_CLIENT = KustoClient(KCSB)
+KUSTO_QUERY = "StormEvents | sort by StartTime desc | take 10"
 
 RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```

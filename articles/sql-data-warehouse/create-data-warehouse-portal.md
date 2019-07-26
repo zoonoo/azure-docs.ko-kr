@@ -2,7 +2,7 @@
 title: '빠른 시작: Azure SQL Data Warehouse 만들기 및 쿼리 - Azure Portal | Microsoft Docs'
 description: Azure Portal에서 Azure SQL Data Warehouse로 데이터 웨어하우스를 만들고 쿼리합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428054"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479444"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리
 

@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: 개요
   items:
-    - name: HDInsight의 Enterprise Security Package란?
-      href: apache-domain-joined-introduction.md
+    - name: HDInsight에서 엔터프라이즈 보안이란?
+      href: hdinsight-security-overview.md
 - name: 자습서
   items:
     - name: Apache Ranger를 사용한 Apache HBase RBAC

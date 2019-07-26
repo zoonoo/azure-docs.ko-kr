@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001192"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382344"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
 
@@ -36,22 +36,23 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 
 > [!Important]
 > Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 계정에 사용할 수 있으며 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원합니다.
-> 
+>
 > 조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
 > 
 > 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요. Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
 
 ## <a name="terminology"></a>용어
 
-|용어|설명|
-|----|-----------|
-|2단계 인증 |암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다.|
-|MFA(Multi-Factor authentication)|모든 2단계 인증은 다단계 인증이며, 조직의 요구 사항에 따라 *최소한* 두 가지 인증 정보를 사용해야 합니다.|
-|Microsoft 계정(MSA라고도 함)|사용자가 고유한 개인 계정을 만들어서 Outlook, OneDrive, Xbox LIVE 또는 Office 365 같은 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스합니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다.|
-|회사 또는 학교 계정|사용자가 Microsoft Azure, Windows Intune 및 Office 365 같은 내부의 제한된 리소스에 액세스할 수 있도록 조직에서 회사 또는 학교 계정(예: alain@contoso.com)을 만듭니다.|
-|확인 코드|추가된 각 계정 아래의 인증 앱에 표시되는 6자리 코드입니다. 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다. 이것을 OTP(일회성 암호)라고도 합니다.|
+| 용어|설명|
+| ----|-----------|
+| 2단계 인증 | 암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다. |
+| MFA(Multi-Factor authentication) | 모든 2단계 인증은 다단계 인증이며, 조직의 요구 사항에 따라 *최소한* 두 가지 인증 정보를 사용해야 합니다. |
+| Microsoft 계정(MSA라고도 함) | 사용자가 고유한 개인 계정을 만들어서 Outlook, OneDrive, Xbox LIVE 또는 Office 365 같은 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스합니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다. |
+| 회사 또는 학교 계정 | 사용자가 Microsoft Azure, Windows Intune 및 Office 365 같은 내부의 제한된 리소스에 액세스할 수 있도록 조직에서 회사 또는 학교 계정(예: alain@contoso.com)을 만듭니다. |
+| 확인 코드 | 추가된 각 계정 아래의 인증 앱에 표시되는 6자리 코드입니다. 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다. 이것을 OTP(일회성 암호)라고도 합니다. |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>2단계 인증이 앱에서 작동하는 원리
+
 2단계 인증은 Microsoft Authenticator 앱에서 다음과 같은 방식으로 작동합니다.
 
 - **알림.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름 및 암호를 입력하면 Microsoft Authenticator 앱에서 **로그인 승인**을 요청하는 알림을 보냅니다. 로그인 시도를 인식한 경우 **승인**을 선택합니다. 그렇지 않은 경우 **거부**를 선택합니다. **거부**를 선택하면 요청을 사기로 표시할 수 있습니다.
@@ -61,9 +62,11 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 - **암호 없는 로그인.** 회사/학교 계정 또는 개인 Microsoft 계정에 로그인하는 데 사용하는 디바이스에 사용자 이름을 입력한 다음, 모바일 디바이스에서 지문, 얼굴 또는 PIN을 사용하여 본인이라는 것을 확인합니다. 이 방법은 암호를 입력할 필요가 없습니다.
 
 ### <a name="whether-to-use-your-devices-biometric-capabilities"></a>디바이스의 생체 인식 기능 사용 여부
+
 PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 지문 또는 안면 인식(생체 인식) 기능을 대신 사용하도록 Microsoft Authenticator 앱을 설정할 수 있습니다. 처음으로 인증자 앱을 사용하여 계정을 확인하는 경우 PIN 대신 사용자 디바이스 생체 인식 기능을 신원 확인으로 사용하는 옵션을 선택하여 이를 설정할 수 있습니다.
 
 ## <a name="who-decides-if-you-use-this-feature"></a>이 기능의 사용 여부는 누가 결정하나요?
+
 계정 유형에 따라 사용자가 2단계 인증을 사용하도록 조직에서 결정할 수도 있고, 사용자가 직접 결정할 수도 있습니다.
 
 - **회사 또는 학교 계정** 회사 또는 학교 계정(예: alain@contoso.com)을 사용하는 경우 특정 인증 방법과 함께 2단계 인증을 사용해야 하는지 여부는 조직에서 결정합니다. Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법에 대한 자세한 내용은 [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
@@ -74,13 +77,13 @@ PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 �
 
 ## <a name="in-this-section"></a>섹션 내용
 
-|문서 |설명 |
-|------|------------|
-|[앱 다운로드 및 설치](user-help-auth-app-download-install.md)|Android 및 iOS를 실행하는 디바이스용 Microsoft Authenticator 앱을 받아서 설치할 수 있는 위치 및 방법을 설명합니다.|
-|[회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md)|Microsoft Authenticator 앱에 다양한 회사 또는 학교 계정과 개인 계정을 추가하는 방법을 설명합니다.|
-|[개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)|Microsoft Authenticator 앱에 개인 Microsoft 계정을 추가하는 방법을 설명합니다.|
-|[비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md)|Microsoft Authenticator 앱에 Microsoft 이외의 계정을 추가하는 방법을 설명합니다.|
-|[수동으로 계정 추가](user-help-auth-app-add-account-manual.md)|제공된 QR 코드를 스캔할 수 없는 경우 Microsoft Authenticator 앱에 수동으로 계정을 추가하는 방법을 설명합니다.|
-|[앱을 사용하여 로그인](user-help-auth-app-sign-in.md)|Microsoft Authenticator 앱을 사용하여 다양한 계정에 로그인하는 방법을 설명합니다.|
-|[계정 자격 증명 백업 및 복구](user-help-auth-app-backup-recovery.md)| Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법에 대한 정보를 제공합니다.|
-|[Microsoft Authenticator 앱 FAQ](user-help-auth-app-faq.md)|앱에 대한 질문과 대답입니다.|
+| 문서 | 설명 |
+| ------ | ------------ |
+| [앱 다운로드 및 설치](user-help-auth-app-download-install.md) | Android 및 iOS를 실행하는 디바이스용 Microsoft Authenticator 앱을 받아서 설치할 수 있는 위치 및 방법을 설명합니다. |
+| [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) | Microsoft Authenticator 앱에 다양한 회사 또는 학교 계정과 개인 계정을 추가하는 방법을 설명합니다. |
+| [개인 계정 추가](user-help-auth-app-add-personal-ms-account.md) | Microsoft Authenticator 앱에 개인 Microsoft 계정을 추가하는 방법을 설명합니다. |
+| [비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md) | Microsoft Authenticator 앱에 Microsoft 이외의 계정을 추가하는 방법을 설명합니다. |
+| [수동으로 계정 추가](user-help-auth-app-add-account-manual.md) | 제공된 QR 코드를 스캔할 수 없는 경우 Microsoft Authenticator 앱에 수동으로 계정을 추가하는 방법을 설명합니다. |
+| [앱을 사용하여 로그인](user-help-auth-app-sign-in.md) | Microsoft Authenticator 앱을 사용하여 다양한 계정에 로그인하는 방법을 설명합니다.|
+| [계정 자격 증명 백업 및 복구](user-help-auth-app-backup-recovery.md) | Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법에 대한 정보를 제공합니다. |
+| [Microsoft Authenticator 앱 FAQ](user-help-auth-app-faq.md) | 앱에 대한 질문과 대답입니다. |

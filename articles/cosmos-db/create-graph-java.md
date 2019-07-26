@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: a56fab3f8f572f277c11dc566c7d74104226b4fc
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: dd7d8658b8f1fbe01a8928963e7f78d2adbe1d74
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480568"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325515"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>빠른 시작: Java SDK를 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기 
 
@@ -150,13 +150,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 2. git 터미널 창에서 다음 명령을 사용하여 필요한 Java 패키지를 설치합니다.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. git 터미널 창에서 다음 명령을 사용하여 Java 응용 프로그램을 시작합니다.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 

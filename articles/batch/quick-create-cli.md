@@ -3,19 +3,19 @@ title: Azure 빠른 시작 - Batch 작업 실행 - CLI
 description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127500"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322503"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다. 예: 
+텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다. 예:
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

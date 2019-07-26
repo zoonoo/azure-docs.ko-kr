@@ -2,7 +2,7 @@
 title: '빠른 시작: Azure SQL Data Warehouse 만들기 - Azure Powershell | Microsoft Docs'
 description: Azure Powershell을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 빠르게 만듭니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: cdaa932a4996d559b5974e39e20cf75acd6571c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 1f800ade5c5122f0891c9122f6698b6550048c67
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873780"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479330"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL 데이터 웨어하우스 만들기 및 쿼리
 

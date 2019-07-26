@@ -1,7 +1,6 @@
 ---
 title: Azure 빠른 시작 - Resource Manager 템플릿을 사용하여 VM 백업
 description: Azure Resource Manager 템플릿을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b144d7509562b8ca0bca6299caee4a7ce292f4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 643ae23ef566cb433bd3890e6ab2f38050cb1f47
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481094"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467146"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure에서 가상 머신 백업
 

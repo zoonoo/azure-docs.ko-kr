@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123609"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382786"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>로그인 페이지 프롬프트에서 보안 정보(미리 보기) 설정
+
 회사 또는 학교 계정에 로그인하는 즉시 보안 정보를 설정하라는 메시지가 표시되면 다음 단계를 수행할 수 있습니다.
 
 이 메시지는 조직에서 요구하는 보안 정보를 설정하지 않은 경우에만 표시됩니다. 이전에 보안 정보를 설정했지만 변경하려는 경우 다양한 보안 정보 기반 방법 문서의 단계를 수행할 수 있습니다. 자세한 내용은 [보안 정보 개요 추가 또는 업데이트](security-info-add-update-methods-overview.md)를 참조하세요.
@@ -27,11 +28,13 @@ ms.locfileid: "58123609"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>회사 또는 학교 계정에 로그인
+
 회사 또는 학교 계정에 로그인하면 계정에 액세스할 수 있기 전에 추가 정보를 제공하라는 메시지가 표시됩니다.
 
 ![추가 정보를 요구하는 메시지](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>마법사를 사용하여 보안 정보 설정
+
 프롬프트에서 다음 단계에 따라 회사 또는 학교 계정에 대한 보안 정보를 설정합니다.
 
 >[!Important]
@@ -41,7 +44,7 @@ ms.locfileid: "58123609"
 
    > [!Note]
    > Microsoft Authenticator 앱 이외의 인증자 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
-   > 
+   >
    > 조직에서 인증자 앱 이외의 다른 방법을 선택할 수 있게 하려면 **다른 인증 방법 설정 링크**를 선택할 수 있습니다.
 
     ![인증 앱 다운로드 페이지를 보여 주는 계정 보안 유지 마법사](media/security-info/securityinfo-prompt-get-auth-app.png)

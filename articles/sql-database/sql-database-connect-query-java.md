@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447898"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320575"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -37,8 +37,7 @@ ms.locfileid: "58447898"
   |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
   |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
   |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
-  |||
-
+  
   > [!IMPORTANT]
   > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
 
@@ -168,7 +167,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)  
+- [첫 번째 Azure SQL 데이터베이스 디자인](sql-database-design-first-database.md)  
 
 - [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)  
 

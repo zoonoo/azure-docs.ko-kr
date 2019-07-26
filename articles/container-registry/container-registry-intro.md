@@ -3,17 +3,18 @@ title: Azure의 프라이빗 Docker 컨테이너 레지스트리 - 개요
 description: 클라우드 기반의 관리되는 프라이빗 Docker 레지스트리를 제공하는 Azure Container Registry 서비스에 대한 소개입니다.
 services: container-registry
 author: stevelas
+manager: gwallace
 ms.service: container-registry
 ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3502a2ec7c56d01abe2ceb9f61db9c1c2d8179a0
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302330"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310665"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 

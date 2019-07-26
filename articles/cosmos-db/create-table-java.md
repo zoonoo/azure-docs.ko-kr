@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 3610a5be356f306e4f92ea35d399a888f568d6d3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519041"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326190"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>빠른 시작: Java 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -94,7 +94,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 5. 첫 번째 줄을 주석으로 처리하고 두 번째 줄의 주석 처리를 제거합니다. 이제 처음 두 줄은 아래와 같은 모양입니다.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

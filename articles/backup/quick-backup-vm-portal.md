@@ -1,7 +1,6 @@
 ---
 title: Azure 빠른 시작 - Azure Portal을 사용하여 VM 백업
 description: Azure Portal을 사용하여 가상 머신을 백업하는 방법을 알아봅니다.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 926859ffbeaf429df60e8f478e15e41ca70e23a6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275503"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467191"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 Azure Portal을 통해 Azure Backup을 만들 수 있습니다. 이 방법은 Azure Backup 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure Portal에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. 

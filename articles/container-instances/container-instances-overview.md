@@ -3,18 +3,18 @@ title: Azure Container Instances란?
 description: Azure Container Instances 서비스는 가상 머신을 관리하지 않고 또 더 높은 수준의 오케스트레이터를 채택하지 않고도 Azure에서 격리된 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073298"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325755"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -70,7 +70,7 @@ Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 저장소
 현재 미리 보기에서는 Azure Containers Instances의 이 기능을 사용하면 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Container Instances의 특정 기능은 미리 보기로 제공되며, 일부 [제한 사항이 적용](container-instances-vnet.md#preview-limitations)됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이러한 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> Azure Container Instances의 특정 기능은 미리 보기로 제공되며, 일부 [제한 사항이 적용](container-instances-vnet.md#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이러한 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

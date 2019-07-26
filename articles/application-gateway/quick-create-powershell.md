@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1da7a2648fe8f97372f877a4e9c7894c4b2a4aed
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a55f602833cacd27cd82adafd888c67c544564c2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276566"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359983"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure PowerShell
 
@@ -67,7 +67,7 @@ New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Static
+  -AllocationMethod Static `
   -Sku Standard
 ```
 ### <a name="backend-servers"></a>백 엔드 서버

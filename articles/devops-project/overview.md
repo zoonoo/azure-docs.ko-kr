@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 6ae2d0723b195ed59f8c6a7320245509145094df
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fed4f0976dd118186c122b0152f255d0c452c0ce
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60925950"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404493"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Azure DevOps Projects 개요
 
@@ -78,4 +78,4 @@ DevOps Project를 만든 후 다음을 수행할 수 있습니다.
 
 ##  <a name="devops-projects-videos"></a>DevOps Projects 비디오
 
-* [Azure DevOps Projects를 사용하여 CI/CD 만들기](https://channel9.msdn.com/Events/Connect/2017/T174/player/)
+* [Azure DevOps Projects를 사용하여 CI/CD 만들기](https://www.youtube.com/watch?v=NuYDAs3kNV8)

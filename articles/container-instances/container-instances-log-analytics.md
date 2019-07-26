@@ -3,16 +3,17 @@ title: Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
 description: Azure 컨테이너 인스턴스에서 Azure Monitor 로그로 로그를 전송하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722628"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325877"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
 

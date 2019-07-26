@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014963"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382639"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 계정 추가 방법에 대한 개요
 
@@ -25,7 +25,7 @@ ms.locfileid: "58014963"
 
 > [!Important]
 > Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
-> 
+>
 > 이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
 Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 사용할 수 있습니다.
@@ -35,22 +35,19 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 - 암호를 요구하지 않고 모바일 디바이스에서 사용자 이름과 지문, 얼굴 또는 PIN을 사용하여 로그인합니다.
 
 ## <a name="what-account-types-can-i-add"></a>추가할 수 있는 계정 유형
+
 일상적으로 사용하는 다음과 같은 다수의 계정에 대해 2단계 인증을 설정할 수 있습니다.
 
-|계정 유형|설명|
-|------------|-----------|
-|회사 또는 학교 계정|회사나 학교에서 부여 받은 계정(예: alain@contoso.com)|
-|개인 계정|Outlook.com, Xbox LIVE, Google, Facebook 등을 위해 개인적으로 개설한 Microsoft 계정 및 비 Microsoft 계정|
+| 계정 유형 | 설명 |
+| ------------ | ----------- |
+| 회사 또는 학교 계정 | 회사나 학교에서 부여 받은 계정(예: alain@contoso.com) |
+| 개인 계정 | Outlook.com, Xbox LIVE, Google, Facebook 등을 위해 개인적으로 개설한 Microsoft 계정 및 비 Microsoft 계정 |
 
 ## <a name="in-this-section"></a>섹션 내용
 
-|문서 |설명 |
-|------|------------|
-|[회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md)|2단계 인증을 위해 Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법을 설명합니다.|
-|[개인 Microsoft 계정 추가](user-help-auth-app-add-personal-ms-account.md)|2단계 인증 및 전화 로그인(다른 이름: 암호 없는 로그인)을 위해 Microsoft 개인 계정을 추가하는 방법을 설명합니다.|
-|[비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md)|2단계 인증을 위해 Microsoft 이외의 개인 계정을 추가하는 방법을 설명합니다.|
-|[수동으로 계정 추가](user-help-auth-app-add-account-manual.md)|카메라로 QR 코드를 캡처할 수 없는 경우 Microsoft Authenticator 앱에 수동으로 계정을 추가하는 방법을 설명합니다.|
-
-
-
-
+| 문서 |설명 |
+| ------|------------|
+| [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) | 2단계 인증을 위해 Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법을 설명합니다. |
+| [개인 Microsoft 계정 추가](user-help-auth-app-add-personal-ms-account.md) | 2단계 인증 및 전화 로그인(다른 이름: 암호 없는 로그인)을 위해 Microsoft 개인 계정을 추가하는 방법을 설명합니다. |
+| [비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md) | 2단계 인증을 위해 Microsoft 이외의 개인 계정을 추가하는 방법을 설명합니다. |
+| [수동으로 계정 추가](user-help-auth-app-add-account-manual.md) | 카메라로 QR 코드를 캡처할 수 없는 경우 Microsoft Authenticator 앱에 수동으로 계정을 추가하는 방법을 설명합니다. |

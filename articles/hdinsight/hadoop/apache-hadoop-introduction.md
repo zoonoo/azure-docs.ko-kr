@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4482cf8a92778cb20672f63dc2b8eca828d58fc8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5e36a4691c485472b1e0b43b9d8c551790bc68e9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446894"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442125"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop이란?
 
@@ -42,7 +42,7 @@ HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보�
 |---------|---------|
 |네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [대화형 쿼리(LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 및  [ML 서비스](../r-server/r-server-overview.md)에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 엔드투엔드 SLA를 제공합니다.  |
 |저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 [크기를 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters) 할 수 있습니다.  [주문형 클러스터를 만들](../hdinsight-hadoop-create-linux-clusters-adf.md) 어서 비용을 줄이고 사용한 양만큼 요금을 지불하면 됩니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 계산 및 스토리지로 인해 성능 및 유연성이 향상됩니다. |
-|보안 및 규정 준수    | HDInsight를 사용하면 [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및 [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.        |
+|보안 및 규정 준수    | HDInsight를 사용하면 [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및 [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.        |
 |모니터링    | Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md)와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.        |
 |전 세계 이용 가능 여부 | HDInsight는 다른 모든 빅 데이터 분석 제품보다 많은  [지역](https://azure.microsoft.com/regions/services/) 에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다. |  
 |생산성     |  Azure HDInsight를 사용하면 선호하는 개발 환경과 함께 Hadoop 및 Spark에 대한 풍부한 생산성 도구를 사용할 수 있습니다. 이러한 개발 환경에는 Scala, Python, R, Java 및 .NET 지원을 위한 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 및 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)가 포함됩니다. 데이터 과학자는 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 및 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)과 같은 널리 사용되는 Notebook을 사용하여 공동 작업할 수도 있습니다.    |
@@ -96,7 +96,7 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight의 오픈 소스 구성 요소
 
-Azure HDInsight를 사용하면 Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase 및 R과 같은 오픈 소스 프레임워크를 사용하여 클러스터를 만들 수 있습니다. 이러한 클러스터는 기본적으로 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://wiki.apache.org/hadoop/MapReduce), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/)와 같은 클러스터에 포함된 다른 오픈 소스 구성 요소와 함께 제공됩니다.  
+Azure HDInsight를 사용하면 Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase 및 R과 같은 오픈 소스 프레임워크를 사용하여 클러스터를 만들 수 있습니다. 이러한 클러스터는 기본적으로 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/)와 같은 클러스터에 포함된 다른 오픈 소스 구성 요소와 함께 제공됩니다.  
 
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight의 프로그래밍 언어
 
