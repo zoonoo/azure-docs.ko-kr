@@ -1,5 +1,5 @@
 ---
-title: Azure AD 애플리케이션 프록시에서 커넥터 그룹을 사용하여 별도의 네트워크와 위치에 애플리케이션 게시 | Microsoft Docs
+title: Azure AD 앱 프록시 커넥터 그룹을 사용 하 여 별도의 네트워크에 앱 게시 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702492"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381492"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
 
@@ -44,7 +44,7 @@ ms.locfileid: "67702492"
 1. **Azure Active Directory** > **Enterprise 애플리케이션** > **애플리케이션 프록시**를 선택합니다.
 1. **새 커넥터 그룹**을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
 
-   ![새 커넥터 그룹을 선택 하 여 화면을 보여 줍니다.](./media/application-proxy-connector-groups/new-group.png)
+   ![새 커넥터 그룹을 선택 하는 화면을 표시 합니다.](./media/application-proxy-connector-groups/new-group.png)
 
 1. 새 커넥터 그룹에 이름을 지정한 다음 드롭다운 메뉴를 사용하여 이 그룹에 속하는 커넥터를 선택합니다.
 1. **저장**을 선택합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "67702492"
   
 Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 서비스를 통해 회사 네트워크에 대한 추가 종속성을 만들지 않고도 모든 애플리케이션에 대한 액세스를 보호할 수 있습니다.
 
-![Azure AD IaaS 여러 클라우드 공급 업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS 다중 클라우드 공급 업체](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>다중 포리스트 - 포리스트마다 서로 다른 커넥터 그룹
 
@@ -108,7 +108,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 커넥터 그룹을 사용하지 않는 경우 구성은 다음과 같습니다.
 
-![예제에서는 Azure AD 커넥터 그룹 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![예제 Azure AD 커넥터 그룹 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 이 구성은 소규모 배포 및 테스트에 충분합니다. 또한 조직에 플랫 네트워크 토폴로지가 있는 경우에도 잘 작동합니다.
 
@@ -116,7 +116,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 이 구성은 기본 구성이 진화한 것으로, IaaS 가상 네트워크와 같이 격리된 네트워크에서 실행되는 특정 응용 프로그램이 있습니다.
 
-![예제에서는 Azure AD 없음 커넥터 그룹 및 격리 된 네트워크](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![예: Azure AD에 커넥터 그룹 및 격리 된 네트워크 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>권장 구성 - 여러 특정 그룹 및 유휴 상태의 기본 그룹
 
@@ -124,7 +124,7 @@ Azure AD 애플리케이션 프록시 커넥터 그룹을 사용하면 공통 �
 
 아래 예에서는 회사에 두 개의 데이터 센터(A 및 B)가 있고 두 개의 커넥터에서 각 사이트를 지원합니다. 각 사이트에는 실행되는 다양한 애플리케이션이 있습니다.
 
-![2 개의 데이터 센터 및 2 커넥터를 사용 하 여 회사의 예](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![2 개의 데이터 센터와 2 개의 커넥터가 있는 회사의 예](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
 ## <a name="next-steps"></a>다음 단계
 

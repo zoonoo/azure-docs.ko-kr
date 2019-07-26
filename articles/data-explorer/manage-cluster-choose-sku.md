@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226142"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383810"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 올바른 VM SKU를 선택 합니다. 
 
@@ -39,11 +39,11 @@ Azure 데이터 탐색기는 두 가지 유형의 클러스터를 제공 합니�
 
 Azure 데이터 탐색기 클러스터를 만들 때 계획 된 워크 로드에 대 한 *최적의* VM SKU를 선택 합니다. Azure 데이터 탐색기에는 선택할 수 있는 두 가지 SKU 패밀리가 있습니다.
 
-* **D_V2**: **D** SKU는 계산에 최적화 되 고 두 가지 특색으로 제공 됩니다.
+* **D_V2**: D SKU는 계산에 최적화 되 고 두 가지 특색으로 제공 됩니다.
     * VM 자체
     * Premium storage 디스크와 함께 제공 되는 VM
 
-* **LS**: **L** SKU는 저장소에 최적화 되어 있습니다. 비슷한 가격 책정 **D** SKU 보다 훨씬 더 큰 SSD 크기를 가집니다.
+* **LS**: L SKU는 저장소에 최적화 되어 있습니다. 비슷한 가격 책정 **D** SKU 보다 훨씬 더 큰 SSD 크기를 가집니다.
 
 다음 표에서는 사용 가능한 SKU 유형 간의 주요 차이점을 보여 줍니다.
  

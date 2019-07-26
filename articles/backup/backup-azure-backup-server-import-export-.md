@@ -1,19 +1,18 @@
 ---
 title: Azure Backup - DPM 및 Azure Backup Server에 대한 오프라인 백업
 description: Azure Backup이 Azure Import/Export 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304028"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466711"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. Azure Backup은 초기 백업을 압축합니다. 오프라인 시드의 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인으로 압축된 초기 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -42,7 +41,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 > * SC DPM(System Center Data Protection Manager)을 사용하여 모든 워크로드 및 파일의 백업
 > * Microsoft Azure Backup Server를 사용하여 모든 워크로드 및 파일의 백업 <br/>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 오프라인 백업 워크플로를 시작하기 전에 다음 필수 구성 요소를 충족하는지 확인합니다.
 * [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)이 만들어졌습니다. 만들려면 [이 문서](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)의 단계를 참조하세요.
 * Azure Backup 에이전트 또는 Azure Backup Server 또는 SC DPM이 해당되는 Windows Server/Windows 클라이언트에 설치되었고 컴퓨터가 Recovery Services 자격 증명 모음으로 등록됩니다. [최신 버전의 Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525)만 사용되는지 확인합니다.
@@ -59,7 +58,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
 * 네트워크 공유 또는 컴퓨터의 추가 드라이브에 있을 수 있는, 초기 복사본을 저장할 충분한 디스크 공간이 있는 내부 또는 외부의 스테이징 위치가 생성됩니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다. (압축으로 인해 더 작은 양이 사용됩니다.)
 * Azure로 전송되는 디스크의 경우 2.5인치 SSD 또는, 2.5인치 또는 3.5인치 SATA II/III 내부 하드 드라이브가 사용되는지 확인합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
-* SATA 드라이브는 *스테이징 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 ‘복사 컴퓨터’에서 사용하도록 설정되었는지 확인합니다. 
+* SATA 드라이브는 *스테이징 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 ‘복사 컴퓨터’에서 사용하도록 설정되었는지 확인합니다.
 
 ## <a name="workflow"></a>워크플로
 이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure Storage에 업로드할 수 있도록 오프라인 백업 워크플로를 완료하는 데 도움이 됩니다. 가져오기 서비스 또는 프로세스의 모든 측면에 대한 질문이 있으면 앞에서 언급한 [가져오기 서비스 개요](../storage/common/storage-import-export-service.md)를 참조하세요.
@@ -98,7 +97,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>SATA 드라이브 준비 및 Azure에 제공
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터에 전송되는 SATA 드라이브를 준비하는 데 사용됩니다. 이 유틸리티는 다음 경로에서 Recovery Services 에이전트의 설치 디렉터리에서 사용할 수 있습니다.
 
-*\\Microsoft Azure Recovery Services 에이전트\\유틸리티\\*
+*\\Microsoft Azure Recovery Services Agent\\유틸리티\\*
 
 1. 디렉터리로 이동하고 준비할 SATA 드라이브가 연결될 복사 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 복사 컴퓨터를 기준으로 다음 사항을 확인합니다.
 
@@ -116,7 +115,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | s:&lt;*스테이징 위치 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 스테이징 위치에 대한 경로를 제공하는 데 사용되는 필수 입력입니다. |
     | p:&lt;*PublishSettingsFile에 대한 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 **Azure 게시 설정** 파일에 대한 경로를 제공하는 데 사용되는 옵션 입력입니다. |
@@ -157,7 +156,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | u: | Azure 가져오기 작업에 대한 배송 세부 정보를 업데이트하는 데 사용되는 필수 입력 |
     | s:&lt;*스테이징 위치 경로*&gt; | 명령이 원본 컴퓨터에서 실행되지 않는 경우 필수 입력입니다. **오프라인 백업 시작** 워크플로에 입력한 스테이징 위치에 대한 경로를 제공하는 데 사용됩니다. |

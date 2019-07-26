@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: REST API를 사용 하 여 백업 정책 만들기'
 description: REST API를 사용하여 백업 정책(일정 및 보존) 관리
-services: backup
 author: pvrk
 manager: shivamg
 keywords: REST API, Azure VM 백업, Azure VM 복원,
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648808"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466826"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
@@ -30,8 +29,8 @@ Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드�
   - Azure 파일 공유
 - 다양한 리소스에 정책을 할당할 수 있습니다. 여러 Azure VM을 보호하는 데 Azure VM 백업 정책을 사용할 수 있습니다.
 - 두 구성 요소로 이루어진 정책
-  - 일정: 백업을 수행 하는 경우
-  - 보존: 기간에 대 한 각 백업을 보관 해야 합니다.
+  - 일정과 백업을 수행 해야 하는 경우
+  - 보존 각 백업 보존 기간을 지정 합니다.
 - 특정 시점을 사용하여 "매일" 또는 "매주"로 일정을 정의할 수 있습니다.
 - "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
 - "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
@@ -52,7 +51,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 |이름  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|속성     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
 |tags     |         | Object        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.

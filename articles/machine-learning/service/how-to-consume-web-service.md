@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797629"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361019"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container Instances, Azure Kubernetes 서비스 또는 현장에서 프로그래밍 FPGA (gate array)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
+Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스를 만듭니다. 등록된 모델과 채점 파일에서 이미지를 만듭니다. [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 웹 서비스에 액세스하는 데 사용되는 URI를 검색합니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
 
 기계 학습 웹 서비스를 사용하는 클라이언트를 만들기 위한 일반적인 워크플로는 다음과 같습니다.
 
@@ -128,14 +128,16 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 ### <a name="binary-data"></a>이진 데이터
 
-모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 예로 `score.py` 이진 데이터를 받아들이는:
+모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 이진 데이터를 허용 `score.py` 하는의 예는 다음과 같습니다.
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -147,9 +149,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -440,45 +442,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 반환되는 결과는 JSON 문서와 유사합니다.
@@ -489,8 +490,8 @@ print(resp.text)
 
 ## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
 
-Power BI는 예측을 사용 하 여 Power BI에서 데이터를 보강 하는 Azure Machine Learning 웹 서비스의 사용을 지원 합니다. 
+Power BI에서는 Azure Machine Learning 웹 서비스를 사용 하 여 예측을 통해 Power BI 데이터를 보강 합니다. 
 
-Power BI에서 사용 하기 위해 지원 되는 웹 서비스를 생성 하려면 스키마에는 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI에서 지 원하는 스키마를 만드는 방법 알아보기](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi)합니다.
+Power BI에서 사용 하도록 지원 되는 웹 서비스를 생성 하려면 스키마가 Power BI에 필요한 형식을 지원 해야 합니다. [Power BI 지원 스키마를 만드는 방법에 대해 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
-웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용 됩니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration)합니다.
+웹 서비스가 배포 되 면 Power BI 데이터 흐름에서 사용할 수 있습니다. [Power BI에서 Azure Machine Learning 웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

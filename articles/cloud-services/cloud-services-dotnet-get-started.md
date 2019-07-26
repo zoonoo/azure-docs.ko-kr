@@ -3,23 +3,19 @@ title: Azure Cloud Services 및 ASP.NET 시작 | Microsoft 문서
 description: ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL Database 및 Azure Storage 큐와 Blob를 사용합니다.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595178"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359219"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -46,12 +42,12 @@ ms.locfileid: "65595178"
 * 파일을 업로드하고 Azure Blob service에 저장하는 방법
 * 계층 간 통신에 Azure 큐 서비스를 사용하는 방법
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서에서는 *웹 역할* 및 *작업자 역할* 용어와 같이 [Azure Cloud Services에 대한 기본 개념](cloud-services-choose-me.md)을 알고 있다고 가정합니다.  또한 Visual Studio에서 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 애플리케이션 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
 Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케이션을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
 
-자습서 지침은 다음 제품 중 하나를 사용 하 여 작동합니다.
+자습서 지침은 다음 제품 중 하나에서 작동 합니다.
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -80,7 +76,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
     기본적으로 Visual Studio는 *.zip* 파일에 포함되지 않은 NuGet 패키지 콘텐츠를 자동으로 복원합니다. 패키지가 복원되지 않는 경우 **솔루션의 NuGet 패키지 관리** 대화 상자로 이동하고 오른쪽 위에서 **복원** 단추를 클릭하여 수동으로 설치합니다.
 5. **솔루션 탐색기**에서 시작 프로젝트로 **ContosoAdsCloudService**가 선택되었는지 확인합니다.
 6. Visual Studio 2015 이상을 사용하는 경우 ContosoAdsWeb 프로젝트의 애플리케이션 *Web.config* 파일 및 ContosoAdsCloudService 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일에서 SQL Server 연결 문자열을 변경합니다. 각각의 경우에서 "(localdb)\v11.0"을 "(localdb)\MSSQLLocalDB"로 변경합니다.
-7. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
+7. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
 
     클라우드 서비스 프로젝트를 로컬에서 실행하면 Visual Studio는 Azure *컴퓨팅 에뮬레이터* 및 Azure *스토리지 에뮬레이터*를 자동으로 호출합니다. 컴퓨팅 에뮬레이터는 컴퓨터의 리소스를 사용하여 웹 역할 및 작업자 역할 환경을 시뮬레이션합니다. 저장소 에뮬레이터는 [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) 데이터베이스를 사용하여 Azure 클라우드 저장소를 시뮬레이션합니다.
 
@@ -159,7 +155,7 @@ Azure 클라우드 서비스는 애플리케이션이 실행되는 환경입니�
     ![새 SQL Database 서버](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. **만들기**를 클릭합니다.
 
-### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
+### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 위한 리소스를 제공합니다.
 
 실제 애플리케이션에서는 일반적으로 애플리케이션 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 하나의 계정만 사용합니다.
@@ -392,7 +388,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 8. 계속 **ContosoAdsWorker [Role]** 속성 창에서 다른 연결 문자열을 추가합니다.
 
    * 이름: ContosoAdsDbConnectionString
-   * 형식: 문자열
+   * 형식: String
    * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여넣습니다. (다음은 Visual Studio 2013용 예제입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 데이터 원본을 반드시 변경해야 합니다.)
 
        ```
@@ -774,7 +770,7 @@ Contoso Ads 애플리케이션은 시작 자습서용으로 의도적으로 단�
 
 Azure Storage 모범 사례 및 패턴에 대한 비디오 소개는 [Microsoft Azure Storage – 새로운 기능, 모범 사례 및 패턴](https://channel9.msdn.com/Events/Build/2014/3-628)(영문)을 참조하세요.
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Cloud Services 1부: 소개](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)

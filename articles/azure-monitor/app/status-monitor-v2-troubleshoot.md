@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c61d54fc49ddd0a8a9ac5063c1a2a3edea66a899
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326218"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424108"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>V2 상태 모니터 문제 해결
 
@@ -78,11 +78,13 @@ Enable 명령을 실행 한 후 다음 단계를 완료 합니다.
 
 ### <a name="iis-nested-applications"></a>IIS 중첩 응용 프로그램
 
-1\.0 버전에서 IIS의 중첩 된 응용 프로그램을 계측 하지 않습니다. [여기서](https://github.com/microsoft/ApplicationInsights-Home/issues/369)이 문제를 추적 하 고 있습니다.
+1\.0 버전에서 IIS의 중첩 된 응용 프로그램을 계측 하지 않습니다.
+[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/369)에서이 문제를 추적 하 고 있습니다.
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>고급 SDK 구성을 사용할 수 없습니다.
 
-SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니다. [여기서](https://github.com/microsoft/ApplicationInsights-Home/issues/375)이 문제를 추적 하 고 있습니다.
+SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니다.
+[여기](https://github.com/microsoft/ApplicationInsights-Home/issues/375)에서이 문제를 추적 하 고 있습니다.
 
     
     
@@ -116,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>상태 모니터 v2 모듈의 현재 버전 확인
-`Get-ApplicationInsightsMonitoringStatus` 명령을 실행 하 여 모듈에 대 한 다음 정보를 표시 합니다.
+`Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 명령을 실행 하 여 모듈에 대 한 다음 정보를 표시 합니다.
    - PowerShell 모듈 버전
    - Application Insights SDK 버전
    - PowerShell 모듈의 파일 경로
@@ -148,7 +150,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 5. 다음과 같은 **추가 공급자**를 설정 합니다.`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>로그 수집
+#### <a name="collecting-logs"></a>로그를 수집하는 중
 
 1. 관리자 권한이 있는 명령 콘솔에서 `iisreset /stop` 명령을 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
 2. PerfView에서 **컬렉션 시작**을 선택 합니다.

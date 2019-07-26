@@ -87,11 +87,11 @@
               href: billing-reservation-discount-app-service-isolated-stamp.md
             - name: Azure 소프트웨어 플랜
               href: billing-understand-suse-reservation-charges.md
-        - name: 소프트웨어 비용 미포함
+        - name: Windows 및 SQL 비용 포함 안 됨
           href: billing-reserved-instance-windows-software-costs.md
-        - name: 개별 구독에 대한 사용량
+        - name: 개별 구독에 대한 사용 현황 데이터
           href: billing-understand-reserved-instance-usage.md
-        - name: 기업용 사용량
+        - name: 기업 고객에 대한 사용 현황 데이터
           href: billing-understand-reserved-instance-usage-ea.md
         - name: 예약 변경 및 환불
           href: billing-azure-reservations-self-service-exchange-and-refund.md

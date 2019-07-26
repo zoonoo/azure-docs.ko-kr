@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 07/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df12d4f7b2a06b89df1bfd7d7d904943e341ccd2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234261"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479784"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -34,8 +34,9 @@ Azure for SAP HANA의 고유성은 Azure를 따로 설정 하는 제품입니다
 
 Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 및 single sign-on의 요구 사항을 만들 수 있습니다. 이 상황은 Azure Active Directory (Azure AD)를 사용 하 여 다양 한 SAP 구성 요소와 SAP SaaS (software as a service) 또는 PaaS (platform as a service) 제품을 연결 하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티를 사용 하는 이러한 통합 및 single sign-on 시나리오 목록은 "AAD SAP identity integration and single sign-on" 섹션에서 설명 하 고 설명 합니다.
 
-## <a name="latest-changes"></a>최신 변경 내용
+## <a name="change-log"></a>변경 로그
 
+- [Azure의 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터의 SAP ASCS/SCS 인스턴스가 클러스터](sap-high-availability-guide-wsfc-file-share.md) 에서 변경 되어 Azure Site Recovery 서비스에서 제공 하는 저장소 공간 다이렉트에 대 한 지원이 반영 됩니다.
 - [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 릴리스
 - [Red Hat Enterprise Server에서 IBM DB2 HADR](high-availability-guide-rhel-ibm-db2-luw.md) 에 대 한 새로운 가이드 릴리스
 - Sap [응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Sap NetWeaver에 대 한 고가용성](high-availability-guide-rhel-netapp-files.md) 릴리스

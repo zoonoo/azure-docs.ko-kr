@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6ac3ef296509c6613a2a30821392c91648cc104
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868626"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501419"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -34,14 +34,14 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.AAD/domainServices/delete | 도메인 서비스를 삭제합니다. |
-> | 작업 | Microsoft.AAD/domainServices/oucontainer/delete | Ou 컨테이너 삭제 |
-> | 작업 | Microsoft.AAD/domainServices/oucontainer/read | Ou 컨테이너 읽기 |
-> | Action | Microsoft.AAD/domainServices/oucontainer/write | Ou 컨테이너 쓰기 |
+> | Action | Microsoft.AAD/domainServices/oucontainer/delete | Ou 컨테이너 삭제 |
+> | Action | Microsoft.AAD/domainServices/oucontainer/read | Ou 컨테이너 읽기 |
+> | 작업 | Microsoft.AAD/domainServices/oucontainer/write | Ou 컨테이너 쓰기 |
 > | 작업 | Microsoft.AAD/domainServices/read | 도메인 서비스를 읽습니다. |
-> | Action | Microsoft.AAD/domainServices/replicaSets/delete | 클러스터 사이트 삭제 |
-> | 작업 | Microsoft.AAD/domainServices/replicaSets/read | 클러스터 사이트 읽기 |
+> | 작업 | Microsoft.AAD/domainServices/replicaSets/delete | 클러스터 사이트 삭제 |
+> | Action | Microsoft.AAD/domainServices/replicaSets/read | 클러스터 사이트 읽기 |
 > | 작업 | Microsoft.AAD/domainServices/replicaSets/write | 클러스터 사이트 쓰기 |
-> | Action | Microsoft.AAD/domainServices/write | 도메인 서비스를 작성합니다. |
+> | 작업 | Microsoft.AAD/domainServices/write | 도메인 서비스를 작성합니다. |
 > | 액션(Action) | Microsoft.AAD/locations/operationresults/read |  |
 > | 액션(Action) | Microsoft.AAD/Operations/read |  |
 > | 액션(Action) | Microsoft.AAD/register/action | 도메인 서비스를 등록합니다. |
@@ -126,8 +126,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | 서비스에 대한 모니터링 구성을 추가하거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/premiumcheck/read | 이 API는 프리미엄 테넌트에 등록된 모든 서비스의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/read | 테넌트의 서비스 인스턴스를 읽습니다. |
-> | Action | Microsoft.ADHybridHealthService/services/reports/blobUris/read | 지난 7 일 동안 위험한 모든 IP 보고서 Uri를 가져옵니다. |
-> | 작업 | Microsoft.ADHybridHealthService/services/reports/details/read | 지난 7일간 잘못된 암호 오류가 있는 상위 50명의 사용자에 대한 보고서를 가져옵니다. |
+> | 작업 | Microsoft.ADHybridHealthService/services/reports/blobUris/read | 지난 7 일 동안 위험한 모든 IP 보고서 Uri를 가져옵니다. |
+> | Action | Microsoft.ADHybridHealthService/services/reports/details/read | 지난 7일간 잘못된 암호 오류가 있는 상위 50명의 사용자에 대한 보고서를 가져옵니다. |
 > | 작업 | Microsoft.ADHybridHealthService/services/reports/generateBlobUri/action | 위험한 IP 보고서를 생성 하 고이를 가리키는 URI를 반환 합니다. |
 > | 작업 | Microsoft.ADHybridHealthService/services/servicemembers/action | 서비스에 서버 인스턴스를 만듭니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/servicemembers/alerts/read | 서버에 대한 경고를 읽습니다. |
@@ -136,7 +136,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/servicemembers/delete | 서비스의 서버 인스턴스를 삭제합니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | 지정된 동기화 서비스에 대한 동기화 내보내기 오류 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | 서비스가 지정되면 이 API는 메트릭 정보를 가져옵니다.<br>예를 들어, 이 API는 ADFS 서비스의 경우 엑스트라넷 계정 잠금 횟수, 총 실패한 요청 수, 처리 중인 토큰 요청 수(프록시), 토큰 요청 수/초 등과 관련된 정보를 가져오는 데 사용할 수 있습니다.<br>ADDomain 서비스의 경우 NTLM 인증 횟수/초, 성공한 LDAP 바인드 횟수/초, LDAP 바인드 시간, LDAP 활성 스레드 수, Kerberos 인증 횟수/초, 총 ATQ 스레드 수 등.<br>Sync 서비스의 경우 실행 프로필 대기 시간, 설정된 TCP 연결 수, Insights 에이전트 프라이빗 바이트 수, Azure AD로 내보내기 통계. |
-> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/read | 지정 된 서비스 및 서비스 멤버의 커넥터 및 실행 프로필 이름 목록을 가져옵니다. |
+> | 작업 | Microsoft.ADHybridHealthService/services/servicemembers/metrics/read | 지정 된 서비스 및 서비스 멤버의 커넥터 및 실행 프로필 이름 목록을 가져옵니다. |
 > | 작업 | Microsoft.ADHybridHealthService/services/servicemembers/read | 서비스의 서버 인스턴스를 읽습니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | 지정된 테넌트에 대한 서비스 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | 지정된 테넌트에 대한 기능 허용 목록 상태를 가져옵니다. |
@@ -152,8 +152,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Advisor/configurations/write | 구성을 만듭니다/업데이트합니다. |
 > | 액션(Action) | Microsoft.Advisor/generateRecommendations/action | 권장 사항을 생성합니다. |
 > | 액션(Action) | Microsoft.Advisor/generateRecommendations/read | 권장 사항 생성 상태를 가져옵니다. |
-> | Action | Microsoft.Advisor/metadata/read | 메타데이터 가져오기 |
-> | 작업 | Microsoft.Advisor/operations/read | Microsoft Advisor에 대한 작업을 가져옵니다. |
+> | 작업 | Microsoft.Advisor/metadata/read | 메타데이터 가져오기 |
+> | Action | Microsoft.Advisor/operations/read | Microsoft Advisor에 대한 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Advisor/recommendations/available/action | Microsoft Advisor에 새로운 권장 사항이 제공됩니다. |
 > | 액션(Action) | Microsoft.Advisor/recommendations/read | 권장 사항을 읽습니다. |
 > | 액션(Action) | Microsoft.Advisor/recommendations/suppressions/delete | 비표시 오류(Suppression)를 삭제합니다. |
@@ -171,23 +171,23 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.AlertsManagement/actionRules/delete | 지정된 구독에서 작업 규칙을 삭제합니다. |
-> | Action | Microsoft.AlertsManagement/actionRules/read | 입력 필터에 대한 모든 작업 규칙을 가져옵니다. |
+> | 작업 | Microsoft.AlertsManagement/actionRules/read | 입력 필터에 대한 모든 작업 규칙을 가져옵니다. |
 > | 작업 | Microsoft.AlertsManagement/actionRules/write | 지정된 구독에서 작업 규칙을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.AlertsManagement/alerts/changestate/action | 경고 상태를 변경합니다. |
 > | 작업 | Microsoft.AlertsManagement/alerts/diagnostics/read | 경고에 대한 모든 진단을 가져옵니다. |
-> | Action | Microsoft.AlertsManagement/alerts/history/read | 경고 기록을 가져옵니다. |
+> | 작업 | Microsoft.AlertsManagement/alerts/history/read | 경고 기록을 가져옵니다. |
 > | 작업 | Microsoft.AlertsManagement/alerts/read | 입력 필터에 대한 모든 경고를 가져옵니다. |
-> | 작업 | Microsoft.AlertsManagement/alertsList/read | 전체 구독에서 입력 필터에 대한 모든 경고를 가져옵니다. |
-> | 작업 | AlertsManagement/alertsMetaData/읽기 | 입력 매개 변수에 대 한 경고 메타 데이터를 가져옵니다. |
-> | Action | Microsoft.AlertsManagement/alertsSummary/read | 경고의 요약 정보를 가져옵니다. |
+> | Action | Microsoft.AlertsManagement/alertsList/read | 전체 구독에서 입력 필터에 대한 모든 경고를 가져옵니다. |
+> | Action | AlertsManagement/alertsMetaData/읽기 | 입력 매개 변수에 대 한 경고 메타 데이터를 가져옵니다. |
+> | 작업 | Microsoft.AlertsManagement/alertsSummary/read | 경고의 요약 정보를 가져옵니다. |
 > | 작업 | Microsoft.AlertsManagement/alertsSummaryList/read | 구독 전체의 경고에 대한 요약을 가져옵니다. |
-> | 작업 | Microsoft.AlertsManagement/Operations/read | 제공된 작업을 읽습니다. |
-> | Action | Microsoft.AlertsManagement/register/action | Microsoft 경고 관리에 대한 구독을 등록합니다. |
-> | Action | Microsoft.AlertsManagement/smartDetectorAlertRules/delete | 지정 된 구독의 스마트 탐지기 경고 규칙 삭제 |
+> | Action | Microsoft.AlertsManagement/Operations/read | 제공된 작업을 읽습니다. |
+> | 작업 | Microsoft.AlertsManagement/register/action | Microsoft 경고 관리에 대한 구독을 등록합니다. |
+> | 작업 | Microsoft.AlertsManagement/smartDetectorAlertRules/delete | 지정 된 구독의 스마트 탐지기 경고 규칙 삭제 |
 > | 작업 | Microsoft.AlertsManagement/smartDetectorAlertRules/read | 입력 필터에 대 한 모든 스마트 탐지기 경고 규칙을 가져옵니다. |
-> | Action | Microsoft.AlertsManagement/smartDetectorAlertRules/write | 지정 된 구독에서 스마트 탐지기 경고 규칙을 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.AlertsManagement/smartDetectorAlertRules/write | 지정 된 구독에서 스마트 탐지기 경고 규칙을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.AlertsManagement/smartGroups/changestate/action | 스마트 그룹의 상태를 변경합니다. |
-> | Action | Microsoft.AlertsManagement/smartGroups/history/read | 스마트 그룹 기록을 가져옵니다. |
+> | 작업 | Microsoft.AlertsManagement/smartGroups/history/read | 스마트 그룹 기록을 가져옵니다. |
 > | 작업 | Microsoft.AlertsManagement/smartGroups/read | 입력 필터에 대한 모든 스마트 그룹을 가져옵니다. |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -219,66 +219,66 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ApiManagement/register/action | Microsoft.ApiManagement 리소스 공급자에 대한 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/reports/read | 기간, 지역, 개발자, 제품, API, 작업, 구독 및 byRequest별로 집계된 보고서를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/delete | API Management 서비스 인스턴스의 지정 된 API를 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/diagnostics/delete | API에서 지정 된 진단을 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/diagnostics/read | API의 모든 진단을 나열 합니다. 또는 해당 식별자로 지정 된 API에 대 한 진단 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/diagnostics/write | API에 대 한 새 진단을 만들거나 기존 API를 업데이트 합니다. 또는는 해당 식별자로 지정 된 API에 대 한 진단 세부 정보를 업데이트 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/issues/attachments/delete | 문제에서 지정 된 설명을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/diagnostics/delete | API에서 지정 된 진단을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/diagnostics/read | API의 모든 진단을 나열 합니다. 또는 해당 식별자로 지정 된 API에 대 한 진단 세부 정보를 가져옵니다. |
+> | Action | Microsoft.ApiManagement/service/apis/diagnostics/write | API에 대 한 새 진단을 만들거나 기존 API를 업데이트 합니다. 또는는 해당 식별자로 지정 된 API에 대 한 진단 세부 정보를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/issues/attachments/delete | 문제에서 지정 된 설명을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/issues/attachments/read | 지정 된 API와 관련 된 문제에 대 한 모든 첨부 파일을 나열 합니다. 또는 해당 식별자로 지정 된 API에 대 한 문제 첨부 파일의 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/issues/attachments/write | API의 문제에 대 한 새 첨부 파일을 만들거나 기존 문제를 업데이트 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/issues/comments/delete | 문제에서 지정 된 설명을 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/issues/comments/read | 지정 된 API와 관련 된 문제에 대 한 모든 설명을 나열 합니다. 또는 해당 식별자로 지정 된 API에 대 한 문제 설명의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/apis/issues/comments/write | API의 문제에 대 한 새 주석을 만들거나 기존 주석을 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/issues/attachments/write | API의 문제에 대 한 새 첨부 파일을 만들거나 기존 문제를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/issues/comments/delete | 문제에서 지정 된 설명을 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/issues/comments/read | 지정 된 API와 관련 된 문제에 대 한 모든 설명을 나열 합니다. 또는 해당 식별자로 지정 된 API에 대 한 문제 설명의 세부 정보를 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/issues/comments/write | API의 문제에 대 한 새 주석을 만들거나 기존 주석을 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/issues/delete | API에서 지정 된 문제를 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/issues/read | 지정 된 API와 관련 된 모든 문제를 나열 합니다. 또는 해당 식별자로 지정 된 API의 문제에 대 한 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/apis/issues/write | API에 대 한 새 문제를 만들거나 기존 문제를 업데이트 합니다. 또는는 API에 대 한 기존 문제를 업데이트 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/operations/delete | API에서 지정 된 작업을 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/operations/policies/delete | Api 작업에서 정책 구성을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/issues/write | API에 대 한 새 문제를 만들거나 기존 문제를 업데이트 합니다. 또는는 API에 대 한 기존 문제를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/operations/delete | API에서 지정 된 작업을 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/operations/policies/delete | Api 작업에서 정책 구성을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/policies/read | API 작업 수준에서 정책 구성 목록을 가져옵니다. 또는 API 작업 수준에서 정책 구성을 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/policies/write | API 작업 수준에 대 한 정책 구성을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/policy/delete | 작업 수준에서 정책 구성을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/policy/read | 작업 수준에서 정책 구성 가져오기 |
 > | Action | Microsoft.ApiManagement/service/apis/operations/policy/write | 작업 수준에서 정책 구성 만들기 |
-> | 작업 | Microsoft.ApiManagement/service/apis/operations/read | 지정 된 API에 대 한 작업의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 API 작업에 대 한 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/operations/tags/delete | 작업에서 태그를 분리 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/operations/read | 지정 된 API에 대 한 작업의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 API 작업에 대 한 세부 정보를 가져옵니다. |
+> | Action | Microsoft.ApiManagement/service/apis/operations/tags/delete | 작업에서 태그를 분리 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/tags/read | 작업과 연결 된 모든 태그를 나열 합니다. 또는 작업과 연결 된 태그를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/operations/tags/write | 작업에 태그를 할당 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/operations/tags/write | 작업에 태그를 할당 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operations/write | API에서 새 작업을 만들거나 기존 작업을 업데이트 합니다. 또는는 해당 식별자로 지정 된 API의 작업 세부 정보를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/operationsByTags/read | 태그와 연결 된 작업의 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/policies/delete | Api에서 정책 구성을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/policies/read | API 수준에서 정책 구성을 가져옵니다. 또는 API 수준에서 정책 구성을 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/policies/write | API에 대 한 정책 구성을 만들거나 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/policies/write | API에 대 한 정책 구성을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/policy/delete | API 수준에서 정책 구성을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/apis/policy/read | API 수준에서 정책 구성 가져오기 |
-> | 작업 | Microsoft.ApiManagement/service/apis/policy/write | API 수준에서 정책 구성 만들기 |
-> | 작업 | Microsoft.ApiManagement/service/apis/products/read | API의 일부인 모든 제품을 나열 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/policy/write | API 수준에서 정책 구성 만들기 |
+> | Action | Microsoft.ApiManagement/service/apis/products/read | API의 일부인 모든 제품을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/read | API Management 서비스 인스턴스의 모든 Api를 나열 합니다. 또는 해당 식별자로 지정 된 API의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/apis/releases/delete | Api의 모든 릴리스를 제거 하거나 API에서 지정 된 릴리스를 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/releases/read | API의 모든 릴리스를 나열 합니다.<br>Api 릴리스는 현재 API 수정을 만들 때 생성 됩니다.<br>릴리스는 이전 수정 버전으로 롤백하는 데도 사용 됩니다.<br>결과는 페이징할 수 있으며 $top 및 $skip 매개 변수에 의해 제한 될 수 있습니다.<br>또는 API 릴리스의 세부 정보를 반환 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/releases/write | API에 대 한 새 릴리스를 만듭니다. 또는는 해당 식별자로 지정 된 API 릴리스의 세부 정보를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/releases/delete | Api의 모든 릴리스를 제거 하거나 API에서 지정 된 릴리스를 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/releases/read | API의 모든 릴리스를 나열 합니다.<br>Api 릴리스는 현재 API 수정을 만들 때 생성 됩니다.<br>릴리스는 이전 수정 버전으로 롤백하는 데도 사용 됩니다.<br>결과는 페이징할 수 있으며 $top 및 $skip 매개 변수에 의해 제한 될 수 있습니다.<br>또는 API 릴리스의 세부 정보를 반환 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/releases/write | API에 대 한 새 릴리스를 만듭니다. 또는는 해당 식별자로 지정 된 API 릴리스의 세부 정보를 업데이트 합니다. |
 > | Action | Microsoft.ApiManagement/service/apis/revisions/delete | API의 모든 수정 버전을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/revisions/read | API의 모든 수정 버전을 나열 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/schemas/delete | Api에서 스키마 구성을 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/apis/schemas/read | API 수준에서 스키마 구성을 가져옵니다. 또는 API 수준에서 스키마 구성을 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/apis/schemas/write | API에 대 한 스키마 구성을 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Api에 대 한 태그 설명을 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/tagDescriptions/read | API의 범위에서 모든 태그 설명을 나열 합니다. Swagger-tagDescription와 유사한 모델은 API 수준에서 정의 되지만 태그는 작업에 할당 되거나 API 범위에서 태그 설명을 가져올 수 있습니다. |
+> | Action | Microsoft.ApiManagement/service/apis/schemas/delete | Api에서 스키마 구성을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/schemas/read | API 수준에서 스키마 구성을 가져옵니다. 또는 API 수준에서 스키마 구성을 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/apis/schemas/write | API에 대 한 스키마 구성을 만들거나 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Api에 대 한 태그 설명을 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/tagDescriptions/read | API의 범위에서 모든 태그 설명을 나열 합니다. Swagger-tagDescription와 유사한 모델은 API 수준에서 정의 되지만 태그는 작업에 할당 되거나 API 범위에서 태그 설명을 가져올 수 있습니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Api의 범위에서 태그 설명을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/tags/delete | Api에서 태그를 분리 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/tags/read | API와 연결 된 모든 태그를 나열 합니다. 또는 API와 연결 된 태그를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/apis/tags/write | 태그를 Api에 할당 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/apis/write | API Management 서비스 인스턴스의 지정 된 기존 API를 새로 만들거나 업데이트 합니다. 또는 API Management 서비스 인스턴스의 지정 된 API를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/apis/write | API Management 서비스 인스턴스의 지정 된 기존 API를 새로 만들거나 업데이트 합니다. 또는 API Management 서비스 인스턴스의 지정 된 API를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apisByTags/read | 태그와 연결 된 api 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/apiVersionSets/delete | 특정 Api 버전 집합을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/apiVersionSets/read | 지정 된 서비스 인스턴스의 API 버전 집합 컬렉션을 나열 합니다. 또는 식별자로 지정 된 Api 버전 집합의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/apiVersionSets/versions/read | 버전 엔터티 목록을 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/apiVersionSets/versions/read | 버전 엔터티 목록을 가져옵니다. |
 > | Action | Microsoft.ApiManagement/service/apiVersionSets/write | Api 버전 집합을 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 Api VersionSet의 세부 정보를 업데이트 합니다. |
-> | Action | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Virtual Network에서 실행되는 Microsoft.ApiManagement 리소스를 업데이트하여 업데이트된 네트워크 설정을 선택합니다. |
+> | 작업 | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Virtual Network에서 실행되는 Microsoft.ApiManagement 리소스를 업데이트하여 업데이트된 네트워크 설정을 선택합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/authorizationServers/delete | 특정 권한 부여 서버 인스턴스를 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/authorizationServers/read | 서비스 인스턴스 내에 정의 된 권한 부여 서버 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 권한 부여 서버에 대 한 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/authorizationServers/write | 새 권한 부여 서버를 만들거나 기존 권한 부여 서버를 업데이트 합니다. 또는는 해당 식별자로 지정 된 권한 부여 서버의 세부 정보를 업데이트 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/backends/delete | 지정 된 백 엔드를 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/authorizationServers/write | 새 권한 부여 서버를 만들거나 기존 권한 부여 서버를 업데이트 합니다. 또는는 해당 식별자로 지정 된 권한 부여 서버의 세부 정보를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/backends/delete | 지정 된 백 엔드를 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/backends/read | 지정 된 서비스 인스턴스의 백 엔드 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 백 엔드의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/backends/reconnect/action | 지정 된 시간 제한 후에 백 엔드에 대 한 새 연결을 만들도록 APIM 프록시에 알립니다. 제한 시간을 지정 하지 않으면 2 분의 제한 시간이 사용 됩니다. |
+> | 작업 | Microsoft.ApiManagement/service/backends/reconnect/action | 지정 된 시간 제한 후에 백 엔드에 대 한 새 연결을 만들도록 APIM 프록시에 알립니다. 제한 시간을 지정 하지 않으면 2 분의 제한 시간이 사용 됩니다. |
 > | 작업 | Microsoft.ApiManagement/service/backends/write | 백 엔드를 만들거나 업데이트 합니다. 또는 기존 백 엔드를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/backup/action | 사용자가 제공한 저장소 계정의 지정된 컨테이너로 API Management 서비스를 백업합니다. |
 > | 작업 | Microsoft.ApiManagement/service/caches/delete | 특정 캐시를 삭제 합니다. |
@@ -288,32 +288,32 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.ApiManagement/service/certificates/read | 지정 된 서비스 인스턴스에 있는 모든 인증서의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 인증서의 세부 정보를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/certificates/write | 백 엔드와의 인증에 사용 되는 인증서를 만들거나 업데이트 합니다. |
 > | Action | Microsoft.ApiManagement/service/contentTypes/contentItems/delete | 지정된 콘텐츠 항목을 제거합니다. |
-> | 작업 | Microsoft.ApiManagement/service/contentTypes/contentItems/read | 콘텐츠 항목 목록을 반환하거나 콘텐츠 항목 세부 정보를 반환합니다. |
+> | Action | Microsoft.ApiManagement/service/contentTypes/contentItems/read | 콘텐츠 항목 목록을 반환하거나 콘텐츠 항목 세부 정보를 반환합니다. |
 > | 작업 | Microsoft.ApiManagement/service/contentTypes/contentItems/write | 새 콘텐츠 항목을 만들거나 지정된 콘텐츠 항목을 업데이트합니다. |
 > | Action | Microsoft.ApiManagement/service/contentTypes/read | 콘텐츠 형식을 반환합니다. |
-> | Action | Microsoft.ApiManagement/service/delete | API Management 서비스 인스턴스를 삭제합니다. |
+> | 작업 | Microsoft.ApiManagement/service/delete | API Management 서비스 인스턴스를 삭제합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/diagnostics/delete | 지정 된 진단을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/diagnostics/read | API Management 서비스 인스턴스에 대 한 모든 진단을 나열 합니다. 또는 해당 식별자로 지정 된 진단 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/diagnostics/write | 새 진단을 만들거나 기존 진단을 업데이트 합니다. 또는는 해당 식별자로 지정 된 진단 정보를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/diagnostics/write | 새 진단을 만들거나 기존 진단을 업데이트 합니다. 또는는 해당 식별자로 지정 된 진단 정보를 업데이트 합니다. |
 > | 작업 | Microsoft.apimanagement/서비스/게이트웨이/작업 | 게이트웨이 구성을 검색 합니다. 또는 게이트웨이 하트 비트를 업데이트 합니다. |
-> | 작업 | Microsoft.apimanagement/서비스/게이트웨이/삭제 | 특정 게이트웨이를 삭제 합니다. |
-> | Action | Microsoft.apimanagement/서비스/게이트웨이/키/작업 | 게이트웨이 키를 검색 합니다. |
+> | Action | Microsoft.apimanagement/서비스/게이트웨이/삭제 | 특정 게이트웨이를 삭제 합니다. |
+> | 작업 | Microsoft.apimanagement/서비스/게이트웨이/키/작업 | 게이트웨이 키를 검색 합니다. |
 > | 작업 | Microsoft.apimanagement/서비스/게이트웨이/읽기 | 서비스 인스턴스에 등록 된 게이트웨이의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 게이트웨이의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.apimanagement/서비스/게이트웨이/regeneratePrimaryKey/작업 | 기본 게이트웨이 키를 생성 하 여 만든 모든 토큰을 invalidationg 합니다. |
-> | 작업 | Microsoft.apimanagement/서비스/게이트웨이/regenerateSecondaryKey/작업 | Invalidationg 보조 게이트웨이 키를 사용 하 여 만든 모든 토큰을 다시 생성 합니다. |
+> | 작업 | Microsoft.apimanagement/서비스/게이트웨이/regeneratePrimaryKey/작업 | 기본 게이트웨이 키를 생성 하 여 만든 모든 토큰을 invalidationg 합니다. |
+> | Action | Microsoft.apimanagement/서비스/게이트웨이/regenerateSecondaryKey/작업 | Invalidationg 보조 게이트웨이 키를 사용 하 여 만든 모든 토큰을 다시 생성 합니다. |
 > | 작업 | Microsoft.apimanagement/서비스/게이트웨이/토큰/작업 | 게이트웨이에 대 한 공유 액세스 권한 부여 토큰을 가져옵니다. |
-> | Action | Microsoft.apimanagement/서비스/게이트웨이/쓰기 | Api Management 인스턴스에서 사용할 게이트웨이를 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 게이트웨이의 세부 정보를 업데이트 합니다. |
+> | 작업 | Microsoft.apimanagement/서비스/게이트웨이/쓰기 | Api Management 인스턴스에서 사용할 게이트웨이를 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 게이트웨이의 세부 정보를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/getssotoken/action | API Management 서비스 레거시 포털에 관리자로 로그인하는 데 사용할 수 있는 SSO 토큰을 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/groups/delete | API Management 서비스 인스턴스의 특정 그룹을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/groups/read | 서비스 인스턴스 내에 정의 된 그룹의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 그룹의 세부 정보를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/groups/users/delete | 기존 그룹에서 기존 사용자를 제거 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/groups/users/read | 그룹에 연결 된 사용자 엔터티의 컬렉션을 나열 합니다. |
+> | Action | Microsoft.ApiManagement/service/groups/users/read | 그룹에 연결 된 사용자 엔터티의 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/groups/users/write | 기존 그룹에 기존 사용자를 추가합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/groups/write | 그룹을 만들거나 업데이트 합니다. 또는 해당 식별자로 지정 된 그룹의 세부 정보를 업데이트 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/identityProviders/delete | 지정 된 id 공급자 구성을 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/identityProviders/delete | 지정 된 id 공급자 구성을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/identityProviders/read | 지정 된 서비스 인스턴스에 구성 된 Id 공급자의 컬렉션을 나열 합니다. 또는 지정 된 서비스 인스턴스에 구성 된 id 공급자의 구성 세부 정보를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/identityProviders/write | IdentityProvider 구성을 만들거나 업데이트 합니다. 또는 기존 IdentityProvider 구성을 업데이트 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/issues/read | 지정 된 서비스 인스턴스의 문제 컬렉션을 나열 합니다. 또는 API Management 문제 세부 정보를 가져옵니다. |
+> | Action | Microsoft.ApiManagement/service/issues/read | 지정 된 서비스 인스턴스의 문제 컬렉션을 나열 합니다. 또는 API Management 문제 세부 정보를 가져옵니다. |
 > | Action | Microsoft.ApiManagement/service/locations/networkstatus/read | 해당 위치에는 서비스가 종속되는 리소스의 네트워크 액세스 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/loggers/delete | 지정 된로 거를 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/loggers/read | 지정 된 서비스 인스턴스에 대 한로 거 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된로 거에 대 한 세부 정보를 가져옵니다. |
@@ -322,66 +322,66 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ApiManagement/service/networkstatus/read | 서비스가 종속되는 리소스의 네트워크 액세스 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/notifications/action | 지정된 사용자에게 알림을 보냅니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/notifications/read | 서비스 인스턴스 내에 정의 된 속성의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 알림의 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | 알림 목록에서 전자 메일을 제거 합니다. |
+> | Action | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | 알림 목록에서 전자 메일을 제거 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/notifications/recipientEmails/read | 알림을 구독 하는 알림 받는 사람 전자 메일의 목록을 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/notifications/recipientEmails/write | 알림에 대 한 받는 사람 목록에 전자 메일 주소를 추가 합니다. |
 > | Action | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | 알림 목록에서 API Management 사용자를 제거 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/notifications/recipientUsers/read | 알림을 구독 하는 알림 받는 사람 목록을 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/notifications/recipientUsers/write | 알림에 대 한 받는 사람 목록에 API Management 사용자를 추가 합니다. |
+> | Action | Microsoft.ApiManagement/service/notifications/recipientUsers/write | 알림에 대 한 받는 사람 목록에 API Management 사용자를 추가 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/notifications/write | API Management 게시자 알림을 만들거나 업데이트 합니다. |
 > | Action | Microsoft.ApiManagement/service/openidConnectProviders/delete | API Management 서비스 인스턴스의 특정 Openid connect Connect 공급자를 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/openidConnectProviders/read | 모든 Openid connect Connect 공급자 목록입니다. 또는 특정 Openid connect Connect 공급자를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/openidConnectProviders/write | Openid connect Connect 공급자를 만들거나 업데이트 합니다. 또는 특정 Openid connect Connect 공급자를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/openidConnectProviders/write | Openid connect Connect 공급자를 만들거나 업데이트 합니다. 또는 특정 Openid connect Connect 공급자를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/operationresults/read | 장기 실행 작업의 현재 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/policies/delete | Api Management 서비스의 전역 정책 구성을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/policies/read | Api Management 서비스의 모든 전역 정책 정의를 나열 합니다. 또는 Api Management 서비스의 전역 정책 정의를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/policies/write | Api Management 서비스의 전역 정책 구성을 만들거나 업데이트 합니다. |
-> | Action | Microsoft.ApiManagement/service/policy/delete | 테 넌 트 수준에서 정책 구성을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/policy/delete | 테 넌 트 수준에서 정책 구성을 삭제 합니다. |
 > | Action | Microsoft.ApiManagement/service/policy/read | 테 넌 트 수준에서 정책 구성 가져오기 |
-> | Action | Microsoft.ApiManagement/service/policy/write | 테 넌 트 수준에서 정책 구성 만들기 |
-> | Action | Microsoft.ApiManagement/service/policySnippets/read | 모든 정책 코드 조각을 나열 합니다. |
-> | Action | Microsoft.ApiManagement/service/portalsettings/read | 포털에 대 한 로그인 설정을 가져오거나 포털에 대 한 등록 설정을 가져오거나 포털에 대 한 위임 설정을 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/policy/write | 테 넌 트 수준에서 정책 구성 만들기 |
+> | 작업 | Microsoft.ApiManagement/service/policySnippets/read | 모든 정책 코드 조각을 나열 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/portalsettings/read | 포털에 대 한 로그인 설정을 가져오거나 포털에 대 한 등록 설정을 가져오거나 포털에 대 한 위임 설정을 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/portalsettings/write | 로그인 설정을 업데이트 합니다. 또는 로그인 설정을 만들거나 업데이트 합니다. 또는 등록 설정을 업데이트 하거나 등록 설정을 업데이트 하거나 위임 설정을 업데이트 합니다. 또는 위임 설정을 만들거나 업데이트 합니다. |
-> | Action | Microsoft.ApiManagement/service/products/apis/delete | 지정 된 제품에서 지정 된 API를 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/products/apis/read | 제품과 연결 된 Api 컬렉션을 나열 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/apis/delete | 지정 된 제품에서 지정 된 API를 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/products/apis/read | 제품과 연결 된 Api 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/apis/write | 지정 된 제품에 API를 추가 합니다. |
-> | Action | Microsoft.ApiManagement/service/products/delete | 제품을 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/products/groups/delete | 지정 된 그룹과 제품 간의 연결을 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/products/groups/read | 지정 된 제품과 연결 된 개발자 그룹의 컬렉션을 나열 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/delete | 제품을 삭제 합니다. |
+> | Action | Microsoft.ApiManagement/service/products/groups/delete | 지정 된 그룹과 제품 간의 연결을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/groups/read | 지정 된 제품과 연결 된 개발자 그룹의 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/groups/write | 지정 된 제품을 사용 하 여 지정 된 개발자 그룹 간의 연결을 추가 합니다. |
-> | Action | Microsoft.ApiManagement/service/products/policies/delete | 제품에서 정책 구성을 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/products/policies/read | 제품 수준에서 정책 구성을 가져옵니다. 또는 제품 수준에서 정책 구성을 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/policies/delete | 제품에서 정책 구성을 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/policies/read | 제품 수준에서 정책 구성을 가져옵니다. 또는 제품 수준에서 정책 구성을 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/policies/write | 제품에 대 한 정책 구성을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/policy/delete | 제품 수준에서 정책 구성을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/policy/read | 제품 수준에서 정책 구성 가져오기 |
 > | 작업 | Microsoft.ApiManagement/service/products/policy/write | 제품 수준에서 정책 구성 만들기 |
-> | Action | Microsoft.ApiManagement/service/products/read | 지정 된 서비스 인스턴스의 제품 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 제품의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/products/subscriptions/read | 지정 된 제품에 대 한 구독 컬렉션을 나열 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/products/tags/delete | 제품에서 태그를 분리 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/read | 지정 된 서비스 인스턴스의 제품 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 제품의 세부 정보를 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/products/subscriptions/read | 지정 된 제품에 대 한 구독 컬렉션을 나열 합니다. |
+> | Action | Microsoft.ApiManagement/service/products/tags/delete | 제품에서 태그를 분리 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/tags/read | 제품과 연결 된 모든 태그를 나열 합니다. 또는 제품과 연결 된 태그를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/products/tags/write | 제품에 태그를 할당 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/products/write | 제품을 만들거나 업데이트 합니다. 또는 기존 제품 세부 정보를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/products/write | 제품을 만들거나 업데이트 합니다. 또는 기존 제품 세부 정보를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/productsByTags/read | 태그와 연결 된 제품의 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/properties/delete | API Management 서비스 인스턴스에서 특정 속성을 삭제 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/properties/read | 서비스 인스턴스 내에 정의 된 속성의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 속성의 세부 정보를 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/properties/write | 속성을 만들거나 업데이트 합니다. 또는 특정 속성을 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/properties/write | 속성을 만들거나 업데이트 합니다. 또는 특정 속성을 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/quotas/periods/read | 기간에 대한 할당량 카운터 값을 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/quotas/periods/write | 할당량 카운터 현재 값을 설정합니다. |
-> | 작업 | Microsoft.ApiManagement/service/quotas/read | 할당량에 대한 값을 가져옵니다. |
+> | Action | Microsoft.ApiManagement/service/quotas/read | 할당량에 대한 값을 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/quotas/write | 할당량 카운터 현재 값을 설정합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 > | Action | Microsoft.ApiManagement/service/regions/read | 서비스가 존재 하는 모든 azure 지역을 나열 합니다. |
-> | Action | Microsoft.ApiManagement/service/reports/read | 기간별로 집계된 보고서를 가져오거나 지역별로 집계된 보고서를 가져오거나 개발자별로 집계된 보고서를 가져옵니다.<br>또는 제품별로 집계된 보고서를 가져옵니다.<br>또는 API별로 집계된 보고서를 가져오거나 작업별로 집계된 보고서를 가져오거나 구독별로 집계된 보고서를 가져옵니다.<br>또는 데이터 보고 요청을 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/reports/read | 기간별로 집계된 보고서를 가져오거나 지역별로 집계된 보고서를 가져오거나 개발자별로 집계된 보고서를 가져옵니다.<br>또는 제품별로 집계된 보고서를 가져옵니다.<br>또는 API별로 집계된 보고서를 가져오거나 작업별로 집계된 보고서를 가져오거나 구독별로 집계된 보고서를 가져옵니다.<br>또는 데이터 보고 요청을 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/restore/action | 사용자가 제공한 저장소 계정의 지정된 컨테이너에서 API Management 서비스 복원 |
 > | 액션(Action) | Microsoft.ApiManagement/service/subscriptions/delete | 지정 된 구독을 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/subscriptions/read | API Management 서비스 인스턴스에 대 한 모든 구독을 나열 합니다. 또는 지정 된 구독 엔터티를 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/subscriptions/read | API Management 서비스 인스턴스에 대 한 모든 구독을 나열 합니다. 또는 지정 된 구독 엔터티를 가져옵니다. |
 > | 작업 | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | API Management 서비스 인스턴스에 대 한 기존 구독의 기본 키를 다시 생성 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | API Management 서비스 인스턴스에 대 한 기존 구독의 보조 키를 다시 생성 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/subscriptions/write | 지정한 제품에 대해 지정한 사용자의 구독을 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 구독의 세부 정보를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | API Management 서비스 인스턴스에 대 한 기존 구독의 보조 키를 다시 생성 합니다. |
+> | Action | Microsoft.ApiManagement/service/subscriptions/write | 지정한 제품에 대해 지정한 사용자의 구독을 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 구독의 세부 정보를 업데이트 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/tagResources/read | 태그와 연결 된 리소스의 컬렉션을 나열 합니다. |
-> | Action | Microsoft.ApiManagement/service/tags/delete | API Management 서비스 인스턴스의 특정 태그를 삭제 합니다. |
-> | Action | Microsoft.ApiManagement/service/tags/read | 서비스 인스턴스 내에 정의 된 태그의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 태그의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/tags/write | 태그를 만듭니다. 또는는 해당 식별자로 지정 된 태그의 세부 정보를 업데이트 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/tags/delete | API Management 서비스 인스턴스의 특정 태그를 삭제 합니다. |
+> | 작업 | Microsoft.ApiManagement/service/tags/read | 서비스 인스턴스 내에 정의 된 태그의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 태그의 세부 정보를 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/tags/write | 태그를 만듭니다. 또는는 해당 식별자로 지정 된 태그의 세부 정보를 업데이트 합니다. |
 > | Action | Microsoft.ApiManagement/service/templates/delete | 기본 API Management 이메일 템플릿을 다시 설정합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/templates/read | 모든 이메일 템플릿을 가져오거나 API Management 이메일 템플릿 세부 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/templates/write | API Management 이메일 템플릿을 만들거나/업데이트하거나 API Management 이메일 템플릿을 업데이트합니다. |
@@ -400,14 +400,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ApiManagement/service/users/action | 새 사용자를 등록합니다. |
 > | 작업 | Microsoft.ApiManagement/service/users/confirmations/send/action | 확인을 보냅니다. |
 > | 작업 | Microsoft.ApiManagement/service/users/delete | 특정 사용자를 삭제 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/users/generateSsoUrl/action | 지정 된 사용자를 개발자 포털에 서명 하기 위한 인증 토큰이 포함 된 리디렉션 URL을 검색 합니다. |
-> | 작업 | Microsoft.ApiManagement/service/users/groups/read | 모든 사용자 그룹을 나열 합니다. |
+> | Action | Microsoft.ApiManagement/service/users/generateSsoUrl/action | 지정 된 사용자를 개발자 포털에 서명 하기 위한 인증 토큰이 포함 된 리디렉션 URL을 검색 합니다. |
+> | Action | Microsoft.ApiManagement/service/users/groups/read | 모든 사용자 그룹을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/users/identities/read | 모든 사용자 id의 목록입니다. |
-> | 작업 | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키 가져오기 |
-> | 작업 | Microsoft.ApiManagement/service/users/read | 지정 된 서비스 인스턴스에 등록 된 사용자의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 사용자의 세부 정보를 가져옵니다. |
-> | Action | Microsoft.ApiManagement/service/users/subscriptions/read | 지정 된 사용자의 구독 컬렉션을 나열 합니다. |
+> | Action | Microsoft.ApiManagement/service/users/keys/read | 사용자와 연결 된 키 가져오기 |
+> | Action | Microsoft.ApiManagement/service/users/read | 지정 된 서비스 인스턴스에 등록 된 사용자의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 사용자의 세부 정보를 가져옵니다. |
+> | 작업 | Microsoft.ApiManagement/service/users/subscriptions/read | 지정 된 사용자의 구독 컬렉션을 나열 합니다. |
 > | 작업 | Microsoft.ApiManagement/service/users/token/action | 사용자에 대 한 공유 액세스 권한 부여 토큰을 가져옵니다. |
-> | 작업 | Microsoft.ApiManagement/service/users/write | 사용자를 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 사용자의 세부 정보를 업데이트 합니다. |
+> | Action | Microsoft.ApiManagement/service/users/write | 사용자를 만들거나 업데이트 합니다. 또는는 해당 식별자로 지정 된 사용자의 세부 정보를 업데이트 합니다. |
 > | Action | Microsoft.ApiManagement/service/write | API Management 서비스의 새 인스턴스 만들기 |
 > | 액션(Action) | Microsoft.ApiManagement/unregister/action | Microsoft.ApiManagement 리소스 공급자에 대한 구독을 등록 취소합니다. |
 
@@ -416,8 +416,8 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Authorization/classicAdministrators/delete | 구독에서 관리자를 제거합니다. |
-> | 액션(Action) | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 구독의 관리자 작업 상태를 가져옵니다. |
+> | 작업 | Microsoft.Authorization/classicAdministrators/delete | 구독에서 관리자를 제거합니다. |
+> | 액션(Action) | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 관리자가 구독의 작업 상태를 가져옵니다. |
 > | 작업 | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. |
 > | 액션(Action) | Microsoft.Authorization/classicAdministrators/write | 구독에 대한 관리자를 추가 또는 수정합니다. |
 > | 액션(Action) | Microsoft.Authorization/denyAssignments/delete | 지정된 범위에서 거부 할당을 삭제합니다. |
@@ -512,11 +512,11 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Automation/automationAccounts/objectDataTypes/fields/read | Azure Automation TypeFields를 가져옵니다. |
 > | 작업 | Microsoft.Automation/automationAccounts/python2Packages/delete | Azure Automation Python 2 패키지를 삭제 |
 > | 작업 | Microsoft.Automation/automationAccounts/python2Packages/read | Azure Automation Python 2 패키지를 가져오기 |
-> | Action | Microsoft.Automation/automationAccounts/python2Packages/write | Azure Automation Python 2 패키지를 만들거나 업데이트 |
-> | Action | Microsoft.Automation/automationAccounts/python3Packages/delete | Azure Automation Python 3 패키지를 삭제 |
-> | Action | Microsoft.Automation/automationAccounts/python3Packages/read | Azure Automation Python 3 패키지를 가져오기 |
+> | 작업 | Microsoft.Automation/automationAccounts/python2Packages/write | Azure Automation Python 2 패키지를 만들거나 업데이트 |
+> | 작업 | Microsoft.Automation/automationAccounts/python3Packages/delete | Azure Automation Python 3 패키지를 삭제 |
+> | 작업 | Microsoft.Automation/automationAccounts/python3Packages/read | Azure Automation Python 3 패키지를 가져오기 |
 > | 작업 | Microsoft.Automation/automationAccounts/python3Packages/write | Azure Automation Python 3 패키지를 만들거나 업데이트 |
-> | 작업 | Microsoft.Automation/automationAccounts/read | Azure Automation 계정을 가져옵니다. |
+> | Action | Microsoft.Automation/automationAccounts/read | Azure Automation 계정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/runbooks/content/read | Azure Automation runbook의 콘텐츠를 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/runbooks/delete | Azure Automation Runbook을 삭제합니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/runbooks/draft/content/write | Azure Automation Runbook 초안의 콘텐츠를 만듭니다. |
@@ -540,7 +540,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/read | Azure Automation 소프트웨어 업데이트 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/write | Azure Automation 소프트웨어 업데이트 구성을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/statistics/read | Azure Automation 통계를 가져옵니다. |
-> | Action | Microsoft.Automation/automationAccounts/updateDeploymentMachineRuns/read | Azure Automation 업데이트 배포 머신을 가져옵니다. |
+> | 작업 | Microsoft.Automation/automationAccounts/updateDeploymentMachineRuns/read | Azure Automation 업데이트 배포 머신을 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/updateManagementPatchJob/read | Azure Automation 업데이트 관리 패치 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/usages/read | Azure Automation 사용량을 가져옵니다. |
 > | 액션(Action) | Microsoft.Automation/automationAccounts/variables/delete | Azure Automation 변수 자산을 삭제합니다. |
@@ -571,8 +571,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C 디렉터리 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C 디렉터리 리소스를 봅니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/write | B2C 디렉터리 리소스를 만들거나 업데이트합니다. |
-> | 작업 | Microsoft.AzureActiveDirectory/b2ctenants/read | 사용자가 멤버인 모든 B2C 테 넌 트를 나열 합니다. |
-> | 작업 | Microsoft.AzureActiveDirectory/operations/read | Microsoft.AzureActiveDirectory 리소스 공급자에 사용할 수 있는 모든 API 작업을 읽습니다. |
+> | 작업 | Microsoft.AzureActiveDirectory/b2ctenants/read | 사용자가 구성원인 B2C 테넌트를 모두 나열합니다. |
+> | Action | Microsoft.AzureActiveDirectory/operations/read | Microsoft.AzureActiveDirectory 리소스 공급자에 사용할 수 있는 모든 API 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/register/action | Microsoft.AzureActiveDirectory 리소스 공급자 구독을 등록합니다. |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -616,7 +616,7 @@ ms.locfileid: "67868626"
 > | DataAction | Microsoft. Batch/batchAccounts/jobSchedules/삭제 | Batch 계정에서 작업 일정을 삭제 합니다. |
 > | DataAction | Microsoft. Batch/batchAccounts/jobSchedules/읽기 | Batch 계정에 대 한 작업 일정을 나열 하거나 작업 일정의 속성을 가져옵니다. |
 > | DataAction | Microsoft. Batch/batchAccounts/jobSchedules/write | Batch 계정에 새 작업 일정을 만들거나 기존 작업 일정을 업데이트 합니다. |
-> | 작업 | Microsoft.Batch/batchAccounts/listkeys/action | Batch 계정에 대한 액세스 키를 나열합니다. |
+> | Action | Microsoft.Batch/batchAccounts/listkeys/action | Batch 계정에 대한 액세스 키를 나열합니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/operationResults/read | 장기 실행 배치 계정 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/poolOperationResults/read | 배치 계정에 대한 장기 실행 풀 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/pools/delete | 배치 계정에서 풀을 삭제합니다. |
@@ -624,11 +624,11 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Batch/batchAccounts/pools/read | 배치 계정의 풀을 나열하거나 풀 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/pools/stopResize/action | 배치 계정 풀에서 진행 중인 크기 조정 작업을 중지합니다. |
 > | 작업 | Microsoft.Batch/batchAccounts/pools/write | 배치 계정에 새 풀을 만들거나 기존 풀을 업데이트합니다. |
-> | Action | Microsoft.Batch/batchAccounts/read | Batch 계정을 나열하거나 Batch 계정의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Batch/batchAccounts/read | Batch 계정을 나열하거나 Batch 계정의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/regeneratekeys/action | Batch 계정에 대한 액세스 키를 다시 생성합니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/syncAutoStorageKeys/action | Batch 계정에 대해 구성된 자동 저장소 계정의 액세스 키를 동기화합니다. |
 > | 액션(Action) | Microsoft.Batch/batchAccounts/write | 새 Batch 계정을 만들거나 기존 Batch 계정을 업데이트합니다. |
-> | 작업 | Microsoft.Batch/locations/accountOperationResults/read | 장기 실행 배치 계정 작업의 결과를 가져옵니다. |
+> | Action | Microsoft.Batch/locations/accountOperationResults/read | 장기 실행 배치 계정 작업의 결과를 가져옵니다. |
 > | 작업 | Microsoft.Batch/locations/checkNameAvailability/action | 계정 이름이 올바르고 사용되고 있지 않은지 확인합니다. |
 > | 액션(Action) | Microsoft.Batch/locations/quotas/read | 지정된 Azure 지역에서 지정된 구독의 Batch 할당량을 가져옵니다. |
 > | 액션(Action) | Microsoft.Batch/operations/read | Microsoft.Batch 리소스 공급자에서 사용할 수 있는 작업을 나열합니다. |
@@ -641,10 +641,10 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Billing/billingAccounts/departments/read | 청구 계정 범위에 포함된 모든 부서를 나열합니다. |
-> | 작업 | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | 청구 계정 범위에 포함된 모든 등록 계정을 나열합니다. |
+> | Action | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | 청구 계정 범위에 포함된 모든 등록 계정을 나열합니다. |
 > | Action | Microsoft.Billing/billingAccounts/read | 사용자가 액세스할 수 있는 모든 청구 계정을 나열합니다. |
 > | 작업 | Microsoft.Billing/billingPeriods/read | 사용할 수 있는 청구 기간을 나열합니다. |
-> | Action | Microsoft.Billing/departments/read | 사용자가 액세스할 수 있는 모든 부서를 나열합니다. |
+> | 작업 | Microsoft.Billing/departments/read | 사용자가 액세스할 수 있는 모든 부서를 나열합니다. |
 > | Action | Microsoft.Billing/invoices/read | 사용 가능한 청구서를 나열합니다. |
 > | 작업 | Microsoft.Billing/register/action | Microsoft.Billing 리소스 공급자에 구독을 등록합니다. |
 
@@ -666,41 +666,41 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Blockchain/blockchainMembers/delete | 기존 Blockchain 멤버를 삭제 합니다. |
+> | 작업 | Microsoft.Blockchain/blockchainMembers/delete | 기존 Blockchain 멤버를 삭제 합니다. |
 > | 작업 | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | 기존 Blockchain 구성원 API 키를 가져오거나 나열 합니다. |
 > | 작업 | Microsoft.Blockchain/blockchainMembers/read | 기존 Blockchain 멤버를 가져오거나 나열 합니다. |
 > | DataAction | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Blockchain 구성원 트랜잭션 노드에 연결 합니다. |
 > | 작업 | Microsoft.Blockchain/blockchainMembers/transactionNodes/delete | 기존 Blockchain 구성원 트랜잭션 노드를 삭제 합니다. |
 > | 작업 | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | 기존 Blockchain 구성원 트랜잭션 노드 API 키를 가져오거나 나열 합니다. |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 기존 Blockchain 구성원 트랜잭션 노드를 가져오거나 나열 합니다. |
-> | 작업 | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Blockchain 구성원 트랜잭션 노드를 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.Blockchain/blockchainMembers/write | Blockchain 멤버를 만들거나 업데이트 합니다. |
+> | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Blockchain 구성원 트랜잭션 노드를 만들거나 업데이트 합니다. |
+> | Action | Microsoft.Blockchain/blockchainMembers/write | Blockchain 멤버를 만들거나 업데이트 합니다. |
 > | Action | Microsoft.Blockchain/locations/blockchainMemberOperationResults/read | Blockchain 멤버의 작업 결과를 가져옵니다. |
 > | 작업 | Microsoft.Blockchain/locations/checkNameAvailability/action | 리소스 이름이 유효 하며 사용 되 고 있지 않은지 확인 합니다. |
 > | 작업 | Microsoft.Blockchain/operations/read | Microsoft Blockchain 리소스 공급자의 모든 작업을 나열 합니다. |
-> | 작업 | Microsoft.Blockchain/register/action | Blockchain 리소스 공급자에 대 한 구독을 등록 합니다. |
+> | Action | Microsoft.Blockchain/register/action | Blockchain 리소스 공급자에 대 한 구독을 등록 합니다. |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | 모든 청사진 아티팩트 읽기 |
-> | Action | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 아티팩트 삭제 |
+> | 작업 | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | 모든 청사진 아티팩트 읽기 |
+> | 작업 | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 아티팩트 삭제 |
 > | 작업 | Microsoft.Blueprint/blueprintAssignments/read | 모든 청사진 아티팩트 읽기 |
 > | 작업 | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Azure 청사진 서비스 사용자 개체 Id를 가져옵니다. |
 > | 작업 | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 또는 업데이트 |
 > | 작업 | Microsoft.Blueprint/blueprints/artifacts/delete | 청사진 아티팩트 삭제 |
 > | 작업 | Microsoft.Blueprint/blueprints/artifacts/read | 모든 청사진 아티팩트 읽기 |
 > | Action | Microsoft.Blueprint/blueprints/artifacts/write | 청사진 아티팩트 만들기 또는 업데이트 |
-> | 작업 | Microsoft.Blueprint/blueprints/delete | 청사진 삭제 |
-> | 작업 | Microsoft.Blueprint/blueprints/read | 청사진 읽기 |
+> | Action | Microsoft.Blueprint/blueprints/delete | 청사진 삭제 |
+> | Action | Microsoft.Blueprint/blueprints/read | 청사진 읽기 |
 > | 작업 | Microsoft.Blueprint/blueprints/versions/artifacts/read | 모든 청사진 아티팩트 읽기 |
-> | Action | Microsoft.Blueprint/blueprints/versions/delete | 청사진 삭제 |
+> | 작업 | Microsoft.Blueprint/blueprints/versions/delete | 청사진 삭제 |
 > | Action | Microsoft.Blueprint/blueprints/versions/read | 청사진 읽기 |
-> | 작업 | Microsoft.Blueprint/blueprints/versions/write | 청사진 만들기 또는 업데이트 |
+> | Action | Microsoft.Blueprint/blueprints/versions/write | 청사진 만들기 또는 업데이트 |
 > | 작업 | Microsoft.Blueprint/blueprints/write | 청사진 만들기 또는 업데이트 |
-> | 작업 | Microsoft.Blueprint/register/action | Azure 청사진 리소스 공급자 등록 |
+> | Action | Microsoft.Blueprint/register/action | Azure 청사진 리소스 공급자 등록 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -749,7 +749,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Cache/redis/stop/action | 캐시 인스턴스를 중지합니다. |
 > | 액션(Action) | Microsoft.Cache/redis/write | 관리 콘솔에서 Redis Cache의 설정 및 구성을 수정합니다. |
 > | 액션(Action) | Microsoft.Cache/register/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에 등록합니다. |
-> | 작업 | Microsoft.Cache/unregister/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에서 등록 취소합니다. |
+> | Action | Microsoft.Cache/unregister/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에서 등록 취소합니다. |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -758,14 +758,14 @@ ms.locfileid: "67868626"
 > | --- | --- | --- |
 > | 작업 | Microsoft.Capacity/appliedreservations/read | 모든 예약을 읽습니다. |
 > | Action | Microsoft.Capacity/calculateexchange/action | 새 구매의 교환 금액 및 가격을 계산 하 고 정책 오류를 반환 합니다. |
-> | Action | Microsoft.Capacity/calculateprice/action | 예약 가격을 계산합니다. |
+> | 작업 | Microsoft.Capacity/calculateprice/action | 예약 가격을 계산합니다. |
 > | 작업 | Microsoft.Capacity/catalogs/read | 예약 카탈로그를 읽습니다. |
 > | 작업 | Microsoft.Capacity/checkoffers/action | 구독 제안을 확인합니다. |
 > | 작업 | Microsoft.Capacity/checkscopes/action | 구독을 확인합니다. |
 > | 작업 | Microsoft.Capacity/commercialreservationorders/read | 테넌트에서 작성된 예약 주문을 가져옵니다. |
-> | 작업 | Microsoft.Capacity/exchange/action | 모든 예약 교환 |
+> | Action | Microsoft.Capacity/exchange/action | 모든 예약 교환 |
 > | 작업 | Microsoft.Capacity/operations/read | 작업을 읽습니다. |
-> | Action | Microsoft.Capacity/register/action | 용량 리소스 공급자를 등록하고 용량 리소스 만들기를 사용하도록 설정합니다. |
+> | 작업 | Microsoft.Capacity/register/action | 용량 리소스 공급자를 등록하고 용량 리소스 만들기를 사용하도록 설정합니다. |
 > | 액션(Action) | Microsoft.Capacity/reservationorders/action | 예약을 업데이트합니다. |
 > | 작업 | Microsoft.Capacity/reservationorders/availablescopes/action | 사용 가능한 범위를 찾습니다. |
 > | 작업 | Microsoft.Capacity/reservationorders/calculaterefund/action | 새 구매의 환불 금액 및 가격을 계산 하 고 정책 오류를 반환 합니다. |
@@ -777,12 +777,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Capacity/reservationorders/reservations/read | 모든 예약을 읽습니다. |
 > | 액션(Action) | Microsoft.Capacity/reservationorders/reservations/revisions/read | 모든 예약을 읽습니다. |
 > | 액션(Action) | Microsoft.Capacity/reservationorders/reservations/write | 예약을 만듭니다. |
-> | Action | Microsoft.Capacity/reservationorders/return/action | 예약을 반환합니다. |
-> | 작업 | Microsoft.Capacity/reservationorders/split/action | 예약을 분할합니다. |
-> | 작업 | Microsoft.Capacity/reservationorders/swap/action | 예약을 교환합니다. |
+> | 작업 | Microsoft.Capacity/reservationorders/return/action | 예약을 반환합니다. |
+> | Action | Microsoft.Capacity/reservationorders/split/action | 예약을 분할합니다. |
+> | Action | Microsoft.Capacity/reservationorders/swap/action | 예약을 교환합니다. |
 > | 작업 | Microsoft.Capacity/reservationorders/write | 예약을 만듭니다. |
-> | Action | Microsoft.Capacity/tenants/register/action | 테넌트를 등록합니다. |
-> | 작업 | Microsoft.Capacity/unregister/action | 테넌트를 등록 취소합니다. |
+> | 작업 | Microsoft.Capacity/tenants/register/action | 테넌트를 등록합니다. |
+> | Action | Microsoft.Capacity/unregister/action | 테넌트를 등록 취소합니다. |
 > | Action | Microsoft.Capacity/validatereservationorder/action | 예약의 유효성을 검사합니다. |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -885,13 +885,13 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/capabilities/read | 도메인 이름 기능을 표시합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/delete | 리소스에 대한 도메인 이름을 제거합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/deploymentslots/read | 배포 슬롯을 표시합니다. |
-> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | 도메인 이름의 배포 슬롯의 역할 가져오기 |
-> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | 도메인 이름의 배포 슬롯의 역할에 대한 역할 인스턴스 가져오기 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | 배포 슬롯 상태를 가져옵니다. |
+> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | 도메인 이름의 배포 슬롯에서 역할 가져오기 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | 도메인 이름의 배포 슬롯에서 역할에 대한 역할 인스턴스 가져오기 |
+> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | 배포 슬롯 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | 배포 슬롯 상태를 추가합니다. |
-> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | 도메인 이름의 배포 슬롯에 대한 업그레이드 도메인 가져오기 |
-> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | 도메인 이름의 배포 슬롯에 대한 업그레이드 도메인 업데이트 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/write | 배포를 만들거나 업데이트합니다. |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | 도메인 이름의 배포 슬롯에 대한 업그레이드 도메인 가져오기 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | 도메인 이름의 배포 슬롯에 대한 업그레이드 도메인 업데이트 |
+> | 작업 | Microsoft.ClassicCompute/domainNames/deploymentslots/write | 배포를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/extensions/delete | 도메인 이름 확장을 제거합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | 도메인 이름 확장에 대한 작업 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/domainNames/extensions/read | 도메인 이름 확장을 반환합니다. |
@@ -1046,7 +1046,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | 가상 네트워크 게이트웨이 패키지를 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/read | 가상 네트워크 게이트웨이를 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | 가상 네트워크 게이트웨이에 대한 진단을 시작합니다. |
-> | 작업 | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | 가상 네트워크 게이트웨이에 대한 진단을 중지합니다. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | 가상 네트워크 게이트웨이에 대한 진단을 중지합니다. |
 > | 작업 | Microsoft.ClassicNetwork/virtualNetworks/gateways/write | 가상 네트워크 게이트웨이를 추가합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/join/action | 가상 네트워크를 조인합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | 가상 네트워크의 작업 상태를 읽습니다. |
@@ -1131,7 +1131,7 @@ ms.locfileid: "67868626"
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | 이 인터페이스를 사용 하 여 텍스트 인식 작업의 결과를 가져옵니다. 텍스트 인식 인터페이스를 사용 하는 경우 응답에는 "작업-위치" 라는 필드가 포함 됩니다. "작업 위치" 필드에는 가져오기 텍스트 인식 작업 결과 작업에 사용 해야 하는 URL이 포함 되어 있습니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | 이 작업을 수행 하면 제공 된 이미지의 내용과 관련 된 단어 또는 태그 목록이 생성 됩니다.<br>Computer Vision API는 이미지에 있는 개체, 거실 생물, 장면 또는 작업을 기반으로 태그를 반환할 수 있습니다.<br>범주와 달리 태그는 계층적 분류 시스템에 따라 구성 되지 않지만 이미지 내용에 해당 합니다.<br>태그는 모호성을 방지 하거나 컨텍스트를 제공 하는 힌트를 포함할 수 있습니다. 예를 들어 "cello" 태그는 "음악 계측" 힌트와 함께 사용 될 수 있습니다.<br>모든 태그는 영어로 되어 있습니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | 이 인터페이스는 인식 텍스트 작업 결과를 가져오는 데 사용 됩니다. 이 인터페이스의 URL은 텍스트 인식 인터페이스에서 반환 된 <b>"작업 위치"</b> 필드에서 검색 해야 합니다. |
-> | 작업 | Microsoft.CognitiveServices/accounts/delete | API 계정을 삭제합니다. |
+> | Action | Microsoft.CognitiveServices/accounts/delete | API 계정을 삭제합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/detect/action | 이미지에서 인간 얼굴을 감지 하 고, 얼굴 사각형을 반환 하 고, 선택적으로 faceIds, 랜드마크 및 특성을 사용 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | 지정 된 얼굴 목록을 삭제 합니다. 얼굴 목록에서 관련 된 얼굴 이미지도 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | FaceListId 및 persisitedFaceId를 지정 하 여 얼굴 목록에서 얼굴을 삭제 합니다. 관련 된 얼굴 이미지도 삭제 됩니다. |
@@ -1174,22 +1174,22 @@ ms.locfileid: "67868626"
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | 사용자 그룹 학습 상태를 완료 또는 계속 진행 중으로 확인 합니다. PersonGroup 교육은 트리거된 비동기 작업입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | 지정 된 personGroupId, 이름 및 사용자가 제공한 userData를 사용 하 여 새 person 그룹을 만듭니다. 기존 사용자 그룹의 이름 및 userData를 업데이트 합니다. 요청 본문에 없는 속성은 변경 되지 않은 상태로 유지 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | 두 얼굴이 동일한 사람에 게 속하는지 또는 한 얼굴이 사람에 게 속하는지 여부를 확인 합니다. |
-> | Action | Microsoft.CognitiveServices/accounts/listKeys/action | 키를 나열합니다. |
+> | 작업 | Microsoft.CognitiveServices/accounts/listKeys/action | 키 나열 |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | 지정 된 쿼리에 대 한 게시 된 끝점 예측을 가져옵니다. |
 > | 작업 | Microsoft.CognitiveServices/accounts/read | API 계정을 읽습니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/accounts/regenerateKey/action | 키를 다시 생성합니다. |
-> | 액션(Action) | Microsoft.CognitiveServices/accounts/skus/read | 기존 리소스에 대한 사용 가능한 SKU를 읽습니다. |
+> | 액션(Action) | Microsoft.CognitiveServices/accounts/skus/read | 기존 리소스에 대해 사용 가능한 SKU를 읽습니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | API는 지정 된 문서에서 알려진 엔터티와 일반적인 명명 된 엔터티 (\"사람\", \"위치\", \"조직\" 등)의 목록을 반환 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | 이 API는 입력 텍스트의 핵심 요지를 나타내는 문자열 목록을 반환합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | 이 API는 검색된 언어 및 0~1 사이의 숫자 점수를 추출합니다. 점수가 1에 가까울수록 식별된 언어가 true라는 100% 확실성을 나타냅니다. 총 120개의 언어가 지원됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | 이 API는 0~1 사이의 숫자 점수를 반환합니다.<br>1에 가까운 점수는 긍정적인 정서를 나타내고, 0에 가까운 점수는 부정적인 정서를 나타냅니다.<br>점수 0.5은 감정 (예:<br>factoid 문). |
-> | Action | Microsoft.CognitiveServices/accounts/usages/read | 기존 리소스에 대한 할당량 사용량을 가져옵니다. |
+> | 작업 | Microsoft.CognitiveServices/accounts/usages/read | 기존 리소스에 대한 할당량 사용량을 가져옵니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/accounts/write | API 계정을 씁니다. |
-> | 작업 | Microsoft.CognitiveServices/checkDomainAvailability/action | 구독에 대해 사용 가능한 SKU를 읽습니다. |
-> | 작업 | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 구독에 대해 사용 가능한 SKU를 읽습니다. |
+> | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | 구독에 대해 사용 가능한 SKU를 읽습니다. |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 구독에 대해 사용 가능한 SKU를 읽습니다. |
 > | Action | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | VirtualNetworks 또는 서브넷을 삭제 하는 Microsoft 네트워크의 알림입니다. |
-> | 작업 | Microsoft.CognitiveServices/Operations/read | 사용 가능한 모든 작업을 나열합니다. |
-> | 액션(Action) | Microsoft.CognitiveServices/register/action | Cognitive Services에 대한 구독을 등록합니다. |
+> | Action | Microsoft.CognitiveServices/Operations/read | 사용 가능한 모든 작업을 나열합니다. |
+> | 액션(Action) | Microsoft.CognitiveServices/register/action | Cognitive Services에 대한 구독 등록 |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -1223,9 +1223,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Compute/galleries/read | 갤러리의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/galleries/write | 새 갤러리를 만들거나 기존 갤러리를 업데이트합니다. |
 > | 작업 | Microsoft.Compute/hostGroups/delete | 호스트 그룹을 삭제 합니다. |
-> | Action | Microsoft.Compute/hostGroups/read | 호스트 그룹의 속성을 가져옵니다. |
-> | Action | Microsoft.Compute/hostGroups/write | 새 호스트 그룹을 만들거나 기존 호스트 그룹을 업데이트 합니다. |
-> | Action | Microsoft.Compute/hosts/delete | 호스트를 삭제 합니다. |
+> | 작업 | Microsoft.Compute/hostGroups/read | 호스트 그룹의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Compute/hostGroups/write | 새 호스트 그룹을 만들거나 기존 호스트 그룹을 업데이트 합니다. |
+> | 작업 | Microsoft.Compute/hosts/delete | 호스트를 삭제 합니다. |
 > | 작업 | Microsoft.Compute/hosts/read | 호스트의 속성을 가져옵니다. |
 > | Action | Microsoft.Compute/hosts/write | 새 호스트를 만들거나 기존 호스트를 업데이트 합니다. |
 > | 작업 | Microsoft.Compute/images/delete | 이미지를 삭제합니다. |
@@ -1233,9 +1233,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Compute/images/write | 새 이미지를 만들거나 기존 이미지를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Compute/locations/capsOperations/read | 비동기 Caps 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/locations/diskOperations/read | 비동기 디스크 작업의 상태를 가져옵니다. |
-> | 작업 | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 제한 진단을 지원하기 위해 시간 간격별로 총 요청을 표시할 로그를 만듭니다. |
-> | 작업 | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | ResourceName, OperationName 또는 적용된 제한 정책에서 그룹화한 제한된 요청의 집계를 표시할 로그를 만듭니다. |
-> | 작업 | Microsoft.Compute/locations/operations/read | 비동기 작업의 상태를 가져옵니다. |
+> | Action | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 제한 진단에 도움이 되도록 시간 간격별 총 요청 수를 표시하는 로그를 만듭니다. |
+> | 작업 | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | ResourceName, OperationName 또는 적용된 제한 정책으로 그룹화된 제한된 요청 집계를 표시하는 로그를 만듭니다. |
+> | Action | Microsoft.Compute/locations/operations/read | 비동기 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | 플랫폼 이미지 제품의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | 플랫폼 이미지 Sku의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/versions/read | 플랫폼 이미지 버전의 속성을 가져옵니다. |
@@ -1246,10 +1246,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Compute/locations/usages/read | 한 위치에 있는 구독의 Compute 리소스에 대한 서비스 제한 및 현재 사용 수량을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/locations/vmSizes/read | 한 위치에서 사용 가능한 가상 머신 크기를 나열합니다. |
 > | 액션(Action) | Microsoft.Compute/operations/read | Microsoft.Compute 리소스 공급자에서 사용 가능한 작업을 나열합니다. |
-> | 작업 | Microsoft.Compute/proximityPlacementGroups/delete | 근접 배치 그룹을 삭제 합니다. |
-> | Action | Microsoft.Compute/proximityPlacementGroups/read | 근접 배치 그룹의 속성을 가져옵니다. |
-> | 작업 | Microsoft.Compute/proximityPlacementGroups/write | 새 근접 배치 그룹을 만들거나 기존 항목을 업데이트 합니다. |
-> | Action | Microsoft.Compute/register/action | Microsoft.Compute 리소스 공급자에 구독을 등록합니다. |
+> | Action | Microsoft.Compute/proximityPlacementGroups/delete | 근접 배치 그룹을 삭제합니다. |
+> | 작업 | Microsoft.Compute/proximityPlacementGroups/read | 근접 배치 그룹의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Compute/proximityPlacementGroups/write | 새 근접 배치 그룹을 만들거나 기존 근접 배치 그룹을 업데이트합니다. |
+> | 작업 | Microsoft.Compute/register/action | Microsoft.Compute 리소스 공급자에 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.Compute/restorePointCollections/delete | 복원 지점 컬렉션 및 포함된 복원 지점을 삭제합니다. |
 > | 액션(Action) | Microsoft.Compute/restorePointCollections/read | 복원 지점 컬렉션의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/restorePointCollections/restorePoints/delete | 복원 지점을 삭제합니다. |
@@ -1270,7 +1270,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Compute/snapshots/endGetAccess/action | 스냅샷의 SAS URI를 취소합니다. |
 > | 액션(Action) | Microsoft.Compute/snapshots/read | 스냅샷의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/snapshots/write | 새 스냅샷을 만들거나 기존 스냅샷을 업데이트합니다. |
-> | Action | Microsoft.Compute/unregister/action | Microsoft. Compute 리소스 공급자를 사용 하 여 구독 등록을 취소 합니다. |
+> | 작업 | Microsoft.Compute/unregister/action | Microsoft. Compute 리소스 공급자를 사용 하 여 구독 등록을 취소 합니다. |
 > | Action | Microsoft.Compute/virtualMachines/capture/action | 가상 하드 디스크를 복사하여 가상 머신을 캡처하고 유사한 가상 머신을 만드는 데 사용할 수 있는 템플릿을 생성합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | 가상 머신의 blob 기반 디스크를 관리되는 디스크로 변환합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/deallocate/action | 가상 머신을 끄고 Compute 리소스를 해제합니다. |
@@ -1284,7 +1284,7 @@ ms.locfileid: "67868626"
 > | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 가상 머신에 Windows 관리자 또는 Linux 루트 사용자 권한으로 로그인합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/performMaintenance/action | VM에서 유지 관리 작업을 수행합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/powerOff/action | 가상 머신을 끕니다. 가상 컴퓨터에는 요금이 계속 청구됩니다. |
-> | Action | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/redeploy/action | 가상 머신을 다싯 배포합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/reimage/action | 차이점 보관용 디스크를 사용하는 가상 머신을 이미지로 다시 설치합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachines/restart/action | 가상 머신을 다시 시작합니다. |
@@ -1334,7 +1334,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | VM 확장 집합에서 Virtual Machine 인스턴스를 시작합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | VM 확장 집합에 있는 가상 머신의 속성을 업데이트합니다. |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/vmSizes/read | 가상 머신 확장 집합에서 가상 머신을 만들거나 업데이트 하는 데 사용할 수 있는 크기를 나열 합니다. |
-> | 작업 | Microsoft.Compute/virtualMachineScaleSets/Write | 새 가상 머신 확장 집합을 만들거나 기존 가상 머신 확장 집합을 업데이트합니다. |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/Write | 새 가상 머신 확장 집합을 만들거나 기존 가상 머신 확장 집합을 업데이트합니다. |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1345,17 +1345,17 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.Consumption/budgets/delete | 구독 또는 관리 그룹별로 예산을 삭제합니다. |
 > | Action | Microsoft.Consumption/budgets/read | 구독 또는 관리 그룹별로 예산을 나열합니다. |
 > | 액션(Action) | Microsoft.Consumption/budgets/write | 구독 또는 관리 그룹별로 예산을 만들고 업데이트합니다. |
-> | 작업 | Microsoft.Consumption/charges/read | 요금을 나열합니다. |
-> | Action | Microsoft.Consumption/credits/read | 크레딧을 나열합니다. |
+> | Action | Microsoft.Consumption/charges/read | 요금을 나열합니다. |
+> | 작업 | Microsoft.Consumption/credits/read | 크레딧을 나열합니다. |
 > | 작업 | Microsoft.Consumption/events/read | 이벤트를 나열합니다. |
 > | 작업 | Microsoft.Consumption/forecasts/read | 예측을 나열합니다. |
 > | 작업 | Microsoft.Consumption/lots/read | lots를 나열합니다. |
-> | Action | Microsoft.Consumption/marketplaces/read | EA 및 WebDirect 구독의 범위에 대한 마켓플레이스 리소스 사용 정보를 나열합니다. |
-> | 작업 | Microsoft.Consumption/operations/read | 작업 결과를 나열합니다. |
+> | 작업 | Microsoft.Consumption/marketplaces/read | EA 및 WebDirect 구독의 범위에 대한 마켓플레이스 리소스 사용 정보를 나열합니다. |
+> | Action | Microsoft.Consumption/operations/read | 작업 결과를 나열합니다. |
 > | Action | Microsoft.Consumption/operations/read | Microsoft.Consumption 리소스 공급자가 지원하는 모든 작업을 나열합니다. |
 > | 작업 | Microsoft.Consumption/operationstatus/read | 작업 상태를 나열합니다. |
 > | 작업 | Microsoft.Consumption/pricesheets/read | 구독 또는 관리 그룹의 가격표 데이터를 나열합니다. |
-> | 작업 | Microsoft.Consumption/register/action | 소비 RP에 등록합니다. |
+> | Action | Microsoft.Consumption/register/action | 소비 RP에 등록합니다. |
 > | 작업 | Microsoft.Consumption/reservationDetails/read | 예약된 인스턴스의 사용률 세부 정보를 예약 순서 또는 관리 그룹별로 나열합니다. 세부 정보 데이터는 일별 인스턴스 수준입니다. |
 > | 액션(Action) | Microsoft.Consumption/reservationRecommendations/read | 구독의 예약 인스턴스에 대한 단일 또는 공유 권장 사항을 나열합니다. |
 > | 액션(Action) | Microsoft.Consumption/reservationSummaries/read | 예약된 인스턴스의 사용률 요약 정보를 예약 순서 또는 관리 그룹별로 나열합니다. 요약 데이터는 월별 또는 일별 수준입니다. |
@@ -1371,7 +1371,7 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft.ContainerInstance/containerGroups/containers/exec/action | 특정 컨테이너에 실행합니다. |
+> | Action | Microsoft.ContainerInstance/containerGroups/containers/exec/action | 특정 컨테이너에 실행합니다. |
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/logs/read | 특정 컨테이너에 대한 로그를 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/delete | 특정 컨테이너 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | 컨테이너 그룹에 대한 진단 설정을 가져옵니다. |
@@ -1380,12 +1380,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/read | 모든 컨테이너 그룹을 가져옵니다. |
 > | 작업 | Microsoft.ContainerInstance/containerGroups/restart/action | 특정 컨테이너 그룹을 다시 시작합니다. |
 > | 작업 | Microsoft.ContainerInstance/containerGroups/start/action | 특정 컨테이너 그룹을 시작합니다. |
-> | 작업 | Microsoft.ContainerInstance/containerGroups/stop/action | 특정 컨테이너 그룹을 중지합니다. 계산 리소스 할당이 취소되고 청구가 중지됩니다. |
+> | Action | Microsoft.ContainerInstance/containerGroups/stop/action | 특정 컨테이너 그룹을 중지합니다. 계산 리소스 할당이 취소되고 청구가 중지됩니다. |
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/write | 특정 컨테이너 그룹을 만들거나 업데이트합니다. |
-> | Action | Microsoft.ContainerInstance/locations/cachedImages/read | Azure 지역의 구독에 대해 캐시된 이미지를 가져옵니다. |
-> | 작업 | Microsoft.ContainerInstance/locations/capabilities/read | Azure 지역에 대한 기능을 가져옵니다. |
+> | 작업 | Microsoft.ContainerInstance/locations/cachedImages/read | Azure 지역의 구독에 대해 캐시된 이미지를 가져옵니다. |
+> | Action | Microsoft.ContainerInstance/locations/capabilities/read | Azure 지역에 대한 기능을 가져옵니다. |
 > | 작업 | Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | 가상 네트워크 또는 서브넷이 삭제됨을 Microsoft.ContainerInstance에 알립니다. |
-> | Action | Microsoft.ContainerInstance/locations/usages/read | 특정 Azure 지역의 사용량을 가져옵니다. |
+> | 작업 | Microsoft.ContainerInstance/locations/usages/read | 특정 Azure 지역의 사용량을 가져옵니다. |
 > | 작업 | Microsoft.ContainerInstance/register/action | 컨테이너 인스턴스 리소스 공급자에 대한 구독을 등록하고 컨테이너 그룹을 만들 수 있도록 합니다. |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
@@ -1417,14 +1417,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/eventGridFilters/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 Event Grid 필터를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | 사용자가 원본을 업로드할 수 있는 업로드 위치를 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/importImage/action | 지정된 매개 변수를 사용하여 이미지를 컨테이너 레지스트리에 가져옵니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | 컨테이너 레지스트리에 대한 원본 업로드 URL 위치를 가져옵니다. |
+> | Action | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | 컨테이너 레지스트리에 대한 원본 업로드 URL 위치를 가져옵니다. |
 > | 작업 | Microsoft.ContainerRegistry/registries/listCredentials/action | 지정된 컨테이너 레지스트리에 대한 로그인 자격 증명을 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/listPolicies/read | 지정된 컨테이너 레지스트리에 대한 정책을 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/listUsages/read | 지정된 컨테이너 레지스트리에 대한 할당량 사용량을 나열합니다. |
 > | 작업 | Microsoft.ContainerRegistry/registries/metadata/read | 컨테이너 레지스트리에 대 한 특정 리포지토리의 메타 데이터를 가져옵니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/metadata/write | 컨테이너 레지스트리에 대 한 리포지토리의 메타 데이터를 업데이트 합니다. |
-> | Action | Microsoft.ContainerRegistry/registries/operationStatuses/read | 레지스트리 비동기 작업 상태를 가져옵니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
+> | Action | Microsoft.ContainerRegistry/registries/metadata/write | 컨테이너 레지스트리에 대 한 리포지토리의 메타 데이터를 업데이트 합니다. |
+> | 작업 | Microsoft.ContainerRegistry/registries/operationStatuses/read | 레지스트리 비동기 작업 상태를 가져옵니다. |
+> | Action | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
@@ -1436,15 +1436,15 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/replications/read | 지정된 복제 속성을 가져오거나 지정된 컨테이너 레지스트리의 모든 복제를 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/replications/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 복제를 만들거나 업데이트합니다. |
 > | Action | Microsoft.ContainerRegistry/registries/runs/cancel/action | 기존 실행을 취소합니다. |
-> | Action | Microsoft.ContainerRegistry/registries/runs/listLogSasUrl/action | 실행을 위한 로그 SAS URL을 가져옵니다. |
+> | 작업 | Microsoft.ContainerRegistry/registries/runs/listLogSasUrl/action | 실행을 위한 로그 SAS URL을 가져옵니다. |
 > | Action | Microsoft.ContainerRegistry/registries/runs/read | 컨테이너 레지스트리 또는 목록 실행에 대한 실행 속성을 가져옵니다. |
 > | 작업 | Microsoft.ContainerRegistry/registries/runs/write | 실행을 업데이트합니다. |
 > | Action | Microsoft.ContainerRegistry/registries/scheduleRun/action | 컨테이너 레지스트리에 대한 실행을 예약합니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/tasks/delete | 컨테이너 레지스트리에 대한 작업을 삭제합니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/tasks/listDetails/action | 컨테이너 레지스트리에 대한 작업의 모든 세부 정보를 나열합니다. |
+> | Action | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
+> | Action | Microsoft.ContainerRegistry/registries/tasks/delete | 컨테이너 레지스트리에 대한 작업을 삭제합니다. |
+> | Action | Microsoft.ContainerRegistry/registries/tasks/listDetails/action | 컨테이너 레지스트리에 대한 작업의 모든 세부 정보를 나열합니다. |
 > | 작업 | Microsoft.ContainerRegistry/registries/tasks/read | 컨테이너 레지스트리에 대한 작업을 가져오거나 모든 작업을 나열합니다. |
-> | 작업 | Microsoft.ContainerRegistry/registries/tasks/write | 컨테이너 레지스트리에 대한 작업을 만들거나 업데이트합니다. |
+> | Action | Microsoft.ContainerRegistry/registries/tasks/write | 컨테이너 레지스트리에 대한 작업을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.ContainerRegistry/registries/updatePolicies/write | 지정된 컨테이너 레지스트리에 대한 정책을 업데이트합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/webhooks/delete | 컨테이너 레지스트리에서 웹후크를 삭제합니다. |
 > | 액션(Action) | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | 웹후크에 대한 서비스 URI 및 사용자 지정 헤더의 구성을 가져옵니다. |
@@ -1468,24 +1468,24 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ContainerService/locations/orchestrators/read | 지원되는 오케스트레이터를 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | 자격 증명 나열을 사용하여 역할 이름별로 관리되는 클러스터 액세스 프로필을 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerService/managedClusters/accessProfiles/read | 역할 이름별로 관리되는 클러스터 액세스 프로필을 가져옵니다. |
-> | 작업 | Microsoft.ContainerService/managedClusters/agentPools/delete | 에이전트 풀을 삭제 합니다. |
+> | Action | Microsoft.ContainerService/managedClusters/agentPools/delete | 에이전트 풀을 삭제 합니다. |
 > | Action | Microsoft.ContainerService/managedClusters/agentPools/read | 에이전트 풀을 가져옵니다. |
-> | Action | Microsoft.ContainerService/managedClusters/agentPools/write | 새 에이전트 풀을 만들거나 기존 에이전트 풀을 업데이트 합니다. |
+> | 작업 | Microsoft.ContainerService/managedClusters/agentPools/write | 새 에이전트 풀을 만들거나 기존 에이전트 풀을 업데이트 합니다. |
 > | Action | Microsoft.ContainerService/managedClusters/delete | 관리되는 클러스터를 삭제합니다. |
-> | Action | ContainerService/managedClusters/감지기/read | 관리 되는 클러스터 탐지기 가져오기 |
+> | 작업 | ContainerService/managedClusters/감지기/read | 관리 되는 클러스터 탐지기 가져오기 |
 > | 작업 | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | 작업 | Microsoft.ContainerService/managedClusters/read | 관리되는 클러스터를 가져옵니다. |
-> | 작업 | Microsoft.ContainerService/managedClusters/resetAADProfile/action | 관리형 클러스터의 AAD 프로필을 다시 설정합니다. |
-> | Action | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | 관리형 클러스터의 서비스 주체 프로필을 다시 설정합니다. |
+> | Action | Microsoft.ContainerService/managedClusters/resetAADProfile/action | 관리형 클러스터의 AAD 프로필을 다시 설정합니다. |
+> | 작업 | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | 관리형 클러스터의 서비스 주체 프로필을 다시 설정합니다. |
 > | 작업 | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | 클러스터의 업그레이드 프로필을 가져옵니다. |
 > | 액션(Action) | Microsoft.ContainerService/managedClusters/write | 새 관리되는 클러스터를 만들거나 기존 관리되는 클러스터를 업데이트합니다. |
-> | Action | Microsoft.ContainerService/openShiftClusters/delete | 열린 Shift 클러스터 삭제 |
-> | Action | Microsoft.ContainerService/openShiftClusters/read | 열린 Shift 클러스터 가져오기 |
-> | Action | Microsoft.ContainerService/openShiftClusters/write | 새 Open Shift 클러스터를 만들거나 기존 Open Shift 클러스터를 업데이트합니다. |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | 열린 Shift 관리 클러스터 삭제 |
-> | 작업 | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift 관리 되는 클러스터 가져오기 |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/write | 새 Open Shift 관리형 클러스터를 만들거나 기존 Open Shift 관리 클러스터를 업데이트합니다. |
+> | 작업 | Microsoft.ContainerService/openShiftClusters/delete | 열린 Shift 클러스터 삭제 |
+> | 작업 | Microsoft.ContainerService/openShiftClusters/read | 열린 Shift 클러스터 가져오기 |
+> | 작업 | Microsoft.ContainerService/openShiftClusters/write | 새 Open Shift 클러스터를 만들거나 기존 Open Shift 클러스터를 업데이트합니다. |
+> | 작업 | Microsoft.ContainerService/openShiftManagedClusters/delete | 열린 Shift 관리 클러스터 삭제 |
+> | Action | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift 관리 되는 클러스터 가져오기 |
+> | 작업 | Microsoft.ContainerService/openShiftManagedClusters/write | 새 Open Shift 관리형 클러스터를 만들거나 기존 Open Shift 관리 클러스터를 업데이트합니다. |
 > | 작업 | Microsoft.ContainerService/operations/read | Microsoft.ContainerService 리소스 공급자에서 사용 가능한 작업을 나열합니다. |
 > | 액션(Action) | Microsoft.ContainerService/register/action | Microsoft.ContainerService 리소스 공급자에 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.ContainerService/unregister/action | Microsoft.ContainerService 리소스 공급자에 구독을 등록 취소합니다. |
@@ -1510,25 +1510,25 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.CostManagement/cloudConnectors/delete | 지정 된 cloudConnector를 삭제 합니다. |
-> | Action | Microsoft.CostManagement/cloudConnectors/read | 인증 된 사용자에 대 한 cloudConnectors를 나열 합니다. |
-> | 작업 | Microsoft.CostManagement/cloudConnectors/write | 지정 된 cloudConnector를 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.CostManagement/cloudConnectors/delete | 지정 된 cloudConnector를 삭제 합니다. |
+> | 작업 | Microsoft.CostManagement/cloudConnectors/read | 인증 된 사용자에 대 한 cloudConnectors를 나열 합니다. |
+> | Action | Microsoft.CostManagement/cloudConnectors/write | 지정 된 cloudConnector를 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.CostManagement/dimensions/read | 범위별 지원되는 모든 차원을 나열합니다. |
 > | 작업 | Microsoft.CostManagement/exports/action | 지정된 내보내기를 실행합니다. |
-> | 작업 | Microsoft.CostManagement/exports/delete | 지정된 내보내기를 삭제합니다. |
+> | Action | Microsoft.CostManagement/exports/delete | 지정된 내보내기를 삭제합니다. |
 > | 작업 | Microsoft.CostManagement/exports/read | 범위에 따라 내보내기를 나열합니다. |
 > | 작업 | Microsoft.CostManagement/exports/run/action | 내보내기를 실행 합니다. |
-> | 작업 | Microsoft.CostManagement/exports/write | 지정된 내보내기를 만들거나 업데이트합니다. |
+> | Action | Microsoft.CostManagement/exports/write | 지정된 내보내기를 만들거나 업데이트합니다. |
 > | Action | Microsoft.CostManagement/externalBillingAccounts/externalSubscriptions/read | 인증 된 사용자에 대 한 externalBillingAccount 내에 externalSubscriptions을 나열 합니다. |
 > | 작업 | Microsoft.CostManagement/externalBillingAccounts/read | 인증 된 사용자에 대 한 externalBillingAccounts를 나열 합니다. |
-> | 작업 | Microsoft.CostManagement/externalSubscriptions/read | 인증 된 사용자에 대 한 externalSubscriptions을 나열 합니다. |
+> | Action | Microsoft.CostManagement/externalSubscriptions/read | 인증 된 사용자에 대 한 externalSubscriptions을 나열 합니다. |
 > | 작업 | Microsoft.CostManagement/externalSubscriptions/write | ExternalSubscription의 연결 된 관리 그룹 업데이트 |
 > | 작업 | Microsoft.CostManagement/query/action | 범위별 사용 현황 데이터를 쿼리합니다. |
-> | 작업 | Microsoft.CostManagement/query/read | 범위별 사용 현황 데이터를 쿼리합니다. |
+> | Action | Microsoft.CostManagement/query/read | 범위별 사용 현황 데이터를 쿼리합니다. |
 > | 작업 | Microsoft.CostManagement/register/action | 구독에의 한 CostManagement 범위에 대 한 작업을 등록 합니다. |
 > | Action | Microsoft.CostManagement/reports/action | 범위별 사용 현황 데이터에 관한 보고서를 예약합니다. |
-> | 작업 | Microsoft.CostManagement/reports/read | 범위별 사용 현황 데이터에 관한 보고서를 예약합니다. |
-> | 작업 | Microsoft.CostManagement/tenants/register/action | CostManagement의 범위에 대 한 작업을 테 넌 트에 등록 합니다. |
+> | Action | Microsoft.CostManagement/reports/read | 범위별 사용 현황 데이터에 관한 보고서를 예약합니다. |
+> | Action | Microsoft.CostManagement/tenants/register/action | CostManagement의 범위에 대 한 작업을 테 넌 트에 등록 합니다. |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
@@ -1645,74 +1645,74 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.DataBox/jobs/delete | 주문을 삭제합니다. |
 > | Action | Microsoft.DataBox/jobs/listCredentials/action | 주문과 관련된 암호화되지 않은 자격 증명을 나열합니다. |
 > | Action | Microsoft.DataBox/jobs/read | 주문을 나열하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBox/jobs/write | 주문을 만들거나 업데이트합니다. |
+> | Action | Microsoft.DataBox/jobs/write | 주문을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataBox/locations/availableSkus/action | 이 메서드는 사용할 수 있는 SKU 목록을 반환합니다. |
-> | 작업 | DataBox/위치/availableSkus/읽기 | 사용 가능한 Sku 나열 또는 가져오기 |
-> | 작업 | Microsoft.DataBox/locations/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBox/locations/validateAddress/action | 배송 주소의 유효성을 검사하고, 있는 경우, 대체 주소를 제공합니다. |
+> | Action | DataBox/위치/availableSkus/읽기 | 사용 가능한 Sku 나열 또는 가져오기 |
+> | Action | Microsoft.DataBox/locations/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
+> | Action | Microsoft.DataBox/locations/validateAddress/action | 배송 주소의 유효성을 검사하고 있는 경우 대체 주소를 제공합니다. |
 > | 작업 | DataBox/위치/validateInputs/작업 |  |
-> | Action | Microsoft.DataBox/register/action | 공급자 Microsoft.Databox를 등록합니다. |
+> | 작업 | Microsoft.DataBox/register/action | 공급자 Microsoft.Databox를 등록합니다. |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 경고를 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 경고를 나열하거나 가져오기 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 경고를 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | 대역폭 일정을 삭제 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 대역폭 일정을 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 대역폭 일정을 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | 대역폭 일정을 만들거나 업데이트 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Data Box Edge 디바이스를 삭제 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | 디바이스에서 업데이트를 다운로드 |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | 리소스 확장 정보를 검색 |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | 디바이스에서 업데이트를 다운로드 |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | 리소스 확장 정보를 검색합니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | 디바이스에 업데이트를 설치 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | 작업을 나열하거나 가져오기 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | 디바이스 네트워크 설정을 나열하거나 가져오기 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | 디바이스 네트워크 설정을 나열하거나 가져오기 |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | 작업 상태를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | 주문을 삭제 합니다. |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 주문을 나열 하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 주문을 나열 하거나 가져옵니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 주문을 나열 하거나 가져옵니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 주문을 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | 주문을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | 역할을 삭제 합니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | 역할을 삭제 합니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | 역할을 나열 하거나 가져옵니다. |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | 역할을 나열 하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | 역할을 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | 역할을 나열 하거나 가져옵니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | 역할을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | 업데이트를 검색 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | 보안 설정을 업데이트 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | 공유를 삭제 |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 공유를 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 공유를 나열하거나 가져오기 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | 클라우드의 데이터로 공유 메타 데이터를 새로 고칩니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | 클라우드의 데이터로 공유 메타 데이터를 새로 고칩니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | 공유를 만들거나 업데이트 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | 저장소 계정 자격 증명을 삭제 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | 저장소 계정 자격 증명을 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | 저장소 계정 자격 증명을 나열하거나 가져오기 |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | 저장소 계정 자격 증명을 만들거나 업데이트 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | 저장소 계정 자격 증명을 만들거나 업데이트 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | 트리거를 삭제 합니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 트리거를 나열 하거나 가져옵니다. |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 트리거를 나열 하거나 가져옵니다. |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 트리거를 나열 하거나 가져옵니다. |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 트리거를 나열 하거나 가져옵니다. |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | 트리거를 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | 업데이트 요약을 나열하거나 가져오기 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | 업데이트 요약을 나열하거나 가져오기 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | 디바이스 등록에 대한 인증서를 업로드 |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | 공유 사용자를 삭제 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | 공유 사용자를 삭제 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | 작업 결과를 나열 하거나 가져옵니다. |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 공유 사용자를 나열하거나 가져오기 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 공유 사용자를 나열하거나 가져오기 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | 공유 사용자를 만들거나 업데이트 |
-> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 디바이스를 만들거나 업데이트 |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 공유 사용자를 나열하거나 가져오기 |
+> | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | 공유 사용자를 만들거나 업데이트 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 디바이스를 만들거나 업데이트 |
 > | 작업 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 디바이스를 만들거나 업데이트 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
@@ -1720,12 +1720,12 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft.Databricks/register/action | Databricks에 등록합니다. |
-> | Action | Microsoft.Databricks/workspaces/delete | Databricks 작업 영역을 제거합니다. |
+> | Action | Microsoft.Databricks/register/action | Databricks에 등록합니다. |
+> | 작업 | Microsoft.Databricks/workspaces/delete | Databricks 작업 영역을 제거합니다. |
 > | 작업 | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Databricks 작업 영역에 사용할 수 있는 진단 설정을 구성합니다. |
-> | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | 진단 설정을 추가하거나 수정합니다. |
-> | 작업 | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Databricks 작업 영역에 사용할 수 있는 로그 정의를 가져옵니다. |
-> | 작업 | Microsoft.Databricks/workspaces/read | Databricks 작업 영역의 목록을 검색합니다. |
+> | 작업 | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | 진단 설정을 추가하거나 수정합니다. |
+> | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Databricks 작업 영역에 사용할 수 있는 로그 정의를 가져옵니다. |
+> | Action | Microsoft.Databricks/workspaces/read | Databricks 작업 영역의 목록을 검색합니다. |
 > | 작업 | Microsoft.Databricks/workspaces/write | Databricks 작업 영역을 만듭니다. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1734,15 +1734,15 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.DataCatalog/catalogs/delete | Data Catalog 리소스 공급자에 대 한 카탈로그 리소스를 삭제 합니다. |
-> | 작업 | Microsoft.DataCatalog/catalogs/read | Data Catalog 리소스 공급자에 대 한 카탈로그 리소스를 읽습니다. |
-> | 작업 | Microsoft.DataCatalog/catalogs/write | Data Catalog 리소스 공급자에 대 한 카탈로그 리소스를 작성 합니다. |
+> | Action | Microsoft.DataCatalog/catalogs/read | Data Catalog 리소스 공급자에 대 한 카탈로그 리소스를 읽습니다. |
+> | Action | Microsoft.DataCatalog/catalogs/write | Data Catalog 리소스 공급자에 대 한 카탈로그 리소스를 작성 합니다. |
 > | 작업 | Microsoft.DataCatalog/checkNameAvailability/read | Data Catalog 리소스 공급자에 대 한 카탈로그 이름 가용성을 확인 합니다. |
-> | 작업 | Microsoft.DataCatalog/datacatalogs/delete | Data Catalog 리소스 공급자에 대 한 Microsoft.datacatalog 리소스를 삭제 합니다. |
-> | 작업 | Microsoft.DataCatalog/datacatalogs/read | Data Catalog 리소스 공급자에 대 한 Microsoft.datacatalog 리소스를 읽습니다. |
+> | Action | Microsoft.DataCatalog/datacatalogs/delete | Data Catalog 리소스 공급자에 대 한 Microsoft.datacatalog 리소스를 삭제 합니다. |
+> | Action | Microsoft.DataCatalog/datacatalogs/read | Data Catalog 리소스 공급자에 대 한 Microsoft.datacatalog 리소스를 읽습니다. |
 > | Action | Microsoft.DataCatalog/datacatalogs/write | Data Catalog 리소스 공급자에 대 한 Microsoft.datacatalog 리소스를 씁니다. |
-> | 작업 | Microsoft.DataCatalog/operations/read | Data Catalog 리소스 공급자에서 사용 가능한 모든 작업을 읽습니다. |
+> | Action | Microsoft.DataCatalog/operations/read | Data Catalog 리소스 공급자에서 사용 가능한 모든 작업을 읽습니다. |
 > | 작업 | Microsoft.DataCatalog/register/action | Data Catalog 리소스 공급자에 대 한 구독 등록 |
-> | 작업 | Microsoft.DataCatalog/unregister/action | Data Catalog 리소스 공급자에 대 한 구독 등록 취소 |
+> | Action | Microsoft.DataCatalog/unregister/action | Data Catalog 리소스 공급자에 대 한 구독 등록 취소 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1776,30 +1776,30 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataFactory/datafactories/linkedServices/delete | 모든 연결된 서비스를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/linkedServices/read | 모든 연결된 서비스를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/linkedServices/write | 모든 연결된 서비스를 만들거나 업데이트합니다. |
-> | Action | Microsoft.DataFactory/datafactories/read | Data Factory를 읽습니다. |
+> | 작업 | Microsoft.DataFactory/datafactories/read | Data Factory를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/runs/loginfo/read | 로그가 포함된 Blob 컨테이너에 대한 SAS URI를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/tables/delete | 모든 데이터 세트를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/tables/read | 모든 데이터 세트를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/tables/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/write | Data Factory를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/cancelpipelinerun/action | 실행 ID로 지정된 파이프라인 실행을 취소합니다. |
-> | Action | Microsoft.DataFactory/factories/createdataflowdebugsession/action | 데이터 흐름 디버그 세션을 만듭니다. |
-> | 작업 | Microsoft.DataFactory/factories/dataflows/delete | 데이터 흐름을 삭제 합니다. |
+> | 작업 | Microsoft.DataFactory/factories/createdataflowdebugsession/action | 데이터 흐름 디버그 세션을 만듭니다. |
+> | Action | Microsoft.DataFactory/factories/dataflows/delete | 데이터 흐름을 삭제 합니다. |
 > | 작업 | Microsoft.DataFactory/factories/dataflows/read | 데이터 흐름을 읽습니다. |
-> | Action | Microsoft.DataFactory/factories/dataflows/write | 데이터 흐름 만들기 또는 업데이트 |
+> | 작업 | Microsoft.DataFactory/factories/dataflows/write | 데이터 흐름 만들기 또는 업데이트 |
 > | 작업 | Microsoft.DataFactory/factories/datasets/delete | 모든 데이터 세트를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/datasets/read | 모든 데이터 세트를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/datasets/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/delete | 데이터 팩터리를 삭제합니다. |
-> | 작업 | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | 데이터 흐름 디버그 세션을 삭제 합니다. |
+> | Action | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | 데이터 흐름 디버그 세션을 삭제 합니다. |
 > | 작업 | Microsoft.DataFactory/factories/getDataPlaneAccess/action | ADF 데이터 평면 서비스에 대한 액세스를 가져옵니다. |
-> | 작업 | Microsoft.DataFactory/factories/getDataPlaneAccess/read | ADF 데이터 평면 서비스에 대한 액세스를 읽습니다. |
+> | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/read | ADF 데이터 평면 서비스에 대한 액세스를 읽습니다. |
 > | 작업 | Microsoft.DataFactory/factories/getFeatureValue/action | 특정 위치에 대한 노출 제어 기능 값을 가져옵니다. |
 > | 작업 | Microsoft.DataFactory/factories/getFeatureValue/read | 특정 위치에 대한 노출 제어 기능 값을 읽습니다. |
 > | 작업 | Microsoft.DataFactory/factories/getGitHubAccessToken/action | GitHub 액세스를 토큰을 가져옵니다. |
-> | 작업 | Microsoft.DataFactory/factories/integrationruntimes/delete | 모든 Integration Runtime을 삭제합니다. |
+> | Action | Microsoft.DataFactory/factories/integrationruntimes/delete | 모든 Integration Runtime을 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Integration Runtime 연결 정보를 읽습니다. |
-> | 작업 | Microsoft.DataFactory/factories/integrationruntimes/getObjectMetadata/action | 지정된 Integration Runtime에 대한 SSIS Integration Runtime 메타데이터를 가져옵니다. |
+> | Action | Microsoft.DataFactory/factories/integrationruntimes/getObjectMetadata/action | 지정된 Integration Runtime에 대한 SSIS Integration Runtime 메타데이터를 가져옵니다. |
 > | 작업 | Microsoft.DataFactory/factories/integrationruntimes/getstatus/read | Integration Runtime 상태를 읽습니다. |
 > | 작업 | Microsoft.DataFactory/factories/integrationruntimes/linkedIntegrationRuntime/action | 지정된 공유 Integration Runtime에 연결된 Integration Runtime 참조를 만듭니다. |
 > | Action | Microsoft.DataFactory/factories/integrationruntimes/listauthkeys/read | 모든 Integration Runtime에 대한 인증 키를 나열합니다. |
@@ -1811,8 +1811,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/read | 모든 Integration Runtime을 읽습니다. |
 > | 작업 | Microsoft.DataFactory/factories/integrationruntimes/refreshObjectMetadata/action | 지정된 Integration Runtime에 대한 SSIS Integration Runtime 메타데이터를 새로 고칩니다. |
 > | 작업 | Microsoft.DataFactory/factories/integrationruntimes/regenerateauthkey/action | 지정된 Integration Runtime에 대한 인증 키를 다시 생성합니다. |
-> | 작업 | Microsoft.DataFactory/factories/integrationruntimes/removelinks/action | 지정된 Integration Runtime에서 연결된 Integration Runtime 참조를 제거합니다. |
-> | 작업 | Microsoft.DataFactory/factories/integrationruntimes/start/action | 모든 Integration Runtime을 시작합니다. |
+> | Action | Microsoft.DataFactory/factories/integrationruntimes/removelinks/action | 지정된 Integration Runtime에서 연결된 Integration Runtime 참조를 제거합니다. |
+> | Action | Microsoft.DataFactory/factories/integrationruntimes/start/action | 모든 Integration Runtime을 시작합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/stop/action | 모든 Integration Runtime을 중지합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/synccredentials/action | 지정된 Integration Runtime에 대한 자격 증명을 동기화합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/upgrade/action | 지정된 Integration Runtime을 업그레이드합니다. |
@@ -1832,7 +1832,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataFactory/factories/pipelines/read | 파이프라인을 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/pipelines/write | 파이프라인을 만들거나 업데이트합니다. |
 > | Action | Microsoft.DataFactory/factories/querydebugpipelineruns/action | 디버그 파이프라인 실행을 쿼리합니다. |
-> | Action | Microsoft.DataFactory/factories/querypipelineruns/action | 파이프라인 실행을 쿼리합니다. |
+> | 작업 | Microsoft.DataFactory/factories/querypipelineruns/action | 파이프라인 실행을 쿼리합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/querypipelineruns/read | 쿼리 파이프라인 실행의 결과를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/querytriggerruns/action | 트리거 실행을 쿼리합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/querytriggerruns/read | 트리거 실행의 결과를 읽습니다. |
@@ -1847,9 +1847,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataFactory/factories/triggers/write | 모든 트리거를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.DataFactory/factories/write | 데이터 팩터리를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/locations/configureFactoryRepo/action | 팩터리에 대해 리포지토리를 구성합니다. |
-> | 작업 | Microsoft.DataFactory/locations/getFeatureValue/action | 특정 위치에 대한 노출 제어 기능 값을 가져옵니다. |
-> | 작업 | Microsoft.DataFactory/locations/getFeatureValue/read | 특정 위치에 대한 노출 제어 기능 값을 읽습니다. |
-> | Action | Microsoft.DataFactory/operations/read | Microsoft Data Factory 공급자의 모든 작업을 읽습니다. |
+> | Action | Microsoft.DataFactory/locations/getFeatureValue/action | 특정 위치에 대한 노출 제어 기능 값을 가져옵니다. |
+> | Action | Microsoft.DataFactory/locations/getFeatureValue/read | 특정 위치에 대한 노출 제어 기능 값을 읽습니다. |
+> | 작업 | Microsoft.DataFactory/operations/read | Microsoft Data Factory 공급자의 모든 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/register/action | Data Factory 리소스 공급자에 대한 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.DataFactory/unregister/action | Data Factory 리소스 공급자에 대한 구독을 등록 취소합니다. |
 
@@ -1877,15 +1877,15 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Write | DataLakeAnalytics 계정과 연결된 Storage 계정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | 다른 사용자가 제출한 작업을 취소하는 권한을 부여합니다. |
 > | 작업 | Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action | DataLakeAnalytics 계정 간에 SystemMaxAnalyticsUnits를 전송합니다. |
-> | 작업 | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/delete | 가상 네트워크 규칙을 삭제 합니다. |
-> | Action | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/read | 가상 네트워크 규칙에 대 한 정보를 가져옵니다. |
+> | Action | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/delete | 가상 네트워크 규칙을 삭제 합니다. |
+> | 작업 | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/read | 가상 네트워크 규칙에 대 한 정보를 가져옵니다. |
 > | 작업 | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/write | 가상 네트워크 규칙을 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.DataLakeAnalytics/accounts/Write | DataLakeAnalytics 계정을 만들거나 업데이트합니다. |
+> | Action | Microsoft.DataLakeAnalytics/accounts/Write | DataLakeAnalytics 계정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/locations/capability/read | DataLakeAnalytics 사용과 관련된 구독의 기능 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/locations/checkNameAvailability/action | DataLakeAnalytics 계정 이름의 가용성을 확인합니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/locations/operationResults/read | DataLakeAnalytics 계정 작업의 결과를 가져옵니다. |
 > | 작업 | Microsoft.DataLakeAnalytics/locations/usages/read | DataLakeAnalytics 사용과 관련된 구독의 할당량 사용량 정보를 가져옵니다. |
-> | 작업 | Microsoft.DataLakeAnalytics/operations/read | DataLakeAnalytics에서 사용 가능한 작업을 가져옵니다. |
+> | Action | Microsoft.DataLakeAnalytics/operations/read | DataLakeAnalytics에서 사용 가능한 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/register/action | DataLakeAnalytics에 구독을 등록합니다. |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
@@ -1909,12 +1909,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataLakeStore/accounts/trustedIdProviders/write | 신뢰할 수 있는 ID 공급자를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/delete | 가상 네트워크 규칙을 삭제 합니다. |
 > | 작업 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/read | 가상 네트워크 규칙에 대 한 정보를 가져옵니다. |
-> | Action | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | 가상 네트워크 규칙을 만들거나 업데이트 합니다. |
-> | Action | Microsoft.DataLakeStore/accounts/write | DataLakeStore 계정을 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | 가상 네트워크 규칙을 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.DataLakeStore/accounts/write | DataLakeStore 계정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataLakeStore/locations/capability/read | DataLakeStore 사용과 관련된 구독의 기능 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.DataLakeStore/locations/checkNameAvailability/action | DataLakeStore 계정 이름의 가용성을 확인합니다. |
 > | 액션(Action) | Microsoft.DataLakeStore/locations/operationResults/read | DataLakeStore 계정 작업의 결과를 가져옵니다. |
-> | 작업 | Microsoft.DataLakeStore/locations/usages/read | DataLakeStore 사용과 관련된 구독의 할당량 사용량 정보를 가져옵니다. |
+> | Action | Microsoft.DataLakeStore/locations/usages/read | DataLakeStore 사용과 관련된 구독의 할당량 사용량 정보를 가져옵니다. |
 > | 작업 | Microsoft.DataLakeStore/operations/read | DataLakeStore에서 사용 가능한 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.DataLakeStore/register/action | DataLakeStore에 구독을 등록합니다. |
 
@@ -1926,9 +1926,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataMigration/locations/operationResults/read | 202 수락됨 응답과 관련된 장기 실행 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.DataMigration/locations/operationStatuses/read | 202 수락됨 응답과 관련된 장기 실행 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.DataMigration/register/action | Azure Database Migration Service 공급자를 사용하여 구독을 등록합니다. |
-> | Action | Microsoft.DataMigration/services/addWorker/action | 서비스의 availiable 작업자에 DMS 작업자를 추가 합니다. |
+> | Action | Microsoft.DataMigration/services/addWorker/action | 서비스의 사용 가능한 작업자에 대한 DMS 작업자를 추가합니다. |
 > | Action | Microsoft.DataMigration/services/checkStatus/action | 서비스가 배포되어 실행되고 있는지 확인합니다. |
-> | Action | Microsoft.DataMigration/services/configureWorker/action | 서비스의 availiable 작업자에 대해 DMS 작업자를 구성 합니다. |
+> | 작업 | Microsoft.DataMigration/services/configureWorker/action | 서비스의 사용 가능한 작업자에 대한 DMS 작업자를 구성합니다. |
 > | 작업 | Microsoft.DataMigration/services/delete | 리소스와 해당 하위 항목을 모두 삭제합니다. |
 > | 액션(Action) | Microsoft.DataMigration/services/projects/accessArtifacts/action | 프로젝트 아티팩트 GET 또는 PUT에 사용할 수 있는 URL을 생성합니다. |
 > | 액션(Action) | Microsoft.DataMigration/services/projects/delete | 리소스와 해당 하위 항목을 모두 삭제합니다. |
@@ -1944,10 +1944,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DataMigration/services/projects/tasks/write | Azure Database Migration Service 작업을 실행합니다. |
 > | 액션(Action) | Microsoft.DataMigration/services/projects/write | Azure Database Migration Service 작업을 실행합니다. |
 > | 액션(Action) | Microsoft.DataMigration/services/read | 리소스에 대한 정보를 읽습니다. |
-> | 작업 | Microsoft.DataMigration/services/removeWorker/action | 서비스의 availiable 작업자에 대해 DMS 작업자를 제거 합니다. |
-> | 작업 | Microsoft.DataMigration/services/serviceTasks/cancel/action | 작업이 현재 실행 중인 경우 취소합니다. |
-> | Action | Microsoft.DataMigration/services/serviceTasks/delete | 리소스와 해당 하위 항목을 모두 삭제합니다. |
-> | 작업 | Microsoft.DataMigration/services/serviceTasks/read | 리소스에 대한 정보를 읽습니다. |
+> | 작업 | Microsoft.DataMigration/services/removeWorker/action | 서비스의 사용 가능한 작업자에 대한 DMS 작업자를 제거합니다. |
+> | Action | Microsoft.DataMigration/services/serviceTasks/cancel/action | 작업이 현재 실행 중인 경우 취소합니다. |
+> | 작업 | Microsoft.DataMigration/services/serviceTasks/delete | 리소스와 해당 하위 항목을 모두 삭제합니다. |
+> | 작업 | Microsoft.DataMigration/services/serviceTasks/read | 리소스에 대한 정보 읽기 |
 > | 작업 | Microsoft.DataMigration/services/serviceTasks/write | Azure Database Migration Service 작업을 실행합니다. |
 > | 작업 | Microsoft.DataMigration/services/slots/delete | 리소스와 해당 하위 항목을 모두 삭제합니다. |
 > | 액션(Action) | Microsoft.DataMigration/services/slots/read | 리소스에 대한 정보를 읽습니다. |
@@ -1963,12 +1963,12 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft.DBforMariaDB/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
+> | Action | Microsoft.DBforMariaDB/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | 서버 작업 결과 반환 (& u) |
-> | 작업 | Microsoft.DBforMariaDB/locations/operationResults/read | ResourceGroup 기반 MariaDB 서버 작업 결과 반환 |
+> | Action | Microsoft.DBforMariaDB/locations/operationResults/read | ResourceGroup 기반 MariaDB 서버 작업 결과 반환 |
 > | 작업 | Microsoft.DBforMariaDB/locations/operationResults/read | 서버 작업 결과 반환 (& u) |
-> | 작업 | Microsoft.DBforMariaDB/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
-> | 작업 | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
+> | Action | Microsoft.DBforMariaDB/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
+> | Action | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
 > | Action | Microsoft.DBforMariaDB/locations/securityAlertPoliciesOperationResults/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
 > | Action | Microsoft.DBforMariaDB/operations/read | 작업 목록 반환. |
 > | 작업 | Microsoft.DBforMariaDB/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
@@ -1978,40 +1978,40 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.DBforMariaDB/servers/administrators/write | 지정 된 매개 변수를 사용 하 여 MariaDB 서버 관리자를 만들거나 업데이트 합니다. |
 > | Action | Microsoft.DBforMariaDB/servers/advisors/createRecommendedActionSession/action | 새 권장 구성 작업 세션을 만듭니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/advisors/read | 관리자 목록을 반환합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/advisors/read | Advisor 반환 |
+> | Action | Microsoft.DBforMariaDB/servers/advisors/read | Advisor 반환 |
 > | 작업 | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
-> | Action | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
-> | 작업 | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | 권장 작업 반환 |
+> | 작업 | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
+> | Action | Microsoft.DBforMariaDB/servers/advisors/recommendedActions/read | 권장 작업 반환 |
 > | 작업 | Microsoft.DBforMariaDB/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
+> | Action | Microsoft.DBforMariaDB/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/databases/delete | 기존에 있는 데이터베이스를 삭제 합니다. |
 > | Action | Microsoft.DBforMariaDB/servers/databases/read | 반환 된 데이터베이스에 대 한 속성을 가져오거나 반환 합니다. |
 > | Action | Microsoft.DBforMariaDB/servers/databases/write | 지정 된 매개 변수를 사용 하 여, 지정 된 데이터베이스에 대 한 속성을 업데이트 하는에 대 한 속성을 업데이트 합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/delete | 기존 서버를 삭제합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforMariaDB/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
-> | Action | Microsoft.DBforMariaDB/servers/logFiles/read | Aadb LogFiles의 목록을 반환 합니다. |
-> | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.DBforMariaDB/servers/logFiles/read | Aadb LogFiles의 목록을 반환 합니다. |
+> | 작업 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
+> | Action | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | MariaDB 서버에 사용 가능한 로그를 가져옵니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | 데이터베이스에 사용할 수 있는 메트릭 형식을 반환합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/queryTexts/action | 쿼리 목록의 텍스트 반환 |
-> | Action | Microsoft.DBforMariaDB/servers/queryTexts/action | 쿼리 텍스트를 반환합니다. |
-> | Action | Microsoft.DBforMariaDB/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforMariaDB/servers/queryTexts/action | 쿼리 목록의 텍스트 반환 |
+> | 작업 | Microsoft.DBforMariaDB/servers/queryTexts/action | 쿼리 텍스트를 반환합니다. |
+> | 작업 | Microsoft.DBforMariaDB/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/recoverableServers/read | 복구 가능한 MariaDB 서버 정보를 반환 |
 > | 작업 | Microsoft.DBforMariaDB/servers/replicas/read | MariaDB 서버의 읽기 복제본 가져오기 |
 > | 작업 | Microsoft.DBforMariaDB/servers/restart/action | 특정 서버를 다시 시작 합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | 지정된 서버에 구성된 서버 위협 검색 정책의 세부 정보를 검색합니다. |
 > | Action | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | 지정된 서버에 대한 서버 위협 검색 정책을 변경합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | 최상위 쿼리에 대한 쿼리 통계 목록을 반환합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | 쿼리 통계 반환 |
+> | Action | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | 쿼리 통계 반환 |
 > | 작업 | Microsoft.DBforMariaDB/servers/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | 기존 가상 네트워크 규칙을 삭제합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | 가상 네트워크 규칙 목록을 반환하거나 지정된 가상 네트워크 규칙에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | 가상 네트워크 규칙 목록을 반환하거나 지정된 가상 네트워크 규칙에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | 지정된 매개 변수를 사용하여 가상 네트워크 규칙을 만들거나 지정된 가상 네트워크 규칙에 대한 속성 또는 태그를 업데이트합니다. |
-> | 작업 | Microsoft.DBforMariaDB/servers/waitStatistics/read | 인스턴스에 대한 대기 통계를 반환합니다. |
-> | Action | Microsoft.DBforMariaDB/servers/waitStatistics/read | 대기 통계 반환 |
+> | Action | Microsoft.DBforMariaDB/servers/waitStatistics/read | 인스턴스에 대한 대기 통계를 반환합니다. |
+> | 작업 | Microsoft.DBforMariaDB/servers/waitStatistics/read | 대기 통계 반환 |
 > | 작업 | Microsoft.DBforMariaDB/servers/write | 지정된 매개 변수를 사용하여 서버를 만들거나 지정된 서버에 대한 속성 또는 태그를 업데이트합니다. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -2020,25 +2020,25 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.DBforMySQL/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
-> | 작업 | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | MySQL 서버 작업 결과 반환 |
+> | Action | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | MySQL 서버 작업 결과 반환 |
 > | 작업 | Microsoft.DBforMySQL/locations/operationResults/read | ResourceGroup 기반 MySQL 서버 작업 결과 반환 |
-> | 작업 | Microsoft.DBforMySQL/locations/operationResults/read | MySQL 서버 작업 결과 반환 |
-> | Action | Microsoft.DBforMySQL/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
+> | Action | Microsoft.DBforMySQL/locations/operationResults/read | MySQL 서버 작업 결과 반환 |
+> | 작업 | Microsoft.DBforMySQL/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
 > | 작업 | Microsoft.DBforMySQL/locations/securityAlertPoliciesAzureAsyncOperation/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
 > | Action | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
 > | 작업 | Microsoft.DBforMySQL/operations/read | MySQL 작업 목록을 반환 합니다. |
-> | 작업 | Microsoft.DBforMySQL/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
+> | Action | Microsoft.DBforMySQL/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
 > | 작업 | Microsoft.DBforMySQL/register/action | MySQL 리소스 공급자 등록 |
 > | 작업 | Microsoft.DBforMySQL/servers/administrators/delete | MySQL 서버의 기존 관리자를 삭제 합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/administrators/read | MySQL server 관리자 목록을 가져옵니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/administrators/write | 지정 된 매개 변수를 사용 하 여 MySQL 서버 관리자를 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.DBforMySQL/servers/advisors/createRecommendedActionSession/action | 새 권장 구성 작업 세션을 만듭니다. |
-> | Action | Microsoft.DBforMySQL/servers/advisors/read | 관리자 목록을 반환합니다. |
-> | 작업 | Microsoft.DBforMySQL/servers/advisors/read | Advisor 반환 |
+> | Action | Microsoft.DBforMySQL/servers/advisors/createRecommendedActionSession/action | 새 권장 구성 작업 세션을 만듭니다. |
+> | 작업 | Microsoft.DBforMySQL/servers/advisors/read | 관리자 목록을 반환합니다. |
+> | Action | Microsoft.DBforMySQL/servers/advisors/read | Advisor 반환 |
+> | Action | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
 > | 작업 | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
-> | 작업 | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
-> | 작업 | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | 권장 작업 반환 |
-> | Action | Microsoft.DBforMySQL/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforMySQL/servers/advisors/recommendedActions/read | 권장 작업 반환 |
+> | 작업 | Microsoft.DBforMySQL/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/databases/delete | 기존 MySQL 데이터베이스를 삭제 합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/databases/read | MySQL 데이터베이스 목록을 반환 하거나 지정 된 데이터베이스에 대 한 속성을 가져옵니다. |
@@ -2047,27 +2047,27 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DBforMySQL/servers/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
-> | Action | Microsoft.DBforMySQL/servers/logFiles/read | PostgreSQL LogFiles의 목록을 반환 합니다. |
+> | 작업 | Microsoft.DBforMySQL/servers/logFiles/read | PostgreSQL LogFiles의 목록을 반환 합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | MySQL 서버에 사용 가능한 로그를 가져오기 |
 > | Action | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | 데이터베이스에 사용할 수 있는 메트릭 형식을 반환합니다. |
-> | 작업 | Microsoft.DBforMySQL/servers/queryTexts/action | 쿼리 목록의 텍스트 반환 |
+> | Action | Microsoft.DBforMySQL/servers/queryTexts/action | 쿼리 목록의 텍스트 반환 |
 > | 작업 | Microsoft.DBforMySQL/servers/queryTexts/action | 쿼리 텍스트를 반환합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/recoverableServers/read | 복구 가능한 MySQL 서버 정보를 반환합니다. |
-> | 작업 | Microsoft.DBforMySQL/servers/replicas/read | MySQL 서버의 읽기 복제본 가져오기 |
-> | 작업 | Microsoft.DBforMySQL/servers/restart/action | 특정 서버를 다시 시작 합니다. |
-> | Action | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | 지정된 서버에 구성된 서버 위협 검색 정책의 세부 정보를 검색합니다. |
+> | Action | Microsoft.DBforMySQL/servers/replicas/read | MySQL 서버의 읽기 복제본 가져오기 |
+> | Action | Microsoft.DBforMySQL/servers/restart/action | 특정 서버를 다시 시작 합니다. |
+> | 작업 | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | 지정된 서버에 구성된 서버 위협 검색 정책의 세부 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | 지정된 서버에 대한 서버 위협 검색 정책을 변경합니다. |
 > | Action | Microsoft.DBforMySQL/servers/topQueryStatistics/read | 최상위 쿼리에 대한 쿼리 통계 목록을 반환합니다. |
 > | 작업 | Microsoft.DBforMySQL/servers/topQueryStatistics/read | 쿼리 통계 반환 |
-> | Action | Microsoft.DBforMySQL/servers/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
+> | 작업 | Microsoft.DBforMySQL/servers/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | 기존 가상 네트워크 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | 가상 네트워크 규칙 목록을 반환하거나 지정된 가상 네트워크 규칙에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | 지정된 매개 변수를 사용하여 가상 네트워크 규칙을 만들거나 지정된 가상 네트워크 규칙에 대한 속성 또는 태그를 업데이트합니다. |
-> | 작업 | Microsoft.DBforMySQL/servers/waitStatistics/read | 인스턴스에 대한 대기 통계를 반환합니다. |
-> | Action | Microsoft.DBforMySQL/servers/waitStatistics/read | 대기 통계 반환 |
+> | Action | Microsoft.DBforMySQL/servers/waitStatistics/read | 인스턴스에 대한 대기 통계를 반환합니다. |
+> | 작업 | Microsoft.DBforMySQL/servers/waitStatistics/read | 대기 통계 반환 |
 > | 작업 | Microsoft.DBforMySQL/servers/write | 지정된 매개 변수를 사용하여 서버를 만들거나 지정된 서버에 대한 속성 또는 태그를 업데이트합니다. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -2076,39 +2076,39 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | Action | Microsoft.DBforPostgreSQL/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | PostgreSQL 서버 작업 결과 반환 |
+> | Action | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | PostgreSQL 서버 작업 결과 반환 |
 > | 작업 | Microsoft.DBforPostgreSQL/locations/operationResults/read | ResourceGroup 기반 PostgreSQL 서버 작업 결과 반환 |
 > | 작업 | Microsoft.DBforPostgreSQL/locations/operationResults/read | PostgreSQL 서버 작업 결과 반환 |
-> | Action | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
-> | 작업 | DBforPostgreSQL/위치/privateEndpointConnectionAzureAsyncOperation/읽기 | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
-> | 작업 | DBforPostgreSQL/위치/privateEndpointConnectionOperationResults/읽기 | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
+> | Action | DBforPostgreSQL/위치/privateEndpointConnectionAzureAsyncOperation/읽기 | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
+> | Action | DBforPostgreSQL/위치/privateEndpointConnectionOperationResults/읽기 | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
 > | Action | DBforPostgreSQL/위치/privateEndpointConnectionProxyAzureAsyncOperation/읽기 | 개인 끝점 연결 프록시 작업의 결과를 가져옵니다. |
-> | 작업 | DBforPostgreSQL/위치/privateEndpointConnectionProxyOperationResults/읽기 | 개인 끝점 연결 프록시 작업의 결과를 가져옵니다. |
+> | Action | DBforPostgreSQL/위치/privateEndpointConnectionProxyOperationResults/읽기 | 개인 끝점 연결 프록시 작업의 결과를 가져옵니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/operations/read | PostgreSQL 작업의 목록을 반환 합니다. |
+> | Action | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | 서버 위협 검색 작업 결과의 목록을 반환 합니다. |
+> | Action | Microsoft.DBforPostgreSQL/operations/read | PostgreSQL 작업의 목록을 반환 합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/register/action | PostgreSQL 리소스 공급자 등록 |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/administrators/delete | PostgreSQL 서버의 기존 관리자를 삭제 합니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/administrators/delete | PostgreSQL 서버의 기존 관리자를 삭제 합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/administrators/read | PostgreSQL 서버 관리자의 목록을 가져옵니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/administrators/write | 지정 된 매개 변수를 사용 하 여 PostgreSQL 서버 관리자를 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/advisors/read | 관리자 목록을 반환합니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/advisors/read | 관리자 목록을 반환합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | 권장된 작업 목록을 반환 |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | 권장 사항 수행 |
 > | Action | Microsoft.DBforPostgreSQL/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
 > | Action | Microsoft.DBforPostgreSQL/servers/databases/delete | 기존 PostgreSQL 데이터베이스를 삭제 합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/databases/read | PostgreSQL 데이터베이스의 목록을 반환 하거나 지정 된 데이터베이스에 대 한 속성을 가져옵니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/databases/write | 지정 된 매개 변수를 사용 하 여 PostgreSQL 데이터베이스를 만들거나 지정 된 데이터베이스에 대 한 속성을 업데이트 합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/delete | 기존 서버를 삭제합니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/databases/read | PostgreSQL 데이터베이스의 목록을 반환 하거나 지정 된 데이터베이스에 대 한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/databases/write | 지정 된 매개 변수를 사용 하 여 PostgreSQL 데이터베이스를 만들거나 지정 된 데이터베이스에 대 한 속성을 업데이트 합니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/delete | 기존 서버를 삭제합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
-> | Action | Microsoft.DBforPostgreSQL/servers/logFiles/read | PostgreSQL LogFiles의 목록을 반환 합니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/servers/logFiles/read | PostgreSQL LogFiles의 목록을 반환 합니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnectionProxies/delete | 기존 개인 끝점 연결 프록시를 삭제 합니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnectionProxies/read | 개인 끝점 연결 프록시의 목록을 반환 하거나, 지정 된 개인 끝점 연결 프록시에 대 한 속성을 가져옵니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnectionProxies/validate/action | NRP 쪽에서 개인 끝점 연결 만들기 호출의 유효성을 검사 합니다. |
-> | Action | DBforPostgreSQL/servers/privateEndpointConnectionProxies/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결 프록시를 만들거나 지정 된 개인 끝점 연결 프록시에 대 한 속성 또는 태그를 업데이트 합니다. |
+> | 작업 | DBforPostgreSQL/servers/privateEndpointConnectionProxies/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결 프록시를 만들거나 지정 된 개인 끝점 연결 프록시에 대 한 속성 또는 태그를 업데이트 합니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnections/delete | 기존 개인 끝점 연결을 삭제 합니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnections/read | 개인 끝점 연결의 목록을 반환 하거나, 지정 된 개인 끝점 연결에 대 한 속성을 가져옵니다. |
 > | 작업 | DBforPostgreSQL/servers/privateEndpointConnections/write | 기존 개인 끝점 연결을 승인 하거나 거부 합니다. |
@@ -2118,11 +2118,11 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | 데이터베이스에 사용할 수 있는 메트릭 형식을 반환합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/queryTexts/action | 쿼리 텍스트를 반환합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/queryTexts/read | 쿼리 목록의 텍스트 반환 |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.DBforPostgreSQL/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/recoverableServers/read | 복구 가능한 PostgreSQL 서버 정보를 반환합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/servers/replicas/read | PostgreSQL 서버의 읽기 복제본 가져오기 |
+> | Action | Microsoft.DBforPostgreSQL/servers/replicas/read | PostgreSQL 서버의 읽기 복제본 가져오기 |
 > | 작업 | Microsoft.DBforPostgreSQL/servers/restart/action | 특정 서버를 다시 시작 합니다. |
-> | Action | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/read | 지정된 서버에 구성된 서버 위협 검색 정책의 세부 정보를 검색합니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/read | 지정된 서버에 구성된 서버 위협 검색 정책의 세부 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/write | 지정된 서버에 대한 서버 위협 검색 정책을 변경합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/topQueryStatistics/read | 최상위 쿼리에 대한 쿼리 통계 목록을 반환합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
@@ -2131,18 +2131,18 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | 지정된 매개 변수를 사용하여 가상 네트워크 규칙을 만들거나 지정된 가상 네트워크 규칙에 대한 속성 또는 태그를 업데이트합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | 인스턴스에 대한 대기 통계를 반환합니다. |
 > | 액션(Action) | Microsoft.DBforPostgreSQL/servers/write | 지정된 매개 변수를 사용하여 서버를 만들거나 지정된 서버에 대한 속성 또는 태그를 업데이트합니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
 > | Action | Microsoft.DBforPostgreSQL/serversv2/configurations/write | 지정된 구성의 값을 업데이트합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/serversv2/delete | 기존 서버를 삭제합니다. |
 > | Action | Microsoft.DBforPostgreSQL/serversv2/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/serversv2/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Postgres 서버에 사용 가능한 로그를 가져옵니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | 데이터베이스에 사용할 수 있는 메트릭 형식을 반환합니다. |
-> | 작업 | Microsoft.DBforPostgreSQL/serversv2/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Postgres 서버에 사용 가능한 로그를 가져옵니다. |
+> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | 데이터베이스에 사용할 수 있는 메트릭 형식을 반환합니다. |
+> | Action | Microsoft.DBforPostgreSQL/serversv2/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
+> | 작업 | Microsoft.DBforPostgreSQL/serversv2/updateConfigurations/action | 지정된 서버의 구성을 업데이트합니다. |
 > | 작업 | Microsoft.DBforPostgreSQL/serversv2/write | 지정된 매개 변수를 사용하여 서버를 만들거나 지정된 서버에 대한 속성 또는 태그를 업데이트합니다. |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -2211,7 +2211,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Devices/iotHubs/skus/Read | 유효한 IotHub SKU를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/Write | IotHub 리소스를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Devices/locations/operationresults/Read | 작업 결과를 기반으로 위치를 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/operationresults/Read | 작업 결과를 가져옵니다. |
+> | 액션(Action) | Microsoft.Devices/operationresults/Read | 작업 결과 가져오기 |
 > | 액션(Action) | Microsoft.Devices/operations/Read | 모든 ResourceProvider 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/certificates/Delete | 인증서를 삭제합니다. |
 > | 액션(Action) | Microsoft.Devices/provisioningServices/certificates/generateVerificationCode/Action | 확인 코드를 생성합니다. |
@@ -2238,13 +2238,13 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.DevSpaces/controllers/delete | Azure Dev Spaces 컨트롤러 및 데이터 평면 서비스 삭제 |
-> | Action | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Azure Dev Spaces 컨트롤러의 인프라에 대한 연결 세부 정보 나열 |
+> | 작업 | Microsoft.DevSpaces/controllers/delete | Azure Dev Spaces 컨트롤러 및 데이터 평면 서비스 삭제 |
+> | 작업 | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Azure Dev Spaces 컨트롤러의 인프라에 대한 연결 세부 정보 나열 |
 > | 작업 | Microsoft.DevSpaces/controllers/read | Azure Dev Spaces 컨트롤러 속성 읽기 |
 > | 작업 | Microsoft.DevSpaces/controllers/write | Azure Dev Spaces 컨트롤러 속성 만들기 또는 업데이트 |
-> | 작업 | Microsoft.DevSpaces/locations/checkContainerHostMapping/action | 컨테이너 호스트에 대 한 기존 컨트롤러 매핑 확인 |
+> | Action | Microsoft.DevSpaces/locations/checkContainerHostMapping/action | 컨테이너 호스트에 대 한 기존 컨트롤러 매핑 확인 |
 > | 작업 | Microsoft.DevSpaces/locations/operationresults/read | 비동기 작업의 상태를 읽습니다. |
-> | 작업 | Microsoft.DevSpaces/register/action | 구독으로 Microsoft Dev Spaces 리소스 공급자 등록 |
+> | Action | Microsoft.DevSpaces/register/action | 구독으로 Microsoft Dev Spaces 리소스 공급자 등록 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -2276,9 +2276,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DevTestLab/labs/galleryImages/read | 갤러리 이미지를 읽습니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/GenerateUploadUri/action | 랩에 사용자 지정 디스크 이미지를 업로드하기 위한 URI를 생성합니다. |
 > | 작업 | Microsoft.DevTestLab/labs/idleShutdowns/delete | 유휴 종료를 삭제 합니다. |
-> | 작업 | Microsoft.DevTestLab/labs/idleShutdowns/read | 유휴 종료를 읽습니다. |
+> | Action | Microsoft.DevTestLab/labs/idleShutdowns/read | 유휴 종료를 읽습니다. |
 > | 작업 | Microsoft.DevTestLab/labs/idleShutdowns/write | 유휴 종료를 추가 하거나 수정 합니다. |
-> | Action | Microsoft.DevTestLab/labs/ImportVirtualMachine/action | 가상 머신을 다른 랩으로 가져옵니다. |
+> | 작업 | Microsoft.DevTestLab/labs/ImportVirtualMachine/action | 가상 머신을 다른 랩으로 가져옵니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/ListVhds/action | 사용자 지정 이미지를 만드는 데 사용할 수 있는 디스크 이미지를 나열합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/notificationChannels/delete | notificationchannels를 삭제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/notificationChannels/Notify/action | 제공된 채널에 알림을 보냅니다. |
@@ -2288,7 +2288,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DevTestLab/labs/policySets/policies/delete | 정책을 삭제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/policySets/policies/read | 정책을 읽습니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/policySets/policies/write | 정책을 추가하거나 수정합니다. |
-> | Action | Microsoft.DevTestLab/labs/policySets/read | 정책 집합을 읽습니다. |
+> | 작업 | Microsoft.DevTestLab/labs/policySets/read | 정책 집합을 읽습니다. |
 > | Action | Microsoft.DevTestLab/labs/read | 랩을 읽습니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/schedules/delete | 일정을 삭제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/schedules/Execute/action | 일정을 실행합니다. |
@@ -2298,8 +2298,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DevTestLab/labs/serviceRunners/delete | 서비스 실행기를 삭제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/serviceRunners/read | 서비스 실행기를 읽습니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/serviceRunners/write | 서비스 실행기를 추가하거나 수정합니다. |
-> | Action | Microsoft.DevTestLab/labs/sharedGalleries/delete | 공유 갤러리를 삭제 합니다. |
-> | Action | Microsoft.DevTestLab/labs/sharedGalleries/read | 공유 갤러리를 읽습니다. |
+> | 작업 | Microsoft.DevTestLab/labs/sharedGalleries/delete | 공유 갤러리를 삭제 합니다. |
+> | 작업 | Microsoft.DevTestLab/labs/sharedGalleries/read | 공유 갤러리를 읽습니다. |
 > | 작업 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/delete | 공유 이미지를 삭제 합니다. |
 > | 작업 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/read | 공유 이미지를 읽습니다. |
 > | 작업 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/write | 공유 이미지를 추가 하거나 수정 합니다. |
@@ -2335,7 +2335,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/DetachDataDisk/action | 가상 머신에서 지정된 디스크를 분리합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/GetRdpFileContents/action | 가상 머신에 대한 RDP 파일의 콘텐츠를 나타내는 문자열을 가져옵니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action | 해당 시작/중지 일정이 있는 경우 이를 나열합니다. |
-> | 작업 | Microsoft.DevTestLab/labs/virtualMachines/read | 가상 머신을 읽습니다. |
+> | Action | Microsoft.DevTestLab/labs/virtualMachines/read | 가상 머신을 읽습니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/Redeploy/action | 가상 머신을 다시 배포합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/Resize/action | 가상 머신 크기를 조정합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/Restart/action | 가상 머신을 다시 시작합니다. |
@@ -2346,7 +2346,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/Start/action | 가상 머신을 시작합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | 가상 머신 중지 |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | 현재 사용자가 소유할 가상 머신에 연결된 모든 데이터 디스크를 전송합니다. |
-> | Action | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | 기존 가상 머신의 소유권을 해제합니다. |
+> | 작업 | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | 기존 가상 머신의 소유권을 해제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualMachines/write | 가상 머신을 추가 또는 수정합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualNetworks/delete | 가상 네트워크를 삭제합니다. |
 > | 액션(Action) | Microsoft.DevTestLab/labs/virtualNetworks/read | 가상 네트워크를 읽습니다. |
@@ -2369,57 +2369,57 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccountNames/read | 이름 가용성을 확인합니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | 컬렉션을 삭제 합니다. API 형식에만 적용 됩니다. ' mongodb '. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | 컬렉션을 삭제 합니다. API 형식에만 적용 됩니다. ' mongodb '. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' mongodb '. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | 컬렉션을 읽거나 모든 컬렉션을 나열 합니다. API 형식에만 적용 됩니다. ' mongodb '. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' mongodb '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read | 컬렉션 처리량을 읽습니다. API 형식에만 적용 됩니다. ' mongodb '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' mongodb '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read | 컬렉션 처리량을 읽습니다. API 형식에만 적용 됩니다. ' mongodb '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/write | 컬렉션 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' mongodb '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | 컬렉션을 만들거나 업데이트 합니다. API 형식에만 적용 됩니다. ' mongodb '. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | 컨테이너를 삭제 합니다. ' Sql ' API 유형에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ' API 유형에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | 컨테이너를 읽거나 모든 컨테이너를 나열 합니다. ' Sql ' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | 컨테이너를 삭제 합니다. ' Sql ' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | 컨테이너를 읽거나 모든 컨테이너를 나열 합니다. ' Sql ' API 유형에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/read | 컨테이너 처리량을 읽습니다. ' Sql ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write | 컨테이너 처리량을 업데이트 합니다. ' Sql ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write | 컨테이너 처리량을 업데이트 합니다. ' Sql ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | 컨테이너를 만들거나 업데이트 합니다. ' Sql ' API 유형에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | 데이터베이스를 삭제 합니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | 데이터베이스를 삭제 합니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | 그래프를 삭제 합니다. API 형식에만 적용 됩니다. ' gremlin'. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' gremlin'. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | 그래프를 읽거나 모든 그래프를 나열 합니다. API 형식에만 적용 됩니다. ' gremlin'. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' gremlin'. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' gremlin'. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/read | 그래프 처리량을 읽습니다. API 형식에만 적용 됩니다. ' gremlin'. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write | 그래프 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' gremlin'. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | 그래프를 만들거나 업데이트 합니다. API 형식에만 적용 됩니다. ' gremlin'. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write | 그래프 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' gremlin'. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | 그래프를 만들거나 업데이트 합니다. API 형식에만 적용 됩니다. ' gremlin'. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | 데이터베이스를 읽거나 모든 데이터베이스를 나열 합니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/read | 데이터베이스 처리량을 읽습니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/write | 데이터베이스 처리량을 업데이트 합니다. ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | 데이터베이스 만들기 ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | 데이터베이스 만들기 ' Sql ', ' mongodb ', ' gremlin' API 유형에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | Keyspace를 삭제 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Keyspace을 읽거나 모든 keyspaces를 나열 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read | Keyspace 처리량을 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write | Keyspace 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | 테이블을 삭제 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | 테이블을 삭제합니다. API 형식에만 적용 됩니다. ' cassandra '. |
 > | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | 테이블을 읽거나 모든 테이블을 나열 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read | 테이블 처리량을 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write | 테이블 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | 테이블을 만들거나 업데이트 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read | 테이블 처리량을 읽습니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write | 테이블 처리량을 업데이트 합니다. API 형식에만 적용 됩니다. ' cassandra '. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | 테이블을 만들거나 업데이트 합니다. API 형식에만 적용 됩니다. ' cassandra '. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Keyspace를 만듭니다. API 형식에만 적용 됩니다. ' cassandra '. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | 테이블을 삭제 합니다. ' Table ' API 유형에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/tables/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Table ' API 유형에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | 테이블을 읽거나 모든 테이블을 나열 합니다. ' Table ' API 유형에만 적용 됩니다. |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Table ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | 테이블을 삭제합니다. ' Table ' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Table ' API 유형에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | 테이블을 읽거나 모든 테이블을 나열 합니다. ' Table ' API 유형에만 적용 됩니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read | 비동기 작업의 상태를 읽습니다. ' Table ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/read | 테이블 처리량을 읽습니다. ' Table ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/write | 테이블 처리량을 업데이트 합니다. ' Table ' API 유형에만 적용 됩니다. 설정 유형 (' 처리량 ')에만 적용 됩니다. |
-> | Action | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | 테이블을 만들거나 업데이트 합니다. ' Table ' API 유형에만 적용 됩니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | 테이블을 만들거나 업데이트 합니다. ' Table ' API 유형에만 적용 됩니다. |
 > | 작업 | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
-> | Action | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | 데이터베이스 계정의 리소스 그룹을 변경합니다. |
+> | 작업 | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | 데이터베이스 계정의 리소스 그룹을 변경합니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | 컬렉션 메트릭 정의를 읽습니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/databases/collections/metrics/read | 컬렉션 메트릭을 읽습니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/databases/collections/partitionKeyRangeId/metrics/read | 데이터베이스 계정 파티션 키 수준 메트릭을 읽습니다. |
@@ -2433,7 +2433,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/delete | 데이터베이스 계정을 삭제합니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/failoverPriorityChange/action | 데이터베이스 계정 영역의 장애 조치 우선 순위를 변경합니다. 수동 장애 조치 작업을 수행하는 데 사용됩니다. |
 > | 작업 | Microsoft DocumentDB/databaseAccounts/getBackupPolicy/action | 데이터베이스 계정의 백업 정책 가져오기 |
-> | 작업 | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/action | 데이터베이스 계정에 대한 연결 문자열을 가져옵니다. |
+> | Action | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/action | 데이터베이스 계정에 대한 연결 문자열을 가져옵니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/listKeys/action | 데이터베이스 계정의 키를 나열합니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/metricDefinitions/read | 데이터베이스 계정 메트릭 정의를 읽습니다. |
 > | 액션(Action) | Microsoft.DocumentDB/databaseAccounts/metrics/read | 데이터베이스 계정 메트릭을 읽습니다. |
@@ -2498,32 +2498,32 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | Action | Microsoft.EventGrid/domains/delete | 도메인을 삭제합니다. |
-> | Action | Microsoft.EventGrid/domains/listKeys/action | 도메인에 대한 키를 나열합니다. |
+> | 작업 | Microsoft.EventGrid/domains/listKeys/action | 도메인에 대한 키를 나열합니다. |
 > | 작업 | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | 도메인에 사용 가능한 메트릭을 가져옵니다. |
 > | 작업 | Microsoft.EventGrid/domains/read | 도메인을 읽습니다. |
-> | Action | Microsoft.EventGrid/domains/regenerateKey/action | 도메인에 대한 키를 다시 생성합니다. |
+> | 작업 | Microsoft.EventGrid/domains/regenerateKey/action | 도메인에 대한 키를 다시 생성합니다. |
 > | 작업 | Microsoft.EventGrid/domains/topics/read | 도메인 토픽을 읽습니다. |
 > | Action | Microsoft.EventGrid/domains/write | 도메인을 만들거나 업데이트합니다. |
-> | Action | Microsoft.EventGrid/eventSubscriptions/delete | EventSubscription 삭제 |
+> | 작업 | Microsoft.EventGrid/eventSubscriptions/delete | EventSubscription 삭제 |
 > | 작업 | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | 이벤트 구독의 전체 url을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | 이벤트 구독에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 이벤트 구독에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | eventSubscription에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription 읽기 |
-> | 작업 | Microsoft.EventGrid/eventSubscriptions/write | EventSubscription 만들기 또는 업데이트 |
-> | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | EventSubscription 만들기 또는 업데이트 |
+> | 작업 | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | 토픽에 사용 가능한 메트릭을 가져옵니다. |
 > | 작업 | Microsoft.EventGrid/extensionTopics/read | extensionTopic을 읽습니다. |
 > | 작업 | Microsoft.EventGrid/locations/eventSubscriptions/read | 지역 이벤트 구독을 나열합니다. |
 > | 작업 | Microsoft.EventGrid/locations/operationResults/read | 국가별 작업의 결과를 읽습니다. |
 > | 작업 | Microsoft.EventGrid/locations/operationsStatus/read | 국가별 작업의 상태를 읽습니다. |
-> | Action | Microsoft.EventGrid/locations/topictypes/eventSubscriptions/read | 항목 유형별로 지역 이벤트 구독을 나열합니다. |
-> | Action | Microsoft.EventGrid/operationResults/read | 작업의 결과를 읽습니다. |
-> | 작업 | Microsoft.EventGrid/operations/read | EventGrid 작업을 나열합니다. |
+> | 작업 | Microsoft.EventGrid/locations/topictypes/eventSubscriptions/read | 항목 유형별로 지역 이벤트 구독을 나열합니다. |
+> | 작업 | Microsoft.EventGrid/operationResults/read | 작업의 결과를 읽습니다. |
+> | Action | Microsoft.EventGrid/operations/read | EventGrid 작업을 나열합니다. |
 > | 작업 | Microsoft.EventGrid/operationsStatus/read | 작업의 상태를 읽습니다. |
 > | Action | Microsoft.EventGrid/register/action | EventGrid 리소스 공급자에 대한 구독을 등록합니다. |
-> | 작업 | Microsoft.EventGrid/topics/delete | 항목 삭제 |
+> | Action | Microsoft.EventGrid/topics/delete | 항목 삭제 |
 > | 액션(Action) | Microsoft.EventGrid/topics/listKeys/action | 토픽에 대한 키를 나열합니다. |
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
@@ -2531,9 +2531,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.EventGrid/topics/read | 토픽을 읽습니다. |
 > | 액션(Action) | Microsoft.EventGrid/topics/regenerateKey/action | 토픽에 대한 키를 다시 생성합니다. |
 > | 작업 | Microsoft.EventGrid/topics/write | 토픽을 만들거나 업데이트합니다. |
-> | Action | Microsoft.EventGrid/topictypes/eventSubscriptions/read | 항목 유형별로 글로벌 이벤트 구독을 나열합니다. |
-> | 작업 | Microsoft.EventGrid/topictypes/eventtypes/read | topictype에서 지원하는 eventtype을 읽습니다. |
-> | 작업 | Microsoft.EventGrid/topictypes/read | 토픽을 읽습니다. |
+> | 작업 | Microsoft.EventGrid/topictypes/eventSubscriptions/read | 항목 유형별로 글로벌 이벤트 구독을 나열합니다. |
+> | Action | Microsoft.EventGrid/topictypes/eventtypes/read | topictype에서 지원하는 eventtype을 읽습니다. |
+> | Action | Microsoft.EventGrid/topictypes/read | 토픽을 읽습니다. |
 > | 작업 | Microsoft.EventGrid/unregister/action | EventGrid 리소스 공급자에 대한 구독을 등록 취소합니다. |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -2542,11 +2542,11 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | Action | Microsoft.EventHub/availableClusterRegions/read | Azure 지역에서 사용 가능한 미리 프로 비전 된 클러스터를 나열 하는 읽기 작업입니다. |
-> | Action | Microsoft.EventHub/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
-> | 액션(Action) | Microsoft.EventHub/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
+> | 작업 | Microsoft.EventHub/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
+> | 액션(Action) | Microsoft.EventHub/checkNamespaceAvailability/action | 주어진 구독의 네임스페이스 사용 가능성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
 > | 작업 | Microsoft.EventHub/clusters/delete | 기존 클러스터 리소스를 삭제 합니다. |
-> | 작업 | Microsoft.EventHub/clusters/namespaces/read | 클러스터 내의 네임 스페이스에 대 한 네임 스페이스 ARM Id를 나열 합니다. |
-> | 작업 | Microsoft.EventHub/clusters/operationresults/read | 비동기 클러스터 작업의 상태를 가져옵니다. |
+> | Action | Microsoft.EventHub/clusters/namespaces/read | 클러스터 내의 네임 스페이스에 대 한 네임 스페이스 ARM Id를 나열 합니다. |
+> | Action | Microsoft.EventHub/clusters/operationresults/read | 비동기 클러스터 작업의 상태를 가져옵니다. |
 > | 작업 | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | 클러스터 메트릭 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/clusters/read | 클러스터 리소스 설명을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/clusters/write | 기존 클러스터 리소스를 만들거나 수정 합니다. |
@@ -2578,8 +2578,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.EventHub/namespaces/eventhubs/Delete | EventHub 리소스 삭제 작업 |
 > | 액션(Action) | Microsoft.EventHub/namespaces/eventhubs/read | EventHub 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/eventhubs/write | EventHub 속성을 만들거나 업데이트합니다. |
-> | 작업 | Microsoft.EventHub/namespaces/ipFilterRules/delete | IP 필터 리소스 삭제 |
-> | Action | Microsoft.EventHub/namespaces/ipFilterRules/read | IP 필터 리소스 가져오기 |
+> | Action | Microsoft.EventHub/namespaces/ipFilterRules/delete | IP 필터 리소스 삭제 |
+> | 작업 | Microsoft.EventHub/namespaces/ipFilterRules/read | IP 필터 리소스 가져오기 |
 > | 작업 | Microsoft.EventHub/namespaces/ipFilterRules/write | IP 필터 리소스 만들기 |
 > | DataAction | Microsoft.EventHub/namespaces/messages/receive/action | 메시지 받기 |
 > | DataAction | Microsoft.EventHub/namespaces/messages/send/action | 메시지 보내기 |
@@ -2587,21 +2587,21 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.EventHub/namespaces/messagingPlan/write | 네임스페이스에 대한 메시지 계획을 업데이트합니다.<br>이 API는 더 이상 사용되지 않습니다.<br>MessagingPlan 리소스를 통해 노출된 속성은 이후 API 버전의 (부모) 네임스페이스 리소스로 이동됩니다.<br>이 작업은 API 버전 2017-04-01에서 지원되지 않습니다. |
 > | Action | Microsoft. EventHub/네임 스페이스/networkruleset 집합/삭제 | VNET 규칙 리소스 삭제 |
 > | 작업 | Microsoft. EventHub/네임 스페이스/networkruleset 집합/읽기 | NetworkRuleSet 집합 리소스를 가져옵니다. |
-> | 작업 | Microsoft. EventHub/네임 스페이스/networkruleset 집합/쓰기 | VNET 규칙 리소스 만들기 |
+> | Action | Microsoft. EventHub/네임 스페이스/networkruleset 집합/쓰기 | VNET 규칙 리소스 만들기 |
 > | 작업 | Microsoft.EventHub/namespaces/networkrulesets/delete | VNET 규칙 리소스 삭제 |
 > | 작업 | Microsoft.EventHub/namespaces/networkrulesets/read | NetworkRuleSet 집합 리소스를 가져옵니다. |
 > | 작업 | Microsoft.EventHub/namespaces/networkrulesets/write | VNET 규칙 리소스 만들기 |
-> | 작업 | Microsoft.EventHub/namespaces/operationresults/read | 네임스페이스 작업의 상태를 가져옵니다. |
+> | Action | Microsoft.EventHub/namespaces/operationresults/read | 네임스페이스 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | 네임스페이스 진단 설정 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | 네임스페이스 진단 설정 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | 네임스페이스 로그 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | 네임스페이스 메트릭 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/read | 네임스페이스 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | ACS 네임스페이스를 제거합니다. |
-> | 작업 | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | VNET 규칙 리소스 삭제 |
+> | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | VNET 규칙 리소스 삭제 |
 > | 작업 | Microsoft.EventHub/namespaces/virtualNetworkRules/read | VNET 규칙 리소스 가져오기 |
-> | 작업 | Microsoft.EventHub/namespaces/virtualNetworkRules/write | VNET 규칙 리소스 만들기 |
-> | 작업 | Microsoft.EventHub/namespaces/write | 네임스페이스 리소스를 만들고 해당 속성을 업데이트합니다. 네임스페이스의 태그 및 용량은 업데이트할 수 있는 속성입니다. |
+> | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/write | VNET 규칙 리소스 만들기 |
+> | Action | Microsoft.EventHub/namespaces/write | 네임스페이스 리소스를 만들고 해당 속성을 업데이트합니다. 네임스페이스의 태그 및 용량은 업데이트할 수 있는 속성입니다. |
 > | 액션(Action) | Microsoft.EventHub/operations/read | 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventHub/register/action | EventHub 리소스 공급자에 대한 구독을 등록하고 EventHub 리소스를 만들도록 설정합니다. |
 > | 액션(Action) | Microsoft.EventHub/sku/read | Sku 리소스 설명의 목록을 가져옵니다. |
@@ -2626,10 +2626,10 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.GuestConfiguration/guestConfigurationAssignments/delete | 게스트 구성 할당을 삭제 합니다. |
-> | 작업 | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
+> | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
 > | 작업 | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | 게스트 구성 할당 보고서를 가져옵니다. |
 > | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | 새 게스트 구성 할당을 만듭니다. |
-> | 작업 | Microsoft.GuestConfiguration/register/action | GuestConfiguration 리소스 공급자에 대 한 구독을 등록 합니다. |
+> | Action | Microsoft.GuestConfiguration/register/action | GuestConfiguration 리소스 공급자에 대 한 구독을 등록 합니다. |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -2642,15 +2642,15 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.HDInsight/clusters/changerdpsetting/action | HDInsight 클러스터의 RDP 설정을 변경합니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/configurations/action | HDInsight 클러스터 구성을 업데이트합니다. |
 > | 작업 | Microsoft.HDInsight/clusters/configurations/action | HDInsight 클러스터 구성을 가져옵니다. |
-> | Action | Microsoft.HDInsight/clusters/configurations/read | HDInsight 클러스터 구성을 가져옵니다. |
+> | 작업 | Microsoft.HDInsight/clusters/configurations/read | HDInsight 클러스터 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/delete | HDInsight 클러스터를 삭제합니다. |
 > | 작업 | Microsoft.HDInsight/clusters/getGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 가져오기 |
-> | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | 리소스 HDInsight 클러스터에 대한 진단 설정을 가져옵니다. |
+> | 작업 | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | 리소스 HDInsight 클러스터에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | 리소스 HDInsight 클러스터에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | HDInsight 클러스터에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/read | HDInsight 클러스터에 대한 세부 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.HDInsight/clusters/roles/resize/action | HDInsight 클러스터 크기를 조정합니다. |
-> | Action | Microsoft.HDInsight/clusters/updateGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 업데이트 |
+> | 작업 | Microsoft.HDInsight/clusters/updateGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 업데이트 |
 > | Action | Microsoft.HDInsight/clusters/write | HDInsight 클러스터를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.HDInsight/locations/capabilities/read | 구독 기능을 가져옵니다. |
 > | 액션(Action) | Microsoft.HDInsight/locations/checkNameAvailability/read | 이름 가용성을 확인합니다. |
@@ -2687,8 +2687,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Insights/AlertRules/Throttled/Action | 클래식 메트릭 경고 규칙이 제한되었습니다. |
 > | 액션(Action) | Microsoft.Insights/AlertRules/Write | 클래식 메트릭 경고를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Insights/AutoscaleSettings/Delete | 자동 크기 조정 설정을 삭제합니다. |
-> | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | 리소스 진단 설정을 읽습니다. |
-> | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | 리소스 진단 설정을 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | 리소스 진단 설정 읽기 |
+> | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | 리소스 진단 설정 만들기 또는 업데이트 |
 > | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | 로그 정의 읽기 |
 > | 작업 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | 메트릭 정의 읽기 |
 > | 액션(Action) | Microsoft.Insights/AutoscaleSettings/Read | 자동 크기 조정 설정을 읽습니다. |
@@ -2697,9 +2697,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | 자동 크기 조정 규모 확대가 시작되었습니다. |
 > | 액션(Action) | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | 자동 크기 조정 규모 확대가 완료되었습니다. |
 > | 액션(Action) | Microsoft.Insights/AutoscaleSettings/Write | 자동 크기 조정 설정을 만들거나 업데이트합니다. |
-> | 작업 | Microsoft.Insights/Baseline/Read | 메트릭 기준선 읽기 (미리 보기) |
-> | Action | Microsoft.Insights/CalculateBaseline/Read | 메트릭 값의 기준선 계산 (미리 보기) |
-> | 작업 | Microsoft.Insights/Components/AnalyticsItems/Delete | Application Insights 분석 항목을 삭제합니다. |
+> | 작업 | Microsoft.Insights/Baseline/Read | 메트릭 기준 읽기(미리 보기) |
+> | 작업 | Microsoft.Insights/CalculateBaseline/Read | 메트릭 값의 기준 계산(미리 보기) |
+> | Action | Microsoft.Insights/Components/AnalyticsItems/Delete | Application Insights 분석 항목을 삭제합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsItems/Read | Application Insights 분석 항목을 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsItems/Write | Application Insights 분석 항목을 작성합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Action | Application Insights 분석 테이블 작업입니다. |
@@ -2785,7 +2785,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Insights/Logs/ContainerInventory/Read | ContainerInventory 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/ContainerLog/Read | ContainerLog 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/ContainerServiceLog/Read | ContainerServiceLog 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.Insights/Logs/DeviceAppCrash/Read | DeviceAppCrash 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.Insights/Logs/DeviceAppCrash/Read | DeviceAppCrash 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/DeviceAppLaunch/Read | DeviceAppLaunch 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/DeviceCalendar/Read | DeviceCalendar 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/DeviceCleanup/Read | DeviceCleanup 테이블에서 데이터를 읽습니다. |
@@ -2918,14 +2918,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Insights/MetricAlerts/Read | 메트릭 경고를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/MetricAlerts/Status/Read | 메트릭 경고 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/MetricAlerts/Write | 메트릭 경고를 만들거나 업데이트합니다. |
-> | Action | Microsoft.Insights/MetricBaselines/Read | 메트릭 기준 읽기 |
+> | 작업 | Microsoft.Insights/MetricBaselines/Read | 메트릭 기준 읽기 |
 > | 작업 | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | 메트릭 정의 읽기 |
 > | 액션(Action) | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | 메트릭 정의 읽기 |
 > | 액션(Action) | Microsoft.Insights/MetricDefinitions/Read | 메트릭 정의 읽기 |
-> | Action | Microsoft.Insights/Metricnamespaces/Read | 메트릭 네임 스페이스 읽기 |
-> | Action | Microsoft.Insights/Metrics/Action | 메트릭 작업 |
-> | 작업 | Microsoft.Insights/Metrics/Microsoft.Insights/Read | 메트릭 읽기 |
-> | Action | Microsoft.Insights/Metrics/providers/Metrics/Read | 메트릭 읽기 |
+> | Action | Microsoft.Insights/Metricnamespaces/Read | 메트릭 네임스페이스 읽기 |
+> | 작업 | Microsoft.Insights/Metrics/Action | 메트릭 작업 |
+> | 작업 | Microsoft.Insights/Metrics/Microsoft.Insights/Read | 읽기 메트릭 |
+> | 작업 | Microsoft.Insights/Metrics/providers/Metrics/Read | 메트릭 읽기 |
 > | 액션(Action) | Microsoft.Insights/Metrics/Read | 메트릭 읽기 |
 > | DataAction | Microsoft.Insights/Metrics/Write | 메트릭을 작성합니다. |
 > | 액션(Action) | Microsoft.Insights/MigrateToNewpricingModel/Action | 구독을 새로운 가격 책정 모델로 마이그레이션합니다. |
@@ -2942,31 +2942,31 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Insights/Webtests/MetricDefinitions/Read | 웹 테스트 메트릭 정의를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Webtests/Metrics/Read | 웹 테스트 메트릭을 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Webtests/Read | 웹 테스트 구성을 읽습니다. |
-> | 액션(Action) | Microsoft.Insights/Webtests/Write | 웹 테스트 구성에 씁니다. |
+> | 액션(Action) | Microsoft.Insights/Webtests/Write | 웹 테스트 구성에 쓰는 중 |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Intune/diagnosticsettings/delete | 진단 설정을 삭제합니다. |
+> | 작업 | Microsoft.Intune/diagnosticsettings/delete | 진단 설정을 삭제합니다. |
 > | 작업 | Microsoft.Intune/diagnosticsettings/read | 진단 설정을 읽습니다. |
 > | Action | Microsoft.Intune/diagnosticsettings/write | 진단 설정을 작성합니다. |
-> | 작업 | Microsoft.Intune/diagnosticsettingscategories/read | 진단 설정 범주를 읽습니다. |
+> | Action | Microsoft.Intune/diagnosticsettingscategories/read | 진단 설정 범주를 읽습니다. |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.IoTCentral/appTemplates/action | Azure IoT Central에서 사용 가능한 모든 응용 프로그램 템플릿을 가져옵니다. |
+> | 작업 | Microsoft.IoTCentral/appTemplates/action | Azure IoT Central에서 사용 가능한 모든 응용 프로그램 템플릿을 가져옵니다. |
 > | 작업 | Microsoft.IoTCentral/checkNameAvailability/action | IoT Central 애플리케이션 이름이 사용 가능한지 확인합니다. |
 > | 작업 | Microsoft.IoTCentral/checkSubdomainAvailability/action | IoT Central 애플리케이션 하위 도메인이 사용 가능한지 확인합니다. |
-> | 작업 | Microsoft.IoTCentral/IoTApps/delete | IoT Central 애플리케이션 삭제 |
-> | Action | Microsoft.IoTCentral/IoTApps/read | 단일 IoT Central 애플리케이션 가져오기 |
-> | Action | Microsoft.IoTCentral/IoTApps/write | IoT Central 애플리케이션을 만들거나 업데이트 |
+> | Action | Microsoft.IoTCentral/IoTApps/delete | IoT Central 애플리케이션 삭제 |
+> | 작업 | Microsoft.IoTCentral/IoTApps/read | 단일 IoT Central 애플리케이션 가져오기 |
+> | 작업 | Microsoft.IoTCentral/IoTApps/write | IoT Central 애플리케이션을 만들거나 업데이트 |
 > | 작업 | Microsoft.IoTCentral/operations/read | IoT Central 애플리케이션에 사용 가능한 모든 작업 가져오기 |
-> | 작업 | Microsoft.IoTCentral/register/action | Azure IoT Central 리소스 공급자에 대한 구독 등록 |
+> | Action | Microsoft.IoTCentral/register/action | Azure IoT Central 리소스 공급자에 대한 구독 등록 |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
@@ -2975,8 +2975,8 @@ ms.locfileid: "67868626"
 > | --- | --- | --- |
 > | 작업 | Microsoft.IoTSpaces/Graph/delete | Microsoft.IoTSpaces Graph 리소스를 삭제 |
 > | Action | Microsoft.IoTSpaces/Graph/read | Microsoft.IoTSpaces Graph 리소스를 가져오기 |
-> | 작업 | Microsoft.IoTSpaces/Graph/write | Microsoft.IoTSpaces Graph 리소스를 만들기 |
-> | 작업 | Microsoft.IoTSpaces/register/action | 리소스를 만들 수 있게 설정하려면 Microsoft.IoTSpaces Graph 리소스 공급자에 대한 구독을 등록하세요. |
+> | Action | Microsoft.IoTSpaces/Graph/write | Microsoft.IoTSpaces Graph 리소스를 만들기 |
+> | Action | Microsoft.IoTSpaces/register/action | 리소스를 만들 수 있게 설정하려면 Microsoft.IoTSpaces Graph 리소스 공급자에 대한 구독을 등록하세요. |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -2999,10 +2999,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.KeyVault/vaults/accessPolicies/write | 병합 또는 바꾸기를 통해 기존 액세스 정책을 업데이트하거나 새 액세스 정책을 자격 증명 모음에 추가합니다. |
 > | 액션(Action) | Microsoft.KeyVault/vaults/delete | Key Vault를 삭제합니다. |
 > | 액션(Action) | Microsoft.KeyVault/vaults/deploy/action | Azure Resource를 배포하는 동안 Key Vault의 비밀에 액세스할 수 있습니다. |
-> | 작업 | Microsoft.KeyVault/vaults/eventGridFilters/delete | Key Vault에 대 한 EventGrid 구독이 삭제 됨을 Microsoft KeyVault에 알립니다. |
-> | 작업 | Microsoft.KeyVault/vaults/eventGridFilters/read | Key Vault에 대 한 EventGrid 구독을 표시 하 고 있음을 Microsoft. KeyVault에 알립니다. |
-> | Action | Microsoft.KeyVault/vaults/eventGridFilters/write | Key Vault에 대 한 새 EventGrid 구독을 만들고 있음을 Microsoft. KeyVault에 알립니다. |
-> | 작업 | Microsoft.KeyVault/vaults/read | Key Vault의 속성을 봅니다. |
+> | 작업 | Microsoft.KeyVault/vaults/eventGridFilters/delete | Key Vault에 대한 EventGrid 구독이 삭제됨을 Microsoft.KeyVault에 알립니다. |
+> | 작업 | Microsoft.KeyVault/vaults/eventGridFilters/read | Key Vault에 대한 EventGrid 구독을 보고 있음을 Microsoft.KeyVault에 알립니다. |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/write | Key Vault에 대한 새 EventGrid 구독이 생성됨을 Microsoft.KeyVault에 알립니다. |
+> | Action | Microsoft.KeyVault/vaults/read | Key Vault의 속성을 봅니다. |
 > | 액션(Action) | Microsoft.KeyVault/vaults/secrets/read | 암호의 속성은 볼 수 있지만 해당 값은 볼 수 없습니다. |
 > | 작업 | Microsoft.KeyVault/vaults/secrets/write | 새 비밀을 만들거나 기존 비밀의 값을 업데이트 합니다. |
 > | Action | Microsoft.KeyVault/vaults/write | 새 Key Vault를 만들거나 기존 Key Vault의 속성을 업데이트합니다. |
@@ -3013,37 +3013,37 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | Action | Microsoft.Kusto/Clusters/Activate/action | 클러스터를 시작 합니다. |
-> | 작업 | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | 연결 된 데이터베이스 구성 리소스를 삭제 합니다. |
-> | 작업 | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | 연결 된 데이터베이스 구성 리소스를 읽습니다. |
+> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | 연결 된 데이터베이스 구성 리소스를 삭제 합니다. |
+> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | 연결 된 데이터베이스 구성 리소스를 읽습니다. |
 > | 작업 | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | 연결 된 데이터베이스 구성 리소스를 작성 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/CheckNameAvailability/action | 클러스터 이름 가용성을 확인 합니다. |
-> | Action | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | 데이터베이스 보안 주체를 추가 합니다. |
-> | Action | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | 지정 된 형식에 대 한 이름 가용성을 확인 합니다. |
+> | 작업 | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | 데이터베이스 보안 주체를 추가 합니다. |
+> | 작업 | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | 지정 된 형식에 대 한 이름 가용성을 확인 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | 데이터 연결 리소스를 삭제합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Databases/DataConnections/read | 데이터 연결 리소스를 읽습니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Databases/DataConnections/write | 데이터 연결 리소스를 씁니다. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | 데이터베이스 데이터 연결의 유효성을 검사 합니다. |
-> | Action | Microsoft.Kusto/Clusters/Databases/delete | 데이터베이스 리소스를 삭제합니다. |
+> | 작업 | Microsoft.Kusto/Clusters/Databases/delete | 데이터베이스 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | 이벤트 허브 연결 리소스를 삭제 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 이벤트 허브 연결 리소스를 읽습니다. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | 이벤트 허브 연결 리소스를 씁니다. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | 데이터베이스 이벤트 허브 연결의 유효성을 검사 합니다. |
-> | 작업 | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | 데이터베이스 보안 주체를 나열 합니다. |
-> | Action | Microsoft.Kusto/Clusters/Databases/read | 데이터베이스 리소스를 읽습니다. |
+> | 작업 | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | 데이터베이스 이벤트 허브 연결의 유효성을 검사 합니다. |
+> | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | 데이터베이스 보안 주체를 나열 합니다. |
+> | 작업 | Microsoft.Kusto/Clusters/Databases/read | 데이터베이스 리소스를 읽습니다. |
 > | Action | Microsoft.Kusto/Clusters/Databases/RemovePrincipals/action | 데이터베이스 보안 주체를 제거 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Databases/write | 데이터베이스 리소스를 씁니다. |
 > | 작업 | Microsoft.Kusto/Clusters/Deactivate/action | 클러스터를 중지 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/delete | 클러스터 리소스를 삭제합니다. |
-> | Action | Microsoft.Kusto/Clusters/read | 클러스터 리소스를 읽습니다. |
+> | 작업 | Microsoft.Kusto/Clusters/read | 클러스터 리소스를 읽습니다. |
 > | Action | Microsoft.Kusto/Clusters/SKUs/read | 클러스터 SKU 리소스를 읽습니다. |
-> | 작업 | Microsoft.Kusto/Clusters/Start/action | 클러스터를 시작 합니다. |
-> | 작업 | Microsoft.Kusto/Clusters/Stop/action | 클러스터를 중지 합니다. |
+> | Action | Microsoft.Kusto/Clusters/Start/action | 클러스터를 시작 합니다. |
+> | Action | Microsoft.Kusto/Clusters/Stop/action | 클러스터를 중지 합니다. |
 > | 작업 | Microsoft.Kusto/Clusters/write | 클러스터 리소스를 씁니다. |
 > | 작업 | Microsoft.Kusto/Locations/CheckNameAvailability/action | 리소스 이름 가용성을 확인 합니다. |
-> | 작업 | Microsoft.Kusto/locations/operationresults/read | 작업 리소스를 읽습니다. |
+> | Action | Microsoft.Kusto/locations/operationresults/read | 작업 리소스를 읽습니다. |
 > | 액션(Action) | Microsoft.Kusto/Operations/read | 작업 리소스를 읽습니다. |
 > | 작업 | Microsoft.Kusto/Register/action | 구독을 Kusto 리소스 공급자에 등록 합니다. |
-> | Action | Microsoft.Kusto/SKUs/read | SKU 리소스를 읽습니다. |
+> | 작업 | Microsoft.Kusto/SKUs/read | SKU 리소스를 읽습니다. |
 > | 작업 | Microsoft.Kusto/Unregister/action | Kusto 리소스 공급자에 대 한 구독을 등록 취소 합니다. |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
@@ -3057,9 +3057,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.LabServices/labAccounts/galleryImages/read | 갤러리 이미지를 읽습니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/galleryImages/write | 갤러리 이미지를 추가하거나 수정합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/GetRegionalAvailability/action | 랩 계정에서 구성된 각 크기 범주에 대한 지역별 가용성 정보를 가져옵니다. |
-> | 작업 | Microsoft. 서비스/랩 계정/idleShutdowns/삭제 | Idleshutdowns를 삭제 합니다. |
+> | Action | Microsoft. 서비스/랩 계정/idleShutdowns/삭제 | Idleshutdowns를 삭제 합니다. |
 > | 작업 | Microsoft. 서비스/랩 계정/idleShutdowns/읽기 | Idleshutdowns을 읽습니다. |
-> | 작업 | Microsoft. 서비스/랩 계정/idleShutdowns/쓰기 | Idleshutdowns를 추가 하거나 수정 합니다. |
+> | Action | Microsoft. 서비스/랩 계정/idleShutdowns/쓰기 | Idleshutdowns를 추가 하거나 수정 합니다. |
 > | 작업 | Microsoft.LabServices/labAccounts/labs/AddUsers/action | 랩에 사용자 추가 |
 > | 작업 | Microsoft.LabServices/labAccounts/labs/delete | 랩을 삭제합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/ClaimAny/action | 환경 설정에서 사용자에 대해 임의 환경을 클레임합니다. |
@@ -3073,14 +3073,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/write | 환경을 추가하거나 수정합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/Publish/action | 랩/환경 설정의 현재 상태에 따라 환경 설정에 필요한 리소스를 프로비전/프로비전 해제합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | 환경 설정을 읽습니다. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/ResetPassword/action | 템플릿 가상 컴퓨터에서 암호를 다시 설정 합니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | 랩 계정의 공유 갤러리에 현재 템플릿 이미지를 저장 합니다. |
+> | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/ResetPassword/action | 템플릿 가상 컴퓨터에서 암호를 다시 설정 합니다. |
+> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | 랩 계정의 공유 갤러리에 현재 템플릿 이미지를 저장 합니다. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | 일정을 삭제합니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | 일정을 읽습니다. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
+> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | 일정을 읽습니다. |
+> | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
 > | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | 템플릿 내의 모든 리소스를 시작하여 템플릿을 시작합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | 템플릿 내의 모든 리소스를 중지하여 템플릿을 중지합니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | 환경 설정을 추가하거나 수정합니다. |
+> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | 환경 설정을 추가하거나 수정합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/read | 랩을 읽습니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/Register/action | 관리되는 랩에 등록합니다. |
 > | 작업 | Microsoft.LabServices/labAccounts/labs/SendEmail/action | 등록 링크가 포함된 이메일을 랩으로 보냅니다. |
@@ -3091,23 +3091,23 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.LabServices/labAccounts/read | 랩 계정을 읽습니다. |
 > | Action | Microsoft.LabServices/labAccounts/sharedGalleries/delete | sharedgalleries를 삭제합니다. |
 > | 작업 | Microsoft.LabServices/labAccounts/sharedGalleries/read | sharedgalleries를 읽습니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/sharedGalleries/write | sharedgalleries를 추가 또는 수정합니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/sharedImages/delete | sharedimages를 삭제합니다. |
-> | 작업 | Microsoft.LabServices/labAccounts/sharedImages/read | sharedimages를 읽습니다. |
-> | Action | Microsoft.LabServices/labAccounts/sharedImages/write | sharedimages를 추가 또는 수정합니다. |
+> | Action | Microsoft.LabServices/labAccounts/sharedGalleries/write | sharedgalleries를 추가 또는 수정합니다. |
+> | Action | Microsoft.LabServices/labAccounts/sharedImages/delete | sharedimages를 삭제합니다. |
+> | Action | Microsoft.LabServices/labAccounts/sharedImages/read | sharedimages를 읽습니다. |
+> | 작업 | Microsoft.LabServices/labAccounts/sharedImages/write | sharedimages를 추가 또는 수정합니다. |
 > | 작업 | Microsoft.LabServices/labAccounts/write | 랩 계정을 추가 또는 수정합니다. |
 > | 액션(Action) | Microsoft.LabServices/locations/operations/read | 읽기 작업 |
 > | 액션(Action) | Microsoft.LabServices/register/action | 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.LabServices/users/GetEnvironment/action | 가상 머신 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.LabServices/users/GetOperationBatchStatus/action | 배치 작업 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.LabServices/users/GetOperationStatus/action | 장기 실행 작업의 상태를 가져옵니다. |
-> | 작업 | Microsoft.LabServices/users/GetPersonalPreferences/action | 사용자의 개인 기본 설정 가져오기 |
-> | Action | Microsoft.LabServices/users/ListAllEnvironments/action | 사용자에 대 한 모든 환경 나열 |
+> | Action | Microsoft.LabServices/users/GetPersonalPreferences/action | 사용자의 개인 기본 설정 가져오기 |
+> | 작업 | Microsoft.LabServices/users/ListAllEnvironments/action | 사용자에 대 한 모든 환경 나열 |
 > | 작업 | Microsoft.LabServices/users/ListEnvironments/action | 사용자에 대한 환경을 나열합니다. |
 > | 액션(Action) | Microsoft.LabServices/users/ListLabs/action | 사용자에 대한 랩을 나열합니다. |
 > | 액션(Action) | Microsoft.LabServices/users/Register/action | 사용자를 관리되는 랩에 등록합니다. |
 > | 작업 | Microsoft.LabServices/users/ResetPassword/action | 환경의 사용자 암호 다시 설정 |
-> | Action | Microsoft.LabServices/users/StartEnvironment/action | 환경 내의 모든 리소스를 시작하여 환경을 시작합니다. |
+> | 작업 | Microsoft.LabServices/users/StartEnvironment/action | 환경 내의 모든 리소스를 시작하여 환경을 시작합니다. |
 > | 액션(Action) | Microsoft.LabServices/users/StopEnvironment/action | 환경 내의 모든 리소스를 중지하여 환경을 중지합니다. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
@@ -3159,9 +3159,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | 통합 서비스 환경 관리되는 API를 읽습니다. |
 > | 작업 | Microsoft.Logic/integrationServiceEnvironments/operationStatuses/read | 통합 서비스 환경 작업 상태를 읽습니다. |
 > | 작업 | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | 통합 서비스 환경 메트릭 정의를 읽습니다. |
-> | 작업 | Microsoft.Logic/integrationServiceEnvironments/read | 통합 서비스 환경을 읽습니다. |
+> | Action | Microsoft.Logic/integrationServiceEnvironments/read | 통합 서비스 환경을 읽습니다. |
 > | 액션(Action) | Microsoft.Logic/integrationServiceEnvironments/write | 통합 서비스 환경을 만들거나 업데이트합니다. |
-> | Action | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | 워크플로 권장 작업 그룹을 가져옵니다. |
+> | 작업 | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | 워크플로 권장 작업 그룹을 가져옵니다. |
 > | Action | Microsoft.Logic/locations/workflows/validate/action | 워크플로의 유효성을 검사합니다. |
 > | 액션(Action) | Microsoft.Logic/operations/read | 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Logic/register/action | 지정된 구독에 대한 Microsoft.Logic 리소스 공급자를 등록합니다. |
@@ -3234,19 +3234,6 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Machine Learning 작업 영역에 대해 구성된 저장소 계정의 키를 다시 동기화합니다. |
 > | 액션(Action) | Microsoft.MachineLearning/Workspaces/write | Machine Learning 작업 영역을 만들거나 업데이트합니다. |
 
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 액션 유형 | 작업(Operation) | 설명 |
-> | --- | --- | --- |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | 업데이트를 운영화 클러스터용 시스템 서비스에 사용할 수 있는지 확인합니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/delete | 호스팅 계정을 삭제합니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | 운영화 클러스터와 연결된 키를 나열합니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/read | 호스팅 계정을 읽습니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | 운영화 클러스터의 시스템 서비스를 업데이트합니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/operationalizationClusters/write | 호스팅 계정을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.MachineLearningCompute/register/action | 리소스 공급자에 대한 구독 ID를 등록하고 기계 학습 계산 리소스를 만들도록 설정합니다. |
-
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -3256,11 +3243,11 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.MachineLearningServices/locations/usages/read | 구독의 aml 컴퓨팅 리소스에 대한 사용량 보고서입니다. |
 > | 작업 | Microsoft.MachineLearningServices/locations/vmsizes/read | 지원되는 vm 크기를 가져옵니다. |
 > | 작업 | Microsoft.MachineLearningServices/locations/workspaceOperationsStatus/read | 특정 작업 영역 작업의 상태를 가져옵니다. |
-> | Action | Microsoft.MachineLearningServices/register/action | Machine Learning Services 리소스 공급자에 대한 구독을 등록합니다. |
+> | 작업 | Microsoft.MachineLearningServices/register/action | Machine Learning Services 리소스 공급자에 대한 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/delete | Machine Learning Services 작업 영역에서 계산 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/listKeys/action | Machine Learning Services 작업 영역에서 계산 리소스에 대한 비밀을 나열합니다. |
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/listNodes/action | Machine Learning Services 작업 영역의 컴퓨팅 리소스에 대한 노드를 나열합니다. |
-> | 작업 | Microsoft.MachineLearningServices/workspaces/computes/read | Machine Learning Services 작업 영역에서 계산 리소스를 가져옵니다. |
+> | Action | Microsoft.MachineLearningServices/workspaces/computes/read | Machine Learning Services 작업 영역에서 계산 리소스를 가져옵니다. |
 > | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/write | Machine Learning Services 작업 영역에서 계산 리소스를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.MachineLearningServices/workspaces/delete | Machine Learning Services 작업 영역을 삭제합니다. |
 > | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/write | Machine Learning Services 작업 영역에서 실험을 만들거나 업데이트 합니다. |
@@ -3285,16 +3272,16 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft ManagedServices/marketplaceRegistrationDefinitions/read | 관리 서비스 등록 정의의 목록을 검색 합니다. |
+> | 작업 | Microsoft ManagedServices/marketplaceRegistrationDefinitions/read | 관리 서비스 등록 정의 목록을 검색합니다. |
 > | Action | Microsoft ManagedServices/operationStatuses/읽기 | 리소스의 작업 상태를 읽습니다. |
-> | Action | Microsoft ManagedServices/register/action | 관리 서비스에 등록 합니다. |
-> | 작업 | Microsoft ManagedServices/registrationAssignments/delete | 관리 되는 서비스 등록 할당을 제거 합니다. |
-> | Action | Microsoft ManagedServices/registrationAssignments/read | 관리 되는 서비스 등록 할당 목록을 검색 합니다. |
-> | Action | Microsoft ManagedServices/registrationAssignments/write | 관리 서비스 등록 할당을 추가 하거나 수정 합니다. |
-> | 작업 | Microsoft ManagedServices/registrationDefinitions/삭제 | 관리 서비스 등록 정의를 제거 합니다. |
-> | 작업 | Microsoft ManagedServices/registrationDefinitions/읽기 | 관리 서비스 등록 정의의 목록을 검색 합니다. |
-> | Action | Microsoft ManagedServices/registrationDefinitions/쓰기 | 관리 서비스 등록 정의를 추가 하거나 수정 합니다. |
-> | 작업 | Microsoft ManagedServices/등록 취소/작업 | 관리 서비스에서 등록을 취소 합니다. |
+> | 작업 | Microsoft ManagedServices/register/action | 관리 서비스에 등록 합니다. |
+> | 작업 | Microsoft ManagedServices/registrationAssignments/delete | 관리 서비스 등록 할당을 제거합니다. |
+> | 작업 | Microsoft ManagedServices/registrationAssignments/read | 관리 서비스 등록 할당 목록을 검색합니다. |
+> | 작업 | Microsoft ManagedServices/registrationAssignments/write | 관리 서비스 등록 할당을 추가하거나 수정합니다. |
+> | Action | Microsoft ManagedServices/registrationDefinitions/삭제 | 관리 서비스 등록 정의를 제거합니다. |
+> | Action | Microsoft ManagedServices/registrationDefinitions/읽기 | 관리 서비스 등록 정의 목록을 검색합니다. |
+> | Action | Microsoft ManagedServices/registrationDefinitions/쓰기 | 관리 서비스 등록 정의를 추가하거나 수정합니다. |
+> | Action | Microsoft ManagedServices/등록 취소/작업 | 관리 서비스에서 등록을 취소 합니다. |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
@@ -3317,15 +3304,15 @@ ms.locfileid: "67868626"
 > | --- | --- | --- |
 > | DataAction | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
 > | 액션(Action) | Microsoft.Maps/accounts/delete | Maps 계정을 삭제합니다. |
-> | Action | Microsoft.Maps/accounts/eventGridFilters/delete | Event Grid 필터를 삭제합니다. |
-> | Action | Microsoft.Maps/accounts/eventGridFilters/read | Event Grid 필터를 가져옵니다. |
-> | Action | Microsoft.Maps/accounts/eventGridFilters/write | Event Grid 필터를 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.Maps/accounts/eventGridFilters/delete | Event Grid 필터를 삭제합니다. |
+> | 작업 | Microsoft.Maps/accounts/eventGridFilters/read | Event Grid 필터를 가져옵니다. |
+> | 작업 | Microsoft.Maps/accounts/eventGridFilters/write | Event Grid 필터를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Maps/accounts/listKeys/action | Maps 계정 키를 나열합니다. |
 > | 작업 | Microsoft.Maps/accounts/read | Maps 계정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Maps/accounts/regenerateKey/action | 새 Maps 계정 기본 키 또는 보조 키를 생성합니다. |
 > | 액션(Action) | Microsoft.Maps/accounts/write | Maps 계정을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Maps/operations/read | 공급자 작업 읽기 |
-> | 작업 | Microsoft.Maps/register/action | 공급자를 등록합니다. |
+> | Action | Microsoft.Maps/register/action | 공급자를 등록합니다. |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
@@ -3362,7 +3349,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.MarketplaceOrdering/agreements/read | 지정된 구독의 모든 규약을 반환합니다. |
 > | 액션(Action) | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read | 지정된 마켓플레이스 가상 머신 항목에 대한 규약을 가져옵니다. |
 > | 액션(Action) | Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write | 지정된 마켓플레이스 가상 머신 항목에 대한 규약에 서명하거나 규약을 취소합니다. |
-> | Action | Microsoft.MarketplaceOrdering/operations/read | API에서 가능한 모든 작업 나열 |
+> | 작업 | Microsoft.MarketplaceOrdering/operations/read | API에서 가능한 모든 작업 나열 |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -3371,24 +3358,24 @@ ms.locfileid: "67868626"
 > | --- | --- | --- |
 > | 작업 | Microsoft.Media/checknameavailability/action | Media Services 계정 이름을 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Media/locations/checkNameAvailability/action | Media Services 계정 이름을 사용할 수 있는지 확인합니다. |
-> | Action | Microsoft.Media/mediaservices/accountfilters/delete | 계정 필터를 삭제합니다. |
-> | Action | Microsoft.Media/mediaservices/accountfilters/read | 계정 필터를 읽습니다. |
-> | 작업 | Microsoft.Media/mediaservices/accountfilters/write | 계정 필터를 만들거나 업데이트합니다. |
-> | Action | Microsoft.Media/mediaservices/assets/assetfilters/delete | 자산 필터를 삭제합니다. |
+> | 작업 | Microsoft.Media/mediaservices/accountfilters/delete | 계정 필터를 삭제합니다. |
+> | 작업 | Microsoft.Media/mediaservices/accountfilters/read | 계정 필터를 읽습니다. |
+> | Action | Microsoft.Media/mediaservices/accountfilters/write | 계정 필터를 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.Media/mediaservices/assets/assetfilters/delete | 자산 필터를 삭제합니다. |
 > | 작업 | Microsoft.Media/mediaservices/assets/assetfilters/read | 자산 필터를 읽습니다. |
-> | Action | Microsoft.Media/mediaservices/assets/assetfilters/write | 자산 필터를 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.Media/mediaservices/assets/assetfilters/write | 자산 필터를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Media/mediaservices/assets/delete | 모든 자산을 삭제합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/assets/getEncryptionKey/action | 자산 암호화 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/assets/listContainerSas/action | 자산 컨테이너 SAS URL을 나열합니다. |
 > | 작업 | Microsoft.Media/mediaservices/assets/listStreamingLocators/action | 자산에 대한 스트리밍 로케이터를 나열합니다. |
-> | 작업 | Microsoft.Media/mediaservices/assets/read | 모든 자산을 읽습니다. |
+> | Action | Microsoft.Media/mediaservices/assets/read | 모든 자산을 읽습니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/assets/write | 모든 자산을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/contentKeyPolicies/delete | 모든 콘텐츠 키 정책을 삭제합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action | 비밀을 사용하여 정책 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/contentKeyPolicies/read | 모든 콘텐츠 키 정책을 읽습니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/contentKeyPolicies/write | 모든 콘텐츠 키 정책을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/delete | Media Services 계정을 삭제합니다. |
-> | 작업 | Microsoft.Media/mediaservices/eventGridFilters/delete | 모든 Event Grid 필터를 삭제합니다. |
+> | Action | Microsoft.Media/mediaservices/eventGridFilters/delete | 모든 Event Grid 필터를 삭제합니다. |
 > | 작업 | Microsoft.Media/mediaservices/eventGridFilters/read | 모든 Event Grid 필터를 읽습니다. |
 > | 작업 | Microsoft.Media/mediaservices/eventGridFilters/write | 모든 Event Grid 필터를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Media/mediaservices/liveEventOperations/read | 모든 라이브 이벤트 작업을 읽습니다. |
@@ -3405,7 +3392,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Media/mediaservices/read | Media Services 계정을 읽습니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/streamingEndpointOperations/read | 모든 스트리밍 엔드포인트 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/streamingEndpoints/delete | 모든 스트리밍 엔드포인트를 삭제합니다. |
-> | 작업 | Microsoft.Media/mediaservices/streamingEndpoints/read | 모든 스트리밍 엔드포인트를 읽습니다. |
+> | Action | Microsoft.Media/mediaservices/streamingEndpoints/read | 모든 스트리밍 엔드포인트를 읽습니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/streamingEndpoints/scale/action | 모든 스트리밍 엔드포인트 작업의 크기를 조정합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/streamingEndpoints/start/action | 모든 스트리밍 엔드포인트 작업을 시작합니다. |
 > | 액션(Action) | Microsoft.Media/mediaservices/streamingEndpoints/stop/action | 모든 스트리밍 엔드포인트 작업을 중지합니다. |
@@ -3436,43 +3423,43 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft. 마이그레이션/assessmentprojects/assessmentOptions/읽기 | 지정된 위치에서 사용할 수 있는 평가 옵션을 가져옵니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/assessments/read | 프로젝트 내의 평가를 나열합니다. |
+> | 작업 | Microsoft. 마이그레이션/assessmentprojects/assessmentOptions/읽기 | 지정된 위치에서 사용할 수 있는 평가 옵션 가져오기 |
+> | 작업 | Microsoft.Migrate/assessmentprojects/assessments/read | 프로젝트 내에서 평가 나열 |
 > | 작업 | Microsoft.Migrate/assessmentprojects/delete | 평가 프로젝트를 삭제 합니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/groups/assessments/assessedmachines/read | 평가된 머신의 속성을 가져옵니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/delete | 평가를 삭제합니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/downloadurl/action | 평가 보고서의 URL을 다운로드합니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/read | 평가의 속성을 가져옵니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/write | 새 평가를 만들거나 기존 평가를 업데이트합니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/assessedmachines/read | 평가된 머신의 속성 가져오기 |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/delete | 평가 삭제 |
+> | Action | Microsoft.Migrate/assessmentprojects/groups/assessments/downloadurl/action | 평가 보고서의 URL 다운로드 |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/read | 평가의 속성 가져오기 |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/assessments/write | 새 평가를 만들거나 기존 평가 업데이트 |
 > | 작업 | Microsoft.Migrate/assessmentprojects/groups/delete | 그룹을 삭제합니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/read | 그룹의 속성을 가져옵니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/groups/updateMachines/action | 컴퓨터를 추가 또는 제거 하 여 그룹 업데이트 |
-> | 작업 | Microsoft.Migrate/assessmentprojects/groups/write | 새 그룹을 만들거나 기존 그룹을 업데이트합니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/read | 그룹의 속성 가져오기 |
+> | 작업 | Microsoft.Migrate/assessmentprojects/groups/updateMachines/action | 컴퓨터를 추가 또는 제거 하 여 그룹 업데이트 |
+> | Action | Microsoft.Migrate/assessmentprojects/groups/write | 새 그룹을 만들거나 기존 그룹 업데이트 |
 > | 작업 | Microsoft.Migrate/assessmentprojects/hypervcollectors/delete | HyperV 수집기를 삭제 합니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/hypervcollectors/read | HyperV 수집기의 속성을 가져옵니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/hypervcollectors/write | 새 HyperV 수집기를 만들거나 기존 HyperV 수집기를 업데이트 합니다. |
-> | 작업 | Microsoft.Migrate/assessmentprojects/machines/read | 머신의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/hypervcollectors/read | HyperV 수집기의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/hypervcollectors/write | 새 HyperV 수집기를 만들거나 기존 HyperV 수집기를 업데이트 합니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/machines/read | 머신의 속성 가져오기 |
 > | Action | Microsoft.Migrate/assessmentprojects/read | 평가 프로젝트의 속성을 가져옵니다. |
 > | 작업 | Microsoft.Migrate/assessmentprojects/vmwarecollectors/delete | VMware 수집기를 삭제 합니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/vmwarecollectors/read | VMware 수집기의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/vmwarecollectors/read | VMware 수집기의 속성을 가져옵니다. |
 > | 작업 | Microsoft.Migrate/assessmentprojects/vmwarecollectors/write | 새 VMware 수집기를 만들거나 기존 VMware 수집기를 업데이트 합니다. |
-> | Action | Microsoft.Migrate/assessmentprojects/write | 새 평가 프로젝트를 만들거나 기존 평가 프로젝트를 업데이트 합니다. |
-> | Action | Microsoft.Migrate/locations/assessmentOptions/read | 지정된 위치에서 사용할 수 있는 평가 옵션을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/assessmentprojects/write | 새 평가 프로젝트를 만들거나 기존 평가 프로젝트를 업데이트 합니다. |
+> | 작업 | Microsoft.Migrate/locations/assessmentOptions/read | 지정된 위치에서 사용할 수 있는 평가 옵션을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/locations/checknameavailability/action | 지정된 위치에서 지정된 구독의 리소스 이름의 가용성을 확인합니다. |
-> | 작업 | Microsoft.Migrate/migrateprojects/DatabaseInstances/read | 데이터베이스 인스턴스의 속성을 가져옵니다. |
+> | Action | Microsoft.Migrate/migrateprojects/DatabaseInstances/read | 데이터베이스 인스턴스의 속성을 가져옵니다. |
 > | 작업 | Microsoft.Migrate/migrateprojects/Databases/read | 데이터베이스의 속성을 가져옵니다. |
-> | Action | Microsoft.Migrate/migrateprojects/delete | 마이그레이션 프로젝트를 삭제 합니다. |
-> | 작업 | Microsoft.Migrate/migrateprojects/machines/read | 머신의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/delete | 마이그레이션 프로젝트를 삭제 합니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/machines/read | 머신의 속성 가져오기 |
 > | Action | Microsoft.Migrate/migrateprojects/MigrateEvents/Delete | 마이그레이션 이벤트를 삭제 합니다. |
-> | Action | Microsoft.Migrate/migrateprojects/MigrateEvents/read | 마이그레이션 이벤트의 속성을 가져옵니다. |
-> | Action | Microsoft.Migrate/migrateprojects/read | 마이그레이션 프로젝트의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/MigrateEvents/read | 마이그레이션 이벤트의 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/read | 마이그레이션 프로젝트의 속성을 가져옵니다. |
 > | 작업 | Microsoft.Migrate/migrateprojects/registerTool/action | 마이그레이션 프로젝트에 도구 등록 |
 > | Action | Microsoft.Migrate/migrateprojects/solutions/cleanupData/action | 프로젝트 솔루션 데이터 마이그레이션 정리 |
 > | 작업 | Microsoft.Migrate/migrateprojects/solutions/Delete | 프로젝트 마이그레이션 솔루션을 삭제 합니다. |
 > | 작업 | Microsoft.Migrate/migrateprojects/solutions/getconfig/action | 마이그레이션 프로젝트 솔루션 구성을 가져옵니다. |
-> | Action | Microsoft.Migrate/migrateprojects/solutions/read | 프로젝트 솔루션 마이그레이션 속성을 가져옵니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/solutions/read | 프로젝트 솔루션 마이그레이션 속성을 가져옵니다. |
 > | 작업 | Microsoft.Migrate/migrateprojects/solutions/write | 새 프로젝트 마이그레이션 솔루션을 만들거나 기존 마이그레이션 프로젝트 솔루션을 업데이트 합니다. |
-> | Action | Microsoft.Migrate/migrateprojects/write | 새 마이그레이션 프로젝트를 만들거나 기존 마이그레이션 프로젝트를 업데이트 합니다. |
+> | 작업 | Microsoft.Migrate/migrateprojects/write | 새 마이그레이션 프로젝트를 만들거나 기존 마이그레이션 프로젝트를 업데이트 합니다. |
 > | 작업 | Microsoft.Migrate/Operations/read | Microsoft.KeyVault 리소스 공급자에서 사용할 수 있는 작업을 나열합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/assessments/read | 프로젝트 내의 평가를 나열합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/delete | 프로젝트를 삭제합니다. |
@@ -3488,14 +3475,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Migrate/projects/machines/read | 머신의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/read | 프로젝트의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/write | 새 프로젝트를 만들거나 기존 프로젝트를 업데이트합니다. |
-> | 액션(Action) | Microsoft.Migrate/register/action | Microsoft.Compute 리소스 공급자로 구독을 등록합니다. |
+> | 액션(Action) | Microsoft.Migrate/register/action | Microsoft.Compute 리소스 공급자로 구독 등록 |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 동작 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft.MixedReality/register/action | Mixed Reality 리소스 공급자에 대 한 구독을 등록 합니다. |
+> | Action | Microsoft.MixedReality/register/action | Mixed Reality 리소스 공급자에 대 한 구독을 등록 합니다. |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 공간 앵커 만들기 |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | 공간 앵커 삭제 |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 주변 공간 앵커 검색 |
@@ -3516,7 +3503,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.NetApp/locations/read | 가용성 확인 리소스를 읽습니다. |
 > | 액션(Action) | Microsoft.NetApp/netAppAccounts/capacityPools/delete | 풀 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.NetApp/netAppAccounts/capacityPools/read | 풀 리소스를 읽습니다. |
-> | 작업 | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete | 볼륨 리소스를 삭제합니다. |
+> | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete | 볼륨 리소스를 삭제합니다. |
 > | 작업 | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/mountTargets/read | 마운트 대상 리소스를 읽습니다. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read | 볼륨 리소스를 읽습니다. |
 > | 작업 | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete | 스냅샷 리소스를 삭제합니다. |
@@ -3534,23 +3521,23 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Application Gateway 사용 가능한 요청 헤더를 가져옵니다. |
-> | Action | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Application Gateway 사용 가능한 응답 헤더를 가져옵니다. |
-> | Action | Microsoft.Network/applicationGatewayAvailableServerVariables/read | Application Gateway 사용 가능한 서버 변수를 가져옵니다. |
+> | 작업 | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Application Gateway 사용 가능한 요청 헤더를 가져옵니다. |
+> | 작업 | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Application Gateway 사용 가능한 응답 헤더를 가져옵니다. |
+> | 작업 | Microsoft.Network/applicationGatewayAvailableServerVariables/read | Application Gateway 사용 가능한 서버 변수를 가져옵니다. |
 > | 작업 | Microsoft.Network/applicationGatewayAvailableSslOptions/predefinedPolicies/read | Application Gateway Ssl 미리 정의된 정책 |
 > | 액션(Action) | Microsoft.Network/applicationGatewayAvailableSslOptions/read | Application Gateway에서 사용 가능한 Ssl 옵션 |
 > | 액션(Action) | Microsoft.Network/applicationGatewayAvailableWafRuleSets/read | Application Gateway 사용 가능 WAF 규칙 집합을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 응용 프로그램 게이트웨이 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/applicationGateways/backendhealth/action | Application Gateway 백 엔드 상태를 가져옵니다. |
+> | Action | Microsoft.Network/applicationGateways/backendhealth/action | Application Gateway 백 엔드 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/delete | Application Gateway를 삭제합니다. |
 > | 작업 | Microsoft.Network/applicationGateways/read | Application Gateway를 가져옵니다. |
-> | 작업 | Microsoft.Network/applicationGateways/start/action | Application Gateway를 시작합니다. |
+> | Action | Microsoft.Network/applicationGateways/start/action | Application Gateway를 시작합니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/stop/action | Application Gateway를 중지합니다. |
 > | 액션(Action) | Microsoft.Network/applicationGateways/write | Application Gateway를 만들거나 Application Gateway를 업데이트합니다. |
-> | 작업 | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Application Gateway WAF 정책을 삭제 합니다. |
+> | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Application Gateway WAF 정책을 삭제 합니다. |
 > | 작업 | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Application Gateway WAF 정책을 가져옵니다. |
 > | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Application Gateway WAF 정책을 만들거나 Application Gateway WAF 정책을 업데이트 합니다. |
-> | Action | Microsoft.Network/applicationSecurityGroups/delete | 애플리케이션 보안 그룹을 삭제합니다. |
+> | 작업 | Microsoft.Network/applicationSecurityGroups/delete | 애플리케이션 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | IP 구성을 애플리케이션 보안 그룹에 조인합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/applicationSecurityGroups/listIpConfigurations/action | ApplicationSecurityGroup의 IP 구성을 나열합니다. |
@@ -3558,28 +3545,28 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/applicationSecurityGroups/write | 애플리케이션 보안 그룹을 만들거나 기존 애플리케이션 보안 그룹을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/azureFirewallFqdnTags/read | Azure Firewall FQDN 태그를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/azurefirewalls/delete | Azure Firewall을 삭제합니다. |
-> | Action | Microsoft.Network/azurefirewalls/read | Azure Firewall을 가져옵니다. |
+> | 작업 | Microsoft.Network/azurefirewalls/read | Azure Firewall을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/azurefirewalls/write | Azure Firewall을 만들거나 업데이트합니다. |
-> | Action | Microsoft.Network/bastionHosts/delete | 요새 호스트 삭제 |
-> | Action | Microsoft.Network/bastionHosts/read | 요새 호스트 가져오기 |
-> | Action | Microsoft.Network/bastionHosts/write | 요새 호스트 만들기 또는 업데이트 |
-> | 작업 | Microsoft.Network/bgpServiceCommunities/read | BGP 서비스 커뮤니티를 가져옵니다. |
+> | 작업 | Microsoft.Network/bastionHosts/delete | 요새 호스트 삭제 |
+> | 작업 | Microsoft.Network/bastionHosts/read | 요새 호스트 가져오기 |
+> | 작업 | Microsoft.Network/bastionHosts/write | 요새 호스트 만들기 또는 업데이트 |
+> | Action | Microsoft.Network/bgpServiceCommunities/read | BGP 서비스 커뮤니티를 가져옵니다. |
 > | 작업 | Microsoft.Network/checkFrontDoorNameAvailability/action | Front Door 이름이 사용 가능한지 여부 확인 |
 > | 작업 | Microsoft.Network/checkTrafficManagerNameAvailability/action | Traffic Manager 상대 DNS 이름의 가용성을 확인합니다. |
 > | 액션(Action) | Microsoft.Network/connections/delete | VirtualNetworkGatewayConnection을 삭제합니다. |
-> | Action | Microsoft.Network/connections/read | VirtualNetworkGatewayConnection을 가져옵니다. |
+> | 작업 | Microsoft.Network/connections/read | VirtualNetworkGatewayConnection을 가져옵니다. |
 > | Action | Microsoft.Network/connections/revoke/action | 기본 경로 연결 상태를 해지됨으로 표시합니다. |
 > | 작업 | Microsoft.Network/connections/sharedkey/action | VirtualNetworkGatewayConnection SharedKey를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/sharedKey/read | VirtualNetworkGatewayConnection SharedKey를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/sharedKey/write | VirtualNetworkGatewayConnection SharedKey를 만들거나 기존 VirtualNetworkGatewayConnection SharedKey를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/connections/vpndeviceconfigurationscript/action | VirtualNetworkGatewayConnection의 Vpn 디바이스 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/write | VirtualNetworkGatewayConnection을 만들거나 기존 VirtualNetworkGatewayConnection을 업데이트합니다. |
-> | 작업 | Microsoft.Network/ddosCustomPolicies/delete | DDoS 사용자 지정 정책 삭제 |
-> | 작업 | Microsoft.Network/ddosCustomPolicies/read | DDoS 사용자 지정 정책 정의 가져오기 |
-> | 작업 | Microsoft.Network/ddosCustomPolicies/write | DDoS 사용자 지정 정책을 만들거나 기존 DDoS 사용자 지정 정책 업데이트 |
+> | Action | Microsoft.Network/ddosCustomPolicies/delete | DDoS 사용자 지정 정책 삭제 |
+> | Action | Microsoft.Network/ddosCustomPolicies/read | DDoS 사용자 지정 정책 정의 가져오기 |
+> | Action | Microsoft.Network/ddosCustomPolicies/write | DDoS 사용자 지정 정책을 만들거나 기존 DDoS 사용자 지정 정책 업데이트 |
 > | 작업 | Microsoft.Network/ddosProtectionPlans/delete | DDoS 보호 계획을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/ddosProtectionPlans/join/action | DDoS Protection 계획에 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/ddosProtectionPlans/read | DDoS 보호 계획을 가져옵니다. |
+> | Action | Microsoft.Network/ddosProtectionPlans/read | DDoS 보호 계획을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/ddosProtectionPlans/write | DDoS 보호 계획을 만들거나 DDoS 보호 계획을 업데이트합니다.  |
 > | 액션(Action) | Microsoft.Network/dnsoperationresults/read | DNS 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/dnsoperationstatuses/read | DNS 작업의 상태를 가져옵니다.  |
@@ -3622,7 +3609,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/authorizations/write | ExpressRouteCircuit Authorization을 만들거나 기존 ExpressRouteCircuit Authorization을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/delete | ExpressRouteCircuit을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/join/action | Express 경로 회로를 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/expressRouteCircuits/peerings/arpTables/action | ExpressRouteCircuit Peering ArpTable을 가져옵니다. |
+> | 작업 | Microsoft.Network/expressRouteCircuits/peerings/arpTables/action | ExpressRouteCircuit Peering ArpTable을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/connections/delete | ExpressRouteCircuit 연결을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/connections/read | ExpressRouteCircuit 연결을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/connections/write | ExpressRouteCircuit 연결 리소스를 만들거나 기존 ExpressRouteCircuit 연결 리소스를 업데이트합니다. |
@@ -3633,10 +3620,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/routeTablesSummary/action | ExpressRouteCircuit Peering RouteTable Summary를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/stats/read | ExpressRouteCircuit Peering Stat을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/peerings/write | ExpressRouteCircuit Peering을 만들거나 기존 ExpressRouteCircuit Peering을 업데이트합니다. |
-> | Action | Microsoft.Network/expressRouteCircuits/read | ExpressRouteCircuit을 가져옵니다. |
+> | 작업 | Microsoft.Network/expressRouteCircuits/read | ExpressRouteCircuit을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/stats/read | ExpressRouteCircuit Stat을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCircuits/write | ExpressRouteCircuit을 만들거나 기존 ExpressRouteCircuit을 업데이트합니다. |
-> | 작업 | Microsoft.Network/expressRouteCrossConnections/join/action | Express 경로 교차 연결을 조인 합니다. 했어야 하지 않습니다. |
+> | Action | Microsoft.Network/expressRouteCrossConnections/join/action | Express 경로 교차 연결을 조인 합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/action | Express Route 교차 연결 피어링 Arp 테이블을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Express Route 교차 연결 피어링을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteCrossConnections/peerings/read | Express Route 교차 연결 피어링을 가져옵니다. |
@@ -3648,48 +3635,48 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/expressRouteGateways/expressRouteConnections/read | Express Route 연결을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Express Route 연결을 만들거나 기존 Express Route 연결을 업데이트 합니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteGateways/join/action | Express 경로 게이트웨이를 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/expressRouteGateways/read | Express Route 게이트웨이를 가져옵니다. |
+> | 작업 | Microsoft.Network/expressRouteGateways/read | Express Route 게이트웨이를 가져옵니다. |
 > | 작업 | Microsoft.Network/expressRoutePorts/delete | ExpressRoutePorts를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePorts/join/action | Express 경로 포트를 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink를 가져옵니다. |
+> | 작업 | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink를 가져옵니다. |
 > | 작업 | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePorts/write | ExpressRoutePorts를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePortsLocations/read | Express 경로 포트 위치를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRouteServiceProviders/read | Express Route 서비스 공급자를 가져옵니다. |
-> | 작업 | Microsoft. Network/firewallPolicies/delete | 방화벽 정책을 삭제 합니다. |
+> | Action | Microsoft. Network/firewallPolicies/delete | 방화벽 정책을 삭제 합니다. |
 > | Action | Microsoft. Network/firewallPolicies/join/action | 방화벽 정책을 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft. Network/firewallPolicies/read | 방화벽 정책을 가져옵니다. |
+> | Action | Microsoft. Network/firewallPolicies/read | 방화벽 정책을 가져옵니다. |
 > | 작업 | Microsoft. Network/firewallPolicies/ruleGroups/delete | 방화벽 정책 규칙 그룹을 삭제 합니다. |
-> | Action | Microsoft. Network/firewallPolicies/ruleGroups/read | 방화벽 정책 규칙 그룹을 가져옵니다. |
+> | 작업 | Microsoft. Network/firewallPolicies/ruleGroups/read | 방화벽 정책 규칙 그룹을 가져옵니다. |
 > | 작업 | Microsoft. Network/firewallPolicies/ruleGroups/write | 방화벽 정책 규칙 그룹을 만들거나 기존 방화벽 정책 규칙 그룹을 업데이트 합니다. |
 > | 작업 | Microsoft. Network/firewallPolicies/write | 방화벽 정책을 만들거나 기존 방화벽 정책을 업데이트 합니다. |
-> | Action | Microsoft.Network/frontDoors/backendPools/delete | 백 엔드 풀 삭제 |
+> | 작업 | Microsoft.Network/frontDoors/backendPools/delete | 백 엔드 풀 삭제 |
 > | 작업 | Microsoft.Network/frontDoors/backendPools/read | 백 엔드 풀 가져오기 |
 > | 작업 | Microsoft.Network/frontDoors/backendPools/write | 백 엔드 풀 만들기 또는 업데이트 |
-> | 작업 | Microsoft.Network/frontDoors/delete | Front Door 삭제 |
+> | Action | Microsoft.Network/frontDoors/delete | Front Door 삭제 |
 > | 작업 | Microsoft.Network/frontDoors/frontendEndpoints/delete | 프런트 엔드 엔드포인트 삭제 |
-> | Action | Microsoft.Network/frontDoors/frontendEndpoints/disableHttps/action | 프런트 엔드 엔드포인트에서 HTTPS를 사용하지 않도록 설정 |
-> | 작업 | Microsoft.Network/frontDoors/frontendEndpoints/enableHttps/action | 프런트 엔드 엔드포인트에서 HTTPS를 사용하도록 설정 |
+> | 작업 | Microsoft.Network/frontDoors/frontendEndpoints/disableHttps/action | 프런트 엔드 엔드포인트에서 HTTPS를 사용하지 않도록 설정 |
+> | Action | Microsoft.Network/frontDoors/frontendEndpoints/enableHttps/action | 프런트 엔드 엔드포인트에서 HTTPS를 사용하도록 설정 |
 > | Action | Microsoft.Network/frontDoors/frontendEndpoints/read | 프런트 엔드 엔드포인트 가져오기 |
 > | 작업 | Microsoft.Network/frontDoors/frontendEndpoints/write | 프런트 엔드 엔드포인트를 만들거나 업데이트 |
-> | Action | Microsoft.Network/frontDoors/healthProbeSettings/delete | 상태 프로브 설정 삭제 |
-> | Action | Microsoft.Network/frontDoors/healthProbeSettings/read | 상태 프로브 설정 가져오기 |
+> | 작업 | Microsoft.Network/frontDoors/healthProbeSettings/delete | 상태 프로브 설정 삭제 |
+> | 작업 | Microsoft.Network/frontDoors/healthProbeSettings/read | 상태 프로브 설정 가져오기 |
 > | 작업 | Microsoft.Network/frontDoors/healthProbeSettings/write | 상태 프로브 설정을 만들거나 업데이트 |
-> | Action | Microsoft.Network/frontDoors/loadBalancingSettings/delete | 부하 분산 설정을 만들거나 업데이트 |
-> | 작업 | Microsoft.Network/frontDoors/loadBalancingSettings/read | 부하 분산 설정 가져오기 |
-> | Action | Microsoft.Network/frontDoors/loadBalancingSettings/write | 부하 분산 설정을 만들거나 업데이트 |
-> | 작업 | Microsoft.Network/frontDoors/purge/action | Front Door에서 캐시된 콘텐츠 제거 |
-> | 작업 | Microsoft.Network/frontDoors/read | Front Door 가져오기 |
+> | 작업 | Microsoft.Network/frontDoors/loadBalancingSettings/delete | 부하 분산 설정을 만들거나 업데이트 |
+> | Action | Microsoft.Network/frontDoors/loadBalancingSettings/read | 부하 분산 설정 가져오기 |
+> | 작업 | Microsoft.Network/frontDoors/loadBalancingSettings/write | 부하 분산 설정을 만들거나 업데이트 |
+> | Action | Microsoft.Network/frontDoors/purge/action | Front Door에서 캐시된 콘텐츠 제거 |
+> | Action | Microsoft.Network/frontDoors/read | Front Door 가져오기 |
 > | 작업 | Microsoft.Network/frontDoors/routingRules/delete | 라우팅 규칙 삭제 |
 > | 작업 | Microsoft.Network/frontDoors/routingRules/read | 라우팅 규칙 가져오기 |
 > | 작업 | Microsoft.Network/frontDoors/routingRules/write | 라우팅 규칙을 만들거나 업데이트 |
-> | 작업 | Microsoft.Network/frontDoors/validateCustomDomain/action | Front Door에 대한 프런트 엔드 엔드포인트 유효성 검사 |
-> | 작업 | Microsoft.Network/frontDoors/write | Front Door를 만들거나 업데이트 |
-> | 작업 | Microsoft.Network/frontDoorWebApplicationFirewallManagedRuleSets/read | 웹 응용 프로그램 방화벽 관리 되는 규칙 집합을 가져옵니다. |
+> | Action | Microsoft.Network/frontDoors/validateCustomDomain/action | Front Door에 대한 프런트 엔드 엔드포인트 유효성 검사 |
+> | Action | Microsoft.Network/frontDoors/write | Front Door를 만들거나 업데이트 |
+> | Action | Microsoft.Network/frontDoorWebApplicationFirewallManagedRuleSets/read | 웹 응용 프로그램 방화벽 관리 되는 규칙 집합을 가져옵니다. |
 > | 작업 | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | 웹 애플리케이션 방화벽 정책 삭제 |
 > | 작업 | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/read | 웹 애플리케이션 방화벽 정책 가져오기 |
-> | 작업 | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | 웹 애플리케이션 방화벽 정책을 만들거나 업데이트 |
-> | 작업 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
+> | Action | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | 웹 애플리케이션 방화벽 정책을 만들거나 업데이트 |
+> | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | 부하 분산 장치 백 엔드 주소 풀 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/delete | 부하 분산 장치를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | 부하 분산 장치 프런트 엔드 IP 구성을 조인합니다. 했어야 하지 않습니다. |
@@ -3698,14 +3685,14 @@ ms.locfileid: "67868626"
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/read | 부하 분산 장치 인바운드 NAT 풀 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatRules/delete | 부하 분산 장치 인바운드 NAT 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/loadBalancers/inboundNatRules/read | 부하 분산 장치 인바운드 NAT 규칙 정의를 가져옵니다. |
+> | Action | Microsoft.Network/loadBalancers/inboundNatRules/read | 부하 분산 장치 인바운드 NAT 규칙 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatRules/write | 부하 분산 장치 인바운드 NAT 규칙을 만들거나 기존 부하 분산 장치의 인바운드 NAT 규칙을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/loadBalancingRules/read | 부하 분산 장치 부하 분산 규칙 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/networkInterfaces/read | 부하 분산 장치의 모든 네트워크 인터페이스에 대한 참조를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/outboundRules/read | 부하 분산 장치 아웃바운드 규칙 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/probes/join/action | 부하 분산 장치 프로브 사용을 허용합니다. 예를 들어 이 권한이 있으면 VM 확장 집합의 healthProbe 속성이 프로브를 참조할 수 있습니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/loadBalancers/probes/read | 부하 분산 장치 프로브를 가져옵니다. |
-> | 작업 | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
+> | Action | Microsoft.Network/loadBalancers/probes/read | 부하 분산 장치 프로브를 가져옵니다. |
+> | Action | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/virtualMachines/read | 부하 분산 장치의 모든 가상 머신에 대한 참조를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/write | 부하 분산 장치를 만들거나 기존 부하 분산 장치를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/localnetworkgateways/delete | LocalNetworkGateway를 삭제합니다. |
@@ -3713,12 +3700,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/localnetworkgateways/write | LocalNetworkGateway를 만들거나 기존 LocalNetworkGateway를 업데이트합니다. |
 > | 작업 | Microsoft.Network/locations/autoApprovedPrivateLinkServices/read | 자동 승인 된 개인 링크 서비스를 가져옵니다. |
 > | Action | Microsoft.Network/locations/availableDelegations/read | 사용 가능한 위임을 가져옵니다. |
-> | 작업 | Microsoft.Network/locations/availablePrivateEndpointTypes/read | 사용 가능한 개인 끝점 리소스를 가져옵니다. |
-> | 작업 | Microsoft.Network/locations/bareMetalTenants/action | 운영 체제 미 설치 컴퓨터 테넌트를 할당하거나 유효성을 검사합니다. |
+> | Action | Microsoft.Network/locations/availablePrivateEndpointTypes/read | 사용 가능한 개인 끝점 리소스를 가져옵니다. |
+> | Action | Microsoft.Network/locations/bareMetalTenants/action | 운영 체제 미 설치 컴퓨터 테넌트를 할당하거나 유효성을 검사합니다. |
 > | 액션(Action) | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | 가속 네트워킹 지원을 확인합니다. |
 > | 액션(Action) | Microsoft.Network/locations/checkDnsNameAvailability/read | DNS 레이블을 지정된 위치에서 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Network/locations/checkPrivateLinkServiceVisibility/action | 개인 링크 서비스 표시 여부를 확인 합니다. |
-> | Action | Microsoft.Network/locations/operationResults/read | 비동기 POST 또는 DELETE 작업의 작업 결과를 가져옵니다. |
+> | 작업 | Microsoft.Network/locations/operationResults/read | 비동기 POST 또는 DELETE 작업의 작업 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/locations/operations/read | 비동기 작업의 상태를 나타내는 작업 리소스를 가져옵니다. |
 > | 작업 | Microsoft.Network/locations/serviceTags/read | 서비스 태그 가져오기 |
 > | Action | Microsoft.Network/locations/supportedVirtualMachineSizes/read | 지원되는 가상 머신 크기를 가져옵니다. |
@@ -3728,14 +3715,14 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/networkIntentPolicies/read | 네트워크 의도 정책 설명을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkIntentPolicies/write | 네트워크 의도 정책을 만들거나 기존 네트워크 의도 정책을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/delete | 네트워크 인터페이스를 삭제합니다. |
-> | 작업 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | VM의 네트워크 인터페이스에 구성된 네트워크 보안 그룹을 가져옵니다. |
+> | Action | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | VM의 네트워크 인터페이스에 구성된 네트워크 보안 그룹을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | VM의 네트워크 인터페이스에 구성된 경로 테이블을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | 네트워크 인터페이스 IP 구성을 조인합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/networkInterfaces/ipconfigurations/read | 네트워크 인터페이스의 IP 구성 정의를 가져옵니다.  |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/join/action | 가상 컴퓨터를 네트워크 인터페이스에 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/networkInterfaces/loadBalancers/read | 네트워크 인터페이스가 속하는 모든 부하 분산 장치를 가져옵니다. |
+> | 작업 | Microsoft.Network/networkInterfaces/loadBalancers/read | 네트워크 인터페이스가 속하는 모든 부하 분산 장치를 가져옵니다. |
 > | 작업 | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
-> | 작업 | Microsoft.Network/networkInterfaces/tapConfigurations/delete | 네트워크 인터페이스 탭 구성을 삭제합니다. |
+> | Action | Microsoft.Network/networkInterfaces/tapConfigurations/delete | 네트워크 인터페이스 탭 구성을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/tapConfigurations/read | 네트워크 인터페이스 탭 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/tapConfigurations/write | 네트워크 인터페이스 탭 구성을 만들거나 기존 네트워크 인터페이스 탭 구성을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
@@ -3748,7 +3735,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read | 기본 보안 규칙 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/delete | 네트워크 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/networkSecurityGroups/read | 네트워크 보안 그룹 정의를 가져옵니다. |
+> | Action | Microsoft.Network/networkSecurityGroups/read | 네트워크 보안 그룹 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/securityRules/delete | 보안 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/securityRules/read | 보안 규칙 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/securityRules/write | 보안 규칙을 만들거나 기존 보안 규칙을 업데이트합니다. |
@@ -3757,7 +3744,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/networkWatchers/azureReachabilityReport/action | 지정된 위치에서 Azure 지역까지 인터넷 서비스 공급자의 상대 대기 시간을 반환합니다. |
 > | 액션(Action) | Microsoft.Network/networkWatchers/configureFlowLog/action | 대상 리소스에 대한 흐름 로깅을 구성합니다. |
 > | 액션(Action) | Microsoft.Network/networkWatchers/connectionMonitors/delete | 연결 모니터를 삭제합니다. |
-> | 작업 | Microsoft.Network/networkWatchers/connectionMonitors/query/action | 지정된 엔드포인트 간의 연결 모니터링을 쿼리합니다. |
+> | Action | Microsoft.Network/networkWatchers/connectionMonitors/query/action | 지정된 엔드포인트 간의 연결 모니터링을 쿼리합니다. |
 > | 액션(Action) | Microsoft.Network/networkWatchers/connectionMonitors/read | 연결 모니터 세부 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkWatchers/connectionMonitors/start/action | 지정된 엔드포인트 간의 연결 모니터링을 시작합니다. |
 > | 액션(Action) | Microsoft.Network/networkWatchers/connectionMonitors/stop/action | 지정된 엔드포인트 간의 연결 모니터링을 중지/일시 중지합니다. |
@@ -3803,45 +3790,45 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.Network/privateDnsZones/A/read | JSON 형식의 사설 DNS 영역 내에서 ' A ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
 > | Action | Microsoft.Network/privateDnsZones/A/write | 사설 DNS 영역 내에서 ' A ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/AAAA/delete | 사설 DNS 영역에서 지정 된 이름의 레코드 집합 및 ' AAAA ' 형식을 제거 합니다. |
-> | 작업 | Microsoft.Network/privateDnsZones/AAAA/read | JSON 형식의 사설 DNS 영역 내에서 ' AAAA ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/read | JSON 형식의 사설 DNS 영역 내에서 ' AAAA ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
 > | Action | Microsoft.Network/privateDnsZones/AAAA/write | 사설 DNS 영역 내에서 ' AAAA ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/ALL/read | 형식 간에 사설 DNS 레코드 집합을 가져옵니다. |
 > | Action | Microsoft.Network/privateDnsZones/CNAME/delete | 사설 DNS 영역에서 지정 된 이름의 레코드 집합 및 ' CNAME ' 형식을 제거 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/CNAME/read | JSON 형식의 사설 DNS 영역 내에서 ' CNAME ' 형식의 레코드 집합을 가져옵니다. |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/write | 사설 DNS 영역 내에서 ' CNAME ' 형식의 레코드 집합을 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.Network/privateDnsZones/delete | 사설 DNS 영역을 삭제 합니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/CNAME/write | 사설 DNS 영역 내에서 ' CNAME ' 형식의 레코드 집합을 만들거나 업데이트 합니다. |
+> | Action | Microsoft.Network/privateDnsZones/delete | 사설 DNS 영역을 삭제 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/MX/delete | 사설 DNS 영역에서 지정 된 이름의 레코드 집합 및 ' MX ' 유형을 제거 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/MX/read | JSON 형식의 사설 DNS 영역 내에서 ' MX ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/MX/write | 사설 DNS 영역 내에서 ' MX ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
-> | 작업 | Microsoft.Network/privateDnsZones/PTR/delete | 사설 DNS 영역에서 지정 된 이름 및 ' PTR ' 형식의 레코드 집합을 제거 합니다. |
-> | Action | Microsoft.Network/privateDnsZones/PTR/read | JSON 형식의 사설 DNS 영역 내에서 ' PTR ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/delete | 사설 DNS 영역에서 지정 된 이름 및 ' PTR ' 형식의 레코드 집합을 제거 합니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/PTR/read | JSON 형식의 사설 DNS 영역 내에서 ' PTR ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/PTR/write | 사설 DNS 영역 내에서 ' PTR ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/read | JSON 형식의 사설 DNS 영역 속성을 가져옵니다. 이 명령은 사설 DNS 영역이 연결 된 가상 네트워크 또는 영역 내에 포함 된 레코드 집합을 검색 하지 않습니다. |
-> | Action | Microsoft.Network/privateDnsZones/recordsets/read | 형식 간에 사설 DNS 레코드 집합을 가져옵니다. |
-> | Action | Microsoft.Network/privateDnsZones/SOA/read | JSON 형식의 사설 DNS 영역 내에서 ' SOA ' 형식의 레코드 집합을 가져옵니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/recordsets/read | 형식 간에 사설 DNS 레코드 집합을 가져옵니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/SOA/read | JSON 형식의 사설 DNS 영역 내에서 ' SOA ' 형식의 레코드 집합을 가져옵니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/SOA/write | 사설 DNS 영역 내에서 ' SOA ' 형식의 레코드 집합을 업데이트 합니다. |
 > | Action | Microsoft.Network/privateDnsZones/SRV/delete | 사설 DNS 영역에서 지정 된 이름의 레코드 집합과 ' SRV ' 형식을 제거 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/SRV/read | JSON 형식의 사설 DNS 영역 내에서 ' SRV ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
-> | Action | Microsoft.Network/privateDnsZones/SRV/write | 사설 DNS 영역 내에서 ' SRV ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/SRV/write | 사설 DNS 영역 내에서 ' SRV ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/TXT/delete | 사설 DNS 영역에서 지정 된 이름 및 ' TXT ' 형식의 레코드 집합을 제거 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/TXT/read | JSON 형식의 사설 DNS 영역 내에서 ' TXT ' 형식의 레코드 집합을 가져옵니다. 레코드 집합에는 TTL, 태그 및 etag 뿐만 아니라 레코드 목록도 포함됩니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/TXT/write | 사설 DNS 영역 내에서 ' TXT ' 형식의 레코드 집합을 만들거나 업데이트 합니다. 지정된 레코드는 레코드 집합의 현재 레코드를 대체합니다. |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/delete | 가상 네트워크에 대 한 사설 DNS 영역 링크를 삭제 합니다. |
-> | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | JSON 형식의 가상 네트워크 속성에 대 한 사설 DNS 영역 링크를 가져옵니다. |
-> | 작업 | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | 가상 네트워크에 대 한 사설 DNS 영역 링크를 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | JSON 형식의 가상 네트워크 속성에 대 한 사설 DNS 영역 링크를 가져옵니다. |
+> | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | 가상 네트워크에 대 한 사설 DNS 영역 링크를 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.Network/privateDnsZones/write | 리소스 그룹 내의 사설 DNS 영역을 만들거나 업데이트 합니다. 이 명령은 영역 내에서 가상 네트워크 링크 또는 레코드 집합을 만들거나 업데이트 하는 데 사용할 수 없습니다. |
-> | 작업 | Microsoft.Network/privateEndpoints/delete | 개인 끝점 리소스를 삭제 합니다. |
-> | 작업 | Microsoft.Network/privateEndpoints/read | 개인 끝점 리소스를 가져옵니다. |
+> | Action | Microsoft.Network/privateEndpoints/delete | 개인 끝점 리소스를 삭제 합니다. |
+> | Action | Microsoft.Network/privateEndpoints/read | 개인 끝점 리소스를 가져옵니다. |
 > | 작업 | Microsoft.Network/privateEndpoints/write | 새 개인 끝점을 만들거나 기존 개인 끝점을 업데이트 합니다. |
-> | Action | Microsoft.Network/privateLinkServices/delete | 프라이빗 링크 서비스 자원을 삭제합니다. |
-> | Action | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | 개인 끝점 연결을 삭제 합니다. |
+> | 작업 | Microsoft.Network/privateLinkServices/delete | 프라이빗 링크 서비스 자원을 삭제합니다. |
+> | 작업 | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | 개인 끝점 연결을 삭제 합니다. |
 > | 작업 | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | 개인 끝점 연결 정의를 가져옵니다. |
 > | 작업 | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | 새 개인 끝점 연결을 만들거나 기존 개인 끝점 연결을 업데이트 합니다. |
 > | Action | Microsoft.Network/privateLinkServices/read | 프라이빗 링크 서비스 리소스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/privateLinkServices/write | 새로운 프라이빗 링크 서비스를 만들거나 기존 프라이빗 링크 서비스를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/delete | 공용 IP 주소를 삭제합니다. |
 > | 작업 | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
+> | 작업 | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/write | 공용 IP 주소를 만들거나 기존 공용 IP 주소를 업데이트합니다.  |
 > | 액션(Action) | Microsoft.Network/publicIPPrefixes/delete | 공용 IP 접두사를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/publicIPPrefixes/join/action | PublicIPPrefix을 조인 합니다. 했어야 하지 않습니다. |
@@ -3857,21 +3844,21 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/routeFilters/write | 경로 필터를 만들거나 기존 경로 필터를 업데이트합니다. |
 > | Action | Microsoft.Network/routeTables/delete | 경로 테이블 정의를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/routeTables/join/action | 경로 테이블을 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/routeTables/read | 경로 테이블 정의를 가져옵니다. |
+> | Action | Microsoft.Network/routeTables/read | 경로 테이블 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/routeTables/routes/delete | 경로 정의를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/routeTables/routes/read | 경로 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/routeTables/routes/write | 경로를 만들거나 기존 경로를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/routeTables/write | 경로 테이블을 만들거나 기존 경로 테이블을 업데이트합니다. |
-> | Action | Microsoft.Network/securegateways/delete | 보안 게이트웨이를 삭제합니다. |
+> | 작업 | Microsoft.Network/securegateways/delete | 보안 게이트웨이를 삭제합니다. |
 > | Action | Microsoft.Network/securegateways/read | 보안 게이트웨이를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/securegateways/write | 보안 게이트웨이를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/serviceEndpointPolicies/delete | 서비스 엔드포인트 정책을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/serviceEndpointPolicies/join/action | 서비스 끝점 정책을 조인 합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | 서브넷을 서비스 끝점 정책에 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/serviceEndpointPolicies/read | 서비스 엔드포인트 정책 설명을 가져옵니다. |
+> | Action | Microsoft.Network/serviceEndpointPolicies/read | 서비스 엔드포인트 정책 설명을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete | 서비스 엔드포인트 정책 정의를 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | 서비스 엔드포인트 정책 정의 설명을 가져옵니다. |
-> | Action | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write | 서비스 엔드포인트 정책 정의를 만들거나 기존 서비스 엔드포인트 정책 정의를 업데이트합니다. |
+> | 작업 | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write | 서비스 엔드포인트 정책 정의를 만들거나 기존 서비스 엔드포인트 정책 정의를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/serviceEndpointPolicies/write | 서비스 엔드포인트 정책을 만들거나 기존 서비스 엔드포인트 정책을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerGeographicHierarchies/read | 지리적 트래픽 라우팅 메서드에서 사용할 수 있는 영역을 포함하는 Traffic Manager 지리적 계층 구조를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/azureEndpoints/delete | 기존 Traffic Manager 프로필에서 Azure 엔드포인트를 삭제합니다. Traffic Manager는 삭제된 Azure 엔드포인트로의 트래픽 라우팅을 중지합니다. |
@@ -3907,25 +3894,25 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | VirtualNetworkGateway에 대한 VPN 클라이언트 연결당 상태를 가져옵니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient Ipsec 매개 변수를 가져옵니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | 미리 생성된 vpn 클라이언트 프로필 패키지의 URL을 가져옵니다. |
-> | 작업 | Microsoft.Network/virtualNetworkGateways/read | VirtualNetworkGateway를 가져옵니다. |
+> | Action | Microsoft.Network/virtualNetworkGateways/read | VirtualNetworkGateway를 가져옵니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/reset/action | virtualNetworkGateway를 다시 설정합니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient 공유 키를 다시 설정합니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient Ipsec 매개 변수를 설정합니다. |
 > | 액션(Action) | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | 지원되는 Vpn 디바이스를 나열합니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkGateways/write | VirtualNetworkGateway를 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Network/virtualNetworks/BastionHosts/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
-> | 작업 | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
-> | Action | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | IP 주소를 지정된 가상 네트워크에서 사용할 수 있는지 확인합니다. |
+> | Action | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
+> | 작업 | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | IP 주소를 지정된 가상 네트워크에서 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Network/virtualNetworks/delete | 가상 네트워크를 삭제합니다. |
-> | 작업 | Microsoft. Network/virtualNetworks/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/virtualNetworks/peer/action | 가상 네트워크를 다른 가상 네트워크와 피어링합니다. |
-> | Action | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
+> | Action | Microsoft. Network/virtualNetworks/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
+> | Action | Microsoft.Network/virtualNetworks/peer/action | 가상 네트워크를 다른 가상 네트워크와 피어링합니다. |
+> | 작업 | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | 작업 | Microsoft.Network/virtualNetworks/subnets/delete | 가상 네트워크 서브넷을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인 합니다. 했어야 하지 않습니다. |
 > | 작업 | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 했어야 하지 않습니다. |
-> | 작업 | Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action | 필요한 네트워크 정책을 적용하여 서브넷을 준비합니다. |
-> | Action | Microsoft.Network/virtualNetworks/subnets/read | 가상 네트워크 서브넷 정의를 가져옵니다. |
-> | 작업 | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | 가상 네트워크 서브넷의 모든 가상 머신에 대한 참조를 가져옵니다. |
+> | Action | Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action | 필요한 네트워크 정책을 적용하여 서브넷을 준비합니다. |
+> | 작업 | Microsoft.Network/virtualNetworks/subnets/read | 가상 네트워크 서브넷 정의를 가져옵니다. |
+> | Action | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | 가상 네트워크 서브넷의 모든 가상 머신에 대한 참조를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworks/subnets/write | 가상 네트워크 서브넷을 만들거나 기존 가상 네트워크 서브넷을 업데이트합니다. |
 > | Action | Microsoft.Network/virtualNetworks/usages/read | 가상 네트워크의 각 서브넷에 대한 IP 사용량을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworks/virtualMachines/read | 가상 네트워크의 모든 가상 머신에 대한 참조를 가져옵니다. |
@@ -3935,12 +3922,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Network/virtualNetworks/write | 가상 네트워크를 만들거나 기존 가상 네트워크를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkTaps/delete | 가상 네트워크 탭을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkTaps/join/action | 가상 네트워크 탭을 조인 합니다. 했어야 하지 않습니다. |
-> | Action | Microsoft.Network/virtualNetworkTaps/read | 가상 네트워크 탭을 가져옵니다. |
+> | 작업 | Microsoft.Network/virtualNetworkTaps/read | 가상 네트워크 탭을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkTaps/write | 가상 네트워크 탭을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/virtualWans/delete | 가상 Wan을 삭제합니다. |
-> | 작업 | Microsoft.network/virtualWans/p2sVpnServerConfigurations/delete | 가상 Wan P2SVpnServerConfiguration을 삭제합니다. |
+> | Action | Microsoft.network/virtualWans/p2sVpnServerConfigurations/delete | 가상 Wan P2SVpnServerConfiguration을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | 가상 Wan P2SVpnServerConfiguration을 가져옵니다. |
-> | Action | Microsoft.network/virtualWans/p2sVpnServerConfigurations/write | 가장 Wan P2SVpnServerConfiguration을 만들거나 기존 가상 Wan P2SVpnServerConfiguration을 업데이트합니다. |
+> | 작업 | Microsoft.network/virtualWans/p2sVpnServerConfigurations/write | 가장 Wan P2SVpnServerConfiguration을 만들거나 기존 가상 Wan P2SVpnServerConfiguration을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/virtualWans/read | 가상 Wan을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualwans/supportedSecurityProviders/read | 지원되는 VirtualWan 보안 공급자를 가져옵니다. |
 > | 작업 | Microsoft.Network/virtualWans/virtualHubs/read | 가상 WAN을 참조하는 모든 가상 허브를 가져옵니다. |
@@ -3990,7 +3977,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.NotificationHubs/operationResults/read | Notification Hubs 공급자에 대한 작업 결과를 반환합니다. |
 > | 액션(Action) | Microsoft.NotificationHubs/operations/read | Notification Hubs 공급자에 대해 지원되는 작업 목록을 반환합니다. |
 > | 액션(Action) | Microsoft.NotificationHubs/register/action | NotificationHubs 리소스 공급자에 대한 구독을 등록하고 네임스페이스와 NotificationHubs 만들기를 사용하도록 설정합니다. |
-> | Action | Microsoft.NotificationHubs/unregister/action | NotificationHubs 리소스 공급자에 대한 구독을 등록 취소하고 네임스페이스와 NotificationHubs 만들기를 사용하도록 설정합니다. |
+> | 작업 | Microsoft.NotificationHubs/unregister/action | NotificationHubs 리소스 공급자에 대한 구독을 등록 취소하고 네임스페이스와 NotificationHubs 만들기를 사용하도록 설정합니다. |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -4013,12 +4000,12 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OffAzure/HyperVSites/usage/read | Hyper-V 사이트 사용량을 가져옵니다. |
 > | 액션(Action) | Microsoft.OffAzure/HyperVSites/write | Hyper-V 사이트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.OffAzure/Operations/read | 노출된 작업을 읽습니다. |
-> | 작업 | Microsoft.OffAzure/register/action | Microsoft.OffAzure 리소스 공급자에 구독을 등록합니다. |
-> | Action | Microsoft.OffAzure/VMwareSites/delete | VMware 사이트를 삭제합니다. |
+> | Action | Microsoft.OffAzure/register/action | Microsoft.OffAzure 리소스 공급자에 구독을 등록합니다. |
+> | 작업 | Microsoft.OffAzure/VMwareSites/delete | VMware 사이트를 삭제합니다. |
 > | 액션(Action) | Microsoft.OffAzure/VMwareSites/jobs/read | VMware 작업 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OffAzure/VMwareSites/machines/read | VMware 머신 속성을 가져옵니다. |
 > | 작업 | Microsoft.OffAzure/VMwareSites/machines/start/action | VMware 머신을 시작합니다. |
-> | Action | Microsoft.OffAzure/VMwareSites/machines/stop/action | VMware 머신을 중지합니다. |
+> | 작업 | Microsoft.OffAzure/VMwareSites/machines/stop/action | VMware 머신을 중지합니다. |
 > | 액션(Action) | Microsoft.OffAzure/VMwareSites/operationsstatus/read | VMware 작업 상태 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OffAzure/VMwareSites/read | VMware 사이트 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OffAzure/VMwareSites/refresh/action | VMware 사이트 내의 개체를 새로 고칩니다. |
@@ -4034,11 +4021,11 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.OperationalInsights/linkTargets/read | Azure 구독과 연결되지 않은 기존 계정 목록을 표시합니다. Azure 구독을 작업 영역에 연결하려면 이 작업에서 반환된 고객 ID를 작업 영역 만들기 작업의 고객 ID 속성에 사용하세요. |
-> | Action | microsoft.operationalinsights/operations/read | 사용 가능한 모든 OperationalInsights Rest API 작업을 나열합니다. |
-> | 작업 | microsoft.operationalinsights/register/action | 구독을 Rergisters 합니다. |
-> | 작업 | Microsoft.OperationalInsights/register/action | 리소스 공급자에 구독을 등록합니다. |
+> | 작업 | microsoft.operationalinsights/operations/read | 사용 가능한 모든 OperationalInsights Rest API 작업을 나열합니다. |
+> | Action | microsoft.operationalinsights/register/action | 구독을 Rergisters 합니다. |
+> | Action | Microsoft.OperationalInsights/register/action | 리소스 공급자에 구독을 등록합니다. |
 > | 작업 | microsoft.operationalinsights/unregister/action | 구독의 등록을 취소 합니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | 검색 스키마 V2를 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/api/query/action | 새 엔진을 사용하여 검색합니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/api/query/schema/read | 검색 스키마 V2를 가져옵니다. |
@@ -4066,30 +4053,30 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/notificationSettings/write | 작업 영역에 대한 사용자 알림 설정을 지정합니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/operations/read | OperationalInsights 작업 영역 작업의 상태를 가져옵니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/purge/action | 작업 영역에서 지정된 데이터를 삭제합니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesAccountLogon/read | AADDomainServicesAccountLogon 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesAccountLogon/read | AADDomainServicesAccountLogon 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesAccountManagement/read | AADDomainServicesAccountManagement 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesDirectoryServiceAccess/read | AADDomainServicesDirectoryServiceAccess 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesLogonLogoff/read | AADDomainServicesLogonLogoff 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | AADDomainServicesPolicyChange 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesDirectoryServiceAccess/read | AADDomainServicesDirectoryServiceAccess 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesLogonLogoff/read | AADDomainServicesLogonLogoff 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | AADDomainServicesPolicyChange 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | AADDomainServicesPrivilegeUse 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesSystemSecurity/read | AADDomainServicesSystemSecurity 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | ADAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | ADFActivityRun 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | ADFPipelineRun 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | ADFPipelineRun 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | ADFTriggerRun 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | ADReplicationResult 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | ADReplicationResult 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Alert/read | Alert 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | AlertHistory 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | AppCenterError 테이블의 데이터 읽기 |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | ApplicationInsights 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | ApplicationInsights 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | AuditLogs 테이블에서 데이터 읽기 |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | AutoscaleEvaluationsLog 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | AutoscaleScaleActionsLog 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | AWSCloudTrail 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | AutoscaleScaleActionsLog 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | AWSCloudTrail 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | AzureActivity 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | AzureAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | AzureMetrics 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | AzureMetrics 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | BlockchainApplicationLog 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | BlockchainProxyLog 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | BoundPort 테이블에서 데이터를 읽습니다. |
@@ -4103,15 +4090,15 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | ContainerNodeInventory 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | ContainerServiceLog 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | DatabricksAccounts 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | DatabricksClusters 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | DatabricksClusters 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | DatabricksDBFS 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | DatabricksJobs 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | DatabricksNotebook 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | DatabricksSecrets 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | DatabricksSecrets 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | DatabricksSQLPermissions 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | DatabricksSSH 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | DatabricksTables 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | DatabricksWorkspace 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | DatabricksTables 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | DatabricksWorkspace 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | DeviceAppCrash 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | DeviceAppLaunch 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | DeviceCalendar 테이블에서 데이터를 읽습니다. |
@@ -4143,13 +4130,13 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | IISAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | InboundConnection 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | InsightsMetrics 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | IntuneAuditLogs 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | IntuneAuditLogs 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | IntuneOperationalLogs 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | KubeEvents 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | KubeNodeInventory 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | KubeEvents 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | KubeNodeInventory 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | KubePodInventory 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | KubeServices 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | LinuxAuditLog 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | LinuxAuditLog 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | MAApplication 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | MAApplicationHealth 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | MAApplicationHealthAlternativeVersions 테이블에서 데이터를 읽습니다. |
@@ -4161,7 +4148,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MADevice/read | MADevice 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | MADeviceNotEnrolled 테이블의 데이터 읽기 |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | MADeviceNRT 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | MADevicePnPHealth 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | MADevicePnPHealth 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | MADevicePnPHealthAlternativeVersions 테이블에서 데이터 읽기 |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | MADevicePnPHealthIssues 테이블에서 데이터 읽기 |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | MADeviceReadiness 테이블에서 데이터를 읽습니다. |
@@ -4170,26 +4157,26 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | MAOfficeAddin 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinEntityHealth/read | Ma의 Addinentityhealth 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | MAOfficeAddinHealth 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | MAOfficeAddinHealthEventNRT 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | MAOfficeAddinHealthEventNRT 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | MAOfficeAddinHealthIssues 테이블에서 데이터 읽기 |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | MAOfficeAddinInstance 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | MAOfficeAddinInstanceReadiness 테이블에서 데이터 읽기 |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | MAOfficeAddinReadiness 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | MAOfficeApp 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppCrashesNRT/read | MAOfficeAppCrashesNRT 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | MAOfficeAppHealth 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | MAOfficeAppHealth 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | MAOfficeAppInstance 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | MAOfficeAppInstanceHealth 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | MAOfficeAppReadiness 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | MAOfficeAppSessionsNRT 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | MAOfficeAppInstanceHealth 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | MAOfficeAppReadiness 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | MAOfficeAppSessionsNRT 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | MAOfficeBuildInfo 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | MAOfficeCurrencyAssessment 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | MAOfficeCurrencyAssessmentDailyCounts 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | MAOfficeDeploymentStatus 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | MAOfficeDeploymentStatusNRT 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | MAOfficeDeploymentStatusNRT 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | MAOfficeMacroErrorNRT 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | MAOfficeMacroGlobalHealth 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | MAOfficeMacroHealth 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | MAOfficeMacroHealth 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | MAOfficeMacroHealthIssues 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | MAOfficeMacroIssueInstanceReadiness 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | MAOfficeMacroIssueReadiness 테이블에서 데이터를 읽습니다. |
@@ -4202,18 +4189,18 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | MAWindowsCurrencyAssessmentDailyCounts 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | MAWindowsDeploymentStatus 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | MAWindowsDeploymentStatusNRT 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | MicrosoftWebApplicationLog 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | MicrosoftWebFunctionExecutionLogs 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | MAWindowsSysReqInstanceReadiness 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | MicrosoftWebApplicationLog 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | MicrosoftWebFunctionExecutionLogs 테이블에서 데이터를 읽습니다. |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebStdOutStdErrLog/read | MicrosoftWebStdOutStdErrLog 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebW3CLog/read | MicrosoftWebW3CLog 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebW3CLog/read | MicrosoftWebW3CLog 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | NetworkMonitoring 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | OfficeActivity 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Operation/read | Operation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | OutboundConnection 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Perf/read | Perf 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | ProtectionStatus 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | ReservedAzureCommonFields 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | ReservedCommonFields 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | SCCMAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
@@ -4223,25 +4210,25 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | SecurityBaselineSummary 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | SecurityDetection 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | SecurityEvent 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityIoTRawEvent/read | SecurityIoTRawEvent 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/SecurityRecommendation/read | SecurityRecommendation 테이블에서 데이터를 읽습니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/SecurityIoTRawEvent/read | SecurityIoTRawEvent 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityRecommendation/read | SecurityRecommendation 테이블에서 데이터를 읽습니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | ServiceFabricOperationalEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | ServiceFabricReliableActorEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | ServiceFabricReliableServiceEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | SfBAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | SfBOnlineAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | SharePointOnlineAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | SigninLogs 테이블에서 데이터 읽기 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | SigninLogs 테이블에서 데이터 읽기 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | SPAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | SQLQueryPerformance 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/SqlThreatProtectionLoginAudits/read | SqlThreatProtectionLoginAudits 테이블에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | SqlVulnerabilityAssessmentResult 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Syslog 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Syslog 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | SysmonEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | 사용자 지정 로그에서 데이터를 읽습니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | ThreatIntelligenceIndicator 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/UAApp/read | UAApp 테이블에서 데이터를 읽습니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAApp/read | UAApp 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | UAComputer 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | UAComputerRank 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/UADriver/read | UADriver 테이블에서 데이터를 읽습니다. |
@@ -4266,7 +4253,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | WDAVStatus 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | WDAVThreat 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | WindowsClientAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | WindowsEvent 테이블에서 데이터 읽기 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | WindowsEvent 테이블에서 데이터 읽기 |
 > | 작업 | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | WindowsFirewall 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WireData/read | WireData 테이블에서 데이터를 읽습니다. |
@@ -4274,16 +4261,16 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | WUDOAggregatedStatus 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | WUDOStatus 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
-> | Action | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | 지정된 작업 영역 공유 키를 다시 생성합니다. |
+> | 작업 | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | 지정된 작업 영역 공유 키를 다시 생성합니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/rules/read | 모든 경고 규칙을 가져옵니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/savedSearches/delete | 저장된 검색 쿼리를 삭제합니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/savedSearches/read | 저장된 검색 쿼리를 가져옵니다. |
-> | 작업 | microsoft.operationalinsights/workspaces/savedsearches/results/read | 저장된 검색 결과를 가져옵니다. 사용되지 않음 |
+> | Action | microsoft.operationalinsights/workspaces/savedsearches/results/read | 저장된 검색 결과를 가져옵니다. 사용되지 않음 |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | 예약된 검색 작업을 삭제합니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | 예약된 검색 작업을 가져옵니다. |
-> | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | 예약된 검색 작업을 만들거나 업데이트합니다. |
+> | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | 예약된 검색 작업을 만들거나 업데이트합니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | 예약된 검색을 삭제합니다. |
-> | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | 예약된 검색을 가져옵니다. |
+> | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | 예약된 검색을 가져옵니다. |
 > | 작업 | microsoft.operationalinsights/workspaces/savedsearches/schedules/write | 예약된 검색을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/savedSearches/write | 저장된 검색 쿼리를 만듭니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/schema/read | 작업 영역에 대한 검색 스키마를 가져옵니다.  검색 스키마에는 노출된 필드와 필드 형식이 포함되어 있습니다. |
@@ -4294,7 +4281,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | 저장소 구성을 삭제합니다. 이렇게 하면 Microsoft Operational Insights에서 저장소 계정의 데이터 읽기를 중지합니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | 저장소 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | 새 저장소 구성을 만듭니다. 이러한 구성은 기존 저장소 계정의 위치에서 데이터를 가져오는 데 사용됩니다. |
-> | 작업 | Microsoft.OperationalInsights/workspaces/upgradetranslationfailures/read | 작업 영역에 대한 검색 업그레이드 변환 오류 로그를 가져옵니다. |
+> | Action | Microsoft.OperationalInsights/workspaces/upgradetranslationfailures/read | 작업 영역에 대한 검색 업그레이드 변환 오류 로그를 가져옵니다. |
 > | 작업 | Microsoft.OperationalInsights/workspaces/usages/read | 작업 영역에서 읽는 데이터 양을 포함하여 작업 영역에 대한 사용 현황 데이터를 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationalInsights/workspaces/write | 새 작업 영역을 만들거나 기존 작업 영역의 고객 ID를 제공하여 기존 작업 영역에 연결합니다. |
 
@@ -4307,7 +4294,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.OperationsManagement/managementAssociations/read | 기존 관리 연결을 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationsManagement/managementAssociations/write | 새 관리 연결을 만듭니다. |
 > | 액션(Action) | Microsoft.OperationsManagement/managementConfigurations/delete | 기존 관리 구성을 삭제합니다. |
-> | Action | Microsoft.OperationsManagement/managementConfigurations/read | 기존 관리 구성을 가져옵니다. |
+> | 작업 | Microsoft.OperationsManagement/managementConfigurations/read | 기존 관리 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.OperationsManagement/managementConfigurations/write | 새 기존 관리 구성을 만듭니다. |
 > | 액션(Action) | Microsoft.OperationsManagement/register/action | 리소스 공급자에 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.OperationsManagement/solutions/delete | 기존 OMS 솔루션을 삭제합니다. |
@@ -4334,7 +4321,7 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.PolicyInsights/remediations/delete | 정책 수정을 삭제합니다. |
 > | 액션(Action) | Microsoft.PolicyInsights/remediations/listDeployments/read | 정책 수정에 필요한 배포를 나열합니다. |
 > | 액션(Action) | Microsoft.PolicyInsights/remediations/read | 정책 수정을 가져옵니다. |
-> | Action | Microsoft.PolicyInsights/remediations/write | Microsoft Policy 재구성를 만들거나 업데이트 합니다. |
+> | 액션(Action) | Microsoft.PolicyInsights/remediations/write | Microsoft Policy 재구성를 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.PolicyInsights/unregister/action | Microsoft Policy Insights 리소스 공급자를 등록 취소 합니다. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
@@ -4342,16 +4329,16 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 작업 | Microsoft.Portal/consoles/delete | Cloud Shell 인스턴스를 제거 합니다. |
+> | 작업 | Microsoft.Portal/consoles/delete | Cloud Shell 인스턴스를 제거합니다. |
 > | 작업 | Microsoft.Portal/consoles/read | Cloud Shell 인스턴스를 읽습니다. |
-> | Action | Microsoft.Portal/consoles/write | Cloud Shell 인스턴스를 만들거나 업데이트 합니다. |
-> | 작업 | Microsoft.Portal/dashboards/delete | 구독에서 대시보드를 제거합니다. |
+> | Action | Microsoft.Portal/consoles/write | Cloud Shell 인스턴스를 만들거나 업데이트합니다. |
+> | Action | Microsoft.Portal/dashboards/delete | 구독에서 대시보드를 제거합니다. |
 > | 액션(Action) | Microsoft.Portal/dashboards/read | 구독에 대한 대시보드를 읽습니다. |
-> | 액션(Action) | Microsoft.Portal/dashboards/write | 구독에 대해 대시보드를 추가하거나 수정합니다. |
+> | 작업 | Microsoft.Portal/dashboards/write | 구독에 대해 대시보드를 추가하거나 수정합니다. |
 > | 작업 | Microsoft.Portal/register/action | 포털에 등록합니다. |
-> | 작업 | Microsoft.Portal/usersettings/delete | Cloud Shell 사용자 설정을 제거 합니다. |
-> | 작업 | Microsoft.Portal/usersettings/read | Cloud Shell 사용자 설정을 읽습니다. |
-> | 작업 | Microsoft.Portal/usersettings/write | 사용자 설정 Cloud Shell 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.Portal/usersettings/delete | Cloud Shell 사용자 설정을 제거합니다. |
+> | Action | Microsoft.Portal/usersettings/read | Cloud Shell 사용자 설정을 읽습니다. |
+> | 작업 | Microsoft.Portal/usersettings/write | Cloud Shell 사용자 설정을 만들거나 업데이트합니다. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
@@ -4364,8 +4351,8 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.PowerBIDedicated/capacities/skus/read | 용량에 사용 가능한 SKU 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.PowerBIDedicated/capacities/suspend/action | 용량을 일시 중단합니다. |
 > | 액션(Action) | Microsoft.PowerBIDedicated/capacities/write | 지정된 Power BI 전용 용량을 만들거나 업데이트합니다. |
-> | 작업 | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | 지정된 Power BI 전용 용량 이름이 올바르고 사용 중이 아닌지 확인합니다. |
-> | 작업 | Microsoft.PowerBIDedicated/locations/operationresults/read | 지정된 작업 결과에 대한 정보를 검색합니다. |
+> | Action | Microsoft.PowerBIDedicated/locations/checkNameAvailability/action | 지정된 Power BI 전용 용량 이름이 올바르고 사용 중이 아닌지 확인합니다. |
+> | Action | Microsoft.PowerBIDedicated/locations/operationresults/read | 지정된 작업 결과에 대한 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.PowerBIDedicated/locations/operationstatuses/read | 지정된 작업 상태에 대한 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.PowerBIDedicated/operations/read | 작업 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.PowerBIDedicated/register/action | Power BI 전용 리소스 공급자를 등록합니다. |
@@ -4378,19 +4365,19 @@ ms.locfileid: "67868626"
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp는 서비스에서 사용하는 내부 작업입니다. |
-> | Action | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
+> | 작업 | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
 > | 작업 | microsoft.recoveryservices/Locations/backupProtectedItem/write | 백업 보호 항목을 만듭니다. |
-> | Action | microsoft.recoveryservices/Locations/backupProtectedItems/read | 모든 보호 항목 목록을 반환합니다. |
+> | 작업 | microsoft.recoveryservices/Locations/backupProtectedItems/read | 모든 보호 항목 목록을 반환합니다. |
 > | 작업 | microsoft.recoveryservices/Locations/backupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
-> | 작업 | microsoft.recoveryservices/Locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
+> | Action | microsoft.recoveryservices/Locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
 > | 작업 | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability는 리소스 이름을 사용할 수 있는지 확인하는 API입니다. |
 > | 작업 | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/register/action | 지정된 리소스 공급자에 대한 구독을 등록합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupconfig/read | Recovery Services 자격 증명 모음에 구성을 반환합니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupconfig/read | Recovery Services 자격 증명 모음에 구성을 반환합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupconfig/write | Recovery Services 자격 증명 모음에 대한 구성을 업데이트합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupEngines/read | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | 백업 보호 의도를 삭제합니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | 백업 보호 의도를 삭제합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도를 가져옵니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | 작업 상태를 반환합니다. |
@@ -4398,40 +4385,40 @@ ms.locfileid: "67868626"
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | 등록된 컨테이너를 삭제합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | 컨테이너 내의 워크로드를 조회합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 보호 항목 백업을 수행합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 보호 항목 백업을 수행합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | 보호된 항목을 삭제합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 보호 항목에 대해 수행된 작업의 결과를 가져옵니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 보호 항목에 대해 수행된 작업의 결과를 가져옵니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | 보호 항목에 대해 수행된 작업의 상태를 반환합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 보호된 항목의 개체 정보를 반환합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 보호된 항목의 개체 정보를 반환합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 프로비전합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 보호 항목의 복구 지점을 가져옵니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | 보호 항목의 복구 지점을 복원합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | 보호 항목의 복구 지점을 복원합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 취소합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | 등록된 모든 컨테이너를 반환합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | 등록된 모든 컨테이너를 반환합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | 등록된 컨테이너를 만듭니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | 작업을 취소합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | 작업 결과를 반환합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupJobsExport/action | 작업 내보내기 |
 > | 작업 | microsoft.recoveryservices/Vaults/backupOperationResults/read | Recovery Services 자격 증명 모음의 백업 작업 결과를 반환합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupOperations/read | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupPolicies/delete | 보호 정책을 삭제합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | 정책 작업 결과를 가져옵니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | 정책 작업의 상태를 가져옵니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | 정책 작업 결과를 가져옵니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | 정책 작업의 상태를 가져옵니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/write | 보호 정책을 만듭니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupProtectableItems/read | 모든 보호 가능한 항목 목록을 반환합니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupPolicies/write | 보호 정책을 만듭니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupProtectableItems/read | 모든 보호 가능한 항목 목록을 반환합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupProtectedItems/read | 모든 보호 항목 목록을 반환합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | 구독 항목에 속하는 컨테이너를 모두 반환합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | 구독 항목에 속하는 컨테이너를 모두 반환합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
 > | Action | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Recovery Services 자격 증명 모음에 대한 보안 PIN 정보를 반환합니다. |
-> | Action | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Recovery Services 자격 증명 모음에 대한 저장소 구성을 반환합니다. |
+> | 작업 | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Recovery Services 자격 증명 모음에 대한 저장소 구성을 반환합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Recovery Services 자격 증명 모음에 대한 저장소 구성을 업데이트합니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Recovery Services의 보호된 항목 및 보호된 서버에 대한 요약을 반환합니다. |
-> | 작업 | microsoft.recoveryservices/Vaults/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
+> | Action | microsoft.recoveryservices/Vaults/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/certificates/write | 리소스 인증서 업데이트 작업은 리소스/저장소 자격 증명 인증서를 업데이트합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/delete | 자격 증명 모음 삭제 작업에서는 '자격 증명 모음' 형식의 지정된 Azure 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
@@ -4466,25 +4453,25 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | 보호 컨테이너를 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/remove/action | 보호 컨테이너를 제거합니다. |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/delete | 마이그레이션 항목을 삭제합니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrate/action | 마이그레이션 항목 |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrationRecoveryPoints/read | 마이그레이션 복제 복구 지점을 읽습니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | 마이그레이션 항목을 읽습니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrate/action | 테스트 마이그레이션 |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrateCleanup/action | 테스트 마이그레이션 정리 |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/write | 마이그레이션 항목을 만들거나 업데이트합니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrate/action | 마이그레이션 항목 |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrationRecoveryPoints/read | 마이그레이션 복제 복구 지점을 읽습니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | 마이그레이션 항목을 읽습니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrate/action | 테스트 마이그레이션 |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrateCleanup/action | 테스트 마이그레이션 정리 |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/write | 마이그레이션 항목을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | 보호 가능한 항목을 읽습니다. |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/addDisks/action | 디스크 추가 |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | 복구 지점을 적용합니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | 복구 지점을 적용합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | 보호된 항목을 삭제합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | 장애 조치(Failover) 커밋 |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | 계획된 장애 조치(Failover) |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | 보호된 항목을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | 복제 복구 지점을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action | 보호된 항목을 제거합니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/removeDisks/action | 디스크 제거 |
-> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | 복제를 복구합니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/removeDisks/action | 디스크 제거 |
+> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | 복제를 복구합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | 보호된 항목을 다시 보호합니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/ResolveHealthErrors/action |  |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/ResolveHealthErrors/action |  |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/submitFeedback/action | 피드백을 제출합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/targetComputeSizes/read | 모든 대상 컴퓨팅 크기 읽기 |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 테스트 장애 조치(Failover) |
@@ -4515,7 +4502,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationJobs/read | 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationJobs/restart/action | 작업을 다시 시작합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationJobs/resume/action | 작업을 계속합니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationMigrationItems/read | 마이그레이션 항목을 읽습니다. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationMigrationItems/read | 마이그레이션 항목을 읽습니다. |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationNetworkMappings/read | 네트워크 매핑을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationNetworks/read | 네트워크를 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationPolicies/delete | 정책을 삭제합니다. |
@@ -4524,7 +4511,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationProtectedItems/read | 보호된 항목을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationProtectionContainerMappings/read | 보호 컨테이너 매핑을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationProtectionContainers/read | 보호 컨테이너를 읽습니다. |
-> | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/delete | 복구 계획을 삭제합니다. |
+> | 작업 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/delete | 복구 계획을 삭제합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | 장애 조치(Failover) 커밋 복구 계획 |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | 계획된 장애 조치(Failover) 복구 계획 |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | 복구 계획을 읽습니다. |
@@ -4540,12 +4527,12 @@ ms.locfileid: "67868626"
 > | Action | Microsoft.RecoveryServices/vaults/replicationUsages/read | 자격 증명 모음 복제 사용 현황을 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationVaultHealth/read | 자격 증명 모음 복제 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/vaults/replicationVaultHealth/refresh/action | 자격 증명 모음 상태를 새로 고칩니다. |
-> | 작업 | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | 모든 항목을 읽습니다.  |
-> | Action | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | 만들기 또는 업데이트  |
+> | Action | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | 모든 항목을 읽습니다.  |
+> | 작업 | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | 만들기 또는 업데이트  |
 > | 작업 | Microsoft.RecoveryServices/vaults/replicationvCenters/read | vCenter를 읽습니다. |
 > | 작업 | microsoft.recoveryservices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
-> | Action | Microsoft.RecoveryServices/Vaults/usages/read | 자격 증명 모음 사용 현황을 읽습니다. |
-> | Action | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
+> | 작업 | Microsoft.RecoveryServices/Vaults/usages/read | 자격 증명 모음 사용 현황을 읽습니다. |
+> | 작업 | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/write | 자격 증명 모음 만들기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 만듭니다. |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -4554,8 +4541,8 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.Relay/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
-> | 액션(Action) | Microsoft.Relay/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
-> | 작업 | Microsoft.Relay/namespaces/authorizationRules/action | 네임스페이스 권한 부여 규칙을 업데이트합니다. 이 API는 더 이상 사용되지 않습니다. 그 대신 PUT 호출을 사용하여 네임스페이스 권한 부여 규칙을 업데이트하세요. 이 작업은 API 버전 2017-04-01에서 지원되지 않습니다. |
+> | 액션(Action) | Microsoft.Relay/checkNamespaceAvailability/action | 주어진 구독의 네임스페이스 사용 가능성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/action | 네임스페이스 권한 부여 규칙을 업데이트합니다. 이 API는 더 이상 사용되지 않습니다. 그 대신 PUT 호출을 사용하여 네임스페이스 권한 부여 규칙을 업데이트하세요. 이 작업은 API 버전 2017-04-01에서 지원되지 않습니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/authorizationRules/delete | 네임스페이스 권한 부여 규칙을 삭제합니다. 기본 네임스페이스 권한 부여 규칙은 삭제할 수 없습니다.  |
 > | 액션(Action) | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | 네임스페이스 연결 문자열을 가져옵니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/authorizationRules/read | 네임스페이스 권한 부여 규칙 설명 목록을 가져옵니다. |
@@ -4615,7 +4602,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Resourcehealth/healthevent/Updated/action | 지정된 리소스의 상태 변경 사항을 나타냅니다. |
 > | 액션(Action) | Microsoft.ResourceHealth/impactedResources/read | 지정된 리소스로 인해 영향을 받는 리소스를 가져옵니다. |
 > | 작업 | Microsoft.ResourceHealth/metadata/read | 메타 데이터를 가져옵니다. |
-> | 작업 | Microsoft.ResourceHealth/Operations/read | Microsoft ResourceHealth에 사용 가능한 작업을 가져옵니다. |
+> | Action | Microsoft.ResourceHealth/Operations/read | Microsoft ResourceHealth에 대해 사용 가능한 작업 가져오기 |
 > | 작업 | Microsoft.ResourceHealth/register/action | Microsoft ResourceHealth에 대한 구독을 등록합니다. |
 > | 작업 | Microsoft.ResourceHealth/unregister/action | Microsoft ResourceHealth에 대한 구독을 등록 취소합니다. |
 
@@ -4631,7 +4618,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
 > | 액션(Action) | Microsoft.Resources/deployments/read | 배포를 가져오거나 나열합니다. |
 > | 액션(Action) | Microsoft.Resources/deployments/validate/action | 배포의 유효성을 검사합니다. |
-> | Action | Microsoft.Resources/deployments/whatIf/action | 템플릿 배포 변경 사항을 예측 합니다. |
+> | 작업 | Microsoft.Resources/deployments/whatIf/action | 템플릿 배포 변경 사항을 예측 합니다. |
 > | 작업 | Microsoft.Resources/deployments/write | 배포를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Resources/links/delete | 리소스 링크를 삭제합니다. |
 > | 액션(Action) | Microsoft.Resources/links/read | 리소스 링크를 가져오거나 나열합니다. |
@@ -4660,9 +4647,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Resources/subscriptions/tagNames/tagValues/read | 구독 태그 값을 가져오거나 나열합니다. |
 > | 액션(Action) | Microsoft.Resources/subscriptions/tagNames/tagValues/write | 구독 태그 값을 추가합니다. |
 > | 액션(Action) | Microsoft.Resources/subscriptions/tagNames/write | 구독 태그를 추가합니다. |
-> | 작업 | Microsoft.Resources/tags/delete | 리소스의 모든 태그를 제거 합니다. |
-> | 작업 | Microsoft.Resources/tags/read | 리소스의 모든 태그를 가져옵니다. |
-> | Action | Microsoft.Resources/tags/write | 기존 태그를 새 태그 집합으로 대체 하거나 병합 하거나 기존 태그를 제거 하 여 리소스에 대 한 태그를 업데이트 합니다. |
+> | Action | Microsoft.Resources/tags/delete | 리소스의 모든 태그를 제거 합니다. |
+> | Action | Microsoft.Resources/tags/read | 리소스의 모든 태그를 가져옵니다. |
+> | 작업 | Microsoft.Resources/tags/write | 기존 태그를 새 태그 집합으로 대체 하거나 병합 하거나 기존 태그를 제거 하 여 리소스에 대 한 태그를 업데이트 합니다. |
 > | 작업 | Microsoft.Resources/tenants/read | 테넌트 목록을 가져옵니다. |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -4706,17 +4693,17 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.Security/adaptiveNetworkHardenings/enforce/action | 지정 된 네트워크 보안 그룹에서 일치 하는 보안 규칙을 만들어 지정 된 트래픽 강화 규칙을 적용 합니다. |
-> | Action | Microsoft.Security/adaptiveNetworkHardenings/read | Azure로 보호 되는 리소스의 적응 네트워크 강화 권장 사항을 가져옵니다. |
-> | Action | Microsoft.Security/advancedThreatProtectionSettings/read | 리소스에 대한 Advanced Threat Protection 설정을 가져옵니다. |
+> | 작업 | Microsoft.Security/adaptiveNetworkHardenings/enforce/action | 지정 된 네트워크 보안 그룹에서 일치 하는 보안 규칙을 만들어 지정 된 트래픽 강화 규칙을 적용 합니다. |
+> | 작업 | Microsoft.Security/adaptiveNetworkHardenings/read | Azure로 보호 되는 리소스의 적응 네트워크 강화 권장 사항을 가져옵니다. |
+> | 작업 | Microsoft.Security/advancedThreatProtectionSettings/read | 리소스에 대한 Advanced Threat Protection 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/advancedThreatProtectionSettings/write | 리소스에 대한 Advanced Threat Protection 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/alerts/read | 모든 사용 가능한 보안 경고를 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/applicationWhitelistings/read | 애플리케이션 허용 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/applicationWhitelistings/write | 새 애플리케이션 허용 목록을 만들거나 기존 애플리케이션 허용 목록을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Security/complianceResults/read | 리소스에 대한 준수 결과를 가져옵니다. |
 > | 작업 | Microsoft.Security/informationProtectionPolicies/read | 리소스에 대한 정보 보호 정책을 가져옵니다. |
-> | 작업 | Microsoft.Security/informationProtectionPolicies/write | 리소스에 대한 정보 보호 정책을 업데이트합니다. |
-> | Action | Microsoft.Security/locations/alerts/activate/action | 보안 경고를 활성화합니다. |
+> | Action | Microsoft.Security/informationProtectionPolicies/write | 리소스에 대한 정보 보호 정책을 업데이트합니다. |
+> | 작업 | Microsoft.Security/locations/alerts/activate/action | 보안 경고를 활성화합니다. |
 > | 액션(Action) | Microsoft.Security/locations/alerts/dismiss/action | 보안 경고를 해제합니다. |
 > | 액션(Action) | Microsoft.Security/locations/alerts/read | 모든 사용 가능한 보안 경고를 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Just-In-Time 네트워크 액세스 정책을 삭제합니다. |
@@ -4744,10 +4731,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Security/securitySolutionsReferenceData/read | 보안 솔루션 참조 데이터를 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/securityStatuses/read | Azure 리소스의 보안 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/securityStatusesSummaries/read | 범위에 대한 보안 상태 요약 정보를 가져옵니다. |
-> | Action | Microsoft.Security/settings/read | 범위에 대한 설정을 가져옵니다. |
-> | Action | Microsoft.Security/settings/write | 범위에 대한 설정을 업데이트합니다. |
-> | Action | Microsoft.Security/tasks/read | 모든 사용 가능한 보안 권장 사항을 가져옵니다. |
-> | Action | Microsoft.Security/unregister/action | Azure Security Center에서 구독을 등록 취소합니다. |
+> | 작업 | Microsoft.Security/settings/read | 범위에 대한 설정을 가져옵니다. |
+> | 작업 | Microsoft.Security/settings/write | 범위에 대한 설정을 업데이트합니다. |
+> | 작업 | Microsoft.Security/tasks/read | 모든 사용 가능한 보안 권장 사항을 가져옵니다. |
+> | 작업 | Microsoft.Security/unregister/action | Azure Security Center에서 구독을 등록 취소합니다. |
 > | 작업 | Microsoft.Security/webApplicationFirewalls/delete | 웹 애플리케이션 방화벽을 삭제합니다. |
 > | 액션(Action) | Microsoft.Security/webApplicationFirewalls/read | 웹 애플리케이션 방화벽을 가져옵니다. |
 > | 액션(Action) | Microsoft.Security/webApplicationFirewalls/write | 새 웹 애플리케이션 방화벽을 만들거나 기존 웹 애플리케이션 방화벽을 업데이트합니다. |
@@ -4772,8 +4759,8 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.ServiceBus/checkNameAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. |
-> | 액션(Action) | Microsoft.ServiceBus/checkNamespaceAvailability/action | 지정된 구독에서 네임스페이스의 가용성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
-> | Action | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | 지정된 VNet에 대한 ServiceBus 리소스 공급자의 VNet 규칙을 삭제합니다. |
+> | 액션(Action) | Microsoft.ServiceBus/checkNamespaceAvailability/action | 주어진 구독의 네임스페이스 사용 가능성을 확인합니다. 이 API는 사용되지 않으므로 CheckNameAvailability를 대신 사용하세요. |
+> | 작업 | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | 지정된 VNet에 대한 ServiceBus 리소스 공급자의 VNet 규칙을 삭제합니다. |
 > | 작업 | Microsoft.ServiceBus/namespaces/authorizationRules/action | 네임스페이스 권한 부여 규칙을 업데이트합니다. 이 API는 더 이상 사용되지 않습니다. 그 대신 PUT 호출을 사용하여 네임스페이스 권한 부여 규칙을 업데이트하세요. 이 작업은 API 버전 2017-04-01에서 지원되지 않습니다. |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/authorizationRules/delete | 네임스페이스 권한 부여 규칙을 삭제합니다. 기본 네임스페이스 권한 부여 규칙은 삭제할 수 없습니다.  |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | 네임스페이스 연결 문자열을 가져옵니다. |
@@ -4795,7 +4782,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/eventhubs/read | EventHub 리소스 설명의 목록을 가져옵니다. |
 > | 작업 | Microsoft.ServiceBus/namespaces/ipFilterRules/delete | IP 필터 리소스 삭제 |
 > | Action | Microsoft.ServiceBus/namespaces/ipFilterRules/read | IP 필터 리소스 가져오기 |
-> | 작업 | Microsoft.ServiceBus/namespaces/ipFilterRules/write | IP 필터 리소스 만들기 |
+> | Action | Microsoft.ServiceBus/namespaces/ipFilterRules/write | IP 필터 리소스 만들기 |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/browse/action | Messges 찾아보기 |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/defer/action | 메시지 지연 |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | 메시지 받기 |
@@ -4813,9 +4800,9 @@ ms.locfileid: "67868626"
 > | 작업 | ServiceBus/네임 스페이스/네트워크 규칙 집합/삭제 | VNET 규칙 리소스 삭제 |
 > | 작업 | ServiceBus/네임 스페이스/네트워크 규칙 집합/읽기 | NetworkRuleSet 집합 리소스를 가져옵니다. |
 > | 작업 | ServiceBus/네임 스페이스/네트워크 규칙 집합/쓰기 | VNET 규칙 리소스 만들기 |
-> | Action | Microsoft.ServiceBus/namespaces/networkrulesets/delete | VNET 규칙 리소스 삭제 |
+> | 작업 | Microsoft.ServiceBus/namespaces/networkrulesets/delete | VNET 규칙 리소스 삭제 |
 > | Action | Microsoft.ServiceBus/namespaces/networkrulesets/read | NetworkRuleSet 집합 리소스를 가져옵니다. |
-> | 작업 | Microsoft.ServiceBus/namespaces/networkrulesets/write | VNET 규칙 리소스 만들기 |
+> | Action | Microsoft.ServiceBus/namespaces/networkrulesets/write | VNET 규칙 리소스 만들기 |
 > | 작업 | Microsoft.ServiceBus/namespaces/operationresults/read | 네임스페이스 작업의 상태를 가져옵니다. |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | 네임스페이스 진단 설정 리소스 설명의 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | 네임스페이스 진단 설정 리소스 설명의 목록을 가져옵니다. |
@@ -4847,7 +4834,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/topics/subscriptions/rules/write | 규칙 속성을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/topics/subscriptions/write | TopicSubscription 속성을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ServiceBus/namespaces/topics/write | 토픽 속성을 만들거나 업데이트합니다. |
-> | Action | Microsoft.ServiceBus/namespaces/virtualNetworkRules/delete | VNET 규칙 리소스 삭제 |
+> | 작업 | Microsoft.ServiceBus/namespaces/virtualNetworkRules/delete | VNET 규칙 리소스 삭제 |
 > | 작업 | Microsoft.ServiceBus/namespaces/virtualNetworkRules/read | VNET 규칙 리소스 가져오기 |
 > | Action | Microsoft.ServiceBus/namespaces/virtualNetworkRules/write | VNET 규칙 리소스 만들기 |
 > | 작업 | Microsoft.ServiceBus/namespaces/write | 네임스페이스 리소스를 만들고 해당 속성을 업데이트합니다. 네임스페이스의 태그 및 용량은 업데이트할 수 있는 속성입니다. |
@@ -4885,7 +4872,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.ServiceFabric/locations/clusterVersions/read | 클러스터 버전을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/locations/environments/clusterVersions/read | 특정 환경에 대한 클러스터 버전을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/locations/operationresults/read | 작업 결과를 읽습니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/locations/operations/read | 위치별로 작업을 읽습니다. |
+> | 작업 | Microsoft.ServiceFabric/locations/operations/read | 위치별로 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/operations/read | 사용 가능한 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/register/action | 작업을 등록합니다. |
 
@@ -4894,22 +4881,22 @@ ms.locfileid: "67868626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | Action | Microsoft.SignalRService/locations/checknameavailability/action | 새 SignalR 서비스에서 이름을 사용할 수 있는지 확인합니다. |
+> | 작업 | Microsoft.SignalRService/locations/checknameavailability/action | 새 SignalR 서비스에서 이름을 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.SignalRService/locations/operationresults/signalr/read | 비동기 작업의 상태 쿼리 |
 > | 작업 | Microsoft.SignalRService/locations/operationStatuses/operationId/read | 비동기 작업의 상태 쿼리 |
-> | Action | Microsoft.SignalRService/locations/usages/read | Azure SignalR 서비스에 대한 할당량 사용량을 가져옵니다. |
-> | Action | Microsoft.SignalRService/operationresults/read | 비동기 작업의 상태 쿼리 |
+> | 작업 | Microsoft.SignalRService/locations/usages/read | Azure SignalR 서비스에 대한 할당량 사용량을 가져옵니다. |
+> | 작업 | Microsoft.SignalRService/operationresults/read | 비동기 작업의 상태 쿼리 |
 > | 작업 | Microsoft.SignalRService/operationstatus/read | 비동기 작업의 상태 쿼리 |
 > | 작업 | Microsoft.SignalRService/register/action | ‘Microsoft.SignalRService’ 리소스 공급자를 구독에 등록합니다. |
 > | 액션(Action) | Microsoft.SignalRService/SignalR/delete | 전체 SignalR 서비스를 삭제합니다. |
 > | 작업 | Microsoft.SignalRService/SignalR/eventGridFilters/delete | SignalR에서 event grid 필터를 삭제 합니다. |
 > | 작업 | Microsoft.SignalRService/SignalR/eventGridFilters/read | 지정 된 event grid 필터의 속성을 가져오거나 지정 된 SignalR에 대 한 모든 event grid 필터를 나열 합니다. |
-> | 작업 | Microsoft.SignalRService/SignalR/eventGridFilters/write | 지정 된 매개 변수를 사용 하 여 SignalR에 대 한 event grid 필터를 만들거나 업데이트 합니다. |
-> | Action | Microsoft.SignalRService/SignalR/listkeys/action | 관리 포털에서 또는 API를 통해 SignalR 액세스 키 값을 봅니다. |
-> | 작업 | Microsoft.SignalRService/SignalR/read | 관리 포털 또는 API를 통해 SignalR의 설정과 구성을 확인합니다. |
+> | Action | Microsoft.SignalRService/SignalR/eventGridFilters/write | 지정 된 매개 변수를 사용 하 여 SignalR에 대 한 event grid 필터를 만들거나 업데이트 합니다. |
+> | 작업 | Microsoft.SignalRService/SignalR/listkeys/action | 관리 포털에서 또는 API를 통해 SignalR 액세스 키 값을 봅니다. |
+> | Action | Microsoft.SignalRService/SignalR/read | 관리 포털 또는 API를 통해 SignalR의 설정과 구성을 확인합니다. |
 > | 작업 | Microsoft.SignalRService/SignalR/regeneratekey/action | 관리 포털에서 또는 API를 통해 SignalR 액세스 키 값을 변경합니다. |
-> | Action | Microsoft.SignalRService/SignalR/restart/action | 관리 포털 또는 API를 통해 Azure SignalR 서비스를 다시 시작합니다. 가동 중지 시간이 있을 것입니다. |
-> | Action | Microsoft.SignalRService/SignalR/write | 관리 포털 또는 API를 통해 SignalR의 설정과 구성을 수정합니다. |
+> | 작업 | Microsoft.SignalRService/SignalR/restart/action | 관리 포털 또는 API를 통해 Azure SignalR 서비스를 다시 시작합니다. 가동 중지 시간이 있을 것입니다. |
+> | 작업 | Microsoft.SignalRService/SignalR/write | 관리 포털 또는 API를 통해 SignalR의 설정과 구성을 수정합니다. |
 > | 액션(Action) | Microsoft.SignalRService/unregister/action | ‘Microsoft.SignalRService’ 리소스 공급자를 구독에서 등록 취소합니다. |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
@@ -4918,10 +4905,10 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft.Solutions/applicationDefinitions/applicationArtifacts/read | 응용 프로그램 정의의 응용 프로그램 아티팩트를 나열 합니다. |
-> | Action | Microsoft.Solutions/applicationDefinitions/delete | 애플리케이션 정의를 제거합니다. |
+> | 작업 | Microsoft.Solutions/applicationDefinitions/delete | 애플리케이션 정의를 제거합니다. |
 > | 액션(Action) | Microsoft.Solutions/applicationDefinitions/read | 애플리케이션 정의 목록을 검색합니다. |
 > | 액션(Action) | Microsoft.Solutions/applicationDefinitions/write | 애플리케이션 정의를 추가 또는 수정합니다. |
-> | Action | Microsoft.Solutions/applications/applicationArtifacts/read | 응용 프로그램 아티팩트를 나열 합니다. |
+> | 작업 | Microsoft.Solutions/applications/applicationArtifacts/read | 응용 프로그램 아티팩트를 나열 합니다. |
 > | 작업 | Microsoft.Solutions/applications/delete | 애플리케이션을 제거합니다. |
 > | 액션(Action) | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 > | 작업 | Microsoft.Solutions/applications/refreshPermissions/action | 응용 프로그램 사용 권한을 새로 고칩니다. |
@@ -4942,9 +4929,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/checkNameAvailability/action | 지정된 서버 이름을 지정된 구독에 대해 전 세계적으로 프로비전에 사용할 수 있는지 확인합니다. |
 > | 작업 | Microsoft.Sql/instancePools/delete | 인스턴스 풀을 삭제합니다. |
 > | Action | Microsoft.Sql/instancePools/read | 인스턴스 풀을 가져옵니다. |
-> | Action | Microsoft.Sql/instancePools/usages/read | 인스턴스 풀의 사용 정보를 가져옵니다. |
-> | Action | Microsoft.Sql/instancePools/write | 인스턴스 풀을 만들거나 업데이트합니다. |
-> | 작업 | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
+> | 작업 | Microsoft.Sql/instancePools/usages/read | 인스턴스 풀의 사용 정보를 가져옵니다. |
+> | 작업 | Microsoft.Sql/instancePools/write | 인스턴스 풀을 만들거나 업데이트합니다. |
+> | Action | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/auditingSettingsOperationResults/read | 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/capabilities/read | 지정된 위치에서 이 구독에 대한 기능을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/databaseAzureAsyncOperation/read | 데이터베이스 작업의 상태를 가져옵니다. |
@@ -4955,39 +4942,39 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/locations/deletedServers/recover/action | 삭제된 서버를 복구합니다. |
 > | 작업 | Microsoft.Sql/locations/elasticPoolAzureAsyncOperation/read | 탄력적 풀 비동기 작업에 대한 azure 비동기 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/elasticPoolOperationResults/read | 탄력적 풀 작업의 결과를 가져옵니다. |
-> | Action | Microsoft.Sql/locations/encryptionProtectorAzureAsyncOperation/read | 투명 한 데이터 암호화 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/encryptionProtectorAzureAsyncOperation/read | 투명 한 데이터 암호화 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/encryptionProtectorOperationResults/read | 투명 한 데이터 암호화 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
-> | 작업 | Microsoft.Sql/locations/extendedAuditingSettingsAzureAsyncOperation/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
+> | Action | Microsoft.Sql/locations/extendedAuditingSettingsAzureAsyncOperation/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
 > | 작업 | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | 방화벽 규칙 작업의 상태를 가져옵니다. |
-> | 작업 | Microsoft.Sql/locations/firewallRulesOperationResults/read | 방화벽 규칙 작업의 상태를 가져옵니다. |
-> | Action | Microsoft.Sql/locations/instanceFailoverGroups/delete | 기존 인스턴스 장애 조치(failover) 그룹을 삭제합니다. |
+> | Action | Microsoft.Sql/locations/firewallRulesOperationResults/read | 방화벽 규칙 작업의 상태를 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/instanceFailoverGroups/delete | 기존 인스턴스 장애 조치(failover) 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | 기존 인스턴스 장애 조치(failover) 그룹에서 계획된 장애 조치(failover)를 실행합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | 기존 인스턴스 장애 조치(failover) 그룹에서 강제 장애 조치(failover)를 실행합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/write | 지정한 매개 변수를 사용 하 여 인스턴스 장애 조치 (failover) 그룹을 만들거나 지정 된 인스턴스 장애 조치 (failover) 그룹의 속성 또는 태그를 업데이트 합니다 |
-> | Action | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | 인스턴스 풀 작업의 상태를 가져옵니다. |
-> | Action | Microsoft.Sql/locations/instancePoolOperationResults/read | 인스턴스 풀 작업의 결과를 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | 인스턴스 풀 작업의 상태를 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/instancePoolOperationResults/read | 인스턴스 풀 작업의 결과를 가져옵니다. |
 > | Action | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | 특정 인터페이스 엔드포인트 Azure 비동기 작업의 세부 정보를 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | 지정된 인터페이스 엔드포인트 프로필 작업의 세부 정보를 반환합니다. |
-> | 작업 | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | 작업 에이전트 작업의 상태를 가져옵니다. |
+> | Action | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | 작업 에이전트 작업의 상태를 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/jobAgentOperationResults/read | 작업 에이전트 작업의 결과를 가져옵니다. |
 > | Action | Microsoft.Sql/locations/longTermRetentionBackups/read | 위치에 있는 모든 서버의 모든 데이터베이스에 대한 장기 보존 백업을 나열합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | 서버의 모든 데이터베이스에 대한 장기 보존 백업을 나열합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | 장기 보존 백업을 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | 데이터베이스의 장기 보존 백업을 나열합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | 관리되는 데이터베이스 복원 작업을 완료합니다. |
-> | Action | Microsoft.Sql/locations/managedInstanceEncryptionProtectorAzureAsyncOperation/read | 투명 한 데이터 암호화 관리 되는 인스턴스 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/managedInstanceEncryptionProtectorAzureAsyncOperation/read | 투명 한 데이터 암호화 관리 되는 인스턴스 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/managedInstanceEncryptionProtectorOperationResults/read | 투명 한 데이터 암호화 관리 되는 인스턴스 암호화 보호기에서 진행 중인 작업을 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/managedInstanceKeyAzureAsyncOperation/read | 투명 한 데이터 암호화 관리 되는 인스턴스 키에서 진행 중인 작업을 가져옵니다. |
-> | 작업 | Microsoft.Sql/locations/managedInstanceKeyOperationResults/read | 투명 한 데이터 암호화 관리 되는 인스턴스 키에서 진행 중인 작업을 가져옵니다. |
-> | 작업 | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | 관리되는 데이터베이스 투명한 데이터 암호화에 대해 진행 중인 작업을 가져옵니다. |
+> | Action | Microsoft.Sql/locations/managedInstanceKeyOperationResults/read | 투명 한 데이터 암호화 관리 되는 인스턴스 키에서 진행 중인 작업을 가져옵니다. |
+> | Action | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | 관리되는 데이터베이스 투명한 데이터 암호화에 대해 진행 중인 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | 관리되는 데이터베이스 투명한 데이터 암호화에 대해 진행 중인 작업을 가져옵니다. |
-> | 작업 | Microsoft.Sql/locations/privateEndpointConnectionAzureAsyncOperation/read | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
-> | Action | Microsoft.Sql/locations/privateEndpointConnectionOperationResults/read | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
+> | Action | Microsoft.Sql/locations/privateEndpointConnectionAzureAsyncOperation/read | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/privateEndpointConnectionOperationResults/read | 개인 끝점 연결 작업에 대 한 결과를 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/privateEndpointConnectionProxyAzureAsyncOperation/read | 개인 끝점 연결 프록시 작업의 결과를 가져옵니다. |
 > | Action | Microsoft.Sql/locations/privateEndpointConnectionProxyOperationResults/read | 개인 끝점 연결 프록시 작업의 결과를 가져옵니다. |
-> | Action | Microsoft.Sql/locations/read | 지정된 구독에 사용 가능한 위치를 가져옵니다. |
+> | 작업 | Microsoft.Sql/locations/read | 지정된 구독에 사용 가능한 위치를 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/serverKeyAzureAsyncOperation/read | 투명 한 데이터 암호화 서버 키에 대 한 진행 중인 작업을 가져옵니다. |
 > | Action | Microsoft.Sql/locations/serverKeyOperationResults/read | 투명 한 데이터 암호화 서버 키에 대 한 진행 중인 작업을 가져옵니다. |
 > | 작업 | Microsoft.Sql/locations/syncAgentOperationResults/read | 동기화 에이전트 리소스 작업의 결과를 검색합니다. |
@@ -5003,25 +4990,25 @@ ms.locfileid: "67868626"
 > | 작업 | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/read | 관리되는 데이터베이스에 대한 단기 보존 정책을 가져옵니다. |
 > | 작업 | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | 관리되는 데이터베이스에 대한 단기 보존 정책을 업데이트합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
-> | 작업 | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/write | 일괄 업데이트 민감도 레이블 |
-> | 작업 | Microsoft.Sql/managedInstances/databases/delete | 기존 관리되는 데이터베이스를 삭제합니다. |
+> | Action | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/write | 일괄 업데이트 민감도 레이블 |
+> | Action | Microsoft.Sql/managedInstances/databases/delete | 기존 관리되는 데이터베이스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | 관리형 인스턴스 데이터베이스에 사용 가능한 로그를 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/read | 기존 관리되는 데이터베이스를 가져옵니다. |
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/read | 관리 되는 데이터베이스 스키마를 가져옵니다. |
-> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | 관리 되는 데이터베이스 열 가져오기 |
+> | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | 관리 되는 데이터베이스 열 가져오기 |
 > | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | 지정된 열의 민감도 레이블을 삭제합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | 지정 된 열에서 민감도 권장 사항을 사용 하지 않도록 설정 |
 > | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | 지정 된 열에 대 한 민감도 권장 사항 사용 |
 > | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | 지정된 열의 민감도 레이블을 가져옵니다. |
-> | 작업 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | 지정된 열의 민감도 레이블을 만들거나 업데이트합니다. |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | 지정된 열의 민감도 레이블을 만들거나 업데이트합니다. |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/read | 관리 되는 데이터베이스 테이블 가져오기 |
 > | 작업 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | 지정 된 서버에 대해 구성 된 관리 되는 데이터베이스 위협 검색 정책의 목록을 검색 합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | 지정된 관리되는 데이터베이스에 대한 데이터베이스 위협 검색 정책을 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/securityEvents/read | 관리되는 데이터베이스 보안 이벤트를 검색합니다. |
-> | Action | Microsoft.Sql/managedInstances/databases/sensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
+> | 작업 | Microsoft.Sql/managedInstances/databases/sensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/read | 지정된 관리되는 데이터베이스에서 데이터베이스 투명한 데이터 암호화의 세부 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/write | 지정된 관리되는 데이터베이스에 대한 데이터베이스 투명한 데이터 암호화를 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete | 지정된 데이터베이스에 대한 취약성 평가를 제거합니다. |
@@ -5049,15 +5036,15 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/managedInstances/read | 관리되는 인스턴스 목록을 반환하거나 지정된 관리되는 인스턴스에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.Sql/managedInstances/recoverableDatabases/read | 복구 가능한 관리되는 데이터베이스 목록을 반환합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/read | 삭제된 관리되는 데이터베이스에 대한 단기 보존 정책을 가져옵니다. |
-> | Action | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/write | 삭제된 관리되는 데이터베이스에 대한 단기 보존 정책을 업데이트합니다. |
+> | 작업 | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/write | 삭제된 관리되는 데이터베이스에 대한 단기 보존 정책을 업데이트합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | 복원 가능한 삭제된 관리되는 데이터베이스 목록을 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/securityAlertPolicies/read | 지정 된 서버에 대해 구성 된 관리 되는 서버 위협 검색 정책 목록을 검색 합니다. |
-> | Action | Microsoft.Sql/managedInstances/securityAlertPolicies/write | 지정된 관리되는 서버에 대한 관리되는 서버 위협 검색 정책을 변경합니다. |
+> | 작업 | Microsoft.Sql/managedInstances/securityAlertPolicies/write | 지정된 관리되는 서버에 대한 관리되는 서버 위협 검색 정책을 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/tdeCertificates/action | TDE 인증서를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | 주어진 관리되는 인스턴스에 대한 취약성 평가를 제거합니다. |
 > | 액션(Action) | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | 지정된 관리되는 인스턴스에서 취약성 평가 정책을 검색합니다. |
 > | 작업 | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | 주어진 관리되는 인스턴스에 대한 취약성 평가를 변경합니다. |
-> | 작업 | Microsoft.Sql/managedInstances/write | 지정된 매개 변수를 사용하여 관리되는 인스턴스를 만들거나 지정된 관리되는 인스턴스에 대한 속성 또는 태그를 업데이트합니다. |
+> | 액션(Action) | Microsoft.Sql/managedInstances/write | 지정된 매개 변수를 사용하여 관리되는 인스턴스를 만들거나 지정된 관리되는 인스턴스에 대한 속성 또는 태그를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/operations/read | 사용 가능한 REST 작업을 가져옵니다. |
 > | 작업 | Microsoft .Sql/privateEndpointConnectionsApproval/action | 사용자가 개인 끝점 연결을 승인할 수 있는지 여부를 결정 합니다. |
 > | 작업 | Microsoft.Sql/register/action | Microsoft SQL Database 리소스 공급자에 대한 구독을 등록하고 Microsoft SQL Databases를 만들도록 설정합니다. |
@@ -5118,7 +5105,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/databases/extendedAuditingSettings/write | 지정된 데이터베이스에 대한 확장 Blob 감사 정책을 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/extensions/read | 데이터베이스에 대한 확장 컬렉션을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/extensions/write | 지정된 데이터베이스에 대한 확장을 변경합니다. |
-> | Action | Microsoft.Sql/servers/databases/failover/action | 고객이 데이터베이스 장애 조치를 시작 했습니다. |
+> | 작업 | Microsoft.Sql/servers/databases/failover/action | 고객이 데이터베이스 장애 조치를 시작 했습니다. |
 > | 작업 | Microsoft.Sql/servers/databases/geoBackupPolicies/read | 지정된 데이터베이스에 대한 지역 백업 정책을 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/geoBackupPolicies/write | 데이터베이스 지역 백업 정책을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/importExportOperationResults/read | 진행 중인 가져오기/내보내기 작업을 가져옵니다. |
@@ -5141,7 +5128,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/databases/queryStore/write | 데이터베이스에 대한 쿼리 저장소 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/read | 데이터베이스 목록을 가져오거나 지정된 데이터베이스에 대한 속성을 가져옵니다. |
 > | 작업 | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
-> | 작업 | Microsoft.Sql/servers/databases/replicationLinks/delete | 잠재적 데이터 손실이 발생하는 상태로 강제로 복제 관계를 종료합니다. |
+> | Action | Microsoft.Sql/servers/databases/replicationLinks/delete | 잠재적 데이터 손실이 발생하는 상태로 강제로 복제 관계를 종료합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/replicationLinks/failover/action | 주 데이터베이스의 모든 변경 내용을 동기화한 후에 장애 조치(failover)하고, 이 데이터베이스를 복제 관계의 주 데이터베이스로 만들고, 원격 주 데이터베이스를 보조 데이터베이스로 만듭니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action | 잠재적 데이터 손실이 발생하는 상태로 즉시 장애 조치(failover)하고, 이 데이터베이스를 복제 관계의 주 데이터베이스로 만들고, 원격 주 데이터베이스를 보조 데이터베이스로 만듭니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/replicationLinks/read | 복제 링크 목록을 반환하거나 지정된 복제 링크의 속성을 가져옵니다. |
@@ -5153,13 +5140,13 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/databases/resume/action | Azure SQL Datawarehouse 데이터베이스를 다시 시작합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/schemas/read | 데이터베이스 스키마를 가져옵니다. |
 > | 작업 | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 데이터베이스 열을 가져옵니다. |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | 지정된 열의 민감도 레이블을 삭제합니다. |
-> | 작업 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | 지정 된 열에서 민감도 권장 사항을 사용 하지 않도록 설정 |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | 지정 된 열에 대 한 민감도 권장 사항 사용 |
-> | 작업 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | 지정된 열의 민감도 레이블을 가져옵니다. |
+> | 작업 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | 지정된 열의 민감도 레이블을 삭제합니다. |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | 지정 된 열에서 민감도 권장 사항을 사용 하지 않도록 설정 |
+> | 작업 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | 지정 된 열에 대 한 민감도 권장 사항 사용 |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | 지정된 열의 민감도 레이블을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | 지정된 열의 민감도 레이블을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/schemas/tables/read | 데이터베이스 테이블을 가져옵니다. |
-> | 작업 | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | 데이터베이스에 대한 인덱스 권장 사항 목록을 검색합니다. |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | 데이터베이스에 대한 인덱스 권장 사항 목록을 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | 인덱스 권장 사항을 적용합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/securityAlertPolicies/read | 지정 된 서버에 대해 구성 된 데이터베이스 위협 검색 정책 목록을 검색 합니다. |
 > | Action | Microsoft.Sql/servers/databases/securityAlertPolicies/write | 지정된 데이터베이스에 대한 데이터베이스 위협 탐지 정책을 변경합니다. |
@@ -5192,7 +5179,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/databases/usages/read | Azure SQL Database 사용 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/vulnerabilityAssessments/delete | 지정된 데이터베이스에 대한 취약성 평가를 제거합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/vulnerabilityAssessments/read | givendatabase에서 취약성 평가 정책을 검색합니다. |
-> | Action | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/delete | 지정된 데이터베이스에 대한 취약성 평가 규칙 기준을 제거합니다. |
+> | 작업 | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/delete | 지정된 데이터베이스에 대한 취약성 평가 규칙 기준을 제거합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/read | 지정된 데이터베이스에 대한 취약성 평가 규칙 기준을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/write | 지정된 데이터베이스에 대한 취약성 평가 규칙 기준을 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/databases/vulnerabilityAssessments/scans/export/action | 기존 검사 결과를 사람이 읽을 수 있는 형식으로 변환합니다. 이미 있는 경우 아무 일도 발생하지 않습니다. |
@@ -5221,7 +5208,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/elasticPools/elasticPoolActivity/read | 지정된 Elastic Database 풀에 대한 활동 및 세부 정보를 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/elasticPools/elasticPoolDatabaseActivity/read | Elastic Database 풀에 속하는 지정된 데이터베이스에 대한 활동 및 세부 정보를 검색합니다. |
 > | 작업 | Microsoft.Sql/servers/elasticPools/failover/action | 고객이 탄력적 풀 장애 조치 (failover)를 시작 했습니다. |
-> | 작업 | Microsoft.Sql/servers/elasticPools/metricDefinitions/read | Elastic Database 풀에 사용할 수 있는 메트릭 형식을 반환합니다. |
+> | Action | Microsoft.Sql/servers/elasticPools/metricDefinitions/read | Elastic Database 풀에 사용할 수 있는 메트릭 형식을 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/elasticPools/metrics/read | 탄력적 데이터베이스 풀에 대한 메트릭을 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/elasticPools/operations/cancel/action | 아직 완료되지 않은 Azure SQL 탄력적 풀 보류 중인 비동기 작업을 취소합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/elasticPools/operations/read | 탄력적 풀에서 수행된 작업 목록을 반환합니다. |
@@ -5248,27 +5235,27 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | 지정된 인터페이스 엔드포인트 프로필을 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/interfaceEndpointProfiles/read | 지정된 인터페이스 엔드포인트 프로필의 특성을 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 지정된 매개 변수를 사용하여 인터페이스 엔드포인트 프로필을 만들거나 지정된 인터페이스 엔드포인트에 대한 속성 또는 태그를 업데이트합니다. |
-> | Action | Microsoft.Sql/servers/jobAgents/delete | Azure SQL DB 작업 에이전트를 삭제합니다. |
-> | Action | Microsoft.Sql/servers/jobAgents/read | Azure SQL DB 작업 에이전트를 가져옵니다. |
-> | 작업 | Microsoft.Sql/servers/jobAgents/write | Azure SQL DB 작업 에이전트를 만들거나 업데이트합니다. |
-> | Action | Microsoft.Sql/servers/keys/delete | 기존 서버 키를 삭제합니다. |
+> | 작업 | Microsoft.Sql/servers/jobAgents/delete | Azure SQL DB 작업 에이전트를 삭제합니다. |
+> | 작업 | Microsoft.Sql/servers/jobAgents/read | Azure SQL DB 작업 에이전트를 가져옵니다. |
+> | Action | Microsoft.Sql/servers/jobAgents/write | Azure SQL DB 작업 에이전트를 만들거나 업데이트합니다. |
+> | 작업 | Microsoft.Sql/servers/keys/delete | 기존 서버 키를 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/keys/read | 서버 키 목록을 가져오거나 지정된 서버 키에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/keys/write | 지정된 매개 변수를 사용하여 키를 만들거나 지정된 서버 키에 대한 속성 또는 태그를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/operationResults/read | 진행 중인 서버 작업을 가져옵니다. |
 > | Action | Microsoft.Sql/servers/privateEndpointConnectionProxies/delete | 기존 개인 끝점 연결 프록시를 삭제 합니다. |
 > | Action | Microsoft.Sql/servers/privateEndpointConnectionProxies/read | 개인 끝점 연결 프록시의 목록을 반환 하거나, 지정 된 개인 끝점 연결 프록시에 대 한 속성을 가져옵니다. |
 > | Action | Microsoft.Sql/servers/privateEndpointConnectionProxies/validate/action | NRP 쪽에서 개인 끝점 연결 만들기 호출의 유효성을 검사 합니다. |
-> | Action | Microsoft.Sql/servers/privateEndpointConnectionProxies/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결 프록시를 만들거나 지정 된 개인 끝점 연결 프록시에 대 한 속성 또는 태그를 업데이트 합니다. |
+> | 작업 | Microsoft.Sql/servers/privateEndpointConnectionProxies/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결 프록시를 만들거나 지정 된 개인 끝점 연결 프록시에 대 한 속성 또는 태그를 업데이트 합니다. |
 > | 작업 | Microsoft.Sql/servers/privateEndpointConnections/delete | 기존 개인 끝점 연결을 삭제 합니다. |
 > | 작업 | Microsoft.Sql/servers/privateEndpointConnections/read | 개인 끝점 연결의 목록을 반환 하거나, 지정 된 개인 끝점 연결에 대 한 속성을 가져옵니다. |
 > | 작업 | Microsoft.Sql/servers/privateEndpointConnections/write | 기존 개인 끝점 연결을 승인 하거나 거부 합니다. |
-> | 작업 | Microsoft .Sql/servers/privateEndpointConnectionsApproval/action | 사용자가 개인 끝점 연결을 승인할 수 있는지 여부를 결정 합니다. |
-> | 작업 | Microsoft.Sql/servers/privateLinkResources/read | 해당 sql server에 대 한 개인 링크 리소스 가져오기 |
-> | Action | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | 서버에 사용할 수 있는 메트릭 형식을 반환합니다. |
+> | Action | Microsoft .Sql/servers/privateEndpointConnectionsApproval/action | 사용자가 개인 끝점 연결을 승인할 수 있는지 여부를 결정 합니다. |
+> | Action | Microsoft.Sql/servers/privateLinkResources/read | 해당 sql server에 대 한 개인 링크 리소스 가져오기 |
+> | 작업 | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | 서버에 사용할 수 있는 메트릭 형식을 반환합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/recommendedElasticPools/databases/read | 지정된 서버에 대해 권장되는 Elastic Database 풀의 메트릭을 검색합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/recommendedElasticPools/read | 기록 리소스 사용률에 따라 비용을 절감하거나 성능을 향상시키기 위한 Elastic Database 풀 권장 사항을 검색합니다. |
-> | Action | Microsoft.Sql/servers/recoverableDatabases/read | 이 작업은 라이브 데이터베이스의 재해 복구 기능이 데이터베이스를 마지막 정상 지점으로 복원하는 데 사용합니다. 마지막 정상 백업에 대한 정보가 반환되지만 실제로 데이터베이스는 복원되지 않습니다. |
+> | 작업 | Microsoft.Sql/servers/recoverableDatabases/read | 이 작업은 라이브 데이터베이스의 재해 복구 기능이 데이터베이스를 마지막 정상 지점으로 복원하는 데 사용합니다. 마지막 정상 백업에 대한 정보가 반환되지만 실제로 데이터베이스는 복원되지 않습니다. |
 > | 액션(Action) | Microsoft.Sql/servers/replicationLinks/read | 복제 링크 목록을 반환하거나 지정된 복제 링크의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/restorableDroppedDatabases/read | 지정된 서버에서 삭제되었지만 여전히 보존 정책에 속하는 데이터베이스 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/servers/securityAlertPolicies/operationResults/read | 서버 위협 검색 정책 쓰기 작업의 결과를 검색합니다. |
@@ -5287,11 +5274,11 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Sql/servers/virtualNetworkRules/write | 지정된 매개 변수를 사용하여 가상 네트워크 규칙을 만들거나 지정된 가상 네트워크 규칙에 대한 속성 또는 태그를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/vulnerabilityAssessments/delete | 주어진 서버에 대한 취약성 평가를 제거합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/vulnerabilityAssessments/read | 지정된 서버에서 취약성 평가 정책을 검색합니다. |
-> | Action | Microsoft.Sql/servers/vulnerabilityAssessments/write | 주어진 서버에 대한 취약성 평가를 변경합니다. |
+> | 작업 | Microsoft.Sql/servers/vulnerabilityAssessments/write | 주어진 서버에 대한 취약성 평가를 변경합니다. |
 > | 액션(Action) | Microsoft.Sql/servers/write | 지정된 매개 변수를 사용하여 서버를 만들거나 지정된 서버에 대한 속성 또는 태그를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Sql/unregister/action | Microsoft SQL Database 리소스 공급자에 대한 구독을 등록 취소하고 Microsoft SQL Databases를 만들도록 설정합니다. |
 > | 작업 | Microsoft.Sql/virtualClusters/delete | 기존 가상 클러스터를 삭제 합니다. |
-> | 작업 | Microsoft.Sql/virtualClusters/read | 가상 클러스터 목록을 반환하거나 지정된 가상 클러스터에 대한 속성을 가져옵니다. |
+> | Action | Microsoft.Sql/virtualClusters/read | 가상 클러스터 목록을 반환하거나 지정된 가상 클러스터에 대한 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/virtualClusters/write | 가상 클러스터 태그를 업데이트합니다. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -5300,7 +5287,7 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.Storage/checknameavailability/read | 해당 계정 이름이 올바른지와 사용되고 있지 않은지 확인합니다. |
-> | Action | Microsoft.Storage/locations/checknameavailability/read | 해당 계정 이름이 올바른지와 사용되고 있지 않은지 확인합니다. |
+> | 작업 | Microsoft.Storage/locations/checknameavailability/read | 계정 이름이 올바르고 사용 중이 아닌지 확인하세요. |
 > | 액션(Action) | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | 가상 네트워크 또는 서브넷을 삭제 중임을 Microsoft.Storage에 알립니다. |
 > | 액션(Action) | Microsoft.Storage/locations/usages/read | 지정한 구독의 리소스에 대한 한도 및 현재 사용 수를 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/operations/read | 비동기 작업의 상태를 폴링합니다. |
@@ -5309,10 +5296,10 @@ ms.locfileid: "67868626"
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Blob 콘텐츠 추가 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | 자동 스냅샷을 삭제한 결과를 반환합니다. |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 일치 하는 태그 필터를 사용 하 여 계정에서 blob 목록을 반환 합니다. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 일치하는 태그 필터가 있는 계정의 Blob 목록을 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록을 반환합니다. |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Blob 태그를 읽은 결과를 반환 합니다. |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Blob 태그 작성 결과를 반환 합니다. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Blob 태그 읽기 결과를 반환합니다. |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Blob 태그 쓰기 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Blob 컨테이너 법적 보존을 지웁니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
@@ -5321,33 +5308,33 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action | Blob 컨테이너 불변성 정책을 잠급니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/read | Blob 컨테이너 불변성 정책을 가져옵니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies/write | Blob 컨테이너 불변성 정책을 넣습니다. |
-> | 작업 | Microsoft.Storage/storageAccounts/blobServices/containers/lease/action | Blob 컨테이너 임대 결과를 반환합니다. |
-> | Action | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너를 반환합니다. |
-> | 작업 | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 목록을 반환합니다. |
-> | Action | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | Blob 컨테이너 법적 보존을 설정합니다. |
+> | Action | Microsoft.Storage/storageAccounts/blobServices/containers/lease/action | Blob 컨테이너 임대 결과를 반환합니다. |
+> | 작업 | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너를 반환합니다. |
+> | Action | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 목록을 반환합니다. |
+> | 작업 | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | Blob 컨테이너 법적 보존을 설정합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 패치 결과를 반환합니다. |
 > | 작업 | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기의 결과를 반환합니다. |
-> | 작업 | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob Service에 대한 사용자 위임 키를 반환합니다. |
+> | Action | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob Service에 대한 사용자 위임 키를 반환합니다. |
 > | 작업 | Microsoft.Storage/storageAccounts/blobServices/read |  |
 > | 작업 | Microsoft.Storage/storageAccounts/blobServices/read | Blob service 속성 또는 통계를 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/blobServices/write | Blob service 속성 넣기의 결과를 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/delete | 기존 저장소 계정을 삭제합니다. |
-> | 작업 | Microsoft.Storage/storageAccounts/failover/action | 가용성 문제가 발생 하는 경우 고객은 장애 조치 (failover)를 제어할 수 있습니다. |
+> | Action | Microsoft.Storage/storageAccounts/failover/action | 고객은 가용성 문제가 발생하는 경우 장애 조치(failover)를 제어할 수 있습니다. |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/read | 파일 서비스 속성 가져오기 |
-> | Action | Microsoft.Storage/storageAccounts/listAccountSas/Action | 지정된 저장소 계정에 대한 계정 SAS 토큰을 반환합니다. |
+> | 작업 | Microsoft.Storage/storageAccounts/listAccountSas/Action | 지정된 저장소 계정에 대한 계정 SAS 토큰을 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/listServiceSas/Action | 지정된 저장소 계정에 대한 서비스 SAS 토큰을 반환합니다. |
-> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/delete | 저장소 계정 관리 정책 삭제 |
-> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/read | 저장소 관리 계정 정책 가져오기 |
-> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/write | 저장소 계정 관리 정책 배치 |
-> | 작업 | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete | 개인 끝점 연결 프록시 삭제 |
-> | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write | 개인 끝점 연결 프록시를 추가 합니다. |
+> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/delete | 스토리지 계정 관리 삭제 정책 |
+> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/read | 스토리지 관리 계정 가져오기 정책 |
+> | 작업 | Microsoft.Storage/storageAccounts/managementPolicies/write | 스토리지 계정 관리 입력 정책 |
+> | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete | 개인 끝점 연결 프록시 삭제 |
+> | 작업 | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write | 개인 끝점 연결 프록시를 추가 합니다. |
 > | 작업 | Microsoft.Storage/storageAccounts/privateEndpointConnections/delete | 개인 끝점 연결 삭제 |
-> | 작업 | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | 개인 끝점 연결 가져오기 |
-> | Action | Microsoft.Storage/storageAccounts/privateEndpointConnections/write | 개인 끝점 연결 배치 |
+> | Action | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | 개인 끝점 연결 가져오기 |
+> | 작업 | Microsoft.Storage/storageAccounts/privateEndpointConnections/write | 개인 끝점 연결 배치 |
 > | 작업 | Microsoft. Storage/storageAccounts/PrivateEndpointConnectionsApproval/action | 개인 끝점 연결 승인 |
-> | 작업 | Microsoft.Storage/storageAccounts/privateLinkResources/read | StorageAccount groupids 가져오기 |
-> | 작업 | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐 삭제 결과를 반환합니다. |
+> | Action | Microsoft.Storage/storageAccounts/privateLinkResources/read | StorageAccount groupids 가져오기 |
+> | Action | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐 삭제 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 메시지 추가 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 메시지 삭제 결과를 반환합니다. |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 메시지 처리 결과를 반환합니다. |
@@ -5360,11 +5347,11 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Storage/storageAccounts/queueServices/write | 큐 서비스 속성 설정 결과를 반환합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 저장소 계정에 대한 액세스 키를 다시 생성합니다. |
-> | Action | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | 지정 된 시간 상태로 blob 범위 복원 |
+> | 작업 | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | 지정 된 시간 상태로 blob 범위 복원 |
 > | 작업 | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | 지정된 저장소 계정에 대한 모든 사용자 위임 키를 취소합니다. |
 > | 액션(Action) | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | 저장소 계정 진단 설정을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.Storage/storageAccounts/tableServices/read | Table service 속성 가져오기 |
-> | Action | Microsoft.Storage/storageAccounts/write | 지정된 매개 변수를 사용하여 저장소 계정을 만들거나, 속성 또는 태그를 업데이트하거나, 지정된 저장소 계정의 사용자 지정 도메인을 추가합니다. |
+> | 작업 | Microsoft.Storage/storageAccounts/write | 지정된 매개 변수를 사용하여 저장소 계정을 만들거나, 속성 또는 태그를 업데이트하거나, 지정된 저장소 계정의 사용자 지정 도메인을 추가합니다. |
 > | 액션(Action) | Microsoft.Storage/usages/read | 지정한 구독의 리소스에 대한 한도 및 현재 사용 수를 반환합니다. |
 
 ## <a name="microsoftstoragesync"></a>microsoft.storagesync
@@ -5376,7 +5363,7 @@ ms.locfileid: "67868626"
 > | 작업 | microsoft.storagesync/locations/workflows/operations/read | 비동기 작업의 상태를 가져옵니다. |
 > | 작업 | microsoft.storagesync/작업/읽기 | 지원 되는 작업 목록을 가져옵니다. |
 > | 작업 | microsoft.storagesync/register/action | 저장소 동기화 공급자에 대 한 구독을 등록 합니다. |
-> | Action | microsoft.storagesync/storageSyncServices/delete | Storage Sync Services를 삭제합니다. |
+> | 작업 | microsoft.storagesync/storageSyncServices/delete | Storage Sync Services를 삭제합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read | Storage Sync Services에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/read | Storage Sync Services를 읽습니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/registeredServers/delete | 등록된 서버를 삭제합니다. |
@@ -5385,7 +5372,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/registeredServers/write | 등록된 서버를 만들거나 업데이트합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/delete | 클라우드 엔드포인트를 삭제합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/operationresults/read | 비동기 백업/복원 작업의 상태를 가져오기 |
-> | 작업 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/postbackup/action | 백업 후 이 작업을 호출합니다. |
+> | Action | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/postbackup/action | 백업 후 이 작업을 호출합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/postrestore/action | 복원 후 이 작업을 호출합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/prebackup/action | 백업 전에 이 작업을 호출합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/prerestore/action | 복원 전에 이 작업을 호출합니다. |
@@ -5401,7 +5388,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/recallAction/action | 파일을 서버로 회수하려면 이 작업을 호출합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/write | 서버 엔드포인트를 만들거나 업데이트합니다. |
 > | 액션(Action) | microsoft.storagesync/storageSyncServices/syncGroups/write | 동기화 그룹을 만들거나 업데이트합니다. |
-> | 작업 | microsoft.storagesync/storageSyncServices/workflows/operationresults/read | 비동기 작업의 상태를 가져옵니다. |
+> | Action | microsoft.storagesync/storageSyncServices/workflows/operationresults/read | 비동기 작업의 상태를 가져옵니다. |
 > | 작업 | microsoft.storagesync/storageSyncServices/workflows/operations/read | 비동기 작업의 상태를 가져옵니다. |
 > | 작업 | microsoft.storagesync/storageSyncServices/workflows/read | 워크플로 읽기 |
 > | Action | microsoft.storagesync/storageSyncServices/write | Storage Sync Services를 만들거나 업데이트합니다. |
@@ -5569,9 +5556,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.StorSimple/managers/read | 디바이스 관리자를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/read | 자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
 > | 작업 | Microsoft.StorSimple/managers/regenerateActivationKey/action | 기존 StorSimple 디바이스 관리자의 활성화 키를 다시 생성합니다. |
-> | 작업 | Microsoft.StorSimple/managers/storageAccountCredentials/delete | Storage 계정 자격 증명을 삭제합니다. |
+> | Action | Microsoft.StorSimple/managers/storageAccountCredentials/delete | Storage 계정 자격 증명을 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
-> | Action | Microsoft.StorSimple/managers/storageAccountCredentials/read | Storage 계정 자격 증명을 나열하거나 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/read | Storage 계정 자격 증명을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/write | Storage 계정 자격 증명을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageDomains/delete | 저장소 도메인을 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageDomains/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
@@ -5628,9 +5615,9 @@ ms.locfileid: "67868626"
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
 > | 작업 | Microsoft 구독/취소/작업 | 구독을 취소 합니다. |
-> | Action | Microsoft.Subscription/CreateSubscription/action | Azure 구독을 만듭니다. |
+> | 작업 | Microsoft.Subscription/CreateSubscription/action | Azure 구독을 만듭니다. |
 > | 작업 | Microsoft.Subscription/register/action | Microsoft.Subscription 리소스 공급자에 구독을 등록합니다. |
-> | Action | Microsoft. 구독/이름 바꾸기/작업 | 구독 이름 바꾸기 |
+> | 작업 | Microsoft. 구독/이름 바꾸기/작업 | 구독 이름 바꾸기 |
 > | 작업 | Microsoft.Subscription/SubscriptionDefinitions/read | 관리 그룹의 Azure 구독 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Subscription/SubscriptionDefinitions/write | Azure 구독 정의를 만듭니다. |
 
@@ -5653,9 +5640,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/accesspolicies/write | 환경에 대한 새 액세스 정책을 만들거나 기존 액세스 정책을 업데이트합니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/delete | 환경을 삭제합니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/eventsources/delete | 이벤트 원본을 삭제합니다. |
-> | Action | Microsoft.TimeSeriesInsights/environments/eventsources/read | 이벤트 원본 속성을 가져옵니다. |
+> | 작업 | Microsoft.TimeSeriesInsights/environments/eventsources/read | 이벤트 원본 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/eventsources/write | 환경에 대한 새 이벤트 원본을 만들거나 기존 이벤트 원본을 업데이트합니다. |
-> | Action | Microsoft.TimeSeriesInsights/environments/read | 환경 속성을 가져옵니다. |
+> | 작업 | Microsoft.TimeSeriesInsights/environments/read | 환경 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/referencedatasets/delete | 참조 데이터 집합을 삭제합니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/referencedatasets/read | 참조 데이터 집합의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.TimeSeriesInsights/environments/referencedatasets/write | 환경에 대한 새 참조 데이터 집합을 만들거나 기존 참조 데이터 집합을 업데이트합니다. |
@@ -5743,7 +5730,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/hostingenvironments/detectors/read | 호스팅 환경 탐지기를 가져옵니다. |
 > | 액션(Action) | microsoft.web/hostingenvironments/diagnostics/read | 호스팅 환경 진단을 가져옵니다. |
 > | 액션(Action) | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | 모든 인바운드 종속성의 네트워크 엔드포인트를 가져옵니다. |
-> | 작업 | Microsoft.Web/hostingEnvironments/Join/Action | App Service Environment를 조인 합니다. |
+> | Action | Microsoft.Web/hostingEnvironments/Join/Action | App Service Environment를 조인 합니다. |
 > | 작업 | microsoft.web/hostingenvironments/metricdefinitions/read | 호스팅 환경 메트릭 정의를 가져옵니다. |
 > | 액션(Action) | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | 호스팅 환경 MultiRole 풀 메트릭 정의를 가져옵니다. |
 > | 액션(Action) | microsoft.web/hostingenvironments/multirolepools/metrics/read | 호스팅 환경 MultiRole 풀 메트릭을 가져옵니다. |
@@ -5775,7 +5762,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/locations/apioperations/read | 위치 API 작업을 가져옵니다. |
 > | 액션(Action) | microsoft.web/locations/connectiongatewayinstallations/read | 위치 연결 게이트웨이 설치를 가져옵니다. |
 > | 작업 | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | 위치에 대한 Vnet 또는 서브넷 삭제 알림입니다. |
-> | 작업 | microsoft.web/locations/extractapidefinitionfromwsdl/action | 위치에 대한 WSDL에서 Api 정의를 추출합니다. |
+> | Action | microsoft.web/locations/extractapidefinitionfromwsdl/action | 위치에 대한 WSDL에서 Api 정의를 추출합니다. |
 > | 액션(Action) | microsoft.web/locations/listwsdlinterfaces/action | 위치에 대한 WSDL 인터페이스를 나열합니다. |
 > | 액션(Action) | microsoft.web/locations/managedapis/apioperations/read | 위치 관리되는 API 작업을 가져옵니다. |
 > | 액션(Action) | Microsoft.Web/locations/managedapis/Join/Action | 관리되는 API를 조인합니다. |
@@ -5866,9 +5853,9 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/sites/domainownershipidentifiers/read | Web Apps 도메인 소유권 식별자를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/domainownershipidentifiers/write | Web Apps 도메인 소유권 식별자를 업데이트합니다. |
 > | Action | microsoft.web/sites/extensions/delete | Web Apps 사이트 확장을 삭제합니다. |
-> | 작업 | microsoft.web/sites/extensions/read | Web Apps 사이트 확장을 가져옵니다. |
+> | Action | microsoft.web/sites/extensions/read | Web Apps 사이트 확장을 가져옵니다. |
 > | 작업 | microsoft.web/sites/extensions/write | Web Apps 사이트 확장을 업데이트합니다. |
-> | 작업 | microsoft.web/sites/functions/action | 합수 Web Apps입니다. |
+> | Action | microsoft.web/sites/functions/action | 합수 Web Apps입니다. |
 > | 액션(Action) | microsoft.web/sites/functions/delete | Web Apps 함수를 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/functions/listsecrets/action | 비밀 Web Apps 함수를 나열합니다. |
 > | 액션(Action) | microsoft.web/sites/functions/masterkey/read | Web Apps 함수 Masterkey를 가져옵니다. |
@@ -5881,7 +5868,7 @@ ms.locfileid: "67868626"
 > | Action | microsoft.web/sites/hostruntime/functions/keys/read | Web Apps Hostruntime 함수 키를 가져옵니다. |
 > | 작업 | Microsoft.Web/sites/hostruntime/host/_master/read | 관리 작업에 대한 함수 앱의 마스터 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.Web/sites/hostruntime/host/action | 트리거 동기화, 함수 추가, 함수 호출, 함수 삭제 등과 같은 함수 앱 런타임 작업을 수행합니다. |
-> | Action | microsoft.web/sites/hostruntime/host/read | Web Apps Hostruntime 호스트를 가져옵니다. |
+> | 작업 | microsoft.web/sites/hostruntime/host/read | Web Apps Hostruntime 호스트를 가져옵니다. |
 > | Action | microsoft.web/sites/hybridconnection/delete | Web Apps 하이브리드 연결을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/hybridconnection/read | Web Apps 하이브리드 연결을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/hybridconnection/write | Web Apps 하이브리드 연결을 업데이트합니다. |
@@ -5916,10 +5903,10 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/sites/premieraddons/read | Web Apps 프리미어 추가 기능을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/premieraddons/write | Web Apps 프리미어 추가 기능을 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/privateaccess/read | 프라이빗 사이트 액세스 사용 및 사이트에 액세스할 수 있는 승인된 Virtual Networks 관련 데이터를 가져옵니다. |
-> | 작업 | Microsoft.Web/sites/PrivateEndpointConnectionsApproval/action | 개인 끝점 연결 승인 |
-> | Action | microsoft.web/sites/processes/modules/read | Web Apps 프로세스 모듈을 가져옵니다. |
-> | Action | microsoft.web/sites/processes/read | Web Apps 프로세스를 가져옵니다. |
-> | Action | microsoft.web/sites/processes/threads/read | 스레드를 가져오기 Web Apps를 처리 합니다. |
+> | Action | Microsoft.Web/sites/PrivateEndpointConnectionsApproval/action | 개인 끝점 연결 승인 |
+> | 작업 | microsoft.web/sites/processes/modules/read | Web Apps 프로세스 모듈을 가져옵니다. |
+> | 작업 | microsoft.web/sites/processes/read | Web Apps 프로세스를 가져옵니다. |
+> | 작업 | microsoft.web/sites/processes/threads/read | 스레드를 가져오기 Web Apps를 처리 합니다. |
 > | 작업 | microsoft.web/sites/publiccertificates/delete | Web Apps 공용 인증서를 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/publiccertificates/read | Web Apps 공용 인증서를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/publiccertificates/write | Web Apps 공용 인증서를 업데이트합니다. |
@@ -5957,7 +5944,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | Microsoft.Web/sites/slots/config/Read | 웹앱 슬롯의 구성 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Web/sites/slots/config/Write | 웹앱 슬롯의 구성 설정을 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/containerlogs/action | 웹앱 슬롯에 대한 압축된 컨테이너 로그를 가져옵니다. |
-> | Action | microsoft.web/sites/slots/containerlogs/download/action | Web Apps 슬롯 컨테이너 로그를 다운로드합니다. |
+> | 작업 | microsoft.web/sites/slots/containerlogs/download/action | Web Apps 슬롯 컨테이너 로그를 다운로드합니다. |
 > | 작업 | microsoft.web/sites/slots/continuouswebjobs/delete | Web Apps 슬롯 연속 웹 작업을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/continuouswebjobs/read | Web Apps 슬롯 연속 웹 작업을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/continuouswebjobs/start/action | Web Apps 슬롯 연속 웹 작업을 시작합니다. |
@@ -6012,7 +5999,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/sites/slots/migratemysql/read | Web Apps 슬롯 마이그레이션 MySql을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/networktrace/action | 네트워크 추적 Web Apps 슬롯입니다. |
 > | 작업 | microsoft.web/sites/slots/networktraces/operationresults/read | Web Apps 슬롯 네트워크 추적 작업 결과를 가져옵니다. |
-> | 작업 | microsoft.web/sites/slots/newpassword/action | Newpassword Web Apps 슬롯입니다. |
+> | Action | microsoft.web/sites/slots/newpassword/action | Newpassword Web Apps 슬롯입니다. |
 > | 액션(Action) | microsoft.web/sites/slots/operationresults/read | Web Apps 슬롯 작업 결과를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/operations/read | Web Apps 슬롯 작업을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/perfcounters/read | Web Apps 슬롯 성능 카운터를 가져옵니다. |
@@ -6034,7 +6021,7 @@ ms.locfileid: "67868626"
 > | 액션(Action) | microsoft.web/sites/slots/restore/read | Web Apps 슬롯 복원을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/restore/write | Web Apps 슬롯을 복원합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/restorefrombackupblob/action | 백업 Blob에서 Web Apps 슬롯을 복원합니다. |
-> | 작업 | microsoft 웹/사이트/슬롯/restorefromdeletedapp/작업 | 삭제된 앱에서 웹앱 슬롯을 복원합니다. |
+> | Action | microsoft 웹/사이트/슬롯/restorefromdeletedapp/작업 | 삭제된 앱에서 웹앱 슬롯을 복원합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/restoresnapshot/action | Web Apps 슬롯 스냅샷을 복원합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/siteextensions/delete | Web Apps 슬롯 사이트 확장을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/siteextensions/read | Web Apps 슬롯 사이트 확장을 가져옵니다. |

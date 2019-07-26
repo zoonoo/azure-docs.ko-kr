@@ -1,6 +1,6 @@
 ---
 title: 사용 가능한 웹 페이지 페이징 - Bing Custom Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing Custom Search가 반환할 수 있는 모든 웹 페이지를 페이징하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 3c1bf9c6f2c1b38b9cf9729b769c9198da56147a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13b4cef624c636b8935897338badf3349f27c7f5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388578"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405031"
 ---
 # <a name="paging-webpages"></a>웹 페이지 페이징 
 

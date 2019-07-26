@@ -1,7 +1,6 @@
 ---
 title: Azure Stack에 Azure Backup Server 설치 | Microsoft Docs
 description: Azure Backup Server를 사용하여 Azure Stack에 워크로드를 백업하거나 보호합니다.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60852142"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465252"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -323,11 +322,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용됨 |허용됨 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |Allowed |허용됨 |허용됨 |Allowed |
+| 연결됨 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |Allowed |Allowed |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |Allowed |Allowed |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구

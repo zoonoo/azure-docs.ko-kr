@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 189b201f9cbdeb728e334f2ff5da3ebd32839e37
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c56b979bf5a4f1e0868dd0542cb71c2da6a85df7
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298309"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494481"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project-250-beta"></a>Java 웹 프로젝트에서 Application Insights 시작 (2.5.0-베타)
 
@@ -143,8 +143,6 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
-
-[라이브 메트릭은](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 코드에서 계측 키를 읽는 것을 지원 하지 않습니다.
 
 ## <a name="4-add-agent"></a>4. 에이전트 추가
 

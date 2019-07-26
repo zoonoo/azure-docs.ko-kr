@@ -408,8 +408,9 @@
                   href: app/telemetry-channels.md
                 - name: TelemetryProcessors
                   displayname: 'processors, filtering, telemetry filtering, telemetry processor'
-                - name: 원격 분석 상관 관계
                   href: app/api-filtering-sampling.md
+                - name: 원격 분석 상관 관계
+                  href: app/correlation.md
                 - name: .NET SDK에서 사용자 지정 작업 추적
                   href: app/custom-operations-tracking.md
                 - name: 사용자 지정 이메일 보고서
@@ -603,6 +604,8 @@
                       href: insights/vminsights-enable-at-scale-powershell.md
                     - name: 하이브리드 환경에서 사용하도록 설정
                       href: insights/vminsights-enable-hybrid-cloud.md
+                    - name: Operations Manager와 통합
+                      href: insights/service-map-scom.md
                 - name: 상태 모니터링
                   href: insights/vminsights-health.md
                 - name: 종속성 매핑
@@ -621,14 +624,8 @@
               href: insights/vmware.md
             - name: 유선 데이터 솔루션
               href: insights/wire-data.md
-            - name: 서비스 맵
-              items:
-                - name: 사용
-                  href: insights/service-map.md
-                - name: 구성
-                  href: insights/service-map-configure.md
-                - name: Operations Manager와 통합
-                  href: insights/service-map-scom.md
+            - name: 서비스 맵 솔루션
+              href: insights/service-map.md
             - name: 컴퓨터 그룹
               href: platform/computer-groups.md
             - name: 구성 관리자

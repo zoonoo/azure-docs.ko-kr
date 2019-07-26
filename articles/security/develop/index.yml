@@ -34,6 +34,13 @@ sections:
             image:
               src: /media/common/i_learn-about.svg
             title: Microsoft Learn을 통해 기술 쌓기
+  - title: 샘플 앱 보호
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Linux 컨테이너의 웹앱</a>
   - title: 개념
     items:
       - type: list

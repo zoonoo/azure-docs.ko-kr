@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746169"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348362"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
 
@@ -38,7 +38,7 @@ ms.locfileid: "60746169"
 
 Device Provisioning Service의 대칭 키 증명은 IoT 허브에서 지원하는 것과 동일한 [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-token-structure)을 사용하여 수행되어 디바이스를 식별합니다. 이러한 보안 토큰은 [SAS(공유 액세스 서명) 토큰](../service-bus-messaging/service-bus-sas.md)입니다. 
 
-SAS 토큰에는 대칭 키를 사용하여 생성된 해시된 서명이 있습니다.  서명은 Device Provisioning Service에서 다시 생성되어 증명 중에 제시되는 보안 토큰의 진위 여부를 확인합니다.
+SAS 토큰에는 대칭 키를 사용하여 생성된 해시된 서명이 있습니다. 서명은 Device Provisioning Service에서 다시 생성되어 증명 중에 제시되는 보안 토큰의 진위 여부를 확인합니다.
 
 SAS 토큰은 다음과 같은 형식입니다.
 
@@ -46,10 +46,10 @@ SAS 토큰은 다음과 같은 형식입니다.
 
 각 토큰의 구성 요소는 다음과 같습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
-| {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: HMAC-SHA256 계산을 수행 하는 사용 하기 전에 키 base64에서 디코딩할 수 해야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
-| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들어 `{Scope ID}/registrations/{Registration ID}` |
+| {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: HMAC-SHA256 계산을 수행 하는 데 사용 하기 전에 base64에서 키를 디코딩해야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
+| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들면 `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 대칭 키 증명이 있는 프로비저닝이 **등록**인 경우 사용되는 정책 이름입니다. |
@@ -75,7 +75,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 디바이스에 대한 등록 ID가 정의되면, 등록 그룹에 대한 대칭 키는 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 해시를 계산하여 파생 디바이스 키를 생성하는 데 사용됩니다. 등록 ID의 해시는 다음 C# 코드를 사용하여 수행할 수 있습니다.
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

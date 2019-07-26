@@ -5,28 +5,27 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: HT
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939415"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360774"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
 Azure Data Lake Storage Gen2는 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 파일 시스템을 제공하는 [계층 구조 네임스페이스를 지원](data-lake-storage-introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](data-lake-storage-abfs-driver.md)를 통해 액세스할 수 있습니다.
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 통해 계정을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-|           | 필수 요소 |
+|           | 필수 조건 |
 |-----------|--------------|
 |포털     | 없음         |
 |PowerShell | 이 빠른 시작에서는 PowerShell 모듈 Az.Storage 버전 **0.7** 이상이 필요합니다. 현재 버전을 찾으려면 `Get-Module -ListAvailable Az.Storage` 명령을 실행합니다. 이 명령을 실행한 후에는 결과가 나타나지 않거나 **0.7** 이외의 버전이 표시되는 경우에는 PowerShell 모듈을 업그레이드해야 합니다. 이 가이드의 [PowerShell 모듈 업그레이드](#upgrade-your-powershell-module) 섹션을 참조하세요.

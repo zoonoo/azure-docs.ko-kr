@@ -63,6 +63,8 @@
           href: how-vs-code-works-with-dev-spaces.md
     - name: 방법
       items:
+        - name: Azure Dev Spaces 설치
+          href: how-to/install-dev-spaces.md
         - name: Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
           href: how-to/create-cluster-cloud-shell.md
         - name: Azure Dev Spaces 공유
@@ -81,5 +83,7 @@
           href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Azure Dev Spaces에 대한 비즈니스 연속성 및 재해 복구
           href: how-to/dev-spaces-business-continuity.md
+        - name: Windows 컨테이너와 상호 작용
+          href: how-to/run-dev-spaces-windows-containers.md
     - name: 문제 해결
       href: troubleshooting.md

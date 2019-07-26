@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695993"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385592"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 Classroom(강의실) 랩의 일정 만들기 및 관리 
 일정을 사용하면 랩의 VM이 지정된 시간에 자동으로 시작 및 종료되도록 Classroom(강의실) 랩을 구성할 수 있습니다. 일회성 일정이나 되풀이 일정을 정의할 수 있습니다. 다음 절차에서는 Classroom(강의실) 랩의 일정을 만들고 관리하는 단계를 제공합니다. 
 
 > [!IMPORTANT]
-> VM의 예약된 실행 시간은 [사용자에게 할당된 할당량](how-to-configure-student-usage.md#set-quotas-per-user)에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다. 
+> VM의 예약된 실행 시간은 [사용자에게 할당된 할당량](how-to-configure-student-usage.md#set-quotas-for-users)에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다. 
 
 ## <a name="add-a-schedule-once"></a>일정 추가(한 번)
 
@@ -37,7 +37,7 @@ ms.locfileid: "60695993"
 5. **중지 시간**에서 VM을 종료할 시간을 선택합니다. 시작 시간이 설정되지 않은 경우 중지 시간이 필요합니다. 시작 시간만 지정하려면 **중지 이벤트 제거**를 선택합니다. **중지 시간**을 사용할 수 없는 경우 드롭다운 목록 옆에 있는 **중지 이벤트 추가**를 선택하여 사용합니다.
 6. **표준 시간대(필수)** 에서 지정한 시작 및 중지 시간의 표준 시간대를 선택합니다. 
 7. **메모**에서 일정에 대한 설명 또는 메모를 입력합니다. 
-8. **저장**을 선택합니다. 
+8.           **저장**을 선택합니다. 
 
     ![일회성 일정](../media/how-to-create-schedules/add-schedule-page.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "60695993"
 7. **중지 시간**에서 VM을 종료할 시간을 선택합니다. 시작 시간이 설정되지 않은 경우 중지 시간이 필요합니다. 시작 시간만 지정하려면 **중지 이벤트 제거**를 선택합니다. **중지 시간**을 사용할 수 없는 경우 드롭다운 목록 옆에 있는 **중지 이벤트 추가**를 선택하여 사용합니다.
 8. **표준 시간대(필수)** 에서 지정한 시작 및 중지 시간의 표준 시간대를 선택합니다.  
 9. **메모**에서 일정에 대한 설명 또는 메모를 입력합니다. 
-10. **저장**을 선택합니다. 
+10.           **저장**을 선택합니다. 
 
     ![주별 일정](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 

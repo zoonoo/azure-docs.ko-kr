@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1b8f60fd155cf9bce0b999da7459299b6f3c7aa
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873227"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404534"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>디바이스 쌍(.NET/.NET) 시작
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,20 +33,22 @@ ms.locfileid: "65873227"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 있습니다.
+* Visual Studio.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT Hub에서 새 디바이스 등록
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
@@ -68,7 +70,7 @@ ms.locfileid: "65873227"
     using Microsoft.Azure.Devices;
     ```
 
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 만든 허브의 IoT Hub 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
     ```csharp  
     static RegistryManager registryManager;
@@ -120,7 +122,7 @@ ms.locfileid: "65873227"
     Console.ReadLine();
     ```
 
-8. 솔루션 탐색기에서 **시작 프로젝트 설정...** 을 열고 **AddTagsAndQuery** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드하십시오.
+8. 솔루션 탐색기에서 **시작 프로젝트 설정...** 을 열고 **AddTagsAndQuery** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드합니다.
 
 9. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 후 **새 인스턴스 시작**을 선택하여 이 애플리케이션을 실행합니다. **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
    
@@ -224,7 +226,7 @@ ms.locfileid: "65873227"
     Console.ReadLine();
     ```
 
-9. [솔루션 탐색기]에서 **시작 프로젝트 설정...** 을 열고 **ReportConnectivity** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드하십시오.
+9. [솔루션 탐색기]에서 **시작 프로젝트 설정...** 을 열고 **ReportConnectivity** 프로젝트의 **작업**이 **시작**인지 확인합니다. 솔루션을 빌드합니다.
 
 10. **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 후 **새 인스턴스 시작**을 선택하여 이 애플리케이션을 실행합니다. 쌍 정보를 가져온 다음 연결을 *보고된 속성*으로 보내는 메시지가 표시됩니다.
    

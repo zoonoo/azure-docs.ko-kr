@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
-ms.openlocfilehash: 4a8c69dc06b2de08016ae282413402061cdb89d1
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314400"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385687"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -54,20 +54,9 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스의 공개 미리 보�
 
 이 섹션에서는 동일한 데이터에 대해 작동 하는 blob Api 및 Data Lake Storage Gen2 Api를 사용 하는 경우의 문제 및 제한 사항에 대해 설명 합니다.
 
-이러한 Blob REST Api는 지원 되지 않습니다.
-
-* [Blob 배치 (페이지)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [페이지 범위 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Blob 증분 복사](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [URL에서 페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Blob 배치 (추가)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [추가 블록](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [URL의 블록 추가](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
-
 * Blob Api와 Data Lake Storage Api를 모두 사용 하 여 동일한 파일 인스턴스에 쓸 수는 없습니다.
 
-* Data Lake Storage Gen2 Api를 사용 하 여 파일에 쓰는 경우 해당 파일의 블록이 [Get Block List](https://docs.microsoft.comrest/api/storageservices/get-block-list) blob API에 대 한 호출에 표시 되지 않습니다.
+* Data Lake Storage Gen2 Api를 사용 하 여 파일에 쓰는 경우 해당 파일의 블록이 [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API에 대 한 호출에 표시 되지 않습니다.
 
 * Data Lake Storage Gen2 Api 또는 Blob Api를 사용 하 여 파일을 덮어쓸 수 있습니다. 이는 파일 속성에 영향을 주지 않습니다.
 
@@ -78,6 +67,17 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스의 공개 미리 보�
 * [Blob 삭제](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API를 사용 하 여 디렉터리를 삭제 하는 경우 해당 디렉터리는 비어 있는 경우에만 삭제 됩니다.
 
   즉, Blob API delete 디렉터리를 재귀적으로 사용할 수 없습니다.
+
+이러한 Blob REST Api는 지원 되지 않습니다.
+
+* [Blob 배치 (페이지)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [페이지 범위 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [Blob 증분 복사](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [URL에서 페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Blob 배치 (추가)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [추가 블록](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [URL의 블록 추가](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 ## <a name="issues-with-unmanaged-virtual-machine-vm-disks"></a>관리 되지 않는 VM (가상 컴퓨터) 디스크의 문제
 
@@ -94,12 +94,13 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스의 공개 미리 보�
 | **AZCopy** | 버전별 지원 <br><br>최신 버전의 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))만 사용 합니다. AzCopy v 8.1과 같은 이전 버전의 AzCopy는 지원 되지 않습니다.|
 | **Azure Blob 저장소 수명 주기 관리 정책** | Data Lake Storage 미리 보기 [에서 멀티 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다. 쿨 및 archive 액세스 계층은 미리 보기 에서만 지원 됩니다. Blob 스냅숏의 삭제는 아직 지원 되지 않습니다. |
 | **CDN (Azure Content Delivery Network)** | 아직 지원 되지 않음|
-| **Azure 검색** |아직 지원 되지 않음|
+| **Azure 검색** |Data Lake Storage 미리 보기 [에서 멀티 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다.|
 | **Azure Storage Explorer** | 버전별 지원 <br><br>버전 `1.6.0` 이상만 사용 합니다. <br>버전 `1.6.0` 은 [무료 다운로드](https://azure.microsoft.com/features/storage-explorer/)로 제공 됩니다.|
 | **Blob 컨테이너 Acl** |아직 지원 되지 않음|
 | **Blobfuse** |아직 지원 되지 않음|
 | **사용자 지정 도메인** |아직 지원 되지 않음|
 | **파일 시스템 탐색기** | 제한 된 지원 |
+| **진단 로깅** |Data Lake Storage 미리 보기 [에서 멀티 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다.|
 | **변경할 수 없는 저장소** |아직 지원 되지 않음 <br><br>변경할 수 없는 저장소는 데이터를 [웜 (한 번 쓰기, 많은 읽기)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 상태에 저장 하는 기능을 제공 합니다.|
 | **개체 수준 계층** |쿨 및 archive 계층은 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 등록 하는 경우에만 지원 됩니다. <br><br> 다른 모든 액세스 계층은 아직 지원 되지 않습니다.|
 | **Powershell 및 CLI 지원** | 제한 된 기능 <br><br>계정 만들기와 같은 관리 작업이 지원 됩니다. 파일 업로드 및 다운로드 등의 데이터 평면 작업은 [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 일부로 공개 미리 보기로 제공 됩니다. 디렉터리 작업 및 Acl (액세스 제어 목록) 설정은 아직 지원 되지 않습니다. |

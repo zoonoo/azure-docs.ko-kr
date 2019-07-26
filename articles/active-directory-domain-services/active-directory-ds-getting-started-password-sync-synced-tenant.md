@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e252774d99eecac3623fcbae4ce9fdc0e1591672
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ea4ebe652679ee9e4c0a165493fa86756ca7868
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474101"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494560"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 자격 증명 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "67474101"
 동기화된 Azure AD 테넌트는 Azure AD Connect를 사용하여 조직의 온-프레미스 디렉터리와 동기화하도록 설정됩니다. 기본적으로 Azure AD Connect는 NTLM 및 Kerberos 자격 증명 해시를 Azure AD로 동기화하지 않습니다. Azure AD 도메인 서비스를 사용하려면 Azure AD Connect를 구성하여 NTLM 및 Kerberos 인증에 필요한 자격 증명 해시를 동기화해야 합니다. 다음 단계를 수행하면 필요한 자격 증명 해시를 온-프레미스 디렉터리에서 Azure AD 테넌트로 동기화할 수 있습니다.
 
 > [!NOTE]
-> **조직에 온-프레미스 환경의 디렉터리에서 동기화된 사용자 계정이 있는 경우 관리되는 도메인을 사용하려면 NTLM 및 Kerberos 해시 동기화를 사용하도록 설정해야 합니다.** 동기화된 사용자 계정은 온-프레미스 디렉터리에서 만든 계정이며, Azure AD Connect를 사용하여 Azure AD 테넌트로 동기화됩니다.
+> **조직에 온-프레미스 환경의 디렉터리에서 동기화된 사용자 계정이 있는 경우 관리되는 도메인을 사용하려면 NTLM 및 Kerberos 해시 동기화를 사용하도록 설정해야 합니다.** 동기화된 사용자 계정은 온-프레미스 디렉터리에서 만든 계정이며, Azure AD Connect를 사용하여 Azure AD 테넌트로 동기화됩니다.  암호 해시 동기화는 사용자/개체 동기화와 다른 프로세스입니다. 전체 암호를 동기화 하려면 암호 해시 동기화를 사용 하거나 사용 하지 않도록 설정 해야 합니다. 그러면 응용 프로그램 이벤트 로그에 배치 암호 해시 업데이트가 표시 됩니다.
 >
 >
 
@@ -78,8 +78,11 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 디렉터리의 크기(사용자, 그룹 등의 수)에 따라 자격 증명 해시를 Azure AD에 동기화하는 데는 시간이 걸립니다. 자격 증명 해시를 Azure AD에 동기화한 직후 Azure AD 도메인 서비스 관리되는 도메인에서 암호를 사용할 수 있습니다.
 
+> [!NOTE]
+> **암호 해시 동기화** 는 사용자/개체 동기화와 다른 프로세스입니다. 전체 암호를 동기화 하려면 암호 해시 동기화를 사용 하거나 사용 하지 않도록 설정 해야 합니다. 그러면 응용 프로그램 이벤트 로그에 배치 암호 해시 업데이트가 표시 됩니다.
+
 ## <a name="related-content"></a>관련 내용
 * [클라우드 전용 Azure AD 디렉터리에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync.md)
-* [Azure AD Domain Services 도메인을 관리 합니다.](manage-domain.md)
+* [Azure AD Domain Services 도메인 관리](manage-domain.md)
 * [Windows 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

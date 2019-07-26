@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324718"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477052"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -38,7 +38,7 @@ ms.locfileid: "68324718"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - SCIM를 사용하는 고객은 동일한 앱에 프로비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 페더레이션 애플리케이션(Open ID 및 SAML/WS-Fed)의 경우 애플리케이션은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 애플리케이션은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
 
@@ -49,6 +49,8 @@ ms.locfileid: "68324718"
 - 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 애플리케이션이 폼 인증을 지원하는지 확인하세요.
 
 - 자동 사용자 프로비전 요청의 경우 SAML 2.0/WS-Fed를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 애플리케이션이 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
+
+- 사용자가 2 명 이상 등록 된 테스트를 위해 영구 계정이 필요 합니다.
 
 >[!NOTE]
 >너무 많은 SCIM 커넥터 요청을 실행 중 이므로 포털에서 새 요청을 중지 하 고 있습니다. 추가 공지가 있을 때까지 요청을 보관 하세요. 이러한 지연 및이로 인해 발생 하는 불편을 정말 수 있습니다.

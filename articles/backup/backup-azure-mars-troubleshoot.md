@@ -1,19 +1,18 @@
 ---
 title: Azure Backup 에이전트 문제 해결
 description: Azure Backup 에이전트의 설치 및 등록 문제 해결
-services: backup
 author: saurabhsensharma
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: saurse
-ms.openlocfilehash: a791773a3e9cc0b75c626b622070b29c9779c453
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249537"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465977"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -199,25 +198,25 @@ MARS 에이전트 작업을 성공적으로 수행 하려면 캐시 폴더에서
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 Microsoft Azure Recovery Services 에이전트가 스크래치 위치에 저장 된 백업 체크섬에 액세스할 수 없습니다. | 이 문제를 해결 하려면 다음을 수행 하 고 서버를 다시 시작 합니다. <br/> - [바이러스 백신 또는 다른 프로세스가 스크래치 위치 파일을 잠그지 않았는지 확인 합니다.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [스크래치 위치가 유효 하 고 mars 에이전트에서 액세스할 수 있는지 확인 하십시오.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 Microsoft Azure Recovery Services 에이전트가 스크래치 위치에 액세스 하 여 VHD를 초기화할 수 없습니다. | 이 문제를 해결 하려면 다음을 수행 하 고 서버를 다시 시작 합니다. <br/> - [바이러스 백신 또는 다른 프로세스가 스크래치 위치 파일을 잠그지 않았는지 확인 합니다.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [스크래치 위치가 유효 하 고 mars 에이전트에서 액세스할 수 있는지 확인 하십시오.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 스크래치 폴더가 있는 볼륨의 저장소 공간이 부족 하 여 백업에 실패 했습니다. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/>- [MARS 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [백업 스크래치 공간에 영향을 주는 저장소 문제 확인 및 해결](#pre-requisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-오류 메시지 | 권장 작업 |
+오류 메시지 | 권장 조치 |
 -- | --
 파일에 변경 내용을 찾을 수 없습니다. 이는 다양한 이유 때문일 수 있습니다. 작업을 다시 시도하세요. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/> - [MARS 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [백업 스크래치 공간에 영향을 주는 저장소 문제 확인 및 해결](#pre-requisites)
 

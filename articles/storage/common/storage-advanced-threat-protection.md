@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874066"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479901"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
@@ -66,7 +66,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Advanced Threat Protection이
 
 Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장소 계정에서 Advanced Threat Protection을 사용 하도록 설정 합니다.
 
-1. Azure **정책 정의** 페이지 점심 식사
+1. Azure **정책 정의** 페이지를 시작 합니다.
 
 1. **저장소 계정에 Advanced Threat Protection 배포** 정책을 검색 합니다.
 

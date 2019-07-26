@@ -1,32 +1,32 @@
 ---
 title: '네트워킹 파트너: Azure 네트워킹 | Microsoft Docs'
-description: 이 문서에서는 MSP 네트워킹 파트너의 목록을 제공합니다
+description: 이 문서에서는 MSP 네트워킹 파트너 목록을 제공 합니다.
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 922749591bdc9222e5f97b2bb6828c5660c0dbac
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ffcfd48d9a93ee7c73e2597ff9bea704e0378440
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840319"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385203"
 ---
-# <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너에 대 한
+# <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
-Azure 네트워킹 관리 서비스 공급자 (MSP) 파트너 프로그램 하면 네트워크 서비스 중점을 두고 Msp, 사로잡고, 및 시스템 통합 업체 (Si) 클라우드 및 하이브리드 네트워킹 중심 서비스를 제공 합니다. Azure의 네트워킹 제품 포트폴리오 및 서비스입니다.
+Azure 네트워킹 MSP (관리 서비스 공급자) 파트너 프로그램을 사용 하면 네트워크 서비스 중심 MSPs, 통신 및 SIs (시스템 통합자)가 Azure의 네트워킹 제품 포트폴리오를 중심으로 클라우드 및 하이브리드 네트워킹 서비스를 제공할 수 있습니다. 서비스.
 
-Azure 네트워킹 Msp는 클라우드 및 하이브리드 네트워킹의 모든 측면에서 엔터프라이즈 클라우드 네트워킹 요구 사항 및 문제를 해결 하는 관리 되는 서비스 공급자의 특수 한 집합입니다. 관리 되는 네트워크 서비스에는 다음 서비스 중 하나 이상이 포함 됩니다: 네트워크 아키텍처, 계획, 배포, 운영, 유지 관리 및 최적화 합니다.
+Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모든 측면에서 엔터프라이즈 클라우드 네트워킹 요구 사항과 과제를 해결 하는 특수 한 관리 서비스 공급자 집합입니다. 관리 되는 네트워크 서비스에는 네트워크 아키텍처, 계획, 배포, 운영, 유지 관리 및 최적화와 같은 서비스가 하나 이상 포함 되어 있습니다.
 
 ![MSP][0]
 
-고객은 MSP 관리 되는 서비스 제공 MSP에서 직접 또는 Azure Marketplace에서 구매할 수 있습니다. Msp는 배포 하 고 Azure 등 대를 사용 하 여 고객의 구독 및 리소스 그룹에서 Azure 네트워킹 리소스를 관리할 수 있습니다.
+고객은 Azure Marketplace 또는 MSP에서 직접 MSP 관리 서비스 제품을 구매할 수 있습니다. MSPs는 Azure Lighthouse를 사용 하 여 고객의 구독 및 리소스 그룹에서 Azure 네트워킹 리소스를 배포 하 고 관리할 수 있습니다.
 
 ## <a name="msp"></a>MSP 파트너
 
-네트워킹 Azure 네트워킹 MSP 파트너에서 제공 하는 서비스 관리 되는 클라우드에 대 한 자세한 내용은이 섹션의 링크를 사용 합니다. 클라우드 네트워크 서비스 파트너 아래 섹션에 나열 되지 않으면 있으면 공급자 문의해 주세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
+Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 네트워킹 서비스에 대 한 자세한 내용은이 섹션의 링크를 사용 하세요. 클라우드 네트워크 서비스 파트너가 아래 섹션에 나열 되어 있지 않으면 공급자에 게 문의 하세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
 
 [Aryaka 네트워크](https://www.aryaka.com/)
 
@@ -38,19 +38,19 @@ Azure 네트워킹 Msp는 클라우드 및 하이브리드 네트워킹의 모�
 
 [InterCloud](https://www.intercloud.com/)
 
-[IIJ](https://www.riverbed.com/go/steelconnect-azurewan.html)
+[IIJ](https://www.iij.ad.jp/en/)
 
 [Megaport](https://www.megaport.com/)
 
-[Tata Communications](https://www.tatacommunications.com/)
+[Tata 통신](https://www.tatacommunications.com/)
 
-## <a name="expressroute"></a>ExpressRoute 파트너
+## <a name="expressroute"></a>Express 경로 파트너
 
-파트너에 대 한 정보를 참조 하세요 [ExpressRoute 파트너 및 위치](../expressroute/expressroute-locations-providers.md)합니다.
+파트너에 대 한 자세한 내용은 [express 경로 파트너 및 위치](../expressroute/expressroute-locations-providers.md)를 참조 하세요.
 
 ## <a name="vwan"></a>가상 WAN 파트너
 
-파트너에 대 한 정보를 참조 하세요 [가상 WAN 파트너와 공급자](../virtual-wan/virtual-wan-locations-partners.md)합니다.
+파트너에 대 한 자세한 내용은 [가상 WAN 파트너 및 공급자](../virtual-wan/virtual-wan-locations-partners.md)를 참조 하십시오.
 
 <!--Image References-->
 [0]: ./media/networking-partners-msp/msp.png "MSP 프로그램 설명"

@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0c94e10a6f44a99c31e30c8f7df54e9441ce7a18
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311753"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498426"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
 Azure Automation에서 업데이트 관리 솔루션을 사용 하 여 Azure, 온-프레미스 환경 또는 다른 클라우드 공급자에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. 모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 관리할 수 있습니다.
 
 Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사용하도록 설정할 수 있습니다. Automation 계정에서 가상 머신에 업데이트 관리를 사용하는 방법을 알아보려면 [여러 가상 머신에 대한 업데이트 관리](manage-update-multi.md)를 참조하세요. Azure Portal의 가상 머신 페이지에서 가상 머신에 대한 업데이트 관리를 사용할 수도 있습니다. 이 시나리오는 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 및 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 가상 머신에서 지원됩니다.
+
+> [!NOTE]
+> 업데이트 관리 솔루션을 사용 하려면 Log Analytics 작업 영역을 Automation 계정에 연결 해야 합니다. 지원 되는 지역에 대 한 명확한 목록은 [./how-to/region-mappings.md]를 참조 하세요. 지역 매핑은 Automation 계정과는 다른 지역에 있는 가상 컴퓨터를 관리 하는 기능에 영향을 주지 않습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,7 +57,7 @@ Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 �
 
 예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다.
 
-예약 된 배포는 컴퓨터를 명시적으로 지정 하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md) 또는 [Azure 쿼리](#azure-machines) 를 선택 하 여 해당 업데이트를 수신 하는 대상 컴퓨터를 정의 합니다. 지정 된 조건에 따라 Azure Vm을 동적으로 선택 합니다. 이러한 그룹은 솔루션을 사용 하도록 설정 하는 관리 팩을 가져오는 컴퓨터를 확인 하는 데에만 사용 되는 [범위 구성과](../azure-monitor/insights/solution-targeting.md)다릅니다. 
+예약 된 배포는 컴퓨터를 명시적으로 지정 하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md) 또는 [Azure 쿼리](#azure-machines) 를 선택 하 여 해당 업데이트를 수신 하는 대상 컴퓨터를 정의 합니다. 지정 된 조건에 따라 Azure Vm을 동적으로 선택 합니다. 이러한 그룹은 솔루션을 사용 하도록 설정 하는 관리 팩을 가져오는 컴퓨터를 확인 하는 데에만 사용 되는 [범위 구성과](../azure-monitor/insights/solution-targeting.md)다릅니다.
 
 또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이러한 기간을 유지 관리 기간 이라고 합니다. 다시 부팅이 필요 하 고 적절 한 재부팅 옵션을 선택한 경우 유지 관리 기간 10 분이 다시 부팅 되도록 예약 됩니다. 패치가 예상 보다 오래 걸리고 유지 관리 기간에 10 분 미만이 면 다시 부팅이 발생 하지 않습니다.
 
@@ -73,11 +76,14 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상(Windows Server 2012 및 2016 포함)    |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 이상  |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](#linux-2) 를 참조 하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
+
+> [!NOTE]
+> Azure 가상 머신 확장 집합은 업데이트 관리를 사용 하 여 관리할 수 있습니다. 업데이트 관리은 기본 이미지가 아닌 인스턴스 자체에 대해 작동 합니다. 모든 VM 인스턴스를 한 번에 업데이트 하지 않도록 증분 방식으로 업데이트를 예약 해야 합니다.
 
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 
@@ -140,7 +146,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 * [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
 * [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
 * [Azure Automation Runbook 사용](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
 직접 연결 된 컴퓨터가 Azure Monitor 로그와 통신 하 고 있는지 확인 하려면 몇 분 후에 다음 로그 검색 중 하나를 실행할 수 있습니다.
@@ -229,7 +235,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 |운영 체제| Linux 또는or Windows|
 | 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
-|업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
+|분류 업데이트|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
 | 사전 스크립트 + 사후 스크립트|배포 전후에 실행할 스크립트를 선택합니다.|
@@ -265,7 +271,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 REST API에서 업데이트 배포를 보려면 [소프트웨어 업데이트 구성 실행](/rest/api/automation/softwareupdateconfigurationruns)을 참조하세요.
 
-## <a name="update-classifications"></a>업데이트 분류
+## <a name="update-classifications"></a>분류 업데이트
 
 다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508965"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498545"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 C# 7 정책 식 구문에 대해 설명합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "67508965"
 
 다중 문 식은 `@{expression}`으로 묶습니다. 다중 문 식 내에 모든 코드 경로는 `return` 문으로 끝나야 합니다.
 
-## <a name="PolicyExpressionsExamples"></a> 예
+## <a name="PolicyExpressionsExamples"></a> 예제
 
 ```
 @(true)
@@ -74,10 +74,10 @@ ms.locfileid: "67508965"
 ## <a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
 다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
 
-|Type|지원되는 멤버|
+|형식|지원되는 멤버|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|모두|
-|Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
+|Newtonsoft.Json.JsonConvert|SerializeObject,는 deserializeobject|
 |Newtonsoft.Json.Linq.Extensions|모두|
 |Newtonsoft.Json.Linq.JArray|모두|
 |Newtonsoft.Json.Linq.JConstructor|모두|
@@ -108,7 +108,7 @@ ms.locfileid: "67508965"
 |System.Collections.Generic.Queue\<T>|모두|
 |System.Collections.Generic.Stack\<T>|모두|
 |System.Convert|모두|
-|System.DateTime|(생성자)에 AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, 날짜, Day, DayOfWeek, DayOfYear, DaysInMonth, 시간, IsDaylightSavingTime, IsLeapYear, MaxValue, 밀리초, 분, MinValue, 월, 지금 추가 를 구문 분석, 둘째, Subtract, 틱, 시간, 오늘, ToString, UtcNow, 연도|
+|System.DateTime|(생성자), Add, AddDays, AddHours, Addhours, Addhours, Addhours, Addhours, Addhours, Addhours, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, Int32.maxvalue, 밀리초, Minute, MinValue, Month , 구문 분석, 초, 빼기, 틱, TimeOfDay, 오늘, ToString, UtcNow, Year|
 |System.DateTimeKind|Utc|
 |System.DateTimeOffset|모두|
 |System.Decimal|모두|
@@ -156,11 +156,11 @@ ms.locfileid: "67508965"
 |System.Security.Cryptography.SymmetricAlgorithm|모두|
 |System.Security.Cryptography.X509Certificates.PublicKey|모두|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|모두|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|이름|
-|System.Security.Cryptography.X509Certificates.X509Certificate|모두|
+|System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|이름|
+|System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|모두|
-|System.Security.Cryptography.X509Certificates.X509ContentType|모두|
-|System.Security.Cryptography.X509Certificates.X509NameType|모두|
+|System.security.cryptography.x509certificates.x509certificate2. X509ContentType|모두|
+|System.security.cryptography.x509certificates.x509certificate2. X509NameType|모두|
 |System.Single|모두|
 |System.String|모두|
 |System.StringComparer|모두|
@@ -172,7 +172,7 @@ ms.locfileid: "67508965"
 |System.Text.RegularExpressions.Group|Captures, Success|
 |System.Text.RegularExpressions.GroupCollection|Count, Item|
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|
-|System.Text.RegularExpressions.Regex|(생성자) IsMatch, 일치, 일치 하는 항목이 대체 이스케이프 해제, 분할|
+|System.Text.RegularExpressions.Regex|(생성자), IsMatch, Match, Matches, Replace, Unescape, Split|
 |System.Text.RegularExpressions.RegexOptions|모두|
 |System.Text.StringBuilder|모두|
 |System.TimeSpan|모두|
@@ -192,7 +192,7 @@ ms.locfileid: "67508965"
 |System.Xml.Linq.XComment|모두|
 |System.Xml.Linq.XContainer|모두|
 |System.Xml.Linq.XDeclaration|모두|
-|System.Xml.Linq.XDocument|제외한 모든,: 로드|
+|System.Xml.Linq.XDocument|다음을 제외한 모든 작업 로드|
 |System.Xml.Linq.XDocumentType|모두|
 |System.Xml.Linq.XElement|모두|
 |System.Xml.Linq.XName|모두|
@@ -210,32 +210,32 @@ ms.locfileid: "67508965"
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> 타임스탬프: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [변수](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [제품](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> 타임스탬프: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [변수](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
 |<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
-|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[가 IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>context.Request|본문: [IMessageBody](#ref-imessagebody) 또는 `null` 요청에 본문이 없는 경우.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [헤더](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>문자열 컨텍스트입니다. Request.Headers.GetValueOrDefault (headerName: 문자열, defaultValue: 문자열)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 요청 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
+|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> 그룹: IEnumerable <[Igroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|본문: [IMessageBody](#ref-imessagebody) 또는 `null` 요청에 본문이 없는 경우입니다.<br /><br /> 인증서: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [헤더](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>문자열 컨텍스트입니다. 요청. 헤더. GetValueOrDefault (헤드 Ername: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 요청 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
 |<a id="ref-context-response"></a>context.Response|본문: [IMessageBody](#ref-imessagebody)<br /><br /> [헤더](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
-|<a id="ref-context-response-headers"></a>문자열 컨텍스트입니다. Response.Headers.GetValueOrDefault (headerName: 문자열, defaultValue: 문자열)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 응답 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
+|<a id="ref-context-response-headers"></a>문자열 컨텍스트입니다. 응답 헤더. GetValueOrDefault (헤드 Ername: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 응답 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
 |<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
-|<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> 그룹: IEnumerable <[Igroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): 여기서 T: string, byte [], JObject, Jobject, Jobject, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [쿼리](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
-|<a id="ref-iurl-query"></a>IUrl.Query.GetValueOrDefault 문자열 (queryParameterName: 문자열, defaultValue: 문자열)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 쿼리 매개 변수 값 또는 `defaultValue`(매개 변수가 없는 경우)를 반환합니다.|
-|<a id="ref-context-variables"></a>T 컨텍스트입니다. Variables.GetValueOrDefault < T\>(variableName: 문자열, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> `T` 형식으로 캐스팅되는 변수 값 또는 `defaultValue`(변수가 없는 경우)를 반환합니다.<br /><br /> 이 메서드는 지정된 형식이 반환된 변수의 실제 형식과 일치하지 않는 경우 예외를 발생시킵니다.|
+|<a id="ref-iurl-query"></a>문자열 IUrl. GetValueOrDefault (queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 쿼리 매개 변수 값 또는 `defaultValue`(매개 변수가 없는 경우)를 반환합니다.|
+|<a id="ref-context-variables"></a>T 컨텍스트입니다. Variables. getvalueordefault < T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> `T` 형식으로 캐스팅되는 변수 값 또는 `defaultValue`(변수가 없는 경우)를 반환합니다.<br /><br /> 이 메서드는 지정된 형식이 반환된 변수의 실제 형식과 일치하지 않는 경우 예외를 발생시킵니다.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> 입력 매개 변수에 유효한 HTTP 기본 인증 권한 부여 요청 헤더 값이 포함된 경우 메서드는 `BasicAuthCredentials` 형식의 개체를 반환하고 그렇지 않은 경우 null을 반환합니다.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> 입력 매개 변수가 요청 헤더에 유효한 HTTP 기본 인증 권한 부여 값을 포함하는 경우 메서드는 `true`를 반환하고 결과 매개 변수는 `BasicAuthCredentials` 형식의 값을 포함합니다. 그렇지 않은 경우 메서드는 `false`를 반환합니다.|
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> 입력 매개 변수에 유효한 JWT 토큰 값이 포함된 경우 메서드는 `Jwt` 형식의 개체를 반환하고 그렇지 않은 경우 `null`을 반환합니다.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> 입력 매개 변수에 유효한 JWT 토큰 값이 포함된 경우 메서드는 `true`를 반환하고 결과 매개 변수는 `Jwt` 형식의 값을 포함합니다. 그렇지 않은 경우 메서드는 `false`를 반환합니다.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 클레임 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - 암호화할 일반 텍스트<br /><br />alg - 대칭 암호화 알고리즘의 이름<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />암호화된 일반 텍스트를 반환합니다.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 암호화할 일반 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />암호화된 일반 텍스트를 반환합니다.|
@@ -243,7 +243,7 @@ ms.locfileid: "67508965"
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - 해독할 암호 텍스트<br /><br />alg - 대칭 암호화 알고리즘의 이름<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />일반 텍스트를 반환합니다.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
-|bool VerifyNoRevocation (입력:이 System.Security.Cryptography.X509Certificates.X509Certificate2)|인증서 해지 상태를 확인 하지 않고 X.509 체인 유효성 검사를 수행 합니다.<br /><br />입력-인증서 개체<br /><br />반환 `true` 유효성 검사에 성공 합니다. `false` 유효성 검사에 실패 합니다.|
+|bool VerifyNoRevocation (입력: System.security.cryptography.x509certificates.x509certificate2. X509Certificate2)|인증서 해지 상태를 확인 하지 않고 x.509 체인 유효성 검사를 수행 합니다.<br /><br />입력-인증서 개체<br /><br />유효성 `true` 검사에 성공 하면를 반환 합니다. `false` 유효성 검사가 실패 하면입니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

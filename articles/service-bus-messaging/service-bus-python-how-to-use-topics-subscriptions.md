@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543672"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360822"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성 되었으며 사용 된 [Azure Python SDK 패키지][Azure Python package]합니다. 다루는 시나리오는 다음과 같습니다.
+이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성 되었으며 [Azure PYTHON SDK 패키지][Azure Python package]를 사용 합니다. 다루는 시나리오는 다음과 같습니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -33,15 +33,15 @@ ms.locfileid: "67543672"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
+## <a name="prerequisites"></a>전제 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
+2. 빠른 시작의 단계 [를 수행 합니다. 항목](service-bus-quickstart-topics-subscriptions-portal.md) 에 대 한 Service Bus 토픽 및 구독을 만드는 Azure Portal를 사용 하 여 Service Bus **네임 스페이스** 를 만들고 **연결 문자열**을 가져옵니다.
 
     > [!NOTE]
-    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Python** 이 빠른 시작 합니다. 
-3. 설치할 [Python Azure 패키지][Azure Python package]합니다. 참조 된 [Python 설치 가이드](../python-how-to-install.md)합니다.
+    > 이 빠른 시작에서 **Python** 을 사용 하 여 **토픽 및 항목** 에 대 한 **구독** 을 만듭니다. 
+3. [Azure Python 패키지][Azure Python package]를 설치 합니다. [Python 설치 가이드](../python-how-to-install.md)를 참조 하세요.
 
-## <a name="create-a-topic"></a>토픽 만들기
+## <a name="create-a-topic"></a>주제 만들기
 
 **ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 프로그래밍 방식으로 Service Bus에 액세스하려는 Python 파일의 맨 위쪽에 다음 코드를 추가합니다.
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 토픽에 대한 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 > [!NOTE]
-> 기본적으로 구독은 영구적 이며, 또는 항목을 구독 하는 이러한,이 삭제 될 때까지 계속 됩니다.
+> 기본적으로 구독은 영구적 이며, 구독 된 항목이 나 구독 된 항목이 삭제 될 때까지 계속 존재 합니다.
 > 
-> 구독을 설정 하 여 자동으로 삭제 할 수 있습니다 합니다 [auto_delete_on_idle 속성](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)합니다.
+> [Auto_delete_on_idle 속성](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)을 설정 하 여 구독을 자동으로 삭제할 수 있습니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -140,7 +140,8 @@ Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **Servi
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -151,7 +152,8 @@ Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 25
 **ServiceBusService** 개체의 `receive_subscription_message` 메서드를 사용하여 구독에서 메시지를 받습니다.
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
@@ -174,11 +176,11 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-애플리케이션이 메시지를 처리한 후 `delete` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 동작은 대개 한 번 이상 처리\*; 즉, 각 메시지가 최소 한 번 처리 됩니다 되지만 특정 상황에서는 동일한 메시지를 다시 배달 될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이렇게 하려면 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
+애플리케이션이 메시지를 처리한 후 `delete` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 동작은 대개 적어도 한 번 처리\*합니다. 즉, 각 메시지가 최소 한 번 이상 처리 되지만 특정 상황에서는 동일한 메시지가 다시 배달 될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이렇게 하려면 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 
-토픽과 구독은 영구적는 하지 않는 한 합니다 [auto_delete_on_idle 속성](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) 설정 됩니다. 수를 통해 삭제 합니다 [Azure portal][Azure portal] 또는 프로그래밍 방식으로 합니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
+[Auto_delete_on_idle 속성이](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) 설정 되어 있지 않으면 토픽 및 구독은 영구적입니다. [Azure Portal][Azure portal] 를 통해 또는 프로그래밍 방식으로 삭제할 수 있습니다. 다음 예제에서는 이름이 `mytopic`인 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```python
 bus_service.delete_topic('mytopic')

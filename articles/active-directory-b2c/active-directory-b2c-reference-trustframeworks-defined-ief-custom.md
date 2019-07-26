@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508816"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500025"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
 ID 경험 프레임워크를 사용하는 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책은 조직에 중앙 집중식 서비스를 제공합니다. 이 서비스로 인해 대규모 커뮤니티에서 ID 페더레이션의 복잡성이 감소합니다. 복잡성은 단일 트러스트 관계 및 단일 메타데이터 교환으로 줄어듭니다.
 
-ID 경험 프레임워크를 사용하는 Azure AD B2C 사용자 지정 정책에서는 다음 질문에 답할 수 있어야 합니다.
+사용자 지정 정책은 Id 경험 프레임 워크를 사용 하 여 다음 질문에 대답할 수 있습니다. Azure AD B2C
 
 - 준수해야 하는 법적 정보, 보안, 개인 정보 보호 및 데이터 보호 정책은 무엇인가요?
 - 담당자는 누구이며 공인된 참가자가 되기 위한 절차는 무엇인가요?
@@ -52,10 +52,10 @@ TF는 OIX(Open Identity Exchange) 보안 프레임워크 모델의 핵심이며,
 - **참가자가 제공/요구하는 디지털 ID 정보에 대한 설명**
 
 - **디지털 ID 정보의 생성 및 사용, 즉 LOA 및 LOP 측정에 대한 기술 정책 - 이러한 서면 상의 정책에는 일반적으로 다음 범주의 정책이 포함됩니다.**
-    - ID 교정 정책(예: 사람의 ID 정보를 얼마나 엄격하게 조사하는가?  )
-    - 보안 정책(예: 정보 무결성 및 기밀성을 얼마나 엄격하게 보호하는가?  )
-    - 개인 정보 정책(예: 사용자는 PII(개인 식별 정보)에 어떤 제어권을 가지는가?  )
-    - 존속성 정책(예: 공급자가 운영을 중단하는 경우 PII 기능의 연속성 및 보호는 어떻게 작동하는가?  )
+    - ID 교정 정책(예: 사람의 ID 정보를 얼마나 엄격하게 조사하는가?)
+    - 보안 정책(예: 정보 무결성 및 기밀성을 얼마나 엄격하게 보호하는가?)
+    - 개인 정보 정책(예: 사용자는 PII(개인 식별 정보)에 어떤 제어권을 가지는가?)
+    - 존속성 정책(예: 공급자가 운영을 중단하는 경우 PII 기능의 연속성 및 보호는 어떻게 작동하는가?)
 
 - **디지털 ID 정보의 생성 및 사용에 대한 기술 프로필 - 이러한 프로필에 포함되는 항목은 다음과 같습니다.**
     - 지정된 LOA에서 디지털 ID 정보를 사용할 수 있는 범위 인터페이스

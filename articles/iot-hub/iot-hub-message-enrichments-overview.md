@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: b815ba80ac0860a4248b27e4013da4a8a9d12e18
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321290"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377205"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지에 대 한 메시지 강화 (미리 보기)
 
@@ -41,6 +41,8 @@ ms.locfileid: "68321290"
 
    > [!NOTE]
    > 현재는 $iothubname, $twin, $twin, 속성 및 $twin만이 메시지 보강에 대해 지원 되는 변수입니다.
+
+메시지 강화 선택 된 끝점에 전송 된 메시지에 응용 프로그램 속성으로 추가 됩니다.  
 
 ## <a name="applying-enrichments"></a>강화 적용
 
@@ -74,7 +76,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 * 강화를 포함 하 여 총 메시지 크기는 256 KB를 초과할 수 없습니다. 메시지 크기가 256 KB를 초과 하면 IoT Hub 메시지를 삭제 합니다. [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 메시지를 삭제할 때 오류를 식별 하 고 디버그할 수 있습니다. 예를 들어 d2c를 모니터링할 수 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 메시지 강화는 추가 요금 없이 사용할 수 있습니다. 현재 IoT Hub에 메시지를 보낼 때 요금이 청구 됩니다. 메시지가 여러 끝점으로 이동 하더라도 해당 메시지에 대해 한 번만 요금이 청구 됩니다.
 

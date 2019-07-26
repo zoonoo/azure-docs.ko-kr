@@ -1,7 +1,6 @@
 ---
 title: 'Azure Backup: REST API를 사용하여 Azure VM 복원'
 description: REST API를 사용하여 Azure VM 백업의 복원 작업 관리
-services: backup
 author: pvrk
 manager: shivamg
 keywords: REST API, Azure VM 백업, Azure VM 복원,
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646659"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466758"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -37,7 +36,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>Responses
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       확인  |
 
@@ -139,7 +138,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|속성     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [REST API 문서 복원 트리거](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)를 참조하세요.
 
@@ -165,7 +164,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 }
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 복원 디스크의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 

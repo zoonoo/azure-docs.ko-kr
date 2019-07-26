@@ -321,6 +321,18 @@
     - name: 미리 작성된 도메인 참조
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: 사용자 지정 엔터티 참조
+      items:
+        - name: 복합 엔터티
+          href: reference-entity-composite.md
+        - name: 목록 엔터티
+          href: reference-entity-list.md
+        - name: Pattern.any 엔터티
+          href: reference-entity-pattern-any.md
+        - name: 정규식 엔터티
+          href: reference-entity-regular-expression.md
+        - name: 단순 엔터티
+          href: reference-entity-simple.md
     - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell

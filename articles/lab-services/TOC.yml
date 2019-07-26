@@ -255,6 +255,8 @@
               href: devtest-lab-guidance-prescriptive-adoption.md
             - name: 참조 아키텍처
               href: devtest-lab-reference-architecture.md
+            - name: 개념 증명 제공
+              href: deliver-proof-concept.md
             - name: DevTest Labs 배포 강화
               href: devtest-lab-guidance-scale.md
             - name: DevTest Labs의 구현 오케스트레이션

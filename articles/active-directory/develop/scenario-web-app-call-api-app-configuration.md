@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2ad995908ff20d123a77b511d127652aa17c4634
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276723"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494523"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 앱-코드 구성
 
@@ -29,6 +29,12 @@ ms.locfileid: "68276723"
 - ASP.NET 또는 ASP.NET core가 인증 코드를 요청 하도록 허용 합니다. 이 ASP.NET/ASP.NET core를 사용 하면 사용자가 로그인 하 여 동의할 수 있습니다.
 - 웹 앱에의 한 권한 부여 코드 수신을 구독 합니다.
 - 인증 코드를 받으면 MSAL 라이브러리를 사용 하 여 코드와 결과 액세스 토큰을 교환 하 고 토큰 캐시에서 토큰 저장소를 새로 고칩니다. 여기서 캐시는 응용 프로그램의 다른 부분에서 다른 토큰을 자동으로 획득 하는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> 이 문서의 코드 조각은 완전히 작동 하는 GitHub의 다음 샘플에서 추출 됩니다.
+>
+> - [ASP.NET Core 웹 앱 증분 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [ASP.NET 웹 앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>웹 앱 시나리오를 지 원하는 라이브러리
 
@@ -42,7 +48,12 @@ Web Apps에 대 한 권한 부여 코드 흐름을 지 원하는 라이브러리
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 구성
 
-ASP.NET Core 파일에서 발생 하는 `Startup.cs` 작업입니다. `OnAuthorizationCodeReceived` Open ID connect 이벤트를 구독 하 고이 이벤트에서 msal을 호출 하려고 합니다. 토큰 캐시에 `AcquireTokenFromAuthorizationCode` 저장 하는 데 영향을 주는 순의 메서드, 요청 된 범위에 대 한 액세스 토큰, 만료에 가까운 경우 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰 및 동일한 사용자를 대신 하 여 토큰을 가져오는 데 사용 되는 새로 고침 토큰 다른 리소스의 경우
+ASP.NET Core 파일에서 발생 하는 `Startup.cs` 작업입니다. `OnAuthorizationCodeReceived` Open ID connect 이벤트를 구독 하 고이 이벤트에서 msal을 호출 하려고 합니다. 토큰 캐시에 `AcquireTokenFromAuthorizationCode` 저장 하는 데 영향을 주는 NET의 메서드, 요청 `scopes`된에 대 한 액세스 토큰 및 만료에 근접 한 경우 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰 및 동일한 사용자를 대신 하 여 토큰을 가져오는 데 사용 되는 새로 고침 토큰 다른 리소스의 경우
+
+```CSharp
+string[] scopes = new string[]{ "user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
 
 아래 코드의 주석은 weaving MSAL.NET 및 ASP.NET Core의 몇 가지 복잡 한 측면을 이해 하는 데 도움이 됩니다. 전체 세부 정보는 [ASP.NET Core 웹 앱 증분 자습서, 2 장](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) 에서 제공 됩니다.
 
@@ -56,7 +67,7 @@ ASP.NET Core 파일에서 발생 하는 `Startup.cs` 작업입니다. `OnAuthori
    // their Microsoft personal accounts
    // (it's required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -88,7 +99,12 @@ ASP.NET Core 파일에서 발생 하는 `Startup.cs` 작업입니다. `OnAuthori
    };
 ```
 
-ASP.NET Core에서 기밀 클라이언트 응용 프로그램 빌드는 HttpContext에 있는 정보를 사용 합니다. 이 HttpContext는 웹 앱에 대 한 URL과 로그인 한 사용자 ( `ClaimsPrincipal`)를 알고 있습니다. 또한 "AzureAD" 섹션을 포함 하 고 `_applicationOptions` 데이터 구조에 바인딩되는 ASP.NET Core 구성을 사용 합니다. 마지막으로 응용 프로그램은 토큰 캐시를 유지 관리 해야 합니다.
+ASP.NET Core에서 기밀 클라이언트 응용 프로그램 빌드는 HttpContext에 있는 정보를 사용 합니다. 이 `HttpContext` 는 웹 앱에 대 한 URL과 로그인 한 사용자 ( `ClaimsPrincipal`)를 알고 있습니다. 
+
+또한 "AzureAD" 섹션을 포함 하 고 둘 다에 바인딩되는 ASP.NET Core 구성을 사용 합니다.
+
+- `_applicationOptions` [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) 형식의 데이터 구조
+- ASP.NET Core `azureAdOptions` 에`Authentication.AzureAD.UI`정의 된 [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) 형식의 인스턴스입니다. 마지막으로 응용 프로그램은 토큰 캐시를 유지 관리 해야 합니다.
 
 ```CSharp
 /// <summary>
@@ -102,7 +118,7 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  var request = httpContext.Request;
 
  // Find the URI of the application)
- string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, azureAdOptions.CallbackPath ?? string.Empty);
+ string currentUri = UriHelper.BuildAbsolute(request.Scheme, request.Host, request.PathBase, _applicationOptions.CallbackPath ?? string.Empty);
 
  // Updates the authority from the instance (including national clouds) and the tenant
  string authority = $"{azureAdOptions.Instance}{azureAdOptions.TenantId}/";
@@ -116,19 +132,22 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode`ASP.NET에 의해 요청 된 인증 코드를 교환 하 고 MSAL.NET 사용자 토큰 캐시에 추가 되는 토큰을 가져옵니다. 그런 다음 ASP.NET Core 컨트롤러에서 사용 됩니다.
+토큰 캐시 공급자에 대 한 자세한 내용은 [ASP.NET Core 웹 앱 자습서를 참조 하세요. 토큰 캐시](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)
+
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode`ASP.NET에 의해 요청 된 인증 코드를 교환 하 고 MSAL.NET 사용자 토큰 캐시에 추가 되는 토큰을 가져옵니다. 그런 다음 ASP.NET Core 컨트롤러에서 사용 됩니다.
 
 ## <a name="aspnet-configuration"></a>ASP.NET 구성
 

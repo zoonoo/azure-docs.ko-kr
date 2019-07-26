@@ -2,7 +2,7 @@
 title: 테이블 디자인 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블 디자인을 소개합니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626141"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476757"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
@@ -32,7 +32,7 @@ Azure SQL Data Warehouse의 테이블 디자인에 대한 주요 개념을 알�
 - **통합 테이블**에서는 데이터를 통합하거나 스테이징 할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 스테이징 테이블에 데이터를 로드하고 스테이징 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
 
 ## <a name="schema-and-table-names"></a>스키마 및 테이블 이름
-스키마는 테이블 그룹을 비슷한 방식으로 함께 사용 하는 좋은 방법입니다.  마이그레이션하려는 경우 여러 데이터베이스 온-프레미스 솔루션에서 SQL Data warehouse, SQL Data Warehouse의 한 스키마로 모든 팩트, 차원 및 통합 테이블을 마이그레이션하도록 적합 합니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
+스키마는 비슷한 방식으로 함께 사용 되는 테이블을 그룹화 하는 좋은 방법입니다.  프레미스 솔루션에서 SQL Data Warehouse로 여러 데이터베이스를 마이그레이션하는 경우 모든 팩트, 차원 및 통합 테이블을 SQL Data Warehouse 하나의 스키마로 마이그레이션하는 것이 가장 효율적입니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -112,7 +112,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | 설명 |
+| T-SQL 문 | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | 외부 테이블을 만듭니다. 테이블 정의는 SQL Data Warehouse에 저장됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
