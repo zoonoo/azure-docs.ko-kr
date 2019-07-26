@@ -6,7 +6,7 @@ metadata:
   description: 'Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizer - 자습서, 빠른 시작, API 참조'
   description: 'Personalizer 서비스를 사용하여 애플리케이션에서 사용자에게 표시할 최상의 환경을 선택하고, 사용자의 실시간 동작을 통해 학습하는 방법을 알아봅니다.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

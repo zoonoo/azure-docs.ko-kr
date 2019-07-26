@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237171"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516983"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -98,7 +98,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 |판독기                      |        |        |        |        |               |               | X     |
 |MG 읽기 권한자*                  |        |        |        |        |               |               | X     |
 |리소스 정책 참가자 |        |        |        |        |               | X             |       |
-|사용자 액세스 관리자   |        |        |        |        | X             |               |       |
+|사용자 액세스 관리자   |        |        |        |        | X             | X             |       |
 
 *: MG 기여자 및 MG 읽기 권한자는 사용자가 관리 그룹 범위에서 이러한 작업만 수행하도록 허용합니다.  
 **: 구독 또는 관리 그룹을 이동하기 위해 루트 관리 그룹에 대한 역할을 할당할 필요가 없습니다.  계층 내에서 항목을 이동하는 방법에 대한 세부 정보는 [관리 그룹을 사용하여 리소스 관리](manage.md)를 참조하세요.

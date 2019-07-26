@@ -6,7 +6,7 @@ metadata:
   description: 'Content Moderator를 사용하여 불쾌감을 주거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 방법을 알아봅니다.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: content-moderator
   ms.tgt_pltfrm: na

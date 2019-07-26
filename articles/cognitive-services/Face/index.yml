@@ -6,7 +6,7 @@ metadata:
   description: Face API를 사용하여 이미지에서 얼굴을 감지 및 식별하고 얼굴 정보를 반환합니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

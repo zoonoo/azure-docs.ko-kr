@@ -6,7 +6,7 @@ metadata:
   description: 'Text Analytics API는 원시 텍스트에 대한 고급 자연어 처리를 제공하는 클라우드 기반 서비스이며 감정 분석, 핵심 구 추출, 명명된 엔터티 인식, 언어 감지의 네 가지 주요 기능을 포함하고 있습니다.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
