@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149766"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358621"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -24,20 +24,20 @@ ms.locfileid: "65149766"
 
 ## <a name="visual-interface-issues"></a>시각적 인터페이스 문제
 
-기계 학습 서비스 문제에 대 한 시각적 인터페이스입니다.
+Machine learning 서비스 문제에 대 한 시각적 인터페이스입니다.
 
-### <a name="long-compute-preparation-time"></a>긴 준비 시간을 계산
+### <a name="long-compute-preparation-time"></a>긴 계산 준비 시간
 
-새 계산 만들기 또는 그대로 유지 되어 계산 시간을 위해 호출할 몇 분 또는 그 이상 수 있습니다. 최적화를 위해 최선을 다하고 있습니다.
+계산 후에 새 계산 또는 하기 호출할 생성 시간이 소요 되 면 몇 분 정도 걸릴 수 있습니다. 팀이 최적화를 위해 작업 중입니다.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>없습니다 실험 실행만 데이터 집합 포함 
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>데이터 집합만 포함 된 실험을 실행할 수 없습니다. 
 
-실행 하려는 실험만 데이터 집합을 시각화 하는 데이터 집합을 포함 합니다. 그러나 실행 될 수 없습니다는 실험만에 데이터 집합이 현재 합니다. 적극적으로이 문제를 해결 된 것입니다.
+데이터 집합을 시각화 하는 데이터 집합만 포함 하는 실험을 실행할 수 있습니다. 그러나 실험을 실행할 수는 없습니다. 현재 데이터 집합만 포함 되어 있습니다. 이 문제를 적극적으로 해결 하 고 있습니다.
  
-오류를 해결 하기 전에 원하는 데이터 변환 모듈 (데이터 집합, 메타 데이터 편집, 분할 데이터 등의 열 선택)에 데이터 집합을 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
+이 문제를 해결 하기 전에 데이터 집합을 데이터 변환 모듈 (데이터 집합의 열 선택, 메타 데이터 편집, 데이터 분할 등)에 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
 
-아래 방법을 이미지: ![visulize 데이터](./media/resource-known-issues/aml-visualize-data.png)
+다음 이미지는 방법을 보여 ![줍니다. visulize](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 
@@ -67,64 +67,72 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
-Tensor Flow 자동화 된 기계 학습 tensor flow 버전 1.13 현재 지원 하지 않습니다. 이 버전을 설치 하면 패키지 종속성 작동을 중지 합니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 중입니다. 
+텐서 Flow 자동화 된 machine learning은 현재 텐서 flow 버전 1.13을 지원 하지 않습니다. 이 버전을 설치 하면 패키지 종속성이 작동 하지 않습니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 하 고 있습니다. 
 
 ### <a name="experiment-charts"></a>실험 차트
 
-자동화 된 기계 학습 실험 반복에 표시 된 이진 분류 차트 (ROC, 정밀도-리콜 곡선 등을 얻을 수)는 4 월 12부터 하지 사용자 인터페이스에서 올바르게 렌더링 합니다. 차트 그림 이며 현재 역 결과 표시 하는, 더 낮은 결과 사용 하 여 보다 나은 성능의 모델 표시 되어 있는 해결 방법을 조사 중입니다.
+자동화 된 ML 실험 반복에 표시 되는 이진 분류 차트 (정밀도-리콜, ROC, 곡선 등)는 4/12부터 사용자 인터페이스에서 렌더링 올바르게 되지 않습니다. 차트 플롯에는 현재 더 낮은 결과가 포함 된 모델을 더 잘 수행 하는 역 결과가 표시 됩니다. 확인 중입니다.
 
 ## <a name="databricks"></a>Databricks
 
 Databricks 및 Azure Machine Learning 문제.
 
-### <a name="failure-when-installing-packages"></a>패키지를 설치 하는 동안 오류가 발생 했습니다
+### <a name="failure-when-installing-packages"></a>패키지 설치 시 실패
 
-자세한 패키지를 설치할 때 Azure Databricks에서 azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 동결 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning 서비스 SDK 아니라 Databricks에 관련 되어 있습니다. 다른 라이브러리를 사용 하 여이 문제는 너무 발생할 수 있습니다. 예제:
+추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning 서비스 SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-또는 Python 라이브러리를 사용 하 여 설치 문제가 유지 하는 경우 초기화 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)합니다.
+또는 Python 라이브러리와의 연결을 유지 하는 경우 init 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)를 참조 하세요.
 
-### <a name="cancel-an-automated-machine-learning-run"></a>실행을 학습 하는 자동화 된 컴퓨터의 취소
+### <a name="cancel-an-automated-machine-learning-run"></a>자동화 된 machine learning 실행 취소
 
-실행을 취소 하 고 새 실험을 실행을 시작의 자동화 된 기계 학습 Azure Databricks에서 기능을 사용 하면 Azure Databricks 클러스터 다시 시작 합니다.
+Azure Databricks에서 자동화 된 기계 학습 기능을 사용 하는 경우 실행을 취소 하 고 새 실험 실행을 시작 하려면 Azure Databricks 클러스터를 다시 시작 합니다.
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 자동화 된 machine learning 위한 10 번 반복
+### <a name="10-iterations-for-automated-machine-learning"></a>자동화 된 machine learning에 대 한 10 회 반복 >
 
-자동화 된 컴퓨터에서 10 개 반복 해야 하는 경우 설정을 학습 집합 `show_output` 에 `False` 실행을 제출할 때.
+자동화 된 기계 학습 설정에서 10 개 이상의 반복이 있는 경우 실행을 `show_output` 제출할 `False` 때를로 설정 합니다.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/자동화 된 machine learning에 대 한 위젯
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/자동화 된 기계 학습에 대 한 위젯
 
-Notebook에는 HTML 위젯이 구문 분석할 수 없습니다 때문에 Azure Machine Learning SDK 위젯 Databricks 전자 필기장에서 지원 되지 않습니다. Azure Databricks notebook 셀에서이 Python 코드를 사용 하 여 포털에서 위젯을 볼 수 있습니다.
+Azure Machine Learning SDK 위젯은 Databricks 노트북에서 HTML 위젯을 구문 분석할 수 없기 때문에 지원 되지 않습니다. Azure Databricks 노트북 셀에서이 Python 코드를 사용 하 여 포털에서 위젯을 볼 수 있습니다.
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>가져오기 오류: 모듈이 없는 'pandas.core.indexes' 라는
+### <a name="import-error-no-module-named-pandascoreindexes"></a>가져오기 오류: 이름이 ' pandas ' 인 모듈이 없습니다.
 
-이 오류를 표시 하는 경우 자동으로 기계 학습 사용 하는 경우:
+자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되는 경우:
 
-1. Azure Databricks 클러스터에서 두 개의 패키지를 설치 하려면이 명령을 실행 합니다. 
+1. Azure Databricks 클러스터에 두 개의 패키지를 설치 하려면이 명령을 실행 합니다. 
 
    ```
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. 분리 및 노트북을 클러스터 다시 연결 합니다. 
+1. 클러스터를 분리 했다가 노트북에 다시 연결 합니다. 
 
-이러한 단계는 문제를 해결 하지는 클러스터를 다시 시작 하십시오.
+이러한 단계를 수행 해도 문제가 해결 되지 않으면 클러스터를 다시 시작 하십시오.
 
-## <a name="azure-portal"></a>Azure portal
+### <a name="failtosendfeather"></a>FailToSendFeather
+
+Azure Databricks 클러스터에서 데이터 `FailToSendFeather` 를 읽는 동안 오류가 표시 되는 경우 다음 해결 방법을 참조 하십시오.
+
+* 패키지 `azureml-sdk[automl_databricks]` 를 최신 버전으로 업그레이드 합니다.
+* 버전 `azure-dataprep` 1.1.8 이상을 추가 합니다.
+* 버전 `pyarrow` 0.11 이상을 추가 합니다.
+
+## <a name="azure-portal"></a>Azure Portal
 
 SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인해야 하는 경우 해결 방법은 [Azure Portal](https://portal.azure.com)로 직접 이동하여 작업 영역 이름을 검색하는 것입니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 방문 [Azure portal](https://portal.azure.com) 선택한 서버 작업 영역으로 이동한 **작업 영역 > 실험 > 실행 > 로그**합니다.
+도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Portal](https://portal.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.
 
 ## <a name="resource-quotas"></a>리소스 할당량
 

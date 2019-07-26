@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d8fb7bc0e837ba78d86a39524d869c9bb01895d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867558"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414140"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
@@ -44,12 +44,18 @@ ms.locfileid: "67867558"
 >프로메테우스에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
 >
 
+컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 정보를 제공 하는 다음 비디오를 확인 하세요.
+
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+
 ## <a name="how-do-i-access-this-feature"></a>이 기능에 액세스하려면 어떻게 하나요?
+
 컨테이너용 Azure Monitor는 Azure Monitor에서 액세스하거나 선택한 AKS 클러스터에서 직접 액세스할 수 있습니다. Azure Monitor에서 모니터링 되 고, 그렇지 않은 모든 컨테이너의 글로벌 큐브 뷰를 통해 구독 및 리소스 그룹을 검색 하 고 필터링 한 다음, 다음에서 컨테이너에 대 한 Azure Monitor을 드릴 수 있습니다. 컨테이너를 선택 했습니다.  그렇지 않으면 AKS 페이지에서 선택한 AKS 컨테이너에서 직접 기능에 액세스할 수 있습니다.  
 
 ![컨테이너용 Azure Monitor에 액세스하는 방법에 대한 개요](./media/container-insights-overview/azmon-containers-experience.png)
 
-Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구성, 감사 및 리소스 사용률을 확인하려는 경우 [컨테이너 모니터링 솔루션](../../azure-monitor/insights/containers.md)을 참조하세요.
+AKS 외부에서 실행 되는 Docker 및 Windows 컨테이너 호스트를 모니터링 하 고 관리 하는 데 관심이 있는 경우 구성, 감사 및 리소스 사용률을 보려면 [컨테이너 모니터링 솔루션](../../azure-monitor/insights/containers.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 AKS 클러스터 모니터링을 시작 하려면 [컨테이너에 대해 Azure Monitor를 사용 하도록 설정](container-insights-onboard.md) 하 여 모니터링을 사용 하는 요구 사항 및 사용 가능한 방법을 이해 하는 방법을 검토 합니다.  

@@ -1,21 +1,20 @@
 ---
 title: Azure Backup용 보고서 구성
 description: Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 Power BI 보고서를 구성하는 방법을 설명합니다.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705150"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466623"
 ---
-# <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
+# <a name="configure-azure-backup-reports"></a>Azure Backup 구성 보고서
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 보고서를 구성하기 위해 수행해야 하는 단계를 설명합니다. 또한 Power BI를 사용하여 보고서에 액세스하는 방법도 설명합니다. 이러한 단계를 완료한 후에는 Power BI로 직접 이동하여 보고서를 확인, 사용자 지정 및 작성할 수 있습니다.
 
 > [!IMPORTANT]
@@ -29,9 +28,9 @@ ms.locfileid: "67705150"
 - Azure Backup 보고서는 Azure Recovery Services 에이전트를 사용하여 클라우드로 Azure 가상 머신 백업 및 파일/폴더 백업을 전송하는 작업용으로 지원됩니다.
 - Azure SQL Database, Azure File Shares, Data Protection Manager 및 Azure Backup Server용 보고서는 현재 지원되지 않습니다.
 - 각 자격 증명 모음에 대해 동일한 저장소 계정이 구성된 경우 여러 자격 증명 모음과 구독의 보고서를 볼 수 있습니다. 선택한 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
-- Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. 또한 Power BI에서 보고서의 임시 새로 고침을 수행할 수 있습니다. 이 경우 고객 저장소 계정의 최신 데이터를 사용하여 보고서를 렌더링합니다.
+- Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 임시 새로 고침을 수행할 수도 있습니다. 이 경우 고객 저장소 계정의 최신 데이터를 사용하여 보고서를 렌더링합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)을 만들어 보고서에 대해 구성합니다. 이 저장소 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
 - [Power BI 계정을 만들어](https://powerbi.microsoft.com/landing/signin/) Power BI 포털을 사용해 보고서를 확인, 사용자 지정 및 생성합니다.
 - 리소스 공급자 **Microsoft.insights**를 아직 등록하지 않은 경우 등록합니다. 보고 데이터가 저장소 계정으로 전송될 수 있도록 Recovery Services 자격 증명 모음 및 저장소 계정용 구독을 사용합니다. 이 단계를 수행하려면 Azure Portal로 이동하여 **구독** > **리소스 공급자**를 선택한 다음 이 공급자를 선택해서 등록합니다.
@@ -87,7 +86,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
       ![콘텐츠 팩 가져오기](./media/backup-azure-configure-reports/content-pack-get.png)
 4. 위의 5단계에서 구성한 저장소 계정의 이름을 입력하고 **다음**을 선택합니다.
 
-    ![저장소 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![스토리지 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. 인증 방법 "키"를 사용하여 이 저장소 계정의 저장소 계정 키를 입력합니다. [저장소 액세스 키를 확인하고 복사](../storage/common/storage-account-manage.md#access-keys)하려면 Azure Portal에서 저장소 계정으로 이동합니다.
 
      ![저장소 계정 입력](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>

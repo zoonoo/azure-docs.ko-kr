@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a0cd2952633293bfa1d29bf3a399c67bf092d288
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad30bd4f77c5f4314956e39f26a30b72d72a208a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318312"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361165"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -33,7 +33,7 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 > [!NOTE]
 > 이 문서의 지침은 다음에 적용 됩니다.
 >1. 64 비트 버전의 Windows Server 2008 R2 이상 Windows Server 운영 체제 Azure에서 32 비트 운영 체제를 실행 하는 방법에 대 한 자세한 내용은 [Azure vm에서 32 비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)을 참조 하세요.
->2. 재해 복구 도구를 사용 하 여 Azure Site Recovery 또는 Azure Migrate와 같은 워크 로드를 마이그레이션하는 경우 마이그레이션 전에 이미지를 준비 하려면이 프로세스를 계속 수행 하 고 게스트 OS에 적용 해야 합니다.
+>2. Azure Site Recovery 또는 Azure Migrate와 같이 작업을 마이그레이션하는 데 재해 복구 도구를 사용 하는 경우 마이그레이션 전에 이미지를 준비 하려면이 프로세스를 수행 하 여 게스트 OS를 실행 해야 합니다.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>가상 디스크를 고정 크기 및 VHD로 변환
 

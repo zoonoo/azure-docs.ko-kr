@@ -3,23 +3,17 @@ title: 일반적인 클라우드 서비스 관리 작업 | Microsoft Docs
 description: Azure Portal에서 Cloud Services를 관리하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433969"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359604"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -34,7 +28,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 ## <a name="update-a-cloud-service-role-or-deployment"></a>클라우드 서비스 역할 또는 배포 업데이트
 클라우드 서비스에 대한 애플리케이션 코드를 업데이트 해야 하는 경우 클라우드 서비스 블레이드에서 **업데이트** 를 사용합니다. 단일 역할이나 모든 역할을 업데이트할 수 있습니다. 업데이트하려면 새 서비스 패키지 및 서비스 구성 파일을 업로드하면 됩니다.
 
-1. [Azure Portal][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
+1. [Azure 포털][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 
 2. 블레이드에서 **업데이트**를 선택합니다.
 
@@ -59,7 +53,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 **Cloud Services** 페이지나 대시보드에서 배포를 교환할 수 있습니다.
 
-1. [Azure Portal][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
+1. [Azure 포털][Azure portal]에서 업데이트하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 
 2. 블레이드에서 **교환**을 선택합니다.
 
@@ -98,7 +92,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 배포 또는 클라우드 서비스를 삭제하려면 다음 절차를 따르세요.
 
-1. [Azure Portal][Azure portal]에서 삭제하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
+1. [Azure 포털][Azure portal]에서 삭제하려는 클라우드 서비스를 선택합니다. 이렇게 하면 클라우드 서비스 인스턴스 블레이드가 열립니다.
 
 2. 블레이드에서 **삭제**를 선택합니다.
 

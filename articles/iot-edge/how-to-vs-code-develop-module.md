@@ -6,28 +6,32 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2d190edfac71705590135988b64ed043784125ec
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305572"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414512"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
 비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 Visual Studio Code를 기본 도구로 사용하여 모듈을 개발하고 디버그하는 방법을 보여 줍니다.
 
+C#, Node.js 또는 Java로 작성된 모듈의 경우 Visual Studio Code에서 모듈을 디버그하는 두 가지 방법이 있습니다. 모듈 컨테이너에서 프로세스를 연결하거나 디버그 모드에서 모듈 코드를 시작할 수 있습니다. Python 또는 C로 작성된 모듈의 경우 Linux amd64 컨테이너에서 프로세스에 연결해야 디버그할 수 있습니다.
+
+Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
+
+이 문서에서는 여러 아키텍처의 여러 언어로 모듈을 개발 하 고 디버깅 하기 위한 지침을 제공 합니다. 현재, Visual Studio Code는 C#, C, Python, Node.js 및 Java로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 X64 및 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
+
+>[!NOTE]
+>Linux ARM64 장치에 대 한 개발 및 디버깅 지원은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code (미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조 하세요.
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용할 수 있습니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
-
-C#, Node.js 또는 Java로 작성된 모듈의 경우 Visual Studio Code에서 모듈을 디버그하는 두 가지 방법이 있습니다. 모듈 컨테이너에서 프로세스를 연결하거나 디버그 모드에서 모듈 코드를 시작할 수 있습니다. Python 또는 C로 작성된 모듈의 경우 Linux amd64 컨테이너에서 프로세스에 연결해야 디버그할 수 있습니다.
-
-> [!TIP]
-> Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
 
 [Visual Studio Code](https://code.visualstudio.com/)를 먼저 설치한 후 다음 확장을 추가합니다.
 
@@ -66,8 +70,7 @@ C에서 모듈을 개발하지 않는 한, IoT Edge 솔루션을 디버그, 실�
 > [!NOTE]
 > 미리 설치 된 python 2.7 (예: Ubuntu 또는 macos)를 비롯 한 여러 python이 있는 경우 올바른 `pip` 또는 `pip3` 를 사용 하 여 **iotedgehubdev** 을 설치 했는지 확인 합니다.
 
-> [!NOTE]
-> 디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)용 빠른 시작의 단계에 따릅니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다.
+디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)용 빠른 시작의 단계에 따릅니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다.
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 

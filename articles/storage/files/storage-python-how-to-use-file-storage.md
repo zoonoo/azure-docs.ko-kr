@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ecb3ef82196c3b6febd44850b47f467ba37facc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3a741216b50811868687b124463e10e65355094
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701594"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360057"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -103,7 +103,7 @@ Azure 파일 공유에는 파일이 상주할 수 있는 최소한의 루트 디
 from azure.storage.file import ContentSettings
 file_service.create_file_from_path(
     'myshare',
-    None, # We want to create this blob in the root directory, so we specify None for the directory_name
+    None,  # We want to create this blob in the root directory, so we specify None for the directory_name
     'myfile',
     'sunset.png',
     content_settings=ContentSettings(content_type='image/png'))
@@ -133,7 +133,7 @@ snapshot = file_service.snapshot_share(share_name)
 snapshot_id = snapshot.snapshot
 ```
 
-**메타데이터를 사용하여 공유 스냅숏 만들기**
+**메타데이터를 사용하여 공유 스냅샷 만들기**
 
 ```python
 metadata = {"foo": "bar"}
@@ -151,7 +151,8 @@ shares = list(file_service.list_shares(include_snapshots=True))
 각 공유 스냅샷의 내용을 찾아보고 특정 시점에서 파일 및 디렉터리를 검색할 수 있습니다.
 
 ```python
-directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+directories_and_files = list(
+    file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
 ## <a name="get-file-from-share-snapshot"></a>공유 스냅샷에서 파일 가져오기
@@ -159,7 +160,8 @@ directories_and_files = list(file_service.list_directories_and_files(share_name,
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
-    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+    file = file_service.get_file_to_stream(
+        share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
 ## <a name="delete-a-single-share-snapshot"></a>단일 공유 스냅샷 삭제  

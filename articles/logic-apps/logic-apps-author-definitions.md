@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 89a77c25c75617be0e1ef92b73eec28263f53f82
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296131"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385578"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장
 
@@ -52,7 +52,7 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
    ![Visual Studio 솔루션에서 논리 앱 열기](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
-   > 이 명령은 Visual Studio 2019에 없다면 Visual Studio에 대 한 최신 업데이트가 있는지 확인 합니다.
+   > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
 
 4. 디자이너의 맨 아래에서 **코드 보기**를 선택합니다. 
 
@@ -62,108 +62,21 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 ## <a name="parameters"></a>매개 변수
 
-매개 변수를 사용하면 논리 앱 전체에서 값을 다시 사용할 수 있어서 자주 변경되는 값을 대체할 때 유용합니다. 예를 들어 여러 위치에서 사용할 이메일 주소가 있는 경우 해당 이메일 주소를 매개 변수로 정의해야 합니다.
+배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱을 자동화할 수도 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있습니다. 배포가. 
 
-매개 변수는 다양한 환경에서 매개 변수를 재정의해야 하는 경우에도 유용합니다. [배포에 필요한 매개 변수](#deployment-parameters) 및 [Azure Logic Apps용 REST API 설명서](https://docs.microsoft.com/rest/api/logic)에 대해 자세히 알아보세요.
+이러한 값에 대 한 매개 변수를 매개 *변수화*하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 [내용은 개요: Azure Resource Manager 템플릿을](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)사용 하 여 논리 앱에 대 한 배포를 자동화 합니다.
 
-> [!NOTE]
-> 매개 변수는 코드 보기에서만 사용할 수 있습니다.
+1. 템플릿에서 각각 배포 및 런타임에 사용할 값을 허용 하기 위한 템플릿 매개 변수 및 워크플로 정의 매개 변수를 정의 합니다.
 
-[첫 번째 예제 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)에서는 웹 사이트의 RSS 피드에 새 게시물이 나타나면 이메일을 보내는 워크플로를 만들었습니다. 피드의 URL은 하드 코드되어 있기 때문에 이 예에서는 피드의 URL을 더 쉽게 변경할 수 있도록 쿼리 값을 매개 변수로 바꾸는 방법을 보여줍니다.
+   템플릿 매개 변수는 워크플로 정의 외부에 있는 매개 변수 섹션에서 정의 되며 워크플로 정의 매개 변수는 워크플로 정의 내에 있는 매개 변수 섹션에서 정의 됩니다.
 
-1. 코드 보기에서 `parameters : {}` 개체를 찾고 `currentFeedUrl` 개체를 추가합니다.
+1. 하드 코딩 된 값을 이러한 매개 변수를 참조 하는 식으로 바꿉니다. 템플릿 식에서는 워크플로 정의 식과 다른 구문을 사용 합니다.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   런타임에 평가 되는 워크플로 정의 식 내에서 배포 시 평가 되는 템플릿 식을 사용 하지 않고 코드를 복잡 하 게 하지 않도록 합니다. 워크플로 정의 외부에서 템플릿 식만 사용 합니다. 워크플로 정의 내에서 워크플로 정의 식만 사용 합니다.
 
-2. `When_a_feed-item_is_published` 동작에서 `queries` 섹션을 찾고 쿼리 값을 `"feedUrl": "#@{parameters('currentFeedUrl')}"`로 바꿉니다.
+   워크플로 정의 매개 변수에 대 한 값을 지정할 때 워크플로 정의 외부에 있지만 논리 앱에 대 한 리소스 정의 내에 있는 매개 변수 섹션을 사용 하 여 템플릿 매개 변수를 참조할 수 있습니다. 이렇게 하면 템플릿 매개 변수 값을 워크플로 정의 매개 변수에 전달할 수 있습니다.
 
-   **이전**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **이후**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   두 개 이상의 문자열을 조인하기 위해 `concat` 함수를 사용할 수도 있습니다. 
-   예를 들어 `"@concat('#',parameters('currentFeedUrl'))"`은 이전 예제와 동일하게 작동합니다.
-
-3.  완료하면 **저장**을 선택합니다.
-
-이제 `currentFeedURL`개 개체를 통해 다른 URL을 전달하여 웹 사이트의 RSS 피드를 변경할 수 있습니다.
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>다른 환경에 대한 배포 매개 변수
-
-일반적으로 배포 수명 주기에는 개발, 스테이징 및 프로덕션이 포함됩니다. 예를 들어, 이러한 모든 환경에서 동일한 논리 앱 정의를 사용하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로 고가용성을 위해 여러 지역에서 동일한 정의를 사용하지만 각 논리 앱 인스턴스에는 해당 지역의 데이터베이스를 사용하는 것이 좋습니다.
-
-> [!NOTE]
-> 이 시나리오는 *런타임*에 매개 변수를 사용하는 것과 다르며 대신 `trigger()` 함수를 사용해야 합니다.
-
-기본 정의는 다음과 같습니다.
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-논리 앱에 대한 실제 `PUT` 요청에서 매개 변수 `uri`를 제공할 수 있습니다. 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 기본값이 더 이상 존재하지 않으므로 논리 앱 페이로드에 이 매개 변수가 필요합니다.
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-자세히 알아보려면 [Azure Logic Apps용 REST API 설명서](https://docs.microsoft.com/rest/api/logic/)를 참조하세요.
+1. 매개 변수의 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) 에 저장 하 고 해당 파일을 배포에 포함 합니다.
 
 ## <a name="process-strings-with-functions"></a>함수로 문자열 처리
 

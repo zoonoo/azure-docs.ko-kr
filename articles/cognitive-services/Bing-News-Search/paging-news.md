@@ -1,6 +1,6 @@
 ---
 title: Bing News Search 결과를 통해 페이징하는 방법
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Bing News Search API가 반환하는 뉴스 기사를 통해 페이징하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f8dce1a03e44758eea737ad2da419fa67c36a2
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390489"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423738"
 ---
 # <a name="how-to-page-through-news-search-results"></a>뉴스 검색 결과를 통해 페이징하는 방법
 
@@ -35,7 +35,7 @@ News Search API를 호출하면 Bing이 쿼리와 관련된 결과 목록을 반
 사용 가능한 문서를 페이징하려면 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
  
 
-|매개 변수  |설명  |
+|매개 변수  |Description  |
 |---------|---------|
 |`count`     | 응답에서 반환할 결과의 수를 지정합니다. 응답에서 요청할 수 있는 최대 결과 수는 100개입니다. 기본값은 10입니다. 제공되는 실제 수는 요청된 수보다 작을 수 있습니다.        |
 |`offset`     | 건너뛸 결과의 수를 지정합니다. `offset`은 0부터 시작하며 (`totalEstimatedMatches` - `count`)보다 작아야 합니다.          |

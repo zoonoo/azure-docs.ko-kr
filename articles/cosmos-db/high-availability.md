@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305439"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467731"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -49,9 +49,9 @@ Cosmos 계정이 *n* 개의 Azure 지역에 걸쳐 배포 되는 경우 모든 �
 - 다중 쓰기 지역으로 구성된 다중 지역 계정은 쓰기 및 읽기 모두에 대해 고가용성을 유지합니다. 지역별 장애 조치(failover)는 즉각적이며, 애플리케이션에서 변경할 필요가 없습니다.
 
 - **단일 쓰기 지역이 있는 다중 지역 계정 (쓰기 영역 중단):** 
-  * 쓰기 지역 중단 동안 이러한 계정은 읽기에 대해 고가용성을 유지합니다. 그러나 쓰기의 경우 영향을 받는 지역을 다른 지역으로 장애 조치 (failover) 하려면 Cosmos 계정에서 **자동 장애 조치를 사용 하도록 설정** 해야 합니다. 장애 조치는 지정한 지역 우선 순위에 따라 발생합니다. 
-  * 영향을 받는 지역이 다시 온라인 상태가 되 면 중단 중 영향을 받는 쓰기 지역에 있는 복제 되지 않은 데이터를 [충돌 피드](how-to-manage-conflicts.md#read-from-conflict-feed)를 통해 사용할 수 있습니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램별 논리에 따라 충돌을 해결 하 고, 업데이트 된 데이터를 적절 하 게 Cosmos 컨테이너에 다시 쓸 수 있습니다. 
-  * 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 쓰기 지역으로 복구 된 지역으로 다시 전환할 수 있습니다. [Azure CLI 또는 Azure Portal](how-to-manage-database-account.md#manual-failover)를 사용 하 여 지역을 전환할 수 있습니다. 수동 장애 조치(Failover) 이전, 도중 또는 이후에는 **데이터 또는 가용성 손실**이 없습니다. 애플리케이션은 고가용성을 계속 유지합니다. 
+  * 쓰기 지역 중단 동안 이러한 계정은 읽기에 대해 고가용성을 유지합니다. 쓰기 요청이 성공 하려면 Azure Cosmos 계정에서 **자동 장애 조치 (failover) 사용** 옵션을 설정 해야 합니다. 이 옵션을 사용 하도록 설정 하면 지정한 지역 우선 순위에 따라 영향을 받는 지역을 다른 지역으로 장애 조치 (failover) 합니다. 
+  * 이전에 영향을 받은 지역이 다시 온라인 상태가 되 면 해당 지역이 실패 했을 때 복제 되지 않은 된 모든 쓰기 데이터는 [충돌 피드](how-to-manage-conflicts.md#read-from-conflict-feed)를 통해 사용할 수 있게 됩니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램별 논리에 따라 충돌을 해결 하 고, 업데이트 된 데이터를 적절 하 게 Azure Cosmos 컨테이너에 다시 쓸 수 있습니다. 
+  * 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 쓰기 지역으로 복구 된 지역으로 다시 전환할 수 있습니다. [Azure CLI 또는 Azure Portal](how-to-manage-database-account.md#manual-failover)를 사용 하 여 지역을 전환할 수 있습니다. 쓰기 지역을 전환 하 고 응용 프로그램의 가용성이 계속 유지 되기 전에는 **데이터 나 가용성 손실이 발생 하지** 않습니다. 
 
 - **단일 쓰기 지역이 있는 다중 지역 계정 (읽기 영역 중단):** 
   * 읽기 지역 중단 동안 이러한 계정은 읽기 및 쓰기에 대해 고가용성을 유지합니다. 

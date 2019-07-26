@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304826"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477170"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 
@@ -71,9 +71,9 @@ SAML 기반 Single Sign-On은 다음과 같은 프로토콜을 사용하는 애�
 - SAML 2.0
 - WS-Federation
 
-SAML 기반 single sign-on에 대 한 SaaS 응용 프로그램을 구성 하려면 [saml 기반 single Sign-on 구성](configure-single-sign-on-portal.md)을 참조 하세요. 또한 다양한 SaaS(Software as a Service) 애플리케이션에는 SAML 기반 Single Sign-On에 대한 구성을 단계별로 안내하는 [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)가 있습니다.
+SAML 기반 single sign-on에 대 한 SaaS 응용 프로그램을 구성 하려면 [saml 기반 single Sign-on 구성](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요. 또한 다양한 SaaS(Software as a Service) 애플리케이션에는 SAML 기반 Single Sign-On에 대한 구성을 단계별로 안내하는 [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)가 있습니다.
 
-WS 페더레이션을 위한 응용 프로그램을 구성 하려면 동일한 지침에 따라 SAML 기반 single sign-on에 대 한 응용 프로그램을 구성 합니다. [saml 기반 single Sign-on 구성](configure-single-sign-on-portal.md)을 참조 하세요. Azure AD를 사용 하도록 응용 프로그램을 구성 하는 단계에서 WS-FEDERATION 끝점 `https://login.microsoftonline.com/<tenant-ID>/wsfed`에 대 한 AZURE ad 로그인 URL을 대체 해야 합니다.
+WS 페더레이션을 위한 응용 프로그램을 구성 하려면 동일한 지침에 따라 SAML 기반 single sign-on에 대 한 응용 프로그램을 구성 합니다. [saml 기반 single Sign-on 구성](configure-single-sign-on-non-gallery-applications.md)을 참조 하세요. Azure AD를 사용 하도록 응용 프로그램을 구성 하는 단계에서 WS-FEDERATION 끝점 `https://login.microsoftonline.com/<tenant-ID>/wsfed`에 대 한 AZURE ad 로그인 URL을 대체 해야 합니다.
 
 SAML 기반 single sign-on에 대 한 온-프레미스 응용 프로그램을 구성 하려면 [응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 saml single sign-on](application-proxy-configure-single-sign-on-on-premises-apps.md)을 참조 하세요.
 
@@ -100,7 +100,7 @@ HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션
 - Windows 7 이상 및 Mac OS X 이상 Chrome
 - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
 
-암호 기반 Single Sign-On에 대해 클라우드 애플리케이션을 구성하려면 [암호 Single Sign-On에 대한 애플리케이션 구성](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso)을 참조하세요.
+암호 기반 single sign-on에 대 한 클라우드 응용 프로그램을 구성 하려면 [암호 single Sign-on 구성](configure-password-single-sign-on-non-gallery-applications.md)을 참조 하세요.
 
 애플리케이션 프록시를 통해 Single Sign-On에 대한 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-configure-single-sign-on-password-vaulting.md)을 참조하세요
 
@@ -127,8 +127,7 @@ Azure AD 관리자가 자격 증명을 관리하는 경우:
 - 관리자는 계속 애플리케이션에 대한 새 자격 증명을 설정할 수 있습니다.
 
 ## <a name="linked-sign-on"></a>연결된 로그온
-
-연결된 로그온을 통해 Azure AD는 이미 다른 서비스에서 Single Sign-On에 대해 구성된 애플리케이션에 Single Sign-On을 제공할 수 있습니다. 연결된 애플리케이션은 Office 365 포털 또는 Azure AD MyApps 포털에서 최종 사용자에게 표시될 수 있습니다. 예를 들어, 사용자는 AD FS(Active Directory Federation Services) 2.0의 Single Sign-On에 대해 구성된 애플리케이션을 Office 365 포털에서 시작할 수 있습니다. 추가적인 보고도 Office 365 포털 또는 Azure AD MyApps 포털에서 실행되는 연결된 애플리케이션에 제공됩니다.
+연결된 로그온을 통해 Azure AD는 이미 다른 서비스에서 Single Sign-On에 대해 구성된 애플리케이션에 Single Sign-On을 제공할 수 있습니다. 연결된 애플리케이션은 Office 365 포털 또는 Azure AD MyApps 포털에서 최종 사용자에게 표시될 수 있습니다. 예를 들어, 사용자는 AD FS(Active Directory Federation Services) 2.0의 Single Sign-On에 대해 구성된 애플리케이션을 Office 365 포털에서 시작할 수 있습니다. 추가적인 보고도 Office 365 포털 또는 Azure AD MyApps 포털에서 실행되는 연결된 애플리케이션에 제공됩니다. 연결 된 로그온을 위해 응용 프로그램을 구성 하려면 [연결 된 로그온 구성](configure-linked-sign-on.md)을 참조 하세요.
 
 ### <a name="linked-sign-on-for-application-migration"></a>응용 프로그램 마이그레이션에 대 한 연결 된 로그온
 
@@ -176,7 +175,7 @@ IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록
 
 헤더 기반 인증을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 헤더 기반 인증](application-proxy-configure-single-sign-on-with-ping-access.md)을 참조하세요.
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess는 무엇입니까?
+### <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess란?
 
 Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용하는 애플리케이션에 액세스 및 Single Sign-On을 사용할 수 있습니다. 애플리케이션 프록시는 이러한 애플리케이션을 Azure AD를 사용하여 액세스를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달하는 방식으로 다른 앱과 유사하게 처리합니다. 인증이 발생한 후 PingAccess 서비스는 Azure AD 액세스 토큰을 애플리케이션에 전송되는 헤더 형식으로 변환합니다.
 
@@ -189,8 +188,9 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ## <a name="related-articles"></a>관련 문서
-
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
-- [Single Sign-On 구성을 위한](configure-single-sign-on-portal.md)
-- [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
-- 다운로드 링크: [Single sign-on 배포 계획](https://aka.ms/SSODeploymentPlan)
+* [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
+* [SAML 기반 single sign-on 구성](configure-single-sign-on-non-gallery-applications.md)
+* [암호 기반 single sign on 구성](configure-password-single-sign-on-non-gallery-applications.md)
+* [연결 된 로그온 구성](configure-linked-sign-on.md)
+* [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
+* 다운로드 링크: [Single Sign-On 배포 계획](https://aka.ms/SSODeploymentPlan)

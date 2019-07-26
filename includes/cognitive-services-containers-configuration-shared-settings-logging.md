@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 7b0059dbaafe42200ebfa8dc65ea585a49c5b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712538"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320496"
 ---
 `Logging` 설정은 컨테이너에 대한 ASP.NET Core 로깅 지원을 관리합니다. ASP.NET Core 애플리케이션에 사용하는 컨테이너에 대한 동일한 구성 설정 및 값을 사용할 수 있습니다. 
 
@@ -29,7 +29,7 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
@@ -41,14 +41,14 @@ docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
 ### <a name="disk-logging"></a>디스크 로깅
 
-`Disk` 로깅 공급자는 다음과 같은 구성 설정을 지원합니다.  
+`Disk` 로깅 공급자는 다음과 같은 구성 설정을 지원합니다.
 
 | 이름 | 데이터 형식 | 설명 |
 |------|-----------|-------------|

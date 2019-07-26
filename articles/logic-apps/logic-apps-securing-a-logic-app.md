@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: d69861beb5848679aa00c8b39f0caa84c7c5d847
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f27dfd1f907d106ddb3b1b9dd7534d56380149c2
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986754"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385490"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -193,9 +193,9 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
   이 옵션을 사용 하면 특정 IP 주소 범위의 요청을 기반으로 실행 기록에 대 한 액세스를 보호할 수 있습니다.
 
-* [난독 처리를 사용 하 여 실행 기록에서 입력 및 출력을 숨깁니다](#obfuscate).
+* [난독 처리를 사용 하 여 실행 기록에서 데이터를 숨깁니다](#obfuscate).
 
-  이 옵션을 사용 하면 트리거 또는 작업을 기반으로 실행 기록에서 입력 및 출력을 숨길 수 있습니다.
+  많은 트리거와 작업에서 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 숨길 수 있습니다.
 
 <a name="restrict-ip"></a>
 
@@ -258,7 +258,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 <a name="obfuscate"></a>
 
-### <a name="hide-inputs-and-outputs-in-run-history-by-using-obfuscation"></a>난독 처리를 사용 하 여 실행 기록에서 입력 및 출력 숨기기
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>난독 처리를 사용 하 여 실행 기록에서 데이터 숨기기
+
+많은 트리거와 작업에는 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 숨기는 설정이 있습니다. 이러한 설정을 사용 하 여이 데이터를 보호 하는 경우 고려해 야 할 몇 가지 [고려 사항은](#obfuscation-considerations) 다음과 같습니다.
+
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>디자이너에서 입력 및 출력 보안
 
 1. 논리 앱이 [Azure Portal](https://portal.azure.com)에서 아직 열려 있지 않은 경우 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -290,9 +294,38 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
       ![실행 기록의 숨겨진 데이터](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
+<a name="secure-data-code-view"></a>
+
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>코드 보기에서 입력 및 출력 보안
+
+기본 트리거 또는 작업 정의에서 다음 값 중 하나 또는 모두 `runtimeConfiguration.secureData.properties` 를 사용 하 여 배열을 추가 하거나 업데이트 합니다.
+
+* `"inputs"`: 실행 기록의 입력을 보호 합니다.
+* `"outputs"`: 실행 기록의 출력을 보호 합니다.
+
+이러한 설정을 사용 하 여이 데이터를 보호 하는 경우 고려해 야 할 몇 가지 [고려 사항은](#obfuscation-considerations) 다음과 같습니다.
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>입력 및 출력을 보호할 때의 고려 사항
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>입력 및 출력을 숨길 때의 고려 사항
 
 * 트리거 또는 작업에서 입력 또는 출력의 보안을 유지 하는 경우 Logic Apps는 보안 데이터를 Azure Log Analytics에 보내지 않습니다. 또한 모니터링에 대해 [추적 된 속성](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) 을 해당 트리거나 작업에 추가할 수 없습니다.
 
@@ -564,3 +597,4 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 * [배포 템플릿 만들기](logic-apps-create-deploy-template.md)  
 * [논리 앱 모니터링](logic-apps-monitor-your-logic-apps.md)  
 * [논리 앱 오류 및 문제 진단](logic-apps-diagnosing-failures.md)  
+* [논리 앱 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)

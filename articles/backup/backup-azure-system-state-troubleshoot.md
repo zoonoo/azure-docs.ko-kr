@@ -1,156 +1,155 @@
 ---
-title: Azure Backup 사용 하 여 시스템 상태 백업 문제 해결
-description: 시스템 상태 백업에는 문제를 해결 합니다.
-services: backup
+title: Azure Backup를 사용 하 여 시스템 상태 백업 문제 해결
+description: 시스템 상태 백업 문제를 해결 합니다.
 author: srinathvasireddy
 manager: sivan
-keywords: 백업으로 하는 방법 백업 시스템 상태
+keywords: 백업 방법 백업 시스템 상태
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 07/22/2019
 ms.author: srinathv
-ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8996270acb1525697f29b4251bf4e11d2db62fdf
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705007"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465365"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
-이 문서에서는 시스템 상태 백업을 사용 하는 동안 발생할 수 있는 문제에 대 한 솔루션을 설명 합니다.
+이 문서에서는 시스템 상태 백업을 사용 하는 동안 발생할 수 있는 문제에 대 한 해결 방법을 설명 합니다.
 
 ## <a name="basic-troubleshooting"></a>기본 문제 해결
-수행 하는 것이 좋습니다는 아래 유효성 검사를 시작 하기 전에 시스템 상태 백업 문제 해결:
+시스템 상태 백업 문제 해결을 시작 하기 전에 아래 유효성 검사를 수행 하는 것이 좋습니다.
 
-- [Microsoft Azure Recovery Services (MARS) 에이전트를 최신 상태로 유지](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS (Microsoft Azure Recovery Services) 에이전트가 최신 상태 인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
 - Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
 - [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AB-AA4dwtk)
 - [예약 백업은 실패하지만 수동 백업은 작동](https://aka.ms/ScheduledBackupFailManualWorks)
 - OS에 최신 업데이트가 설치되었는지 확인
-- [백업에서 지원 되지 않는 드라이브 및 지원 되지 않는 특성을 사용 하 여 파일을 제외 하십시오](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- [지원 되지 않는 특성이 있는 지원 되지 않는 드라이브 및 파일이 백업에서 제외 되는지 확인](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - 보호되는 시스템의 **시스템 클록**이 올바른 표준 시간대로 구성되었는지 확인 <br>
 - [서버에 적어도 .Net Framework 버전 4.5.2 이상이 설치되었는지 확인](https://www.microsoft.com/download/details.aspx?id=30653)<br>
 - 자격 증명 모음에 **서버를 다시 등록**하려는 경우: <br>
   - 에이전트가 서버에서 제거되고 포털에서 삭제되었는지 확인 <br>
   - 처음 서버 등록에 사용한 것과 동일한 암호 사용 <br>
-- 오프 라인 백업의 경우, 오프 라인 백업 작업을 시작 하기 전에 Azure PowerShell 버전 3.7.0 소스와 복사 컴퓨터에 설치 되어 있는지 확인
-- [Backup 에이전트가 Azure 가상 머신에서 실행 되 고 때 고려 사항](https://aka.ms/AB-AA4dwtr)
+- 오프 라인 백업의 경우 오프 라인 백업 작업을 시작 하기 전에 Azure PowerShell 버전 3.7.0가 원본 컴퓨터와 복사 컴퓨터 모두에 설치 되어 있는지 확인 합니다.
+- [Azure 가상 머신에서 백업 에이전트가 실행 되는 경우 고려 사항](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>제한 사항
 - Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
-- 이 기능을 Azure Vm에 사용할 수 없습니다, 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다.
+- 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 하며, Azure Vm에는이 기능을 사용할 수 없습니다.
 
 ## <a name="pre-requisite"></a>필수 구성 요소
 
-있습니다 수행 하기 전에 Azure Backup을 사용 하 여 시스템 상태 백업 문제를 해결 했습니다는 필수 조건 아래를 확인 합니다.  
+Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음과 같은 필수 구성 요소 확인을 수행 확인 합니다.  
 
-### <a name="verify-windows-server-backup-is-installed"></a>Windows Server Backup이 설치 되었는지 확인
+### <a name="verify-windows-server-backup-is-installed"></a>Windows Server 백업 설치 되어 있는지 확인
 
-Windows Server Backup을 설치 하 고 서버에서 사용할 수 있는지 확인 합니다. 설치 상태를 확인 하려면는 아래 PowerShell 명령을:
+서버에 Windows Server 백업 설치 되어 있고 사용 하도록 설정 되어 있는지 확인 합니다. 설치 상태를 확인 하려면 아래 PowerShell 명령을 실행 합니다.
 
  ```
  PS C:\> Get-WindowsFeature Windows-Server-Backup
  ```
-출력에 표시 되는 경우는 **설치 상태** 으로 **사용 가능한**, Windows Server 백업 기능을 설치에 사용할 수 있지만 서버에 설치 되지 않은 것입니다. 그러나 Windows Server Backup을 설치 하지 않은 경우 다음 중 하나를 사용 된 다음 설치 하는 방법입니다.
+출력에 **설치 상태가** **사용 가능**으로 표시 되는 경우 Windows server backup 기능을 설치에 사용할 수 있지만 서버에 설치 하지는 않습니다. 그러나 Windows Server 백업 설치 되어 있지 않으면 아래 방법 중 하나를 사용 하 여 설치 합니다.
 
-**방법 1: PowerShell을 사용 하 여 Windows Server 백업을 설치합니다**
+**방법 1: PowerShell을 사용 하 여 Windows Server 백업 설치**
 
-PowerShell을 사용 하 여 Windows Server Backup을 설치 하려면는 아래 명령을:
+PowerShell을 사용 하 여 Windows Server 백업를 설치 하려면 아래 명령을 실행 합니다.
 
   ```
   PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-**방법 2: 서버 관리자를 사용 하 여 Windows Server 백업을 설치합니다**
+**방법 2: 서버 관리자를 사용 하 여 Windows Server 백업 설치**
 
-서버 관리자를 사용 하 여 Windows Server Backup을 설치 하려면 다음을 수행 합니다 아래:
+서버 관리자를 사용 하 여 Windows Server 백업를 설치 하려면 다음을 수행 합니다.
 
-1. 에 **Sever Manger** 클릭 **역할 및 기능 추가**합니다. 합니다 **추가 역할 및 기능 마법사** 나타납니다.
+1. **서버 관리자** 에서 **역할 및 기능 추가**를 클릭 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
 
     ![대시보드](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. 선택 **설치 유형을** 누릅니다 **다음**합니다.
+2. **설치 유형** 을 선택 하 고 **다음**을 클릭 합니다.
 
     ![설치 유형](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. 서버 풀에서 서버를 선택 하 고 클릭 **다음**합니다. 서버 역할의 기본 선택 항목을 유지 하 고 클릭 **다음**합니다.
-4. 선택 **Windows Server Backup** 에 **기능** 탭을 클릭 **다음**합니다.
+3. 서버 풀에서 서버를 선택 하 고 **다음**을 클릭 합니다. 서버 역할에서 기본 선택 항목을 그대로 두고 **다음**을 클릭 합니다.
+4. **기능** 탭에서 **Windows Server 백업** 를 선택 하 고 **다음**을 클릭 합니다.
 
     ![기능](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. 에 **확인** 탭을 클릭 **설치** 설치 프로세스를 시작 합니다.
-6. 에 **결과** 탭, Windows Server Backup 기능 Windows Server에 제대로 설치 되었는지 표시 됩니다.
+5. **확인** 탭에서 **설치** 를 클릭 하 여 설치 프로세스를 시작 합니다.
+6. **결과** 탭에는 Windows Server에 Windows Server 백업 기능이 성공적으로 설치 되어 표시 됩니다.
 
     ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 
 ### <a name="system-volume-information-permission"></a>시스템 볼륨 정보 사용 권한
 
-로컬 시스템 모든 권한을 갖고 있는지 확인 하십시오 **시스템 볼륨 정보** windows가 설치 된 볼륨의 폴더입니다. 일반적으로 이것이 **C:\System Volume Information**합니다. 위의 사용 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업이 실패할 수 있습니다.
+로컬 시스템에 windows가 설치 된 볼륨에 있는 **시스템 볼륨 정보** 폴더에 대 한 모든 권한이 있는지 확인 합니다. 일반적으로이는 **C:\system 볼륨 정보**입니다. 위의 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업이 실패할 수 있음
 
 ### <a name="dependent-services"></a>종속 서비스
 
-확인을 아래 서비스 실행 중 상태가 됩니다.
+아래 서비스가 실행 중 상태 인지 확인 합니다.
 
 **서비스 이름** | **시작 유형**
 --- | ---
-원격 프로시저 Call(RPC) | 자동
-COM + 이벤트 System(EventSystem) | 자동
-시스템 이벤트 알림 Service(SENS) | 자동
-볼륨 섀도 Copy(VSS) | 수동
-Microsoft 소프트웨어 섀도 복사본 Provider(SWPRV) | 수동
+RPC (원격 프로시저 호출) | 자동
+COM + 이벤트 시스템 (EventSystem) | 자동
+시스템 이벤트 알림 서비스 (SENS) | 자동
+VSS (볼륨 섀도 복사본) | 수동
+Microsoft 소프트웨어 섀도 복사본 공급자 (SWPRV) | 수동
 
-### <a name="validate-windows-server-backup-status"></a>Windows Server 백업 상태 확인
+### <a name="validate-windows-server-backup-status"></a>Windows Server 백업 상태 유효성 검사
 
-Windows Server 백업 상태 확인을 위해 수행 된 아래:
+Windows Server 백업 상태를 확인 하려면 다음을 수행 합니다.
 
-  * WSB PowerShell 실행 중인지 확인
+  * WSB PowerShell이 실행 중인지 확인
 
-    -   실행 `Get-WBJob` 오류로 반환 하지 상승 된 PowerShell 및 있는지 확인 합니다.
+    -   관리자 `Get-WBJob` 권한 PowerShell에서를 실행 하 고 다음 오류를 반환 하지 않는지 확인 합니다.
 
     > [!WARNING]
-    > Get-WBJob: ' Get-WBJob' 용어는 cmdlet, 함수, 스크립트 파일 또는 실행 프로그램의 이름으로 인식 되지 않습니다. 경로가 올바른지 확인한 다음 다시 시도하세요.
+    > Get-WBJob: ' WBJob ' 용어는 cmdlet, 함수, 스크립트 파일 또는 작동 가능한 프로그램의 이름으로 인식 되지 않습니다. 경로가 올바른지 확인한 다음 다시 시도하세요.
 
-    -   이 오류로 인해 실패 한 후 다시 설치 필수 구성 요소를 1 단계에서 설명한 것 처럼 서버 컴퓨터에서 Windows Server Backup 기능 합니다.
+    -   이 오류로 인해 실패 하는 경우 1 단계 필수 구성 요소에 설명 된 대로 서버 컴퓨터에 Windows Server 백업 기능을 다시 설치 합니다.
 
-  * WSB 백업 실행 하 여 제대로 작동 하는지 확인 합니다 아래 명령을 관리자 권한 명령 프롬프트에서:
+  * 관리자 권한 명령 프롬프트에서 아래 명령을 실행 하 여 WSB 백업이 제대로 작동 하는지 확인 합니다.
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >시스템 상태를 저장 하려는 볼륨의 드라이브 문자를 사용 하 여 X 대체 이미지를 백업 합니다.
+      >X를 시스템 상태 백업 이미지를 저장 하려는 볼륨의 드라이브 문자로 바꿉니다.
 
-    - 주기적으로 실행 하 여 작업의 상태를 확인할 `Get-WBJob` 관리자 권한 PowerShell 명령        
-    - 백업 작업이 완료 된 후 실행 하 여 작업의 최종 상태를 확인할 `Get-WBJob -Previous 1` 명령
+    - 관리자 권한 PowerShell에서 명령을 실행 `Get-WBJob` 하 여 작업의 상태를 주기적으로 확인 합니다.        
+    - 백업 작업이 완료 된 후 명령을 실행 `Get-WBJob -Previous 1` 하 여 작업의 최종 상태를 확인 합니다.
 
-작업이 실패 한 경우에 MARS 에이전트 시스템 상태 백업 실패를 초래 하는 WSB 문제를 나타냅니다.
+작업이 실패 하면 WSB 에이전트 시스템 상태 백업 실패가 발생 하는 WSB 문제를 나타냅니다.
 
-## <a name="common-errors"></a>일반적인 오류
+## <a name="common-errors"></a>일반 오류
 
 ### <a name="vss-writer-timeout-error"></a>VSS 기록기 시간 초과 오류
 
 | 증상 | 원인 | 해결 방법
 | -- | -- | --
-| -MARS 에이전트 오류 메시지와 함께 실패합니다. "VSS 오류를 사용 하 여 WSB 작업이 실패 했습니다. 이 문제를 해결 하는 VSS 이벤트 로그 확인 "<br/><br/> -다음 오류 로그는 VSS 응용 프로그램 이벤트 로그에 존재 합니다. "VSS 기록기가 오류 0x800423f2 사용 하 여 이벤트를 거부 하는, 중지 및 재개 이벤트 간의 기록기의 제한 시간이 만료 되었습니다."| VSS 기록기를 컴퓨터의 CPU 및 메모리 리소스가 부족 하 여 시간에 완료할 수 됩니다. <br/><br/> 다른 백업 소프트웨어는 VSS 기록기를 사용 하 여 이미, 결과적으로 스냅숏 작업을 완료할 수 없습니다이 백업에 대 한 | 시스템에서 확보할 수 또는 메모리/CPU를 너무 많이 수행 하는 프로세스를 중단 하 고 작업을 다시 시도 하려면 p U/메모리 대기 <br/><br/>  진행 중인 백업을 완료 하 고 백업이 없습니다 머신에서 실행 하는 경우 나중에 시도 대기
+| -MARS 에이전트가 실패 하 고 오류 메시지가 나타납니다. "WSB 작업이 VSS 오류로 인해 실패 했습니다. VSS 이벤트 로그를 확인 하 여 오류 해결<br/><br/> -다음 오류 로그는 VSS 응용 프로그램 이벤트 로그에 표시 됩니다. "VSS writer가 오류 0x800423f2 인 이벤트를 거부 했습니다. 중지 및 재개 이벤트 사이에 기록기의 제한 시간이 만료 되었습니다."| 컴퓨터의 CPU 및 메모리 리소스가 부족 하 여 VSS 기록기를 시간 내에 완료할 수 없습니다. <br/><br/> 다른 백업 소프트웨어에서 이미 VSS 기록기를 사용 하 고 있으므로이 백업에 대 한 결과 스냅숏 작업을 완료할 수 없습니다. | 시스템에서 CPU/메모리가 확보 될 때까지 기다리거나 메모리/CPU를 너무 많이 차지 하는 프로세스를 중단 하 고 작업을 다시 시도 하십시오. <br/><br/>  진행 중인 백업이 완료 될 때까지 기다린 후 컴퓨터에서 실행 중인 백업이 없을 때 나중에 작업을 시도 하십시오.
 
 
-### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>섀도 복사본을 증가 부족 한 디스크 공간
-
-| 증상 | 해결 방법
-| -- | --
-| -MARS 에이전트 오류 메시지와 함께 실패합니다. 시스템 파일이 들어 있는 볼륨의 섀도 복사본 볼륨 디스크 공간이 부족으로 인해 확장 되지 않아서 백업에 실패 했습니다. <br/><br/> -오류/경고 로그를 수행 하는 것이 volsnap 시스템 이벤트 로그에 있습니다. "했습니다. 디스크 공간이 부족이 오류로 인해 c: 드라이브의 섀도 복사본에 대 한 섀도 복사본 저장소 증가를 c: 볼륨에서 모든 섀도 복사본 볼륨은 삭제할 위험이 c:" | -공간을 확보 하기 이벤트 로그에 강조 표시 된 볼륨의 섀도 복사본 백업이 진행 되는 동안 증가 대 한 충분 한 공간이 있도록 <br/><br/> -구성 하는 동안 섀도 복사에 사용 되는 공간의 크기를 제한할 수에서는 섀도 복사본 공간이, 자세한 내용은 참조 [문서](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
-
-
-### <a name="efi-partition-locked"></a>잠긴 EFI 파티션
+### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>디스크 공간이 부족 하 여 섀도 복사본을 확장할 수 없습니다.
 
 | 증상 | 해결 방법
 | -- | --
-| MARS 에이전트 오류 메시지와 함께 실패합니다. "시스템 상태를 다시 최대 실패 EFI 시스템 파티션이 잠겨. 백업 소프트웨어 또는 타사 보안 시스템 파티션에 액세스 있기 때문일 수 있습니다 " | -문제 뿐만 아니라 타사 보안 소프트웨어 때문 인 경우 다음 해야 MARS 에이전트를 허용할 수 있습니다 있도록 바이러스 백신 공급 업체에 문의 <br/><br/> -타사 백업 소프트웨어를 실행 하는 경우 완료 하 고 등록 다시 시도 하려면 기다립니다
+| -MARS 에이전트가 실패 하 고 오류 메시지가 나타납니다. 시스템 파일을 포함 하는 볼륨의 디스크 공간이 부족 하 여 섀도 복사본 볼륨을 늘릴 수 없어서 백업에 실패 했습니다. <br/><br/> -다음 오류/경고 로그는 volsnap 시스템 이벤트 로그에 표시 됩니다. "볼륨 c:의 디스크 공간이 부족 하 여 C의 섀도 복사본에 대 한 섀도 복사본 저장소 크기를 늘릴 수 없습니다 .이 오류로 인해 볼륨 C:의 모든 섀도 복사본을 삭제 하는 것은 위험 합니다." | -백업이 진행 되는 동안 섀도 복사본을 늘릴 수 있는 충분 한 공간이 있도록 이벤트 로그에서 강조 표시 된 볼륨의 공간을 확보 합니다. <br/><br/> -섀도 복사본 공간을 구성 하는 동안 섀도 복사본에 사용 되는 공간 크기를 제한할 수 있습니다. 자세한 내용은이 [문서](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax) 를 참조 하세요.
+
+
+### <a name="efi-partition-locked"></a>EFI 파티션 잠김
+
+| 증상 | 해결 방법
+| -- | --
+| MARS 에이전트가 실패 하 고 오류 메시지가 나타납니다. "EFI 시스템 파티션이 잠겨 있어 시스템 상태를 백업 하지 못했습니다. 이는 타사 보안 또는 백업 소프트웨어에의 한 시스템 파티션 액세스 때문일 수 있습니다. " | -타사 보안 소프트웨어로 인해 문제가 발생 한 경우 MARS 에이전트를 허용 하도록 바이러스 백신 공급 업체에 문의 해야 합니다. <br/><br/> -타사 백업 소프트웨어가 실행 중인 경우 완료 될 때까지 기다렸다가 다시 시도 하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Resource Manager 배포에서 Windows 시스템 상태에 대 한 자세한 내용은 참조 하세요. [Windows Server 시스템 상태 백업](backup-azure-system-state.md)
+- 리소스 관리자 배포의 Windows 시스템 상태에 대 한 자세한 내용은 [Windows Server 시스템 상태 백업](backup-azure-system-state.md) 을 참조 하세요.

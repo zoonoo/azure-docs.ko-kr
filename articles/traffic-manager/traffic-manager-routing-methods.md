@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320082"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333744"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -148,6 +148,14 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 ## <a name = "multivalue"></a>다중값 트래픽 라우팅 방법
 **다중값** 트래픽 라우팅 방법을 사용하면 단일 DNS 쿼리 응답에 정상 상태의 여러 엔드포인트를 가져올 수 있습니다. 이를 통해 호출자는 반환된 엔드포인트가 응답하지 않을 때 다른 엔드포인트와 클라이언트 쪽 재시도를 수행할 수 있습니다. 이 패턴은 서비스의 가용성을 향상시키고 새 DNS 쿼리와 관련된 대기 시간을 줄여 정상 상태의 엔드포인트를 얻을 수 있습니다. 다중값 라우팅 방법은 ‘외부’ 유형의 모든 엔드포인트가 IPv4 또는 IPv6 주소로 지정된 경우에만 작동합니다. 쿼리가 이 프로필에 대해 수신되면 정상 상태의 모든 엔드포인트가 반환되고, 구성 가능한 최대 반환 수 제한이 적용됩니다.
 
+### <a name="faqs"></a>FAQ
+
+* [다중값 라우팅이 유용한 몇 가지 사용 사례는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [다중값 라우팅이 사용 되는 경우 반환 되는 끝점은 몇 개입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [다중값 라우팅을 사용할 때 동일한 끝점 집합을 얻을 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>서브넷 트래픽 라우팅 방법
 **서브넷** 트래픽 라우팅 방법을 사용하면 최종 사용자 IP 주소 범위 집합을 프로필의 특정 엔드포인트에 매핑할 수 있습니다. 그런 다음, Traffic Manager가 해당 프로필의 DNS 쿼리를 수신하면 해당 요청의 원본 IP 주소(대부분의 경우 호출자가 사용하는 DNS 확인자의 나가는 IP 주소)를 조사하고, 매핑되는 엔드포인트를 확인하고, 해당 엔드포인트를 쿼리 응답에 반환합니다. 
 
@@ -155,6 +163,19 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 주소 범위가 없는 엔드포인트를 정의하는 경우 해당 엔드포인트는 대체(fallback)용으로 사용되어 남아 있는 서브넷에서 트래픽을 가져옵니다. 대체(fallback) 엔드포인트가 포함되지 않으면 Traffic Manager는 정의되지 않은 모든 범위에 대해 NODATA 응답을 보냅니다. 따라서 대체(fallback) 엔드포인트를 정의하거나 엔드포인트에서 가능한 모든 IP 범위를 지정하는 것이 좋습니다.
 
 특정 IP 공간에서 연결하는 사용자에게 다른 환경을 제공하기 위해 서브넷 라우팅을 사용할 수 있습니다. 예를 들어 서브넷 라우팅을 사용하면 고객은 회사 사무실의 모든 요청이 앱 내부용 버전을 테스트할 수 있는 다른 엔드포인트로 라우팅되도록 할 수 있습니다. 또 다른 시나리오는 특정 ISP에서 연결하는 사용자에게 다른 환경을 제공하려는 경우입니다(예: 지정된 ISP의 사용자 차단).
+
+### <a name="faqs"></a>FAQ
+
+* [서브넷 라우팅이 유용한 몇 가지 사용 사례는 무엇 인가요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Traffic Manager에서 최종 사용자의 IP 주소를 어떻게 알 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [서브넷 라우팅을 사용할 때 IP 주소를 지정 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [서브넷 라우팅을 사용할 때 대체 (fallback) 끝점을 지정 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [서브넷 라우팅 유형 프로필에서 끝점을 사용 하지 않도록 설정 하면 어떻게 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>다음 단계
 

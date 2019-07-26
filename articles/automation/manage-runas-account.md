@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798504"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498388"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -24,58 +24,58 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 실행 계정에는 다음과 같은 두 종류가 있습니다.
 
-* **Azure 실행 계정** -관리 데이 계정을 [Resource Manager 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
+* **Azure 실행 계정** -이 계정은 [리소스 관리자 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스를 관리 하는 데 사용 됩니다.
   * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
   * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
-* **Azure 클래식 실행 계정** -관리 데이 계정을 [클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
+* **Azure 클래식 실행 계정** -이 계정은 [클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스를 관리 하는 데 사용 됩니다.
   * 구독에 관리 인증서를 만듭니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 구독 이름, subscriptionId 및 인증서 자산 이름을 보유합니다.
-  * 만들거나 갱신 구독에 공동 관리자 여야 합니다.
-  
+  * 만들거나 갱신 하려면 구독에 대 한 공동 관리자 여야 합니다.
+
   > [!NOTE]
   > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독 사용 시에는 Azure 클래식 실행 계정이 생성되지 않습니다. Azure 실행 계정은 계속 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요.
 
   > [!NOTE]
-  > 실행 계정에 대 한 서비스 주체에는 기본적으로 Azure Active Directory를 읽을 수 있는 권한이 없습니다. 서비스에서 사용자에 해당 권한을 부여 해야 읽기 또는 Azure Active directory 관리에 사용 권한을 추가 하려는 경우 **API 사용 권한**합니다. 자세한 내용은 참조 하세요 [웹 Api에 액세스 권한을 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)합니다.
+  > 실행 계정에 대 한 서비스 주체에는 기본적으로 Azure Active Directory를 읽을 수 있는 권한이 없습니다. Azure Active directory를 읽거나 관리 하는 권한을 추가 하려면 **API 권한**에서 서비스 주체에 대 한 권한을 부여 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조 하세요.
 
 ## <a name="permissions"></a>실행 계정 구성 권한
 
-실행 계정을 만들거나 업데이트하려면 특정 권한이 있어야 합니다. Azure Active Directory의 전역 관리자 및 구독에 소유자는 모든 작업을 완료 수 있습니다. 업무가 구분되어 있는 경우를 위해 다음 표에 작업, 해당 cmdlet 및 필요한 권한의 목록이 나와 있습니다.
+실행 계정을 만들거나 업데이트하려면 특정 권한이 있어야 합니다. Azure Active Directory의 전역 관리자와 구독의 소유자는 모든 작업을 완료할 수 있습니다. 업무가 구분되어 있는 경우를 위해 다음 표에 작업, 해당 cmdlet 및 필요한 권한의 목록이 나와 있습니다.
 
 |태스크|Cmdlet  |최소 권한  |권한을 설정하는 위치|
 |---|---------|---------|---|
 |Azure AD 애플리케이션 만들기|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 애플리케이션 개발자 역할<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure Active Directory > 앱 등록 |
 |애플리케이션에 자격 증명을 추가합니다.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 애플리케이션 관리자 또는 글로벌 관리자<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure Active Directory > 앱 등록|
 |Azure AD 서비스 사용자 생성 및 가져오기|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | 애플리케이션 관리자 또는 글로벌 관리자<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>홈 > Azure Active Directory > 앱 등록|
-|지정된 보안 주체의 RBAC 역할 할당 또는 가져오기|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | 다음 권한이 있어야 합니다.</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>A: 수</br></br>사용자 액세스 관리자 또는 소유자        | [구독](../role-based-access-control/role-assignments-portal.md)</br>홈 > 구독 > \<구독 이름\> - 액세스 제어(IAM)|
+|지정된 보안 주체의 RBAC 역할 할당 또는 가져오기|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | 다음 사용 권한이 있어야 합니다.</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>또는 일 수 있습니다.</br></br>사용자 액세스 관리자 또는 소유자        | [구독](../role-based-access-control/role-assignments-portal.md)</br>홈 > 구독 > \<구독 이름\> - 액세스 제어(IAM)|
 |Automation 인증서 생성 또는 제거|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | 리소스 그룹의 기여자         |Automation 계정 리소스 그룹|
 |Automation 연결 생성 또는 제거|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|리소스 그룹의 기여자 |Automation 계정 리소스 그룹|
 
-<sup>1</sup> Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)할 수 있습니다. 앱 등록 설정이로 설정 되어 있으면 **No**,이 작업을 수행 하는 사용자는 앞의 표에 정의 된 것 이어야 합니다.
+<sup>1</sup> Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)할 수 있습니다. 앱 등록 설정이 **아니요**로 설정 된 경우이 작업을 수행 하는 사용자는 앞의 표에 정의 되어 있어야 합니다.
 
-에 추가 하기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우는 **전역 관리자** 역할에 게스트로 추가 하는 구독입니다. 이 경우에는 **Automation 계정 추가** 페이지에 `You do not have permissions to create…` 경고가 표시됩니다. 에 추가 된 사용자는 **전역 관리자** 역할 먼저 구독의 Active Directory 인스턴스에서 제거 되어 Active Directory의 완전 한 사용자 확인에 다시 추가 합니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
+구독의 **전역 관리자** 역할에 추가 되기 전에 구독의 Active Directory 인스턴스에 대 한 멤버가 아닌 경우 게스트로 추가 됩니다. 이 경우에는 **Automation 계정 추가** 페이지에 `You do not have permissions to create…` 경고가 표시됩니다. 먼저 **전역 관리자** 역할에 추가 된 사용자를 구독의 Active Directory 인스턴스에서 제거 하 고 다시 추가 하 여 Active Directory에서 전체 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
-## <a name="permissions-classic"></a>클래식 실행 계정 구성에 대 한 사용 권한
+## <a name="permissions-classic"></a>클래식 실행 계정을 구성할 수 있는 권한
 
-를 구성 하거나 클래식 실행 계정의 갱신 해야 합니다 **공동 관리자** 구독 수준에서 역할입니다. 기본 사용 권한에 대 한 자세한 내용은 참조 하세요 [Azure 클래식 구독 관리자](../role-based-access-control/classic-administrators.md#add-a-co-administrator)합니다.
+클래식 실행 계정을 구성 하거나 갱신 하려면 구독 수준에서 **공동 관리자** 역할이 있어야 합니다. 클래식 사용 권한에 대해 자세히 알아보려면 [Azure 클래식 구독 관리자](../role-based-access-control/classic-administrators.md#add-a-co-administrator)를 참조 하세요.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>포털에서 실행 계정 만들기
 
-이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다. 실행 계정과 클래식 실행 계정을 개별적으로 만듭니다. 클래식 리소스를 관리할 필요가 없으면 Azure 실행 계정만 만들면 됩니다.  
+이 섹션에서는 다음 단계를 수행하여 Azure Portal에서 Azure Automation 계정을 업데이트합니다. 실행 계정과 클래식 실행 계정을 개별적으로 만듭니다. 클래식 리소스를 관리할 필요가 없으면 Azure 실행 계정만 만들면 됩니다.
 
 1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
 3. **Automation 계정** 페이지의 Automation 계정 목록에서 Automation 계정을 선택합니다.
-4. 왼쪽 창의 **계정 설정** 섹션 아래에서 **실행 계정**을 선택합니다.  
-5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다. **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 중 하나를 선택하여 해당 창이 표시되면, 개요 정보를 검토한 후에 **만들기**를 클릭하여 실행 계정 만들기를 계속 진행합니다.  
-6. Azure에서 Automation 계정을 만드는 동안 메뉴의 **알림** 아래에서 진행 상황을 추적할 수 있습니다. 계정을 만드는 중이라는 배너도 표시됩니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.  
+4. 왼쪽 창의 **계정 설정** 섹션 아래에서 **실행 계정**을 선택합니다.
+5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다. **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 중 하나를 선택하여 해당 창이 표시되면, 개요 정보를 검토한 후에 **만들기**를 클릭하여 실행 계정 만들기를 계속 진행합니다.
+6. Azure에서 Automation 계정을 만드는 동안 메뉴의 **알림** 아래에서 진행 상황을 추적할 수 있습니다. 계정을 만드는 중이라는 배너도 표시됩니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
 ## <a name="create-run-as-account-using-powershell"></a>PowerShell을 사용하여 실행 계정 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 목록에서는 PowerShell에서 실행 계정을 만들기 위한 요구 사항을 제공합니다.
 
@@ -87,7 +87,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 스크립트의 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*의 값을 가져오려면 다음 단계를 완료합니다.
 
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Automation**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Automation 계정**을 선택합니다.
-1. Automation 계정 페이지에서 Automation 계정을 선택한 다음 **계정 설정** 아래에서 **속성**을 선택합니다.  
+1. Automation 계정 페이지에서 Automation 계정을 선택한 다음 **계정 설정** 아래에서 **속성**을 선택합니다.
 1. **속성** 페이지의 **구독 ID**, **이름**, **리소스 그룹** 값을 메모합니다.
 
    ![Automation 계정 "속성" 페이지](media/manage-runas-account/automation-account-properties.png)
@@ -104,7 +104,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 1. 컴퓨터에 다음 스크립트를 저장합니다. 이 예에서는 이를 *New-RunAsAccount.ps1*이라는 파일 이름으로 저장합니다.
 
-   이 스크립트는 여러 Azure Resource Manager cmdlet을 사용하여 리소스를 만듭니다. 위의 [권한을](#permissions) 표에서 cmdlet 및 필요한 권한을 보여 줍니다.
+   이 스크립트는 여러 Azure Resource Manager cmdlet을 사용하여 리소스를 만듭니다. 위의 [사용 권한](#permissions) 테이블은 필요한 cmdlet 및 해당 사용 권한을 보여 줍니다.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -158,18 +158,18 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
         Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
     }
 
-    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
+    function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
         $keyId = (New-Guid).Guid
 
         # Create an Azure AD application, AD App Credential, AD ServicePrincipal
 
         # Requires Application Developer Role, but works with Application administrator or GLOBAL ADMIN
-        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId) 
+        $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $keyId)
         # Requires Application administrator or GLOBAL ADMIN
         $ApplicationCredential = New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -StartDate $PfxCert.NotBefore -EndDate $PfxCert.NotAfter
         # Requires Application administrator or GLOBAL ADMIN
-        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
         # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
@@ -187,7 +187,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
     }
 
     function CreateAutomationCertificateAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $certifcateAssetName, [string] $certPath, [string] $certPlainPassword, [Boolean] $Exportable) {
-        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force   
+        $CertPassword = ConvertTo-SecureString $certPlainPassword -AsPlainText -Force
         Remove-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $certifcateAssetName -ErrorAction SilentlyContinue
         New-AzureRmAutomationCertificate -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Path $certPath -Name $certifcateAssetName -Password $CertPassword -Exportable:$Exportable  | write-verbose
     }
@@ -212,7 +212,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
     # Enable-AzureRmAlias
 
 
-    Connect-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     # Create a Run As account by using a service principal
@@ -289,29 +289,29 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
     > **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 [모듈을 업데이트](automation-update-azure-modules.md)할 수 있습니다.
 
 1. 사용자 컴퓨터의 **시작** 화면에서 관리자 권한으로 **Windows PowerShell**을 시작합니다.
-1. 승격된 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동합니다.  
+1. 승격된 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동합니다.
 1. 필요한 구성에 대한 매개 변수 값을 사용하여 스크립트를 실행합니다.
 
-    **자체 서명된 인증서를 사용하여 실행 계정 만들기**  
+    **자체 서명된 인증서를 사용하여 실행 계정 만들기**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
     ```
 
-    **자체 서명된 인증서를 사용하여 실행 계정 및 클래식 실행 계정 만들기**  
+    **자체 서명된 인증서를 사용하여 실행 계정 및 클래식 실행 계정 만들기**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
     ```
 
-    **엔터프라이즈 인증서를 사용하여 실행 계정 및 클래식 실행 계정 만들기**  
+    **엔터프라이즈 인증서를 사용하여 실행 계정 및 클래식 실행 계정 만들기**
 
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
     ```
 
     **Azure Government 클라우드에서 자체 서명된 인증서를 사용하여 실행 계정 및 클래식 실행 계정 만들기**
-  
+
     ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
     ```
@@ -368,16 +368,53 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 1. 인증서가 갱신되는 동안 메뉴의 **알림**에서 진행률을 추적할 수 있습니다.
 
+## <a name="auto-cert-renewal"></a>Automation runbook을 사용 하 여 자동 인증서 갱신 설정
+
+인증서를 자동으로 갱신 하기 위해 automation runbook을 사용할 수 있습니다. [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) 의 다음 스크립트는 automation 계정에서이 기능을 사용 하도록 설정 합니다.
+
+- 이 `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` 스크립트는 주별 일정을 만들어 실행 계정 인증서를 갱신 합니다.
+- 이 스크립트는 automation 계정에 **AutomationRunAsCredential** runbook을 추가 합니다.
+  - GitHub의 스크립트에서 runbook 코드를 볼 수도 있습니다. [Update-AutomationRunAsCredential](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
+  - 또한 파일의 PowerShell 코드를 사용 하 여 필요에 따라 인증서를 수동으로 갱신할 수 있습니다.
+
+갱신 프로세스를 즉시 테스트 하려면 다음 단계를 사용 합니다.
+
+1. 아래와 같이 **AutomationRunAsCredential** runbook을 편집 하 고`#` `Exit(1)` 명령 앞에 있는 122 줄에 주석 문자 ()를 추가 합니다.
+
+   ```powershell
+   #Exit(1)
+   ```
+
+2. Runbook을 게시 합니다.
+3. Runbook을 시작 합니다.
+4. 다음 코드를 사용 하 여 성공적으로 갱신 되었는지 확인 합니다.
+
+   ```powershell
+   (Get-AzAutomationCertificate -AutomationAccountName TestAA
+                                -Name AzureRunAsCertificate
+                                -ResourceGroupName TestAutomation).ExpiryTime.DateTime
+   ```
+
+   ```Output
+   Thursday, November 7, 2019 7:00:00 PM
+   ```
+
+5. 테스트 후 runbook을 편집 하 고 **1 단계**에서 추가한 주석 문자를 제거 합니다.
+6. Runbook을 **게시** 합니다.
+
+> [!NOTE]
+> 스크립트를 실행 하려면 Azure Active Directory의 **전역 관리자** 또는 **회사 관리자** 여야 합니다.
+
 ## <a name="limiting-run-as-account-permissions"></a>실행 계정 권한 제한
 
-Azure에서 리소스에 대 한 자동화의 대상 지정을 제어 하기 위해 실행할 수 있습니다 합니다 [업데이트 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) 기존 실행 계정 서비스 주체를 변경 하려면 PowerShell 갤러리의 스크립트 만들고 사용자 지정 역할 정의 사용 합니다. 이 역할은 권한이 제외한 모든 리소스 [Key Vault](https://docs.microsoft.com/azure/key-vault/)합니다. 
+Azure의 리소스에 대 한 자동화 대상을 제어 하려면 PowerShell 갤러리에서 Update-AutomationRunAsAccountRoleAssignments 스크립트를 실행 하 여 기존 실행 계정 서비스 주체를 변경 하 여 사용자 지정 역할을 만들고 사용할 수 있습니다 [.](https://aka.ms/AA5hug8) 정의. 이 역할은 [Key Vault](https://docs.microsoft.com/azure/key-vault/)를 제외한 모든 리소스에 대 한 권한을 가집니다.
 
 > [!IMPORTANT]
-> 실행 한 후의 `Update-AutomationRunAsAccountRoleAssignments.ps1` 스크립트, runbook 실행 계정을 사용 하 여 key Vault에 액세스 하는 더 이상 작동 합니다. Azure key Vault에 대 한 호출에 대 한 계정에서 runbook을 검토 해야 합니다.
+> `Update-AutomationRunAsAccountRoleAssignments.ps1` 스크립트를 실행 한 후 RunAs 계정을 사용 하 여 keyvault에 액세스 하는 runbook은 더 이상 작동 하지 않습니다. Azure KeyVault에 대 한 호출에 대 한 계정의 runbook을 검토 해야 합니다.
 >
-> 해야 하는 Azure Automation runbook에서 key Vault에 액세스할 수 있도록 [RunAs 계정을 KeyVault의 사용 권한을 추가](#add-permissions-to-key-vault)합니다.
+> Azure Automation runbook에서 KeyVault에 대 한 액세스를 사용 하도록 설정 하려면 키 [자격 증명 모음에 RunAs 계정을 추가](#add-permissions-to-key-vault)해야 합니다.
 
-RunAs 서비스 주체가 수행할 수 있는 더 제한 해야 하는 경우에 다른 리소스 형식을 추가할 수 있습니다는 `NotActions` 사용자 지정 역할 정의 합니다. 다음 예제에 대 한 액세스를 제한 `Microsoft.Compute`합니다. 이를 추가 하는 경우는 **NotActions** 역할 정의의이 역할 됩니다 모든 계산 리소스에 액세스할 수 있습니다. 역할 정의 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 역할 정의 이해할](../role-based-access-control/role-definitions.md)합니다.
+RunAs 서비스 사용자가 추가로 수행할 수 있는 작업을 제한 해야 하는 경우 사용자 지정 역할 정의의에 `NotActions` 다른 리소스 유형을 추가할 수 있습니다. 다음 예에서는에 대 한 `Microsoft.Compute`액세스를 제한 합니다. 역할 정의의 **Notactions** 에이를 추가 하는 경우이 역할은 모든 계산 리소스에 액세스할 수 없게 됩니다. 역할 정의에 대 한 자세한 내용은 [Azure 리소스에 대 한 역할 정의 이해](../role-based-access-control/role-definitions.md)를 참조 하세요.
 
 ```powershell
 $roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
@@ -385,20 +422,20 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-실행 계정에서 사용 하는 서비스 주체 인지를 확인 하는 **참가자** 또는 사용자 지정 역할 정의 Automation 계정으로 이동한 후 아래 **계정 설정**선택, **으로 실행 계정** > **Azure 실행 계정**합니다. 아래 **역할** 사용 되는 역할 정의 찾을 수 있습니다. 
+실행 계정에서 사용 하는 서비스 주체가 **참가자** 에 게 있는지 또는 사용자 지정 역할 정의에 해당 하는 경우 Automation 계정으로 이동 하 고 **계정 설정**에서 **실행** > 계정**Azure 실행 계정을 선택 합니다.** . **역할** 에서 사용 중인 역할 정의를 찾을 수 있습니다.
 
 [![](media/manage-runas-account/verify-role.png "실행 계정 역할 확인")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
-여러 구독 또는 Automation 계정에 대 한 Automation 실행 계정으로 사용 되는 역할 정의 확인 하려면 사용할 수 있습니다 합니다 [검사 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) PowerShell 갤러리의 스크립트입니다.
+여러 구독 또는 Automation 계정에 대 한 Automation 실행 계정에서 사용 하는 역할 정의를 확인 하려면 PowerShell 갤러리 [Check-AutomationRunAsAccountRoleAssignments](https://aka.ms/AA5hug5) 스크립트를 사용할 수 있습니다.
 
 ### <a name="add-permissions-to-key-vault"></a>Key Vault에 권한 추가
 
-Azure Key Vault를 관리 하는 자동화를 허용 하려는 실행 계정 서비스 주체 사용자 지정 역할 정의 사용 하는 경우이 동작을 허용 하려면 추가 단계를 수행 해야 합니다.
+Azure Automation에서 Key Vault를 관리할 수 있도록 허용 하 고 실행 계정 서비스 사용자가 사용자 지정 역할 정의를 사용 하는 경우 추가 단계를 수행 하 여이 동작을 허용 해야 합니다.
 
-* Key Vault에 권한 부여
+* Key Vault에 대 한 사용 권한 부여
 * 액세스 정책 설정
 
-사용할 수는 [확장 AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) keyvault에 계정으로 실행 권한 부여를 방문 하는 PowerShell 갤러리에서 스크립트 [key vault에 대 한 응용 프로그램 액세스를 부여 합니다. ](../key-vault/key-vault-group-permissions-for-apps.md) settings 권한과 KeyVault에 대 한 자세한 내용은 합니다.
+PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault](https://aka.ms/AA5hugb) 스크립트를 사용 하 여 Keyvault에 실행 계정 권한을 부여 하거나, [응용 프로그램에 키 자격 증명 모음에](../key-vault/key-vault-group-permissions-for-apps.md) 대 한 액세스 권한 부여를 방문 하 여 설정에 대 한 자세한 내용을 확인할 수 있습니다. KeyVault에 대 한 사용 권한.
 
 ## <a name="misconfiguration"></a>잘못된 구성
 

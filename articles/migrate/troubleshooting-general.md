@@ -4,18 +4,18 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 15d3809b9a028fd2495c504e9bf19251dd051520
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302321"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372591"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
-[Azure Migrate](migrate-services-overview.md) 는 Microsoft의 평가 및 마이그레이션과 ISV (독립 소프트웨어 공급 업체) 제품에 대 한 Microsoft 도구의 허브를 제공 합니다. 이 문서에서는 Azure Migrate Azure Migrate 관련 된 오류 해결에 대 한 도움말을 제공 합니다. 서버 평가 및 Azure Migrate: 서버 마이그레이션.
+[Azure Migrate](migrate-services-overview.md) 는 Microsoft의 평가 및 마이그레이션과 ISV (독립 소프트웨어 공급 업체) 제품에 대 한 Microsoft 도구의 허브를 제공 합니다. 이 문서에서는 Azure Migrate Azure Migrate 관련 된 오류 해결에 대 한 도움말을 제공 합니다. 서버 평가 및 Azure Migrate: Server Migration에 연결합니다.
 
 ## <a name="azure-migrate-project-issues"></a>Azure Migrate 프로젝트 문제
 
@@ -54,6 +54,10 @@ Azure Migrate의 [두 가지 버전이](https://docs.microsoft.com/azure/migrate
 
    ![두 번째 Azure Migrate 프로젝트 만들기](./media/troubleshooting-general/create-new-project.png)
 
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
+
+여기에서 [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) 및 [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects)에 대 한 목록을 찾을 수 있습니다.
+
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Azure Migrate 프로젝트 및 관련 Log Analytics 작업 영역 삭제
 
 Azure Migrate 프로젝트를 삭제 하면 검색 된 컴퓨터에 대 한 메타 데이터와 함께 마이그레이션 프로젝트가 삭제 됩니다. 그러나 서버 평가 도구에 Log Analytics 작업 영역을 연결한 경우에는 Log Analytics 작업 영역을 자동으로 삭제 하지 않습니다. 이는 같은 Log Analytics 작업 영역이 여러 사용 사례에 사용되었을 수 있기 때문입니다. Log Analytics 작업 영역도 삭제하려면 수동으로 작업 영역을 삭제해야 합니다.
@@ -76,7 +80,7 @@ Azure Migrate 프로젝트를 삭제 하면 검색 된 컴퓨터에 대 한 메�
 
 ### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>오류로 인해 VMware에 대 한 Azure Migrate 어플라이언스를 배포 하지 못했습니다. 제공된 매니페스트 파일이 잘못되었습니다. 잘못된 OVF 매니페스트 항목입니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되는지 확인 합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되는지 확인 합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
 2. 여전히 실패하고 VMware vSphere 클라이언트를 OVF 배포에 사용하는 경우 vSphere Web Client를 통해 배포를 시도합니다. 그래도 실패하는 경우 다른 웹 브라우저를 사용해 보세요.
 3. vSphere 웹 클라이언트를 사용 중이며 vCenter Server 6.5 또는 6.7에서 해당 클라이언트를 배포하려는 경우 다음 단계에 따라 ESXi 호스트에서 직접 OVA 배포를 시도합니다.
    - 웹 클라이언트 (https://<*호스트 IP 주소*>/du)를 사용 하 여 ESXi 호스트에 직접 연결 (vCenter Server 대신) 합니다.
@@ -121,9 +125,31 @@ Hyper-v에 대 한 서버 마이그레이션 | [여기](https://docs.microsoft.c
 3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
 4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
 
-## <a name="discovery-issues"></a>검색 문제
 
-### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>검색을 시작 했지만 Azure Portal에서 검색 된 Vm이 표시 되지 않습니다. 서버 평가 및 서버 마이그레이션 타일이 "검색 중" 상태를 표시 합니다.
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60052"></a>어플라이언스를 Azure Migrate 프로젝트에 등록 하지 못했습니다 (오류 ID: 60052)
+
+이 오류는 어플라이언스를 등록 하는 데 사용 되는 Azure 계정에 대 한 권한이 부족 하기 때문에 발생 합니다. 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 ' 참가자 ' 액세스 권한이 있는지 확인 하세요. 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60039"></a>어플라이언스를 Azure Migrate 프로젝트에 등록 하지 못했습니다 (오류 ID: 60039)
+
+어플라이언스를 등록 하기 위해 선택한 Azure Migrate 프로젝트를 찾을 수 없어 등록이 실패 합니다. Azure Portal로 이동 하 여 프로젝트가 리소스 그룹에 있는지 확인 합니다. 프로젝트가 존재 하지 않는 경우 리소스 그룹에 새 Azure Migrate 프로젝트를 만들고 어플라이언스를 다시 등록 합니다. 새 Azure Migrate 프로젝트를 만드는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) .
+
+### <a name="azure-key-vault-management-operation-failed-error-id-60030-60031"></a>Azure key vault 관리 작업이 실패 했습니다 (오류 ID: 60030, 60031)
+
+어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 ' 참가자 ' 액세스 권한이 있는지 확인 하세요. 또한 계정에 오류 메시지에 지정 된 Key Vault에 대 한 액세스 권한이 있는지 확인 하 고 작업을 다시 시도 하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+
+### <a name="discovery-could-not-be-initiated-due-to-the-error-the-operation-failed-for-the-given-list-of-hosts-or-clusters-error-id-60028"></a>오류로 인해 검색을 시작할 수 없습니다. 호스트 또는 클러스터의 지정 된 목록에 대 한 작업이 실패 했습니다 (오류 ID: 60028)
+
+VM 정보에 액세스 하거나 검색 하는 데 문제가 있어 오류에 나열 된 호스트에서 검색을 시작할 수 없습니다. 추가한 나머지 호스트가 성공적으로 추가 되었습니다. **호스트 추가** 옵션을 사용 하 여 오류에 호스트를 다시 추가 합니다. 유효성 검사 오류가 있는 경우 수정 지침을 검토 하 여 오류를 수정 하 고 **저장 하 고 검색** 을 다시 시작 하십시오.
+
+### <a name="azure-active-directory-aad-operation-failed-the-error-occurred-while-creating-or-updating-the-aad-application-error-id-60025"></a>AAD (Azure Active Directory) 작업이 실패 했습니다. AAD 응용 프로그램을 만들거나 업데이트 하는 동안 오류가 발생 했습니다 (오류 ID: 60025)
+
+어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에는 오류 메시지에 지정 된 AAD 응용 프로그램에 대 한 액세스 권한이 없습니다. AAD 응용 프로그램의 소유자 인지 여부를 확인 합니다. AAD 응용 프로그램 사용 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
+
+
+## <a name="discovery-issues"></a>검색 이슈
+
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migration-tiles-show-a-status-of-discovery-in-progress"></a>검색을 시작 했지만 Azure Portal에서 검색 된 Vm이 표시 되지 않습니다. 서버 평가 및 서버 마이그레이션 타일이 "검색 중" 상태를 표시 합니다.
 어플라이언스에서 검색을 시작한 후 검색 된 컴퓨터가 Azure Portal에 표시 될 때까지 기다립니다. VMware 검색에는 약 15 분이 걸리고 Hyper-v 검색의 경우 추가 된 호스트 당 약 2 분이 소요 됩니다. 이 시간이 지난 후에도 계속 해 서 "검색 진행 중"이 표시 되 면 **서버** 탭에서 **새로 고침** 을 클릭 합니다. 서버 평가 및 서버 마이그레이션 타일에서 검색 된 서버 수가 표시 됩니다.
 
 
@@ -146,22 +172,22 @@ Hyper-v에 대 한 서버 마이그레이션 | [여기](https://docs.microsoft.c
 4. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 Vm에 대 한 최신 정보가 표시 됩니다.
 
 ### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>서버 이름을 확인할 수 없기 때문에 호스트 또는 클러스터에 연결할 수 없습니다. WinRM 오류 코드: 0x803381B9 (오류 ID: 50004)
-어플라이언스를 처리 하는 DNS에서 사용자가 제공한 클러스터 또는 호스트 이름을 확인할 수 없는 경우이 오류가 발생 합니다. 클러스터에서이 오류가 표시 되 면 클러스터의 정규화 된 도메인 이름을 제공 하십시오. 
+어플라이언스를 처리 하는 DNS에서 사용자가 제공한 클러스터 또는 호스트 이름을 확인할 수 없는 경우이 오류가 발생 합니다. 클러스터에서이 오류가 표시 되 면 클러스터의 정규화 된 도메인 이름을 제공 하십시오.
 
-클러스터의 호스트에 대해서도이 오류가 표시 될 수 있습니다. 이 경우 어플라이언스는 클러스터에 연결할 수 있습니다. 그러나 클러스터에서 정규화 된 도메인 이름이 아닌 호스트 이름을 반환 했습니다. 
+클러스터의 호스트에 대해서도이 오류가 표시 될 수 있습니다. 이 경우 어플라이언스는 클러스터에 연결할 수 있습니다. 그러나 클러스터에서 정규화 된 도메인 이름이 아닌 호스트 이름을 반환 했습니다.
 
 이 오류를 해결 하려면 IP 주소와 호스트 이름의 매핑을 추가 하 여 어플라이언스의 hosts 파일을 업데이트 합니다.
 1. 관리자 권한으로 메모장을 엽니다. C:\Windows\System32\Drivers\etc\hosts. 파일을 엽니다.
 2. 행에 IP 주소 및 호스트 이름을 추가 합니다. 이 오류가 표시 되는 각 호스트 또는 클러스터에 대해 반복 합니다.
 3. Hosts 파일을 저장 하 고 닫습니다.
-4. 어플라이언스 관리 앱을 사용 하 여 어플라이언스를 호스트에 연결할 수 있는지 확인할 수 있습니다. 30 분 후 Azure Portal에서 이러한 호스트에 대 한 최신 정보를 볼 수 있습니다. 
+4. 어플라이언스 관리 앱을 사용 하 여 어플라이언스를 호스트에 연결할 수 있는지 확인할 수 있습니다. 30 분 후 Azure Portal에서 이러한 호스트에 대 한 최신 정보를 볼 수 있습니다.
 
 
 ## <a name="assessment-issues"></a>평가 문제
 
 ### <a name="azure-readiness-issues"></a>Azure 준비 문제
 
-문제점 | 재구성
+문제점 | 업데이트 관리
 --- | ---
 지원되지 않는 부팅 유형 | Azure는 공유 EFI 부팅 유형의 VM을 지원하지 않습니다. 마이그레이션을 실행 하기 전에 부팅 유형을 BIOS로 변환 하는 것이 좋습니다. <br/><br/>Azure Migrate 서버 마이그레이션을 사용 하 여 마이그레이션하는 동안 VM의 부팅 유형을 BIOS로 변환 하므로 이러한 Vm의 마이그레이션을 수행할 수 있습니다.
 조건부로 지원되는 Windows OS | OS의 지원 종료 날짜가 경과되어, [Azure에서 지원되기](https://aka.ms/WSosstatement) 위해 CSA(사용자 지정 지원 계약)가 필요한 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
@@ -176,8 +202,8 @@ Visual Studio 구독이 필요합니다. | 컴퓨터에는 Visual Studio 구독 
 지정된 위치에서 VM을 찾을 수 없습니다. | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
 부적합한 디스크가 하나 이상 있습니다. | VM에 연결된 하나 이상의 디스크가 Azure 요구 사항을 충족하지 않습니다. VM에 연결된 각 디스크에 대해 디스크 크기가 4TB 미만인지 확인합니다. 4TB 미만이 아니면 Azure로 마이그레이션하기 전에 디스크 크기를 축소합니다. 각 디스크에 필요한 성능(IOPS/처리량)이 Azure [관리 가상 머신 디스크](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)에서 지원되는지 확인합니다.   
 부적합한 네트워크 어댑터가 하나 이상 있습니다. | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 네트워크 어댑터를 제거합니다.
-디스크 수 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
-디스크 크기 한도 초과 | Azure는 4TB 이하의 디스크를 지원합니다. 마이그레이션을 시작하기 전에 디스크를 4TB 미만으로 축소합니다.
+디스크 수가 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
+디스크 크기가 한도 초과 | Azure는 4TB 이하의 디스크를 지원합니다. 마이그레이션을 시작하기 전에 디스크를 4TB 미만으로 축소합니다.
 지정된 위치의 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
 지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 저장소 형식(기본적으로 LRS)을 사용해야 합니다.
 내부 오류로 인해 디스크 적합성을 확인할 수 없음 | 그룹에 대한 새 평가를 만들어 봅니다.
@@ -187,30 +213,33 @@ Visual Studio 구독이 필요합니다. | 컴퓨터에는 Visual Studio 구독 
 내부 오류로 인해 하나 이상의 네트워크 어댑터 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 
 ### <a name="i-am-unable-to-specify-enterprise-agreement-ea-as-an-azure-offer-in-the-assessment-properties"></a>평가 속성에서 Azure 제품으로 EA (기업계약)를 지정할 수 없나요?
-Azure Migrate: 서버 평가는 현재 EA (기업계약) 기반 가격 책정을 지원 하지 않습니다. 해결 방법은 Azure 제품으로 ' 종 량 제 '을 사용 하 고 ' 할인율 ' 속성을 사용 하 여 사용자 지정 할인을 지정 하는 것입니다. [평가를 사용자 지정할 수 있는 방법에 대해 자세히 알아보세요](https://aka.ms/migrate/selfhelp/eapricing).
+Azure Migrate: Server Assessment는 현재 EA(기업계약) 기반 가격 책정을 지원하지 않습니다. 해결 방법은 Azure 제품으로 '종량제'를 사용하고, '할인' 속성을 사용하여 본인이 받는 모든 사용자 지정 할인을 지정하는 것입니다. [평가를 사용자 지정하는 방법에 대해 자세히 알아보세요](https://aka.ms/migrate/selfhelp/eapricing).
 
 ### <a name="why-does-server-assessment-mark-my-linux-vms-conditionally-ready-is-there-anything-i-need-to-do-to-fix-this"></a>서버 평가에서 내 Linux Vm을 조건부로 준비 된 것으로 표시 하는 이유는 무엇 인가요? 이 문제를 해결 하기 위해 필요한 항목이 있나요?
-서버 평가에는 온-프레미스 Vm에 설치 된 Linux 운영 체제의 부 버전을 검색할 수 없는 알려진 간격이 있습니다. 예를 들어 RHEL 6.10의 경우 현재 서버 평가는 OS 버전으로 RHEL 6만 검색 합니다. Azure는 특정 버전의 Linux만 보증 때문에 Linux Vm은 현재 서버 평가에서 조건부로 준비 된 것으로 표시 되어 있습니다. [Azure linux 지원 설명서](https://aka.ms/migrate/selfhost/azureendorseddistros)를 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 수동으로 확인할 수 있습니다. 보증 배포판를 확인 한 후에는이 경고를 무시 해도 됩니다.
+Server Assessment는 온-프레미스 VM에 설치된 Linux OS 부 버전을 검색할 수 없는 알려진 격차가 있습니다. 예를 들어 RHEL 6.10의 경우 현재 Server Assessment는 OS 버전으로 RHEL 6만 검색합니다. Azure가 특정 Linux 버전만 보증하므로, 현재 Linux VM은 Server Assessment에서 조건부 준비 완료로 표시됩니다. [Azure linux 지원 설명서](https://aka.ms/migrate/selfhost/azureendorseddistros)를 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 수동으로 확인할 수 있습니다. 보증되는 배포판을 확인한 후에는 이 경고를 무시해도 됩니다.
 
 ### <a name="the-vm-sku-recommended-by-server-assessment-has-more-number-of-cores-and-a-larger-memory-size-than-what-is-allocated-on-premises-why-is-that-so"></a>서버 평가에서 권장 하는 VM SKU에는 온-프레미스에 할당 된 것 보다 많은 수의 코어와 더 큰 메모리 크기가 있습니다. 그 이유는 무엇입니까?
-서버 평가에서 VM SKU 권장 사항은 평가 속성에 따라 달라 집니다. 서버 평가, ' 성능 기반 ' 및 ' 온-프레미스 ' 평가에서 두 종류의 평가를 만들 수 있습니다. 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 또한 성능 기반 크기 조정의 경우 적합 한 사용률을 파악 하기 위해 편안 하 게 고려 됩니다. 온-프레미스 크기 조정의 경우 성능 데이터를 고려 하지 않으며 온-프레미스에 할당 된 항목에 따라 대상 SKU를 사용 하는 것이 좋습니다.
+Server Assessment의 권장 VM SKU는 평가 속성에 따라 달라집니다. Server Assessment에서 두 가지 종류의 평가를 만들 수 있는데, 하나는 '성능 기반' 평가이고 다른 하나는 '온-프레미스에 따라' 평가입니다. 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 성능 기반 크기 조정의 경우 쾌적 인자를 고려하여 유효 사용률을 식별합니다. 온-프레미스에 따라 크기 조정의 경우 성능 데이터를 고려하지 않으며 온-프레미스에 할당된 양에 따라 대상 SKU를 권장합니다.
 
-예를 들어 50% CPU 50 사용률과%의 메모리 사용률을 포함 하는 온-프레미스 VM과 8gb 1.3의 메모리를 사용 하 고 평가에 편안한 요소가 지정 되어 있다고 가정해 보겠습니다. 평가의 크기 조정 기준이 ' 온-프레미스 ' 인 경우, 4 개의 코어와 8 GB 메모리를 사용 하는 Azure VM SKU를 사용 하는 것이 좋습니다. 그러나 크기 조정 기준은 실제 CPU 및 메모리 사용률 (50% 4 개 코어 * 1.3 = 2.6 코어 및 50% 8 GB)을 기반으로 합니다. memory * 1.3 = 5.3-GB 메모리), 4 개 코어 (지원 되는 가장 가까운 코어 수) 및 8gb 메모리 크기 (지원 되는 가장 가까운 메모리 크기)의 가장 저렴 한 VM SKU를 권장 합니다. [서버 평가에서 크기 조정을 수행 하는 방법에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
+예를 들어 50% CPU 50 사용률과%의 메모리 사용률을 포함 하는 온-프레미스 VM과 8gb 1.3의 메모리를 사용 하 고 평가에 편안한 요소가 지정 되어 있다고 가정해 보겠습니다. 평가의 크기 조정 기준이 ' 온-프레미스 ' 인 경우, 4 개의 코어와 8 GB 메모리를 사용 하는 Azure VM SKU를 사용 하는 것이 좋습니다. 그러나 크기 조정 기준은 실제 CPU 및 메모리 사용률 (50% 4 개 코어 * 1.3 = 2.6 코어 및 50% 8 GB)을 기반으로 합니다. memory * 1.3 = 5.3-GB 메모리), 4 개 코어 (지원 되는 가장 가까운 코어 수) 및 8gb 메모리 크기 (지원 되는 가장 가까운 메모리 크기)의 가장 저렴 한 VM SKU를 권장 합니다. [Server Assessment가 크기 조정을 수행하는 방법에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 ### <a name="the-disk-sku-recommended-by-server-assessment-has-a-bigger-size-than-what-is-allocated-on-premises-why-is-that-so"></a>서버 평가에서 권장 하는 디스크 SKU에는 온-프레미스에 할당 된 것 보다 큰 크기가 있습니다. 그 이유는 무엇입니까?
-서버 평가의 디스크 크기 조정은 두 가지 평가 속성 (크기 조정 기준 및 저장소 유형)에 따라 달라 집니다. 크기 조정 기준이 ' 성능 기반 '이 고 저장소 유형이 ' 자동 '으로 설정 된 경우 디스크의 IOPS 및 처리량 값은 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄 디스크)을 식별 하는 것으로 간주 됩니다. 디스크 유형 내의 디스크 SKU는 온-프레미스 디스크의 크기 요구 사항을 고려 하 여 권장 됩니다. 크기 조정 기준이 ' 성능 기반 '이 고 저장소 유형이 ' 프리미엄 ' 인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 Azure에서 Premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 ' 온-프레미스 ' 크기 조정 이며 저장소 유형이 ' 표준 HDD ', ' 표준 SSD ' 또는 ' Premium ' 인 경우 디스크 크기를 조정 하는 데 동일한 논리가 사용 됩니다.
+Server Assessment의 디스크 크기 조정은 크기 조정 기준 및 스토리지 유형이라는 두 가지 평가 속성에 따라 달라집니다. 크기 조정 기준이 ' 성능 기반 '이 고 저장소 유형이 ' 자동 '으로 설정 된 경우 디스크의 IOPS 및 처리량 값은 대상 디스크 유형 (표준 HDD, 표준 SSD 또는 프리미엄 디스크)을 식별 하는 것으로 간주 됩니다. 그런 다음, 온-프레미스 디스크의 크기 요구 사항을 고려하여 해당 디스크 유형의 디스크 SKU를 추천합니다. 크기 조정 기준이 ' 성능 기반 '이 고 저장소 유형이 ' 프리미엄 ' 인 경우 온-프레미스 디스크의 IOPS, 처리량 및 크기 요구 사항에 따라 Azure에서 Premium disk SKU를 사용 하는 것이 좋습니다. 크기 조정 기준이 '온-프레미스에 따라'이고 스토리지 유형이 '표준 HDD', '표준 SSD' 또는 '프리미엄'인 경우에도 동일한 논리를 사용하여 디스크 크기를 결정합니다.
 
-예를 들어, 32 GB 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대 한 집계 된 읽기/쓰기 IOPS가 800 IOPS 인 경우 서버 평가는 더 높은 IOPS 요구 사항으로 인해 프리미엄 디스크 유형을 권장 하 고 다음을 지원할 수 있는 디스크 SKU를 권장 합니다. 필요한 IOPS 및 크기입니다. 이 예제에서 가장 가까운 일치 항목은 P15 (256 GB, 1100 IOPS)입니다. 따라서 온-프레미스 디스크에 필요한 크기가 32 GB 이더라도 서버 평가에서 온-프레미스 디스크의 높은 IOPS 요구 사항으로 인해 크기가 더 큰 디스크를 권장 합니다.
+예를 들어, 32 GB 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대 한 집계 된 읽기/쓰기 IOPS가 800 IOPS 인 경우 서버 평가는 더 높은 IOPS 요구 사항으로 인해 프리미엄 디스크 유형을 권장 하 고 다음을 지원할 수 있는 디스크 SKU를 권장 합니다. 필요한 IOPS 및 크기입니다. 이 예제에서 가장 가까운 일치 항목은 P15(256GB, 1100IOPS)입니다. 따라서 온-프레미스 디스크에 필요한 크기가 32GB였지만 Server Assessment는 온-프레미스 디스크의 높은 IOPS 요구 사항 때문에 더 큰 크기를 추천했습니다.
+
+### <a name="why-does-my-assessment-report-say-percentageofcoresutilizedmissing-or-percentageofmemoryutilizedmissing-for-some-vms"></a>일부 Vm에 대해 평가 보고서에 ' PercentageOfCoresUtilizedMissing ' 또는 ' PercentageOfMemoryUtilizedMissing '가 표시 되는 이유는 무엇 인가요?
+Azure Migrate 어플라이언스에서 온-프레미스 Vm에 대 한 성능 데이터를 수집할 수 없는 경우 위의 문제가 나열 됩니다. 이 문제는 전원이 꺼진 경우 어플라이언스에서 VM에 대 한 성능 데이터를 수집할 수 없기 때문에 (지난 1 일/1 주/1 개월) 평가를 만드는 동안 Vm이 꺼진 경우에 발생할 수 있습니다. 메모리 카운터만 없고 Hyper-v Vm을 평가 하려는 경우 이러한 Vm에서 동적 메모리를 사용 하도록 설정 했는지 확인 합니다. 현재 Azure Migrate 어플라이언스에서 동적 메모리를 사용 하지 않는 Vm에 대 한 메모리 사용률을 수집할 수 없기 때문에 알려진 문제가 있습니다. Hyper-v Vm에 대 한 문제 뿐 아니라 VMware Vm에 대 한 문제입니다. 성능 카운터가 누락 된 경우 다음을 Azure Migrate 합니다. 서버 평가는 할당 된 코어/메모리로 대체 되며 그에 따라 VM 크기를 권장 합니다.
 
 ### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>서버 평가에서 예상 하는 계산 비용에 포함 된 VM의 OS 라이선스 비용은 어떻습니까?
-서버 평가는 현재 Windows 컴퓨터에 대 한 OS 라이선스 비용만 고려 하며, Linux 컴퓨터에 대 한 OS 라이선스 비용은 현재 고려 되지 않습니다. 
+Server Assessment는 현재 Windows 머신의 OS 라이선스 비용만 계산에 포함하고, Linux 머신의 OS 라이선스 비용은 계산에 포함하지 않습니다.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>성능 기록 및 백분위수 활용률이 크기 추천에 어떤 영향을 주나요?
-이러한 속성은 ' 성능 기반 ' 크기 조정에만 적용 됩니다. 서버 평가는 온-프레미스 컴퓨터의 성능 데이터를 지속적으로 수집 하 고이를 사용 하 여 Azure에서 VM SKU 및 디스크 SKU를 권장 합니다. 서버 평가에서 성능 데이터를 수집 하는 방법은 다음과 같습니다.
+이러한 속성은 '성능 기반' 크기 조정에만 적용됩니다. Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 다음은 Server Assessment에서 성능 데이터를 수집하는 방법입니다.
 - Azure Migrate 어플라이언스는 온-프레미스 환경을 지속적으로 프로 파일링 하 여 20 초 마다 VMware Vm에 대해 실시간 사용률 데이터를 수집 하 고 Hyper-v Vm의 경우 30 초 마다 수집 합니다.
-- 어플라이언스는 20/30 초 샘플을 롤업 하 여 10 분 마다 단일 데이터 요소를 만듭니다. 단일 데이터 요소를 만들기 위해 어플라이언스는 모든 20/30 초 샘플에서 최고 값을 선택 하 여 Azure에 보냅니다.
-- 성능 기간 및 성능 기록 백분위 수 값에 따라 서버 평가에서 평가를 만들 때 대표적인 사용률 값이 식별 됩니다. 예를 들어 성능 기록이 1 주이 고 백분위 수 사용률이 95 인 경우 마지막 1 주에 대 한 모든 10 분 샘플 요소를 오름차순으로 정렬 하 고 95 번째 백분위 수를 대표 값으로 선택 Azure Migrate 합니다.
-95 번째 백분위 수 값을 사용 하면 99 번째 백분위 수를 선택 하는 경우 포함 될 수 있는 이상 값을 무시 합니다. 기간에 대 한 피크 사용을 선택 하 고 이상 값을 누락 하지 않으려는 경우 백분위 수를 백분위 수로 선택 해야 합니다.
+- 이 어플라이언스는 20/30초 샘플을 롤업하여 10분마다 데이터 요소를 하나씩 만듭니다. 단일 데이터 요소를 만들기 위해, 이 어플라이언스는 20/30초 샘플의 최고 값을 선택하여 Azure로 전송합니다.
+- Server Assessment에서 성능 기간 및 성능 기록 백분위수 값을 기준으로 평가를 작성할 때 대표 사용률 값이 식별됩니다. 예를 들어 성능 기록이 1 주이 고 백분위 수 사용률이 95 인 경우 마지막 1 주에 대 한 모든 10 분 샘플 요소를 오름차순으로 정렬 하 고 95 번째 백분위 수를 대표 값으로 선택 Azure Migrate 합니다.
+95번째 백분위수 값은 99번째 백분위수 값을 선택할 때 포함될 수 있는 모든 이상값을 무시합니다. 해당 기간의 최대 사용량을 선택하고 이상값을 누락하지 않으려면 백분위수 사용률로 99번째 백분위수를 선택해야 합니다.
 
 ## <a name="dependency-visualization-issues"></a>종속성 시각화 문제
 

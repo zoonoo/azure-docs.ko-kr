@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
-ms.author: erikre
-ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 47e19fae26d6e3bc465799980c587d7bb7ed5e92
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370988"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443057"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스 사용 검토
 
@@ -43,10 +43,10 @@ Authorization: Bearer
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|설명|  
+|요청 헤더|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*| 필수 사항입니다. `application/json`로 설정합니다. |  
-|*권한 부여*| 필수 사항입니다. 유효한 `Bearer` 토큰으로 설정합니다. |
+|*Content-Type:*| 필수 요소. `application/json`로 설정합니다. |  
+|*Authorization:*| 필수 요소. 유효한 `Bearer` 토큰으로 설정합니다. |
 
 HTTP 요청 본문에서 보고서의 매개 변수를 구성합니다. 아래 예제에서는 보고서가 활성화되면 매일 생성하도록 설정합니다. 해당 보고서는 Azure Storage Blob 컨테이너에 기록된 CSV 파일이며 리소스 그룹 `westus`의 모든 리소스에 대한 시간당 비용 정보를 포함합니다.
 

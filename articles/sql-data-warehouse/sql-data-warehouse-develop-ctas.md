@@ -1,8 +1,8 @@
 ---
 title: Azure SQL Data Warehouse의 CTAS(CREATE TABLE AS SELECT) | Microsoft Docs
-description: 설명 및 솔루션 개발을 위한 Azure SQL Data Warehouse에서 CREATE TABLE AS SELECT (CTAS) 문의 예입니다.
+description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 CTAS (CREATE TABLE AS SELECT) 문에 대 한 설명 및 예입니다.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,16 +11,16 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 91de474cc0610099b4264cc6d0dfbd26e8df0618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b4ccd7742f8a84eec2d63a86e1387733d4c1864
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851442"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479688"
 ---
-# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 CREATE TABLE AS SELECT (CTAS)
+# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 CTAS (CREATE TABLE AS SELECT)
 
-이 문서에서는 솔루션 개발을 위한 Azure SQL Data Warehouse에서 CREATE TABLE AS SELECT (CTAS) T-SQL 문을 설명 합니다. 코드 예제에 대해서도 설명 합니다.
+이 문서에서는 솔루션 개발을 위한 Azure SQL Data Warehouse의 CTAS (CREATE TABLE AS SELECT) T-sql 문을 설명 합니다. 또한이 문서에서는 코드 예제를 제공 합니다.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
@@ -180,7 +180,7 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 
 SQL Data Warehouse에서 `UPDATE` 문의 `FROM` 절에서 ANSI 조인을 지원하지 않으므로 수정하지 않고 앞의 예제를 사용할 수 없습니다.
 
-앞의 예제를 바꾸려면 CTAS와 암시적 조인의 조합을 사용할 수 있습니다.
+CTAS와 암시적 조인의 조합을 사용 하 여 이전 예제를 바꿀 수 있습니다.
 
 ```sql
 -- Create an interim table
@@ -324,7 +324,7 @@ from ctas_r
 
 result에 대해 저장된 값이 서로 다릅니다. result 열에 보관된 값에 다른 식이 사용되면 더 심각한 오류가 발생됩니다.
 
-![스크린 샷의 CTAS 결과](media/sql-data-warehouse-develop-ctas/ctas-results.png)
+![CTAS 결과의 스크린샷](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
 이것이 데이터 마이그레이션에서 중요합니다. 두 번째 쿼리는 분명히 더 정확하지만 문제가 있습니다. 데이터는 원본 시스템과 다르게 비교되어 마이그레이션에서 무결성 문제가 발생합니다. 이는 "잘못된" 답이 실제로 정답인 드문 경우 중 하나입니다!
 
@@ -332,8 +332,8 @@ result에 대해 저장된 값이 서로 다릅니다. result 열에 보관된 �
 
 또한 첫 번째 예와 달리 두 번째 예제의 열은 null 허용 열로 정의됩니다. 첫 번째 예제에서는 테이블을 만들 때 열의 null 허용 여부가 명시적으로 정의되었습니다. 두 번째 예제에서는 기본적으로 NULL 정의가 식으로 남겨집니다.
 
-이러한 문제를 해결하려면 CTAS 문의 SELECT 부분에서 명시적으로 형식 변환과 null 허용 여부를 설정해야 합니다. CREATE TABLE에서 이러한 속성을 설정할 수 없습니다.
-다음 예제에서는 코드를 수정 하는 방법에 설명 합니다.
+이러한 문제를 해결하려면 CTAS 문의 SELECT 부분에서 명시적으로 형식 변환과 null 허용 여부를 설정해야 합니다. ' CREATE TABLE '에서는 이러한 속성을 설정할 수 없습니다.
+다음 예제에서는 코드를 수정 하는 방법을 보여 줍니다.
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -345,12 +345,12 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-다음 사항에 유의하세요.
+다음에 유의하세요.
 
 * CAST 또는 CONVERT를 사용할 수 있습니다.
 * Null 허용 여부를 강제하기 위해 COALESCE가 아닌 ISNULL을 사용합니다. 다음 참고를 참조하세요.
 * ISNULL은 가장 바깥쪽 함수입니다.
-* ISNULL의 두 번째 부분은 상수 0입니다.
+* ISNULL의 두 번째 부분은 상수, 0입니다.
 
 > [!NOTE]
 > null 허용 여부를 올바르게 설정하려면, COALESCE가 아닌 ISNULL을 필수로 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 항상 null을 허용합니다. 이와 달리 ISNULL은 결정적입니다. 결정적입니다. 그러므로 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴일 경우 결과 값은 NOT NULL입니다.

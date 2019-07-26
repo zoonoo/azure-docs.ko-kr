@@ -1,24 +1,23 @@
 ---
 title: Azure Backup FAQ
 description: '다음의 일반적인 질문에 대한 답변: Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등을 포함하는 Azure Backup 기능 '
-services: backup
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806961"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466684"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
 
-## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
+## <a name="recovery-services-vault"></a>복구 서비스 자격 증명 모음
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요?
 예. 구독당 Azure Backup의 지원되는 지역당 최대 500개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
@@ -40,7 +39,7 @@ ms.locfileid: "67806961"
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
-- ILR 온-프레미스 Vm의 온라인 복구 지점을 Azure backup Server 또는 System Center DPM 백업에 대 한 지원 되지 않습니다.
+- Azure backup Server 또는 System Center DPM에서 백업 된 온-프레미스 Vm의 온라인 복구 지점은 ILR가 지원 되지 않습니다.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
@@ -70,7 +69,7 @@ Windows 8.1 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과
 Windows 8 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 7 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 서버 | |
-Windows Server 2019 64 bit | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
+Windows Server 2019 64 비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2016 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 R2 64비트 | Standard, Datacenter, Foundation | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 64비트 | Datacenter, Foundation, Standard | 최신 서비스 팩/업데이트를 포함합니다.
@@ -154,7 +153,7 @@ Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있�
 - [백업 및 보존](./backup-overview.md#backup-and-retention)에 대해 자세히 알아보세요.
 
 
-### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>횟수 있나요 Azure에 백업 되는 데이터를 복구할 수 있습니까?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Azure에 백업 된 데이터를 얼마나 자주 복구할 수 있나요?
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요?

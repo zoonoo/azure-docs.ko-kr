@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722366"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423247"
 ---
 # <a name="how-personalizer-works"></a>Personalizer 작동 방식
 
@@ -79,6 +79,8 @@ Personalizer는 Microsoft Research의 백서, 연구 활동 및 진행 중인 �
 * **비활성 이벤트**: 비활성 이벤트는 Rank를 호출한 이벤트이지만, 클라이언트 애플리케이션 결정으로 인해 사용자가 결과를 볼 수 있는지가 확실하지 않습니다. 비활성 이벤트를 사용하면 맞춤 설정 결과를 만들고 저장한 다음, 나중에 기계 학습 모델에 영향을 주지 않고 삭제하도록 결정할 수 있습니다.
 
 * **모델**: Personalizer 모델은 사용자 동작에 대해 학습된 모든 데이터를 캡처하고, Rank 및 Reward 호출에 보내는 인수와 학습 정책에 따라 결정된 학습 동작을 조합하여 학습 데이터를 가져옵니다. 
+
+* **학습 정책**: 모든 이벤트에 대 한 모델을 Personalizer 학습 하는 방법은 기계 학습 알고리즘의 작동 방식에 영향을 주는 일부 메타 매개 변수에 의해 결정 됩니다. 새 Personalizer 루프는 기본 학습 정책부터 시작 하 여 성능이 저하 될 수 있습니다. [평가](concepts-offline-evaluation.md)를 실행할 때 Personalizer는 루프의 사용 사례에 맞게 특별히 최적화 된 새로운 학습 정책을 만들 수 있습니다. Personalizer는 평가 중에 생성 되는 각 특정 루프에 대해 최적화 된 정책으로 훨씬 더 잘 수행 됩니다.
 
 ## <a name="example-use-cases-for-personalizer"></a>Personalizer 사용 사례
 
@@ -182,3 +184,4 @@ Personalizer에서 가장 효율적으로 학습할 수 있는 상황은 다음�
 ## <a name="next-steps"></a>다음 단계
 
 [Personalizer를 사용할 수 있는 경우](where-can-you-use-personalizer.md)를 이해합니다.
+[오프 라인 평가](how-to-offline-evaluation.md) 수행

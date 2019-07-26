@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 6d9a2929d7b8b1687b602093d0e9de35508dbd8c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273080"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385511"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하면 온-프레미스 SQL SERVER 또는 SAP에서 Microsoft Cognitive Services에 이르는 [수백 개의 바로 사용 가능한 커넥터](../connectors/apis-list.md)를 제공 하 여 다양 한 서비스를 오케스트레이션 하 고 통합할 수 있습니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템에서 다수의 작업을 조정해야 하는 사용 사례 및 시나리오에 특히 유용합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하면 온-프레미스 SQL SERVER 또는 SAP에서 Azure Cognitive Services에 이르는 [수백 개의 바로 사용 가능한 커넥터](../connectors/apis-list.md)를 제공 하 여 다양 한 서비스를 오케스트레이션 하 고 통합할 수 있습니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템에서 다수의 작업을 조정해야 하는 사용 사례 및 시나리오에 특히 유용합니다.
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 지원하는 다양한 패턴 및 기능에 대해 자세히 알아볼 수 있는 일반적인 예제 및 시나리오는 다음과 같습니다.
 
@@ -80,7 +80,7 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 
 * [Visual Studio에서 논리 앱 만들기 및 배포](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [기존 논리 앱에 대한 모니터링, 로깅 및 경고 켜기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+* [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>콘텐츠 형식, 변환 및 실행 내에서 변형
 
@@ -98,7 +98,7 @@ Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 �
 * [논리 앱에서 Azure Functions 호출](../logic-apps/logic-apps-azure-functions.md)
 * [자습서: Azure Functions를 사용 하 여 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [자습서: Azure Logic Apps 및 Microsoft Cognitive Services와 통합 되어 Twitter post 감정을 분석 하는 함수 만들기](../azure-functions/functions-twitter-email.md)
+* [자습서: Azure Logic Apps 및 Azure Cognitive Services와 통합 되어 Twitter 게시물 감정을 분석 하는 함수 만들기](../azure-functions/functions-twitter-email.md)
 * [자습서: Iot hub와 사서함을 연결 하 Azure Logic Apps IoT 원격 모니터링 및 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [블로그: 논리 앱에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

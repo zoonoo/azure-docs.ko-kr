@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e778e55bd87e325b3dcf14a8c9f1616157a420b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 67788dd9257a0a4685313dce44c6a3dfb5e514df
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320883"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413612"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 모바일 앱-프로덕션으로 이동
 
@@ -47,3 +47,5 @@ ms.locfileid: "68320883"
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+샘플에서 사용할 수 있는 추가 샘플 사용해 보기 [| 데스크톱 및 모바일 공용 클라이언트 앱](sample-v2-code.md#desktop-and-mobile-public-client-apps)
