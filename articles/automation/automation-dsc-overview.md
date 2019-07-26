@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798441"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372558"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -39,15 +39,15 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Azure Monitor 로그로 보고 데이터 가져오기
 
-Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. Log Analytics 작업 영역에 상태 구성 상태 데이터를 보내는 방법에 알아보려면 참조 [앞으로 Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그](automation-dsc-diagnostics.md)합니다.
+Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Automation 상태 구성 (DSC)를 사용 하는 경우 다음 요구 사항을 고려 하십시오.
+DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
 
 ### <a name="operating-system-requirements"></a>운영 체제 요구 사항
 
-Windows를 실행 하는 노드를 다음 버전 지원 됩니다.
+Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같습니다.
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,41 +58,41 @@ Windows를 실행 하는 노드를 다음 버전 지원 됩니다.
 - Windows 8.1
 - Windows 7
 
-Linux를 실행 하는 노드를 다음 배포판/버전 지원 됩니다.
+Linux를 실행 하는 노드의 경우 다음 distros/버전이 지원 됩니다.
 
-DSC Linux 확장은 모든 Linux 배포판을 지원 [azure 보증](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 제외:
+DSC Linux 확장은 다음을 제외 하 고 [Azure의](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 모든 Linux 배포판 보증을 지원 합니다.
 
 배포 | 버전
 -|-
 Debian  | 모든 버전
 Ubuntu  | 18.04
 
-### <a name="dsc-requirements"></a>DSC의 요구 사항
+### <a name="dsc-requirements"></a>DSC 요구 사항
 
-Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
+Azure에서 실행 되는 모든 Windows 노드의 경우, 온 보 딩 중에 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 이 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드의 경우 [WinRM이 사용](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)됩니다.
 
-Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 온 보 딩 하는 동안 설치 됩니다.
+Azure에서 실행 되는 모든 Linux 노드의 경우 온 보 딩 중에 [linux 용 POWERSHELL DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 가 설치 됩니다.
 
-### <a name="network-planning"></a>개인 네트워크를 구성 합니다.
+### <a name="network-planning"></a>개인 네트워크 구성
 
-노드에 개인 네트워크 내에 있는 경우 다음 포트와 Url이에 대 한 상태 구성 (DSC) Automation과 통신 하려면 필요 합니다.
+노드가 개인 네트워크 내에 있는 경우 상태 구성 (DSC)에서 Automation과 통신 하는 데 다음 포트 및 Url이 필요 합니다.
 
 * 포트: 아웃바운드 인터넷 액세스에는 443 TCP 포트만 필요합니다.
 * 글로벌 URL: *.azure-automation.net
 * US Gov 버지니아의 전역 URL: *.azure-automation.us
 * 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-Azure Automation과 통신 하려면 관리 되는 노드에 대 한 네트워크 연결을 제공 합니다.
-와 같은 노드 간에 통신 하는 DSC 리소스를 사용 하는 경우는 [WaitFor 리소스](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), 노드 간에 트래픽을 허용 해야 합니다.
+이는 관리 되는 노드가 Azure Automation와 통신할 수 있도록 네트워크 연결을 제공 합니다.
+[WaitFor * 리소스](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신 하는 DSC 리소스를 사용 하는 경우에는 노드 간 트래픽만 허용 해야 합니다.
 이러한 네트워크 요구 사항을 이해 하려면 각 DSC 리소스에 대 한 설명서를 참조 하세요.
 
 #### <a name="proxy-support"></a>프록시 지원
 
-DSC 에이전트에 대 한 프록시 지원은 Windows 1809 이상 버전에서에서 제공 됩니다.
-이 옵션을 구성 하려면 값을 설정 **ProxyURL** 하 고 **ProxyCredential** 에 [메타 구성 스크립트](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) 노드를 등록 하는 데 사용 합니다.
-프록시를 이전 버전의 Windows 용 DSC에서 사용할 수 없습니다.
+DSC 에이전트에 대 한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다.
+이 옵션을 구성 하려면 노드를 등록 하는 데 사용 되는 [메타 구성 스크립트](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) 에서 **Proxyurl** 및 **ProxyCredential** 의 값을 설정 합니다.
+프록시는 이전 버전의 Windows 용 DSC에서 사용할 수 없습니다.
 
-Linux 노드에 대 한 DSC 에이전트 프록시를 지원 하 고 url을 확인 하려면 http_proxy 변수 활용 됩니다.
+Linux 노드의 경우 DSC 에이전트는 프록시를 지원 하 고 http_proxy 변수를 활용 하 여 url을 결정 합니다.
 
 #### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure 상태 구성 네트워크 범위 및 네임 스페이스
 
@@ -104,16 +104,17 @@ Linux 노드에 대 한 DSC 에이전트 프록시를 지원 하 고 url을 확�
 | --- | --- |
 | 미국 중서부 | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | 미국 동부 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| 북유럽 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| 유럽 서부 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| 유럽 북부 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| 아시아 남동부 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | 일본 동부 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) XML 파일을 다운로드하세요.
 

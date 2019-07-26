@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1408c06570babfd93c46fdfc7a3c6754000bcbc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320844"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413566"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 모바일 앱-web API 호출
 
@@ -114,17 +114,7 @@ MSAL은 다음 값을 제공 합니다.
 
 ### <a name="xamarin"></a>Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## <a name="making-several-api-requests"></a>여러 API 요청 만들기
 
@@ -132,6 +122,40 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 - **증분 승인**: Microsoft id 플랫폼을 사용 하면 앱이 시작 시가 아니라 권한이 필요 하므로 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 사용 해야 하는 범위만 요청 해야 합니다.
 - **조건부 액세스**: 특정 시나리오에서는 여러 API 요청을 만들 때 조건부 액세스 요구 사항이 추가로 발생할 수 있습니다. 첫 번째 요청에 적용 된 조건부 액세스 정책이 없고 앱에서 조건부 액세스가 필요한 새 API에 자동으로 액세스 하려고 하는 경우이 문제가 발생할 수 있습니다. 이 시나리오를 처리 하려면 자동 요청에서 오류를 catch 하 고 대화형 요청을 수행할 준비를 해야 합니다.  자세히 알아보려면 [조건부 액세스에 대 한 지침](conditional-access-dev-guide.md)을 참조 하세요.
+
+## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Xamarin 또는 UWP에서 여러 Api 호출-증분 동의 및 조건부 액세스
+
+동일한 사용자에 대해 여러 api를 호출 해야 하는 경우 사용자에 대 한 토큰을 획득 한 후에는를 호출 `AcquireTokenSilent` 하 여 토큰을 가져오기 위해 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+상호 작용이 필요한 경우는 다음과 같습니다.
+
+- 사용자가 첫 번째 API에 대해 동의한 이제 더 많은 범위 (증분 승인)에 동의 해야 합니다.
+- 첫 번째 API에는 multi-factor authentication이 필요 하지 않습니다.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

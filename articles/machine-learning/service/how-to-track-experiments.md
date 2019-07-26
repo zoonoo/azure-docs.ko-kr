@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847591"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370478"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 실행 중의 로그 메트릭
 
@@ -225,8 +225,8 @@ ms.locfileid: "67847591"
 
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 
-### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Jupyter 노트북 위젯을 사용하여 실행 모니터링
-**ScriptRunConfig** 메서드를 사용하여 실행을 제출하면 Jupyter 노트북 위젯을 통해 실행 진행 상황을 확인할 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10-15초 간격으로 라이브 업데이트를 제공합니다.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 모니터 실행
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
 
 1. 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
 
@@ -236,6 +236,12 @@ ms.locfileid: "67847591"
    ```
 
    ![Jupyter 노트북 위젯의 스크린샷](./media/how-to-track-experiments/run-details-widget.png)
+
+작업 영역에서 동일한 표시에 대 한 링크를 가져올 수도 있습니다.
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 를 `<<experiment_name>>` 적절 한 실험 이름으로 바꿉니다.
 
@@ -257,7 +263,8 @@ ms.locfileid: "67847591"
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
 모델 학습 및 모니터링은 백그라운드에서 수행되므로 기다리는 동안 다른 작업을 실행할 수 있습니다. 또한 모델에서 학습을 완료할 때까지 기다린 후에 더 많은 코드를 실행할 수도 있습니다. **ScriptRunConfig**를 사용하면 ```run.wait_for_completion(show_output = True)```를 사용하여 모델 학습이 완료된 시점을 표시할 수 있습니다. ```show_output``` 플래그는 자세한 정보를 출력합니다. 
-  
+
+
 ### <a name="query-run-metrics"></a>실행 메트릭 쿼리
 
 ```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 이제 위의 예제에 기록된 모든 메트릭을 가져와 최상의 모델을 결정할 수 있습니다.
@@ -287,140 +294,6 @@ ms.locfileid: "67847591"
 |2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
 |두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 
-<a name="auto"></a>
-## <a name="understanding-automated-ml-charts"></a>자동화된 ML 차트 이해
-
-노트북에서 자동화된 ML 작업을 제출하면 기계 학습 서비스 작업 영역에서 이러한 실행 기록을 찾을 수 있습니다. 
-
-다음에 대해 자세히 알아봅니다.
-+ [분류 모델에 대한 차트 및 곡선](#classification)
-+ [회귀 모델에 대한 차트 및 그래프](#regression)
-+ [모델 설명 기능](#model-explain-ability-and-feature-importance)
-
-
-### <a name="view-the-run-charts"></a>실행 차트 보기
-
-1. 작업 영역으로 이동합니다. 
-
-1. 작업 영역의 맨 왼쪽 패널에서 **실험**을 선택합니다.
-
-   ![실험 메뉴 스크린샷](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
-
-1. 관심 있는 실험을 선택합니다.
-
-   ![실험 목록](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
-
-1. 테이블에서 실행 번호를 선택합니다.
-
-   ![실험 실행](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
-
-1. 테이블에서 자세히 살펴보려는 모델의 반복 번호를 선택합니다.
-
-   ![실험 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
-
-
-
-### <a name="classification"></a>분류
-
-Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 분류 모델에 대해 다음 차트를 볼 수 있습니다. 
-+ [혼동 행렬](#confusion-matrix)
-+ [정밀도-리콜 차트](#precision-recall-chart)
-+ [ROC(수신기 작동 특성)](#roc)
-+ [리프트 곡선](#lift-curve)
-+ [게인 곡선](#gains-curve)
-+ [보정 플롯](#calibration-plot)
-
-#### <a name="confusion-matrix"></a>혼동 행렬
-
-혼동 행렬은 분류 모델의 성능을 설명하는 데 사용됩니다. 각 행은 true 클래스 인스턴스를 표시하고, 각 열은 예측된 클래스 인스턴스를 나타냅니다. 혼동 행렬은 지정된 모델에 대해 올바르게 분류된 레이블과 잘못 분류된 레이블을 표시합니다.
-
-분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화된 ML에서 올바르게 분류된 레이블은 녹색으로 표시되고 잘못 분류된 레이블은 빨간색으로 표시됩니다. 원의 크기는 해당 bin의 샘플 수를 나타냅니다. 또한 각 예측된 레이블 및 각 올바른 레이블의 빈도 개수가 인접한 막대형 차트에 제공됩니다. 
-
-예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
-
-예제 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
-
-
-#### <a name="precision-recall-chart"></a>정밀도-리콜 차트
-
-이 차트를 사용하면 각 모델의 정밀도-리콜 곡선을 비교하여 특정 비즈니스 문제에 대해 정밀도와 리콜 간에 허용되는 관계가 있는 모델을 확인할 수 있습니다. 이 차트에는 매크로 평균 정밀도-리콜, 마이크로 평균 정밀도-리콜 및 모델의 모든 클래스와 관련된 정밀도-리콜이 표시됩니다.
-
-정밀도라는 용어는 분류자가 모든 인스턴스에 올바른 레이블을 지정할 수 있는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다. 정밀도-리콜 곡선은 이러한 두 개념 간의 관계를 표시합니다. 모델이 100% 정밀도와 100% 정확도를 갖는 것이 이상적입니다.
-
-예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
-
-예제 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
-
-#### <a name="roc"></a>ROC
-
-ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 레이블 및 잘못 분류된 레이블의 플롯입니다. ROC 곡선은 가양성 레이블을 표시하지 않으므로 바이어스가 높은 데이터 세트에서 모델을 학습할 때는 제공하는 정보가 적을 수 있습니다.
-
-예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
-
-예제 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
-
-#### <a name="lift-curve"></a>리프트 곡선
-
-특정 모델의 값 게인을 보기 위해 Azure Machine Learning을 사용하여 자동으로 빌드된 모델 리프트를 기준선과 비교할 수 있습니다.
-
-리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 사용하지 않을 경우와 비교해서 모델을 사용할 경우 예상할 수 있는 성능 향상을 보여 줍니다. 
-
-예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
-
-예제 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
-
-#### <a name="gains-curve"></a>게인 곡선
-
-게인 차트는 데이터의 각 부분별로 분류 모델의 성능을 평가합니다. 데이터 세트의 각 백분위수에 대해, 임의 선택 모델과 비교해서 예상할 수 있는 성능 향상을 보여 줍니다.
-
-누적 게인 차트를 사용하면 모델에서 원하는 게인에 해당하는 백분율을 사용하여 분류 경계를 선택하는 데 도움이 됩니다. 이 정보는 동반되는 리프트 차트의 결과를 살펴보는 또 다른 방법을 제공합니다.
-
-예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
-
-예제 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
-
-#### <a name="calibration-plot"></a>보정 플롯
-
-모든 분류 문제에 대해 마이크로 평균, 매크로 평균 및 지정된 예측 모델의 각 클래스의 보정 선을 검토할 수 있습니다. 
-
-보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다. 잘 보정된 모델은 y=x 선과 일치하며, 이 경우 해당 예측의 신뢰도가 상당히 높음을 의미합니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다.
-
-예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
-
-예제 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
-
-### <a name="regression"></a>회귀
-Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 회귀 모델에 대해 다음 차트를 볼 수 있습니다. 
-+ [예측 대 실제](#pvt)
-+ [나머지 히스토그램](#histo)
-
-<a name="pvt"></a>
-
-#### <a name="predicted-vs-true"></a>예측 대 True
-
-예측 대 실제는 회귀 문제에 대한 예측된 값과 상호 연관된 실제 값 사이의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
-
-각 실행 후에 각 회귀 모델에 대한 예측 대 실제 그래프를 확인할 수 있습니다. 데이터 개인 정보를 보호하기 위해 값은 함께 bin 처리되고 각 bin의 크기가 차트 영역의 아래쪽에 막대형 그래프로 표시됩니다. 밝은 음영 영역을 통해 오차 범위를 표시하는 예측 모델과 모델의 이상적인 값을 비교할 수 있습니다.
-
-예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
-
-예제 2: 예측 정확도가 높은 회귀 모델 ![예측 정확도가 높은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a>
-
-#### <a name="histogram-of-residuals"></a>나머지 히스토그램
-
-나머지는 관찰된 y - 예측된 y를 나타냅니다. 바이어스가 낮은 오차 범위를 표시하려면 나머지 히스토그램의 모양이 0을 중심으로 하는 벨 곡선이어야 합니다. 
-
-예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
-
-예제 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
-
-### <a name="model-explain-ability-and-feature-importance"></a>모델 설명 기능 및 기능 중요도
-
-기능 중요도는 각 기능이 모델 구성에서 얼마나 중요했는지를 나타내는 점수를 제공합니다. 모델 전체 및 예측 모델의 클래스별로 기능 중요도 점수를 검토할 수 있습니다. 각 클래스 및 전체와 비교해서 기능별로 중요도를 확인할 수 있습니다.
-
-![기능 설명 기능](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>노트북 예제
 이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.

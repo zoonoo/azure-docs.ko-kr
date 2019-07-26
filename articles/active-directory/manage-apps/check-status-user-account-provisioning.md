@@ -1,5 +1,5 @@
 ---
-title: SaaS 애플리케이션에 대한 Azure Active Directory 자동 사용자 계정 프로비전 보고 | Microsoft Docs
+title: SaaS 응용 프로그램에 자동 사용자 계정 프로 비전 보고 | Microsoft Docs
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f7386fd26de55911f51f73600f1e2bf1a70ce11
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: fda7654ca2d825ae4112dd06021c7e83ed6867cd
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807705"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381251"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
-Azure Active Directory (Azure AD)를 포함 한 [사용자 계정 프로 비전 서비스](user-provisioning.md) 는 자동화 된 프로 비전 프로 비전 해제의 SaaS 앱 및 종단 간 id 수명 주기 위해 다른 시스템에 사용자 계정 관리 합니다. Azure AD는 [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 애플리케이션 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
+Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정의 프로 비전 해제를 자동화 하는 데 도움이 되는 [사용자 계정 프로 비전 서비스가](user-provisioning.md) 포함 되어 있습니다. Azure AD는 [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 애플리케이션 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
 
 이 문서에서는 프로비전 작업을 설정한 후 해당 상태를 확인하는 방법과 개별 사용자 및 그룹의 프로비전 문제를 해결하는 방법에 대해 설명합니다.
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD)를 포함 한 [사용자 계정 프로 비전 
 
 프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
-* **Azure portal** -이 문서에서는 주로 보고서 정보 검색을 설명 합니다 [Azure portal](https://portal.azure.com)을 프로 비전 요약 보고서와 자세한 프로 비전 감사 로그를 제공 하는 지정 응용 프로그램입니다.
+* **Azure Portal** -이 문서에서는 기본적으로 프로 비전 요약 보고서와 지정 된 응용 프로그램에 대 한 자세한 프로 비전 감사 로그를 모두 제공 하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색 하는 방법을 설명 합니다.
 * **감사 API** - Azure Active Directory는 자세한 프로비저닝 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
 
 ### <a name="definitions"></a>정의
@@ -40,11 +40,11 @@ Azure Active Directory (Azure AD)를 포함 한 [사용자 계정 프로 비전 
 이 문서에서 사용하는 용어는 다음과 같이 정의됩니다.
 
 * **원본 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 원본이 되는 사용자의 리포지토리입니다. Azure Active Directory는 대부분의 사전 통합된 프로비전 커넥터를 위한 원본 시스템이지만, 몇 가지 예외(예: Workday 인바운드 동기화)가 있습니다.
-* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 이 시스템은 일반적으로 SaaS 애플리케이션(예: Salesforce, ServiceNow, G Suite, Dropbox for Business) 경우에 따라 Active Directory와 같은 온-프레미스 시스템을 수 있지만 (예: Active Directory에 대한 Workday 인바운드 동기화)일 수도 있습니다.
+* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 이 시스템은 일반적으로 SaaS 애플리케이션(예: Salesforce, ServiceNow, G Suite, Dropbox for Business)를 사용할 수 있지만 경우에 따라 Active Directory와 같은 온-프레미스 시스템을 사용할 수 있습니다 (예: Active Directory에 대한 Workday 인바운드 동기화)일 수도 있습니다.
 
-## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure portal에서 프로 비전 보고서 가져오기
+## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure Portal에서 프로 비전 보고서 가져오기
 
-가져오기에 지정된 된 응용 프로그램에 대 한 정보를 보고 프로 비전을 시작 하 여 시작 합니다 [Azure portal](https://portal.azure.com) 및 프로 비전 구성 된 엔터프라이즈 응용 프로그램을 검색 합니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
+지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 시작 하 고 프로 비전이 구성 된 엔터프라이즈 응용 프로그램을 검색 합니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 

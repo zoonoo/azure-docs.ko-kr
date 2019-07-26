@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871822"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358836"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기 및 탐색 (미리 보기)
 
@@ -60,7 +60,7 @@ ms.locfileid: "67871822"
 
     필드|설명
     ---|---
-    계산 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
+    컴퓨팅 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
     가상 머신 크기| 계산에 대 한 가상 머신 크기를 선택 합니다.
     추가 설정| *최소 노드*: 계산의 최소 노드 수를 입력 합니다. AML 계산에 대 한 최소 노드 수는 0입니다. 데이터 프로 파일링을 사용 하도록 설정 하려면 하나 이상의 노드가 있어야 합니다. <br> *최대 노드*: 계산의 최대 노드 수를 입력 합니다. 기본값은 AML 계산에 대 한 6 노드입니다.
 
@@ -180,7 +180,7 @@ ms.locfileid: "67871822"
 
 ### <a name="view-training-run-details"></a>학습 실행 세부 정보 보기
 
-성능 메트릭 및 배포 차트와 같은 학습 실행 세부 정보를 보려면 출력 모델을 드릴 다운 합니다. [차트에 대해 자세히 알아보세요](how-to-track-experiments.md#understanding-automated-ml-charts).
+성능 메트릭 및 배포 차트와 같은 학습 실행 세부 정보를 보려면 출력 모델을 드릴 다운 합니다. [차트에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
 
 ![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -213,7 +213,7 @@ ms.locfileid: "67871822"
 
     다음 형식으로 실행 ID, 반복 번호를 포함 하는 설명으로 모델을 식별할 수 있습니다. *< Run_ID > _ < Iteration_number > _model*
 
-    ![모델인 이미지 만들기](media/how-to-create-portal-experiments/model-create-image.png)
+    ![모델: 이미지 만들기](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. 이미지의 이름을 입력 합니다. 
 1. "점수 매기기 파일" 상자 옆에 있는 **찾아보기** 단추를 선택 하 여 이전에 다운로드 한 점수 매기기 파일 (scoring.py)을 업로드 합니다.
@@ -243,4 +243,5 @@ ms.locfileid: "67871822"
 ## <a name="next-steps"></a>다음 단계
 
 * [자동화 된 machine learning 및 Azure Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md) .
+* [자동화 된 machine learning 결과를 이해](how-to-understand-automated-ml.md)합니다.
 * [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

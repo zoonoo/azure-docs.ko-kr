@@ -2,7 +2,7 @@
 title: Azure SQL Data Warehouse의 저장 프로시저 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 저장 프로시저 구현을 위한 팁
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850579"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479584"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>SQL Data Warehouse의 저장 프로시저 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 저장 프로시저 구현을 위한 팁
 
-## <a name="what-to-expect"></a>예상 프로그램
+## <a name="what-to-expect"></a>필요한 항목
 
 SQL Data Warehouse는 SQL Server에서 사용되는 여러 T-SQL 기능을 지원합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
 

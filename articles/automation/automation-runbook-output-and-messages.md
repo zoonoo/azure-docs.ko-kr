@@ -9,25 +9,25 @@ ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c129391c0830e0194c32a041853482f92340bbb9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476933"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405779"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook은 일종의 출력 양식을 갖습니다. 이 출력은 사용자에 대한 오류 메시지 또는 다른 Runbook과 함께 사용하려는 복합 개체일 수 있습니다. Windows PowerShell은 [여러 스트림](/powershell/module/microsoft.powershell.core/about/about_redirection) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동합니다. 각 Runbook을 만들 때 사용하는 방법에 대한 모범 사례를 따라야 합니다.
 
 다음 테이블에서는 게시된 Runbook 및 [Runbook을 테스트](automation-testing-runbook.md)할 경우 Azure Portal의 각 스트림 및 해당 동작을 간략히 설명합니다. 각 스트림에 대한 자세한 내용은 뒷부분의 섹션에 제공됩니다.
 
-| Stream | 설명 | 게시됨 | 테스트 |
+| 스트림 | Description | 게시됨 | 테스트 |
 |:--- |:--- |:--- |:--- |
-| Output |다른 runbook에서 사용할 수 있도록 의도된 개체입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
-| Warning |사용자를 위한 경고 메시지입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
-| 오류 |사용자를 위한 오류 메시지입니다. 예외와 달리 runbook는 기본적으로 오류 메시지 이후에 계속합니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
-| 자세한 정보 표시 |일반 또는 디버깅 정보를 제공하는 메시지입니다. |자세한 정보 표시 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |$VerbosePreference runbook가 계속으로 설정된 경우 테스트 출력 창에 표시합니다. |
-| 진행 |runbook의 각 작업 전과 후에 레코드를 자동으로 생성했습니다. 자체 진행률 레코드는 대화형 사용자를 위한 것이기 때문에 Runbook이 만들려고 하지 않아야 합니다. |진행률 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |테스트 출력 창에 표시하지 않습니다. |
+| 출력 |다른 runbook에서 사용할 수 있도록 의도된 개체입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
+| 경고 |사용자를 위한 경고 메시지입니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
+| Error |사용자를 위한 오류 메시지입니다. 예외와 달리 runbook는 기본적으로 오류 메시지 이후에 계속합니다. |작업 기록에 기록합니다. |테스트 출력 창에 표시합니다. |
+| 자세히 |일반 또는 디버깅 정보를 제공하는 메시지입니다. |자세한 정보 표시 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |$VerbosePreference runbook가 계속으로 설정된 경우 테스트 출력 창에 표시합니다. |
+| 진행률 |runbook의 각 작업 전과 후에 레코드를 자동으로 생성했습니다. 자체 진행률 레코드는 대화형 사용자를 위한 것이기 때문에 Runbook이 만들려고 하지 않아야 합니다. |진행률 로깅이 Runbook에 켜져 있는 경우 작업 기록에 기록합니다. |테스트 출력 창에 표시하지 않습니다. |
 | 디버그 |대화형 사용자를 위한 메시지입니다. Runbook에서 사용하지 않아야 합니다. |작업 기록에 기록하지 않습니다. |테스트 출력 창에 기록하지 않습니다. |
 
 ## <a name="output-stream"></a>출력 스트림
@@ -162,9 +162,9 @@ Windows PowerShell은 [기본 설정 변수](https://technet.microsoft.com/libra
 
 | 변수 | 기본값 | 유효한 값 |
 |:--- |:--- |:--- |
-| WarningPreference |계속 |중지<br>계속<br>SilentlyContinue |
-| ErrorActionPreference |계속 |중지<br>계속<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |중지<br>계속<br>SilentlyContinue |
+| WarningPreference |계속 |Stop<br>계속<br>SilentlyContinue |
+| ErrorActionPreference |계속 |Stop<br>계속<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Stop<br>계속<br>SilentlyContinue |
 
 다음 테이블은 runbook에서 유효한 기본 설정 변수 값에 대한 동작을 나열합니다.
 
@@ -172,10 +172,10 @@ Windows PowerShell은 [기본 설정 변수](https://technet.microsoft.com/libra
 |:--- |:--- |
 | 계속 |메시지를 기록하고 runbook 실행을 계속합니다. |
 | SilentlyContinue |메시지를 기록하지 않고 Runbook을 계속 실행합니다. 이 값은 메시지를 무시하는 효과가 있습니다. |
-| 중지 |메시지를 기록하고 runbook을 일시 중단합니다. |
+| Stop |메시지를 기록하고 runbook을 일시 중단합니다. |
 
 ## <a name="runbook-output"></a>Runbook 출력 및 메시지 검색
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 Runbook의 작업 탭의 Azure 포털에서 Runbook 작업의 세부 정보를 볼 수 있습니다. 작업 요약에는 작업 및 발생하는 모든 예외에 대한 일반 정보 외에도 입력 매개 변수 및 [출력 스트림](#output-stream)이 표시합니다. 세부 정보 표시 및 진행률 레코드를 기록하도록 Runbook을 구성하면 [자세한 정보 표시 스트림](#verbose-stream) 및 [진행률 레코드](#progress-records) 외에도 [출력 스트림](#output-stream) 및 [경고 및 오류 스트림](#warning-and-error-streams)의 메시지가 기록에 포함됩니다.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -184,23 +184,23 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](https://docs.microsoft.c
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력 스트림을 작업에서 수집합니다.
 
 ```powershell
-$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+$job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
-  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+  $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
-# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+# For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ``` 
 
 ### <a name="graphical-authoring"></a>그래픽 작성
@@ -220,8 +220,8 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
    
    ![그래픽 작성 로깅 및 추적 페이지](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor 로그
-Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. Azure Monitor 로그를 사용 하면 다음과 같은 작업을 수행할 수 있습니다,
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure 모니터 로그
+Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. Azure Monitor 로그를 사용 하 여 다음을 수행할 수 있습니다.
 
 * Automation 작업에 대한 통찰력 확보 
 * Runbook 작업 상태(예: 실패 또는 일시 중단)를 기반으로 전자 메일 또는 경고 트리거 
@@ -229,7 +229,7 @@ Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 
 * Automation 계정 간에 작업 상호 연결 
 * 시간별 작업 기록 시각화    
 
-Azure Monitor 로그 수집, 상호 연결 하 고 작업 데이터를 사용 하 여 통합을 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)합니다.
+Azure Monitor 로그와의 통합을 구성 하 여 작업 데이터를 수집 하 고 상관 관계를 설정 하는 방법에 대 한 자세한 내용은 [자동화에서 작업 상태 및 작업 스트림을 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Runbook 작업 추적](automation-runbook-execution.md)

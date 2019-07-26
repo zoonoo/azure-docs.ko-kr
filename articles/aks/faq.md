@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 554eba87efc56e2dadb3fb2d0cb78cd8b7ea7237
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302719"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381969"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -140,6 +140,50 @@ AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되므로 AKS
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>내 클러스터를 구독 간에 이동/마이그레이션할 수 있나요?
 
 현재 구독 간의 클러스터 이동은 지원 되지 않습니다.
+
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>AKS 클러스터를 현재 azure 구독에서 다른 클러스터로 이동할 수 있나요? 
+
+AKS 클러스터와 Azure 구독 간에 연결 된 리소스를 이동 하는 것은 지원 되지 않습니다.
+
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>내 클러스터 삭제가 오래 걸리는 이유는 무엇 인가요? 
+
+사용자 요청 시 대부분의 클러스터가 삭제 됩니다. 특히 고객이 자신의 리소스 그룹을 가져오는 경우 또는 교차 RG 작업 삭제가 추가 시간이 나 실패할 수 있습니다. 삭제에 문제가 있는 경우 rg의 잠금이 없는지 다시 한 번 확인 합니다. rg 외부의 모든 리소스는 RG와의 연결이 끊어집니다.
+
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>' NodeLost ' 또는 ' 알 수 없음 ' 상태의 pod/배포가 있는 경우 클러스터를 여전히 업그레이드할 수 있나요?
+
+가능 하지만 AKS 하지 않는 것이 좋습니다. 클러스터의 상태가 알려져 있고 정상 이면 업그레이드를 수행 하는 것이 가장 좋습니다.
+
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>하나 이상의 노드가 비정상 상태 이거나 종료 된 클러스터가 있는 경우 업그레이드를 수행할 수 있나요?
+
+아니요. 업그레이드 하기 전에 실패 한 상태의 모든 노드를 삭제/제거 하거나 클러스터에서 제거 하세요.
+
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행 했지만 오류가 표시 됩니다.`[Errno 11001] getaddrinfo failed` 
+
+가장 일반적으로이 문제는 하나 이상의 NSGs (네트워크 보안 그룹)가 계속 사용 되 고 클러스터와 연결 된 사용자에 의해 발생 합니다.  제거 하 고 삭제를 다시 시도 하세요.
+
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>업그레이드를 실행 했지만 이제 pod이 충돌 루프에 있고 준비 검색이 실패 하나요?
+
+서비스 사용자가 만료 되지 않았는지 확인 하세요.  자세한 내용은 다음을 참조 하세요. [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명을 업데이트](https://docs.microsoft.com/azure/aks/update-credentials)합니다.
+
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>클러스터가 작동 했지만 갑자기 LoadBalancers 조정기를 프로 비전 하거나, Pvc를 탑재할 수 없습니다. 
+
+서비스 사용자가 만료 되지 않았는지 확인 하세요.  자세한 내용은 다음을 참조 하세요. [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명을 업데이트](https://docs.microsoft.com/azure/aks/update-credentials)합니다.
+
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>가상 머신 확장 집합 Api를 사용 하 여 수동으로 크기를 조정할 수 있나요?
+
+아니요, 가상 머신 확장 집합 Api를 사용 하는 크기 조정 작업은 지원 되지 않습니다. AKS Api (`az aks scale`)를 사용 합니다.
+
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>가상 머신 확장 집합을 사용 하 여 수동으로 0 개 노드로 확장할 수 있나요?
+
+아니요, 가상 머신 확장 집합 Api를 사용 하는 크기 조정 작업은 지원 되지 않습니다.
+
+## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>모든 Vm을 중지 하거나 할당 취소할 수 있나요?
+
+AKS는 이러한 구성을 견딜 수 있는 복원 력 메커니즘이 있지만이를 복구 하는 것은 권장 되지 않습니다.
+
+## <a name="can-i-use-custom-vm-extensions"></a>사용자 지정 VM 확장을 사용할 수 있나요?
+
+AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않습니다. 사용자 지정 구성 요소 등을 설치 하려면 kubernetes Api 및 메커니즘을 활용 하세요. 예를 들어 DaemonSets를 활용 하 여 필수 구성 요소를 설치 합니다.
 
 <!-- LINKS - internal -->
 

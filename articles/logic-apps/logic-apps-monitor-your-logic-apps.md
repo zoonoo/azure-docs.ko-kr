@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312249"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385532"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "68312249"
 
 2. 논리 앱을 선택한 후 **개요**를 선택합니다.
 
-   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 예를 들어:
+   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 예:
 
    ![논리 앱 실행 기록 및 트리거 기록](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "68312249"
 
 3. 특정 실행의 단계를 보려면 **실행 기록** 아래에서 해당 실행을 선택합니다. 
 
-   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 예:
+   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 예를 들어:
 
    ![특정 실행에 대한 작업](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "68312249"
 
    예를 들어 [Logic Apps에 대한 REST API](https://docs.microsoft.com/rest/api/logic)를 사용할 때 필요할 수 있는 실행의 **상관 관계 ID**를 가져올 수 있습니다.
 
-5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 예를 들어:
+5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 예:
 
    ![단계 세부 정보](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -293,6 +293,6 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 앱 배포 및 릴리스 관리용 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+* [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [B2B 시나리오 및 엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [B2B 메시지 모니터링](../logic-apps/logic-apps-monitor-b2b-message.md)

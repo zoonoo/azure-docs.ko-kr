@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277771"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348383"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
 
@@ -27,7 +27,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 노드 유형 및 클러스터 특성을 고려 하는 것 외에도 프로덕션 환경에 대 한 크기 조정 작업을 완료 하는 데 1 시간 이상 소요 될 것으로 예측할 수 있습니다. 이 고려 사항은 추가 하는 Vm의 수에 관계 없이 적용 됩니다.
 
-## <a name="autoscaling"></a>자동 확장
+## <a name="autoscaling"></a>자동 크기 조정
 [리소스 구성을 코드로]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)처리 하는 것이 가장 좋은 방법 이므로 Azure Resource Manager 템플릿을 통해 크기 조정 작업을 수행 해야 합니다. 
 
 가상 머신 확장 집합을 통해 자동 크기 조정을 사용 하면 버전이 지정 된 리소스 관리자 템플릿이 가상 머신 확장 집합의 인스턴스 수를 정확 하 게 정의 하 게 됩니다. 부정확 한 정의는 향후 배포에서 의도 하지 않은 크기 조정 작업을 야기 하는 위험을 늘립니다. 일반적으로 다음과 같은 경우 자동 크기 조정을 사용 해야 합니다.
@@ -92,7 +92,7 @@ Azure Service Fabric에서 노드 유형을 [수직 확장](https://docs.microso
 
 특정 가상 머신 확장 집합에 대 한 인스턴스 수를 늘려서 Service Fabric 클러스터를 확장 합니다. 및 원하는 확장 집합의 ID를 `AzureClient` 사용 하 여 프로그래밍 방식으로 규모를 확장 하 여 용량을 늘릴 수 있습니다.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -110,7 +110,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 ### <a name="scaling-in"></a>규모 감축
 
-규모를 감축하려면 확장할 때보다 더 많은 사항을 고려해야 합니다. 예를 들어:
+규모를 감축하려면 확장할 때보다 더 많은 사항을 고려해야 합니다. 예:
 
 * Service Fabric 시스템 서비스는 클러스터의 주 노드 형식에서 실행 됩니다. 인스턴스 수가 안정성 계층에서 보증하는 수보다 적어지도록 해당 노드 형식의 인스턴스를 종료하거나 인스턴스 수를 축소하지 마세요. 
 * 상태 저장 서비스의 경우 가용성을 유지 하 고 서비스 상태를 유지 하기 위해 항상 필요한 특정 수의 노드가 필요 합니다. 최소한 파티션 또는 서비스의 대상 복제본 집합 수와 동일한 수의 노드가 필요 합니다.
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들어:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 이전 코드에서 사용한 것과 동일한 `FabricClient` 인스턴스 (`client` 이 경우) 및 노드 인스턴스 (`instanceIdString` 이 경우)를 사용 하 여 노드를 비활성화 하 고 제거 합니다.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

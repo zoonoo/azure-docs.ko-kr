@@ -3,23 +3,19 @@ title: Azure Cloud Services 역할에 .NET 설치 | Microsoft Docs
 description: 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/22/2018
-ms.author: jeconnoc
-ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699672"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359641"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.
@@ -34,7 +30,7 @@ ms.locfileid: "64699672"
 ## <a name="add-the-net-installer-to-your-project"></a>프로젝트에 .NET 설치 관리자 추가
 .NET Framework의 웹 설치 관리자를 다운로드하려면 설치하려는 버전을 선택합니다.
 
-* [4.8.NET 웹 설치 관리자](https://dotnet.microsoft.com/download/thank-you/net48)
+* [.NET 4.8 웹 설치 관리자](https://dotnet.microsoft.com/download/thank-you/net48)
 * [.NET 4.7.2 웹 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 웹 설치 관리자](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -226,9 +222,9 @@ ms.locfileid: "64699672"
 ## <a name="deploy-your-cloud-service"></a>클라우드 서비스 배포
 클라우드 서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크가 설치되고 있는 동안에는 클라우드 서비스 역할이 *사용 중* 상태입니다. 프레임워크 설치를 다시 시작해야 하는 경우 서비스 역할도 다시 시작될 수 있습니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [.NET Framework 설치][Installing the .NET Framework]
-* [설치된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
+* [설치 된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework 설치 문제 해결][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed

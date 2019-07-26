@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8528ac81f2248e417d7d25d0f3c2650845c3d7d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596007"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404313"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -63,11 +63,13 @@ ms.locfileid: "65596007"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>IoT hub 연결 문자열을 가져옵니다.
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
 
@@ -140,7 +142,7 @@ ms.locfileid: "65596007"
     import java.util.concurrent.ExecutorService;
     ```
 
-9. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubconnectionstring}`은 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 바꿉니다.
+9. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. 을 `{youriothubconnectionstring}` 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -354,7 +356,7 @@ ms.locfileid: "65596007"
     }
     ```
 
-12. 디바이스에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이트된 앱은 **재부팅** 직접 메서드에 대한 호출을 수신하면 호출자에게 수신 확인을 반환한 후 재부팅을 처리하기 위한 스레드를 시작합니다.
+12. 디바이스에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이션 된 앱은 **다시 부팅** 직접 메서드에 대 한 호출을 받으면 호출자에 게 승인을 반환한 후 다시 부팅을 처리 하는 스레드를 시작 합니다.
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback

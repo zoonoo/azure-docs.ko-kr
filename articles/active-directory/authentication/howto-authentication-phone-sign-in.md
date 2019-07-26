@@ -1,5 +1,5 @@
 ---
-title: 암호 없는 로그인 Microsoft Authenticator 앱 (미리 보기)-Azure Active Directory를 사용 하 여
+title: Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 passwordless 로그인-Azure Active Directory
 description: Microsoft Authenticator 앱으로 암호를 사용하지 않고 Azure AD에 로그인(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c464874708c7b93ec5620cc9ae253912ce1a4790
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703031"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357145"
 ---
 # <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱으로 암호 없는 휴대폰 로그인(공개 미리 보기)
 
@@ -29,8 +29,6 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ## <a name="enable-my-users"></a>내 사용자를 사용하도록 설정
 
-공개 미리 보기의 경우 관리자는 먼저 powershell을 통해 정책을 추가하여 테넌트에서 자격 증명을 사용할 수 있도록 해야 합니다. 이 단계를 수행하기 전에 “알려진 문제” 섹션을 검토하세요.
-
 ### <a name="tenant-prerequisites"></a>테넌트 필수 구성 요소
 
 * Azure Active Directory
@@ -39,11 +37,15 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
-문서의 단계를 수행 [Azure AD에 대 한 암호 없는 로그인을 사용 하도록 설정](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)를 디렉터리에서 암호 없는 인증 방법을 사용 하도록 설정 합니다.
+[Azure AD에 대해 암호 없는 로그인 사용](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)문서의 단계를 수행 하 여 디렉터리에서 암호 없는 인증 방법을 사용 하도록 설정 합니다.
+
+> [!NOTE]
+> 이전에 PowerShell 스크립트를 사용 하 여 테 넌 트에 대해이 기능을 사용 하도록 설정한 경우 사용자 및 그룹에 대 한 새 정책을 설정 하면 기존 테 넌 트 전체 정책을 덮어씁니다. 
+>
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>최종 사용자가 휴대폰 로그인을 사용할 수 있도록 하려면 어떻게 하나요?
 
-공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 최종 사용자만 암호 없는 로그인 발생 테 넌 트 관리자가 사용 하도록 설정 하 고 사용자가 휴대폰 로그인 사용 하도록 설정 하려면 Microsoft Authenticator 앱을 업데이트 합니다.
+공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 관리자가 테 넌 트를 사용 하도록 설정 하 고 사용자가 휴대폰 로그인을 사용 하도록 Microsoft Authenticator 앱을 업데이트 한 후에만 최종 사용자에 게 암호 없는 로그인이 발생 합니다.
 
 > [!NOTE]
 > 이 기능은 2017년 3월부터 앱에 포함되었으므로 정책이 테넌트에 대해 활성화되면 사용자에게 이 흐름이 즉시 발생할 가능성이 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
@@ -59,7 +61,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="ad-fs-integration"></a>AD FS 통합
 
-사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 하이브리드 테넌트의 사용자가 [암호를 대신 사용]을 클릭하는 추가 단계를 수행하지 않고 로그인 확인을 위해 ADFS로 이동하는 것을 방지합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 이 프로세스에 예외가 login_hint 이면, 지정 된 사용자 AD FS에 자동으로 전달 되며 암호 없는 자격 증명을 사용 하는 옵션을 무시 합니다.
+사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용하도록 설정하면 해당 사용자의 인증은 항상 승인을 위해 알림을 보내는 것으로 기본 설정됩니다. 이 논리는 하이브리드 테넌트의 사용자가 [암호를 대신 사용]을 클릭하는 추가 단계를 수행하지 않고 로그인 확인을 위해 ADFS로 이동하는 것을 방지합니다. 또한 이 프로세스는 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시합니다. 이 프로세스에 대 한 예외는 login_hint 지정 된 경우 사용자가 AD FS autoforwarded 하 고 암호 없는 자격 증명을 사용 하는 옵션을 무시 하는 것입니다.
 
 ### <a name="azure-mfa-server"></a>Azure MFA 서버
 
@@ -71,7 +73,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ## <a name="next-steps"></a>다음 단계
 
-[암호 없는 란?](concept-authentication-passwordless.md)
+[Passwordless 란?](concept-authentication-passwordless.md)
 
 [디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-in-azure-ad)
 

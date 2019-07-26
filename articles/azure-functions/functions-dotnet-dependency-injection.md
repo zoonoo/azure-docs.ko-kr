@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1ebb2fd77830074648a580dddad98e05e10c9c75
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 1dbbb6e7bd88e08520225515c422529dc260e1b2
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850031"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377380"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -94,7 +94,7 @@ namespace MyNamespace
         public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
         {
             _service = service;
-            _client = httpClientFactory.CreateClient();;
+            _client = httpClientFactory.CreateClient();
         }
 
         [FunctionName("GetPosts")]
@@ -135,7 +135,7 @@ GitHub의 [다른 서비스 수명 샘플](https://aka.ms/functions/di-sample) �
 
 함수 호스트는 많은 서비스를 등록 합니다. 다음 서비스는 응용 프로그램에서 종속성으로 사용 하기에 안전 합니다.
 
-|서비스 유형|수명|Description|
+|서비스 종류|수명|Description|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|단일|런타임 구성|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|단일|호스트 인스턴스의 ID를 제공 해야 합니다.|

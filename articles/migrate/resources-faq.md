@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302363"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372476"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -20,20 +20,8 @@ ms.locfileid: "68302363"
 ## <a name="general"></a>일반
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
-Azure Migrate 현재 Azure Migrate 프로젝트를 만들 수 있는 여러 지리적 위치를 지원 합니다. 이러한 지역에만 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수는 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
-
-**Geography** | **메타데이터 스토리지 위치**
---- | ---
-Azure Government | 미국 정부 버지니아
-아시아 | 동남 아시아 또는 동아시아
-Europe | 남부 유럽 또는 유럽 서부
-영국 | 영국 남부 또는 영국 서부
-미국 | 미국 중부 또는 미국 서 부 2
-
-
-> [!NOTE]
-> Azure Government에 대 한 지원은 현재 [이전 버전](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) 의 Azure Migrate 에서만 사용할 수 있습니다.
+여기에서 [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) 및 [hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects)에 대 한 목록을 찾을 수 있습니다.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate는 Azure Site Recovery와 어떻게 다른가요?
 
@@ -99,7 +87,7 @@ Hyper-v의 경우 검색은 Hyper-v 호스트 자격 증명을 사용 하 고, V
 
 단일 마이그레이션 어플라이언스를 사용 하 여 최대 1만 VMware Vm 및 최대 5000 Hyper-v Vm을 검색할 수 있습니다.  온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 [hyper-v](scale-hyper-v-assessment.md) 및 [VMware](scale-vmware-assessment.md) 평가를 확장 하는 방법을 알아보세요.
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate: 서버 평가
+## <a name="azure-migrate-server-assessment"></a>Azure Migrate: Server Assessment
 
 ### <a name="does-azure-migrate-server-assessment-support-assessment-of-physical-servers"></a>Azure Migrate: 서버 평가는 물리적 서버에 대 한 평가를 지원 하나요?
 
@@ -195,7 +183,7 @@ Azure Migrate 현재 [기업계약 제품](https://azure.microsoft.com/offers/en
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>종속성 시각화가 10대를 초과하는 VM을 사용하는 그룹에 지원되나요?
 최대 10 개의 Vm이 있는 [그룹에 대 한 종속성을 시각화할](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 수 있습니다. 10 개 이상의 Vm이 포함 된 그룹이 있는 경우 그룹을 작은 그룹으로 분할 한 다음 종속성을 시각화 하는 것이 좋습니다.
 
-## <a name="azure-migrate-server-migration"></a>Azure Migrate: 서버 마이그레이션
+## <a name="azure-migrate-server-migration"></a>Azure Migrate: 준비
 
 ### <a name="how-is-azure-migrate-server-migration-different-from-azure-site-recovery"></a>Azure Migrate 방법: Azure Site Recovery와 다른 서버 마이그레이션
 

@@ -2,24 +2,17 @@
 title: 포털에서 클라우드 서비스의 크기를 자동으로 조정하는 방법 | Microsoft Docs
 description: 포털을 사용하여 Azure에서 클라우드 서비스 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435319"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359614"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
@@ -48,7 +41,7 @@ ms.locfileid: "61435319"
 클라우드 서비스를 선택하면 클라우드 서비스 블레이드가 표시되어야 합니다.
 
 1. 클라우드 서비스 블레이드의 **역할 및 인스턴스** 타일에서 클라우드 서비스의 이름을 선택합니다.   
-   **중요**: 역할 아래에 있는 역할 인스턴스가 아니라 클라우드 서비스 역할을 클릭 해야 합니다.
+   **중요**: 역할 아래에 있는 역할 인스턴스가 아닌 클라우드 서비스 역할을 클릭 해야 합니다.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. **크기 조정** 타일을 선택합니다.

@@ -12,19 +12,21 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31847f3cc47ddf1ed784263a543e94ebca454222
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474724"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382960"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>내 프로필(미리 보기) 포털에서 개인 관련 정보 보기
+
 **내 프로필** 포털의 **개인 정보** 페이지에서 조직의 데이터 사용 방법을 볼 수 있습니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-privacy-related-info"></a>개인 관련 정보 보기
+
 1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
 
 2. 왼쪽 탐색 창에서 **개인 정보**를 선택하거나 **개인 정보** 블록에서 **개인 정보 검토** 링크를 선택합니다.
@@ -39,4 +41,4 @@ ms.locfileid: "60474724"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조직 데이터를 사용 하는 방법를 검토 한 후 보거나 관리 하도록 선택할 수 있습니다 하 [보안 정보](user-help-security-info-overview.md), 연결 된 [장치](myprofile-portal-devices-page.md), 또는 [조직은](myprofile-portal-organizations-page.md)합니다.
+- 조직에서 데이터를 사용 하는 방법을 본 후에는 [보안 정보](user-help-security-info-overview.md), 연결 된 [장치](myprofile-portal-devices-page.md)또는 [조직을](myprofile-portal-organizations-page.md)보거나 관리 하도록 선택할 수 있습니다.

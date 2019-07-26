@@ -1,5 +1,5 @@
 ---
-title: OAuth 2.0 On-Behalf-Of 초안 사양을 사용하는 Azure Active Directory 서비스 간 인증 | Microsoft Docs
+title: Azure AD service to service 인증 OAuth 2.0 just-in-time 기반 사양 | Microsoft Docs
 description: 이 문서에서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261930"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380897"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -109,7 +109,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | assertion |필수 | 요청에 사용된 액세스 토큰 값입니다. |
@@ -143,7 +143,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | assertion |필수 | 요청에 사용된 토큰 값입니다. |
@@ -272,7 +272,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | 범위 |토큰에 부여된 액세스 범위입니다. |
@@ -282,7 +282,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 | access_token |SAML 어설션을 반환하는 매개 변수입니다. |
 | refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
 
-- token_type: 전달자
+- token_type: Bearer
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844

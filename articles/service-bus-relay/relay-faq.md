@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277967"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422967"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -36,9 +36,9 @@ ms.locfileid: "68277967"
 [네임스페이스](relay-create-namespace-portal.md)는 애플리케이션 내에서 Relay 리소스를 확인하는 데 사용할 수 있는 범위 지정 컨테이너입니다. Relay를 사용하는 네임스페이스를 만들어야 합니다. 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Service Bus Relay 서비스는 어떻게 되나요?
-이전의 Service Bus Relay 서비스를 이제 [WCF Relay](relay-wcf-dotnet-get-started.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
+이전의 Service Bus Relay 서비스를 이제 [WCF Relay](service-bus-relay-tutorial.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. 릴레이 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
@@ -86,7 +86,7 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 | 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
 | 서비스 네임스페이스당 릴레이 엔드포인트 |네임스페이스 |- |10000 |
 | [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
-| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 및 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |Unlimited |
+| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 및 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |제한 없음 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>릴레이에는 사용 할당량이 있습니까?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이번에는 요구가 이러한 제한을 초과할 수 있다는 점을 이해합니다. 이러한 한도를 적절하게 조정할 수 있도록 고객 서비스에 언제든지 문의해 주세요. Service Bus의 경우 집계 사용 할당량은 다음과 같습니다.
