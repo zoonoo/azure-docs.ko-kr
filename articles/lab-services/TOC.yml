@@ -307,6 +307,8 @@
           href: 'https://azure.microsoft.com/pricing/details/lab-services/'
         - name: 스택 오버플로
           href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+        - name: 질문과 대답
+          href: classroom-labs/classroom-labs-faq.md
     - name: DevTest Labs
       items:
         - name: Azure 업데이트
