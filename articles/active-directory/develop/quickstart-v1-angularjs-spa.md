@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
+title: Azure AD로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드 | Microsoft Docs
 description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호된 API를 호출하는 AngularJS 단일 페이지 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001202"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380762"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 
@@ -66,7 +66,7 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 1. **앱 등록**을 클릭한 다음, **새 등록**을 선택합니다.
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
-1. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44326/`(Azure AD가 토큰을 반환할 위치)으로 설정합니다.
+1. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44326/`(Azure AD가 토큰을 반환할 위치)로 설정합니다.
 1. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 1. Adal.js는 OAuth 암시적 흐름을 사용하여 Azure AD와 통신합니다. 애플리케이션에 대한 암시적 흐름을 사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 탐색 창에서 **인증**을 선택합니다.
 1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 둘 다 사용하도록 설정합니다. 이 앱은 사용자를 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
@@ -84,7 +84,7 @@ Azure AD에서 애플리케이션이 있으므로 adal.js를 설치하고 ID 관
 
 1. [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
 2. [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js)를 다운로드하여 `App/Scripts/` 프로젝트 디렉터리에 추가합니다.
-3.  `</body>` in `index.html`끝 이전에 각 스크립트를 로드합니다.
+3. `</body>` in `index.html`끝 이전에 각 스크립트를 로드합니다.
 
     ```js
     ...
