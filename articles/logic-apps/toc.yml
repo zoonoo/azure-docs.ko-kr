@@ -155,6 +155,8 @@
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 격리된 환경에서 가상 네트워크에 연결
       href: connect-virtual-network-vnet-isolated-environment.md
+    - name: 통합 서비스 환경에 아티팩트 추가
+      href: add-artifacts-integration-service-environment-ise.md
     - name: 온-프레미스 데이터 액세스
       items:
         - name: 데이터 게이트웨이 설치
@@ -295,6 +297,8 @@
           href: manage-logic-apps-with-visual-studio.md
         - name: 통합 계정 관리
           href: logic-apps-enterprise-integration-accounts.md
+        - name: 통합 서비스 환경 관리
+          href: ise-manage-integration-service-environment.md
         - name: 최신 스키마로 마이그레이션
           href: ../connectors/connectors-schema-migration.md
     - name: 테스트

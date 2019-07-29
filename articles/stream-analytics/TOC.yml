@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: ML 함수로 크기 조정
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: 다시 분할하여 크기 조정
+          href: repartition.md
     - name: 자동화
       items:
         - name: .NET SDK 사용
