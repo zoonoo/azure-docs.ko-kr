@@ -544,6 +544,9 @@
         - name: 비디오 인덱서
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+    - name: 마이그레이션
+      tocHref: /azure/migrate/
+      topicHref: /azure/migrate/
     - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/
