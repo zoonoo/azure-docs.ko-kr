@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2554501ecf6d4ef115e3283fa635c24510b8c797
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249598"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311785"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션 
 
@@ -71,10 +71,10 @@ Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
-1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
+1. Azure Portal에서 구독을 열고 **액세스 제어(IAM)** 를 선택합니다.
+2. **액세스 확인**에서 관련 계정을 찾아서 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
-    - Azure 체험 계정을 방금 만들었으면 구독의 소유자가 됩니다.
+    - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 소유자에게 문의하여 역할을 할당받습니다.
 
 ### <a name="assign-permissions-to-register-the-replication-appliance"></a>복제 어플라이언스를 등록할 수 있는 권한 할당
@@ -214,7 +214,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 4. 설치 관리자 파일을 마이그레이션하려는 머신에 복사합니다.
 5. 어플라이언스를 배포할 때 생성된 암호가 있는지 확인합니다.
     - 파일을 머신의 임시 텍스트 파일에 저장합니다.
-    - 복제 어플라이언스에서 암호를 가져올 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v**를 실행하여 현재 암호를 확인합니다.
+    - 복제 어플라이언스에서 암호를 가져올 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v**를 실행하여 현재 암호를 확인합니다.
     - 암호는 다시 생성하지 않습니다. 다시 생성하는 경우 연결이 끊어지므로 복제 어플라이언스를 다시 등록해야 합니다.
 
 
@@ -314,13 +314,13 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
 작업 상태는 포털 알림에서 추적할 수 있습니다.
 
-**Azure Migrate: 서버 마이그레이션**에서 **서버 복제 중**을 클릭하여 복제 상태를 모니터링할 수 있습니다.
+**서버 복제 중**을 **Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.
 ![복제 모니터링](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
 
-델타 복제가 시작되면 전체 마이그레이션을 Azure로 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
+델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
 - 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
@@ -342,7 +342,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.
 
-    ![테스트 마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    ![마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
@@ -371,7 +371,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
 8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다. 
 
-## <a name="post-migration-best-practices"></a>마이그레이션 후 모범 사례
+## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 
 - 복원력 개선:
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).

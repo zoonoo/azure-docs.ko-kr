@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174047"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382135"
 ---
 # <a name="two-step-verification-overview"></a>2단계 인증 개요
 
@@ -30,9 +30,9 @@ IT 팀원 또는 상사로부터 조직에서 계정에 보안 확인 절차를 
 
 |문서 |설명 |
 |------|------------|
-|[설치 환경](multi-factor-authentication-end-user-first-time.md) |2단계 인증을 처음으로 설정하는 방법을 설명합니다.|
-|[2단계 인증 시작](multi-factor-authentication-end-user.md)|2단계 인증의 의미를 설명합니다.| 
-|[로그인 방법](user-help-sign-in.md)|지정된 확인 방법을 사용하여 로그인하는 방법을 설명합니다.|
-|[설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여줍니다.|
-|[2단계 인증에 관한 도움말](multi-factor-authentication-end-user-troubleshoot.md) |2단계 인증의 일반적인 문제 해결 방법을 설명합니다.|
-|[앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md) |앱 암호를 만들고 사용하는 방법을 설명합니다.|
+| [설치 환경](multi-factor-authentication-end-user-first-time.md) |2단계 인증을 처음으로 설정하는 방법을 설명합니다.|
+| [2단계 인증 시작](multi-factor-authentication-end-user.md)] 2단계 인증의 의미를 설명합니다.| 
+| [로그인 방법](user-help-sign-in.md)] 지정된 확인 방법을 사용하여 로그인하는 방법을 설명합니다.|
+| [설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여줍니다.|
+| [2단계 인증에 관한 도움말](multi-factor-authentication-end-user-troubleshoot.md) |2단계 인증의 일반적인 문제 해결 방법을 설명합니다.|
+| [앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md) |앱 암호를 만들고 사용하는 방법을 설명합니다.|

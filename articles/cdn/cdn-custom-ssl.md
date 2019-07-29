@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594055"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321665"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -174,7 +174,7 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 엔드포인트 호스트 이름입니다.
 
-| 이름            | type  | 값                 |
+| Name            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -190,15 +190,11 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음
 
 >[!NOTE]
->현재 사용자 지정 도메인 소유권에 대한 이메일 유효성 검사는 **Akamai의 Azure CDN** 프로필에 사용할 수 없습니다. **Akamai의 Azure CDN**을 사용하는 경우, 사용자 지정 도메인은 위에서 설명된 대로 CNAME 레코드로 CDN 엔드포인트에 매핑되어야 합니다.  이 기능은 현재 백로그로 제공됩니다. 
+>**Akamai의 Azure CDN**을 사용하는 경우, 사용자 지정 도메인은 위에서 설명된 대로 CNAME 레코드로 CDN 엔드포인트에 매핑되어야 합니다.  이 기능은 현재 백로그로 제공됩니다. 
 
 CNAME 레코드 항목에 cdnverify 하위 도메인이 포함된 경우 이 단계의 나머지 지침을 따릅니다.
 
-사용자 지정 도메인에서 HTTPS를 사용하도록 설정하는 요청이 제출되면, DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 해당 등록자에게 문의하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
-
-![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
-
-또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 프라이빗인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
+DigiCert는 다음 이메일 주소로 확인 이메일을 보냅니다. 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -206,7 +202,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 verification@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
     
 ![도메인 유효성 검사 전자 메일](./media/cdn-custom-ssl/domain-validation-email.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445516"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406007"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -58,7 +58,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 > 
 > 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
 >
-> 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+> 가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md) 문서를 참조하세요.
 
 ## <a name="storm-and-kafka"></a>Storm 및 Kafka
 
@@ -408,8 +408,8 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
       | 설정 | 값 |
       | --- | --- |
-      | 구독 | Azure 구독 |
-      | 리소스 그룹 | 리소스를 포함하는 리소스 그룹입니다. |
+      | Subscription | Azure 구독 |
+      | Resource group | 리소스를 포함하는 리소스 그룹입니다. |
       | 위치 | 리소스가 만들어지는 Azure 지역입니다. |
       | Kafka 클러스터 이름 | Kafka 클러스터의 이름입니다. |
       | Storm 클러스터 이름 | Storm 클러스터의 이름입니다. |

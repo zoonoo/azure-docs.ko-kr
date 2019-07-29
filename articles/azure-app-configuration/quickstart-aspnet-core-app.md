@@ -14,28 +14,21 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795716"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326639"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
-Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 분리된 한 곳에서 모든 애플리케이션 설정을 쉽게 저장하고 관리할 수 있습니다. 이 빠른 시작은 ASP.NET Core 웹앱으로 서비스를 통합하는 방법을 보여줍니다. 
-
-ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 작성합니다. 이러한 데이터 원본은 *구성 공급자*라고 합니다. App Configuration의 .NET Core 클라이언트가 이러한 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
-
-이 빠른 시작의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
-
-![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local.png)
+이 빠른 시작에서는 Azure App Configuration을 ASP.NET Core 앱에 통합하여 코드와 별도로 애플리케이션 설정의 저장 및 관리를 중앙 집중화합니다. ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 작성합니다. 이러한 데이터 원본은 *구성 공급자*라고 합니다. App Configuration의 .NET Core 클라이언트가 이러한 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
 

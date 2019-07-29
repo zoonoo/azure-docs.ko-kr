@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296384"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414142"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -75,7 +75,7 @@ Perf
 
 ![쿼리 저장](media/tutorial-logs-dashboards/save-query.png)
 
-**쿼리 저장** 제어판에서 이름(예: *Azure VM - 프로세서 사용률*) 및 범주(예: **대시보드**)를 제공한 다음 *저장*을 클릭합니다.  이러한 방식으로 일반 쿼리 라이브러리를 만들어 사용하고 수정할 수 있습니다.  마지막으로, 페이지 오른쪽 상단의 **고정** 단추를 선택한 다음 대시보드 이름을 선택하여 이전에 만든 공유 대시보드에 이를 고정합니다.
+**쿼리 저장** 제어판에서 이름(예: *Azure VM - 프로세서 사용률*) 및 범주(예: **대시보드**)를 제공한 다음 *저장*을 클릭합니다.  이러한 방식으로 일반 쿼리 라이브러리를 만들어 사용하고 수정할 수 있습니다.  마지막으로, 페이지 오른쪽 상단의 **대시보드에 고정** 단추를 선택한 다음, 대시보드 이름을 선택하여 이전에 만든 공유 대시보드에 이를 고정합니다.
 
 이제 대시보드에 쿼리가 고정되었으며 그 아래 일반적인 제목과 설명이 있음을 확인할 수 있습니다.
 

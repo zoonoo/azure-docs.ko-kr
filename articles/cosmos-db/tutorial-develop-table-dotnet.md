@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 75f1554f7522723d71666633a03761d07e797e33
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953613"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443514"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -110,9 +110,19 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 1. `CreateStorageAccountFromConnectionString` 메서드를 아래와 같이 정의합니다. 이 메서드는 연결 문자열 세부 정보를 구문 분석하고, “Settings.json” 파일에 제공된 계정 이름과 계정 키 세부 정보가 올바른지 확인합니다. 
 
-   ```csharp
-   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+ ```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Microsoft.Azure.Documents;
+
+    public class Common
     {
+        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+        {
             CloudStorageAccount storageAccount;
             try
             {
@@ -132,6 +142,8 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
             return storageAccount;
         }
+    }
+}
    ```
 
 
@@ -378,6 +390,29 @@ namespace CosmosTableSamples
 이 자습서에서는 Table API 계정에 저장된 데이터에 대해 기본 CRUD 작업을 수행하는 코드를 빌드했습니다. 또한 데이터 배치 삽입, 파티션 내 모든 데이터 쿼리, 파티션 내 다양한 데이터 쿼리, 이름이 지정된 접두사로 시작하는 계정의 테이블 나열과 같은 고급 작업을 수행할 수 있습니다. 전체 샘플 양식 [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub 리포지토리를 다운로드할 수 있습니다. 데이터에 수행할 수 있는 더 많은 작업이 [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) 클래스에 있습니다.  
 
 ## <a name="run-the-project"></a>프로젝트 실행
+
+**CosmosTableSamples** 프로젝트에서 **Program.cs**라는 클래스를 열고 프로젝트가 실행될 때 BasicSamples를 호출하기 위해 다음 코드를 추가합니다.
+
+```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Azure Cosmos Table Samples");
+            BasicSamples basicSamples = new BasicSamples();
+            basicSamples.RunSamples().Wait();
+           
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            Console.Read();
+        }
+    }
+}
+```
 
 이제 솔루션을 빌드하고 F5 키를 눌러 프로젝트를 실행합니다. 프로젝트를 실행하는 경우 명령 프롬프트에 다음 출력이 표시됩니다.
 

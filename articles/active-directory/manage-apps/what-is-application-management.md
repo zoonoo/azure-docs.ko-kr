@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcd0338f9195afae0e326155dbc4e10dd4fc1f91
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723895"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421213"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory의 애플리케이션 관리
 
-Azure AD(Azure Active Directory)는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID 시스템을 제공하여 애플리케이션을 관리하는 방법을 단순화합니다. SaaS 애플리케이션, 온-프레미스 애플리케이션 및 LOB(기간 업무) 앱을 Azure AD에 추가할 수 있습니다. 그런 다음, 사용자는 한 번 로그인하여 Office 365는 물론, Microsoft의 다른 비즈니스 애플리케이션과 함께 이러한 애플리케이션에 안전하고 원활하게 액세스합니다. 사용자 프로비저닝을 자동화하여 관리 비용을 절감할 수 있습니다. 또한 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 애플리케이션 액세스를 제공할 수도 있습니다.
+Azure AD(Azure Active Directory)는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID 시스템을 제공하여 애플리케이션을 관리하는 방법을 단순화합니다. SaaS 애플리케이션, 온-프레미스 애플리케이션 및 LOB(기간 업무) 앱을 Azure AD에 추가할 수 있습니다. 그런 다음, 사용자는 한 번 로그인하여 Office 365는 물론, Microsoft의 다른 비즈니스 애플리케이션과 함께 이러한 애플리케이션에 안전하고 원활하게 액세스합니다. [사용자 프로비저닝을 자동화](user-provisioning.md)하여 관리 비용을 절감할 수 있습니다. 또한 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 애플리케이션 액세스를 제공할 수도 있습니다.
 
 ![Azure AD를 통해 페더레이션된 애플리케이션을 보여주는 다이어그램](media/what-is-application-management/app-management-overview.png)
 

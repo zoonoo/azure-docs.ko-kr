@@ -3,17 +3,18 @@ title: 빠른 시작 - Azure에서 프라이빗 Docker 레지스트리 만들기
 description: Azure CLI를 사용한 프라이빗 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678703"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309523"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
@@ -21,7 +22,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 이 빠른 시작을 수행하려면 Azure CLI를 실행해야 합니다(버전 2.0.55 이상 권장). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
+또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성하는 패키지를 제공합니다.
 
 Azure Cloud Shell에는 필요한 Docker 구성 요소(`dockerd` 데몬) 중 일부가 없기 때문에 이 빠른 시작에 Cloud Shell을 사용할 수 없습니다.
 

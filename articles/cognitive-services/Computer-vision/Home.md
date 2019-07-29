@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f92d8ce8e95962558b3bdb7b4a4d8fe70c725f46
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 523c839ad274b8234a79a89ec45be9a9a4551bf5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604489"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312038"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -65,7 +65,7 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 - 이미지가 JPEG, PNG, GIF 또는 BMP 형식으로 제공되어야 합니다.
 - 이미지의 파일 크기가 4MB보다 작아야 합니다.
 - 이미지의 크기가 50 x 50 픽셀보다 커야 합니다.
-  - OCR의 경우 이미지의 크기는 50 x 50 픽셀 및 4,200 x 4,200 픽셀 사이여야 합니다.
+  - 읽기 API의 경우 이미지의 크기는 50 x 50 픽셀 및 10000 x 10000 픽셀 사이여야 합니다.
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 

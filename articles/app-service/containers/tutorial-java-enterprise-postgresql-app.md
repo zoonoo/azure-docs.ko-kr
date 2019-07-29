@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509626"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498493"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
@@ -169,7 +169,7 @@ Azure 데이터베이스 블레이드의 **연결 보안** 패널에서 "Azure �
 
 - **postgresql-42.2.5.jar**: 이 JAR 파일은 Postgres용 JDBC 드라이버입니다. 자세한 내용은 [공식 웹 사이트](https://jdbc.postgresql.org/index.html)를 참조하세요.
 - **postgres-module.xml**: 이 XML 파일은 Postgres 모듈의 이름을 선언합니다(org.postgres). 모듈을 사용하는 데 필요한 리소스와 종속성도 지정합니다.
-- **jboss_cli_commands.cl**: 이 파일은 JBoss CLI에서 실행될 구성 명령을 포함합니다. WildFly 애플리케이션 서버에 Postgres 모듈을 추가하고, 자격 증명을 제공하고, JNDI 이름을 선언하고, 시간 제한 임계값을 설정하는 등의 명령을 포함합니다. JBoss CLI를 잘 모르는 경우 [공식 설명서](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)를 참조하세요.
+- **jboss_cli_commands.cli**: 이 파일은 JBoss CLI에서 실행될 구성 명령을 포함합니다. WildFly 애플리케이션 서버에 Postgres 모듈을 추가하고, 자격 증명을 제공하고, JNDI 이름을 선언하고, 시간 제한 임계값을 설정하는 등의 명령을 포함합니다. JBoss CLI를 잘 모르는 경우 [공식 설명서](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)를 참조하세요.
 - **startup_script.sh**: 마지막으로, 이 셸 스크립트는 App Service 인스턴스를 시작할 때마다 실행됩니다. 이 스크립트는 *jboss_cli_commands.cli*의 명령을 JBoss CLI로 파이핑하는 한 가지 기능만 수행합니다.
 
 이러한 파일의 콘텐츠, 특히 *jboss_cli_commands.cli*를 꼭 읽어보시기 바랍니다.
@@ -194,7 +194,7 @@ App Service 블레이드에서 "애플리케이션 설정" 패널로 이동합�
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-축하합니다! 이제 애플리케이션이 Postgres 데이터베이스를 사용하며 애플리케이션에서 생성된 레코드가 이전의 H3 메모리 내 데이터베이스 대신 Postgres에 저장됩니다. 레코드를 만들고 App Service를 다시 시작해보면 이 사실을 확인할 수 있습니다. 애플리케이션이 다시 시작되어도 레코드가 그 자리에 있습니다.
+축하합니다! 이제 애플리케이션이 Postgres 데이터베이스를 사용하며 애플리케이션에서 생성된 레코드가 이전의 H2 메모리 내 데이터베이스 대신 Postgres에 저장됩니다. 레코드를 만들고 App Service를 다시 시작해보면 이 사실을 확인할 수 있습니다. 애플리케이션이 다시 시작되어도 레코드가 그 자리에 있습니다.
 
 ## <a name="clean-up"></a>정리
 

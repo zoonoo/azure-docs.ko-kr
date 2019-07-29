@@ -3,17 +3,18 @@ title: '자습서: Azure Container Instances에 컨테이너 앱 배포'
 description: Azure Container Instances 자습서 3/3부 - Azure Container Instances에 컨테이너 애플리케이션 배포
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326742"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325620"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
@@ -36,7 +37,7 @@ ms.locfileid: "56326742"
 
 ### <a name="get-registry-credentials"></a>레지스트리 자격 증명 가져오기
 
-[두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 개인 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)에 나온 대로 여러 시나리오에서 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 사용 권한을 가진 서비스 주체를 만들려면 샘플 스크립트에 대한 문서를 참조하세요. 서비스 주체 ID 및 서비스 주체 암호를 적어둡니다. 컨테이너를 배포하는 경우 이러한 자격 증명을 사용합니다.
+[두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 프라이빗 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)에 나온 대로 여러 시나리오에서 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 사용 권한을 가진 서비스 주체를 만들려면 샘플 스크립트에 대한 문서를 참조하세요. 서비스 주체 ID 및 서비스 주체 암호를 적어둡니다. 컨테이너를 배포하는 경우 이러한 자격 증명을 사용합니다.
 
 또한 컨테이너 레지스트리 로그인 서버의 전체 이름이 필요합니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
 
@@ -56,7 +57,7 @@ az container create --resource-group myResourceGroup --name aci-tutorial-app --i
 
 ### <a name="verify-deployment-progress"></a>배포 진행률 확인
 
-배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
+배포의 상태를 확인하려면 [az container show][az-container-show]를 사용합니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -64,7 +65,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 상태가 *보류 중*에서 *실행 중*으로 변경될 때까지 [az container show][az-container-show] 명령을 1분 미만으로 반복합니다. 컨테이너가 *실행 중* 상태가 되면 다음 단계를 진행합니다.
 
-## <a name="view-the-application-and-container-logs"></a>응용 프로그램 및 컨테이너 로그 보기
+## <a name="view-the-application-and-container-logs"></a>애플리케이션 및 컨테이너 로그 보기
 
 배포에 성공하면 [az container show][az-container-show] 명령을 사용하여 컨테이너의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
@@ -72,7 +73,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-예를 들면 다음과 같습니다.
+예:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

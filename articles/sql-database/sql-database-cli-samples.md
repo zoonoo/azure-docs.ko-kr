@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150234"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443341"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure CLI 샘플
 
@@ -41,6 +41,8 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 |**단일 데이터베이스 및 탄력적 풀 크기 조정**||
 | [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 데이터베이스의 크기 정보를 쿼리한 후에 단일 Azure SQL 데이터베이스를 다양한 컴퓨팅 크기로 확장합니다. |
 | [탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 SQL 탄력적 풀을 다른 컴퓨팅 크기로 조정합니다.  |
+|**장애 조치(failover) 그룹**||
+| [장애 조치(failover) 그룹에 단일 데이터베이스 추가](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| 이 CLI 스크립트는 데이터베이스 및 장애 조치(failover) 그룹을 만들고, 장애 조치(failover) 그룹에 데이터베이스를 추가하고, 보조 서버로 장애 조치(failover)를 테스트합니다.|
 |||
 
 [단일 데이터베이스 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)에 대해 자세히 알아봅니다.

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure DevOps Projects를 사용하여 Java용 CI/CD 파이프라인 만들기'
+title: '빠른 시작: Java - Azure DevOps Projects용 CI/CD 파이프라인 만들기'
 description: DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093568"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489522"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Java용 CI/CD 파이프라인 만들기
 

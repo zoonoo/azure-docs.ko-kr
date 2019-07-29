@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 607e5aded52375190878de6b48ffa4aa2ab49767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c7d6116ed2925e57f094a67f27a11f9e2d61831
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104079"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>자습서: DocuSign와 Azure Active Directory 통합
 
@@ -47,7 +47,7 @@ DocuSign과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * DocuSign은 **SP** 시작 SSO를 지원합니다.
 
-* DocuSign은 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* DocuSign이 [자동 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial)을 지원
 
 ## <a name="adding-docusign-from-the-gallery"></a>갤러리에서 DocuSign 추가
 

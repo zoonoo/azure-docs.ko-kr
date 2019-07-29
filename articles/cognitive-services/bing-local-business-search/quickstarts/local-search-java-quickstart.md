@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Java를 사용하여 Bing Local Business Search API에 쿼리 보내기 | Microsoft Docs
+title: 빠른 시작 - Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Java에서 Bing Local Business Search API를 시작합니다.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: eff7bbc8a7600667254bc9d49627e707b063bc41
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 47b4fac571feea6d5763735c22dcb5cf859f4d5f
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592753"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423359"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 

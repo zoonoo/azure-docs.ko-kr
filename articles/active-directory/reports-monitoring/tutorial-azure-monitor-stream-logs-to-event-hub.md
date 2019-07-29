@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bd55abac534407facd0cb416012767b9f2e39fd8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995601"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360017"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
@@ -76,6 +76,9 @@ ms.locfileid: "59995601"
 이벤트 허브에 데이터가 표시되면 다음과 같은 두 가지 방법으로 데이터에 액세스하여 읽을 수 있습니다.
 
 * **지원되는 SIEM 도구를 구성합니다**. 이벤트 허브에서 데이터를 읽기 위해 대부분의 도구는 이벤트 허브 연결 문자열과 Azure 구독을 읽을 수 있는 특정 권한을 요구합니다. Azure Monitor와 통합된 타사 도구도 포함되지만 이에 국한되지는 않습니다.
+    
+    * **ArcSight**: Splunk와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure Active Directory 로그를 ArcSight와 통합](howto-integrate-activity-logs-with-arcsight.md)을 참조하세요.
+    
     * **Splunk**: Splunk와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](tutorial-integrate-activity-logs-with-splunk.md)을 참조하세요.
     
     * **IBM QRadar**: DSM 및 Azure 이벤트 허브 프로토콜은 [IBM 지원](https://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와 통합하는 방법에 대한 자세한 내용은 [IBM QRadar 보안 인텔리전스 플랫폼 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 사이트를 참조하세요.
@@ -87,6 +90,7 @@ ms.locfileid: "59995601"
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합](howto-integrate-activity-logs-with-arcsight.md)
 * [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](tutorial-integrate-activity-logs-with-splunk.md)
 * [Azure Monitor를 사용하여 SumoLogic과 Azure AD 로그 통합](howto-integrate-activity-logs-with-sumologic.md)
 * [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)

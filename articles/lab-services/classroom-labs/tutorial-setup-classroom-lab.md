@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123250"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385659"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -113,14 +113,14 @@ ms.locfileid: "67123250"
 다음 단계를 사용하여 사용자당 할당량을 설정할 수 있습니다. 
 
 1. 페이지가 아직 활성화되지 않은 경우 왼쪽 메뉴에서 **사용자**를 선택합니다. 
-2. 도구 모음에서 **사용자당 할당량:** 을 선택합니다. 
+2. 도구 모음에서 **사용자당 할당량: 10시간**을 선택합니다. 
 3. **사용자당 할당량** 페이지에서 각 사용자(학생)에게 제공하려는 시간을 지정합니다. 
+    1. **사용자당 총 랩 시간 수** 사용자는 **예약된 시간 외에도** 설정된 시간(이 필드에서 지정된) 동안 VM을 사용할 수 있습니다. 이 옵션을 선택하는 경우 텍스트 상자에 **시간**을 입력합니다. 
+
+        ![사용자당 시간 수](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
     1. **0시간(일정에만 해당)** 사용자는 예약된 시간 동안 또는 랩 소유자로 VM을 켜는 경우에만 VM을 사용할 수 있습니다.
 
         ![0시간 - 예약된 시간에만 해당](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **사용자당 총 랩 시간 수** 사용자는 **예약된 시간 외에도** 설정된 시간(이 필드에서 지정된) 동안 VM을 사용할 수 있습니다. 이 옵션을 선택하는 경우 텍스트 상자에 **시간**을 입력합니다. 
-
-        ![사용자당 시간 수](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. **저장**을 선택합니다. 
 5. 이제 도구 모음에서 변경된 값을 확인할 수 있습니다. **사용자당 할당량: &lt;시간 수&gt;** 
 

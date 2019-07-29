@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121967"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421198"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS와 ADAL JS의 차이점
 
@@ -59,13 +59,13 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
     v2.0 프로토콜은 요청에서 리소스 대신 범위를 사용합니다. 즉, 애플리케이션에서 MS Graph와 같은 리소스에 대한 권한이 있는 토큰을 요청해야 하는 경우 라이브러리 메서드에 전달되는 값의 차이는 다음과 같습니다.
 
-    v1.0: resource=https://graph.microsoft.com
+    v1.0: resource = https\://graph.microsoft.com
 
-    v2.0: scope = https://graph.microsoft.com/User.Read
+    v2.0: scope = https\://graph.microsoft.com/User.Read
 
     API의 URI를 appidURI/scope 형식으로 사용하여 리소스 API에 대한 범위를 요청할 수 있습니다. 예를 들어 https:\//mytenant.onmicrosoft.com/myapi/api.read입니다.
 
-    `user.read` 범위 값은 MS Graph API에서만 https://graph.microsoft.com/User.Read에 매핑되며 서로 교환하여 사용할 수 있습니다.
+    `user.read` 범위 값은 MS Graph API에서만 https://graph.microsoft.com/User.Read 에 매핑되며 서로 교환하여 사용할 수 있습니다.
 
     ```javascript
     var request = {
@@ -77,7 +77,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * 증분 동의에 대한 동적 범위
 
-    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예: 
+    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예:
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * V1.0 API에 대한 범위
 
-    MSAL.js를 사용하여 V1.0 API에 대한 토큰을 얻는 경우 API의 App ID URI에 `.default`를 범위로 적용하여 API에 등록된 모든 정적 범위를 요청할 수 있습니다. 예: 
+    MSAL.js를 사용하여 V1.0 API에 대한 토큰을 얻는 경우 API의 App ID URI에 `.default`를 범위로 적용하여 API에 등록된 모든 정적 범위를 요청할 수 있습니다. 예:
 
     ```javascript
     var request = {

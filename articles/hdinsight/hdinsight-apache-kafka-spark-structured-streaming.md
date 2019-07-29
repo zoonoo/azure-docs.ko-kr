@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da31b6a880344de918a3b3e0f89f60d985db2ce7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257894"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406031"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -44,7 +44,7 @@ Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처�
 > 
 > 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
 >
-> 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+> 가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md) 문서를 참조하세요.
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Apache Kafka를 사용하는 구조적 스트림
 
@@ -142,8 +142,8 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
     | 설정 | 값 |
     | --- | --- |
-    | 구독 | Azure 구독 |
-    | 리소스 그룹 | 리소스를 포함하는 리소스 그룹입니다. |
+    | Subscription | Azure 구독 |
+    | Resource group | 리소스를 포함하는 리소스 그룹입니다. |
     | 위치 | 리소스가 만들어지는 Azure 지역입니다. |
     | Spark 클러스터 이름 | Spark 클러스터의 이름입니다. 처음 여섯 자는 Kafka 클러스터 이름과 달라야 합니다. |
     | Kafka 클러스터 이름 | Kafka 클러스터의 이름입니다. 처음 여섯 자는 Spark 클러스터 이름과 달라야 합니다. |

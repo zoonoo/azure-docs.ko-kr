@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f25ade0e984c98b9cbc8c4efa93f300c3ed93b14
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273139"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385475"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
@@ -96,7 +96,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 ### <a name="write-once-reuse-often"></a>한 번 작성, 반복해서 다시 사용
 
-논리 앱을 템플릿으로 만들면 여러 환경 및 지역에서 [앱을 배포하고 다시 구성](../logic-apps/logic-apps-create-deploy-template.md)할 수 있습니다.
+여러 환경 및 지역에서 [논리 앱 배포를 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)할 수 있도록 논리 앱을 Azure Resource Manager 템플릿으로 만듭니다.
 
 ### <a name="built-in-extensibility"></a>기본 제공 확장성
 

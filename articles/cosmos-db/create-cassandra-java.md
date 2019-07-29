@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519029"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325476"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -71,7 +71,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 선택 사항입니다. 코드로 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이러한 코드 조각은 모두 `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` 파일에서 가져옵니다.  
+이 단계는 선택 사항입니다. 코드로 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 이 코드 조각은 모두 *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* 파일에서 가져옵니다.  
 
 * Cassandra 호스트, 포트, 사용자 이름, 암호 및 SSL 옵션이 설정됩니다. 연결 문자열 정보는 Azure Portal의 연결 문자열 페이지에서 가져옵니다.
 
@@ -85,7 +85,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     return cluster.connect();
     ```
 
-다음 코드 조각은 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 파일에서 가져옵니다.
+다음 코드 조각은 *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* 파일에서 가져온 것입니다.
 
 * 새 keyspace를 만듭니다.
 
