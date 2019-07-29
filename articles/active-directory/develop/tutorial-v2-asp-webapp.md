@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589554188bfe8bd53b5dd3adcd6d57abe95c2d23
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: da78ebfee642961ef0f34ab1088078d22539fbf8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524160"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334104"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-setup.md)]
@@ -39,3 +39,8 @@ ms.locfileid: "59524160"
 > [Web API를 호출하는 웹앱]( https://aka.ms/msal-net-authorization-code)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Microsoft ID 플랫폼을 개선할 수 있도록 도와주세요. 간단한 두 가지 설문 조사를 완료하여 의견을 알려주세요.
+
+> [!div class="nextstepaction"]
+> [Microsoft ID 플랫폼 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
