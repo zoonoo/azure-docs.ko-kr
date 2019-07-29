@@ -272,7 +272,7 @@ MEAN.JS version: 0.5.0
 
 앱 설정을 지정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 
 
-다음 예제에서는 Azure 앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>*, *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
+다음 예제에서는 Azure 앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app_name>* , *\<cosmosdb_name>* 및 *\<primary_master_key>* 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"

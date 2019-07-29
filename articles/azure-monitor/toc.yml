@@ -308,7 +308,13 @@
               displayname: 'live, quickpulse, quick pulse, live metrics'
               href: app/live-stream.md
             - name: 메트릭
-              href: app/metrics-explorer.md
+              items:
+                - name: 로그 기반 및 사전 집계 메트릭
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: 로그 기반 메트릭 정의
+                  href: platform/app-insights-metrics.md
+                - name: 클래식 메트릭 탐색기
+                  href: app/metrics-explorer.md
             - name: 검색
               href: app/diagnostic-search.md
             - name: 프로파일러
@@ -425,8 +431,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: 로그 기반 및 사전 집계 메트릭
-                  href: app/pre-aggregated-metrics-log-metrics.md
                 - name: 트랜잭션 진단
                   href: app/transaction-diagnostics.md
                 - name: 사용자 지정 데이터 원본 상관 관계 만들기
@@ -659,15 +663,13 @@
                 - name: 로그 수집
                   href: platform/diagnostic-logs-stream-log-store.md
                 - name: Azure Storage에서 수집
-                  href: platform/collect-azure-metrics-logs.md
+                  href: platform/azure-storage-iis-table.md
                 - name: 스토리지에 보관
                   href: platform/archive-diagnostic-logs.md
                 - name: Event Hubs로 데이터 스트리밍
                   href: platform/diagnostic-logs-stream-event-hubs.md
                 - name: Resource Manager 템플릿 사용
                   href: platform/diagnostic-logs-stream-template.md
-                - name: 서비스 로그 및 메트릭
-                  href: platform/azure-storage-iis-table.md
             - name: Event Hubs로 데이터 스트리밍
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault 분석
@@ -736,8 +738,8 @@
               href: platform/metrics-getting-started.md
             - name: 메트릭 탐색기의 고급 기능
               href: platform/metrics-charts.md
-            - name: 로그 기반 메트릭
-              href: platform/app-insights-metrics.md
+            - name: 메트릭 차트의 예
+              href: platform/metric-chart-samples.md
             - name: 메트릭 차트 문제 해결
               href: platform/metrics-troubleshoot.md
         - name: 로그

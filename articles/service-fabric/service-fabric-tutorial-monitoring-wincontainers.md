@@ -3,7 +3,7 @@ title: Azure의 Service Fabric에서 Windows 컨테이너 모니터링 및 진�
 description: 이 자습서에서는 Azure Service Fabric에서 Windows 컨테이너의 모니터링 및 진단을 위해 Azure Monitor 로그를 구성합니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ae3366d6918ced1526da1c9be10e977ae0a53cd5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385248"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598776"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 

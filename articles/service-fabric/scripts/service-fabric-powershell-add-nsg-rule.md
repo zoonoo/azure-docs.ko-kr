@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - 네트워크 보안 그룹 규칙 
 description: Azure PowerShell 스크립트 샘플 - 특정 포트에서 인바운드 트래픽을 허용하는 네트워크 보안 그룹을 추가합니다.
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 tags: azure-service-management
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 92efd6c4e63959b6098829892c5cbbaeeabe9f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1418b85bfa2579ed2dee5211a79a75adf14f1547
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159993"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592283"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>인바운드 네트워크 보안 그룹 규칙 추가
 

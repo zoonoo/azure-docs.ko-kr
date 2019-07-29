@@ -402,7 +402,7 @@ Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update)
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로(_/_)가 배포된 애플리케이션 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
+기본적으로 Azure App Service에서는 루트 가상 애플리케이션 경로( _/_ )가 배포된 애플리케이션 파일의 루트 디렉터리(_sites\wwwroot_)를 가리킵니다.
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 

@@ -100,12 +100,12 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트에는 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함됩니다. 또한 - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service]가 만들어집니다(Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스).
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트에는 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함됩니다. 또한 - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service]가 만들어집니다(Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스). 이 빠른 시작에서는 애플리케이션 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다.
 
 > [!TIP]
-> 이 빠른 시작에서는 애플리케이션 매니페스트를 수동으로 만들어 AKS 클러스터에 배포합니다. 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다.
+> 더 많은 실제 시나리오에서는 [Azure Dev Spaces][azure-dev-spaces]를 사용하여 AKS 클러스터에서 직접 코드를 신속하게 반복하고 디버깅할 수 있습니다. OS 플랫폼 및 개발 환경 전반에서 Dev Spaces를 사용하고 다른 팀원과 함께 작업할 수 있습니다. `azure-vote.yaml`이라는 파일을 만들고 다음 YAML 정의에 복사합니다.
 
-`azure-vote.yaml`이라는 파일을 만들고 다음 YAML 정의에 복사합니다. Azure Cloud Shell을 사용하는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 `vi` 또는 `nano`를 사용하여 만들 수 있습니다.
+Azure Cloud Shell을 사용하는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 `vi` 또는 `nano`를 사용하여 만들 수 있습니다. [kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -192,13 +192,13 @@ spec:
     app: azure-vote-front
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
+다음 예제 출력에는 성공적으로 만들어진 배포 및 서비스가 나와 있습니다.
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
 ```
 
-다음 예제 출력에는 성공적으로 만들어진 배포 및 서비스가 나와 있습니다.
+애플리케이션 테스트
 
 ```output
 deployment "azure-vote-back" created
@@ -207,79 +207,79 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>애플리케이션 테스트
+## <a name="test-the-application"></a>애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다.
 
-애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
+이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
-진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다. Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
+Azure Vote로 이동하는 이미지
 
-![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![상태 및 로그 모니터링](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>상태 및 로그 모니터링
+## <a name="monitor-health-and-logs"></a>AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 컨테이너에 대한 Azure Monitor가 설정되었습니다.
 
-AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 컨테이너에 대한 Azure Monitor가 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다.
+이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다. Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 다음 단계를 완료하세요.
 
-Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 다음 단계를 완료하세요.
+웹 브라우저를 열고 Azure Portal [https://portal.azure.com][azure-portal]로 이동합니다.
 
-1. 웹 브라우저를 열고 Azure Portal [https://portal.azure.com][azure-portal]로 이동합니다.
 1. *myResourceGroup* 같은 리소스 그룹을 선택하고, *myAKSCluster* 같은 AKS 클러스터를 선택합니다.
 1. 왼쪽에 있는 **모니터링**에서 **인사이트**를 선택합니다.
 1. 상단에서 **+ 필터 추가**를 클릭합니다.
 1. *네임스페이스*를 속성으로 선택한 다음, *\<All but kube-system\>* 을 선택합니다.
 1. **컨테이너** 보기를 선택합니다.
+1. 다음 예와 같이 *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
 
-다음 예와 같이 *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
+AKS에서 실행 중인 컨테이너의 상태 보기
 
-![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough/monitor-containers.png)
+![`azure-vote-back` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 클릭합니다.](media/kubernetes-walkthrough/monitor-containers.png)
 
-`azure-vote-back` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 클릭합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다. AKS에서 컨테이너 로그 보기
 
-![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough/monitor-container-logs.png)
+![클러스터 삭제](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-the-cluster"></a>클러스터 삭제
+## <a name="delete-the-cluster"></a>클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
 
-클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
+클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요. 코드 가져오기
 
-## <a name="get-the-code"></a>코드 가져오기
+## <a name="get-the-code"></a>이 빠른 시작에서는 Kubernetes 배포를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다.
 
-이 빠른 시작에서는 Kubernetes 배포를 만드는 데 미리 생성된 컨테이너 이미지를 사용했습니다. 관련된 애플리케이션 코드, Dockerfile 및 Kubernetes 매니페스트 파일을 GitHub에서 사용할 수 있습니다.
+관련된 애플리케이션 코드, Dockerfile 및 Kubernetes 매니페스트 파일을 GitHub에서 사용할 수 있습니다. 다음 단계
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 애플리케이션을 배포했습니다.
 
-이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 애플리케이션을 배포했습니다. 또한 AKS 클러스터에 대한 [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard]할 수도 있습니다.
+또한 AKS 클러스터에 대한 [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard]할 수도 있습니다. AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 
-AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
+[AKS 자습서][aks-tutorial]
 
 > [!div class="nextstepaction"]
-> [AKS 자습서][aks-tutorial]
+> <bpt id="p1">[</bpt>AKS tutorial<ept id="p1">][aks-tutorial]</ept>
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

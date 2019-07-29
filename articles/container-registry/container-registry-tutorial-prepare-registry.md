@@ -10,10 +10,10 @@ ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309579"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
@@ -115,7 +115,7 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>Dockerfile 업데이트
 
-샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] 이미지에서 시작하여, 마지막으로 최적화된aspnetcore 이미지를 빌드합니다.
+샘플에 포함된 Dockerfile은 컨테이너가 어떻게 작성되었는지 보여줍니다. 공식 [aspnetcore][dockerhub-aspnetcore] 이미지에서 시작하여 애플리케이션 파일을 컨테이너에 복사하고, 종속성을 설치하고, 공식 [aspnetcore-build][dockerhub-aspnetcore-build] 이미지를 사용하여 출력을 컴파일하고 마지막으로 최적화된 aspnetcore 이미지를 만듭니다.
 
 [Dockerfile][dockerfile]은 복제된 원본의 `./AcrHelloworld/Dockerfile`에 있습니다.
 

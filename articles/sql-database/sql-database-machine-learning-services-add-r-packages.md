@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: 4e7145570cbc906ea540c9d8f95f6c3cbde1c610
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928628"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598042"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>R 패키지를 Azure SQL Database Machine Learning Services(미리 보기)에 추가
 
@@ -70,7 +70,7 @@ Azure SQL Database에 설치되지 않은 패키지를 사용해야 하는 경�
 
 ### <a name="install-sqlmlutils"></a>**sqlmlutils** 설치
 
-1. 최신 **sqlmlutils** zip 파일을 https://github.com/Microsoft/sqlmlutils/tree/master/R/dist에서 로컬 컴퓨터로 다운로드합니다. 파일의 압축을 풀 필요는 없습니다.
+1. 최신 **sqlmlutils** zip 파일을 https://github.com/Microsoft/sqlmlutils/tree/master/R/dist 에서 로컬 컴퓨터로 다운로드합니다. 파일의 압축을 풀 필요는 없습니다.
 
 1. **명령 프롬프트**를 열고 다음 명령을 실행하여 로컬 컴퓨터에 **RODBCext**와 **sqlmlutils**를 설치합니다. 다운로드한 **sqlmlutils** zip 파일에 대한 전체 경로를 대체합니다. (이 예에서는 파일이 Documents 폴더에 있다고 가정합니다.)
     
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Azure SQL 데이터베이스에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) 참조하세요.
+> Azure SQL 데이터베이스에 R 패키지를 설치하는 또 다른 방법은 **CREATE EXTERNAL LIBRARY** T-SQL 문을 사용하여 바이트 스트림에서 R 패키지를 업로드하는 것입니다. [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 참조 설명서에서 [바이트 스트림에서 라이브러리 만들기](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

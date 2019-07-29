@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384932"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598522"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -261,7 +261,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 >
 >
 
-**CosmosDatabase** 클래스의 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) 또는 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) 함수를 사용하여 컨테이너를 만들 수 있습니다. 컨테이너는 항목(SQL API의 경우 JSON 문서) 및 JavaScript의 관련 서버 쪽 애플리케이션 논리(예: 저장 프로시저, 사용자 정의 함수 및 트리거)로 구성됩니다.
+**CosmosDatabase** 클래스의 [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) 또는 [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) 함수를 사용하여 컨테이너를 만들 수 있습니다. 컨테이너는 항목(SQL API의 경우 JSON 문서) 및 JavaScript의 관련 서버 쪽 애플리케이션 논리(예: 저장 프로시저, 사용자 정의 함수 및 트리거)로 구성됩니다.
 
 1. **CreateContainerAsync** 메서드를 **CreateDatabaseAsync** 메서드 아래에 복사하여 붙여넣습니다. **CreateContainerAsync**는 ID가 ``FamilyContainer``인 새 컨테이너를 만들며, 아직 없는 경우 ``LastName`` 속성으로 분할된 ``containerId`` 필드에서 ID가 지정됩니다.
 
@@ -286,7 +286,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 축하합니다! Azure Cosmos DB 컨테이너를 성공적으로 만들었습니다.  
 
 ## <a id="CreateDoc"></a>6단계: 컨테이너에 항목 추가
-항목은 **CosmosContainer** 클래스의 [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB 컨테이너에 항목을 삽입할 수 있습니다.
+항목은 **CosmosContainer** 클래스의 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 함수를 사용하여 만들 수 있습니다. SQL API를 사용하는 경우 항목은 문서로 보호되며, 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB 컨테이너에 항목을 삽입할 수 있습니다.
 
 먼저 이 샘플에서는 Azure Cosmos DB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어 보겠습니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 항목에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다.
 

@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496440"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566882"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
@@ -141,9 +140,9 @@ Azure AD 관리자를 설정하려면,
 
 Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure AD와 온-프레미스 ID 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Azure AD와 온-프레미스 ID의 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure는 이제 Windows Server AD를 통한 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD 디렉터리 관리](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0)
 - [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/hybrid/reference-connect-ports.md)
@@ -350,4 +349,4 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 지리적 배포를 구현하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[지리적으로 분산된 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
+>[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
