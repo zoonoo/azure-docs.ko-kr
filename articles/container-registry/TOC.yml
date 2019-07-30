@@ -77,6 +77,8 @@
       items:
         - name: 가상 네트워크로 액세스 제한(미리 보기)
           href: container-registry-vnet.md
+        - name: 방화벽 뒤에서 액세스
+          href: container-registry-firewall-access-rules.md
         - name: 인증
           items:
             - name: 인증 개요

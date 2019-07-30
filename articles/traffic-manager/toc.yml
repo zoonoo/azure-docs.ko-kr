@@ -10,6 +10,8 @@
       href: quickstart-create-traffic-manager-profile.md
     - name: Traffic Manager 프로필 만들기 - PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: Traffic Manager 프로필 만들기 - Azure CLI
+      href: quickstart-create-traffic-manager-profile-cli.md
 - name: 자습서
   items:
     - name: 짧은 대기 시간을 위해 트래픽 라우팅

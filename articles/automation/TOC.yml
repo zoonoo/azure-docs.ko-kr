@@ -253,6 +253,9 @@
         - name: DSC 구성 컴파일
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: 비준수 DSC 서버 수정
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: 복합 리소스를 사용하여 DSC 구성 작성
           href: compose-configurationwithcompositeresources.md
         - name: Chocolatey를 사용하여 연속 배포

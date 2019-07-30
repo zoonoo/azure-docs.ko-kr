@@ -47,6 +47,8 @@
           href: functions-integrate-storage-queue-output-binding.md
         - name: 스토리지 - Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: 스토리지 - Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: 자습서
   items:
     - name: Logic Apps를 사용하는 함수

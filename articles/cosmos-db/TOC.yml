@@ -738,6 +738,12 @@
           maintainContext: true
         - name: ODBC 드라이버
           href: odbc-driver.md
+    - name: Cosmos DB로 데이터 마이그레이션
+      items:
+        - name: Striim을 사용하여 SQL API로 마이그레이션
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Striim을 사용하여 Cassandra API로 마이그레이션
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Bulk Executor 라이브러리
       items:
         - name: Bulk Executor 라이브러리 정보

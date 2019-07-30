@@ -72,6 +72,8 @@
               href: connect-cisco.md
         - name: 위협 인텔리전스 연결
           href: connect-threat-intelligence.md
+        - name: Azure Stack VM 연결
+          href: connect-azure-stack.md
     - name: 사냥
       href: hunting.md
       items:

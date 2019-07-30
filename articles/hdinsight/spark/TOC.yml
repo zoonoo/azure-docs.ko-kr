@@ -50,6 +50,18 @@
       href: ../hdinsight-version-release.md
     - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
       href: ../hdinsight-cluster-availability.md
+    - name: 문제 해결
+      items:
+        - name: OutOfMemoryError 예외
+          items:
+            - name: 힙 메모리 부족
+              href: ./apache-spark-troubleshoot-outofmemory-heap.md
+        - name: IllegalArgumentException 예외
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Apache Spark 스트리밍 애플리케이션 중지
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: RpcTimeoutException 예외
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용

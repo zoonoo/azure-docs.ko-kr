@@ -249,6 +249,8 @@
               href: devtest-lab-integrate-ci-cd-vsts.md
             - name: Azure DevOps CI/CD 파이프라인에 환경 통합
               href: integrate-environments-devops-pipeline.md
+            - name: Azure DevOps Services 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
+              href: use-devtest-labs-build-release-pipelines.md
         - name: 기업의 DevTest Labs
           items:
             - name: 기업 규모의 DevTest Labs

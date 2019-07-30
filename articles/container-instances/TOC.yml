@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: 환경 변수 설정(env)
           href: container-instances-environment-variables.md
-        - name: 컨테이너 entrypoint 재정의
+        - name: 컨테이너 시작 명령 설정(entrypoint)
           href: container-instances-start-command.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
