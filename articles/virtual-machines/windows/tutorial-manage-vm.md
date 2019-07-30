@@ -25,7 +25,7 @@ ms.locfileid: "67707950"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
-Azure Virtual Machines는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure VM(가상 머신) 배포 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure VM(가상 머신) 배포 작업을 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기 및 연결
