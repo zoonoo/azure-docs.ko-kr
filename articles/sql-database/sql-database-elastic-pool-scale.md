@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 3/14/2019
 ms.openlocfilehash: f73fc58abfa6cde4133bd56858b7f26bf0c3d4a3
 ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/18/2019
 ms.locfileid: "67204824"
@@ -67,7 +67,7 @@ Edtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 탄�
 
 ### <a name="billing-during-rescaling"></a>크기 조정 중의 요금 청구
 
-사용량 또는 데이터베이스가 한 시간 미만 동안 활성 상태였는지 여부와 관계없이, 해당 시간에 적용된 최고 서비스 계층 + 계산 크기를 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다.
+사용량 또는 데이터베이스가 한 시간 미만 동안 활성 상태였는지 여부와 관계없이, 해당 시간에 적용된 최고 서비스 계층 + 컴퓨팅 크기를 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다.
 
 ## <a name="change-elastic-pool-storage-size"></a>탄력적 풀 스토리지 크기 변경
 

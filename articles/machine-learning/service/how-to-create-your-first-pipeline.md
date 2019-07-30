@@ -205,13 +205,13 @@ Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫�
 
 사용하기 전에 Azure Data Lake Analytics 계정을 만듭니다. 이 리소스를 만들려면 [Azure Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) 문서를 참조하세요.
 
-Data Lake Analytics를 계산 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
+Data Lake Analytics를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
 * __컴퓨팅 이름__: 이 컴퓨팅 리소스에 할당하려는 이름입니다.
 * __리소스 그룹__: Data Lake Analytics 계정을 포함하는 리소스 그룹입니다.
 * __계정 이름__: Data Lake Analytics 계정 이름입니다.
 
-다음 코드는 계산 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
+다음 코드는 컴퓨팅 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
 
 ```python
 import os

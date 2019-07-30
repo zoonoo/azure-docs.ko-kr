@@ -60,7 +60,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 - 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 설정됩니다.
 - 대상 서브넷을 수정할 수 있습니다 합니다 **Compute 및 네트워크** VM에 대 한 설정입니다.
 
-    ![계산 및 네트워크 계산 속성 창](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+    ![컴퓨팅 및 네트워크 컴퓨팅 속성 창](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="set-up-ip-addressing-for-target-vms"></a>대상 VM의 IP 주소 설정
@@ -90,7 +90,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 - 장애 조치(failover) VNet은 재해 복구를 설정할 때 선택한 대상 네트워크입니다.
 - 테스트 장애 조치(failover)에는 항상 비 프로덕션 네트워크를 사용하는 것이 좋습니다.
-- VM의 **계산 및 네트워크** 설정에서 대상 IP 주소를 수정할 수 있습니다.
+- VM의 **컴퓨팅 및 네트워크** 설정에서 대상 IP 주소를 수정할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

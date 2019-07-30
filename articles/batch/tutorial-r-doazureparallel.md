@@ -138,7 +138,7 @@ generateClusterConfig("cluster.json")
 }
 ```
 
-이제 클러스터를 만듭니다. Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 클러스터를 사용할 수 있게 되면 R 세션에 대한 병렬 백 엔드로 등록합니다. 
+이제 클러스터를 만듭니다. Batch는 풀을 즉시 만들지만, 컴퓨팅 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 클러스터를 사용할 수 있게 되면 R 세션에 대한 병렬 백 엔드로 등록합니다. 
 
 ```R
 # Create your cluster if it does not exist; this takes a few minutes

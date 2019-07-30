@@ -128,7 +128,7 @@ ms.locfileid: "67839125"
 
 1. Data Factory Editor에서 **자세히** > **새 계산** > **주문형 HDInsight 클러스터**를 선택합니다.
 
-    ![새 계산](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
+    ![새 컴퓨팅](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각은 주문형 HDInsight 클러스터를 만드는 데 사용되는 속성을 설명합니다.
 

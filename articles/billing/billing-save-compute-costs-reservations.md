@@ -16,7 +16,7 @@ ms.locfileid: "68359222"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
-Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스를 선결제하여 비용을 줄일 수 있는 제도입니다. 선결제하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 가상 머신, SQL Database 계산, Azure Cosmos DB 또는 기타 리소스 비용이 종량제 가격의 최대 72%까지 감소합니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
+Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스를 선결제하여 비용을 줄일 수 있는 제도입니다. 선결제하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 가상 머신, SQL Database 컴퓨팅, Azure Cosmos DB 또는 기타 리소스 비용이 종량제 가격의 최대 72%까지 감소합니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
 
 예약은 [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 구입할 수 있습니다.
 

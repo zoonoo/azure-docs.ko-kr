@@ -43,7 +43,7 @@ ms.locfileid: "67667835"
     ```
 
     > [!NOTE]
-    > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`을 사용하여 VM을 중지해도 계산 리소스는 해제되지 않습니다. 계산 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
+    > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`을 사용하여 VM을 중지해도 계산 리소스는 해제되지 않습니다. 컴퓨팅 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
 
 1. 이제 [az disk list](/cli/azure/disk#az-disk-list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 Managed Disks 목록을 표시합니다.
 

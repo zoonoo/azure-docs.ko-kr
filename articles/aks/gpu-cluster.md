@@ -1,6 +1,6 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 GPU 사용
-description: AKS(Azure Kubernetes Service)에서 고성능 계산 또는 그래픽 집약적 워크로드에 GPU를 사용하는 방법 알아보기
+description: AKS(Azure Kubernetes Service)에서 고성능 컴퓨팅 또는 그래픽 집약적 워크로드에 GPU를 사용하는 방법 알아보기
 services: container-service
 author: zr-msft
 manager: jeconnoc

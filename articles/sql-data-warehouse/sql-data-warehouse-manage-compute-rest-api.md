@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시작, 크기 조정 | Microsoft Docs
-description: REST API를 통해 SQL Data Warehouse에서 계산 능력을 관리합니다.
+description: REST API를 통해 SQL Data Warehouse에서 컴퓨팅 능력을 관리합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -18,9 +18,9 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476065"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
-Azure SQL Data Warehouse에서 계산을 관리하기 위한 REST API입니다.
+Azure SQL Data Warehouse에서 컴퓨팅을 관리하기 위한 REST API입니다.
 
-## <a name="scale-compute"></a>계산 조정
+## <a name="scale-compute"></a>컴퓨팅 크기 조정
 데이터 웨어하우스 단위를 변경하려면 [데이터베이스 생성 또는 업데이트](/rest/api/sql/databases/createorupdate) REST API를 사용합니다. 다음 예제에서는 MyServer 서버에서 호스트되는 MySQLDW 데이터베이스에 대한 데이터 웨어하우스 단위를 DW1000으로 설정합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
 ```
@@ -34,7 +34,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-## <a name="pause-compute"></a>계산 일시 중지
+## <a name="pause-compute"></a>컴퓨팅 일시 중지
 
 데이터베이스를 일시 중지하려면 [데이터베이스 일시 중지](/rest/api/sql/databases/pause) REST API를 사용합니다. 다음 예에서는 Server01 서버에서 호스트하는 이름이 Database02인 데이터베이스를 일시 중지합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
@@ -42,7 +42,7 @@ Content-Type: application/json; charset=UTF-8
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## <a name="resume-compute"></a>계산 다시 시작
+## <a name="resume-compute"></a>컴퓨팅 다시 시작
 
 데이터베이스를 시작하려면 [데이터베이스 다시 시작](/rest/api/sql/databases/resume) REST API를 사용합니다. 다음 예에서는 Server01 서버에서 호스팅되는 이름이 Database02인 데이터베이스를 시작합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다. 
 
@@ -94,5 +94,5 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [계산 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
+자세한 내용은 [컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 

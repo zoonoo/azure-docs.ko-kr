@@ -204,7 +204,7 @@ az vm create --resource-group myResourceGroup --location westus \
 
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
-Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 계산 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [Resource Manager 및 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
+Azure Resource Manager 템플릿은 구축하려는 환경을 정의하는 JSON (JavaScript Notation) 파일입니다. 템플릿은 컴퓨팅 또는 네트워크과 같은 다양한 리소스 공급자로 세분화됩니다. 기존 템플릿을 사용하거나 직접 템플릿을 작성할 수 있습니다. [Resource Manager 및 템플릿 사용](../../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아봅니다.
 
 템플릿의 `Microsoft.Compute/virtualMachines` 공급자 내에 VM에 대한 구성 세부 정보를 포함하는 `storageProfile` 노드가 있게 될 것입니다. 편집할 두 가지 주요 매개 변수는 사용자 지정 디스크와 새 VM의 가상 디스크를 가리키는 `image`과 `vhd` URI입니다. 다음은 사용자 지정 디스크 사용에 대한 JSON의 예입니다.
 

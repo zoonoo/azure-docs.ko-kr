@@ -101,7 +101,7 @@ shutil.copy('pytorch_train.py', project_folder)
 
 그러나 Azure Machine Learning 서비스 추적 및 메트릭 기능을 사용 하려는 경우에 교육 스크립트 내에서 약간 코드를 추가 해야 합니다. 메트릭 추적의 예제에서 확인할 수 있습니다 `pytorch_train.py`합니다.
 
-## <a name="create-a-compute-target"></a>계산 대상 만들기
+## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
 실행 되도록 PyTorch 작업에 대 한 계산 대상을 만듭니다. 이 예제에서는 Azure Machine Learning GPU 가능 계산 클러스터를 만듭니다.
 

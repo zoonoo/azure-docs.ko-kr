@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM에 대한 벤치마크 점수 계산 | Microsoft Docs
-description: Linux를 실행하는 Azure VM에 대한 CoreMark 계산 벤치마크 점수를 비교합니다.
+title: Azure Linux VM의 컴퓨팅 벤치마크 점수 | Microsoft Docs
+description: Linux를 실행하는 Azure VM의 CoreMark 컴퓨팅 벤치마크 점수를 비교합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -23,10 +23,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/15/2019
 ms.locfileid: "67870878"
 ---
-# <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM에 대한 벤치마크 점수 계산
-다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 계산 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
+# <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
+다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 컴퓨팅 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
 
-## <a name="av2---general-compute"></a>Av2 - 일반 계산
+## <a name="av2---general-compute"></a>Av2 - 일반 컴퓨팅
 (오전 3/15/2019 12:06:55 시 pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -71,7 +71,7 @@ ms.locfileid: "67870878"
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 111929 | 1562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 109537 | 1354 | 1.24% | 665 |
 
-## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 계산 + Premium Storage
+## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 컴퓨팅 + Premium Storage
 (3/12/2019 6:52:03 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -88,7 +88,7 @@ ms.locfileid: "67870878"
 | Standard_D32s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1 | 125.9 | 312058 | 1661 | 0.53% | 595 |
 | Standard_D64s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 64 | 2 | 251.9 | 627,378 | 4447 | 0.71% | 700 |
 
-## <a name="dv3---general-compute"></a>Dv3 - 일반 계산
+## <a name="dv3---general-compute"></a>Dv3 - 일반 컴퓨팅
 (3/12/2019 6:54:27 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -145,7 +145,7 @@ ms.locfileid: "67870878"
 | Standard_DS14-8_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 110.2 | 113375 | 1,442 | 1.27% | 511 |
 | Standard_DS15_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 2 | 137.7 | 279359 | 4,032 | 1.44% | 665 |
 
-## <a name="dv2---general-compute"></a>Dv2 - 일반 계산
+## <a name="dv2---general-compute"></a>Dv2 - 일반 컴퓨팅
 (3/12/2019 6:53:48 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -294,7 +294,7 @@ ms.locfileid: "67870878"
 | Standard_G4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 1 | 220.4 | 212,092 | 2857 | 1.35% | 287 |
 | Standard_G5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 32 | 2 | 440.9 | 403315 | 6,947 | 1.72% | 273 |
 
-## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 계산)
+## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 컴퓨팅)
 (3/12/2019 10:50:51 PM pbi 3897709)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |

@@ -23,7 +23,7 @@ ms.locfileid: "68322211"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 예제: 사용자 구독 모드에서 Batch 계정 만들기
 
-이 스크립트는 사용자 구독 모드에서 Batch 계정을 만듭니다. 구독에 계산 노드를 할당하는 계정은 Azure Active Directory 토큰을 통해 인증되어야 합니다. 할당된 계산 노드는 구독의 vCPU(코어) 할당량에 집계됩니다. 
+이 스크립트는 사용자 구독 모드에서 Batch 계정을 만듭니다. 구독에 컴퓨팅 노드를 할당하는 계정은 Azure Active Directory 토큰을 통해 인증되어야 합니다. 할당된 컴퓨팅 노드는 구독의 vCPU(코어) 할당량에 집계됩니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

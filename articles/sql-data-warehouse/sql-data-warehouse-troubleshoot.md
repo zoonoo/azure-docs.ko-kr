@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154258"
@@ -43,7 +43,7 @@ ms.locfileid: "65154258"
 | 쿼리 성능 및 계획이 부적합하여 종종 통계가 누락됨 | 성능 저하의 가장 일반적인 원인은 테이블에 대한 통계 부족입니다.  통계를 만드는 방법 및 통계가 성능에 중요한 이유에 대한 자세한 내용은 [테이블 통계 유지 관리][Statistics]를 참조하세요. |
 | 낮은 동시성/큐에 쿼리 대기                             | 동시성과 함께 메모리 할당을 적절히 적용하려면 [워크로드 관리][Workload management]를 이해하는 것이 중요합니다. |
 | 모범 사례 구현 방법                              | 쿼리 성능을 향상시키는 방법은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse best practices] 문서에서 알아볼 수 있습니다. |
-| 크기 조정을 통해 성능을 향상시키는 방법                      | 때때로 성능을 향상시키기 위한 솔루션은 [SQL Data Warehouse 크기를 조정][Scaling your SQL Data Warehouse]하여 단순히 더 많은 계산 능력을 쿼리에 추가하는 것입니다. |
+| 크기 조정을 통해 성능을 향상시키는 방법                      | 때때로 성능을 향상시키기 위한 솔루션은 [SQL Data Warehouse 크기를 조정][Scaling your SQL Data Warehouse]하여 단순히 더 많은 컴퓨팅 능력을 쿼리에 추가하는 것입니다. |
 | 인덱스 품질 저하로 인한 쿼리 성능 저하     | 경우에 따라 [columnstore 인덱스 품질 저하][Poor columnstore index quality]로 인해 쿼리가 느려질 수 있습니다.  자세한 내용 및 [세그먼트 품질을 개선하기 위해 인덱스 다시 작성][Rebuild indexes to improve segment quality] 방법에 대해서는 이 문서를 참조하세요. |
 
 ## <a name="system-management"></a>시스템 관리

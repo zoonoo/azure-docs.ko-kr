@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357322"
@@ -293,13 +293,13 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 성능 문제 해결의 경우 애플리케이션 성능에 영향을 주는 것이 문제 해결을 지원하는 애플리케이션 또는 데이터베이스뿐인지 여부를 식별하는 것이 중요합니다. 성능 문제는 애플리케이션 레이어에 있는 경우가 많습니다. 즉, 아키텍처 또는 데이터 액세스 패턴이 문제일 수 있습니다. 예를 들어 네트워크 대기 시간에 중요한 대화 애플리케이션이 있다고 생각해 보겠습니다. 이 경우 애플리케이션은 애플리케이션과 서버 사이를 오가는 짧은 요청("대화")이 많이 있고 혼잡한 네트워크에서는 이러한 왕복이 빠르게 증가하므로 문제가 발생합니다. 이 경우 성능을 개선하려면 [일괄 쿼리](sql-database-performance-guidance.md#batch-queries)를 사용할 수 있습니다. 일괄 처리를 사용하면 이제 요청이 일괄 처리되므로 크게 도움이 되며, 따라서 왕복 대기 시간을 줄이고 애플리케이션 성능을 개선하는 데 도움이 됩니다.
 
-또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, IO 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 계산 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
+또한 데이터베이스의 전반적인 성능이 저하되는 것을 발견한 경우 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를 모니터링하여 CPU, IO 및 메모리 사용을 이해할 수 있습니다. 데이터베이스가 사용할 리소스가 부족하여 성능에 영향을 줄 수 있습니다. 증가하고 줄어드는 워크로드 수요에 따라 컴퓨팅 크기 및/또는 서비스 계층을 변경해야 할 수 있습니다.
 
 성능 문제 조정에 대한 포괄적인 권장 사항은: [데이터베이스 조정](sql-database-performance-guidance.md#tune-your-database)을 참조하세요.
 
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>적절한 서비스 계층 및 컴퓨팅 크기를 사용하고 있는지 확인하려면 어떻게 할까요?
 
-SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을 제공합니다. 각 서비스 계층은 해당 서비스 계층과 연결된 예측 가능한 성능을 보장합니다. 워크로드에 따라 리소스 사용률이 현재 사용 중인 계산 크기의 한계에 도달할 수 있는 활동이 폭발적으로 발생할 수 있습니다. 그러한 경우 먼저 조정(예: 인덱스 추가 또는 변경 등)이 도움이 될 수 있는지 평가하는 것이 좋습니다. 제한 문제가 여전히 발생하는 경우 더 높은 수준의 서비스 계층 또는 계산 크기로 전환하는 것이 좋습니다.
+SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을 제공합니다. 각 서비스 계층은 해당 서비스 계층과 연결된 예측 가능한 성능을 보장합니다. 워크로드에 따라 리소스 사용률이 현재 사용 중인 계산 크기의 한계에 도달할 수 있는 활동이 폭발적으로 발생할 수 있습니다. 그러한 경우 먼저 조정(예: 인덱스 추가 또는 변경 등)이 도움이 될 수 있는지 평가하는 것이 좋습니다. 제한 문제가 여전히 발생하는 경우 더 높은 수준의 서비스 계층 또는 컴퓨팅 크기로 전환하는 것이 좋습니다.
 
 |**서비스 계층**|**일반적인 사용 사례 시나리오**|
 |---|---|
@@ -308,7 +308,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 |**Premium**|많은 동시 사용자, 높은 CPU/메모리 및 높은 IO 수요를 가진 애플리케이션입니다. 높은 동시성, 높은 처리량 및 대기 시간에 민감한 앱은 Premium 수준을 이용할 수 있습니다. |
 |||
 
-적절한 계산 크기에 있는지 확인하려면 위의 "SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 하나요?"에서 설명한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 CPU/메모리 등에서 일관되게 많이 실행되고 있다고 확인되면 더 큰 계산 크기로 강화하도록 고려할 수 있습니다. 마찬가지로, 최고 사용량 시간에도 리소스를 그리 많이 사용하지 않는 것으로 확인되면 현재 계산 크기에서 축소하는 것이 좋습니다.
+적절한 계산 크기에 있는지 확인하려면 위의 "SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 하나요?"에서 설명한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 CPU/메모리 등에서 일관되게 많이 실행되고 있다고 확인되면 더 큰 컴퓨팅 크기로 강화하도록 고려할 수 있습니다. 마찬가지로, 최고 사용량 시간에도 리소스를 그리 많이 사용하지 않는 것으로 확인되면 현재 컴퓨팅 크기를 축소하는 것이 좋습니다.
 
 SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있으면 비용 최적화를 위해 탄력적 풀을 사용하는 것이 좋습니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용한 다중 데이터베이스 관리에 대해 더 자세히 읽으려면: [풀 및 데이터베이스 관리](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)를 참조하세요.
 

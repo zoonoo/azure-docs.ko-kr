@@ -69,7 +69,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
 
 다음 시나리오에서 Service Fabric 애플리케이션에는 내부 HTTP API를 노출하는 `fabric:/app/userservice` 이름의 분할된 상태 저장 서비스가 포함됩니다. 서비스 인스턴스 이름은 잘 알려져 있으며 API Management 인바운드 처리 정책에 직접 하드 코딩될 수 있습니다.  
 
-서비스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용하여 분할됩니다. 여기서 파티션 키 계산을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
+서비스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용하여 분할됩니다. 여기서 파티션 키 컴퓨팅을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-static-stateful]
 
@@ -109,7 +109,7 @@ Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있�
   - `/api/users/foo`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/foo`로 라우팅됩니다.
   - `/api/users/bar`에 대한 요청은 서비스 인스턴스 `fabric:/app/users/bar`로 라우팅됩니다.
 
-각 서비스 인스턴스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용해서도 분할됩니다. 여기서 파티션 키 계산을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
+각 서비스 인스턴스는 두 파티션을 포함하고 키 범위가 `Int64.MinValue` ~ `Int64.MaxValue`인 Int64 파티션 체계를 사용해서도 분할됩니다. 여기서 파티션 키 컴퓨팅을 위해 어떤 알고리즘이라도 사용할 수 있지만, 백 엔드 정책은 URL 요청 경로에 제공된 `id` 값을 64비트 정수로 변환하여 해당 범위 내에서 파티션 키를 계산합니다. 
 
 ![Service Fabric 및 Azure API Management 토폴로지 개요][sf-apim-dynamic-stateful]
 

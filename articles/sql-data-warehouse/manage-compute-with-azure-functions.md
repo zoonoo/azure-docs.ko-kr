@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure SQL Data Warehouse에서 Azure Functions로 컴퓨팅 관리 | Microsoft Docs'
-description: Azure Functions를 사용하여 데이터 웨어하우스의 계산을 관리하는 방법에 대해 설명합니다.
+description: Azure Functions를 사용하여 데이터 웨어하우스의 컴퓨팅을 관리하는 방법에 대해 설명합니다.
 services: sql-data-warehouse
 author: KavithaJonnakuti
 manager: craigg
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61083864"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 계산 리소스 관리
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 리소스 관리
 
-이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 계산 리소스를 관리합니다.
+이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 컴퓨팅 리소스를 관리합니다.
 
 SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
 
@@ -43,7 +43,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 템플릿이 배포되었으면 새로운 세 가지 리소스인 무료 Azure App Service 계획, 사용량 기준 함수 앱 계획, 로깅 및 작업 큐를 처리하는 저장소 계정을 찾아야 합니다. 다른 섹션을 계속 읽고 배포된 기능을 요구 사항에 맞게 수정하는 방법을 알아보세요.
 
-## <a name="change-the-compute-level"></a>계산 수준 변경
+## <a name="change-the-compute-level"></a>컴퓨팅 수준 변경
 
 1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다. 
 
@@ -71,11 +71,11 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 1. 함수 앱 서비스로 이동합니다. 템플릿을 기본값으로 배포한 경우 이 서비스의 이름은 *DWOperations*입니다. 함수 앱을 열면 함수 앱 서비스에 5개 함수가 배포되었을 것입니다. 
 
-2. 강화 또는 규모 축소 계산 값을 변경할 것인지 여부에 따라 *DWScaleDownTrigger* 또는 *DWScaleUpTrigger*를 선택합니다. 함수를 선택하는 즉시 창에 *index.js* 파일이 표시됩니다.
+2. 강화 또는 규모 축소 컴퓨팅 값을 변경할 것인지 여부에 따라 *DWScaleDownTrigger* 또는 *DWScaleUpTrigger*를 선택합니다. 함수를 선택하는 즉시 창에 *index.js* 파일이 표시됩니다.
 
-   ![함수 트리거 계산 수준 변경](media/manage-compute-with-azure-functions/index-js.png)
+   ![함수 트리거 컴퓨팅 수준 변경](media/manage-compute-with-azure-functions/index-js.png)
 
-3. *ServiceLevelObjective* 값을 원하는 수준으로 변경하고 저장을 누릅니다. 이 값은 [통합] 섹션에 정의된 일정에 따라 데이터 웨어하우스 인스턴스의 크기가 조정되는 계산 수준입니다.
+3. *ServiceLevelObjective* 값을 원하는 수준으로 변경하고 저장을 누릅니다. 이 값은 [통합] 섹션에 정의된 일정에 따라 데이터 웨어하우스 인스턴스의 크기가 조정되는 컴퓨팅 수준입니다.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>확장 대신 일시 중지 또는 다시 시작 사용 
 

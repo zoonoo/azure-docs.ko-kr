@@ -95,7 +95,7 @@ automl_config = AutoMLConfig(task="classification")
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
-## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 계산에서 실험을 실행하기 위한 데이터 가져오기
+## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 컴퓨팅에서 실험을 실행하기 위한 데이터 가져오기
 
 원격 실행의 경우 원격 계산에서 데이터에 액세스할 수 있도록 해야 합니다. 데이터 저장소에 데이터를 업로드 하 여이 작업을 수행할 수 있습니다.
 
@@ -150,7 +150,7 @@ automl_config = AutoMLConfig(task="classification")
 
 임의 분할이 허용 되지 않는 경우 사용자 지정 유효성 검사 데이터 집합 사용 (일반적으로 시계열 데이터 또는 불균형 데이터) 사용자 고유의 유효성 검사 데이터 세트를 지정할 수 있습니다. 모델은 무작위 데이터 세트 대신 지정된 유효성 검사 데이터 세트에 대해 평가됩니다.
 
-## <a name="compute-to-run-experiment"></a>실험 실행 계산
+## <a name="compute-to-run-experiment"></a>실험 실행 컴퓨팅
 
 다음으로, 모델을 학습할 위치를 결정합니다. 자동화된 Machine Learning 실험은 다음 컴퓨팅 옵션에서 실행할 수 있습니다.
 *   로컬 데스크톱 또는 랩톱과 같은 로컬 머신 - 일반적으로 데이터 세트가 작고 아직 탐색 단계에 있는 경우입니다.

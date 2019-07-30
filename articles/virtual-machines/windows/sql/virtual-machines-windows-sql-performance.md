@@ -55,7 +55,7 @@ ms.locfileid: "67076922"
 * **SQL Server Enterprise Edition**: DS3_v2 이상
 * **SQL Server Standard 및 Web Edition**: DS2_v2 이상
 
-[DSv2 시리즈](../sizes-general.md#dsv2-series) VM은 최고의 성능을 위해 권장되는 Premium Storage를 지원합니다. 여기서 권장하는 크기는 기준이며 선택하는 실제 시스템 크기는 워크로드 요구 사항에 따라 다릅니다. DSv2 시리즈 VM은 다양한 워크로드에 적합한 범용 VM인 반면, 다른 머신 크기는 특정 워크로드 유형에 맞게 최적화됩니다. 예를 들어, [M 시리즈](../sizes-memory.md#m-series)는 최대 SQL Server 워크로드를 위한 최고 vCPU 개수 및 메모리를 제공합니다. [GS 시리즈](../sizes-previous-gen.md#gs-series) 및 [DSv2 시리즈 11-15](../sizes-memory.md#dsv2-series-11-15)는 큰 메모리 요구 사항에 맞게 최적화됩니다. 이러한 시리즈는 둘 다 [제한된 코어 크기](../../windows/constrained-vcpu.md)로 사용할 수 있어 계산 요구 사항이 더 적은 워크로드의 비용이 절감됩니다. [Ls 시리즈](../sizes-storage.md) 머신은 높은 디스크 처리량 및 IO에 맞게 최적화됩니다. 특정 SQL Server 워크로드를 고려하고 VM 시리즈 및 크기 선택 시 이를 적용해야 합니다.
+[DSv2 시리즈](../sizes-general.md#dsv2-series) VM은 최고의 성능을 위해 권장되는 Premium Storage를 지원합니다. 여기서 권장하는 크기는 기준이며 선택하는 실제 시스템 크기는 워크로드 요구 사항에 따라 다릅니다. DSv2 시리즈 VM은 다양한 워크로드에 적합한 범용 VM인 반면, 다른 머신 크기는 특정 워크로드 유형에 맞게 최적화됩니다. 예를 들어, [M 시리즈](../sizes-memory.md#m-series)는 최대 SQL Server 워크로드를 위한 최고 vCPU 개수 및 메모리를 제공합니다. [GS 시리즈](../sizes-previous-gen.md#gs-series) 및 [DSv2 시리즈 11-15](../sizes-memory.md#dsv2-series-11-15)는 큰 메모리 요구 사항에 맞게 최적화됩니다. 이러한 시리즈는 둘 다 [제한된 코어 크기](../../windows/constrained-vcpu.md)로 사용할 수 있어 컴퓨팅 요구 사항이 더 적은 워크로드의 비용이 절감됩니다. [Ls 시리즈](../sizes-storage.md) 머신은 높은 디스크 처리량 및 IO에 맞게 최적화됩니다. 특정 SQL Server 워크로드를 고려하고 VM 시리즈 및 크기 선택 시 이를 적용해야 합니다.
 
 ## <a name="storage-guidance"></a>저장소 지침
 

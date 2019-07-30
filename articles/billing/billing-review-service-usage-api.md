@@ -95,7 +95,7 @@ The
 
 보고서를 만들 때 요청 본문의 `filter` 및 `dimensions` 섹션을 통해 특정 리소스 형식에 대한 비용에 집중할 수 있습니다. 이전 요청 본문에서는 지역의 모든 리소스별로 필터링하는 방법을 보여줍니다. 
 
-### <a name="get-all-compute-usage"></a>모든 계산 사용 가져오기
+### <a name="get-all-compute-usage"></a>모든 컴퓨팅 사용량 가져오기
 
 `ResourceType` 차원을 사용하여 모든 지역의 구독에서 Azure 가상 머신 비용을 보고합니다.
 

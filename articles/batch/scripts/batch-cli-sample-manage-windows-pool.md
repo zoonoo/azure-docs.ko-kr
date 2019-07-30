@@ -23,7 +23,7 @@ ms.locfileid: "68321919"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Windows 풀 만들기 및 관리
 
-이 스크립트는 Azure Batch에서 Windows 계산 노드 풀을 만들고 관리할 수 있는 Azure CLI 명령 중 일부를 보여줍니다. Windows 풀은 Cloud Services 구성 또는 Virtual Machine 구성의 두 가지 방법으로 구성할 수 있습니다. 이 예제에는 Cloud Services 구성을 사용하여 Windows 풀을 만드는 방법을 보여줍니다.
+이 스크립트는 Azure Batch에서 Windows 컴퓨팅 노드 풀을 만들고 관리할 수 있는 Azure CLI 명령 중 일부를 보여줍니다. Windows 풀은 Cloud Services 구성 또는 Virtual Machine 구성의 두 가지 방법으로 구성할 수 있습니다. 이 예제에는 Cloud Services 구성을 사용하여 Windows 풀을 만드는 방법을 보여줍니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +50,7 @@ az group delete --name myResourceGroup
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
 | [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다. |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 계산 노드 풀을 만듭니다.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
 | [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-set) | 풀의 속성을 업데이트합니다.  |
 | [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
 | [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | 풀의 속성을 표시합니다.  |

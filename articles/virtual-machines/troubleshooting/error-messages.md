@@ -90,7 +90,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  IncorrectDiskBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. Blob {0}은(는) '{1}' 유형입니다.  |
 |  IncorrectImageBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. 디스크 '{1}'에 대한 Blob {0}은(는) 유형 블록 Blob입니다.  |
 |  IncorrectImageBlobType  |  디스크 Blob은 유형 페이지 Blob일 수 있습니다. Blob {0}은(는) '{1}' 유형입니다.  |
-|  InternalOperationError  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 계산 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
+|  InternalOperationError  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
 |  InternalOperationError  |  {0} 목표 검색 태스크에 실패했습니다.  |
 |  InternalOperationError  |  VM '{0}'의 네트워크 프로필을 검사하는 동안 오류가 발생했습니다.  |
 |  InvalidAccountType  |  AccountType {0}은(는) 올바르지 않습니다.  |
@@ -182,7 +182,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  ResourceUpdateBlockedOnPlatformUpdate  |  지금은 진행 중인 플랫폼 업데이트로 인해 리소스를 업데이트할 수 없습니다. 나중에 다시 시도하세요.  |
 |  StorageAccountLimitation  |  저장소 계정 '{0}'은(는) 디스크를 만드는 데 필요한 페이지 Blob을 지원하지 않습니다.  |
 |  StorageAccountLimitation  |  저장소 계정 '{0}'이(가) 할당된 할당량을 초과했습니다.  |
-|  StorageAccountLocationMismatch  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 계산 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
+|  StorageAccountLocationMismatch  |  저장소 계정 {0}을(를) 확인할 수 없습니다. 이 계정이 컴퓨팅 리소스와 동일한 위치에 있는 Storage 리소스 공급자를 통해 생성되었는지 확인하세요.  |
 |  StorageAccountNotFound  |  저장소 계정 {0}을(를) 찾을 수 없음 저장소 계정이 삭제되지 않았고 VM과 동일한 Azure 위치에 속하는지 확인하세요.  |
 |  StorageAccountNotRecognized  |  Storage 리소스 공급자가 관리하는 Storage 계정을 사용하세요. {0}의 사용은 지원되지 않습니다.  |
 |  StorageAccountOperationInternalError  |  저장소 계정 {0}에 액세스하는 동안 내부 오류가 발생했습니다.  |

@@ -104,7 +104,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    g. **일일 데이터 변경률(%)** 에는 원본 서버의 일일 데이터 변경률을 지정합니다.
 
-   h. **매핑 Azure VM 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면**IaaS VM 계산**을 선택합니다. 수동 설정을 입력하고 **IaaS VM 계산**을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 계산 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
+   h. **매핑 Azure VM 크기**에는 매핑할 Azure VM 크기를 입력합니다. 이 작업을 직접 수행하지 않으려면**컴퓨팅 IaaS VM**을 선택합니다. 수동 설정을 입력하고 **컴퓨팅 IaaS VM**을 선택하면 수동 설정을 덮어쓸 수도 있습니다. 컴퓨팅 프로세스가 최적으로 일치하는 Azure VM 크기를 자동으로 식별하기 때문입니다.
 
    ![Workload Qualification 워크시트](./media/site-recovery-capacity-planner/workload-qualification.png)
 

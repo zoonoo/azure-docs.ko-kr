@@ -187,7 +187,7 @@ az vmss create \
 
 
 ## <a name="understand-vm-instance-sizes"></a>VM 인스턴스 크기 이해
-VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 계산 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
+VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 있는 컴퓨팅 리소스(예: CPU, GPU, 메모리)의 양이 결정됩니다. 확장 집합의 VM 인스턴스 크기는 예상 작업에 맞게 적절히 조정되어야 합니다.
 
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
@@ -273,7 +273,7 @@ az vmss show \
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-중지된 VM 인스턴스는 할당된 상태로 유지되며 계산 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
+중지된 VM 인스턴스는 할당된 상태로 유지되며 컴퓨팅 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1

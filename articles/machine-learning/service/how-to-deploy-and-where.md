@@ -13,7 +13,7 @@ ms.date: 07/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
 ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/19/2019
 ms.locfileid: "68358827"
@@ -314,7 +314,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 다음 표에서는 각 계산 대상에 대 한 배포 구성을 만드는 예를 제공 합니다.
 
-| 계산 대상 | 배포 구성 예 |
+| 컴퓨팅 대상 | 배포 구성 예 |
 | ----- | ----- |
 | 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |

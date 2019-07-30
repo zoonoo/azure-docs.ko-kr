@@ -37,7 +37,7 @@ Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training
 
 ### <a name="single-node-training"></a>단일 노드 학습
 
-scikit-learn 모델을 위해 Azure의 원격 계산에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
+scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -61,7 +61,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 머신에서 원격 컴퓨팅으로 복사됩니다. 
 `script_params`| 학습 스크립트 `entry_script`에 대 한 명령줄 인수를 `<command-line argument, value>` 쌍 형식으로 지정 하는 사전입니다. 에서 `script_params`자세한 정보 플래그를 지정 하려면를 `<command-line argument, "">`사용 합니다.
 `compute_target`| 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상입니다. AmlCompute 클러스터가 일반적으로 사용되는 대상이기는 하지만 Azure VM 또는 로컬 컴퓨터와 같은 다른 컴퓨팅 대상 유형을 선택할 수도 있습니다.
-`entry_script`| 원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
+`entry_script`| 원격 컴퓨팅에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages`| conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다.  
 
 생성자에는 필요한 모든 pip 패키지에 사용하는 `pip_packages`라는 매개 변수도 있습니다.

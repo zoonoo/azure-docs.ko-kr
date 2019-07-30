@@ -1158,7 +1158,7 @@ ms.locfileid: "54425681"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>컨테이너를 사용하여 계산 작업 실행</p>
+                                                    <p>컨테이너를 사용하여 컴퓨팅 작업 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1747,7 +1747,7 @@ ms.locfileid: "54425681"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>컨테이너를 사용하여 계산 작업 실행</p>
+                                                    <p>컨테이너를 사용하여 컴퓨팅 작업 실행</p>
                                                 </div>
                                             </div>
                                         </div>

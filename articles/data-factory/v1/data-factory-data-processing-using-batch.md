@@ -34,9 +34,9 @@ ms.locfileid: "67446621"
 
 
 ## <a name="why-azure-batch"></a>Azure Batch를 사용해야 하는 이유
- 클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
+ 클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 컴퓨팅 리소스의 크기를 조정할 수 있습니다.
 
-Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 주문형 또는 예약된 작업을 실행할 수 있습니다. HPC 클러스터, 개별 VM, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
+Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실행하도록 Azure 컴퓨팅 리소스를 정의합니다. 주문형 또는 예약된 작업을 실행할 수 있습니다. HPC 클러스터, 개별 VM, 가상 네트워크 또는 복잡한 작업 및 태스크 예약 인프라를 수동으로 만들거나 구성하거나 관리할 필요가 없습니다.
 
  Batch에 대해 잘 모르는 경우 다음 문서를 통해 이 문서에 설명된 솔루션의 아키텍처/구현을 이해할 수 있습니다.   
 
@@ -98,10 +98,10 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 #### <a name="azure-batch-account"></a>Azure Batch 계정
 [Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. 사용할 수도 있습니다는 [새로 만들기-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) Batch 계정을 만들려면 cmdlet. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
 
-샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 계산 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
+샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 컴퓨팅 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
 #### <a name="azure-batch-pool-of-virtual-machines"></a>가상 머신의 Azure Batch 풀
-적어도 2개의 계산 노드를 포함한 Batch 풀을 만듭니다.
+적어도 2개의 컴퓨팅 노드를 포함한 Batch 풀을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴의 **찾아보기** 및 **Batch 계정**을 차례로 선택합니다.
 
@@ -173,7 +173,7 @@ public IDictionary<string, string> Execute(
 
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
   * **데이터 세트**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
-  * **activity**. 이 매개 변수는 현재 계산 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
+  * **activity**. 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
   * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
@@ -567,7 +567,7 @@ test custom activity Microsoft test custom activity Microsoft
 #### <a name="create-an-azure-batch-linked-service"></a>Azure Batch 연결된 서비스 만들기
 이 단계에서는 Data Factory 사용자 지정 작업을 실행하는 데 사용될 Batch 계정에 대한 연결된 서비스를 만듭니다.
 
-1. 명령 모음에서 **새 계산**을 선택하고 **Azure Batch**를 선택합니다. 편집기에 Batch 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+1. 명령 모음에서 **새 컴퓨팅**을 선택하고 **Azure Batch**를 선택합니다. 편집기에 Batch 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
 1. JSON 스크립트에서:
 
@@ -800,7 +800,7 @@ test custom activity Microsoft test custom activity Microsoft
    * **PackageFile**은 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
    * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset**을 사용합니다.
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService**를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.
-   * **동시성** 설정은 중요합니다. Batch 풀에 2개 이상의 계산 노드가 있더라도 기본값(1)을 사용하는 경우 조각은 차례로 처리됩니다. 따라서 Batch의 병렬 처리 기능을 활용하지 못합니다. **동시성**을 더 높은 값, 예를 들어 2로 설정한 경우 2조각(Batch에서 2개의 작업에 해당)은 동시에 처리될 수 있습니다. 이 경우에 Batch 풀의 두 VM이 모두 활용됩니다. 동시성 속성을 적절하게 설정합니다.
+   * **동시성** 설정은 중요합니다. Batch 풀에 2개 이상의 컴퓨팅 노드가 있더라도 기본값(1)을 사용하는 경우 조각은 차례로 처리됩니다. 따라서 Batch의 병렬 처리 기능을 활용하지 못합니다. **동시성**을 더 높은 값, 예를 들어 2로 설정한 경우 2조각(Batch에서 2개의 작업에 해당)은 동시에 처리될 수 있습니다. 이 경우에 Batch 풀의 두 VM이 모두 활용됩니다. 동시성 속성을 적절하게 설정합니다.
    * 기본적으로 VM에서 언제든지 하나의 작업(조각)이 실행됩니다. 기본적으로 **VM 당 최대 작업**은 Batch 풀에 대해 1로 설정됩니다. 필수 구성 요소의 일부로 이 속성이 2로 설정된 풀을 만들었습니다. 따라서 두 개의 Data factory 조각이 VM에서 동시에 실행될 수 있습니다.
      - **isPaused** 속성은 기본적으로 false로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 **true**로 설정하고 다시 시작하려면 **false**로 다시 설정할 수 있습니다.
      -   **시작** 및 **끝** 시간은 5시간 간격입니다. 5개의 조각이 파이프라인에 의해 생성되도록 조각은 매시간 생성됩니다.
@@ -871,7 +871,7 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
 
 ![Batch 작업](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
-조각의 각 작업 실행에 대한 작업(task)이 작업(job)에 만들어집니다. 10개 조각이 처리를 위해 준비된 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 계산 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 계산 노드당 최대 작업이 1보다 크게 설정된 경우 두 개 이상의 조각이 동일한 계산에서 실행될 수 있습니다.
+조각의 각 작업 실행에 대한 작업(task)이 작업(job)에 만들어집니다. 10개 조각이 처리를 위해 준비된 경우 이 작업에 10개 작업이 만들어집니다. 풀에 여러 컴퓨팅 노드가 있는 경우 병렬로 실행 중인 두 개 이상의 조각을 포함할 수 있습니다. 컴퓨팅 노드당 최대 작업이 1보다 크게 설정된 경우 두 개 이상의 조각이 동일한 컴퓨팅에서 실행될 수 있습니다.
 
 이 예제에는 5개 조각이 있으므로 Batch에 5개의 작업이 있게 됩니다. Data Factory의 파이프라인 JSON에서 **동시성**을 **5**로 설정하고, **2**개의 VM이 있는 Batch 풀에서 **VM당 최대 작업**을 **2**로 설정하면 작업이 빠르게 실행됩니다. (작업에 대한 시작 시간과 종료 시간을 확인합니다.)
 
@@ -938,7 +938,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 
 1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
 
-1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 애플리케이션에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
+1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 컴퓨팅 노드 크기를 조정하는 것은 애플리케이션에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
 
     샘플 수식은 다음과 같은 동작을 수행합니다. 풀이 처음으로 만들어질 때 하나의 VM을 시작합니다. $PendingTasks 메트릭은 실행 중이거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다. 이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 새 작업이 제출되면 풀은 자동으로 증가합니다. 작업이 완료되면 VM은 하나씩 비워지고 자동 크기 조정은 해당 VM을 축소합니다. startingNumberOfVMs 및 maxNumberofVMs을 요구에 맞게 조정할 수 있습니다.
  
@@ -952,7 +952,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
     $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
     ```
 
-   자세한 내용은 [Batch 풀에서 자동으로 계산 노드 크기 조정](../../batch/batch-automatic-scaling.md)을 참조하세요.
+   자세한 내용은 [Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정](../../batch/batch-automatic-scaling.md)을 참조하세요.
 
    풀이 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)을 사용하는 경우 Batch 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15~30분이 소요될 수 있습니다. 풀이 다른 autoScaleEvaluationInterval을 사용하는 경우 Batch 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 

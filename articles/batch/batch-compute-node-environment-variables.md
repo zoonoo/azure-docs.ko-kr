@@ -37,7 +37,7 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 
 ## <a name="command-line-expansion-of-environment-variables"></a>환경 변수의 명령줄 확장
 
-계산 노드에서 태스크로 실행되는 명령줄은 셸에서 실행되지 않습니다. 따라서 이러한 명령줄은 기본적으로 환경 변수 확장과 같은 셸 기능을 활용할 수 없습니다(`PATH` 포함). 이러한 기능을 활용하려면 명령줄에서 **셸을 호출**해야 합니다. 예를 들어 Windows 계산 노드에서 `cmd.exe`를 실행하거나 Linux 노드에서 `/bin/sh`를 실행합니다.
+컴퓨팅 노드에서 태스크로 실행되는 명령줄은 셸에서 실행되지 않습니다. 따라서 이러한 명령줄은 기본적으로 환경 변수 확장과 같은 셸 기능을 활용할 수 없습니다(`PATH` 포함). 이러한 기능을 활용하려면 명령줄에서 **셸을 호출**해야 합니다. 예를 들어 Windows 컴퓨팅 노드에서 `cmd.exe`를 실행하거나 Linux 노드에서 `/bin/sh`를 실행합니다.
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
@@ -51,7 +51,7 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | AZ_BATCH_ACCOUNT_URL            | 배치 계정의 URL입니다. | 모든 태스크입니다. | `https://myaccount.westus.batch.azure.com` |
 | AZ_BATCH_APP_PACKAGE            | 모든 앱 패키지 환경 변수의 접두사입니다. 예를 들어 애플리케이션 “Foo” 버전 “1”이 풀에 설치된 경우 환경 변수는 AZ_BATCH_APP_PACKAGE_FOO_1입니다. AZ_BATCH_APP_PACKAGE_FOO_1은 패키지가 다운로드된 위치(폴더)를 가리킵니다. | 관련 앱 패키지가 있는 모든 작업입니다. 또한 노드 자체에 애플리케이션 패키지가 있는 경우 모든 작업에 사용할 수 있습니다. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | Batch 서비스 작업의 제한된 집합에 대한 액세스를 부여하는 인증 토큰입니다. 이 환경 변수는 [작업이 추가](/rest/api/batchservice/task/add#request-body)될 때 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)가 설정된 경우에만 존재합니다. 토큰 값은 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)와 같은 Batch API에서 Batch 클라이언트를 만들 때 자격 증명으로 사용됩니다. | 모든 태스크입니다. | OAuth2 액세스 토큰 |
-| AZ_BATCH_CERTIFICATES_DIR       | Linux 계산 노드에 대 한 인증서가 저장 되는 [태스크 작업 디렉터리][files_dirs] 내의 디렉터리입니다. 이 환경 변수는 Windows 계산 노드에 적용되지 않습니다.                                                  | 모든 태스크입니다.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Linux 계산 노드에 대 한 인증서가 저장 되는 [태스크 작업 디렉터리][files_dirs] 내의 디렉터리입니다. 이 환경 변수는 Windows 컴퓨팅 노드에 적용되지 않습니다.                                                  | 모든 태스크입니다.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 형식`nodeIP,nodeIP`으로 [다중 인스턴스 작업][multi_instance] 에 할당 되는 노드 목록입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | 현재 노드가 [다중 인스턴스 태스크][multi_instance]에 대 한 마스터 노드인지 여부를 지정 합니다. 가능한 값은 `true` 및 `false`입니다.| 다중 인스턴스 기본 및 하위 태스크입니다. | `true` |
 | AZ_BATCH_JOB_ID                 | 태스크가 속한 작업의 ID | 시작 태스크를 제외한 모든 태스크입니다. | batchjob001 |
@@ -67,9 +67,9 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | AZ_BATCH_POOL_ID                | 태스크가 실행되는 풀의 ID | 모든 태스크입니다. | batchpool001 |
 | AZ_BATCH_TASK_DIR               | 노드의 [태스크 디렉터리][files_dirs] 전체 경로입니다. 이 디렉터리에는 태스크에 대한 `stdout.txt` 및 `stderr.txt`, 그리고 AZ_BATCH_TASK_WORKING_DIR이 포함됩니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | 현재 태스크의 ID | 시작 태스크를 제외한 모든 태스크입니다. | task001 |
-| AZ_BATCH_TASK_SHARED_DIR | 기본 태스크와 [다중 인스턴스 작업][multi_instance] . The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command][coord_cmd] 및 [응용 프로그램 명령][app_cmd]의 모든 하위 작업에 대해 동일한 디렉터리 경로입니다. 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_WORKING_DIR       | 노드의 [태스크 작업 디렉터리][files_dirs] 전체 경로입니다. 현재 실행 중인 태스크는 이 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | [다중 인스턴스 태스크][multi_instance]에 할당 되는 노드 및 노드당 코어 수 목록입니다. 노드 및 코어는 `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...` 형식으로 나열됩니다. 여기서 노드 수 뒤에 하나 이상의 노드 IP 주소와 각 노드의 코어 수가 옵니다. |  다중 인스턴스 기본 및 하위 태스크입니다. |`2 10.0.0.4 1 10.0.0.5 1` |
+| AZ_BATCH_TASK_SHARED_DIR | 기본 태스크와 [다중 인스턴스 작업][multi_instance] . The path exists on every node on which the multi-instance task runs, and is read/write accessible to the task commands running on that node (both the [coordination command][coord_cmd] 및 [응용 프로그램 명령][app_cmd]의 모든 하위 작업에 대해 동일한 디렉터리 경로입니다. 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask | AZ_BATCH_TASK_WORKING_DIR |
+| 노드의 [태스크 작업 디렉터리][files_dirs] 전체 경로입니다.       | 현재 실행 중인 태스크는 이 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd | CCP_NODES |
+| [다중 인스턴스 태스크][multi_instance]에 할당 되는 노드 및 노드당 코어 수 목록입니다.                       | 노드 및 코어는 `numNodes<space>node1IP<space>node1Cores<space>` `node2IP<space>node2Cores<space> ...` 형식으로 나열됩니다. 여기서 노드 수 뒤에 하나 이상의 노드 IP 주소와 각 노드의 코어 수가 옵니다.<br/>다중 인스턴스 기본 및 하위 태스크입니다. |  Multi-instance primary and subtasks. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/

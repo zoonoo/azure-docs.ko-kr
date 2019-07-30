@@ -19,7 +19,7 @@ ms.locfileid: "68322503"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 배치 계정, 계산 노드(가상 머신)의 *풀* 및 풀에서 *태스크*를 실행하는 *작업*을 만드는 방법을 보여 줍니다. 각 샘플 태스크는 풀 노드 중 하나에서 기본 명령을 실행합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 배치 계정, 컴퓨팅 노드(가상 머신)의 *풀* 및 풀에서 *태스크*를 실행하는 *작업*을 만드는 방법을 보여 줍니다. 각 샘플 태스크는 풀 노드 중 하나에서 기본 명령을 실행합니다. 이 빠른 시작을 완료하면, Batch 서비스의 주요 개념을 이해하고 더 큰 규모의 더 실제적인 작업으로 Batch를 시도할 준비가 됩니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +53,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Batch 계정 만들기
 
-[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 계산 리소스(계산 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
+[az batch account create](/cli/azure/batch/account#az-batch-account-create) 명령을 사용하여 배치 계정을 만듭니다. 컴퓨팅 리소스(컴퓨팅 노드의 풀) 및 Batch 작업을 만들려면 계정이 필요합니다.
 
 다음 예제에서는 *mybatchaccount*라는 배치 계정을 *myResourceGroup*에 만들고, 만든 저장소 계정을 연결합니다.  
 
@@ -65,7 +65,7 @@ az batch account create \
     --location eastus2
 ```
 
-계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다.
+컴퓨팅 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다.
 
 ```azurecli-interactive 
 az batch account login \
@@ -74,9 +74,9 @@ az batch account login \
     --shared-key-auth
 ```
 
-## <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
+## <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 명령을 사용하여 Linux 계산 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool*이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
+이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) 명령을 사용하여 Linux 컴퓨팅 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool*이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
  
 ```azurecli-interactive
 az batch pool create \
@@ -86,7 +86,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-Batch는 풀을 즉시 만들지만, 계산 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 상태는 `resizing`입니다. 풀의 상태를 보려면 [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) 명령을 실행합니다. 이 명령은 풀의 모든 속성을 표시하고 특정 속성을 쿼리할 수 있습니다. 다음 명령은 풀의 할당 상태를 가져옵니다.
+Batch는 풀을 즉시 만들지만, 컴퓨팅 노드를 할당하고 시작하는 데 몇 분이 걸립니다. 이 시간 동안 풀의 상태는 `resizing`입니다. 풀의 상태를 보려면 [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) 명령을 실행합니다. 이 명령은 풀의 모든 속성을 표시하고 특정 속성을 쿼리할 수 있습니다. 다음 명령은 풀의 할당 상태를 가져옵니다.
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -107,7 +107,7 @@ az batch job create \
 
 ## <a name="create-tasks"></a>태스크 만들기
 
-이제 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 작업에서 실행할 일부 태스크를 만듭니다. 이 예제에서는 네 개의 동일한 태스크를 만듭니다. 각 태스크는 `command-line`을 실행하여 계산 노드에 Batch 환경 변수를 표시한 다음 90초 동안 기다립니다. Batch를 사용하면 이 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
+이제 [az batch task create](/cli/azure/batch/task#az-batch-task-create) 명령을 사용하여 작업에서 실행할 일부 태스크를 만듭니다. 이 예제에서는 네 개의 동일한 태스크를 만듭니다. 각 태스크는 `command-line`을 실행하여 컴퓨팅 노드에 Batch 환경 변수를 표시한 다음 90초 동안 기다립니다. Batch를 사용하면 이 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
 다음 Bash 스크립트에서는 4개의 병렬 태스크(*mytask1*-*mytask4*)를 만듭니다.
 
@@ -121,7 +121,7 @@ do
 done
 ```
 
-명령 출력에는 각 태스크에 대한 설정이 표시됩니다. Batch에서 태스크를 계산 노드에 배포합니다.
+명령 출력에는 각 태스크에 대한 설정이 표시됩니다. Batch에서 태스크를 컴퓨팅 노드에 배포합니다.
 
 ## <a name="view-task-status"></a>태스크 상태 보기
 
@@ -139,7 +139,7 @@ az batch task show \
 
 ## <a name="view-task-output"></a>태스크 출력 보기
 
-계산 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
+컴퓨팅 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
 
 ```azurecli-interactive 
 az batch task file list \

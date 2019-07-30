@@ -16,7 +16,7 @@ ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570559"
@@ -43,7 +43,7 @@ Azure에서 제공하는 모든 서비스에서 솔루션 아키텍처를 지원
 
 ### <a name="application-hosting"></a>애플리케이션 호스팅
 
-Azure는 인프라 세부 정보에 대해 걱정하지 않고 애플리케이션을 실행할 수 있는 다양한 클라우드 기반 계산 제공 사항을 지원합니다. 애플리케이션 사용량의 증가에 따라 리소스를 쉽게 확장할 수 있습니다.
+Azure는 인프라 세부 정보에 대해 걱정하지 않고 애플리케이션을 실행할 수 있는 다양한 클라우드 기반 컴퓨팅 제공 사항을 지원합니다. 애플리케이션 사용량의 증가에 따라 리소스를 쉽게 확장할 수 있습니다.
 
 Azure는 필요한 애플리케이션 개발 및 호스팅 요구 사항을 지원하는 서비스를 제공합니다. Azure는 애플리케이션 호스팅에 대한 모든 권한을 제공하는 IaaS(Infrastructure-as-a-Service)를 제공합니다. Azure의 PaaS(Platform-as-a-Service) 제공 사항은 앱을 지원하는 데 필요한 완전히 관리되는 서비스를 제공합니다. Azure에는 코드만 작성하면 되는 서버를 사용하지 않는 호스팅도 있습니다.
 

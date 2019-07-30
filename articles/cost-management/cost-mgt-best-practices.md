@@ -183,7 +183,7 @@ Azure Reservations를 통해 1년 또는 3년에 해당하는 가상 머신 비�
 
 #### <a name="use-azure-hybrid-benefit"></a>Azure 하이브리드 혜택 사용
 
-온-프레미스 배포에 Windows Server 또는 SQL Server 라이선스가 이미 포함되어 있으면, Azure 하이브리드 혜택 프로그램을 사용하여 Azure에 저장할 수 있습니다. Windows Server 혜택을 활용하면 각 라이선스에 OS(최대 두 대의 가상 머신) 비용이 포함되므로 기본적인 계산 비용만 지불하면 됩니다. 기존 SQL Server 라이선스를 사용하면 vCore 기반 SQL Database 옵션을 최대 55%까지 절약할 수 있습니다. 옵션에는 Azure Virtual Machines의 SQL Server와 SQL Server Integration Services가 포함됩니다.
+온-프레미스 배포에 Windows Server 또는 SQL Server 라이선스가 이미 포함되어 있으면, Azure 하이브리드 혜택 프로그램을 사용하여 Azure에 저장할 수 있습니다. Windows Server 혜택을 활용하면 각 라이선스에 OS(최대 두 대의 가상 머신) 비용이 포함되므로 기본적인 컴퓨팅 비용만 지불하면 됩니다. 기존 SQL Server 라이선스를 사용하면 vCore 기반 SQL Database 옵션을 최대 55%까지 절약할 수 있습니다. 옵션에는 Azure Virtual Machines의 SQL Server와 SQL Server Integration Services가 포함됩니다.
 
 자세한 내용은 [Azure 하이브리드 혜택 절감액 계산기](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조하세요.
 

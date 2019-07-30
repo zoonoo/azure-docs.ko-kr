@@ -6,7 +6,7 @@ ms.date: 07/19/2019
 ms.author: larryfr
 ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
 ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/19/2019
 ms.locfileid: "68348532"
@@ -15,7 +15,7 @@ ms.locfileid: "68348532"
 
 | JSON 엔터티 | 메서드 매개 변수 | 설명 |
 | ----- | ----- | ----- |
-| `computeType` | NA | 계산 대상. AKS의 경우이 값은 여야 `aks`합니다. |
+| `computeType` | NA | 컴퓨팅 대상. AKS의 경우이 값은 여야 `aks`합니다. |
 | `autoScaler` | NA | 자동 크기 조정에 대 한 구성 요소를 포함 합니다. Autoscaler 표를 참조 하세요. |
 | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | 웹 서비스에 자동 크기 조정을 사용할지 여부입니다. `numReplicas`이면 이고 = , 그렇지`False`않으면입니다. `0` `True` |
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | 이 웹 서비스의 크기를 자동으로 조정 하는 데 사용할 최소 컨테이너 수입니다. 기본값은 `1`입니다. |

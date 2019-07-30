@@ -24,7 +24,7 @@ ms.locfileid: "68321842"
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 애플리케이션 실행
+> * 컴퓨팅 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색
@@ -84,7 +84,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 python batch_python_tutorial_ffmpeg.py
 ```
 
-샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
+샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
    
 ```
 Sample start: 11/28/2018 3:20:21 PM
@@ -107,7 +107,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 계산 노드에 대한 열 지도를 보려면 **풀** > *LinuxFFmpegPool*을 클릭합니다.
+Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 컴퓨팅 노드에 대한 열 지도를 보려면 **풀** > *LinuxFFmpegPool*을 클릭합니다.
 
 태스크가 실행 중일 때 열 지도는 다음과 유사합니다.
 
@@ -163,7 +163,7 @@ input_files = [
     for file_path in input_file_paths]
 ```
 
-### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
+### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
 다음으로, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
@@ -245,7 +245,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 ### <a name="monitor-tasks"></a>태스크 모니터링
 
-태스크가 작업에 추가되면 Batch에서 서비스가 연결된 풀의 계산 노드 실행 대기열에 자동으로 추가하고 예약합니다. 지정한 설정에 따라 Batch는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다. 
+태스크가 작업에 추가되면 Batch에서 서비스가 연결된 풀의 컴퓨팅 노드 실행 대기열에 자동으로 추가하고 예약합니다. 지정한 설정에 따라 Batch는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다. 
 
 태스크 실행을 모니터링하는 방법은 여러 가지가 있습니다. 이 예에서 `wait_for_tasks_to_complete` 함수는 [TaskState](/python/api/azure.batch.models.taskstate) 개체를 사용하여 제한된 시간 동안 태스크의 특정 상태(이 경우에는 완료된 상태)를 모니터링합니다.
 
@@ -267,7 +267,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 저장소 계정에 남아 있습니다.
+앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 저장소 계정에 남아 있습니다.
 
 더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
@@ -278,7 +278,7 @@ while datetime.datetime.now() < timeout_expiration:
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 애플리케이션 실행
+> * 컴퓨팅 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색

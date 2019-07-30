@@ -110,7 +110,7 @@
             - name: GPU 드라이버 설정
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
-        - name: 고성능 계산
+        - name: 고성능 컴퓨팅
           href: ../virtual-machines/windows/sizes-hpc.md
           maintainContext: true
         - name: ACU(Azure 컴퓨팅 단위)

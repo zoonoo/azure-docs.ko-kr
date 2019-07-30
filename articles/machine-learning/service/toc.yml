@@ -93,7 +93,7 @@
     - name: 작업 영역
       displayName: concept definitions architecture
       href: concept-workspace.md
-    - name: 계산 대상
+    - name: 컴퓨팅 대상
       displayName: concept definitions architecture
       href: concept-compute-target.md
     - name: 시각적 인터페이스
@@ -216,7 +216,7 @@
           href: how-to-configure-auto-train.md
         - name: 자동화된 ML 사용(Azure Portal)
           href: how-to-create-portal-experiments.md
-        - name: 원격 계산 대상 사용
+        - name: 원격 컴퓨팅 대상 사용
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: 예측 모델 자동 학습
@@ -239,6 +239,9 @@
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Azure App Service
+          displayName: web app
+          href: how-to-deploy-app-service.md
         - name: 사용자 지정 Docker 이미지
           href: how-to-deploy-custom-docker-image.md
         - name: 기존 모델 배포

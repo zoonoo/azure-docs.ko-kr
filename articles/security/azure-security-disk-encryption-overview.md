@@ -23,7 +23,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 ![Azure Security Center 디스크 암호화 경고](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생할 수 있습니다.
+> 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생할 수 있습니다.
 
 
 ## <a name="encryption-scenarios"></a>암호화 시나리오

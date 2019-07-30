@@ -105,7 +105,7 @@ Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 �
 [![Visual Studio Code에 폴더 연결](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 
-## <a name="create-and-manage-compute-targets"></a>계산 대상 만들기 및 관리
+## <a name="create-and-manage-compute-targets"></a>컴퓨팅 대상 만들기 및 관리
 
 Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터를 준비 하 고, 모델을 학습 하 고, 로컬 및 원격 계산 대상 모두에 배포할 수 있습니다.
 
@@ -119,9 +119,9 @@ Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터
 
 2. 트리 보기에서 Azure 구독 및 Azure Machine Learning 서비스 작업 영역을 확장합니다. 다음 예제 이미지에서 구독 이름은 **무료 평가판**이며 작업 영역은 **teamworkspace**입니다. 
 
-3. 작업 영역 노드에서 **계산** 노드를 마우스 오른쪽 단추로 클릭하고 **계산 만들기**를 선택합니다.
+3. 작업 영역 노드에서 **컴퓨팅** 노드를 마우스 오른쪽 단추로 클릭하고 **컴퓨팅 만들기**를 선택합니다.
 
-4. 목록에서 계산 대상 유형을 선택합니다. 
+4. 목록에서 컴퓨팅 대상 유형을 선택합니다. 
 
 5. 명령 팔레트에서 가상 머신 크기를 선택 합니다.
 

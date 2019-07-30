@@ -1,6 +1,6 @@
 ---
 title: NVIDIA GPU 드라이버 확장 - Azure Linux VM | Microsoft Docs
-description: Linux를 실행하는 N 시리즈 계산 VM에서 NVIDIA GPU 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
+description: Linux를 실행하는 N 시리즈 컴퓨팅 VM에서 NVIDIA GPU 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit

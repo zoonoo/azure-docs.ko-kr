@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: jeffhollan
 manager: jpconnock
-keywords: Azure Functions, 함수, 이벤트 처리, 계산, 서버리스 아키텍처, Java
+keywords: Azure Functions, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처, Java
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual

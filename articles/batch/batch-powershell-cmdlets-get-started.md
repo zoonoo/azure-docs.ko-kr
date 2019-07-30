@@ -125,7 +125,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>Batch 풀 만들기
 
-Batch 풀을 만들거나 업데이트할 때 계산 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 계산 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정 하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열 된 지원 되는 Linux 또는 Windows VM 이미지 중 하나를 지정 하거나 사용자가 준비한 사용자 지정 이미지를 제공할 수 있습니다.
+Batch 풀을 만들거나 업데이트할 때 컴퓨팅 노드의 운영 체제에 대해 클라우드 서비스 구성 또는 가상 머신 구성을 선택합니다([배치 기능 개요](batch-api-basics.md#pool) 참조). 클라우드 서비스 구성을 지정하면 컴퓨팅 노드가 [Azure 게스트 OS 릴리스](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 중 하나로 이미지가 만들어집니다. 가상 컴퓨터 구성을 지정 하는 경우 [Azure Virtual Machines Marketplace][vm_marketplace]에 나열 된 지원 되는 Linux 또는 Windows VM 이미지 중 하나를 지정 하거나 사용자가 준비한 사용자 지정 이미지를 제공할 수 있습니다.
 
 **New-AzBatchPool**을 실행하는 경우 PSCloudServiceConfiguration 또는 PSVirtualMachineConfiguration 개체의 운영 체제 설정을 전달합니다. 예를 들어 다음 코드 조각은 가상 머신 구성에서 크기가 Standard_A1 컴퓨팅 노드이고 Ubuntu Server 18.04-LTS 이미지로 작성된 Batch 풀을 만듭니다. 여기서 **VirtualMachineConfiguration** 매개 변수는 *$configuration* 변수를 PSCloudServiceConfiguration 개체로 지정합니다. **BatchContext** 매개 변수는 이전에 정의한 *$context* 변수를 BatchAccountContext 개체로 지정합니다.
 
@@ -137,7 +137,7 @@ $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSV
 New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```
 
-새 풀에 있는 컴퓨팅 노드의 목표 수치는 자동 크기 조정 수식에 의해 계산됩니다. 이 경우 공식은 단순히 **$TargetDedicated=4**이며 풀의 계산 노드 수는 최대 4개입니다.
+새 풀에 있는 컴퓨팅 노드의 목표 수치는 자동 크기 조정 수식에 의해 계산됩니다. 이 경우 공식은 단순히 **$TargetDedicated=4**이며 풀의 컴퓨팅 노드 수는 최대 4개입니다.
 
 ## <a name="query-for-pools-jobs-tasks-and-other-details"></a>풀, 작업, 태스크 및 기타 상세 정보 쿼리
 
@@ -193,7 +193,7 @@ Batch cmdlet은 PowerShell 파이프라인을 사용하여 cmdlet 간에 데이�
 Get-AzBatchJob -BatchContext $context | Get-AzBatchTask -BatchContext $context
 ```
 
-풀의 모든 계산 노드 다시 시작(다시 부팅):
+풀의 모든 컴퓨팅 노드 다시 시작(다시 부팅):
 
 ```powershell
 Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
@@ -201,7 +201,7 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 ## <a name="application-package-management"></a>애플리케이션 패키지 관리
 
-애플리케이션 패키지는 풀에서 계산 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
+애플리케이션 패키지는 풀에서 컴퓨팅 노드에 애플리케이션을 배포하는 간단한 방법을 제공합니다. Batch PowerShell cmdlet으로 Batch 계정에 애플리케이션 패키지를 업로드하여 관리하고 노드를 계산하는 패키지 버전을 배포할 수 있습니다.
 
 애플리케이션을 **만듭니다**.
 
@@ -294,18 +294,18 @@ $pool.ApplicationPackageReferences.Add($appPackageReference)
 Set-AzBatchPool -BatchContext $context -Pool $pool
 ```
 
-이제 Batch 서비스에서 풀의 속성을 업데이트했습니다. 실제로 풀의 계산 노드에 새로운 애플리케이션 패키지를 배포하려면, 해당 노드를 다시 시작하거나 이미지로 다시 설치해야 합니다. 이 명령을 사용하여 풀의 모든 노드를 다시 시작할 수 있습니다.
+이제 Batch 서비스에서 풀의 속성을 업데이트했습니다. 실제로 풀의 컴퓨팅 노드에 새로운 애플리케이션 패키지를 배포하려면, 해당 노드를 다시 시작하거나 이미지로 다시 설치해야 합니다. 이 명령을 사용하여 풀의 모든 노드를 다시 시작할 수 있습니다.
 
 ```powershell
 Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 
 > [!TIP]
-> 여러 애플리케이션 패키지를 풀의 계산 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 애플리케이션 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
+> 여러 애플리케이션 패키지를 풀의 컴퓨팅 노드에 배포할 수 있습니다. 현재 배포된 패키지를 교체하는 대신 애플리케이션 패키지를 *추가*하고자 하는 경우 위의 `$pool.ApplicationPackageReferences.Clear()` 줄을 생략합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 자세한 cmdlet 구문 및 예제는 [Azure Batch cmdlet 참조](/powershell/module/az.batch)를 참조하세요.
-* Batch의 애플리케이션과 애플리케이션 패키지에 대한 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 계산 노드에 애플리케이션 배포](batch-application-packages.md)를 참조하세요.
+* Batch의 애플리케이션과 애플리케이션 패키지에 대한 자세한 내용은 [Batch 애플리케이션 패키지를 사용하여 컴퓨팅 노드에 애플리케이션 배포](batch-application-packages.md)를 참조하세요.
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

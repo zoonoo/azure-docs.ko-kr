@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM에 대한 벤치마크 점수 계산 | Microsoft Docs
-description: Windows Server를 실행하는 Azure VM에 대한 SPECint 계산 벤치마크 점수를 비교합니다.
+title: Azure Windows VM의 컴퓨팅 벤치마크 점수 | Microsoft Docs
+description: Windows Server를 실행하는 Azure VM의 SPECint 컴퓨팅 벤치마크 점수를 비교합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -23,11 +23,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/15/2019
 ms.locfileid: "67876547"
 ---
-# <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM에 대한 벤치마크 점수 계산
+# <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
 다음 SPECInt 벤치 마크 점수는 Windows Server를 실행 하는 Azure Vm 선택에 대 한 계산 성능을 보여 줍니다. [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
 
 
-## <a name="av2---general-compute"></a>Av2 - 일반 계산
+## <a name="av2---general-compute"></a>Av2 - 일반 컴퓨팅
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 12 | 14.2 | 0.3 | 
@@ -65,7 +65,7 @@ ms.locfileid: "67876547"
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
 
-## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 계산 + Premium Storage
+## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 컴퓨팅 + Premium Storage
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 40.8 | 2.3 | 
@@ -80,7 +80,7 @@ ms.locfileid: "67876547"
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 535.6 | 12.6 | 
 | Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2.4 | 
 
-## <a name="dv3---general-compute"></a>Dv3 - 일반 계산
+## <a name="dv3---general-compute"></a>Dv3 - 일반 컴퓨팅
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
@@ -132,7 +132,7 @@ ms.locfileid: "67876547"
 | Standard_DS14-8_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 247.4 | 10.2 | 
 | Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 45 | 546.1 | 10.5 | 
 
-## <a name="dv2---general-compute"></a>Dv2 - 일반 계산
+## <a name="dv2---general-compute"></a>Dv2 - 일반 컴퓨팅
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 30 | 33.5 | 1.7 | 
@@ -259,7 +259,7 @@ ms.locfileid: "67876547"
 | Standard_G4 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 400.2 | 3.9 | 
 | Standard_G5 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 774.1 | 4.1 | 
 
-## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 계산)
+## <a name="h---high-performance-compute-hpc"></a>H - HPC(고성능 컴퓨팅)
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 31 | 296.1 | 1.4 | 

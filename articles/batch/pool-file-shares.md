@@ -1,6 +1,6 @@
 ---
 title: Azure Batch 풀에 대한 Azure 파일 공유 | Microsoft Docs
-description: Azure Batch의 Linux 또는 Windows 풀에서 계산 노드의 Azure Files 공유를 탑재하는 방법입니다.
+description: Azure Batch의 Linux 또는 Windows 풀에서 컴퓨팅 노드의 Azure Files 공유를 탑재하는 방법입니다.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -24,9 +24,9 @@ ms.locfileid: "68322375"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
-[Azure Files](../storage/files/storage-files-introduction.md)는 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 풀 계산 노드에서 Azure 파일 공유를 탑재 및 사용하는 데 필요한 정보 및 코드 예제를 제공합니다. 코드 예제에는 배치 .NET 및 Python SDK가 사용되지만, 다른 배치 SDK와 도구를 사용하여 유사한 작업을 수행할 수 있습니다.
+[Azure Files](../storage/files/storage-files-introduction.md)는 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 풀 컴퓨팅 노드에서 Azure 파일 공유를 탑재 및 사용하는 데 필요한 정보 및 코드 예제를 제공합니다. 코드 예제에는 배치 .NET 및 Python SDK가 사용되지만, 다른 배치 SDK와 도구를 사용하여 유사한 작업을 수행할 수 있습니다.
 
-배치는 Azure Storage Blob을 사용하여 데이터를 읽고 쓸 수 있는 기본 API 지원을 제공합니다. 그러나 경우에 따라 풀 계산 노드에서 Azure 파일 공유에 액세스하려 수 있습니다. 예를 들어, SMB 파일 공유를 사용하는 레거시 워크로드가 있거나 작업 시 공유 데이터에 액세스하거나 공유 출력을 생성해야 합니다. 
+배치는 Azure Storage Blob을 사용하여 데이터를 읽고 쓸 수 있는 기본 API 지원을 제공합니다. 그러나 경우에 따라 풀 컴퓨팅 노드에서 Azure 파일 공유에 액세스하려 수 있습니다. 예를 들어, SMB 파일 공유를 사용하는 레거시 워크로드가 있거나 작업 시 공유 데이터에 액세스하거나 공유 출력을 생성해야 합니다. 
 
 ## <a name="considerations-for-use-with-batch"></a>배치와 함께 사용 시 고려 사항
 
@@ -118,7 +118,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Linux 풀에서 공유 탑재
 
-Azure 파일 공유는 [CIFS 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 계산 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
+Azure 파일 공유는 [CIFS 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 다음 예제는 Ubuntu 16.04 LTS 컴퓨팅 노드의 풀에서 파일 공유를 탑재하는 방법을 보여 줍니다. 다른 Linux 배포를 사용하는 경우, 일반적인 단계는 유사하지만 배포에 적합한 패키지 관리자를 사용합니다. 자세한 내용과 추가적인 예제는 [Linux에서 Azure Files 사용](../storage/files/storage-how-to-use-files-linux.md)을 참조하세요.
 
 먼저 관리자 ID로 `cifs-utils` 패키지를 설치하고 로컬 파일 시스템에서 탑재 지점(예: */mnt/MyAzureFileShare*)을 만듭니다. 탑재 지점의 폴더는 파일 시스템의 어디에나 만들 수 있지만, 일반적으로 `/mnt` 폴더 아래에 만듭니다. `/mnt`(Ubuntu) 또는 `/mnt/resource`(다른 배포)에 직접 탑재 지점을 만들지는 마세요.
 

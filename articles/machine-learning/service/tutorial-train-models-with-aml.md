@@ -157,7 +157,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 계산 리소스가 준비되었습니다.
+이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 컴퓨팅 리소스가 준비되었습니다.
 
 ## <a name="explore-data"></a>데이터 탐색
 
@@ -336,7 +336,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 * 추정기 개체의 이름(`est`)
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
-* 계산 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
+* 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
 * 학습 스크립트 이름(**train.py**)
 * 학습 스크립트에서 필요한 매개 변수
 

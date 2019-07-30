@@ -58,7 +58,7 @@ Data Lake Storage Gen2를 사용하여 데이터를 복원하는 경우 HA/DR �
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
-DistCp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 간에 분산된 데이터 이동을 제공하는 Linux 명령줄 도구입니다. 두 위치는 Data Lake Storage Gen2, HDFS 또는 S3일 수 있습니다. 이 도구는 Hadoop 클러스터(예: HDInsight)에서 MapReduce 작업을 사용하여 모든 노드의 크기를 확장합니다. Distcp는 특별한 네트워크 압축 어플라이언스 없이 빅 데이터를 이동하는 가장 빠른 방법으로 간주됩니다. 또한 Distcp는 두 위치 간의 델타만 업데이트하고 자동 재시도 및 계산의 동적 크기 조정을 처리하는 옵션을 제공합니다. 이 방법은 하나의 디렉터리에 많은 큰 파일을 포함할 수 있는 Hive/Spark 테이블과 같은 것을 복제하고 수정된 데이터만 복사하려는 경우에 매우 효율적입니다. 이러한 이유로 Distcp는 빅 데이터 저장소 간에 데이터를 복사하는 데 가장 많이 권장되는 도구입니다.
+DistCp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 간에 분산된 데이터 이동을 제공하는 Linux 명령줄 도구입니다. 두 위치는 Data Lake Storage Gen2, HDFS 또는 S3일 수 있습니다. 이 도구는 Hadoop 클러스터(예: HDInsight)에서 MapReduce 작업을 사용하여 모든 노드의 크기를 확장합니다. Distcp는 특별한 네트워크 압축 어플라이언스 없이 빅 데이터를 이동하는 가장 빠른 방법으로 간주됩니다. 또한 Distcp는 두 위치 간의 델타만 업데이트하고 자동 재시도 및 컴퓨팅의 동적 크기 조정을 처리하는 옵션을 제공합니다. 이 방법은 하나의 디렉터리에 많은 큰 파일을 포함할 수 있는 Hive/Spark 테이블과 같은 것을 복제하고 수정된 데이터만 복사하려는 경우에 매우 효율적입니다. 이러한 이유로 Distcp는 빅 데이터 저장소 간에 데이터를 복사하는 데 가장 많이 권장되는 도구입니다.
 
 복사 작업은 Linux cron 작업뿐만 아니라 빈도 또는 데이터 트리거를 사용하는 Apache Oozie 워크플로를 통해서도 트리거될 수 있습니다. 집약적인 복제 작업의 경우 복사 작업을 위해 특별히 튜닝 및 크기 조정할 수 있는 별도의 HDInsight Hadoop 클러스터를 작동하는 것이 좋습니다. 이렇게 하면 복사 작업이 중요한 작업을 방해하지 않습니다. 매우 충분한 빈도로 복제를 실행하는 경우 각 작업 간에 클러스터가 중단될 수도 있습니다. 보조 지역으로 장애 조치하는 경우 백업이 시작되면 보조 지역에서 또 다른 클러스터가 작동되어 새 데이터를 기본 Data Lake Storage Gen2 계정으로 다시 복제해야 합니다. DistCp 사용에 대한 예제는 [DistCp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen2 간에 데이터 복사](../blobs/data-lake-storage-use-distcp.md)를 참조하세요.
 

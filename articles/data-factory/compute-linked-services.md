@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480438"
@@ -492,7 +492,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 내용](https://docs.databricks.com/user-guide/clusters/tags.html). | 아닙니다. 
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 아닙니다.  |
 | newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 아닙니다.                |
-| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 계산 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아닙니다.               |
+| newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 컴퓨팅 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아닙니다.               |
 | newClusterSparkConf  | 선택적인 사용자 지정 Spark 구성 키-값 쌍의 집합입니다. 또한 사용자는 각각 spark.driver.extraJavaOptions 및 spark.executor.extraJavaOptions를 통해 드라이버와 실행기에 추가 JVM 옵션 문자열을 전달할 수 있습니다. | 아닙니다.  |
 | newClusterInitScripts| 새 클러스터에 대 한 선택 사항, 사용자 정의 초기화 스크립트 집합이 있습니다. Init 스크립트 DBFS 경로 지정 합니다. | 아닙니다.  |
 

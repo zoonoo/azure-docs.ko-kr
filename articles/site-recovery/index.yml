@@ -5,13 +5,12 @@ metadata:
   title: 'Azure Site Recovery 설명서 - 자습서, API 참조 | Microsoft Docs'
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
-  author: czeumault
-  manager: carolz
+  author: carmonmills
+  manager: carmonm
   ms.service: site-recovery
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 11/27/2018
-  ms.author: carolz
+  ms.author: carmonm
 abstract:
   description: 'Azure Site Recovery는 Azure VM, 온-프레미스 VM 및 물리적 서버에 대한 재해 복구를 오케스트레이션하고 관리합니다. 빠른 시작 및 자습서를 사용하여 복제, 장애 조치 및 장애 복구하는 방법을 알아봅니다.'
 sections:

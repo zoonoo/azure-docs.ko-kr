@@ -219,7 +219,7 @@ Azure에 도입되는 새로운 서비스 및 업데이트의 민첩한 개발 �
 
 Azure 지역 및 클라우드에 따라 사용 가능한 서비스가 다를 수 있음을 알고 있으면 템플릿에 대해 몇 가지 사전 대응형 결정을 내릴 수 있습니다. 먼저 클라우드에 사용할 수 있는 리소스 공급자를 조사하는 것이 좋습니다. 리소스 공급자는 Azure 서비스에 사용할 수 있는 리소스 및 작업 집합을 알려 줍니다.
 
-템플릿은 리소스를 배포하고 구성합니다. 리소스 종류는 리소스 공급자가 제공합니다. 예를 들어, 계산 리소스 공급자(Microsoft.Compute)는 virtualMachines, availabilitySets 등의 여러 리소스 종류를 제공합니다. 각 리소스 공급자가 공통 계약에 정의된 Azure Resource Manager용 API를 제공하므로 모든 리소스 공급자에서 일관성 있는 통합 작성 환경을 사용할 수 있습니다. 그러나 전역 Azure에서 사용할 수 있는 리소스 공급자를 소버린 클라우드 또는 Azure Stack 지역에서는 사용하지 못할 수도 있습니다.
+템플릿은 리소스를 배포하고 구성합니다. 리소스 종류는 리소스 공급자가 제공합니다. 예를 들어, 컴퓨팅 리소스 공급자(Microsoft.Compute)는 virtualMachines, availabilitySets 등의 여러 리소스 종류를 제공합니다. 각 리소스 공급자가 공통 계약에 정의된 Azure Resource Manager용 API를 제공하므로 모든 리소스 공급자에서 일관성 있는 통합 작성 환경을 사용할 수 있습니다. 그러나 전역 Azure에서 사용할 수 있는 리소스 공급자를 소버린 클라우드 또는 Azure Stack 지역에서는 사용하지 못할 수도 있습니다.
 
 ![리소스 공급자](./media/templates-cloud-consistency/resource-providers.png) 
 

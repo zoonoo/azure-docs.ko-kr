@@ -30,7 +30,7 @@ ms.locfileid: "68323345"
 
 이 문서는 Batch 풀에서 Azure의 특별한 크기 중 일부를 사용하는 지침과 예제를 제공합니다. 사양 및 백그라운드는 다음을 참조하세요.
 
-* 고성능 계산 VM 크기([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
+* 고성능 컴퓨팅 VM 크기([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
 
 * GPU 가능 VM 크기([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
 

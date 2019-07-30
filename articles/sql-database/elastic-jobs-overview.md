@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482961"
@@ -66,9 +66,9 @@ ms.locfileid: "61482961"
 
 ## <a name="agent-performance-capacity-and-limitations"></a>에이전트 성능, 용량 및 제한 사항
 
-탄력적 작업은 장기 실행 작업이 완료되기를 기다리는 동안 최소한의 계산 리소스를 사용합니다.
+탄력적 작업은 장기 실행 작업이 완료되기를 기다리는 동안 최소한의 컴퓨팅 리소스를 사용합니다.
 
-작업(동시 작업자 수)에 대한 원하는 실행 시간 및 데이터베이스의 대상 그룹 크기에 따라 에이전트는 *작업 데이터베이스*의 다른 양의 성능 및 계산을 요구합니다(대상 및 작업 수가 많아질수록 필요한 계산 양도 더 많아집니다).
+작업(동시 작업자 수)에 대한 원하는 실행 시간 및 데이터베이스의 대상 그룹 크기에 따라 에이전트는 *작업 데이터베이스*의 다른 양의 성능 및 컴퓨팅을 요구합니다(대상 및 작업 수가 많아질수록 필요한 컴퓨팅 양도 더 많아집니다).
 
 현재 미리 보기의 동시 작업은 100개로 제한됩니다.
 

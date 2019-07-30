@@ -24,7 +24,7 @@ ms.locfileid: "54074668"
 > [!div class="checklist"]
 > * Azure VM 에이전트 플러그 인 설치
 > * Azure 구독에서 리소스를 만들기 위한 플러그 인 구성
-> * 각 에이전트에 사용할 수 있는 계산 리소스 설정
+> * 각 에이전트에 사용할 수 있는 컴퓨팅 리소스 설정
 > * 각 에이전트에 설치된 운영 체제 및 도구 설정
 > * 새 Jenkins 프리스타일 작업 만들기
 > * Azure VM 에이전트에서 작업 실행
@@ -101,7 +101,7 @@ ms.locfileid: "54074668"
 
 ## <a name="configure-agent-resources"></a>에이전트 리소스 구성
 
-Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다. 이 템플릿은 만들 때 각 에이전트가 갖게 되는 계산 리소스를 정의합니다.
+Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다. 이 템플릿은 만들 때 각 에이전트가 갖게 되는 컴퓨팅 리소스를 정의합니다.
 
 1. **Azure Virtual Machine Template 추가** 옆에 있는 **추가**를 선택합니다.
 1. **이름**에 `defaulttemplate`을 입력합니다.
@@ -114,7 +114,7 @@ Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다
 
 ## <a name="configure-agent-operating-system-and-tools"></a>에이전트 운영 체제 및 도구 구성
 
-플러그 인 구성의 **이미지 구성** 섹션에서 **Ubuntu 16.04 LTS**를 선택합니다. **Git 설치(최신)**, **Maven 설치(V3.5.0)** 및 **Docker 설치** 옆에 있는 확인란을 선택하여 새로 만든 에이전트에서 이러한 도구를 설치합니다.
+플러그 인 구성의 **이미지 구성** 섹션에서 **Ubuntu 16.04 LTS**를 선택합니다. **Git 설치(최신)** , **Maven 설치(V3.5.0)** 및 **Docker 설치** 옆에 있는 확인란을 선택하여 새로 만든 에이전트에서 이러한 도구를 설치합니다.
 
 ![VM OS 및 도구 구성](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 

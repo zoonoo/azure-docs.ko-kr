@@ -96,7 +96,7 @@
               href: sizes-gpu.md
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
-        - name: 고성능 계산
+        - name: 고성능 컴퓨팅
           displayName: H-series
           href: sizes-hpc.md
         - name: 이전 세대

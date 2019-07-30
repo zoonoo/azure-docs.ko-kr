@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762708"
@@ -48,7 +48,7 @@ ms.locfileid: "65762708"
 ||서비스 계층|구매 모델 내 서비스 수준|
 ||컴퓨팅 크기|서비스 계층 내의 단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스의 컴퓨팅 리소스 양|
 ||스토리지 용량|단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스에 사용할 수 있는 스토리지 용량|
-||계산 세대|서비스 계층의 프로세서 세대|
+||컴퓨팅 세대|서비스 계층의 프로세서 세대|
 |데이터베이스 서버 IP 방화벽 규칙|IP 방화벽 규칙|[IP 방화벽 규칙](sql-database-firewall-configure.md)|
 ||서버 수준 IP 방화벽 규칙|[서버 수준 IP 방화벽 규칙](sql-database-firewall-configure.md#overview)|
 || 데이터베이스 수준 IP 방화벽 규칙|[데이터베이스 수준 IP 방화벽 규칙](sql-database-firewall-configure.md#overview)|

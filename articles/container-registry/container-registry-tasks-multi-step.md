@@ -31,7 +31,7 @@ ms.locfileid: "68310562"
 1. 테스트에 통과하면 Helm 차트 보관 패키지 빌드
 1. 새 Helm 차트 보관 패키지를 사용하여 `helm upgrade` 수행
 
-모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 계산 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 책정에 대 한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]의 **컨테이너 빌드** 섹션을 참조 하세요.
+모든 단계는 Azure 내에서 수행됩니다. 즉, Azure 컴퓨팅 리소스가 작업을 수행하므로 인프라 관리를 별도로 수행할 필요가 없습니다. Azure Container Registry를 제외하면 사용한 리소스에 대한 요금만 지불하면 됩니다. 가격 책정에 대 한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]의 **컨테이너 빌드** 섹션을 참조 하세요.
 
 
 ## <a name="common-task-scenarios"></a>일반 작업 시나리오

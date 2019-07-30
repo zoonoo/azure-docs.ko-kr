@@ -204,7 +204,7 @@ HDInsight를 사용해 보려는 경우에는 하나의 작업자 노드를 사�
 ![HDInsight VM 노드 크기](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 ### <a name="virtual-machine-sizes"></a>가상 머신 크기 
-클러스터를 배포하는 경우 배포하려는 솔루션에 기반하여 계산 리소스를 선택하세요. HDInsight 클러스터에 사용하는 VM은 다음과 같습니다.
+클러스터를 배포하는 경우 배포하려는 솔루션에 기반하여 컴퓨팅 리소스를 선택하세요. HDInsight 클러스터에 사용하는 VM은 다음과 같습니다.
 * A 및 D1-4 시리즈 VM: [범용 Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11-14 시리즈 VM: [메모리 최적화 Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 

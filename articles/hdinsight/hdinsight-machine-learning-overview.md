@@ -31,9 +31,9 @@ HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 
 
 ![R Server를 사용한 예측 학습](./media/hdinsight-machine-learning-overview/r-training.png)
 
-클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다.  또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터 노드에서 R 스크립트를 실행하는 옵션도 제공됩니다.
+클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다.  또한 ScaleR의 Hadoop Map Reduce 또는 Spark 컴퓨팅 컨텍스트를 사용하여 클러스터 노드에서 R 스크립트를 실행하는 옵션도 제공됩니다.
 
-Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 계산 컨텍스트를 통해 클러스터 노드에서 학습을 병렬화할 수 있습니다. 필요에 따라 사용 가능한 모든 코어를 병렬로 사용하여 에지 노드에서 R 스크립트를 직접 실행할 수 있습니다. 또는 에지 노드의 코드를 실행하여 클러스터의 모든 노드에 분산된 처리를 시작할 수 있습니다. 또한 Spark가 있는 HDInsight의 ML 서비스를 사용하면 원하는 경우 오픈 소스 R 패키지의 병렬화 기능을 사용할 수도 있습니다.
+Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트를 통해 클러스터 노드에서 학습을 병렬화할 수 있습니다. 필요에 따라 사용 가능한 모든 코어를 병렬로 사용하여 에지 노드에서 R 스크립트를 직접 실행할 수 있습니다. 또는 에지 노드의 코드를 실행하여 클러스터의 모든 노드에 분산된 처리를 시작할 수 있습니다. 또한 Spark가 있는 HDInsight의 ML 서비스를 사용하면 원하는 경우 오픈 소스 R 패키지의 병렬화 기능을 사용할 수도 있습니다.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 및 Apache Hive
 

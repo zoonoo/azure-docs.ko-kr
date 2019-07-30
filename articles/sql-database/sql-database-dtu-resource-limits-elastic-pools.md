@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075255"
@@ -27,7 +27,7 @@ ms.locfileid: "61075255"
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 스토리지 크기 및 컴퓨팅 크기
 
-SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 계산 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
+SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 컴퓨팅 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
 > [!IMPORTANT]
 > 크기 조정 지침과 고려 사항을 참조 하세요. [탄력적 풀 크기 조정](sql-database-elastic-pool-scale.md)

@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
+컴퓨팅 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
 
 ```azurecli-interactive 
 az batch account login \
@@ -281,7 +281,7 @@ az storage blob download \
 
 ## <a name="scale-the-pool"></a>풀 크기 조정
 
-이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 계산 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6*으로 늘립니다.
+이제 여러 프레임으로 더 큰 렌더링 작업을 준비하도록 풀을 수정합니다. Batch에서는 태스크 요구 사항이 변경될 때 노드를 추가하거나 제거하는 [자동 크기 조정](batch-automatic-scaling.md)을 포함하여 컴퓨팅 리소스의 크기를 조정하는 다양한 방법을 제공합니다. 이 기본 예제에서는 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 명령을 사용하여 풀에서 우선 순위가 낮은 노드의 수를 *6*으로 늘립니다.
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6

@@ -210,7 +210,7 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>내 App Service Environment에서 두 명의 작업자를 사용할 수 있는데 하나의 App Service 계획만 만들 수 있는 이유는 무엇인가요?
 
-내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 계산 리소스가 필요합니다. 추가 계산 리소스에는 워크로드를 할당할 수 없습니다.
+내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 컴퓨팅 리소스가 필요합니다. 추가 컴퓨팅 리소스에는 워크로드를 할당할 수 없습니다.
 
 자세한 내용은 [App Service Environment를 만드는 방법](environment/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 

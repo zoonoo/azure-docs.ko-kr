@@ -17,7 +17,7 @@ ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410445"
@@ -54,7 +54,7 @@ DLVM에는 몇 가지 AI용 도구가 포함되어 있습니다. 즉 인기 있�
    
    1. **요약**: 입력한 모든 정보가 올바른지 확인합니다.
 
-   1. **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
+   1. **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 이외에 추가 요금이 발생하지 않습니다. 
 
 > [!NOTE]
 > 프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.

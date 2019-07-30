@@ -34,7 +34,7 @@ Durable Functions에서 모든 상태는 Azure Storage에 유지됩니다. [작�
 
 ## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>시나리오 1 - 공유 스토리지에서 계산 부하 분산
 
-Azure의 계산 인프라가 실패하면 함수 앱을 사용하지 못할 수 있습니다. 이러한 작동 중단 가능성을 최소화하기 위해 이 시나리오에서는 다른 지역에 배포된 두 개의 함수 앱을 사용합니다.
+Azure의 컴퓨팅 인프라가 실패하면 함수 앱을 사용하지 못할 수 있습니다. 이러한 작동 중단 가능성을 최소화하기 위해 이 시나리오에서는 다른 지역에 배포된 두 개의 함수 앱을 사용합니다.
 Traffic Manager는 기본 함수 앱의 문제를 감지하고, 보조 지역의 함수 앱으로 트래픽을 자동으로 리디렉션하도록 구성됩니다. 이 함수 앱은 동일한 Azure Storage 계정 및 작업 허브를 공유합니다. 따라서 함수 앱의 상태는 손실되지 않으며 정상적으로 다시 시작될 수 있습니다. 기본 지역의 상태가 복원되면 Azure Traffic Manager는 해당 함수 앱으로의 요청 라우팅을 자동으로 시작합니다.
 
 ![시나리오 1을 보여주는 다이어그램.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
@@ -55,7 +55,7 @@ Traffic Manager는 기본 함수 앱의 문제를 감지하고, 보조 지역의
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>시나리오 2 - 지역 스토리지에서 계산 부하 분산
 
-이전 시나리오에서는 계산 인프라의 실패 경우만 다루었습니다. 저장소 서비스가 실패하면 함수 앱이 작동 중단됩니다.
+이전 시나리오에서는 컴퓨팅 인프라의 실패 경우만 다루었습니다. 저장소 서비스가 실패하면 함수 앱이 작동 중단됩니다.
 지속형 함수가 계속해서 작동되게 하기 위해 이 시나리오에서는 함수 앱이 배포되는 각 지역에서 로컬 저장소 계정을 사용합니다.
 
 ![시나리오 2를 보여주는 다이어그램.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)

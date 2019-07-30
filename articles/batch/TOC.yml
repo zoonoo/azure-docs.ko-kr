@@ -75,9 +75,9 @@
       items:
         - name: 자동 크기 조정 계산 노드
           href: batch-automatic-scaling.md
-        - name: 계산 노드에 대한 VM 크기 선택
+        - name: 컴퓨팅 노드에 대한 VM 크기 선택
           href: batch-pool-vm-sizes.md
-        - name: 계산 노드에 대한 액세스 구성
+        - name: 컴퓨팅 노드에 대한 액세스 구성
           href: pool-endpoint-configuration.md
         - name: 사용자 지정 이미지로 풀 만들기
           href: batch-custom-images.md
@@ -87,7 +87,7 @@
           href: pool-file-shares.md
         - name: RDMA 또는 GPU 인스턴스 사용
           href: batch-pool-compute-intensive-sizes.md
-        - name: Linux 계산 노드 사용
+        - name: Linux 컴퓨팅 노드 사용
           href: batch-linux-nodes.md
         - name: 우선 순위가 낮은 VM 사용
           href: batch-low-pri-vms.md

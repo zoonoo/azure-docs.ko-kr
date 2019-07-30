@@ -1,6 +1,6 @@
 ---
 title: 가상 네트워크에서 풀 프로비전 - Azure Batch | Microsoft Docs
-description: 계산 노드가 파일 서버와 같은 네트워크의 다른 VM과 안전하게 통신할 수 있도록 Azure 가상 네트워크에 Batch 풀을 만드는 방법입니다.
+description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 VM과 안전하게 통신할 수 있도록 Azure 가상 네트워크에 Batch 풀을 만드는 방법입니다.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -22,7 +22,7 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 
 ## <a name="why-use-a-vnet"></a>VNet을 사용하는 이유
 
-Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 계산 노드가 서로 통신할 수 있게 하는 설정이 있습니다. 이러한 설정에는 별도의 VNet이 필요하지 않습니다. 그러나 기본적으로 노드는 라이선스 서버나 파일 서버 등, Batch 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 풀 계산 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신하게 하기 위해 Azure VNet의 서브넷에서 풀을 프로비전할 수 있습니다. 
+Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 컴퓨팅 노드가 서로 통신할 수 있게 하는 설정이 있습니다. 이러한 설정에는 별도의 VNet이 필요하지 않습니다. 그러나 기본적으로 노드는 라이선스 서버나 파일 서버 등, Batch 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 풀 계산 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신하게 하기 위해 Azure VNet의 서브넷에서 풀을 프로비전할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -56,7 +56,7 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 강제 터널링을 사용하는 VNet에서 Azure Batch 풀 계산 노드가 작동하도록 해당 서브넷에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 추가해야 합니다.
 
-* Batch 서비스는 작업 예약을 위해 풀 계산 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 대해 알아보려면 [온-프레미스의 서비스 태그](../virtual-network/security-overview.md#service-tags-in-on-premises) 를 참조 하세요.
+* Batch 서비스는 작업 예약을 위해 풀 컴퓨팅 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 대해 알아보려면 [온-프레미스의 서비스 태그](../virtual-network/security-overview.md#service-tags-in-on-premises) 를 참조 하세요.
 
 * 온-프레미스 네트워크 장비에서 Azure Storage에 대한 아웃바운드 트래픽(특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net`)이 차단되지 않는지 확인합니다.
 
@@ -66,5 +66,5 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
+- Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md)을 참조하세요.
 - 사용자 정의 경로 만들기에 대한 자세한 내용은 [사용자 정의 경로 만들기 - Azure Portal](../virtual-network/tutorial-create-route-table-portal.md)을 참조하세요.

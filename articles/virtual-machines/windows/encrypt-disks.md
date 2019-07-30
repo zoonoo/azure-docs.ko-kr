@@ -75,7 +75,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-암호화 키를 보유하는 Azure Key Vault와 스토리지 및 VM과 같은 연결된 계산 리소스는 동일한 지역에 있어야 합니다. [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyVaultName*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
+암호화 키를 보유하는 Azure Key Vault와 스토리지 및 VM과 같은 연결된 컴퓨팅 리소스는 동일한 지역에 있어야 합니다. [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Azure Key Vault을 만들고 디스크 암호화에 사용할 Key Vault를 사용하도록 설정합니다. *keyVaultName*에 대한 고유한 Key Vault 이름을 다음과 같이 지정합니다.
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"

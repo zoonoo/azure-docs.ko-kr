@@ -132,13 +132,13 @@ SSH 세션이 활성화되면 로컬 머신의 12800 포트에서 발생한 트�
     )
 
 
-## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>HDInsight 작업자 노드에서 조작된 계산 노드를 확장합니다.
+## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>HDInsight 작업자 노드에서 조작된 컴퓨팅 노드를 확장합니다.
 
-계산 노드를 확장하려면 먼저 작업자 노드 서비스를 해제한 다음, 서비스 해제된 작업자 노드에서 계산 노드를 구성합니다.
+컴퓨팅 노드를 확장하려면 먼저 작업자 노드 서비스를 해제한 다음, 서비스 해제된 작업자 노드에서 컴퓨팅 노드를 구성합니다.
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 해제
 
-ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
+ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 컴퓨팅 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
 작업자 노드 서비스를 해제하려면 다음 단계를 따르세요.
 
@@ -168,13 +168,13 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. **1**을 입력하여 **운영을 위해 ML Server 구성** 옵션을 선택합니다.
 
-1. **C**를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
+1. **C**를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 컴퓨팅 노드가 구성됩니다.
 
 1. 관리 유틸리티를 종료합니다.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3단계: 웹 노드에 컴퓨팅 노드 세부 정보 추가
 
-서비스가 해제된 모든 작업자 노드에서 계산 노드를 실행하도록 구성한 후에 에지 노드로 돌아가서 ML Server 웹 노드의 구성에 서비스가 해제된 작업자 노드의 IP 주소를 추가합니다.
+서비스가 해제된 모든 작업자 노드에서 컴퓨팅 노드를 실행하도록 구성한 후에 에지 노드로 돌아가서 ML Server 웹 노드의 구성에 서비스가 해제된 작업자 노드의 IP 주소를 추가합니다.
 
 1. SSH를 에지 노드로 실행합니다.
 

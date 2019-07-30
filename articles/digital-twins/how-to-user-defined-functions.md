@@ -117,7 +117,7 @@ function process(telemetry, executionContext) {
 1. 본문이 다중 파트인지 확인합니다.
 
    - 첫 번째 파트에는 필요한 사용자 정의 함수 메타데이터를 포함합니다.
-   - 두 번째 파트에는 JavaScript 계산 논리를 포함합니다.
+   - 두 번째 파트에는 JavaScript 컴퓨팅 논리를 포함합니다.
 
 1. **USER_DEFINED_BOUNDARY** 섹션에서 **spaceId**(`YOUR_SPACE_IDENTIFIER`) 및 **검사기**(`YOUR_MATCHER_IDENTIFIER`) 값을 바꿉니다.
 1. JavaScript 사용자 정의 함수가 `Content-Type: text/javascript`로 제공되었는지 확인합니다.

@@ -21,7 +21,7 @@ ms.locfileid: "68479727"
 이 문서에서는 데이터 웨어하우스 솔루션을 개발할 때 도움이 되는 지침 및 모범 사례에 대해 설명합니다. 
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
-일시 중지 및 크기 조정을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [계산 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요. 
+일시 중지 및 크기 조정을 통해 비용을 절감하는 방법에 대한 자세한 내용은 [컴퓨팅 관리](sql-data-warehouse-manage-compute-overview.md)를 참조하세요. 
 
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
@@ -59,9 +59,9 @@ columnstore 테이블을 쿼리할 때 필요한 열만 선택하면 쿼리가 �
 또한 [테이블 인덱스][Table indexes], [Columnstore indexes guide][Columnstore indexes guide], columnstore 인덱스 [다시 작성][columnstore 인덱스 다시] 작성을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL Data Warehouse 문서를 검색해보세요.  [Azure SQL Data Warehouse 포럼][Azure SQL Data Warehouse MSDN Forum] is a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum]입니다.
+이 문서에서 원하는 내용을 찾지 못하면 이 페이지의 왼쪽의 "문서 검색"을 사용하여 모든 Azure SQL Data Warehouse 문서를 검색해보세요.  [Azure SQL Data Warehouse 포럼][Azure SQL Data Warehouse MSDN Forum] is a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum]입니다.  마지막으로 [Azure SQL Data Warehouse 피드백][Azure SQL Data Warehouse Feedback] 페이지를 사용하여 기능을 요청합니다.  요청을 추가하거나 다른 요청에 투표를 하면 기능의 순위를 지정하는 데 도움이 됩니다.
 
-마지막으로 [Azure SQL Data Warehouse 피드백][Azure SQL Data Warehouse Feedback] 페이지를 사용하여 기능을 요청합니다.  요청을 추가하거나 다른 요청에 투표를 하면 기능의 순위를 지정하는 데 도움이 됩니다.
+Finally, please do use the <bpt id="p1">[</bpt>Azure SQL Data Warehouse Feedback<ept id="p1">][Azure SQL Data Warehouse Feedback]</ept> page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
 
 <!--Image references-->
 

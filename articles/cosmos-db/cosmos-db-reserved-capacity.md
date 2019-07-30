@@ -1,6 +1,6 @@
 ---
 title: 예약 용량을 통해 Azure Cosmos DB 리소스 비용 최적화
-description: Azure Cosmos DB 예약 용량을 구매하여 계산 비용을 절약하는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB 예약 용량을 구매하여 컴퓨팅 비용을 절약하는 방법에 대해 알아봅니다.
 author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual

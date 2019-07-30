@@ -144,11 +144,11 @@ Azure 리소스를 관리하려면 스크립트가 Automation 계정의 자격 �
    azure_credential = get_automation_runas_credential(runas_connection)
    ```
 
-## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python 계산 클라이언트를 만들고 VM을 시작하는 코드 추가
+## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python 컴퓨팅 클라이언트를 만들고 VM을 시작하는 코드 추가
 
-Azure VM을 사용하려면 [Python용 Azure 계산 클라이언트](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python)의 인스턴스를 만듭니다.
+Azure VM을 사용하려면 [Python용 Azure 컴퓨팅 클라이언트](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python)의 인스턴스를 만듭니다.
 
-계산 클라이언트를 사용하여 VM을 시작합니다. 이렇게 하려면 Runbook에 다음 코드를 추가합니다.
+컴퓨팅 클라이언트를 사용하여 VM을 시작합니다. 이렇게 하려면 Runbook에 다음 코드를 추가합니다.
 
 ```python
 # Initialize the compute management client with the RunAs credential and specify the subscription to work against.

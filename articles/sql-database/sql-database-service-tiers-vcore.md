@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 06/26/2019
 ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
 ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67449744"
@@ -26,7 +26,7 @@ ms.locfileid: "67449744"
 - **Gen4**: Intel E5-2673 v3에 따라 최대 논리적 cpu가 24 개 (Haswell) 2.4 GHz 프로세서, vCore = 1 PP (물리적 코어), 코어당 7GB 연결 SSD
 - **Gen5**: 최대 80 논리적 Cpu 기반 Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서, vCore = 1 LP (하이퍼 스레드), core, 고속 eNVM SSD 당 5.1 GB
 
-4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다.
+4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 컴퓨팅 리소스를 훨씬 더 강화할 수 있습니다.
 
 > [!IMPORTANT]
 > 새 Gen4 데이터베이스는 더 이상 AustraliaEast 지역에서 지원 됩니다.

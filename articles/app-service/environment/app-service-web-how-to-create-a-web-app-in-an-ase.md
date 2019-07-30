@@ -68,7 +68,7 @@ ms.locfileid: "60765170"
 ## <a name="createplan"></a> App Service 계획 만들기
 App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용해야 하는 작업자는 관리자에 의해 ASE에 할당된 작업자입니다.  즉, 새 계획을 만들려면 ASE 작업자 풀에 할당된 수가 작업자 풀의 모든 계획에서 전체 인스턴스 수보다 많아야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
 
-App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 계산 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 프라이빗 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
+App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 컴퓨팅 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 프라이빗 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
 
 다음 지침에는 자습서의 이전 섹션에서 설명한 대로 웹앱을 만드는 동안 App Service 계획을 만드는 방법을 보여줍니다.
 
@@ -86,7 +86,7 @@ App Service Environment에서 호스팅되는 App Service 계획의 또 다른 �
 ### <a name="selecting-a-worker-pool"></a>작업자 풀 선택
 일반적으로 Azure App Service 내부와 App Service Environment 외부에는 전용 가격 계획을 선택할 때 사용할 수 있는 3가지 컴퓨팅 크기가 있습니다.  마찬가지로 ASE의 경우 최대 3개의 작업자 풀을 정의하고 해당 작업자 풀에 사용되는 컴퓨팅 크기를 지정할 수 있습니다.  ASE의 테넌트와 관련하여 App Service 계획에 대해 가격 책정 계획을 컴퓨팅 크기로 선택하는 대신 *작업자 풀*이라는 것을 선택합니다.  
 
-작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 컴퓨팅 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 컴퓨팅 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 계산 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
+작업자 풀 선택 UI에는 작업자 풀 이름 아래에 해당 작업자 풀에 사용되는 컴퓨팅 크기가 표시됩니다.  사용 가능한 양은 해당 풀에서 사용할 수 있는 컴퓨팅 인스턴스 수를 나타냅니다.  실제로 전체 풀에는 이보다 많은 인스턴스가 있을 수 있지만 이 값은 현재 사용 중이지 않은 개수를 나타냅니다.  App Service Environment를 조정하여 컴퓨팅 리소스를 추가해야 하는 경우 [App Service Environment 구성](app-service-web-configure-an-app-service-environment.md)을 참조하세요.
 
 ![][4]
 

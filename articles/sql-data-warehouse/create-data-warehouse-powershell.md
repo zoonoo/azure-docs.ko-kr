@@ -119,7 +119,7 @@ New-AzSqlDatabase `
 
 필수 매개 변수는 다음과 같습니다.
 
-* **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 계산 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
+* **RequestedServiceObjectiveName**: 요청 중인 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)의 양입니다. 이 양을 늘리면 컴퓨팅 비용이 증가합니다. 지원되는 값 목록에 대해서는 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
 * **DatabaseName**: 만들려는 SQL Data Warehouse의 이름입니다.
 * **ServerName**: 만드는 데 사용할 서버의 이름입니다.
 * **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.

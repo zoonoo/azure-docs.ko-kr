@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
 ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67445640"
@@ -52,8 +52,8 @@ ms.locfileid: "67445640"
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Compute(DTU 및 eDTU / vCore)
 
-데이터베이스 계산 사용량(DTU 및 eDTU 또는 vCore로 측정)이 높아지면 쿼리 대기 시간이 늘어나고 시간이 초과될 수 있습니다. 이러한 상황에서는 쿼리가 서비스에서 대기될 수 있으며 리소스가 사용 가능해질 경우 실행될 수 있게 리소스가 제공됩니다.
-높은 계산 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
+데이터베이스 컴퓨팅 사용량(DTU 및 eDTU 또는 vCore로 측정)이 높아지면 쿼리 대기 시간이 늘어나고 시간이 초과될 수 있습니다. 이러한 상황에서는 쿼리가 서비스에서 대기될 수 있으며 리소스가 사용 가능해질 경우 실행될 수 있게 리소스가 제공됩니다.
+높은 컴퓨팅 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 계산 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화하여 각 쿼리당 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
@@ -75,7 +75,7 @@ ms.locfileid: "67445640"
 높은 세션 또는 작업자 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
 - 데이터베이스 또는 탄력적 풀의 서비스 계층 또는 컴퓨팅 크기를 늘립니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
-- 계산 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
+- 컴퓨팅 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
 ## <a name="transaction-log-rate-governance"></a>트랜잭션 로그 속도 거 버 넌 스 
 트랜잭션 로그 속도 거 버 넌 스 프로세스 대량 같은 워크 로드에 대해 높은 수집 속도 제한 하는 데 Azure SQL Database에서 insert, SELECT INTO 이며 인덱스 작성 합니다. 이러한 한도 추적 하 여 로그 레코드 생성 속도가 1 초 미만의 수준에서 적용, 얼마나 많은 IOs에 관계 없이 제한 처리량 데이터 파일에 대해 발급 될 수 있습니다.  트랜잭션 로그 생성 속도 현재 선형적으로 하드웨어 종속 하는 지점까지, 속도 최대 로그를 사용 하 여 구매 모델 vCore 사용 하 여 96 MB/s 되을 허용 합니다. 

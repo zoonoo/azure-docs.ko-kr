@@ -61,7 +61,7 @@ compute_target.wait_for_completion(
     show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-이제 `compute_target` 개체를 원격 계산 대상으로 사용할 수 있습니다.
+이제 `compute_target` 개체를 원격 컴퓨팅 대상으로 사용할 수 있습니다.
 
 클러스터 이름 제한은 다음과 같습니다.
 + 64자보다 짧아야 합니다.

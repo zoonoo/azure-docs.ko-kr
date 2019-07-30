@@ -115,7 +115,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 |name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |source-server | mydemoserver | 해당 지역 중복 백업이 사용되는 기존 서버의 이름입니다. |
 |location | eastus | 새 서버의 위치입니다. |
-|sku-name| GP_Gen4_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen4_8은 vCore가 8개인 범용 4세대 서버로 매핑합니다.|
+|sku-name| GP_Gen4_8 | 이 매개 변수는 가격 책정 계층, 컴퓨팅 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen4_8은 vCore가 8개인 범용 4세대 서버로 매핑합니다.|
 
 
 >[!Important]

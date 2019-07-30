@@ -136,7 +136,7 @@ StorSimple 볼륨에 대해 **이 볼륨에 대한 기본 백업 사용** 옵션
 
 다음 그림과 같이 **복제 항목** VM을 선택하여 네트워크 설정을 구성할 수 있습니다.
 
-![계산 및 네트워크](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![컴퓨팅 및 네트워크](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) 프로세스를 자동화할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 몇 분 만에 파일 공유를 온라인 상태로 만들 수 있습니다. 이 자동화를 사용하도록 설정하려면 Azure 자동화 계정이 필요합니다.

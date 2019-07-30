@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
 ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/17/2019
 ms.locfileid: "67154496"
@@ -283,7 +283,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 아니요. 전이적 피어링은 지원되지 않습니다. 이를 위해서는 VNetA와 VNetC를 피어로 연결해야 합니다.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>피어링 연결에 대역폭 제한이 있나요?
-아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 계산 리소스에 의해서만 제한됩니다.
+아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 컴퓨팅 리소스에 의해서만 제한됩니다.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet 피어 링 하는 문제를 해결 하려면 어떻게 해야 합니까?
 다음은 [문제 해결사 가이드](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 시도할 수 있습니다.

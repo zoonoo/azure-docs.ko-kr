@@ -32,7 +32,7 @@ ms.locfileid: "67182169"
 
 - 시나리오 1: 1의 비율로 8대의 Standard_DS1_v2 크기 VM을 실행합니다. 예약 할인은 8대의 모든 해당 VM에 적용됩니다.
 - 시나리오 2: 각각 2의 비율로 2대의 Standard_DS2_v2 크기 VM을 실행합니다. 또한 4의 비율로 Standard_DS3_v2 크기 VM을 실행합니다. 총 공간은 2+2+4=8입니다. 따라서 예약 할인은 3대의 모든 해당 VM에 적용됩니다.
-- 시나리오 3: 16의 비율로 한 대의 Standard_DS5_v2를 실행합니다. 예약 할인은 해당 VM의 계산 비용 절반에 적용됩니다.
+- 시나리오 3: 16의 비율로 한 대의 Standard_DS5_v2를 실행합니다. 예약 할인은 해당 VM의 컴퓨팅 비용 절반에 적용됩니다.
 
 다음 섹션에서는 인스턴스 크기 유연성에 최적화된 예약 VM 인스턴스를 구매하는 경우 동일한 크기 시리즈 그룹에 있는 크기를 보여줍니다.
 
@@ -263,7 +263,7 @@ Standard_F16|16|
 | Standard_H8|1|
 |Standard_H16|2|
 
-자세한 내용은 [고성능 계산 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
+자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
 
 ## <a name="h-series-high-memory"></a>H 시리즈 상위 메모리
 
@@ -272,7 +272,7 @@ Standard_F16|16|
 | Standard_H8m|1|
 |Standard_H16m|2|
 
-자세한 내용은 [고성능 계산 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
+자세한 내용은 [고성능 컴퓨팅 VM 크기](../articles/virtual-machines/windows/sizes-hpc.md)를 참조하세요.
 
 ## <a name="ls-series"></a>Ls 시리즈
 

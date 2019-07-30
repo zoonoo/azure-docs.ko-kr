@@ -18,7 +18,7 @@ ms.locfileid: "68323769"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
-Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 Batch API 중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 클라이언트 애플리케이션 또는 서비스는 Batch API를 통해 Batch 서비스와 통신할 수 있습니다. Batch API를 사용하면 가상 머신 또는 클라우드 서비스 중 하나인 계산 노드의 풀을 만들고 관리할 수 있습니다. 그런 다음 해당 노드에서 작업과 태스크를 실행하도록 예약할 수 있습니다. 
+Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 Batch API 중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 클라이언트 애플리케이션 또는 서비스는 Batch API를 통해 Batch 서비스와 통신할 수 있습니다. Batch API를 사용하면 가상 머신 또는 클라우드 서비스 중 하나인 컴퓨팅 노드의 풀을 만들고 관리할 수 있습니다. 그런 다음 해당 노드에서 작업과 태스크를 실행하도록 예약할 수 있습니다. 
 
 조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 Azure Batch를 사용할 수도 있습니다.
 
@@ -67,7 +67,7 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 
 Batch 애플리케이션 및 서비스를 빌드 및 디버깅하는 데 도움이 될 수 있는 추가 도구는 다음과 같습니다.
 
-* [Azure 포털][portal]: Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 계산 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 계산 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
+* [Azure 포털][portal]: Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 컴퓨팅 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 컴퓨팅 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
 * [Azure Batch Explorer][batch_labs]: Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다.
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard는 Azure Batch에서 컨테이너 기반 일괄 처리 및 HPC 워크로드를 프로비저닝, 실행 및 모니터링하는 데 도움이 되는 도구입니다.
 * [Azure Storage 탐색기][storage_explorer]: 엄격히 말해 Azure Batch 도구는 아니지만 Storage Explorer는 Batch 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
@@ -75,7 +75,7 @@ Batch 애플리케이션 및 서비스를 빌드 및 디버깅하는 데 도움�
 ## <a name="additional-resources"></a>추가 자료
 
 - Batch 애플리케이션에서 이벤트 로깅에 대해 알아보려면 [Batch 솔루션의 진단 평가 및 모니터링에 대한 로그 이벤트](batch-diagnostics.md)를 참조하세요. Batch 서비스로 인해 발생한 이벤트에 대한 참조는 [Batch 분석](batch-analytics.md)을 참조하세요.
-- 계산 노드의 환경 변수에 대한 정보는 [Azure Batch 계산 노드 환경 변수](batch-compute-node-environment-variables.md)를 참조하세요.
+- 컴퓨팅 노드의 환경 변수에 대한 정보는 [Azure Batch 컴퓨팅 노드 환경 변수](batch-compute-node-environment-variables.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

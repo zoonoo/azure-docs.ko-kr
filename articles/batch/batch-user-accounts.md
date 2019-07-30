@@ -336,4 +336,4 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
+* Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발](batch-api-basics.md)을 참조하세요.

@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-data-warehouse"></a>데이터 웨어하우스 만들기
 
-Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)에 생성됩니다. 
+Azure SQL Database가 정의된 [컴퓨팅 리소스](memory-and-concurrency-limits.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-logical-servers.md)에 생성됩니다. 
 
 다음 단계에 따라 AdventureWorksDW 샘플 데이터가 포함된 SQL 데이터 웨어하우스를 만듭니다. 
 
@@ -194,7 +194,7 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
     ![리소스 정리](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **다시 시작** 단추가 표시됩니다. 계산을 다시 시작하려면 **다시 시작**을 클릭합니다.
+2. 컴퓨팅을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **다시 시작** 단추가 표시됩니다. 계산을 다시 시작하려면 **다시 시작**을 클릭합니다.
 
 3. 컴퓨팅이나 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 

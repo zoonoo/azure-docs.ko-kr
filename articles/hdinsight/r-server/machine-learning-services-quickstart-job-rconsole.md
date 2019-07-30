@@ -45,7 +45,7 @@ Azure HDInsight에서 ML 서비스를 사용하면 R 스크립트에서 Apache S
     다른 정보 외에 ML Server의 버전이 포함된 출력이 표시되어야 합니다.
 
 
-## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
+## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
 1. `>` 프롬프트에서 R 코드를 입력할 수 있습니다. 다음 코드를 사용하여 HDInsight의 기본 스토리지에 예제 데이터를 로드합니다.
 

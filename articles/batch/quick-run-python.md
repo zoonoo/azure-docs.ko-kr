@@ -75,7 +75,7 @@ python python_quickstart_client.py
 
 스크립트가 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 
 
-샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 배치 계정의 풀, 노드, 작업 및 태스크를 모니터링합니다.
+샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 컴퓨팅 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 컴퓨팅 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 배치 계정의 풀, 노드, 작업 및 태스크를 모니터링합니다.
 
 ```output
 Sample start: 11/26/2018 4:02:54 PM
@@ -147,7 +147,7 @@ batch_client = batch.BatchServiceClient(
     batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
-### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
+### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
 Batch 풀을 만들려면 앱에서 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
 
@@ -185,7 +185,7 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-앱에서 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체의 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 `resource_files` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `cat` Bash 셸 명령을 실행하여 텍스트 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
+앱에서 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체의 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 `resource_files` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `cat` Bash 셸 명령을 실행하여 텍스트 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
 그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
 

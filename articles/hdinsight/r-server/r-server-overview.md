@@ -78,7 +78,7 @@ HDInsight 클러스터의 HDFS 파일 시스템을 위한 기본 스토리지는
 
 ## <a name="develop-and-run-r-scripts"></a>R 스크립트 개발 및 실행
 
-사용자가 만들고 실행하는 R 스크립트는 ScaleR 라이브러리에서 사용 가능한 병렬화된 분산 루틴 외에 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. 일반적으로 에지 노드의 ML Services에서 실행되는 스크립트는 해당 노드의 R 인터프리터에서 실행됩니다. 예외는 Hadoop Map Reduce(RxHadoopMR) 또는 Spark(RxSpark)로 설정된 계산 컨텍스트를 사용하여 ScaleR 함수를 호출해야 하는 단계입니다. 이러한 경우 함수는 참조 데이터와 연결된 클러스터의 데이터(작업) 노드에서 분산된 방식으로 실행됩니다. 다양한 계산 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight에서 R Server의 ML Services 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
+사용자가 만들고 실행하는 R 스크립트는 ScaleR 라이브러리에서 사용 가능한 병렬화된 분산 루틴 외에 8000개 이상의 오픈 소스 R 패키지를 사용할 수 있습니다. 일반적으로 에지 노드의 ML Services에서 실행되는 스크립트는 해당 노드의 R 인터프리터에서 실행됩니다. 예외는 Hadoop Map Reduce(RxHadoopMR) 또는 Spark(RxSpark)로 설정된 컴퓨팅 컨텍스트를 사용하여 ScaleR 함수를 호출해야 하는 단계입니다. 이러한 경우 함수는 참조 데이터와 연결된 클러스터의 데이터(작업) 노드에서 분산된 방식으로 실행됩니다. 다양한 컴퓨팅 컨텍스트 옵션에 대한 자세한 내용은 [HDInsight에서 R Server의 ML Services 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
 
 ## <a name="operationalize-a-model"></a>모델 운영
 
@@ -130,7 +130,7 @@ OS 패치 및 기타 업데이트를 적용하는 유지 관리는 업무 외 �
 
 HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 최신 버전의 HDInsight는 에지 노드에 RStudio Server의 기본 설치를 브라우저 기반 IDE로 제공합니다. R 스크립트의 개발과 실행을 위한 IDE로 RStudio Server를 사용하면 R 콘솔만 사용하는 것보다 훨씬 더 생산적일 수 있습니다.
 
-또한 데스크톱 IDE를 설치하고 원격 Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터에 액세스하는 것입니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/features/rtvs-vs.aspx)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet) 등의 옵션도 있습니다.
+또한 데스크톱 IDE를 설치하고 원격 Map Reduce 또는 Spark 컴퓨팅 컨텍스트를 사용하여 클러스터에 액세스하는 것입니다. Microsoft의 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/features/rtvs-vs.aspx)), RStudio 및 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet) 등의 옵션도 있습니다.
 
 또한 SSH 또는 PuTTY를 통해 연결한 후 Linux 명령 프롬프트에서 **R**을 입력하면 에지 노드의 R 콘솔에 액세스할 수 있습니다. 콘솔 인터페이스 사용 시 R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣으면 편리합니다.
 

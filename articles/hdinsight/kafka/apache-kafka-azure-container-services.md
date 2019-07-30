@@ -41,7 +41,7 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 
 ### <a name="network-topology"></a>네트워크 토폴로지
 
-HDInsight와 AKS 모두 Azure Virtual Network를 계산 리소스의 컨테이너로 사용합니다. HDInsight와 AKS 간의 통신을 가능하게 하려면 해당 네트워크 간의 통신이 가능하도록 설정해야 합니다. 이 문서의 단계에서는 네트워크에 가상 네트워크 피어링을 사용합니다. VPN과 같은 다른 연결도 작동합니다. 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md) 문서를 참조하세요.
+HDInsight와 AKS 모두 Azure Virtual Network를 컴퓨팅 리소스의 컨테이너로 사용합니다. HDInsight와 AKS 간의 통신을 가능하게 하려면 해당 네트워크 간의 통신이 가능하도록 설정해야 합니다. 이 문서의 단계에서는 네트워크에 가상 네트워크 피어링을 사용합니다. VPN과 같은 다른 연결도 작동합니다. 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md) 문서를 참조하세요.
 
 
 다음 다이어그램은 이 문서에서 사용한 네트워크 토폴로지를 보여줍니다.

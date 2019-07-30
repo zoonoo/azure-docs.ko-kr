@@ -25,7 +25,7 @@ ms.locfileid: "67876181"
 # <a name="virtual-network--business-continuity"></a>Virtual Network – 비즈니스 연속성
 
 ## <a name="overview"></a>개요
-Virtual Network(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. 이를 통해 사용자 고유의 개인 IP 주소 공간을 정의하고 네트워크를 서브넷으로 분할할 수 있습니다. VNet은 Azure Virtual Machines 및 Cloud Services(웹/작업자 역할)와 같은 계산 리소스를 호스트하기 위한 트러스트 경계 역할도 합니다. VNet에서는 VNet 안에 호스트된 리소스 간에 직접 프라이빗 IP 통신을 허용합니다. 가상 네트워크를 VPN Gateway 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결할 수 있습니다.
+Virtual Network(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. 이를 통해 사용자 고유의 개인 IP 주소 공간을 정의하고 네트워크를 서브넷으로 분할할 수 있습니다. VNet은 Azure Virtual Machines 및 Cloud Services(웹/작업자 역할)와 같은 컴퓨팅 리소스를 호스트하기 위한 트러스트 경계 역할도 합니다. VNet에서는 VNet 안에 호스트된 리소스 간에 직접 프라이빗 IP 통신을 허용합니다. 가상 네트워크를 VPN Gateway 또는 ExpressRoute를 통해 온-프레미스 네트워크에 연결할 수 있습니다.
 
 VNet은 지역 범위 내에서 만들어집니다. 서로 다른 두 지역 (예: 미국 동부 및 미국 서 부)에 동일한 주소 공간을 사용 하 여 vnet를 *만들* 수 있지만 주소 공간이 동일 하기 때문에 서로 연결할 수 없습니다. 
 

@@ -204,7 +204,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ```
 
 ## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />VM 다시 시작
-SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 계산 문제를 해결할 수 있습니다.
+SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 컴퓨팅 문제를 해결할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택한 다음, **다시 시작**을 선택합니다.

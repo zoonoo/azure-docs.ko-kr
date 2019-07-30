@@ -1,6 +1,6 @@
 ---
 title: NVIDIA GPU 드라이버 확장 - Azure Windows VM | Microsoft Docs
-description: Windows를 실행하는 N 시리즈 계산 VM에 NVIDIA GPU 드라이버를 설치하는 Microsoft Azure 확장입니다.
+description: Windows를 실행하는 N 시리즈 컴퓨팅 VM에 NVIDIA GPU 드라이버를 설치하는 Microsoft Azure 확장입니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/22/2019
 ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
 ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/03/2019
 ms.locfileid: "67536231"
@@ -134,7 +134,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 합니다 [서버 리스 계산 계층](sql-database-serverless.md) 미리 보기로 제공 되며은 단일 데이터베이스 vCore 구매를 사용 하 여 모델에 대해서만 합니다.
 
-#### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+#### <a name="generation-5-compute-platform"></a>5세대 컴퓨팅 플랫폼
 
 |컴퓨팅 크기|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
 |:--- | --: |--: |--: |
@@ -261,7 +261,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ## <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
-### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+### <a name="generation-5-compute-platform"></a>5세대 컴퓨팅 플랫폼
 
 |성능 수준|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |

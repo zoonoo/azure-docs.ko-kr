@@ -144,7 +144,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
  
 - 로컬 개발 환경에서 코드가 실행되고 사용자 지정 서비스에 인증하므로 개발자 ID를 사용할 수 없습니다. 
  
-- 코드가 Azure 리소스에 대해 관리 ID를 아직 지원하지 않는 Azure 계산 리소스(예: Azure Batch)에서 실행 중입니다.
+- 코드가 Azure 리소스에 대해 관리 ID를 아직 지원하지 않는 Azure 컴퓨팅 리소스(예: Azure Batch)에서 실행 중입니다.
 
 서비스 주체를 사용 하 여 응용 프로그램을 실행 하는 세 가지 주요 방법이 있습니다. 그 중 하나를 사용 하려면 먼저 [서비스 주체를 만들려면](/cli/azure/create-an-azure-service-principal-azure-cli)합니다.
 

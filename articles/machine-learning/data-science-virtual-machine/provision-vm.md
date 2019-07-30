@@ -17,7 +17,7 @@ ms.date: 02/22/2019
 ms.author: gokuma
 ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
 ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/08/2019
 ms.locfileid: "67626390"
@@ -61,7 +61,7 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
 
 DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. VM에 포함된 Azure SDK를 통해 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
-이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
+이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 컴퓨팅 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다.
 
 ### <a name="other-dsvm-versions"></a>다른 DSVM 버전
 
@@ -99,7 +99,7 @@ DSVM 인스턴스를 만들려면
    1. **요약**: 입력한 모든 정보가 올바른지 확인합니다. **만들기**를 선택합니다.
 
 > [!NOTE]
-> * VM에는 **크기** 단계에서 선택한 서버 크기에 대한 계산 비용 이외의 추가 요금이 없습니다.
+> * VM에는 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 비용 이외의 추가 요금이 없습니다.
 > * 프로비전에는 약 10-20분이 걸립니다. Azure Portal에서 VM의 상태를 볼 수 있습니다.
 
 ## <a name="how-to-access-the-dsvm"></a>DSVM에 액세스하는 방법

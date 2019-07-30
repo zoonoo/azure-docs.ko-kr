@@ -20,7 +20,7 @@ ms.locfileid: "68323596"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
-Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. Batch 작업은 Batch 풀의 가상 머신(노드)에서 직접 실행할 수 있지만 노드에서 Docker 호환 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수도 있습니다. 이 문서에서는 컨테이너 작업의 실행을 지원하는 계산 노드 풀을 만드는 방법과 풀에서 컨테이너 작업을 실행하는 방법을 보여 줍니다. 
+Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작업을 실행하고 확장할 수 있습니다. Batch 작업은 Batch 풀의 가상 머신(노드)에서 직접 실행할 수 있지만 노드에서 Docker 호환 컨테이너의 작업을 실행하도록 Batch 풀을 설정할 수도 있습니다. 이 문서에서는 컨테이너 작업의 실행을 지원하는 컴퓨팅 노드 풀을 만드는 방법과 풀에서 컨테이너 작업을 실행하는 방법을 보여 줍니다. 
 
 컨테이너 개념과 Batch 풀 및 Batch 작업을 만드는 방법을 잘 알고 있어야 합니다. 코드 예제는 Batch .NET 및 Python SDK를 사용합니다. Azure Portal을 포함하여 다른 Batch SDK 및 도구를 사용하여 컨테이너 사용이 가능한 Batch 풀을 만들고 컨테이너 작업을 실행할 수도 있습니다.
 
@@ -49,7 +49,7 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
 
-컨테이너 워크로드에 대한 VM 계산 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환되는 Marketplace 이미지에 대한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요. 
+컨테이너 워크로드에 대한 VM 컴퓨팅 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환되는 Marketplace 이미지에 대한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요. 
 
 ### <a name="windows-images"></a>Windows 이미지
 

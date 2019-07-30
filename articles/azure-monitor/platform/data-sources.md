@@ -14,7 +14,7 @@ ms.date: 05/23/2019
 ms.author: bwren
 ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357454"
@@ -116,9 +116,9 @@ Azure 테넌트와 관련된 원격 분석은 Azure Active Directory와 같은 �
 | Event Hubs | Stream 진단 Event Hubs를 사용 하 여 다른 위치에 기록 합니다. |[Stream 이벤트 허브로 Azure 진단 로그](diagnostic-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>운영 체제 (게스트)
-Azure, 다른 클라우드 및 온-프레미스의 계산 리소스에는 모니터링할 게스트 운영 체제가 있습니다. 하나 이상의 에이전트를 설치를 사용 하 여 Azure 서비스 자체와 동일한 모니터링 도구를 사용 하 여 분석 하는 Azure Monitor로 게스트에서 원격 분석을 수집할 수 있습니다.
+Azure, 다른 클라우드 및 온-프레미스의 컴퓨팅 리소스에는 모니터링할 게스트 운영 체제가 있습니다. 하나 이상의 에이전트를 설치를 사용 하 여 Azure 서비스 자체와 동일한 모니터링 도구를 사용 하 여 분석 하는 Azure Monitor로 게스트에서 원격 분석을 수집할 수 있습니다.
 
-![Azure 계산 리소스 컬렉션](media/data-sources/compute-resources.png)
+![Azure 컴퓨팅 리소스 컬렉션](media/data-sources/compute-resources.png)
 
 ### <a name="azure-diagnostic-extension"></a>Azure 진단 확장
 Azure 게스트 운영 체제에서 메트릭을 계산 가상 머신 (클래식) Azure 클라우드 서비스 웹 및 작업자 역할, Virtual Machines를 비롯 한 리소스 및 로그를 수집 하려면 Azure Virtual machines를 사용 하면 Azure 진단 확장을 사용 하도록 설정 scale sets 및 Service Fabric입니다.

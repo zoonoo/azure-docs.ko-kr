@@ -2,22 +2,19 @@
 title: Azure Mobile Apps 설명서 - 자습서, API 참조 | Microsoft Docs
 description: Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android 또는 Windows 앱 또는 Xamarin이나 Cordova를 사용하는 교차 플랫폼 앱을 빌드하고 호스팅하는 방법에 대해 알아봅니다.
 services: app-service-mobile
-author: czeumault
-manager: carolz
+author: georgewallace
+manager: gwallace
 layout: LandingPage
-ms.assetid: ''
 ms.service: app-service-mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2018
-ms.author: carolz
-ms.openlocfilehash: 5adf1f12bd2c7757bfde1408c52b0753bff64797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: gwallace
+ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851570"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610220"
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps 설명서
 

@@ -113,7 +113,7 @@ exp = Experiment(workspace=ws, name='tf-mnist')
     shutil.copy('./utils.py', script_folder)
     ```
 
-## <a name="create-a-compute-target"></a>계산 대상 만들기
+## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
 실행 하 여 TensorFlow 작업에 대 한 계산 대상을 만듭니다. 이 예제에서는 Azure Machine Learning GPU 가능 계산 클러스터를 만듭니다.
 

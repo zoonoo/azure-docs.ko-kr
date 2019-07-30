@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버리스 아키텍처, Python
+keywords: Azure Functions, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처, Python
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: article

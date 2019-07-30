@@ -18,7 +18,7 @@ ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578546"
@@ -66,7 +66,7 @@ Geo-DSVM에는 다음을 비롯하여 AI에 대한 몇 가지 도구가 포함�
    
    - **요약**: 입력한 모든 정보가 올바른지 확인합니다.
 
-   - **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 서비스 사용 약관에 대한 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
+   - **구입**: **구입**을 클릭하여 프로비전을 시작합니다. 서비스 사용 약관에 대한 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 이외에 추가 요금이 발생하지 않습니다. 
  
 >[!NOTE]
 > 프로비전에는 20~30분 정도가 걸립니다. 프로비전의 상태는 Azure 포털에 표시됩니다.

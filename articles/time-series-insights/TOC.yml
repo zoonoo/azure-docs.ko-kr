@@ -5,6 +5,7 @@
     - name: Time Series Insights 정보
       href: time-series-insights-update-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Azure Time Series Insights GA
       items:

@@ -21,7 +21,7 @@ ms.locfileid: "68323306"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
- 이 이벤트는 풀이 생성되면 내보내집니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다. 풀의 대상 크기가 0 계산 노드보다 큰 경우 이 이벤트 직 후 풀 크기 조정 시작 이벤트가 수행됩니다.
+ 이 이벤트는 풀이 생성되면 내보내집니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다. 풀의 대상 크기가 0 컴퓨팅 노드보다 큰 경우 이 이벤트 직 후 풀 크기 조정 시작 이벤트가 수행됩니다.
 
  다음 예에서는 CloudServiceConfiguration 속성을 사용하여 만든 풀의 풀 만들기 이벤트 본문을 보여줍니다.
 
@@ -55,13 +55,13 @@ ms.locfileid: "68323306"
 |[cloudServiceConfiguration](#bk_csconf)|복합 형식|풀의 클라우드 서비스 구성입니다.|
 |[virtualMachineConfiguration](#bk_vmconf)|복합 형식|풀의 가상 머신 구성입니다.|
 |[networkConfiguration](#bk_netconf)|복합 형식|풀의 네트워크 구성입니다.|
-|resizeTimeout|시간|풀에서 마지막 크기 조정 작업에 지정된 풀에 계산 노드를 할당하는 데 정해진 제한 시간입니다.  (풀을 만들 때 초기 크기 조정은 크기 조정으로 간주됩니다.)|
-|targetDedicated|Int32|풀에 대해 요청된 계산 노드 수입니다.|
+|resizeTimeout|시간|풀에서 마지막 크기 조정 작업에 지정된 풀에 컴퓨팅 노드를 할당하는 데 정해진 제한 시간입니다.  (풀을 만들 때 초기 크기 조정은 크기 조정으로 간주됩니다.)|
+|targetDedicated|Int32|풀에 대해 요청된 컴퓨팅 노드 수입니다.|
 |enableAutoScale|Bool|풀 크기가 시간이 지남에 따라 자동으로 조정되는지 여부를 지정합니다.|
 |enableInterNodeCommunication|Bool|풀에 노드 간 직접 통신이 설정되어 있는지 여부를 지정합니다.|
 |isAutoPool|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
-|maxTasksPerNode|Int32|풀의 단일 계산 노드에서 동시에 실행할 수 있는 최대 태스크 수입니다.|
-|vmFillType|문자열|Batch 서비스는 풀의 계산 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
+|maxTasksPerNode|Int32|풀의 단일 컴퓨팅 노드에서 동시에 실행할 수 있는 최대 태스크 수입니다.|
+|vmFillType|문자열|Batch 서비스는 풀의 컴퓨팅 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
@@ -75,7 +75,7 @@ ms.locfileid: "68323306"
 |요소 이름|형식|참고|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|복합 형식|사용할 플랫폼 또는 Marketplace 이미지에 대한 정보를 지정합니다.|
-|nodeAgentSKUId|문자열|계산 노드에서 프로비전되는 Batch 노드 에이전트의 SKU입니다.|
+|nodeAgentSKUId|문자열|컴퓨팅 노드에서 프로비전되는 Batch 노드 에이전트의 SKU입니다.|
 |[windowsConfiguration](#bk_winconf)|복합 형식|가상 머신의 Windows 운영 체제 설정을 지정합니다. imageReference가 Linux OS 이미지를 참조하는 경우 이 속성을 지정해서는 안 됩니다.|
 
 ###  <a name="bk_imgref"></a> imageReference
@@ -97,4 +97,4 @@ ms.locfileid: "68323306"
 
 |요소 이름|형식|참고|
 |------------------|--------------|----------|
-|subnetId|String|풀의 계산 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|
+|subnetId|String|풀의 컴퓨팅 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|

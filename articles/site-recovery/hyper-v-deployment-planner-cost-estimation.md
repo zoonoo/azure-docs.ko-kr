@@ -86,8 +86,8 @@ DR을 위해 Azure에서 실행되는 Always On 가용성 그룹이 있는 도�
 ### <a name="apply-overall-discount-if-applicable"></a>해당되는 경우 전체 할인 적용
 Azure 파트너 또는 고객으로서 Azure 가격 전체에 대한 할인 혜택을 받을 수 있는 경우 이 필드를 사용할 수 있습니다. 도구에서 모든 구성 요소에 할인율(%)을 적용합니다.
 
-### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>가상 머신 유형 수 및 계산 비용(연간)
-이 테이블에는 Windows VM 및 비Windows VM의 수와 이러한 VM에 대한 DR 드릴 계산 비용이 표시됩니다.
+### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>가상 머신 유형 수 및 컴퓨팅 비용(연간)
+이 테이블에는 Windows VM 및 비Windows VM의 수와 이러한 VM에 대한 DR 드릴 컴퓨팅 비용이 표시됩니다.
 
 ### <a name="settings"></a>설정 
 **관리형 디스크 사용**: 이 설정은 DR 드릴 시 관리 디스크를 사용할지 여부를 지정합니다. 기본값은 **예**입니다. **-UseManagedDisks**를 **아니요**로 설정하면 관리되지 않는 디스크 가격이 비용 계산에 사용됩니다.
@@ -135,7 +135,7 @@ VM을 수동으로 추가하려면:
 
 **IaaS 크기(권장)** : 도구에서 권장하는 호환 가능한 VM의 VM 역할 크기입니다. 
 
-**IaaS 크기(선택)** : 기본적으로 권장되는 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 계산 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
+**IaaS 크기(선택)** : 기본적으로 권장되는 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 컴퓨팅 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
 
 **스토리지 유형**: VM에 사용되는 스토리지 유형입니다. 표준 또는 Premium Storage입니다.
 

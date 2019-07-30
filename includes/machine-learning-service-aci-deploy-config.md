@@ -6,7 +6,7 @@ ms.date: 07/19/2019
 ms.author: larryfr
 ms.openlocfilehash: fd9527714b87cc35fcfc61f4858cbacee7fa95f5
 ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/19/2019
 ms.locfileid: "68348545"
@@ -15,7 +15,7 @@ ms.locfileid: "68348545"
 
 | JSON 엔터티 | 메서드 매개 변수 | Description |
 | ----- | ----- | ----- |
-| `computeType` | NA | 계산 대상. ACI의 경우 값은 이어야 `ACI`합니다. |
+| `computeType` | NA | 컴퓨팅 대상. ACI의 경우 값은 이어야 `ACI`합니다. |
 | `containerResourceRequirements` | NA | CPU 및 메모리 엔터티의 컨테이너입니다. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | 할당할 CPU 코어 수입니다. 기본값과`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | 이 웹 서비스에 할당할 메모리 양 (GB)입니다. 기본`0.5` |

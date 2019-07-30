@@ -31,7 +31,7 @@ Azure의 서비스는 Azure에서 할당하고 Microsoft가 소유하는 IP 주�
 
 이 문서를 읽기 전에 이 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md)에 익숙해지는 것이 좋습니다.
 
-Azure DNS에서 계산 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
+Azure DNS에서 컴퓨팅 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
 
 
 역방향 DNS는 현재 Azure App Service에 대해 지원되지 않습니다.

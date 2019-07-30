@@ -31,7 +31,7 @@ ms.locfileid: "60337326"
 ## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>프로덕션 슬롯에 기존 배포가 있는 경우 스테이징 슬롯에 대한 클라우드 서비스 배포가 리소스 할당 오류로 인해 실패하는 이유는 무엇인가요?
 클라우드 서비스가 두 슬롯 중 하나에 배포된 경우 전체 클라우드 서비스가 특정 클러스터에 고정됩니다. 이는 프로덕션 슬롯에 이미 배포가 있을 경우 프로덕션 슬롯과 동일한 클러스터에만 새 스테이징 배포를 할당할 수 있다는 의미입니다.
 
-클라우드 서비스가 있는 클러스터가 배포 요청을 충족하기에 충분한 물리적 계산 리소스 없는 경우 할당 오류가 발생합니다.
+클라우드 서비스가 있는 클러스터가 배포 요청을 충족하기에 충분한 물리적 컴퓨팅 리소스 없는 경우 할당 오류가 발생합니다.
 
 이러한 할당 오류를 완화 하는 도움말을 참조 하세요. [클라우드 서비스 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)합니다.
 

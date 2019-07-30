@@ -26,7 +26,7 @@ ms.locfileid: "68443007"
 ## <a name="sizes-for-web-and-worker-role-instances"></a>웹 및 작업자 역할 인스턴스에 적합한 크기
 Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기 중 일부에 대한 고려 사항은 다음을 포함합니다.
 
-* D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 애플리케이션을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 Virtual Machine 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
+* D 시리즈 VM은 높은 컴퓨팅 능력과 임시 디스크 성능이 필요한 애플리케이션을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 디스크를 위해 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 Virtual Machine 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 * 원래 D 시리즈의 후속판인 Dv3 시리즈, Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.1GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 * G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 * 다양한 하드웨어 유형 및 프로세서에 A 시리즈 VM을 배포할 수 있습니다. 배포된 하드웨어에 관계없이 인스턴스 실행 시 일관된 프로세서 성능을 제공하기 위해 하드웨어에 따라 크기가 제한됩니다. 이 크기가 배포되는 실제 하드웨어를 확인하려면 Virtual Machine 내에서 가상 하드웨어를 쿼리합니다.
@@ -36,7 +36,7 @@ Azure에서 여러 표준 크기를 선택할 수 있습니다. 이러한 크기
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다. 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * Dv3 시리즈, Dv2 시리즈, D 시리즈, G 시리즈는 더 빠른 CPU와 더 좋은 로컬 디스크 성능을 요구하거나 더 높은 메모리 요구량을 가진 애플리케이션에 이상적입니다. 이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
 * Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 머신을 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 머신의 크기를 새 크기로 조정하거나 2013년 4월 16일 이전에 만들어진 가상 네트워크에서 새 가상 머신을 만들거나 새 가상 머신을 기존 클라우드 서비스에 추가하려고 하면 **{machine name} 가상 머신을 구성하지 못했습니다** 또는 **{machine name} 가상 머신을 만들지 못했습니다**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 머신 구성 실패"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)를 참조하세요.
 * 구독에 따라서도 특정 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량을 늘리려면 Azure 지원에 문의하세요.
@@ -88,7 +88,7 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | A7              | 8         | 56           | 2040                 | 4/높음 |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
-이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 스토리지: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -215,4 +215,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
-* 자세한 내용은 HPC 워크로드의 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.
+* 자세한 내용은 HPC 워크로드의 [고성능 컴퓨팅 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 자세히 알아보세요.

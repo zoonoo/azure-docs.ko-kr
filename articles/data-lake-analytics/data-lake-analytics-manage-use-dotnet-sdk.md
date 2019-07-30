@@ -415,13 +415,13 @@ var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 Console.WriteLine( userinfo.ObjectId )
 ```
 
-## <a name="manage-compute-policies"></a>계산 정책 관리
+## <a name="manage-compute-policies"></a>컴퓨팅 정책 관리
 
-DataLakeAnalyticsAccountManagementClient 개체는 Data Lake Analytics 계정에 대한 계산 정책을 관리하는 메서드를 제공합니다.
+DataLakeAnalyticsAccountManagementClient 개체는 Data Lake Analytics 계정에 대한 컴퓨팅 정책을 관리하는 메서드를 제공합니다.
 
-### <a name="list-compute-policies"></a>계산 정책 나열
+### <a name="list-compute-policies"></a>컴퓨팅 정책 나열
 
-다음 코드는 Data Lake Analytics 계정에 대한 계산 정책 목록을 검색합니다.
+다음 코드는 Data Lake Analytics 계정에 대한 컴퓨팅 정책 목록을 검색합니다.
 
 ``` csharp
 var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
@@ -431,9 +431,9 @@ foreach (var p in policies)
 }
 ```
 
-### <a name="create-a-new-compute-policy"></a>새 계산 정책 만들기
+### <a name="create-a-new-compute-policy"></a>새 컴퓨팅 정책 만들기
 
-다음 코드는 지정된 사용자가 사용할 수 있는 최대 AU를 50으로, 최소 작업 우선 순위를 250으로 설정하는, Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다.
+다음 코드는 지정된 사용자가 사용할 수 있는 최대 AU를 50으로, 최소 작업 우선 순위를 250으로 설정하는, Data Lake Analytics 계정에 대한 새 컴퓨팅 정책을 만듭니다.
 
 ``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";

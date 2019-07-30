@@ -169,7 +169,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>계산 리소스를 사용할 수 없습니다.</td>
+<td>ComputeResources</td><td>컴퓨팅 리소스를 사용할 수 없습니다.</td>
 </tr>
 <tr>
 <td>ConcurrencyLimit</td> <td>모든 활동 인스턴스는 다른 작업 창을 실행하고 있습니다.</td>

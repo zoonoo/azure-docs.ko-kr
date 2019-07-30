@@ -136,7 +136,7 @@ Import/Export 서비스 | 아니요 | 아니요
 대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
 
 
-## <a name="azure-compute-features"></a>Azure 계산 기능
+## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
 
 **기능** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---

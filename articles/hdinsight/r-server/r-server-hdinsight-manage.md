@@ -80,7 +80,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/ 에서 RStudio에 액세스합�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 컴퓨팅 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 컴퓨팅 컨텍스트를 정의할 때 옵션(hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript)을 지정해야 합니다. 예를 들면 다음과 같습니다.
 
     myNameNode <- "default"
     myPort <- 0
@@ -106,9 +106,9 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/ 에서 RStudio에 액세스합�
 
 자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
 
-## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
+## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
-계산 컨텍스트를 사용하여 계산을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제를 보려면 [ML Services 클러스터에 RStudio Server를 사용 하 여 Azure HDInsight에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)합니다.
+컴퓨팅 컨텍스트를 사용하여 컴퓨팅을 이제 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.  RStudio Server를 사용 하 여 계산 컨텍스트를 설정 하는 예제를 보려면 [ML Services 클러스터에 RStudio Server를 사용 하 여 Azure HDInsight에서 R 스크립트 실행](machine-learning-services-quickstart-job-rstudio.md)합니다.
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
@@ -136,7 +136,7 @@ Spark 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info(
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Apache Hive 및 Parquet에서 데이터에 액세스
 
-HDInsight ML 서비스를 사용하면 Spark 계산 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.
+HDInsight ML 서비스를 사용하면 Spark 컴퓨팅 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.
 
 다음 코드는 새 함수를 사용하는 샘플 코드 일부를 제공합니다.
 

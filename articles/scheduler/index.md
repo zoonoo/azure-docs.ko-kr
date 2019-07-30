@@ -2,22 +2,19 @@
 title: Azure Scheduler 설명서 - 자습서, API 참조 | Microsoft Docs
 description: Scheduler를 사용하여 애플리케이션 작업 반복 및 일상적인 유지 관리와 같은 작업을 예약하고 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
 services: scheduler
-author: carolz
-manager: carolz
+author: carmonmills
+manager: carmonm
 layout: LandingPage
-ms.assetid: ''
 ms.service: scheduler
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 74f40578ee155eaa7289cfc3e79cdf4c36540af2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: carmonm
+ms.openlocfilehash: ddf335d0c2b165ae98feab0b42e60527f87de59c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532060"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610341"
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 

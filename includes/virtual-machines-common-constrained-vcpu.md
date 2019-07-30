@@ -21,7 +21,7 @@ vCPU 수를 원래 VM 크기의 절반이나 1/4로 제한할 수 있습니다. 
 
 예를 들어 현재 VM 크기 Standard_GS5에는 32개의 vCPU, 448GB의 RAM, 64개 디스크(최대 256TB) 및 80,000 IOPS 또는 2GB/s의 I/O 대역폭이 함께 제공됩니다. 새 VM 크기 Standard_GS5-16 및 Standard_GS5-8에는 각각 16개 및 8개의 활성 vCPU가 함께 제공되고 메모리, 저장소 및 I/O 대역폭 등 나머지 사양은 Standard_GS5과 같습니다.
 
-SQL Server 또는 Oracle에 대해 청구되는 라이선스 요금은 새 vCPU 개수로 제한되며 다른 제품은 새 vCPU 수를 기준으로 청구됩니다. 따라서 활성(청구 가능) vCPU에 대한 VM 사양의 비율이 50~75% 증가합니다. 고객 워크로드는 이러한 새 VM 크기를 통해 해당 소프트웨어 라이선스 비용을 최적화하는 한편, 동일한 메모리, 스토리지 및 I/O 대역폭을 사용할 수 있습니다. 현재 OS 라이선스를 포함하는 계산 비용은 원래 크기와 동일하게 유지됩니다. 자세한 내용은 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)(비용 효율적인 데이터베이스 워크로드를 위한 Azure VM 크기)를 참조하세요.
+SQL Server 또는 Oracle에 대해 청구되는 라이선스 요금은 새 vCPU 개수로 제한되며 다른 제품은 새 vCPU 수를 기준으로 청구됩니다. 따라서 활성(청구 가능) vCPU에 대한 VM 사양의 비율이 50~75% 증가합니다. 고객 워크로드는 이러한 새 VM 크기를 통해 해당 소프트웨어 라이선스 비용을 최적화하는 한편, 동일한 메모리, 스토리지 및 I/O 대역폭을 사용할 수 있습니다. 현재 OS 라이선스를 포함하는 컴퓨팅 비용은 원래 크기와 동일하게 유지됩니다. 자세한 내용은 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)(비용 효율적인 데이터베이스 워크로드를 위한 Azure VM 크기)를 참조하세요.
 
 
 | 이름                | vCPU | 사양           |

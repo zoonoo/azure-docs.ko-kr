@@ -62,7 +62,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 삭제 프로세스 중에 Batch는 [풀 상태](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate)를 **deleting**으로 설정합니다. 호출 애플리케이션은 **state** 및 **stateTransitionTime** 속성을 사용하여 풀 삭제가 너무 오래 걸리는지를 검색할 수 있습니다.
 
-## <a name="pool-compute-node-errors"></a>풀 계산 노드 오류
+## <a name="pool-compute-node-errors"></a>풀 컴퓨팅 노드 오류
 
 일괄 처리가 풀에서 노드를 성공적으로 할당 하는 경우에도 여러 가지 문제로 인해 일부 노드가 비정상 상태가 되 고 작업을 실행할 수 없게 될 수 있습니다. 이러한 노드에는 여전히 요금이 부과 되므로 사용할 수 없는 노드에 대해 지불 하지 않는 문제를 검색 하는 것이 중요 합니다.
 

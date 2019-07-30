@@ -35,7 +35,7 @@ U-SQL 스크립트를 개발하는 경우 스크립트를 로컬로 실행하여
 
 ### <a name="local-data-root-folders"></a>로컬 데이터 루트 폴더
 
-로컬 데이터 루트 폴더는 로컬 계산 계정의 **로컬 저장소**입니다. 로컬 머신의 로컬 파일 시스템에 있는 모든 폴더는 로컬 데이터 루트 폴더일 수 있습니다. 이것은 Data Lake Analytics 계정의 기본 Azure Data Lake Store 계정과 동일합니다. 다른 데이터 루트 폴더로 전환하는 것은 다른 기본 저장소 계정으로 전환하는 것과 같습니다. 
+로컬 데이터 루트 폴더는 로컬 컴퓨팅 계정의 **로컬 저장소**입니다. 로컬 머신의 로컬 파일 시스템에 있는 모든 폴더는 로컬 데이터 루트 폴더일 수 있습니다. 이것은 Data Lake Analytics 계정의 기본 Azure Data Lake Store 계정과 동일합니다. 다른 데이터 루트 폴더로 전환하는 것은 다른 기본 저장소 계정으로 전환하는 것과 같습니다. 
 
 데이터 루트 폴더는 다음과 같이 사용됩니다.
 - 저장소 메타데이터. 예로 데이터베이스, 테이블, 테이블 반환 함수 및 어셈블리가 있습니다.
@@ -43,7 +43,7 @@ U-SQL 스크립트를 개발하는 경우 스크립트를 로컬로 실행하여
 
 ### <a name="u-sql-local-run-engines"></a>U-SQL 로컬 실행 엔진
 
-U-SQL 로컬 실행 엔진은 U-SQL 작업에 대한 **로컬 계산 계정**입니다. 사용자는 Azure Data Lake Tools for Visual Studio를 통해 U-SQL 작업을 로컬로 실행할 수 있습니다. Azure Data Lake U-SQL SDK 명령줄 및 프로그래밍 인터페이스를 통한 로컬 실행도 지원됩니다. [Azure Data Lake U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 대해 자세히 알아봅니다.
+U-SQL 로컬 실행 엔진은 U-SQL 작업에 대한 **로컬 컴퓨팅 계정**입니다. 사용자는 Azure Data Lake Tools for Visual Studio를 통해 U-SQL 작업을 로컬로 실행할 수 있습니다. Azure Data Lake U-SQL SDK 명령줄 및 프로그래밍 인터페이스를 통한 로컬 실행도 지원됩니다. [Azure Data Lake U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 대해 자세히 알아봅니다.
 
 ### <a name="working-directories"></a>작업 디렉터리
 
@@ -51,7 +51,7 @@ U-SQL 스크립트를 실행하는 경우 작업 디렉터리 폴더는 컴파�
 
 ## <a name="local-runs-in-microsoft-visual-studio"></a>Microsoft Visual Studio의 로컬 실행
 
-Azure Data Lake Tools for Visual Studio에는 기본 제공 로컬 실행이 있습니다. 도구는 로컬 계산 계정으로 엔진을 노출합니다. U-SQL 스크립트를 로컬로 실행하려면 스크립트의 편집기 여백 드롭다운 메뉴에서 **Local-machine** 또는 **Local-project** 계정을 선택합니다. 그런 다음, **제출**을 선택합니다.
+Azure Data Lake Tools for Visual Studio에는 기본 제공 로컬 실행이 있습니다. 도구는 로컬 컴퓨팅 계정으로 엔진을 노출합니다. U-SQL 스크립트를 로컬로 실행하려면 스크립트의 편집기 여백 드롭다운 메뉴에서 **Local-machine** 또는 **Local-project** 계정을 선택합니다. 그런 다음, **제출**을 선택합니다.
 
 ![로컬 계정에 U-SQL 스크립트 제출](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
  

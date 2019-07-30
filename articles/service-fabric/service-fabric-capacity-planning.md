@@ -1,6 +1,6 @@
 ---
 title: Service Fabric 앱의 용량 계획 | Microsoft Docs
-description: 서비스 패브릭 애플리케이션에 필요한 계산 노드 수를 확인하는 방법 설명
+description: 서비스 패브릭 애플리케이션에 필요한 컴퓨팅 노드 수를 확인하는 방법 설명
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy

@@ -90,7 +90,7 @@ Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호�
 
 ## <a id="udfs"></a>사용자 정의 함수
 
-UDF(사용자 정의 함수)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
+UDF(사용자 정의 함수)는 SQL API 쿼리 언어 구문을 확장하고 사용자 지정 비즈니스 논리를 쉽게 구현하는 데 사용됩니다. 이 함수는 쿼리 내에서만 호출할 수 있습니다. UDF는 컨텍스트 개체에 액세스할 수 없으며 컴퓨팅 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 보조 복제본에서 실행할 수 있습니다. 예제를 보려면 [사용자 정의 함수 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
 
 ## <a id="jsqueryapi"></a>JavaScript LINQ(Language-Integrated Query) API
 

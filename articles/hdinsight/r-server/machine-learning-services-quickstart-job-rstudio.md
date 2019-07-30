@@ -39,7 +39,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 ![클러스터 기본 세부 정보](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio.png)
 
-## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
+## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
 1. RStudio Server에서 다음 코드를 사용하여 HDInsight의 기본 스토리지에 예제 데이터를 로드합니다.
 

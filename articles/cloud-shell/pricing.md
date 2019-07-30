@@ -24,7 +24,7 @@ ms.locfileid: "60199417"
 # <a name="pricing"></a>가격
 다음은 Cloud Shell의 Bash와 Cloud Shell의 PowerShell에 적용되는 정보입니다.
 
-## <a name="compute-cost"></a>비용 계산
+## <a name="compute-cost"></a>컴퓨팅 비용
 Azure Cloud Shell은 추가 비용 없이 Azure에서 무료로 제공하는 컴퓨터에서 실행되지만, 사용하려면 Azure 파일 공유가 필요합니다. 
 
 ## <a name="storage-cost"></a>저장소 비용

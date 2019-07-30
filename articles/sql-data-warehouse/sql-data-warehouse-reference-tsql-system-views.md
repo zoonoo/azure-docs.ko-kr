@@ -140,7 +140,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Data Warehouse에서 사용할 수 있는 SQL Server DMV
 SQL Data Warehouse는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL Data Warehouse에서 쿼리한 경우 배포에서 실행되고 있는 SQL Database의 상태를 보고합니다.
 
-SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어하우스)는 모두 동일한 시스템 보기를 사용합니다. 각 DMV에는 계산 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다. 
+SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어하우스)는 모두 동일한 시스템 보기를 사용합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다. 
 
 > [!NOTE]
 > 이러한 보기를 사용하려면 다음 표와 같이 이름에 'pdw_nodes_'를 삽입합니다.

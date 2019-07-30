@@ -61,7 +61,7 @@ Azure Digital Twins에는 다음과 같은 주요 기능이 있습니다.
 
 예를 들어 단일 건물 내에서 한 세입자의 데이터를 다른 세입자의 데이터와 격리하도록 구성된 공간 사용률 앱이 있습니다. 또는 이 앱을 사용하여 단일 세입자의 데이터를 여러 건물과 결합합니다.
 
-### <a name="advanced-compute-capabilities"></a>고급 계산 기능
+### <a name="advanced-compute-capabilities"></a>고급 컴퓨팅 기능
 
 [사용자 정의 함수](./concepts-user-defined-functions.md)를 사용하면 들어오는 [디바이스 데이터](./concepts-device-ingress.md)에 대해 사용자 지정 함수를 정의하고 실행하여 미리 정의된 엔드포인트로 신호를 보낼 수 있습니다. 이 고급 기능을 통해 디바이스 작업의 사용자 지정 및 자동화가 향상됩니다.
 

@@ -62,7 +62,7 @@ ms.locfileid: "68370478"
 
 **start_logging**은 노트북과 같은 시나리오에서 사용할 대화형 실행을 만듭니다. 세션 중에 기록된 모든 메트릭이 실험의 실행 기록에 추가됩니다.
 
-다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출하는 방법에 대해 자세히 알아 보려면 [Azure Machine Learning 서비스를 사용하여 모델을 학습하기 위한 계산 대상 설정](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)을 참조하세요.
+다음 예제에서는 로컬 Jupyter 노트북에서 간단한 sklearn Ridge 모델을 로컬로 학습합니다. 다른 환경에 실험을 제출하는 방법에 대해 자세히 알아 보려면 [Azure Machine Learning 서비스를 사용하여 모델을 학습하기 위한 컴퓨팅 대상 설정](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets)을 참조하세요.
 
 1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 
 

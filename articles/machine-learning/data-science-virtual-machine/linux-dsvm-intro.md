@@ -18,7 +18,7 @@ ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502333"
@@ -56,7 +56,7 @@ Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되�
 
 Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. Eclipse는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 애플리케이션을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
-이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. VM 이미지로 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
+이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. VM 이미지로 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 컴퓨팅 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
 
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 Virtual Machine
 [Ubuntu](dsvm-ubuntu-intro.md) 이미지도 CentOS 이미지와 같은 많은 도구 및 심층 학습 프레임워크와 함께 사용할 수 있습니다. [Windows](provision-vm.md) 이미지도 사용할 수 있습니다.
@@ -99,7 +99,7 @@ Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 �
    
    e. **구입**:
    
-   * 프로비전을 시작하려면 **구입**을 클릭합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다.
+   * 프로비전을 시작하려면 **구입**을 클릭합니다. 트랜잭션의 조건에는 링크가 제공됩니다. VM은 **크기** 단계에서 선택한 서버 크기에 대한 컴퓨팅 이외에 추가 요금이 발생하지 않습니다.
 
 프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 

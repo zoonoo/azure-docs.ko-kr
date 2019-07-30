@@ -1380,7 +1380,7 @@ ms.locfileid: "68501419"
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/read | 모든 컨테이너 그룹을 가져옵니다. |
 > | 작업 | Microsoft.ContainerInstance/containerGroups/restart/action | 특정 컨테이너 그룹을 다시 시작합니다. |
 > | 작업 | Microsoft.ContainerInstance/containerGroups/start/action | 특정 컨테이너 그룹을 시작합니다. |
-> | Action | Microsoft.ContainerInstance/containerGroups/stop/action | 특정 컨테이너 그룹을 중지합니다. 계산 리소스 할당이 취소되고 청구가 중지됩니다. |
+> | Action | Microsoft.ContainerInstance/containerGroups/stop/action | 특정 컨테이너 그룹을 중지합니다. 컴퓨팅 리소스 할당이 취소되고 청구가 중지됩니다. |
 > | 액션(Action) | Microsoft.ContainerInstance/containerGroups/write | 특정 컨테이너 그룹을 만들거나 업데이트합니다. |
 > | 작업 | Microsoft.ContainerInstance/locations/cachedImages/read | Azure 지역의 구독에 대해 캐시된 이미지를 가져옵니다. |
 > | Action | Microsoft.ContainerInstance/locations/capabilities/read | Azure 지역에 대한 기능을 가져옵니다. |
@@ -1858,9 +1858,9 @@ ms.locfileid: "68501419"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 계산 정책을 삭제합니다. |
-> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | 계산 정책에 대한 정보를 가져옵니다. |
-> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 계산 정책을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 컴퓨팅 정책을 삭제합니다. |
+> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | 컴퓨팅 정책에 대한 정보를 가져옵니다. |
+> | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 컴퓨팅 정책을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Delete | DataLakeAnalytics 계정에서 DataLakeStore 계정을 연결 해제합니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/read | DataLakeAnalytics 계정과 연결된 DataLakeStore 계정에 대한 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Write | DataLakeAnalytics 계정과 연결된 DataLakeStore 계정을 만들거나 업데이트합니다. |
@@ -3244,11 +3244,11 @@ ms.locfileid: "68501419"
 > | 작업 | Microsoft.MachineLearningServices/locations/vmsizes/read | 지원되는 vm 크기를 가져옵니다. |
 > | 작업 | Microsoft.MachineLearningServices/locations/workspaceOperationsStatus/read | 특정 작업 영역 작업의 상태를 가져옵니다. |
 > | 작업 | Microsoft.MachineLearningServices/register/action | Machine Learning Services 리소스 공급자에 대한 구독을 등록합니다. |
-> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/delete | Machine Learning Services 작업 영역에서 계산 리소스를 삭제합니다. |
-> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/listKeys/action | Machine Learning Services 작업 영역에서 계산 리소스에 대한 비밀을 나열합니다. |
+> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/delete | Machine Learning Services 작업 영역에서 컴퓨팅 리소스를 삭제합니다. |
+> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/listKeys/action | Machine Learning Services 작업 영역에서 컴퓨팅 리소스에 대한 비밀을 나열합니다. |
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/listNodes/action | Machine Learning Services 작업 영역의 컴퓨팅 리소스에 대한 노드를 나열합니다. |
-> | Action | Microsoft.MachineLearningServices/workspaces/computes/read | Machine Learning Services 작업 영역에서 계산 리소스를 가져옵니다. |
-> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/write | Machine Learning Services 작업 영역에서 계산 리소스를 만들거나 업데이트합니다. |
+> | Action | Microsoft.MachineLearningServices/workspaces/computes/read | Machine Learning Services 작업 영역에서 컴퓨팅 리소스를 가져옵니다. |
+> | 액션(Action) | Microsoft.MachineLearningServices/workspaces/computes/write | Machine Learning Services 작업 영역에서 컴퓨팅 리소스를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.MachineLearningServices/workspaces/delete | Machine Learning Services 작업 영역을 삭제합니다. |
 > | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/write | Machine Learning Services 작업 영역에서 실험을 만들거나 업데이트 합니다. |
 > | 작업 | Microsoft.MachineLearningServices/workspaces/listKeys/action | Machine Learning Services 작업 영역에 대한 비밀을 나열합니다. |

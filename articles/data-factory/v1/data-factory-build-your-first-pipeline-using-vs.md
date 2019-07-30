@@ -283,7 +283,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다. 데이터 세트가 매월 생성되도록 구성했으므로 파이프라인에서 한 번만 조각이 생성됩니다(매월 시작 및 종료 날짜가 동일하기 때문).
 
-    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 계산에 대해 Hive 스크립트가 실행되도록 지정합니다.
+    작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 컴퓨팅에 대해 Hive 스크립트가 실행되도록 지정합니다.
 4. **HiveActivity1.json** 파일을 저장합니다.
 
 ### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>partitionweblogs.hql 및 input.log 종속성으로 추가

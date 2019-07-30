@@ -105,13 +105,13 @@ Azure Machine Learning Services에서 개인 데이터는 실행 기록 문서�
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2018-03-01-preview
 
-### <a name="export-compute-information"></a>계산 정보 내보내기
+### <a name="export-compute-information"></a>컴퓨팅 정보 내보내기
 
-작업 영역에 연결된 모든 계산 대상은 다음을 통해 가져올 수 있습니다.
+작업 영역에 연결된 모든 컴퓨팅 대상은 다음을 통해 가져올 수 있습니다.
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2018-03-01-preview
 
-단일 계산 대상에 대한 정보는 다음을 통해 가져올 수 있습니다.
+단일 컴퓨팅 대상에 대한 정보는 다음을 통해 가져올 수 있습니다.
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}?api-version=2018-03-01-preview
 

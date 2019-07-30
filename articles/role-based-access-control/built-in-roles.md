@@ -1098,7 +1098,7 @@ ms.locfileid: "67868650"
 > | **Id** | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
-> | Microsoft.ClassicCompute/domainNames/* | 클래식 계산 도메인 이름 만들기 및 관리 |
+> | Microsoft.ClassicCompute/domainNames/* | 클래식 컴퓨팅 도메인 이름 만들기 및 관리 |
 > | Microsoft.ClassicCompute/virtualMachines/* | 가상 머신 만들기 및 관리 |
 > | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |  |
 > | Microsoft.ClassicNetwork/reservedIps/link/action | 예약된 IP를 연결합니다. |
@@ -1393,8 +1393,8 @@ ms.locfileid: "67868650"
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Delete | DataLakeAnalytics 계정에서 Storage 계정을 연결 해제합니다. |
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Write | 방화벽 규칙을 만들거나 업데이트합니다. |
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | 방화벽 규칙을 삭제합니다. |
-> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 계산 정책을 만들거나 업데이트합니다. |
-> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 계산 정책을 삭제합니다. |
+> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 컴퓨팅 정책을 만들거나 업데이트합니다. |
+> | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 컴퓨팅 정책을 삭제합니다. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -2792,8 +2792,8 @@ ms.locfileid: "67868650"
 > | **ID** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
-> | Microsoft.Compute/availabilitySets/* | 계산 가용성 집합 만들기 및 관리 |
-> | Microsoft.Compute/locations/* | 계산 위치 만들기 및 관리 |
+> | Microsoft.Compute/availabilitySets/* | 컴퓨팅 가용성 집합 만들기 및 관리 |
+> | Microsoft.Compute/locations/* | 컴퓨팅 위치 만들기 및 관리 |
 > | Microsoft.Compute/virtualMachines/* | 가상 머신 만들기 및 관리 |
 > | Microsoft.Compute/virtualMachineScaleSets/* | 가상 머신 크기 집합 만들기 및 관리 |
 > | Microsoft.DevTestLab/schedules/* |  |

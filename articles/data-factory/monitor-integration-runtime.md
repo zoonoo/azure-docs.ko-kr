@@ -36,7 +36,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 이 cmdlet은 여러 유형의 통합 런타임에 대해 서로 다른 정보를 반환합니다. 이 문서는 각 통합 런타임 유형의 속성 및 상태에 대해 설명합니다.  
 
 ## <a name="azure-integration-runtime"></a>Azure 통합 런타임
-Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에에서 반환 된 속성에 대해 설명 합니다 **Get AzDataFactoryV2IntegrationRuntime** 명령:
+Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에에서 반환 된 속성에 대해 설명 합니다 **Get AzDataFactoryV2IntegrationRuntime** 명령:
 
 ### <a name="properties"></a>properties
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.

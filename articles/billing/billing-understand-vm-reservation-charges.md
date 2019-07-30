@@ -19,7 +19,7 @@ ms.locfileid: "67849983"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Virtual machines에 Azure 예약 할인이 적용 되는 방법
 
-Azure Reserved Virtual Machine Instance를 구입한 후, 예약 할인이 예약의 특성 및 수량과 일치하는 가상 머신에 자동으로 적용됩니다. 예약은 가상 머신의 계산 비용을 포함합니다.
+Azure Reserved Virtual Machine Instance를 구입한 후, 예약 할인이 예약의 특성 및 수량과 일치하는 가상 머신에 자동으로 적용됩니다. 예약은 가상 머신의 컴퓨팅 비용을 포함합니다.
 
 예약 할인은 Azure Marketplace에서 구매한 기본 Vm에 적용 됩니다.
 

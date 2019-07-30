@@ -50,7 +50,7 @@ az group delete --name myResourceGroup
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 계산 노드 풀을 만듭니다.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
 | [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-create) | Batch 작업을 만듭니다.  |
 | [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-create) | 지정된 Batch 작업에 태스크를 추가합니다.  |
 | [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-set) | Batch 작업의 속성을 업데이트합니다.  |
