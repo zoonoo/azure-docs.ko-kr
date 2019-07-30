@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702544"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477316"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
 
@@ -137,9 +137,8 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure AD 테넌트에 갤러리 애플리케이션을 추가하는 방법을 배웠습니다. 응용 프로그램의 속성을 편집하는 방법을 알아보았습니다.
+Azure AD 조직에 애플리케이션을 추가했으므로, 이제 사용할 [Single Sign-On 방법을 선택](what-is-single-sign-on.md#choosing-a-single-sign-on-method)하고 아래에서 적절한 문서를 참조합니다.
 
-이제 애플리케이션에 Single Sign-On을 구성할 준비가 완료되었습니다.
-
-> [!div class="nextstepaction"]
-> [Single Sign-on 구성](configure-single-sign-on-portal.md)
+- [SAML 기반 Single Sign-On 구성](configure-single-sign-on-non-gallery-applications.md)
+- [암호 Single Sign-On 구성](configure-password-single-sign-on-non-gallery-applications.md)
+- [연결된 로그온 구성](configure-linked-sign-on.md)

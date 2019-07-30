@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: ed5428da28ebea8b1c7f925696f88e3f3f898942
 ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/05/2019
 ms.locfileid: "67606709"
@@ -61,4 +61,4 @@ Azure 계정 및 음성 서비스 구독을 만든 후에 사용자 지정 음�
 
 - [사용자 지정 음성 데이터 준비](how-to-custom-voice.md)
 - [사용자 지정 음성 만들기](how-to-custom-voice-create-voice.md)
-- [가이드: 음성 샘플을 기록](record-custom-voice-samples.md)
+- [가이드: 음성 샘플 기록](record-custom-voice-samples.md)
