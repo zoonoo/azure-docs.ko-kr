@@ -3,17 +3,18 @@ title: 자습서 - Azure Container Instances에 사용할 컨테이너 레지스
 description: Azure Container Instances 자습서 2/3부 - Azure 컨테이너 레지스트리를 준비하여 이미지 푸시
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538156"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325616"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 배포하고 컨테이너 이미지 푸시
 
@@ -94,7 +95,7 @@ Login Succeeded
 
 컨테이너 이미지를 Azure Container Registry 같은 프라이빗 레지스트리에 푸시하려면 먼저 레지스트리 로그인 서버의 전체 이름을 사용하여 이미지에 태그를 지정해야 합니다.
 
-먼저 Azure 컨테이너 레지스트리의 전체 로그인 서버 이름을 가져옵니다. [az acr show][az-acr-show] 명령을 실행하고, `<acrName>`을 방금 만든 레지스트리 이름으로 바꿉니다.
+먼저 Azure 컨테이너 레지스트리의 전체 로그인 서버 이름을 가져옵니다. 다음 [az acr show][az-acr-show] 명령을 실행하고, `<acrName>`을 방금 만든 레지스트리 이름으로 바꿉니다.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -168,7 +169,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 az acr repository list --name <acrName> --output table
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table

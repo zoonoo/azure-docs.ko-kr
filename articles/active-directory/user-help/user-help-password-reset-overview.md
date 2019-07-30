@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243882"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382276"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>회사 또는 학교 암호 재설정 개요
 
@@ -34,5 +34,5 @@ ms.locfileid: "66243882"
 
 |문서 |설명 |
 |------|------------|
-|[셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)| 암호를 재설정할 수 있도록 인증 방법을 확인하고 셀프 서비스 암호 재설정에 가입하는 방법에 대한 지침입니다.|
-|[암호 재설정](user-help-reset-password.md)| 회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법에 대한 지침입니다.|
+| [셀프 서비스 암호 재설정](active-directory-passwords-reset-register.md) ] 암호를 재설정할 수 있도록 인증 방법을 확인하고 셀프 서비스 암호 재설정에 가입하는 방법에 대한 지침입니다.|
+| [암호 재설정](user-help-reset-password.md) ] 회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법에 대한 지침입니다.|

@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 음성-음성 서비스 시작
 titlesuffix: Azure Cognitive Services
-description: 사용자 지정 음성을 평가 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성-텍스트 정확도 향상 시킬 수 있는 온라인 도구 집합이 있습니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
+description: 사용자 지정 음성은 응용 프로그램, 도구 및 제품에 대한 Microsoft의 음성-텍스트 변환 정확도를 향상시키고 평가할 수 있는 온라인 도구 집합입니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 668ce2206f54fb7bb84d641a1e46f8d5ea9f833d
 ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/05/2019
 ms.locfileid: "67603166"

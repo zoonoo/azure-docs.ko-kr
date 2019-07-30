@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807554"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421394"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Azure Data Share 미리 보기란?
 
@@ -24,6 +24,8 @@ Azure Data Share 미리 보기를 사용하면 조직에서 여러 고객 및 �
 데이터 공급자는 데이터 공유에 대한 사용 약관을 지정하여 데이터를 처리하는 방법을 제어할 수 있습니다. 데이터 소비자는 데이터를 받기 전에 이러한 약관에 동의해야 합니다. 데이터 공급자는 데이터 소비자가 업데이트를 받는 빈도를 지정할 수 있습니다. 데이터 공급자는 언제든지 새 업데이트에 대한 액세스를 취소할 수 있습니다. 
 
 Azure Data Share는 타사의 데이터를 쉽게 결합하여 분석 및 AI 시나리오를 강화함으로써 인사이트를 향상시키는 데 도움이 됩니다. Azure 분석 도구의 기능을 쉽게 사용하여 Azure Data Share를 통해 공유 데이터를 준비, 처리 및 분석할 수 있습니다. 
+
+데이터 공급자와 데이터 소비자 모두 Azure 구독이 있어야만 데이터를 공유하고 수신할 수 있습니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="scenarios-for-azure-data-share"></a>Azure Data Share 시나리오
 
@@ -78,6 +80,7 @@ Azure Data Share는 Azure에서 제공하는 기본 보안을 활용하여 저�
 권한이 부여된 사용자가 액세스할 수 있도록 액세스 제어는 Azure Data Share 리소스 수준에서 설정할 수 있습니다. 
 
 Azure Data Share는 Azure Resources(이전의 MSI)용 관리 ID를 활용하여 Azure Active Directory에서 ID를 자동으로 관리합니다. Azure Resources용 관리 ID는 데이터 공유에 사용되는 스토리지 계정에 액세스하는 데 활용됩니다. 자격 증명은 데이터 공급자와 데이터 소비자 간에 교환되지 않습니다. 자세한 내용은 [Azure Resources용 관리 ID 페이지](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 
+
 
 ## <a name="supported-regions"></a>지원되는 지역
 

@@ -3,17 +3,18 @@ title: 빠른 시작 - Azure Container Registry에서 컨테이너 이미지 빌
 description: Azure Container Registry를 사용하여 클라우드에 주문형 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701559"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310640"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
@@ -21,7 +22,7 @@ ms.locfileid: "64701559"
 
 이 빠른 시작을 마친 후 ACR 작업의 고급 기능을 더 살펴보세요. 다양한 시나리오를 지원하는 ACR 작업은 코드 커밋 또는 기본 이미지 업데이트를 기반으로 이미지 빌드를 자동화하거나 여러 컨테이너를 병렬로 테스트할 수 있습니다. 
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

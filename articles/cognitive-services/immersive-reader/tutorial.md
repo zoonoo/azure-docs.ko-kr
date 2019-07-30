@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718384"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501136"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 몰입형 판독기에 대한 구독 키 [이 지침](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)에 따라 확보합니다.
+* Azure AD(Azure Active Directory) 인증에 대해 구성된 몰입형 리더 리소스입니다. [다음 지침](./azure-active-directory-authentication.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
 * [Node.js](https://nodejs.org/) 및 [Yarn](https://yarnpkg.com)
 * [Visual Studio Code](https://code.visualstudio.com/)와 같은 IDE
 
@@ -55,20 +55,31 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-access-token"></a>액세스 토큰 획득
+## <a name="acquire-an-azure-ad-authentication-token"></a>Azure AD 인증 토큰 획득
 
-이제 구독 키를 사용하여 액세스 토큰을 검색하는 백엔드 API를 작성합니다. 다음 단계에는 구독 키 및 엔드포인트가 필요합니다. Azure Portal에서 몰입형 판독기 리소스의 키 페이지에서 구독 키를 찾을 수 있습니다. 개요 페이지에서 엔드포인트를 찾을 수 있습니다.
+다음으로, Azure AD 인증 토큰을 검색하는 백 엔드 API를 작성합니다.
 
-구독 키와 엔드포인트가 있으면 이름이 _.env_인 새 파일을 만들고 다음 코드를 그 안에 붙여 넣어 `{YOUR_SUBSCRIPTION_KEY}` 및 `{YOUR_ENDPOINT}`를 각각 구독 키와 엔드포인트로 바꿉니다.
+이 부분에는 위의 Azure AD 인증 구성 필수 요소 단계의 값이 필요합니다. 해당 세션에서 저장한 텍스트 파일을 다시 참조합니다.
+
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+값을 얻었으면 _.env_라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다.
 
 ```text
-SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
-ENDPOINT={YOUR_ENDPOINT}
+TENANT_ID={YOUR_TENANT_ID}
+CLIENT_ID={YOUR_CLIENT_ID}
+CLIENT_SECRET={YOUR_CLIENT_SECRET}
+SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
 이 파일에는 공개되어서는 안 되는 비밀이 있으므로 이 파일을 소스 제어에 커밋하지 않아야 합니다.
 
-이제 _app.js_를 열고 파일 맨 위에 다음을 추가합니다. 이것은 구독 키와 엔드포인트를 Node에 환경 변수로 로드합니다.
+이제 _app.js_를 열고 파일 맨 위에 다음을 추가합니다. 이렇게 하면 env 파일에서 정의한 속성이 Node에 환경 변수로 로드됩니다.
 
 ```javascript
 require('dotenv').config();
@@ -80,31 +91,45 @@ _routes\index.js_ 파일을 열고 파일 맨 위에서 다음 가져오기를 �
 var request = require('request');
 ```
 
-이제 다음 코드를 이 줄 바로 아래에 추가합니다. 이 코드는 구독 키를 사용하여 액세스 토큰을 획득한 다음, 이 토큰을 반환하는 API 엔드포인트를 만듭니다.
+이제 다음 코드를 이 줄 바로 아래에 추가합니다. 이 코드는 서비스 사용자 암호를 사용하여 Azure AD 인증 토큰을 획득한 다음, 해당 토큰을 반환하는 API 엔드포인트를 만듭니다. 하위 도메인을 검색하는 두 번째 엔드포인트도 있습니다.
 
 ```javascript
-router.get('/token', function(req, res, next) {
-  request.post({
-    headers: {
-        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
-        'content-type': 'application/x-www-form-urlencoded'
-    },
-    url: process.env.ENDPOINT
-  },
-  function(err, resp, token) {
-    return res.send(token);
-  });
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
+          headers: {
+              'content-type': 'application/x-www-form-urlencoded'
+          },
+          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+          form: {
+              grant_type: 'client_credentials',
+              client_id: process.env.CLIENT_ID,
+              client_secret: process.env.CLIENT_SECRET,
+              resource: 'https://cognitiveservices.azure.com/'
+          }
+      },
+      function(err, resp, token) {
+          if (err) {
+              return res.status(500).send('CogSvcs IssueToken error');
+          }
+
+          return res.send(JSON.parse(token).access_token);
+      }
+  );
+});
+
+router.get('/subdomain', function (req, res) {
+    return res.send(process.env.SUBDOMAIN);
 });
 ```
 
-이 API 엔드포인트는 어떤 인증의 형태(예: [OAuth](https://oauth.net/2/))로 보호되어야 합니다. 이 자습서에서는 이 범위를 다루지 않습니다.
+권한 없는 사용자가 토큰을 획득하여 몰입형 리더 서비스 및 청구에 사용하지 못하도록 **getimmersivereadertoken** API 엔드포인트를 인증 형식(예: [OAuth](https://oauth.net/2/))으로 보호해야 하며, 이 작업은 이 자습서의 범위를 벗어납니다.
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>샘플 콘텐츠를 사용하여 몰입형 판독기 시작
 
 1. _views\layout.pug_를 열고 `head` 태그 아래, `body` 태그 앞에 다음 코드를 추가합니다. 이 `script` 태그는 [몰입형 판독기 SDK](https://github.com/Microsoft/immersive-reader-sdk) 및 jQuery를 로드합니다.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -118,21 +143,47 @@ router.get('/token', function(req, res, next) {
       p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
       div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
       script.
-        function launchImmersiveReader() {
-          // First, get a token using our /token endpoint
-          $.ajax('/token', { success: token => {
-            // Second, grab the content from the page
+
+        function getImmersiveReaderTokenAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/getimmersivereadertoken',
+                    type: 'GET',
+                    success: token => {
+                        resolve(token);
+                    },
+                    error: err => {
+                        console.log('Error in getting token!', err);
+                        reject(err);
+                    }
+                });
+            });
+        }
+
+        function getSubdomainAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/subdomain',
+                    type: 'GET',
+                    success: subdomain => { resolve(subdomain); },
+                    error: err => { reject(err); }
+                });
+            });
+        }
+
+        async function launchImmersiveReader() {
             const content = {
-              title: document.getElementById('title').innerText,
-              chunks: [ {
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-              } ]
+                title: document.getElementById('title').innerText,
+                chunks: [{
+                    content: document.getElementById('content').innerText + '\n\n',
+                    lang: 'en'
+                }]
             };
 
-            // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
-          }});
+            const token = await getImmersiveReaderTokenAsync();
+            const subdomain = await getSubdomainAsync();
+
+            ImmersiveReader.launchAsync(token, subdomain, content);
         }
     ```
 
@@ -214,4 +265,4 @@ router.get('/token', function(req, res, next) {
 ## <a name="next-steps"></a>다음 단계
 
 * [몰입형 판독기 SDK](https://github.com/Microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
-* [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)에서 코드 샘플 보기
+* [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)에서 코드 샘플 보기

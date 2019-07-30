@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835678"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369567"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 인증을 사용하도록 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "67835678"
 또한 로컬 개발 환경에서 다음 항목이 필요합니다.
 
 * 코드 편집기(예: [Visual Studio Code](https://code.visualstudio.com/) 또는 [Visual Studio 2019](https://www.visualstudio.com/downloads/))
-* [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) 이상
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) 이상
 * [Node.JS](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>애플리케이션 업데이트
@@ -58,7 +58,7 @@ ms.locfileid: "67835678"
 
 ## <a name="get-the-sample-code"></a>샘플 코드 가져오기
 
-이 자습서에서는 GitHub에서 다운로드한 코드 샘플을 구성합니다. 이 샘플은 단일 페이지 애플리케이션에서 등록, 로그인 및 보호되는 Web API 호출에 Azure AD B2C를 사용하는 방법을 보여줍니다.
+이 자습서에서는 GitHub에서 다운로드한 코드 샘플을 구성합니다. 이 샘플은 단일 페이지 애플리케이션에서 가입, 로그인 및 보호되는 Web API 호출에 Azure AD B2C를 사용하는 방법을 보여줍니다.
 
 GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 샘플을 복제합니다.
 
@@ -115,8 +115,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
-1. **로그인**을 클릭하여 애플리케이션의 사용자로 등록합니다. 여기서는 이전 단계에서 지정한 **B2C_1_signupsignin1** 사용자 흐름을 사용합니다.
-1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록** 링크를 클릭합니다.
+1. **로그인**을 클릭하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
+1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 클릭합니다.
 1. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
@@ -133,11 +133,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 로그인하면 앱에 권한 부족 오류가 표시됩니다. - 이것은 **예상된** 상황입니다.
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-오류가 발생한 이유는 데모 디렉터리에서 리소스에 액세스하려고 했지만 액세스 토큰이 Azure AD 디렉터리에 대해서만 유효하기 때문입니다. 따라서 API 호출이 인증되지 않았습니다.
+웹 애플리케이션이 데모 디렉터리인 *fabrikamb2c*로 보호되는 웹 API에 액세스하려고 하기 때문에 이 오류가 발생합니다. 액세스 토큰이 Azure AD 디렉터리에만 유효하므로 API 호출에 권한이 부여되지 않습니다.
 
-시리즈의 다음 자습서를 계속 진행하면([다음 단계](#next-steps) 참조) 디렉터리에 대한 보호되는 웹 API 키를 만들 수 있습니다.
+이 오류를 수정하려면 시리즈의 다음 자습서를 계속 진행하여([다음 단계](#next-steps) 참조) 디렉터리에 대한 보호되는 웹 API 키를 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -151,4 +155,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 이제 시리즈의 다음 자습서로 이동하여 SPA에서 보호된 웹 API에 대한 액세스 권한을 부여하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱에서 ASP.NET Core Web API로의 액세스 권한 부여](active-directory-b2c-tutorials-spa-webapi.md)
+> [자습서: Azure AD B2C를 사용하여 SPA에서 ASP.NET Core 웹 API에 대한 액세스 권한 부여 >](active-directory-b2c-tutorials-spa-webapi.md)

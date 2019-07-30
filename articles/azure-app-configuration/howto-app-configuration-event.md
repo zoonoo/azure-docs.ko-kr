@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735812"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326593"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
 
-Azure App Configuration 사용자는 키-값이 수정될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 webhook, Azure Functions, Azure Storage 큐 또는 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)에서 지원되는 다른 이벤트 처리기를 트리거할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Azure App Configuration 이벤트를 구독하는 방법을 배웁니다.
+이 빠른 시작에서는 웹 엔드포인트에 키-값 수정 이벤트를 보내도록 Azure App Configuration 이벤트 구독을 설정하는 방법을 알아봅니다. Azure App Configuration 사용자는 키-값이 수정될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 webhook, Azure Functions, Azure Storage 큐 또는 Azure Event Grid에서 지원되는 다른 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
-일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+## <a name="prerequisites"></a>필수 조건
 
-이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 웹앱으로 보내졌음을 알 수 있습니다.
-
-![구독 이벤트 보기](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ az group delete --name <resource_group_name>
 
 - [키-값 이벤트에 대응](concept-app-configuration-event.md)
 - [Event Grid 정보](../event-grid/overview.md)
+- [Azure Event Grid 처리기](../event-grid/event-handlers.md)

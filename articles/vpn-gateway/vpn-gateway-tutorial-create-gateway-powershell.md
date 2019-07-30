@@ -2,18 +2,18 @@
 title: PowerShell을 사용하여 Azure VPN 게이트웨이 만들기 및 관리 | Microsoft Docs
 description: 자습서 - Azure PowerShell 모듈을 사용하여 VPN 게이트웨이 만들기 및 관리
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.author: yushwang
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: mvc
-ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445213"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489555"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -37,6 +37,25 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 ## <a name="common-network-parameter-values"></a>일반 네트워크 매개 변수 값
 
+다음은 이 자습서에 사용되는 매개 변수 값입니다. 이 예제의 변수는 다음과 같이 변환됩니다.
+
+```
+#$RG1         = The name of the resource group
+#$VNet1       = The name of the virtual network
+#$Location1   = The location region
+#$FESubnet1   = The name of the first subnet
+#$BESubnet1   = The name of the second subnet
+#$VNet1Prefix = The address range for the virtual network
+#$FEPrefix1   = Addresses for the first subnet
+#$BEPrefix1   = Addresses for the second subnet
+#$GwPrefix1   = Addresses for the GatewaySubnet
+#$VNet1ASN    = ASN for the virtual network
+#$DNS1        = The IP address of the DNS server you want to use for name resolution
+#$Gw1         = The name of the virtual network gateway
+#$GwIP1       = The public IP address for the virtual network gateway
+#$GwIPConf1   = The name of the IP configuration
+```
+
 환경 및 네트워크 설정에 따라 아래 값을 변경한 다음, 값을 복사하고 붙여넣어 이 자습서의 변수를 설정합니다. Cloud Shell 세션 시간이 초과되거나 다른 PowerShell 창을 사용해야 하는 경우 변수를 복사하여 새 세션에 붙여넣고 자습서를 계속 진행합니다.
 
 ```azurepowershell-interactive
@@ -45,7 +64,6 @@ $VNet1       = "VNet1"
 $Location1   = "East US"
 $FESubnet1   = "FrontEnd"
 $BESubnet1   = "Backend"
-$GwSubnet1   = "GatewaySubnet"
 $VNet1Prefix = "10.1.0.0/16"
 $FEPrefix1   = "10.1.0.0/24"
 $BEPrefix1   = "10.1.1.0/24"
@@ -67,12 +85,12 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제는 세 개의 서브넷이 있는 새로운 가상 네트워크를 만듭니다. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 및 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 프런트 엔드, 백 엔드 및 게이트웨이 서브넷을 만듭니다.
+Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제에서는 게이트웨이 서브넷의 이름을 구체적으로 지정합니다. 게이트웨이 서브넷이 제대로 작동하려면 항상 게이트웨이 서브넷의 이름을 "GatewaySubnet"으로 지정해야 합니다. 이 예제는 세 개의 서브넷이 있는 새로운 가상 네트워크를 만듭니다. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 및 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 프런트 엔드, 백 엔드 및 게이트웨이 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
 $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -AddressPrefix $GwPrefix1
 $vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `

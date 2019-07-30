@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860468"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478470"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결
 
@@ -32,7 +32,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Text Analytics 서비스에 대한 지원을 프로젝트에 추가
 
-1. TextAnalyticsDemo 라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 웹 애플리케이션(Model-View-Controller) 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다.  이 문서의 예제에서는 MVC를 사용하지만 모든 ASP.NET 프로젝트 형식에 Text Analytics 연결된 서비스를 사용할 수 있습니다.
+1. TextAnalyticsDemo 라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 웹 애플리케이션(Model-View-Controller) 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다.  이 문서의 예제에서는 MVC를 사용하지만, 모든 ASP.NET 프로젝트 형식에 Text Analytics 연결된 서비스를 사용할 수 있습니다.
 
 1. **솔루션 탐색기**에서 **연결된 서비스** 항목을 두 번 클릭합니다.
    연결된 서비스 페이지가 나타나고 프로젝트에 추가할 수 있는 서비스가 표시됩니다.
@@ -54,7 +54,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
    가격 책정 계층에 대한 자세한 내용은 링크를 따릅니다.
 
 1. **추가**를 선택하여 연결된 서비스에 대한 지원을 추가합니다.
-   Visual Studio는 Text Analytics 서비스에 대한 연결을 지원하기 위해 프로젝트를 수정하여 NuGet 패키지, 구성 파일 항목 및 기타 변경 사항을 추가합니다. **출력 창**에는 프로젝트에 나타나는 결과에 대한 로그가 표시됩니다. 다음과 유사한 출력이 표시됩니다.
+   Visual Studio는 Text Analytics 서비스에 대한 연결을 지원하기 위해 프로젝트를 수정하여 NuGet 패키지, 구성 파일 항목 및 기타 변경 사항을 추가합니다. **출력 창**에는 프로젝트에 나타나는 결과에 대한 로그가 표시됩니다. 출력은 다음과 같습니다.
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
       }
    ```
 
-1. DemoTextAnalyzeController라는 Controllers 폴더에 클래스 파일을 추가하고 해당 내용을 다음 코드로 바꿉니다.
+1. `DemoTextAnalyzeController`라는 *Controllers* 폴더에 클래스 파일을 추가하고 해당 내용을 다음 코드로 바꿉니다.
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
     }
     ```
     
-    이 코드에는 Text Analytics API를 호출하는 데 사용할 수 있는 클라이언트 개체를 가져오는 GetTextAnalyzeClient와 지정된 텍스트에 대해 DetectLanguage를 호출하는 요청 처리기가 포함됩니다.
+    이 코드에는 Text Analytics API를 호출하는 데 사용할 수 있는 클라이언트 개체를 가져오는 `GetTextAnalyzeClient`, 그리고 지정된 텍스트에 대해 DetectLanguage를 호출하는 요청 처리기가 포함되어 있습니다.
 
 1. 위의 코드에서 사용되는 MyHandler 도우미 클래스를 추가합니다.
 
@@ -171,7 +171,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
         }
     ```
 
-1. Models 폴더에 모델의 클래스를 추가합니다.
+1. *Models* 폴더에 모델의 클래스를 추가합니다.
 
     ```csharp
     using System;
@@ -263,7 +263,7 @@ Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각
 
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 자습서에서 사용된 리소스 그룹이 표시되면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

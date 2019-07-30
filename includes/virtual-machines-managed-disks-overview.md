@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199291"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68320005"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -37,11 +37,23 @@ ms.locfileid: "65199291"
 
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
-지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md)을 사용할 수 있습니다. 이를 통해 VM 복원을 원하는 대로 쉽게 수행할 수 있습니다. 현재, Azure Backup은 최대 4TiB(테비바이트)의 디스크 크기를 지원합니다. 자세한 내용은 [관리 디스크로 VM에 Azure Backup 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
+지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 복원을 원하는 대로 쉽게 수행할 수 있습니다. 현재, Azure Backup은 최대 4TiB(테비바이트)의 디스크 크기를 지원합니다.  Azure Backup은 관리 디스크의 백업 및 복원을 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../articles/backup/backup-support-matrix-iaas.md).
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
 [Azure RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+
+## <a name="encryption"></a>암호화
+
+관리 디스크는 두 가지 종류의 암호화를 제공합니다. 첫 번째는 스토리지 서비스에서 수행하는 SSE(스토리지 서비스 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 Azure Disk Encryption입니다.
+
+### <a name="storage-service-encryption-sse"></a>SSE(Storage 서비스 암호화)
+
+[Azure 스토리지 서비스 암호화](../articles/storage/common/storage-service-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. SSE는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
+
+### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)
+
+Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [IaaS VM용 Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md)을 참조하세요.
 
 ## <a name="disk-roles"></a>디스크 역할
 
@@ -49,7 +61,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ![실제 디스크 역할](media/virtual-machines-managed-disks-overview/disk-types.png)
 
-### <a name="data-disk"></a>데이터 디스크 
+### <a name="data-disk"></a>데이터 디스크
 
 데이터 디스크는 애플리케이션 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 머신에 연결된 관리 디스크입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 32,767GiB(기비바이트)입니다. 가상 머신의 크기에 따라 사용자가 해당 가상 머신에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
 
@@ -61,16 +73,16 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. Azure Linux VM에서 임시 디스크는 기본적으로 /dev/sdb이며 Windows VM의 임시 디스크는 기본적으로 E:입니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.
+모든 VM 디스크는 관리 디스크가 아닌 임시 디스크를 포함합니다. 이러한 임시 디스크는 애플리케이션 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 기간에 또는 [VM을 다시 배포](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)할 때 손실될 수 있습니다. Azure Linux VM의 임시 디스크는 기본적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. VM을 정상적으로 재부팅하는 동안 임시 디스크의 데이터는 유지됩니다.
 
-## <a name="managed-disk-snapshots"></a>관리 디스크 스냅숏
+## <a name="managed-disk-snapshots"></a>관리 디스크 스냅샷
 
-관리 디스크는 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 완전한 읽기 전용 복사본입니다. 스냅숏을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅숏은 원본 디스크와 별도로 존재하고 새 관리 디스크를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅숏을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
+관리 디스크 스냅샷은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 읽기 전용 크래시 일치 전체 복사본입니다. 스냅샷을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅샷은 원본 디스크와 별도로 존재하고 새 관리 디스크를 만드는 데 사용될 수도 있습니다. 사용된 크기에 따라 요금이 청구됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다.  
 
-관리 디스크를 사용하여 스냅숏을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
+관리 디스크를 사용하여 스냅샷을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Windows에서 스냅샷을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Linux에서 스냅샷을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>이미지
 
@@ -81,14 +93,30 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../articles/virtual-machines/windows/capture-image-resource.md)
 * [Azure CLI를 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
 
-#### <a name="images-versus-snapshots"></a>이미지 및 스냅숏
+#### <a name="images-versus-snapshots"></a>이미지 및 스냅샷
 
-이미지와 스냅숏의 차이를 이해하는 것이 중요합니다. 관리 디스크를 사용하면 할당이 취소되어 일반화된 VM의 이미지를 만들 수 있습니다. 이 이미지에는 VM에 연결된 모든 디스크가 포함됩니다. 이 이미지를 사용하여 VM을 만들 수 있고 여기에는 모든 디스크가 포함됩니다.
+이미지와 스냅샷의 차이를 이해하는 것이 중요합니다. 관리 디스크를 사용하면 할당이 취소되어 일반화된 VM의 이미지를 만들 수 있습니다. 이 이미지에는 VM에 연결된 모든 디스크가 포함됩니다. 이 이미지를 사용하여 VM을 만들 수 있고 여기에는 모든 디스크가 포함됩니다.
 
-스냅숏은 스냅숏 생성 시점의 디스크 복사본입니다. 이것은 하나의 디스크에만 해당됩니다. VM의 디스크가 하나(OS 디스크)뿐인 경우 이 VM의 스냅숏 또는 이미지를 만들고 이 스냅숏 또는 이미지로부터 VM을 만들 수 있습니다.
+스냅샷은 스냅샷 생성 시점의 디스크 복사본입니다. 이것은 하나의 디스크에만 해당됩니다. VM의 디스크가 하나(OS 디스크)뿐인 경우 이 VM의 스냅샷 또는 이미지를 만들고 이 스냅샷 또는 이미지로부터 VM을 만들 수 있습니다.
 
-스냅숏은 포함하는 디스크 이외의 어떠한 디스크도 인식하지 않습니다. 따라서 스트라이프 등의 여러 디스크를 조정해야 하는 시나리오에서 사용하는 경우 문제가 될 수 있습니다. 스냅숏은 서로 조정할 수 있어야 하는데 현재는 지원되지 않습니다.
+스냅샷은 포함하는 디스크 이외의 어떠한 디스크도 인식하지 않습니다. 따라서 스트라이프 등의 여러 디스크를 조정해야 하는 시나리오에서 사용하는 경우 문제가 될 수 있습니다. 스냅샷은 서로 조정할 수 있어야 하는데 현재는 지원되지 않습니다.
+
+## <a name="disk-allocation-and-performance"></a>디스크 할당 및 성능
+
+다음 다이어그램에서는 세 가지 수준의 프로비저닝 시스템을 사용하여 디스크에 대한 대역폭 및 IOPS의 실시간 할당을 보여 줍니다.
+
+![대역폭 및 IOPS 할당을 보여 주는 세 가지 수준의 프로비저닝 시스템](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+
+첫 번째 수준 프로비저닝에서는 디스크당 IOPS 및 대역폭 할당을 설정합니다.  두 번째 수준에서는 컴퓨팅 서버 호스트에서 SSD 프로비저닝을 구현하여 서버의 SSD에 저장된 데이터에만 이를 적용합니다. 여기에는 로컬 및 임시 디스크뿐만 아니라 캐싱(ReadWrite 및 ReadOnly)을 사용하는 디스크도 포함됩니다. 마지막으로, 세 번째 수준에서는 컴퓨팅 호스트에서 Azure Storage의 백 엔드로 보내는 I/O에 대한 VM 네트워크 프로비저닝이 수행됩니다. 이 체계를 사용하면 VM의 성능이 VM에서 로컬 SSD를 사용하는 방법에서 연결된 디스크 수, 연결된 디스크의 성능 및 캐싱 유형에 이르기까지 다양한 요인에 따라 달라집니다.
+
+이러한 제한의 예로, Standard_DS1v1 VM은 캐시되는지 여부와 관계없이 SSD 및 네트워크 수준의 제한으로 인해 P30 디스크의 잠재적인 5,000IOPS를 달성할 수 없습니다.
+
+![Standard_DS1v1 할당 예](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+
+Azure는 디스크 트래픽에 우선 순위가 지정된 네트워크 채널을 사용하므로 우선 순위가 다른 낮은 네트워크 트래픽보다 우선합니다. 이렇게 하면 네트워크 경합이 발생하는 경우 디스크에서 예상 성능을 유지할 수 있습니다. 마찬가지로 Azure Storage는 백그라운드에서 자동 부하 분산을 통해 리소스 경합 및 기타 문제를 처리합니다. Azure Storage는 디스크를 만들 때 필요한 리소스를 할당하고, 트래픽 수준을 처리하기 위해 리소스의 사전 예방 및 사후 대응 분산을 적용합니다. 이를 통해 디스크에서 예상 IOPS 및 처리량 목표를 유지할 수 있습니다. VM 수준 및 디스크 수준 메트릭을 사용하여 성능을 추적하고 필요에 따라 경고를 설정할 수 있습니다.
+
+원하는 성능을 달성할 수 있도록 VM + 디스크 구성을 최적화하는 모범 사례를 알아보려면 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-디스크 유형에 대한 문서에서 Azure에서 제공하는 개별 디스크 유형과 사용자 요구에 잘 맞는 유형은 무엇인지에 대해 알아보세요.
+Azure에서 제공하는 개별 디스크 유형 및 사용자의 요구 사항에 적합한 유형에 대해 자세히 알아보고, 디스크 유형 관련 문서에서 해당 성능 목표에 대해 알아봅니다.

@@ -4,14 +4,14 @@ description: Azure Cosmos DB 데이터베이스 계정에서 방화벽을 지원
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b8ad6c5addbff293e9f7e9b8af6ed34d4dd274b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241958"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494884"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -49,7 +49,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>글로벌 Azure 데이터 센터 또는 Azure 내 다른 원본의 요청 허용
 
-고정 IP를 제공하지 않는 서비스(예: Azure Stream Analytics 및 Azure Functions)에서 Azure Cosmos DB 계정에 액세스하는 경우 IP 방화벽을 사용하여 액세스를 제한할 수 있습니다. 이러한 서비스에서 Azure Cosmos DB 계정에 액세스할 수 있도록 허용된 IP 주소 목록에 IP 주소 0.0.0.0을 추가합니다. 0.0.0.0 주소는 Azure 데이터 센터 IP 범위에서 Azure Cosmos DB 계정에 대한 요청을 제한합니다. 이 설정은 Azure Cosmos DB 계정에 대해 다른 IP 범위의 액세스를 허용하지 않습니다.
+고정 IP를 제공하지 않는 서비스(예: Azure Stream Analytics 및 Azure Functions)에서 Azure Cosmos DB 계정에 액세스하는 경우 IP 방화벽을 사용하여 액세스를 제한할 수 있습니다. 이러한 서비스에서 Azure Cosmos DB 계정에 액세스할 수 있도록 허용된 IP 주소 목록에 IP 주소 0.0.0.0을 추가합니다. 0\.0.0.0 주소는 Azure 데이터 센터 IP 범위에서 Azure Cosmos DB 계정에 대한 요청을 제한합니다. 이 설정은 Azure Cosmos DB 계정에 대해 다른 IP 범위의 액세스를 허용하지 않습니다.
 
 > [!NOTE]
 > 이 옵션은 Azure에 배포된 다른 고객 구독의 요청을 비롯한 Azure의 모든 요청을 허용하도록 방화벽을 구성합니다. 이 옵션에서 허용된 IP 목록은 광범위하므로 방화벽 정책의 효율성을 제한합니다. 요청이 정적 IP 또는 VNET의 서브넷에서 발생하지 않는 경우에만 이 옵션을 사용합니다. Azure Portal은 Azure에 배포되기 때문에 이 옵션을 선택하면 자동으로 Azure Portal에서 액세스하도록 허용합니다.
@@ -94,21 +94,24 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 ## <a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 
-Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Manager 템플릿에서는 허용된 IP 범위 목록과 함께 **ipRangeFilter** 특성을 지정해야 합니다. 예를 들어 다음과 같은 JSON 코드를 템플릿에 추가합니다.
+Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Manager 템플릿에서는 허용된 IP 범위 목록과 함께 **ipRangeFilter** 특성을 지정해야 합니다. 이미 배포된 Cosmos 계정에 IP 방화벽을 구성하는 경우 `locations` 배열이 현재 배포된 것과 일치하는지 확인합니다. `locations` 배열과 기타 속성을 동시에 수정할 수 없습니다. Azure Cosmos DB용 ARM 템플릿에 대한 자세한 내용과 예제는 [Azure Cosmos DB용 Azure Resource Manager 템플릿](resource-manager-samples.md)을 참조하세요.
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
 ## <a id="configure-ip-firewall-cli"></a>Azure CLI를 사용하여 IP 액세스 제어 정책 구성

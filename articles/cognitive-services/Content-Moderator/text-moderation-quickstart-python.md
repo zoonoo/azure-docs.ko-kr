@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607004"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333600"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>빠른 시작: Python에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -38,41 +38,34 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="import-modules"></a>모듈 가져오기
 
-_ContentModeratorQS.py_라는 새 Python 스크립트를 만들고 다음 코드를 추가하여 SDK의 필요한 부분을 가져옵니다.
+_ContentModeratorQS.py_라는 새 Python 스크립트를 만들고 다음 코드를 추가하여 SDK의 필요한 부분을 가져옵니다. JSON 응답을 보다 쉽게 읽을 수 있도록 예쁜 인쇄 모듈이 포함되어 있습니다.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-또한 “pretty print” 함수를 가져와 최종 출력을 처리합니다.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## <a name="initialize-variables"></a>변수 초기화
 
-그런 다음, Content Moderator 구독 키 및 엔드포인트 URL에 대한 변수를 추가합니다. `<your subscription key>`를 키 값으로 바꿔야 합니다. 구독 키에 해당하는 지역 식별자를 사용하려면 `endpoint_url` 값을 변경해야 할 수도 있습니다. 평가판 구독 키는 **westus** 지역에 생성됩니다.
+그런 다음, Content Moderator 구독 키 및 엔드포인트 URL에 대한 변수를 추가합니다. `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 이름을 환경 변수에 추가하고 구독 키를 해당 값으로 사용합니다. 기본 엔드포인트 URL의 경우 `CONTENT_MODERATOR_ENDPOINT`를 환경 변수에 추가하고 지역별 URL을 해당 값으로 사용합니다(예: `https://westus.api.cognitive.microsoft.com`). 평가판 구독 키는 **westus** 지역에 생성됩니다.
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+한 파일의 여러 줄 텍스트 문자열이 조정됩니다. 다음과 같이 로컬 루트 폴더에 [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) 파일을 포함하고 해당 파일 이름을 변수에 추가합니다.
 
-간단히 하기 위해 스크립트에서 직접 텍스트를 분석하겠습니다. 조정할 텍스트 콘텐츠의 새 문자열을 다음과 같이 정의합니다.
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## <a name="query-the-moderator-service"></a>Moderator 서비스 쿼리
 
-구독 키 및 엔드포인트 URL을 사용하여 **ContentModeratorClient** 인스턴스를 만듭니다. 그런 다음, 멤버 **TextModerationOperations** 인스턴스를 사용하여 조정 API를 호출합니다. 호출 방법에 대한 자세한 내용은 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 참조 문서를 참조하세요.
+구독 키 및 엔드포인트 URL을 사용하여 **ContentModeratorClient** 인스턴스를 만듭니다. 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## <a name="print-the-response"></a>응답 출력
+그런 다음, 클라이언트의 멤버 **TextModerationOperations** 인스턴스를 사용하여 `screen_text` 함수를 통해 조정 API를 호출합니다. 호출 방법에 대한 자세한 내용은 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 참조 문서를 참조하세요.
 
-마지막으로 호출이 완료되고 **화면** 인스턴스를 반환했는지 확인합니다. 그런 다음, 반환된 데이터를 콘솔에 인쇄합니다.
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## <a name="check-the-printed-response"></a>인쇄 응답 확인
 
-
-이 빠른 시작에 사용된 샘플 텍스트는 다음 출력을 생성합니다.
+샘플을 실행하고 응답을 확인합니다. 성공적으로 완료되면 **화면** 인스턴스가 반환됩니다. 성공적인 결과는 다음과 같습니다.
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

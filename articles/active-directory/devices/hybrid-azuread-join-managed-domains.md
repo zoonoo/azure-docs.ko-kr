@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204607"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357035"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -100,7 +100,7 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
    ![Azure에 연결](./media/hybrid-azuread-join-managed-domains/14.png)
 
-1. **디바이스 옵션** 페이지에서 **하이브리드 Azure AD 조인 구성**을 선택한 다음, **다음**을 선택합니다.
+1. **디바이스 옵션** 페이지에서 **하이브리드 Azure AD 조인 구성**을 선택한 후 **다음**을 선택합니다.
 
    ![디바이스 옵션](./media/hybrid-azuread-join-managed-domains/15.png)
 
@@ -143,19 +143,19 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공�
 
 ### <a name="configure-seamless-sso"></a>Seamless SSO 구성
 
-Azure AD 클라우드 인증 방법으로 [PHS]../hybrid/whatis-phs.md) 또는 [PTA](../hybrid/how-to-connect-pta.md)를 사용하는 관리형 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 완료하려면 [Seamless SSO도 구성](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature)해야 합니다.
+Azure AD 클라우드 인증 방법으로 [PHS](../hybrid/whatis-phs.md) 또는 [PTA](../hybrid/how-to-connect-pta.md)를 사용하는 관리형 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 완료하려면 [Seamless SSO도 구성](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature)해야 합니다.
 
 ### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Windows 하위 수준 컴퓨터용 Microsoft Workplace Join 설치
 
 Windows 하위 수준 디바이스를 등록하려면 조직에서는 [비 Windows 10 컴퓨터용 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)을 설치해야 합니다. 비 Windows 10 컴퓨터용 Microsoft Workplace Join은 Microsoft 다운로드 센터에서 사용할 수 있습니다.
 
- [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
+ [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수에 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
 
 설치 관리자는 사용자 컨텍스트에서 실행되는 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 Azure AD를 사용하여 인증한 후 사용자 자격 증명을 사용하여 Azure AD에 디바이스를 자동으로 조인합니다.
 
 ## <a name="verify-the-registration"></a>등록 확인
 
-Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** cmdlet을 사용할 수 있습니다.
+Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** cmdlet을 사용하면 됩니다.
 
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
@@ -172,7 +172,7 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Activ
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결
 
-도메인 조인 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료할 때 문제가 발생하면 다음을 참조하세요.
+도메인 가입 Windows 디바이스에 대한 하이브리드 Azure AD 조인을 완료할 때 문제가 발생하면 다음을 참조하세요.
 
 - [Windows 최신 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
 - [Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)

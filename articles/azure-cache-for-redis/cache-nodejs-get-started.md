@@ -15,35 +15,23 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc629133a393c4ff8f9193b02e9080d7f08f4958
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238099"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326454"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis를 사용하는 방법
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 
-
-
-Azure Cache for Redis를 통해 Microsoft에서 관리하는 안전한 전용 Azure Cache for Redis에 액세스할 수 있습니다. Microsoft Azure 내의 모든 애플리케이션에서 캐시에 액세스할 수 있습니다.
-
-이 항목에서는 Node.js를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 줍니다. 
-
-이 빠른 시작의 단계를 완료하려면 아무 코드 편집기나 사용할 수 있습니다. 그러나 [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 뛰어난 옵션입니다.
-
-![완료된 캐시 앱](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Node.js 앱에 통합합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[node_redis](https://github.com/mranney/node_redis) 설치:
 
-    npm install redis
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis) - `npm install redis` 명령을 사용하여 설치할 수 있습니다. 
 
-이 자습서에서는 [node_redis](https://github.com/mranney/node_redis)를 사용합니다. 다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](https://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
-
+다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](https://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -57,7 +45,6 @@ Azure Cache for Redis를 통해 Microsoft에서 관리하는 안전한 전용 Az
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## <a name="connect-to-the-cache"></a>캐시에 연결
 
@@ -128,7 +115,6 @@ node redistest.js
 
 ![완료된 캐시 앱](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
@@ -149,14 +135,9 @@ node redistest.js
 
 잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 Node.js 애플리케이션에서 Azure Cache for Redis를 사용하는 방법을 알아보았습니다. ASP.NET 웹앱에서 Azure Cache for Redis를 사용하려면 다음 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis를 사용하는 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
-
-
-

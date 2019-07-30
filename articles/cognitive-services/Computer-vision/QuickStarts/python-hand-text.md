@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 필기 텍스트 추출 - REST, Python'
+title: '빠른 시작: 인쇄 및 필기 텍스트 추출 - REST, Python'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지의 필기 텍스트를 추출합니다.
+description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지의 인쇄 및 필기 텍스트를 추출합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ec58617556ff54bd2273160bb4af80e473ac1693
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 729228b224bdf708fbcf9caf4742f9bb7ad5cff3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311973"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 필기 텍스트 추출
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄 및 필기 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지의 필기 텍스트를 추출합니다. [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 및 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API를 사용하면 이미지의 필기 텍스트를 감지한 후 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지의 인쇄 및/또는 필기 텍스트를 추출합니다. [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 및 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) 메서드를 사용하면 이미지의 텍스트를 감지한 후 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. API는 각 텍스트 줄에 사용할 인식 모델을 결정하므로, 인쇄 텍스트와 필기 텍스트를 사용하는 이미지를 모두 지원합니다.
 
 > [!IMPORTANT]
 > [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드와 달리, [일괄 읽기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Content` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 작업 결과](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API를 나타내는 이 URI를 호출하여 상태를 확인하고 일괄 읽기 메서드 호출 결과를 반환할 수 있습니다.
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요한 경우 코드에서 다음 내용을 변경합니다.
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
-    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
-    1. 필요에 따라 `image_url`의 값을 필기 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-handwritten-text.py`
+    1. 필요한 경우 `vision_base_url` 값을 구독 키가 제공된 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요에 따라 `image_url`의 값을 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-text.py`
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-handwritten-text.py`
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-text.py`
 
 ```python
 import requests
@@ -83,7 +83,7 @@ response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
 
-# Extracting handwritten text requires two API calls: One call to submit the
+# Extracting text requires two API calls: One call to submit the
 # image for processing, the other to retrieve the text found in the image.
 
 # Holds the URI used to retrieve the recognized text.

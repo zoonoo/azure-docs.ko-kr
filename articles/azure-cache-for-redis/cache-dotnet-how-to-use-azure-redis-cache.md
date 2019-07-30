@@ -15,29 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237895"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324442"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>빠른 시작: .NET 애플리케이션에서 Azure Cache for Redis 사용
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>빠른 시작: .NET Framework 애플리케이션에서 Azure Cache for Redis 사용
 
-
-
-이 빠른 시작에서는 .NET에서 Microsoft Azure Cache for Redis 사용을 시작하는 방법을 보여 줍니다. Microsoft Azure Cache for Redis는 많이 사용되는 오픈 소스 Azure Cache for Redis를 기반으로 합니다. 이를 통해 Microsoft에서 관리하는 안전한 전용 Azure Cache for Redis에 액세스할 수 있습니다. Azure Cache for Redis를 사용하여 만들어진 캐시는 Microsoft Azure 내의 모든 애플리케이션에서 액세스할 수 있습니다.
-
-이 빠른 시작에서는 콘솔 앱에서 C\# 코드를 통해 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용합니다. 캐시를 만들고 .NET 클라이언트 앱을 구성합니다. 그런 다음, 캐시에 개체를 추가하고 업데이트합니다. 
-
-![완료된 콘솔 앱](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 .NET Framework 앱에 통합합니다. 구체적으로 .NET 콘솔 앱에서 C# 코드를 통해 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* StackExchange.Redis 클라이언트를 사용하려면 [.NET Framework 4 이상](https://www.microsoft.com/net/download/dotnet-framework-runtime)이 필요합니다.
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 이상](https://www.microsoft.com/net/download/dotnet-framework-runtime) - StackExchange.Redis 클라이언트를 사용하려면 필요합니다.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

@@ -1,33 +1,33 @@
 ---
-title: 여러 개의 독립적인 Azure Cosmos DB 트리거를 만드는 방법
-description: 여러 개의 독립적인 Azure Cosmos DB 트리거를 구성하여 이벤트 기반 Azure Functions 아키텍처를 만드는 방법을 알아봅니다.
+title: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 만드는 방법
+description: 여러 개의 독립적인 Cosmos DB용 Azure Functions 트리거를 구성하여 이벤트 기반 아키텍처를 만드는 방법을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241942"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335685"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>여러 Azure Cosmos DB 트리거 만들기
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 
-이 문서에서는 병렬로 작동하고 변경에 독립적으로 반응하도록 여러 개의 Cosmos DB 트리거를 구성하는 방법에 대해 설명합니다.
+이 문서에서는 병렬로 작동하고 변경 내용에 독립적으로 반응하는 여러 개의 Cosmos DB용 Azure Functions 트리거를 구성하는 방법에 대해 설명합니다.
 
-![Azure Cosmos DB 트리거를 사용하고 임대 컨테이너를 공유하는 서버리스 이벤트 기반 함수](./media/change-feed-functions/multi-trigger.png)
+![Cosmos DB용 Azure Functions 트리거와 함께 작동하고 임대 컨테이너를 공유하는 서버리스 이벤트 기반 함수](./media/change-feed-functions/multi-trigger.png)
 
 ## <a name="event-based-architecture-requirements"></a>이벤트 기반 아키텍처 요구 사항
 
 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 서버리스 아키텍처를 구축하는 경우 장기 실행 함수 대신 함께 작동하는 작은 함수 세트를 만드는 것이 [좋습니다](../azure-functions/functions-best-practices.md#avoid-long-running-functions).
 
-[Azure Cosmos DB 트리거](./change-feed-functions.md)를 사용하여 이벤트 기반 서버리스 흐름을 작성하면 특정 [Azure Cosmos 컨테이너](./databases-containers-items.md#azure-cosmos-containers)에 새 이벤트가 있을 때마다 여러 작업을 수행하려는 시나리오와 충돌합니다. 트리거하려는 작업이 서로 독립적인 경우 가장 적절한 해결 방법은 동일한 Azure Cosmos 컨테이너에서 변경 내용을 수행하려는 **작업당 하나의 Cosmos DB 트리거를 만들어** 동일한 Azure Cosmos 컨테이너에서 모든 변경 내용을 수신 대기하는 것입니다.
+[Cosmos DB용 Azure Functions 트리거](./change-feed-functions.md)를 사용하여 이벤트 기반 서버리스 흐름을 작성하면 특정 [Azure Cosmos 컨테이너](./databases-containers-items.md#azure-cosmos-containers)에 새 이벤트가 있을 때마다 여러 작업을 수행하려는 시나리오와 충돌합니다. 트리거하려는 작업이 서로 독립적인 경우 가장 적절한 해결 방법은 동일한 Azure Cosmos 컨테이너에서 변경 내용을 수행하려는 **작업당 하나의 Cosmos DB용 Azure Functions 트리거를 만들어** 동일한 Azure Cosmos 컨테이너에서 모든 변경 내용을 수신 대기하는 것입니다.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>여러 트리거에 대한 컨테이너 최적화
 
-Cosmos DB 트리거의 *요구 사항*을 고려할 때 상태를 저장하는 두 번째 컨테이너(*임대 컨테이너*라고도 함)가 필요합니다. 이는 각 Azure Function마다 별도의 임대 컨테이너가 필요하다는 것을 의미할까요?
+Cosmos DB용 Azure Functions 트리거의 *요구 사항*을 고려할 때, 상태를 저장하는 두 번째 컨테이너(*임대 컨테이너*라고도 함)가 필요합니다. 이는 각 Azure Function마다 별도의 임대 컨테이너가 필요하다는 것을 의미할까요?
 
 여기에는 다음 두 가지 옵션이 있습니다.
 
@@ -108,6 +108,6 @@ public static void MaterializedViews([CosmosDBTrigger(
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에 대한 전체 구성을 확인합니다.
+* [Cosmos DB용 Azure Functions 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에 대한 전체 구성을 확인합니다.
 * 모든 언어에 대한 [샘플의 확장 목록](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example)을 확인합니다.
 * 자세한 샘플은 Azure Cosmos DB 및 Azure Functions [GitHub 리포지토리](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios)를 사용하여 서버리스 레시피를 방문합니다.

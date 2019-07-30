@@ -3,17 +3,18 @@ title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure CLI를 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4a1c24211e644a796b4e60537978c327501383
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65908080"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325780"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -23,7 +24,7 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 ![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

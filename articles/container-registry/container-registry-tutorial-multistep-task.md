@@ -3,17 +3,18 @@ title: 자습서 - 다단계 컨테이너 작업 - Azure Container Registry 작�
 description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커밋할 때 클라우드에서 컨테이너 이미지를 빌드, 실행 및 푸시하는 다단계 워크플로를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 09b8e5d31bc6a4ec24633889920e2768bb7ce538
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310406"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행
 
@@ -93,7 +94,7 @@ az acr task create \
 
 이 작업은 모든 시간 코드를 `--context`에 지정된 리포지토리의 *마스터* 분기에 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 다단계 작업을 실행합니다. 리포지토리 루트의 `--file`에 지정된 YAML 파일에서 단계를 정의합니다. 
 
-성공적인 [az acr task create][az-acr-task-create] 명령의 출력은 다음과 비슷합니다.
+[az acr task create][az-acr-task-create] 명령이 성공하면 다음과 비슷한 출력이 표시됩니다.
 
 ```console
 {
@@ -356,7 +357,7 @@ CLI에서 추가한 레지스트리 로그인 서버의 이름을 반환합니�
 
 ### <a name="test-the-multi-step-workflow"></a>다단계 워크플로 테스트
 
-앞의 예제에서와 같이 다단계 작업을 테스트하려면 [az acr task run][az-acr-task-run] 명령을 실행하여 이 작업을 수동으로 트리거합니다. Git 리포지토리에 대한 커밋을 사용하여 작업을 트리거하려면 [커밋을 사용하여 빌드 트리거](#trigger-a-build-with-a-commit) 섹션을 참조하세요.
+앞의 예제처럼 다단계 작업을 테스트하려면 [az acr task run][az-acr-task-run] 명령을 실행하여 이 작업을 수동으로 트리거합니다. Git 리포지토리에 대한 커밋을 사용하여 작업을 트리거하려면 [커밋을 사용하여 빌드 트리거](#trigger-a-build-with-a-commit) 섹션을 참조하세요.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example2

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/22/2019
+ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046039"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406106"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -47,14 +47,15 @@ Azure 리소스 그룹에 컴퓨팅 및 스토리지 리소스 집합이 정의�
 
 1. 기본 클러스터 세부 정보를 다음 정보로 작성합니다.
 
-   ![클러스터 생성 양식](media/create-cluster-database-portal/create-cluster-form.png)
+   ![클러스터 생성 양식](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 구독 | 사용자의 구독 | 클러스터에 사용할 Azure 구독을 선택합니다.|
-    | 리소스 그룹 | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
-    | 클러스터 이름 | 고유한 클러스터 이름 | 클러스터를 식별하는 고유한 이름을 선택합니다. 예를 들어 *mydataexplorercluster*입니다. 입력한 클러스터 이름에 도메인 이름 *[region].kusto.windows.net*이 추가됩니다. 이름에는 소문자와 숫자만 포함할 수 있습니다. 3~22자를 포함해야 합니다.
-    | 위치 | *미국 서부* | 이 빠른 시작에서는 *미국 서부*를 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다.
+    | Subscription | 사용자의 구독 | 클러스터에 사용할 Azure 구독을 선택합니다.|
+    | Resource group | 리소스 그룹 | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
+    | 클러스터 이름 | 고유한 클러스터 이름 | 클러스터를 식별하는 고유한 이름을 선택합니다. 입력한 클러스터 이름에 도메인 이름 *[region].kusto.windows.net*이 추가됩니다. 이름에는 소문자와 숫자만 포함할 수 있습니다. 4-22자를 포함해야 합니다.
+    | 지역 | *미국 서부* 또는 *미국 서부 2* | 이 빠른 시작에서는 *미국 서부* 또는 *미국 서부 2*를 선택합니다(가용성 영역을 사용하는 경우). 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다.
+    | 가용성 영역 | *1*, *2* 및/또는 *3* | 영역 중복성 지원 지역으로는 인스턴스가 상주할 영역을 선택합니다(선택 사항). 클러스터 노드는 기본적으로 동일한 데이터 센터에 생성됩니다. [Azure 가용성 영역](/azure/availability-zones/az-overview)을 사용하여 클러스터 인스턴스를 동일한 지역의 다양한 가용성 영역에 배치할 수 있습니다. 여러 가용성 영역을 선택하면 단일 실패 지점을 제거하여 고가용성을 보장할 수 있습니다. 
     | 컴퓨팅 사양 | *D13_v2* | 이 빠른 시작에 가장 낮은 가격 사양을 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 사양을 선택합니다.
     | | |
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448206"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424243"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Disk 반환 및 Azure에 대한 데이터 업로드 확인
 
 이 자습서는 Azure Data Box Disk 배포 시리즈의 마지막 자습서입니다. 이 자습서에서는 다음 방법을 알아봅니다.
@@ -28,6 +30,7 @@ ms.locfileid: "67448206"
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md)을 참조하세요.
+
 
 ## <a name="ship-data-box-disk-back"></a>Data Box Disk 반송
 
@@ -107,7 +110,7 @@ ms.locfileid: "67448206"
 2. 다음 이메일 템플릿을 사용하여 Quantium Solutions에 이메일을 전송합니다.
 
     - Japan Post Chakubarai 탁송 운송장이 포함되지 않거나 누락된 경우 이를 이메일에서 언급해야 합니다. Quantium Solutions Japan은 Japan Post에 픽업 시 탁송 운송장을 가져올 것을 요청합니다.
-    - 주문이 여러 개 있는 경우 이메일을 보내 개별 픽업을 보장합니다.
+    - 주문이 여러 개인 경우에는 개별 픽업을 보장하도록 이메일을 보냅니다.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -121,7 +124,7 @@ ms.locfileid: "67448206"
         d. 17：00-19：00 
     ```
 
-3. 픽업을 예약한 후 Quantium Solutions에서 이메일 확인을 수신합니다. 또한 이메일 확인에는 Chakubarai 탁송 운송장에 대한 정보가 포함되어 있습니다.
+3. 픽업을 예약한 후 Quantium Solutions에서 이메일 확인을 수신합니다. 이메일 확인에는 Chakubarai 탁송 운송장에 대한 정보도 포함되어 있습니다.
 
 필요한 경우 다음 정보로 Quantium Solutions 지원(일본어)에 문의할 수 있습니다. 
 
@@ -229,5 +232,41 @@ Azure Portal을 통해 Data Box Disk를 관리하는 방법을 알아보려면 �
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 Azure Data Box Disk 관리](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>디스크를 반환하고 Azure에 업로드 확인
+
+## <a name="ship-to-azure"></a>Azure에 배송
+
+1. 데이터 유효성 검사가 완료되면 디스크를 분리합니다. 연결 케이블을 제거합니다.
+2. 완충재를 사용하여 모든 디스크 및 연결 케이블을 래핑하고 배송 상자에 배치합니다. 액세서리가 없는 경우 요금이 부과될 수 있습니다.
+    - 최초 배송의 포장재를 다시 사용합니다.  
+    - 안전하게 보호하는 공기 쿠션 랩을 사용하여 디스크를 포장하는 것이 좋습니다.
+    - 상자 내의 움직임을 줄이기 위해 빈틈 없이 채워졌는지 확인합니다.
+3. 다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다.
+    - [미국 및 캐나다에서 디바이스를 반환하는 경우 UPS로 픽업을 예약합니다](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - 웹 사이트를 방문하고 항공사 요금 청구 번호를 지정하여 [DHL로 유럽의 픽업을 예약합니다](data-box-disk-deploy-picked-up.md#pick-up-in-europe).
+    - 오스트레일리아, 일본, 대한민국, 싱가포르 같은 [오스트레일리아-태평양 지역의 국가에 대한 픽업을 예약합니다](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region).
+4. 배송업체에서 디스크를 픽업하면 포털의 주문 상태가 업데이트되고 추적 ID가 표시됩니다.
+
+## <a name="verify-upload-to-azure"></a>Azure에 업로드 확인
+
+데이터가 Azure에 업로드되면 데이터가 스토리지 계정에 있는지 확인한 후 원본에서 데이터를 삭제합니다. 데이터는 다음 위치에 있을 수 있습니다.
+
+- Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+
+    - **블록 Blob 및 페이지 Blob**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+    또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
+
+- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
+
+::: zone-end
 
 

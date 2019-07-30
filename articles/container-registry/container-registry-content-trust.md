@@ -3,16 +3,17 @@ title: Azure Container Registry의 콘텐츠 신뢰
 description: Azure Container Registry에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069216"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356537"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -173,7 +174,7 @@ No valid trust data for unsigned
 ~/.docker/trust/private
 ```
 
-루트 및 저장소 키를 아카이브에 압축하고 오프라인으로 안전하게 저장하여(USB 저장 디바이스 등에) 백업해 두세요. 예를 들어 Bash에서는 다음과 같습니다.
+루트 및 리포지토리 키를 아카이브에 압축하고 안전한 위치에 저장하여 백업해 두세요. 예를 들어 Bash에서는 다음과 같습니다.
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -194,7 +195,9 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 ## <a name="next-steps"></a>다음 단계
 
-콘텐츠 신뢰에 대한 추가 정보는 [Docker의 콘텐츠 신뢰][docker-content-trust]를 참조하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
+* 콘텐츠 신뢰에 대한 추가 정보는 [Docker의 콘텐츠 신뢰][docker-content-trust]를 참조하세요. 이 문서에서 몇 가지 핵심을 살펴보았지만, 콘텐츠 신뢰는 방대한 주제이며 Docker 설명서에 자세히 설명되어 있습니다.
+
+* Docker 이미지를 빌드하고 푸시할 때 콘텐츠 신뢰를 사용하는 예제는 [Azure Pipelines](/azure/devops/pipelines/build/content-trust) 설명서를 참조하세요.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
