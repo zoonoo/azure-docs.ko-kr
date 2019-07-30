@@ -145,6 +145,8 @@
           href: howto-data-in-replication.md
         - name: Azure Portal 읽기 복제본 만들기
           href: howto-read-replicas-portal.md
+        - name: Azure CLI 읽기 복제본 만들기
+          href: howto-read-replicas-cli.md
     - name: 문제 해결
       items:
         - name: 연결 오류 문제 해결

@@ -7,6 +7,7 @@
     - name: 엔드투엔드 솔루션 범위
       href: stream-analytics-solution-patterns.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 작업 만들기 - Azure Portal
       href: stream-analytics-quick-create-portal.md

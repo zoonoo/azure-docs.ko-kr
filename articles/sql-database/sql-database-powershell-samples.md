@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 1f7ccd41cdbcdb4f3670c4a62d373ae550f2065e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c32803fec6107e39a0b8329adaee072e3e291575
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444280"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567068"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure PowerShell 샘플
 
@@ -43,7 +42,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 |**장애 조치(failover) 그룹 구성**||
 | [단일 데이터베이스에 대한 장애 조치(failover) 그룹 구성](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 데이터베이스 및 장애 조치(failover) 그룹을 만들고, 장애 조치(failover) 그룹에 데이터베이스를 추가하고, 보조 서버로 장애 조치(failover)를 테스트합니다. | 
 |**단일 데이터베이스 및 탄력적 풀 크기 조정**||
-| [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL 데이터베이스의 성능 메트릭을 모니터링하고, 더 큰 컴퓨팅 크기로 조정하고, 성능 메트릭 중 하나에 대한 경고 규칙을 만듭니다. |
+| [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database의 성능 메트릭을 모니터링하고, 더 큰 컴퓨팅 크기로 조정하고, 성능 메트릭 중 하나에 대한 경고 규칙을 만듭니다. |
 | [탄력적 풀 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database 탄력적 풀의 성능 메트릭을 모니터링하고, 더 큰 컴퓨팅 크기로 조정하고, 성능 메트릭 중 하나에 대한 경고 규칙을 만듭니다. |
 | **감사 및 위협 감지** |
 | [감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure SQL 데이터베이스에 대한 감사 및 위협 감지 정책을 구성합니다. |

@@ -16,7 +16,7 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Python 사용
           href: quickstarts/detect-data-anomalies-python.md
-    - name: SDK)
+    - name: 클라이언트
       items:
         - name: 'C# 사용'
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
