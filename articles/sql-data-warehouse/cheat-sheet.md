@@ -79,7 +79,7 @@ ms.locfileid: "66515778"
 **팁:**
 * 클러스터형 인덱스에 기반하여 필터링에 많이 사용되는 열에 비클러스터형 인덱스를 추가할 수 있습니다. 
 * CCI로 테이블에서 메모리를 관리하는 방법에 주의해야 합니다. 데이터를 로드할 때 사용자(또는 쿼리)가 큰 리소스 클래스의 이점을 사용하고자 합니다. 많고 작은 압축 행 그룹을 자르고 만들지 않도록 합니다.
-* Gen2에서 CCI 테이블은 성능을 최대화하기 위해 계산 노드에서 로컬로 캐시됩니다.
+* Gen2에서 CCI 테이블은 성능을 최대화하기 위해 컴퓨팅 노드에서 로컬로 캐시됩니다.
 * CCI의 경우 행 그룹의 압축 불량으로 인해 성능이 저하될 수 있습니다. 이 경우 CCI를 다시 작성하거나 다시 구성합니다. 압축 행 그룹당 10만 개 이상의 행이 필요합니다. 이상적으로는 하나의 행 그룹에 100만 개 행이 있어야 합니다.
 * 증분 로드 빈도 및 크기에 따라 인덱스를 다시 구성하거나 다시 빌드할 때 자동화하고자 합니다. 봄맞이 대청소는 항상 유용합니다.
 * 행 그룹은 전략적으로 줄입니다. 열려 있는 행 그룹의 크기는? 앞으로 로드할 데이터의 양은?
@@ -117,7 +117,7 @@ SQL Data Warehouse는 메모리를 쿼리에 할당하는 방법으로 리소스
 [리소스 클래스 및 동시성]으로 작업하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="lower-your-cost"></a>비용 절감
-SQL Data Warehouse의 주요 기능은 [계산 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. 데이터 웨어하우스를 사용하지 않을 때 일시 중지하여 계산 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
+SQL Data Warehouse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. 데이터 웨어하우스를 사용하지 않을 때 일시 중지하여 컴퓨팅 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
 
 이제 Azure Functions를 통해 원하는 시간에 자동 크기 조정을 수행할 수 있습니다.
 
@@ -157,7 +157,7 @@ SQL Data Warehouse에서 SQL 데이터베이스의 스포크를 한 번 클릭�
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[데이터 마이그레이션]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[데이터 마이그레이션]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

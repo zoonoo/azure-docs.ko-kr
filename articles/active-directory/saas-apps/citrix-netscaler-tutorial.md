@@ -153,7 +153,7 @@ Citrix NetScaler에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     
     d. **SSLv3**이 **Disabled**(사용 안 함)인지 확인합니다.
 
-4. https://www.ssllabs.com 에서 A+를 얻을 수 있도록 아래와 같이 사용자 지정된 **SSL Ciphers**(SSL 암호) 그룹이 만들어집니다.
+4. [https://www.ssllabs.com](https://www.ssllabs.com )에서 A+를 얻을 수 있도록 아래와 같이 사용자 지정된 **SSL Ciphers**(SSL 암호) 그룹이 만들어집니다.
 
     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure03.png)
 

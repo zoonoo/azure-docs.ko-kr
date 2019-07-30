@@ -16,7 +16,7 @@ ms.date: 03/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906579"
@@ -41,15 +41,15 @@ Security Center에서 보고하는 Endpoint Protection 문제는 다음과 같�
     >
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
-Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다.  환경이 맬웨어 방지 위협에 취약한 경우 **권장 사항**과 **계산** 아래에 이 권장 사항이 표시됩니다. **Endpoint Protection 문제 대시보드**를 보려면 계산 워크플로를 따라야 합니다.
+Endpoint Protection은 Security Center에서 권장 사항으로 표시됩니다.  환경이 맬웨어 방지 위협에 취약한 경우 **권장 사항**과 **컴퓨팅** 아래에 이 권장 사항이 표시됩니다. **Endpoint Protection 문제 대시보드**를 보려면 계산 워크플로를 따라야 합니다.
 
-이 예제에서는 **계산**을 사용합니다.  Azure VM 및 비 Azure 컴퓨터에 맬웨어 방지 솔루션을 설치하는 방법을 살펴보겠습니다.
+이 예제에서는 **컴퓨팅**을 사용합니다.  Azure VM 및 비 Azure 컴퓨터에 맬웨어 방지 솔루션을 설치하는 방법을 살펴보겠습니다.
 
 ## <a name="install-antimalware-on-azure-vms"></a>Azure VM에 맬웨어 방지 솔루션 설치
 
 1. 선택 **Compute 및 앱** Security Center 주 메뉴에서 또는 **개요**합니다.
 
-   ![계산 선택][1]
+   ![컴퓨팅 선택][1]
 
 2. **계산** 아래에서 **Endpoint Protection 문제**를 선택합니다. **Endpoint Protection 문제** 대시보드가 열립니다.
 
