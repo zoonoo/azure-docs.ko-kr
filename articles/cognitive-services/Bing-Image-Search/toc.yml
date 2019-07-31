@@ -115,6 +115,7 @@
     - name: 언어 및 지역 지원
       href: language-support.md
     - name: Bing Image Search API에 대한 분석
-      href: bing-image-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

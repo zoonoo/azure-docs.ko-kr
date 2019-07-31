@@ -70,7 +70,8 @@
 - name: 리소스
   items:
     - name: Bing Spell Check API에 대한 분석
-      href: bing-spell-check-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: 언어 및 지역 지원
       href: language-support.md
     - name: 가격

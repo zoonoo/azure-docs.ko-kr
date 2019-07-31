@@ -93,6 +93,7 @@
     - name: Bing Entity Search 엔드포인트
       href: entity-search-endpoint.md
     - name: Bing Entity Search API에 대한 분석
-      href: bing-entity-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

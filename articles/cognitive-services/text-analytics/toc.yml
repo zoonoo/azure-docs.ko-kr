@@ -7,6 +7,8 @@
       href: overview.md
     - name: 사용자 시나리오 예
       href: text-analytics-user-scenarios.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   expanded: true
   items:
