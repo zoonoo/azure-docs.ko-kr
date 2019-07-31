@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: 고가용성 및 재해 복구
       href: iot-hub-ha-dr.md
+    - name: IoT 허브 IP 주소 이해
+      href: iot-hub-understand-ip-address.md
     - name: 추가 프로토콜 지원
       href: iot-hub-protocol-gateway.md
     - name: 메시지와 이벤트 라우팅 비교

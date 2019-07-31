@@ -271,7 +271,7 @@ Jenkins 파이프라인 구성과 Jenkinsfile은 CI 파이프라인의 단계를
 
 ![Jenkins 파이프라인 흐름](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. https://github.com/azure-devops/mywebapi 에서 수정된 *mywebapi* 프로젝트 버전을 다운로드합니다. 이 프로젝트는 *Jenkinsfile*, *Dockerfiles* 및 Helm 차트를 포함하여 파이프라인을 만드는 데 필요한 여러 파일을 포함하고 있습니다.
+1. [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi ) 에서 수정된 *mywebapi* 프로젝트 버전을 다운로드합니다. 이 프로젝트는 *Jenkinsfile*, *Dockerfiles* 및 Helm 차트를 포함하여 파이프라인을 만드는 데 필요한 여러 파일을 포함하고 있습니다.
 
 2. Jenkins에 로그인합니다. 왼쪽 메뉴에서 **항목 추가**를 선택합니다.
 

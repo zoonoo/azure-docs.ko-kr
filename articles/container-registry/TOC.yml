@@ -105,8 +105,14 @@
           href: container-registry-tasks-multi-step.md
         - name: Buildpacks를 사용하여 이미지 빌드(미리 보기)
           href: container-registry-tasks-pack-build.md
-        - name: 관리 ID 사용
-          href: container-registry-tasks-authentication-managed-identity.md
+        - name: 관리 ID를 사용하여 보안 리소스 액세스
+          items:
+            - name: 태스크에서 관리 ID 사용
+              href: container-registry-tasks-authentication-managed-identity.md
+            - name: 태스크에서 크로스 레지스트리 인증
+              href: container-registry-tasks-cross-registry-authentication.md
+            - name: Key Vault를 사용한 외부 인증
+              href: container-registry-tasks-authentication-key-vault.md
     - name: 레지스트리 및 기타 Azure 서비스
       items:
         - name: Azure Container Instances

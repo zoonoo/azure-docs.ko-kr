@@ -526,6 +526,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Azure에서 SSIS 패키지 실행
       items:
+        - name: Azure에 배포된 SSIS 패키지를 SSDT에서 실행
+          href: how-to-invoke-ssis-package-ssdt.md
         - name: SSIS 패키지 실행 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 저장 프로시저 작업으로 SSIS 패키지 실행

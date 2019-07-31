@@ -75,8 +75,6 @@
       href: security-center-provide-security-contact-details.md
     - name: 가격 책정 계층
       href: security-center-pricing.md
-    - name: 보안 구성
-      href: security-center-customize-os-security-config.md
     - name: 테넌트 수준 표시 유형
       href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
@@ -183,6 +181,8 @@
           href: security-center-alerts-type.md
         - name: Azure 리소스와 사용자에 대한 UEBA
           href: security-center-ueba-mcas.md
+        - name: 보안 구성 사용자 지정
+          href: security-center-customize-os-security-config.md
 - name: 참고 자료
   items:
     - name: REST API

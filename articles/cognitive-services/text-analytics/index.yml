@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 07/29/2019
   ms.author: nitinme
 abstract:
   description: 'Text Analytics API는 원시 텍스트에 대한 고급 자연어 처리를 제공하는 클라우드 기반 서비스이며 감정 분석, 핵심 구 추출, 명명된 엔터티 인식, 언어 감지의 네 가지 주요 기능을 포함하고 있습니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.'
@@ -34,11 +34,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Text Analytics API에 등록
-          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-            html: <p>Text Analytics API에 대한 액세스 키 및 엔드포인트를 가져오는 방법을 알아봅니다.</p>
+          - href: /azure/cognitive-services/text-analytics/whats-new
+            html: <p>Text Analytics API의 최근 개발을 최신 상태로 유지합니다.</p>
             image:
               src: ../media/index/i_tasks.svg
-            title: Text Analytics API에 대한 액세스 키
+            title: Text Analytics API의 새로운 기능
   - title: 5분 빠른 시작
     items:
       - type: paragraph

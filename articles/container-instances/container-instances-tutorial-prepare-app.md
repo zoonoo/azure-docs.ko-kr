@@ -10,10 +10,10 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325579"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
@@ -49,7 +49,7 @@ GitHub에서 직접 [ZIP 아카이브를 다운로드][aci-helloworld-zip]할 �
 
 ## <a name="build-the-container-image"></a>컨테이너 이미지 빌드
 
-애플리케이션 예제의 Dockerfile은 컨테이너가 어떻게 빌드되었는지 보여줍니다. 컨테이너에 사용하기에 적합한 소규모 배포인 [공식 Node.js 이미지][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux]로 시작합니다. 그런 다음, 애플리케이션 파일을 컨테이너에 복사하고 노드 패키지 관리자를 사용하여 종속성을 설치한 후 마지막으로 애플리케이션을 시작합니다.
+애플리케이션 예제의 Dockerfile은 컨테이너가 어떻게 빌드되었는지 보여줍니다. 컨테이너에 사용하기에 적합한 소규모 배포인 [Alpine Linux][alpine-linux] 기반의 [공식 Node.js 이미지][docker-hub-nodeimage]로 시작합니다. 그런 다음, 애플리케이션 파일을 컨테이너에 복사하고 노드 패키지 관리자를 사용하여 종속성을 설치한 후 마지막으로 애플리케이션을 시작합니다.
 
 ```Dockerfile
 FROM node:8.9.3-alpine

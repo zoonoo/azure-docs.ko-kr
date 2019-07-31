@@ -56,12 +56,18 @@
           items:
             - name: 힙 메모리 부족
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Java 힙 공간
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: 저속 Apache Spark 작업 - 스토리지 컨테이너
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException 예외
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Apache Spark 스트리밍 애플리케이션 중지
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: RpcTimeoutException 예외
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: 크로스 원본 API 차단
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용

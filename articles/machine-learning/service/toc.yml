@@ -33,6 +33,12 @@
   items:
     - name: Python SDK
       items:
+        - name: 첫 번째 ML 실험 만들기
+          items:
+            - name: 1. 작업 영역 및 개발 환경 설정
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. 첫 번째 모델 학습
+              href: tutorial-1st-experiment-sdk-train.md
         - name: 이미지 분류(MNIST 데이터)
           items:
             - name: 1. 모델 학습
