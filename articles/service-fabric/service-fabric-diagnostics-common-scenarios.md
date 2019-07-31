@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60394206"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
-이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션은 Application Insights 및 Azure Monitor 로그 Azure 모니터링 도구를 각 시나리오를 완료 합니다. 각 솔루션의 단계 사용자에 게 제공 소개 Application Insights를 사용 하는 방법에 및 Service Fabric의 컨텍스트에서 Azure Monitor를 기록 합니다.
+이 문서에서는 Service Fabric을 사용하여 모니터링 및 진단 영역에서 사용자에게 발생한 일반적인 시나리오에 대해 설명합니다. 제시된 시나리오는 서비스 패브릭의 모든 3계층을 설명합니다. 애플리케이션, 클러스터 및 인프라 각 솔루션은 Application Insights 및 Azure Monitor logs, Azure 모니터링 도구를 사용 하 여 각 시나리오를 완료 합니다. 각 솔루션의 단계는 사용자에 게 Service Fabric 컨텍스트에서 Application Insights 및 Azure Monitor 로그를 사용 하는 방법을 소개 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -65,7 +65,7 @@ ms.locfileid: "60394206"
 1. 노드 이벤트는 Service Fabric 클러스터에서 추적합니다. **ServiceFabric(NameofResourceGroup)** 이라는 Service Fabric 분석 솔루션 리소스로 이동합니다.
 2. 블레이드 아래쪽에서 "요약"이라는 그래프를 클릭합니다.
 
-    ![Azure Monitor 로그 솔루션](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Azure Monitor logs 솔루션](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. 여기에는 다양한 메트릭을 표시하는 많은 그래프와 타일이 있습니다. 그래프 중 하나를 클릭하면 [로그 검색]으로 이동합니다. 여기서는 모든 클러스터 이벤트 또는 성능 카운터를 쿼리할 수 있습니다.
 4. 다음 쿼리를 입력합니다. 이러한 이벤트 ID는 [노드 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md#application-events)에 있습니다.
@@ -77,7 +77,7 @@ ms.locfileid: "60394206"
 
 5. 위쪽에서 "새 경고 규칙"을 클릭하면, 이제 이 쿼리에 따라 이벤트가 도착할 때마다 선택한 통신 방법으로 경고 메시지를 받게 됩니다.
 
-    ![Azure Monitor 새 경고 로그](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure Monitor 로그 새 경고](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>애플리케이션 업그레이드 롤백에 대한 경고를 받으려면 어떻게 해야 할까요?
 
@@ -129,10 +129,10 @@ ms.locfileid: "60394206"
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>내 Reliable Services 및 Actors의 성능을 추적하려면 어떻게 할까요?
 
-응용 프로그램에서 Reliable Services 또는 행위자의 성능에 추적 하기 위해 서비스 패브릭 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터를 수집 해야 합니다. 다음은 reliable service 및 actor 성능 카운터를 수집 하는 예
+응용 프로그램에서 Reliable Services 또는 행위자의 성능을 추적 하려면 Service Fabric 행위자, 행위자 메서드, 서비스 및 서비스 메서드 카운터만 수집 해야 합니다. 수집할 수 있는 신뢰할 수 있는 서비스 및 행위자 성능 카운터의 예는 다음과 같습니다.
 
 >[!NOTE]
->Service Fabric 성능 카운터 현재 Log Analytics 에이전트에서 수집할 수 없습니다. 하지만에서 수집할 수 [다른 진단 솔루션](service-fabric-diagnostics-partners.md)
+>현재 Log Analytics 에이전트가 Service Fabric 성능 카운터를 수집할 수 없지만 [다른 진단 솔루션](service-fabric-diagnostics-partners.md) 으로 수집할 수 있습니다.
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -145,7 +145,7 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 
 * [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 검색](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
-* Azure Monitor 로그에 자세히 알아보려면 [경고](../log-analytics/log-analytics-alerts.md) 감지 및 진단에 도움이 되 합니다.
-* 온-프레미스 클러스터에 대 한 Azure Monitor 로그는 Azure Monitor 로그 데이터를 보낼 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 이 대해 자세히 알아보기 [Log Analytics 게이트웨이 사용 하 여 Azure Monitor 로그에 인터넷 액세스 없이 컴퓨터 연결](../azure-monitor/platform/gateway.md)
-* 알아보기 합니다 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) Azure Monitor 로그의 일부로 제공 하는 기능
-* Azure Monitor 로그와 제공의 자세한 개요를 확인, 읽기 [Azure Monitor 로그 란?](../operations-management-suite/operations-management-suite-overview.md)
+* 검색 및 진단에 도움이 되 Azure Monitor 로그 [경고](../log-analytics/log-analytics-alerts.md) 에 대해 자세히 알아보세요.
+* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그에 데이터를 전송 하는 데 사용할 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 자세한 내용은 [인터넷에 연결 되지 않은 컴퓨터를 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor 로그에 연결](../azure-monitor/platform/gateway.md) 하는 방법을 참조 하세요.
+* Azure Monitor 로그의 일부로 제공 되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 사용 하 여 알아보기 가져오기
+* Azure Monitor 로그 및 제공 되는 내용에 대 한 자세한 개요를 확인 하 고 [Azure Monitor 로그 란?](../operations-management-suite/operations-management-suite-overview.md) 을 참조 하세요.

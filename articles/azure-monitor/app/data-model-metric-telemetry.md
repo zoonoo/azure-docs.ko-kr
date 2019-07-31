@@ -13,10 +13,10 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60900463"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
@@ -49,7 +49,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 단일 측정 값입니다. 집계의 개별 측정값의 합계입니다.
 
-## <a name="count"></a>카운트
+## <a name="count"></a>개수
 
 집계된 메트릭의 메트릭 가중치입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
