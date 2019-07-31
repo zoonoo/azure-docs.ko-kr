@@ -235,7 +235,7 @@ Azure storage 또는 Event Hub에 전송 하는지 여부를 활동 로그 데�
 | callerIpAddress |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 IP 주소입니다. |
 | correlationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
 | identity |권한 부여 및 클레임을 설명하는 JSON Blob입니다. |
-| 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
+| authorization |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | level |이벤트의 수준입니다. 해당 값은 _중요_, _오류_를 _경고_를 _정보_, 및 _자세한 정보_ |
 | location |발생하는 위치의 지역(또는 전역)입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |

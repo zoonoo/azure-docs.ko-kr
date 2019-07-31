@@ -24,11 +24,6 @@
         - name: 로컬로 실험 실행
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: 시각적 인터페이스
-      items:
-        - name: 데이터 준비 및 시각화
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: 자습서
   items:
     - name: Python SDK
