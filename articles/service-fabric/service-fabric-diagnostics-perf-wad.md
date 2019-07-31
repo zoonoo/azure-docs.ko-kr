@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66110294"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
@@ -206,4 +206,4 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
 ## <a name="next-steps"></a>다음 단계
 * 클러스터에 대한 더 많은 성능 카운터를 수집합니다. 수집해야 하는 카운터 목록은 [성능 메트릭](service-fabric-diagnostics-event-generation-perf.md)을 참조하세요.
 * [Windows VM 및 Azure Resource Manager 템플릿으로 모니터링 및 진단을 사용](../virtual-machines/windows/extensions-diagnostics-template.md)하여 진단 데이터를 보내는 추가 저장소 계정 구성을 포함한 `WadCfg`에 대한 추가 수정을 수행합니다.
-* 방문 합니다 [WadCfg 작성기](https://azure.github.io/azure-diagnostics-tools/config-builder/) 을 처음부터 템플릿을 빌드하고 구문 올바른지 확인 합니다. ( https://azure.github.io/azure-diagnostics-tools/config-builder/) 을 처음부터 템플릿을 빌드하고 구문 올바른지 확인 합니다.
+* [Diagnostics.wadcfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) 를 방문 하 여 처음부터 템플릿을 빌드하고 구문이 올바른지 확인 합니다. 템플릿을 처음부터 작성하고구문이올바른지확인합니다. https://azure.github.io/azure-diagnostics-tools/config-builder/)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "65471775"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
@@ -29,7 +29,7 @@ ms.locfileid: "65471775"
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| 아티팩트 | Path |
+| 아티팩트 | 경로 |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ ms.locfileid: "65471775"
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>가상 머신
-| 아티팩트 | Path |
+| 아티팩트 | 경로 |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -81,7 +81,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단이 시작 되지 않음
+## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단를 시작 하지 않습니다.
 Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
@@ -104,15 +104,15 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정을 컴퓨터에 원격 액세스를 올바르게 구성된 되어 있는지 확인 *DiagnosticsPlugin.exe* 하 고 *MonAgentCore.exe* 실행 됩니다. 실행 중이 아니면 [Azure Diagnostics가 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계를 따릅니다.
+저장소 계정이 올바르게 구성 된 경우 컴퓨터에 원격으로 액세스 하 여 *diagnosticsplugin.exe* 및 *monagentcore.exe가* 가 실행 중인지 확인 합니다. 실행 중이 아니면 [Azure Diagnostics가 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계를 따릅니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
 
-문제가 해결 되지 않으면이 하려고 합니다.
+그래도 문제가 해결 되지 않으면 다음을 시도 합니다.
 
 1. 에이전트 제거
-2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. 에이전트를 다시 설치
+2. 디렉터리 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics 제거
+3. 에이전트를 다시 설치 합니다.
 
 
 ### <a name="part-of-the-data-is-missing"></a>일부 데이터가 누락됨
@@ -167,7 +167,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
             tableName = "WAD" + eventDestination;
 ```
 
-다음은 예제입니다.
+다음 예를 참조하세요.
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -207,14 +207,14 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ```
 이 코드는 테이블 네 개를 생성합니다.
 
-| 행사 | 테이블 이름 |
+| 이벤트 | 테이블 이름 |
 | --- | --- |
 | provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
 | provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
 | provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
 
-## <a name="references"></a>참조
+## <a name="references"></a>참조 항목
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
 확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
@@ -230,9 +230,9 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure Diagnostics 플러그 인 종료 코드
 플러그 인은 다음 종료 코드를 반환합니다.
 
-| 종료 코드 | 설명 |
+| 종료 코드 | Description |
 | --- | --- |
-| 0 |성공. |
+| 0 |명령 실행 성공 |
 | -1 |일반 오류. |
 | -2 |rcf 파일을 로드할 수 없습니다.<p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -3 |진단 구성 파일을 로드할 수 없습니다.<p><p>해결 방법: 구성 파일이 스키마 유효성 검사를 통과하지 못한 것이 원인입니다. 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다. |

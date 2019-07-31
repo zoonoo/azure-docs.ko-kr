@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60238063"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 이상 구성 스키마
@@ -22,7 +22,7 @@ ms.locfileid: "60238063"
 > - Azure Virtual Machines
 > - Virtual Machine Scale Sets
 > - Service Fabric
-> - Cloud Services
+> - 클라우드 서비스
 > - 네트워크 보안 그룹
 >
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
@@ -31,7 +31,7 @@ ms.locfileid: "60238063"
 
 여기에서 설명하는 구성 파일은 진단 모니터가 시작될 때 진단 구성 설정을 설정하는 데 사용됩니다.  
 
-확장은 Application Insights 및 Log Analytics를 포함 하는 Azure Monitor와 같은 기타 Microsoft 진단 제품과 함께에서 사용 됩니다.
+확장은 Application Insights 및 Log Analytics를 포함 하는 Azure Monitor 같은 기타 Microsoft 진단 제품과 함께 사용 됩니다.
 
 
 
@@ -418,9 +418,9 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
-|**PublicConfig**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**PublicConfig**|필수 요소. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PrivateConfig**|선택 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**IsEnabled**|Boolean입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -431,10 +431,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**WadCfg**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**WadCfg**|필수 요소. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**StorageAccount**|데이터를 저장할 Azure Storage 계정의 이름입니다. Set-AzureServiceDiagnosticsExtension cmdlet을 실행할 때 매개 변수로 지정할 수도 있습니다.|  
 |**StorageType**|*Table*, *Blob* 또는 *TableAndBlob*일 수 있습니다. Table이 기본값입니다. TableAndBlob을 선택하면 진단 데이터는 각 형식당 한 번씩, 두 번 기록됩니다.|  
-|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure 진단에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
+|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure Diagnostics에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
 
 ## <a name="wadcfg-element"></a>WadCFG 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -474,15 +474,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  크래시 덤프의 수집을 사용하도록 설정합니다.  
 
-|특성|설명|  
+|특성|Description|  
 |----------------|-----------------|  
 |**containerName**|선택 사항입니다. 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 |**crashDumpType**|선택 사항입니다.  최소 또는 전체 크래시 덤프를 수집하도록 Azure Diagnostics를 구성합니다.|  
 |**directoryQuotaPercentage**|선택 사항입니다.  VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|필수 사항입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure 진단에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
+|**CrashDumpConfiguration**|필수 요소. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure Diagnostics에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
 
 ## <a name="directories-element"></a>Directories 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
@@ -491,7 +491,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
 |**IISLogs**|이 요소를 구성에 포함하면 IIS 로그의 컬렉션이 활성화됩니다.<br /><br /> **containerName** - IIS를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|   
 |**FailedRequestLogs**|이 요소를 구성에 포함하면 IIS 사이트 또는 애플리케이션에 실패 한 요청에 대한 로그 컬렉션이 활성화합니다. 또한 **Web.config**의 **system.WebServer**에 있는 추적 옵션도 사용하도록 설정해야 합니다.|  
@@ -505,9 +505,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  모니터링할 디렉터리의 목록입니다.  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|필수 사항입니다. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
+|**DirectoryConfiguration**|필수 요소. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 
 
 
@@ -518,7 +518,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  **Absolute** 또는 **LocalResource** 요소 중 하나를 포함하되, 모두 포함할 수는 없습니다.  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
 |**Absolute**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> - **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> - **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
 |**LocalResource**|모니터링할 로컬 리소스의 상대 경로입니다. 필수 특성은 다음과 같습니다.<br /><br /> - **Name** - 모니터링할 디렉터리를 포함하는 로컬 리소스<br /><br /> - **relativePath** -모니터링할 디렉터리를 포함하는 이름의 상대 경로|  
@@ -552,7 +552,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 |**Event**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
@@ -566,7 +566,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** ->  **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |--------------------|-----------------|  
 |**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
@@ -581,9 +581,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time`. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다.|
+|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. `\Processor(_Total)\% Processor Time` )을 입력합니다. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다.|
 |**sinks** | 1\.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
 
 
@@ -596,9 +596,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.  
 
-|자식 요소|설명|  
+|자식 요소|Description|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들면 다음과 같습니다.<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예를 들어:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
 
 
 
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|Type|설명|  
+|특성|형식|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
@@ -622,7 +622,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  1\.9에 추가되었습니다.
 
-|요소 이름|설명|  
+|요소 이름|Description|  
 |------------------|-----------------|  
 |**Stats**|Docker 컨테이너에 대한 통계를 수집하도록 시스템에 지시|  
 
@@ -631,7 +631,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치와 그러한 위치와 관련된 구성의 목록 입니다.  
 
-|요소 이름|설명|  
+|요소 이름|Description|  
 |------------------|-----------------|  
 |**싱크**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -642,11 +642,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|설명|  
+|특성|형식|Description|  
 |---------------|----------|-----------------|  
 |**name**|string|sinkname을 식별하는 문자열입니다.|  
 
-|요소|Type|설명|  
+|요소|형식|Description|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
 |**Channels**|string|스트림하는 각 추가 필터링에 대한|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|Type|설명|  
+|요소|형식|설명|  
 |-------------|----------|-----------------|  
 |**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|설명|  
+|특성|형식|설명|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**name**|**string**|참조 하는 채널의 고유 이름|  
@@ -680,13 +680,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  버전 1.3에 추가되었습니다.  
 
- 옵션  
+ Optional  
 
  스토리지 계정(이름, 키 및 엔드포인트)의 프라이빗 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**StorageAccount**|사용할 저장소 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 저장소 계정의 이름입니다.<br /><br /> - **키** - 저장소 계정의 키입니다.<br /><br /> - **엔드포인트** - 저장소 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 저장소 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
+|**StorageAccount**|사용할 저장소 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 저장소 계정의 이름입니다.<br /><br /> - **키** - 저장소 계정의 키입니다.<br /><br /> - **엔드포인트** - 저장소 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 프라이빗 구성에서 스토리지 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 저장소 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 요소  

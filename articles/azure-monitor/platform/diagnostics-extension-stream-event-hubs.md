@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "64922815"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
@@ -34,7 +34,7 @@ Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트
 * Event Hubs 스트림 데이터를 보는 방법
 * 연결 문제를 해결하는 방법  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, Virtual Machine Scale Sets 및 Service Fabric에서 지원됩니다.
 
 * Azure Diagnostics 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
@@ -310,7 +310,7 @@ namespace EventHubListener
 ## <a name="troubleshoot-event-hubs-sinks"></a>Event Hubs 싱크 문제 해결
 * 이벤트 허브가 들어오거나 나가는 이벤트 활동을 예상대로 표시하지 않습니다.
 
-    이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx** 의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
+    이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx**의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
 * 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
 
     우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
