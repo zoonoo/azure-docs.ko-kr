@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181890"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562515"
 ---
 **빌드**를 선택합니다. 열리는 대화 상자에서 Xcode 프로젝트를 내보낼 폴더를 선택합니다.
 
@@ -18,7 +18,7 @@ ms.locfileid: "67181890"
 > [!NOTE]
 > 바꿀 것인지 아니면 추가할 것인지 물어보는 창이 표시되면 **추가**를 선택하는 것이 좋습니다. 추가가 더 빠르기 때문입니다. 장면의 자산을 변경하려는 경우에는 **바꾸기**를 선택해야 합니다. (예: 부모/자식 관계를 추가, 제거 또는 변경하거나 속성을 추가, 제거 또는 변경하는 경우) 소스 코드만 변경하려는 경우에는 **추가**를 선택하는 것으로 충분합니다.
 
-### <a name="open-the-xcode-project"></a>Xcode 프로젝트 열기
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Xcode 프로젝트를 Azure Spatial Anchors 참조가 포함된 xcworkspace로 변환
 
 내보낸 Xcode 프로젝트 폴더의 터미널에서 다음 명령을 실행하여 프로젝트에 필요한 CocoaPods를 설치합니다.
 

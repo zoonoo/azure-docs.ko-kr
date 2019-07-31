@@ -122,7 +122,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com*의 도메인에 대해 수신기가 생성됩니다.
+애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 [www.fabrikam.com](*www.fabrikam.com*)의 도메인에 대해 수신기가 생성됩니다.
 
 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule*이라는 기본 규칙을 만듭니다.
 

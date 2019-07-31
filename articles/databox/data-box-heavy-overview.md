@@ -116,7 +116,7 @@ Data Box Heavy의 지역 가용성에 대한 최신 정보를 보려면 [지역�
 
 Data Box Heavy에 가입하려면 다음 단계를 수행합니다.
 
-1. https://portal.azure.com 에 있는 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에 있는 Azure Portal에 로그인합니다.
 2. **+ 리소스 만들기**를 클릭하여 새 리소스를 추가합니다. **Azure Data Box**를 검색합니다. **Azure Data Box** 서비스를 선택합니다.
 3. **만들기**를 클릭합니다.
 4. Data Box Heavy에서 사용하려는 구독을 선택합니다. Data Box Heavy 리소스를 배포할 지역을 선택합니다. **Data Box Heavy** 옵션에서 **등록**을 클릭합니다.

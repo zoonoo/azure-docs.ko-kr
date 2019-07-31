@@ -10,10 +10,10 @@ ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310514"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
@@ -62,7 +62,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>기본 이미지
 
-대부분의 컨테이너 이미지를 정의하는 Dockerfile은 이미지의 기반이 되는 부모 이미지를 지정하며, 종종 이를 *기본 이미지*라고 합니다. 기본 이미지에는 대개 컨테이너의 나머지 계층이 적용되는 운영 체제(예: [Alpine Linux][base-alpine] or [Windows Nano Server][base-windows])가 포함됩니다. [Node.js][base-node] 또는 [.NET Core][base-dotnet]와 같은 애플리케이션 프레임워크가 포함될 수도 있습니다.
+대부분의 컨테이너 이미지를 정의하는 Dockerfile은 이미지의 기반이 되는 부모 이미지를 지정하며, 종종 이를 *기본 이미지*라고 합니다. 기본 이미지에는 일반적으로 컨테이너의 나머지 레이어가 적용되는 운영 체제(예: [Alpine Linux][base-alpine] 또는 [Windows Nano Server][base-windows])가 포함됩니다. [Node.js][base-node] 또는 [.NET Core][base-dotnet]와 같은 애플리케이션 프레임워크가 포함될 수도 있습니다.
 
 ### <a name="base-image-updates"></a>기본 이미지 업데이트
 

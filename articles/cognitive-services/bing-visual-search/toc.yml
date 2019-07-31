@@ -52,7 +52,8 @@
     - name: Bing insights 사용량
       href: bing-insights-usage.md
     - name: Visual Search API에 대한 분석
-      href: bing-visual-search-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
 - name: 방법 가이드
   items:
     - name: 토큰을 사용하여 인사이트 얻기

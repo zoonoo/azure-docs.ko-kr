@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d0295512452367cb0f70f1d9ca6e950d6649353
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669316"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562541"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>C++/NDK에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
@@ -39,7 +39,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
 - C++ 및 <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>에 대한 기본 지식.
-- <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7에 대한 기본 지식.
+- <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>에 대한 기본 지식.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

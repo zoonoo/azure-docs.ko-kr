@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3946690b24ec4123df1bb19deb05143189fd5aa5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442591"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596034"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -235,8 +235,8 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
 자습서를 간소화하기 위해, 여러분이 복사본을 직접 준비할 필요가 없도록 다음 위치에 토폴로지 템플릿과 아티팩트를 공유해 놓았습니다. 직접 준비한 복사본을 사용하려면 [자습서: Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)의 지침을 따르세요.
 
-* 토폴로지 템플릿: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* 아티팩트 저장소: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* 토폴로지 템플릿: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* 아티팩트 저장소: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 토폴로지를 배포하려면 **사용해보기**를 선택하여 Cloud Shell을 연 다음, PowerShell 스크립트를 붙여넣습니다.
 
@@ -265,8 +265,8 @@ Azure Portal을 사용하여 서비스 토폴로지와 밑줄 표시된 리소�
 
 자습서를 간소화하기 위해, 여러분이 복사본을 직접 준비할 필요가 없도록 다음 위치에 수정된 롤아웃 템플릿을 공유해 놓았습니다. 직접 준비한 복사본을 사용하려면 [자습서: Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)의 지침을 따르세요.
 
-* 토폴로지 템플릿: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* 아티팩트 저장소: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* 토폴로지 템플릿: \ https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* 아티팩트 저장소: \ https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 [상태 확인 서비스 시뮬레이터 만들기](#create-a-health-check-service-simulator)에서 만든 비정상 상태 URL을 사용합니다. **managedIdentityID**는 [사용자가 할당한 관리 ID](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity)를 참조하세요.
 

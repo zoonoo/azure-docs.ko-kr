@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57244dd9f3365b3899bcc1dde6382cc3b51719d9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7e7d4a542146fb8d342cce6c34f9d97e72349f84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722946"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561387"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
@@ -23,7 +23,7 @@ ms.locfileid: "67722946"
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-1. **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.17763.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
+1. **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
 2. Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
 3. [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 )(RS5라고도 함)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
 
@@ -57,10 +57,10 @@ ms.locfileid: "67722946"
 > [!NOTE]
 > Windows 스토어 아이콘에 표시되지 않으면 설치하기 전에 Windows 저장소 .NET 스크립팅 백 엔드를 선택했는지 한 번 더 확인합니다. 이 항목을 선택하지 않은 경우 올바른 Windows 설치를 사용하여 Unity를 다시 설치해야 할 수 있습니다.
 
-**.NET 구성 확인**
+**스크립팅 백 엔드 구성 확인**
 1. **편집** > **프로젝트 설정** > **플레이어**로 이동합니다(이전 단계에서 **플레이어**를 열어 두었을 수도 있음).
 2. **플레이어 설정**의 **검사기 패널**에서 **Windows 스토어** 아이콘을 선택합니다.
-3. **기타 설정** 구성 섹션에서 **스크립팅 백 엔드**가 **.NET**으로 설정되어 있는지 확인합니다.
+3. **기타 설정** 구성 섹션에서 **스크립팅 백 엔드**가 **IL2CPP**로 설정되어 있는지 확인합니다.
 
 **기능 설정**
 1. **편집** > **프로젝트 설정** > **플레이어**로 이동합니다(이전 단계에서 **플레이어**를 열어 두었을 수도 있음).

@@ -3,16 +3,16 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure 파일 공유를 보호하는 방법을 자세히 설명합니다.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466304"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601757"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -33,7 +33,7 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>파일 공유를 백업하려고 시도할 때 저장소 계정의 파일 공유를 검색하기 위해 저장소 계정을 클릭했습니다. 그런데 파일 공유를 보호하지 않았습니다. 다른 자격 증명 모음으로 이러한 파일 공유를 보호하려면 어떻게 해야 하나요?
 백업하려고 시도할 때 파일 공유를 검색할 저장소 계정을 선택하면 파일 공유가 검색되는 자격 증명 모음에 저장소 계정이 등록됩니다. 다른 자격 증명 모음으로 파일 공유를 보호하려면 이 자격 증명 모음에서 선택한 저장소 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)합니다.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>내 파일 공유를 백업한 자격 증명 모음을 변경할 수 있나요?
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>파일 공유를 백업하는 자격 증명 모음을 변경할 수 있나요?
 예. 그러나 연결된 자격 증명 모음에서 [보호를 중지](backup-azure-files.md#stop-protecting-an-azure-file-share)하고, 이 저장소 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)한 다음, 다른 자격 증명 모음에서 파일 공유를 보호해야 합니다.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요? <br/>
@@ -76,6 +76,9 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 아니요. 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>파일 공유당 구성할 수 있는 예약 백업 수는 몇 개인가요?
+현재 Azure Backup은 Azure 파일 공유의 예약 백업을 하루에 한 번 구성할 수 있습니다. 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>파일 공유당 만들 수 있는 주문형 백업은 몇 개입니까? <br/>
 언제든지 파일 공유에 대해 최대 200개의 스냅샷을 가질 수 있습니다. 이 한도에는 정책에 정의된 대로 Azure Backup에서 생성한 스냅샷이 포함됩니다. 한도에 도달한 후 백업이 실패하기 시작하면 향후 백업에 성공하기 위해 주문형 복원 지점을 삭제합니다.

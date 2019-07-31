@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/16/2019
-ms.openlocfilehash: 3a03829c39deb954a8baa908de63b9ff6f31238e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 07/26/2019
+ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297840"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565446"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-[MongoDB용 Azure Cosmos DB의 API](mongodb-introduction.md)를 사용하는 경우에는 다음 연결 문자열을 사용하세요.
+Azure Cosmos Emulator를 데스크톱에서 실행한 후에는 [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableMongoDbEndpoint"를 사용하여 명령 프롬프트에서 관리자로 에뮬레이터를 시작합니다. 그리고 다음 연결 문자열을 사용하여 MongoDB API 계정에 연결합니다.
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true

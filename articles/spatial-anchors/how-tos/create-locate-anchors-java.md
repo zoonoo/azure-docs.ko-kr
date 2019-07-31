@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c8c5de469439f7ada294215682a1919022bcc1d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7bc4a2251fa07f201d35e385806d2eb49cd8851e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672068"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562518"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Java에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
@@ -39,7 +39,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
 - Java에 대한 기본 지식.
-- <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7에 대한 기본 지식.
+- <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>에 대한 기본 지식.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

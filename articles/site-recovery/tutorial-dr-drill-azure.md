@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417833"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602131"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -88,6 +88,6 @@ ms.locfileid: "66417833"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [VMware VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
-> [Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md).
-> [물리적 머신에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)
+> [VMware VM의 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
+> [Hyper-V VM의 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md)
+> [물리적 머신의 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)

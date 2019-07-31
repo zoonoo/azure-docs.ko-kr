@@ -12,31 +12,31 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978697"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596780"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 배포
 
-이 세 부분으로 이루어진 자습서의 3부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 배포합니다.
+세 부분으로 이루어진 이 자습서의 3부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 개발한 예측 모델을 SQL 데이터베이스에 배포합니다.
 
 포함된 R 스크립트를 사용하여 이 모델로 예측하는 저장 프로시저를 만듭니다. 모델은 Azure SQL Database에서 실행되므로 데이터베이스에 저장된 데이터를 통해 쉽게 학습할 수 있습니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 문서에서는 1부 및 2부에서 개발한 R 스크립트를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 예측 모델을 데이터베이스 테이블에 저장
-> * 모델을 생성하는 저장 프로시저 만들기
+> * 기계 학습 모델을 생성하는 저장 프로시저 만들기
+> * 데이터베이스 테이블에 모델 저장
 > * 모델을 사용하여 예측하는 저장 프로시저 만들기
 > * 새 데이터로 모델 실행
 
-[1부](sql-database-tutorial-predictive-model-prepare-data.md)에서는 샘플 데이터베이스를 Azure SQL Database로 가져오고, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
+[1부](sql-database-tutorial-predictive-model-prepare-data.md)에서는 샘플 데이터베이스를 가져온 다음, R에서 예측 모델을 학습하는 데 사용할 데이터를 준비하는 방법을 살펴보았습니다.
 
-[2부](sql-database-tutorial-predictive-model-build-compare.md)에서는 여러 모델을 만들고 학습한 후 가장 정확한 모델을 선택하는 방법을 알아보았습니다.
+[2부](sql-database-tutorial-predictive-model-build-compare.md)에서는 R에서 여러 기계 학습 모델을 만들고 학습시킨 후 가장 정확한 모델을 선택하는 방법을 알아보았습니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "65978697"
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>모델을 생성하는 저장 프로시저 만들기
 
-이 자습서 시리즈의 2부에서는 의사 결정 트리(dtree) 모델이 가장 정확하다고 확인했습니다. 이제 RevoScaleR 패키지에서 rxDTree를 사용하여 dtree 모델을 학습하고 생성하는 저장 프로시저(`generate_rental_rx_model`)를 만듭니다.
+이 자습서 시리즈의 2부에서는 의사 결정 트리(dtree) 모델이 가장 정확하다고 확인했습니다. 이제 앞에서 개발한 R 스크립트를 사용하여 RevoScaleR 패키지의 rxDTree를 통해 dtree 모델을 학습시키고 생성하는 저장 프로시저(`generate_rental_rx_model`)를 만듭니다.
 
 Azure Data Studio 또는 SSMS에서 다음 명령을 실행합니다.
 
@@ -214,8 +214,8 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 이 자습서 시리즈의 제3부에서는 다음 단계를 완료했습니다.
 
-* 예측 모델을 데이터베이스 테이블에 저장
-* 모델을 생성하는 저장 프로시저 만들기
+* 기계 학습 모델을 생성하는 저장 프로시저 만들기
+* 데이터베이스 테이블에 모델 저장
 * 모델을 사용하여 예측하는 저장 프로시저 만들기
 * 새 데이터로 모델 실행
 

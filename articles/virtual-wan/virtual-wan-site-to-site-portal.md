@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689503"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515157"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -59,11 +59,16 @@ ms.locfileid: "64689503"
 
    * **이름** - 온-프레미스 사이트를 참조할 때 사용하려는 이름입니다.
    * **공용 IP 주소** - 온-프레미스 사이트에 상주하는 VPN 디바이스의 공용 IP 주소입니다.
-   * **개인 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
+   * **프라이빗 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
    * **구독** - 구독을 확인합니다.
    * **리소스 그룹** - 사용하려는 리소스 그룹입니다.
    * **위치**:
-4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. **디바이스 정보**(선택적 필드)를 입력할 수도 있습니다. 이렇게 하면 Azure 팀이 환경을 더 잘 이해하고 향후 최적화 가능성을 높이거나 문제를 해결하는 데 도움이 됩니다.
+4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. 
+
+   **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. Virtual WAN에서 BGP를 구성하는 것은 Azure VPN 게이트웨이에서 BGP를 구성하는 것과 같습니다. 온-프레미스 BGP 피어 주소는 VPN 디바이스의 공용 IP 주소 또는 VPN 사이트의 VNet 주소 공간과 같으면 *절대 안 됩니다*. VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA(169.254.*x*.*x*) 주소는 *안 됩니다*. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서 이 주소를 지정합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
+
+   **디바이스 정보**(선택적 필드)를 입력할 수도 있습니다. 이렇게 하면 Azure 팀이 환경을 더 잘 이해하고 향후 최적화 가능성을 높이거나 문제를 해결하는 데 도움이 됩니다.
+   
 5. **확인**을 클릭합니다.
 6. **확인** 을 클릭한 다음 VPN 사이트 페이지에서 상태를 확인합니다. 사이트가 **프로비저닝 중**에서 **프로비저닝됨**으로 이동됩니다.
 

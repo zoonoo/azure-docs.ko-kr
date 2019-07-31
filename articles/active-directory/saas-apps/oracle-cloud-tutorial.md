@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164145"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596430"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>자습서: Azure Active Directory와 Oracle Cloud Infrastructure Console 통합
 
@@ -165,7 +165,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
       ![구성](./media/oracle-cloud-tutorial/config09.png)
 
-   1. **ID 공급자 그룹** 필드에 Azure Portal에서 설정한 그룹 이름 및 그룹 ID를 입력합니다. 그룹을 **OCI 그룹** 필드의 해당 그룹과 매핑해야 합니다.
+   1. **ID 공급자 그룹**을 [사용자 지정 그룹]으로 선택해야 합니다. 그룹 ID는 Azure Active Directory의 그룹 GUID여야 합니다. 그룹을 **OCI 그룹** 필드의 해당 그룹과 매핑해야 합니다.
 
    1. Azure Portal의 설정 및 조직 요구 사항에 따라 여러 그룹을 매핑할 수 있습니다. **+ 매핑 추가**를 클릭하여 그룹을 필요한 만큼 추가합니다.
 

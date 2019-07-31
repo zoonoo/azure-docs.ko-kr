@@ -12,30 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978739"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596674"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>자습서: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위한 데이터 준비
 
-이 세 부분으로 이루어진 자습서 시리즈의 1부에서는 Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델을 학습하기 위해 Azure SQL Database의 데이터를 준비합니다.
+세 부분으로 이루어진 이 자습서 시리즈의 1부에서는 R을 사용하여 Azure SQL 데이터베이스의 데이터를 가져와서 준비합니다. 이 시리즈의 뒷부분에서 이 데이터를 사용하여 Azure SQL Database Machine Learning Services(미리 보기)에서 R로 예측 기계 학습 모델을 학습시키고 배포합니다.
 
 이 자습서 시리즈에서는 스키 대여 사업을 소유하고 있으며 향후 유지할 대여 수를 예측하려고 한다고 가정해 보겠습니다. 이 정보는 재고, 직원 및 시설을 준비하는 데 도움이 됩니다.
+
+이 시리즈의 1부 및 2부에서는 RStudio에서 R 스크립트를 개발하여 데이터를 준비하고 기계 학습 모델을 학습시킵니다. 그런 다음, 3부에서는 SQL 데이터베이스 내에서 저장 프로시저를 사용하여 이러한 R 스크립트를 실행합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 샘플 데이터베이스를 Azure SQL Database로 가져오기
-> * R을 사용하여 Azure SQL Database의 데이터를 데이터 프레임으로 로드
-> * 일부 열을 범주로 식별하여 데이터 준비
+> * R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
+> * Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+> * 일부 열을 범주로 식별하여 R에서 데이터 준비
 
-[2부](sql-database-tutorial-predictive-model-build-compare.md)에서는 여러 모델을 만들고 학습한 후 가장 정확한 모델을 선택하는 방법을 알아봅니다.
+[2부](sql-database-tutorial-predictive-model-build-compare.md)에서는 R에서 여러 기계 학습 모델을 만들고 학습시킨 후 가장 정확한 모델을 선택하는 방법을 알아봅니다.
 
-[3부](sql-database-tutorial-predictive-model-deploy.md)에서는 데이터베이스에 모델을 저장한 후, 새 데이터를 기준으로 예측을 수행할 수 있는 저장 프로시저를 만드는 방법을 알아봅니다.
+[3부](sql-database-tutorial-predictive-model-deploy.md)에서는 데이터베이스에 모델을 저장한 다음, 1부 및 2부에서 개발한 R 스크립트로 저장 프로시저를 만드는 방법을 알아봅니다. 저장 프로시저는 SQL 데이터베이스에서 실행되어 새 데이터를 기반으로 예측을 만듭니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -158,9 +160,9 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 이 자습서 시리즈의 제1부에서는 다음 단계를 완료했습니다.
 
-* 데이터베이스 백업 파일을 Azure SQL Database로 가져오기
-* R을 사용하여 Azure SQL Database의 데이터를 데이터 프레임으로 로드
-* 일부 열을 범주로 식별하여 데이터 준비
+* R을 사용하여 Azure SQL 데이터베이스로 샘플 데이터베이스 가져오기
+* Azure SQL 데이터베이스의 데이터를 R 데이터 프레임으로 로드
+* 일부 열을 범주로 식별하여 R에서 데이터 준비
 
 TutorialDB 데이터베이스의 데이터를 사용하는 Machine Learning 모델을 만들려면 이 자습서 시리즈의 2부를 따르세요.
 
