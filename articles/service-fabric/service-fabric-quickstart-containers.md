@@ -3,7 +3,7 @@ title: Azure의 Service Fabric에서 Windows 컨테이너 앱 만들기 | Micros
 description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ebc3d988afd9257bbdf045814877ab70012836aa
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225100"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599378"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 

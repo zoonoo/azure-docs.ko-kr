@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99d17b354e267d003e23e507ca190b951e3ed4a0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612609"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608085"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -73,7 +73,7 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 ## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Azure AD 조건부 액세스 및 페더레이션 인증
 
-조건부 액세스 정책은 [페더레이션 인증](../../security/azure-ad-choose-authn.md#federated-authentication)에서 원활하게 작동합니다. 이 지원에는 [Azure AD 보고](../reports-monitoring/concept-sign-ins.md)를 통해 활성 사용자 로그인에 정책이 적용되는 방식에 지원되는 모든 조건 및 컨트롤과 가시성이 포함됩니다.
+조건부 액세스 정책은 [페더레이션 인증](../../security/fundamentals/choose-ad-authn.md#federated-authentication)에서 원활하게 작동합니다. 이 지원에는 [Azure AD 보고](../reports-monitoring/concept-sign-ins.md)를 통해 활성 사용자 로그인에 정책이 적용되는 방식에 지원되는 모든 조건 및 컨트롤과 가시성이 포함됩니다.
 
 *Azure AD에 페더레이션된 인증*이란 신뢰할 수 있는 인증 서비스가 Azure AD에 대한 사용자 인증을 처리한다는 뜻입니다. 신뢰할 수 있는 인증 서비스의 예로는 AD FS(Active Directory Federation Services) 또는 기타 페더레이션 서비스가 있습니다. 이 구성에서는 기본 사용자 인증이 서비스 수준에서 수행된 다음, Azure AD를 사용하여 개별 애플리케이션에 로그인합니다. Azure AD 조건부 액세스는 사용자가 액세스하는 애플리케이션에 대한 액세스를 부여하기 전에 적용됩니다. 
 

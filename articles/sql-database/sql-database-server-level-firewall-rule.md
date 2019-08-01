@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108962"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566781"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 단일 데이터베이스 및 풀링된 데이터베이스에 대한 서버 수준 방화벽 규칙 만들기
 
@@ -38,7 +37,7 @@ SQL Database 서비스는 데이터베이스 서버 수준에서 단일 데이�
 > [!NOTE]
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 > [!IMPORTANT]
-> 0.0.0.0의 방화벽 규칙은 모든 Azure 서비스가 서버 수준 방화벽 규칙을 통과한 후 서버를 통해 단일 또는 풀링된 데이터베이스에 연결을 시도할 수 있게 해줍니다. 가상 네트워크 규칙 사용에 대한 자세한 내용은 [IP 규칙 대신 사용되는 가상 네트워크 규칙](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules)을 참조하세요.
+> 0\.0.0.0의 방화벽 규칙은 모든 Azure 서비스가 서버 수준 방화벽 규칙을 통과한 후 서버를 통해 단일 또는 풀링된 데이터베이스에 연결을 시도할 수 있게 해줍니다. 가상 네트워크 규칙 사용에 대한 자세한 내용은 [IP 규칙 대신 사용되는 가상 네트워크 규칙](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules)을 참조하세요.
 
 다음 단계에 따라 클라이언트의 IP 주소에 대한 서버 수준 IP 방화벽 규칙을 만들고, IP 주소에 대해서만 SQL Database 방화벽을 통해 외부 연결을 사용하도록 설정합니다.
 

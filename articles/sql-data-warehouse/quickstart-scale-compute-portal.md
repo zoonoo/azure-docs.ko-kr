@@ -8,18 +8,18 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: Anthony.vanGemert
+ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c3e48cc57613b107e82cb0fbcb7d69aceb6cf0a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b392bfe44c61b46009ab1ab7f87fb6ef874a7f88
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479269"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641068"
 ---
 ## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 조정
 
-Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

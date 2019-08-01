@@ -9,14 +9,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c1ecd298afb7b4e955ec1633fc19162917ee8726
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a7da65438ffd7db6c43cf2ede7cc52378af056f1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792167"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569213"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -109,4 +108,4 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 - [문제 보고 또는 질문(영문)](https://github.com/Microsoft/msphpsql/issues)
 
-- [재시도 논리 예제: PHP로 SQL에 탄력적으로 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [다시 시도 논리 예제: PHP로 SQL에 탄력적으로 연결](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

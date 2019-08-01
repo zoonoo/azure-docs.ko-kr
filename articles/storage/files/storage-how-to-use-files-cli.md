@@ -1,19 +1,18 @@
 ---
 title: Azure CLI를 사용하여 Azure 파일 공유를 관리하기 위한 빠른 시작
 description: 이 빠른 시작을 통해 Azure CLI를 사용하여 Azure Files를 관리하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43a5a72ac32d8ed3510cecb505f5e62cf91d7106
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93baf275e93c28283836a92c71eb9b24151392fc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710804"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699589"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure CLI를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -189,9 +188,9 @@ az storage file list \
 ## <a name="create-and-manage-share-snapshots"></a>공유 스냅샷 만들기 및 관리
 Azure 파일 공유를 사용하여 수행할 수 있는 유용한 다른 작업은 공유 스냅샷을 만드는 것입니다. 스냅샷은 Azure 파일 공유의 지정 시간 복사본을 유지합니다. 공유 스냅샷은 이미 익숙한 다음과 같은 일부 운영 체제 기술과 비슷합니다.
 
-- Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅숏
-- macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅숏
-- NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅숏을 만들 수 있습니다.
+- Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅샷
+- macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅샷
+- NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 만들 수 있습니다.
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -202,7 +201,7 @@ SNAPSHOT=$(az storage share snapshot \
 ```
 
 ### <a name="browse-share-snapshot-contents"></a>공유 스냅샷 콘텐츠 찾아보기
-`az storage file list` 명령에 대한 `$SNAPSHOT` 변수에서 캡처한 공유 스냅숏의 타임스탬프를 전달하여 공유 스냅숏의 콘텐츠를 찾아볼 수 있습니다.
+`az storage file list` 명령에 대한 `$SNAPSHOT` 변수에서 캡처한 공유 스냅샷의 타임스탬프를 전달하여 공유 스냅샷의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurecli-interactive
 az storage file list \
@@ -250,7 +249,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
-[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다. `--snapshot` 매개 변수에 대한 `$SNAPSHOT` 참조를 포함하는 변수를 사용합니다.
+[`az storage share delete`](/cli/azure/storage/share) 명령을 사용하여 공유 스냅샷을 삭제할 수 있습니다. `--snapshot` 매개 변수에 대한 `$SNAPSHOT` 참조를 포함하는 변수를 사용합니다.
 
 ```azurecli-interactive
 az storage share delete \

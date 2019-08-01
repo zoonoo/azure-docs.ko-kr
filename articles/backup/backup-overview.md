@@ -1,19 +1,19 @@
 ---
 title: Azure Backup이란?
 description: Azure Backup 서비스에 대해 간략히 설명하고, BCDR(비즈니스 연속성 및 재해 복구) 전략에 어떤 방식으로 기여하는지 설명합니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688721"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639640"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup이란?
 

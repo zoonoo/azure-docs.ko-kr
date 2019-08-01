@@ -4,7 +4,7 @@ description: Deep Learning Virtual Machines에 대한 주요 분석 시나리오
 keywords: 심층 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -12,15 +12,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 879f5939f110fb841ad160bf09f597edcdd86d31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: ddf1169d94c3e71b92e8b1835040ab5738bf94b8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502199"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591898"
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Deep Learning Virtual Machine 소개
 

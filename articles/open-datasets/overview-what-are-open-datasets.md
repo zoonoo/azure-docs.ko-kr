@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b01ad5a4fd8808c1e841ba2fb47ea06ece011010
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051048"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598979"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Azure Open Datasets(미리 보기)란 무엇이며 사용하려면 어떻게 해야 하나요?
 
@@ -58,4 +58,4 @@ Open Datasets는 Azure Machine Learning Service 및 Azure Databricks에 데이�
 ## <a name="next-steps"></a>다음 단계
 * [샘플 Notebook](samples.md)
 * [자습서: 뉴욕 택시 데이터를 사용하는 회귀 모델링](tutorial-opendatasets-automl.md)
-* [공개 데이터 세트용 Python SDK](https://aka.ms/open-datasets-api)
+* [공개 데이터 세트용 Python SDK](/python/api/azureml-opendatasets/?view=azure-ml-py)
