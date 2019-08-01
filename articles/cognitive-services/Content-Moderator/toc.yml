@@ -11,16 +11,16 @@
       href: quick-start.md
     - name: 클라이언트 SDK 사용
       items:
-        - name: 'C#'
+        - name: .NET SDK 사용
           items:
             - name: 이미지 콘텐츠 분석
               href: image-moderation-quickstart-dotnet.md
             - name: 텍스트 콘텐츠 분석
               href: text-moderation-quickstart-dotnet.md
-        - name: Python
-          items:
-            - name: 텍스트 콘텐츠 분석
-              href: text-moderation-quickstart-python.md
+        - name: Python SDK 사용
+          href: python-sdk-quickstart.md
+        - name: Java SDK 사용
+          href: java-sdk-quickstart.md
 - name: 자습서
   items:
     - name: 전자 상거래 이미지 관리
