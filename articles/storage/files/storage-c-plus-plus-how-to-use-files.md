@@ -1,19 +1,18 @@
 ---
 title: C++를 사용하여 Azure Files 개발 | Microsoft Docs
 description: Azure Files를 사용하여 파일 데이터를 저장하는 C++ 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717930"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699792"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 
@@ -370,5 +369,5 @@ Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

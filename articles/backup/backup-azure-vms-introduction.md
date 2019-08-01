@@ -1,18 +1,18 @@
 ---
 title: Azure VM 백업 정보
 description: Azure VM 백업에 대해 알아보고 몇 가지 모범 사례를 확인합니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465224"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639735"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM 백업 정보
 
@@ -111,8 +111,8 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 VM 백업을 구성 하는 경우 다음 방법을 따르는 것이 좋습니다.
 
 - 정책에 설정 된 기본 일정 시간을 수정 합니다. 예를 들어 정책의 기본 시간이 12:00 AM 인 경우 리소스가 최적으로 사용 되도록 몇 분 간격으로 시간을 증가 시킵니다.
-- Premium storage를 사용 하는 Vm 백업의 경우 최신 버전의 Azure Backup ([즉시 복원](backup-instant-restore-capability.md))을 실행 하는 것이 좋습니다. 최신 버전을 실행 하지 않는 경우 백업은 총 저장소 공간의 50%를 기준으로 할당 됩니다. 백업 서비스는 동일한 저장소 계정에 스냅숏을 복사 하 고 자격 증명 모음으로 전송 하기 위해이 공간이 필요 합니다.
 - 단일 자격 증명 모음에서 Vm을 복원 하는 경우에는 다른 [범용 v2 저장소 계정을](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 사용 하 여 대상 저장소 계정이 제한 되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM에는 다른 저장소 계정이 있어야 합니다. 예를 들어 10 개의 Vm을 복원 하는 경우 10 개의 서로 다른 저장소 계정을 사용 합니다.
+- 즉시 복원을 사용 하 여 premium storage를 사용 하는 Vm 백업의 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업 **에서만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 - 스냅숏이 동일한 저장소 계정에 있으므로 범용 v1 저장소 계층 (스냅숏)의 복원이 몇 분 안에 완료 됩니다. 범용 v2 저장소 계층 (자격 증명 모음)에서 복원은 몇 시간이 걸릴 수 있습니다. 범용 v1 저장소에서 데이터를 사용할 수 있는 경우 빠른 복원 기능을 사용 하 여 빠른 [복원](backup-instant-restore-capability.md) 기능을 사용 하는 것이 좋습니다. 자격 증명 모음에서 데이터를 복원 해야 하는 경우에는 더 많은 시간이 소요 됩니다.
 - 저장소 계정 당 디스크 수 제한은 IaaS (infrastructure as a service) VM에서 실행 되는 응용 프로그램에서 디스크에 액세스 하는 정도를 기준으로 합니다. 일반적으로 단일 저장소 계정에 5-10 개의 디스크가 있는 경우 일부 디스크를 별도의 저장소 계정으로 이동 하 여 부하를 분산 합니다.
 

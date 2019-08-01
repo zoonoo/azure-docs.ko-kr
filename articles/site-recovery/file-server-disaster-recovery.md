@@ -5,15 +5,15 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772158"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708129"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -54,9 +54,9 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Azure로 재해 복구에 대한 결정 사항에 고려해야 할 요소
 
-|Environment  |권장 사항  |고려할 항목 |
+|환경  |권장  |고려할 항목 |
 |---------|---------|---------|
-|DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.
+|DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.<br>  Site Recovery은 거의 동기 데이터 복제 프로세스를 제공 하므로 계획 되지 않은 장애 조치 (failover) 시나리오의 경우 데이터가 손실 될 수 있으며 USN 불일치 문제가 발생할 수 있습니다.
 |DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 확장된 DFSR](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR은 대역폭 환경에서 잘 작동합니다. 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용을 고려해야 합니다.         |
 |Azure IaaS VM     |     파일 동기화    |     재해 복구 시나리오에서 파일 동기화를 사용하는 경우 장애 조치(failover) 중 파일 공유가 투명한 방식으로 클라이언트 컴퓨터에 액세스할 수 있는지 확인하기 위해 수동 작업을 수행해야 합니다. 파일 동기화에는 클라이언트 컴퓨터에서 포트 445가 열려 있어야 합니다.     |
 
@@ -64,7 +64,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 ### <a name="site-recovery-support"></a>Site Recovery 지원
 Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
 
-| source    |보조 사이트 대상    |Azure 대상
+| Source    |보조 사이트 대상    |Azure 대상
 |---------|---------|---------|
 |Azure| -|예|
 |Hyper-V|   예 |예
@@ -74,6 +74,8 @@ Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 �
 
 > [!IMPORTANT]
 > 다음 세 가지 방법을 계속 진행하기 전에 해당 종속성이 처리되는지를 확인합니다.
+
+
 
 **사이트 간 연결**: 서버 간 통신을 허용하도록 온-프레미스 사이트와 Azure 네트워크 간에 직접 연결을 설정해야 합니다. 재해 복구 사이트로 사용되는 Azure 가상 네트워크에 안전한 사이트 간 VPN 연결을 사용합니다. 자세한 내용은 [온-프레미스 사이트와 Azure 가상 네트워크 간의 사이트 간 VPN 연결 설정](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)을 참조하세요.
 

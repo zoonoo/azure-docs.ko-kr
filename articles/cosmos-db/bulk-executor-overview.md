@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257093"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637781"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -38,17 +38,17 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 저장
 
 * Azure Cosmos DB 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Bulk Executor의 작동 방식 
+## <a name="how-does-the-bulk-executor-operate"></a>대량 실행 기는 어떻게 작동 하나요? 
 
 문서를 가져오기 또는 업데이트하는 대량 작업이 엔터티의 일괄 처리로 트리거되는 경우 처음에 Azure Cosmos DB 파티션 키 범위에 해당하는 버킷에 섞입니다. 파티션 키 범위에 해당하는 각 버킷 내에서 미니 일괄 처리로 나뉘고 각 미니 일괄 처리는 서버 쪽에서 커밋되는 페이로드로 작동합니다. 대량 실행기 라이브러리는 파티션 키 범위 내 및 전반 모두에서 이러한 미니 일괄 처리를 동시에 실행할 수 있도록 최적화되어 빌드되었습니다. 다음 이미지에서는 대량 실행기가 다른 파티션 키로 데이터를 일괄 처리하는 방법을 보여줍니다.  
 
 ![Bulk Executor 아키텍처](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk Executor 라이브러리는 컬렉션에 할당된 처리량을 최대로 활용합니다. 각 Azure Cosmos DB 파티션 키 범위에 대해  [AIMD 스타일 정체 제어 메커니즘](https://tools.ietf.org/html/rfc5681)을 사용하여 속도 제한 및 제한 시간을 효율적으로 처리합니다. 
+대량 실행자 라이브러리를 사용 하면 컬렉션에 할당 된 처리량을 최대 활용할 수 있습니다. 각 Azure Cosmos DB 파티션 키 범위에 대해  [AIMD 스타일 정체 제어 메커니즘](https://tools.ietf.org/html/rfc5681)을 사용하여 속도 제한 및 제한 시간을 효율적으로 처리합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
   
-* [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 Bulk Executor 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다.  
+* [.Net](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행자 라이브러리를 사용 하는 샘플 응용 프로그램을 사용해 보세요.  
 * [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql-api-sdk-bulk-executor-java.md)에서 대량 실행기 SDK 정보 및 릴리스 정보를 확인하세요.
-* Bulk Executor 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](spark-connector.md) 문서를 참조하세요.  
+* 대량 실행자 라이브러리는 Cosmos DB Spark 커넥터에 통합 되어 있습니다. 자세한 내용은 [Azure Cosmos DB spark 커넥터](spark-connector.md) 문서를 참조 하세요.  
 * 또한 대량 실행기 라이브러리는 Azure Data Factory가 데이터를 복사할 수 있도록 [Azure Cosmos DB 커넥터](https://aka.ms/bulkexecutor-adf-v2)의 새 버전에 통합됩니다.

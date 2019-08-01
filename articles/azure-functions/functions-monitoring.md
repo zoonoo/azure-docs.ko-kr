@@ -4,19 +4,19 @@ description: Azure Functions에서 Azure 애플리케이션 Insights를 사용 �
 services: functions
 author: ggailey777
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304353"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619604"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -124,7 +124,7 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| Table | Description |
+| Table | 설명 |
 | ----- | ----------- |
 | **traces** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대해 하나의 요청 |
@@ -152,9 +152,9 @@ traces
 
 Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 
 
-함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. "함수 시작 됨", "함수 실행" 및 "함수 완료" 로그에는 "Host. Executor" 범주가 있습니다. 
+함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. 버전 `function started`1.x에서, `function executed`및 `function completed` 로그에는 범주가 `Host.Executor`있습니다. 2\.x 버전부터 이러한 로그에는 범주가 `Function.<YOUR_FUNCTION_NAME>`있습니다.
 
-함수 코드에서 로그를 작성 하는 경우 해당 범주는 "Function"입니다.
+함수 코드에서 로그를 작성 하는 경우 범주 `Function` 는 함수 런타임의 버전 1.x에 있습니다. 버전 2.x에서 범주 `Function.<YOUR_FUNCTION_NAME>.User`는입니다.
 
 ### <a name="log-levels"></a>로그 수준
 
@@ -624,7 +624,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ![포털에서 스트리밍 로그 보기](./media/functions-monitoring/streaming-logs-window.png)
 
-### <a name="visual-studio-code"></a>Visual Studio Code
+### <a name="visual-studio-code"></a>Visual Studio 코드
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

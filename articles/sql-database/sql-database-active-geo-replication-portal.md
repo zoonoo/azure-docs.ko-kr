@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 058afdbc4aa134b5b3c4c8cc5e9e2f2ae6f53084
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60864135"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569653"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(failover) 시작
 
@@ -25,7 +24,7 @@ ms.locfileid: "60864135"
 
 단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. Managed Instance(미리 보기)를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [관리되는 인스턴스를 사용하는 장애 조치(failover) 그룹 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리소스가 필요합니다.
 
@@ -73,7 +72,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
     ![장애 조치](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 장애 조치를 시작하려면 **예** 를 클릭합니다.
 
-이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 일반적으로이 프로세스 내 30 초 이내에 완료 해야 합니다.
+이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 이 프로세스는 일반적으로 30 초 이내에 완료 되어야 합니다.
 
 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다.
 

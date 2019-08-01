@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b63cfc67e20158e434e1a401d47144c3e0f90c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472616"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618748"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 보고서 분석
 
@@ -41,9 +41,6 @@ ms.locfileid: "61472616"
 **하루에 관찰된 일반적인 데이터 변동(GB)** : 모든 프로파일링 기간(일) 동안 관찰된 평균 데이터 변동입니다. 이 숫자는 배포에서 사용되는 구성 서버 및 추가 프로세스 서버의 수를 결정하기 위한 입력 중 하나로 사용됩니다.
 
 ## <a name="recommendations"></a>권장 사항
-
->[!Note]
->디스크 관리에 직접 복제 하는 경우 저장소 계정의 수에 대 한 권장 사항을 무시 합니다.
 
 VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하는 RPO에 따라 다음과 같은 세부 정보가 포함됩니다.
 
@@ -95,7 +92,7 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 모든 엔터프라이즈 Site Recovery 배포의 경우 [ExpressRoute](https://aka.ms/expressroute)를 사용하는 것이 좋습니다.
 
 ### <a name="required-storage-accounts"></a>필요한 저장소 계정
-다음 차트에서는 호환되는 모든 VM을 보호하는 데 필요한 저장소 계정(표준 및 프리미엄)의 총 수를 보여 줍니다. 각 VM에 사용할 저장소 계정에 대해 알아보려면 "VM 저장소 배치" 섹션을 참조하세요.
+다음 차트에서는 호환되는 모든 VM을 보호하는 데 필요한 저장소 계정(표준 및 프리미엄)의 총 수를 보여 줍니다. 각 VM에 사용할 저장소 계정에 대해 알아보려면 "VM 저장소 배치" 섹션을 참조하세요. Deployment Planner v 2.5를 사용 하는 경우이 권장 사항은 데이터를 Managed Disks에 직접 기록 하기 때문에 복제에 필요한 표준 캐시 저장소 계정의 수만 보여 줍니다.
 
 ![Deployment Planner에 필요한 저장소 계정](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -129,17 +126,17 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 
 ![비용 예측 요약](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
-이 요약은 Azure Site Recovery를 사용하여 호환 가능한 모든 VM을 Azure로 보호하는 경우에 스토리지, 계산, 네트워크 및 라이선스에 대해 지불해야 하는 비용을 이해하는 데 도움이 됩니다. 비용은 프로파일링된 모든 VM이 아닌 호환 가능한 VM에 대해 계산됩니다.  
+이 요약은 Azure Site Recovery를 사용하여 호환 가능한 모든 VM을 Azure로 보호하는 경우에 스토리지, 컴퓨팅, 네트워크 및 라이선스에 대해 지불해야 하는 비용을 이해하는 데 도움이 됩니다. 비용은 프로파일링된 모든 VM이 아닌 호환 가능한 VM에 대해 계산됩니다.  
 
 월별 또는 연도별 비용을 볼 수 있습니다. [지원되는 대상 지역](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 및 [지원되는 통화](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)에 대해 자세히 알아보세요.
 
-**구성 요소별 비용** 총 DR 비용은 다음 네 가지 구성 요소로 구분됩니다. 컴퓨팅, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용. 비용은 복제 중에 발생하는 사용량 및 DR 드릴 시간에 계산, 스토리지(프리미엄 및 표준), 온-프레미스 사이트와 Azure 사이에 구성된 ExpressRoute/VPN 및 Azure Site Recovery 라이선스에 대해 발생하는 사용량을 기반으로 계산됩니다.
+**구성 요소별 비용** 총 DR 비용은 다음 네 가지 구성 요소로 구분됩니다. 컴퓨팅, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용. 비용은 복제 중에 발생하는 사용량 및 DR 드릴 시간에 컴퓨팅, 스토리지(프리미엄 및 표준), 온-프레미스 사이트와 Azure 사이에 구성된 ExpressRoute/VPN 및 Azure Site Recovery 라이선스에 대해 발생하는 사용량을 기반으로 계산됩니다.
 
 **상태별 비용**: 총 DR(재해 복구) 비용은 복제 및 DR 드릴이라는 두 가지 다른 상태를 기반으로 분류됩니다.
 
 **복제 비용**:  복제 중에 발생하는 비용입니다. 저장소, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다.
 
-**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Azure Site Recovery는 테스트 장애 조치(failover) 중에 VM을 작동합니다. DR 드릴 비용은 VM의 계산 및 스토리지를 실행하는 비용을 포함합니다.
+**DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Azure Site Recovery는 테스트 장애 조치(failover) 중에 VM을 작동합니다. DR 드릴 비용은 VM의 컴퓨팅 및 스토리지를 실행하는 비용을 포함합니다.
 
 **월간/연간 Azure 저장소 비용**: 복제 및 DR 드릴을 위해 프리미엄 및 표준 저장소에 대해 발생할 총 저장소 비용을 보여줍니다.
 VM당 자세한 비용 분석은 [비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md) 시트에서 볼 수 있습니다.
@@ -160,21 +157,19 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 ## <a name="vm-storage-placement"></a>VM-저장소 배치
 
 >[!Note]
->디스크 관리에 직접 복제 하는 경우 저장소 계정의 수에 걱정할 필요가 없습니다. 저장소에 대 한 권장 구성만 storage (Standard 또는 Premium)의 형식에 사용 합니다. 형식이 같은 관리 디스크에 적용 됩니다.
+>Deployment Planner v 2.5는 관리 디스크에 직접 복제 되는 컴퓨터에 대 한 저장소 배치를 권장 합니다.
 
 ![VM-저장소 배치](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**디스크 스토리지 유형**: **배치할 VM** 열에 언급된 해당 VM을 모두 복제하는 데 사용되는 표준 또는 프리미엄 스토리지 계정입니다.
+**복제 저장소 유형**: **Vm** 에서 언급 된 모든 해당 vm을 복제 하는 데 사용 되는 표준 또는 프리미엄 관리 디스크 중 하나입니다.
 
-**제안된 접두사**: 스토리지 계정의 이름을 지정하는 데 사용할 수 있는 3자로 구성된 접두사 제안입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [저장소 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
+**로그 저장소 계정 유형**: 모든 복제 로그는 표준 스토리지 계정에 저장됩니다.
 
-**제안된 계정 이름**: 제안된 접두사 다음에 포함시킬 스토리지 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
+**저장소 계정에 대 한 제안 된 접두사**: 캐시 저장소 계정의 이름을 지정 하는 데 사용할 수 있는 제안 된 3 자 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [저장소 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
 
-**로그 스토리지 계정**: 모든 복제 로그는 표준 스토리지 계정에 저장됩니다. Premium Storage 계정에 복제하는 VM의 경우 로그 스토리지에 대한 추가 표준 스토리지 계정을 설정합니다. 여러 프리미엄 복제 저장소 계정에서 단일 표준 로그 저장소 계정을 사용할 수 있습니다. 표준 스토리지 계정에 복제된 VM은 로그에 대해 동일한 스토리지 계정을 사용합니다.
+**제안된 로그 계정 이름**: 제안된 접두사 다음에 포함시킬 스토리지 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
-**제안된 로그 계정 이름**: 제안된 접두사 다음에 포함시킬 스토리지 로그 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
-
-**배치 요약**: 복제 및 테스트 장애 조치(failover) 또는 장애 조치 시 스토리지 계정의 총 VM 부하에 대한 요약입니다. 저장소 계정에 매핑된 총 VM 수, 이 저장소 계정에 배치되는 모든 VM의 총 읽기/쓰기 IOPS, 총 쓰기(복제) IOPS, 모든 디스크에 설정된 총 크기 및 총 디스크 수를 포함합니다.
+**배치 요약**: 저장소 유형별로 보호 된 Vm에 필요한 디스크의 요약입니다. 총 Vm 수, 모든 디스크에서 프로 비전 된 총 크기 및 총 디스크 수를 포함 합니다.
 
 **배치할 Virtual Machines**: 최적의 성능과 사용을 위해 지정된 스토리지 계정에 배치해야 하는 모든 VM의 목록입니다.
 
@@ -183,7 +178,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들면 다음과 같습니다.
+**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들어:
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -195,9 +190,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **스토리지 유형**: 표준 또는 프리미엄입니다.
 
-**제안된 접두사**: 3자로 된 스토리지 계정 접두사입니다.
-
-**스토리지 계정**: 제안된 스토리지 계정 접두사를 사용하는 이름입니다.
+**복제를 위해 만든 Asrseeddisk (관리 디스크)** : 복제를 사용 하도록 설정할 때 생성 되는 디스크의 이름입니다. Azure에 데이터와 해당 스냅숏을 저장 합니다.
 
 **최고 R/W IOPS(증가율 포함)** : 향후 증가율(기본값: 30%)을 포함한 디스크의 최고 워크로드 읽기/쓰기 IOPS(기본값: 95번째 백분위수)입니다. 참고로 VM의 최고 읽기/쓰기 IOPS는 프로파일링 기간의 매분마다 개별 디스크의 읽기/쓰기 IOPS를 합친 최고값이기 때문에 VM의 총 읽기/쓰기 IOPS가 항상 VM에 속한 개별 디스크의 읽기/쓰기 IOPS 합계가 되는 것은 아닙니다.
 
@@ -238,7 +231,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 * 원본 IOPS가 VM당 지원되는 저장소 IOPS 한도(80,000)를 초과합니다.
 
-* 평균 데이터 변동률이 디스크의 평균 I/O 크기에 대해 지원되는 Site Recovery 데이터 변동률 한도(10MB/s)를 초과합니다.
+* 평균 데이터 변동이 디스크의 평균 i/o 크기에 대해 지원 되는 Site Recovery 데이터 변동 제한인 20mb/s를 초과 합니다.
 
 * 평균 데이터 변동률이 VM의 평균 I/O 크기(모든 디스크 변동률의 합계)에 지원되는 Site Recovery 데이터 변동률 한도(25MB/s)를 초과합니다.
 
@@ -279,7 +272,7 @@ Standard Storage | 8KB | 2MB/초 | 디스크당 168GB
 프리미엄 P10 또는 P15 디스크 | 16KB | 4MB/초 |  디스크당 336GB
 프리미엄 P10 또는 P15 디스크 | 32KB 이상 | 8MB/초 | 디스크당 672GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
-프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 MB/s | 디스크당 1684 GB
+프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 | 20 m b/초 | 디스크당 1684
 
 **원본 데이터 변동률** | **최대 제한**
 ---|---

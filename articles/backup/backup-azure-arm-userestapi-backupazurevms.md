@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: REST API를 사용 하 여 Azure Vm 백업'
 description: REST API를 사용하여 Azure VM 백업의 백업 작업 관리
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API, Azure VM 백업, Azure VM 복원,
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: e78c7ca9e5b39beb160aeef96dbbf6bce07613e4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466830"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688719"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -46,7 +47,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     동의함    |
@@ -185,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |속성     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -299,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |속성     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -324,7 +325,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     동의함    |
 

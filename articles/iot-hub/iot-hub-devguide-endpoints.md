@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055349"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640609"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -78,18 +78,18 @@ IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 
 * Azure Storage 컨테이너
 * Event Hubs
 * Service Bus 큐
-* Service Bus 토픽
+* Service Bus 항목
 
 추가할 수 있는 엔드포인트의 수에 대한 제한은 [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 
-REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 끝점의 상태를 가져오려고 합니다. 사용 하는 것이 좋습니다 합니다 [IoT Hub 메트릭](iot-hub-metrics.md) 식별 하 고 대기 시간이 끝점 이러한 상태 중 하나일 때 더 높은 것으로 예상한 대로 데드 또는 비정상 끝점 상태는 경우 오류를 디버그 하는 라우팅 메시지 대기 시간과 관련 된 합니다.
+REST API [가져오기 끝점 상태](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 를 사용 하 여 끝점 상태를 가져올 수 있습니다. 끝점이 이러한 상태 중 하나에 있을 때 대기 시간이 더 길어질 수 있으므로, 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다.
 
 |상태|설명|
 |---|---|
-|healthy|끝점은 예상 대로 메시지를 수락.|
-|비정상|이 끝점에 데이터를 보내도록 IoT Hub 다시 시도 하 고 끝점에서 예상 대로 메시지를 수락 하지 않습니다. IoT Hub 상태 최종적으로 일관 된 상태를 설정한 경우 비정상 끝점의 상태를 정상으로 업데이트 됩니다.|
-|알 수 없음|IoT Hub 끝점을 사용 하 여 연결 되었습니다. 메시지가 배달 하거나이 끝점에서 거부 했습니다.|
-|배달 못 한 편지|IoT Hub retrial 기간에 대 한 보내는 메시지를 다시 시도 후 끝점에 메시지를 수락 하지 않습니다.|
+|정상|끝점이 예상 대로 메시지를 수락 합니다.|
+|상태가|끝점이 예상 대로 메시지를 수락 하지 않으며 IoT Hub이 끝점으로 데이터를 보내려고 시도 하는 중입니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.|
+|알 수 없음|IoT Hub 끝점에 대 한 연결을 설정 하지 않았습니다. 이 끝점에서 전달 되거나 거부 된 메시지가 없습니다.|
+|무반응|IoT Hub에서 retrial 기간 동안 메시지 보내기를 다시 시도한 후에는 끝점에서 메시지를 수락 하지 않습니다.|
 
 ## <a name="field-gateways"></a>현장 게이트웨이
 
@@ -104,3 +104,4 @@ IoT 솔루션에서 *필드 게이트웨이*는 디바이스와 IoT Hub 엔드�
 * [디바이스 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)
 * [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)
+* [IoT hub IP 주소 이해](iot-hub-understand-ip-address.md)

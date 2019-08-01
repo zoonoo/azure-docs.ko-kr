@@ -1,18 +1,19 @@
 ---
 title: Azure Backup 에이전트 문제 해결
 description: Azure Backup 에이전트의 설치 및 등록 문제 해결
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465977"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689211"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 

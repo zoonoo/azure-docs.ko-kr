@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/10/2019
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595599"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597473"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 PolyBase 데이터 로드 전략 설계
 
@@ -49,7 +49,7 @@ SQL Data Warehouse용 PolyBase ELT을 구현하는 기본적인 단계는 다음
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 
-PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. SQL DW 데이터 형식 매핑 Parquet 다음과 같습니다.
+PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to SQL DW 데이터 형식 매핑은 다음과 같습니다.
 
 | **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -66,15 +66,15 @@ PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서
 |        string         |                           NVARCHAR                           |
 |        string         |                             char                             |
 |        string         |                           varchar                            |
-|        binary         |                            binary                            |
-|        binary         |                          varbinary                           |
+|        이진         |                            이진                            |
+|        이진         |                          varbinary                           |
 |       timestamp       |                             날짜                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          Datetime2                           |
 |       timestamp       |                           Datetime                           |
 |       timestamp       |                             Time                             |
-|       날짜        | 1) int로 로드 하 고 날짜를 캐스팅 합니다. </br> 2) [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
-|        Decimal        | [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
+|       날짜            |                             날짜                             |
+|        Decimal        |                            Decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Azure Blob Storage 또는 Azure Data Lake Store에 데이터 저장
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f06b0866f5a79756f3404d7911f03bcdcc7f67d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808400"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608043"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -41,7 +41,7 @@ App Service는 서로 다른 계층 간의 원활한 크기 조정 환경을 지
 <a id="developmentframeworks"></a>
 
 ## <a name="development-frameworks"></a>개발 프레임워크
-App Service 가격 책정 계층은 앱에서 사용할 수 있는 계산 리소스(CPU, 디스크 스토리지, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 앱에서 사용할 수 있는 프레임워크 기능의 범위는 크기 조정 계층에 관계없이 동일하게 유지됩니다.
+App Service 가격 책정 계층은 앱에서 사용할 수 있는 컴퓨팅 리소스(CPU, 디스크 스토리지, 메모리, 네트워크 송신)의 양을 제어합니다. 하지만 앱에서 사용할 수 있는 프레임워크 기능의 범위는 크기 조정 계층에 관계없이 동일하게 유지됩니다.
 
 App Service는 ASP.NET, 클래식 ASP, node.js, PHP, Python을 포함하여 다양한 개발 프레임워크를 지원합니다. 이 프레임워크는 모두 IIS 내에서 확장으로 실행됩니다. 보안 구성을 간소화하고 일반화하기 위해 App Service 앱은 일반적으로 다양한 개발 프레임워크를 기본 설정으로 실행합니다. 개별 개발 프레임워크별로 API 노출 영역 및 기능을 사용자 지정하여 앱을 구성하는 접근 방식을 사용할 수도 있습니다. 대신 App Service는 앱의 개발 프레임워크에 관계없이 일반적인 기준 운영 체제 기능을 사용하여 보다 일반적인 접근 방식을 취합니다.
 
@@ -55,17 +55,17 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>로컬 드라이브
-근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음 내용이 포함됩니다.
+근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음을 포함합니다.
 
 - 운영 체제 드라이브(D:\ 드라이브)
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들면 다음과 같습니다. 
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예: 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.
-- Azure DevOps 또는 Visual Studio에서 배포 실패 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`합니다.
+- Azure DevOps 또는 Visual Studio에서 배포가 실패할 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`수 있습니다.
 - 앱 성능이 저하될 수 있습니다.
 
 <a id="NetworkDrives"></a>
@@ -96,7 +96,7 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>네트워크 액세스
-애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이 동일한 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다.&#151;예를 들어 SQL Database에 대한 HTTPS 연결을 설정하면 됩니다.
+애플리케이션 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이러한 동일한 프로토콜을 사용 하 여 Azure 내에서 서비스에 연결할 수 있습니다. 예를 들어 SQL Database에 대 한 HTTPS 연결을 설정할 수 있습니다.
 
 앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "프라이빗" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
 

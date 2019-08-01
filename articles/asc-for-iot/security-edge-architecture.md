@@ -1,6 +1,6 @@
 ---
-title: IoT Edge에 대 한 IoT 보안 모듈에 대 한 Azure Security Center 이해 | Microsoft Docs
-description: IoT Edge에 대 한 아키텍처와 IoT 보안 모듈에 대 한 Azure Security Center의 기능을 이해 합니다.
+title: IoT Edge 미리 보기용 IoT 보안 모듈에 대 한 Azure Security Center 이해 | Microsoft Docs
+description: IoT Edge 용 IoT 보안 모듈 Azure Security Center의 아키텍처 및 기능을 이해 합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,59 +13,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4581f66a3401764237621bee86228aac724ec0af
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616450"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596864"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 보안 모듈
 
 > [!IMPORTANT]
-> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 worklo§1ads에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> IoT Edge 용 IoT 서비스 Azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 에 지에서 비즈니스 워크플로 수행 하는 강력한 기능을 제공 합니다.
-IoT Edge는 IoT 환경에서 수행 하는 핵심 있도록 특히 매력적인 악의적인 행위자에 대 한 합니다.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 는에 지에서 비즈니스 워크플로를 관리 하 고 수행 하기 위한 강력한 기능을 제공 합니다.
+IoT 환경에서 IoT Edge를 재생 하는 주요 부분은 악의적인 행위자에 게 특히 유용 합니다.
 
-IoT 보안 모듈에 대 한 azure 보안 센터 (ASC) 포괄적인 보안 솔루션을 제공 하 여 IoT Edge 장치입니다.
-ASC IoT 모듈에 대 한 집계 하며 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 분석 하 여 실행 가능한 보안 권장 사항 및 경고를 수집 합니다.
+IoT 보안 모듈에 대 한 Azure Security Center IoT Edge 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다.
+IoT 모듈 Azure Security Center는 운영 체제 및 컨테이너 시스템에서 원시 보안 데이터를 수집 하 고 집계 하 고 분석 하 여 실행 가능한 보안 권장 사항 및 경고로 변환 합니다.
 
-마찬가지로 ASC IoT 장치에 대 한 IoT 보안 에이전트에 대 한 IoT Edge 모듈에 대 한 ASC는 사용자 지정 모듈 쌍을 통해.
-참조 [에이전트를 구성할](how-to-agent-configuration.md) 에 대해 자세히 알아보세요.
+Iot 장치에 대 한 IoT 보안 에이전트의 Azure Security Center와 마찬가지로 모듈 쌍을 통해 IoT Edge 모듈의 Azure Security Center를 사용자 지정할 수 있습니다.
+자세히 알아보려면 [에이전트 구성](how-to-agent-configuration.md) 을 참조 하세요.
 
-ASC IoT Edge에 대 한 IoT 보안 모듈에 대 한 다음 기능을 제공 합니다.
+IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center는 다음과 같은 기능을 제공 합니다.
 
-- 기본 운영 체제 (Linux) 및 IoT Edge 컨테이너 시스템에서 원시 보안 이벤트를 수집합니다.
+- 기본 운영 체제 (Linux) 및 IoT Edge 컨테이너 시스템에서 원시 보안 이벤트를 수집 합니다.
   
-  참조 [ASC IoT 에이전트 구성을](how-to-agent-configuration.md) 사용 가능한 보안 데이터 수집기에 자세히 알아보려면 합니다.
+  사용 가능한 보안 데이터 수집기에 대 한 자세한 내용은 [IoT 에이전트 구성 Azure Security Center](how-to-agent-configuration.md) 를 참조 하세요.
 
-- IoT Edge 배포 매니페스트 분석 합니다.
+- IoT Edge 배포 매니페스트를 분석 합니다.
 
-- 원시 보안 이벤트를 보내는 메시지로 집계 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)합니다.
+- [IoT Edge 허브](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 통해 전송 되는 메시지에 원시 보안 이벤트를 집계 합니다.
 
-- 보안 모듈 쌍의 구성을 사용 하 여 제거 합니다.
+- 보안 모듈 쌍을 사용 하 여 구성을 제거 합니다.
 
-  참조 [IoT 에이전트용를 ASC 구성](how-to-agent-configuration.md) 에 대해 자세히 알아보세요.
+  자세히 알아보려면 [IoT 에이전트에 대 한 Azure Security Center 구성](how-to-agent-configuration.md) 을 참조 하세요.
 
-ASC IoT Edge에 대 한 IoT 보안 모듈에 대 한 IoT Edge에서 특권된 모드에서 실행 됩니다.
-특권된 모드는 운영 체제를 모니터링 하는 모듈 및 다른 IoT Edge 모듈을 허용 해야 합니다.
+IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center IoT Edge의 특권 모드에서 실행 됩니다.
+모듈에서 운영 체제 및 기타 IoT Edge 모듈을 모니터링할 수 있도록 하려면 특권 모드가 필요 합니다.
 
-## <a name="agent-supported-platforms"></a>에이전트 지원 플랫폼
+## <a name="module-supported-platforms"></a>모듈 지원 플랫폼
 
-IoT Edge에 대 한 IoT 보안 모듈에 대 한 ASC는 현재 Linux에 사용할만.
+IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center는 현재 Linux 에서만 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IoT Edge에 대 한 아키텍처와 ASC의 IoT 보안 모듈에 대 한 기능에 대 한 학습 있습니다.
+이 문서에서는 IoT Edge 용 IoT 보안 모듈 Azure Security Center의 아키텍처 및 기능에 대해 알아보았습니다.
 
-ASC를 사용 하 여 IoT 배포에 대 한 시작 작업을 계속 하려면 다음 문서를 사용 합니다.
+IoT 배포에 대 한 Azure Security Center 시작 하려면 다음 문서를 사용 하세요.
 
-- 배포 [IoT Edge에 대 한 보안 모듈](how-to-deploy-edge.md)
-- 자세한 방법 [보안 모듈 구성](how-to-agent-configuration.md)
-- IoT 용 ASC 검토 [필수 구성 요소 서비스](service-prerequisites.md)
-- 자세한 방법 [IoT Hub에 IoT 서비스에 대 한 ASC를 사용 하도록 설정](quickstart-onboard-iot-hub.md)
-- 서비스에 대 한 자세한 정보는 [ASC IoT faq](resources-frequently-asked-questions.md)
+- [IoT Edge에 대 한 보안 모듈](how-to-deploy-edge.md) 배포
+- [보안 모듈을 구성](how-to-agent-configuration.md) 하는 방법 알아보기
+- IoT [서비스 필수 구성 요소](service-prerequisites.md) 에 대 한 Azure Security Center 검토
+- [IoT Hub에서 IoT 서비스에 Azure Security Center를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법을 알아봅니다.
+- [IoT에 대 한 AZURE SECURITY CENTER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대해 자세히 알아보세요.

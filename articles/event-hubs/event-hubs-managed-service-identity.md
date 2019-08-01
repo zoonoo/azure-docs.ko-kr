@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978437"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707060"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs를 통해 Azure 리소스에 관리 ID 사용
 
@@ -27,28 +27,28 @@ ms.locfileid: "65978437"
 관리 ID와 연결된 Event Hubs 클라이언트는 권한이 부여된 모든 작업을 수행할 수 있습니다. 관리 ID를 Event Hubs 역할에 연결하는 방식을 통해 권한이 부여됩니다. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs 역할 및 사용 권한
-관리 되는 id를 추가할 수 있습니다 합니다 **Event Hubs 데이터 소유자** Event Hubs 네임 스페이스의 역할입니다. 이 역할에는 네임 스페이스에 있는 모든 엔터티 (대 한 관리 및 데이터 작업) 전체 컨트롤 id를 부여합니다.
+Event Hubs 네임 스페이스의 **Event Hubs 데이터 소유자** 역할에 관리 되는 id를 추가할 수 있습니다. 이 역할은 네임 스페이스의 모든 엔터티에 대 한 모든 권한 (관리 및 데이터 작업의 경우)을 부여 합니다.
 
 >[!IMPORTANT]
-> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **소유자** 또는 **참가자** 역할입니다. 그러나 데이터 액세스에 대 한 권한을 **소유자** 하 고 **참가자** 역할은 더 이상 적용 합니다. 사용 중인 경우는 **소유자** 또는 **참가자** 역할을 사용 하도록 전환 합니다 **Event Hubs 데이터 소유자** 역할입니다.
+> 이전에는 **소유자** 또는 **참가자** 역할에 관리 id를 추가 하는 것이 지원 되었습니다. 그러나 **소유자** 및 **참여자** 역할에 대 한 데이터 액세스 권한은 더 이상 허용 되지 않습니다. **소유자** 또는 **참가자** 역할을 사용 하는 경우 **Event Hubs 데이터 소유자** 역할을 사용 하 여로 전환 합니다.
 
-새 기본 제공 역할을 사용 하려면 다음이 단계를 수행 합니다. 
+새 기본 제공 역할을 사용 하려면 다음 단계를 수행 합니다. 
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-2. Event Hubs 네임 스페이스를 이동 합니다.
-3. 에 **Event Hubs Namespace** 페이지에서 **액세스 제어 (iam)** 왼쪽된 메뉴에서.
-4. 에 **액세스 제어 (IAM)** 페이지에서 **추가** 에 **역할 할당을 추가** 섹션입니다. 
+2. Event Hubs 네임 스페이스로 이동 합니다.
+3. **Event Hubs 네임 스페이스** 페이지의 왼쪽 메뉴에서 **Access Control (IAM)** 을 선택 합니다.
+4. **Access Control (IAM)** 페이지의 **역할 할당 추가** 섹션에서 **추가** 를 선택 합니다. 
 
-    ![역할 할당 단추 추가](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. 에 **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다. 
-    1. 에 대 한 **역할**를 선택 **Azure Event Hubs 데이터 소유자**합니다. 
-    2. 선택 된 **identity** 역할을 추가할 수 있습니다.
-    3. **저장**을 선택합니다. 
+    ![역할 할당 추가 단추](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다. 
+    1. **역할**에 대해 **Azure Event Hubs 데이터 소유자**를 선택 합니다. 
+    2. 역할에 추가할 **id** 를 선택 합니다.
+    3.           **저장**을 선택합니다. 
 
-        ![이벤트 허브 데이터 소유자 역할](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. 로 전환 합니다 **역할 할당** 페이지 및 사용자 추가 되어 있는지 확인 합니다 **Azure Event Hubs 데이터 소유자** 역할. 
+        ![데이터 소유자 역할 Event Hubs](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. **역할 할당** 페이지로 전환 하 고 사용자가 **Azure Event Hubs 데이터 소유자** 역할에 추가 되었는지 확인 합니다. 
 
-    ![사용자가 역할에 추가 확인](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![사용자가 역할에 추가 되었는지 확인](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Event Hubs에서 Azure 리소스용 관리 ID 사용
 
@@ -74,13 +74,13 @@ ms.locfileid: "65978437"
 
 ### <a name="create-a-new-event-hubs-namespace"></a>새 Event Hubs 네임스페이스 만들기
 
-그런 다음, [Event Hubs 네임 스페이스 만들기](event-hubs-create.md)합니다. 
+다음으로 [Event Hubs 네임 스페이스를 만듭니다](event-hubs-create.md). 
 
 포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 관리형 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 애플리케이션의 이름을 검색하고 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다. 이제 웹 애플리케이션의 관리 ID는 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다. 
 
 ### <a name="run-the-app"></a>앱 실행
 
-이제 만든 ASP.NET 애플리케이션의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp)에서 웹 애플리케이션 코드를 사용할 수도 있습니다. 
+이제 만든 ASP.NET 애플리케이션의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp)에서 웹 애플리케이션 코드를 사용할 수도 있습니다. 
 
 앱을 시작한 후 브라우저로 EventHubsMSIDemo.aspx를 가리킵니다. 이 페이지를 시작 페이지로 설정할 수도 있습니다. 이 코드는 EventHubsMSIDemo.aspx.cs 파일에서 찾을 수 있습니다. 그 결과 몇 가지 입력 필드와 이벤트를 보내거나 받기 위해 Event Hubs에 연결되는 **전송** 및 **수신** 단추가 있는 최소 웹 애플리케이션이 생성됩니다. 
 

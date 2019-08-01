@@ -1,5 +1,5 @@
 ---
-title: Java JMS Service Bus API에서 AMQP 1.0를 사용 하는 방법 | Microsoft Docs
+title: Java 메시지 서비스 API와 함께 AMQP 1.0 사용 및 Azure Service Bus
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318451"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662893"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -341,7 +342,7 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS 토픽 및 Service Bus 토픽
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 토픽 및 Service Bus 항목
 JMS (Java Message Service) API를 통해 Azure Service Bus 토픽 및 구독을 사용 하면 기본 송신 및 수신 기능이 제공 됩니다. Jms 규격 Api를 사용 하 여 다른 메시지 브로커의 응용 프로그램을 이식 하는 경우에는 Service Bus 항목이 JMS 항목과 다르며 몇 가지 조정이 필요 하더라도 편리 합니다. 
 
 Azure Service Bus 항목은 Azure 리소스 관리 인터페이스, Azure 명령줄 도구 또는 Azure Portal를 통해 관리 되는 명명 된 공유 및 지 속성 구독으로 메시지를 라우팅합니다. 각 구독은 최대 2000 개의 선택 규칙을 허용 합니다. 각 규칙에는 필터 조건이 있고 SQL 필터의 경우 메타 데이터 변환 동작도 있습니다. 각 필터 조건 일치는 tehj subscription으로 복사할 입력 메시지를 선택 합니다.  
@@ -374,6 +375,7 @@ Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 
 | createBrowser               | 지원되지 않습니다. Service Bus API의 Peek() 기능을 사용합니다.                         |
 | createQueue                 | 관리 API/도구/포털을 통해 큐를 만듭니다.                                           | 
 | createTemporaryQueue        | *AutoDeleteOnIdle*이 만료 기간으로 설정된 관리 API/도구/포털을 통해 큐를 만듭니다. |
+| receiveNoWait               | Service Bus SDK에서 제공 하는 receive () 메서드를 활용 하 고 매우 낮거나 0 시간 제한을 지정 합니다. |
 
 ## <a name="summary"></a>요약
 이 방법 가이드에서는 널리 사용되는 JMS API 및 AMQP 1.0을 통해 Java에서 Service Bus 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법을 설명했습니다.

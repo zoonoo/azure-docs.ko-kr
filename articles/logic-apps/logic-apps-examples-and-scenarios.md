@@ -1,5 +1,5 @@
 ---
-title: 예제 및 일반적인 시나리오 - Azure Logic Apps | Microsoft Docs
+title: 일반적인 시나리오 & 예제 Azure Logic Apps
 description: Azure Logic Apps의 예제, 시나리오, 자습서 및 연습
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/2018
-ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.date: 07/31/2019
+ms.openlocfilehash: 000de22105615c3f6aa015b07e13bf8a47955b52
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385511"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706793"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 를 사용 하면 온-프레미스 SQL SERVER 또는 SAP에서 Azure Cognitive Services에 이르는 [수백 개의 바로 사용 가능한 커넥터](../connectors/apis-list.md)를 제공 하 여 다양 한 서비스를 오케스트레이션 하 고 통합할 수 있습니다. Logic Apps 서비스는 "서버가 없으므로" 규모 나 인스턴스를 걱정할 필요가 없습니다. 트리거가 있는 워크플로와 워크플로가 수행하는 작업을 정의하기만 하면 됩니다. 기본 플랫폼에서 규모, 가용성 및 성능을 처리합니다. Logic Apps는 여러 시스템에서 다수의 작업을 조정해야 하는 사용 사례 및 시나리오에 특히 유용합니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 지원하는 다양한 패턴 및 기능에 대해 자세히 알아볼 수 있는 일반적인 예제 및 시나리오는 다음과 같습니다.
+Azure Logic Apps에서 지 원하는 다양 한 패턴 및 기능에 대 한 자세한 내용은 일반적인 예제 및 시나리오를 참조 하세요.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>논리 앱 워크플로에 가장 많이 사용되는 시작점
 
@@ -33,23 +33,31 @@ ms.locfileid: "68385511"
 
 다음은 많이 사용되는 트리거 예제입니다.
 
-* 폴링: 
+* 폴링:
 
-  * [**일정 - 되풀이** 트리거](../connectors/connectors-native-recurrence.md)를 사용하면 논리 앱을 실행하는 시작 날짜와 시간 및 되풀이를 설정할 수 있습니다. 
-  예를 들어 논리 앱을 트리거하는 요일과 시간을 선택할 수 있습니다.
+  * [ **되풀이** 트리거](../connectors/connectors-native-recurrence.md) 를 사용 하면 시작 날짜와 시간을 논리 앱을 실행 하기 위한 되풀이로 설정할 수 있습니다. 예를 들어 논리 앱을 트리거하는 요일과 시간을 선택할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
-  * "전자 메일이 수신될 때" 트리거를 사용하면 Logic Apps에 지원되는 모든 전자 메일 공급자(예: [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/) 등)의 새 전자 메일을 논리 앱에서 확인할 수 있습니다.
+    * [Azure Logic Apps를 사용 하 여 반복적인 자동화 된 작업, 프로세스 및 워크플로 예약 및 실행](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+    * [자습서: Azure Logic Apps를 사용 하 여 일정에 대 한 트래픽 확인](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+
+  * "전자 메일이 수신될 때" 트리거를 사용하면 Logic Apps에 지원되는 모든 전자 메일 공급자(예: [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/) 등)의 새 전자 메일을 논리 앱에서 확인할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요. 
+
+    * [자습서: Azure Logic Apps으로 메일 그룹 요청 관리](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [자습서: Azure Logic Apps를 사용 하 여 전자 메일 및 첨부 파일 처리 자동화](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * [**HTTP** 트리거](../connectors/connectors-native-http.md)를 사용하면 논리 앱은 HTTP 통신을 통해 지정된 서비스 엔드포인트를 확인할 수 있습니다.
   
 * 푸시:
 
-  * [**요청/응답 - 요청** 트리거](../connectors/connectors-native-reqres.md)를 사용하면 논리 앱이 HTTP 요청을 수신하고 어떤 식으로든 이벤트에 실시간으로 응답할 수 있습니다.
+  * [ **요청** 트리거](../connectors/connectors-native-reqres.md) 를 사용 하면 논리 앱이 HTTP 요청을 수신 하 고 어떤 방식으로든 이벤트에 실시간으로 응답할 수 있습니다.
 
-  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL*을 등록하여 서비스 엔드포인트를 구독합니다. 
-  서비스가 이런 방식으로 지정된 이벤트가 발생할 때 트리거에 알릴 수 있으므로 트리거가 서비스를 폴링할 필요가 없습니다.
+  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL*을 등록하여 서비스 엔드포인트를 구독합니다. 서비스가 이런 방식으로 지정된 이벤트가 발생할 때 트리거에 알릴 수 있으므로 트리거가 서비스를 폴링할 필요가 없습니다.
 
-새 데이터 또는 이벤트에 대한 알림을 수신하면 트리거가 실행되고 새 논리 앱 워크플로 인스턴스가 만들어지고 워크플로에서 작업이 실행됩니다. 워크플로 전체 트리거의 모든 데이터에 액세스할 수 있습니다. 예를 들어 "새 트윗에서" 트리거는 트윗 콘텐츠를 논리 앱 실행으로 전달합니다. 
+새 데이터 또는 이벤트에 대한 알림을 수신하면 트리거가 실행되고 새 논리 앱 워크플로 인스턴스가 만들어지고 워크플로에서 작업이 실행됩니다. 워크플로 전체 트리거의 모든 데이터에 액세스할 수 있습니다. 예를 들어 "새 트윗에서" 트리거는 트윗 콘텐츠를 논리 앱 실행으로 전달합니다. Azure Logic Apps를 시작 하려면 다음과 같은 빠른 시작 항목을 사용해 보세요.
+
+* [빠른 시작: Azure Portal에서 Azure Logic Apps를 사용 하 여 첫 번째 자동화 된 워크플로 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [빠른 시작: Visual Studio를 사용 하 여 Azure Logic Apps으로 자동화 된 작업, 프로세스 및 워크플로 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [빠른 시작: Visual Studio Code를 사용 하 여 자동화 된 논리 앱 워크플로 만들기 및 관리](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>트리거에 응답 및 작업 확장
 
@@ -81,6 +89,10 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 * [Visual Studio에서 논리 앱 만들기 및 배포](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [기존 논리 앱에 대한 모니터링, 로깅 및 경고 켜기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>콘텐츠 형식, 변환 및 실행 내에서 변형
 
@@ -112,6 +124,5 @@ Azure Logic Apps가 다른 Azure 서비스 및 Microsoft 제품과 함께 복잡
 
 ## <a name="next-steps"></a>다음 단계
 
-* [JSON으로 논리 앱 정의에 따라 빌드](../logic-apps/logic-apps-author-definitions.md)
-* [논리 앱에서 오류 및 예외 처리](../logic-apps/logic-apps-exception-handling.md)
-* [Azure Logic Apps를 개선을 위한 의견, 질문, 피드백 또는 제안 사항 제출](https://feedback.azure.com/forums/287593-logic-apps)
+* [Logic Apps 커넥터](../connectors/apis-list.md) 에 대해 알아보기
+* [Azure Logic Apps 사용 하는 B2B 엔터프라이즈 통합 시나리오](../logic-apps/logic-apps-enterprise-integration-overview.md) 에 대해 알아보기

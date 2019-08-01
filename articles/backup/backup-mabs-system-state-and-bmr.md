@@ -1,19 +1,19 @@
 ---
 title: Azure Backup Server로 시스템 상태 보호 및 완전 복구로 복원
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: raynew
-ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12412122ba116eedc592fadc57949f707e52c355
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465043"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639675"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 

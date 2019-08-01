@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409168"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698332"
 ---
 # <a name="cluster-tuning"></a>클러스터 튜닝
 
@@ -46,8 +46,6 @@ ms.locfileid: "60409168"
 클라우드 NAS 또는 게이트웨이 시나리오(vFXT 클러스터에서 NAS 스타일 액세스를 클라우드 컨테이너에 제공하는 경우)에서 vFXT 클러스터와 클라우드 저장소 간에 더 빠른 데이터 속도를 활용하려는 경우, 담당자는 설정을 다음과 같이 변경하여 데이터를 캐시에서 저장소 볼륨으로 더 적극적으로 푸시하도록 권장할 수 있습니다.
 
 * 클러스터와 저장소 컨테이너 간의 TCP 연결 수를 늘립니다.
-* 즉시 성공하지 않으면 쓰기를 더 빨리 다시 시도할 수 있도록 클러스터와 저장소 간의 통신에 대한 REST 시간 제한 값을 줄입니다.  
-* 각 백 엔드 쓰기 세그먼트에서 1MB 대신 8MB의 데이터 청크를 전송할 수 있도록 세그먼트 크기를 늘립니다.
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>클라우드 버스팅 또는 하이브리드 WAN 최적화
 

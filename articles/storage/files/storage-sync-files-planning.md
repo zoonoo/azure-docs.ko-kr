@@ -1,19 +1,18 @@
 ---
 title: Azure 파일 동기화 배포에 대한 계획 | Microsoft Docs
 description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798672"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699330"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +24,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="azure-file-sync-terminology"></a>Azure 파일 동기화 용어
 Azure 파일 동기화 배포 계획을 세부적으로 알아보기 전에 용어를 이해하는 것이 중요합니다.
 
-### <a name="storage-sync-service"></a>저장소 동기화 서비스
+### <a name="storage-sync-service"></a>스토리지 동기화 서비스
 저장소 동기화 서비스는 Azure 파일 동기화의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 스토리지 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 스토리지 계정과 동기화 관계를 만들 수 있기 때문에 스토리지 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
 
 ### <a name="sync-group"></a>동기화 그룹
@@ -69,10 +68,10 @@ Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용�
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 파일 동기화 시스템 요구 사항 및 상호 운용성 
 이 섹션에서는 Azure 파일 동기화 에이전트 시스템 요구 사항 및 Windows Server 기능과 역할 및 타사 솔루션과의 상호 운용성에 대해 설명합니다.
 
-### <a name="evaluation-cmdlet"></a>평가 cmdlet
-Azure File Sync를 배포 하기 전에 Azure File Sync 평가 cmdlet을 사용 하 여 시스템 호환 되는지 여부를 평가 해야 합니다. 이 cmdlet은 파일 시스템 및 데이터 집합에 지원 되지 않는 문자 또는 지원 되지 않는 OS 버전을 사용 하 여 잠재적인 문제를 확인합니다. 이 검사에는 아래에 언급된 기능 전부는 아니지만 대부분이 포함됩니다. 이 섹션의 나머지 부분을 자세히 참조하여 배포가 원활하게 진행되도록 하는 것이 좋습니다. 
+### <a name="evaluation-cmdlet"></a>Evaluation cmdlet
+Azure File Sync를 배포 하기 전에 Azure File Sync evaluation cmdlet을 사용 하 여 시스템과 호환 되는지 여부를 평가 해야 합니다. 이 cmdlet은 파일 시스템 및 데이터 집합 (예: 지원 되지 않는 문자 또는 지원 되지 않는 OS 버전)의 잠재적인 문제를 확인 합니다. 이 검사에는 아래에 언급된 기능 전부는 아니지만 대부분이 포함됩니다. 이 섹션의 나머지 부분을 자세히 참조하여 배포가 원활하게 진행되도록 하는 것이 좋습니다. 
 
-다음 지침에 따라 설치할 수 있는 Az PowerShell 모듈을 설치 하 여 평가 cmdlet은 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
+다음 지침에 따라 설치할 수 있는 Az PowerShell module을 설치 하 여 evaluation cmdlet을 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
 
 #### <a name="usage"></a>사용법  
 평가 도구는 몇 가지 다른 방법으로 호출할 수 있습니다. 즉 시스템 검사, 데이터 세트 검사 또는 둘 다를 수행할 수 있습니다. 시스템 검사 및 데이터 세트 검사를 모두 수행하려면 다음을 수행합니다. 
@@ -102,9 +101,9 @@ Azure File Sync를 배포 하기 전에 Azure File Sync 평가 cmdlet을 사용 
 
     | 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter 및 Standard | 전체 및 핵심 |
-    | Windows Server 2016 | Datacenter 및 Standard | 전체 및 핵심 |
-    | Windows Server 2012 R2 | Datacenter 및 Standard | 전체 및 핵심 |
+    | Windows Server 2019 | Datacenter 및 Standard | 전체 및 코어 |
+    | Windows Server 2016 | Datacenter 및 Standard | 전체 및 코어 |
+    | Windows Server 2012 R2 | Datacenter 및 Standard | 전체 및 코어 |
 
     이후 버전의 Windows Server는 출시되면 추가될 예정입니다.
 
@@ -123,11 +122,11 @@ Azure File Sync를 배포 하기 전에 Azure File Sync 평가 cmdlet을 사용 
 | 기능 | 상태 지원 | 참고 |
 |---------|----------------|-------|
 | ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure 파일 동기화에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
-| 하드 링크 | 생략 | |
-| 바로 가기 링크 | 생략 | |
+| 하드 링크 | 건너 뜀 | |
+| 바로 가기 링크 | 건너 뜀 | |
 | 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 엔드포인트의 루트일 수 있지만, 서버 엔드포인트의 네임스페이스에 포함된 경우 건너뜁니다. |
-| 분기 동기화 | 생략 | 분산 파일 시스템 DfrsrPrivate 및 DFSRoots 폴더를 예로 들 수 있습니다. |
-| 재분석 지점 | 생략 | |
+| 분기 동기화 | 건너 뜀 | 분산 파일 시스템 DfrsrPrivate 및 DFSRoots 폴더를 예로 들 수 있습니다. |
+| 재분석 지점 | 건너 뜀 | |
 | NTFS 압축 | 완전하게 지원 | |
 | 스파스 파일 | 완전하게 지원 | 스파스 파일은 동기화되지만(차단되지 않음) 전체 파일로 클라우드와 동기화됩니다. 클라우드(또는 다른 서버)에서 파일 콘텐츠가 변경될 경우 변경 내용이 다운로드되면 파일은 더 이상 스파스 파일이 아닙니다. |
 | ADS(대체 데이터 스트림) | 보존되지만 동기화되지 않음 | 예를 들어, 파일 분류 인프라에서 만들어진 분류 태그는 동기화되지 않습니다. 각 서버 엔드포인트의 파일에 대한 기존 분류 태그는 그대로 유지됩니다. |
@@ -157,29 +156,29 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 **에이전트 버전 5.0.2.0 이상**   
-Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화가 사용 하도록 설정 된 볼륨에 데이터 중복 제거를 사용 하면 더 많은 저장소를 프로 비전 하지 않고 더 많은 파일 온-프레미스 캐시. 
+Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 더 많은 저장소를 프로 비전 하지 않고 온-프레미스에서 더 많은 파일을 캐시할 수 
 
-클라우드 계층화가 사용 하도록 설정, 데이터 중복 제거 볼륨에 활성화 된 경우 서버 끝점 위치 내에서 액세스에 최적화 된 중복 제거 파일 계층화 됩니다 클라우드 계층화 정책 설정에 따라 파일을 일반 비슷합니다. 한 번 최적화 된 파일이 계층화 되어 중복 제거, 데이터 중복 제거 가비지 수집 작업 자동으로 실행 됩니다 더 이상 참조 되지 않는 불필요 한 청크를 제거 하 여 디스크 공간을 확보 하려면 볼륨에 있는 다른 파일에서 합니다.
+클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 서버 끝점 위치 내의 중복 제거 최적화 파일은 클라우드 계층화 정책 설정에 따라 일반 파일과 비슷하게 계층화 됩니다. 중복 제거 최적화 파일이 계층화 되 면 데이터 중복 제거 가비지 수집 작업이 자동으로 실행 되어 볼륨의 다른 파일에서 더 이상 참조 되지 않는 불필요 한 청크를 제거 하 여 디스크 공간을 회수 합니다.
 
-볼륨 공간 절약에 대해서만 서버에 적용 하는 참고 Azure 파일 공유에 데이터를 중복 제거 수 됩니다.
+볼륨 절감은 서버에만 적용 됩니다. Azure 파일 공유의 데이터는 중복 제거 된 되지 않습니다.
 
 **Windows Server 2012 R2 또는 이전 에이전트 버전**  
 클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다.
 
 **참고**
-- Azure File Sync 에이전트를 설치 하기 전에 데이터 중복 제거를 설치 하는 경우 다시 시작은 데이터 중복 제거와 같은 볼륨에 계층화 하는 클라우드를 지원 해야 합니다.
-- 클라우드 후 볼륨에 데이터 중복 제거를 사용 하는 경우 계층화가 사용, 초기 중복 제거 최적화 작업이 이미 계층화 하지 않아도 되는 클라우드에서 다음 영향을 주지는 볼륨에 파일을 최적화를 계층화 합니다.
-    - 열 지도 사용 하 여 볼륨에서 사용 가능한 공간에 따라 계층 파일 공간 정책 계속 됩니다.
-    - 날짜 정책 계층화 되었을 수도 있는 그렇지 않은 경우 파일에 액세스 하는 중복 제거 최적화 작업으로 인해 계층화에 적합 한 파일을 건너뜁니다.
-- 중복 제거 최적화 작업의 진행 중인 경우 클라우드 계층화가 날짜 정책과 가져오기 지연 데이터 중복 제거에 의해 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 설정, 파일을 계층화 하지 않아도 됩니다. 
-    - 예제: MinimumFileAgeDays 설정을 7 일 이며 클라우드 계층화 날짜 정책을 30 일을 하는 경우 날짜 정책 37 일이 지나면 파일을 계층화 됩니다.
-    - 참고: Azure File Sync에서 파일을 계층화 할 경우 되 면 중복 제거 최적화 작업에서 파일을 건너뜁니다.
-- Windows Server 2016 또는 Windows Server 2019에 Azure File Sync 에이전트가 설치 된 Windows Server 2012 R2를 실행 하는 서버를 업그레이드 하는 경우 데이터 중복 제거 및 클라우드 계층화 같은 볼륨에 지원 하기 위해 다음 단계를 수행 해야 합니다.  
-    - Windows Server 2012 R2에 대 한 Azure File Sync 에이전트를 제거 하 고 서버를 다시 시작 합니다.
+- Azure File Sync 에이전트를 설치 하기 전에 데이터 중복 제거를 설치한 경우 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하려면 다시 시작 해야 합니다.
+- 클라우드 계층화를 사용 하도록 설정한 후 볼륨에서 데이터 중복 제거를 사용 하는 경우 초기 중복 제거 최적화 작업은 볼륨에서 아직 계층화 되지 않은 파일을 최적화 하 고 클라우드 계층화에 다음과 같은 영향을 미칩니다.
+    - 사용 가능한 공간 정책은 열 지도를 사용 하 여 볼륨의 사용 가능한 공간에 따라 파일을 계속 계층 합니다.
+    - 날짜 정책은 파일에 액세스 하는 중복 제거 최적화 작업으로 인해 계층화 될 수 있는 파일의 계층화를 건너뜁니다.
+- 지속적인 중복 제거 최적화 작업의 경우 파일이 아직 계층화 되지 않은 경우 데이터 중복 제거 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 설정에 의해 날짜 정책을 사용한 클라우드 계층화가 지연 됩니다. 
+    - 예제: MinimumFileAgeDays 설정이 7 일이 고 클라우드 계층화 날짜 정책이 30 일인 경우 날짜 정책은 37 일 후에 파일을 계층화 합니다.
+    - 참고: 파일이 Azure File Sync에 의해 계층화 되 면 중복 제거 최적화 작업은 파일을 건너뜁니다.
+- Azure File Sync 에이전트가 설치 된 Windows Server 2012 r 2를 실행 하는 서버를 Windows Server 2016 또는 Windows Server 2019로 업그레이드 하는 경우 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하려면 다음 단계를 수행 해야 합니다.  
+    - Windows Server 2012 r 2 용 Azure File Sync 에이전트를 제거 하 고 서버를 다시 시작 합니다.
     - 새 서버 OS 버전 (Windows Server 2016 또는 Windows Server 2019)에 대 한 Azure File Sync 에이전트를 다운로드 합니다.
     - Azure File Sync 에이전트를 설치 하 고 서버를 다시 시작 합니다.  
     
-    참고: 서버에서 Azure File Sync 구성 설정에 에이전트를 제거 하 고 다시 설치 하는 경우 유지 됩니다.
+    참고: 에이전트를 제거 하 고 다시 설치 하면 서버의 Azure File Sync 구성 설정이 유지 됩니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
@@ -211,7 +210,7 @@ Azure 파일 동기화 에이전트가 설치되어 있는 서버에서 sysprep 
 Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(System Center Endpoint Protection) 모두는 이 특성이 설정된 파일 읽기를 자동으로 건너뜁니다. 이러한 솔루션을 테스트하여 하나의 사소한 문제를 확인했습니다. 즉 기존 동기화 그룹에 서버를 추가하면 800바이트보다 작은 파일이 새 서버에서 회수(다운로드)됩니다. 이러한 파일은 새 서버에 남아 있지만 계층화 크기 요구 사항(64kb 초과)을 충족하지 않으므로 계층화되지 않습니다.
 
 > [!Note]  
-> 바이러스 백신 공급 업체는 해당 제품 및 Azure File Sync를 사용 하 여 간의 호환성을 확인할 수는 [Azure 파일 동기화 바이러스 백신 호환성 테스트 도구 모음](https://www.microsoft.com/download/details.aspx?id=58322), 인 Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
+> 바이러스 백신 공급 업체는 Microsoft 다운로드 센터에서 다운로드할 수 있는 [Azure File Sync 바이러스 백신 호환성 테스트 도구 모음](https://www.microsoft.com/download/details.aspx?id=58322)을 사용 하 여 제품과 Azure File Sync 간의 호환성을 확인할 수 있습니다.
 
 ### <a name="backup-solutions"></a>백업 솔루션
 바이러스 백신 솔루션과 같은 백업 솔루션은 계층화된 파일이 회수되도록 할 수 있습니다. 온-프레미스 백업 제품을 사용하지 않고 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 백업하는 것이 좋습니다.
@@ -244,35 +243,35 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 
 | Region | 데이터 센터 위치 |
 |--------|---------------------|
-| 오스트레일리아 동부 | 뉴사우스웨일스 |
-| 오스트레일리아 남동부 | 빅토리아 |
-| 브라질 남부 | 상파울루 Paolo 상태 |
+| 오스트레일리아 동부 | New South Wales |
+| 오스트레일리아 남동부 | Victoria |
+| 브라질 남부 | 상 Paolo 상태 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
 | 인도 중부 | 푸네 |
-| 미국 중부 | 아이오와 |
-| 동아시아 | 홍콩 특별 행정구 |
-| East US | 버지니아 |
-| 미국 동부2 | 버지니아 |
+| 미국 중부 | Iowa |
+| 아시아 동부 | 홍콩 특별 행정구 |
+| East US | Virginia |
+| 미국 동부2 | Virginia |
 | 프랑스 중부 | 파리 |
 | 한국 중부| 서울 |
 | 한국 남부| 부산 |
 | 일본 동부 | 도쿄, 사이타마 |
 | 일본 서부 | 오사카 |
-| 미국 중북부 | 일리노이 |
-| 북유럽 | 아일랜드 |
-| 미국 중남부 | 텍사스 |
+| 미국 중북부 | Illinois |
+| 유럽 북부 | 아일랜드 |
+| 미국 중남부 | Texas |
 | 인도 남부 | 첸나이 |
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
 | 영국 서부 | 카디프 |
-| 미국 정부 애리조나 | 애리조나 |
-| 미국 정부 텍사스 | 텍사스 |
-| 미국 정부 버지니아 | 버지니아 |
-| 서유럽 | 네덜란드 |
-| 미국 중서부 | 와이오밍 |
-| 미국 서부 | 캘리포니아 |
-| 미국 서부 2 | 워싱턴 |
+| US Gov 애리조나 | Arizona |
+| US Gov 텍사스 | Texas |
+| US Gov 버지니아 | Virginia |
+| 유럽 서부 | 네덜란드 |
+| 미국 중서부 | Wyoming |
+| 미국 서부 | California |
+| 미국 서부 2 | Washington |
 
 Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
 
@@ -284,7 +283,7 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 
 지역 중복 저장소 및 Azure 파일 동기화 간의 장애 조치 통합을 지원하려면 모든 Azure 파일 동기화 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
 
-| 주 지역      | 쌍을 이루는 지역      |
+| 기본 지역      | 쌍을 이루는 지역      |
 |---------------------|--------------------|
 | 오스트레일리아 동부      | 오스트레일리아 남동부|
 | 오스트레일리아 남동부 | 오스트레일리아 동부     |
@@ -293,7 +292,7 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 캐나다 동부         | 캐나다 중부     |
 | 인도 중부       | 인도 남부        |
 | 미국 중부          | 미국 동부 2          |
-| 동아시아           | 동남아시아     |
+| 아시아 동부           | 동남아시아     |
 | East US             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
 | 프랑스 중부      | 프랑스 남부       |
@@ -301,17 +300,17 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 일본 서부          | 일본 동부         |
 | 한국 중부       | 한국 남부        |
 | 한국 남부         | 한국 중부      |
-| 북유럽        | 서유럽        |
+| 유럽 북부        | 유럽 서부        |
 | 미국 중북부    | 미국 중남부   |
 | 미국 중남부    | 미국 중북부   |
 | 인도 남부         | 인도 중부      |
-| 동남아시아      | 동아시아          |
+| 동남아시아      | 아시아 동부          |
 | 영국 남부            | 영국 서부            |
 | 영국 서부             | 영국 남부           |
-| 미국 정부 애리조나      | 미국 정부 텍사스       |
-| 미국 아이오와 주 정부         | 미국 정부 버지니아    |
-| 미국 정부 버지니아      | 미국 정부 텍사스       |
-| 서유럽         | 북유럽       |
+| US Gov 애리조나      | US Gov 텍사스       |
+| US Gov 아이오와         | US Gov 버지니아    |
+| US Gov 버지니아      | US Gov 텍사스       |
+| 유럽 서부         | 유럽 북부       |
 | 미국 중서부     | 미국 서부 2          |
 | 미국 서부             | East US            |
 | 미국 서부 2           | 미국 중서부    |

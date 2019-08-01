@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c06a16071b1e22e7aa788ff5f15ce8afbf17da04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724095"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568930"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
 
@@ -75,7 +74,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
+축하합니다. 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a id="Linux"></a>5단계: Linux C/C++ 애플리케이션에서 연결
 아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 애플리케이션도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 머신](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다.
@@ -120,7 +119,7 @@ Windows ODBC 샘플과 마찬가지로 SQLDriverConnect 호출을 Azure Portal�
 
 ![Linux 콘솔 창 출력](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-축하합니다! 이 자습서를 성공적으로 완료했습니다. 이제 Windows 및 Linux 플랫폼의 C++에서 Azure SQL DB에 연결할 수 있습니다.
+축하합니다. 이 자습서를 성공적으로 완료했습니다. 이제 Windows 및 Linux 플랫폼의 C++에서 Azure SQL DB에 연결할 수 있습니다.
 
 ## <a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 찾을 수 있습니다.
@@ -132,7 +131,7 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [SQL Database 개발 개요](sql-database-develop-overview.md)
 * [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 모든 [SQL Database의 기능](https://azure.microsoft.com/services/sql-database/)
 

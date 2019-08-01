@@ -1,18 +1,19 @@
 ---
 title: Azure Backup용 데이터 모델
 description: 이 문서는 Azure Backup 보고서에 대한 Power BI 데이터 모델 정보에 대해 설명합니다.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: adigan
-ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 53051c88d5723f61fa08e431bdf7ab531e88123e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465591"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689142"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure Backup 보고서용 데이터 모델
 이 문서에서는 Azure Backup 보고서를 만드는 데 사용되는 Power BI 데이터 모델을 설명합니다. 이 데이터 모델을 사용하여 관련 필드를 기반으로 하는 기존 보고서를 필터링할 수 있으며 무엇보다도 모델의 테이블 및 필드를 사용하여 사용자 고유의 보고서를 만들 수 있습니다. 
@@ -43,7 +44,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="backup-item"></a>Backup 항목
 이 표에서는 다양한 백업 항목 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | #BackupItems |정수 |백업 항목의 수 |
 | #UnprotectedBackupItems |정수 |보호가 중지되었거나 백업이 구성되었지만 백업이 시작하지 않은 백업 항목의 수|
@@ -61,7 +62,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="calendar"></a>Calendar
 이 표에서는 일정 관련 필드에 대한 세부 정보를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | 날짜 |날짜 |데이터 필터링에 대해 선택한 날짜 |
 | DateKey |텍스트 |각 날짜 항목에 대한 고유 키 |
@@ -98,7 +99,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="policy"></a>정책
 이 표에서는 다양한 정책 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | #Policies |정수 |시스템에 있는 백업 정책 수 |
 | #PoliciesInUse |정수 |백업 구성에 현재 사용되고 있는 정책 수 |
@@ -132,7 +133,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="protected-server"></a>보호된 서버
 이 표에서는 다양한 보호된 서버 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
-| 필드 | 데이터 형식 | 설명 |
+| 필드 | 데이터 형식 | Description |
 | --- | --- | --- |
 | #ProtectedServers |정수 |보호된 서버의 수 |
 | AsOnDateTime |Date/Time |선택한 행에 대한 최신 새로 고침 시간 |
@@ -162,7 +163,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="time"></a>시간
 이 표에서는 시간 관련 필드에 대한 세부 정보를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | Hour |시간 |하루의 시간(예: 1:00:00 PM) |
 | HourNumber |10진수 |하루의 시간 수(예: 13.00) |
@@ -174,7 +175,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 ### <a name="vault"></a>Vault
 이 표에서는 다양한 자격 증명 모음 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | #Vaults |정수 |자격 증명 모음의 수 |
 | AsOnDateTime |Date/Time |선택한 행에 대한 최신 새로 고침 시간 |

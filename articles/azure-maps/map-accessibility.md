@@ -2,21 +2,18 @@
 title: Azure Maps로 액세스 가능한 애플리케이션 만들기 | Microsoft Docs
 description: Azure Maps를 사용하여 액세스 가능한 애플리케이션을 작성하는 방법
 services: azure-maps
-keywords: ''
 author: chgennar
 ms.author: chgennar
-ms.date: 09/17/2018
-ms.topic: article
+ms.date: 07/29/2019
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
 manager: timlt
-ms.devlang: na
-ms.openlocfilehash: ef948b4dca3d3800a81ac52f3a73beee2558d21c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8865027c895be09150797608e43184f1fdefb267
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769705"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638779"
 ---
 # <a name="building-an-accessible-application"></a>액세스 가능한 애플리케이션 작성
 
@@ -37,7 +34,7 @@ ms.locfileid: "60769705"
 이 문서에서 사용된 팝업 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 추가 코드 샘플을 확인해 보세요.
 

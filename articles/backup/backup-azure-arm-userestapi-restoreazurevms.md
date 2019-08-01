@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: REST API를 사용하여 Azure VM 복원'
 description: REST API를 사용하여 Azure VM 백업의 복원 작업 관리
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API, Azure VM 백업, Azure VM 복원,
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6525be97d9317791f39cb51a8fa819d38bd49c73
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466758"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689441"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -36,7 +37,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>Responses
 
-|이름  |형식  |Description  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       확인  |
 
@@ -136,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |속성     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -170,7 +171,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |형식  |설명  |
+|이름  |형식  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     동의함    |
 

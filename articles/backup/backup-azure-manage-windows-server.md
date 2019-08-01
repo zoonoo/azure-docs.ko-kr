@@ -1,18 +1,18 @@
 ---
 title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: Azure Recovery Services 자격 증명 모음에서 작업 및 경고를 관리합니다.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466363"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639872"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 

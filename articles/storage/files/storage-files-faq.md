@@ -1,19 +1,18 @@
 ---
 title: Azure Files에 대한 FAQ(질문과 대답) | Microsoft Docs
 description: Azure Files에 대한 질문과 대답을 확인합니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540366"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704478"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -73,10 +72,10 @@ ms.locfileid: "67540366"
 
 * <a id="tier-options"></a>
   **Azure Files에서 어떤 저장소 계층이 지원되나요?**  
-    Azure Files는 두 가지 저장소 계층을 지원 합니다: 프리미엄 및 표준입니다. 표준 파일 공유 일반적 용도 (GPv1 또는 GPv2) 저장소 계정이 생성 되 고 FileStorage 저장소 계정에서 premium 파일 공유가 만들어집니다. 만드는 방법에 자세히 알아보려면 [표준 파일 공유](storage-how-to-create-file-share.md) 하 고 [premium 파일 공유](storage-how-to-create-premium-fileshare.md)합니다. 
+    Azure Files는 프리미엄 및 표준의 두 가지 저장소 계층을 지원 합니다. 표준 파일 공유는 범용 (GPv1 또는 GPv2) 저장소 계정에서 만들어지며 프리미엄 파일 공유는 FileStorage storage 계정에 만들어집니다. [표준 파일 공유](storage-how-to-create-file-share.md) 및 [프리미엄 파일 공유](storage-how-to-create-premium-fileshare.md)를 만드는 방법에 대해 자세히 알아보세요. 
     
     > [!NOTE]
-    > Blob 저장소 계정에서 Azure 파일 공유를 만들 수 없습니다 또는 *premium* 범용 (GPv1 또는 GPv2) 저장소 계정입니다. 표준 Azure 파일 공유에 생성 해야 합니다 *표준* 범용 계정 저장소 계정만 FileStorage에에서만 및 프리미엄 Azure 파일 공유를 만들어야 합니다. *Premium* 범용 GPv1과 GPv2 저장소 계정 프리미엄 페이지 blob에 적용 됩니다. 
+    > Blob storage 계정 또는 *premium* 범용 용도 (GPv1 또는 GPv2) 저장소 계정에서 Azure 파일 공유를 만들 수 없습니다. 표준 Azure 파일 공유는 *표준* 범용 계정 에서만 생성 되어야 하며 프리미엄 Azure 파일 공유는 FileStorage storage 계정에만 만들어야 합니다. *프리미엄* 범용 (GPv1 및 GPv2) 저장소 계정은 프리미엄 페이지 blob에만 해당 됩니다. 
 
 * <a id="give-us-feedback"></a>
   **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
@@ -145,7 +144,7 @@ ms.locfileid: "67540366"
 
 * <a id="afs-os-support"></a>
   **Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 디바이스와 함께 Azure 파일 동기화를 사용할 수 있습니까?**  
-    현재 Azure File Sync는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
+    현재 Azure File Sync는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 r 2만 지원 합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
@@ -222,7 +221,7 @@ ms.locfileid: "67540366"
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 
-    예. 자세한 내용은 참조 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)합니다.
+    예. 자세한 내용은 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조 하세요.
 
 * <a id="access-via-browser"></a>
 **웹 브라우저를 사용하여 특정 파일에 대한 액세스를 제공하려면 어떻게 해야 하나요?**  
@@ -247,9 +246,9 @@ ms.locfileid: "67540366"
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 
 * <a id="port-445-blocked"></a>
-**내 ISP 또는 Azure Files를 실패 하는 IT 블록 포트 445 탑재 합니다. 어떻게 해야 하나요?**
+**ISP 또는 IT는 포트 445을 차단 Azure Files 탑재 하지 못합니다. 어떻게 해야 하나요?**
 
-    알아볼 수 있습니다 [차단 문제를 해결 하려면 다양 한 포트 445 여기](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)합니다. Azure Files에서 SMB 3.0을 사용 하 여 (암호화 지원과) 연결만 허용 지역 또는 데이터 센터 외부입니다. SMB 3.0 프로토콜은 매우 안전한 인터넷을 통해 사용 하는 채널 암호화를 비롯 한 여러 보안 기능을 도입 했습니다. 그러나 포트 445는 수는 더 낮은 SMB 버전에서 발견 된 취약점의 기록 이유로 인해 차단 되었습니다. 이상적인 경우 포트에 대 한 SMB 1.0 트래픽에 대해서만 차단 해야 하 고 모든 클라이언트에서 SMB 1.0를 해제 해야 합니다.
+    [여기에서 차단 된 포트 445을 해결 하는 다양 한 방법](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에 대해 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.0 (암호화 지원)을 사용 하는 연결만 허용 합니다. SMB 3.0 프로토콜에는 인터넷을 통해 사용 하기에 매우 안전한 채널 암호화를 비롯 한 많은 보안 기능이 도입 되었습니다. 그러나 낮은 SMB 버전에서 발견 된 취약점의 기록 이유로 인해 포트 445이 차단 될 수 있습니다. 이상적인 경우에는 포트가 SMB 1.0 트래픽에 대해서만 차단 되 고 SMB 1.0은 모든 클라이언트에서 해제 되어야 합니다.
 
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
@@ -261,7 +260,7 @@ ms.locfileid: "67540366"
 
     445 포트(TCP 아웃바운드)가 열려 있고 클라이언트(예: Windows 10 또는 Windows Server 2016을 사용하는 경우)에서 SMB 3.0 프로토콜을 지원하는 경우 SMB 프로토콜을 사용하여 파일 공유를 탑재할 수 있습니다. 포트 445가 조직의 정책이나 ISP에 의해 차단되어 있으면 Azure 파일 동기화를 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>백업
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
     실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅샷](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](https://docs.microsoft.com/azure/backup/backup-azure-files)에 대해 자세히 알아봅니다.
@@ -270,73 +269,69 @@ ms.locfileid: "67540366"
 
 ### <a name="share-snapshots-general"></a>공유 스냅샷: 일반
 * <a id="what-are-snaphots"></a>
-**파일 공유 스냅숏이란?**  
+**파일 공유 스냅샷이란?**  
     Azure 파일 공유 스냅샷을 사용하여 파일 공유의 읽기 전용 버전을 만들 수 있습니다. 또한 Azure Files를 사용하여 이전 버전의 콘텐츠를 같은 공유 또는 Azure 또는 온-프레미스의 대체 위치에 복사하여 추가로 수정할 수도 있습니다. 공유 스냅샷에 대해 더 자세히 알아보려면 [공유 스냅샷 개요](storage-snapshots-files.md)를 참조하세요.
 
 * <a id="where-are-snapshots-stored"></a>
-**내 공유 스냅숏은 어디에 저장되나요?**  
+**내 공유 스냅샷은 어디에 저장되나요?**  
     공유 스냅샷은 파일 공유와 동일한 저장소 계정에 저장됩니다.
 
-* <a id="snapshot-perf-impact"></a>
-**공유 스냅숏 사용으로 성능에 미치는 영향이 있나요?**  
-    공유 스냅샷은 성능 오버헤드를 발생하지 않습니다.
-
 * <a id="snapshot-consistency"></a>
-**공유 스냅숏은 애플리케이션 일치 스냅숏인가요?**  
+**공유 스냅샷은 애플리케이션 일치 스냅샷인가요?**  
     아니요, 공유 스냅샷은 애플리케이션 일치 스냅샷이 아닙니다. 사용자는 공유 스냅샷을 작성하기 전에 애플리케이션에서 공유로 쓰기를 플러시해야 합니다.
 
 * <a id="snapshot-limits"></a>
-**사용할 수 있는 공유 스냅숏 수에 제한이 있나요?**  
+**사용할 수 있는 공유 스냅샷 수에 제한이 있나요?**  
     예. Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 저장소 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
 
 * <a id="snapshot-cost"></a>
-**스냅숏 공유 비용은 얼마나 되나요?**  
+**스냅샷 공유 비용은 얼마나 되나요?**  
     표준 트랜잭션 및 표준 저장소 비용이 스냅샷에 적용됩니다. 스냅샷은 기본적으로 증분식입니다. 기본 스냅샷은 공유 자체입니다. 모든 후속 스냅샷은 증분이며, 이전 스냅샷과의 차이만 저장합니다. 즉, 청구서에 표시되는 델타 변경 내용은 워크로드 변동이 적은 경우 최소화됩니다. 표준 Azure 파일 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요. 현재 공유 스냅샷으로 소비되는 크기를 보는 방법은 청구된 용량과 사용된 용량을 비교하는 것입니다. 보고를 개선하기 위한 도구를 개발 중입니다.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅숏에서 지속되나요?**
+**디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속되나요?**
     디렉터리 및 파일에 대한 NTFS ACL은 공유 스냅샷에서 지속됩니다.
 
 ### <a name="create-share-snapshots"></a>공유 스냅샷 만들기
 * <a id="file-snaphsots"></a>
-**개별 파일의 공유 스냅숏을 만들 수 있나요?**  
+**개별 파일의 공유 스냅샷을 만들 수 있나요?**  
     공유 스냅샷은 파일 공유 수준에서 만들어집니다. 파일 공유 스냅샷에서 개별 파일을 복원할 수 있지만 파일 수준 공유 스냅샷을 만들 수 없습니다. 그러나 공유 수준 공유 스냅샷을 작성했으며 특정 파일이 변경된 공유 스냅샷을 나열하려면 Windows 탑재 공유의 **이전 버전**에서 이 작업을 수행할 수 있습니다. 
     
     파일 스냅샷 기능이 필요하면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에 알려주세요.
 
 * <a id="encrypted-snapshots"></a>
-**암호화된 파일 공유의 공유 스냅숏을 만들 수 있나요?**  
+**암호화된 파일 공유의 공유 스냅샷을 만들 수 있나요?**  
     미사용 암호화가 사용하도록 설정된 Azure 파일 공유의 공유 스냅샷을 작성할 수 있습니다. 공유 스냅샷에서 암호화된 파일 공유로 파일을 복원할 수 있습니다. 공유가 암호화된 경우 공유 스냅샷도 암호화됩니다.
 
 * <a id="geo-redundant-snaphsots"></a>
-**공유 스냅숏이 지역 중복 스냅숏인가요?**  
+**공유 스냅샷이 지역 중복 스냅샷인가요?**  
     공유 스냅샷은 생성된 Azure 파일 공유와 동일한 중복성을 갖습니다. 계정에 대해 지역 중복 저장소를 선택한 경우 공유 스냅샷이 페어링된 지역에도 중복해서 저장됩니다.
 
 ### <a name="manage-share-snapshots"></a>공유 스냅샷 관리
 * <a id="browse-snapshots-linux"></a>
-**Linux에서 내 공유 스냅숏을 찾아볼 수 있나요?**  
+**Linux에서 내 공유 스냅샷을 찾아볼 수 있나요?**  
     Azure CLI를 사용하여 Linux에서 공유 스냅샷을 생성, 나열, 검색 및 복원할 수 있습니다.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
-**다른 저장소 계정으로 공유 스냅숏을 복사할 수 있나요?**  
+**다른 저장소 계정으로 공유 스냅샷을 복사할 수 있나요?**  
     공유 스냅샷의 파일을 다른 위치로 복사할 수 있지만 공유 스냅샷 자체는 복사할 수 없습니다.
 
 ### <a name="restore-data-from-share-snapshots"></a>공유 스냅샷에서 데이터 복원
 * <a id="promote-share-snapshot"></a>
-**공유 스냅숏을 기본 공유로 승격할 수 있나요?**  
+**공유 스냅샷을 기본 공유로 승격할 수 있나요?**  
     공유 스냅샷의 데이터를 다른 대상으로 복사할 수 있습니다. 공유 스냅샷을 기본 공유로 승격할 수 없습니다.
 
 * <a id="restore-snapshotted-file-to-other-share"></a>
-**공유 스냅숏의 데이터를 다른 저장소 계정으로 복원할 수 있나요?**  
+**공유 스냅샷의 데이터를 다른 저장소 계정으로 복원할 수 있나요?**  
     예. 동일한 지역 또는 서로 다른 지역에서 원래 위치 또는 동일한 저장소 계정 또는 다른 저장소 계정을 포함하는 대체 위치로 공유 스냅샷의 파일을 복사할 수 있습니다. 온-프레미스 위치 또는 다른 클라우드로 파일을 복사할 수도 있습니다.    
   
 ### <a name="clean-up-share-snapshots"></a>공유 스냅샷 정리
 * <a id="delete-share-keep-snapshots"></a>
-**내 공유 스냅숏을 제외하고 내 공유만 삭제할 수 있나요?**  
+**내 공유 스냅샷을 제외하고 내 공유만 삭제할 수 있나요?**  
     공유에 활성 공유 스냅샷이 있는 경우 공유를 삭제할 수 없습니다. API를 사용하여 공유와 함께 공유 스냅샷을 삭제할 수 있습니다. Azure Portal에서 공유 스냅샷과 공유를 모두 삭제할 수도 있습니다.
 
 * <a id="delete-share-with-snapshots"></a>
-**저장소 계정을 삭제하는 경우 공유 스냅숏은 어떻게 되나요?**  
+**저장소 계정을 삭제하는 경우 공유 스냅샷은 어떻게 되나요?**  
     저장소 계정을 삭제하는 경우 공유 스냅샷도 삭제됩니다.
 
 ## <a name="billing-and-pricing"></a>대금 청구 및 가격 책정
@@ -345,7 +340,7 @@ ms.locfileid: "67540366"
     파일 공유 및 VM이 동일한 Azure 지역에 있는 경우 파일 공유와 VM 간의 트래픽에 대한 추가 비용은 없습니다. 파일 공유와 VM이 서로 다른 지역에 있는 경우 이들 사이의 트래픽은 외부 대역폭으로 비용 청구됩니다.
 
 * <a id="share-snapshot-price"></a>
-**스냅숏 공유 비용은 얼마나 되나요?**  
+**스냅샷 공유 비용은 얼마나 되나요?**  
      미리 보기 동안 스냅샷 용량 공유에는 요금이 청구되지 않습니다. 표준 저장소 송신 및 트랜잭션 비용이 적용됩니다. 일반 공급 후에는 공유 스냅샷에 대한 용량 및 트랜잭션에 대해 구독에 요금이 청구될 예정입니다.
      
      공유 스냅샷은 기본적으로 증분합니다. 기본 공유 스냅샷은 공유 자체입니다. 모든 후속 공유 스냅샷은 증분하며, 이전 공유 스냅샷과의 차이만 저장합니다. 변경된 콘텐츠에 대해서만 요금이 청구됩니다. 100GiB의 데이터 공유가 있으나 마지막 공유 스냅샷 후에 5GiB만 변경된 경우 해당 공유 스냅샷은 추가로 5GiB만 사용하게 되며 105GiB에 대한 요금만 청구됩니다. 트랜잭션 및 표준 송신 요금에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조하세요.
@@ -356,8 +351,8 @@ ms.locfileid: "67540366"
     Azure Files의 확장성 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage-files-scale-targets.md)를 참조하세요.
 
 * <a id="need-larger-share"></a>
-**어떤 크기 Azure 파일 공유에 대해 사용할 수 있습니까?**  
-    (프리미엄 및 표준) azure 파일 공유 크기를 100tib 확장할 수 있습니다. 최대 100 TiB 프리미엄 파일 공유 크기는 GA 제품으로 사용할 수 있습니다. 최대 5tib 표준 파일 공유 크기는 GA 제품인 100tib 최대 크기는 미리 보기로 제공 하는 동안으로 사용할 수 있습니다. 참조를 [큰 파일 공유 (표준 계층)에 등록](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 더 큰 파일에 온 보 딩 지침에 대 한 계획 가이드의 섹션에서는 표준 계층에 대 한 미리 보기를 공유 합니다.
+**Azure 파일 공유에 사용할 수 있는 크기**  
+    Azure 파일 공유 크기 (프리미엄 및 표준)는 최대 100 TiB까지 확장할 수 있습니다. 프리미엄 파일 공유 크기는 최대 100 TiB GA 제품으로 제공 됩니다. 최대 5 개 TiB 표준 파일 공유 크기는 GA 제품으로 사용할 수 있으며 최대 100 TiB 크기는 미리 보기 상태입니다. 표준 계층에 대 한 더 큰 파일 공유 미리 보기에 대 한 온 보 딩 지침은 계획 가이드의 [더 큰 파일 공유에 등록 (표준 계층)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
 
 * <a id="open-handles-quota"></a>
 **동일한 파일에 동시에 액세스할 수 있는 클라이언트는 몇 개인가요?**    
@@ -392,7 +387,7 @@ ms.locfileid: "67540366"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

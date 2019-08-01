@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328625"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669753"
 ---
 Azure 가상 컴퓨터에 많은 데이터 디스크를 연결할 수 있습니다. VM의 데이터 디스크에 대 한 확장성 및 성능 목표에 따라 성능 및 용량 요구 사항을 충족 하는 데 필요한 디스크의 수와 유형을 결정할 수 있습니다.
 
@@ -18,13 +18,13 @@ Azure 가상 컴퓨터에 많은 데이터 디스크를 연결할 수 있습니�
 
 **Azure managed disks의 경우:**
 
-다음 표에서는 구독 당 지역별 리소스 수의 기본 및 최대 제한을 보여 줍니다.
+다음 표에서는 구독 당 지역별 리소스 수의 기본 및 최대 제한을 보여 줍니다. 리소스 그룹당 Managed Disks, 스냅숏 및 이미지 수에는 제한이 없습니다.  
 
 > | 리소스 | 기본 제한  | 최대 제한 |
 > | --- | --- | --- |
 > | 표준 관리 디스크 | 50,000 | 50,000 |
 > | 표준 SSD 관리 디스크 | 50,000 | 50,000 |
-> | 프리미엄 managed disks | 50,000 | 50,000 |
+> | 프리미엄 관리 디스크 | 50,000 | 50,000 |
 > | Standard_LRS 스냅숏 | 50,000 | 50,000 |
 > | Standard_ZRS 스냅숏 | 50,000 | 50,000 |
 > | 관리 이미지 | 50,000 | 50,000 |

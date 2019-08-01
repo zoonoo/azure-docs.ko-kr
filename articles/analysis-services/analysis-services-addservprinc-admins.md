@@ -5,27 +5,27 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8fbbdbd647aa3d733a26ceaf72629058ae3a274
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61024627"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619278"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
  무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 이 태스크를 완료하기 전에 Azure Active Directory에 등록된 서비스 사용자가 있어야 합니다.
 
 [서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
 [서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="required-permissions"></a>필요한 권한
 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 
 
 ## <a name="add-service-principal-to-server-administrators-role"></a>서버 관리자 역할에 서비스 사용자 추가
@@ -42,7 +42,7 @@ ms.locfileid: "61024627"
 
 
 > [!NOTE]
-> Azure PowerShell cmdlet을 사용 하 여 서버 작업에 대 한 서비스 주체 실행 중인 스케줄러에도 속해 있어야 합니다 **소유자** 리소스에 대 한 역할 [azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)합니다. 
+> Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 스케줄러를 실행 하는 서비스 주체는 [AZURE RBAC (역할 기반 Access Control)](../role-based-access-control/overview.md)의 리소스에 대 한 **소유자** 역할에도 속해야 합니다. 
 
 ## <a name="related-information"></a>관련 정보
 

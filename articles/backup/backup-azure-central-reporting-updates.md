@@ -1,18 +1,19 @@
 ---
 title: Azure Backup 중앙 보고 콘텐츠 팩 업데이트
 description: Power BI의 Azure Backup 콘텐츠 팩 업데이트에 대한 정보를 제공합니다.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 984f87a514aa55fc18a92c6912145bc65cf21f4c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4e217148db42e10e8fe2046cbd062f0708011e96
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466597"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689328"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup 중앙 보고 콘텐츠 팩 업데이트 
 

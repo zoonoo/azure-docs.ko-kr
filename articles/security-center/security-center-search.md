@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center 검색 | Microsoft Docs
-description: Azure Security Center 검색 및 보안 데이터를 분석 하려면 Azure Monitor의 로그 검색을 사용 하는 하는 방법에 대해 알아봅니다.
+description: Azure Security Center Azure Monitor 로그 검색을 사용 하 여 보안 데이터를 검색 및 분석 하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574149"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662921"
 ---
-# <a name="azure-security-center-search"></a>Azure Security Center 검색
+# <a name="azure-security-center-search-retired"></a>Azure Security Center 검색 (사용 되지 않음)
 
 > [!NOTE]
-> Security Center의 검색 대시보드는 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_search)합니다.
+> Security Center의 검색 대시보드는 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_search)를 참조 하세요.
 
-Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-analytics/log-analytics-log-searches.md) 검색 하 여 보안 데이터를 분석 합니다. Azure Monitor 로그 신속 하 게 검색 하 고 데이터를 통합 하는 쿼리 언어를 포함 합니다. Security Center에서 Azure Monitor 로그 검색 쿼리를 생성 하 고 수집 된 데이터 분석을 활용할 수 있습니다.
+Azure Security Center [Azure Monitor 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용 하 여 보안 데이터를 검색 하 고 분석 합니다. Azure Monitor 로그는 데이터를 신속 하 게 검색 하 고 통합할 수 있는 쿼리 언어를 포함 합니다. Security Center에서 Azure Monitor 로그 검색을 활용 하 여 쿼리를 생성 하 고 수집 된 데이터를 분석할 수 있습니다.
 
 검색은 Security Center의 무료 계층과 표준 계층에서 모두 사용 가능합니다.  로그 검색에서 사용 가능한 데이터는 작업 영역에 적용되는 계층 수준에 따라 달라집니다.  자세한 내용은 Security Center [가격 책정 페이지](../security-center/security-center-pricing.md)를 참조하세요.
 
@@ -49,19 +49,19 @@ Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-
 
    SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-   결과 (이벤트 4625) 로그인 하지 못한 모든 계정을 보여 줍니다.
+   결과에는 로그인 하지 못한 모든 계정 (이벤트 4625)이 표시 됩니다.
 
    ![검색 결과][3]
 
-참조 [Kusto 쿼리 언어](../log-analytics/log-analytics-search-reference.md) 선택한 작업 영역에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 합니다.
+선택한 작업 영역에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Kusto 쿼리 언어](../log-analytics/log-analytics-search-reference.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Security Center에서 검색에 액세스하는 방법을 알아보았습니다. Security Center는 Azure Monitor의 로그 검색을 사용 합니다. Azure Monitor의 로그 검색에 대 한 자세한 내용은 다음을 참조 하세요.
+이 문서에서는 Security Center에서 검색에 액세스하는 방법을 알아보았습니다. Security Center Azure Monitor 로그 검색을 사용 합니다. Azure Monitor 로그 검색에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Azure Monitor 로그 란?](../log-analytics/log-analytics-overview.md) – Azure Monitor 로그에 대 한 개요
-- [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) -Azure Monitor 로그에서 로그 검색 사용 하는 방법에 대해 설명 하 고 로그 검색을 만들기 전에 이해 해야 하는 개념을 제공
-- [Azure Monitor 로그에서 로그 검색을 사용 하 여 데이터 찾기](../log-analytics/log-analytics-log-searches.md) – 로그 검색을 사용 하 여에 대 한 자습서
-- [Kusto 검색 참조](../log-analytics/log-analytics-search-reference.md) – Azure Monitor 로그의 쿼리 언어에 설명 합니다.
+- [Azure Monitor 로그 란?](../log-analytics/log-analytics-overview.md) – Azure Monitor 로그 개요
+- [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) -로그 검색을 Azure Monitor 로그에서 사용 하는 방법을 설명 하 고 로그 검색을 만들기 전에 이해 해야 하는 개념을 제공 합니다.
+- [Azure Monitor 로그에서 로그 검색을 사용 하 여 데이터 찾기](../log-analytics/log-analytics-log-searches.md) -로그 검색 사용에 대 한 자습서
+- [Kusto 검색 참조](../log-analytics/log-analytics-search-reference.md) -Azure Monitor 로그의 쿼리 언어에 대해 설명 합니다.
 
 Security Center에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 

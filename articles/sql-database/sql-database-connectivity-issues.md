@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
-ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144044"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569060"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
@@ -91,9 +90,9 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 재시도 논리를 테스트할 수 있는 한 가지 방법은 프로그램이 실행되는 동안 네트워크에서 클라이언트 컴퓨터 연결을 끊는 것입니다. 오류는 다음과 같습니다.
 
 - **SqlException.Number** = 11001
-- 메시지: "해당 호스트가 없습니다"
+- 메시지: "해당 호스트를 알 수 없습니다."
 
-첫 번째 시도의 일부로, 네트워크에 클라이언트 컴퓨터를 다시 연결할 수 있으며 연결 시도 수 있습니다.
+첫 번째 다시 시도의 일부로 클라이언트 컴퓨터를 네트워크에 다시 연결한 다음 연결을 시도할 수 있습니다.
 
 이 테스트를 실제로 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다.
 
@@ -109,7 +108,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 오류는 다음과 같습니다.
 
 - **SqlException.Number** = 18456
-- 메시지: "'WRONG_MyUserName' 사용자에 대 한 로그인 하지 못했습니다."
+- 메시지: "사용자 ' WRONG_MyUserName '이 (가) 로그인 하지 못했습니다."
 
 프로그램은 첫 번째 재시도 중 오타를 수정한 다음 연결을 시도할 수 있습니다.
 
@@ -134,12 +133,12 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 **SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 - **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
+- **ConnectRetryInterval**&nbsp;:&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
 - **연결 제한 시간**:&nbsp;&nbsp;기본값은 15초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. 연결 제한 시간 = ConnectRetryCount * ConnectionRetryInterval
 
-예를 들어 3 참조 횟수가 간격이 10 초인 경우 시간 제한이 29 초이면을 제공 하지 않습니다 시스템 연결 하는 세 번째 및 마지막 재시도 대 한 충분 한 시간: 29 < 3 * 10.
+예를 들어 개수가 3이 고 간격이 10 초인 경우 시간 제한이 29 초인 경우에는 세 번째 및 마지막 다시 시도를 연결할 때 시스템에 충분 한 시간을 제공 하지 않습니다. 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -219,7 +218,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>진단: 유틸리티에서 연결할 수 있는지 여부를 테스트 합니다.
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>기능 유틸리티 연결 가능 여부 테스트
 
 프로그램에서 SQL Database에 연결할 수 없을 경우 한 가지 진단 방법으로 유틸리티 프로그램에 연결해 볼 수 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
 
@@ -232,7 +231,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>진단: 개방 포트 점검
+### <a name="diagnostics-check-the-open-ports"></a>기능 열려 있는 포트를 확인 합니다.
 
 포트 문제로 인해 연결 시도 실패가 의심되는 경우 컴퓨터에서 포트 구성에 대해 보고하는 유틸리티를 실행할 수 있습니다.
 
@@ -261,28 +260,28 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>진단: 오류 기록
+### <a name="diagnostics-log-your-errors"></a>기능 오류 기록
 
 간헐적 문제는 며칠 또는 몇 주간 일반 패턴을 발견하여 진단하는 것이 가장 좋은 경우가 있습니다.
 
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 SQL Database에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
-Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 참조 하세요. [5-간단한 로그 오프 합니다. Logging Application Block을 사용 하 여](https://msdn.microsoft.com/library/dn440731.aspx)입니다.
+Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5-로그를 중단 하는 것 처럼 쉽습니다. 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440731.aspx)을 사용 합니다.
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>진단: 시스템 로그에서 오류를 검사 합니다.
+### <a name="diagnostics-examine-system-logs-for-errors"></a>기능 시스템 로그에서 오류 검사
 
 다음은 오류 로그 및 기타 정보를 쿼리하는 몇 가지 Transact-SQL SELECT 문입니다.
 
-| 로그 쿼리 | 설명 |
+| 로그 쿼리 | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>진단: SQL Database 로그에서 문제 이벤트 검색
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>기능 SQL Database 로그에서 문제 이벤트를 검색 합니다.
 
 SQL Database 로그에서 문제 이벤트에 대한 항목을 검색할 수 있습니다. *마스터* 데이터베이스에서 다음 Transact-SQL SELECT 문을 시도해 보세요.
 
@@ -327,7 +326,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하세요.
 
-일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 참조 하세요. [4-인 내, 모든 승리의 비밀: 일시적인 오류 처리 응용 프로그램 블록 사용](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)합니다.
+일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 인 내, secret [의 모든 성공을 참조 하세요. 일시적인 오류 처리 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 사용 합니다.
 
 > [!NOTE]
 > EntLib60에 대한 소스 코드는 [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
@@ -354,9 +353,9 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
 
 다음은 EntLib60에 대한 정보의 일부 링크입니다.
 
-- 무료 책 다운로드: [Microsoft Enterprise Library, 2nd edition 개발자 가이드](https://www.microsoft.com/download/details.aspx?id=41145)합니다.
-- 모범 사례: [재시도 일반 지침](../best-practices-retry-general.md) 에 다시 시도 논리의 뛰어난 심층 토론 합니다.
-- NuGet 다운로드: [Enterprise Library-일시적인 오류 처리 응용 프로그램 블록 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)합니다.
+- 무료 책 다운로드: [Microsoft Enterprise Library에 대 한 개발자 가이드, 2 판](https://www.microsoft.com/download/details.aspx?id=41145)
+- 모범 사례: [다시 시도 일반 지침](../best-practices-retry-general.md) 에는 다시 시도 논리에 대해 자세히 설명 되어 있습니다.
+- NuGet 다운로드: [Enterprise Library-일시적인 오류 처리 응용 프로그램 블록 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -368,7 +367,7 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
   - 디버깅, 추적, 감사 및 일반 로깅 요구 사항에 유용한 문맥 정보를 수집합니다.
 - 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 애플리케이션 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
 
-자세한 내용은 참조 하세요. [5-간단한 로그 오프 합니다. Logging Application Block을 사용 하 여](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)입니다.
+자세한 내용은 [5-로그를 중단 하는 것 처럼 쉽습니다. 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 사용 합니다.
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

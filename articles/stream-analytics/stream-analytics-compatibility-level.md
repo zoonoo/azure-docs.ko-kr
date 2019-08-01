@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003920"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716168"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -91,6 +91,12 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 **1.2 수준:** 대상 형식에 맞지 않는 값은 출력 오류 정책에 따라 처리 됩니다.
 
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>SQL 출력에 쓸 때의 레코드 및 배열 serialization
+
+**이전 수준:** 레코드는 "Record"로 작성 되었으며 배열은 "Array"로 작성 되었습니다.
+
+**1.2 수준:** 레코드와 배열은 JSON 형식으로 직렬화 됩니다.
+
 ### <a name="strict-validation-of-prefix-of-functions"></a>함수 접두사의 엄격한 유효성 검사
 
 **이전 수준:** 함수 접두사의 엄격한 유효성 검사는 없었습니다.
@@ -113,7 +119,7 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예를 들어:
+**1.0 수준:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

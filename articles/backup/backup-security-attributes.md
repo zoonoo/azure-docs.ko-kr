@@ -1,18 +1,19 @@
 ---
 title: Azure Backup에 대 한 보안 특성
 description: Azure Backup 평가를 위한 보안 특성의 검사 목록
-author: utraghuv
-manager: barbkess
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c2500c6c9ff6882e521f4edce02426a92a0bd39f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: e6ea701840b201c2794d81be5019d57ca531cd00
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464937"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688499"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Azure Backup에 대 한 보안 특성
 

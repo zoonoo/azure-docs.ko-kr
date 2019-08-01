@@ -3,7 +3,7 @@ title: Azure에서 Linux Service Fabric 클러스터 만들기 | Microsoft Docs
 description: Azure CLI를 사용하여 기존 Azure 가상 네트워크에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60863787"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598844"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
 이 문서에서는 Azure CLI 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md)에 Linux Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 애플리케이션을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다. PowerShell을 사용하여 Windows 클러스터를 만들려면 [Azure에서 보안 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
@@ -42,12 +42,12 @@ ms.locfileid: "60863787"
 
 다음 Resource Manager 템플릿 파일을 다운로드합니다.
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+* [AzureDeploy. json][template]
+* [AzureDeploy. Parameters. json][parameters]
 
-이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [AzureDeploy.json][template]은 다음을 포함한 숫자 리소스를 배포합니다.
+이 템플릿은 7개 가상 머신 및 3개 노드 유형의 보안 클러스터를 가상 네트워크에 배포합니다.  다른 예제 템플릿은 [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)에 있을 수 있습니다. [Azuredeploy. json][template] 은 다음을 비롯 한 숫자 리소스를 배포 합니다.
 
-### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
+### <a name="service-fabric-cluster"></a>서비스 패브릭 클러스터
 
 **Microsoft.ServiceFabric/clusters** 리소스에서 다음과 같은 특성이 있는 Linux 클러스터가 배포됩니다.
 
@@ -81,14 +81,14 @@ ms.locfileid: "60863787"
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 
-[AzureDeploy.Parameters][parameters] 매개 변수 파일은 클러스터 및 연결된 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
+[Azuredeploy. parameters][parameters] 매개 변수 파일은 클러스터와 연결 된 리소스를 배포 하는 데 사용 되는 많은 값을 선언 합니다. 배포에 대해 수정이 필요할 수도 있는 매개 변수 중 일부는 다음과 같습니다.
 
 |매개 변수|예제 값|메모|
 |---|---||
 |adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. |
 |adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다.|
 |clusterName|mysfcluster123| 클러스터의 이름입니다. |
-|location|southcentralus| 클러스터의 위치입니다. |
+|위치|southcentralus| 클러스터의 위치입니다. |
 |certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 SHA1 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다. </p>|
 |certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 “/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”와 같습니다.</p>|
@@ -97,7 +97,7 @@ ms.locfileid: "60863787"
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>가상 네트워크 및 클러스터 배포
 
-다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. [AzureDeploy.json][template] Resource Manager 템플릿은 VNET(가상 네트워크) 및 Service Fabric에 대한 서브넷을 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
+다음으로 네트워크 토폴로지를 설정하고 Service Fabric 클러스터를 배포합니다. [Azuredeploy][template] 리소스 관리자 템플릿에서는 Service Fabric에 대 한 VNET (가상 네트워크) 및 서브넷을 만듭니다. 템플릿은 활성화된 인증서 보안으로 클러스터도 배포합니다.  프로덕션 클러스터의 경우 클러스터 인증서로 CA(인증 기관)의 인증서를 사용합니다. 테스트 클러스터를 보호하는 데 자체 서명된 인증서를 사용할 수 있습니다.
 
 이 문서의 템플릿은 인증서 지문을 사용하여 클러스터 인증서를 식별하는 클러스터를 배포합니다.  두 인증서에 동일한 지문을 사용할 수 없으므로 인증서 관리가 더 어려워집니다. 배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다.  인증서 관리에 인증서 일반 이름을 사용하도록 클러스터를 업데이트하는 방법에 대해 알아보려면 [클러스터를 인증서 일반 이름 관리로 변경](service-fabric-cluster-change-cert-thumbprint-to-cn.md)을 참조하세요.
 

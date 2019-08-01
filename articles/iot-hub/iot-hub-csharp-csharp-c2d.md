@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a7cb4ecde599a76b2d42cf874420d9cbcfda3d5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f8ba9508bdbb7fd436d3b693e638f29bac5065bf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402637"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618665"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -43,7 +43,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 * **Sendcloudtodevice**-IoT Hub를 통해 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신 합니다.
 
 > [!NOTE]
-> IoT Hub는 [Azure IoT 디바이스 SDK](iot-hub-devguide-sdks.md)를 통해 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.
+> IoT Hub에는 [Azure IoT 장치 sdk](iot-hub-devguide-sdks.md)를 통해 많은 장치 플랫폼 및 언어 (C, Java, Python 및 Javascript 포함)에 대 한 SDK 지원이 있습니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.
 >
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -115,7 +115,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
    그러면 [Azure IoT 서비스 SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Devices/)가 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
-4. Program.cs 파일의 `using` 맨 위에 다음 문을 추가 합니다  .
+4. Program.cs 파일의 `using` 맨 위에 다음 문을 추가 합니다 .
 
    ``` csharp
    using Microsoft.Azure.Devices;

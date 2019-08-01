@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551381"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662485"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Azure Security Center에서 OS 보안 구성 사용자 지정 (사용 되지 않음)
 
-이 연습에서는 Azure Security Center에서 OS 보안 구성 평가를 사용자 지정하는 방법을 보여줍니다.
+이 연습에서는 Azure Security Center에서 OS 보안 구성 평가 (미리 보기)를 사용자 지정 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> OS 보안 구성을 사용자 지정할 수는 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_securityconfigurations)합니다.
+> OS 보안 구성 (미리 보기 기능)을 사용자 지정 하는 기능은 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations)를 참조 하세요.
 
 ## <a name="what-are-os-security-configurations"></a>OS 보안 구성이란?
 
@@ -56,11 +56,11 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 1.  **Security Center** 대시보드를 엽니다.
 
-2.  왼쪽된 창에서 선택 **가격 책정 및 설정**합니다.
+2.  왼쪽 창에서 **가격 책정 & 설정**을 선택 합니다.
 
     ![보안 정책 목록](media/security-center-customize-os-security-config/manual-provision.png)
 
-4. 해당 구독을 선택 하 고 선택 **보안 구성 편집**합니다.  
+4. 해당 하는 구독을 선택 하 고 **보안 구성 편집**을 선택 합니다.  
 
     !["보안 구성 편집" 창](media/security-center-customize-os-security-config/blade.png)
 
@@ -113,7 +113,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
     - 허용된 사용자 그룹의 목록입니다. 예를 들면 다음과 같습니다. *관리자*, *백업 운영자*
 
--   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 릴리스에 대 한 문자열은 대/소문자 구분.
+-   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 릴리스의 경우 문자열은 대/소문자를 구분 합니다.
 
 구성할 수 있는 필드는 이뿐입니다. 파일 형식 또는 크기를 위반하면 변경 내용을 저장할 수 없습니다. 유효한 JSON 구성 파일을 업로드해야 함을 알려 주는 오류가 표시됩니다.
 
@@ -282,7 +282,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이(가) 고유하지 않습니다.                                                                                                                  |
 | BaselineRuleEmptyProperty                | *{0}* 속성이 없거나 잘못되었습니다.                                                                                                       |
 | BaselineRuleIdNotInDefault               | 규칙에 소스 속성 *Microsoft*가 있지만 Microsoft 기본 규칙 집합에 없습니다.                                                   |
-| BaselineRuleIdNotUniqueError             | 규칙 식별자 고유 하지 않습니다.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | 규칙 식별자가 고유 하지 않습니다.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | *{0}* 속성이 잘못되었습니다. 값이 유효한 GUID가 아닙니다.                                                                             |
 | BaselineRuleInvalidHive                  | Hive는 LocalMachine이어야 합니다.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | 규칙 이름이 고유하지 않습니다.                                                                                                                 |
@@ -291,10 +291,10 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | BaselineRuleNotInPlace                   | 규칙이 {0} 유형의 기본 규칙과 일치하며 {1} 목록에 나열됩니다.                                                                       |
 | BaselineRulePropertyTooLong              | *{0}* 속성이 너무 깁니다. 허용되는 최대 길이는 {1}입니다.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | 예상 값 *{0}* 이(가) 정의된 레지스트리 값 형식과 일치하지 않습니다.                                                              |
-| BaselineRulesetAdded                     | 식별자를 사용 하 여 ruleset *{0}* 기본 구성에서 찾을 수 없습니다. 규칙 집합을 추가할 수 없습니다.                                               |
+| BaselineRulesetAdded                     | 식별자 *{0}* 가 인 규칙 집합을 기본 구성에서 찾을 수 없습니다. 규칙 집합을 추가할 수 없습니다.                                               |
 | BaselineRulesetIdMustBeUnique            | 지정된 기준 규칙 집합 *{0}* 이(가) 고유해야 합니다.                                                                                           |
-| BaselineRulesetNotFound                  | 식별자를 사용 하 여 ruleset *{0}* 이름과 *{1}* 지정된 된 구성에서 찾을 수 없습니다. 규칙 집합을 삭제할 수 없습니다.                                |
-| BaselineRuleSourceNotMatch               | 식별자 규칙과 *{0}* 이미 정의 되어 있습니다.                                                                                                       |
+| BaselineRulesetNotFound                  | 지정 된 구성에서 *{0}* 식별자와 *{1}* 이름을 가진 규칙 집합을 찾을 수 없습니다. 규칙 집합을 삭제할 수 없습니다.                                |
+| BaselineRuleSourceNotMatch               | 식별자 *{0}* 가 인 규칙이 이미 정의 되어 있습니다.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | 기본 규칙 유형은 *{0}* 입니다.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | 규칙의 실제 유형이 *{0}* 인데 *ruleType* 속성이 *{1}* 입니다.                                                                          |
 | BaselineRuleUnpermittedChangesError      | *expectedValue* 및 *state* 속성만 변경할 수 있습니다.                                                                       |

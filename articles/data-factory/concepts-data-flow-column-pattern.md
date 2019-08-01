@@ -6,21 +6,24 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346581"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640246"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory 매핑 데이터 흐름 열 패턴
+# <a name="mapping-data-flows-column-patterns"></a>데이터 흐름 매핑 열 패턴
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 하드 코드된 열 이름 대신 패턴을 기준으로 템플릿 열을 만들 수 있도록 “열 패턴” 아이디어를 지원하는 Azure Data Factory Data Flow 변환도 있습니다. 식 작성기 내에서이 기능을 사용 하 여 정확한 특정 필드 이름을 요구 하는 대신 변환에 대 한 열과 일치 하는 패턴을 정의할 수 있습니다. 패턴은 특히 텍스트 파일 또는 NoSQL 데이터베이스에서 열을 변경 하는 경우 들어오는 원본 필드가 자주 변경 되는 경우에 유용 합니다. 이 상태를 "스키마 드리프트" 라고도 합니다.
 
+이 "유연한 스키마" 처리는 현재 파생 열 및 집계 변환과 "규칙 기반 매핑"으로 선택 및 싱크 변환에 있습니다.
+
 ![열 패턴](media/data-flow/columnpattern2.png "열 패턴")
 
+## <a name="column-patterns"></a>열 패턴
 열 패턴은 스키마 드리프트 시나리오와 일반 시나리오 둘 다를 처리하는 데 유용합니다. 각 열 이름을 완전히 알 수 없는 상황에 적합합니다. 열 이름과 열 데이터 형식에 패턴 일치를 적용하고 `name` & `type` 패턴과 일치하는 데이터 스트림의 필드에 대해 해당 작업을 수행할 변환 식을 작성할 수 있습니다.
 
 패턴을 허용하는 변환에 식을 추가하는 경우 “열 패턴 추가”를 선택합니다. 열 패턴을 사용하면 스키마 드리프트 열 일치 패턴이 허용됩니다.
@@ -38,5 +41,11 @@ ms.locfileid: "68346581"
 
 ![열 위치](media/data-flow/position.png "열 위치")
 
+## <a name="rule-based-mapping"></a>규칙 기반 매핑
+원본에서 열을 매핑하고 변환을 선택할 때 "고정 매핑" 또는 "규칙 기반 매핑"을 선택 하는 옵션이 있습니다. 데이터의 스키마를 알고 있고 특정 정적 이름과 항상 일치 하는 원본 데이터 집합의 특정 열이 있다고 생각 되는 경우 고정 매핑을 사용할 수 있습니다. 그러나 유연한 스키마를 사용 하 여 작업 하는 경우 규칙 기반 매핑을 사용 합니다. 위에서 설명한 규칙을 사용 하 여 패턴 일치를 빌드할 수 있습니다.
+
+![규칙 기반 매핑](media/data-flow/rule2.png "규칙 기반 매핑")
+
 ## <a name="next-steps"></a>다음 단계
-데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](https://aka.ms/dataflowexpressions) 에 대 한 자세한 정보
+* 데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](http://aka.ms/dataflowexpressions) 에 대 한 자세한 정보
+* [싱크 변환](data-flow-sink.md) 에서 열 패턴을 사용 하 고 규칙 기반 매핑을 사용 하 여 [변환 선택](data-flow-select.md)

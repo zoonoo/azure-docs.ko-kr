@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499806"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706323"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
+
+## <a name="general-faq"></a>일반 FAQ
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>Q: 최근에 디바이스를 등록했습니다. Azure Portal에서 내 사용자 정보에 디바이스가 표시되지 않는 이유는 무엇인가요? 또는 하이브리드 Azure Active Directory (Azure AD)에 연결 된 장치에 대 한 장치 소유자가 N/A로 표시 되는 이유는 무엇 인가요?
 
@@ -39,6 +41,11 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 - Windows 10 및 Windows Server 2016 이상 디바이스인 경우 `dsregcmd.exe /status` 명령을 실행합니다.
 - 하위 수준 OS 버전인 경우 `%programFiles%\Microsoft Workplace Join\autoworkplace.exe` 명령을 실행합니다.
+
+**A:** 문제 해결 정보는 다음 문서를 참조하세요.
+- [Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결](troubleshoot-device-dsregcmd.md)
+- [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+- [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +72,8 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 **A:** 이 작업은 의도된 것입니다. 이 경우 장치는 클라우드의 리소스에 액세스할 수 없습니다. 관리자는 부실 하거나 분실 하거나 도난당 한 장치에 대해이 작업을 수행 하 여 무단 액세스를 방지할 수 있습니다. 이 작업을 실수로 수행한 경우 아래 설명 된 대로 장치를 다시 사용 하도록 설정 하거나 다시 등록 해야 합니다.
 
 - Azure AD에서 장치를 사용 하지 않도록 설정한 경우 충분 한 권한이 있는 관리자가 Azure AD 포털에서 장치를 사용 하도록 설정할 수 있습니다.  
+  > [!NOTE]
+  > Azure AD Connect를 사용 하 여 장치를 동기화 하는 경우 하이브리드 Azure AD 조인 장치는 다음 동기화 주기 중에 자동으로 다시 사용 하도록 설정 됩니다. 따라서 하이브리드 Azure AD 조인 장치를 사용 하지 않도록 설정 해야 하는 경우 온-프레미스 AD에서 사용 하지 않도록 설정 해야 합니다.
 
  - Azure AD에서 장치를 삭제 하는 경우 장치를 다시 등록 해야 합니다. 다시 등록 하려면 장치에서 수동 작업을 수행 해야 합니다. 장치 상태에 따라 재등록 하는 방법에 대 한 지침은 아래를 참조 하세요. 
 
@@ -114,20 +123,30 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 **Q: Azure Portal에서 사용하지 않도록 설정한 디바이스에서 여전히 리소스에 액세스할 수 있는 이유는 무엇인가요?**
 
-**A:** 해지가 적용되는 데 최대 1시간이 소요될 수 있습니다.
+**A:** Azure AD 장치가 사용 안 함으로 표시 된 시간부터 해지를 적용 하는 데 최대 1 시간이 걸립니다.
 
 >[!NOTE] 
 >등록된 디바이스의 경우 사용자가 리소스에 액세스할 수 없도록 디바이스를 초기화하는 것이 좋습니다. 자세한 내용은 [디바이스 등록이란?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>Q: Azure Portal 등록 된 열에서 장치가 "보류 중"으로 표시 되는 이유는 무엇 인가요?
+
+**A**:  보류 중은 장치가 등록 되지 않았음을 나타냅니다. 이 상태는 장치가 온-프레미스 AD에서 Azure AD connect를 사용 하 여 동기화 되었고 장치 등록을 위한 준비가 되었음을 나타냅니다. 이러한 장치는 "하이브리드 Azure AD 조인"으로 설정 된 조인 유형입니다. [하이브리드 Azure Active Directory 조인 구현을 계획 하는 방법](hybrid-azuread-join-plan.md)에 대해 자세히 알아보세요.
+
+>[!NOTE]
+>장치가 등록 된 상태를 "보류 중"으로 변경할 수도 있습니다.
+>* 장치를 삭제 하 고 Azure AD에서 먼저 온-프레미스 AD에서 다시 동기화 한 경우
+>* Azure AD Connect의 동기화 범위에서 장치를 제거 하 고 다시 추가 하는 경우
+>
+>두 경우 모두 이러한 장치에서 장치를 수동으로 다시 등록 해야 합니다. 장치를 이전에 등록 했는지 여부를 확인 하려면 [dsregcmd.exe 명령을 사용 하 여 장치 문제를 해결할](troubleshoot-device-dsregcmd.md)수 있습니다.
+
+---
 ## <a name="azure-ad-join-faq"></a>Azure AD 조인 FAQ
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>Q: 장치에서 로컬로 Azure AD 조인 된 장치를 가입 해제 어떻게 할까요??
 
-**A:** 
-- 하이브리드 Azure AD 조인 디바이스의 경우 자동 등록을 해제해야 합니다. 그러면 예약된 작업에서 디바이스를 다시 등록하지 않습니다. 다음으로, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 디바이스에서 이 명령을 스크립트로 실행하여 대량으로 조인 취소합니다.
-- 순수 Azure AD 조인 디바이스의 경우 오프라인 로컬 관리자 계정이 있어야 하며, 없으면 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
+**A:** 순수 Azure AD 조인 디바이스의 경우 오프라인 로컬 관리자 계정이 있어야 하며, 없으면 만들어야 합니다. Azure AD 사용자 자격 증명으로 로그인할 수 없습니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 취소 프로세스를 완료합니다.
 
 ---
 
@@ -223,6 +242,10 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ## <a name="hybrid-azure-ad-join-faq"></a>하이브리드 Azure AD 조인 FAQ
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>Q: 하이브리드 Azure AD 조인 장치를 장치에서 로컬로 가입 해제 어떻게 할까요??
+
+**A:** 하이브리드 Azure AD 조인 디바이스의 경우 자동 등록을 해제해야 합니다. 그러면 예약된 작업에서 디바이스를 다시 등록하지 않습니다. 다음으로, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 디바이스에서 이 명령을 스크립트로 실행하여 대량으로 조인 취소합니다.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>Q: 하이브리드 Azure AD 조인 실패를 진단 하기 위한 문제 해결 정보는 어디서 확인할 수 있나요?
 
 **A:** 문제 해결 정보는 다음 문서를 참조하세요.
@@ -234,7 +257,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **A:** 사용자가 도메인 조인 디바이스의 앱에 계정을 추가하면 **Windows에 계정을 추가하시겠습니까?** 라는 메시지가 표시될 수 있습니다. 사용자가 프롬프트에서 **예**를 입력하면 디바이스가 Azure AD에 등록됩니다. 신뢰 유형은 Azure AD 등록으로 표시됩니다. 조직에서 하이브리드 Azure AD 조인을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 조인됩니다. 동일한 디바이스에 대한 두 가지 디바이스 상태가 표시됩니다. 
 
-하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치는 모든 인증 및 조건부 액세스 평가를 위해 하이브리드 Azure AD에 조인 된 것으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 알아보세요. 
+하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치는 모든 인증 및 조건부 액세스 평가를 위해 하이브리드 Azure AD에 조인 된 것으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](hybrid-azuread-join-plan.md#review-things-you-should-know)을 알아보세요. 
 
 ---
 
@@ -258,10 +281,19 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 등록 FAQ
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>Q: 장치에서 로컬로 Azure AD 등록 장치를 제거할 어떻게 할까요? 있나요?
+
+**A:** 
+- Windows 10 Azure AD 등록 장치에 대해 **설정** > **계정** > **회사 또는 학교 액세스**로 이동 합니다. 계정을 선택하고 **연결 끊기**를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
+- IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정** > **장치 등록** 을 사용 하 고 **장치 등록 취소**를 선택할 수 있습니다.
+- MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?
 
 **A:** 예, 하이브리드 고객만 Azure 디바이스 등록 서비스를 사용하여 등록할 수 있습니다. AD FS(Active Directory Federation Services)의 온-프레미스 디바이스 등록 서비스에는 지원되지 않습니다.
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>Q: MacOS 장치를 등록 하려면 어떻게 해야 하나요?
 
 **A:** 다음과 같은 단계를 수행합니다.
@@ -274,6 +306,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 - 조건부 액세스 정책에 포함 된 사용자에 게 리소스에 액세스 하려면 [지원 되는 macOS 버전이](../conditional-access/technical-reference.md#client-apps-condition) 필요 합니다. 
 - 첫 번째 액세스를 시도하는 동안 사용자에게는 회사 포털을 사용하여 디바이스를 등록하라는 메시지가 표시됩니다.
 
+---
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 등록 디바이스](concept-azure-ad-register.md)에 대한 자세한 정보

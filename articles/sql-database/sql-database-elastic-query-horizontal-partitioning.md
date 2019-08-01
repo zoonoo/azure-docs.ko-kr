@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694359"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568580"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
@@ -29,7 +28,7 @@ ms.locfileid: "60694359"
 
 비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스 맵을 만듭니다. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 또는 [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)의 샘플 앱을 사용하세요.
 * 또는 [기존 데이터베이스를 확장된 데이터베이스로 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조합니다.
@@ -59,7 +58,7 @@ ms.locfileid: "60694359"
 
 ## <a name="12-create-external-data-sources"></a>1.2 외부 데이터 원본 만들기
 
-구문
+구문:
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
@@ -70,7 +69,7 @@ ms.locfileid: "60694359"
             SHARD_MAP_NAME = ‘<shardmapname>’
                    ) [;]
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
     CREATE EXTERNAL DATA SOURCE MyExtSrc
     WITH
@@ -91,7 +90,7 @@ ms.locfileid: "60694359"
 
 ## <a name="13-create-external-tables"></a>1.3 외부 테이블 만들기
 
-구문  
+구문:  
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])

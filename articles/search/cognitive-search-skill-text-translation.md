@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c267d6b2b5a8606c8caaba15c9316a8dbcb989b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351297"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698830"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>텍스트 변환 인식 기술 (미리 보기)
+#   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
 
-**텍스트 번역** 기술은 텍스트를 평가 하 고 각 레코드에 대해 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다. 이 기술은 Cognitive Services에서 사용할 수 있는 [Translator Text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) 을 사용 합니다.  최신 Azure Search 일반적으로 사용할 수 있는 API 버전에서 사용할 수 있지만 미리 보기 상태인 것으로 간주 되며, 일반 공급으로 발표 될 때까지로 처리 되어야 합니다.
+**텍스트 번역** 기술은 텍스트를 평가 하 고 각 레코드에 대해 지정 된 대상 언어로 번역 된 텍스트를 반환 합니다. 이 기술은 Cognitive Services에서 사용할 수 있는 [Translator Text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) 을 사용 합니다.
 
 이 기능은 문서가 하나의 언어로 되어 있지 않을 것으로 간주 되는 경우에 유용 합니다 .이 경우 번역을 통해 검색을 인덱싱하기 전에 텍스트를 단일 언어로 정규화 할 수 있습니다.  동일한 텍스트의 복사본을 여러 언어로 사용할 수 있는 지역화 사용 사례에도 유용 합니다.
 
@@ -41,7 +41,7 @@ TranslationSkill.
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | Description |
+| 입력                | 설명 |
 |---------------------|-------------|
 | defaultToLanguageCode | 하다 언어를 명시적으로 지정 하지 않는 문서의 문서를로 변환 하는 언어 코드입니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
 | defaultFromLanguageCode | 필드 에서 언어를 명시적으로 지정 하지 않는 문서의 문서를 변환 하는 언어 코드입니다.  DefaultFromLanguageCode가 지정 되지 않은 경우 Translator Text API에서 제공 하는 자동 언어 검색을 사용 하 여 from 언어를 결정 합니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
@@ -57,7 +57,7 @@ TranslationSkill.
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | Description |
+| 출력 이름    | 설명 |
 |--------------------|-------------|
 | translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
 | translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|

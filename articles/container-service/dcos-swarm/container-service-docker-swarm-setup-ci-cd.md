@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643769"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598544"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -41,7 +41,7 @@ Azure DevOps Services를 사용하여 Docker Swarm 클러스터에서 이 애플
 1. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
 1. Docker 작성을 사용하여 새 버전의 애플리케이션을 배포합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
@@ -135,7 +135,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 애플리케이션에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
-* 프록시
+* Proxy (프록시)
 * RatingsApi
 * RecommendationsApi
 * ShopFront
@@ -225,4 +225,4 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure DevOps Services의 CI/CD에 대한 자세한 내용은 [Azure DevOps Services Build overview](https://www.visualstudio.com/docs/build/overview)(Azure DevOps Services 빌드 개요)를 참조하세요.
+* Azure DevOps Services를 사용 하는 CI/CD에 대 한 자세한 내용은 [Azure Pipelines 설명서](/azure/devops/pipelines/?view=azure-devops) 문서를 참조 하세요.

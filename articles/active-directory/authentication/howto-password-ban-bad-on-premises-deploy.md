@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346895"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666278"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -31,6 +31,12 @@ ms.locfileid: "68346895"
 * 더 안전한 암호를 사용하도록 기존 운영 프로세스를 개선해야 합니다.
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
+
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 미리 파악 하기 위해 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다.  참조 항목:
+
+* [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [취약 한 로컬 관리자 암호로 인해 도메인 컨트롤러 강등을 실패 합니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 적절 한 기간 동안 기능이 감사 모드에서 실행 된 후에 *감사* 에서 *적용* 으로 구성을 전환 하 여 더 안전한 암호를 요구 하도록 전환할 수 있습니다. 이 시간 동안 집중적으로 모니터링하는 것이 좋습니다.
 

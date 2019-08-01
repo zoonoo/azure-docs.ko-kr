@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 69ae6ab6caedd9e89d277b92558931685d2ea320
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f2c6b98fd0be2061e9d8cab5c063cafadf71476a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877312"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597458"
 ---
 # <a name="monitor-application-performance-hosted-on-azure-vm-and-azure-virtual-machine-scale-sets"></a>Azure VM 및 Azure virtual machine scale sets에서 호스트 되는 응용 프로그램 성능 모니터링
 
@@ -42,7 +42,7 @@ Azure VM 및 Azure virtual machine scale set 호스팅된 응용 프로그램에
     * 에이전트 기반 모니터링을 사용 하 여 기본적으로 캡처되지 않는 이벤트/종속성을 추적 하기 위해 사용자 지정 API 호출을 수행 해야 하는 경우이 방법을 사용 해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭 용 API 문서](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) 를 확인 하세요.
 
 > [!NOTE]
-> 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 된 경우에는 수동 계측 설정만 검색 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) 을 확인 하세요.
+> 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 된 경우에는 수동 계측 설정만 검색 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](#troubleshooting) 을 확인 하세요.
 
 ## <a name="manage-agent-based-monitoring-for-net-applications-on-vm-using-powershell"></a>PowerShell을 사용 하 여 VM에서 .NET 응용 프로그램에 대 한 에이전트 기반 모니터링 관리
 

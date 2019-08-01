@@ -1,18 +1,19 @@
 ---
 title: Azure Backup에 대 한 Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대 한 Azure Monitor 로그 데이터 모델 정보에 대해 설명 합니다.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466150"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689232"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -28,7 +29,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 이 표에서는 경고 관련 필드에 대한 세부 정보를 제공합니다.
 
-| 필드 | 데이터 형식 | 설명 |
+| 필드 | 데이터 형식 | Description |
 | --- | --- | --- |
 | AlertUniqueId_s |텍스트 |생성된 경고의 고유 식별자 |
 | AlertType_s |텍스트 |경고의 형식(예: Backup) |
@@ -220,7 +221,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 이 표에서는 다양한 엔터티와의 정책 연결에 대한 세부 정보를 제공합니다.
 
-| 필드 | 데이터 형식 | 적용 가능한 버전 | 설명 |
+| 필드 | 데이터 형식 | 적용 가능한 버전 | Description |
 | --- | --- | --- | --- |
 | EventName_s |텍스트 ||이 이벤트의 이름을 나타내며, 항상 AzureBackupCentralReport입니다. |
 | SchemaVersion_s |텍스트 ||이 필드는 스키마의 현재 버전을 나타내며, **V2** 입니다. |
@@ -243,7 +244,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 다음 표에서는 보호 된 컨테이너에 대 한 기본 필드를 제공 합니다. (V1에서 ProtectedServer Was)
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | ProtectedContainerUniqueId_s |텍스트 | 보호 된 컨테이너를 고유 하 게 식별 하는 필드 |
 | ProtectedContainerOSType_s |텍스트 |보호 된 컨테이너의 OS 유형 |
@@ -262,7 +263,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 이 표에서는 저장소 관련 필드에 대한 세부 정보를 제공합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | CloudStorageInBytes_s |10진수 |최근 값을 기준으로 계산 되는 백업에서 사용 하는 클라우드 백업 저장소 (이 필드는 v1 스키마에만 해당 됨)|
 | ProtectedInstances_s |10진수 |청구에서 프런트 엔드 저장소 계산에 사용된 보호된 인스턴스 수이며, 최신 값을 기준으로 하여 계산됩니다. |
@@ -327,20 +328,20 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 다음 표에서는 백업 관리 서버에 대 한 기본 필드를 제공 합니다.
 
-|필드  |데이터 형식  | 설명  |
+|필드  |데이터 형식  | Description  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |텍스트         |백업 관리 서버의 이름        |
+|BackupManagementServerName_s     |텍스트         |백업 관리 서버의 이름        |
 |AzureBackupAgentVersion_s     |텍스트         |백업 관리 서버의 Azure Backup 에이전트 버전          |
-|BackupManagmentServerVersion_s     |텍스트         |백업 관리 서버의 버전|
-|BackupManagmentServerOSVersion_s     |텍스트            |백업 관리 서버의 OS 버전|
+|BackupManagementServerVersion_s     |텍스트         |백업 관리 서버의 버전|
+|BackupManagementServerOSVersion_s     |텍스트            |백업 관리 서버의 OS 버전|
 |BackupManagementServerType_s     |텍스트         |백업 관리 서버의 유형 (MABS, SC DPM)|
-|BackupManagmentServerUniqueId_s     |텍스트         |백업 관리 서버를 고유 하 게 식별 하는 필드       |
+|BackupManagementServerUniqueId_s     |텍스트         |백업 관리 서버를 고유 하 게 식별 하는 필드       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 
 이 표에서는 볼륨이 연결 된 작업을 지정 합니다.
 
-| 필드 | 데이터 형식 | 설명 |
+| 필드 | 데이터 형식 | Description |
 | --- | --- | --- |
 | StorageUniqueId_s |텍스트 |저장소 엔터티를 식별 하는 데 사용 되는 고유 Id |
 | BackupItemType_s |텍스트 |이 볼륨이 기본 설정 저장소 인 작업입니다.|
@@ -359,7 +360,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 
 이 표에서는 기본적인 복구 지점 관련 필드를 제공 합니다.
 
-| 필드 | 데이터 형식 | Description |
+| 필드 | 데이터 형식 | 설명 |
 | --- | --- | --- |
 | BackupItemUniqueId_s |텍스트 |DPM, MABS를 사용 하 여 백업 된 Vm의 백업 항목을 식별 하는 데 사용 되는 고유 Id|
 | OldestRecoveryPointTime_s |텍스트 |백업 항목에 대 한 가장 오래 된 복구 지점의 날짜 시간|
