@@ -1,6 +1,6 @@
 ---
-title: 인간 레이블의 기록 지침-음성 서비스
-titlesuffix: Azure Cognitive Services
+title: 사람이 레이블 지정 된 음성 지침-음성 서비스
+titleSuffix: Azure Cognitive Services
 description: 인식 정확도를 개선하려는 경우, 특히 단어가 삭제되거나 잘못 대체되었을때 발생하는 문제들의 경우, 오디오 데이터와 함께 인간 레이블의 기록을 사용하기를 원할 것입니다. 인간 레이블의 기록은 무엇인가요? 간단하게, 오디오 파일의 단어 단위로, 말 그대로 기록한 것입니다.
 services: cognitive-services
 author: erhopf
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1645e97e5648032a1281e7cb410c42f0a28b6767
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606559"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559659"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>인간 레이블의 기록을 만드는 방법
 
 인식 정확도를 개선하려는 경우, 특히 단어가 삭제되거나 잘못 대체되었을때 발생하는 문제들의 경우, 오디오 데이터와 함께 인간 레이블의 기록을 사용하기를 원할 것입니다. 인간 레이블의 기록은 무엇인가요? 간단하게, 오디오 파일의 단어 단위로, 말 그대로 기록한 것입니다.
 
-기록 데이터의 샘플이 큰 경우 인식을 향상시키는 것이 필요하여, 10 ~ 1,000시간의 기록 데이터를 제공할 것을 권장합니다. 이 페이지에서는 고품질 기록을 만들 수 있도록 하는 지침을 살펴보겠습니다. 이 가이드는 로캘에 따라 세분화되었으며, 미국 영어, 북경어 중국어 및 독일어에 대한 섹션이 제공됩니다.
+기록 데이터의 샘플이 큰 경우 인식을 향상시키는 것이 필요하여, 10 ~ 1,000시간의 기록 데이터를 제공할 것을 권장합니다. 이 페이지에서는 고품질의 고급 기능을 만들 수 있도록 설계 된 지침을 검토 합니다. 이 가이드는 로캘에 따라 세분화되었으며, 미국 영어, 북경어 중국어 및 독일어에 대한 섹션이 제공됩니다.
 
 ## <a name="us-english-en-us"></a>미국 영어(en-US)
 
@@ -62,8 +62,8 @@ ms.locfileid: "67606559"
 다음 정규화 규칙이 기록에 자동으로 적용됩니다.
 
 * 소문자를 사용 합니다.
-* 단어 내의 아포스트로피를 제외한 모든 문장 부호를 제거 합니다.
-* 달러 금액 등의 단어/음성 형식으로 숫자를 확장 합니다.
+* 단어 내에서 아포스트로피를 제외한 모든 문장 부호를 제거 합니다.
+* 숫자를 달러 양과 같은 단어/음성 형식으로 확장 합니다.
 
 기록에서 자동으로 수행되는 정규화의 몇 가지 예는 다음과 같습니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "67606559"
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (ZH-CN)
+## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn-CN)
 
 북경어 중국어 오디오에 대한 인간 레이블 기록은 바이트 순서 표식을 사용한 utf-8 인코딩이어야 합니다. 반자 문장 부호 문자를 사용하지 않아야 합니다. 이러한 문자는 웹 페이지에서 데이터를 수집하거나 워드 프로세서 프로그램에서 데이터를 준비하는 경우 실수로 포함할 수 있습니다. 이러한 문자가 있는 경우에 적절한 전자 대체를 사용하여 업데이트해야 합니다.
 
@@ -89,7 +89,7 @@ It costs $3.14| it costs three fourteen |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표가 적절한 문자로 대체되었습니다. |
 | 需要什么帮助? | 需要什么帮助？ | 물음표가 적절한 문자로 대체되었습니다. |
 
-### <a name="text-normalization-for-mandarin-chinese"></a>북경어 중국어 텍스트 정규화
+### <a name="text-normalization-for-mandarin-chinese"></a>북경어 중국어의 텍스트 정규화
 
 텍스트 정규화는 모델을 학습시킬 때 사용되는 일관된 형식으로 단어를 변환하는 것입니다. 일부 정규화 규칙은 텍스트에 자동으로 적용됩니다, 그러나 인간 레이블 기록 데이터를 준비할 때 다음 지침을 사용하는 것이 좋습니다.
 
@@ -105,8 +105,8 @@ It costs $3.14| it costs three fourteen |
 
 다음 정규화 규칙이 기록에 자동으로 적용됩니다.
 
-* 모든 문장 부호를 제거 합니다.
-* 음성된 형식으로 숫자를 확장 합니다.
+* 모든 문장 부호 제거
+* 숫자를 음성으로 확장 양식
 * 전자 문자를 반자 문자로 변환합니다.
 * 모든 영어 단어에 대문자를 사용합니다.
 
@@ -122,7 +122,7 @@ It costs $3.14| it costs three fourteen |
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-## <a name="german-de-de-and-other-languages"></a>독일어 (DE-DE) 및 기타 언어
+## <a name="german-de-de-and-other-languages"></a>독일어 (de) 및 기타 언어
 
 독일어(영어가 아닌 다른 언어나 북경어 중국어)에 대한 인간 레이블 기록은 바이트 순서 표식을 사용한 utf-8 인코딩이어야 합니다. 하나의 인간 레이블 기록이 각 오디오 파일에 대해 제공되어야 합니다.
 
@@ -134,7 +134,7 @@ It costs $3.14| it costs three fourteen |
 *   시간 구분은 "."이 아니라 ":" 기호로 작성합니다(예: 12:00 Uhr).
 *   "ca."와 같은 약어는 대체되지 않습니다. 약어가 아닌 전체 음성 형식을 사용하는 것이 좋습니다.
 *   네 개의 기본 수학 연산자(+, -, \* 및 /)를 제거합니다. 다음으로 대체하는 것이 좋습니다: "plus", "minus", "mal", "geteilt".
-*   비교 연산자가 제거 됩니다 (=, <, 및 >). "gleich", "kleiner als" 및 "grösser als"로 바꾸는 것이 좋습니다.
+*   비교 연산자 (=, < 및 >)가 제거 됩니다. "gleich", "kleiner als" 및 "grösser als"로 바꾸는 것이 좋습니다.
 *   문서 형식으로 3/4 등의 분수를 작성합니다(예: 3/4 대신 "drei viertel").
 *   "€" 기호를 대체하여 문서 형식의 "Euro"를 사용합니다.
 
@@ -151,7 +151,7 @@ It costs $3.14| it costs three fourteen |
 * 모든 텍스트에 소문자를 사용 합니다.
 * 다양한 유형의 따옴표를 포함하여 모든 문장 부호를 제거합니다("test", 'test', "test„ 및 «test»는 좋습니다).
 * 다음과 같은 특수 문자를 사용한 행을 무시합니다: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
-* 달러 금액 유로 등 음성된 형식으로 숫자를 확장 합니다.
+* 달러 또는 유로 금액을 포함 하 여 숫자를 음성으로 확장 합니다.
 * a, o와 u에 대해서만 움라우트를 수락합니다. 나머지는 "th"로 대체하거나 삭제합니다.
 
 기록에서 자동으로 수행되는 정규화의 몇 가지 예는 다음과 같습니다.
@@ -165,7 +165,7 @@ It costs $3.14| it costs three fourteen |
 ## <a name="next-steps"></a>다음 단계
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
-* [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
-* [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
+* [데이터 검사](how-to-custom-speech-inspect-data.md)
+* [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

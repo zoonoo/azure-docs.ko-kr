@@ -1,6 +1,6 @@
 ---
 title: Translator Text API 사전 조회 메서드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API 사전 조회 메서드를 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357708"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595044"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: 사전 조회
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*필수 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -45,7 +45,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
     <td>*필수 매개 변수*입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>다음으로 변경:</td>
     <td>*필수 매개 변수*입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다.</td>
   </tr>
 </table>
@@ -54,13 +54,13 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>콘텐츠 형식</td>
+    <td>Content-Type</td>
     <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 ]
 ```
 
-다음 제한 사항이 적용됩니다.
+다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 10개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 100자를 초과할 수 없습니다.
@@ -104,7 +104,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
     * `posTag`: 이 용어를 음성 부분 태그에 연결하는 문자열입니다.
 
-        | 태그 이름 | 설명  |
+        | 태그 이름 | Description  |
         |----------|--------------|
         | ADJ      | 형용사   |
         | ADV      | 부사      |

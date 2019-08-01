@@ -1,7 +1,7 @@
 ---
-title: Azure Container Instances를 실행 합니다.
+title: Azure Container Instances-Speech Service 실행
 titleSuffix: Azure Cognitive Services
-description: Azure 컨테이너 인스턴스로 음성 서비스 컨테이너를 배포 하 고 웹 브라우저에서 테스트 합니다.
+description: 음성 서비스 컨테이너를 Azure Container Instance에 배포 하 고 웹 브라우저에서 테스트 합니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 062765be22135b12abb29ff6f7ce8a772c67adae
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41589a12f16f330188e2971e3069eb715d1a7163
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711897"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559728"
 ---
-# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>음성 서비스 컨테이너 Azure Container Instances에 배포
+# <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Azure Container Instances에 음성 서비스 컨테이너 배포
 
-Cognitive Services를 배포 하는 방법을 알아봅니다 [Speech Service](speech-container-howto.md) Azure에 컨테이너 [Container Instances](https://docs.microsoft.com/azure/container-instances/)합니다. 이 절차는 Azure Speech Service 리소스를 만드는 방법을 보여 줍니다. 다음 연결 된 컨테이너 이미지를 풀링 하는 것이 다루겠습니다. 마지막으로 브라우저에서 두 오케스트레이션 기능을 강조 표시 합니다. 컨테이너를 사용 하 여 응용 프로그램 개발에 집중 하는 대신에 인프라를 관리에서 개발자의 주의 이동할 수 있습니다.
+Cognitive Services [Speech Service](speech-container-howto.md) 컨테이너를 Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/)에 배포 하는 방법에 대해 알아봅니다. 이 절차는 Azure Speech Service 리소스를 만드는 방법을 보여 줍니다. 그런 다음 연결 된 컨테이너 이미지를 풀링 하는 방법을 설명 합니다. 마지막으로 브라우저에서 두 오케스트레이션의 오케스트레이션을 실행 하는 기능을 강조 표시 합니다. 컨테이너를 사용 하면 개발자가 인프라를 관리 하지 않고 응용 프로그램 개발에 집중 하는 것으로 전환할 수 있습니다.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

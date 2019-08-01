@@ -1,5 +1,5 @@
 ---
-title: SSML (speech 합성 Markup Language)-Speech Services
+title: SSML (speech 합성 Markup Language)-Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501163"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552675"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)
 
@@ -51,7 +51,7 @@ SSML의 Speech Services 구현은 World Wide Web 컨소시엄의 [음성 합성 
 
 **특성**
 
-| 특성 | Description | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | version | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | xml: lang | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: **en**) 또는 언어 코드와 대문자 (예: **en-us**)가 포함 될 수 있습니다. | 필수 |
@@ -138,7 +138,7 @@ SSML의 Speech Services 구현은 World Wide Web 컨소시엄의 [음성 합성 
 
 이 표를 사용 하 여 각 신경망에 대해 지원 되는 말하는 스타일을 결정 합니다.
 
-| 음성 | 형식 | Description |
+| 음성 | 형식 | 설명 |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | 긍정적이 고 행복 한 emotion 표현 |
 | | type=`empathy` | 신경쓰지의 의미를 표현 하 고 이해 합니다. |
@@ -246,7 +246,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| 특성 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | 계열의 | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>ipa &ndash; 국제 발음 영문자</li><li>sapi &ndash; Speech API Phone 집합</li><li>ups &ndash; 범용 전화 번호 설정</li></ul>알파벳은 요소의 음소 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요. | Optional |
 | ph | `phoneme` 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |

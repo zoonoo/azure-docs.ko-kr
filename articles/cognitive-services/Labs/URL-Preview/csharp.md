@@ -10,26 +10,26 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ec0c8ad06480cd596365f43f13ca57fb242d364c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827158"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698043"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>빠른 시작: C#의 URL 미리 보기 쿼리
 
-다음 C# 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
+다음 C# 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Windows에서 이 코드를 실행하려면 [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="code-scenario"></a>코드 시나리오
 
-다음 C# 코드에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)의 URL 미리 보기를 만듭니다. 
+다음 C# 코드에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )의 URL 미리 보기를 만듭니다. 
 
 다음 단계로 구현됩니다.
 1. 미리 보기에 대한 엔드포인트 및 쿼리 URL을 지정하려면 변수를 선언합니다.  

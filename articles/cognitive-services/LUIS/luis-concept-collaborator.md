@@ -1,6 +1,6 @@
 ---
-title: 협업
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 공동 작업-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 앱에는 단일 앱을 여러 사람이 작성하도록 허용하는 단일 소유자 및 선택적 협력자가 필요합니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473520"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560787"
 ---
 # <a name="collaborating-with-other-authors"></a>다른 작성자와 공동 작업
 
@@ -31,7 +31,7 @@ Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Dir
 
 ## <a name="luis-app-owner"></a>LUIS 앱 소유자
 
-앱을 생성 하는 계정 소유자 이며 각 앱에 단일 소유자입니다. 소유자는 앱에 표시 됩니다 **[설정](luis-how-to-collaborate.md)** 페이지입니다. 소유자 끝점 할당량에는 월별 한도의 75%에 도달 하면 전자 메일을 받습니다. 
+앱을 만드는 계정은 소유자 이며 각 앱에는 단일 소유자가 있습니다. 소유자는 앱 **[설정](luis-how-to-collaborate.md)** 페이지에 나열 됩니다. 끝점 할당량이 월간 한도의 75%에 도달 하면 소유자가 전자 메일을 받습니다. 
 
 ## <a name="authorization-roles"></a>권한 부여 역할
 LUIS는 소유자와 공동 작업자에게 여러 역할을 지원하지 않습니다. 단, 한 가지 예외는 있습니다. 소유자는 앱을 삭제할 수 있는 유일한 계정입니다.
@@ -52,7 +52,7 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>동일한 앱 내부에서 여러 버전 관리
 먼저 각 작성자에 기본 버전에서 [복제](luis-how-to-manage-versions.md#clone-a-version)합니다. 
 
-각 작성자는 앱의 고유한 버전으로 변경 합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
+각 작성자는 자신의 앱 버전을 변경 합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
 
 내보낸 앱은 JSON 형식 파일이며 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다. 
 
@@ -63,9 +63,9 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 
 내보낸 앱은 JSON 형식 파일이며 기본 내보내기와 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>공동 작업자 역할 및 엔터티 역할
+## <a name="collaborator-roles-vs-entity-roles"></a>협력자 역할 vs 엔터티 역할
 
-[엔터티 역할](luis-concept-roles.md) LUIS 앱의 데이터 모델에 적용 합니다. 제작 액세스 수준을 협력자 역할 적용 됩니다. 
+[엔터티 역할](luis-concept-roles.md) 은 LUIS 앱의 데이터 모델에 적용 됩니다. 협력자 역할은 제작 액세스 수준에 적용 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 절전 모드 해제 단어 만들기 - Speech Service
+title: 사용자 지정 절전 모드 해제 워드-음성 서비스 만들기
 titleSuffix: Azure Cognitive Services
 description: 디바이스는 항상 절전 모드 해제 단어(또는 구)를 수신 대기합니다. 사용자가 절전 모드 해제 단어를 말하면 사용자가 말하기를 중지할 때까지 디바이스에서 모든 후속 오디오를 클라우드로 보냅니다. 절전 모드 해제 단어를 사용자 지정하는 것은 디바이스를 구별하고 브랜드를 강화하는 효과적인 방법입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f43cbedc633b26a3a7fcbfb5f6a75da514bf0c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604878"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553098"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Speech Service를 사용하여 사용자 지정 절전 모드 해제 단어 만들기
 
@@ -46,26 +46,26 @@ ms.locfileid: "67604878"
 
 ## <a name="create-your-wake-word"></a>절전 모드 해제 단어 만들기
 
-장치를 사용 하 여 사용자 지정 절전 모드 해제 단어를 사용 하려면 먼저 Microsoft 사용자 지정 Wake 단어 생성 서비스를 사용 하 여 절전 모드 해제 단어를 만들려고 해야 합니다. 한 후 장치에서 절전 모드 해제 단어를 사용 하도록 설정 하려면 개발 키트를 배포 하는 파일 서비스 생성 절전 모드 해제 단어를 제공 합니다.
+장치에서 사용자 지정 절전 모드 해제 단어를 사용 하려면 먼저 Microsoft 사용자 지정 절전 모드 해제 word 생성 서비스를 사용 하 여 절전 모드 해제 단어를 만들어야 합니다. 절전 모드 해제 단어를 제공한 후 서비스는 장치에서 절전 모드 해제 단어를 사용할 수 있도록 개발 키트에 배포 하는 파일을 생성 합니다.
 
-1. 로 이동 합니다 [사용자 지정 음성 서비스 포털](https://aka.ms/sdsdk-speechportal) 및 **로그인** 선택 하는 음성 구독이 없는 경우 또는 [ **구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. [Custom Speech Service 포털로](https://aka.ms/sdsdk-speechportal) 이동 하 여 **로그인** 하거나 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754) 를 선택 합니다.
 
-    ![사용자 지정 음성 서비스 포털](media/speech-devices-sdk/wake-word-4.png)
+    ![Custom Speech Service 포털](media/speech-devices-sdk/wake-word-4.png)
 
-1. 에 [단어를 절전 모드를 해제 하는 사용자 지정](https://aka.ms/sdsdk-wakewordportal) 페이지에 선택 및 클릭의 절전 모드 해제 단어 입력 **추가 절전 모드 해제 단어**. 고객 들 [지침](#choose-an-effective-wake-word) 는 유효한 키워드를 선택할 수 있습니다. 현재 EN-US 언어만 지원합니다.
+1. [사용자 지정 절전 모드 해제 단어](https://aka.ms/sdsdk-wakewordportal) 페이지에서 원하는 절전 모드 해제 단어를 입력 하 고 **절전 모드 해제 단어 추가**를 클릭 합니다. 효과적인 키워드를 선택 하는 데 도움이 되는 몇 가지 [지침이](#choose-an-effective-wake-word) 있습니다. 현재 en-us 언어만 지원 합니다.
 
     ![절전 모드 해제 단어 입력](media/speech-devices-sdk/wake-word-5.png)
 
-1. 절전 모드 해제 word의 세 가지 대체 발음 만들어질 수 있습니다. 원하는 모든 발음을 선택할 수 있습니다. 선택한 **제출** 절전 모드 해제 단어를 생성 합니다. 변경 하려면 절전 모드 해제 단어 하세요 제거 기존 먼저 발음 줄에 올리면 삭제 아이콘 표시 됩니다.
+1. 절전 모드 해제 단어의 세 가지 대체 발음 생성 됩니다. 원하는 모든 발음를 선택할 수 있습니다. 그런 다음 **제출** 을 선택 하 여 절전 모드 해제 단어를 생성 합니다. 절전 모드 해제 단어를 변경 하려면 먼저 기존 항목을 제거 하 고, 발음 줄을 마우스로 가리키면 삭제 아이콘이 표시 됩니다.
 
-    ![절전 모드 해제 word를 검토 합니다.](media/speech-devices-sdk/wake-word-6.png)
+    ![절전 모드 해제 단어 검토](media/speech-devices-sdk/wake-word-6.png)
 
-1. 생성할 모델에 대 일 분 정도 걸릴 수 있습니다. 파일을 다운로드 하 라는 메시지가 표시 됩니다.
+1. 모델을 생성 하는 데 최대 1 분 정도 걸릴 수 있습니다. 파일을 다운로드 하 라는 메시지가 표시 됩니다.
 
-    ![절전 모드 해제 word 다운로드](media/speech-devices-sdk/wake-word-7.png)
+    ![절전 모드 해제 단어 다운로드](media/speech-devices-sdk/wake-word-7.png)
 
-1. .zip 파일을 컴퓨터에 저장합니다. 이 파일을 사용자 지정 절전 모드 해제 word 개발 키트 배포 해야 합니다.
+1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 절전 모드 해제 단어를 개발 키트에 배포 하려면이 파일이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-테스트에 사용자 지정 절전 모드 해제 단어 [음성 장치 SDK 퀵 스타트](https://aka.ms/sdsdk-quickstart)합니다.
+[음성 장치 SDK 퀵 스타트](https://aka.ms/sdsdk-quickstart)를 사용 하 여 사용자 지정 절전 모드 해제 단어를 테스트 합니다.

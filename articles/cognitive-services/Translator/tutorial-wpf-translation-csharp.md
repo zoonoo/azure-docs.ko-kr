@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657937"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594926"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -48,7 +48,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 계속하기 전에 다음이 필요합니다.
 
-* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* Azure Cognitive Services 구독. [Cognitive Services 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * Windows 머신
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community 또는 Enterprise
 
@@ -109,7 +109,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 사용자 인터페이스에 포함되는 구성 요소는 다음과 같습니다.
 
-| 이름 | Type | 설명 |
+| Name | Type | 설명 |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Microsoft Translator에서 텍스트 번역에 지원하는 언어 목록을 표시합니다. 사용자가 번역할 원본 언어를 선택합니다. |
 | `ToLanguageComboBox` | ComboBox | `FromComboBox`와 동일한 언어 목록을 표시하지만 사용자가 번역할 대상 언어를 선택하는 데 사용됩니다. |

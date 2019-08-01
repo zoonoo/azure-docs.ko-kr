@@ -1,7 +1,7 @@
 ---
-title: Custom Speech Service에서 음성 서비스로 마이그레이션
-titlesuffix: Azure Cognitive Services
-description: Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기능 및 품질 업데이트의 이점을 활용하도록 음성 서비스로 전환합니다.
+title: Custom Speech Service에서 Speech Service로 마이그레이션
+titleSuffix: Azure Cognitive Services
+description: Custom Speech Service는 이제 음성 서비스의 일부입니다. Speech Service로 전환하여 최신 기능 및 기능 업데이트의 이점을 활용합니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 01b853c59723a8ed79cb32b0ee9c245c9c3ffb3f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995644"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562759"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Custom Speech Service에서 음성 서비스로 마이그레이션
 
@@ -30,7 +30,7 @@ Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기�
 
 1. 애플리케이션을 사용할 수 있는 각 지역에서 Azure 리소스를 만듭니다. Azure 리소스 이름이 **Speech**입니다. 별도 리소스를 만드는 대신 동일한 지역에서 다음 서비스에 대해 단일 Azure 리소스를 사용할 수 있습니다.
 
-    * 음성 텍스트 변환
+    * 음성을 텍스트로
     * 음성 텍스트 변환 사용자 지정
     * 텍스트 음성 변환
     * 음성 번역
@@ -59,7 +59,7 @@ Custom Speech Service는 이제 음성 서비스의 일부입니다. 최신 기�
 * [음성 서비스를 무료로 사용](get-started.md)해 봅니다.
 * [음성 텍스트 변환](./speech-to-text.md) 개념에 대해 알아봅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * [음성 서비스란](overview.md)
-* [음성 서비스 및 Speech SDK 설명서](speech-sdk.md#get-the-sdk)
+* [음성 서비스 및 음성 SDK 설명서](speech-sdk.md#get-the-sdk)

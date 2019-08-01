@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fe6758cb6b8d120862cbbe593574360c1bc7b17b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823269"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698117"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>빠른 시작: C#에서 Project Answer Search 쿼리
 
@@ -25,7 +25,7 @@ ms.locfileid: "65823269"
 
 Windows에서 이 코드를 실행하려면 [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="code-scenario"></a>코드 시나리오
 

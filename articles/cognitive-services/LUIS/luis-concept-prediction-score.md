@@ -1,7 +1,7 @@
 ---
-title: 예측 점수
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 예측 점수를 나타내는 LUIS API 서비스 예측 결과 대 한에 신뢰 수준의 사용자 utterance에 기반 합니다.
+title: 예측 점수-LUIS
+titleSuffix: Azure Cognitive Services
+description: 예측 점수는 사용자 utterance를 기반으로 LUIS API 서비스가 예측 결과에 대해 갖는 신뢰도를 나타냅니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814005"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638365"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>예측 점수는 의도 및 엔터티에 대한 예측 정확도를 나타냅니다.
 
-예측 점수를 나타내는 LUIS에 예측 결과 대 한 신뢰 수준을 기반으로 사용자 utterance 합니다.
+예측 점수는 사용자 utterance를 기반으로 예측 결과에 대 한 신뢰도 LUIS의 수준을 나타냅니다.
 
 예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
 
-|점수 값|신뢰도|
+|점수 값|Confidence|
 |--|--|
 |1|확실한 일치|
 |0.99|높은 신뢰도|
@@ -37,7 +37,7 @@ ms.locfileid: "60814005"
 
 ## <a name="top-scoring-intent"></a>상위 점수 의도
 
-모든 발화 예측은 상위 점수 의도를 반환합니다. 이 예측은 예측 점수의 숫자를 비교 합니다. 최고 2 점수는 매우 작은 차이점을 가질 수 있습니다. LUIS는 상위 점수를 반환 합니다. 이외의이 근접성을 나타내지 않습니다.  
+모든 발화 예측은 상위 점수 의도를 반환합니다. 이 예측은 예측 점수의 숫자 비교입니다. 상위 2 개 점수가 매우 작은 차이를 가질 수 있습니다. LUIS는이 근접 점수를 반환 하는 것 외에는이를 나타내지 않습니다.  
 
 ## <a name="return-prediction-score-for-all-intents"></a>모든 의도의 예측 점수 반환
 
@@ -47,17 +47,17 @@ ms.locfileid: "60814005"
 
 올바른 의도가 식별되는지, 다음 식별된 의도의 점수가 여러 발화에 일관되게 상당히 더 낮은지 확인하려면 모든 의도의 점수를 검토하는 것이 좋습니다.
 
-여러 의도의 예측 점수가 가까운 경우에는 발화 컨텍스트에 따라 LUIS가 의도 간에 전환할 수 있습니다. 이 문제를 해결 하려면 계속 보다 다양 한 상황에 맞는 차이 사용 하 여 각 의도 길이 발언을 추가 하거나 채팅 봇 같은 클라이언트 응용 프로그램을 2 상위 의도 처리 하는 방법에 대 한 프로그래밍 방식으로 선택할 수 있습니다.
+여러 의도의 예측 점수가 가까운 경우에는 발화 컨텍스트에 따라 LUIS가 의도 간에 전환할 수 있습니다. 이러한 상황을 해결 하려면 더 광범위 한 컨텍스트 차이를 사용 하 여 각 의도에 길이 발언를 추가 하거나 채팅 봇과 같은 클라이언트 응용 프로그램을 사용 하 여 2 개의 인기를 처리 하는 방법에 대해 프로그래밍 방식으로 선택 합니다.
 
-점수가 매겨진 너무-밀접 하 게 되는 2 인 텐트 비결 교육 인해 반전 될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이 상황을 방지 하기 위해 각 단어 선택 및 2 의도 구분할 수 있는 컨텍스트를 사용 하 여 해당 utterance에 대 한 상위 두 의도에 예제 발언을 추가 합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
+명확 하지 않은 두 가지 의도는 명확 하지 않은 교육으로 인해 반전 될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이러한 상황을 방지 하기 위해 두 가지 의도를 차별화 하는 단어를 선택 하 고 컨텍스트를 사용 하 여 utterance에 대 한 길이 발언 예를 각 상위 두 의도에 추가 합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
 
-비 결정적인 교육을 해제할 수 있습니다 [모든 데이터를 사용 하 여 학습](luis-how-to-train.md#train-with-all-data)합니다.
+[모든 데이터로 학습](luis-how-to-train.md#train-with-all-data)하 여 비 결정적인 학습을 해제할 수 있습니다.
 
-## <a name="differences-with-predictions-between-different-training-sessions"></a>예측 다양 한 교육 세션 간 차이점
+## <a name="differences-with-predictions-between-different-training-sessions"></a>여러 학습 세션 간의 예측 차이
 
-다른 앱에서 동일한 모델을 학습 하 고 점수를 동일 하지 않은 경우 비 결정적인 교육 (의 임의성 훼손 이라는 요소) 이므로이 차이점은입니다. 두 번째로, 둘 이상 의도의 발화가 겹치는 것은 동일 발화의 상위 의도가 학습에 따라 변경될 수 있음을 의미합니다.
+다른 앱에서 동일한 모델을 학습 하 고 점수가 동일 하지 않은 경우 이러한 차이는 명확 하지 않은 교육 (무작위성 요소)이 있기 때문입니다. 두 번째로, 둘 이상 의도의 발화가 겹치는 것은 동일 발화의 상위 의도가 학습에 따라 변경될 수 있음을 의미합니다.
 
-채팅 봇 의도에 대 한 신뢰도 나타내는 특정 LUIS 점수에 필요한 경우 점수에 대 한 차이 상위 두 의도 사용 해야 합니다. 이 이런 교육에는 변형에 대 한 유연성을 제공합니다.
+채팅 봇에 특정 LUIS 점수가 필요한 경우에는 상위 두 의도 사이의 점수 차이를 사용 해야 합니다. 이러한 상황은 학습의 변화에 대 한 유연성을 제공 합니다.
 
 ## <a name="e-exponent-notation"></a>E(지수) 표기법
 
@@ -69,7 +69,7 @@ ms.locfileid: "60814005"
 
 ## <a name="punctuation"></a>문장 부호
 
-문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표를 포함 하지 않는 utterance 및 부분에 마침표를 포함 하는 utterance 별도 두 표현 되며 두 개의 다른 예측을 가져올 수 있습니다. 모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
+문장 부호를 사용 하거나 무시 하는 방법에 [대해 자세히 알아보세요](luis-concept-utterance.md#punctuation-marks) . 
 
 ## <a name="next-steps"></a>다음 단계
 

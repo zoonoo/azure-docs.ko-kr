@@ -1,7 +1,7 @@
 ---
-title: 계정 및 키 관리
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보 account.microsoft.com에서 관리 됩니다. 제작 키 LUIS 포털 설정 페이지에서 관리 됩니다.
+title: 계정 및 키 관리-LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보는 account.microsoft.com에서 관리 됩니다. 제작 키는 LUIS 포털 설정 페이지에서 관리 됩니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523513"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638276"
 ---
 # <a name="manage-account-and-authoring-key"></a>계정 및 작성 키 관리
 
-LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보는 [account.microsoft.com](https://account.microsoft.com)에서 관리됩니다. 제작 키에서 관리 되는 [LUIS](luis-reference-regions.md) 포털 **설정** 페이지입니다.
+LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보는 [account.microsoft.com](https://account.microsoft.com)에서 관리됩니다. 제작 키는 [LUIS](luis-reference-regions.md) 포털 **설정** 페이지에서 관리 됩니다.
 
 ## <a name="authoring-key"></a>작성 키
 
-이 단일, 지역별 제작에서 키를 **설정을** 페이지에서 모든 앱을 작성할 수 있습니다를 [LUIS](luis-reference-regions.md) 뿐만 포털를 [Api를 작성](https://go.microsoft.com/fwlink/?linkid=2092087)합니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 엔드포인트 쿼리를 만들 수 있습니다.
+**설정** 페이지에서이 단일 지역별 제작 키를 사용 하 여 [LUIS](luis-reference-regions.md) 포털 뿐만 아니라 [제작 api](https://go.microsoft.com/fwlink/?linkid=2092087)를 통해 모든 앱을 제작할 수 있습니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 엔드포인트 쿼리를 만들 수 있습니다.
 
 [![LUIS 설정 페이지](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
@@ -36,7 +36,7 @@ LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키
 
 ## <a name="reset-authoring-key"></a>작성 키 다시 설정
 
-작성 키가 손상되면 키를 다시 설정합니다. 모든 앱에 키를 다시 설정 합니다 [LUIS](luis-reference-regions.md) 포털입니다. 작성 API를 통해 앱을 작성하는 경우 `Ocp-Apim-Subscription-Key` 값을 새 키로 변경해야 합니다.
+작성 키가 손상되면 키를 다시 설정합니다. [LUIS](luis-reference-regions.md) 포털의 모든 앱에서 키가 다시 설정 됩니다. 작성 API를 통해 앱을 작성하는 경우 `Ocp-Apim-Subscription-Key` 값을 새 키로 변경해야 합니다.
 
 ## <a name="delete-account"></a>계정 삭제
 

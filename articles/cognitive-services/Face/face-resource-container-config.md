@@ -1,6 +1,6 @@
 ---
-title: 컨테이너 구성
-titlesuffix: Face - Azure Cognitive Services
+title: 컨테이너 구성-FACE API
+titleSuffix: Azure Cognitive Services
 description: 컨테이너에 대한 구성 설정입니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320489"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564105"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
 
@@ -61,7 +61,7 @@ ms.locfileid: "68320489"
 
 `CloudAI` 섹션의 구성 설정은 컨테이너에 고유한 컨테이너 관련 옵션을 제공합니다. `CloudAI` 섹션에서 Face 컨테이너에 대해 지원되는 설정과 개체는 다음과 같습니다.
 
-| 이름 | 데이터 형식 | Description |
+| 이름 | 데이터 형식 | 설명 |
 |------|-----------|-------------|
 | `Storage` | Object | Face 컨테이너에서 사용되는 스토리지 시나리오입니다. `Storage` 개체에 대한 스토리지 시나리오 및 관련 설정에 대한 자세한 내용은 [스토리지 시나리오 설정](#storage-scenario-settings)을 참조하세요. |
 
@@ -80,10 +80,10 @@ Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이
 
 스토리지 시나리오 및 관련 구성 설정은 `CloudAI` 구성 섹션의 `Storage` 개체에서 관리됩니다. `Storage` 개체에서 사용할 수 있는 구성 설정은 다음과 같습니다.
 
-| 이름 | 데이터 형식 | Description |
+| 이름 | 데이터 형식 | 설명 |
 |------|-----------|-------------|
 | `StorageScenario` | String | 컨테이너에서 지원되는 스토리지 시나리오입니다. 사용할 수 있는 값은 다음과 같습니다.<br/>`Memory` - 기본값입니다. 일시적인 단일 노드 사용을 위해 컨테이너에서 비영구, 비분산 및 메모리 내 스토리지를 사용합니다. 컨테이너가 중지되거나 제거되면 해당 컨테이너의 스토리지가 삭제됩니다.<br/>`Azure` - 컨테이너에서 스토리지에 대한 Azure 리소스를 사용합니다. 컨테이너가 중지되거나 제거되더라도 해당 컨테이너의 스토리지가 유지됩니다.|
-| `ConnectionStringOfAzureStorage` | String | 컨테이너에서 사용되는 Azure Storage 리소스에 대한 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
+| `ConnectionStringOfAzureStorage` | 문자열 | 컨테이너에서 사용되는 Azure Storage 리소스에 대한 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 | `ConnectionStringOfCosmosMongo` | 문자열 | 컨테이너에서 사용되는 Azure Cosmos DB 리소스에 대한 MongoDB 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 
 예를 들어 다음 명령은 Azure Storage 시나리오를 지정하고, Face 컨테이너에 대한 데이터를 저장하는 데 사용되는 Azure Storage 및 Cosmos DB 리소스에 대한 연결 문자열 샘플을 제공합니다.
@@ -125,7 +125,7 @@ Face 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 �
 |Optional| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Face 컨테이너에는 사용되지 않습니다.|
-|Optional| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 

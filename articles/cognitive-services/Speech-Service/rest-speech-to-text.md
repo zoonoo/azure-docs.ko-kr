@@ -1,7 +1,7 @@
 ---
-title: 음성-텍스트 API 참조 (REST)-음성 서비스
+title: 음성 텍스트 API 참조 (REST)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성-텍스트 REST API를 사용 하는 방법을 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
+description: 음성 텍스트 REST API를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606347"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552965"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
 [음성 SDK](speech-sdk.md) 대안으로, 음성 서비스는 REST API를 사용하여 음성-텍스트 변환이 가능합니다. 액세스 가능한 각 엔드포인트는 지역과 연결됩니다. 사용하려는 엔드포인트에 대한 구독 키가 애플리케이션에 필요합니다.
 
-음성-텍스트 REST API를 사용 하기 전에 다음을 이해 합니다.
+음성 텍스트 REST API를 사용 하기 전에 다음을 이해 합니다.
 * REST API를 사용하는 요청은 10초 동안 기록된 오디오만 포함할 수 있습니다.
 * Speech-to-Text REST API는 최종 결과만 반환합니다. 부분 결과는 제공되지 않습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67606347"
 
 이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 |
+| 매개 변수 | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | Optional |
@@ -49,14 +49,14 @@ ms.locfileid: "67606347"
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
-|헤더| Description | 필수/선택 |
+|헤더| 설명 | 필수/선택 |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | 음성 서비스 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | `Bearer` 단어 앞에 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
 | `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
 | `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | Optional |
-| `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. 음성 서비스는 초기 요청을 확인 하 고 추가 데이터를 기다립니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
-| `Accept` | 제공하는 경우 `application/json`이어야 합니다. Speech Services는 json에서 결과 제공합니다. 값을 지정하지 않을 경우 일부 웹 요청 프레임워크는 호환되지 않는 기본값을 지정하므로, 항상 `Accept`를 포함하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
+| `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. 음성 서비스는 초기 요청을 승인 하 고 추가 데이터를 기다립니다 합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
+| `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON에 결과를 제공 합니다. 값을 지정하지 않을 경우 일부 웹 요청 프레임워크는 호환되지 않는 기본값을 지정하므로, 항상 `Accept`를 포함하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
 
 ## <a name="audio-formats"></a>오디오 형식
 
@@ -68,7 +68,7 @@ ms.locfileid: "67606347"
 | OGG | OPUS | 16비트 | 16kHz, mono |
 
 >[!NOTE]
->위의 형식은 REST API 및 음성 서비스에서 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md)는 현재 PCM 코덱을 사용하는 WAV 형식만 지원합니다.
+>위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md)는 현재 PCM 코덱을 사용하는 WAV 형식만 지원합니다.
 
 ## <a name="sample-request"></a>샘플 요청
 
@@ -93,7 +93,7 @@ Expect: 100-continue
 | 100 | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송으로 사용함) |
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
 | 400 | 잘못된 요청 | 언어 코드가 제공되지 않았거나 지원되지 않는 언어입니다. 오디오 파일이 잘못되었습니다. |
-| 401 | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
+| 401 | 인증되지 않음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
 | 403 | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
 
 ## <a name="chunked-transfer"></a>청크 분할 전송
@@ -152,7 +152,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| Status | Description |
+| Status | 설명 |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -163,7 +163,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
-`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `NBest`와 함께 `simple` 형식과 동일한 데이터를 포함합니다. 이러한 결과 가장 자주 하에서 가능성이 가장 높은 순위가 지정 됩니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
+`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `NBest`와 함께 `simple` 형식과 동일한 데이터를 포함합니다. 이러한 결과는 가장 가능성이 낮은 것부터 순위가 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
 
 `NBest` 목록의 각 개체에는 다음이 포함됩니다.
 

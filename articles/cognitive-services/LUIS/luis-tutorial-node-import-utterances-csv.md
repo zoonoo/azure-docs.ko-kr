@@ -1,6 +1,6 @@
 ---
-title: Node.js를 사용하여 발언 가져오기
-titleSuffix: Azure
+title: Node.js를 사용 하 여 길이 발언 가져오기-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
@@ -9,38 +9,50 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79a372087e162fedc5b2e014a5cd4976df3cb2ce
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494900"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637813"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모든 작업을 수행하는 프로그래밍 방식의 API를 제공합니다. 따라서 기존 데이터가 있는 경우 시간을 절약할 수 있으며 직접 정보를 입력할 때보다 더 빠르게 프로그래밍 방식으로 LUIS 앱을 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
+* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인 하 고 계정 설정에서 [제작 키](luis-concept-keys.md#authoring-key) 를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 이 자습서는 가상 회사의 사용자 요청 로그 파일에 대한 CSV에서 시작합니다. [여기](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
+* 이 자습서는 가상 회사의 사용자 요청 로그 파일에 대한 CSV에서 시작합니다. [여기서](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.
 * **[권장]** IntelliSense 및 디버깅용 Visual Studio Code를 [여기](https://code.visualstudio.com/)에서 무료로 다운로드하세요.
+
+이 자습서의 모든 코드는 [Azure 샘플 Language Understanding GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)에서 사용할 수 있습니다. 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>의도 및 엔터티에 기존 데이터 매핑
 LUIS를 사용하여 만들지 않은 시스템이 있는 경우에도 사용자가 수행하려는 다양한 작업에 매핑되는 텍스트 데이터가 있으면 사용자 입력의 기존 범주에서 LUIS의 의도로 매핑할 수 있습니다. 사용자가 말한 내용에서 중요한 단어나 구를 식별할 수 있는 경우, 이러한 단어가 엔터티에 매핑될 수 있습니다.
 
-`IoT.csv` 파일을 엽니다. 여기에는 사용자 쿼리가 분류된 방식, 사용자가 말한 내용, 쿼리에서 가져온 유용한 정보가 있는 일부 열을 포함하여 가상 홈 자동화 서비스에 대한 사용자 쿼리 로그가 포함됩니다. 
+파일을 [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) 엽니다. 여기에는 사용자 쿼리가 분류된 방식, 사용자가 말한 내용, 쿼리에서 가져온 유용한 정보가 있는 일부 열을 포함하여 가상 홈 자동화 서비스에 대한 사용자 쿼리 로그가 포함됩니다. 
 
 ![기존 데이터의 CSV 파일](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 **RequestType** 열이 의도가 되고 **Request** 열에는 예제 발화가 표시되는 것을 확인할 수 있습니다. 다른 필드가 발화에서 나타나는 경우 엔터티가 될 수 있습니다. 의도, 엔터티 및 예제 발화가 있으므로 간단한 샘플 앱에 대한 요구 사항이 충족됩니다.
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>비 LUIS 데이터에서 LUIS 앱을 생성하는 단계
-원본 파일에서 새 LUIS 앱을 생성하려면 먼저 CSV 파일의 데이터를 구문 분석하고 작성 API를 사용하여 LUIS에 업로드할 수 있는 형식으로 이 데이터를 변환합니다. 구문 분석된 데이터에서 존재하는 의도 및 엔터티에 대한 정보를 수집합니다. 그런 다음, API를 호출하여 앱을 만들고 구문 분석된 데이터에서 수집된 의도 및 엔터티를 추가합니다. LUIS 앱을 만든 다음에는 구문 분석된 데이터에서 예제 발화를 추가할 수 있습니다. 다음 코드의 마지막 부분에서 이 흐름을 확인할 수 있습니다. 이 코드를 복사하거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)하여 `index.js`에 저장합니다.
+CSV 파일에서 새 LUIS 앱을 생성 하려면:
+
+* CSV 파일에서 데이터를 구문 분석 합니다.
+    * Authoring API를 사용 하 여 LUIS에 업로드할 수 있는 형식으로 변환 합니다. 
+    * 구문 분석 된 데이터에서 의도 및 엔터티에 대 한 정보를 수집 합니다. 
+* 다음에 대 한 API 호출을 만듭니다.
+    * 앱을 만듭니다.
+    * 구문 분석 된 데이터에서 수집 된 의도 및 엔터티를 추가 합니다. 
+    * LUIS 앱을 만든 다음에는 구문 분석된 데이터에서 예제 발화를 추가할 수 있습니다. 
+
+이 프로그램 흐름은 `index.js` 파일의 마지막 부분에서 볼 수 있습니다. 이 코드를 복사하거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)하여 `index.js`에 저장합니다.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -119,7 +131,7 @@ index.js 파일을 열고 파일의 맨 위에서 이러한 값을 변경하세�
 
 ```javascript
 // Change these values
-const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
@@ -132,7 +144,7 @@ const LUIS_versionId = "0.1";
 > node index.js
 ```
 
-또는
+로 구분하거나 여러
 
 ```console
 > npm start
@@ -167,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>LUIS 앱 열기
-스크립트가 완료되면 [LUIS](luis-reference-regions.md)에 로그인하여 **내 앱**에서 직접 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
+스크립트가 완료 되 면 [LUIS](luis-reference-regions.md) 에 로그인 하 고 **내 앱**에서 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
 
 ![TurnOn 의도](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -177,7 +189,7 @@ upload done
 > [!div class="nextstepaction"]
 > [LUIS 웹 사이트에서 앱 테스트 및 학습](luis-interactive-test.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 이 애플리케이션 예제에서는 다음 LUIS API를 사용합니다.
 - [앱 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)

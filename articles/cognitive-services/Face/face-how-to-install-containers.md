@@ -1,6 +1,6 @@
 ---
-title: 컨테이너 설치 및 실행
-titlesuffix: Face - Azure Cognitive Services
+title: 컨테이너 설치 및 실행-FACE API
+titleSuffix: Azure Cognitive Services
 description: 이 연습 자습서에서 Face 용 컨테이너를 다운로드, 설치 및 실행 합니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f4abf17c774fb75a0314c8890f5f4383058e37fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321374"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564137"
 ---
 # <a name="install-and-run-face-containers"></a>Face 컨테이너 설치 및 실행
 

@@ -1,5 +1,6 @@
 ---
 title: 텍스트 조정 - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: 가능한 원치 않는 텍스트, PII 및 사용자 지정 용어 목록에 대해 텍스트 조정을 사용합니다.
 services: cognitive-services
 author: sanjeev3
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607119"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564377"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -79,7 +80,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 PII 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니다.
 
-- 메일 주소
+- 전자 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호

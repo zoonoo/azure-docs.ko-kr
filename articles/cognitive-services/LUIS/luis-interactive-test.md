@@ -1,6 +1,6 @@
 ---
 title: LUIS 포털에서 앱 테스트
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)을 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199162"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637954"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 <a name="train-your-app"></a>
-앱 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습시키고, 다시 테스트합니다. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
+
+앱 [테스트](luis-concept-test.md) 는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습시키고, 다시 테스트합니다. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "60199162"
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다. 
 
-2. **테스트** 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트**를 선택합니다.
+1. **테스트** 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트**를 선택합니다.
 
     ![앱 학습 및 테스트 페이지](./media/luis-how-to-interactive-test/test.png)
 
-3. 텍스트 상자에 발화를 입력하고 Enter 키를 선택합니다. **테스트**에서 원하는 만큼 테스트 발화를 입력할 수 있지만 한 번에 하나의 발화만 입력할 수 있습니다.
+1. 텍스트 상자에 발화를 입력하고 Enter 키를 선택합니다. **테스트**에서 원하는 만큼 테스트 발화를 입력할 수 있지만 한 번에 하나의 발화만 입력할 수 있습니다.
 
-4. 발화, 상위 의도 및 점수가 텍스트 상자 아래 발화 목록에 추가됩니다.
+1. 발화, 상위 의도 및 점수가 텍스트 상자 아래 발화 목록에 추가됩니다.
 
     ![대화형 테스트에서 잘못된 의도 식별](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ ms.locfileid: "60199162"
 
     ![테스트 결과에 대한 자세한 내용을 보려면 [검사] 단추를 선택합니다.](./media/luis-how-to-interactive-test/inspect.png)
 
-2. **검사** 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
+1. **검사** 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
 
     ![패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ ms.locfileid: "60199162"
 
 1. 상위 점수 의도가 잘못된 경우, **편집** 단추를 선택합니다.
 
-2.  드롭다운 목록에서 발화의 올바른 의도를 선택합니다.
+1.  드롭다운 목록에서 발화의 올바른 의도를 선택합니다.
 
     ![올바른 의도 선택](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ ms.locfileid: "60199162"
 
 1. **테스트** 창에 발화를 입력합니다. 발화가 예측되면 입력한 발화 바로 아래에서 **[검사](#inspect-score)** 를 선택합니다. 
 
-2. **검사** 패널이 열리면 **[게시된 버전과 비교](#compare-with-published-version)** 를 선택합니다. 
+1. **검사** 패널이 열리면 **[게시된 버전과 비교](#compare-with-published-version)** 를 선택합니다. 
 
-3. **게시됨** 패널이 열리면 **[추가 설정](#additional-settings-in-test-panel)** 을 선택합니다.
+1. **게시됨** 패널이 열리면 **[추가 설정](#additional-settings-in-test-panel)** 을 선택합니다.
 
-4. 팝업 대화 상자에서 **Bing Spell Check** 서비스 키를 입력합니다. 
-    ![Bing Spell Check 서비스 키 입력](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. 팝업 대화 상자에서 **Bing Spell Check 사용** 을 선택 하 고 키를 입력 한 다음 **완료**를 선택 합니다. 
+    ![Bing Spell Check 서비스 키 입력](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. `book flite to seattle`과 같이 잘못된 맞춤법이 포함된 쿼리를 입력하고 Enter 키를 선택합니다. LUIS로 보낸 쿼리에서 단어 `flite`의 잘못된 철자가 바뀌고, 결과 JSON은 원래 쿼리를 `query`로, 해당 쿼리의 정정된 철자를 `alteredQuery`로 표시합니다.
-
-    ![정정된 맞춤법 JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. `book flite to seattle`과 같이 잘못된 맞춤법이 포함된 쿼리를 입력하고 Enter 키를 선택합니다. LUIS로 보낸 쿼리에서 단어 `flite`의 잘못된 철자가 바뀌고, 결과 JSON은 원래 쿼리를 `query`로, 해당 쿼리의 정정된 철자를 `alteredQuery`로 표시합니다.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

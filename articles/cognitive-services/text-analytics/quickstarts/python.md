@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 07/28/2019
 ms.author: aahi
-ms.openlocfilehash: 69f22d92cc586942d3e368a164d6e95f52aa3eea
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3987441ea7c28136750149d3fa66afe061b7d783
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356903"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697246"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python REST API를 사용하여 Text Analytics Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python 3.x](https://python.org)
-
-* 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md).
 
 * Python 요청 라이브러리
     

@@ -1,7 +1,7 @@
 ---
-title: Speech Service 평가판 사용해 보기
+title: 음성 서비스를 무료로 사용해 보세요.
 titleSuffix: Azure Cognitive Services
-description: Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 애플리케이션 요구 사항에 적합한지 판단할 수 있습니다.
+description: 음성 서비스를 시작 하는 것은 쉽고 저렴 합니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 애플리케이션 요구 사항에 적합한지 판단할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a8797afdfacfcfc75445c7f35083aeb9bb847ac1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226417"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562926"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -26,7 +26,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 마지막으로 Speech Service는 애플리케이션 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
 
-## <a name="free-trial"></a>평가판
+## <a name="free-trial"></a>무료 평가판
 
 30일 평가판을 사용하면 제한된 기간 동안 표준 가격 책정 계층에 액세스할 수 있습니다.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: a61f196a509c3e84b518fffb4eb78f5f7430cb28
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479211"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667573"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>미리 보기: LUIS apps에 대 한 API 버전 3.x로 마이그레이션
 
@@ -150,7 +150,9 @@ V3의 top JSON 속성은 다음과 같습니다.
 }
 ```
 
-에 `normalizedQuery` 철자 수정 내용이 포함 되어 있습니다. 이는 V2 API 속성 `alteredQuery`에 해당 합니다.  
+<!--
+The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
+-->
 
 `intents` 개체가 순서가 지정 되지 않은 목록입니다. 의 첫 번째 자식이 `intents` 에 해당 `topIntent`하는 것으로 가정 하지 마십시오. 대신 `topIntent` 값을 사용 하 여 점수를 찾습니다.
 

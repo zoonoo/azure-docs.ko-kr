@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 음성-음성 서비스 시작
-titlesuffix: Azure Cognitive Services
-description: 사용자 지정 음성은 응용 프로그램, 도구 및 제품에 대한 Microsoft의 음성-텍스트 변환 정확도를 향상시키고 평가할 수 있는 온라인 도구 집합입니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
+title: Custom Speech-Speech Service 시작
+titleSuffix: Azure Cognitive Services
+description: Custom Speech는 응용 프로그램, 도구 및 제품에 대 한 음성-텍스트 정확도를 평가 하 고 개선할 수 있는 온라인 도구 집합입니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 668ce2206f54fb7bb84d641a1e46f8d5ea9f833d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: HT
+ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559634"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성이란?
 
@@ -27,9 +27,9 @@ ms.locfileid: "67603166"
 
 이 다이어그램에는 사용자 지정 음성 포털을 구성하는 부분이 강조 표시됩니다. 각 단계에 대해 자세히 알아보려면 아래 링크를 사용합니다.
 
-![사용자 지정 음성 포털을 구성 하는 다양 한 구성 요소를 강조 표시 합니다.](./media/custom-speech/custom-speech-overview.png)
+![Custom Speech 포털을 구성 하는 다양 한 구성 요소를 강조 표시 합니다.](./media/custom-speech/custom-speech-overview.png)
 
-1. [구독하고 프로젝트 만들기](#set-up-your-azure-account) - Azure 계정을 만들고 음성 서비스를 구독합니다. 이 통합된 구독 음성-텍스트, 텍스트 음성 변환, 음성 번역 및 사용자 지정 음성 포털에 액세스할 수 있습니다. 그런 다음 음성 서비스 구독을 사용하여 첫 번째 사용자 지정 음성 프로젝트를 생성합니다.
+1. [구독하고 프로젝트 만들기](#set-up-your-azure-account) - Azure 계정을 만들고 음성 서비스를 구독합니다. 이 통합 구독은 음성 텍스트, 텍스트 음성 변환, 음성 번역 및 Custom Speech 포털에 대 한 액세스를 제공 합니다. 그런 다음 음성 서비스 구독을 사용하여 첫 번째 사용자 지정 음성 프로젝트를 생성합니다.
 
 2. [테스트 데이터 업로드](how-to-custom-speech-test-data.md) - 사용자의 응용 프로그램, 도구 및 제품에 대한 Microsoft의 음성-텍스트를 평가하기 위해 테스트 데이터(오디어 파일)을 업로드합니다.
 
@@ -50,21 +50,21 @@ ms.locfileid: "67603166"
 
 Azure 계정 및 음성 서비스 구독을 만든 후에는 사용자 지정 음성 포털에 로그인하여 구독을 연결해야 합니다.
 
-1. Azure portal에서 음성 서비스 구독 키를 가져옵니다.
+1. Azure Portal에서 음성 서비스 구독 키를 가져옵니다.
 2. [사용자 지정 음성 포털](https://aka.ms/custom-speech)에 로그인합니다.
-3. 음성 프로젝트를 만들고 작업할 해야 구독을 선택 합니다.
+3. 작업 해야 하는 구독을 선택 하 고 음성 프로젝트를 만들어야 합니다.
 4. 구독을 수정하려는 경우는 위쪽 탐색에서 **코그** 아이콘을 사용합니다.
 
 ## <a name="how-to-create-a-project"></a>프로젝트를 만드는 방법
 
-데이터, 모델, 테스트 및 끝점같은 콘텐츠는 사용자 지정 음성 포털에서 **프로젝트**로 구성됩니다. 각 프로젝트는 도메인 및 국가/언어에 따라 다릅니다. 예를 들어 미국에서 영어를 사용하는 콜 센터에 대한 프로젝트를 만들 수 있습니다.
+데이터, 모델, 테스트 및 끝점같은 콘텐츠는 사용자 지정 음성 포털에서 **프로젝트**로 구성됩니다. 각 프로젝트는 도메인 및 국가/언어에만 적용 됩니다. 예를 들어 미국에서 영어를 사용하는 콜 센터에 대한 프로젝트를 만들 수 있습니다.
 
 첫 번째 프로젝트를 만들려면 **음성-텍스트/사용자 지정 음성** 선택한 다음, **새 프로젝트**를 클릭합니다. 프로젝트를 만들려면 마법사에서 제공하는 지침을 따릅니다. 프로젝트를 만든 후 4개 탭이 표시됩니다: **데이터**, **테스트**, **학습** 및 **배포**. 각 탭을 사용하는 방법을 배우려면 [다음 단계](#next-steps)에서 제공되는 링크를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
-* [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
-* [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
+* [데이터 검사](how-to-custom-speech-inspect-data.md)
+* [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

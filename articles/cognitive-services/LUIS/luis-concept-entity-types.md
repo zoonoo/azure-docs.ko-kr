@@ -1,6 +1,6 @@
 ---
-title: 엔터티 형식
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 엔터티 형식-LUIS
+titleSuffix: Azure Cognitive Services
 description: 엔터티는 utterance에서 데이터를 추출 합니다. 엔터티 형식은 데이터의 예측 가능한 추출을 제공 합니다. 두 가지 유형의 엔터티가 있습니다. 컴퓨터를 학습 하 고 컴퓨터를 인식 하지 못합니다. 길이 발언에서 작업 하는 엔터티의 유형을 파악 하는 것이 중요 합니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: a5a3ba8c25107317e7c47ee358f9a6ebe7d4556f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479109"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564003"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 

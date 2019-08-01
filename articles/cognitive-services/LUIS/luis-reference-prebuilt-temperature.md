@@ -1,6 +1,6 @@
 ---
-title: 미리 빌드된 온도 엔터티
-titleSuffix: Azure
+title: 온도 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 아티클에는 LUIS(Language Understanding)의 미리 빌드된 온도 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 8d5e10a7a4fe7fb12bc4140690fcabffa16b32be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ecf977e1a477eb4b9178a6259fbe26ef18a9ec2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072106"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560140"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 온도 엔터티
 온도는 다양한 온도 형식을 추출합니다. 이 엔터티를 이미 학습했기 때문에 온도를 포함하는 예제 발언을 애플리케이션에 추가할 필요가 없습니다. 온도 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -58,9 +58,9 @@ ms.locfileid: "65072106"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -85,7 +85,7 @@ ms.locfileid: "65072106"
 }
 ```
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {

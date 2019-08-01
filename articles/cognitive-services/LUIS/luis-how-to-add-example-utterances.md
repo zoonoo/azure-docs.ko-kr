@@ -1,6 +1,6 @@
 ---
-title: 예제 발화 추가
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add 예 길이 발언-LUIS
+titleSuffix: Azure Cognitive Services
 description: 예제 발언은 사용자 질문 또는 명령의 텍스트 예제입니다. LUIS(Language Understanding)를 학습하려면 의도에 예제 발화를 추가해야 합니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: af43697dc864019c6fd86b041e231a54d8aa8b40
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827481"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638223"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
@@ -159,4 +159,4 @@ LUIS 앱에 pattern.any 엔터티를 추가하는 경우 이러한 엔터티를 
 
 ## <a name="next-steps"></a>다음 단계
 
-길이 발언에 레이블을 지정 하면 이제 [복합 엔터티](luis-how-to-add-entities.md)를 만들 수 있습니다.
+길이 발언에 레이블을 지정 하면이제 [복합 엔터티](luis-how-to-add-entities.md)를 만들 수 있습니다.

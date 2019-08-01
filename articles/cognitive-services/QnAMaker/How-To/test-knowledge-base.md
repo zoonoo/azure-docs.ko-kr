@@ -1,6 +1,6 @@
 ---
 title: 기술 자료를 테스트하는 방법 - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4d9c00c4ea7fd0494d00551dc37b186e1a357037
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a512098d5dfda47b7755e24b286aabf83aa7e69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439717"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563062"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>QnA Maker에서 대화형으로 기술 자료 테스트
 
@@ -63,18 +63,18 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다. 
 
-답변 목록의 맨 아래에 텍스트 상자를 사용 하 여 새 대답을 입력 하 고 추가 하려면 enter 키를 누릅니다. 
+답변 목록의 맨 아래에 있는 텍스트 상자를 사용 하 여 새 답변을 입력 하 고 enter 키를 눌러 추가 합니다. 
 
 **저장 후 학습**을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다. 
 
 > [!NOTE]
 > **저장 후 학습**을 누를 경우에만 기술 자료에 대한 모든 편집 내용이 저장됩니다.
 
-## <a name="test-the-published-knowledge-base"></a>게시 된 기술 자료를 테스트 합니다.
+## <a name="test-the-published-knowledge-base"></a>게시 된 기술 자료 테스트
 
-테스트 창에 게시 된 버전의 기술 자료를 테스트할 수 있습니다. KB를 게시 한 후 선택 합니다 **게시 된 KB** 상자 하 고 게시 된 기술 자료에서 결과 가져오는 쿼리를 보냅니다.
+테스트 창에서 기술 자료의 게시 된 버전을 테스트할 수 있습니다. KB를 게시 한 후 **게시 된 kb** 상자를 선택 하 고 게시 된 kb의 결과를 가져오는 쿼리를 보냅니다.
 
-![게시 된 KB 테스트](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![게시 된 KB에 대해 테스트](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>다음 단계
 

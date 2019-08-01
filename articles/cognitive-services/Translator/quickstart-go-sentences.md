@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: swmachan
-manager: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 574f70f8f091e0f0df65f7d52df5ca73ac00b2c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a71e0859d7d677865cbacbf24de8b0e17861a192
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704547"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595169"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 문장 길이 확인
 
@@ -24,7 +24,7 @@ ms.locfileid: "67704547"
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 >[!TIP]
-> 모든 코드를 한 번에 보려면 이 샘플의 소스 코드를 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에서 사용할 수 있습니다.
+> 모든 코드를 한꺼번에 볼 수 있도록 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에 이 샘플의 소스 코드가 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

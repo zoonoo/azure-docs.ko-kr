@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b0b9a5e0797a105d7fe61c95b28a6c5f462e7255
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 85c6ff59b5f73e88c82ee8b788bd9f35d18bc0ed
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414768"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697962"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -24,7 +24,7 @@ QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이�
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>QnA Maker 포털에서 도움말 봇 사용
 
-QnA Maker는 QnA Maker 포털 내에서 도움이 되는 **도움말** 봇을 제공 합니다. 도움말 봇은 모든 웹 페이지에서 사용할 수 있습니다. 봇은 QnA Maker를 사용 하 여 답변을 제공 하 고 봇에 [ C# bot Framework 코드 프로젝트](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) 를 제공 하므로 고유한 대답 봇으로 신속 하 게 시작 하 고 실행할 수 있습니다. 
+QnA Maker는 QnA Maker 포털 내에서 도움이 되는 **도움말** 봇을 제공 합니다. 도움말 봇은 모든 웹 페이지에서 사용할 수 있습니다. 봇은 QnA Maker를 사용 하 여 답변을 제공 하 고 봇에 [ C# bot Framework 코드 프로젝트](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) 를 제공 하므로 고유한 대답 봇으로 신속 하 게 시작 하 고 실행할 수 있습니다. 
 
 ![! [QnA Maker QnA Maker 포털 내에서 * * Help * * bot를 제공 하 여 도움을 줍니다.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 

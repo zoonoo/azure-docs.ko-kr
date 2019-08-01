@@ -3,19 +3,19 @@ title: 확장성 및 성능-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 고성능이고 트래픽이 많은 웹 사이트 및 애플리케이션은 확장성과 성능을 위해 Personalizer와 관련하여 대기 시간 및 학습 처리량이라는 두 가지 주요 요소를 고려해야 합니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722425"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662812"
 ---
 # <a name="scalability-and-performance"></a>확장성 및 성능
 

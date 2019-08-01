@@ -1,5 +1,5 @@
 ---
-title: Language Understanding용 미리 빌드된 도메인
+title: Language Understanding에 대 한 미리 빌드된 도메인
 titleSuffix: Azure Cognitive Services
 description: LUIS는 일반적인 대화형 사용자 시나리오를 빠르게 추가할 수 있도록 미리 빌드된 도메인 집합을 포함하고 있습니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e1b99396c4739dc6f1b7a4da0164553d4c25ef3c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7028c3bee549603dc29bfcdeb386bcabc52ff03c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198946"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637871"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>일반적인 사용 시나리오를 위해 미리 빌드된 도메인 추가 
 
@@ -42,7 +42,7 @@ LUIS는 일반적인 의도 및 발언을 빠르게 추가할 수 있도록 미�
 
 1. 녹색 성공 알림이 표시되면 **엔드포인트 목록 참조** 링크를 선택하여 엔드포인트를 봅니다.
 
-1. 엔드포인트를 선택합니다. 해당 엔드포인트에 대한 새 브라우저 탭이 열립니다. 브라우저 탭을 연 상태로 **테스트** 섹션을 계속 진행합니다.
+1. 엔드포인트를 선택하십시오. 해당 엔드포인트에 대한 새 브라우저 탭이 열립니다. 브라우저 탭을 연 상태로 **테스트** 섹션을 계속 진행합니다.
 
 ## <a name="test"></a>테스트
 

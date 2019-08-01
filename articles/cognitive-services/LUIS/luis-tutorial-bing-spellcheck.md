@@ -1,6 +1,6 @@
 ---
-title: 맞춤법이 틀린 단어 수정
-titleSuffix: Azure
+title: 철자가 잘못 된 단어 수정-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 엔드포인트 쿼리에 Bing Spell Check API V7을 추가하여 발화에서 맞춤법이 틀린 단어를 수정합니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bf507fcb52d0c6a57453bd5f038530640e62ba9c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495031"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563333"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 

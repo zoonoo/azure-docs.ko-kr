@@ -1,6 +1,6 @@
 ---
 title: 욕설 필터링 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 욕설 필터링을 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cc6bf9766912aa55d7869d90976d3089cfd6cf4c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448271"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595185"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Translator Text API에서 욕설 필터링을 추가합니다.
 
@@ -26,9 +26,9 @@ ms.locfileid: "67448271"
 Translate() 메서드는 새 요소인 “ProfanityAction”이 포함된 “options” 매개 변수를 사용합니다. ProfanityAction에 허용되는 값은 “NoAction”, “Marked” 및 “Deleted”입니다.
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>ProfanityAction에 허용되는 값과 예
-|ProfanityAction 값 | 액션(Action) | 예제: 원본 - 일본어 | 예제: 대상 - 영어|
+|ProfanityAction 값 | Action | 예제: 원본 - 일본어 | 예제: 대상 - 영어|
 | :---|:---|:---|:---|
-| NoAction | 기본값 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다. | 彼は変態です。 | He is a jerk. |
+| NoAction | 기본. 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다. | 彼は変態です。 | He is a jerk. |
 | Marked | 욕설 단어가 XML 태그 \<profanity> ... \</profanity>로 묶입니다. | 彼は変態です。 | He is a \<profanity>jerk\</profanity>. |
 | Deleted | 욕설 단어가 바뀌지 않고 출력에서 제거됩니다. | 彼は。 | He is a. |
 

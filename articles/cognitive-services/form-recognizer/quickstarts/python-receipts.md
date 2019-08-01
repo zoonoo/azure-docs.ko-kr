@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8bd4d441859df6dbb36f594d8423eefd84274ec4
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e3c5583f38f7a7f5a3654bfdd27620593175cf58
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592539"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562656"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 5fa3b723b184e6c20ee678e7ef750d6a9d18f2c6
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 29418ec8ce12033dc576c61a73301dec13d457cc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592844"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698023"
 ---
 # <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 사용하는 URL 미리 보기
 
@@ -23,7 +23,7 @@ ms.locfileid: "67592844"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="request"></a>요청 
 

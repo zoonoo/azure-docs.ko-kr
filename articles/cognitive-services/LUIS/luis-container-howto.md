@@ -1,6 +1,6 @@
 ---
-title: Docker 컨테이너
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Docker 컨테이너-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 컨테이너는 학습 또는 게시된 앱을 Docker 컨테이너로 로드하고 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: ae2f24c83cb0de054cc97bf0be8ada35a568ad82
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360557"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563900"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -28,7 +28,7 @@ LUIS(Language Understanding) 컨테이너는 [LUIS 앱](https://www.luis.ai)으�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 LUIS 컨테이너를 실행하려면 다음이 필요 합니다. 
 

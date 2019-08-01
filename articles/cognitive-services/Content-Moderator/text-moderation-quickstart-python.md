@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python에서 텍스트 콘텐츠 분석 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Python용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 콘텐츠를 분석하는 방법
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ceaaa9bdb5f6e5c977e0c1a71af080f22d52a5e7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333600"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561214"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>빠른 시작: Python에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 

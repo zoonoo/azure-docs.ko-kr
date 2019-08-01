@@ -1,7 +1,7 @@
 ---
-title: 릴리스 정보 - Speech Services
-titlesuffix: Azure Cognitive Services
-description: Azure 음성 서비스의 기능 릴리스, 향상된 기능, 버그 수정 및 알려진 문제에 대한 실행 로그를 참조하세요.
+title: 릴리스 정보-음성 서비스
+titleSuffix: Azure Cognitive Services
+description: 기능 릴리스의 실행 중인 로그, 향상 된 기능, 버그 수정 및 음성 서비스에 대 한 알려진 문제를 참조 하세요.
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404842"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559119"
 ---
 # <a name="release-notes"></a>릴리스 정보
 

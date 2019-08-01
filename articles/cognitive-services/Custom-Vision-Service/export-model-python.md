@@ -1,6 +1,6 @@
 ---
 title: '자습서: Python으로 TensorFlow 모델 실행 - Custom Vision Service'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Python으로 TensorFlow 모델을 실행합니다.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: ba8cf3392ac2bd3d371e5e1910c6671feba9dedf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c6e7cf770e5f1639e676d232564809121a8c4e4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606876"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561095"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
 

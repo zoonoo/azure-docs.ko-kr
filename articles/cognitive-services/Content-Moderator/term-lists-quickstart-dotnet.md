@@ -1,6 +1,6 @@
 ---
 title: C#-Content Moderator의 사용자 지정 단어 목록에 대해 텍스트 확인
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 용어 목록으로 텍스트를 조정하는 방법
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604096"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564420"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Main 메서드를 작성 합니다.
+## <a name="compose-the-main-method"></a>Main 메서드 작성
 
 **TermLists**네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 
@@ -415,7 +415,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>애플리케이션을 실행하여 출력 확인
 
-콘솔 출력은 다음과 같이 표시 됩니다.
+콘솔 출력은 다음과 같습니다.
 
 ```console
 Creating term list.

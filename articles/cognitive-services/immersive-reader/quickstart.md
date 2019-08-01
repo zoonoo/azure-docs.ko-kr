@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 6386c22044483a0ac4a324397cf2f9d22e83b579
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442851"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688858"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>빠른 시작: 몰입형 판독기를 시작하는 웹앱 만들기(C#)
 
 [몰입형 판독기](https://www.onenote.com/learningtools)는 읽기 이해도를 향상시키기 위해 검증된 기술을 구현하는 포괄적으로 설계된 도구입니다.
 
-이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 판독기 SDK를 사용하여 몰입형 판독기를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp)에서 확인할 수 있습니다.
+이 빠른 시작에서는 웹앱을 처음부터 빌드하고 몰입형 판독기 SDK를 사용하여 몰입형 판독기를 통합합니다. 이 빠른 시작의 전체 작동 샘플은 [여기](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)에서 확인할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -224,4 +224,4 @@ namespace QuickstartSampleWebApp.Controllers
 ## <a name="next-steps"></a>다음 단계
 
 * 몰입형 판독기 SDK를 사용하여 수행할 수 있는 다른 작업을 확인하려면 [자습서](./tutorial.md)를 살펴보세요.
-* [몰입형 판독기 SDK](https://github.com/Microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
+* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기

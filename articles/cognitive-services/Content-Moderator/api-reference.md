@@ -1,6 +1,6 @@
 ---
 title: API 참조 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Content Moderator에 대한 다양한 콘텐츠 수정 및 검토 API에 대해 알아봅니다.
 services: cognitive-services
 author: sanjeev3
@@ -10,19 +10,19 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 05/29/2019
 ms.author: sajagtap
-ms.openlocfilehash: f802c64e141e8757f633d82ad577fa50f7d076fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad911a95dbe6209fcf55adcac3cf2937b06d1ff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688895"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565609"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 참조
 
-다음과 같은 방법으로 Azure Content Moderator Api를 사용 하 여 시작 메시지가 수 있습니다.
+다음과 같은 방법으로 Azure Content Moderator Api를 시작할 수 있습니다.
 
-- Azure portal의 [Content Moderator API 구독할](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)합니다.
-- 참조 [는 웹에서 Content Moderator 시도](quick-start.md) 사용 하 여 등록 하는 [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/).
+- Azure Portal에서 [CONTENT MODERATOR API를 구독](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)합니다.
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)를 사용 하 여 등록 하려면 [웹에서 Content Moderator 시도](quick-start.md) 를 참조 하세요.
 
 ## <a name="moderation-apis"></a>중재 API
 
@@ -31,13 +31,13 @@ ms.locfileid: "66688895"
 | 설명 | 참조 |
 | -------------------- |-------------|
 | **Image Moderation API**<br /><br />태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 이미지를 검사하고 잠재적 성인/외설 콘텐츠를 검색합니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다. <br /><br />| [Image Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API 참조")   |
-| **Text Moderation API**<br /><br />텍스트 콘텐츠를 검사합니다. 불경 한 언어가 사용 약관 및 개인 데이터 반환 됩니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다.<br /><br /> | [Text Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API 참조")   |
+| **Text Moderation API**<br /><br />텍스트 콘텐츠를 검사합니다. 사용 금지 용어 및 개인 데이터가 반환 됩니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다.<br /><br /> | [Text Moderation API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API 참조")   |
 | **Video Moderation API**<br /><br />비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. <br /><br />이 정보를 사용하여 수정 후 워크플로의 콘텐츠를 게시, 거부 또는 검토합니다.<br /><br /> | [Video Moderation API 개요](video-moderation-api.md "Video Moderation API 개요")   |
 | **List Management API**<br /><br />이미지 및 텍스트의 사용자 지정 제외 또는 포함 목록을 만들고 관리합니다. 사용할 경우 **이미지 - 일치** 및 **텍스트 - 화면** 작업에서는 제출된 콘텐츠를 사용자 지정 목록과 비교하여 유사 일치를 수행합니다. <br /><br />연습의 효율성을 높이기 위해 기계 학습 기반 수정 단계를 건너뛰어도 됩니다.<br /><br /> | [List Management API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API 참조")   |
 
 ## <a name="review-apis"></a>API 검토
 
-검토 Api에는 다음 구성 요소:
+검토 Api에는 다음과 같은 구성 요소가 있습니다.
 
 | 설명 | 참조 |
 | -------------------- |-------------|

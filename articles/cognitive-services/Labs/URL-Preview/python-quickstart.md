@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: afb64b799e826abc3e6aad661a97211b43304dc6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19a226fb580f3d4215b7c3f04f17c3f92505987e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873277"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697984"
 ---
 # <a name="quickstart-url-preview-with-python"></a>빠른 시작: Python을 통해 URL Preview 사용
 
-다음 Python 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
+다음 Python 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en )에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 이 예제에서는 Python 3.6을 사용합니다.
 

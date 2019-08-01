@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446646"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698003"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>자습서: Azure Bot Service v4로 QnA 봇 만들기
 
@@ -50,8 +50,8 @@ ms.locfileid: "67446646"
     |설정|값|목적|
     |--|--|--|
     |봇 이름|`my-tutorial-kb-bot`|봇에 대한 Azure 리소스 이름입니다.|
-    |구독|목적을 참조하세요.|QnA Maker 리소스를 만드는 데 사용한 것과 동일한 구독을 선택합니다.|
-    |리소스 그룹|`my-tutorial-rg`|모든 봇 관련 Azure 리소스에 사용되는 리소스 그룹입니다.|
+    |Subscription|목적을 참조하세요.|QnA Maker 리소스를 만드는 데 사용한 것과 동일한 구독을 선택합니다.|
+    |Resource group|`my-tutorial-rg`|모든 봇 관련 Azure 리소스에 사용되는 리소스 그룹입니다.|
     |위치|`west us`|봇의 Azure 리소스 위치입니다.|
     |가격 책정 계층|`F0`|Azure Bot Service에 대한 무료 계층입니다.|
     |앱 이름|`my-tutorial-kb-bot-app`|봇만 지원하는 웹앱입니다. QnA Maker 서비스에 이미 사용된 것과 동일한 앱 이름이 아니어야 합니다. QnA Maker의 웹앱을 다른 리소스와 공유하는 것은 지원되지 않습니다.|
@@ -101,7 +101,7 @@ ms.locfileid: "67446646"
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker 봇 관련
 
-* QnA Maker 포털에 사용되는 QnA Maker 도움말 봇은 [봇 샘플](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot)로 사용할 수 있습니다.
+* QnA Maker 포털에 사용되는 QnA Maker 도움말 봇은 [봇 샘플](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support)로 사용할 수 있습니다.
     ![QnA Maker 도움말 봇 아이콘은 빨간색 로봇입니다.](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [헬스케어 봇](https://docs.microsoft.com/HealthBot/qna_model_howto)에는 QnA Maker가 [언어 모델](https://docs.microsoft.com/HealthBot/qna_model_howto) 중 하나로 사용됩니다.
 

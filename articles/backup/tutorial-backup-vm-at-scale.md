@@ -2,18 +2,19 @@
 title: 대규모로 Azure 가상 머신 백업
 description: Azure에 여러 가상 머신을 동시에 백업
 keywords: 가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+manager: carmonm
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467129"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688442"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 

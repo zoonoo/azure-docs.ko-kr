@@ -1,6 +1,6 @@
 ---
 title: '자습서: 전자 상거래 제품 이미지 조정 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 지정된 레이블을 통해 제품 이미지를 분석하고 분류하는 애플리케이션을 설정합니다(Azure Computer Vision 및 Custom Vision 사용). 추가 검토가 필요한 문제가 될만한 이미지에는 태그를 지정합니다(Azure Content Moderator 사용).
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ec17f9f0206ef639bd47d694880c064a012ea1cf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604184"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564917"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -32,7 +32,7 @@ ms.locfileid: "67604184"
 
 전체 예제 코드는 GitHub의 [전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) 리포지토리에서 받을 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

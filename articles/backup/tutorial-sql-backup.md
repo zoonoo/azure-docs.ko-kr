@@ -2,17 +2,17 @@
 title: Azure에 SQL Server 데이터베이스 백업 | Microsoft Docs
 description: 이 자습서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다.
 author: dcurwin
-manager: ''
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 31549ddbc0fbe237b9cca1b2b7a4893bc98abaf9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467093"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688415"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 

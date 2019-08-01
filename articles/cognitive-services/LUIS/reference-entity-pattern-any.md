@@ -1,6 +1,6 @@
 ---
-title: 패턴. 모든 엔터티 형식
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 패턴. 모든 엔터티 형식-LUIS
+titleSuffix: Azure Cognitive Services
 description: Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: f3e5bd068b5df99bdfabff0bfe18ccebff980fc6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cda6c724a36a73dc34c2bf8e7158e3e3ec92d46b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480302"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563216"
 ---
 # <a name="patternany-entity"></a>Pattern.any 엔터티 
 

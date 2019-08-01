@@ -1,6 +1,6 @@
 ---
 title: C#에서 비디오 콘텐츠의 유해한 자료 분석 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 비디오 콘텐츠를 분석하는 방법
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605339"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564302"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "60605339"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들면 다음과 같습니다.
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예:
 
 ```JSON
 {

@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Anomaly Detector REST API 및 Python을 사용하여 일괄 처리로 변칙 검색'
 titleSuffix: Azure Cognitive Services
-description: Anomaly Detector API를 사용하여 일괄 처리 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
+description: Anomaly Detector API를 사용하여 일괄 처리로 또는 스트리밍 데이터로 데이터 계열에서 변칙을 검색합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c69bc4db35a198d73f9b29ee3ed2fa6b6f71be49
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f40f1b94b3e7c2732fd8bed0bc6e503277b533c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721457"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565824"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>빠른 시작: Anomaly Detector REST API 및 Python을 사용하여 시계열 데이터에서 변칙 검색
 
@@ -150,7 +150,7 @@ detect_latest(json_data)
 
 성공 응답이 JSON 형식으로 반환됩니다. 아래 링크를 클릭하면 GitHub에서 JSON 응답을 볼 수 있습니다.
 * [일괄 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [최신 포인트 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [최신 요소 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>다음 단계
 

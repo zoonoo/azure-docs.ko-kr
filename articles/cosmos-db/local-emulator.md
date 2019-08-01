@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565446"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619827"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -97,7 +97,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > Azure Cosmos Emulator에서 지원하는 마스터 키는 에뮬레이터 전용입니다. Azure Cosmos Emulator에서는 프로덕션 Azure Cosmos DB 계정 및 키를 사용할 수 없습니다.
 
 > [!NOTE]
-> /Key 옵션을 사용하여 에뮬레이터를 시작한 경우에는 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 대신 생성된 키를 사용하세요. /Key 옵션에 대한 자세한 내용은 [명령줄 도구 참조](#command-line-syntax)를 참조하세요.
+> /Key 옵션을 사용하여 에뮬레이터를 시작한 경우에는 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` 대신 생성된 키를 사용하세요. /Key 옵션에 대한 자세한 내용은 [명령줄 도구 참조](#command-line)를 참조하세요.
 
 Azure Cosmos DB와 마찬가지로 Azure Cosmos Emulator는 SSL을 통한 보안 통신만 지원합니다.
 

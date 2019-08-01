@@ -1,21 +1,18 @@
 ---
 title: Azure에서 확장 가능한 애플리케이션에 필요한 VM 및 저장소 계정 만들기 | Microsoft Docs
 description: Azure Blob Storage를 사용하여 확장 가능한 애플리케이션을 실행하는 데 사용할 VM을 배포하는 방법을 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 38fd62eff663c7714acf00afe3ffa559c1eeb7e0
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 49689585b3f52bbee300ff68d2c2653f5e7ff8d0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729092"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699074"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
 

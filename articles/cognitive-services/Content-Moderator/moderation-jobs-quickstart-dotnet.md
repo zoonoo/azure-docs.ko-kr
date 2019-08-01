@@ -1,7 +1,7 @@
 ---
-title: .NET-Content Moderator를 사용 하 여 사용 하 여 조정 작업
-titlesuffix: Azure Cognitive Services
-description: Azure Content Moderator에 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 조정 작업을 시작 하려면 콘텐츠 중재자.NET SDK를 사용 합니다.
+title: .NET을 사용 하 여 중재 작업 사용-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Content Moderator .NET SDK를 사용 하 여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 중재 작업을 시작 합니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d98c88a6e1d6dfa23f53c32c85c013b4cf2c468d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113871"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565604"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>정의 및 조정 작업 (.NET)를 사용 합니다.
+# <a name="define-and-use-moderation-jobs-net"></a>중재 작업 정의 및 사용 (.NET)
 
-조정 작업은 특정 유형의 콘텐츠 조정, 워크플로 및 검토의 기능에 대 한 래퍼 역할도합니다. 이 가이드에서는 정보 제공 및 사용 하는 데 코드 샘플을 시작 합니다 [Content Moderator SDK for.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 에:
+중재 작업은 콘텐츠 조정, 워크플로 및 검토 기능을 위한 일종의 래퍼 역할을 합니다. 이 가이드는 [.net 용 CONTENT MODERATOR SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 사용 하 여 시작 하는 데 도움이 되는 정보와 코드 샘플을 제공 합니다.
 
 - 검사할 조정 작업을 시작하고 중재자를 위한 검토 만들기
 - 보류 중인 검토의 상태 가져오기
 - 검토의 최종 상태 추적 및 가져오기
-- 검토 결과 콜백 URL로 제출
+- 검토 결과를 콜백 URL에 제출 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 로그인 또는 Content Moderator에서 계정을 만듭니다 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트입니다.
+- Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
 

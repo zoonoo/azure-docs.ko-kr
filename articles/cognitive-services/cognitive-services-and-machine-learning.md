@@ -1,6 +1,6 @@
 ---
-title: Cognitive Services 및 기계 학습
-titlesuffix: Azure Cognitive Services
+title: Cognitive Services 및 Machine Learning
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services가 기계 학습을 위한 다른 Azure 제품과 어디에 적합한지 알아봅니다.
 services: cognitive-services
 author: diberry
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414698"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697933"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -105,11 +105,11 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[스피커 인식기](./speaker-recognition/home.md)||x||
 |[음성 텍스트 음성 변환 (TTS)](speech-service/text-to-speech.md)|x|x||
-|[음성 텍스트 음성 변환 (STT)](/speech-service/speech-to-text.md)|x|x||
+|[음성 텍스트 음성 변환 (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[텍스트 분석](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text-사용자 지정 변환기]()||x||
+|[Translator Text-사용자 지정 변환기](./translator/custom-translator/overview.md)||x||
 
 \* Personalizer 정책 및 데이터를 평가 하기 위해 서비스에서 수집 하는 학습 데이터 (실시간으로 작동 함)만 필요 합니다. Personalizer에는 사전 또는 일괄 학습을 위한 대량 기록 데이터 집합이 필요 하지 않습니다. 
 

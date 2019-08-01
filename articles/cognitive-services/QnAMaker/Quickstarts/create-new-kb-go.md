@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 기술 자료 만들기 - REST, Go - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 Go REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: b4a399901b8bba1c97a5571d3db4ef1cbe713a6c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a6ee10c998af564630ae1aefd01ec2f4e360abf8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254207"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563057"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 만들기
 

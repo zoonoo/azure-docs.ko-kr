@@ -1,5 +1,5 @@
 ---
-title: 콜 센터 전사 - Speech Services
+title: 콜 센터 기록-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환의 일반적인 시나리오는 IVR(대화형 음성 응답)과 같은 다양한 시스템에서 발생할 수 있는 대량의 전화 통신을 전사하는 것입니다. 오디오는 스테레오 또는 모노 모두 가능하며, 신호에 대한 후처리를 거의 또는 전혀 수행하지 않은 원시 데이터일 수 있습니다. Speech Services 및 통합 음성 모델을 사용하여 기업은 많은 오디오 캡처 시스템에서 높은 품질의 전사를 얻을 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603299"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559738"
 ---
 # <a name="speech-services-for-telephony-data"></a>전화 통신 데이터용 Speech Services
 
@@ -59,7 +59,7 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 ### <a name="translation"></a>이동
 일부 기업은 제공 관리자가 전 세계의 고객 환경을 파악할 수 있도록 외국어 지원 통화 내용에서 번역한 음성 텍스 제공을 실험하고 있습니다. 당사의 [번역](translation.md) 기능은 탁월합니다. 당사는 수많은 로캘에서 오디오를 오디오로 또는 오디오를 텍스트로 번역할 수 있습니다.
 
-### <a name="text-to-speech"></a>텍스트에서 음성 변환
+### <a name="text-to-speech"></a>문자 음성 변환
 [텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론 이 모든 과정은 빠르게 이루어져야 합니다. - 따라서 이 시스템이 성공하려면 대기 시간이 중요한 구성 요소입니다.
 
 당사의 엔드투엔드 대기 시간은 [음성 텍스트 변환](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [텍스트 음성 변환](text-to-speech.md)과 같은 여러 가지 관련 기술을 고려할 때 아주 낮습니다.
@@ -69,7 +69,7 @@ Speech Services는 위와 같은 기능을 제공하지만, 콜 센터에 적용
 ### <a name="search"></a>검색
 분석의 또 다른 요소는 특정 이벤트 또는 환경이 발생한 상호 작용을 식별하는 작업입니다. 이 작업은 일반적으로 두 가지 방식 중 하나를 사용하여 수행됩니다. 즉, 사용자가 단순히 구 및 시스템 응답을 입력하는 임시 검색, 또는 분석자가 통화에서 시나리오를 파악하는 논리적 설명문 세트를 만든 다음, 해당 쿼리 세트를 기준으로 각 통화를 인덱싱할 수 있는 더 정형화된 쿼리입니다. 좋은 검색 예는 보편적인 규정 준수 설명문 “이 통화 내용을 품질 목적으로 기록해야 합니다... ”입니다. – 많은 기업은 통화 내용을 실제로 기록하기 전에 자신의 상담원이 이 책임 부인 설명문을 고객에게 제공하는지 확인하기를 원하기 때문입니다. 대부분의 분석 시스템에는 쿼리/검색 알고리즘에 의해 발견된 동작의 추세를 분석하는 기능이 있습니다. - 이 추세 보고는 결국 분석 시스템의 매우 중요한 기능 중 하나이기 때문입니다. [Cognitive Services 디렉터리](https://azure.microsoft.com/services/cognitive-services/directory/search/)를 통해 인덱싱 및 검색 기능을 사용하여 사용자의 엔드투엔드 솔루션을 크게 향상할 수 있습니다.
 
-### <a name="key-phrase-extraction"></a>핵심 문구 추출
+### <a name="key-phrase-extraction"></a>핵심 구 추출
 이 영역은 더 어려운 분석 애플리케이션 중 하나이며 AI 및 ML을 적용하여 이점을 누릴 수 있는 영역입니다. 여기서 기본 시나리오는 고객 의도를 유추하는 것입니다. 고객이 전화를 건 이유가 무엇입니까? 고객의 문제가 무엇입니까? 고객이 부정적 경험을 한 이유가 무엇입니까? 당사의 [텍스트 분석 서비스](https://azure.microsoft.com/services/cognitive-services/text-analytics/)는 사용자의 엔드투엔드 솔루션을 중요 키워드 또는 구를 추출하도록 빨리 업그레이드하기 위한 분석 세트를 기본 제공합니다.
 
 이제 음성 인식용 일괄 처리 및 실시간 파이프라인을 좀 더 자세히 살펴보겠습니다.
@@ -118,7 +118,7 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
-| 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
+| 음성을 텍스트로 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 | | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 기록를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
 | | [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 간단한 .txt 파일인 발음 파일만 있으면 시작 가능합니다. |
 | 텍스트 음성 변환 | [음성 글꼴](how-to-customize-voice-font.md) | 사용자 지정 글꼴을 사용하여 브랜드에 대해 인식 가능한 한 가지 종류의 음성을 만들 수 있습니다. 처음에는 소량의 데이터로 시작하세요. 더 많은 데이터를 제공할수록 더 자연스럽고 인간과 유사한 소리가 나는 음성 글꼴이 됩니다. |

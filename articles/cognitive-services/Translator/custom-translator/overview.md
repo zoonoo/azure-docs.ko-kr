@@ -3,18 +3,18 @@ title: Custom Translator란?
 titleSuffix: Azure Cognitive Services
 description: Custom Translator는 Microsoft Translator Hub가 SMT(통계 기계 번역)에 제공하는 것과 비슷한 기능을 제공하지만, NMT(인공신경망 기계 번역) 시스템에만 단독으로 제공합니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: a137c3ff5805a41924cdef609bc072eb029e25ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449448"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595499"
 ---
 # <a name="what-is-custom-translator"></a>Custom Translator란?
 

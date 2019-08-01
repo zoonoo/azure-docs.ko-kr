@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: C#에서 불쾌한 콘텐츠에 대한 이미지 분석 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 이미지 콘텐츠를 분석하는 방법
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9bfe5f21da6418f82b2099a5da4ba8c3c32c25f3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604128"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564493"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>빠른 시작: C#으로 이미지에서 불쾌한 콘텐츠 분석
 

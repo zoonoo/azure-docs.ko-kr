@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444104"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619619"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -190,7 +190,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 
 ## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-[Dedicated(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-scale.md#premium-plan)에서 지원되는 사용자 지정 Functions 컨테이너에 대한 Linux 호스팅. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
+[Dedicated(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-premium-plan.md#features)에서 지원되는 사용자 지정 Functions 컨테이너에 대한 Linux 호스팅. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
 
 다음 예에서는 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 미국 서부 지역(`-location WestUS`) 및 Linux 컨테이너(`--is-linux`)에 `myPremiumPlan`이라는 프리미엄 플랜을 만듭니다.
 

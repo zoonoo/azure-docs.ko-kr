@@ -1,6 +1,6 @@
 ---
 title: Translator Text API 언어 메서드
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API 언어 메서드를 사용합니다.
 services: cognitive-services
 author: swmachan
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435090"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595013"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
 
 현재 Translator Text API의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
 
@@ -40,7 +40,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>범위</td>
     <td>*선택적 매개 변수*입니다.<br/>반환할 언어의 그룹을 정의하는 쉼표로 구분된 이름 목록입니다. 허용 그룹 이름은 `translation`, `transliteration` 및 `dictionary`입니다. 범위가 지정되지 않는 경우 모든 그룹이 반환됩니다. 그러면 `scope=translation,transliteration,dictionary`를 전달하는 것과 동일합니다. 시나리오에 적합한 지원되는 언어의 집합을 결정하려면 [응답 개체](#response-body)에 대한 설명을 참조하세요.</td>
   </tr>
 </table> 
@@ -230,7 +230,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>지원되는 언어의 요청된 그룹에 대한 엔터티 태그의 현재 값입니다. 보다 효율적인 후속 요청을 위해 클라이언트는 `If-None-Match` 헤더 필드에서 `ETag` 값을 보낼 수 있습니다.
@@ -248,10 +248,10 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
-    <td>성공.</td>
+    <td>명령 실행 성공</td>
   </tr>
   <tr>
     <td>304</td>
@@ -263,7 +263,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.</td>
+    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
   </tr>
   <tr>
     <td>500</td>

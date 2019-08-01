@@ -1,6 +1,6 @@
 ---
-title: 의도 추가
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 의도 추가-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 앱에 의도를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84799c2866e7b887a7b509280b073814e7653638
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148156"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638213"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
@@ -46,27 +46,27 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 ## <a name="intent-prediction-errors"></a>의도 예측 오류 
 
-의도에 예제 utterance 예제 utterance 중인 의도 및 학습 중에 결정 예측 의도 간에 의도 예측 오류가 있을 수 있습니다. 
+의도 한 utterance 예제에는 utterance가 현재 있는 것과 학습 중에 예측 의도에 따라 결정 되는 의도 예측 오류가 있을 수 있습니다. 
 
-Utterance 예측 오류에서 검색 하 고 해결 하려면 사용 합니다 **필터** 옵션의 **평가** 잘못 된 및 Unclear의 옵션을 함께 합니다 **보기** 옵션**자세하게**합니다. 
+Utterance 예측 오류를 찾아 해결 하려면 **자세히 보기**의 **뷰** 옵션과 부정확 하 고 명확 하지 않은 **필터** 옵션의 **평가** 옵션을 사용 합니다. 
 
-![Utterance 예측 오류에서 검색 하 고 해결 하려면 필터 옵션을 사용 합니다.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Utterance 예측 오류를 찾아 수정 하려면 필터 옵션을 사용 합니다.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-보기 및 필터를 적용 하 고 오류를 사용 하 여 예제 길이 발언이 문제와 대상이 눈에 띄도록 예제 utterance 목록 표시 됩니다.
+필터와 보기가 적용 되 고 오류가 있는 예 길이 발언가 있는 경우 예제 utterance 목록에 길이 발언와 문제가 표시 됩니다.
 
-![! [보기 및 필터를 적용 되 고 오류로 예제 길이 발언을 예제 utterance 목록은 대상이 눈에 띄도록 및 문제입니다.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![! [필터 및 보기가 적용 되 고 길이 발언 예제가 있는 경우 예제 utterance 목록에는 길이 발언와 문제가 표시 됩니다.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-각 행에는 현재 교육의 예측 점수를 예제 utterance, 이러한 두 점수에 차이가 있는 가장 가까운 경쟁 대상의 점수를 보여 줍니다. 
+각 행은 예 utterance의 현재 학습 예측 점수를 보여 줍니다. 가장 가까운 경쟁의 점수는 이러한 두 점수의 차이입니다. 
 
-### <a name="fixing-intents"></a>의도 수정합니다.
+### <a name="fixing-intents"></a>의도 수정
 
-의도 예측 오류를 해결 하는 방법에 알아보려면 사용 합니다 [요약 대시보드](luis-how-to-use-dashboard.md)합니다. 요약 대시보드는 현재 사용 중인 버전의 마지막 교육에 대 한 분석을 제공 하 고 모델을 해결 하려면 상위 제안 제공 합니다.  
+의도 예측 오류를 수정 하는 방법을 알아보려면 [요약 대시보드](luis-how-to-use-dashboard.md)를 사용 합니다. 요약 대시보드는 활성 버전의 마지막 학습에 대 한 분석을 제공 하 고 모델을 수정할 수 있는 최고의 제안을 제공 합니다.  
 
 ## <a name="add-a-custom-entity"></a>사용자 지정 엔터티 추가
 
 발화가 의도에 추가되면 발화 내의 텍스트를 선택하여 사용자 지정 엔터티를 만들 수 있습니다. 사용자 지정 엔터티는 올바른 의도와 함께 추출할 텍스트에 태그를 지정하는 방법입니다. 
 
-참조 [utterance에 엔터티 추가](luis-how-to-add-example-utterances.md) 자세한 합니다.
+자세히 알아보려면 [utterance에 엔터티 추가](luis-how-to-add-example-utterances.md) 를 참조 하세요.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>엔터티 예측 불일치 오류 
 
@@ -82,7 +82,7 @@ Utterance 예측 오류에서 검색 하 고 해결 하려면 사용 합니다 *
 
 ## <a name="using-the-contextual-toolbar"></a>상황에 맞는 도구 모음 사용
 
-목록에서를 utterance의 왼쪽에 있는 확인란에서 하나 이상의 예제 길이 발언을 선택할 때 utterance 목록 위의 도구 모음을 사용 하면 다음 작업을 수행할 수 있습니다.
+목록에서 하나 이상의 예제 길이 발언를 선택 하면 utterance 왼쪽에 있는 상자를 선택 하 여 utterance 목록 위의 도구 모음을 통해 다음 작업을 수행할 수 있습니다.
 
 * 의도 다시 할당: 발화를 다른 의도로 이동합니다.
 * 발화 삭제

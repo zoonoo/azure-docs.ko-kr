@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 56a482ae4eab4cde3cf39fcc187b703f253e0cbb
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: cc6f0a4c3fda2c5e474295704f3edddb678e9ed2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990258"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697208"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Ruby를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 
 <a name="Detect"></a>
 

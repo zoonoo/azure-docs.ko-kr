@@ -1,7 +1,7 @@
 ---
-title: 서 수 V2 미리 작성 된 엔터티
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 이 문서에서는 서 수 V2 미리 작성 된 엔터티 정보에서 LUIS (Language Understanding).
+title: 서 수 V2 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
+description: 이 문서에는 Language Understanding (LUIS)의 서 수 V2 미리 작성 된 엔터티 정보가 포함 되어 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 862b962f5642e01d7ed8250f49d51a6132447083
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563404"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>서 수 V2 LUIS 앱에 대 한 미리 작성 된 엔터티
-서 수 V2 수 확장 [서](luis-reference-prebuilt-ordinal.md) 상대 참조를 제공 하 `next`를 `last`, 및 `previous`합니다. 다음은 서 수 미리 작성 된 엔터티를 사용 하 여 추출 되지 않습니다.
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱에 대 한 서 수 V2 미리 작성 된 엔터티
+서 수 V2 number는 [서 수](luis-reference-prebuilt-ordinal.md) 를 확장 하 여 `next`, `last`및 `previous`와 같은 상대 참조를 제공 합니다. 이러한 항목은 미리 작성 된 서 수 엔터티를 사용 하 여 추출 되지 않습니다.
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>미리 작성 된 서 수 V2 엔터티에 대 한 확인
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>미리 빌드된 서 수 V2 엔터티에 대 한 해결 방법
 
 ### <a name="api-version-2x"></a>API 버전 2.x
 
-다음 예제에서는 확인 합니다 **builtin.ordinalV2** 엔터티.
+다음 예제에서는 ordinalV2 엔터티를 확인 하는 방법을 보여 줍니다 **.**
 
 ```json
 {
@@ -55,9 +55,9 @@ ms.locfileid: "67486198"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -82,7 +82,7 @@ ms.locfileid: "67486198"
 }
 ```
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {
@@ -124,4 +124,4 @@ ms.locfileid: "67486198"
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 합니다 [백분율](luis-reference-prebuilt-percentage.md)를 [전화 번호](luis-reference-prebuilt-phonenumber.md), 및 [온도](luis-reference-prebuilt-temperature.md) 엔터티. 
+[백분율](luis-reference-prebuilt-percentage.md), [전화 번호](luis-reference-prebuilt-phonenumber.md)및 [온도](luis-reference-prebuilt-temperature.md) 엔터티에 대해 알아봅니다. 

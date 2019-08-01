@@ -1,7 +1,7 @@
 ---
-title: Azure 음성 서비스를 사용하는 음성-텍스트
+title: 음성 텍스트 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 텍스트 라고도 하는 Azure Speech Services의 음성 텍스트를 사용 하면 응용 프로그램, 도구 또는 장치에서 명령 입력으로 사용 하 고 표시 하 고 작업을 수행할 수 있는 텍스트로 오디오 스트림의 실시간 기록을 사용할 수 있습니다. 이 서비스는 Microsoft Cortana 및 Office 제품에서 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다.
+description: 음성 텍스트 라고도 하는 speech Service의 음성 텍스트 기능을 사용 하면 응용 프로그램, 도구 또는 장치에서 명령 입력으로 사용 하 고, 표시 하 고, 작업을 수행할 수 있는 텍스트로 오디오 스트림의 실시간 기록을 사용할 수 있습니다. 이 서비스는 Microsoft Cortana 및 Office 제품에서 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333579"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558852"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 란 무엇 인가요?
 
@@ -65,7 +65,7 @@ Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. �
 
 음성 서비스를 사용한 범용 모델 외에도, 사용자의 환경에 특정된 사용자 지정 음향, 언어 및 발음 모델을 생성할 수 있습니다. 사용자 지정 옵션의 목록은 다음과 같습니다.
 
-| Model | Description |
+| Model | 설명 |
 |-------|-------------|
 | [음향 모델](how-to-customize-acoustic-models.md) | 사용자 지정 음향 모델 생성은 응용 프로그램, 도구 또는 장치가 특정 기록 조건이 있는 공장이나 자동차 같은 특정 환경에서는 사용되는 경우 도움이 됩니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 기록를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |

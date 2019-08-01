@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: C#용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: C#과 함께 .NET SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: 28ea62ffa7a2b163b984c089649c1cd99d5e4556
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: e79dcef1bdf415c13dafe31e925b08a4bd0f0cbf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827545"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564253"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 이미지 분류 프로젝트 만들기
 

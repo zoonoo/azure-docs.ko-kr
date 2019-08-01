@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 음성에 대한 데이터 품질 검사 - 음성 서비스
-titlesuffix: Azure Cognitive Services
-description: 사용자 지정 음성은 오디오 데이터와 해당 인식 결과를 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. 사용자 지정 음성 포털에서 업로드된 오디오를 재생하고 제공된 인식 결과가 올바른지 결정할 수 있습니다.  이 도구를 사용하면 모든 오디오 데이터를 기록하지 않고도 학습된 사용자 지정 모델이나 Microsoft의 기본 음성-텍스트 모델의 품질을 신속하게 검사할 수 있습니다.
+title: Custom Speech에 대 한 데이터 품질 검사-음성 서비스
+titleSuffix: Azure Cognitive Services
+description: 사용자 지정 음성은 오디오 데이터와 해당 인식 결과를 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. 사용자 지정 음성 포털에서 업로드된 오디오를 재생하고 제공된 인식 결과가 올바른지 결정할 수 있습니다.  이 도구를 사용 하면 오디오 데이터를 높여줄 않고도 기본 음성 텍스트 모델 또는 학습 된 사용자 지정 모델의 품질을 신속 하 게 검사할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603121"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562855"
 ---
 # <a name="inspect-custom-speech-data"></a>사용자 지정 음성 데이터 검사
 
@@ -30,7 +30,7 @@ ms.locfileid: "67603121"
 
 ## <a name="create-a-test"></a>테스트 만들기
 
-테스트를 만들려면 이러한 지침을 따릅니다.
+테스트를 만들려면 다음 지침을 따르세요.
 
 1. **음성-텍스트 > 사용자 지정 음성 > 테스트**로 이동합니다.
 2. **테스트 추가**를 클릭합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "67603121"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
+* [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 

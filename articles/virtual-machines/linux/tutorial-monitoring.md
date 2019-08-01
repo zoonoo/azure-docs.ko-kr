@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7aa0fd328e923df5882a2b6354dc61aac7ca4feb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1c83cd869142967b358aa5d234d7d487b3c54b4c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695574"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607996"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링 및 업데이트
 
@@ -313,4 +313,4 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 Azure Security Center에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [VM 보안 관리](./tutorial-azure-security.md)
+> [VM 보안 관리](../../security/fundamentals/overview.md)

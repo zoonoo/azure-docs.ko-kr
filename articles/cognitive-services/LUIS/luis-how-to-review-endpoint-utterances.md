@@ -1,7 +1,7 @@
 ---
-title: 사용자 발언 검토
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 활성 학습 끝점 쿼리 캡처하고 확인 되지 않은 사용자의 끝점 길이 발언을 선택 합니다. 의도 선택 하 고 이러한 읽기 world 표현에 대 한 엔터티를 표시 합니다. 이러한 표현 검토할 수 있습니다. 에 예제 표현에 이러한 변경 사항을 적용 하 고 학습 게시 합니다. 그런 다음 LUIS 길이 발언을 보다 정확 하 게 식별합니다.
+title: 사용자 길이 발언 검토-LUIS
+titleSuffix: Azure Cognitive Services
+description: 활성 학습은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 읽기 전용 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제에 이러한 변경 내용을 적용 한 다음 학습 및 게시 길이 발언. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2f49d4bf573cc2dc2e1a3b8fc13413a738df8ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195123"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560447"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>활성 학습 LUIS 포털에서 끝점 길이 발언을 검토 하는 방법
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>활성 학습을 위해 LUIS 포털에서 엔드포인트 길이 발언을 검토 하는 방법
 
-[활성 학습](luis-concept-review-endpoint-utterances.md) 끝점 쿼리 캡처 및 확인 되지 않은 사용자의 끝점 길이 발언을 선택 합니다. 의도 선택 하 고 이러한 읽기 world 표현에 대 한 엔터티를 표시 합니다. 이러한 표현 검토할 수 있습니다. 에 예제 표현에 이러한 변경 사항을 적용 하 고 학습 게시 합니다. 그런 다음 LUIS 길이 발언을 보다 정확 하 게 식별합니다.
+[활성 학습](luis-concept-review-endpoint-utterances.md) 은 끝점 쿼리를 캡처하고 사용자의 끝점 길이 발언를 선택 합니다. 이러한 길이 발언를 검토 하 여 이러한 읽기 전용 길이 발언에 대 한 의도 및 표시 엔터티를 선택 합니다. 예제에 이러한 변경 내용을 적용 한 다음 학습 및 게시 길이 발언. LUIS는 길이 발언를 보다 정확 하 게 식별 합니다.
 
 
-## <a name="enable-active-learning"></a>활성 학습을 사용 하도록 설정
+## <a name="enable-active-learning"></a>활성 학습 사용
 
-활성 학습을 사용 하려면 사용자 쿼리를 기록 합니다. 설정 하 여 이렇게 합니다 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 사용 하 여는 `log=true` querystring 매개 변수 및 값입니다.
+활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 로깅합니다. 이렇게 하려면 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 를 설정 합니다.
 
-## <a name="disable-active-learning"></a>활성 학습을 사용 하지 않도록 설정
+## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 
-활성 학습을 사용 하지 않으려면 사용자 쿼리를 기록 하지 마십시오. 설정 하 여 이렇게 합니다 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 사용 하 여는 `log=false` querystring 매개 변수 및 값입니다.
+활성 학습을 사용 하지 않도록 설정 하려면 사용자 쿼리를 기록 하지 않습니다. 이렇게 하려면 `log=false` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 를 설정 합니다.
 
 ## <a name="filter-utterances"></a>발화 필터링
 

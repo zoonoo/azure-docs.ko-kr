@@ -1,5 +1,5 @@
 ---
-title: 대시보드-Language Understanding
+title: 대시보드-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
 description: 시각화 된 보고 도구인 분석 대시보드를 사용 하 여 의도를 수정 합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: f068aa7ca6b396ebba05b9d9462d9e95faf7fbaa
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296413"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563627"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
 

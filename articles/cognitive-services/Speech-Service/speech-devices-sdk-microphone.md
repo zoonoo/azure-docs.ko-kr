@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b110e9ddc42d07c8356eb25b9ea2294e470d5fdc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277486"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558958"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>음성 장치 SDK 마이크 배열 권장 사항
 
@@ -31,7 +31,7 @@ ms.locfileid: "68277486"
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \#Mics  | 7                 | 4                 | 4              | 2              |
-| 기하학 | 6 개 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격| 3 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격 | 길이 = 120 mm, 간격 = 40 mm | 간격 = 40 mm |
+| 기하 도형 | 6 개 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격| 3 외부, 1 중심, 반경 = 42.5 mm, 고르게 간격 | 길이 = 120 mm, 간격 = 40 mm | 간격 = 40 mm |
 
 마이크 채널은 위의 각 배열에 대해 표시 되는 번호 매기기에 따라 정렬 되며 0에서 늘립니다.  Microsoft 오디오 스택은 반향 취소를 수행 하기 위해 오디오 재생의 추가 참조 스트림이 필요 합니다.
 

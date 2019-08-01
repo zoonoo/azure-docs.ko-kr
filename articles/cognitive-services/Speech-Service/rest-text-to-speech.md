@@ -1,7 +1,7 @@
 ---
 title: 텍스트 음성 변환 API 참조 (REST)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 텍스트 음성 변환 REST API를 사용 하는 방법을 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
+description: 텍스트 음성 변환 REST API를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604882"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559184"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -35,7 +35,7 @@ ms.locfileid: "67604882"
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>음성의 목록 가져오기
+## <a name="get-a-list-of-voices"></a>음성 목록 가져오기
 
 `voices/list` 끝점을 사용하면 특정 지역/끝점에 대한 음성의 전체 목록을 가져올 수 있습니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "67604882"
 | 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 아시아 동부 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -55,11 +55,11 @@ ms.locfileid: "67604882"
 | 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 유럽 북부 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 유럽 서부 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
@@ -67,7 +67,7 @@ ms.locfileid: "67604882"
 
 아래 표는 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
 
-| 헤더 | 설명 | 필수/선택 |
+| 헤더 | Description | 필수/선택 |
 |--------|-------------|---------------------|
 | `Authorization` | `Bearer` 단어 앞에 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 
@@ -77,7 +77,7 @@ ms.locfileid: "67604882"
 
 ### <a name="sample-request"></a>샘플 요청
 
-이 요청에 권한 부여 헤더가 필요합니다.
+이 요청에는 인증 헤더만 필요 합니다.
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -88,7 +88,7 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="sample-response"></a>샘플 응답
 
-이 응답은 응답의 구조를 보여 주기 위해 잘렸습니다.
+이 응답은 응답의 구조를 설명 하기 위해 잘렸습니다.
 
 > [!NOTE]
 > 음성 가용성은 영역/끝점에 따라 다릅니다.
@@ -137,9 +137,9 @@ Authorization: Bearer [Base64 access_token]
 
 | HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
-| 200 | 확인 | 요청에 성공 합니다. |
+| 200 | 확인 | 요청이 성공 했습니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
-| 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
+| 401 | 인증되지 않음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이 | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 
@@ -167,7 +167,7 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="audio-outputs"></a>오디오 출력
 
-각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에는 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스 24 kHz, 16 kHz 지원 하 고 8 44.1khz 오디오 출력 합니다.
+각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에는 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스는 24khz, 16khz 및 8 kHz 오디오 출력을 지원 합니다.
 
 |||
 |-|-|
@@ -180,7 +180,7 @@ Authorization: Bearer [Base64 access_token]
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 따라 오디오가 다시 샘플링됩니다. 그러나 24 kHz 음성 지원 하지 않습니다 `audio-16khz-16kbps-mono-siren` 고 `riff-16khz-16kbps-mono-siren` 출력 형식입니다.
+> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 따라 오디오가 다시 샘플링됩니다. 그러나 24 kHz 음성은 및 `audio-16khz-16kbps-mono-siren` `riff-16khz-16kbps-mono-siren` 출력 형식을 지원 하지 않습니다.
 
 ### <a name="request-body"></a>요청 본문
 
@@ -222,9 +222,9 @@ Authorization: Bearer [Base64 access_token]
 |------------------|-------------|-----------------|
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 오디오 파일입니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
-| 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
+| 401 | 인증되지 않음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 413 | 요청 엔터티가 너무 큼 | SSML 입력이 1024자보다 깁니다. |
-| 415 | 지원 되지 않는 미디어 유형 | 수는 잘못 된 `Content-Type` 제공 되었습니다. `Content-Type` 로 설정 해야 `application/ssml+xml`합니다. |
+| 415 | 지원 되지 않는 미디어 유형 | 잘못 `Content-Type` 된를 제공 했을 수 있습니다. `Content-Type`로 `application/ssml+xml`설정 해야 합니다. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이 | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 

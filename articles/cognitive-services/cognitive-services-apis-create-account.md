@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 Cognitive Services 리소스 만들기
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Azure Portal에서 리소스를 만들고 구독 하 여 Azure Cognitive Services를 시작 합니다.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334229"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697903"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -65,6 +65,13 @@ Cognitive Services 리소스를 만들기 전에 리소스를 포함 하는 Azur
 리소스를 만든 후 고정하면 Azure 대시보드에서 액세스할 수 있습니다. 그렇지 않으면 **리소스 그룹**에서 찾을 수 있습니다. 리소스를 선택한 후 **리소스 관리**에서 **키** 를 선택 하 여 키를 가져올 수 있습니다.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>가격 책정 계층 및 요금 청구
+
+가격 책정 계층 및 청구 되는 금액은 인증 정보를 사용 하 여 전송 하는 트랜잭션 수를 기반으로 합니다. 각 가격 책정 계층은 다음을 지정 합니다.
+* 초당 허용 되는 최대 트랜잭션 수 (TPS)입니다.
+* 가격 책정 계층 내에서 사용 하도록 설정 된 서비스 기능입니다.
+* 미리 정의 된 트랜잭션 양에 대 한 비용입니다. 이 용량을 초과 하면 서비스에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 에 지정 된 대로 추가 요금이 발생 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

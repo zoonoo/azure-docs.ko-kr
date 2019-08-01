@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eadac393a7224876e3cb494dd39116bd3b5b0eb7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694967"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697376"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 텍스트 분석 Cognitive Service 호출  
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
 
 <a name="Detect"></a>
 
@@ -229,7 +227,7 @@ get_sentiments (documents);
 
 **감정 분석 응답**
 
-1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+1\.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json

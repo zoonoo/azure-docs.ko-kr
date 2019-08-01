@@ -1,6 +1,6 @@
 ---
-title: 미리 작성된 도메인 참조
-titleSuffix: Azure
+title: 미리 빌드된 도메인 참조-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding Intelligent Services)에서 미리 작성된 의도 및 엔터티 컬렉션에 해당하는 미리 작성된 도메인에 대한 참조입니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ce043e23a0384a74fd5d2c9dd514045578ef836d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846675"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563468"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 앱에 대한 미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
@@ -52,7 +52,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 <br><br>
 
-|엔터티 형식|description|
+|엔터티 유형|description|
 |--|--|
 |일정|일정은 개인 모임 및 약속에 대 한 것으로, 전 세계 컵 일정, 시애틀 이벤트 달력 등 _의 공용 이벤트_ 나 일반 달력 (예: 오늘날의 일, 일은 노동절 일 경우 시작 하는 것)입니다.|
 |통신|호출을 수행 하 고, 텍스트 또는 인스턴트 메시지를 보내고, 연락처와 기타 다양 한 통신 관련 요청 (일반적으로 보냄)을 찾아 추가 하도록 요청 합니다. 연락처 이름만 쿼리가 통신 도메인에 속하지 않습니다.|

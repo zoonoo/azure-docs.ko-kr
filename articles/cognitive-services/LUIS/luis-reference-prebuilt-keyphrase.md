@@ -1,6 +1,6 @@
 ---
-title: Keyphrase 미리 빌드된 엔터티
-titleSuffix: Azure
+title: 키 구 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 keyPhrase 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 988609f411ad405b0f1dc244b23fb6db446136a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7ecb579305cb17525e220bc16be430c77d25080
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071996"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563425"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 keyPhrase 미리 빌드된 엔터티
 keyPhrase는 발언에서 다양한 핵심 구를 추출합니다. keyphrase를 포함하는 예제 발언을 애플리케이션에 추가할 필요는 없습니다. keyPhrase 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [여러 문화권](luis-language-support.md#languages-supported)에서 지원됩니다. 

@@ -1,6 +1,6 @@
 ---
-title: 엔터티 형식 나열
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 엔터티 형식 나열-LUIS
+titleSuffix: Azure Cognitive Services
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용 하 여 현재 목록을 기반으로 하는 새 단어에 대 한 제안을 볼 수 있습니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: c278a72327d476be8963b10db5e8231b6d859a4a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480306"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559963"
 ---
 # <a name="list-entity"></a>목록 엔터티 
 

@@ -1,7 +1,7 @@
 ---
-title: Azure 음성 서비스를 사용 하 여 음성 번역
-titlesuffix: Azure Cognitive Services
-description: 음성 서비스를 통해 응용 프로그램, 도구 및 장치와 엔드-투-엔드, 실시간, 다국어 음성 번역을 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
+title: 음성 서비스를 사용한 음성 변환
+titleSuffix: Azure Cognitive Services
+description: Speech Service를 사용 하면 응용 프로그램, 도구 및 장치에 음성의 종단 간 실시간 다중 언어 번역을 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
-ms.translationtype: HT
+ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657738"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552643"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -32,8 +32,8 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 | 사용 사례 | SDK | REST(영문) |
 |----------|-----|------|
 | 인식 결과를 사용하여 음성-텍스트를 번역합니다. | 예 | 아니요 |
-| 음성-음성 번역입니다. | 예 | 아니요 |
-| 중간 인식 및 변환 결과입니다. | 예 | 아니요 |
+| 음성-음성 변환. | 예 | 아니요 |
+| 중간 인식 및 번역 결과. | 예 | 아니요 |
 
 ## <a name="get-started-with-speech-translation"></a>음성 번역 시작하기
 
@@ -51,11 +51,11 @@ Microsoft의 번역 엔진은 두 가지 방법을 통해 제공됩니다: 통�
 
 Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 지속적인 그리고 일회성의 인식/번역, 사용자 지정 모델을 사용하는 작업과 같은 일반적인 시나리오를 다룹니다.
 
-* [음성-텍스트 및 변환 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [음성 텍스트 및 번역 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="migration-guides"></a>마이그레이션 가이드
 
-응용 프로그램, 도구 또는 제품 사용 중인 경우는 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), 음성 서비스를 마이그레이션할 수 있도록 가이드를 만들었습니다.
+응용 프로그램, 도구 또는 제품이 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.
 
 * [Translator Speech API에서 Speech Services로 마이그레이션](how-to-migrate-from-translator-speech-api.md)
 
@@ -70,4 +70,4 @@ Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. �
 ## <a name="next-steps"></a>다음 단계
 
 * [무료로 Speech Service 구독 키 받기](get-started.md)
-* [Speech SDK 가져오기](speech-sdk.md)
+* [음성 SDK 가져오기](speech-sdk.md)

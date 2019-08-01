@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용 하 여 Cognitive Services 리소스 만들기
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Azure 명령줄 인터페이스를 사용 하 여 리소스를 만들고 구독 하 여 Azure Cognitive Services를 시작 합니다.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334275"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697898"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure CLI (명령줄 인터페이스)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "68334275"
 
 이 빠른 시작에서는 azure Cognitive Services에 등록 하 고 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 단일 서비스 또는 다중 서비스 구독이 있는 계정을 만드는 방법에 대해 알아봅니다. 이러한 서비스는 하나 이상의 Azure Cognitive Services API에 연결할 수 있는 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)표시 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -162,6 +162,14 @@ az login
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>가격 책정 계층 및 요금 청구
+
+가격 책정 계층 및 청구 되는 금액은 인증 정보를 사용 하 여 전송 하는 트랜잭션 수를 기반으로 합니다. 각 가격 책정 계층은 다음을 지정 합니다.
+* 초당 허용 되는 최대 트랜잭션 수 (TPS)입니다.
+* 가격 책정 계층 내에서 사용 하도록 설정 된 서비스 기능입니다.
+* 미리 정의 된 트랜잭션 양에 대 한 비용입니다. 이 용량을 초과 하면 서비스에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 에 지정 된 대로 추가 요금이 발생 합니다.
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

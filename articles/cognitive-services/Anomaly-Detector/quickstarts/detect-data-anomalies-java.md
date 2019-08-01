@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a219dfac597208a2c409f76c035a1b913864245
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 001d53cbd7e2a57615ea3da71d128bd210a79921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721512"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565851"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>빠른 시작: Anomaly Detector REST API와 Java를 사용하여 시계열 데이터에서 변칙 검색
 

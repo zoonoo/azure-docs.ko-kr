@@ -1,6 +1,6 @@
 ---
 title: 모바일로 모델 내보내기 - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 모바일 애플리케이션을 만드는 데 사용할 모델을 내보내는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 554a392a7f815a6e646927f137b1e6c2856099bd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550533"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561074"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 

@@ -3,19 +3,19 @@ title: 보상 점수 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 RewardActionID가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다. Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 39db28cd7e11d77362a2aefcf4ad8d2748db59c2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722500"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663385"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 

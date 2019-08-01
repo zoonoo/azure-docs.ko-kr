@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Postman을 사용하여 기술 자료에서 답변 가져오기 - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Postman을 사용하여 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 7083285ac81aa8eafee8de49175e40934e5d05b4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7c419ea7cb5c9ae1d1cc419798961ec67f250160
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253804"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562993"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>빠른 시작: Postman을 사용하여 기술 자료에서 답변 가져오기
 

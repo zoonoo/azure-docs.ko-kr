@@ -1,6 +1,6 @@
 ---
-title: 구문 목록-음성 서비스
-titlesuffix: Azure Cognitive Services
+title: 구 목록-음성 서비스
+titleSuffix: Azure Cognitive Services
 description: 음성-텍스트 인식 결과를 개선하기 위해 `PhraseListGrammar` 개체를 사용하여 구문 목록으로 음성 서비스를 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: rhurey
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0e552d502184d1b537263c2c1f6b2a8562cdf791
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226358"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562786"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대한 구문 목록
 

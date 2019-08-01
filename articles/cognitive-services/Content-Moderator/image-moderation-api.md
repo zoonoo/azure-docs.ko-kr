@@ -1,6 +1,6 @@
 ---
 title: 이미지 조정 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Content Moderator의 머신 지원 이미지 조정 및 인간 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699276"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564908"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
@@ -66,7 +66,7 @@ Content Moderator의 머신 지원 이미지 조정 및 [인간 참여형 검토
 
 ## <a name="detecting-faces"></a>얼굴 감지
 
-얼굴을 감지 하는 작업은 이미지에서 얼굴 등의 개인 데이터를 검색할 수 있습니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
+얼굴을 감지 하면 이미지의 얼굴 같은 개인 데이터를 검색 하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
 
 응답에는 다음 정보가 포함됩니다.
 

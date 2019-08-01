@@ -1,6 +1,6 @@
 ---
-title: 새 앱 만들기
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 새 앱 만들기-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 웹 페이지에서 애플리케이션을 만들고 관리합니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341854"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563609"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -59,27 +59,27 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
 ## <a name="import-an-app-from-file"></a>파일에서 앱 가져오기
 
 1. **내 앱** 페이지에서 **새 앱 가져오기**를 선택합니다.
-1. 팝업 대화 상자에서 유효한 앱 JSON 파일을 선택 하 고 선택한 **수행**합니다.
+1. 팝업 대화 상자에서 유효한 앱 JSON 파일을 선택 하 고 **완료**를 선택 합니다.
 
 ### <a name="import-errors"></a>가져오기 오류
 
-가능한 오류 다음과 같습니다. 
+가능한 오류는 다음과 같습니다. 
 
-* 앱 이름이 이미 있습니다. 이 문제를 해결 하려면 앱을 다시 가져와야 하 고 설정 합니다 **선택적 이름** 새 이름입니다. 
+* 해당 이름의 앱이 이미 있습니다. 이 문제를 해결 하려면 앱을 다시 가져오고 **선택적인 이름을** 새 이름으로 설정 합니다. 
 
-## <a name="export-app-for-backup"></a>백업에 대 한 앱 내보내기
+## <a name="export-app-for-backup"></a>백업용 응용 프로그램 내보내기
 
-1. 온 **Myapps** 페이지에서 **내보내기**합니다.
-1. 선택 **JSON으로 내보내기**합니다. 브라우저 앱의 현재 사용 중인 버전을 다운로드합니다.
-1. 모델을 보관 하려면 백업 시스템에이 파일을 추가 합니다.
+1. **내 앱** 페이지에서 **내보내기**를 선택 합니다.
+1. **JSON으로 내보내기를**선택 합니다. 브라우저가 활성 버전의 앱을 다운로드 합니다.
+1. 이 파일을 백업 시스템에 추가 하 여 모델을 보관 합니다.
 
 ## <a name="export-app-for-containers"></a>컨테이너에 대 한 앱 내보내기
 
-1. 온 **Myapps** 페이지에서 **내보내기**합니다.
-1. 선택 **컨테이너로 내보냅니다** 다음 내보내려는 게시 된 슬롯 (프로덕션 또는 단계)를 선택 합니다.
-1. 이 파일을 사용 하면 [LUIS 컨테이너](luis-container-howto.md)합니다. 
+1. **내 앱** 페이지에서 **내보내기**를 선택 합니다.
+1. **컨테이너로 내보내기** 를 선택 하 고 내보낼 게시 된 슬롯 (프로덕션 또는 단계)을 선택 합니다.
+1. [LUIS 컨테이너](luis-container-howto.md)에서이 파일을 사용 합니다. 
 
-    제외한에서는 학습 된 내보내기 아직 게시 된 모델 LUIS 컨테이너를 사용 하는 데 관심이 있다면로 이동 합니다 **버전** 여기에서 내보내고 페이지입니다. 
+    LUIS 컨테이너에서 사용할 학습 되었지만 아직 게시 되지 않은 모델을 내보내려는 경우 **버전** 페이지로 이동 하 여 여기에서 내보냅니다. 
 
 ## <a name="delete-app"></a>앱 삭제
 

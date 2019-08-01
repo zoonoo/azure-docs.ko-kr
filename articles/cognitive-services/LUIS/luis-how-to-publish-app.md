@@ -1,5 +1,5 @@
 ---
-title: 앱 게시
+title: 앱 게시-LUIS
 titleSuffix: Azure Cognitive Services
 description: 활성 LUIS 빌드와 테스트를 마치면 엔드포인트에 게시하여 클라이언트 애플리케이션에 적용하세요.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/08/2019
+ms.topic: article
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67f3634141e58cebc22ea643852c09c5d8d9328b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194463"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638075"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -24,7 +24,7 @@ ms.locfileid: "60194463"
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
-## <a name="publishing"></a>게시
+## <a name="publishing"></a>Publishing
 
 엔드포인트에 게시하려면 맨 위 오른쪽 패널에서 **게시**를 선택하세요. 
 

@@ -1,19 +1,18 @@
 ---
 title: 자습서 - Azure 파일 동기화를 사용하여 Windows 파일 서버 확장 | Microsoft Docs
 description: Azure 파일 동기화를 통해 Windows 파일 서버를 확장하는 방법을 처음부터 끝까지 살펴봅니다.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705058"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699494"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
@@ -157,7 +156,7 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
 
 1. **Windows Server 2016 Datacenter** VM에 있는 상태에서 **파일 및 스토리지 서비스** > **볼륨** > **디스크**를 선택합니다.
 
-    ![데이터 디스크 ](media/storage-sync-files-extend-servers/your-disk.png)
+    ![데이터 디스크](media/storage-sync-files-extend-servers/your-disk.png)
 
 1. 이름이 **Msft 가상 디스크**인 1GB 디스크를 마우스 오른쪽 단추로 클릭하고 **새 볼륨**을 선택합니다.
 1. 마법사를 완료합니다. 기본 설정을 사용하고 지정된 드라이브 문자를 기록합니다.

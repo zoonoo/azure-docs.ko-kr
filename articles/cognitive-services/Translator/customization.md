@@ -1,6 +1,6 @@
 ---
 title: 변환 사용자 지정 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Microsoft Translator Hub를 사용하여 기본 설정된 용어 및 스타일로 고유한 기계 번역 시스템을 빌드합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447329"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595317"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -43,7 +43,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> 레거시 Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
+> 레거시 Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
 
@@ -51,9 +51,9 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2만   | V3만 |
-| SMT 사용자 지정 | 예   | 아닙니다. |
-| NMT 사용자 지정 | 아닙니다.    | 예 |
-| 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | 예 |
+| SMT 사용자 지정 | 예   | 아니요 |
+| NMT 사용자 지정 | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
 | [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크

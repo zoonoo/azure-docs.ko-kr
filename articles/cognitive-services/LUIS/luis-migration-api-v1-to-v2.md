@@ -1,7 +1,7 @@
 ---
 title: v1에서 v2 API 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 버전 1 끝점 및 Language Understanding Api 제작 사용 되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
+description: 버전 1 끝점 및 제작 Language Understanding Api는 더 이상 사용 되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,33 +11,33 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522356"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560322"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) 및 [작성](https://go.microsoft.com/fwlink/?linkid=2092087) API로 마이그레이션하는 방법을 이해합니다. 
 
 ## <a name="new-azure-regions"></a>새 Azure 지역
-LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS 영역 그룹에 대 한 다른 포털을 제공합니다. 애플리케이션은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 애플리케이션은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
+LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS는 지역 그룹에 대해 다른 포털을 제공 합니다. 애플리케이션은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 애플리케이션은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
 
 ## <a name="authoring-route-changes"></a>작성 경로 변경 내용
 작성 API 경로가 **prog** 경로 사용에서 **api** 경로 사용으로 변경되었습니다.
 
 
-| 버전 | 경로(route) |
+| version | 경로(route) |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
 
 
 ## <a name="endpoint-route-changes"></a>엔드포인트 경로 변경 내용
-API 끝점에는 새 쿼리 문자열 매개 변수 뿐만 아니라 다른 응답에 있습니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
+끝점 API에는 다른 응답 뿐만 아니라 새로운 쿼리 문자열 매개 변수가 있습니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
 
-| 버전 | GET 경로 |
+| version | GET 경로 |
 |--|--|
 |1|/luis/v1/application?ID={appId}&q={q}|
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
@@ -107,7 +107,7 @@ v2 엔드포인트 성공 응답:
 ## <a name="key-management-no-longer-in-api"></a>API에 더 이상 키 관리가 없음
 구독 끝점 키 API는 더 이상 사용되지 않으며 410 없음을 반환합니다.
 
-| 버전 | 경로(route) |
+| version | 경로(route) |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -117,7 +117,7 @@ Azure [끝점 키](luis-how-to-azure-subscription.md)는 Azure Portal에서 생�
 ## <a name="new-versioning-route"></a>새 버전 관리 경로
 이제 v2 모델이 [버전](luis-how-to-manage-versions.md)에 포함됩니다. 버전 이름은 경로에서 10자입니다. 기본 버전은 “0.1”입니다.
 
-| 버전 | 경로(route) |
+| version | 경로(route) |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -136,7 +136,7 @@ LUIS 메타데이터를 반환하는 여러 API에 새 이름이 사용됩니다
 ## <a name="sample-renamed-to-suggest"></a>“Sample”에서 “suggest”로 이름이 바뀜
 LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-how-to-review-endpoint-utterances.md)를 기반으로 발화를 제안합니다. 이전 버전에서는 이것을 **sample**이라고 했습니다. 새 버전에서는 이름이 sample에서 **suggest**로 변경됩니다. LUIS 웹 사이트에서는 이를 **[엔드포인트 발화 검토](luis-how-to-review-endpoint-utterances.md)** 라고 합니다.
 
-| 버전 | 경로(route) |
+| version | 경로(route) |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|
@@ -153,12 +153,12 @@ LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-h
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>2\.x로 1.x 앱 가져오기
-내보낸 1.x 앱의 JSON에는 [LUIS][LUIS] 2.0으로 가져오기 전에 변경해야 하는 일부 영역이 있습니다. 
+내보낸 1.x 앱의 JSON에는 [LUIS][LUIS] 2.0로 가져오기 전에 변경 해야 할 몇 가지 영역이 있습니다. 
 
 ### <a name="prebuilt-entities"></a>미리 빌드된 엔터티 
 [미리 빌드된 엔터티](luis-prebuilt-entities.md)가 변경되었습니다. V2 미리 빌드된 엔터티를 사용하고 있는지 확인합니다. 여기에는 datetime 대신에 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 사용이 포함됩니다. 
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 작업 속성이 더 이상 유효하지 않습니다. 비어 있어야 함 
 
 ### <a name="labeled-utterances"></a>레이블이 지정된 발화

@@ -1,5 +1,5 @@
 ---
-title: Kubernetes 및 Helm 활용
+title: Kubernetes 및 투구와 함께 사용-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559150"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Kubernetes 및 Helm 활용
 
@@ -30,7 +30,7 @@ ms.locfileid: "68326198"
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
 | Container Registry 액세스 | Kubernetes가 docker 이미지를 클러스터로 가져오기 위해 컨테이너 레지스트리에 액세스 해야 합니다. 먼저 [컨테이너 레지스트리에 대 한 액세스를 요청][speech-preview-access] 해야 합니다. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] 는 컨테이너 레지스트리에서 공유 자격 증명을 관리 하는 데 필요 합니다. Kubernetes는 Kubernetes 패키지 관리자 인 투구 이전에도 필요 합니다. |
-| 투구 CLI | [투구 CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]의 일부입니다. |
+| 투구 CLI | [투구 CLI][helm-install] 를 설치 하는 과정에서 [Tiller][tiller-install]를 설치 하는 투구도 초기화 해야 합니다. |
 |음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 수 있는 _음성_ Azure 리소스. 두 값은 Azure portal의 **음성** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하기 위해 필요합니다.<br><br>**{API_KEY}** : 리소스 키<br><br>**{ENDPOINT_URI}** : 끝점 URI 예:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>권장 호스트 컴퓨터 구성

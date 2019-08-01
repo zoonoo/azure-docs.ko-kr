@@ -1,6 +1,6 @@
 ---
 title: 시나리오 가용성-음성 서비스
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Speech 서비스의 지역에 대한 참조입니다.
 services: cognitive-services
 author: chrisbasoglu
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561279"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552946"
 ---
-# <a name="scenario-availability"></a>가용성 시나리오
+# <a name="scenario-availability"></a>시나리오 가용성
 
-음성 서비스 SDK는 다양 한 프로그래밍 언어 및 환경에서 다양 한 시나리오를 갖추고 있습니다.  일부 시나리오는 아직 모든 프로그래밍 언어 또는 모든 환경에서 현재 사용할 수 있습니다.  아래 목록은 각 시나리오의 가용성이입니다.
+음성 서비스 SDK는 다양 한 프로그래밍 언어 및 환경에서 다양 한 시나리오를 제공 합니다.  모든 시나리오를 현재 모든 프로그래밍 언어 또는 모든 환경에서 사용할 수 있는 것은 아닙니다.  각 시나리오의 가용성은 아래에 나와 있습니다.
 
-- **음성 인식 (SR), 구 목록, 의도, 변환 및 온-프레미스 컨테이너**
-  - 모든 프로그래밍 언어/환경이 있는 화살표 링크를 <img src="media/index/link.jpg" height="15" width="15"></img> 빠른 시작 표에 [여기](https://aka.ms/csspeech)합니다.
+- **SR (음성 인식), 구 목록, 의도, 번역 및 온-프레미스 컨테이너**
+  - 화살표 링크가 있는 모든 프로그래밍 언어/환경 <img src="media/index/link.jpg" height="15" width="15"></img> [여기](https://aka.ms/csspeech)에서 빠른 시작 표를 참조 하세요.
 - **텍스트 음성 변환 (TTS)**
-  - C++/Windows & Linux
+  - C++/Swindows & Linux
   - C#/Windows & UWP & Unity
-  - 다른 모든 상황에서 TTS REST API는 사용할 수 있습니다.
-- **절전 모드 해제 단어 (키워드 된 관찰자/KWS)**
-  - C++/Windows & Linux
+  - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.
+- **Wake Word (Keyword 관찰자/KWS)**
+  - C++/Swindows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows & Linux, Android (음성 장치 SDK)
-  - 하지만 절전 모드 해제 (키워드 된 관찰자/KWS) 단어 기능이 공식 KWS 지원, 모든 마이크 유형과 함께 작동 될 수 있습니다 현재 제한 된 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK
-- **음성 우선 가상 도우미**
-  - C++/ Windows & Linux 및 macOS
+  - Java/Windows & Linux & Android (음성 장치 SDK)
+  - 절전 모드 해제 단어 (Keyword 관찰자/KWS) 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
+- **음성 우선 가상 길잡이**
+  - C++/Swindows & Linux & macOS
   - C#/Windows
-  - Java/Windows & Linux 및 macOS 및 Android (음성 장치 SDK)
+  - Java/Windows & Linux & macOS & Android (음성 장치 SDK)
 - **대화 전사**
-  - C++/Windows & Linux
-  - C#(Framework 및.NET Core) / Windows/UWP & Linux
-  - Java/Windows & Linux, Android (음성 장치 SDK)
+  - C++/Swindows & Linux
+  - C#(프레임 워크 & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (음성 장치 SDK)
 - **콜 센터 기록**
-  - REST API 및 모든 상황에서 사용할 수 있습니다
-- **코덱 오디오 입력 압축**
+  - REST API 및 모든 상황에서 사용할 수 있습니다.
+- **코덱 압축 오디오 입력**
   - C++/Linux
   - C#/Linux
   - Java/Linux & Android

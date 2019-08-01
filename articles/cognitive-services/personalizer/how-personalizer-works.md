@@ -2,19 +2,19 @@
 title: Personalizer 작동 방식 - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer는 기계 학습을 사용하여 컨텍스트에서 사용할 작업을 검색합니다. 각 학습 루프에는 Rank(순위) 및 Reward(보상) 호출을 통해 보낸 데이터에 대해 단독으로 학습되는 모델이 있습니다. 모든 학습 루프는 서로 완전히 독립적입니다.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423247"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663906"
 ---
 # <a name="how-personalizer-works"></a>Personalizer 작동 방식
 

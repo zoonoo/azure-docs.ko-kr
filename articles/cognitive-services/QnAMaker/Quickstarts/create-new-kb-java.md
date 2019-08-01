@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 기술 자료 만들기 - REST, Java - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 Java REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 298f7e90bb6848d7b0af032bdaff8724a69c227f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249668"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559866"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 만들기
 

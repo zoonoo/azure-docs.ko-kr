@@ -1,6 +1,6 @@
 ---
 title: 컨테이너 구성 - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321347"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565655"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -51,9 +51,9 @@ ms.locfileid: "68321347"
 
 다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다. 
 
-|필수| Name | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -79,9 +79,9 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|Optional| Name | 데이터 형식 | 설명 |
+|Optional| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
-|허용되지 않음| `Input` | 문자열 | Computer Vision 컨테이너에는 사용되지 않습니다.|
+|허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
 |Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 

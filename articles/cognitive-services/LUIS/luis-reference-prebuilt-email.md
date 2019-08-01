@@ -1,6 +1,6 @@
 ---
-title: LUIS 미리 빌드된 엔터티 이메일 참조 - Azure | Microsoft Docs
-titleSuffix: Azure
+title: LUIS 미리 작성 한 엔터티 전자 메일 참조
+titleSuffix: Azure Cognitive Services
 description: 이 아티클에는 LUIS(Language Understanding)의 이메일 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c9c7b373f820dd23c70a67a1de8545935a1d93c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072067"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560243"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 이메일 미리 빌드된 엔터티
 이메일 추출에는 발언의 전체 이메일 주소가 포함됩니다. 이 엔터티를 이미 학습했기 때문에 이메일을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. 이메일 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -54,9 +54,9 @@ ms.locfileid: "65072067"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -79,7 +79,7 @@ ms.locfileid: "65072067"
 ```
 
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {

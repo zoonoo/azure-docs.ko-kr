@@ -1,6 +1,6 @@
 ---
 title: '자습서: .NET에서 비디오 및 대본 조정 - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 자습서는 머신 지원 조정 및 사람이 개입된(human-in-the-loop) 검토 생성을 통해 완벽한 비디오 및 대본 조정 솔루션을 빌드하는 방법을 이해하는 데 도움이 됩니다.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606941"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564281"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 

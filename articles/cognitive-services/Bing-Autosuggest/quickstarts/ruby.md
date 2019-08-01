@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안'
 titleSuffix: Azure Cognitive Services
-description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: Bing Autosuggest API를 사용하여 실시간으로 검색 용어를 빠르게 제안하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3797e8b0d200bcb7f010afbf77f57cfc5cf6b5d1
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b395c9202ce6d67b76bc0dc6e203a0db275b4fa1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405210"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565789"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안
 

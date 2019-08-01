@@ -3,19 +3,19 @@ title: '기능: 작업 및 컨텍스트 - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Personalizer는 작업 및 컨텍스트에 관한 정보인 기능을 사용하여 더 나은 순위를 추천합니다. 기능은 매우 일반적일 수도 있고 항목에 대해 구체적일 수도 있습니다.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: edjez
-ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423278"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663836"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 

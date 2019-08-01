@@ -1,6 +1,6 @@
 ---
-title: 모범 사례
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 모범 사례-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 앱의 모델에서 최상의 결과를 얻기 위해 LUIS 모범 사례를 알아봅니다.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812921"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639281"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
-앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
+앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다. 
 
 * 언어 모델 빌드
 * 몇 가지 학습 예제 발화를 추가합니다(의도당 10~15개).
@@ -27,7 +27,7 @@ ms.locfileid: "60812921"
 * 엔드포인트에서 테스트 
 * 기능 추가
 
-앱이 [게시](luis-how-to-publish-app.md)된 후 기능 추가, 게시 및 엔드포인트에서 테스트의 작성 주기를 사용합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
+앱이 [게시](luis-how-to-publish-app.md)되 면 제작 주기를 사용 하 여 끝점에서 기능을 추가 하 고, 게시 하 고, 테스트 합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
 
 LUIS가 학습을 효율적으로 진행하려면 예제 및 엔드포인트 발화의 현재 집합이 신뢰할 수 있는 높은 예측 점수를 반환할 때까지 발화를 확장하지 마세요. [활성 학습](luis-concept-review-endpoint-utterances.md), [패턴](luis-concept-patterns.md) 및 [문구 목록](luis-concept-feature.md)을 사용하여 점수를 개선합니다. 
 
@@ -78,7 +78,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>이후 반복에서 구문 목록 및 패턴 추가
 
-앱이 테스트되기 전에는 이러한 방법을 적용하지 않는 것이 좋습니다. 이러한 기능 예제 표현 보다 더 많은 가중치가 적용 및 신뢰도 왜곡 시킵니다 있으므로 구 목록 및 패턴을 추가 하기 전에 앱의 동작 방식 이해 해야 합니다. 
+앱이 테스트되기 전에는 이러한 방법을 적용하지 않는 것이 좋습니다. 이러한 기능은 예 길이 발언 보다 훨씬 더 많은 가중치가 적용 되 고 확신을 기울일 수 있으므로 [문구 목록과](luis-concept-feature.md) [패턴](luis-concept-patterns.md) 을 추가 하기 전에 앱이 어떻게 동작 하는지 이해 해야 합니다. 
 
 사례를 적용하지 않은 상태에서 앱이 어떻게 작동하는지 이해했으면 앱에 적용되는 각 기능을 추가합니다. 각 [반복](luis-concept-app-iteration.md)에서 이러한 기능을 추가하거나, 각 버전에서 기능을 변경할 필요가 없습니다. 
 

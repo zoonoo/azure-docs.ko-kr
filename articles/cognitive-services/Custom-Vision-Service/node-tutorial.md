@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Node.js용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Node.js SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 92713fe16e482a3ed65b9593581749270b67a487
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2fe02bd48097b6e051f0203b4615c8c5683224cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277598"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560970"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 이미지 분류 프로젝트 만들기
 

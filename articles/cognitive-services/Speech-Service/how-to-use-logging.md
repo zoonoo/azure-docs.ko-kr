@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 6179634bb949dbb9da8475e87494eef0f145f13b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605081"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559482"
 ---
-# <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅을 사용 하도록 설정
+# <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅 사용
 
-파일에 로깅은 Speech SDK에 대 한 선택적 기능입니다. 개발 중 로깅 추가 정보 및 Speech SDK의 핵심 구성 요소에서 진단 정보를 제공합니다. 속성을 설정 하 여 활성화할 수 있습니다 `Speech_LogFilename` 음성 구성 개체를 로그 파일의 이름과 위치에 있습니다. 로깅과 인식기를 해당 구성에서 만들어지면 전역적으로 활성화할 수 있습니다. 나중에 비활성화할 수 없습니다. 로깅 세션을 실행 하는 동안 로그 파일의 이름을 변경할 수 없습니다.
+파일에 로깅은 음성 SDK의 선택적 기능입니다. 개발 로깅은 음성 SDK의 핵심 구성 요소에서 추가 정보와 진단을 제공 합니다. 음성 구성 개체의 속성 `Speech_LogFilename` 을 로그 파일의 위치 및 이름으로 설정 하 여이 기능을 사용 하도록 설정할 수 있습니다. 이 구성에서 인식기를 만든 후에는 로깅이 전체적으로 활성화 되며 나중에 비활성화할 수 없습니다. 실행 중인 로깅 세션 중에는 로그 파일의 이름을 변경할 수 없습니다.
 
 > [!NOTE]
-> 로깅은 Speech SDK 버전 1.4.0 모든 프로그래밍 언어, JavaScript 제외 하 고 Speech SDK를 지원 하므로 사용할 수 있습니다.
+> 음성 SDK 버전은 JavaScript를 제외 하 고 지원 되는 모든 Speech SDK 프로그래밍 언어로 1.4.0 되므로 로깅을 사용할 수 있습니다.
 
 ## <a name="sample"></a>예제
 
@@ -53,13 +53,13 @@ config 개체에서 인식기를 만들 수 있습니다. 이렇게 하면 모�
 > [!NOTE]
 > config 개체에서 `SpeechSynthesizer`를 만드는 경우, 로깅이 활성화되지 않습니다. 로깅이 활성화되면 ,`SpeechSynthesizer`에서 진단 정보를 받게 됩니다.
 
-## <a name="create-a-log-file-on-different-platforms"></a>다른 플랫폼에서 로그 파일 만들기
+## <a name="create-a-log-file-on-different-platforms"></a>서로 다른 플랫폼에서 로그 파일 만들기
 
 Windows 또는 Linux의 경우, 로그 파일은 사용자가 쓰기 권한을 가진 어떠한 경로에라도 있을 수 있습니다. 기타 운영 체제에서 파일 시스템 위치에 대한 쓰기 권한은 기본적으로 제한될 수 있습니다.
 
 ### <a name="universal-windows-platform-uwp"></a>UWP(유니버설 Windows 플랫폼)
 
-UWP 응용 프로그램은 응용 프로그램 데이터 위치(로컬, 로밍, 또는 임시) 중 하나에 로그 파일 배치를 해야 합니다. 로컬 응용 프로그램 폴더에 로그 파일을 만들 수 있습니다.
+UWP 응용 프로그램은 응용 프로그램 데이터 위치(로컬, 로밍, 또는 임시) 중 하나에 로그 파일 배치를 해야 합니다. 로컬 응용 프로그램 폴더에서 로그 파일을 만들 수 있습니다.
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;

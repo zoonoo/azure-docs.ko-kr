@@ -1,6 +1,6 @@
 ---
-title: 공동 작업 시 보안
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 공동 작업 시 보안 LUIS
+titleSuffix: Azure Cognitive Services
 description: 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다.
 services: cognitive-services
 author: diberry
@@ -11,22 +11,22 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25f6b675846f028b4ba9d49cce9e075bc79eece9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058526"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560678"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
-작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱에 대 한 끝점 액세스를 모든 사용자가 자신의 Azure에 사용할 수 [Cognitive Service](../cognitive-services-apis-create-account.md) 하거나 [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) 리소스에 있고 공용 앱의 id입니다. 
+작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 응용 프로그램의 경우 끝점 액세스는 자신의 Azure [인식 서비스](../cognitive-services-apis-create-account.md) 또는 [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) 리소스가 있고 공용 앱 ID가 있는 모든 사용자가 사용할 수 있습니다. 
 
 ## <a name="access-to-authoring"></a>작성에 대한 액세스
 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 앱에 액세스하는 것은 앱 소유자가 제어합니다. 
 
 소유자 및 모든 협력자가 앱을 작성하기 위해 액세스할 수 있습니다. 
 
-|작성 액세스에 포함된 작업|메모|
+|작성 액세스에 포함된 작업|참고|
 |--|--|
 |엔드포인트 키 추가 또는 제거||
 |버전 내보내기||
@@ -44,7 +44,7 @@ ms.locfileid: "67058526"
 
 ![앱을 공용으로 설정](./media/luis-concept-security/set-application-as-public.png)
 
-|[개인 엔드포인트](#private-app-endpoint-security)|[공용 엔드포인트](#public-app-endpoint-access)|
+|[프라이빗 엔드포인트](#private-app-endpoint-security)|[공용 엔드포인트](#public-app-endpoint-access)|
 |:--|:--|
 |소유자 및 협력자에게 제공|소유자, 협력자 및 앱 ID를 아는 그 밖의 모든 사람에게 제공|
 

@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 분류자 빌드 - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 748336dcea580cefaf7638c86c1466bf0c16a472
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561069"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 분류자를 빌드하는 방법
 

@@ -1,5 +1,5 @@
 ---
-title: Speech SDK-음성 서비스를 사용하여 다중 참가자 대화 기록
+title: 음성 SDK-음성 서비스를 사용 하 여 다중 참가자 대화 높여줄
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 대화 기록을 사용하는 방법에 알아봅니다. C++, C#, 및 Java에서 사용할 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 215209a5b8e3ed46b25fbfa492c305785a9a0070
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606476"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559470"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Speech SDK를 사용하여 다중 참가자 대화 기록
 
@@ -26,13 +26,13 @@ Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을
 * 대화 기록기는 Windows, Linux 및 Android에서 C++, C#, 및 Java에 대해 지원됩니다.
 * ROOBO DevKit는 화자 식별을 위해 효율적으로 활용할 수 있는 순환 다중 마이크 배열을 제공하는 대화 기록 만들기에 대해 지원되는 하드웨어 환경입니다. 자세한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조하세요.
 * 대화 기록에 대한 Speech SDK 지원은 16 비트 16kHz PCM 오디오의 8개 채널로 오디오 풀 및 푸시 모드의 사용으로 제한됩니다.
-* 대화 기록 현재 다음 지역에서 "EN-US" 및 "ZH-CN" 언어로 제공 됩니다: centralus 및 eastasia 합니다.
+* 현재 대화는 "en-us" 및 "zh-cn" 언어로 제공 되는 지역: centralus 및 eastasia에 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [Speech SDK를 사용하여 음성-텍스트를 사용하는 방법에 대해 알아봅니다.](quickstart-csharp-dotnet-windows.md)
-* [음성 평가판 구독을 가져옵니다.](https://azure.microsoft.com/try/cognitive-services/)
-* Speech SDK 버전 1.5.1 이상 버전이 필요 합니다.
+* [음성 평가판 구독을 받으세요.](https://azure.microsoft.com/try/cognitive-services/)
+* Speech SDK 버전 1.5.1 이상이 필요 합니다.
 
 ## <a name="create-voice-signatures-for-participants"></a>참가자에 대한 음성 서명 생성
 
@@ -43,7 +43,7 @@ Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을
 * 음성 서명을 만들기 위한 입력 오디오 wave 파일은 16비트 샘플, 16kHz 샘플 속도 및 단일 채널(Mono) 형식이어야 합니다.
 * 각 오디오 샘플에 대해 권장되는 길이는 30초에서 2분 사이입니다.
 
-다음 예제에서는 두 가지 방법으로 하 여 음성 시그니처를 만들려는 [REST API를 사용 하 여](https://aka.ms/cts/signaturegenservice) 에서 C#:
+다음 예제에서는의 C# [REST API을 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 두 가지 방법을 보여 줍니다.
 
 ```csharp
 class Program

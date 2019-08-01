@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 기술 자료에서 답변 찾기 - REST, Go - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 Go REST 기반 빠른 시작은 기술 자료에서 프로그래밍 방식으로 답변을 가져오는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 49734e50d616b3f88149f3c759e2a306ff8f136a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b903dfea11e5ac2390eb437e699ee8ec790a5061
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794885"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562985"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Go를 사용하여 기술 자료에서 질문에 대한 답변 얻기
 

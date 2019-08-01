@@ -1,21 +1,21 @@
 ---
 title: '자습서: 사용자 지정 로고 탐지기를 사용하여 Azure 서비스 인식 - Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 로고 탐지 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 단계별로 살펴봅니다. 다른 구성 요소와 함께 Custom Vision을 사용하여 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604016"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564207"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 

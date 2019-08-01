@@ -1,6 +1,6 @@
 ---
 title: 컨테이너 설치 및 실행 방법 - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321459"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564589"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "68321459"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 텍스트 인식 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족해야 합니다.
 

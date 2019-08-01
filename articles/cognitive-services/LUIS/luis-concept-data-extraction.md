@@ -1,6 +1,6 @@
 ---
-title: 데이터 추출
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 데이터 추출-LUIS
+titleSuffix: Azure Cognitive Services
 description: 의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다. Language Understanding에서 추출할 수 있는 데이터의 종류를 알아봅니다 (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: d10588e3df3932f5749093170e7e76fc029053ff
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479101"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560755"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -77,7 +77,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|데이터 형식|데이터 위치|값|점수|
 |--|--|--|--|:--|
-|의도|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
+|의도|String|intents[0].intent|“GetStoreInfo”|0.984749258|
 |의도|문자열|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
@@ -108,9 +108,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |도메인|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
-|공공 시설|의도|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|공공 시설|의도|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
 |통신|의도|String|intents[1].intent|<b>Communication</b>.StartOver”|
-||의도|문자열|intents[2].intent|“None”|
+||의도|String|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터

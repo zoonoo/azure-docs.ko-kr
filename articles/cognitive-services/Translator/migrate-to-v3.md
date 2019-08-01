@@ -1,6 +1,6 @@
 ---
 title: V3으로 마이그레이션 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API의 V2에서 V3으로 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: swmachan
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 8a2530a4eb4365a022ab11279b344a5d2852430b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448289"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595235"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
 > [!NOTE]
-> V2는 2018 년 4 월 30 일에 사용 되지 않았습니다. V3 V3에서 단독으로 사용할 수 있는 새 기능을 활용 하기 위해 응용 프로그램을 마이그레이션하세요.
+> V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
 > 
-> Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
+> Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
@@ -86,7 +86,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
-전역
+Global
 
 * api.cognitive.microsofttranslator.com
 
@@ -110,7 +110,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 > [!NOTE]
 > 
-> Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.   
+> Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.   
 
 Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
 
@@ -118,8 +118,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 버전 2| api.microsofttranslator.com|    아닙니다.  |사용자 계정 컨트롤    |아닙니다.|
-|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    no| 예|
+|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |예    |아니요|
+|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    아니요| 예|
 
 **Translator Text API 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

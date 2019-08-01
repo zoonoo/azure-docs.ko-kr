@@ -1,6 +1,6 @@
 ---
-title: 정규식 엔터티 형식
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 정규식 엔터티 형식-LUIS
+titleSuffix: Azure Cognitive Services
 description: 정규식은 원시 발화 텍스트에 적합합니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  정규식 일치는 토큰 수준이 아니라 문자 수준에서 맞춤법 검사 변경 후에 적용됩니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: dfffea26ccd8dfcecea2c6a2e07234f3ab27f72b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480314"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559941"
 ---
 # <a name="regular-expression-entity"></a>정규식 엔터티 
 

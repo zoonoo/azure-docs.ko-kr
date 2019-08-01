@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488826"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688324"
 ---
 # <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
 
@@ -69,7 +69,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="supported-mime-types"></a>지원 되는 MIME 형식
 
-| MIME 형식 | Description |
+| MIME 형식 | 설명 |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
@@ -136,5 +136,5 @@ SDK는 몰입 형 판독기를 시작 하기 위한 단추에 대 한 기본 스
 
 ## <a name="next-steps"></a>다음 단계
 
-* [GitHub의 몰입형 리더 SDK](https://github.com/Microsoft/immersive-reader-sdk) 탐색
+* [GitHub의 몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk) 탐색
 * [빠른 시작: 몰입 형 판독기를 시작 하는 웹 앱 만들기C#()](./quickstart.md)

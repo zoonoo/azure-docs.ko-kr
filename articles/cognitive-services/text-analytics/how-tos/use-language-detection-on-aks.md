@@ -1,6 +1,6 @@
 ---
-title: Kubernetes 서비스 실행
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Kubernetes 서비스 실행-Text Analytics
+titleSuffix: Azure Cognitive Services
 description: 언어 감지 컨테이너와 실행 샘플을 Azure Kubernetes Service에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
 author: IEvangelist
@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: ba6fde66b6173bdbff8e9acc08b16f47c5bf7ea4
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 7b6621273b04d019791f604ca0db26a73c289f2b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377106"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562604"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 검색 컨테이너 배포
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 개인 컨테이너 레지스트리에 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행 하 고, 웹 브라우저에서 테스트 하는 방법을 보여 줍니다. 컨테이너를 사용 하면 인프라 관리에서 응용 프로그램 개발에 집중 하는 대신 주의를 끌 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell 사용 하지 마세요. 다음이 필요합니다.
 

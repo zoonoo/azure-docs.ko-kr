@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Python SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 623bf0b054544d2c25f3542043afe20d778fdd24
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2994d696f463c32ed05fd42b694f29fa2035b9d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603494"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564165"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 개체 검색 프로젝트 만들기
 

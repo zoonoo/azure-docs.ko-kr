@@ -1,6 +1,6 @@
 ---
 title: 문제 해결 - QnAMaker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: QnAMaker는 사용자의 Azure 계정에 호스트된 구성 요소로 구성됩니다. 디버깅 과정에서 사용자가 QnAMaker Azure 리소스를 조작하거나 QnAMaker 지원 팀에 설치에 대한 추가 정보를 제공해야 할 수도 있습니다.
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5b65a121e895b4855c7c69d2b67e7055c88ddd08
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 94a3dfd9a3560321d7e2753ccd385fb1a5323107
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466053"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559916"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>QnA Maker 서비스 및 런타임을 지원하기 위한 문제 해결 팁
 QnAMaker는 사용자의 Azure 계정에 호스트된 구성 요소로 구성됩니다. 디버깅 과정에서 사용자가 QnAMaker Azure 리소스를 조작하거나 QnAMaker 지원 팀에 설치에 대한 추가 정보를 제공해야 할 수도 있습니다.
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>최신 QnAMaker 런타임 업데이트를 얻는 방법
-QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들 때](./set-up-qnamaker-service-azure.md) 배포한 Azure App Service의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service는에서 자동 업데이트 모드 post는 2019 년 4 월 사이트 확장 릴리스 (버전 5 이상). 이 이미 업그레이드 하는 동안 가동 중지 시간이 0을 처리 하도록 설계 되었습니다. 현재 버전을 확인할 수 있습니다 https://www.qnamaker.ai/UserSettings 합니다. 버전 보다 최신 버전이 아닌 경우 5.x QnAMaker 설치에 적용 하려면 최신 업데이트를 적용 하도록 App Service를 다시 시작 해야 합니다.
+QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들 때](./set-up-qnamaker-service-azure.md) 배포한 Azure App Service의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service 자동 업데이트 모드에서 4 월 2019 사이트 확장 릴리스 (버전 5 +)를 게시 합니다. 이는 업그레이드 하는 동안 가동 중지 시간이 0이 되도록 이미 설계 되었습니다. 에서 https://www.qnamaker.ai/UserSettings 현재 버전을 확인할 수 있습니다. 버전이 버전 5.x 보다 이전 버전인 경우 App Service를 다시 시작 하 여 최신 업데이트를 적용 하 여 QnAMaker 설치에 적용 해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
 

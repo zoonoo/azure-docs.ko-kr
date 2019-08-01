@@ -1,5 +1,5 @@
 ---
-title: Speech SDK-음성 서비스를 사용하여 코덱 압축 오디오 스트리밍하기
+title: 음성 SDK-음성 서비스를 사용 하 여 코덱 압축 오디오 스트리밍
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 압축 오디오를 Azure 음성 서비스로 스트리밍하는 방법을 알아봅니다. C++, C# 및 Linux용 Java에서 사용 가능합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: d23190dc8f7980cb8a94ba295f45ae67fc7d4678
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605087"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559545"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Speech SDK를 통해 코덱 압축 오디오 입력 사용
 
@@ -28,7 +28,7 @@ Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 
 Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오.  Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원됩니다.
 
 - MP3
-- 저작/OGG
+- OPUS/OGG
 
 ## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용하기 위한 필수 구성 요소
 

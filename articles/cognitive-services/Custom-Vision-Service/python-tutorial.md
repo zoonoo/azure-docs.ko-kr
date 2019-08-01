@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Python SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 44d9c7fcaf855a52234ba851792440b805fa93b0
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25ee212bbcabb1697de1611cc67c5bfdf615c617
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606833"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560991"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 이미지 분류 프로젝트 만들기
 

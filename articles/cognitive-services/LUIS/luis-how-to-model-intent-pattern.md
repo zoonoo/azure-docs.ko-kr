@@ -1,7 +1,7 @@
 ---
-title: 패턴 및 정확도
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS (Language Understanding) 응용 프로그램의 예측 정확도 개선 하기 위해 패턴 템플릿을 추가 합니다.
+title: 패턴 정확도 추가-LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS (Language Understanding) 응용 프로그램에서 예측 정확도를 향상 시키기 위해 패턴 템플릿을 추가 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7b6c8ba1517de44d01ffbceec812749403465e63
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196706"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638081"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 하는 패턴을 추가 하는 방법
-LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-patterns.md) 단어 순서 및 단어 선택에서 패턴을 표시 하는 표현에 대 한 예측 정확도를 향상 합니다. 특정 사용 패턴 [구문](luis-concept-patterns.md#pattern-syntax) 의 위치를 나타내도록: [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md), 및 선택적 텍스트입니다.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
+LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>템플릿 발화를 추가하여 패턴 만들기
 1. **내 앱** 페이지에서 이름을 선택하여 앱을 열고 왼쪽 패널의 **앱 성능 개선** 아래에서 **패턴**을 선택합니다.
@@ -34,7 +34,7 @@ LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-pat
 
     ![패턴에 대한 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    엔터티를 포함 하는 경우는 [역할](luis-concept-roles.md), 단일 콜론을 사용 하 여 역할을 표시할 `:`와 같은 엔터티 이름, 후, `{Location:Origin}`합니다. 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다. 
+    엔터티에 [역할](luis-concept-roles.md)을 포함 하는 경우 엔터티 `:` `{Location:Origin}`이름 뒤에 단일 콜론을 사용 하 여 역할을 지정 합니다 (예:). 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다. 
 
     ![역할이 있는 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-pat
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>상황에 맞는 도구 모음 사용
+## <a name="use-contextual-toolbar"></a>상황별 도구 모음 사용
 
-위의 패턴 목록 상황에 맞는 도구 모음을 사용 하면 수 있습니다.
+패턴 목록 위의 상황별 도구 모음을 사용 하면 다음을 수행할 수 있습니다.
 
 * 패턴 검색
 * 패턴 편집
 * 개별 패턴을 다른 의도에 다시 할당
 * 여러 패턴을 다른 의도에 다시 할당
-* 삭제는 단일 패턴
+* 단일 패턴 삭제
 * 여러 패턴 삭제
 * 엔터티별 패턴 목록 필터링
-* 필터 패턴-목록-에서-전용
+* 필터-패턴 별 목록
 * 엔터티 또는 의도 필터 제거
 * 의도 또는 엔터티 페이지의 기존 발화에서 패턴 추가
 
 ## <a name="next-steps"></a>다음 단계
 
-* 에 대해 알아봅니다 하는 방법 [패턴을 빌드](luis-tutorial-pattern.md) 를 pattern.any 및 자습서를 사용 하 여 역할을 사용 하 여 합니다.
+* 패턴을 사용 하 여 [패턴을 빌드하](luis-tutorial-pattern.md) 는 방법에 대해 알아봅니다. 자습서를 사용 하는 모든 및 역할입니다.
 * 앱을 [학습](luis-how-to-train.md)시키는 방법에 대해 알아봅니다.

@@ -1,6 +1,6 @@
 ---
 title: Translator Text API V3.0 참조
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API V3.0에 대한 참조 문서입니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868406"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595011"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -55,7 +55,7 @@ Microsoft Cognitive Services에서 Translator Text API 또는 [Cognitive Service
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 이 표에 각 사용 방법이 설명되어 있습니다.
 
-|헤더|설명|
+|헤더|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
 |Authorization|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|

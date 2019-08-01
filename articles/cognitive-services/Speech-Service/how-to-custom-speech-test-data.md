@@ -1,6 +1,6 @@
 ---
-title: 사용자 지정 음성-음성 서비스에 대한 테스트 데이터 준비하기
-titlesuffix: Azure Cognitive Services
+title: Custom Speech-Speech Service에 대 한 테스트 데이터 준비
+titleSuffix: Azure Cognitive Services
 description: Microsoft 음성 인식이 얼마나 정확한지 테스트거거나 고유한 모델을 학습시키는 경우, 오디오 및 텍스트의 형태로 데이터가 필요합니다. 이 페이지에서는 데이터 형식, 사용하는 방법 및 관리하는 방법을 설명합니다.
 services: cognitive-services
 author: erhopf
@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e1ffa11456fc6a021e370d674624d297463ac73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603190"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663592"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대한 데이터 준비
 
-Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유한 모델을 학습, 오디오 및 텍스트의 형태로 데이터를 필요 합니다. 이 페이지에서는 데이터 형식, 사용하는 방법 및 관리하는 방법을 설명합니다.
+Microsoft 음성 인식이 정확한 지 확인 하거나 모델을 학습 하는 것을 테스트 하는 경우에는 오디오와 텍스트 형식의 데이터가 필요 합니다. 이 페이지에서는 데이터 형식, 사용하는 방법 및 관리하는 방법을 설명합니다.
 
 ## <a name="data-types"></a>데이터 형식
 
 이 표는 각 데이터 형식을 사용해야 하는 경우, 허용되는 데이터 형식 및 권장되는 수량을 나열합니다. 모델을 만들기 위해 모든 데이터 형식이 필요한 것은 아닙니다. 데이터 요구 사항은 테스트를 만드는지 또는 모델을 학습시키는지 여부에 따라 달라집니다.
 
-| 데이터 형식 | 테스트 사용 | 수량 | 학습에 사용 | 수량 |
+| 데이터 형식 | 테스트 사용 | 수량 | 학습에 사용 됨 | 수량 |
 |-----------|-----------------|----------|-------------------|----------|
 | [오디오](#audio-data-for-testing) | 예<br>시각적 조사에 사용됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
 | [오디오 + 사람 레이블 기록](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도 평가에 사용됨 | 0.5-5시간의 오디오 | 예 | 1-1,000시간의 오디오 |
-| [관련된 텍스트](##related-text-data-for-training) | 아니요 | 해당 없음 | 예 | 1-200MB의 관련된 텍스트 |
+| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 없음 | 예 | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화하고 zip 파일로 업로드해야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -44,7 +44,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 데이터 집합을 업로드한 후, 몇 가지 옵션이 있습니다.
 
 * **테스트** 탭으로 이동하여 오디오 전용 또는 오디오 + 사람 레이블 기록 데이터를 시각적으로 검사할 수 있습니다.
-* 이동할 수 있습니다 합니다 **교육** 탭 하 고 사용자 지정 모델을 학습 하 오디오 + 휴먼 기록 데이터 또는 관련 된 텍스트 데이터를 사용 합니다.
+* **학습** 탭으로 이동 하 여 오디오 + 인간 기록 데이터 또는 관련 텍스트 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다.
 
 ## <a name="audio-data-for-testing"></a>테스트를 위한 오디오 데이터
 
@@ -55,7 +55,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 속성 | 값 |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8,000 Hz 또는 16,000 Hz |
+| 샘플 속도 | 8000 hz 또는 16000 Hz |
 | 채널 | 1(mono) |
 | 오디오 당 최대 길이 | 2시간 |
 | 샘플 형식 | PCM, 16비트 |
@@ -76,7 +76,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 속성 | 값 |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8,000 Hz 또는 16,000 Hz |
+| 샘플 속도 | 8000 hz 또는 16000 Hz |
 | 채널 | 1(mono) |
 | 오디오 당 최대 길이 | 60 s |
 | 샘플 형식 | PCM, 16비트 |
@@ -85,7 +85,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 단어 삭제 또는 대체와 같은 이슈를 해결하기 위해, 인식 기능을 향상하는 데는 많은 양의 데이터가 필요합니다. 일반적으로, 약 10~ 1000시간의 오디오의 단어 단위 기록을 제공하는 것이 좋습니다. 모든 WAV 파일에 대한 기록은 단일 일반 텍스트 파일에 포함되어야 합니다. 기록 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 기록이 와야 합니다. 파일 이름과 기록은 탭(\t)으로 구분해야 합니다.
 
-  예:
+  예를 들어:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -104,7 +104,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 고유한 제품 이름 또는 기능이 올바르게 인식되기를 원하는 경우, 학습에 관련된 텍스트 데이터를 포함하는 것이 중요합니다. 인식 기능을 향상하기 위해  두 가지 유형의 관련된 텍스트 데이터를 제공할 수 있습니다.
 
-| 데이터 형식 | 이 데이터 인식 기능을 개선 하는 방법 |
+| 데이터 형식 | 이 데이터가 인식 기능을 향상 시키는 방법 |
 |-----------|------------------------------------|
 | 발언 및/또는 문장 | 문장의 컨텍스트 내에서 제품 이름 또는 산업별 어휘를 인식하는 경우 정확도를 높일 수 있습니다. |
 | 발음 | 일반적이지 않은 용어, 약어, 또는 정의되지 않은 발음을 사용하는 다른 단어의 발음을 개선할 수 있습니다. |
@@ -123,13 +123,13 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 줄당 발언의 # | 1 |
 | 최대 파일 크기 | 200MB |
 
-또한 다음 제한 사항을 고려 합니다.
+또한 다음과 같은 제한 사항을 고려해 야 합니다.
 
-* 문자를 4 번 이상 반복 하지 마세요. 예를 들어: "aaaa" 또는 "uuuu"입니다.
-* 특수 문자 또는 U + 00 a 1 위에 utf-8 문자를 사용 하지 마세요.
+* 반복 문자를 4 번 이상 사용 하지 마십시오. 예를 들면 "aaaa" 또는 "uuuu"입니다.
+* U + 00A1 위의 특수 문자나 UTF-8 문자를 사용 하지 마세요.
 * Uri는 거부 됩니다.
 
-### <a name="guidelines-to-create-a-pronunciation-file"></a>발음 파일을 만드는 지침
+### <a name="guidelines-to-create-a-pronunciation-file"></a>발음 파일을 만들기 위한 지침
 
 사용자가 접하거나 사용하는 용어 중 표준 발음이 없는 비일반적인 용어가 있는 경우, 인식 기능을 향상하기 위해 사용자 지정 발음 파일을 제공할 수 있습니다.
 
@@ -158,12 +158,12 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 속성 | 값 |
 |----------|-------|
 | 텍스트 인코딩 | Utf-8 BOM(ANSI 또한 영어에서 지원됩니다.) |
-| 줄당 발음 횟수 | 1 |
+| 줄 당 발음 수 | 1 |
 | 최대 파일 크기 | 1MB(무료 계층은 1KB) |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터를 검사 합니다.](how-to-custom-speech-inspect-data.md)
-* [데이터를 평가 합니다.](how-to-custom-speech-evaluate-data.md)
+* [데이터 검사](how-to-custom-speech-inspect-data.md)
+* [데이터 평가](how-to-custom-speech-evaluate-data.md)
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)

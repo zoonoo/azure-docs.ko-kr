@@ -1,7 +1,7 @@
 ---
-title: 지원 및 도움말 옵션
-titlesuffix: Azure Cognitive Services
-description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
+title: 지원 및 도움말 옵션-Speech Service
+titleSuffix: Azure Cognitive Services
+description: Speech Service와 통합되는 애플리케이션을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404793"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558837"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 

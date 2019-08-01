@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: 13d519c1814cfa1e2038efd6c3828931e8332ec8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a0e78ec35ff001b6a4ee59794a002cb3a74e90cb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322101"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698485"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Linux 풀 만들기 및 관리
 
@@ -50,7 +50,7 @@ az group delete --name myResourceGroup
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az-batch-pool-node-agent-skus-list) | 사용 가능한 노드 에이전트 SKU 및 이미지 정보를 나열합니다.  |
+| [az batch pool node-agent-skus list](../batch-linux-nodes.md#list-of-virtual-machine-images) | 사용 가능한 노드 에이전트 SKU 및 이미지 정보를 나열합니다.  |
 | [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 컴퓨팅 노드 풀을 만듭니다.  |
 | [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-resize) | 지정된 풀에서 실행 중인 VM 수를 조정합니다.  |
 | [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | 풀의 속성을 표시합니다.  |

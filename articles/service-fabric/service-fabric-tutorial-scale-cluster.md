@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 5c4d40e13a31a613a6eb4a741935a1c88287d0cf
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598755"
+ms.locfileid: "68619049"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -888,7 +888,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-nd 규모 감축))
+
 > * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
 > * 노드 리소스 증가(강화)
 

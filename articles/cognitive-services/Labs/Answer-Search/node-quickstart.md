@@ -9,12 +9,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294045"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698085"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>빠른 시작: Node를 사용하는 Project Answer Search
 
@@ -22,7 +22,7 @@ ms.locfileid: "58294045"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search) 평가판에 대한 액세스 키 가져오기
 
 이 예제에서는 Node v8.9.4를 사용합니다.
 

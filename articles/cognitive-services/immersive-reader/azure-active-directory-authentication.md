@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444633"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688787"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>몰입 형 판독기 서비스에서 Azure Active Directory (Azure AD) 인증 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "68444633"
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [몰입 형 판독기 리소스를 만듭니다](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) . 
+2. 다음으로 사용자 지정 하위 도메인을 사용 하 여 [몰입 형 판독기 리소스를 만듭니다](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) .
 
    >[!NOTE]
    > 하위 도메인 이름은 launchAsync 함수를 사용 하 여 판독기를 시작할 때 몰입 형 판독기 SDK에서 사용 됩니다.
@@ -37,7 +37,7 @@ ms.locfileid: "68444633"
    -F0 (무료 계층) 또는 S0 (표준 계층, 공개 미리 보기 중에도 무료) 일 수 있습니다. S0 계층은 호출 속도가 더 높고 호출 수에 대 한 월간 할당량은 없습니다.
 
    -Location `eastus`은, `westus`, `australiaeast`, `centralindia` ,,`northeurope`, 중 하나일 수 있습니다. `japaneast``westeurope`
-   
+
    -CustomSubdomainName은 전역적으로 고유 해야 하며 특수 문자 (예: ".", "!", ",")를 포함할 수 없습니다.
 
 
@@ -63,7 +63,7 @@ ms.locfileid: "68444633"
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>서비스 주체에 역할 할당
 
@@ -83,7 +83,7 @@ ms.locfileid: "68444633"
    $aadApp
    ```
 
-   여기서는 다음 단계에서 사용 하기 위해 새로 만든 Azure AD app 개체를 **$aadApp** 변수로 캡처합니다.   
+   여기서는 다음 단계에서 사용 하기 위해 새로 만든 Azure AD app 개체를 **$aadApp** 변수로 캡처합니다.
 
 2. 다음으로, Azure AD 응용 프로그램에 대 한 [서비스 주체를 만들어야](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) 합니다.
 
@@ -128,11 +128,11 @@ ms.locfileid: "68444633"
    ```
 
    >[!NOTE]
-   > 몰입 형 판독기 SDK는 토큰의 AccessToken 속성 (예: $token을 사용 합니다. AccessToken. 자세한 내용은 SDK [참조](reference.md) 및 코드 [샘플](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples) 을 참조 하세요.
+   > 몰입 형 판독기 SDK는 토큰의 AccessToken 속성 (예: $token을 사용 합니다. AccessToken. 자세한 내용은 SDK [참조](reference.md) 및 코드 [샘플](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) 을 참조 하세요.
 
 또는 인증서를 사용 하 여 서비스 사용자를 인증할 수 있습니다. 서비스 주체 외에도 다른 Azure AD 응용 프로그램을 통해 위임 된 사용 권한을 사용 하 여 사용자 보안 주체를 지원 합니다. 이 경우 암호 또는 인증서 대신 토큰을 획득 하는 경우 사용자에 게 2 단계 인증을 요구 하는 메시지가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 몰입형 판독기 SDK를 사용하여 수행할 수 있는 다른 작업을 확인하려면 [자습서](./tutorial.md)를 살펴보세요.
-* [몰입형 판독기 SDK](https://github.com/Microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
+* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](./reference.md) 살펴보기

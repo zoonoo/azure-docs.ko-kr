@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1b3ed38e7ce8738a0e92775915e894c6e0bbd52a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 97efa5cd91646809178d685ca51e29ef2fda7c0d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564728"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색 
 
@@ -40,7 +40,7 @@ ms.locfileid: "67721552"
 
 - Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
-- 시계열 데이터 요소가 포함된 JSON 파일입니다. 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 찾을 수 있습니다.
+- 시계열 데이터 요소가 포함된 JSON 파일입니다. 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -182,7 +182,7 @@ static void Main(string[] args){
 
 성공 응답이 JSON 형식으로 반환됩니다. 아래 링크를 클릭하면 GitHub에서 JSON 응답을 볼 수 있습니다.
 * [일괄 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [최신 포인트 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [최신 요소 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>다음 단계
 

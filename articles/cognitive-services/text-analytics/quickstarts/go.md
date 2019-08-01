@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 85eae936cf86d144f0baf91623b7be9f69eb4dbb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002781"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697539"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Go를 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
+등록하는 동안 생성된 [엔드포인트 및 액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)도 있어야 합니다.
 
 <a name="Detect"></a>
 
@@ -272,7 +272,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>감정 분석 응답
 
-1.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
+1\.0에 가까운 점수이면 결과는 긍정으로 측정되고, 0.0에 가까운 점수이면 부정으로 측정됩니다.
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json

@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 설정
+title: 응용 프로그램 설정-LUIS
 titleSuffix: Azure Cognitive Services
 description: 응용 프로그램에 대 한 언어 이해 앱 설정 이해
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275919"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563516"
 ---
-# <a name="application-settings"></a>애플리케이션 설정
+# <a name="application-settings"></a>응용 프로그램 설정
 
 이러한 응용 프로그램 설정은 [내보낸](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) 앱에 저장 되 고 REST api를 사용 하 여 [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 됩니다. 앱 버전 설정을 변경 하면 앱 학습 상태를 학습 되지 않음으로 다시 설정 합니다.
 

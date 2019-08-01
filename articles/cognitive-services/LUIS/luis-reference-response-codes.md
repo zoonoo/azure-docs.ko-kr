@@ -1,6 +1,6 @@
 ---
-title: API HTTP 응답 코드
-titleSuffix: Azure
+title: API HTTP 응답 코드-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 작성 및 엔드포인트 API에서 반환되는 HTTP 응답 코드 이해
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92bcf55b571c37efa308d9121ee4aee714e684a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522976"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560074"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>일반적인 API 응답 코드 및 해당 의미
 
@@ -29,11 +29,11 @@ ms.locfileid: "65522976"
 |:--|--|--|
 |400|작성, 엔드포인트|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |400|작성, 엔드포인트|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
-|401|작성|작성 키 대신 엔드포인트 구독 키를 사용했습니다.|
+|401|제작|작성 키 대신 엔드포인트 구독 키를 사용했습니다.|
 |401|작성, 엔드포인트|잘못되었거나, 형식이 잘못되었거나, 비어 있는 키입니다.|
 |401|작성, 엔드포인트| 키가 지역과 일치하지 않습니다.|
-|401|작성|소유자 또는 협력자가 아닙니다.|
-|401|작성|API 호출 순서가 잘못되었습니다.|
+|401|제작|소유자 또는 협력자가 아닙니다.|
+|401|제작|API 호출 순서가 잘못되었습니다.|
 |403|작성, 엔드포인트|총 월별 키 할당량 한도를 초과했습니다.|
 |409|엔드포인트|아직 애플리케이션을 로드 중입니다.|
 |410|엔드포인트|애플리케이션을 다시 학습한 후 다시 게시해야 합니다.|

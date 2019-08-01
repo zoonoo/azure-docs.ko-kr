@@ -1,6 +1,6 @@
 ---
-title: Ordinal 미리 빌드된 엔터티
-titleSuffix: Azure
+title: 서 수 미리 작성 한 엔터티-LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 ordinal 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8070f614e84dd4c328d7451103c0850826704e60
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560217"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Ordinal 미리 빌드된 엔터티
 서수는 집합 내의 개체를 `first`, `second`, `third`와 같이 숫자로 나타낸 것입니다. 이 엔터티를 이미 학습했기 때문에 ordinal을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Ordinal 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -61,9 +61,9 @@ Ordinal은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-### <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
 
 ```json
 {
@@ -88,7 +88,7 @@ Ordinal은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `true`:
+다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
 
 ```json
 {
@@ -130,4 +130,4 @@ Ordinal은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 합니다 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)를 [전화 번호](luis-reference-prebuilt-phonenumber.md), 및 [온도](luis-reference-prebuilt-temperature.md) 엔터티. 
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [전화 번호](luis-reference-prebuilt-phonenumber.md)및 [온도](luis-reference-prebuilt-temperature.md) 엔터티에 대해 알아보세요. 

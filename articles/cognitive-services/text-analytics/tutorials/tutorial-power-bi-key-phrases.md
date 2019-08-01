@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479883"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697352"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -36,7 +36,7 @@ Microsoft Power BI Desktop은 데이터에 연결하고, 데이터를 변환 및
 - Microsoft Power BI Desktop. [무료로 다운로드할 수 있습니다](https://powerbi.microsoft.com/get-started/).
 - Microsoft Azure 계정. [평가판을 시작](https://azure.microsoft.com/free/)하거나 [등록](https://portal.azure.com/)하세요.
 - 텍스트 분석 API를 사용하는 Cognitive Services API 계정. 이 계정이 없는 경우에는 [등록](../../cognitive-services-apis-create-account.md)하고 5,000개 트랜잭션/월의 무료 계층([가격 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 참조)을 사용하여 이 자습서를 완료할 수 있습니다.
-- 등록하는 동안 생성된 [Text Analytics 액세스 키](../how-tos/text-analytics-how-to-access-key.md).
+- 등록하는 동안 생성된 [Text Analytics 액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 - 고객 의견. [예제 데이터](https://aka.ms/cogsvc/ta) 또는 사용자 고유 데이터를 사용할 수 있습니다. 이 자습서에서는 예제 데이터를 사용한다고 가정합니다.
 
 ## <a name="load-customer-data"></a>고객 데이터 로드

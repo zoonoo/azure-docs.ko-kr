@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: .NET용 QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: f38cbfa0efd3b9be9ca091942dca7ffcd91b6019
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: af3de85cb2d32b4828a4641318f66f91c9254e24
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828072"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563025"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
 

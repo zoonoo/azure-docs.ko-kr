@@ -1,6 +1,6 @@
 ---
 title: 텍스트 변환 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Translator Text API를 사용하여 텍스트를 변환합니다.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 5caefad7b681970e79e727367619ca494335c390
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435015"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594900"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText 메서드 사용 방법
 
@@ -28,10 +28,10 @@ TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수
 
 ## <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:---|:---|
-| 권한 부여 헤더 | **필수** 애플리케이션을 식별하는 데 사용되는 HTTP 헤더입니다. "Authorization" 키와 "전달자" + " " + 액세스 토큰 값을 사용합니다. 자세한 내용은 여기를 참조하세요.|
-| 언어 | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|
+| 인증 헤더 | **필수** 애플리케이션을 식별하는 데 사용되는 HTTP 헤더입니다. "Authorization" 키와 "전달자" + " " + 액세스 토큰 값을 사용합니다. 자세한 내용은 여기를 참조하세요.|
+| language | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|
 | category | **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 **general**만 지원합니다.|
 | sentence | **필수** 수정하려는 문장입니다. |
 
@@ -49,7 +49,7 @@ TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수
 > }
 > ```
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 ```csharp
 using System;

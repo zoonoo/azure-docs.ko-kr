@@ -3,19 +3,19 @@ title: 오프 라인 평가-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 오프라인 평가를 통해 학습 루프를 분석하는 방법 알아보기
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722320"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663885"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>오프라인 평가를 통해 학습 루프를 분석하는 방법
 

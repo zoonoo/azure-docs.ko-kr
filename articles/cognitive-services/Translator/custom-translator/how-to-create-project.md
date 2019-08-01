@@ -3,18 +3,18 @@ title: 프로젝트를 만드는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator에서 프로젝트를 만드는 방법
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448324"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595759"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "67448324"
 
 3.  만들기 클릭
 
-## <a name="view-project-details"></a>프로젝트 세부 사항 보기
+## <a name="view-project-details"></a>프로젝트 세부 정보 보기
 
 Custom Translator 방문 페이지에는 작업 영역에 포함된 처음 10개의 프로젝트가 표시됩니다. 프로젝트 이름, 언어 쌍, 범주, 상태, BLEU 점수가 표시됩니다.
 
@@ -60,7 +60,7 @@ Custom Translator 방문 페이지에는 작업 영역에 포함된 처음 10개
 
 - 문서 필터링 단추: 이 단추를 사용하여 문서를 필터링하고 특정 문서를 검색합니다.
 
-    ![프로젝트 세부 사항 보기](media/how-to/how-to-view-project.png)
+    ![프로젝트 세부 정보 보기](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>다음 단계
 

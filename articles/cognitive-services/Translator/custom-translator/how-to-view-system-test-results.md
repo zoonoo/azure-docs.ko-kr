@@ -3,18 +3,18 @@ title: 시스템 테스트 결과와 배포 보기 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 훈련을 성공적으로 마쳤으면 시스템 테스트를 검토하여 훈련 결과를 분석합니다. 훈련 결과가 만족스러우면 훈련된 모델에 대한 배포 요청을 제출합니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442492"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595607"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -26,7 +26,7 @@ ms.locfileid: "67442492"
 
 [테스트] 탭에는 다음과 같은 항목이 표시됩니다.
 
-1.  **시스템 테스트 결과:** 결과 학습 테스트 프로세스입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
+1.  **시스템 테스트 결과:** 학습에 있는 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
 
     **문장 개수:** 테스트 세트에 사용된 병렬 문장의 개수입니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "67442492"
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
 
 >[!Note]
->사용자 지정 변환기에에서 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원합니다.
+>사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원 합니다.
 
 ## <a name="update-deployment-settings"></a>배포 설정 업데이트
 

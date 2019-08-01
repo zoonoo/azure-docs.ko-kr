@@ -3,18 +3,18 @@ title: 병렬 문서란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 하나의 문서에는 소스 언어의 문장이 포함되고, 다른 문서에는 이러한 문장을 대상 언어로 번역한 문장이 포함됩니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447403"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595453"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "67447403"
 
 ## <a name="requirements"></a>요구 사항
 
-시스템에 있는 10,000 고유 병렬 문장 최소를 할 수 있습니다. 모범 사례로서 지속적으로 더 많은 병렬 콘텐츠를 추가하고 재학습시켜 번역 시스템의 품질을 개선할 수 있습니다.
+시스템을 학습 하려면 최소 1만의 고유한 병렬 문장이 필요 합니다. 모범 사례로서 지속적으로 더 많은 병렬 콘텐츠를 추가하고 재학습시켜 번역 시스템의 품질을 개선할 수 있습니다.
 
 Microsoft에서는 Custom Translator에 업로드된 문서가 타사의 저작권 또는 지적 재산권을 위반하지 말 것을 요구합니다. 자세한 내용은 [사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-terms/)을 참조하세요.
 포털을 사용하여 문서를 업로드하면 문서 자체의 지적 재산 소유권은 변경되지 않습니다.

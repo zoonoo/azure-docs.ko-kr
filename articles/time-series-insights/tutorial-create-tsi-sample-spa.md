@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595710"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677735"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -30,9 +30,9 @@ ms.locfileid: "67595710"
 > * 이 자습서의 소스 코드는 [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)에 제공됩니다.
 > * 이 자습서에 사용되는 전체 앱을 표시하기 위해 Time Series Insights [클라이언트 샘플 앱](https://insights.timeseries.azure.com/clientsample)이 제공됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 
-* 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
+## <a name="prerequisites"></a>필수 조건
 
 * Visual Studio. 시작하려면 [2019 또는 2017 Community 버전](https://www.visualstudio.com/downloads/)을 다운로드합니다.
 
@@ -57,7 +57,7 @@ Time Series Insights 샘플 SPA는 이 자습서에서 사용되는 디자인 �
 1. 애플리케이션 프로젝트 파일을 저장할 디렉터리를 만듭니다. 그런 후, 다음의 각 URL로 이동합니다. 페이지의 오른쪽 위 모서리에 있는 **Raw** 링크를 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장**을 선택하여 프로젝트 디렉터리에 파일을 저장합니다.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): 페이지의 HTML 및 JavaScript
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS 스타일 시트
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS 스타일 시트
 
    > [!NOTE]
    > 브라우저에 따라 파일을 저장하기 전에 파일 확장명을 .html 또는 .css로 변경해야 할 수도 있습니다.

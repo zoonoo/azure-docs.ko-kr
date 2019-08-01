@@ -1,6 +1,6 @@
 ---
 title: Language Understanding 봇 C# v4
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 봇은 Bot Framework 버전 4 및 Azure 웹앱 봇 서비스를 사용하여 빌드되었습니다.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438454"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560655"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>자습서: C#에서 Language Understanding으로 구현된 웹앱 봇 사용
 
@@ -47,8 +47,8 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
     |설정|목적|권장되는 설정|
     |--|--|--|
     |봇 이름|리소스 이름|`luis-csharp-bot-` + `<your-name>`, 예: `luis-csharp-bot-johnsmith`|
-    |구독|봇을 만들 수 있는 구독|사용자의 기본 구독
-    |리소스 그룹|Azure 리소스의 논리 그룹|이 봇에 사용되는 모든 리소스를 저장할 새 그룹을 만들고, 그룹 이름으로 `luis-csharp-bot-resource-group`을 지정합니다.|
+    |Subscription|봇을 만들 수 있는 구독|사용자의 기본 구독
+    |Resource group|Azure 리소스의 논리 그룹|이 봇에 사용되는 모든 리소스를 저장할 새 그룹을 만들고, 그룹 이름으로 `luis-csharp-bot-resource-group`을 지정합니다.|
     |위치|Azure 지역 - LUIS를 작성하거나 게시하는 지역과 같을 필요는 없습니다.|`westus`|
     |가격 책정 계층|서비스 요청 한도 및 청구에 사용됩니다.|`F0`은 평가판 계층입니다.
     |앱 이름|봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, 예: `luis-csharp-bot-johnsmith`|

@@ -3,18 +3,18 @@ title: 모델 훈련 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 모델 훈련은 번역 모델을 빌드할 때 중요한 단계입니다. 훈련은 사용자가 훈련에 대해 선택한 문서를 바탕으로 이루어집니다.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8804285bf419bce5ca85cc5070cd47ce9a87392a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447957"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595691"
 ---
 # <a name="train-a-model"></a>모델 학습
 
@@ -53,7 +53,7 @@ ms.locfileid: "67447957"
     ![모델 훈련 페이지](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->사용자 지정 변환기에에서 언제 든 지 작업 영역 내에서 10 개의 동시 학습을 지원합니다.
+>사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 동시 학습 지원 합니다.
 
 
 ## <a name="edit-a-model"></a>모델 편집

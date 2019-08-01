@@ -1,6 +1,6 @@
 ---
-title: 버전 관리
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 버전 관리-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버전은 앱의 시간에 대한 스냅샷입니다. 앱을 변경하기 전에 새 버전을 만듭니다. 정확한 앱으로 돌아가서 앱의 의도와 발언을 이전 상태로 복원하는 것이 더 쉽습니다.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509694"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619691"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>LUIS 버전을 사용하는 방법 및 시기 이해
 
@@ -35,7 +35,7 @@ LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버�
 
 현재 활성 버전의 이름이 앱 이름 뒤의 왼쪽 위 패널에 표시됩니다. 
 
-[![현재 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![활성 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>버전 및 게시 슬롯
 스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 애플리케이션에 사용할 수 있습니다. 

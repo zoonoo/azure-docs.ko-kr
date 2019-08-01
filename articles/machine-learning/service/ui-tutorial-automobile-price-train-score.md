@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371725"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668419"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 자동차 가격 예측
 
@@ -94,8 +94,6 @@ Azure Machine Learning Service 작업 영역이 있으면 다음 섹션으로 �
 ## <a name="run-the-experiment"></a>실험 실행
 
 데이터 흐름의 해당 지점에서 표시되는 데이터의 모양을 확인하려면 언제든지 데이터 세트 또는 모듈의 출력 포트를 클릭합니다. **시각화** 옵션을 사용하지 않도록 설정된 경우 먼저 실험을 실행해야 합니다.
-
-작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 실험이 실행됩니다. 컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
