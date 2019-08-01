@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: 단일 데이터베이스
       items:
-        - name: 단일 데이터베이스 개요
+        - name: 단일 데이터베이스 설명서
           href: sql-database-single-index.yml
         - name: 단일 데이터베이스 기능
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: 관리되는 인스턴스
       items:
-        - name: 관리되는 인스턴스 개요
+        - name: 관리형 인스턴스 설명서
           href: sql-database-managed-instance-index.yml
         - name: 관리되는 인스턴스 기능
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: 서비스로서의 플랫폼
       items:
-        - name: 서비스로서의 플랫폼 개요
+        - name: Platform as a Service 설명서
           href: sql-database-paas.yml
         - name: 비즈니스 연속성
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: 확장성
       items:
-        - name: 확장성 개요
+        - name: 확장성 설명서
           href: sql-database-scalability-index.yml
         - name: 강화/축소
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: 모니터링 및 튜닝
       items:
-        - name: 모니터링 및 튜닝 개요
+        - name: 모니터링 및 튜닝 설명서
           href: sql-database-monitoring-tuning-index.yml
         - name: 모니터링 및 성능 튜닝
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: 데이터베이스 기능
       items:
-        - name: 개요
+        - name: SQL Database 기능 설명서
           href: sql-database-features-index.yml
         - name: SQL 기능 비교
           href: sql-database-features.md

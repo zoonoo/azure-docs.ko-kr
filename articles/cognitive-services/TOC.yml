@@ -53,6 +53,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: SLA(서비스 수준 약정)
+      href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: 블로그

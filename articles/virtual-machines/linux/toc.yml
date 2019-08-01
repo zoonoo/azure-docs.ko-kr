@@ -105,10 +105,14 @@
           href: sizes-previous-gen.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: acu.md
+        - name: vCPU 할당량
+          href: quotas.md
         - name: 벤치마크 점수
           href: compute-benchmark-scores.md
     - name: 보증 배포
       href: endorsed-distros.md
+    - name: 전용 호스트
+      href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 디스크 저장소
@@ -139,12 +143,8 @@
       href: monitor.md
     - name: Backup 및 복구
       href: backup-recovery.md
-    - name: 배포 고려 사항
-      items:
-        - name: 인프라 지침
-          href: infrastructure-example.md
-        - name: vCPU 할당량
-          href: quotas.md
+    - name: 인프라 지침
+      href: infrastructure-example.md
     - name: 보안 특성
       href: virtual-machines-linux-security-attributes.md
 - name: 방법 가이드
@@ -160,6 +160,12 @@
           href: create-vm-rest-api.md
         - name: VM 복사 또는 복제
           href: copy-vm.md
+        - name: 전용 호스트 사용
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: 포털
+              href: dedicated-hosts-portal.md
     - name: VM 보안
       items:
         - name: Just-In-Time 액세스

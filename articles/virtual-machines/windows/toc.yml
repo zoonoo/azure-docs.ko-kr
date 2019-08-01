@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: vCPU 할당량
           href: quotas.md
+    - name: 전용 호스트
+      href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
       href: maintenance-and-updates.md
     - name: 디스크 저장소
@@ -146,6 +148,12 @@
   items:
     - name: VM 만들기
       items:
+        - name: 전용 호스트 사용
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: 포털
+              href: dedicated-hosts-portal.md
         - name: 'C# 사용'
           href: csharp.md
         - name: 특수화된 디스크 사용

@@ -58,6 +58,8 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
             - name: Java 힙 공간
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+            - name: Livy 서버 시작 실패
+              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
         - name: 저속 Apache Spark 작업 - 스토리지 컨테이너
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException 예외
@@ -68,6 +70,8 @@
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
         - name: 크로스 원본 API 차단
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Kryo 직렬화 실패
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: 방법
   items:
     - name: 클러스터 저장소 사용

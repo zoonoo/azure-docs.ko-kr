@@ -258,6 +258,8 @@
           href: resource-group-template-functions-string.md
     - name: 전체 모드 삭제
       href: complete-mode-deletion.md
+    - name: 리소스 인스턴스 제한
+      href: resources-without-rg-limit.md
     - name: 서비스별 리소스 공급자
       href: azure-services-resource-providers.md
     - name: REST - Resource Manager

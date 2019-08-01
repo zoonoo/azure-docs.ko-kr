@@ -54,6 +54,14 @@
     - name: 관리형 ID 이해
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: 문제 해결
+      items:
+        - name: HDInsight 클러스터에 노드를 추가할 수 없음
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - 클러스터 만들기 실패
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: 서비스 주체 인증서 변환
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: 방법
   items:
     - name: Apache Hadoop 샌드박스 사용
