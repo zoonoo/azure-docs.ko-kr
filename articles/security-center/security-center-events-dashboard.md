@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 389aaee621251890cd3f75744a94b9c9b29c5695
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573515"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662387"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Azure Security Center에서 보안 이벤트 모니터링 및 처리
 이벤트 대시보드에서는 시간별로 수집된 보안 이벤트 수의 개요와, 확인해야 할 수 있는 주목할 만한 이벤트의 목록이 제공됩니다.  
 
 > [!NOTE]
-> 보안 이벤트 대시보드는 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_events)합니다.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> 보안 이벤트 대시보드는 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_events)를 참조 하세요.
 
 ## <a name="what-is-a-security-event"></a>보안 이벤트란?
 Security Center에서는 Microsoft Monitoring Agent를 사용하여 컴퓨터에서 다양한 보안 관련 구성과 이벤트를 수집한 다음 작업 영역에 저장합니다. 이러한 데이터의 예로는 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, Security Center와 통합된 보안 솔루션의 이벤트 등이 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -73,7 +71,7 @@ Security Center 주 메뉴 또는 Security Center **개요** 블레이드에서 
    ![로그 검색][6]
 
 ## <a name="add-a-notable-event"></a>주목할 만한 이벤트 추가
-Security Center에서는 몇 가지 주목할 만한 이벤트가 기본적으로 제공됩니다. 사용 하 여 사용자 고유의 쿼리를 기반으로 하는 주목할 만한 이벤트를 추가할 수 있습니다 합니다 [Kusto 쿼리 언어](../log-analytics/log-analytics-search-reference.md)합니다. 여기서는 **이벤트 대시보드**로 돌아가 주목할 만한 이벤트를 추가하겠습니다.
+Security Center에서는 몇 가지 주목할 만한 이벤트가 기본적으로 제공됩니다. [Kusto 쿼리 언어](../log-analytics/log-analytics-search-reference.md)를 사용 하 여 사용자 고유의 쿼리에 따라 주목할 만한 이벤트를 추가할 수 있습니다. 여기서는 **이벤트 대시보드**로 돌아가 주목할 만한 이벤트를 추가하겠습니다.
 
 1. **주목할 만한 이벤트 추가**를 선택합니다.
 
@@ -83,7 +81,7 @@ Security Center에서는 몇 가지 주목할 만한 이벤트가 기본적으�
 
    ![쿼리 입력][8]
 
-4. **확인**을 선택합니다.
+4.           **확인**을 선택합니다.
 
 ## <a name="update-your-workspace-for-events-processing"></a>이벤트 처리를 위해 작업 영역 업데이트
 Security Center에서 이벤트 처리 기능을 사용하려면 작업 영역에서 Log Analytics 버전 2를 실행 중이어야 하며, Security Center의 표준 계층이 적용된 상태여야 합니다. **이벤트 대시보드** 작업 영역 선택기는 이러한 요구 사항을 충족하지 않는 작업 영역을 식별합니다.
@@ -97,7 +95,7 @@ Security Center에서 이벤트 처리 기능을 사용하려면 작업 영역�
 - 비어 있음 - 작업 영역이 요구 사항을 충족하며, 작업 영역을 선택하면 대시보드로 이동합니다.
 
 > [!NOTE]
-> **이벤트 대시보드** 아래의 **이벤트** 열에는 각 작업 영역의 이벤트 수가 표시됩니다.  Security Center의 무료 계층이 적용되는 작업 영역의 경우에는 이 열이 비어 있습니다. 무료 계층에서 Security Center가 이벤트를 수집 하지만 이벤트를 Azure Monitor 로그에 저장 되지 않으며 대시보드에서 사용할 수 없는 합니다.
+> **이벤트 대시보드** 아래의 **이벤트** 열에는 각 작업 영역의 이벤트 수가 표시됩니다.  Security Center의 무료 계층이 적용되는 작업 영역의 경우에는 이 열이 비어 있습니다. 무료 계층에서 Security Center는 이벤트를 수집 하지만 이벤트는 Azure Monitor 로그에 저장 되지 않으며 대시보드에서 사용할 수 없습니다.
 >
 >
 
@@ -115,16 +113,16 @@ Security Center에서 이벤트 처리 기능을 사용하려면 작업 영역�
 
 3. **고급 보안으로 온보딩** 아래에서 업그레이드할 작업 영역을 선택합니다.
 4. **가격 책정** 아래에서 **표준**을 선택합니다.
-5. **저장**을 선택합니다.
+5.           **저장**을 선택합니다.
 
    ![표준 계층으로 업그레이드][12]
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 이벤트 대시보드를 사용하는 방법에 대해 알아보았습니다. 대시보드의 작동 방식에 대해 자세히 알아보고 이벤트 쿼리를 직접 작성하려면 다음 항목을 참조하세요.
 
-- [Azure Monitor 로그 란?](../log-analytics/log-analytics-overview.md) – Azure Monitor 로그에 대 한 개요
-- [Kusto의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) -Azure Monitor 로그에서 로그 검색 사용 하는 방법에 대해 설명 하 고 로그 검색을 만들기 전에 이해 해야 하는 개념을 제공
-- [Kusto 검색 참조](../log-analytics/log-analytics-search-reference.md) – 로그의 쿼리 언어를 사용 하 여 사용자 고유의 이벤트 쿼리를 작성 하는 방법 알아보기
+- [Azure Monitor 로그 란?](../log-analytics/log-analytics-overview.md) – Azure Monitor 로그 개요
+- [Kusto의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md) -로그 검색을 Azure Monitor 로그에서 사용 하는 방법을 설명 하 고 로그 검색을 만들기 전에 이해 해야 하는 개념을 제공 합니다.
+- [Kusto 검색 참조](../log-analytics/log-analytics-search-reference.md) – 로그에서 쿼리 언어를 사용 하 여 고유한 이벤트 쿼리를 작성 하는 방법을 알아봅니다.
 
 Security Center에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 

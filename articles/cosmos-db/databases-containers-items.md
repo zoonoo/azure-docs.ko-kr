@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 데이터베이스, 컨�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467762"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598489"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
 
@@ -124,6 +124,9 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 |\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니오 | 아니요 | 아니요 | 아니요 |
 |id | 모두 | 논리적 파티션의 사용자 정의 고유 이름입니다. 사용자가 ID를 지정 하지 않으면 시스템에서 자동으로 생성 합니다. | 예 | 예 | 예 | 예 | 예 |
 |임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | 예 | 예 | 예 | 예 | 예 |
+
+> [!NOTE]
+> `id` 속성의 고유성은 각 논리 파티션 내 에서만 적용 됩니다. 여러 문서에는 파티션 키 `id` 값이 서로 다른 동일한 속성이 있을 수 있습니다.
 
 ### <a name="operations-on-items"></a>항목에 대한 작업
 

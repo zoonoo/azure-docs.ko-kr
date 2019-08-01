@@ -9,12 +9,12 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 114ddf8f545f3f8d1f6c1a80725668d7875774f8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476633"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667452"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -28,14 +28,14 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사용** 솔루션을 사용 하도록 합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
+Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 **사용** 을 클릭 하 여 솔루션을 사용 하도록 설정 합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![인벤토리 솔루션 등록](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
 > [!NOTE]
 > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 >
-> 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
+> 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
 
 변경 내용 추적 및 인벤토리 솔루션은 가상 머신에서 [변경 내용 추적](automation-vm-change-tracking.md) 및 [인벤토리](automation-vm-inventory.md)의 기능을 제공합니다. 이 단계에서는 가상 머신에 솔루션을 사용할 수 있습니다.
 
@@ -43,7 +43,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사
 
 업데이트 관리 솔루션을 사용하면 Azure Windows VM에 대한 업데이트 및 패치를 관리할 수 있습니다. 사용 가능한 업데이트의 상태를 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하여 업데이트가 VM에 성공적으로 적용되었는지 확인할 수 있습니다. 이 작업을 통해 VM에 대한 솔루션을 사용하도록 설정할 수 있었습니다.
 
-**업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다. 선택한 Log Analytics 작업 영역 동일한 작업 영역에서 이전 단계에서 사용 됩니다. **사용**을 클릭하여 업데이트 관리 솔루션을 등록합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
+**업데이트 관리** 아래에서 **업데이트 관리**를 선택합니다. 선택한 Log Analytics 작업 영역은 이전 단계에서 사용 된 것과 동일한 작업 영역입니다. **사용**을 클릭하여 업데이트 관리 솔루션을 등록합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![업데이트 솔루션 등록](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -65,7 +65,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사
 
 Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|Name     |Category  |Alias  |
+|이름     |범주  |별칭  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -78,7 +78,7 @@ Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 �
 
 Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-**+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure Vm의 Automation 계정 위치에 관계 없이 모든 지역에 있을 수 있습니다. **업데이트 관리 사용** 페이지에서 **사용**을 클릭합니다. 이 작업은 컴퓨터 그룹의 저장된 솔루션 검색에 선택한 VM을 추가합니다.
+**+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. Azure Vm은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다. **업데이트 관리 사용** 페이지에서 **사용**을 클릭합니다. 이 작업은 컴퓨터 그룹의 저장된 솔루션 검색에 선택한 VM을 추가합니다.
 
 ![Azure VM을 사용하도록 설정](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -104,7 +104,9 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 
 사용 가능한 모든 머신 및 향후 머신에서 솔루션을 사용하려면, **사용 가능한 모든 향후 머신에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장된 검색 및 범위 구성을 삭제합니다. 이 작업은 작업 영역에 보고하는 모든 Azure 및 비Azure 머신에 대해 솔루션을 엽니다. 이 작업을 선택하면 남아 있는 범위 구성이 없으므로 **컴퓨터 관리** 단추가 영구적으로 비활성화됩니다.
 
-### <a name="selected-machines"></a>선택한 컴퓨터
+초기에 저장 된 검색을 다시 추가 하 여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [저장 된 검색](#saved-searches)을 참조 하세요.
+
+### <a name="selected-machines"></a>선택된 컴퓨터
 
 하나 이상의 컴퓨터에서 솔루션을 사용하도록 설정하려면, **선택한 컴퓨터에서 사용**을 선택하고 솔루션에 추가하려는 각 컴퓨터 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 컴퓨터의 이름을 솔루션에 대한 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다.
 
@@ -116,7 +118,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 * [변경 내용 추적](automation-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-더 이상 Log Analytics 작업 영역과 Automation 계정을 통합 하려는 경우 Azure portal에서 직접 계정 연결을 해제할 수 없습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 제거하지 않으면 이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거하는 데 필요한 단계를 파악합니다.
+Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 제거하지 않으면 이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거하는 데 필요한 단계를 파악합니다.
 
 이러한 솔루션을 제거하고 나면, 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -127,7 +129,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 
 2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
+   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png)을 선택합니다.
 
    계속 진행할지 확인하는 메시지가 나타납니다.
 
@@ -143,9 +145,9 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* variables
+* 변수
 
-또는 수 연결을 끊을 수도 작업 영역이 Automation 계정에서 Log Analytics 작업 영역에서 합니다. 작업 영역 선택 **Automation 계정** 아래에서 **관련 된 리소스**합니다. Automation 계정 페이지에서 선택 **계정을 연결 해제**합니다.
+또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

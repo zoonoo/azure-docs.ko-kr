@@ -1,20 +1,20 @@
 ---
-title: Azure 데이터 탐색기에서 중복 된 데이터를 처리 합니다.
-description: 이 항목에서는 Azure 데이터 탐색기를 사용 하는 경우 중복 데이터를 처리 하는 다양 한 방법 표시 됩니다.
+title: Azure 데이터 탐색기에서 중복 데이터 처리
+description: 이 항목에서는 Azure 데이터 탐색기를 사용 하는 경우 중복 데이터를 처리 하는 다양 한 방법을 보여 줍니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445773"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608221"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 중복 된 데이터를 처리 합니다.
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 중복 데이터 처리
 
 클라우드로 데이터를 전송하는 디바이스는 데이터의 로컬 캐시를 유지 관리합니다. 데이터 크기에 따라 로컬 캐시는 데이터를 수일 동안 저장하거나 수 개월 동안 저장할 수도 있습니다. 디바이스 오작동으로 인해 캐시된 데이터가 다시 전송되어 분석 데이터베이스에 데이터 중복이 발생하지 않도록 분석 데이터를 보호하는 것이 좋습니다. 이 항목에서는 이러한 종류의 시나리오에서 중복 데이터를 처리하는 방법에 대한 모범 사례를 간략하게 설명합니다.
 
@@ -70,7 +70,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>해결 방법 #3: 수집 프로세스 중 중복 항목 필터링
 
-또 다른 해결 방법으로는 수집 프로세스 중에 중복 항목을 필터링하는 방법이 있습니다. 시스템은 Kusto 테이블에 데이터가 수집되는 동안 중복 데이터를 무시합니다. 데이터는 준비 테이블에 수집되고 중복 행 제거 과정을 거친 후 다른 테이블에 복사됩니다. 이 해결 방법은 쿼리 성능이 이전 해결 방법보다 크게 향상된다는 장점이 있습니다. 단점으로는 수집 시간 증가 및 데이터 스토리지 비용 추가 등이 있습니다.
+또 다른 해결 방법으로는 수집 프로세스 중에 중복 항목을 필터링하는 방법이 있습니다. 시스템은 Kusto 테이블에 데이터가 수집되는 동안 중복 데이터를 무시합니다. 데이터는 준비 테이블에 수집되고 중복 행 제거 과정을 거친 후 다른 테이블에 복사됩니다. 이 해결 방법은 쿼리 성능이 이전 해결 방법보다 크게 향상된다는 장점이 있습니다. 단점으로는 수집 시간 증가 및 데이터 스토리지 비용 추가 등이 있습니다. Additionaly이 솔루션은 중복가 동시에 수집 않는 경우에만 작동 합니다. 중복 레코드를 포함 하는 동시 ingestions이 여러 개 있는 경우 중복 제거 프로세스에서 테이블에 있는 기존의 일치 하는 레코드를 찾지 못하므로 모든가 수집 수 있습니다.    
 
 다음 예에서는 이 방법을 보여줍니다.
 
