@@ -91,6 +91,9 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 개념
   items:
+    - name: 심층 학습
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
     - name: 작업 영역
       displayName: concept definitions architecture
       href: concept-workspace.md
@@ -115,8 +118,6 @@
       href: concept-accelerate-with-fpgas.md
     - name: ONNX 및 ONNX 런타임
       href: concept-onnx.md
-    - name: 데이터 드리프트 모니터링
-      href: concept-data-drift.md
     - name: 보안
       items:
         - name: 엔터프라이즈 보안 개요
