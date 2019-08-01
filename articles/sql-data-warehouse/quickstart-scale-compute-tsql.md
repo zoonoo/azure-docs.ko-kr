@@ -8,18 +8,18 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: Anthony.vanGemert
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: b5f3eb8a8e323add287dba8d9c590e89ea4e1fa7
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bac61043d5804d1d8a719a311739e826a1bc2187
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479226"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640983"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 조정
 
-T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [계산 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
+T-SQL 및 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
