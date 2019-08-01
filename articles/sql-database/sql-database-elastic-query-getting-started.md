@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556277"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568615"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
@@ -27,7 +26,7 @@ ms.locfileid: "60556277"
 
 쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
@@ -105,7 +104,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 모든 분할된 데이터베이스에서 쿼리를 집계한 결과 및 다음 출력이 지정됨을 알 수 있습니다.
 
-![출력 세부 정보][4]
+![출력 세부 사항][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>탄력적 데이터베이스 쿼리 결과를 Excel로 가져오기
  쿼리의 결과를 엑셀파일로 가져올 수 있습니다.
@@ -115,7 +114,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 3. **기타 원본에서**을 클릭하고 **SQL Server에서**를 클릭합니다.
 
    ![다른 원본에서 Excel 가져오기][5]
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next** 를 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그리고 **다음**을 클릭합니다.
 5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택**하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
 6. 목록 보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
 7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택**하고 **테이블**을 선택하고 **확인**을 클릭합니다.

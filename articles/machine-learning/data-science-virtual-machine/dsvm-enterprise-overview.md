@@ -4,7 +4,7 @@ description: 엔터프라이즈 팀 환경에 Data Science VM을 배포하기 �
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: gokuma
-ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502150"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565261"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine 기반 팀 분석 및 AI 환경 
 DSVM([Data Science Virtual Machine](overview.md))은 Azure 플랫폼에 미리 빌드된 AI(인공 지능) 및 데이터 분석용 소프트웨어를 포함한 풍부한 환경을 제공합니다. 
@@ -52,4 +52,4 @@ DSVM은 Azure 인프라 수준에서 작동하므로, IT 관리자가 엔터프�
 * [암호화](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [데이터 검색 및 거버넌스](https://docs.microsoft.com/azure/data-catalog/)
 
-[Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)는 클라우드 기반 분석 인프라를 빌드하고 관리하기 위한 구체적인 종단 간 아키텍처와 패턴을 제공합니다. 
+[Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)는 클라우드 기반 분석 인프라를 빌드하고 관리하기 위한 구체적인 엔드투엔드 아키텍처와 패턴을 제공합니다. 

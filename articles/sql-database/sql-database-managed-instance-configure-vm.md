@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60701884"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567656"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
 이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Database Managed Instance에 연결하도록 Azure 가상 머신을 구성하는 방법을 보여 줍니다. 지점 및 사이트 간 연결을 사용하여 온-프레미스 클라이언트 컴퓨터에서 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 
@@ -45,9 +44,9 @@ ms.locfileid: "60701884"
 
 3. 이 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안된 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
-   | **Name** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **네트워크 보안 그룹** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **경로 테이블** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
@@ -74,17 +73,17 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안된 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 지정한 리소스 그룹입니다.|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
-   | **위치**: | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
-   | **가상 머신 이름**  | 모든 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **위치** | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
+   | **가상 머신 이름**  | 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
    |**관리 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
-   | **위치**:|[resourceGroup().location].| 이 값은 변경하지 마세요. |
-   | **가상 네트워크 이름**|관리 되는 인스턴스에서 만든 가상 네트워크.|
+   | **위치**|[resourceGroup().location].| 이 값은 변경하지 마세요. |
+   | **가상 네트워크 이름**|Managed Instance를 만든 가상 네트워크입니다.|
    | **서브넷 이름**|이전 절차에서 만든 서브넷의 이름| Managed Instance를 만든 서브넷을 선택하지 마세요.|
    | **아티팩트 위치** | [deployment().properties.templateLink.uri] | 이 값은 변경하지 마세요. |
    | **아티팩트 위치 Sas 토큰** | 비워 둡니다. | 이 값은 변경하지 마세요. |
@@ -108,7 +107,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. **연결**을 선택합니다.
+2.           **연결**을 선택합니다.
 
    가상 머신의 공용 IP 주소 및 포트 번호를 사용하여 원격 데스크톱 프로토콜 파일(.rdp 파일) 양식이 나타납니다.
 

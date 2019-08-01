@@ -3,7 +3,7 @@ title: Azure Service Fabric DNS 서비스 | Microsoft Docs
 description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부에서 마이크로 서비스를 검색할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
-ms.author: aljo
-ms.openlocfilehash: 3b3262eadc732c23000a66f24aaeeed4d9794db0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 94b2b807eb68d628165ca8fa4011b8f3e41d3c6d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60947659"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599651"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -28,7 +28,7 @@ DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위
 
 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 엔드포인트가 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![서비스 엔드포인트](./media/service-fabric-dnsservice/stateless-dns.png)
+![서비스 끝점](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정 체계를 포함하도록 Service Fabric DNS 프로토콜이 확장되었습니다. 이러한 확장을 통해 상태 저장 서비스 DNS 이름과 파티션 이름을 조합하여 특정 파티션 IP 주소를 확인할 수 있습니다. 세 가지 파티션 구성표가 모두 지원됩니다.
 
@@ -133,7 +133,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
 ```
 애플리케이션을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다. 
 
-![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![서비스 끝점](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
 다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
 
@@ -176,7 +176,7 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-위치:
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 - *First-Label-Of-Partitioned-Service-DNSName*은 서비스 DNS 이름의 첫 번째 부분입니다.
 - *PartitionPrefix*는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 “-”입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.

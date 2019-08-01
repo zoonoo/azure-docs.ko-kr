@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65206645"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566076"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -35,7 +34,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 - [빠른 시작: SQL Server의 확장 이벤트](https://msdn.microsoft.com/library/mt733217.aspx)
 - [확장 이벤트](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
@@ -82,7 +81,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 확장 이벤트 기능은 여러 [카탈로그 뷰](https://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
-| 카탈로그 뷰의<br/>이름 | 설명 |
+| 카탈로그 뷰의<br/>이름 | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |이벤트 세션의 각 이벤트에 있는 각 작업에 대한 행을 반환합니다. |
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
@@ -96,7 +95,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database
 
 Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
-| DMV의 이름 | 설명 |
+| DMV의 이름 | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |이벤트 세션 작업에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
@@ -155,7 +154,7 @@ SQL Database에서 이벤트 세션의 결과를 캡처할 수 있는 대상은 
 
 [ETW(Windows 이벤트 추적)](https://msdn.microsoft.com/library/ms751538.aspx) API는 SQL Database의 확장 이벤트에서 사용할 수 없습니다.
 
-## <a name="restrictions"></a>제한
+## <a name="restrictions"></a>Restrictions
 
 SQL Database의 클라우드 환경에 적합한 몇 가지 보안 관련 차이점이 있습니다.
 
@@ -170,9 +169,9 @@ SQL Database의 클라우드 환경에 적합한 몇 가지 보안 관련 차이
 
 Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **rwl** 을 지정해야 합니다. **rwl** 값은 다음과 같은 권한을 제공합니다.
 
-- 읽기
-- 쓰기
-- 나열
+- Read
+- Write
+- List
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 
