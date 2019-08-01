@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165619"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677810"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>사용 하 여 Azure Time Series Insights 환경에 대 한 GA 참조 데이터를 관리 합니다.C#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리C#
 
 이 아티클에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 예제 C# 프로젝트에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "67165619"
 1. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#** 에 지정된 예제 상수를 바꿉니다.
 
 > [!NOTE]
-> GA 샘플 코드를 볼 [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)합니다.
+> 에서 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)GA 샘플 코드를 봅니다.
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>다음 단계
 
-- 읽기를 [참조 데이터 API](/rest/api/time-series-insights/ga-reference-data-api)합니다.
+- [참조 데이터 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)를 읽습니다.

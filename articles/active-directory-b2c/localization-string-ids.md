@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67846846"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
@@ -40,9 +40,9 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | **password** | 암호 |
 | **requiredField_password** | 암호를 입력하세요. |
 | **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. |
-| **forgotpassword_link** | 암호를 잊으셨습니까? |
-| **createaccount_intro** | 아직 계정이 없으세요? |
-| **createaccount_link** | 지금 등록하십시오. |
+| **forgotpassword_link** | 암호를 잊으셨나요? |
+| **createaccount_intro** | 계정이 없습니까? |
+| **createaccount_link** | 지금 등록하세요. |
 | **divider_title** | 또는 |
 | **cancel_message** | 사용자가 암호를 잊음 |
 | **button_signin** | 로그인 |
@@ -86,7 +86,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **UserMessageIfInvalidPassword** | 암호가 올바르지 않습니다. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 계정을 찾을 수 없는 것 같습니다. |
 | **UserMessageIfOldPasswordUsed** | 이전 암호를 사용한 것 같습니다. |
-| **DefaultMessage** | 잘못된 사용자 이름 또는 암호 |
+| **DefaultMessage** | 잘못된 사용자 이름 또는 암호입니다. |
 | **UserMessageIfUserAccountDisabled** | 계정이 잠겨 있습니다. 잠금 해제하려면 고객 지원 담당자에게 문의한 다음 다시 시도하세요. |
 | **UserMessageIfUserAccountLocked** | 권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하십시오. |
 | **AADRequestsThrottled** | 현재 요청이 너무 많습니다. 잠시 기다렸다가 다시 시도하세요. |

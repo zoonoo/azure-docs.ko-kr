@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center에 대 한 질문과 대답 IoT 미리 보기 | Microsoft Docs
-description: 가장 자주 묻는 질문 대답 Azure Security Center에 대 한 IoT 기능 및 서비스를 찾습니다.
+title: IoT의 Azure Security Center에 대 한 질문과 대답 | Microsoft Docs
+description: IoT 기능 및 서비스에 대 한 Azure Security Center에 대해 가장 자주 묻는 질문에 대 한 답변을 찾습니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,143 +13,139 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4e04e21d55722b8cb90b277b34b5bffab343c575
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616588"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596930"
 ---
-# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT 용 azure Security Center에 대 한 질문과 대답  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT에 대 한 질문과 대답 Azure Security Center  
 
-> [!IMPORTANT]
-> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 문서에서는 IoT에 대 한 자주 묻는 질문 및 답변에 대 한 Azure 보안 센터 (ASC)의 목록을 제공 합니다. 
+이 문서에서는 IoT의 Azure Security Center에 대 한 질문과 대답 목록을 제공 합니다. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>Azure는 IoT 보안에 대 한 지원을 제공 하나요?
 
-Azure 모니터링 및 Azure Security Center를 통해 전체적인 보안 솔루션의 일부로 IoT 보안을 관리 하기 위한 통합 된 보기를 제공 합니다. 응용 프로그램 개발자 인 경우에 IoT 응용 프로그램 보안을 관리 하려면 IoT Hub 보기를 사용할 수 있습니다.
+Azure는 Azure Security Center를 통해 전체 보안 솔루션의 일부로 IoT 보안을 모니터링 하 고 관리 하기 위한 통합 된 보기를 제공 합니다. 응용 프로그램 개발자 인 경우 IoT Hub 보기를 사용 하 여 IoT 응용 프로그램 보안을 관리할 수 있습니다.
 
-## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>IoT 보안에 대 한 Azure의 고유한 가치 제안을 란?
+## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>IoT 보안을 위한 Azure의 고유한 가치 제안 이란?
 
-ASC IoT에 대 한 기존 사이버 보안 뷰를 통해 전체 IoT 솔루션을 확장 해 주는 합니다. Azure는 비즈니스와 관련 된 작업을 수행할 수 있도록 비즈니스 솔루션의 종단 간 보기를 제공 및 의사 결정 엔터프라이즈 보안 태세를 기반으로 하며 데이터를 수집 합니다. Azure IoT, Azure IoT Edge, Azure Sphere, 중부 Azure를 사용 하 여 보안을 결합 하 고 Azure Security Center를 사용 하 여 필요한 보안 기능을 사용 하 여 원하는 솔루션을 만들 수 있습니다.
+IoT에 대 한 Azure Security Center를 통해 기업은 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장할 수 있습니다. Azure는 비즈니스 솔루션의 종단 간 보기를 제공 하 여 기업 보안 상태 및 수집 된 데이터를 기반으로 비즈니스 관련 작업 및 의사 결정을 수행할 수 있도록 합니다. Azure IoT, Azure IoT Edge 및 Azure Security Center를 사용 하 여 결합 된 보안을 통해 필요한 보안으로 원하는 솔루션을 만들 수 있습니다.
 
-## <a name="who-is-asc-for-iot-made-for"></a>IoT에 대 한에 대 한 ASC는 누구 인가요? 
+## <a name="who-is-azure-security-center-for-iot-made-for"></a>IoT에 대해 수행 되는 Azure Security Center는 누구 인가요? 
 
-IoT 용 ASC는가 Azure IoT Hub 보안에 통합 하 고 일상적인 비즈니스 솔루션에 대 한 관리 보안 작업을 제공 합니다. ASC IoT 용 Azure Security Center 기능에도 통합 되어 및 모니터링 하 고 전체적인 보안 솔루션의 일부로 IoT 보안 관리에 대 한 통합된 보기를 제공 합니다.
+IoT에 대 한 Azure Security Center는 Azure IoT Hub 보안 내에서 통합 되며 일상 비즈니스 솔루션 보안 작업을 위한 관리를 제공 합니다. IoT 용 Azure Security Center은 Azure Security Center 기능에 통합 되어 있으며, 전체 보안 솔루션의 일부로 IoT 보안을 모니터링 하 고 관리할 수 있는 통합 보기를 제공 합니다.
 
-## <a name="how-does-asc-for-iot-compare-to-the-competition"></a>ASC IoT에 대 한 경쟁을 어떻게 비교 되나요?
+## <a name="how-does-azure-security-center-for-iot-compare-to-the-competition"></a>IoT에 대 한 Azure Security Center 어떻게 경쟁과 비교 하나요?
 
-고객은 자신의 솔루션을 만들 수 있는 기능 집합을 제공 하는 다른 솔루션, IoT에 대 한 ASC 넓은 보기에서 모든 관련된 Azure 리소스의 보안을 제공 하는 고유한 종단 간 IoT 보안 솔루션을 제공 합니다. Azure 빠른 배포 및 기존 장치 관리 도구와 쉽게 통합에 대 한 IoT Hub 모듈 쌍을 사용 하 여 완벽 한 통합을 사용합니다.
+다른 솔루션은 고객이 자신의 솔루션을 만들 수 있도록 하는 일련의 기능을 제공 하지만, IoT 용 Azure Security Center은 모든 관련 Azure의 보안을 전체적으로 보여 주는 고유한 종단 간 IoT 보안 솔루션을 제공 합니다. 인사. Azure는 기존 장치 관리 도구와 쉽게 통합할 수 있도록 IoT Hub 모듈 쌍과의 빠른 배포 및 완전 통합을 지원 합니다.
 
-## <a name="do-i-have-to-be-an-azure-security-center-asc-customer"></a>Azure 보안 센터 (ASC) 고객 일 합니까?
+## <a name="do-i-have-to-be-an-azure-security-center-customer-to-use-this-service"></a>이 서비스를 사용 하려면 Azure Security Center 고객이 되어야 하나요?
 
-아니요, 하지만 것이 좋습니다. ASC 없이 ASC IoT에 대 한 제한 된 연결 된 리소스 데이터를 수신 하 고 잠재적인 공격 노출 영역, 위협 및 잠재적 공격의 제한 된 분석을 제공 합니다. 
+아니요. 하지만 권장 됩니다. Azure Security Center 하지 않으면 IoT 용 Azure Security Center는 제한 된 연결 리소스 데이터를 수신 하 고 잠재적인 공격 노출 영역, 위협 및 잠재적 공격에 대해 제한 된 분석을 제공 합니다. 
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Azure IoT 고객 일 합니까?
+## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Azure IoT 고객이 되어야 하나요?
 
-예. ASC IoT 용 Azure IoT 연결 및 인프라에 의존합니다.
+예. IoT에 대 한 Azure Security Center는 Azure IoT 연결 및 인프라를 사용 합니다.
 
 ## <a name="do-i-have-to-install-an-agent"></a>에이전트를 설치 해야 하나요?
 
-IoT 용 Microsoft ASC를 사용 하도록 설정 하려면 필수 IoT 장치에 에이전트를 설치 하지 않습니다. 모니터링 및 관리 기능 선택에 따라 서로 다른 수준의 보안을 확보 하 고 다음 세 가지 옵션을 선택할 수 있습니다.
+Iot에 대 한 Microsoft Azure Security Center을 사용 하도록 설정 하기 위해 IoT 장치에 에이전트를 설치 하는 것은 필수가 아닙니다. 다음 세 가지 옵션 중에서 선택 하 여 선택 항목에 따라 다양 한 수준의 보안 모니터링 및 관리 기능을 사용할 수 있습니다.
 
-1. 수정 없이 IoT 보안 에이전트에 대 한 ASC를 설치 합니다. 이 옵션은 가장 높은 수준의 장치 동작 및 액세스에 대 한 향상 된 보안 정보를 제공 합니다.
+1. 수정 없이 IoT 보안 에이전트에 대 한 Azure Security Center를 설치 합니다. 이 옵션은 장치 동작 및 액세스에 대 한 가장 높은 수준의 보안 정보를 제공 합니다.
 
-2. 직접 에이전트를 만들고 IoT 보안 메시지 스키마에 대 한 Microsoft ASC를 구현 합니다. 이 옵션을 사용 하면 장치 보안 에이전트 기반으로 IoT 분석 도구에 대 한 Microsoft ASC를 사용 합니다.
+2. 사용자 고유의 에이전트를 만들고 IoT 보안 메시지 스키마에 대 한 Microsoft Azure Security Center을 구현 합니다. 이 옵션을 사용 하면 장치 보안 에이전트 위에 있는 IoT 분석 도구에 대 한 Microsoft Azure Security Center를 사용할 수 있습니다.
 
-3. IoT 장치의 보안 에이전트 설치 되지 않습니다. 이 옵션을 사용 하면 축소 된 보안 모니터링 및 관리 기능을 사용 하 여 IoT Hub 통신 모니터링 합니다. 
+3. IoT 장치에 보안 에이전트가 설치 되어 있지 않습니다. 이 옵션을 사용 하면 보안 모니터링 및 관리 기능이 축소 되어 IoT Hub 통신 모니터링이 가능 합니다. 
 
-## <a name="what-does-the-asc-for-iot-agent-do"></a>IoT 에이전트용 ASC의 기능은 무엇입니까?
+## <a name="what-does-the-azure-security-center-for-iot-agent-do"></a>IoT 에이전트에 대 한 Azure Security Center은 무엇 인가요?
 
-ASC IoT 에이전트에 대 한 장치 구성, 동작 및 액세스 (구성 검사), 프로세스 및 연결에 대 한 장치 수준 위협 검사를 제공 합니다. 비즈니스 관련 데이터 또는 작업에는 IoT 보안 에이전트에 대 한 ASC 검색 하지 않습니다.
+IoT 에이전트에 대 한 Azure Security Center 장치 구성, 동작 및 액세스를 위한 장치 수준 위협 범위 (구성을 검사 하 여)를 제공 하 고 & 연결을 처리 합니다. IoT 보안 에이전트의 Azure Security Center는 비즈니스 관련 데이터 또는 작업을 검색 하지 않습니다.
 
-## <a name="where-i-can-get-the-asc-for-iot-security-agent"></a>어디서 IoT 보안 에이전트에 대 한 ASC를 구할 수 있습니까?
+## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>IoT Security agent에 대 한 Azure Security Center는 어디에서 얻을 수 있나요?
 
-IoT 보안 에이전트에 대 한 ASC는 오픈 소스 32 비트 및 64 비트 Windows 및 Linux 버전에서 GitHub에서 사용할 수 있습니다. https://github.com/Azure/Azure-Security-IoT-Preview
+IoT 보안 에이전트의 Azure Security Center은 오픈 소스 이며 GitHub에서 32 비트 및 64 비트 Windows 및 Linux 버전 https://github.com/Azure/Azure-Security-IoT 으로 제공 됩니다.
 
-## <a name="where-does-the-asc-for-iot-agent-get-installed"></a>ASC IoT 에이전트에 대 한 설치 위치는? 
+## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>IoT agent에 대 한 Azure Security Center는 어디에 설치 되나요? 
 
-자세한 설치 및 에이전트 배포 정보는 GitHub에서 찾을 수 있습니다. https://github.com/Azure/Azure-Security-IoT-Preview
+자세한 설치 및 에이전트 배포 정보는 GitHub https://github.com/Azure/Azure-Security-IoT 에서 찾을 수 있습니다.
 
-## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>종속성 및 에이전트의 필수 구성 요소는 무엇 인가요?
+## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>에이전트의 종속성 및 필수 구성 요소는 무엇 인가요?
 
-ASC IoT에 대 한 다양 한 플랫폼을 지원합니다. 참조 [지원 되는 장치 플랫폼](how-to-deploy-agent.md) 특정 장치에 대 한 지원을 확인 합니다. 
+IoT에 대 한 Azure Security Center는 다양 한 플랫폼을 지원 합니다. 특정 장치에 대 한 지원을 확인 하려면 [지원 되는 장치 플랫폼](how-to-deploy-agent.md) 을 참조 하세요. 
 
-## <a name="which-data-is-collected-by-the-agent"></a>에이전트에서 데이터를 수집 하나요?
+## <a name="which-data-is-collected-by-the-agent"></a>에이전트에서 수집 하는 데이터는 무엇입니까?
 
-연결, 액세스, 방화벽 구성, 프로세스 목록 및 OS 기준 에이전트에 의해 수집 됩니다.
+에이전트에서 연결, 액세스, 방화벽 구성, 프로세스 목록 & OS 기준선을 수집 합니다.
 
-## <a name="how-much-data-will-the-agent-generate"></a>에이전트는 얼마나 많은 데이터를 생성?
+## <a name="how-much-data-will-the-agent-generate"></a>에이전트에서 생성 하는 데이터의 양은 얼마 인가요?
 
-에이전트 데이터 생성은 장치, 응용 프로그램, 연결 유형 및 사용자 에이전트 구성에 의해 좌우 됩니다. 장치 및 IoT 솔루션 간에 높은 가변성을 인해 첫 번째 랩 또는 테스트 설정을 확인, 배우고, 생성 된 데이터의 크기를 측정 하는 동안 필요에 맞는 특정 구성을 설정 하는 에이전트를 배포 하는 것이 좋습니다. 서비스를 시작한 후 IoT 에이전트용 ASC 구성 및 사용자 지정 프로세스를 사용 하 여 도움이 에이전트 처리량 최적화에 대 한 운영 권장 사항 제공 합니다.
+에이전트 데이터 생성은 장치, 응용 프로그램, 연결 유형 및 고객 에이전트 구성에 따라 결정 됩니다. 장치와 IoT 솔루션 간의 가변성 때문에 먼저 랩 또는 테스트 설정에 에이전트를 배포 하 여 생성 된 데이터의 양을 측정 하는 동시에 필요에 맞는 특정 구성을 관찰 하 고 학습 하 고 설정 하는 것이 좋습니다. 서비스를 시작한 후에 IoT 에이전트에 대 한 Azure Security Center는 구성 및 사용자 지정 프로세스에 도움이 되도록 에이전트 처리량을 최적화 하기 위한 운영 권장 사항을 제공 합니다.
 
-## <a name="how-can-i-control-my-billing"></a>요금 청구는 어떻게 제어할 수 있나요?
+## <a name="how-can-i-control-my-billing"></a>청구는 어떻게 제어할 수 있나요?
 
-ASC IoT에 대 한 검색, 데이터 버퍼 및 늘리거나 에이전트에 의해 생성 된 데이터의 양을 줄일 수 있는 사용자 지정 경고를 생성 하는 기능 구성 가능한 에이전트를 제공 합니다.
+IoT에 대 한 Azure Security Center는 구성 가능한 에이전트 검색, 데이터 버퍼 및 에이전트에서 생성 하는 데이터의 양을 늘리거나 줄이는 사용자 지정 경고를 만드는 기능을 제공 합니다.
 
-## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>에이전트 메시지를 IoT Hub에서 할당량 사용 합니까?
+## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>에이전트 메시지가 IoT Hub의 할당량을 사용 하나요?
 
-예. 전송 하는 에이전트 데이터는 IoT Hub 할당량에서 계산 됩니다. 
+예. 에이전트 전송 데이터는 IoT Hub 할당량으로 계산 됩니다. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>다음 단계 에이전트를 설치 했으며이 표시 되지 않는 모든 활동 로그
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>다음은 뭔가요? 에이전트를 설치 했 고 활동 또는 로그가 표시 되지 않습니다 ...
 
-1. 확인 된 [에이전트 유형에 맞는 장치의 지정 된 OS 플랫폼](how-to-deploy-agent.md)
+1. [에이전트 유형이 장치의 지정 된 OS 플랫폼에 맞는지](how-to-deploy-agent.md) 확인 합니다.
 
-1. 확인 합니다 [장치에서 에이전트가 실행 되 고](how-to-agent-configuration.md)입니다.
+1. [에이전트가 장치에서 실행 되](how-to-agent-configuration.md)고 있는지 확인 합니다.
 
-2. 확인 합니다 [서비스가 성공적으로 활성화 되었습니다](quickstart-onboard-iot-hub.md) 하 **보안** IoT Hub에. 
+2. IoT Hub에서 [서비스가](quickstart-onboard-iot-hub.md) **보안** 에 성공적으로 설정 되었는지 확인 합니다. 
 
-3. 장치 인지 확인 [IoT 모듈에 대 한 ASC 사용 하 여 IoT Hub에 구성 된](quickstart-create-security-twin.md)합니다.  
+3. [IoT 용 Azure Security Center 모듈을 사용 하 여 IoT Hub에 장치가 구성](quickstart-create-security-twin.md)되어 있는지 확인 합니다.  
 
-활동이 나 로그를 계속 사용할 수 없는 경우에 ASC IoT 파트너에 대 한 추가 도움말에 게 문의 합니다.
+활동 또는 로그를 아직 사용할 수 없는 경우 자세한 도움말은 IoT 파트너에 대 한 Azure Security Center에 문의 하세요.
 
-## <a name="what-happens-when-the-internet-connection-stops-working"></a>인터넷 연결이 작동을 중지 하는 경우 어떻게 되나요?
+## <a name="what-happens-when-the-internet-connection-stops-working"></a>인터넷 연결 작동이 중지 되 면 어떻게 되나요?
 
-에이전트가 계속 실행 되 고 장치가 실행 되는 데이터를 저장 합니다. 데이터 크기 구성에 따라 보안 메시지 캐시에 저장 됩니다. 장치 다시 연결, 보안 메시지 보내기를 다시 시작할 합니다. 
+에이전트는 장치를 실행 하는 동안 계속 해 서 데이터를 실행 하 고 저장 합니다. 데이터는 크기 구성에 따라 보안 메시지 캐시에 저장 됩니다. 장치가 연결을 다시 얻으면 보안 메시지의 보내기가 다시 시작 됩니다. 
 
-## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>장치를 다시 보안 에이전트 자체 복구 됩니다.
+## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>장치를 다시 시작 하는 경우 보안 에이전트가 자체 복구 합니까?
 
-보안 에이전트는 각 장치를 다시 시작을 사용 하 여 자동으로 다시 실행 하도록 설계 되었습니다.
+보안 에이전트는 각 장치를 다시 시작 하면 자동으로 다시 실행 되도록 설계 되었습니다.
 
-## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>에이전트는 장치 또는 다른 설치 된 소프트웨어의 성능 영향을 줄 수 있습니까?
+## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>에이전트가 장치 또는 기타 설치 된 소프트웨어의 성능에 영향을 줄 수 있나요?
 
-에이전트 컴퓨터 리소스를 소비 하며 모든 다른 응용 프로그램/프로세스로 일반 장치 작업을 방해 하지 않도록 해야 합니다. 해당 설치 및 구성 에이전트를 실행 하는 장치에서 리소스 소비 결합 됩니다. 프로덕션 환경에 배포 하기 전에 다른 IoT 응용 프로그램 및 기능을 사용 하 여 상호 운용성과 함께 포함 된 환경에서 에이전트 구성을 테스트 하는 것이 좋습니다.
+에이전트는 컴퓨터 리소스를 다른 응용 프로그램/프로세스로 사용 하며 일반적인 장치 작업을 중단 해서는 안 됩니다. 에이전트가 실행 되는 장치의 리소스 소비는 설정 및 구성과 결합 됩니다. 프로덕션 환경에서 배포를 시도 하기 전에 다른 IoT 응용 프로그램 및 기능과의 상호 운용성과 함께 포함 된 환경에서 에이전트 구성을 테스트 하는 것이 좋습니다.
 
-## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>일을 할 몇 가지 유지 관리 장치에 있습니다. 에이전트를 해제 하려면 어떻게 할까요?
+## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>장치에서 유지 관리를 수행 합니다. 에이전트를 끌 수 있나요?
 
-에이전트를 해제할 수 없습니다.
+에이전트를 끌 수 없습니다.
 
-## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>에이전트가 제대로 작동 하는 경우 테스트할 방법이 있습니까? 
+## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>에이전트가 제대로 작동 하는지 테스트 하는 방법이 있나요? 
 
-에이전트 통신 중지 되거나 보안 메시지를 보내지 못할 경우에 **장치는 자동** 경고가 생성 됩니다.
+에이전트가 통신을 중지 하거나 보안 메시지를 보내지 못하면 **장치가 자동** 으로 경고가 생성 됩니다.
 
-## <a name="can-i-create-my-own-alerts"></a>내 경고를 만들 수 있나요?
+## <a name="can-i-create-my-own-alerts"></a>자신의 경고를 만들 수 있나요?
 
-예. IP 주소 및 포트 열기와 같은 동작의 미리 결정된 된 집합에서 사용자 지정된 경고를 설정할 수 있습니다. 참조 [사용자 지정 경고를 만들](quickstart-create-custom-alerts.md) 사용자 지정 경고 및 해당 하는 방법에 자세히 알아보려면 합니다. 
+예. IP 주소, 열린 포트 등의 미리 결정 된 동작 집합에 대해 사용자 지정 경고를 설정할 수 있습니다. 사용자 지정 경고에 대 한 자세한 내용을 보려면 사용자 [지정 경고 만들기](quickstart-create-custom-alerts.md) 를 참조 하세요. 
 
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>로그는 어디서 확인할 수 있나요? 로그를 사용자 지정할 수 있습니까?
+## <a name="where-can-i-see-logs-can-i-customize-logs"></a>로그는 어디에서 볼 수 있나요? 로그를 사용자 지정할 수 있나요?
 
-- 경고 보기와 연결 된 Log Analytics 작업 영역을 사용 하 여 추천 합니다. 작업 영역에서 저장소 크기 및 기간을 구성 합니다.
+- 연결 된 Log Analytics 작업 영역을 사용 하 여 경고 및 권장 사항을 확인 합니다. 작업 영역에서 저장소 크기와 기간을 구성 합니다.
 
-- 원시 데이터에 보안 에이전트에서 Log Analytics 계정에도 저장할 수 있습니다. 이 옵션의 구성을 변경 하기 전에 크기, 기간, 저장소 요구 사항과 관련된 비용을 고려 합니다. 
+- 보안 에이전트의 원시 데이터를 Log Analytics 계정에 저장할 수도 있습니다. 이 옵션의 구성을 변경 하기 전에 크기, 기간, 저장소 요구 사항 및 관련 비용을 고려 하십시오. 
 
-## <a name="why-should-i-add-asc-for-iot-to-the-module-identity-what-is-it-used-for"></a>추가 하는 이유 ASC IoT에 대 한 모듈 id에? 용도는?
+## <a name="why-should-i-add-azure-security-center-for-iot-to-the-module-identity-what-is-it-used-for"></a>IoT에 대 한 Azure Security Center를 모듈 id에 추가 해야 하는 이유는 무엇 인가요? 용도는?
 
-ASC IoT 모듈에 대 한 에이전트 구성 및 관리에 사용 됩니다.
+IoT 모듈의 Azure Security Center는 에이전트 구성 및 관리에 사용 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT 용 ASC를 사용 하 여 시작 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+IoT에 대 한 Azure Security Center를 시작 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 
-- ASC IoT에 대 한 읽기 [개요](overview.md)
-- 확인 된 [필수 구성 요소 서비스](service-prerequisites.md)
-- 하는 방법에 자세히 알아보려면 [시작](getting-started.md)
-- 이해 [ASC IoT 보안 경고에 대 한](concept-security-alerts.md)
+- IoT에 대 한 Azure Security Center [개요](overview.md) 를 참조 하십시오.
+- [서비스 필수 구성 요소](service-prerequisites.md) 확인
+- [시작](getting-started.md) 하는 방법에 대 한 자세한 정보
+- [IoT 보안 경고에 대 한 Azure Security Center](concept-security-alerts.md) 이해
 

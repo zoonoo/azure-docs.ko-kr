@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516757"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple 가상 배열 모범 사례
+
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azure 클라우드 저장소에서 실행되는 온-프레미스 가상 디바이스 간의 저장소 작업을 관리하는 통합 저장소 솔루션입니다. StorSimple 가상 배열은 8000 시리즈 물리적 배열을 대신하는 효율적이고 경제적인 대체 수단입니다. 가상 배열은 기존 하이퍼바이저 인프라에서 실행할 수 있고, iSCSI와 SMB 프로토콜을 모두 지원하며, 원격 사무실/지점 시나리오에 적합합니다. StorSimple 솔루션에 대한 자세한 내용은 [Microsoft Azure StorSimple 개요](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx)를 참조하세요.
 
 이 문서는 StorSimple 가상 배열의 초기 설치, 배포 및 관리에서 구현된 모범 사례를 다룹니다. 이러한 모범 사례는 가상 배열의 설치 및 관리에 대한 검증된 지침을 제공합니다. 이 문서는 데이터 센터에 가상 배열을 배포하고 관리하는 IT 관리자를 대상으로 합니다.
@@ -75,9 +79,9 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 * 120GB 로컬 예약(1TB의 계층화된 볼륨/공유의 경우)
 * 로컬로 고정된 330GB 볼륨 또는 공유(로컬 예약의 10%를 프로비전된 300GB 크기에 추가)
 
-지금까지 로컬 계층에 필요한 총 공간은 다음과 같습니다. 240 GB + 120 GB + 330 GB = 690 GB.
+지금까지 로컬 계층에 필요한 총 공간은 다음과 같습니다. 240 G B + 120 GB + 330 GB = 690 GB
 
-둘째, 적어도 로컬 계층에 가장 큰 단일 예약만큼의 공간이 필요합니다. 이 추가 용량 클라우드 스냅샷으로 복원해야 할 경우에 사용됩니다. 이 예에서 가장 큰 로컬 예약은 330GB (파일 시스템에 대 한 예약 포함)에 690GB를 추가 하는 하므로: 690 + 330GB = 1020GB 합니다.
+둘째, 적어도 로컬 계층에 가장 큰 단일 예약만큼의 공간이 필요합니다. 이 추가 용량 클라우드 스냅샷으로 복원해야 할 경우에 사용됩니다. 이 예제에서 가장 큰 로컬 예약은 330 GB (파일 시스템 예약 포함) 이므로 690 GB에 추가 합니다. 690 G B + 330 GB = 1020 GB
 후속 추가 복원을 수행할 경우 항상 이전 복원 작업에서 공간을 확보할 수 있습니다.
 
 셋째, 지금까지 계산한 총 로컬 공간의 15%는 로컬 스냅샷을 저장하는 데 필요하므로 총 공간의 85%만 사용할 수 있습니다. 이 예에서는 약 1020GB = 0.85&ast;프로비전된 데이터 디스크(TB)입니다. 따라서 프로비전된 데이터 디스크는 (1020&ast;(1/0.85))= 1200GB = 1.20TB ~ 1.25TB(가장 가까운 사분위 수로 반올림)입니다.
@@ -88,7 +92,7 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 > 또한 로컬 디스크는 씬 프로비전이 좋습니다. 복원 공간은 5일을 초과한 데이터를 복원하려는 경우에만 필요하기 때문에 좋습니다. 항목 수준 복구를 사용하면 복원에 필요한 추가 공간 없이 최근 5일의 데이터를 복원할 수 있습니다.
 
 
-#### <a name="example-2"></a>예 2:
+#### <a name="example-2"></a>예제 2:
 가상 배열에서 다음 작업을 수행할 수 있습니다.
 
 * 2TB의 계층화된 볼륨 프로비전
@@ -99,7 +103,7 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 * 240GB 로컬 예약(2TB의 계층화된 볼륨/공유의 경우)
 * 로컬로 고정된 330GB 볼륨 또는 공유(로컬 예약의 10%를 프로비전된 300GB 공간에 추가)
 
-로컬 계층에 필요한 총 공간은 다음과 같습니다. 240 GB + 330 GB = 570 GB
+로컬 계층에 필요한 전체 공간은 다음과 같습니다. 240 G B + 330 GB = 570 GB
 
 복원에 필요한 최소 로컬 공간은 330GB입니다.
 
@@ -135,7 +139,7 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 * 클라우드 대역폭만(가상 배열에서 사용하는) 제한하려면 라우터 또는 방화벽에서 제한을 구성합니다. 하이퍼바이저에서 제한을 정의하면 클라우드 대역폭뿐 아니라 iSCSI 및 SMB를 비롯한 모든 프로토콜이 제한됩니다.
 * 하이퍼바이저에 대한 시간 동기화를 확인합니다. Hyper-V를 사용할 경우 Hyper-V 관리자에서 가상 배열을 선택하고, **설정 &gt; 통합 서비스**로 이동하여 **시간 동기화**를 선택합니다.
 
-### <a name="storage-accounts"></a>Storage 계정
+### <a name="storage-accounts"></a>저장소 계정
 StorSimple 가상 배열은 단일 저장소 계정과 연결할 수 있습니다. 이 저장소 계정은 자동으로 생성된 저장소 계정, 서비스와 동일한 구독의 계정 또는 또 다른 구독에 관련된 저장소 계정일 수 있습니다. 자세한 내용은 [가상 배열에 대한 저장소 계정 관리](storsimple-virtual-array-manage-storage-accounts.md)를 참조하세요.
 
 가상 배열과 연결된 저장소 계정의 경우 다음 권장 사항을 따릅니다.
@@ -203,7 +207,7 @@ StorSimple 가상 배열에는 데이터의 기밀성과 무결성을 보장하�
 ## <a name="operational-best-practices"></a>운영 모범 사례
 운영 모범 사례는 일상적인 관리나 가상 배열 운영에서 따라야 하는 지침입니다. 이 사례에서는 백업 수행, 백업 세트에서 복원, 장애 조치(Failover) 수행, 배열 비활성화 및 삭제, 시스템 사용량 및 상태 모니터링, 가상 배열의 바이러스 스캔 실행 등과 같은 특정 관리 작업에 대해 다룹니다.
 
-### <a name="backups"></a>Backup
+### <a name="backups"></a>예비
 가상 배열의 데이터를 클라우드에 백업하는 두 가지 방법이 있는데, 하나는 날마다 22:30에 전체 디바이스 백업을 시작하는 기본 백업이고, 다른 하나는 수동 주문형 백업입니다. 기본적으로 디바이스에 상주하는 모든 데이터의 클라우드 스냅샷이 날마다 자동으로 만들어집니다. 자세한 내용은 [StorSimple 가상 배열 백업](storsimple-virtual-array-backup.md)을 참조하세요.
 
 기본 백업과 연결된 빈도 및 보존 기간은 변경할 수 없지만 일일 백업이 시작되는 시간을 구성할 수 있습니다. 자동 백업의 시작 시간을 구성할 때에는 다음과 같이 하는 것이 좋습니다.
@@ -283,6 +287,6 @@ Windows 인덱싱 프로세스를 사용하는 경우 다음 지침을 따르세
 * 다중 가상 배열을 배포할 경우 부하 분산의 관점에서 여러 하이퍼바이저 호스트에 배열을 분산하는 것이 좋습니다.
 * 다중 가상 배열(파일 서버 또는 iSCSI 서버로 구성된 경우)을 분산 파일 시스템 네임스페이스에 배포할 수 있습니다. 자세한 단계는 [하이브리드 클라우드 저장소 배포 가이드를 사용하는 분산 파일 시스템 네임스페이스 솔루션](https://www.microsoft.com/download/details.aspx?id=45507)을 참조하세요. 현재는 가상 배열에 분산 파일 시스템 복제를 사용하지 않는 것이 좋습니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 StorSimple Manager 서비스를 통해 [StorSimple 가상 배열을 관리하는 방법](storsimple-virtual-array-manager-service-administration.md) 에 대해 알아봅니다.
 

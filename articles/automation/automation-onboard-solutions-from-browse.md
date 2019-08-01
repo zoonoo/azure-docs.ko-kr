@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 11dda62a7d8a92b17eb1d431e61086680f356195
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476615"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667337"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -28,7 +28,7 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 Azure Portal에서 **가상 머신**으로 이동합니다.
 
-확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure Vm의 Automation 계정 위치에 관계 없이 모든 지역에 있을 수 있습니다.
+확인란을 사용하여 변경 내용 추적 및 인벤토리 또는 업데이트 관리를 등록할 가상 머신을 선택합니다. 한 번에 최대 3개의 리소스 그룹을 등록할 수 있습니다. Azure Vm은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다.
 
 ![VM 목록](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -47,11 +47,13 @@ Azure Portal에서 **가상 머신**으로 이동합니다.
 
 온보딩에 사용할 수 있는 리소스 그룹 수는 [Resource Manager 배포 제한](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md)으로 제한됩니다. Resource Manager 배포(업데이트 배포와 혼동하지 말 것)는 배포당 5개의 리소스 그룹으로 제한됩니다. 온보딩의 무결성을 보장하기 위해 이러한 리소스 그룹 중 2개는 Log Analytics 작업 영역, Automation 계정 및 관련 리소스를 구성하기 위해 예약되어 있습니다. 그러면 배포를 위해 선택할 리소스 그룹이 3개 남습니다.
 
+Runbook을 온 보 딩에 사용할 수도 있습니다. 자세한 내용은 [Azure Automation에 대 한 업데이트 및 변경 내용 추적 솔루션](automation-onboard-solutions.md)등록을 참조 하세요.
+
 필터 컨트롤을 사용하여 다른 구독, 위치 및 리소스 그룹의 가상 머신을 선택할 수 있습니다.
 
 ![업데이트 관리 솔루션 등록](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 검토 합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
+Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 사항을 검토 합니다. 기존 작업 영역 및 Automation 계정은 기본적으로 선택됩니다. 서로 다른 Log Analytics 작업 영역 및 Automation 계정을 사용하려면 **사용자 지정 구성** 페이지에서 **사용자 지정**을 클릭하여 선택하면 됩니다. Log Analytics 작업 영역을 선택하는 경우 Automation 계정에 연결되는지 확인이 이루어집니다. 연결된 Automation 계정에 있으면 다음과 같은 화면이 표시됩니다. 완료하면 **확인**을 클릭합니다.
 
 ![작업 영역 및 계정 선택](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -62,7 +64,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 > [!NOTE]
 > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 >
-> 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
+> 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
@@ -76,7 +78,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 * [변경 내용 추적](automation-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-더 이상 Log Analytics 작업 영역과 Automation 계정을 통합 하려는 경우 Azure portal에서 직접 계정 연결을 해제할 수 없습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
+Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -87,7 +89,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png)을 선택합니다.
 
    계속할지 묻는 메시지가 나타납니다.
 
@@ -103,9 +105,9 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* variables
+* 변수
 
-또는 수 연결을 끊을 수도 작업 영역이 Automation 계정에서 Log Analytics 작업 영역에서 합니다. 작업 영역 선택 **Automation 계정** 아래에서 **관련 된 리소스**합니다. Automation 계정 페이지에서 선택 **계정을 연결 해제**합니다.
+또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -137,7 +139,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 **원인**: 클래식 배포 모델을 사용하는 가상 머신이 지원되지 않습니다.
 
-**솔루션**: Resource Manager 배포 모델에 가상 컴퓨터를 마이그레이션하십시오. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**솔루션**: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 

@@ -10,14 +10,14 @@ ms.author: tsikiksr
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 7c7d90d4ca1625edecc9d84e1ff7beec50032884
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 30dc731efdb6016f505b7a16860e0cb9c6480333
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444761"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716589"
 ---
-# <a name="tutorial-train-and-deploy-a-classification-model-with-automated-machine-learning-in-the-azure-portal-preview"></a>자습서: Azure Portal에서 자동화 된 machine learning을 사용 하 여 분류 모델 학습 및 배포 (미리 보기)
+# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 학습 및 배포 (미리 보기)
 
 이 자습서에서는 Azure Portal에서 첫 번째 자동화 된 machine learning 실험을 만드는 방법에 대해 알아봅니다. 이 예에서는 클라이언트가 은행에 약관을 구독 하는지 여부를 예측 하는 분류 모델을 만듭니다. 
 

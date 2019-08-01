@@ -4,7 +4,7 @@ description: Data Science Virtual Machine에 미리 설치된 도구 및 유틸�
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: d48c2b849f875289c89201f20478deebf4c00db9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236469"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565227"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에 대해 알아보기
 
 DSVM(데이터 과학 가상 머신)에는 많이 사용되는 광범위한 데이터 과학, 기계 학습/AI 도구 및 데이터 플랫폼 목록이 포함되어 있습니다. 도구 구성은 안정성 및 일반적인 실행 가능성을 보장하기 위해서 Microsoft의 데이터 과학자와 개발자 및 광범위한 데이터 과학 커뮤니티를 통해 엄격하게 테스트되었습니다.
 
-또한 DSVM에 로컬로 실행할 수 있는 Jupyter Notebook의 형태로 여러 코드 샘플 및 연습이 포함 됩니다. 이해를 돕기 위해 이러한 샘플에 대 한 설명서 이기도 합니다. 
+또한 DSVM에는 로컬에서 실행할 수 있는 Jupyter 노트북 형식의 여러 코드 샘플 및 연습이 포함 되어 있습니다. 이러한 샘플은 이해를 돕기 위한 설명서도 있습니다. 
 
 > [!NOTE]
-> 사용할 수 있습니다 [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) 를 만들고, 실행 및 클라우드에서 Jupyter notebook을 공유 합니다. 할 수 있습니다 [데이터 과학 VM을 Azure Notebooks 연결할](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) 를 사용할 수 있는 계산 능력을 확장 합니다.
+> [Azure Notebooks](../../notebooks/azure-notebooks-overview.md) 를 사용 하 여 클라우드에서 Jupyter 노트북을 만들고, 실행 하 고, 공유할 수 있습니다. [Data Science VM를 Azure Notebooks에 연결](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) 하 여 사용 가능한 계산 능력을 확장할 수 있습니다.
 
 데이터 과학 VM에 포함된 도구, 플랫폼, 유틸리티 및 샘플은 다음 섹션으로 구성되어 있습니다.
 

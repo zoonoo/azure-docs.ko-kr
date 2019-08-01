@@ -2,22 +2,22 @@
 title: 배포 계획 - Azure Active Directory | Microsoft Docs
 description: 많은 Azure Active Directory 기능을 배포하는 방법에 대한 엔드투엔드 지침입니다.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f172151b3b385cf936f7335048e172fa32ffa2ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304755"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562011"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드투엔드 지침을 찾고 계신가요? 다음 배포 계획은 보다 일반적인 Azure AD 기능을 성공적으로 출시하기 위해 필요한 비즈니스 가치, 계획 고려 사항, 디자인 및 운영 절차를 안내합니다. 
@@ -55,7 +55,7 @@ Azure AD(Azure Active Directory) 기능을 배포하는 방법에 대한 엔드�
 
 
 
-|시나리오 |Description |
+|시나리오 |설명 |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용하는 Azure MFA는 간단한 로그인 프로세스에 대한 요구를 충족하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호합니다.|
 |[조건부 액세스](https://aka.ms/deploymentplans/ca)|조건부 액세스를 사용 하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자에 대 한 자동화 된 액세스 제어 결정을 구현할 수 있습니다.|

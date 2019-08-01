@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444518"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568097"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지리적으로 분산된 데이터베이스 구현
 
@@ -30,7 +29,7 @@ Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

@@ -11,10 +11,10 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68426656"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>지역 복원 Azure SQL Data Warehouse
@@ -29,7 +29,7 @@ ms.locfileid: "68426656"
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>PowerShell을 통해 Azure 지역에서 복원
 
-지역 백업에서 복원 하려면 [AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] and [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet을 사용 합니다.
+지역 백업에서 복원 하려면 [AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] 및 [AzSqlDatabase][Restore-AzSqlDatabase] cmdlet을 사용 합니다.
 
 > [!NOTE]
 > 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.

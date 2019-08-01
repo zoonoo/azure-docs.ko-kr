@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61388345"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570428"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
 이 자습서에서는 SaaS 패턴을 프로비전하고 분류하는 방법을 알아봅니다. 또한 Wingtip Tickets SaaS Database-Per-Tenant 애플리케이션에서 구현되는 방식도 알아봅니다. 새 테넌트 데이터베이스를 만들고 초기화하고 애플리케이션의 테넌트 카탈로그에 등록합니다. 카탈로그는 SaaS 애플리케이션 간에 많은 테넌트와 해당 데이터를 유지 관리하는 데이터베이스입니다. 카탈로그는 애플리케이션 및 관리 요청을 올바른 데이터베이스에 디렉션하는 중요한 역할을 합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > 
@@ -46,7 +45,7 @@ ms.locfileid: "61388345"
 
 또한 카탈로그는 테넌트에 제공된 스키마 버전, 서비스 계획 또는 SLA와 같은 추가 테넌트 또는 데이터베이스 메타데이터를 저장할 수도 있습니다. 카탈로그는 애플리케이션 관리, 고객 지원 또는 DevOps를 사용할 수 있도록 하는 기타 정보를 저장할 수 있습니다. 
 
-SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. Wingtip Tickets SaaS 데이터베이스 당 테 넌 트 샘플에서 카탈로그에 대해서는 테 넌 트 간 쿼리를 활성화 하는 데 사용 합니다 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)합니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다. 
+SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. 정문 ticket SaaS 테 넌 트 별 데이터베이스 샘플에서 카탈로그는 테 넌 트 간 쿼리를 활성화 하는 데 사용 됩니다 .이 쿼리는 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)에서 살펴봅니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다. 
 
 Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할 관리 기능을 사용하여 구현됩니다. EDCL은 Java 및 .NET Framework에서 사용할 수 있습니다. EDCL을 통해 애플리케이션은 데이터베이스 기반 분할 맵을 만들고, 관리하고 사용할 수 있습니다. 
 
@@ -92,7 +91,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 4. 스크립트 실행이 중단점에서 중지된 후 F11 키를 눌러 한 단계씩 코드를 실행합니다.
 
-   ![디버그](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![디버깅](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -174,7 +173,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 [성능 모니터링 자습서](saas-dbpertenant-performance-monitoring.md)를 시도해 봅니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Wingtip Tickets SaaS Database-per-Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)

@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899420"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516940"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
-표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
+표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드 하 고 처리 하는 데 필요한 모든 코드를 작성할 수 있습니다.  
 
 연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
 
-* 메트릭 또는 검색 블레이드 맨 위에 있는 내보내기 단추를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다.
+* 메트릭 또는 검색 탭의 맨 위에 있는 내보내기 단추를 사용 하 여 테이블과 차트를 Excel 스프레드시트로 전송할 수 있습니다.
 
 * [분석](../../azure-monitor/app/analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공합니다. 결과를 내보낼 수도 있습니다.
 * [Power BI에서 데이터를 탐색](../../azure-monitor/app/export-power-bi.md )하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
@@ -35,29 +35,28 @@ ms.locfileid: "60899420"
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>연속 내보내기 고급 저장소 구성
 
-연속 내보내기 **지원 하지 않습니다** 다음 Azure storage 기능/구성:
+연속 내보내기는 다음과 같은 Azure storage 기능/구성을 **지원 하지** 않습니다.
 
-* 이용 [VNET/Azure Storage 방화벽](https://docs.microsoft.com/azure/storage/common/storage-network-security) Azure Blob storage와 함께에서 합니다.
+* Azure Blob Storage와 함께 [VNET/Azure Storage 방화벽](https://docs.microsoft.com/azure/storage/common/storage-network-security) 사용.
 
-* [변경할 수 없는 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) Azure Blob storage에 대 한 합니다.
+* Azure Blob 저장소에 대 한 변경할 수 없는 [저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 입니다.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)합니다.
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> 연속 내보내기 만들기
-1. 앱에 대한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
+
+1. 왼쪽의 구성에서 앱에 대 한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택 합니다.
 
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
-3. 데이터를 저장할 [Azure Storage 계정](../../storage/common/storage-introduction.md)을 만들거나 선택합니다. 저장소 가격 책정 옵션에 대한 자세한 내용은 [공식 책정 가격 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
+3. 데이터를 저장할 [Azure Storage 계정](../../storage/common/storage-introduction.md)을 만들거나 선택합니다. 저장소 가격 책정 옵션에 대 한 자세한 내용은 [공식 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조 하세요.
+
+     추가, 대상 내보내기, 저장소 계정을 차례로 클릭 한 다음 새 저장소를 만들거나 기존 저장소를 선택 합니다.
 
     > [!Warning]
     > 기본적으로 스토리지 위치는 Application Insights 리소스와 동일한 지역으로 설정됩니다. 다른 지역에 저장하는 경우 전송 요금이 발생할 수 있습니다.
 
-    ![추가, 내보내기 대상, Storage 계정을 클릭한 다음 새 저장소를 만들거나 기존 저장소 선택](./media/export-telemetry/02-add.png)
-
-4. 저장소에서 컨테이너를 만들거나 선택합니다.
-
-    ![이벤트 유형 선택 클릭](./media/export-telemetry/create-container.png)
+4. 저장소에서 컨테이너를 만들거나 선택 합니다.
 
 내보내기를 만들면 진행을 시작합니다. 내보내기를 만든 후에는 도착하는 데이터만 받게 됩니다.
 
@@ -65,9 +64,7 @@ ms.locfileid: "60899420"
 
 ### <a name="to-edit-continuous-export"></a>연속 내보내기를 편집하려면
 
-나중에 이벤트 유형을 변경하려는 경우 내보내기를 편집하면 됩니다.
-
-![이벤트 유형 선택 클릭](./media/export-telemetry/05-edit.png)
+연속 내보내기를 클릭 하 고 편집할 저장소 계정을 선택 합니다.
 
 ### <a name="to-stop-continuous-export"></a>연속 내보내기를 중지하려면
 
@@ -76,10 +73,10 @@ ms.locfileid: "60899420"
 내보내기를 영구적으로 중지하려면 삭제합니다. 이렇게 해도 저장소에서 데이터를 삭제하지 않습니다.
 
 ### <a name="cant-add-or-change-an-export"></a>내보내기를 추가 또는 변경할 수 있나요?
-* 내보내기를 추가 또는 변경하려면 소유자, 기여자 또는 Application Insights 기여자 액세스 권한이 필요합니다. [역할에 대해 알아봅니다][roles].
+* 내보내기를 추가 하거나 변경 하려면 소유자, 참가자 또는 Application Insights 참가자 액세스 권한이 필요 합니다. [역할에 대해 알아봅니다][roles].
 
 ## <a name="analyze"></a> 어떤 이벤트를 얻나요?
-클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 애플리케이션에서 수신하는 원시 원격 분석입니다.
+내보낸 데이터는 클라이언트 IP 주소에서 계산 하는 위치 데이터를 추가 한다는 점을 제외 하 고 응용 프로그램에서 수신 하는 원시 원격 분석입니다.
 
 [샘플링](../../azure-monitor/app/sampling.md) 에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
 
@@ -93,7 +90,7 @@ ms.locfileid: "60899420"
 >
 
 ## <a name="get"></a> 데이터 검사
-포털에서 직접 저장소를 검사할 수 있습니다. **찾아보기**를 클릭하고 저장소 계정을 선택한 후 **컨테이너**를 엽니다.
+포털에서 직접 저장소를 검사할 수 있습니다. 맨 왼쪽 메뉴에서 홈을 클릭 하 고, "Azure 서비스"가 **저장소 계정**을 선택 하 고, 저장소 계정 이름을 선택 하 고, 개요 페이지에서 서비스 아래의 **blob** 을 선택 하 고, 마지막으로 컨테이너 이름을 선택 합니다.
 
 Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고, 시각적 개체 C#/클라우드를 확장하고 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
 
@@ -107,7 +104,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where
+위치
 
 * `blobCreationTimeUtc` 는 Blob이 내부 준비 저장소에 만들어진 시간입니다.
 * `blobDeliveryTimeUtc` 는 Blob이 내보내기 대상 저장소에 복사되는 시간입니다.
@@ -128,7 +125,7 @@ Where
 [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>데이터 처리
-작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예를 들면 다음과 같습니다.
+작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -147,17 +144,15 @@ Where
       }
     }
 
-더 큰 코드 샘플에 대해서는 [작업자 역할 사용][exportasa]을 참조하세요.
+더 큰 코드 샘플은 [작업자 역할 사용][exportasa]을 참조 하세요.
 
 ## <a name="delete"></a>이전 데이터 삭제
-하는 저장소 용량을 관리 하 고 필요한 경우 이전 데이터를 삭제 하는 일을 담당 합니다.
+저장소 용량을 관리 하 고 필요한 경우 이전 데이터를 삭제 해야 합니다.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>저장소 키를 다시 생성하는 경우...
 저장소 키를 변경하는 경우 연속 내보내기 작업이 중지됩니다. Azure 계정에 알림이 표시됩니다.
 
-연속 내보내기 블레이드를 열고 내보내기를 편집합니다. 내보내기 대상을 편집하되 선택한 것과 동일한 저장소는 그대로 둡니다. 확인을 클릭하여 확인합니다.
-
-![연속 내보내기를 편집하고 내보내기 대상을 열고 닫기](./media/export-telemetry/07-resetstore.png)
+연속 내보내기 탭을 열고 내보내기를 편집 합니다. 내보내기 대상을 편집하되 선택한 것과 동일한 저장소는 그대로 둡니다. 확인을 클릭하여 확인합니다.
 
 연속 내보내기가 다시 시작됩니다.
 
@@ -168,10 +163,10 @@ Where
 
 더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/) (클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터에 대한 다양한 관리 분석 기술을 제공하므로 이를 사용하여 Application Insights에서 내보낸 데이터를 처리할 수 있습니다.
 
-## <a name="q--a"></a>질문과 대답
+## <a name="q--a"></a>Q&A
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
 
-    예, 수행할 수 있습니다. 블레이드 맨 위에서 **데이터 내보내기**를 클릭합니다.
+    예, 수행할 수 있습니다. 탭 위쪽에서 **데이터 내보내기**를 클릭 합니다.
 * *내보내기를 설정했지만 내 저장소에 데이터가 없습니다.*
 
     내보내기를 설정한 후 Application Insights가 앱에서 원격 분석을 받았나요? 새 데이터만 받게 됩니다.
@@ -187,10 +182,10 @@ Where
 * *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.
-  * 또한, 트래픽이 많은 애플리케이션은 추가 파티션이 할당됩니다. 이 경우 단위당 1 분 마다 blob을 만듭니다.
+  * 또한, 트래픽이 많은 애플리케이션은 추가 파티션이 할당됩니다. 이 경우 각 단위는 1 분 마다 blob을 만듭니다.
 * *내 저장소 키를 다시 생성하거나 컨테이너의 이름을 변경한 경우에는 현재 내보내기가 동작하지 않습니다.*
 
-    내보내기를 편집하고 내보내기 대상 블레이드를 엽니다. 이전과 마찬가지로 선택된 것과 동일한 저장소는 그대로 두고 확인을 클릭하여 확인합니다. 내보내기가 다시 시작됩니다. 지난 몇 일 이내에 변경된 경우 데이터가 손실됩니다.
+    내보내기를 편집 하 고 내보내기 대상 탭을 엽니다. 이전과 마찬가지로 선택된 것과 동일한 저장소는 그대로 두고 확인을 클릭하여 확인합니다. 내보내기가 다시 시작됩니다. 지난 몇 일 이내에 변경된 경우 데이터가 손실됩니다.
 * *내보내기를 일시 중지할 수 있나요?*
 
     예. 사용 안함을 클릭합니다.

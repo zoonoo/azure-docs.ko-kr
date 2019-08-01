@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
 ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68348650"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -125,7 +125,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
   + Vm을 배포 합니다.
   + RHEL Linux를 업데이트 하 고 파일 시스템을 구성 합니다.
   + Pacemaker를 설치 하 고 구성 합니다.
-  + [Glusterfs 클러스터][glusterfs] 설정 or [Azure NetApp Files][anf-rhel]
+  + [Glusterfs 클러스터][glusterfs] 또는 [Azure NetApp Files][anf-rhel] 설정
   + [별도의 클러스터에 Ascs/ERS][ascs-ha-rhel]를 설치 합니다.
   + Distributed/High Availability 옵션 (SWPM)을 사용 하 여 IBM Db2 데이터베이스를 설치 합니다.
   + 보조 데이터베이스 노드 및 인스턴스를 설치 하 고 만들고 HADR을 구성 합니다.
@@ -241,7 +241,7 @@ sudo firewall-cmd --add-port=4237/tcp</code></pre>
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템**  **배포 데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다. >  > 
+1. **대상 시스템** **배포 데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다. >  > 
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 

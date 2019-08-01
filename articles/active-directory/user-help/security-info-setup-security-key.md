@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386500"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717394"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>보안 키 (미리 보기)를 사용 하도록 보안 정보 설정
 
@@ -30,26 +30,26 @@ ms.locfileid: "68386500"
 
 ## <a name="what-is-a-security-key"></a>보안 키 란?
 
-현재 [FIDO (Fast Identity Online)](https://fidoalliance.org/fido2/) (FIDO2) 암호 없는 인증 방법을 사용 하 여 보안 키의 여러 디자인 및 공급자를 지원 합니다. 이 방법을 통해 회사 또는 학교 계정에 한 번 로그인 하 여 조직의 모든 클라우드 기반 리소스 및 지원 되는 브라우저에 액세스할 수 있습니다.
+현재 [FIDO (Fast Identity Online)](https://fidoalliance.org/fido2/) (FIDO2) 암호 없는 인증 프로토콜을 사용 하 여 보안 키의 여러 디자인 및 공급자를 지원 합니다. 이러한 키를 통해 회사 또는 학교 계정에 로그인 하 여 지원 되는 장치 및 웹 브라우저에서 조직의 클라우드 기반 리소스에 액세스할 수 있습니다.
 
 관리자 또는 조직에서는 회사 또는 학교 계정에 필요한 보안 키를 제공 합니다. 장치에 연결 하는 USB 키 또는 NFC 판독기를 누르는 NFC 키와 같이 사용할 수 있는 다양 한 유형의 보안 키가 있습니다. 보안 키에 대 한 자세한 내용은 제조업체의 설명서에서 확인할 수 있습니다.
 
 > [!Note]
-> FIDO2 보안 키를 사용할 수 없는 경우 Microsoft Authenticator 앱 또는 Windows Hello와 같이 사용할 수 있는 다른 암호 없는 인증 방법이 있습니다. Microsoft Authenticator 앱에 대 한 자세한 내용은 [Microsoft Authenticator 앱 이란?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview)을 참조 하세요. Windows Hello에 대 한 자세한 내용은 [Windows hello 개요](https://www.microsoft.com/windows/windows-hello)를 참조 하세요.
+> FIDO2 보안 키를 사용할 수 없는 경우 Microsoft Authenticator 앱 또는 Windows Hello와 같이 사용할 수 있는 다른 암호 없는 인증 방법이 있습니다. Microsoft Authenticator 앱에 대 한 자세한 내용은 [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md)을 참조 하세요. Windows Hello에 대 한 자세한 내용은 [Windows hello 개요](https://www.microsoft.com/windows/windows-hello)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-보안 키 등록을 시작 하기 전에 다음을 두 번 확인 합니다.
+보안 키를 등록 하려면 다음 조건이 충족 되어야 합니다.
 
 - 관리자가 조직 내에서이 기능을 사용 하도록 설정 했습니다.
 
-- Windows 10, 버전 1903 이상을 실행 하는 장치에서 Microsoft Edge 브라우저를 사용 하 고 있습니다.
+- Windows 10 2019 5 월 업데이트를 실행 하는 장치에서 지원 되는 브라우저를 사용 하 고 있습니다.
 
-- 관리자 또는 조직에서 물리적 보안 키를 받았습니다. 보안 키는 FIDO2 및 Microsoft 규격 이어야 합니다. 보안 키와 호환 여부에 대 한 질문이 있는 경우 조직의 지원 센터에 문의 하세요.
+- 관리자 또는 조직에서 승인한 물리적 보안 키가 있습니다. 보안 키는 FIDO2 및 Microsoft 규격 이어야 합니다. 보안 키와 호환 여부에 대 한 질문이 있는 경우 조직의 지원 센터에 문의 하세요.
 
 ## <a name="register-your-security-key"></a>보안 키 등록
 
-키를 사용 하 여 회사 또는 학교 계정에 로그인 하기 전에 Windows 및 고유한 PIN으로 작업 하려면 보안 키를 준비 해야 합니다.
+키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
 1. 에서 https://myprofile.microsoft.com **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
@@ -96,7 +96,7 @@ ms.locfileid: "68386500"
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>보안 정보에서 보안 키 삭제
 
-보안 키를 더 이상 사용 하지 않으려는 경우 보안 정보에서 키를 삭제할 수 있습니다. 이렇게 하면 보안 키가 회사 또는 학교 계정에서 사용 되지 않고 보안 키가 계속 해 서 데이터 및 자격 증명 정보를 저장 합니다. 보안 키 자체에서 데이터 및 자격 증명 정보를 삭제 하려면이 문서의 [Microsoft 호환 보안 키 다시 설정](#reset-your-security-key) 섹션에 있는 지침을 따라야 합니다.
+보안 키를 잃어버리지 하거나 더 이상 사용 하지 않으려는 경우 보안 정보에서 키를 삭제할 수 있습니다. 이렇게 하면 보안 키가 회사 또는 학교 계정에서 사용 되지 않고 보안 키가 계속 해 서 데이터 및 자격 증명 정보를 저장 합니다. 보안 키 자체에서 데이터 및 자격 증명 정보를 삭제 하려면이 문서의 [Microsoft 호환 보안 키 다시 설정](#reset-your-security-key) 섹션에 있는 지침을 따라야 합니다.
 
 1. 제거할 보안 키에서 **삭제** 링크를 선택 합니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "68386500"
     보안 키가 삭제 되 고 더 이상 회사 또는 학교 계정에 로그인 하는 데 사용할 수 없습니다.
 
 >[!Important]
->이 보안 키를 실수로 삭제 한 경우이 문서에서 [보안 키를 등록 하는 방법](#register-your-security-key) 섹션의 지침을 사용 하 여 다시 등록 해야 합니다.
+>보안 키를 실수로 삭제 하는 경우이 문서의 [보안 키를 등록 하는 방법](#register-your-security-key) 섹션에 설명 된 지침에 따라 다시 등록할 수 있습니다.
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>Windows 설정에서 보안 키 설정 관리
 
@@ -138,29 +138,19 @@ ms.locfileid: "68386500"
 
 1. Windows 설정 앱을 열고 **계정**을 선택 하 고 **로그인 옵션**을 선택한 다음 **보안 키**를 선택 하 고 **관리**를 선택 합니다.
 
-2. 보안 키를 USB 포트에 삽입 하거나 NFC 판독기를 탭 하 여 id를 확인 합니다. 5
+2. 보안 키를 USB 포트에 삽입 하거나 NFC 판독기를 탭 하 여 id를 확인 합니다.
 3. **보안 키 pin** 영역에서 **추가** 를 선택 하 고 새 보안 키 pin을 입력 한 다음 **확인**을 선택 합니다.
 
-    보안 키는 회사 또는 학교 계정에 사용 하기 위해 새 보안 키 PIN으로 업데이트 됩니다. PIN을 다시 변경 하기로 결정 한 경우에는 **변경** 단추를 선택할 수 있습니다. 6
+     보안 키는 회사 또는 학교 계정에 사용 하기 위해 새 보안 키 PIN으로 업데이트 됩니다. PIN을 다시 변경 하기로 결정 한 경우에는 **변경** 단추를 선택할 수 있습니다.
 4. **닫기** 를 선택 하 여 **관리** 화면을 닫습니다.
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
-수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
-
-- **Authenticator 앱.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
-
-- **모바일 디바이스 텍스트.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정에 사용할 코드가 포함된 문자를 받습니다. 문자 메시지(SMS)를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [문자 메시지(SMS)를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)을 참조하세요.
-
-- **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
-
-- **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
-
-- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+보안 키를 등록 하려면 하나 이상의 추가 보안 확인 방법이 등록 되어 있어야 합니다. 자세한 내용은 [개요 섹션](security-info-add-update-methods-overview.md) 을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 암호 없는 인증 방법에 대 한 자세한 내용은 [Microsoft의 Azure AD에서 FIDO2 보안 키에 대 한 공개 미리 보기를 시작 하 고, 암호 없는 로그인 블로그를 사용 하도록 설정](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) 하거나, [Microsoft Authenticator 앱 이란?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) 을 [참조 하세요. Windows Hello 개요](https://www.microsoft.com/windows/windows-hello) 문서.
+- 암호 없는 인증 방법에 대 한 자세한 내용은 [Microsoft의 Azure AD에서 FIDO2 보안 키에 대 한 공개 미리 보기를 시작 하 고, 암호 없는 로그인 블로그를 사용 하도록 설정](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) 하거나, [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md) 을 [참조 하세요. Windows Hello 개요](https://www.microsoft.com/windows/windows-hello) 문서.
 
 - [Microsoft 규격 보안 키](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)에 대 한 자세한 정보.
 

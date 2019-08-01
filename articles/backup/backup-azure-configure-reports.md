@@ -1,18 +1,19 @@
 ---
 title: Azure Backup용 보고서 구성
 description: Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 Power BI 보고서를 구성하는 방법을 설명합니다.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
-ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466623"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689350"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 구성 보고서
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 보고서를 구성하기 위해 수행해야 하는 단계를 설명합니다. 또한 Power BI를 사용하여 보고서에 액세스하는 방법도 설명합니다. 이러한 단계를 완료한 후에는 Power BI로 직접 이동하여 보고서를 확인, 사용자 지정 및 작성할 수 있습니다.

@@ -1,156 +1,156 @@
 ---
 title: 응용 프로그램 게이트웨이 구성 요소
-description: 이 문서에서는 application gateway의 다양 한 구성 요소에 대 한 정보를 제공합니다.
+description: 이 문서에서는 응용 프로그램 게이트웨이의 다양 한 구성 요소에 대 한 정보를 제공 합니다.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273225"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597370"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
- Application gateway는 단일 클라이언트에 대 한 연결 지점으로 사용 됩니다. Azure Vm, 가상 머신 확장 집합, Azure App Service 및 온-프레미스/외부 서버를 포함 하는 여러 백 엔드 풀에 걸쳐 트래픽을 응용 프로그램을 배포 합니다. 응용 프로그램 게이트웨이 트래픽,이 문서에서 설명 하는 여러 구성 요소를 사용 합니다.
+ 응용 프로그램 게이트웨이는 클라이언트의 단일 연락 지점으로 사용 됩니다. 들어오는 응용 프로그램 트래픽을 Azure Vm, 가상 머신 확장 집합, Azure App Service 및 온-프레미스/외부 서버를 포함 하는 여러 백 엔드 풀에 분산 합니다. 트래픽을 분산 하기 위해 application gateway는이 문서에 설명 된 여러 구성 요소를 사용 합니다.
 
-![Application gateway에 사용 되는 구성 요소](./media/application-gateway-components/application-gateway-components.png)
+![응용 프로그램 게이트웨이에서 사용 되는 구성 요소](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-addresses"></a>프런트 엔드 IP 주소
 
-프런트 엔드 IP 주소에는 응용 프로그램 게이트웨이 사용 하 여 연결 된 IP 주소가입니다. 공용 IP 주소, IP 주소를 개인 또는 둘 다 응용 프로그램 게이트웨이 구성할 수 있습니다. Application gateway는 공용 또는 개인 IP 주소 하나를 지원합니다. 가상 네트워크 및 공용 IP 주소는 application gateway와 동일한 위치에 있어야 합니다. 를 만든 후 프런트 엔드 IP 주소를 수신기와 관련이 있습니다.
+프런트 엔드 IP 주소는 application gateway와 연결 된 IP 주소입니다. 공용 IP 주소, 개인 IP 주소 또는 둘 다를 갖도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. Application gateway는 하나의 공용 또는 하나의 개인 IP 주소를 지원 합니다. 가상 네트워크 및 공용 IP 주소는 application gateway와 동일한 위치에 있어야 합니다. 만든 후 프런트 엔드 IP 주소는 수신기와 연결 됩니다.
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>정적 및 동적 공용 IP 주소
 
-Azure Application Gateway V2 SKU 중 모두 고정 내부 IP 주소 및 고정 공용 IP 주소 또는 정적 공용 IP 주소만 지원 하도록 구성할 수 있습니다. 고정 내부 IP 주소만 지원 하도록 구성할 수 없습니다.
+고정 내부 IP 주소와 정적 공용 IP 주소 또는 고정 공용 IP 주소만 지원 하도록 Azure 애플리케이션 Gateway V2 SKU를 구성할 수 있습니다. 고정 내부 IP 주소만 지원 하도록 구성할 수 없습니다.
 
-고정 내부 IP 주소 및 동적 공용 IP 주소를 지원 하도록 V1 SKU를 구성할 수 있습니다만 정적 내부 IP 주소 또는 동적 공용 IP 주소만 합니다. 실행 중인 게이트웨이에서 Application Gateway의 동적 IP 주소가 변경 되지 않습니다. 중지 하거나 게이트웨이 시작 하는 경우에 변경할 수 있습니다. 이 변경 되지 않는 시스템 오류, 업데이트, Azure 호스트 업데이트 등입니다. 
+V1 SKU는 고정 내부 IP 주소 및 동적 공용 IP 주소, 정적 내부 IP 주소, 동적 공용 ip 주소 또는 동적 개인 IP 주소, 동적 개인 ip 주소 또는 동적 개인 ip 주소만 지원 하도록 구성할 수 있습니다. Application Gateway의 동적 IP 주소는 실행 중인 게이트웨이에서 변경 되지 않습니다. 게이트웨이를 중지 하거나 시작 하는 경우에만 변경할 수 있습니다. 시스템 오류, 업데이트, Azure 호스트 업데이트 등은 변경 되지 않습니다. 
 
-Application gateway와 연결 된 DNS 이름을 gateway의 수명 주기 동안 변경 되지 않습니다. 결과적으로, CNAME 별칭을 사용 하 고 응용 프로그램 게이트웨이의 DNS 주소를 가리키도록 해야 합니다.
+Application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 주기 동안 변경 되지 않습니다. 따라서 CNAME 별칭을 사용 하 여 application gateway의 DNS 주소를 가리키도록 해야 합니다.
 
 ## <a name="listeners"></a>수신기
 
-수신기는 들어오는 연결 요청을 확인 하는 논리 엔터티입니다. 수신기는 프로토콜, 포트, 호스트 및 IP 주소를 요청과 연결 된 수신기 구성과 사용 하 여 연결 된 동일한 요소와 일치 하는 경우 요청을 수락 합니다.
+수신기는 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 요청과 연결 된 프로토콜, 포트, 호스트 및 IP 주소가 수신기 구성과 연결 된 동일한 요소와 일치 하는 경우 수신기는 요청을 수락 합니다.
 
-응용 프로그램 게이트웨이 사용 하기 전에 하나 이상의 수신기를 추가 해야 합니다. application gateway에 연결 된 리스너가 여러 개 있을 수 있으며 동일한 프로토콜에 사용할 수 있습니다.
+응용 프로그램 게이트웨이를 사용 하기 전에 하나 이상의 수신기를 추가 해야 합니다. Application gateway에 연결 된 수신기가 여러 개 있을 수 있으며, 동일한 프로토콜에 대해 사용할 수 있습니다.
 
-클라이언트에서 들어오는 요청을 감지 하는 수신기 후 application gateway 백 엔드 풀에서 멤버에 이러한 요청을 라우팅합니다. Application gateway는 들어오는 요청을 수신 하는 수신기에 대해 정의 된 요청 라우팅 규칙을 사용 합니다.
+수신기가 클라이언트에서 들어오는 요청을 감지 하면 응용 프로그램 게이트웨이는 이러한 요청을 백 엔드 풀의 멤버로 라우팅합니다. 응용 프로그램 게이트웨이는 들어오는 요청을 수신 하는 수신기에 대해 정의 된 요청 라우팅 규칙을 사용 합니다.
 
-수신기는 다음 포트와 프로토콜을 지원합니다.
+수신기는 다음 포트 및 프로토콜을 지원 합니다.
 
 ### <a name="ports"></a>포트
 
-포트는 클라이언트 요청에 대 한 수신기를 수신 하는 위치입니다. 1 사이에 속하는 65502 v1 SKU 및 1을 65199 v2 SKU에 대 한 포트를 구성할 수 있습니다.
+포트는 수신기가 클라이언트 요청을 수신 대기 하는 위치입니다. V1 SKU의 경우 1에서 65502 사이의 포트를 구성 하 고, v2 SKU의 경우 1 ~ 65199로 구성할 수 있습니다.
 
 ### <a name="protocols"></a>프로토콜
 
-Application Gateway에는 네 가지 프로토콜을 지원합니다. HTTP, HTTPS, http/2 및 WebSocket:
+Application Gateway는 네 가지 프로토콜을 지원 합니다. HTTP, HTTPS, HTTP/2 및 WebSocket:
 
-- 수신기 구성에서 프로토콜은 HTTP 및 HTTPS 간의 지정 합니다.
-- 에 대 한 지원 [http/2 및 Websocket 프로토콜](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) , 기본적으로 제공 됩니다 하 고 [WebSocket 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 기본적으로 사용 됩니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기를 사용 하 여 Websocket을 사용 합니다.
-- Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대한 통신은 HTTP/1.1을 통해 이루어집니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 사용 하도록 선택할 수 있습니다.
+- 수신기 구성에서 HTTP 및 HTTPS 프로토콜을 지정 합니다.
+- [Websocket 및 HTTP/2 프로토콜](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
+- Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대한 통신은 HTTP/1.1을 통해 이루어집니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
-SSL 종료를 위한 HTTPS 수신기를 사용 합니다. HTTPS 수신기를 웹 서버에서 오버 헤드가 부담이 되지 않습니다 있도록 응용 프로그램 게이트웨이에, 암호화 및 암호 해독 작업을 오프 로드 합니다. 응용 프로그램 비즈니스 논리에 집중 하 게 됩니다.
+SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 및 암호 해독 작업을 응용 프로그램 게이트웨이로 오프 로드 하므로 웹 서버가 오버 헤드로 부담이 되지 않습니다. 그러면 앱이 자유롭게 비즈니스 논리에 집중할 수 있습니다.
 
 ### <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
-Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다. Application Gateway 요청을 백 엔드에 연결할 수 없는 경우 사용자 지정 오류 페이지를 표시 합니다.
+Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다. Application Gateway 요청에서 백 엔드에 연결할 수 없는 경우 사용자 지정 오류 페이지가 표시 됩니다.
 
-자세한 내용은 [application gateway에 대 한 사용자 지정 오류 페이지](https://docs.microsoft.com/azure/application-gateway/custom-error)합니다.
+자세한 내용은 [application gateway에 대 한 사용자 지정 오류 페이지](https://docs.microsoft.com/azure/application-gateway/custom-error)를 참조 하세요.
 
-### <a name="types-of-listeners"></a>수신기의 형식
+### <a name="types-of-listeners"></a>수신기 형식
 
-수신기는 다음과 같은 두 종류가 있습니다.
+수신기에는 두 가지 유형이 있습니다.
 
-- **Basic**. Application gateway의 IP 주소에 대 한 단일 DNS 매핑을 권한이 있는 단일 도메인 사이트에이 유형의 수신기 수신 대기 합니다. 이 수신기 구성은 응용 프로그램 게이트웨이 뒤에 단일 사이트를 호스트 하는 경우에 필요 합니다.
+- **Basic**. 이 유형의 수신기는 단일 도메인 사이트를 수신 대기 합니다. 여기에는 응용 프로그램 게이트웨이의 IP 주소에 대 한 단일 DNS 매핑이 있습니다. 이 수신기 구성은 응용 프로그램 게이트웨이 뒤에 단일 사이트를 호스트 하는 경우에 필요 합니다.
 
-- **다중 사이트**합니다. 이 수신기 구성은 동일한 응용 프로그램 게이트웨이 인스턴스에서 둘 이상의 웹 응용 프로그램을 구성한 경우에 필요 합니다. 응용 프로그램 게이트웨이를 최대 100 개의 웹 사이트를 추가 하 여 배포에 대 한 보다 효율적인 토폴로지를 구성 할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어, 세 하위 도메인, abc.contoso.com, xyz.contoso.com, 및 pqr.contoso.com, application gateway의 IP 주소를 가리킵니다. 세 가지 다중 사이트 수신기 만들고 해당 포트 및 프로토콜 설정에 대 한 각 수신기를 구성 합니다.
+- **다중 사이트**. 이 수신기 구성은 동일한 application gateway 인스턴스에서 둘 이상의 웹 응용 프로그램을 구성할 때 필요 합니다. 이를 통해 응용 프로그램 게이트웨이에 최대 100 개의 웹 사이트를 추가 하 여 배포에 더 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 3 개의 하위 도메인 abc.contoso.com, xyz.contoso.com 및 pqr.contoso.com는 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다.
 
-    자세한 내용은 [다중 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)합니다.
+    자세한 내용은 [다중 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)을 참조 하세요.
 
-수신기를 만든 후 요청 라우팅 규칙을 사용 하 여 연결 합니다. 이 규칙은 백 엔드 수신기에서 수신한 요청 라우팅해야 하는 방법을 결정 합니다.
+수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 받은 요청을 백 엔드로 라우팅하는 방법을 결정 합니다.
 
-Application Gateway 수신기 순서 대로 처리 합니다. 기본 수신기 들어오는 요청과 일치 하는 경우 먼저 처리 됩니다. 트래픽이 올바른 백 엔드에 라우트하도록 기본 수신기 보다 먼저 다중 사이트 수신기를 구성 합니다.
+Application Gateway는 표시 된 순서 대로 수신기를 처리 합니다. 기본 수신기가 들어오는 요청과 일치 하는 경우 먼저 처리 됩니다. 트래픽을 올바른 백 엔드로 라우팅하려면 기본 수신기 앞에 다중 사이트 수신기를 구성 합니다.
 
 ## <a name="request-routing-rules"></a>라우팅 규칙 요청
 
-요청 라우팅 규칙을 application gateway의 핵심 구성 요소 이므로 수신기에서 트래픽을 라우팅하는 방법을 결정 합니다. 규칙은 수신기, 백 엔드 서버 풀 및 백 엔드 HTTP 설정에 바인딩합니다.
+요청 라우팅 규칙은 수신기에서 트래픽을 라우팅하는 방법을 결정 하기 때문에 응용 프로그램 게이트웨이의 주요 구성 요소입니다. 규칙은 수신기, 백 엔드 서버 풀 및 백 엔드 HTTP 설정을 바인딩합니다.
 
-수신기에서 요청을 승인 요청 라우팅 규칙 백 엔드에 요청을 전달 하거나 다른 위치에 리디렉션합니다. 백 엔드에 요청 전달 될 경우 요청 라우팅 규칙에 전달 하는 백 엔드 서버 풀을 정의 합니다. 또한 요청 라우팅 규칙 요청 헤더를 다시 작성 하려는 경우 또한 결정 합니다. 수신기를 하나 이상의 규칙에 연결할 수 있습니다.
+수신기에서 요청을 수락 하는 경우 요청 라우팅 규칙은 요청을 백 엔드로 전달 하거나 다른 위치로 리디렉션합니다. 요청이 백 엔드로 전달 되는 경우 요청 라우팅 규칙은 전달할 백 엔드 서버 풀을 정의 합니다. 또한 요청 라우팅 규칙은 요청 헤더를 다시 쓸지 여부도 결정 합니다. 하나의 수신기를 하나의 규칙에 연결할 수 있습니다.
 
-요청 라우팅 규칙에는 다음과 같은 두 종류가 있습니다.
+요청 라우팅 규칙에는 다음과 같은 두 가지 유형이 있습니다.
 
-- **Basic**. 연결 된 수신기 (예를 들어 blog.contoso.com/*)에서 모든 요청은 관련된 HTTP 설정을 사용 하 여 연결 된 백 엔드 풀에 전달 됩니다.
+- **Basic**. 연결 된 수신기의 모든 요청 (예: blog.contoso.com/*)은 연결 된 HTTP 설정을 사용 하 여 연결 된 백 엔드 풀로 전달 됩니다.
 
-- **경로 기반**입니다. 이 라우팅 규칙 요청에 URL을 기준으로 특정 백 엔드 풀에 연결 된 수신기에서 요청을 라우팅할 수 있습니다. 요청에서 URL의 경로 경로 기반 규칙에 경로 패턴과 일치 하는 경우 규칙이 해당 요청을 라우팅합니다. 해당 쿼리 매개 변수가 아니라 URL 경로만 경로 패턴도 적용합니다. 수신기 요청 URL 경로 경로 기반 규칙 일치 하지 않으면, 기본 백 엔드 풀 및 HTTP 설정을 요청을 라우팅합니다.
+- **경로를 기반으로**합니다. 이 라우팅 규칙을 사용 하면 요청 된 URL에 따라 연결 된 수신기의 요청을 특정 백 엔드 풀로 라우팅할 수 있습니다. 요청에 있는 URL의 경로가 경로 기반 규칙의 경로 패턴과 일치 하는 경우 규칙은 해당 요청을 라우팅합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다. 수신기 요청의 URL 경로가 경로 기반 규칙과 일치 하지 않으면 기본 백 엔드 풀 및 HTTP 설정에 요청을 라우팅합니다.
 
-자세한 내용은 [URL 기반 라우팅](https://docs.microsoft.com/azure/application-gateway/url-route-overview)합니다.
+자세한 내용은 [URL 기반 라우팅](https://docs.microsoft.com/azure/application-gateway/url-route-overview)을 참조 하세요.
 
 ### <a name="redirection-support"></a>리디렉션 지원
 
-또한 요청 라우팅 규칙을 사용 하면 응용 프로그램 게이트웨이에서 트래픽을 리디렉션할 수 있습니다. 리디렉션할 수 있습니다 하 고 규칙을 사용 하 여 정의한 모든 포트에서를 일반적인 리디렉션 메커니즘입니다.
+또한 요청 라우팅 규칙을 사용 하면 응용 프로그램 게이트웨이에서 트래픽을 리디렉션할 수 있습니다. 이는 일반 리디렉션 메커니즘 이므로 규칙을 사용 하 여 정의 하는 모든 포트로 리디렉션할 수 있습니다.
 
-리디렉션 대상 (도움이 되는 자동 HTTP-HTTPS 리디렉션 사용 하도록 설정) 다른 수신기 또는 외부 사이트를 선택할 수 있습니다. 임시 또는 영구 리디렉션 할 또는 리디렉션된 URL에 URI 경로 및 쿼리 문자열을 추가할 수도 있습니다.
+리디렉션 대상을 다른 수신기 (자동 HTTP에서 HTTPS로의 리디렉션을 사용 하도록 설정 하는 데 도움이 될 수 있음) 또는 외부 사이트를 선택할 수 있습니다. 리디렉션을 일시적 또는 영구적으로 또는 URI 경로 및 쿼리 문자열을 리디렉션된 URL에 추가 하도록 선택할 수도 있습니다.
 
-자세한 내용은 [응용 프로그램 게이트웨이에서 트래픽을 리디렉션할](https://docs.microsoft.com/azure/application-gateway/redirect-overview)합니다.
+자세한 내용은 [응용 프로그램 게이트웨이에서 트래픽 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-overview)을 참조 하세요.
 
 ### <a name="rewrite-http-headers"></a>HTTP 헤더 다시 쓰기
 
-요청 라우팅 규칙을 사용 하 여 추가, 제거 또는 HTTP (S) 요청을 업데이트 및 응용 프로그램 게이트웨이 통해 풀 클라이언트와 백 엔드 간에 이동 요청 및 응답 패킷에 대 한 응답 헤더입니다.
+요청 라우팅 규칙을 사용 하 여 요청 및 응답 패킷이 응용 프로그램 게이트웨이를 통해 클라이언트와 백 엔드 풀 사이에서 이동할 때 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다.
 
-정적 값 또는 다른 헤더 및 서버 변수 헤더를 설정할 수 있습니다. 이렇게 하면 중요 한를 사용 하 여 추가 보안을 강화 하려면 백 엔드에 대 한 중요 한 정보를 제거, 클라이언트 IP 주소를 추출 하는 등의 경우 사용 합니다.
+헤더는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
 
-자세한 내용은 [application gateway에서 다시 작성 하는 HTTP 헤더](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)합니다.
+자세한 내용은 [application gateway에서 HTTP 헤더 다시 작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)을 참조 하세요.
 
 ## <a name="http-settings"></a>HTTP 설정
 
-응용 프로그램 게이트웨이 포트 번호, 프로토콜 및이 구성 요소에 자세히 설명 하는 다른 설정을 사용 하 여 (HTTP 설정을 포함 하는 요청 라우팅 규칙에 지정 됨) 백 엔드 서버에 트래픽을 라우팅합니다.
+응용 프로그램 게이트웨이는이 구성 요소에 자세히 설명 된 포트 번호, 프로토콜 및 기타 설정을 사용 하 여 백 엔드 서버 (HTTP 설정을 포함 하는 요청 라우팅 규칙에 지정)로 트래픽을 라우팅합니다.
 
-포트 및 프로토콜 HTTP 설정에 사용 되는 암호화 되지 않은 또는 (종단 간 SSL을 제공 합니다.) 응용 프로그램 게이트웨이와 백 엔드 서버 간의 트래픽을 암호화 되는지 여부를 확인 합니다.
+HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그램 게이트웨이와 백 엔드 서버 간의 트래픽이 암호화 되는지 (종단 간 SSL 제공) 또는 암호화 되지 않은 지 결정 됩니다.
 
-이 구성 요소에도 사용 됩니다.
+이 구성 요소는 다음 작업에도 사용 됩니다.
 
-- 사용자 세션을 사용 하 여 동일한 서버에 유지할지 여부를 확인 합니다 [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)합니다.
+- [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)를 사용 하 여 사용자 세션을 동일한 서버에 유지할지 여부를 결정 합니다.
 
-- 정상적으로 사용 하 여 백 엔드 풀 멤버를 제거할 [연결 드레이닝](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining)합니다.
+- [연결 드레이닝](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining)을 사용 하 여 백 엔드 풀 멤버를 정상적으로 제거 합니다.
 
-- 백 엔드 상태를 모니터링, 요청 시간 제한 간격을 설정, 호스트 이름 및 요청에 대 한 경로 재정의 및 App Service 백 엔드에 대 한 설정을 지정 하려면 한 번의 클릭 용이성을 제공 하기 위한 사용자 지정 프로브를 연결 합니다.
+- 사용자 지정 프로브를 연결 하 여 백 엔드 상태를 모니터링 하 고, 요청 시간 제한 간격을 설정 하 고, 요청에서 호스트 이름 및 경로를 재정의 하 고, 한 번 클릭으로 App Service 백 엔드에 대 한 설정을 지정할 수 있습니다.
 
 ## <a name="backend-pools"></a>백 엔드 풀
 
-백 엔드 풀 요청을 처리 하는 백 엔드 서버로 요청을 라우팅합니다. 백 엔드 풀에 포함할 수 있습니다.
+백 엔드 풀은 요청을 처리 하는 백 엔드 서버에 요청을 라우팅합니다. 백 엔드 풀에는 다음이 포함 될 수 있습니다.
 
 - NIC
-- 가상 머신 크기 집합
+- Virtual Machine Scale Sets
 - 공용 IP 주소
 - 내부 IP 주소
 - FQDN
 - 다중 테 넌 트 백 엔드 (예: App Service)
 
-응용 프로그램 게이트웨이 백 엔드 풀 멤버는 가용성 집합에 연결 되지 않습니다. Application gateway에 가상 네트워크 외부 인스턴스와 통신할 수 있습니다. 결과적으로, 백 엔드 풀의 멤버 수 클러스터 간에 데이터 센터 또는 Azure 외부에서 IP 연결이으로 합니다.
+Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결 되지 않습니다. 응용 프로그램 게이트웨이는 가상 네트워크 외부의 인스턴스와 통신할 수 있습니다. 따라서 백 엔드 풀의 멤버는 IP 연결이 있는 한 클러스터, 데이터 센터 전체 또는 Azure 외부에 있을 수 있습니다.
 
-백 엔드 풀 멤버로 내부 Ip를 사용 하는 경우 사용 해야 합니다 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)합니다. 지원 되는 및에 대 한 유용한 트래픽의 부하를 분산 다른 가상 네트워크에는 가상 네트워크 피어 링입니다.
+내부 Ip를 백 엔드 풀 멤버로 사용 하는 경우 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)를 사용 해야 합니다. 가상 네트워크 피어 링은 지원 되며 다른 가상 네트워크의 부하를 분산 하는 데 유용 합니다.
 
-Application gateway 통신할 수도 온-프레미스 서버에 트래픽을 허용 하는 경우 Azure ExpressRoute 또는 VPN 터널과 연결 상태입니다.
+또한 트래픽이 허용 되는 경우 응용 프로그램 게이트웨이는 Azure Express 경로 또는 VPN 터널을 통해 연결 된 경우 온-프레미스 서버와 통신할 수 있습니다.
 
-다양 한 유형의 요청에 대 한 다른 백 엔드 풀을 만들 수 있습니다. 예를 들어 일반 요청에 대 한 하나의 백 엔드 풀 및 응용 프로그램에 대 한 마이크로 서비스에 대 한 요청에 대 한 다른 백 엔드 풀을 만듭니다.
+여러 유형의 요청에 대해 서로 다른 백 엔드 풀을 만들 수 있습니다. 예를 들어 일반 요청에 대해 하나의 백 엔드 풀을 만든 다음 응용 프로그램의 마이크로 서비스에 대 한 요청에 대 한 다른 백 엔드 풀을 만듭니다.
 
 ## <a name="health-probes"></a>상태 프로브
 
-기본적으로 application gateway는 백 엔드 풀의 모든 리소스의 상태를 모니터링 하 고 자동으로 비정상 항목을 제거 합니다. 그런 다음 비정상 인스턴스를 모니터링 하 고 사용할 수 있게 하 고 상태 프로브에 응답할 때 정상 백 엔드 풀에 다시 추가 합니다.
+기본적으로 응용 프로그램 게이트웨이는 백 엔드 풀의 모든 리소스 상태를 모니터링 하 고 비정상 상태를 자동으로 제거 합니다. 그런 다음 비정상 인스턴스를 모니터링 하 고 사용할 수 있게 되 고 상태 프로브에 응답할 때 정상 백 엔드 풀에 다시 추가 합니다.
 
-기본 상태 프로브 모니터링 사용 외에도 애플리케이션 프로그의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 사용자 지정 프로브는 상태 모니터링을 보다 세부적으로 제어할을 수 있습니다. 사용자 지정 프로브를 사용 하는 경우 프로브 간격, URL 경로 테스트 하려면 및 백 엔드 풀 인스턴스를 비정상으로 표시 되기 전까지 허용할 실패 응답 횟수를 구성할 수 있습니다. 각 백 엔드 풀의 상태를 모니터링 하는 사용자 지정 프로브를 구성 하는 것이 좋습니다.
+기본 상태 프로브 모니터링 사용 외에도 애플리케이션 프로그의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 사용자 지정 프로브를 통해 상태 모니터링을 보다 세부적으로 제어할 수 있습니다. 사용자 지정 프로브를 사용 하는 경우 프로브 간격, 테스트할 URL 및 경로, 백 엔드 풀 인스턴스를 비정상으로 표시 하기 전에 허용할 실패 응답 횟수를 구성할 수 있습니다. 각 백 엔드 풀의 상태를 모니터링 하도록 사용자 지정 프로브를 구성 하는 것이 좋습니다.
 
-자세한 내용은 [application gateway의 상태를 모니터링](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)합니다.
+자세한 내용은 [application gateway의 상태 모니터링](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 애플리케이션 게이트웨이를 만듭니다.
 
 * [Azure Portal에서](quick-create-portal.md)
-* [Azure PowerShell을 사용 하 여](quick-create-powershell.md)
-* [Azure CLI를 사용 하 여](quick-create-cli.md)
+* [Azure PowerShell 사용](quick-create-powershell.md)
+* [Azure CLI 사용](quick-create-cli.md)

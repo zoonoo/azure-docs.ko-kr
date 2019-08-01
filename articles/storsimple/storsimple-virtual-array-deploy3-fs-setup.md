@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61415095"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516771"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>소개
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 초기 설정을 수행하고, StorSimple 파일 서버를 등록하고, 디바이스 설정을 완료하고, SMB 공유를 만들고 연결하는 방법을 설명합니다. 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 마지막 문서입니다.
 
 설정 및 구성 프로세스를 완료하는 데 10분 정도가 소요됩니다. 이 문서의 정보는 StorSimple 가상 배열의 배포에만 적용됩니다. StorSimple 8000 시리즈 디바이스 배포의 경우 [업데이트 2를 실행하는 StorSimple 8000 시리즈 디바이스 배포](storsimple-deployment-walkthrough-u2.md)로 이동합니다.
@@ -182,7 +185,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    3. 공유의 **유형**입니다. 유형에는 **계층화됨** 또는 **로컬로 고정**을 지정할 수 있으며 계층화됨이 기본값입니다. 로컬 보증, 낮은 대기 시간 및 높은 성능이 필요한 워크로드의 경우 **로컬로 고정** 공유를 선택합니다. 다른 모든 데이터에 대해서는 **계층화됨** 공유를 선택합니다.
       로컬로 고정된 공유는 씩 프로비전되며, 공유의 기본 데이터가 디바이스에 로컬로 유지되고 클라우드로 유출되지 않습니다. 반면에 계층화된 공유는 씬 프로비전됩니다. 계층화된 공유를 만들 때 공간의 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 이것은 디바이스의 로컬 공간이 부족하면 계층화된 공유를 프로비전할 수 없다는 것을 의미합니다.
    
-   4. **전체 기본 사용 권한 설정** 필드에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 지정 *john\@contoso.com* 형식입니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
+   4. **전체 기본 사용 권한 설정** 필드에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. *John\@contoso.com* 형식으로 사용자 또는 사용자 그룹의 이름을 지정 합니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
    
    5. **추가**를 클릭하여 공유를 만듭니다. 
     

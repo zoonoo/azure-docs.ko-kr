@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467851"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717563"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 파티션을 관리 하는 방법에 대 한 자세한 내용은
 
 * 단일 논리 파티션은 10gb의 저장소로 제한 됩니다.  
 
-* Azure Cosmos 컨테이너는 초당 최소 처리량 400 요청 단위 (r u/초)를 포함 합니다. 동일한 파티션 키에 대 한 요청은 파티션에 할당 된 처리량을 초과할 수 없습니다. 요청이 할당 된 처리량을 초과 하는 경우 요청은 속도 제한입니다. 따라서 애플리케이션 내에서 "핫 스폿"을 초래하지 않는 파티션 키를 선택해야 합니다.
+* Azure Cosmos 컨테이너는 초당 최소 처리량 400 요청 단위 (r u/초)를 포함 합니다. 데이터베이스에서 처리량이 프로 비전 되 면 컨테이너 당 최소 RUs는 100 초당 요청 단위입니다. 동일한 파티션 키에 대 한 요청은 파티션에 할당 된 처리량을 초과할 수 없습니다. 요청이 할당 된 처리량을 초과 하는 경우 요청은 속도 제한입니다. 따라서 애플리케이션 내에서 "핫 스폿"을 초래하지 않는 파티션 키를 선택해야 합니다.
 
 * 값 범위가 방대하고 논리 파티션 간에 액세스 패턴이 균등하게 분산되는 파티션 키를 선택해야 합니다. 이렇게 하면 논리적 파티션 집합 전체에 컨테이너의 데이터와 활동을 분산 하 여 데이터 저장 및 처리량에 대 한 리소스를 논리 파티션에 분산할 수 있습니다.
 

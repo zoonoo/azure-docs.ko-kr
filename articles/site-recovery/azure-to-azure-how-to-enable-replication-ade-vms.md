@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335705"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516499"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk Encryption 사용 가능한 가상 컴퓨터를 다른 Azure 지역에 복제
 
@@ -23,9 +23,9 @@ ms.locfileid: "68335705"
 >현재 Azure Site Recovery는 Windows OS를 실행 하 고 [Azure Active Directory (AZURE AD)를 사용 하 여 암호화를 사용 하도록 설정](https://aka.ms/ade-aad-app)된 azure vm만 지원 합니다.
 
 ## <a id="required-user-permissions"></a>필요한 사용자 권한
-Site Recovery 사용자에 게 대상 지역에 키 자격 증명 모음을 만들고 해당 지역에 키를 복사할 권한이 있어야 합니다.
+Site Recovery를 사용 하려면 사용자에 게 대상 지역에서 키 자격 증명 모음을 만들고 원본 지역 key vault에서 대상 지역 key vault로 키를 복사할 수 있는 권한이 있어야 합니다.
 
-Azure Portal에서 디스크 암호화 사용 Vm의 복제를 사용 하도록 설정 하려면 사용자에 게 다음 권한이 필요 합니다.
+Azure Portal에서 디스크 암호화 사용 Vm의 복제를 사용 하도록 설정 하려면 사용자에 게 **원본 지역과 대상 지역** 키 자격 증명 모음에 대 한 다음 권한이 있어야 합니다.
 
 - 키 자격 증명 모음 권한
     - 목록, 만들기 및 가져오기
@@ -153,7 +153,7 @@ Site Recovery 기본 대상 설정을 수정 하려면 다음 단계를 수행 �
 
 [대상 키 자격 증명 모음](#required-user-permissions) 에 필요한 권한
 
-**해결 방법:** **홈** >  키 자격 증명 모음ContosotargetKeyvault > 액세스 정책으로 이동 하 여 적절 한 사용 권한을 추가 합니다. > 
+**해결 방법:** **홈** > 키 자격 증명 모음ContosotargetKeyvault > 액세스 정책으로 이동 하 여 적절 한 사용 권한을 추가 합니다. > 
 
 ## <a name="next-steps"></a>다음 단계
 

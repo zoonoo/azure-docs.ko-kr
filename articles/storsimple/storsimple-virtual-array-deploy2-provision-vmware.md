@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61419157"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516835"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 이 자습서는 VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다. 이 문서는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
@@ -173,10 +176,10 @@ VMware ESXi 5.0, 5.5, 6.0 또는 6.5를 실행하는 호스트 시스템에 가�
 32. **고급 옵션** 페이지에서 기본값을 적용합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **Finish**를 클릭합니다.
+33. **Ready to Complete** (완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **Finish**를 클릭합니다.
+34. Virtual Machine 속성 페이지로 돌아갑니다. 새 하드 디스크가 가상 머신에 추가되어 있습니다. **마침**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. 오른쪽 창에 가상 컴퓨터가 선택된 상태에서 **요약** 탭으로 이동합니다. 가상 머신에 대한 설정을 검토합니다.

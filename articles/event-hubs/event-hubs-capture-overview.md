@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326175"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
@@ -73,7 +73,7 @@ Event Hubs 캡처에서 생성된 파일에는 다음과 같은 Avro 스키마�
 
 ![Avro 스키마][3]
 
-Avro 파일을 쉽게 탐색 하는 방법은 간단한 SQL 기반 환경을 위한 [avro 도구][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] 를 사용 하거나 [Apache Spark][Apache Spark] 를 사용 하 여 수집 데이터에 대 한 복잡 한 분산 처리를 수행 하는 것입니다. 
+Avro 파일을 쉽게 탐색하는 방법은 Apache에서 [Avro 도구][Avro Tools] jar을 사용하는 것입니다. 경량 SQL 기반 환경 또는 [Apache Spark][Apache Spark] 에 대해 [Apache 드릴][Apache Drill] 을 사용 하 여 수집 데이터에 대 한 복잡 한 분산 처리를 수행할 수도 있습니다. 
 
 ### <a name="use-apache-drill"></a>Apache Drill 사용
 
@@ -129,7 +129,7 @@ java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 
 고급 처리를 수행하려면 선택한 플랫폼에 대한 Avro를 다운로드하고 설치합니다. 이 문서 작성 시점에는 C, C++, C\#, Java, NodeJS, Perl, PHP, Python 및 Ruby에 사용 가능한 구현이 있습니다.
 
-Apache Avro에는 [Java][Java] and [Python][Python]에 대 한 전체 시작 가이드가 있습니다. [Event Hubs 캡처 시작](event-hubs-capture-python.md) 문서를 참조할 수도 있습니다.
+Apache Avro에는 [Java][Java] 및 [Python][Python]에 대 한 전체 시작 가이드가 있습니다. [Event Hubs 캡처 시작](event-hubs-capture-python.md) 문서를 참조할 수도 있습니다.
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Event Hubs 캡처의 요금 부과 방식
 

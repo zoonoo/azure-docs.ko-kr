@@ -1,19 +1,20 @@
 ---
 title: Microsoft Azure Backup Server v3 릴리스 정보
 description: 이 문서에서는 MABS v3에 대해 알려진 문제 및 해결 방법에 대한 정보를 제공합니다.
-author: JYOTHIRMAISURI
-manager: vvithal
+ms.reviewer: v-jysur
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
+ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e0bcdeeda2f8517b85059817669c19d66c723902
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465076"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698365"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 이 문서에서는 MABS(Microsoft Azure Backup Server) V3에 대해 알려진 문제와 해결 방법을 제공합니다.
@@ -60,7 +61,7 @@ ms.locfileid: "68465076"
 1.  SQL 데이터베이스를 [백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure)하고, MABS V2를 제거합니다(제거하는 동안 보호된 데이터를 유지하도록 선택함).
 2.  SQL 2017(Enterprise)로 업그레이드하고, 업그레이드의 일환으로 보고를 제거합니다.
 3. SSRS(SQL Server Reporting Services)를 [설치](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server)합니다.
-4.  SSMS(SQL Server Management Studio)를 [설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181)합니다.
+4.  SSMS(SQL Server Management Studio)를 [설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182)합니다.
 5.  [SQL 2017에서 SSRS 구성](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)에서 설명한 대로 매개 변수를 사용하여 보고를 구성합니다.
 6.  MABS V3을 [설치](backup-azure-microsoft-azure-backup.md)합니다.
 7. SSMS를 사용하여 SQL을 [복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017)하고, [여기](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))서 설명한 대로 DPM 동기화 도구를 실행합니다.

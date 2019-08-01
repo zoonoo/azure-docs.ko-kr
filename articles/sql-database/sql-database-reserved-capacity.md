@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
 ms.date: 07/19/2019
-ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: adbc2c8818a3d7eff679dadc2245fb0ff8686fc2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357269"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566929"
 ---
-# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
+# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제
 
 종량제 가격에 비해 컴퓨팅 리소스 비용을 선결제하면 Azure SQL Database에서의 비용을 절약할 수 있습니다. Azure SQL Database 예약된 용량을 사용하면 1년이나 3년 동안 SQL Database에 선불 약정을 체결하여 컴퓨팅 비용에서 상당한 할인을 받을 수 있습니다. SQL Database 예약된 용량을 구입하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정해야 합니다.
 
@@ -50,7 +49,7 @@ ms.locfileid: "68357269"
 
 다음 표에서는 필수 필드에 대해 설명 합니다.
 
-| 필드      | Description|
+| 필드      | 설명|
 |------------|--------------|
 |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 가격의 개별 계약 (제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|
 |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <br/><br/>**공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독**-이 구독의 SQL Database 인스턴스에 vcore 예약 할인이 적용 됩니다. <br/><br/>**단일 리소스 그룹**-예약 할인이 선택한 구독의 SQL Database 인스턴스 및 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.|

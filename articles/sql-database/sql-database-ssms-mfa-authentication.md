@@ -1,5 +1,5 @@
 ---
-title: AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse | Microsoft Docs
+title: Azure SQL Database 및 Azure SQL Data Warehouse에서 Multi-factor AAD 인증 사용 Microsoft Docs
 description: Azure SQL Database 및 Azure SQL Data Warehouse는 Active Directory 유니버설 인증을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7add55380f2f7b3ef70db0603fe2c26127db8a78
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566456"
 ---
-# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse (MFA에 대 한 SSMS 지원)
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Azure SQL Database 및 Azure SQL Data Warehouse에서 Multi-factor AAD 인증 사용 (MFA에 대 한 SSMS 지원)
 Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 이 문서에서는 다양한 인증 옵션의 차이점 및 유니버설 인증 사용 시 관련된 제한사항을 설명합니다. 
 
 **최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 
@@ -31,9 +30,9 @@ Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버�
 
 ## <a name="the-five-authentication-options"></a>5가지 인증 옵션  
 
-Active Directory 유니버설 인증에는 두 가지 비 대화형 인증 방법을 지원합니다.
-    - `Active Directory - Password` 인증
-    - `Active Directory - Integrated` 인증
+Active Directory Universal Authentication은 다음과 같은 두 가지 비 대화형 인증 방법을 지원 합니다.
+    - `Active Directory - Password`인증은
+    - `Active Directory - Integrated`인증은
 
 두 가지 비대화형 인증 모델도 있으며, 이들은 다양한 응용 프로그램(ADO.NET, JDCB, ODC 등)에서 사용할 수 있습니다. 이러한 두 메서드는 팝업 대화 상자를 표시하지 않습니다. 
 - `Active Directory - Password` 

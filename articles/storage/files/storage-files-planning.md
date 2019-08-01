@@ -1,19 +1,18 @@
 ---
 title: Azure Files 배포에 대한 계획 | Microsoft Docs
 description: Azure Files 배포에 대한 계획 시 고려해야 할 사항에 대해 알아봅니다.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 59a97e8a6e34aba8639c7f12b52e42f2c97b7dca
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501428"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704464"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -98,7 +97,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 > [!IMPORTANT]
 > 프리미엄 파일 공유는 LRS 에서만 사용할 수 있으며, 저장소 계정을 제공 하는 대부분의 지역에서 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요.
 
-### <a name="provisioned-shares"></a>프로비전된 공유
+#### <a name="provisioned-shares"></a>프로비전된 공유
 
 프리미엄 파일 공유는 고정 GiB/IOPS/처리량 비율을 기준으로 프로비전됩니다. 공유에 프로비전되는 각 GiB당 IOPS 1개, 초당 0.1MiB의 처리량이 공유당 최대 한도까지 지급됩니다. 허용되는 최소 프로비저닝 용량은 100GiB(최소 IOPS/처리량)입니다.
 
@@ -135,7 +134,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 > [!NOTE]
 > 파일 공유 성능에는 컴퓨터 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 등 많은 요인이 적용 됩니다. 최대 성능 확장을 얻으려면 부하를 여러 Vm에 분산 합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 를 참조 하세요.
 
-### <a name="bursting"></a>화
+#### <a name="bursting"></a>화
 
 프리미엄 파일 공유는 IOPS를 3 배까지 버스트 할 수 있습니다. 버스트는 자동화 되며 신용 시스템을 기반으로 작동 합니다. 버스트는 최상의 노력을 기반으로 작동 하며 버스트 제한은 보장 되지 않습니다. 파일 공유는 제한 *까지* 버스트 될 수 있습니다.
 
@@ -206,11 +205,15 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
-|Region  |지원 되는 중복성  |기존 저장소 계정 지원  |
-|---------|---------|---------|
-|동남 아시아     |LRS|아니요         |
-|유럽 서부     |LRS, ZRS|아니요         |
-|미국 서부 2     |LRS, ZRS|아니요         |
+|Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 *   |
+|-------|---------|---------|---------|
+|오스트레일리아 동부  |LRS|아니요         |예|
+|프랑스 중부  |LRS|아니요         |아직 준비되지 않음|
+|동남 아시아  |LRS|아니요         |LRS only, ZRS-아직|
+|유럽 서부     |LRS, ZRS|아니요       |예|
+|미국 서부 2       |LRS, ZRS|아니요         |예|
+
+\* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. Altenatively 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
 
 새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.
 

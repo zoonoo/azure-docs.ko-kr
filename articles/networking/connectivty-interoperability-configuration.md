@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68335933"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -188,7 +188,7 @@ Express 경로 및 사이트 간 VPN에 대 한 공존할 수 있는 연결을 �
 
 서로 다른 지역에 있는 분기 VNet 및 온-프레미스 네트워크를 허브 VNet을 통해 서로 통신하도록 할 수 있습니다. 이 구성에 대한 네이티브 Azure 솔루션은 VPN을 사용하는 사이트 간 VPN 연결입니다. 대안은 허브의 라우팅에 대해 NVA(네트워크 가상 어플라이언스)를 사용하는 것입니다.
 
-자세한 내용은 [VPN Gateway 란?][VPN] 을 참조 하세요. and [Deploy a highly available NVA][Deploy-NVA].
+자세한 내용은 [VPN Gateway?][VPN] 을 참조 하 고 [항상 사용 가능한 Nva를 배포][Deploy-NVA]하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

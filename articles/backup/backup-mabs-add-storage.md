@@ -1,18 +1,19 @@
 ---
 title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 38d86d55be119dab3645fb4bedb9ba4bf910bcab
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465116"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688959"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 저장소 추가
 

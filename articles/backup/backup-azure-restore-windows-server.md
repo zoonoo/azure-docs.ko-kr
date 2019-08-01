@@ -1,18 +1,19 @@
 ---
 title: Windows Server 또는 Windows 컴퓨터로 Azure의 데이터 복원
 description: Azure에 저장된 데이터를 Windows Server 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
-ms.author: saurse
-ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c8e0ddb788d5e155bfaa511b1012cc8d8e62aab5
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465674"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689101"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 Windows에 파일 복원
 

@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67595512"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 Contoso 소매 데이터 로드
@@ -28,10 +28,10 @@ ms.locfileid: "67595512"
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
-이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로 비전 하는 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse를 만들고 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]합니다.
+이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로 비전 된 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse 만들기 및 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]을 참조 하세요.
 
 ## <a name="1-configure-the-data-source"></a>1. 데이터 원본 구성
-PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL Data Warehouse에 저장됩니다. 데이터는 외부적으로 저장 됩니다.
+PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL Data Warehouse에 저장됩니다. 데이터는 외부에 저장 됩니다.
 
 ### <a name="11-create-a-credential"></a>1.1. 자격 증명 만들기
 Contoso 공용 데이터를 로드하는 중이라면 **이 단계를 건너뜁니다**. 모든 사용자가 이미 액세스할 수 있으므로 공용 데이터에 대한 보안 액세스는 필요하지 않습니다.
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. 데이터 형식 구성
-데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음을 실행 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 텍스트 파일에서 데이터의 형식을 지정 하는 명령입니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
+데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음 [CREATE EXTERNAL FILE format][CREATE EXTERNAL FILE FORMAT] 명령을 실행 하 여 텍스트 파일의 데이터 형식을 지정 합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -104,7 +104,7 @@ WITH
 ``` 
 
 ## <a name="3-create-the-external-tables"></a>3. 외부 테이블 만들기
-데이터 원본과 파일 형식을 지정 했으니 외부 테이블을 만들 준비가 되었습니다. 
+이제 데이터 원본 및 파일 형식을 지정 했으므로 외부 테이블을 만들 준비가 되었습니다. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. 데이터에 대한 스키마를 만듭니다.
 데이터베이스에 Contoso 데이터를 저장할 수 있는 위치를 만들려면 스키마를 생성합니다.
@@ -202,7 +202,7 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. 데이터 로드
-외부 데이터에 액세스 하는 방법은 여러 가지입니다.  외부 테이블에서 직접 데이터를 쿼리, 데이터 웨어하우스의 새로운 테이블로 데이터를 로드 하거나 기존 데이터 웨어하우스 테이블에 외부 데이터를 추가할 수 있습니다.  
+외부 데이터에 액세스 하는 방법에는 여러 가지가 있습니다.  외부 테이블에서 직접 데이터를 쿼리하거나 데이터 웨어하우스의 새 테이블에 데이터를 로드 하거나 기존 데이터 웨어하우스 테이블에 외부 데이터를 추가할 수 있습니다.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. 새 스키마를 만듭니다.
 CTAS는 데이터가 포함된 새 테이블을 만듭니다.  먼저 contoso 데이터에 대한 스키마를 만듭니다.
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 데이터를 새 테이블에 로드합니다.
-데이터 웨어하우스 테이블에 Azure blob storage에서 데이터를 로드 하려면 사용 합니다 [CREATE TABLE AS SELECT (TRANSACT-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] 테이블당 문입니다. 
+Azure blob storage에서 데이터 웨어하우스 테이블로 데이터를 로드 하려면 [SELECT (transact-sql)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용 하 여 CREATE TABLE 합니다. CTAS 사용하여 로드한 후 사용자가 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블에 데이터를 로드 하려면 테이블당 하나의 [Ctas][CTAS] 문을 사용 합니다. 
  
 CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
@@ -330,7 +330,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 이제 Azure SQL Data Warehouse에 공용 데이터를 성공적으로 로드했습니다. 잘 하셨습니다!
 
-데이터를 탐색 하려면 테이블을 쿼리하여 이제 시작할 수 있습니다. 브랜드 총 판매액을 확인 하려면 다음 쿼리를 실행 합니다.
+이제 테이블 쿼리를 시작 하 여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행 하 여 브랜드 별 총 판매량을 확인할 수 있습니다.
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978536"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570382"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -33,7 +32,7 @@ ms.locfileid: "65978536"
 
 애플리케이션은 세 개의 샘플 테넌트에 대한 데이터를 사용하여 배포됩니다. 테넌트는 하나의 다중 테넌트 데이터베이스에 함께 저장됩니다.
 
-누구나 [GitHub 리포지토리][link-github-wingtip-multitenantdb-55g]에서 Wingtip Tickets에 대한 C# 및 PowerShell 소스 코드를 다운로드할 수 있습니다.
+누구나 [GitHub 리포지토리에서][link-github-wingtip-multitenantdb-55g]정문 C# ticket 용 및 PowerShell 소스 코드를 다운로드할 수 있습니다.
 
 ## <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
 
@@ -47,7 +46,7 @@ ms.locfileid: "65978536"
 
 이 초기 배포 시 생성되는 일련의 관련 자습서를 이용할 수 있습니다. 자습서에서는 다양한 SaaS 디자인 및 관리 패턴을 살펴봅니다. 이 자습서를 진행하는 동안 제공된 스크립트를 단계별로 수행하여 다양한 SaaS 패턴 구현 방법을 확인하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
@@ -57,8 +56,8 @@ ms.locfileid: "65978536"
 
 ### <a name="plan-the-names"></a>이름 계획
 
-이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다.   *Ann Finley*라는 사람의 경우 다음을 제안합니다.
-- *사용자:* **af1** *(해당의 이니셜과 숫자입니다. 앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
+이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
+- *사용자:* **af1** *(해당 이니셜에 숫자를 더한 값입니다.   앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
 - *리소스 그룹:* **wingtip-mt-af1** *(wingtip-mt는 분할된 다중 테넌트 앱임을 나타냅니다. 사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
 
 이제 이름을 선택하고, 기록합니다. 
@@ -68,7 +67,7 @@ ms.locfileid: "65978536"
 1. 다음 파란색 **Azure에 배포** 단추를 클릭합니다.
    - Wingtip Tickets SaaS 배포 템플릿이 포함된 Azure Portal이 열립니다.
 
-     [![Azure에 배포 단추.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Azure에 배포 단추][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. 배포에 필요한 매개 변수 값을 입력합니다.
 
@@ -131,7 +130,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 
 2. **이벤트 허브**에서 **Fabrikam Jazz Club**을 클릭합니다.
 
-   ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
+   ![이벤트](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
@@ -244,7 +243,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 부하 생성기 스크립트에 의해 생성된 워크로드는 설명을 위한 목적입니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 

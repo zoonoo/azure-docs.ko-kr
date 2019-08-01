@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383453"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554683"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 용어 이해
 
@@ -28,7 +28,7 @@ ms.locfileid: "68383453"
 --- | --- | --- | --- | ---
 EA(기업 계약) | 예 | 예 | 예 | 아니요
 MCA(Microsoft 고객 계약) | 예 | 예 | 예 | 예
-PAYG(종량제) | 예 | 아니오 | 아니요 | 아니요
+PAYG(종량제) | 예 | 예 | 아니오 | 아니요
 
 Marketplace 주문 (외부 서비스 라고도 함)에 대해 자세히 알아보려면 [Azure 외부 서비스 요금 이해](billing-understand-your-azure-marketplace-charges.md)를 참조 하세요.
 
@@ -65,8 +65,6 @@ EffectivePrice | 모두 | 기간의 혼합 단위 가격입니다. 혼합 가격
 ExchangeRateDate | MCA | 환율이 설정 된 날짜입니다.
 ExchangeRatePricingToBilling | MCA | 가격 책정 통화의 비용을 청구 통화로 변환 하는 데 사용 되는 환율입니다.
 빈도 | 모두 | 요금이 반복 될 것으로 예상 되는지 여부를 나타냅니다. 요금은 한 번 수행 (**OneTime**) 하거나 매월 또는 매년 반복 하거나 (**되풀이**) 사용을 기준으로 할 수 있습니다 (**UsageBased**).
-IncludedQuantity | PAYG | 현재 청구 기간에 무료로 제공 되는 측정기의 양입니다.
-InstanceId | PAGY | ResourceId를 참조 하십시오.
 InvoiceId | PAYG, MCA | 송장 PDF에 나열 된 고유 문서 ID입니다.
 InvoiceSection | MCA | InvoiceSectionName를 참조 하세요.
 InvoiceSectionId | EA, MCA | EA 부서 또는 MCA 송장 섹션에 대 한 고유 식별자입니다.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | 사용 되거나 구매한 서비스의 가격 �
 SubscriptionId | 모두 | Azure 구독에 대 한 고유 식별자입니다.
 구독 이름 | 모두 | Azure 구독의 이름입니다.
 Tags | 모두 | 리소스에 할당 된 태그입니다. 리소스 그룹 태그를 포함 하지 않습니다. 내부 비용 정산에 대 한 비용을 그룹화 하거나 배포 하는 데 사용할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요.
+용어 | 모두 | 제품의 유효성을 검사 하는 용어를 표시 합니다. 예를 들어: 예약 된 인스턴스의 경우 12 개월을 용어로 표시 합니다. 일회성 구매 또는 되풀이 구매의 경우 기간은 1 개월 (SaaS, Marketplace 지원)입니다. Azure 소비에는 적용 되지 않습니다.
 UnitOfMeasure | 모두 | 서비스에 대 한 청구 측정 단위입니다. 예를 들어 계산 서비스는 시간당 청구 됩니다.
 UnitPrice | EA, PAYG | 요금 단위당 가격입니다.
 

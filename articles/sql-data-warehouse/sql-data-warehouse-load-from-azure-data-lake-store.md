@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 07/17/2019
+ms.date: 07/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cbf642b47e4233cec2e2d860288b3bb35b419cf2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7bb775184a0d567fedf9da07cee60e5ba5a2097f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304176"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562372"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse 데이터 로드
 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다.
@@ -32,20 +32,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* Gen1에서 로드 하는 경우 서비스 간 인증에 사용할 응용 프로그램을 Azure Active Directory 합니다. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
-
->[!NOTE] 
-> Azure Data Lake 저장소 바운드 Gen1에서 로드 하는 경우에는 Active Directory 응용 프로그램의 클라이언트 ID, 키 및 OAuth 2.0 토큰 끝점 값이 있어야 SQL Data Warehouse에서 저장소 계정에 연결할 수 있습니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
-> 
+* 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 * Azure SQL Data Warehouse. [Azure SQL Data Warehouse 만들기 및 쿼리](create-data-warehouse-portal.md)를 참조합니다.
 
 * Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../data-lake-store/data-lake-store-get-started-portal.md)참조 하세요. 
 
 ##  <a name="create-a-credential"></a>자격 증명 만들기
-Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 되는 자격 증명 암호를 암호화 하기 위해 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 데이터베이스 범위 자격 증명을 만듭니다. Gen1의 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. Gen2에 대 한 데이터베이스 범위 자격 증명에서 저장소 계정 키를 사용 해야 합니다. 
+Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 되는 자격 증명 암호를 암호화 하기 위해 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. Gen2에 대 한 데이터베이스 범위 자격 증명에서 저장소 계정 키를 사용할 수도 있습니다. 
 
-Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애플리케이션을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
+서비스 주체를 사용 하 여 Data Lake Storage에 연결 하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage 계정에 대 한 액세스 권한을 응용 프로그램에 부여 해야 합니다. 지침은 [Active Directory를 사용 하 여 Azure Data Lake Storage에 인증을](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)참조 하세요.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -56,7 +52,7 @@ Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애�
 CREATE MASTER KEY;
 
 
--- B (for Gen1): Create a database scoped credential
+-- B (for service principal authentication): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
@@ -67,7 +63,7 @@ WITH
     SECRET = '<key>'
 ;
 
--- B (for Gen2): Create a database scoped credential
+-- B (for Gen2 storage key authentication): Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
@@ -77,7 +73,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this for Gen1:
+-- It should look something like this when authenticating using service principals:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -109,7 +105,7 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfss://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfs[s]://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 ```
@@ -221,13 +217,9 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 > * Data Lake Storage Gen1에서 로드하기 위해 데이터베이스 개체를 만들었습니다.
 > * Data Lake Storage Gen1 디렉터리에 연결했습니다.
 > * Azure SQL Data Warehouse에 데이터를 로드했습니다.
-> 
+>
 
 데이터 로드는 SQL Data Warehouse를 사용하여 데이터 웨어하우스 솔루션을 개발하는 첫 번째 단계입니다. 개발 리소스를 확인하세요.
 
 > [!div class="nextstepaction"]
->[SQL Data Warehouse에서 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)
-
-
-
-
+> [SQL Data Warehouse에서 테이블을 개발하는 방법 알아보기](sql-data-warehouse-tables-overview.md)

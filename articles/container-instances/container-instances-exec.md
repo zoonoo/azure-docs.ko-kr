@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: danlep
 ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325993"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
@@ -21,7 +21,7 @@ Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행�
 
 ## <a name="run-a-command-with-azure-cli"></a>Azure CLI를 사용하여 명령 실행
 
-[Az container exec][az-container-exec] in the [Azure CLI][azure-cli]를 사용 하 여 실행 중인 컨테이너에서 명령을 실행 합니다.
+[Azure CLI][azure-cli]에서 [az container exec][az-container-exec] 를 사용 하 여 실행 중인 컨테이너에서 명령을 실행 합니다.
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"

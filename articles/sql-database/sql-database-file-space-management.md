@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 96d55da713b8591b20f95ba36f332a340999181e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242746"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568195"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 및 풀링된 데이터베이스의 파일 공간 관리
 
@@ -30,7 +29,7 @@ ms.locfileid: "66242746"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 Azure SQL Database의 단일 및 풀링된 데이터베이스를 사용하면, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
 
@@ -63,7 +62,7 @@ SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 �
 
 다음 저장소 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
 
-|데이터베이스 수량|정의|설명|
+|데이터베이스 수량|정의|주석|
 |---|---|---|
 |**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
 |**할당된 데이터 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일 공간의 크기입니다.|할당된 공간의 크기는 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
@@ -120,7 +119,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 다음 저장소 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
 
-|탄력적 풀 수량|정의|설명|
+|탄력적 풀 수량|정의|주석|
 |---|---|---|
 |**사용된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 사용되는 데이터 공간의 합계입니다.||
 |**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||
@@ -254,8 +253,8 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
 
 - 최대 데이터베이스 크기에 대한 정보는 다음을 참조하세요.
   - [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도](sql-database-vcore-resource-limits-single-databases.md)
-  - [DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)
+  - [DTU 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)
   - [탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한](sql-database-vcore-resource-limits-elastic-pools.md)
-  - [DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)
+  - [DTU 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)
 - `SHRINKDATABASE` 명령에 대한 자세한 내용은 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요. 
 - 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.

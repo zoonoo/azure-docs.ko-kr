@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/17/2019
-ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38ecd7797452c9a16b859da921287b8026f0660d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567786"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
@@ -45,7 +44,7 @@ Azure SQL Database에서는 최대 10년 동안 Azure Blob Storage에 백업을 
 3. 완료되면 **적용**을 클릭합니다.
 
 > [!IMPORTANT]
-> 장기 백업 보존 정책을 사용 하도록 설정 하면 최대 7 일 동안 표시 되 고 복원할 수 있는 첫 번째 백업이 걸릴 수 있습니다. LTR 백업 cadance의 세부 정보를 참조 하세요 [장기 백업 보존](sql-database-long-term-retention.md)합니다.
+> 장기 백업 보존 정책을 사용 하도록 설정 하는 경우 첫 번째 백업이 표시 되 고 복원 하는 데 사용할 수 있는 최대 7 일이 걸릴 수 있습니다. LTR backup cadance에 대 한 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조 하세요.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Azure Portal을 사용하여 백업을 보고 백업에서 복원
 
@@ -79,7 +78,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 저장소에서 백업을 확인하고 Azure SQL 저장소의 백업에서 복원하는 방법을 보여줍니다.
 
@@ -93,11 +92,11 @@ LTR 백업을 관리하려면 다음 역할에 속해야 합니다.
 
 역할을 더 세부적으로 제어해야 하는 경우 사용자 지정 RBAC 역할을 만들어 **구독** 범위에 할당할 수 있습니다. 
 
-에 대 한 **Get AzSqlDatabaseLongTermRetentionBackup** 하 고 **복원 AzSqlDatabase** 다음과 같은 권한이 있어야 하는 데 필요한 역할:
+**AzSqlDatabaseLongTermRetentionBackup** 및 **AzSqlDatabase** 의 경우 역할에 다음 권한이 있어야 합니다.
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
  
-에 대 한 **제거 AzSqlDatabaseLongTermRetentionBackup** 다음과 같은 권한이 있어야 하는 데 필요한 역할:
+**AzSqlDatabaseLongTermRetentionBackup** 의 경우 역할에 다음 권한이 있어야 합니다.
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4e13075eabcdb482616f1e500fd739ca58a39003
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501217"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698624"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -39,7 +39,7 @@ ms.locfileid: "68501217"
 다운스트림 디바이스는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 다른 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다. 
 
 >[!NOTE]
->IoT Hub에 등록 된 id를 가진 IoT 장치는 [모듈](/iot-hub/iot-hub-devguide-module-twins.md) 쌍을 사용 하 여 단일 장치에서 다른 프로세스, 하드웨어 또는 기능을 격리할 수 있습니다. IoT Edge 게이트웨이는 대칭 키 인증을 사용 하지만 x.509 인증서 인증을 사용 하지 않는 다운스트림 모듈 연결을 지원 합니다. 
+>IoT Hub에 등록 된 id를 가진 IoT 장치는 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 쌍을 사용 하 여 단일 장치에서 다른 프로세스, 하드웨어 또는 기능을 격리할 수 있습니다. IoT Edge 게이트웨이는 대칭 키 인증을 사용 하지만 x.509 인증서 인증을 사용 하지 않는 다운스트림 모듈 연결을 지원 합니다. 
 
 다운스트림 디바이스를 IoT Edge 게이트웨이에 연결하려면 다음 두 가지 항목이 필요합니다.
 

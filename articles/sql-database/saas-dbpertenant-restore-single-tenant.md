@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326346"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570393"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 애플리케이션에서 단일 테넌트 복원
 
@@ -126,7 +125,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
@@ -134,7 +133,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 [테넌트 데이터베이스 스키마 관리](saas-tenancy-schema-management.md) 자습서를 사용합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Wingtip SaaS 애플리케이션을 기반으로 작성된 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)

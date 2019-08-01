@@ -4,7 +4,7 @@ description: Data Science Virtual Machine에 사전 설치된 도구 및 통합 
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 3b8eaae63f0e316d82dd5a1238a802eefd756d9e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864409"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557796"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine의 개발 도구
 
@@ -31,18 +31,18 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 범용 IDE      |
+| 정의   | 범용 IDE      |
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | 소프트웨어 개발    |
 | DSVM에 구성/설치 방법      | 데이터 과학 워크로드(Python 및 R 도구), Azure 워크로드(Hadoop, Data Lake), Node.js, SQL Server 도구, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
 | DSVM의 관련 도구      |     Visual Studio Code, RStudio, Juno  |
 
-## <a name="visual-studio-code"></a>Visual Studio Code 
+## <a name="visual-studio-code"></a>Visual Studio 코드 
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 범용 IDE      |
+| 정의   | 범용 IDE      |
 | 지원되는 DSVM 버전      | Windows, Linux     |
 | 일반적인 사용 용도      | 코드 편집기 및 Git 통합   |
 | 사용/실행 방법      | Windows의 바탕 화면 바로 가기(`C:\Program Files (x86)\Microsoft VS Code\Code.exe`), Linux의 바탕 화면 바로 가기 또는 터미널(`code`)    |
@@ -52,7 +52,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | R용 클라이언트 IDE    |
+| 정의   | R용 클라이언트 IDE    |
 | 지원되는 DSVM 버전      | Windows, Linux      |
 | 일반적인 사용 용도      |  R 개발     |
 | 사용/실행 방법      | Windows에서 바탕 화면 바로 가기(`C:\Program Files\RStudio\bin\rstudio.exe`), Linux에서 바탕 화면 바로 가기(`/usr/bin/rstudio`)      |
@@ -62,17 +62,17 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | R용 웹 기반 IDE    |
+| 정의   | R용 웹 기반 IDE    |
 | 지원되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      |  R 개발     |
-| 사용/실행 방법      | _systemctl enable rstudio-server_를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_로 서비스를 시작합니다. 로그인 할 수 있습니다 다음 RStudio Server에 http:\//-vm-ip:8787 합니다.       |
+| 사용/실행 방법      | _systemctl enable rstudio-server_를 사용하여 서비스를 사용하도록 설정한 다음, _systemctl start rstudio-server_로 서비스를 시작합니다. 그런 다음 http:\//avvv\8787과 같습니다에서 rstudio 서버에 로그인 할 수 있습니다.       |
 | DSVM의 관련 도구      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | Julia 언어용 클라이언트 IDE   |
+| 정의   | Julia 언어용 클라이언트 IDE   |
 | 지원되는 DSVM 버전      | Windows, Linux      |
 | 일반적인 사용 용도      |  Julia 개발     |
 | 사용/실행 방법      | Windows에서 바탕 화면 바로 가기(`C:\JuliaPro-0.5.1.1\Juno.bat`), Linux에서 바탕 화면 바로 가기(`/opt/JuliaPro-VERSION/Juno`)      |
@@ -82,7 +82,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | Python 언어용 클라이언트 IDE    |
+| 정의   | Python 언어용 클라이언트 IDE    |
 | 지원되는 DSVM 버전      | Linux      |
 | 일반적인 사용 용도      |  Python 개발     |
 | 사용/실행 방법      | Linux에서 바탕 화면 바로 가기(`/usr/bin/pycharm`)      |
@@ -94,7 +94,7 @@ DSVM(데이터 과학 Virtual Machine)은 많이 사용되는 여러 도구와 I
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
+| 정의   | 대화형 데이터 시각화 및 BI 도구    |
 | 지원되는 DSVM 버전      | Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |

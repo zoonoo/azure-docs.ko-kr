@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473099"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694299"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -83,8 +83,8 @@ IP 주소는 원격 분석 데이터의 일부로 Application Insights 전송 �
 
     !["IbizaAIExtension" 뒤에 쉼표를 추가 하 고 "DisableIpMasking": true를 사용 하 여 아래에 새 줄을 추가 합니다.](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > 다음과 같은 오류가 발생 하는 경우 _리소스 그룹이 템플릿에 있는 하나 이상의 리소스에서 지원 하지 않는 위치에 있습니다. 다른 리소스 그룹을 선택 하세요._ 드롭다운에서 다른 리소스 그룹을 일시적으로 선택한 다음 원래 리소스 그룹을 다시 선택 하 여 오류를 해결 합니다.
+    > [!WARNING]
+    > 다음과 같은 오류가 발생 하는 경우 **_리소스 그룹이 템플릿에 있는 하나 이상의 리소스에서 지원 하지 않는 위치에 있습니다. 다른 리소스 그룹을 선택 하세요._** 드롭다운에서 다른 리소스 그룹을 일시적으로 선택한 다음 원래 리소스 그룹을 다시 선택 하 여 오류를 해결 합니다.
 
 5. **동의** > 함**을 선택**합니다. 
 
@@ -130,10 +130,11 @@ Content-Length: 54
 
 처음 세 개의 8 진수 대신 전체 IP 주소를 기록해 야 하는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) 를 사용 하 여 ip 주소를 마스킹 되지 않을 사용자 지정 필드에 복사할 수 있습니다.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET 코어
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> 에 액세스할 `ISupportProperties`수 없는 경우 안정적인 최신 릴리스 Application Insights SDK를 실행 하 고 있는지 확인 합니다. `ISupportProperties`는 높은 카디널리티 값을 위한 것 이지만 `GlobalProperties` ,는 지역 이름, 환경 이름 등과 같은 낮은 카디널리티 값에 더 적합 합니다. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>에 대 한 원격 분석 이니셜라이저를 사용 하도록 설정 합니다. ASP.NET
 

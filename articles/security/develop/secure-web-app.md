@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 89d4dc789da7fc719b61342bbf0683e99c45a72c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489979"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698257"
 ---
 # <a name="develop-a-secure-web-app"></a>보안 웹 앱 개발
 
@@ -129,7 +129,7 @@ Azure 계정이 아직 없는 경우 무료 계정을 만들 수 있습니다. �
 보안 기능을 사용 하 여 샘플 앱에 리소스를 배포 하려면 일부 프리미엄 기능에 대해 비용을 지불 해야 합니다. 앱 크기를 조정 하 고 Azure에서 제공 하는 무료 계층 및 평가판을 응용 프로그램 요구 사항에 맞게 업그레이드 해야 하는 경우 비용이 늘어날 수 있습니다. Azure [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 비용을 예측 합니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 응용 프로그램을 실행 하려면 다음과 같은 도구를 설치 해야 합니다.
 
 - 응용 프로그램 코드를 수정 하 고 볼 수 있는 코드 편집기입니다. [Visual Studio Code](https://code.visualstudio.com/) 는 오픈 소스 옵션입니다.
@@ -137,7 +137,7 @@ Azure 계정이 아직 없는 경우 무료 계정을 만들 수 있습니다. �
 - 시스템에서 [Git](https://git-scm.com/) 를 설정 합니다. Git은 소스 코드를 로컬에서 복제 하는 데 사용 됩니다.
 - 사용자에 게 친숙 한 방식으로 JSON을 쿼리 하는 UNIX 도구인 [jq](https://stedolan.github.io/jq/)입니다.
 
-샘플 앱의 리소스를 배포 하려면 Azure 구독이 필요 합니다. Azure 구독이 없는 경우 [무료 계정을 만들어](https://azure.microsoft.com/en-us/free/) 샘플 앱을 테스트할 수 있습니다.
+샘플 앱의 리소스를 배포 하려면 Azure 구독이 필요 합니다. Azure 구독이 없는 경우 [무료 계정을 만들어](https://azure.microsoft.com/free/) 샘플 앱을 테스트할 수 있습니다.
 
 이러한 도구를 설치 하 고 나면 Azure에 앱을 배포할 준비가 되었습니다.
 
@@ -353,7 +353,7 @@ PostgreSQL에 대 한 SSL 및 CA (인증 기관) 확인을 설정 하는 방법�
 컨테이너에 루트 인증서가 포함 되어 있습니다. 인증서를 얻기 위해 수행 하는 단계는 다음과 같습니다.
 
 1. 인증 [기관](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에서 인증서 파일을 다운로드 합니다.
-2. [OpenSSL를 컴퓨터에 다운로드 하 여 설치](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine)합니다.
+2. [OpenSSL를 컴퓨터에 다운로드 하 여 설치](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)합니다.
 3. 인증서 파일 디코딩:
 
    ```powershell
@@ -759,7 +759,7 @@ Azure Portal에서 필요한 자격 증명을 사용 하도록 앱을 구성 합
    *Azure AD 앱 등록 만들기*
 
 3. 다음 페이지에서 앱 이름을 입력 합니다. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
-    **URI 리디렉션**에서 앱이 실행 될 기본 도메인을 입력 하 고 토큰 끝점을 사용 하 여 하나를 추가 합니다. 예: *GATEWAY_HASH*. cloudapp.net/token.
+    **URI 리디렉션**에서 앱이 실행 될 기본 도메인을 입력 하 고 토큰 끝점을 사용 하 여 하나를 추가 합니다. 예를 들어: *GATEWAY_HASH*. cloudapp.net/token.
 
    ![Azure AD 앱 등록 구성](./media/secure-web-app/ad-auth-type.png)
 

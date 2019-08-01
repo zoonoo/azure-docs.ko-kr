@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0080c8ac5e957912c5fd59a7051619ee60bd914c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 93b26b2861c5603770a954943174d6436296ad07
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260062"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668371"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -37,7 +37,7 @@ Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training
 
 ### <a name="single-node-training"></a>단일 노드 학습
 
-scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
+scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. [컴퓨팅 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target` 및 [데이터 저장소](how-to-access-data.md) 개체 `ds`은 이미 만들어져 있어야 합니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -66,7 +66,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 생성자에는 필요한 모든 pip 패키지에 사용하는 `pip_packages`라는 매개 변수도 있습니다.
 
-`Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 개체`experiment`의 `submit` 함수 호출을 통해 원격 계산에서 실행할 학습 작업을 제출합니다. 
+`Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 개체`experiment`의 `submit` 함수 호출을 통해 원격 컴퓨팅에서 실행할 학습 작업을 제출합니다. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -90,7 +90,7 @@ print(run.get_portal_url())
 
 다음 코드에서는 Keras 모델에 대한 분산 학습을 수행하는 방법을 보여 줍니다. 또한 기본 Azure Machine Learning 이미지를 사용하는 대신, 학습을 위해 Docker Hub `continuumio/miniconda`의 사용자 지정 Docker 이미지를 지정합니다.
 
-[계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`은 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
+[컴퓨팅 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`은 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -102,14 +102,14 @@ estimator = Estimator(source_directory='./my-keras-proj',
                       process_count_per_node=1,
                       distributed_backend='mpi',     
                       conda_packages=['tensorflow', 'keras'],
-                      custom_docker_base_image='continuumio/miniconda')
+                      custom_docker_image='continuumio/miniconda')
 ```
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | Description | 기본값
+매개 변수 | 설명 | 기본값
 --|--|--
-`custom_docker_base_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node`| 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다. 여기서는 각 노드에서 사용할 수 있는 `2` GPU를 사용합니다.| `1`
 `distributed_backend`| Estimator가 MPI를 통해 제공하는 분산 학습 시작을 위한 백 엔드입니다.  병렬 또는 분산 학습을 수행하려면(예: `node_count`>1, `process_count_per_node`>1 또는 둘 다) `distributed_backend='mpi'`를 설정합니다. AML에서 사용되는 MPI 구현은 [Open MPI](https://www.open-mpi.org/)입니다.| `None`

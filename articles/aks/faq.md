@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
 ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68381969"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
@@ -25,7 +25,7 @@ ms.locfileid: "68381969"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS는 노드 자동 크기 조정 기능을 지원하나요?
 
-예, AKS에서 에이전트 노드의 수평 크기를 자동으로 조정 하는 기능은 현재 미리 보기로 제공 됩니다. AKSfor instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler] [의 응용 프로그램 요구에 맞게 클러스터 크기 자동 조정을][aks-cluster-autoscaler] 참조 하세요.
+예, AKS에서 에이전트 노드의 수평 크기를 자동으로 조정 하는 기능은 현재 미리 보기로 제공 됩니다. 지침은 [AKS의 응용 프로그램 요구에 맞게 클러스터 크기 자동 조정을][aks-cluster-autoscaler] 참조 하세요. AKS 자동 크기 조정은 [Kubernetes autoscaler][auto-scaler]을 기반으로 합니다.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS를 기존 가상 네트워크에 배포할 수 있습니까?
 
@@ -48,7 +48,7 @@ ms.locfileid: "68381969"
 Azure는 야간 일정에 따라 클러스터의 Linux 노드에 보안 패치를 자동으로 적용 합니다. 그러나 필요에 따라 이러한 Linux 노드가 다시 부팅 되도록 할 책임이 있습니다. 노드를 다시 부팅 하기 위한 몇 가지 옵션이 있습니다.
 
 - Azure Portal 또는 Azure CLI를 통해 수동으로.
-- AKS 클러스터를 업그레이드하여. 클러스터가 cordon [및 드레이닝 노드][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade]를 업그레이드 합니다.
+- AKS 클러스터를 업그레이드하여. 클러스터는 [cordon 및 드레이닝 노드][cordon-drain] 를 자동으로 업그레이드 한 다음 최신 Ubuntu 이미지 및 새 패치 버전 또는 부 Kubernetes 버전으로 새 노드를 온라인으로 전환 합니다. 자세한 내용은 [Upgrade a AKS cluster][aks-upgrade]를 참조 하세요.
 - [Kured](https://github.com/weaveworks/kured)를 사용 하 여 Kubernetes에 대 한 오픈 소스 다시 부팅 디먼을 사용 합니다. Kured는 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 로 실행 되며 각 노드에서 다시 부팅 해야 함을 나타내는 파일이 있는지 모니터링 합니다. 클러스터 전체에서 OS 다시 부팅은 클러스터 업그레이드와 동일한 [cordon 및 드레이닝 프로세스][cordon-drain] 를 통해 관리 됩니다.
 
 Kured를 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 노드에 보안 및 커널 업데이트 적용][node-updates-kured]을 참조 하세요.

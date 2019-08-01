@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ae56b2050243831f10863bbb4184a9e89f5911
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568405"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database를 사용하여 규모 확장
 **Elastic Database** 도구를 사용하여 Azure SQL 데이터베이스의 규모를 쉽게 확장할 수 있습니다. 이러한 도구와 기능을 사용하면 **Azure SQL Database**의 데이터베이스 리소스를 사용하여 트랜잭션 워크로드에 대한 솔루션, 특히 SaaS(Software as a Service) 애플리케이션을 만들 수 있습니다. Elastic Database 기능은 다음으로 구성됩니다.

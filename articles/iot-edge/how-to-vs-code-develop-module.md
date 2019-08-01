@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414512"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565342"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -27,7 +27,7 @@ Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅
 이 문서에서는 여러 아키텍처의 여러 언어로 모듈을 개발 하 고 디버깅 하기 위한 지침을 제공 합니다. 현재, Visual Studio Code는 C#, C, Python, Node.js 및 Java로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 X64 및 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
 
 >[!NOTE]
->Linux ARM64 장치에 대 한 개발 및 디버깅 지원은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code (미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조 하세요.
+>Linux ARM64 장치에 대 한 개발 및 디버깅 지원은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -100,7 +100,7 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 
 - **.vscode** 폴더에는 디버그 구성이 들어 있습니다.
 
-- **modules** 폴더에는 각 모듈의 하위 폴더가 있습니다.  각 모듈에 대 한 폴더에는 모듈을 빌드하고 배포 하는 방법을 제어 하는 node.js 파일이 있습니다.  이 파일을 수정 하 여 localhost에서 원격 레지스트리로 모듈 배포 컨테이너 regristry를 변경 해야 합니다. 이 시점에는 하나의 모듈만 있습니다.  하지만 **Azure IoT Edge: Add IoT Edge Module** 명령을 사용하여 명령 팔레트에서 모듈을 더 추가할 수 있습니다.
+- **modules** 폴더에는 각 모듈의 하위 폴더가 있습니다.  각 모듈에 대 한 폴더에는 모듈을 빌드하고배포 하는 방법을 제어 하는 node.js 파일이 있습니다.  이 파일을 수정 하 여 localhost에서 원격 레지스트리로 모듈 배포 컨테이너 레지스트리를 변경 해야 합니다. 이 시점에는 하나의 모듈만 있습니다.  하지만 **Azure IoT Edge: Add IoT Edge Module** 명령을 사용하여 명령 팔레트에서 모듈을 더 추가할 수 있습니다.
 
 - **.env** 파일은 환경 변수를 나열합니다. Azure Container Registry가 레지스트리인 경우 거기에 Azure Container Registry 사용자 이름 및 암호가 있습니다.
 

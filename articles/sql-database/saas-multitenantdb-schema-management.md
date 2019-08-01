@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242784"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570257"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
@@ -41,7 +40,7 @@ Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테
 > * 모든 테넌트 데이터베이스의 참조 데이터 업데이트하기.
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Wingtip Tickets 다중 테넌트 데이터베이스 앱이 설치되어 있어야 합니다.
     - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)합니다.
@@ -53,7 +52,7 @@ Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테
 - Azure PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려는 경우에 구독 ID를 제공 *SaaSFeedback\@microsoft.com* subject = 탄력적인 작업 미리 보기. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한적 으로만 제공 되므로 문의 *SaaSFeedback\@microsoft.com* 관련된 질문이 있거나 지원이 대 한 합니다.
+> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려는 경우 주제 = 탄력적인 작업 미리 보기를 사용 하 여 *saasfeedback\@microsoft.com* 에 구독 ID를 제공 합니다. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한 되므로 관련 질문이 나 지원에 대해서는 *saasfeedback\@microsoft.com* 에 문의 하세요.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
@@ -156,7 +155,7 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 
 * 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
@@ -172,5 +171,5 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기
 
-다음 단계로 합니다 [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md) 탐색 데이터베이스 테 넌 트에서 분산된 쿼리를 실행 합니다.
+다음으로, [임시 보고 자습서](saas-multitenantdb-adhoc-reporting.md) 를 사용해 서 테 넌 트 데이터베이스에서 분산 쿼리를 실행 하는 방법을 살펴봅니다.
 

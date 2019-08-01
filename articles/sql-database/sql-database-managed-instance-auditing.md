@@ -12,14 +12,13 @@ f1_keywords:
 author: vainolo
 ms.author: arib
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a613a2eb6499538199306872f2e415019552686
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702867"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567730"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리형 인스턴스 감사 시작
 
@@ -158,9 +157,9 @@ ms.locfileid: "60702867"
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>이벤트 허브 또는 Azure Monitor 로그로 서버에 대 한 감사 설정
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>이벤트 허브 또는 Azure Monitor 로그에 대 한 서버 감사 설정
 
-Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 로그를 보낼 수 있습니다. 이 섹션에서는 이렇게 구성하는 방법을 설명합니다.
+관리 되는 인스턴스의 감사 로그는 심지어 허브 또는 Azure Monitor 로그로 전송 될 수 있습니다. 이 섹션에서는 이렇게 구성하는 방법을 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 관리되는 인스턴스로 이동합니다.
 
@@ -170,9 +169,9 @@ Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 �
 
 4. 로그 목록에서 **SQLSecurityAuditEvents**를 선택합니다.
 
-5. 감사 이벤트-이벤트 허브, Azure Monitor 로그 중 하나 또는 둘 다에 대 한 대상을 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
+5. 감사 이벤트의 대상 (이벤트 허브, Azure Monitor 로그 또는 둘 다)을 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
 
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
     ![진단 설정 구성](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -205,7 +204,7 @@ Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 �
 
 - 시스템 함수 `sys.fn_get_audit_file`(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file 설명서](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)를 참조하세요.
 
-- [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장하도록 정의된 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 등의 도구를 사용하여 감사 로그를 살펴볼 수 있습니다. Azure Storage에서 감사 로그는 감사 로그를 저장하도록 정의된 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](sql-database-auditing.md)을 참조하세요.
 
@@ -213,9 +212,9 @@ Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 �
 
 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 Azure Event Hubs 설명서를 참조하세요.
 
-### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>사용 하 고 Azure Monitor 로그에 저장 된 로그를 분석 합니다.
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Azure Monitor 로그에 저장 된 로그 사용 및 분석
 
-감사 로그는 Azure Monitor 로그에 기록에 있는 경우 사용할 수 있는 감사 데이터에 대해 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 합니다. 시작 지점으로 고 Log Analytics 작업 영역으로 이동 *일반적인* 섹션 클릭 *로그* 와 같은 간단한 쿼리를 입력 하 고: `search "SQLSecurityAuditEvents"` 로그를 보려면 감사 합니다.  
+감사 로그가 Azure Monitor 로그에 기록 되는 경우 감사 데이터에 대 한 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 사용할 수 있습니다. 시작 지점으로 Log Analytics 작업 영역으로 이동 하 고 *일반* 섹션에서 *로그* 를 클릭 한 다음 간단한 쿼리 (예: `search "SQLSecurityAuditEvents"` )를 입력 하 여 감사 로그를 확인 합니다.  
 
 Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대한 유용한 추가 정보를 위해서는, [Azure Monitor 로그 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 확인합니다.
 
@@ -234,7 +233,7 @@ Azure SQL Database의 데이터베이스 및 SQL Server의 데이터베이스에
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치되는 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다.
-- 새로운 구문 `TO EXTERNAL MONITOR` 도 허브 및 Azure Monitor 로그 대상으로 사용할 수 있도록 제공 됩니다.
+- 허브와 Azure Monitor `TO EXTERNAL MONITOR` 로그 대상을 사용할 수 있도록 새 구문이 제공 됩니다.
 - SQL Database에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
 - `queue_delay` 0은 **지원되지 않습니다**.

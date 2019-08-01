@@ -8,24 +8,55 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477495"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516409"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
 업데이트 관리나 변경 내용 추적 및 인벤토리와 같은 솔루션을 온보딩할 때 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이것을 해결하는 방법을 설명합니다.
 
+## <a name="known-issues"></a>알려진 문제
+
+### <a name="node-rename"></a>시나리오: 등록 된 노드의 이름을 바꾸려면 다시 등록/등록 해야 합니다.
+
+#### <a name="issue"></a>문제점
+
+노드가 Azure Automation 등록 된 다음 운영 체제 컴퓨터 이름이 변경 됩니다.  노드의 보고서는 원래 이름을 사용 하 여 계속 표시 됩니다.
+
+#### <a name="cause"></a>원인
+
+등록 된 노드의 이름을 변경 해도 Azure Automation의 노드 이름은 업데이트 되지 않습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Azure Automation 상태 구성에서 노드를 등록 취소 한 후 다시 등록 하십시오.  이 시간 전에 서비스에 게시 된 보고서는 더 이상 사용할 수 없습니다.
+
+
+### <a name="resigning-cert"></a>시나리오: Https 프록시를 통해 인증서를 다시 서명 하는 것은 지원 되지 않습니다.
+
+#### <a name="issue"></a>문제점
+
+사용자는 https 트래픽을 종료 하 고 새 인증서를 사용 하 여 트래픽을 다시 암호화 하는 프록시 솔루션을 통해 연결할 때 서비스에서 연결을 허용 하지 않는다고 보고 했습니다.
+
+#### <a name="cause"></a>원인
+
+Azure Automation은 트래픽을 암호화 하는 데 사용 되는 인증서를 다시 서명 하는 것을 지원 하지 않습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제에 대 한 해결 방법은 없습니다.
+
 ## <a name="general-errors"></a>일반 오류
 
 ### <a name="missing-write-permissions"></a>시나리오: 온보딩이 실패하고 솔루션을 사용할 수 없다는 메시지가 표시됨
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
-하려고 할 때 온 보 딩 솔루션에 가상 머신을 다음 메시지 중 하나가 표시 됩니다.
+가상 컴퓨터를 솔루션에 등록 하려고 할 때 다음 메시지 중 하나가 표시 됩니다.
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -37,15 +68,15 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="cause"></a>원인
 
-이 오류는 작업 영역에서 가상 컴퓨터 또는 사용자에 대 한 잘못 되었거나 누락 된 사용 권한으로 발생 합니다.
+이 오류는 가상 머신, 작업 영역 또는 사용자에 대 한 권한이 잘못 되었거나 누락 된 경우에 발생 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 발생 하는 경우 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, 했는지를 `Microsoft.OperationalInsights/workspaces/read` 권한을 VM이 작업 영역에 등록 하는 경우를 찾을 수 있습니다.
+가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`표시 되 면 VM이 작업 영역에 등록 `Microsoft.OperationalInsights/workspaces/read` 여부를 확인할 수 있는 권한이 있는지 확인 합니다.
 
-### <a name="diagnostic-logging"></a>시나리오: 진단 로깅에 대 한 Automation 계정을 구성 하지 못했습니다-메시지와 함께 등록이 실패
+### <a name="diagnostic-logging"></a>시나리오: 메시지를 사용 하 여 등록 실패-진단 로깅에 대 한 자동화 계정을 구성 하지 못했습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 가상 머신을 솔루션에 온보딩하려고 하면 다음 메시지가 표시됩니다.
 
@@ -55,15 +86,15 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>원인
 
-가격 책정 계층에는 구독의 청구 모델 맞지 않는 경우이 오류를 발생할 수 있습니다. 자세한 내용은 [모니터링 사용량 및 예상된 비용 Azure Monitor에서](https://aka.ms/PricingTierWarning)합니다.
+가격 책정 계층이 구독의 청구 모델과 일치 하지 않는 경우이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Monitor의 사용량 및 예상 비용 모니터링](https://aka.ms/PricingTierWarning)을 참조 하세요.
 
 #### <a name="resolution"></a>해결 방법
 
-Log Analytics 작업 영역을 수동으로 만들고 만든 작업 영역을 선택 하는 온 보 딩 프로세스를 반복 합니다.
+Log Analytics 작업 영역을 수동으로 만들고 온 보 딩 프로세스를 반복 하 여 만든 작업 영역을 선택 합니다.
 
 ### <a name="computer-group-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 이 오류 코드는 솔루션을 대상으로 사용되는 저장된 검색 컴퓨터 그룹 쿼리 형식이 올바르지 않음을 의미합니다. 
 
@@ -77,7 +108,7 @@ Log Analytics 작업 영역을 수동으로 만들고 만든 작업 영역을 �
 
 ### <a name="policy-violation"></a>시나리오: PolicyViolation
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 이 오류 코드는 하나 이상의 정책 위반으로 인해 배포가 실패했음을 의미합니다.
 
@@ -95,13 +126,13 @@ Log Analytics 작업 영역을 수동으로 만들고 만든 작업 영역을 �
   * 정책의 대상을 특정 리소스(예: 특정 Automation 계정)로 다시 지정합니다.
   * 정책이 거부하도록 구성된 리소스 집합을 수정합니다.
 
-Azure portal의 오른쪽 위 모서리에서 알림을 확인 또는 선택한 automation 계정에 포함 된 리소스 그룹으로 이동 **배포** 아래에서 **설정** 장애를 보려면 배포 합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
+Azure Portal의 오른쪽 위 모퉁이에 있는 알림을 확인 하거나 automation 계정이 포함 된 리소스 그룹으로 이동 하 고 **설정** 아래에서 **배포** 를 선택 하 여 실패 한 배포를 확인 합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 
-### <a name="unlink"></a>시나리오: 작업 공간 연결을 해제 하는 동안 오류가 발생
+### <a name="unlink"></a>시나리오: 작업 영역의 연결을 끊는 중 오류 발생
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
-작업 영역 연결 해제 하려고 할 때 다음 오류가 표시:
+작업 영역의 연결을 해제 하려고 할 때 다음과 같은 오류가 표시 됩니다.
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -109,39 +140,39 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>원인
 
-이 오류는 여전히 솔루션이 있는 현재 Log Analytics 작업 영역에 연결 되 고 Automation 계정 및 로그 분석 작업 영역에 종속 된 경우 발생 합니다.
+이 오류는 연결 된 Automation 계정 및 Log 분석 작업 영역에 따라 달라 지는 Log Analytics 작업 영역에서 솔루션을 활성 상태로 유지 하는 경우에 발생 합니다.
 
 ### <a name="resolution"></a>해결 방법
 
-이 해결 하려면 사용 하는 경우 작업 영역에서 다음 솔루션을 제거 해야 합니다.
+이 문제를 해결 하려면 작업 영역에서 다음 솔루션을 사용 하는 경우 제거 해야 합니다.
 
 * 업데이트 관리
 * 변경 내용 추적
 * 작업이 없는 동안 VM 시작/중지
 
-솔루션을 제거 하면 작업 영역 연결을 해제할 수 있습니다. 작업 영역 및 Automation 계정에서 솔루션도에서 기존 아티팩트를 정리 하는 것이 반드시 합니다.  
+솔루션을 제거 하면 작업 영역 연결을 끊을 수 있습니다. 작업 영역 및 Automation 계정에서 해당 솔루션의 기존 아티팩트를 정리 하는 것도 중요 합니다.  
 
 * 업데이트 관리
-  * Automation 계정에서 업데이트 배포 (일정)을 제거 합니다.
+  * Automation 계정에서 업데이트 배포 (일정) 제거
 * 작업이 없는 동안 VM 시작/중지
-  * 자동화 계정에서 제거 하는 솔루션 구성 요소에 대 한 모든 잠금을 **설정을** > **잠금을**합니다.
-  * 작업이 없는 동안 Vm 시작/중지를 제거 하는 추가 단계에 대 한 내용은 [작업이 없는 동안 VM 시작/중지 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
+  * **설정** > **잠금**에서 Automation 계정의 솔루션 구성 요소에 대 한 잠금을 제거 합니다.
+  * 작업 시간 외 Vm 시작/중지 솔루션을 제거 하는 추가 단계를 보려면 [작업 시간 외 Vm 시작/중지 솔루션을 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 Log Analytics 에이전트는 이러한 리소스 중 하나입니다. 이진 파일의 다운로드 이후 조정 하기 위해 구성 된 Log Analytics 작업 영역을 사용 하 여 통신을 담당 하는 가상 컴퓨터의 게스트 에이전트에서 설치 하는 가상 머신 확장 및 기타 파일을 여러분이 솔루션 실행이 시작 되 면 온 보 딩이에 따라 다릅니다.
+솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 Log Analytics 에이전트는 이러한 리소스 중 하나입니다. 이는 구성 된 Log Analytics 작업 영역과의 통신을 담당 하는 가상 컴퓨터의 게스트 에이전트가 설치한 가상 컴퓨터 확장 이며, 나중에 이진 파일을 다운로드 하 고 온 보 딩 하는 솔루션은 실행을 시작한 후에 결정 됩니다.
 일반적으로 알림 허브에 나타나는 알림을 통해 MMA 또는 Linux용 Log Analytics 에이전트 설치 실패를 먼저 인식하게 됩니다. 알림을 클릭하면 특정 실패에 대한 자세한 정보가 제공됩니다. 리소스 그룹 리소스로 이동한 다음, 여기에 포함된 배포 요소로 이동하면 배포 실패에 대한 자세한 내용이 제공됩니다.
 MMA나 Linux용 Log Analytics 에이전트 설치는 다양한 이유로 인해 실패할 수 있으며 이러한 실패를 처리하는 단계는 문제에 따라 달라집니다. 구체적인 문제 해결 단계가 이어집니다.
 
-다음 섹션에서는 온 보 딩 하는 오류를 발생 시킬 MMA 확장 배포의 경우에서 발생할 수 있는 다양 한 문제를 설명 합니다.
+다음 섹션에서는 MMA 확장을 배포 하는 동안 오류가 발생 하는 경우에 발생할 수 있는 다양 한 문제에 대해 설명 합니다.
 
 ### <a name="webclient-exception"></a>시나리오: WebClient 요청 중 예외가 발생했습니다.
 
 가상 머신의 MMA 확장이 외부 리소스와 통신할 수 없으며 배포가 실패합니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음은 반환되는 오류 메시지의 예입니다.
 
@@ -157,7 +188,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 이러한 오류의 잠재적인 원인:
 
-* 특정 포트만 허용 하는 VM에서 구성 된 프록시가 있습니다.
+* 특정 포트만 허용 하는 VM에 구성 된 프록시가 있습니다.
 
 * 방화벽 설정이 필요한 포트 및 주소에 대한 액세스를 차단했습니다.
 
@@ -165,11 +196,11 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 통신을 위해 적절한 포트와 주소가 열려 있는지 확인합니다. 포트와 주소 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
 
-### <a name="transient-environment-issue"></a>시나리오: 일시적인 환경 문제로 인해 설치가 실패 했습니다.
+### <a name="transient-environment-issue"></a>시나리오: 일시적인 환경 문제로 인해 설치 하지 못했습니다.
 
-다른 설치 또는 설치를 차단 하는 작업으로 인해 배포 하는 동안 Microsoft Monitoring Agent 확장을 설치 하지 못했습니다.
+설치를 차단 하는 다른 설치 또는 작업으로 인해 배포 중에 Microsoft Monitoring Agent 확장을 설치 하지 못했습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 다음은 반환될 수 있는 오류 메시지의 예입니다.
 
@@ -190,7 +221,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 이러한 오류의 잠재적인 원인:
 
 * 다른 설치 프로그램이 실행 중입니다.
-* 시스템은 템플릿 배포 하는 동안 다시 부팅 트리거됩니다.
+* 템플릿을 배포 하는 동안 다시 부팅 하기 위해 시스템이 트리거됨
 
 #### <a name="resolution"></a>해결 방법
 
@@ -198,11 +229,11 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 ### <a name="installation-timeout"></a>시나리오: 설치 시간 제한
 
-MMA 확장 설치가 시간 제한으로 인해 완료 되지 않았습니다.
+시간 초과로 인해 MMA 확장 설치가 완료 되지 않았습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
-다음 예제에서는 반환 될 수 있는 오류 메시지입니다.
+다음 예는 반환 될 수 있는 오류 메시지입니다.
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -210,7 +241,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>원인
 
-이 오류가 발생 하기 때문에 설치 하는 동안 부하가 사용 되는 가상 컴퓨터.
+이 오류는 설치 하는 동안 가상 컴퓨터의 부하가 높을 때 발생 합니다.
 
 ### <a name="resolution"></a>해결 방법
 

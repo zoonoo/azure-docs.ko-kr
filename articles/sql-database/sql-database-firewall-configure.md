@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d2dae28bde8ff35408733a1af886c302ec79bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158321"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568176"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 및 SQL Data Warehouse IP 방화벽 규칙
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Azure 및 다른 인터넷 기반 애플리케이션에 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 > [!IMPORTANT]
 > 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md)하는 방법에 대한 다음 문서를 참조하세요.
 
@@ -53,7 +52,7 @@ IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다
 
   클라이언트는 이 규칙에 따라 동일한 SQL Database 서버 내의 특정(보안) 데이터베이스에 액세스할 수 있습니다. 각 데이터베이스(**master** 데이터베이스 포함)에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. master 및 user 데이터베이스에 대한 데이터베이스 수준 IP 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽을 구성한 후에만 구성할 수 있습니다. 서버 수준 IP 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 IP 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 IP 방화벽 규칙을 가질 수 있습니다. 데이터베이스 수준 IP 방화벽 규칙을 구성하는 방법에 대한 자세한 내용은 이 문서 뒷부분에 나오는 예제 및 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
 
-### <a name="recommendation"></a>권장 사항
+### <a name="recommendation"></a>권장
 
 보안을 강화하고 데이터베이스의 휴대성을 높이기 위해 되도록이면 데이터베이스 수준 IP 방화벽 규칙을 사용하는 것이 좋습니다. 관리자의 경우 서버 수준 IP 방화벽 규칙을 사용하면 동일한 액세스를 요구하는 데이터베이스가 많을 때 각 데이터베이스를 개별적으로 구성할 필요가 없습니다.
 
@@ -151,9 +150,9 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-| Cmdlet | Level | 설명 |
+| Cmdlet | Level | Description |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
@@ -173,13 +172,13 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>Azure CLI를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| Cmdlet | Level | 설명 |
+| Cmdlet | Level | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|서버|IP 방화벽 규칙의 세부 정보를 보여 줍니다.|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|서버|IP 방화벽 규칙을 업데이트합니다.|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|서버|IP 방화벽 규칙을 삭제합니다.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|서버|IP 방화벽 규칙의 세부 정보를 표시 합니다.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|서버|IP 방화벽 규칙을 업데이트 합니다.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|서버|IP 방화벽 규칙을 삭제 합니다.|
 
 다음 예제에서는 Azure CLI를 사용하여 서버 수준 IP 방화벽 규칙을 설정합니다.
 
@@ -193,7 +192,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>REST API를 사용하여 서버 수준 IP 방화벽 규칙 관리
 
-| API | Level | 설명 |
+| API | Level | Description |
 | --- | --- | --- |
 | [방화벽 규칙 나열](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [방화벽 규칙 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
@@ -244,12 +243,12 @@ Microsoft Azure SQL Database 서비스로의 연결이 예상대로 작동되지
 
   동적 IP 주소를 통해 인터넷에 연결되어 있고 방화벽을 통과하는 데 문제가 있는 경우 다음 해결 방법 중 하나를 시도할 수 있습니다.
   
-  - Azure SQL Database 서버에 액세스 하는 클라이언트 컴퓨터에 할당 된 IP 주소 범위에 대 한 인터넷 서비스 공급자 (ISP)을 요청 하 고 IP 방화벽 규칙으로 IP 주소 범위를 추가 합니다.
+  - ISP (인터넷 서비스 공급자)에 Azure SQL Database 서버에 액세스 하는 클라이언트 컴퓨터에 할당 된 IP 주소 범위를 문의 한 다음 ip 주소 범위를 IP 방화벽 규칙으로 추가 합니다.
   - 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, IP 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Microsoft Azure 데이터 센터에서 사용 되는 컴퓨팅 IP 주소 범위 (SQL 범위 포함)에서 인바운드 통신을 허용 하는 회사 네트워크 환경 확인 합니다. 허용 목록에 추가 해야 할 수도 있습니다 이러한 IP 주소, 참조 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)  
+- 회사 네트워크 환경에서 Microsoft Azure 데이터 센터에서 사용 하는 IP 주소 계산 범위 (SQL 범위 포함)에서 인바운드 통신을 허용 하는지 확인 합니다. 이러한 IP 주소를 허용 목록 해야 할 수 있습니다 [Microsoft Azure 데이터 센터 Ip 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 참조 하세요.  
 - 서버 수준 IP 방화벽 규칙 만들기에 대한 빠른 시작은 [Azure SQL 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 - 오픈 소스 또는 타사 애플리케이션에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [SQL Database에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 - 추가로 열어야 하는 포트에 대한 자세한 내용은 **SQL Database: 내부 및 외부** 섹션([ADO.NET 4.5 및 SQL Database에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md))를 참조하세요.

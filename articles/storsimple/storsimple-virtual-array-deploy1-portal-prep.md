@@ -12,20 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127143"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517094"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## <a name="overview"></a>개요
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Resource Manager 모델을 사용하여 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 첫 번째 문서입니다. 이 문서는 가상 배열을 프로비전하기 전에 StorSimple 디바이스 관리자 서비스를 만들고 구성하는 데 필요한 준비 사항을 설명합니다. 이 문서는 배포 구성 검사 목록 및 필수 조건과도 연결됩니다.
 
@@ -33,7 +37,7 @@ Resource Manager 모델을 사용하여 가상 배열을 파일 서버 또는 iS
 
 이 문서에 게시된 정보는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
-### <a name="get-started"></a>시작하기
+### <a name="get-started"></a>시작
 배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스를 참고해야 합니다.
 
 #### <a name="deployment-articles"></a>배포 문서
@@ -55,7 +59,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 * [StorSimple 가상 배열 파일 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
 * [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 여기에는 StorSimple 디바이스 관리자 서비스, StorSimple 가상 배열, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
 
@@ -130,7 +134,7 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com/)할 수 있습니다. 
 2. Azure Portal에서 **찾아보기 &gt; StorSimple 디바이스 관리자**를 클릭합니다.
 3. 기존 StorSimple 디바이스 관리자 서비스를 선택합니다. **StorSimple 디바이스 관리자** 블레이드에서 **빠른 시작**을 클릭합니다. 
 4. Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.

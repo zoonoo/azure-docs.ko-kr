@@ -11,14 +11,13 @@ keywords: SQL Server 클라우드, 클라우드의 SQL Server, PaaS 데이터베
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 344d201489a409824bb52f928ba5a87bd968500a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447748"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567095"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure에서 적절한 SQL Server 옵션 선택
 
@@ -91,7 +90,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 PaaS 또는 IaaS 중에서 SQL Database의 호스트를 결정할 때 영향을 줄 수 있는 여러 요인이 있습니다.
 
 - [비용](#cost) - PaaS 및 IaaS 옵션 둘 다 기본 인프라 및 라이선스를 고려하는 기본 가격을 포함합니다. 그러나 IaaS 옵션을 사용할 경우 데이터베이스를 관리하기 위한 시간과 리소스를 추가로 투자해야 하지만 PaaS에서는 이러한 관리 기능이 가격에 포함되어 있습니다. IaaS 옵션을 사용하면 사용하지 않을 때 리소스를 종료하여 비용을 절감할 수 있지만, PaaS 버전은 필요하지 않을 때 리소스를 삭제했다가 다시 만들지 않으면 항상 실행됩니다.
-- [관리](#administration) - PaaS 옵션은 데이터베이스를 관리하는 데 투자해야 하는 시간을 줄여줍니다. 그러나 사용자 지정 관리 작업을 수행 하거나 실행할 수 있는 스크립트 범위도 제한 합니다. 예를 들어 CLR 단일 또는 풀링된 데이터베이스는 지원 되지 않습니다 하지만 관리 되는 인스턴스에서 지원 됩니다. 또한 paas에서 배포 옵션이 추적 플래그의 사용을 지원 합니다.
+- [관리](#administration) - PaaS 옵션은 데이터베이스를 관리하는 데 투자해야 하는 시간을 줄여줍니다. 그러나 사용자 지정 관리 태스크 및 사용자가 실행 하거나 실행할 수 있는 스크립트의 범위를 제한 하기도 합니다. 예를 들어 CLR은 단일 또는 풀링된 데이터베이스에서 지원 되지 않지만 관리 되는 인스턴스에 대해서는 지원 됩니다. 또한 PaaS의 배포 옵션은 추적 플래그 사용을 지원 하지 않습니다.
 - [서비스 수준 계약](#service-level-agreement-sla) - IaaS 및 PaaS 둘 다 높은 업계 표준 SLA를 제공합니다. PaaS 옵션은 99.99%의 SLA를 보장하지만, IaaS는 인프라에 대해 99.95%의 SLA를 보장합니다. 따라서 데이터베이스의 가용성을 보장하려면 추가 메커니즘을 구현해야 합니다. 극단적인 경우, PaaS와 일치하는 고가용성 솔루션을 구현하려는 경우 VM에서 추가 SQL Server를 만들고 AlwaysOn 가용성 그룹을 구성해야 할 수 있습니다. 이 경우 데이터베이스의 비용이 2배가 들 수 있습니다.
 - [Azure로 전환해야 할 때](#market) -Azure VM의 SQL Server는 작업 환경에 정확히 일치하므로 온-프레미스에서 Azure SQL VM으로 마이그레이션하는 것은 데이터베이스를 한 온-프레미스 서버에서 다른 온-프레미스 서버로 이동하는 것과는 다릅니다. 또한 관리되는 인스턴스를 사용하면 매우 쉽게 마이그레이션할 수 있지만, 관리되는 인스턴스로 마이그레이션하기 전에 몇 가지 변경 내용을 적용해야 할 수 있습니다.
 
@@ -167,4 +166,4 @@ Microsoft는 **SQL Database**에 대해 99.99%의 가용성 SLA를 제공합니�
 - SQL Database를 시작하려면 [첫 Azure SQL Database](sql-database-single-database-get-started.md)를 참조하세요.
 - [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 - Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 머신 프로비전](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
-- [올바른 Azure SQL Database/관리 되는 인스턴스 SKU 온-프레미스 데이터베이스에 대 한 식별](/sql/dma/dma-sku-recommend-sql-db/)합니다.
+- [온-프레미스 데이터베이스에 대한 올바른 Azure SQL Database/Managed Instance SKU를 식별합니다](/sql/dma/dma-sku-recommend-sql-db/).

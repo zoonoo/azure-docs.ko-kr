@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: c1b8f60fd155cf9bce0b999da7459299b6f3c7aa
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9bf34fd48c3a4a9a9672ac162f63dcce118b2c0a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404534"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668179"
 ---
-# <a name="get-started-with-device-twins-netnet"></a>디바이스 쌍(.NET/.NET) 시작
+# <a name="get-started-with-device-twins-net"></a>장치 쌍 시작 (.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 이 자습서의 끝 부분에 다음 .NET 콘솔 앱이 제공됩니다.

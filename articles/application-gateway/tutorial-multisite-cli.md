@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407110"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717277"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이 만들기
 
@@ -227,7 +227,7 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http\://www.contoso.com.
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -237,7 +237,7 @@ A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정

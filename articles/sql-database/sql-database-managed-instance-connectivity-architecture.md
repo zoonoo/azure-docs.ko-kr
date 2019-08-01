@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: aac328806e2570bd124626e916c250d481a11311
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309971"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567595"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 
@@ -97,7 +96,7 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |포트                        |프로토콜|Source           |Destination|작업|
+| 이름       |포트                        |프로토콜|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |임의의 값              |MI SUBNET  |Allow |
 |mi_subnet   |임의의 값                         |임의의 값     |MI SUBNET        |MI SUBNET  |Allow |

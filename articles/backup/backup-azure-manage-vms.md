@@ -1,18 +1,19 @@
 ---
 title: Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: sogup
-ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466267"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688392"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM 백업 관리
 

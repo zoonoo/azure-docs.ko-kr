@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 8debd55cd1d5588a24dcd32a619ae772e499a939
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e648f89a86d7d6064b883496f888cb27a4af27e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850072"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566404"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스 정의
 
@@ -101,7 +100,7 @@ Azure platform은 성능 등급과 결합 된 [기본 제공 성능 모니터링
 
 Azure 가용성 영역는 고가용성 문제에 대 한 재생입니다.  단일 지역 내에서 단일 데이터 센터의 가동 중단 으로부터 보호 하려고 합니다.  따라서 건물에 대 한 전원 또는 네트워크의 손실을 방지 하려고 합니다. SQL Azure 다른 가용성 영역에 다른 복제본을 배치 하 여 작동 합니다 (다른 빌딩, 효율적). 그렇지 않은 경우에는 이전 처럼 작동 합니다.
 
-실제로 Microsoft에서 관리 하는 데이터 센터의 글로벌 네트워크에서 제공 하는 Azure의 업계 최고의 99.99% 가용성 [SLA (](https://azure.microsoft.com/support/legal/sla/)서비스 수준 계약)는 24/7를 실행 하는 응용 프로그램을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 스토리지를 단일 고성능 노드에 통합한 후 내부적으로 Always On 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
+실제로 Microsoft에서 관리 하는 데이터 센터의 글로벌 네트워크에서 제공 하는 Azure의 업계 최고의 99.99% 가용성 [SLA (](https://azure.microsoft.com/support/legal/sla/)서비스 수준 계약)는 24/7를 실행 하는 응용 프로그램을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 컴퓨팅 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 컴퓨팅 및 스토리지를 단일 고성능 노드에 통합한 후 내부적으로 Always On 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
 - **[자동 백업](sql-database-automated-backups.md)** :
 
@@ -168,7 +167,7 @@ SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-da
 
 [감사](sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 씁니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 
-### <a name="data-encryption"></a>데이터 암호화.
+### <a name="data-encryption"></a>데이터 암호화
 
 SQL Database는 전송 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), 사용 중인 데이터의 경우 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)로 암호화를 제공하여 데이터를 보호합니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479901"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592022"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
@@ -46,7 +46,7 @@ Azure Storage를 위한 Advanced Threat Protection은 스토리지 계정에 대
 
 Azure Security Center 표준 계층을 구독할 때 Advanced Threat Protection은 모든 저장소 계정에 자동으로 설정 됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대 한 고급 위협 방지를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-1. [Azure Portal]([https://portal.azure.com)에서 **Azure Security Center** 를 시작 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Security Center** 를 시작 합니다.
 1. 주 메뉴에서 **가격 책정 & 설정**을 클릭 합니다.
 1. 저장소 계정에 대해 위협 방지를 사용 하거나 사용 하지 않도록 설정할 구독을 클릭 합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482067"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562187"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
@@ -51,7 +51,7 @@ SSO를 사용하면 Azure AD 조인 디바이스에서 다음을 수행할 수 �
 - AD 멤버 서버의 UNC 경로에 액세스
 - Windows 통합 보안에 구성된 AD 멤버 웹 서버에 액세스 
 
-Windows 디바이스에서 온-프레미스 AD를 관리하려면 [Windows 10용 원격 서버 관리 도구](https://www.microsoft.com/en-us/download/details.aspx?id=45520)를 설치하세요.
+Windows 디바이스에서 온-프레미스 AD를 관리하려면 [Windows 10용 원격 서버 관리 도구](https://www.microsoft.com/download/details.aspx?id=45520)를 설치하세요.
 
 다음 작업을 수행할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f38502cc543f19855dbca32c4724a5651b1a3f2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318115"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565329"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -46,11 +46,11 @@ Twitter 핸들:[@azlabservices](https://twitter.com/azlabservices)
 ### <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 질문이 여기에 나열 되지 않은 경우 알려 주시기 바랍니다. 답변을 찾을 수 있습니다.
 
-- 이 FAQ의 끝에 질문을 게시합니다. 이 문서에 대해 Azure Cache 팀 및 다른 커뮤니티 구성원들이 참여합니다.
+- 이 FAQ의 끝에 질문을 게시합니다. 
 - 더 광범위한 대상에 도달하기 위해 [Azure DevTest Labs MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)에 질문을 게시하세요. Azure DevTest Labs 팀과 커뮤니티의 다른 구성원들이 참여합니다.
 - 기능 요청의 경우 요청 내용과 아이디어를 [Azure DevTest Labs 사용자 의견](https://feedback.azure.com/forums/320373-azure-devtest-labs)으로 제출해 주세요.
 
-### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란?
+### <a name="what-is-a-microsoft-account"></a>Microsoft 계정이란 무엇입니까?
 Microsoft 계정이란 Microsoft 디바이스 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows phone, Azure 및 Xbox Live에 로그인 하는 데 사용 하는 전자 메일 주소 및 암호입니다. 단일 계정은 파일, 사진, 연락처 및 설정이 모든 디바이스에서 사용자를 따를 수 있음을 의미합니다.
  
 > [!NOTE]

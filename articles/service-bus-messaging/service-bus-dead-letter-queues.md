@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 79bc5e640498788ef805d07a26dd29e943117b58
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476967"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516585"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -108,7 +108,7 @@ while(true)
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
 .NET SDK를 사용 하는 경우 FormatDeadLetterPath () 메서드를 사용 하 여 배달 못 한 편지 큐의 경로를 가져올 수 있습니다. 이 메서드는 **/$DeadLetterQueue**항목 이름/구독 이름 및 접미사를 사용 합니다.

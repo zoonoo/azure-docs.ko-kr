@@ -4,19 +4,21 @@ description: TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467580"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597491"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL (Time to Live) 
 
 TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기간이 끝난 후 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 기본적으로 컨테이너 수준에서 TTL(Time to Live)을 설정하거나 항목별 기준으로 값을 재정의할 수 있습니다. 컨테이너 또는 항목 수준에서 TTL을 설정하면 Azure Cosmos DB는 마지막으로 수정한 시간으로부터 해당 시간이 지나면 이러한 항목이 자동으로 제거합니다. TTL(Time to Live) 값은 초 단위로 구성됩니다. TTL을 구성할 때 시스템은 클라이언트 응용 프로그램에서 명시적으로 실행 되는 삭제 작업이 없어도 TTL 값을 기준으로 만료 된 항목을 자동으로 삭제 합니다.
+
+만료 된 항목 삭제는 사용자 요청에서 사용 되지 않은 요청 단위 인 왼쪽 위에 있는 [요청 단위](request-units.md)를 사용 하는 백그라운드 작업입니다. 컨테이너의 부하가 높은 상태에서 유지 관리 작업을 위한 요청 단위가 남아 있지 않으면 만료 시간이 지연 될 수 있습니다.
 
 ## <a name="time-to-live-for-containers-and-items"></a>컨테이너 및 항목에 대한 TTL(Time to live)
 

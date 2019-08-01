@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277634"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517231"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
-커넥터는 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼에 걸친 Azure Logic Apps 이벤트, 데이터 및 작업에 대 한 빠른 액세스를 제공 합니다. 논리 앱에서 커넥터를 사용 하면 클라우드 및 온-프레미스 앱에 대 한 기능을 확장 하 여 사용자가 만들고 이미 보유 하 고 있는 데이터를 사용 하 여 작업을 수행할 수 있습니다.
+커넥터를 사용하면 Azure Logic Apps에서 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼에 걸쳐 이벤트, 데이터 및 작업에 빠르게 액세스할 수 있습니다. 이미 만들어 사용하고 있는 데이터로 작업을 수행할 수 있도록, 논리 앱에서 커넥터를 사용하여 클라우드 및 온-프레미스 앱에 대한 기능을 확장합니다.
 
 Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)를 제공 하지만이 문서에서는 수천 개의 앱에서 성공적으로 사용 되는 인기 있는 커넥터와 데이터 및 정보를 처리 하는 수백만 개의 실행을 설명 합니다. 커넥터의 전체 목록과 각 커넥터의 참조 정보 (예: 트리거, 작업 및 제한)를 찾으려면 커넥터 [개요](https://docs.microsoft.com/connectors)에서 커넥터 참조 페이지를 검토 합니다. 또한 [트리거 및 작업](#triggers-actions), [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)및 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)에 대해 자세히 알아보세요. 
 
@@ -35,7 +35,7 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
   > [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내의 논리 앱은 Azure virtual network의 리소스에 직접 액세스할 수 있습니다.
   > ISE를 사용 하는 경우 기본 제공 트리거와 **코어** 레이블을 표시 하는 작업은 논리 앱과 동일한 ISE에서 실행 됩니다. 논리 앱, 기본 제공 트리거 및 ISE에서 실행 되는 기본 제공 작업은 사용량 기반 요금제와 다른 가격 책정 계획을 사용 합니다.
   >
-  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)을 참조 하세요. 
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요. 
   > 가격 책정에 대 한 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ Logic Apps는 [수백 개의 커넥터](https://docs.microsoft.com/connectors)�
   >
   > Azure 가상 네트워크에 연결 된 온-프레미스 시스템의 경우, 논리 앱이 **ise** 레이블, HTTP 작업 또는 [사용자 지정 커넥터가](#custom)있는 커넥터를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 ise를 해당 네트워크에 삽입 합니다. ISE에서 실행 되는 논리 앱 및 커넥터는 사용량 기반 요금제와 다른 가격 책정 계획을 사용 합니다. 
   >
-  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)을 참조 하세요.
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
   > 가격 책정에 대 한 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
   커넥터의 전체 목록과 각 커넥터의 참조 정보 (예: OpenAPI (이전의 Swagger) 설명에 의해 정의 되는 작업 및 트리거) 및 모든 제한에 대해 [커넥터 개요](/connectors/)에서 전체 목록을 찾을 수 있습니다. 가격 책정 정보는 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)를 참조 하세요. 
@@ -128,7 +128,7 @@ Logic Apps은 이러한 서비스 또는 시스템을 사용 하 여 작업, 프
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![API 아이콘][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API 아이콘][file-system-icon]<br/>**파일</br> 시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br/>**IBM** Informix</br> ][ibm-informix-doc] | ![API 아이콘][mysql-icon]<br/>**MySQL** | 
+| ![API 아이콘][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API 아이콘][file-system-icon]<br/>**파일</br> 시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br/>**IBM** Informix</br>][ibm-informix-doc] | ![API 아이콘][mysql-icon]<br/>**MySQL** | 
 | [![API 아이콘][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API 아이콘][postgre-sql-icon]<br/>**PostgreSQL** | [![API 아이콘][sharepoint-server-icon]<br/>**SharePoint</br> 서버**][sharepoint-server-doc] | [![API 아이콘][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API 아이콘][teradata-icon]<br/>**Teradata** | 
 |||||
 
@@ -196,7 +196,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 >
 > ISE 내에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 작동 하지 않습니다. 그러나 이러한 커넥터는 ISE를 호스트 하는 Azure 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE의 논리 앱은 이러한 리소스와 통신할 때 데이터 게이트웨이가 필요 하지 않을 수 있습니다.
 >
-> ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)을 참조 하세요.
+> ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

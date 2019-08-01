@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478811"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564973"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
@@ -158,6 +158,14 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 | Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+현재 ' api.applicationinsights.io '를 [통해 액세스](https://dev.applicationinsights.io/
+) 되는 Application Insights REST API를 사용 하는 경우 지역에 로컬인 끝점을 사용 해야 합니다.
+
+|Region |  끝점 이름 | 값 |
+|-----------------|:------------|:-------------|
+| Azure 중국 | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Azure 앱 Services에 대 한 코드 없는 agent/extension 기반 모니터링은 현재 이러한 지역에서 **지원 되지** 않습니다. 이 기능을 사용할 수 있게 되 면이 문서가 업데이트 됩니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 3c6793581b797892c0bb468906d4f8ae72182618
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499826"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562122"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
@@ -47,7 +47,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 - Azure AD 또는 하이브리드 Azure AD에 조인된 Windows 10 디바이스가 네트워크에서 활성 상태로 있습니다. 
 - Intune 관리 디바이스가 서비스에 체크 인했습니다.
 
-활동 타임스탬프의 기존 값과 현재 값 사이의 델타가 14일을 초과하면 기존 값이 새 값으로 바뀝니다.
+활동 타임 스탬프의 기존 값과 현재 값이 14 일 (+/-5 일 차이)을 초과 하는 경우 기존 값이 새 값으로 바뀝니다.
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>활동 타임스탬프를 받으려면 어떻게 할까요?
 
@@ -77,7 +77,7 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 
 ### <a name="timeframe"></a>시간 범위
 
-부실 디바이스에 대한 표시기인 시간 범위를 정의합니다. 시간 범위를 정의할 때는 활동 타임스탬프를 사용자의 값으로 업데이트하기 위한 기간으로 14일을 사용하는 것이 좋습니다. 예를 들어 부실 디바이스에 대한 표시기인 14일보다 짧은 타임스탬프는 고려하지 않아야 합니다. 디바이스가 오래되지 않았지만 오래된 것처럼 보이게 할 수 있는 시나리오가 있습니다. 예를 들어 영향을 받는 디바이스의 소유자가 휴가 중이거나 병가 상태로 있을 수 있습니다.  이로 인해 부실 디바이스에 대한 시간 범위를 초과할 수 있습니다.
+부실 디바이스에 대한 표시기인 시간 범위를 정의합니다. 기간을 정의할 때 작업 타임 스탬프를 업데이트 하는 데 필요한 창을 값으로 표시 합니다. 예를 들어 유효 하지 않은 장치에 대 한 표시기로 21 일 (분산 포함) 보다 오래 된 타임 스탬프를 고려 하지 않아야 합니다. 디바이스가 오래되지 않았지만 오래된 것처럼 보이게 할 수 있는 시나리오가 있습니다. 예를 들어 영향을 받는 디바이스의 소유자가 휴가 중이거나 병가 상태로 있을 수 있습니다.  이로 인해 부실 디바이스에 대한 시간 범위를 초과할 수 있습니다.
 
 ### <a name="disable-devices"></a>디바이스 비활성화
 
@@ -89,7 +89,7 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 
 ### <a name="system-managed-devices"></a>시스템 관리 디바이스
 
-시스템 관리 디바이스는 삭제하지 마세요. 이러한 디바이스는 일반적으로 자동 파일럿과 같은 디바이스이며, 일단 삭제되면 다시 프로비전할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
+시스템 관리 디바이스는 삭제하지 마세요. 이러한 디바이스는 일반적으로 자동 파일럿과 같은 디바이스이며, 삭제 한 후에는 이러한 장치를 다시 프로 비전 할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 디바이스
 
@@ -98,15 +98,30 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 Azure AD를 정리하려면 다음을 수행합니다.
 
 - **Windows 10 디바이스** - 온-프레미스 AD에서 Windows 10 디바이스를 사용하지 않도록 설정하거나 삭제하고, Azure AD Connect에서 변경된 디바이스 상태를 Azure AD에 동기화하도록 합니다.
-- **Windows 7/8** - Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제합니다. Azure AD Connect는 Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제하는 데 사용할 수 없습니다.
+- **Windows 7/8** -먼저 온-프레미스 AD에서 windows 7/8 장치를 사용 하지 않도록 설정 하거나 삭제 합니다. Azure AD Connect는 Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제하는 데 사용할 수 없습니다. 대신 온-프레미스에서 변경 하는 경우 Azure AD에서 사용 하지 않도록 설정 하거나 삭제 해야 합니다.
+
+> [!NOTE]
+>* 온-프레미스 AD 또는 Azure AD에서 장치를 삭제 하는 것은 클라이언트에서 등록 되지 않습니다. 장치를 id (예: 조건부 액세스)로 사용 하는 리소스에 대 한 액세스를 차단 합니다. [클라이언트에서 등록을 제거](faq.md#hybrid-azure-ad-join-faq)하는 방법에 대 한 추가 정보를 읽습니다.
+>* Azure AD 에서만 Windows 10 장치를 삭제 하면 Azure AD connect를 사용 하 여 온-프레미스에서 장치를 다시 동기화 하지만 "보류 중" 상태의 새 개체로 장치를 다시 동기화 합니다. 장치에 다시 등록 해야 합니다.
+>* Windows 10/Server 2016 장치의 동기화 범위에서 장치를 제거 하면 Azure AD 장치가 삭제 됩니다. 동기화 범위에 다시 추가 하면 새 개체가 "보류 중" 상태로 전환 됩니다. 장치를 다시 등록 해야 합니다.
+>* Windows 10 장치에 대 한 Azure AD Connect를 사용 하지 않는 경우 (예: 등록을 위해 AD FS만 사용) Windows 7/8 장치와 비슷한 수명 주기를 관리 해야 합니다.
+
 
 ### <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
 Azure AD에서 Azure AD 조인 디바이스를 사용하지 않도록 설정하거나 삭제합니다.
 
+> [!NOTE]
+>* Azure AD 장치를 삭제 해도 클라이언트에서 등록이 제거 되지 않습니다. 장치를 id (예: 조건부 액세스)로 사용 하는 리소스에 대 한 액세스를 차단 합니다. 
+>* [AZURE AD에서 가입을 취소 하는 방법](faq.md#azure-ad-join-faq) 에 대해 자세히 알아보세요. 
+
 ### <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스
 
 Azure AD에서 Azure AD 등록 디바이스를 사용하지 않도록 설정하거나 삭제합니다.
+
+> [!NOTE]
+>* Azure AD에서 Azure AD 등록 장치를 삭제 해도 클라이언트에서 등록이 제거 되지 않습니다. 장치를 id (예: 조건부 액세스)로 사용 하는 리소스에 대 한 액세스를 차단 합니다.
+>* [클라이언트에서 등록을 제거 하는 방법](faq.md#azure-ad-register-faq) 에 대해 자세히 알아보세요.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Azure Portal에서 부실 디바이스 정리  
 
@@ -148,7 +163,7 @@ Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, Devi
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Windows Autopilot 장치에 대해 걱정 해야 하는 이유는 무엇 인가요?
 
-Azure AD 장치가 Windows Autopilot 개체와 연결 된 경우 나중에 장치를 다시 용도 하는 경우 다음과 같은 세 가지 시나리오가 발생할 수 있습니다.
+Azure AD 장치가 Windows Autopilot 개체와 연결 된 경우 나중에 장치를 다시 사용 하는 경우 다음 세 가지 시나리오가 발생할 수 있습니다.
 - 흰색 글러브을 사용 하지 않고 Windows Autopilot 사용자 기반 배포를 사용 하는 경우 새 Azure AD 장치가 만들어지지만 ZTDID로 태그가 지정 되지 않습니다.
 - Windows Autopilot 자동 배포 모드 배포를 사용 하는 경우 연결 하는 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다.  이는 "가짜" 장치가 자격 증명 없이 Azure AD에 가입 하려고 시도 하는 것을 확인 하는 보안 메커니즘입니다. 실패는 ZTKEYKEYA를 표시 합니다.
 - Windows Autopilot white 글러브 배포를 사용 하는 경우 연결 된 Azure AD 장치를 찾을 수 없기 때문에 실패 합니다. 백그라운드에서 흰색 글러브 배포는 동일한 자체 배포 모드 프로세스를 사용 하므로 동일한 보안 메커니즘을 적용 합니다.

@@ -4,26 +4,27 @@ ms.service: billing
 ms.topic: include
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: 520a403fcfed3bb96278f4a82fcfeb41abb2ee42
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8e65c0c1302523af5aefab297ffbafe2a90d2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277363"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68589981"
 ---
 **공용 DNS 영역**
 
-| Resource | 기본 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- |
 | 구독 당 공용 DNS 영역 |250 <sup>1</sup> |
-| 공용 DNS 영역당 레코드 집합 |10,000 <sup>1</sup> |
-| 공용 DNS 영역에서 레코드 집합 당 레코드 |20 |
+| 공용 DNS 영역별 레코드 집합 |10,000 <sup>1</sup> |
+| 공용 DNS 영역에 있는 레코드 집합 당 레코드 |20 |
+| 단일 Azure 리소스에 대 한 별칭 레코드 수 |20|
 | 구독 당 사설 DNS 영역 |1000|
-| 개인 DNS 영역당 레코드 집합 |25000|
-| 개인 DNS 영역에 대 한 레코드를 레코드 별로 설정 |20|
-| 사설 DNS 영역 당 가상 네트워크 연결 |1000|
-| 자동 등록을 사용 하 여 사설 DNS 영역은 당 가상 네트워크 연결 사용 |100|
-| 자동 등록 활성화를 사용 하 여 가상 네트워크 연결 가져오기 개인 DNS 영역의 수 |1|
-| 사설 DNS 영역은 가상 네트워크를 연결할 가져오기 있습니다 수 |1000|
+| 개인 DNS 영역별 레코드 집합 |25000|
+| 개인 DNS 영역에 대 한 레코드 집합 당 레코드 |20|
+| 개인 DNS 영역별 Virtual Network 링크 |1000|
+| 자동 등록을 사용 하는 개인 DNS 영역 당 가상 네트워크 링크 |100|
+| 자동 등록을 사용 하도록 설정한 상태에서 가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수 |1|
+| 가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수 |1000|
 
-<sup>1</sup>이러한 제한을 늘려야 하는 경우 Azure 지원에 문의 합니다.
+<sup>1</sup> 이러한 제한을 늘려야 하는 경우 Azure 지원에 문의 하세요.

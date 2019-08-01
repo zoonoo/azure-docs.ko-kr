@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630367"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516702"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>개요
 
@@ -47,13 +49,13 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 | 복구 시간 목표(RTO) |iSCSI: 크기에 관계없이 2분 미만 |
 | 복구 지점 목표(RPO) |매일 백업 및 주문형 백업 |
 | 저장소 계층화 |열 매핑을 사용하여 계층화에 포함시킬 데이터와 그렇지 않은 데이터를 결정 |
-| 지원 |공급업체에 의해 지원되는 가상화 인프라 |
+| Support(지원) |공급업체에 의해 지원되는 가상화 인프라 |
 | 성능 |기본 인프라에 따라 달라짐 |
 | 데이터 이동성 |동일한 디바이스에 복원할 수 있음 또는 항목 수준 복원을 수행함(파일 서버) |
 | 저장소 계층 |로컬 하이퍼바이저 저장소 및 클라우드 |
 | 공유 크기 |계층화: 최대 20TB; 로컬로 고정: 최대 2TB |
 | 볼륨 크기 |계층화: 500GB~5TB(로컬로 고정): 50GB~200GB <br> 계층화된 볼륨에 대한 최대 로컬 예약은 200GB입니다. |
-| 스냅샷 |충돌 일관성 |
+| 스냅숏 |충돌 일관성 |
 | 항목 수준 복구 |예; 사용자가 공유에서 복원 가능 |
 
 ## <a name="why-use-storsimple"></a>StorSimple을 사용하는 이유
@@ -74,7 +76,7 @@ StorSimple은 애플리케이션을 수정하지 않고 사용자와 서버를 �
 
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-|시나리오     |워크로드     |지원됨      |제한               | 적용 가능한 버전|
+|시나리오     |작업     |지원됨      |Restrictions               | 적용 가능한 버전|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |원격 사무실/지사(ROBO)  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 |클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
@@ -101,7 +103,7 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 ![클라우드 기반 저장소 관리](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>위치와 무관한 백업
-가상 배열을 사용하여, 클라우드 스냅샷은 위치와 무관한 지정 시간 볼륨 또는 공유 복사를 제공합니다. 클라우드 스냅샷은 기본적으로 사용하도록 설정되며 사용하지 않도록 설정할 수 없습니다. 모든 볼륨과 공유는 하나의 매일 백업 정책을 통해 같은 시간에 백업 하 고 필요할 때마다 추가 임시 백업을 수행할 수 있습니다.
+가상 배열을 사용하여, 클라우드 스냅샷은 위치와 무관한 지정 시간 볼륨 또는 공유 복사를 제공합니다. 클라우드 스냅샷은 기본적으로 사용하도록 설정되며 사용하지 않도록 설정할 수 없습니다. 모든 볼륨과 공유는 단일 일별 백업 정책을 통해 동시에 백업 되며 필요할 때마다 추가 임시 백업을 수행할 수 있습니다.
 
 ### <a name="data-protection-and-disaster-recovery"></a>데이터 보호 및 재해 복구
 가상 배열은 다음과 같은 데이터 보호 및 재해 복구 시나리오를 지원합니다.

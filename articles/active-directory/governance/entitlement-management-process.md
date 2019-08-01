@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489094"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678139"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)의 요청 프로세스 및 전자 메일 알림
 
@@ -47,7 +47,7 @@ ms.locfileid: "68489094"
 | 만료됨 | 승인 요청 시간 제한 내에서 요청을 승인 하는 승인자가 없으면 요청이 만료 됩니다. 다시 시도 하려면 사용자가 자신의 요청을 다시 제출 해야 합니다. |
 | 거부됨 | 승인자가 요청을 거부 합니다. |
 | 승인 | 승인자가 요청을 승인 합니다. |
-| 배달 중 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 **되지** 않았습니다. 외부 사용자 인 경우 사용자는 아직 리소스 디렉터리에 액세스 하지 않고 사용 권한 프롬프트를 수락 했습니다. |
+| 배달 중 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 **되지** 않았습니다. 외부 사용자 인 경우에는 사용자가 아직 리소스 디렉터리에 액세스 하 여 동의 확인 프롬프트를 수락 하지 않았을 수 있습니다. |
 | Delivered | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 되었습니다. |
 | 액세스 확장 | 정책에서 확장이 허용 되 면 사용자가 할당을 확장 한 것입니다. |
 | 액세스가 만료 됨 | 액세스 패키지에 대 한 사용자의 액세스가 만료 되었습니다. 액세스를 다시 받으려면 사용자가 요청을 제출 해야 합니다. |

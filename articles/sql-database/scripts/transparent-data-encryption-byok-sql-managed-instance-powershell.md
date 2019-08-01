@@ -10,28 +10,27 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: c2c4bd7bffd923430d0817cb6ea975f4c1596623
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f0f4a8e603a9040d166b00682077cff23abd8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729156"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569691"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Azure Key Vault (미리 보기)에서 사용자 고유 키를 사용 하 여 관리 되는 인스턴스에서 투명 한 데이터 암호화 관리
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Azure Key Vault의 고유한 키를 사용 하 여 Managed Instance에서 투명한 데이터 암호화 관리 (미리 보기)
 
-이 PowerShell 스크립트 예제 Azure SQL 관리 되는 인스턴스, Azure Key Vault에서 키를 사용 하 여에 대 한 Bring Your Own Key (미리 보기) 시나리오에서 Transparent Data Encryption (TDE)를 구성 합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
+이 PowerShell 스크립트 예제는 Azure Key Vault의 키를 사용 하 여 Azure SQL Managed Instance의 Bring Your Own Key (미리 보기) 시나리오에서 TDE (투명한 데이터 암호화)를 구성 합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-- 기존 관리 되는 인스턴스. 참조 [Azure SQL Database를 만들려면 PowerShell을 사용 하 여 관리 되는 인스턴스](sql-database-create-configure-managed-instance-powershell.md)합니다.
+- 기존 Managed Instance입니다. [PowerShell을 사용 하 여 Azure SQL Database 관리 되는 인스턴스 만들기를](sql-database-create-configure-managed-instance-powershell.md)참조 하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-모두 PowerShell를 사용 하 여 로컬로 또는 Azure Cloud Shell을 사용 하 여 AZ PowerShell 1.1.1-preview 또는 이상 미리 보기 버전이 필요 합니다. 업그레이드 해야 하는 경우 참조 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps), 실행 또는 아래 샘플 스크립트 모듈을 설치 합니다.
+PowerShell을 로컬로 사용 하거나 Azure Cloud Shell을 사용 하려면 AZ PowerShell 1.1.1-preview 이상 preview 버전이 필요 합니다. 업그레이드 해야 하는 경우 모듈 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하거나 아래 샘플 스크립트를 실행 하 여 모듈을 설치 합니다.
 
 `Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
 

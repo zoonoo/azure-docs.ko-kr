@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/21/2019
-ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 95814805d0bcb2532c09f4f68c6b8d97c3b8c6a5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341068"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568829"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치(failover)
 
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
@@ -34,18 +33,18 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 > 영역 중복 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 사용하는 경우, 복구 프로세스가 자동화되고 이 자료의 나머지 부분이 적용되지 않습니다.
 
 > [!NOTE]
-> 동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 가장 보조 데이터베이스가 주 데이터베이스와 같은 계산 크기 (Dtu 또는 vcore 수)를 사용 하 여 만들어졌는지 것이 좋습니다. 자세한 내용은 [업그레이드 또는 주 데이터베이스로 다운 그레이드](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)합니다.
+> 동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 주 데이터베이스와 동일한 계산 크기 (Dtu 또는 vCores)를 사용 하 여 보조 데이터베이스를 만드는 것이 좋습니다. 자세한 내용은 [주 데이터베이스로 업그레이드 또는 다운 그레이드](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)를 참조 하세요.
 
 > [!NOTE]
-> 장애 조치 그룹을 하나 또는 여러 개를 사용 하 여 여러 데이터베이스의 장애 조치 관리.
-> 장애 조치(failover) 그룹에 기존의 지역 복제 관계를 추가하는 경우 보조 데이터베이스가 주 데이터베이스와 동일한 서비스 계층 및 계산 크기로 구성되었는지 확인합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 하 고 조정 된 장애 조치를 사용 하도록 설정 하려면](sql-database-auto-failover-group.md)합니다.
+> 하나 또는 여러 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 장애 조치를 관리 합니다.
+> 장애 조치(failover) 그룹에 기존의 지역 복제 관계를 추가하는 경우 보조 데이터베이스가 주 데이터베이스와 동일한 서비스 계층 및 컴퓨팅 크기로 구성되었는지 확인합니다. 자세한 내용은 [자동 장애 조치 그룹을 사용 하 여 여러 데이터베이스의 투명 및 조정 된 장애 조치 (failover)를 사용 하도록 설정](sql-database-auto-failover-group.md)을 참조 하세요.
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>가동 중단 이벤트에 대비
 
 장애 조치(Failover) 그룹 또는 지역 중복 백업을 사용하여 다른 데이터 영역으로 성공적으로 복구하려면 이러한 요구가 발생하고 원활한 복구를 보장하기 위해 잘 정의된 단계가 문서화되고 테스트된 경우 다른 데이터 센터 가동 중단에 대비해서 서버를 새로운 주 서버로 준비해야 합니다. 이러한 준비 단계는 다음과 같습니다.
 
 - 새로운 주 서버가 될 수 있는 다른 지역의 SQL Database 서버를 식별합니다. 지역 복원의 경우 일반적으로 데이터베이스가 있는 지역과 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 있는 서버입니다. 이렇게 하면 지역 복원 작업 중에 추가 트래픽 비용이 제거됩니다.
-- 사용자가 새로운 주 데이터베이스에 액세스하는 데 필요한 서버 수준 방화벽 규칙을 식별하고 경우에 따라 정의합니다.
+- 사용자가 새로운 주 데이터베이스에 액세스하는 데 필요한 서버 수준 IP 방화벽 규칙을 식별하고 경우에 따라 정의합니다.
 - 연결 문자열을 변경하거나 DNS 항목을 변경하는 것과 같이 사용자를 새로운 주 서버로 리디렉션하는 방법을 결정합니다.
 - 새로운 주 서버의 master 데이터베이스에 있어야 하는 로그인을 식별하고 필요에 따라 만든 후, 이러한 로그인(있는 경우)이 master 데이터베이스에서 적절한 권한이 있는지 확인합니다. 자세한 내용은 [재해 복구 후 Azure SQL Database 보안](sql-database-geo-replication-security-config.md)
 - 새로운 주 데이터베이스에 매핑하기 위해 업데이트해야 하는 경고 규칙을 식별합니다.
@@ -80,7 +79,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 - [Azure Portal을 사용하여 지역에서 복제된 보조 서버로 장애 조치](sql-database-geo-replication-portal.md)
 - [PowerShell을 사용하여 보조 서버로 장애 조치](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [TRANSACT-SQL (T-SQL)을 사용 하 여 보조 서버로 장애 조치](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Transact-sql (T-sql)을 사용 하 여 보조 서버로 장애 조치 (failover)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>지역 복원을 사용한 복구
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309880"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
@@ -28,7 +28,7 @@ ms.locfileid: "68309880"
 
 Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.55 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-컨테이너 레지스트리를 설정하고 컨테이너 이미지를 푸시하려면 Docker를 로컬로 설치해야 합니다. Docker는 [macos][docker-mac], [Windows][docker-windows]또는 [linux][docker-linux] 시스템에서 docker를 쉽게 구성 하는 패키지를 제공 합니다.
+컨테이너 레지스트리를 설정하고 컨테이너 이미지를 푸시하려면 Docker를 로컬로 설치해야 합니다. Docker는 [Macos][docker-mac], [Windows][docker-windows]또는 [Linux][docker-linux] 시스템에서 docker를 쉽게 구성 하는 패키지를 제공 합니다.
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 

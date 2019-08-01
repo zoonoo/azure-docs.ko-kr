@@ -4,7 +4,7 @@ description: Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: a0fe4ee33769a6d8cf14f60dcc0c4615bb00c5e8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516491"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565295"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -33,7 +33,7 @@ ms.locfileid: "60516491"
 
 | | |
 | ------------- | ------------- |
-| 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
+| 정의   | 로컬 관계형 데이터베이스 인스턴스      |
 | 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | 더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
 | 샘플에 대한 링크      |    뉴욕 시 데이터 세트의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
@@ -68,7 +68,7 @@ Microsoft SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Progr
 
 | | |
 | ------------- | ------------- |
-| 무엇인가요?   | 빠른 대규모 데이터 처리 및 기계 학습을 위한 시스템인, 많이 사용되는 Apache Spark 플랫폼의 독립 실행형(단일 노드 In Process) 인스턴스     |
+| 정의   | 빠른 대규모 데이터 처리 및 기계 학습을 위한 시스템인, 많이 사용되는 Apache Spark 플랫폼의 독립 실행형(단일 노드 In Process) 인스턴스     |
 | 지원되는 DSVM 버전      | Linux <br /> Windows (실험적)      |
 | 일반적인 사용 용도      | * 더 작은 데이터 세트를 사용하여 로컬에서 빠르게 Spark/PySpark 애플리케이션을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 애플리케이션을 빌드합니다  |
 | 샘플에 대한 링크      |    Jupyter 샘플: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server(Spark 컨텍스트): /dsvm/samples/MRS/MRSSparkContextSample.R |

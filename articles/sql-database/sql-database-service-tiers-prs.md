@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790402"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566633"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS 서비스 계층(미리 보기)이 더 이상 사용되지 않음 - 마이그레이션 옵션
 
@@ -27,7 +26,7 @@ ms.locfileid: "65790402"
 
 - vCore 서비스 계층
 
-  [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)의 **범용** 및 **중요 비즈니스** 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. VCore 기반 구매 모델도 제공 합니다 **대규모** 주문형 데이터베이스당 최대 100TB 자동 크기 조정은 워크 로드의 요구 사항에 맞게 조정 되는 서비스 계층입니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
+  [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)의 **범용** 및 **중요 비즈니스** 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. 또한 vCore 기반 구매 모델은 데이터베이스당 최대 100 TB의 자동 확장을 사용 하 여 워크 로드의 요구에 맞게 적응 하는 하이퍼 **규모** 의 서비스 계층을 제공 합니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
 - 개발/테스트 가격
 
   [개발/테스트 가격](https://azure.microsoft.com/pricing/dev-test/)은 최대 55% 비용 절감 효과를 가져오거나 Visual Studio 구독을 통한 라이선스 포함 요금이 됩니다.
@@ -70,10 +69,10 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
-|프리미엄 RS 1| 대규모 1 vCore (Gen4) 또는 비즈니스 중요 1 vCore (Gen4)|프리미엄 1|
-|프리미엄 RS 2| 대규모 2 개 Vcore (Gen4) 또는 비즈니스 중요 한 2 개 Vcore (Gen4|프리미엄 2|
-|프리미엄 RS 4| 대규모 4 개 Vcore (Gen4) 또는 비즈니스 중요 한 4 개 Vcore (Gen4)|프리미엄 4
-|프리미엄 RS 6| 대규모 6 Vcore (Gen4) 또는 비즈니스 중요 6 Vcore (Gen4)|프리미엄 6|
+|프리미엄 RS 1| Hyperscale 1 vCore (Gen4) 또는 중요 비즈니스용 1 vCore (Gen4)|프리미엄 1|
+|프리미엄 RS 2| 하이퍼 확장 2 vCores (Gen4) 또는 중요 비즈니스용 2 vCores (Gen4|프리미엄 2|
+|프리미엄 RS 4| Hyperscale 4 vCores (Gen4) 또는 중요 비즈니스용 4 vCores (Gen4)|프리미엄 4
+|프리미엄 RS 6| Hyperscale 6 vCores (Gen4) 또는 중요 비즈니스용 6 vCores (Gen4)|프리미엄 6|
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|

@@ -3,7 +3,7 @@ title: Linux에서 Azure Service Fabric Reliable Actors Java 애플리케이션 
 description: 5분 안에 Java Service Fabric Reliable Actors 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394050"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599672"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "60394050"
 
 이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 [Service Fabric CLI](service-fabric-cli.md)도 설치합니다.
@@ -243,7 +243,7 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
     watch -n 1 ./testclient.sh
     ```
 
-2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  서비스 상태의 변경 사항은 다음 아웃 노드 0 및 아래 스크린샷에 1에서 실행 중인 보조 복제본에 복제 됩니다.
+2. Service Fabric Explorer에서 행위자 서비스에 대한 주 복제본을 호스팅하는 노드를 찾습니다. 아래 스크린샷에 있는 노드 3입니다. 기본 서비스 복제본은 읽기 및 쓰기 작업을 처리합니다.  그러면 서비스 상태의 변경 내용이 보조 복제본에 복제 되 고 아래 스크린샷에는 노드 0 및 1에서 실행 됩니다.
 
     ![Service Fabric Explorer에서 기본 복제본 찾기][sfx-primary]
 
@@ -282,7 +282,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
   }
   ```
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 애플리케이션에 대한 Service Fabric Reliable Services 지원입니다.
 

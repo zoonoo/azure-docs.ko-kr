@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386539"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706517"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기
 
 논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요를 보려면 [개요: Azure Resource Manager 템플릿을](logic-apps-azure-resource-manager-templates-overview.md)사용 하 여 논리 앱에 대 한 배포를 자동화 합니다.
 
-Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 제공 합니다 .이 템플릿을 사용 하 여 논리 앱을 만들 뿐만 아니라 배포에 사용할 리소스와 매개 변수를 정의할 수 있습니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을 참조 하세요.
+Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 제공 합니다 .이 템플릿을 사용 하 여 논리 앱을 만들 뿐만 아니라 배포에 사용할 리소스와 매개 변수를 정의할 수 있습니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+
+> [!IMPORTANT]
+> 템플릿의 연결에서 논리 앱과 동일한 Azure 리소스 그룹 및 위치를 사용 하는지 확인 합니다.
+
+Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
 * [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> 템플릿의 연결은 논리 앱과 동일한 Azure 리소스 그룹 및 위치를 사용 해야 합니다.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azu
 [LogicAppTemplate 모듈과](https://github.com/jeffhollan/LogicAppTemplateCreator)함께 Azure PowerShell를 사용 하 여 리소스 관리자 템플릿을 만들 수 있습니다. 이 오픈 소스 모듈은 논리 앱 및 논리 앱이 사용 하는 모든 연결을 먼저 평가 합니다. 그런 다음 모듈은 배포에 필요한 매개 변수를 사용 하 여 템플릿 리소스를 생성 합니다.
 
 예를 들어 Azure Service Bus 큐에서 메시지를 수신 하 고 Azure SQL database에 데이터를 업로드 하는 논리 앱이 있다고 가정 합니다. 모듈은 모든 오케스트레이션 논리를 보존 하 고 SQL 및 Service Bus 연결 문자열을 매개 변수화 하 여 배포 요구 사항에 따라 해당 값을 제공 하 고 변경할 수 있습니다.
+
+다음 샘플에서는 Azure Resource Manager 템플릿, Azure DevOps Azure Pipelines 및 Azure PowerShell를 사용 하 여 논리 앱을 만들고 배포 하는 방법을 보여 줍니다.
+
+* [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps에서 통합 계정에 연결](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>PowerShell 모듈 설치
 

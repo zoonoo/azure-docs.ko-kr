@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696200"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567232"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
@@ -59,7 +58,7 @@ ms.locfileid: "67696200"
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > 배포자 인스턴스 데이터베이스가 구독자 없는 경우에 끌어오기 구독을 지원 되지 않습니다. 
+  > 배포자가 인스턴스 데이터베이스이 고 구독자가이 아닌 경우에는 끌어오기 구독이 지원 되지 않습니다. 
 
 다음과 같은 여러 [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)이 있습니다.
 
@@ -78,8 +77,8 @@ ms.locfileid: "67696200"
   > - 이전 버전을 사용하여 복제를 구성하는 시도는 오류 번호 MSSQL_REPL20084(프로세스가 구독자에 연결할 수 없습니다.) 및 MSSQ_REPL40532(로그인에서 요청한 서버 \<이름>을 열 수 없습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.
   > - Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용해야 합니다.
   
-  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>인스턴스 데이터베이스, 온-프레미스 시스템에 대 한 지원 매트릭스
-  예를 들어 데이터베이스와 동일 온-프레미스 SQL Server에 대 한 복제 지원 가능성 행렬입니다. 
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>인스턴스 데이터베이스 및 온-프레미스 시스템에 대 한 지원 가능성 행렬
+  인스턴스 데이터베이스의 복제 지원 가능성 행렬은 SQL Server 온-프레미스에 대 한 것과 동일 합니다. 
   
   | **게시자**   | **배포자** | **구독자** |
 | :------------   | :-------------- | :------------- |
@@ -94,11 +93,11 @@ ms.locfileid: "67696200"
 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다. 
 - 복제에 사용되는 작업 디렉터리의 Azure Storage 계정 공유 
-- 445 포트 (TCP 아웃 바운드) Azure 파일 공유에 액세스 하려면 관리 되는 인스턴스 서브넷의 보안 규칙에서 열려 있어야 합니다. 
+- Azure 파일 공유에 액세스 하려면 Managed Instance 서브넷의 보안 규칙에서 포트 445 (TCP 아웃 바운드)을 열어야 합니다. 
 - 게시자/배포자가 Managed Instance에 있고 구독자가 온-프레미스에 있는 경우 포트 1433(TCP 아웃바운드)를 열어야 합니다.
 
   >[!NOTE]
-  > 배포자 인스턴스 데이터베이스가 있고 구독자는 온-프레미스 하는 경우 아웃 바운드 네트워크 보안 그룹 (NSG) 포트 445가 차단 된 경우 Azure Storage 파일에 연결할 때 오류 53 발생할 수 있습니다. [VNet NSG 업데이트](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 이 문제를 해결 합니다. 
+  > 배포자가 인스턴스 데이터베이스이 고 구독자가 온-프레미스에 있는 경우 아웃 바운드 NSG (네트워크 보안 그룹) 포트 445이 차단 되 면 Azure Storage 파일에 연결할 때 53 오류가 발생할 수 있습니다. 이 문제를 해결 하려면 [vNet NSG를 업데이트](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 합니다. 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>트랜잭션 복제와 데이터 동기화 비교
 
@@ -139,7 +138,7 @@ ms.locfileid: "67696200"
 
 ## <a name="next-steps"></a>다음 단계
 
-1. [두 개의 관리 되는 인스턴스 간에 복제를 구성할](replication-with-sql-database-managed-instance.md)합니다. 
+1. [두 개의 관리 되는 인스턴스 간에 복제를 구성](replication-with-sql-database-managed-instance.md)합니다. 
 1. [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 1. 구독자로 Azure SQL Database 서버 이름(예: `N'azuresqldbdns.database.windows.net`) 및 대상 데이터베이스로 Azure SQL Database 이름(예: **Adventureworks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription). )
 

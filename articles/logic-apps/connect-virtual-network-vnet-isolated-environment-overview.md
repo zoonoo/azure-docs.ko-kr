@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325404"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516613"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -80,7 +80,22 @@ ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습�
 
   프로덕션에 사용할 수 있는 ISE를 제공 하 고 SLA 지원, 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터, 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정, 용량을 확장 하는 옵션 및 중복성을 포함 합니다. 고정 된 월별 가격에 대 한 재활용
 
+> [!IMPORTANT]
+> SKU 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.
+
 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조 하세요. ISEs에 대 한 가격 책정 및 청구의 작동 방식에 대 한 자세한 [Logic Apps 내용은 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요.
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>ISE 끝점 액세스
+
+ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 이러한 끝점은 논리 앱 실행 기록의 입력 및 출력에 대 한 액세스에도 영향을 줍니다.
+
+* **내부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 내부* 에서만 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 개인 끝점
+* **외부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 외부에서* 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 공용 끝점
+
+> [!IMPORTANT]
+> 액세스 끝점 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사
 
 ## <a name="next-steps"></a>다음 단계
 
-* [격리된 논리 앱에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)하는 방법 알아보기
+* [격리 된 논리 앱에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Integration service environment에 아티팩트 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보기
 * [Azure 서비스에 대한 가상 네트워크 통합](../virtual-network/virtual-network-for-azure-services.md)에 대해 알아보기

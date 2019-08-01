@@ -8,22 +8,25 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310401"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619890"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure virtual network 또는 방화벽 규칙을 사용 하 여 Azure container registry에 대 한 액세스 제한
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) 는 azure 및 온-프레미스 리소스에 대 한 안전한 개인 네트워킹을 제공 합니다. Azure 가상 네트워크에서 개인 Azure container registry에 대 한 액세스를 제한 하 여 가상 네트워크의 리소스만 레지스트리에 액세스 하도록 합니다. 크로스-프레미스 시나리오의 경우 특정 IP 주소 에서만 레지스트리 액세스를 허용 하도록 방화벽 규칙을 구성할 수도 있습니다.
 
-이 문서에서는 가상 네트워크에 배포 된 가상 머신 또는 VM의 공용 IP 주소에서 Azure container registry에 대 한 액세스를 제한 하는 네트워크 액세스 규칙을 만드는 두 가지 시나리오를 보여 줍니다.
+이 문서에서는 컨테이너 레지스트리에서 인바운드 네트워크 액세스 규칙을 구성 하는 두 가지 시나리오, 즉 가상 네트워크에 배포 된 가상 컴퓨터에서 또는 VM의 공용 IP 주소를 사용 하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 >
+
+방화벽 뒤의 컨테이너 레지스트리를 연결 하기 위해 리소스에 대 한 액세스 규칙을 설정 해야 하는 경우 [방화벽 뒤에 있는 Azure container registry에 액세스 하도록 규칙 구성](container-registry-firewall-access-rules.md)을 참조 하세요.
+
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
@@ -35,13 +38,13 @@ ms.locfileid: "68310401"
 
 * 각 레지스트리는 최대 100 개의 가상 네트워크 규칙을 지원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 문서의 Azure CLI 단계를 사용 하려면 Azure CLI 버전 2.0.58 이상이 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 SKU 필요)를 만들고 Docker 허브에서와 `hello-world` 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] or the [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다. 
+* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 SKU 필요)를 만들고 Docker 허브에서와 `hello-world` 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다. 
 
-* 다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려는 경우 해당 구독에 Azure Container Registry에 대 한 리소스 공급자를 등록 해야 합니다. 예:
+* 다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려는 경우 해당 구독에 Azure Container Registry에 대 한 리소스 공급자를 등록 해야 합니다. 예를 들어:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -130,7 +133,7 @@ SSH 연결을 종료 합니다.
 
 #### <a name="add-a-service-endpoint-to-a-subnet"></a>서브넷에 서비스 끝점 추가
 
-VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 컴퓨터의 이름을 기반으로 합니다. 예를 들어 가상 컴퓨터 *Mydockervm*의 이름을 지정 하는 경우 기본 가상 네트워크 이름은 Mydockervmvnet 이며 서브넷은 *Mydockervm*입니다.  Azure Portal에서 또는 [az network vnet list][az-network-vnet-list] 명령을 사용 하 여이를 확인 합니다.
+VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 컴퓨터의 이름을 기반으로 합니다. 예를 들어 가상 컴퓨터 *Mydockervm*의 이름을 지정 하는 경우 기본 가상 네트워크 이름은 Mydockervmvnet 이며 서브넷은 *Mydockervm*입니다. Azure Portal에서 또는 [az network vnet list][az-network-vnet-list] 명령을 사용 하 여이를 확인 합니다.
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -196,7 +199,7 @@ az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 
 #### <a name="add-service-endpoint-to-subnet"></a>서브넷에 서비스 끝점 추가
 
-VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 컴퓨터의 이름을 기반으로 합니다. 예를 들어 가상 컴퓨터 *Mydockervm*의 이름을 지정 하는 경우 기본 가상 네트워크 이름은 Mydockervmvnet 이며 서브넷은 *Mydockervm*입니다. 
+VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 컴퓨터의 이름을 기반으로 합니다. 예를 들어 가상 컴퓨터 *Mydockervm*의 이름을 지정 하는 경우 기본 가상 네트워크 이름은 Mydockervmvnet 이며 서브넷은 *Mydockervm*입니다.
 
 Azure Container Registry에 대 한 서비스 끝점을 서브넷에 추가 하려면 다음을 수행 합니다.
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0a355852be57a3b0869a6bf094e98a89f49f28
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751657"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514919"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "60751657"
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio에서 널리 사용되는 알고리즘
 
-[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석을 위한 대규모 알고리즘 라이브러리와 함께 제공됩니다. 이 인포 그래픽-회귀, 이상 탐지, 클러스터링 및 분류-알고리즘의 네 가지 인기 있는 제품군을 식별 하 고 있는 작업 예제에 대 한 링크를 제공 합니다 [Azure AI 갤러리](https://gallery.azure.ai/)합니다. 갤러리는 이러한 알고리즘을 여러 실제 솔루션에 적용하는 방법을 보여주는 예제 실험 및 자습서를 포함하고 있습니다.
+[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석을 위한 대규모 알고리즘 라이브러리와 함께 제공됩니다. 이 인포 그래픽은 가장 널리 사용 되는 알고리즘 패밀리 (회귀, 변칙 검색, 클러스터링 및 분류)를 식별 하 고 [Azure AI Gallery](https://gallery.azure.ai/)의 작업 예제에 대 한 링크를 제공 합니다. 갤러리는 이러한 알고리즘을 여러 실제 솔루션에 적용하는 방법을 보여주는 예제 실험 및 자습서를 포함하고 있습니다.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>알고리즘 예제와 함께 인포그래픽을 다운로드합니다.
 

@@ -1,25 +1,27 @@
 ---
-title: 온-프레미스 데이터 게이트웨이 설치 | Microsoft Docs
+title: Azure Analysis Services에 대 한 온-프레미스 데이터 게이트웨이 설치 | Microsoft Docs
 description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e87a8221a4db4dfab132a91a31a9ba5b5602a3db
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062255"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678427"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
-동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
+동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다.  설치한 게이트웨이는 Power BI, Power Apps 및 Logic Apps와 같은 다른 서비스에서 사용 하는 것과 동일 하지만 Azure Analysis Services를 설치할 때 몇 가지 추가 단계를 완료 해야 합니다. 이 설치 문서는 **Azure Analysis Services**에만 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+게이트웨이에 대 한 자세한 내용 및 Azure Analysis Services 사용 방법에 대 한 자세한 내용은 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요.
+
+## <a name="prerequisites"></a>전제 조건
 
 **최소 요구 사항:**
 
@@ -47,11 +49,15 @@ ms.locfileid: "67062255"
 
 ## <a name="download"></a>다운로드
 
- [게이트웨이 다운로드](https://aka.ms/azureasgateway)
+ [게이트웨이 다운로드](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
 ## <a name="install"></a>설치
 
 1. 설치를 실행합니다.
+
+2. **온-프레미스 데이터 게이트웨이를**선택 합니다.
+
+   ![선택](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 위치를 선택하고 조건에 동의한 다음 **설치**를 클릭합니다.
 
@@ -84,7 +90,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 게이트웨이를 설치 및 등록한 후 Azure 구독에 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
 
-1. Azure Portal에서 **리소스 만들기** > **통합** > **온-프레미스 데이터 게이트웨이**를 클릭합니다.
+1. Azure Portal에서 **리소스 만들기**를 클릭 한 다음 **온-프레미스 데이터 게이트웨이**를 검색 하 고 **만들기**를 클릭 합니다.
 
    ![게이트웨이 리소스 만들기](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
@@ -98,9 +104,9 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
    * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 
-   * **Location**: 게이트웨이를 등록한 지역을 선택합니다.
+   * **위치**: 게이트웨이를 등록한 지역을 선택합니다.
 
-   * **설치 이름**: 게이트웨이 설치가 선택되어 있지 않으면 등록한 게이트웨이를 선택합니다. 
+   * **설치 이름**: 게이트웨이 설치가 아직 선택 되지 않은 경우 컴퓨터에 설치 하 고 등록 한 게이트웨이를 선택 합니다. 
 
      완료하면 **만들기**를 클릭합니다.
 
@@ -115,9 +121,14 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
    ![게이트웨이 리소스에 서버 연결](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > 게이트웨이가 목록에 나타나지 않으면 서버는 게이트웨이를 등록할 때 지정한 지역과 동일한 지역에 있지 않을 가능성이 있습니다. 
+    > 게이트웨이가 목록에 나타나지 않으면 서버는 게이트웨이를 등록할 때 지정한 지역과 동일한 지역에 있지 않을 가능성이 있습니다.
 
-이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+    서버와 게이트웨이 리소스 간의 연결에 성공 하면 상태가 **연결 됨**으로 표시 됩니다.
+
+
+    ![게이트웨이 리소스에 서버 연결 성공](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

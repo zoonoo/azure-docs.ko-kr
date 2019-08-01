@@ -10,15 +10,15 @@ ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325962"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 로그 및 이벤트 검색
 
-오동작 컨테이너를 사용 하는 경우 [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach]를 사용 하 여 해당 로그를 확인 하는 것으로 시작 합니다.
+오동작 컨테이너를 사용 하는 경우 [az container logs][az-container-logs]를 사용 하 여 로그를 확인 하 고 [az container attach][az-container-attach]를 사용 하 여 표준 출력 및 표준 오류를 스트리밍하는 것부터 시작 합니다.
 
 ## <a name="view-logs"></a>로그 보기
 

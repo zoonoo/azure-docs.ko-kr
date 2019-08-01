@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762708"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568088"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
-|Context|용어|자세한 정보|
+|컨텍스트|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스 이름|Azure SQL Database 또는 SQL Database|[Azure SQL Database 서비스](sql-database-technical-overview.md)|
-|컴퓨팅 계층|서버 (미리 보기)|[서버 리스 계산 계층](sql-database-serverless.md)
-||프로비전됨|[서버 리스 계산 계층](sql-database-serverless.md)
+|컴퓨팅 계층|서버를 사용 하지 않는 (미리 보기)|[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
+||프로비전됨|[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
 |배포 옵션 |단일 데이터베이스|[단일 데이터베이스](sql-database-single-database.md)|
-||탄력적 풀|[탄력적 풀](sql-database-elastic-pool.md)|
+||Elastic Pool|[탄력적 풀](sql-database-elastic-pool.md)|
 ||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|
 |서버 개체|SQL Database 서버 또는 데이터베이스 서버|[데이터베이스 서버](sql-database-servers.md)|
 ||SQL Database 관리되는 인스턴스 서버, 관리되는 인스턴스 서버 또는 인스턴스 서버|[관리되는 인스턴스](sql-database-managed-instance.md)|
@@ -41,7 +40,7 @@ ms.locfileid: "65762708"
 ||범용 데이터베이스|vCore 기반 구매 모델의 범용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||하이퍼스케일 데이터베이스|vCore 기반 구매 모델의 하이퍼스케일 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||중요 비즈니스용 데이터베이스|vCore 기반 구매 모델의 중요 비즈니스용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||프로 비전 된 데이터베이스|프로 비전 된 계산 계층에 구성 데이터베이스|
+||프로 비전 된 데이터베이스|프로 비전 된 계산 계층에 구성 된 데이터베이스|
 |[구매 모델 및 리소스](sql-database-purchase-models.md)|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
 ||vCore 기반 구매 모델|[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)|
 ||vCore|하이퍼바이저가 게스트 OS에 제공하는 코어|
